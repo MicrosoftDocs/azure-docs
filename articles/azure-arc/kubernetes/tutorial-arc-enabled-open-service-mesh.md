@@ -133,7 +133,7 @@ also include and update the subsequent `certmanager.issuer` lines.
 }
 ```
 
-[Now, install OSM with custom values](#setting-values-during-osm-installation).
+Now, [install OSM with custom values](#setting-values-during-osm-installation).
 
 ### Install OSM with Contour for Ingress
 OSM provides multiple options to expose mesh services externally using ingress. OSM can use [Contour](https://projectcontour.io/), which
@@ -154,13 +154,14 @@ To set required values for configuring Contour during OSM installation, create t
 }
 ```
 
-[Now, install OSM with custom values](#setting-values-during-osm-installation).
+Now, [install OSM with custom values](#setting-values-during-osm-installation).
 
 ### Setting values during OSM installation
 Values that need to be set during OSM installation need to be saved to a JSON file and passed in through the Azure CLI
 install command.
 
-Once you have created a JSON file with applicable values as described above, set the file path as an environment variable:
+Once you have created a JSON file with applicable values as described in above custom installation sections, set the 
+file path as an environment variable:
    ```azurecli-interactive
    export SETTINGS_FILE=<json-file-path>
    ```
@@ -246,7 +247,7 @@ az deployment group create --name $DEPLOYMENT_NAME --resource-group $RESOURCE_GR
 
 You should now be able to view the OSM resources and use the OSM extension in your cluster.
 
-## Validate the Azure Arc-enabled Open Service Mesh installation
+## Validate installation
 
 Run the following command.
 
@@ -398,7 +399,7 @@ To make changes to the OSM ConfigMap for version v0.8.4, use the following guida
     > [!NOTE]
     > To ensure that the ConfigMap changes are not reverted to the default, pass in the same configuration settings to all subsequent az k8s-extension create commands.
 
-## Using the Azure Arc-enabled Open Service Mesh
+## Using Azure Arc-enabled OSM
 
 To start using OSM capabilities, you need to first onboard the application namespaces to the service mesh. Download the OSM CLI from [OSM GitHub releases page](https://github.com/openservicemesh/osm/releases/). Once the namespaces are added to the mesh, you can configure the SMI policies to achieve the desired OSM capability.
 
@@ -530,7 +531,7 @@ Make sure to back up your Custom Resources prior to deleting the CRDs so that th
 
 5. Recreate Custom Resources using new CRDs
 
-## Uninstall Azure Arc-enabled Open Service Mesh
+## Uninstall Azure Arc-enabled OSM
 
 Use the following command:
 
