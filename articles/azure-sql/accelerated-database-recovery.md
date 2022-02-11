@@ -148,4 +148,5 @@ The following types of workloads benefit most from ADR:
 
 ## See also
 
+- [Accelerated database recovery](/sql/relational-databases/accelerated-database-recovery-concepts)
 - [Troubleshooting Accelerated Database Recovery (ADR)](/sql/relational-databases/accelerated-database-recovery-troubleshooting)
