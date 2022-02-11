@@ -46,7 +46,7 @@ To learn about automating your question answering pipeline consult the REST API 
 
 * [Authoring API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
 * [Authoring API cURL examples](../how-to/authoring.md)
-* [Runtime API reference](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/questionanswering/question-answering)
+* [Runtime API reference](/rest/api/cognitiveservices/questionanswering/question-answering)
 
 ## Next steps
 
