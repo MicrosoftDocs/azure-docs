@@ -242,7 +242,7 @@ Status code: 202 Accepted
 
 For more information, see [response headers](#response-headers).
 
-##### Parameters and response codes
+#### Parameters and response codes
 
 ##### Request parameters
 
@@ -254,7 +254,7 @@ You use these request parameters with calls to the REST API. See [application se
 | `YourEndpointId` | Path   | `True` | string | The identifier of the endpoint. |
 | `Ocp-Apim-Subscription-Key` | Header | `True` | string | The subscription key the endpoint is associated with. |
 
-#### Response headers
+##### Response headers
 
 Status code: 202 Accepted
 
