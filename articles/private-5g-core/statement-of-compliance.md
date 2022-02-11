@@ -16,7 +16,7 @@ This article provides information on the standards for which Azure Private 5G Co
 
 ## 3GPP specifications
 
-All packet core network functions are compliant with the 3GPP specifications listed. Several of the network functions can play the role of both the service consumer and service producer to adhere to these standards.
+All packet core network functions are compliant with Release 15 of the 3GPP specifications listed. Several of the network functions can play the role of both the service consumer and service producer to adhere to these standards.
 
 ### 5G system (5GS)
 
@@ -106,10 +106,6 @@ The implementation of all of the 3GPP specifications given in [3GPP specificatio
 - ITU-T Recommendation E.212: The international identification plan for public networks and subscriptions.
 - ITU-T Recommendation E.213: Telephone and ISDN numbering plan for land Mobile Stations in public land mobile networks (PLMN).
 - ITU-T Recommendation X.121: International numbering plan for public data networks.
-
-## OpenAPI
-
-The implementation of service-based interfaces is compliant with OpenAPI: OpenAPI 3.0.0 Specification.
 
 ## Next steps
 

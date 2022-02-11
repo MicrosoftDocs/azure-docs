@@ -40,9 +40,7 @@ Azure Private 5G Core allows you to use Azure to easily carry out the following 
 |---------|---------|
 |**Supported 5G network functions**|<ul><li>Access and Mobility Management Function (AMF)</li><li>Session Management Function (SMF)</li><li>User Plane Function (UPF)</li><li >Policy Control Function (PCF)</li><li>Authentication Server Function (AUSF)</li><li>Unified Data Management (UDM)</li><li>Unified Data Repository (UDR)</li><li>Network Repository Function (NRF)</li>|
 |**Supported 5G procedures**| For information on Azure Private 5G Core's support for standards-based 5G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).|
-|**User equipment (UE) authentication**|<ul><li>Security Anchor Function (SEAF) support to provide authentication functionality in the serving network.</li><li>Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI).</li><li>Assignment or reallocation of a 5G-GUTI to a UE.</li><li>5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.</li></ul>|
-|**UE security context management**|<p>The packet core instance performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.</p><p>Azure Private 5G Core supports the following algorithms for ciphering and integrity protection:</p><ul><li>5GS null encryption algorithm</li><li>128-bit Snow3G</li><li>128-bit Advanced Encryption System (AES) encryption</li></ul>|
-|**UE maximum transmission unit (MTU) configuration**|The packet core instance signals the MTU for a data network to UEs on request. It does this as part of PDU session establishment procedures to avoid fragmentation.|
+|**User equipment (UE) authentication and security context management**|<p>Azure Private 5G Core supports the following authentication methods:</p><ul><li>Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI).</li><li>5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.</li></ul><p>The packet core instance performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.</p><p>Azure Private 5G Core supports the following algorithms for ciphering and integrity protection:</p><ul><li>5GS null encryption algorithm</li><li>128-bit Snow3G</li><li>128-bit Advanced Encryption System (AES) encryption</li></ul>|
 |**Index to RAT/Frequency Selection Priority (RFSP)**|The packet core instance can provide a RAN with an RFSP Index. The RAN can match the RFSP Index to its local configuration to apply specific radio resource management (RRM) policies, such as cell reselection or frequency layer redirection.|
 
 ## Packet core architecture
@@ -106,12 +104,6 @@ Azure Private 5G Core is available as a native Azure service, offering the same 
 Azure Private 5G Core is integrated with the Azure Log Analytics tool, as described in [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview). You can write queries to retrieve records or visualize data in charts. This lets you monitor and analyze activity in your private mobile network directly from the Azure portal.
 
 :::image type="content" source="media/azure-private-5g-core/log-analytics-tool.png" alt-text="Log analytics tool showing a query made on devices registered with the private mobile network.":::
-
-### Distributed tracing
-
-Azure Private 5G Core provides proactive, real-time analysis of all message traffic, including NGAP/NAS messages and HTTP requests and responses. You can use the distributed tracing web GUI to collect detailed traces for signaling flows involving packet core instances. These can be used to diagnose many common configuration, network, and interoperability problems affecting user service.
-
-:::image type="content" source="media/azure-private-5g-core/distributed-tracing-web-gui.png" alt-text="Screenshot of the distributed tracing web GUI displaying details of a successful P D U session establishment.":::
 
 ## Azure services consumed by Azure Private 5G Core
 

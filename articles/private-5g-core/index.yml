@@ -46,10 +46,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create an additional site
-            url: create-an-additional-site.md
-          - text: Modify an existing packet core instance
-            url: modify-existing-packet-core.md
+          - text: Collect the required information for a site
+            url: collect-required-information-for-a-site.md
+          - text: Create a site
+            url: create-a-site.md
   # Card                   
   - title: Customize quality of service (QoS) and traffic control
     linkLists:
@@ -83,9 +83,13 @@ landingContent:
   # Card
   - title: Monitor your private mobile network
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Cloud monitoring with Azure Log Analytics
+            url: private-5g-core-overview.md#log-analytics-integration
       - linkListType: concept
         links:
-          - text: Distributed tracing
+          - text: Local monitoring with distributed tracing
             url: distributed-tracing.md
-          - text: Packet core dashboards
+          - text: Local monitoring with packet core dashboards
             url: packet-core-dashboards.md

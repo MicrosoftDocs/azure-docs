@@ -256,7 +256,7 @@ To create the service:
     |Field  |Value  |
     |---------|---------|
     |**Service name**     |`service_traffic_limits`         |
-    |**Service precedence**     | `253`        |
+    |**Service precedence**     | `250`        |
     |**Maximum bit rate (MBR) - Uplink**     | `10 Mbps`        |
     |**Maximum bit rate (MBR) - Downlink**     | `15 Mbps`        |
     |**Allocation and Retention Priority level**     | `2`        |
@@ -289,10 +289,10 @@ To create the service:
     |**Ports**     | Leave blank        |
 
 1. Select **Add**.
+1. We can now finalize the rule. Under **Add a policy rule**, select **Add**.
 
     :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/traffic-limiting-rule-configuration.png" alt-text="Screenshot of the Azure portal. The Add a policy rule screen is shown with traffic limiting configuration and the Add button is highlighted.":::
 
-1. We can now finalize the rule. Under **Add a policy rule**, select **Add**.
 1. We now have a single data flow policy rule configured on the service.
 
      :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-traffic-limiting-service.png" alt-text="Screenshot of the Azure portal. It shows completed fields for a service to limit traffic, including data flow policy rules.":::
@@ -319,7 +319,7 @@ In this step, we'll create two SIM policies. The first SIM policy will use the s
 > - The `rule_allow_other_icmp_and_udp_traffic` rule on the `service_restricted_udp_and_icmp` service.
 > - The `rule_bidirectional_limits` rule on the `service_traffic_limits` service. 
 >
-> In this case, the packet core instance will prioritize the service with the lowest value for the **Service precedence** field. It will then apply the QoS characteristics from this service to the packets. In the example above, the `service_restricted_udp_and_icmp` service has a lower value (100) than the `service_traffic_limits` service (253). The packet core instance will therefore apply the QoS characteristics given on the `service_restricted_udp_and_icmp` service to downlink ICMP packets.
+> In this case, the packet core instance will prioritize the service with the lowest value for the **Service precedence** field. It will then apply the QoS characteristics from this service to the packets. In the example above, the `service_restricted_udp_and_icmp` service has a lower value (100) than the `service_traffic_limits` service (250). The packet core instance will therefore apply the QoS characteristics given on the `service_restricted_udp_and_icmp` service to downlink ICMP packets.
 
 Let's create the SIM policies.
 
@@ -339,20 +339,21 @@ Let's create the SIM policies.
     |**Policy name**     |`sim-policy-1`         |
     |**Total bandwidth allowed - Uplink**     | `10 Gbps`        |
     |**Total bandwidth allowed - Downlink**     | `10 Gbps` |
-    |**Default slice**     | Select **slice-1 (Default)**.        |
+    |**Default slice**     | Select **(Default) slice-1**.        |
     |**Registration timer**     | `3240`        |
-    |**RFSP index**     | `2`        |
-
-    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-sim-policy-1.png" alt-text="Screenshot of the Azure portal. It shows each of the fields filled out for an example SIM policy.":::    
+    |**RFSP index**     | `2`        |  
 
 1. Select **Add a network scope**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/example-sim-policy-add-network-scope-option.png" alt-text="Screenshot of the Azure portal showing the Create a SIM policy screen. The Add a network scope option is highlighted.":::    
+    
 1. Under **Add a network scope**, fill out the fields as follows.
 
     |Field  |Value  |
     |---------|---------|
-    |**Slice**     | Select **slice-1 (Default)**         |
+    |**Slice**     | Select **(Default) slice-1**         |
     |**Data network**     | Select the data network to which your private mobile network connects.        |
-    |**Service configuration**     | Select **rule_block_icmp_and_udp_uplink_traffic** and **service_traffic_limits**. |
+    |**Service configuration**     | Select **service_restricted_udp_and_icmp** and **service_traffic_limits**. |
     |**Session aggregate maximum bit rate - Uplink**     | `2 Gbps`        |
     |**Session aggregate maximum bit rate - Downlink**     | `2 Gbps`        |
     |**5G QoS Indicator (5QI)**     | `9`        |
@@ -363,7 +364,14 @@ Let's create the SIM policies.
     |**Additional allowed session types**     | Select **IPv6**.        |
 
 1. Select **Add**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/add-a-network-scope.png" alt-text="Screenshot of the Azure portal showing the Add a network scope screen. The Add option is highlighted.":::    
+
 1. On the **Basics** configuration tab, select **Review + create**.
+1. On the **Review + create** tab, select **Review + create**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/create-example-sim-policy.png" alt-text="Screenshot of the Azure portal showing the Review and create tab for a SIM policy. The Review and create option is highlighted.":::
+
 1. The Azure portal will display the following confirmation screen when the SIM policy has been created.
 
     :::image type="content" source="media/configure-sim-policy-azure-portal/sim-policy-deployment-confirmation.png" alt-text="Screenshot of the Azure portal showing confirmation of the successful deployment of a SIM policy.":::
@@ -456,7 +464,6 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
      },
      {
       "simName": "SIM2",
-      "simProfileName": "profile2",
       "integratedCircuitCardIdentifier": "8922345678901234567",
       "internationalMobileSubscriberIdentity": "001019990010002",
       "authenticationKey": "11112233445566778899AABBCCDDEEFF",
@@ -494,8 +501,14 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 
 1. Tick the checkbox next to **SIM1**.
 1. In the **Command** bar, select **Assign SIM policy**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/assign-sim-policy-from-sims-list.png" alt-text="Screenshot of the Azure portal showing a list of SIMs. The SIM1 resource and the Assign SIM policy option are highlighted."::: 
+
 1. Under **Assign SIM policy** on the right, set the **SIM policy** field to **sim-policy-1**.
-1. Select the **Assign SIM policy** button.
+1. Select **Assign SIM policy**.
+
+    :::image type="content" source="media/tutorial-create-example-set-of-policy-control-configuration/assign-sim-policy.png" alt-text="Screenshot of the Azure portal showing the Assign SIM policy screen. The Assign SIM policy option is highlighted.":::  
+
 1. Once the deployment is complete, select **Go to Resource**.
 1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-1** has been successfully assigned.
 1. Search for and select the Mobile Network resource representing your private mobile network.
@@ -505,7 +518,7 @@ In this step, we will provision two SIMs and assign a SIM policy to each one. Th
 1. Under **Assign SIM policy** on the right, set the **SIM policy** field to **sim-policy-2**.
 1. Select the **Assign SIM policy** button.
 1. Once the deployment is complete, select **Go to Resource**.
-1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-1** has been successfully assigned.
+1. Check the **SIM policy** field in the **Management** section to confirm **sim-policy-2** has been successfully assigned.
 
 You have now provisioned two SIMs and assigned each of them a different SIM policy. Each of these SIM policies provides access to a different set of services.
 
@@ -521,7 +534,8 @@ You can now delete each of the resources we've created during this tutorial.
 1. Tick the checkboxes next to **sim-policy-1** and **sim-policy-2**, and then select **Delete** from the **Command** bar.
 1. Select **Delete** to confirm your choice.
 1. Once the SIM policies have been deleted, select **Services** from the **Resource** menu.
-1. Tick the checkboxes next to **service_unrestricted_udp_and_icmp**, **service_blocking_udp_from_specific_sources**, and **service_traffic_limits**, and then select **Delete** from the **Command** bar.
+1. Tick the checkboxes next to **service_unrestricted_udp_and_icmp**, **service_blocking_udp_from_specific_sources**, and **service_traffic_limits**, and then select **Delete** from the command bar.
+1. Select **Delete** to confirm your choice.
 
 ## Next steps
 

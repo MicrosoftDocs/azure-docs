@@ -38,10 +38,10 @@ items:
       href: how-to-guide-deploy-a-private-mobile-network-azure-portal.md
   - name: Sites
     items:
-    - name: Create an additional site
-      href: create-an-additional-site.md
-    - name: Modify an existing packet core instance
-      href: modify-existing-packet-core.md
+    - name: Collect the required information for a site
+      href: collect-required-information-for-a-site.md    
+    - name: Create a site
+      href: create-a-site.md
   - name: Services
     items:
     - name: Collect the required information for a service
@@ -67,4 +67,4 @@ items:
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=databases
+    href: https://azure.microsoft.com/roadmap/
