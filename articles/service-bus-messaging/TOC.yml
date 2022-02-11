@@ -220,6 +220,8 @@
       href: service-bus-end-to-end-tracing.md
     - name: Monitoring Azure Service Bus
       href: monitor-service-bus.md
+    - name: Azure Monitor - Service Bus insights
+      href: service-bus-insights.md
   - name: Integrate
     items:
     - name: Integrate with RabbitMQ

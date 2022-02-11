@@ -9,6 +9,11 @@
             "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
             "redirect_url": "/azure/azure-monitor/app/performance-counters",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/service-bus-insights.md",
+            "redirect_url": "/azure/service-bus-messaging/service-bus-insights",
+            "redirect_document_id": false
         }
     ]
 }

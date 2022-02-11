@@ -79,7 +79,7 @@ dotnet new mvc --no-https --output TestAppConfig
     ```csharp
     var builder = WebApplication.CreateBuilder(args);
     //Retrieve the Connection String from the secrets manager 
-    var connectionString = builder.Configuration["AppConfig"];
+    var connectionString = builder.Configuration.GetConnectionString("AppConfig");
     
     builder.Host.ConfigureAppConfiguration(builder =>
                     {

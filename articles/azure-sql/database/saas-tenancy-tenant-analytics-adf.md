@@ -109,7 +109,7 @@ In the Object Explorer:
 
 #### Blob storage
 
-1. In the [Azure portal](https://ms.portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging\<user\>** has been added.
+1. In the [Azure portal](https://portal.azure.com), navigate to the resource group that you used for deploying the application. Verify that a storage account called **wingtipstaging\<user\>** has been added.
 
    ![DWtables](./media/saas-tenancy-tenant-analytics-adf/adf-staging-storage.PNG)
 
@@ -120,7 +120,7 @@ In the Object Explorer:
 
 #### Azure Data Factory (ADF)
 
-In the [Azure portal](https://ms.portal.azure.com) in the resource group, verify that an Azure Data Factory called _dbtodwload-\<user\>_ has been added.
+In the [Azure portal](https://portal.azure.com) in the resource group, verify that an Azure Data Factory called _dbtodwload-\<user\>_ has been added.
 
  ![adf_portal](./media/saas-tenancy-tenant-analytics-adf/adf-data-factory-portal.png)
 

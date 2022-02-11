@@ -23,7 +23,7 @@ Learn what's new with QnA Maker.
 
 ### May 2021
 
-* QnA Maker managed has been re-introduced as Custom question answering feature in [Text Analytics resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics).
+* QnA Maker managed has been re-introduced as Custom question answering feature in [Text Analytics resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics).
 * Custom question answering supports unstructured documents.
 * [Prebuilt API](how-to/using-prebuilt-api.md) has been introduced to generate answers for user queries from document text passed via the API.
 

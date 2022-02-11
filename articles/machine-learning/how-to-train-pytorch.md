@@ -7,7 +7,6 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: minxia
 author: mx-iao
-ms.reviewer: peterlu
 ms.date: 01/14/2020
 ms.topic: how-to
 
@@ -70,7 +69,7 @@ ws = Workspace.from_config()
 
 ### Get the data
 
-The dataset consists of about 120 training images each for turkeys and chickens, with 100 validation images for each class. We will download and extract the dataset as part of our training script `pytorch_train.py`. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html).
+The dataset consists of about 120 training images each for turkeys and chickens, with 100 validation images for each class. We'll download and extract the dataset as part of our training script `pytorch_train.py`. The images are a subset of the [Open Images v5 Dataset](https://storage.googleapis.com/openimages/web/index.html).
 
 ### Prepare training script
 
@@ -127,7 +126,7 @@ To see the packages included in the curated environment, you can write out the c
 pytorch_env.save_to_directory(path=curated_env_name)
 ```
 
-Make sure the curated environment includes all the dependencies required by your training script. If not, you will have to modify the environment to include the missing dependencies. Note that if the environment is modified, you will have to give it a new name, as the 'AzureML' prefix is reserved for curated environments. If you modified the conda dependencies YAML file, you can create a new environment from it with a new name, e.g.:
+Make sure the curated environment includes all the dependencies required by your training script. If not, you'll have to modify the environment to include the missing dependencies. If the environment is modified, you'll have to give it a new name, as the 'AzureML' prefix is reserved for curated environments. If you modified the conda dependencies YAML file, you can create a new environment from it with a new name, for example:
 ```python
 pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
 ```
@@ -158,7 +157,7 @@ dependencies:
 
 Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
 
-By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you will need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
+By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you'll need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use. For more information, see [AzureML-Containers GitHub repo](https://github.com/Azure/AzureML-Containers).
 
 ```python
 pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')

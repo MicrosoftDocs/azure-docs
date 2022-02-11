@@ -83,6 +83,32 @@ Filtering in KQL is done using the `where` operator. For example, **Sysmon event
 Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 ```
 
+#### Filtering by source type using a Watchlist
+
+In some cases, the event itself does not contain information that would allow filtering for specific source types.
+
+For example, Infoblox DNS events are sent as Syslog messages, and are hard to distinguish from Syslog messages sent from other sources. In such cases, the parser relies on a list of sources that defines the relevant events. This list is maintained in the **ASimSourceType** watchlist.
+
+**To use the ASimSourceType watchlist in your parsers**:
+
+1. Include the following line at the beginning of your parser:
+
+```KQL
+  let Sources_by_SourceType=(sourcetype:string){_GetWatchlist('ASimSourceType') | where SearchKey == tostring(sourcetype) | extend Source=column_ifexists('Source','') | where isnotempty(Source)| distinct Source };
+```
+
+2. Add a filter that uses the watchlist in the parser filtering section. For example, the Infoblox DNS parser includes the following in the filtering section:
+
+```KQL
+  | where Computer in (Sources_by_SourceType('InfobloxNIOS'))
+```
+
+To use this sample in your parser:
+
+ * Replace `Computer` with the name of the field that includes the source information for your source. You can keep this as `Computer` for any parsers based on Syslog.
+
+ * Replace the `InfobloxNIOS` token with a value of your choice for your parser. Inform parser users that they must update the `ASimSourceType` watchlist using your selected value, as well as the list of sources that send events of this type.
+
 #### Filtering based on parser parameters
 
 When developing [filtering parsers](normalization-about-parsers.md#optimized-parsers), make sure that your parser accepts the filtering parameters for the relevant schema, as documented in the reference article for that schema. Using an existing parser as a starting point ensures that your parser includes the correct function signature. In most cases, the actual filtering code is also similar for filtering parsers for the same schema.

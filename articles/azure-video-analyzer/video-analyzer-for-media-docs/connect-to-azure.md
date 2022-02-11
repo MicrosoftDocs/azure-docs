@@ -15,7 +15,7 @@ When creating an Azure Video Analyzer for Media (formerly Video Indexer) account
 * You can create a Video Analyzer for Media **ARM-based** account through one of the following:
 
   1.  [Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
-  2.  [Azure portal](https://ms.portal.azure.com/#home)
+  2.  [Azure portal](https://portal.azure.com/#home)
   3.  [QuickStart ARM template](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account)
 
 To read more on how to create a **new ARM-Based** Video Analyzer for Media account, read this [article](create-video-analyzer-for-media-account.md)

@@ -129,7 +129,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | redirect_uri |Required |The redirect URI of the application where you received the authorization code. |
 | code_verifier | recommended | The same code_verifier that was used to obtain the authorization_code. Required if PKCE was used in the authorization code grant request. For more information, see the [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
-If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview.md) or [Postman](https://www.postman.com/).
+If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/).
 
 A successful token response looks like this:
 

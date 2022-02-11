@@ -128,7 +128,7 @@ Similarly, if you put a highly accessed workload in the cool tier, you will pay 
 Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
 
 ### Logical size versus physical size
-The data at-rest capacity charge for Azure Files is billed based on the logical size, often called colloquially called "size" or "content length", of the file. The logical size of the file is distinct from the physical size of the file on disk, often called "size on disk" or "used size". The physical size of the file may be large or smaller than the logical size of the file.
+The data at-rest capacity charge for Azure Files is billed based on the logical size, often colloquially called "size" or "content length", of the file. The logical size of the file is distinct from the physical size of the file on disk, often called "size on disk" or "used size". The physical size of the file may be large or smaller than the logical size of the file.
 
 ### What are transactions?
 Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.
