@@ -182,12 +182,7 @@ On your Azure Stack Edge Pro 2 device:
 - The back plane has one network card corresponding to two high-speed ports and two built-in 10/1-GbE ports:
 
     - **Intel Ethernet X722 network adapter** - PORT 1, PORT 2.
-    - **Mellanox dual port 100 GbE ConnectX-6 Dx network adapter** - PORT 3, PORT 4.
-
-<!--For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
-
-- GET THESE URLs.
-- GET THESE URLs. -->
+    - **Mellanox dual port 100 GbE ConnectX-6 Dx network adapter** - PORT 3, PORT 4. See a full list of [Supported cables, switches, and transceivers for ConnectX-6 Dx network adapters](https://docs.nvidia.com/networking/display/ConnectX6DxFirmwarev22271016/Firmware+Compatible+Products).
 
  
 Take the following steps to cable your device for power and network.
