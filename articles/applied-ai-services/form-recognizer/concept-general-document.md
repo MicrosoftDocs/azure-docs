@@ -18,15 +18,15 @@ ms.custom: ignite-fall-2021
 
 The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
 
-The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
 
 ## General document features
 
-* There is no need to train a custom model to extract key-value pairs.
+* There's no need to train a custom model to extract key-value pairs.
 
-* A single API is used to extract key value pairs, entities, text, tables, and structure from documents.
+* A single API is used to extract key-value pairs, entities, text, tables, and structure from documents.
 
-* It is a pre-trained model that will be periodically trained on new data to improve coverage and accuracy.
+* It's a pre-trained model that will be periodically trained on new data to improve coverage and accuracy.
 
 * The general document model supports structured, semi-structured, and unstructured data.
 
@@ -36,7 +36,7 @@ The general document API supports most form types and will analyze your document
 
 ## Development options
 
-The following resources are supported by Form Recognizer v3.0:
+The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources |
 |----------|-------------------------|
@@ -44,7 +44,9 @@ The following resources are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data, including tables, values, and entities, is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
+See how data is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool.
+
+You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -70,16 +72,16 @@ See how data, including tables, values, and entities, is extracted from forms an
 
 ## Key-value pairs
 
-Key value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, this could be the label and the value the user entered for that field or in an unstructured  document it could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, this pair could be the label and the value the user entered for that field. In an unstructured document, it could be the date a contract was executed on based on the text in a paragraph.  The AI model extracts identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example a customer or a user, the associated key will be either customer or user based on what the document contained. 
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are always spans of text contained in the document. If you have documents where the same value is described in different ways, for example, a customer or a user, the associated key will be either customer or user based on the document.
 
 ## Entities
 
 Natural language processing models can identify parts of speech and classify each token or word. The named entity recognition model is able to identify entities like people, locations, and dates to provide for a richer experience. Identifying entities enables you to distinguish between customer types, for example,  an individual or an organization.
-The key value pair extraction model and entity identification model are run in parallel on the entire document and not just on the values of the extracted key value pairs. This ensures that complex structures where a key cannot be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
+The key-value pair extraction and entity identification models run in parallel on the entire document—not just on the values of the extracted key-value pairs. This ensures that complex structures where a key can't be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
 
-* The general document is a pre-trained model and can be directly invoked via the REST API. 
+* The general document is a pre-trained model and can be directly invoked via the REST API.
 
 * The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content and not just the extracted values.
 
@@ -95,7 +97,7 @@ The key value pair extraction model and entity identification model are run in p
 * Supported file formats: JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 50 MB.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
@@ -134,7 +136,7 @@ The key value pair extraction model and entity identification model are run in p
 
 * Keys are spans of text extracted from the document, for semi structured documents, keys may need to be mapped to an existing dictionary of keys.
 
-* Expect to see key value pairs with a key, but no value. For example if a user chose to not provide an email address on the form.
+* Expect to see key-value pairs with a key, but no value. For example if a user chose to not provide an email address on the form.
 
 ## Next steps
 
