@@ -85,7 +85,7 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 
 ### Prerequisites
 
-- Before you begin, read the safety instructions in your Safety, Environmental, and Regulatory Information booklet. This booklet was shipped with the device.
+- Before you begin, make sure to read the [Safety instructions](azure-stack-edge-pro-2-safety.md) for your device.
 - Begin installing the rails in the allotted space that is closest to the bottom of the rack enclosure.
 - For the rail mounting configuration:
     -  You need to supply 10L M5 screws.
@@ -101,21 +101,21 @@ Locate the components for installing the rail kit assembly:
 
 1. Remove the inner rail. 
 
-    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/icon-4-post-remove-inner-rail.png" alt-text="Diagram showing how to remove inner rail.":::
+    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/4-post-remove-inner-rail.png" alt-text="Diagram showing how to remove inner rail.":::
 
 1. Push and slide the middle rail back. 
 
-    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/icon-4-post-push-middle-rail.png" alt-text="Diagram showing how to push and slide the middle rail.":::
+    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/4-post-push-middle-rail.png" alt-text="Diagram showing how to push and slide the middle rail.":::
 
 1. Install the inner rail onto the chassis. **Make sure to fasten the inner rail screw.**
 
-    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/icon-4-post-install-inner-rail-onto-chassis.png" alt-text="Diagram showing how to install inner rail onto the device chassis using a 4-post rackmount accessory.":::
+    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/4-post-install-inner-rail-onto-chassis.png" alt-text="Diagram showing how to install inner rail onto the device chassis using a 4-post rackmount accessory.":::
 
 3. Fix the outer rail and the bracket assembly to the frame. Ensure the latch is fully engaged with the rack post.
 
-    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/icon-4-post-detach-bracket-1.png" alt-text="Diagram showing how to fix the outer rail.":::
+    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/4-post-detach-bracket-1.png" alt-text="Diagram showing how to fix the outer rail.":::
 
-    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/icon-4-post-front-rear-bracket.png" alt-text="Diagram showing the front and rear bracket.":::
+    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/4-post-front-rear-bracket.png" alt-text="Diagram showing the front and rear bracket.":::
 
 
 4. Insert the chassis to complete the installation. 
@@ -124,7 +124,7 @@ Locate the components for installing the rail kit assembly:
     1. Insert the chassis into the middle rail.
     1. Once you hit a stop, pull and push the blue release tab on the inner rails.
 
-    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/icon-4-post-insert-chassis.png" alt-text="Diagram showing how to insert the chassis.":::
+    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/4-post-insert-chassis.png" alt-text="Diagram showing how to insert the chassis.":::
 
 ### Install the bezel
 
