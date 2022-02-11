@@ -24,7 +24,7 @@ SOLIDWORKS Network Licensing requires that you have SolidNetWork License Manager
 After your license server is set up, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) in your [lab plan](./tutorial-setup-lab-plan.md)
 
 > [!IMPORTANT]
-> [Advanced networking](how-to-connect-vnet-injection.md#add-the-virtual-network-at-the-time-of-lab-plan-creation) must be enabled during the creation of your lab plan.  It can't be added later.
+> [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan.  It can't be added later.
 
 > [!NOTE]
 > You should verify that the appropriate ports are opened on your firewalls to allow communication between the lab virtual machines and the license server.  

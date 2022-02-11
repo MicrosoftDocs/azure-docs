@@ -64,7 +64,7 @@ To use network licensing with Autodesk software, [PLTW provides detailed steps](
 After your license server is set up, you'll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) when creating your [lab plan](./tutorial-setup-lab-plan.md).
 
 > [!IMPORTANT]
-> [Advanced networking](how-to-connect-vnet-injection.md#add-the-virtual-network-at-the-time-of-lab-plan-creation) must be enabled during the creation of your lab plan.  It can not be added later.
+> [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan.  It can not be added later.
 
 Autodesk-generated license files embed the MAC address of the license server.  If you decide to host your license server by using an Azure VM, it’s important to make sure that your license server’s MAC address doesn’t change. If the MAC address changes, you'll need to regenerate your licensing files. To prevent your MAC address from changing, do the following:
 
