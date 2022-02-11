@@ -57,17 +57,18 @@ Once the network admin creates the Private Endpoint (PE), the SQL admin can mana
    ![Screenshot of Private IP][9]
 
 > [!IMPORTANT]
-> When adding a Private endpoint connection, public routing to your Azure SQL logical server is not blocked by default. The setting "Deny public network access" under the "Firewall and virtual networks" blade is left unchecked by default. To disable public network access ensure this is checked.
+> When you add a private endpoint connection, public routing to your Azure SQL logical server isn't blocked by default. In the **Firewall and virtual networks** pane, the setting **Deny public network access** is not selected by default. To disable public network access, ensure that you select **Deny public network access**.
 
-## Disable public access to Azure SQL logical server
-For this scenario, assume you would like to disable all public access to your Azure SQL Logical server, and only allow connections from your virtual network.
+## Disable public access to your Azure SQL logical server
 
-1. Ensure your Private endpoint connection(s) are enabled and configured.
-2. Disable public access
-    1. Navigate to the "Firewalls and virtual network" blade of your Azure SQL Logical Server    
-    2. Click the box to check mark "Deny public network access"
-    ![Screenshot of Deny public network access](./media/private-endpoint/pec-deny-public-access.png)
+For this scenario, assume you want to disable all public access to your Azure SQL logical server and allow connections only from your virtual network.
 
+First, ensure that your private endpoint connections are enabled and configured. Then, to disable public access to your logical server:
+
+1. Go to the **Firewalls and virtual network** pane of your Azure SQL logical server.    
+1. Select the **Deny public network access** checkbox.
+
+   ![Screenshot that shows selecting the Deny public network access option.](./media/private-endpoint/pec-deny-public-access.png)
 
 ## Test connectivity to SQL Database from an Azure VM in same virtual network
 For this scenario, assume you've created an Azure Virtual Machine (VM) running a recent version of Windows in the same virtual network as the private endpoint.
