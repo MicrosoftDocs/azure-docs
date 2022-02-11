@@ -26,7 +26,7 @@ This sample CLI script restores a single Azure Database for MySQL server to a pr
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/backup-restore-pitr/backup-restore.sh" range="4-43":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/backup-restore-pitr/backup-restore.sh" range="4-40":::
 
 ## Clean up resources
 
