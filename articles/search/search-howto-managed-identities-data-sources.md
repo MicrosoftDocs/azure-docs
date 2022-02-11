@@ -92,7 +92,7 @@ You can use the Management REST API instead of the portal to assign a user manag
 
 ### [**Azure PowerShell**](#tab/ps-sys)
 
-See [Create a search service with a system assigned managed identity (Azure PowerShellP](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity).
+See [Create a search service with a system assigned managed identity (Azure PowerShell](search-manage-powershell.md#create-a-service-with-a-system-assigned-managed-identity).
 
 ### [**Azure CLI**](#tab/cli-sys)
 

@@ -37,7 +37,7 @@ Create the data source and provide either a system-assigned managed identity or 
 
 The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and the [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) support using a system-assigned managed identity. 
 
-When connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Cosmos DB, the resource group, and the Cosmos DB account name.
+When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Cosmos DB, the resource group, and the Cosmos DB account name.
 
 * For SQL collections, the connection string does not require an ApiKind. 
 * For MongoDB collections, add "ApiKind=MongoDb" to the connection string. 
@@ -66,7 +66,7 @@ api-key: [Search service admin key]
 
 ### User-assigned managed identity (preview)
 
-The 2021-04-30-preview REST API supports connections based on a user-assigned managed identity. When connecting with a user-assigned managed identity, there are two changes to the data source definition:
+The 2021-04-30-preview REST API supports connections based on a user-assigned managed identity. When you're connecting with a user-assigned managed identity, there are two changes to the data source definition:
 
 * First, the format of the "credentials" property is the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Cosmos DB, the resource group, and the Cosmos DB account name.
 

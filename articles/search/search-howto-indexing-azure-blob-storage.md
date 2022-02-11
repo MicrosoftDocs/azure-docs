@@ -250,7 +250,7 @@ Add the following metadata properties and values to blobs in Blob Storage. When 
 | Property name | Property value | Explanation |
 | ------------- | -------------- | ----------- |
 | "AzureSearch_Skip" |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
-| "AzureSearch_SkipContent" |`"true"` |This is equivalent of "dataToExtract" : "allMetadata" setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
+| "AzureSearch_SkipContent" |`"true"` |This is equivalent to the `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
 ## How to index large datasets
 
