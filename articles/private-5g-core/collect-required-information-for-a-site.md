@@ -1,6 +1,6 @@
 ---
 title: Collect information for a site
-titlesuffix: Azure Private 5G Core Preview
+titleSuffix: Azure Private 5G Core Preview
 description: Learn about the information you'll need to create a site in an existing private mobile network using the Azure portal.
 author: djrmetaswitch
 ms.author: drichards
