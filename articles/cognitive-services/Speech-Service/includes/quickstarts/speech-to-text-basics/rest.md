@@ -10,7 +10,7 @@ ms.author: v-jawe
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ## Convert speech to text
 

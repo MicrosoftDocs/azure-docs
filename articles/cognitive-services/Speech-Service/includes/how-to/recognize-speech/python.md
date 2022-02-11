@@ -6,13 +6,13 @@ ms.date: 03/11/2020
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/python.md)]
+[!INCLUDE [Header](../../common/python.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 

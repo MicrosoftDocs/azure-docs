@@ -11,7 +11,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ## Text-dependent verification
 

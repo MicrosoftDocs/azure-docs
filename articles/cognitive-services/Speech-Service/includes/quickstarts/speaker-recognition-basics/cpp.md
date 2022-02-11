@@ -7,13 +7,13 @@ ms.author: v-jawe
 ms.custom: references_regions, ignite-fall-2021
 ---
 
-[!INCLUDE [Header](../common/cpp.md)]
+[!INCLUDE [Header](../../common/cpp.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 
