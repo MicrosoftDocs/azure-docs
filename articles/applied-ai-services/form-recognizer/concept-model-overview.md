@@ -142,14 +142,16 @@ The custom model analyzes and extracts data from forms and documents specific to
 ## Data extraction
 
  | **Model**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
-  | --- |: ---: |:---:|: ---: |: ---: |:---: |:---: |
-  |🆕General document  | ✓  |  ✓ || ✓  | ✓  | ✓  |
+  | --- | :---: |:---:| :---: | :---: |:---: |:---: |
+  |🆕Read (preview) | ✓ |   ||   |   |   |
+  |🆕General document (previwe)  | ✓  |  ✓ || ✓  | ✓  | ✓  |
   | Layout  | ✓  |   || ✓  | ✓  |   |
   | Invoice  | ✓ | ✓  |✓| ✓  | ✓ ||
   |Receipt  | ✓  |   ✓ |✓|   |  ||
   | ID document | ✓  |   ✓  |✓|   |   ||
   | Business card    | ✓  |   ✓ | ✓|  |   ||
   | Custom             |✓  |  ✓ || ✓  | ✓  | ✓  |
+
 
 ## Input requirements
 
