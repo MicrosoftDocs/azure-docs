@@ -74,12 +74,12 @@ To directly assign a user to a session host in the Azure portal:
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-5. Select the name of the host pool you want to update.
+5. Select the host pool you want to assign users to.
 6. Next, go to the menu on the left side of the window and select **Application groups**.
-7. Select the name of the desktop app group you want to edit, then select **Assignments** in the menu on the left side of the window.
-8. Select **+ Add**, then select the users or user groups you want to publish this desktop app group to.
+7. Select the name of the app group you want to assign users to, then select **Assignments** in the menu on the left side of the window.
+8. Select **+ Add**, then select the users or user groups you want to assign to this app group.
 9. Select **Assign VM** in the Information bar to assign a session host to a user.
-10. Select the session host you want to assign to the user, then select **Assign**.
+10. Select the session host you want to assign to the user, then select **Assign**. You can also select **Assignment** > **Assign user**.
 11. Select the user you want to assign the session host to from the list of available users.
 12. When you're done, select **Select**.
 
@@ -102,9 +102,16 @@ To unassign a personal desktop in the Azure portal:
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-5. Select the name of the host pool you want to update.
+5. Select the host pool you want to modify user assignment for.
 6. Next, go to the menu on the left side of the window and select **Session hosts**.
-7. Select the session host you want to unassign a user from, then select **Assignment** > **Unassign user**.
+7. Select the checkbox next to the session host you want to unassign a user from, select the ellipses at the end of the row, and then select **Unassign user**. You can also select **Assignment** > **Unassign user**.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the unassign user menu option from the ellipses menu for unassigning a personal desktop.](media/unassign.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the unassign user menu option from the assignment menu for unassigning a personal desktop.](media/unassign2.png)
+
 8. Select **Unassign** when prompted with the warning.
 
 ## How to reassign a personal desktop
@@ -126,9 +133,16 @@ To reassign a personal desktop in the Azure portal:
 2. Enter **Azure Virtual Desktop** into the search bar.
 3. Under **Services**, select **Azure Virtual Desktop**.
 4. At the Azure Virtual Desktop page, go the menu on the left side of the window and select **Host pools**.
-5. Select the name of the host pool you want to update.
+5. Select the host pool you want to modify user assignment for.
 6. Next, go to the menu on the left side of the window and select **Session hosts**.
-7. Select the session host you want to unassign a user from, then select **Assignment** > **Reassign user**.
+7. Select the checkbox next to the session host you want to reassign to a different user, select the ellipses at the end of the row, and then select **Assign to a different user**. You can also select **Assignment** > **Assign to a different user**.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the assign to a different user menu option from the ellipses menu for reassigning a personal desktop.](media/reassigndoc.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the assign to a different user menu option from the assignment menu for reassigning a personal desktop.](media/reassign.png)
+
 8. Select the user you want to assign the session host to from the list of available users.
 9. When you're done, select **Select**.
 
