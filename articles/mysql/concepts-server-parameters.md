@@ -15,47 +15,51 @@ This article provides considerations and guidelines for configuring server param
 
 ## What are server parameters? 
 
-The MySQL engine provides many different server variables/parameters that can be used to configure and tune engine behavior. Some parameters can be set dynamically during runtime while others are "static", requiring a server restart in order to apply.
+The MySQL engine provides many different server variables and parameters that you use to configure and tune engine behavior. Some parameters can be set dynamically during runtime, while others are static, and require a server restart in order to apply.
 
-Azure Database for MySQL exposes the ability to change the value of various MySQL server parameters using the [Azure portal](./howto-server-parameters.md), [Azure CLI](./howto-configure-server-parameters-using-cli.md), and [PowerShell](./howto-configure-server-parameters-using-powershell.md) to match your workload's needs.
+Azure Database for MySQL exposes the ability to change the value of various MySQL server parameters by using the [Azure portal](./howto-server-parameters.md), the [Azure CLI](./howto-configure-server-parameters-using-cli.md), and [PowerShell](./howto-configure-server-parameters-using-powershell.md) to match your workload's needs.
 
 ## Configurable server parameters
 
-The list of supported server parameters is constantly growing. Use the server parameters tab in the Azure portal to view the full list and configure server parameters values.
+The list of supported server parameters is constantly growing. In the Azure portal, use the server parameters tab to view the full list and configure server parameters values.
 
-Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the pricing tier and vCores of the server.
+Refer to the following sections to learn more about the limits of several commonly updated server parameters. The limits are determined by the pricing tier and vCores of the server.
 
 ### Thread pools
 
-MySQL traditionally assigns a thread for every client connection. As the number of concurrent users grows, there is a corresponding drop in performance. Many active threads can impact the performance significantly due to increased context switching, thread contention, and bad locality for CPU caches.
+MySQL traditionally assigns a thread for every client connection. As the number of concurrent users grows, there is a corresponding drop in performance. Many active threads can affect the performance significantly, due to increased context switching, thread contention, and bad locality for CPU caches.
 
-Thread pools which is a server side feature and distinct from connection pooling, maximize performance by introducing a dynamic pool of worker thread that can be used to limit the number of active threads running on the server and minimize thread churn. This helps ensure that a burst of connections will not cause the server to run out of resources or crash with an out of memory error. Thread pools are most efficient for short queries and CPU intensive workloads, for example OLTP workloads.
+*Thread pools*, a server-side feature and distinct from connection pooling, maximize performance by introducing a dynamic pool of worker threads. You use this feature to limit the number of active threads running on the server and minimize thread churn. This helps ensure that a burst of connections won't cause the server to run out of resources or memory. Thread pools are most efficient for short queries and CPU intensive workloads, such as OLTP workloads.
 
-To learn more about thread pools, refer to [Introducing thread pools in Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/introducing-thread-pools-in-azure-database-for-mysql-service/ba-p/1504173)
+For more information, see [Introducing thread pools in Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/introducing-thread-pools-in-azure-database-for-mysql-service/ba-p/1504173).
 
 > [!NOTE]
-> Thread pool feature is not supported for MySQL 5.6 version. 
+> Thread pools aren't supported for MySQL 5.6. 
 
-### Configuring the thread pool
-To enable thread pool, update the `thread_handling` server parameter to "pool-of-threads". By default, this parameter is set to `one-thread-per-connection`, which means MySQL creates a new thread for each new connections. Please note that this is a static parameter and requires a server restart to apply.
+### Configure the thread pool
+
+To enable a thread pool, update the `thread_handling` server parameter to `pool-of-threads`. By default, this parameter is set to `one-thread-per-connection`, which means MySQL creates a new thread for each new connection. This is a static parameter, and requires a server restart to apply.
 
 You can also configure the maximum and minimum number of threads in the pool by setting the following server parameters: 
-- `thread_pool_max_threads`: This value ensures that there will not be more than this number of threads in the pool.
+
+- `thread_pool_max_threads`: This value ensures that there won't be more than this number of threads in the pool.
 - `thread_pool_min_threads`: This value sets the number of threads that will be reserved even after connections are closed.
 
-To improve performance issues of short queries on the thread pool, Azure Database for MySQL allows you to enable batch execution where instead of returning back to the thread pool immediately after executing a query, threads will keep active for a short time to wait for the next query through this connection. The thread then executes the query rapidly and once complete, waits for the next one, until the overall time consumption of this process exceeds a threshold. The batch execution behavior is determined using the following server parameters:  
+To improve performance issues of short queries on the thread pool, you can enable *batch execution*. Instead of returning back to the thread pool immediately after running a query, threads will keep active for a short time to wait for the next query through this connection. The thread then runs the query rapidly and, when this is complete, the thread waits for the next one. This process continues until the overall time spent exceeds a threshold.
+
+You determine the behavior of batch execution by using the following server parameters:  
 
 -  `thread_pool_batch_wait_timeout`: This value specifies the time a thread waits for another query to process.
-- `thread_pool_batch_max_time`: This value determines the max time a thread will repeat the cycle of query execution and waiting for the next query.
+- `thread_pool_batch_max_time`: This value determines the maximum time a thread will repeat the cycle of query execution and waiting for the next query.
 
 > [!IMPORTANT]
-> Please test thread pool before turning it ON in production. 
+> Don't turn on the thread pool in production until you've tested it. 
 
 ### log_bin_trust_function_creators
 
-In Azure Database for MySQL, binary logs are always enabled (i.e. `log_bin` is set to ON). In case you want to use triggers you will get error similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*. 
+In Azure Database for MySQL, binary logs are always enabled (the `log_bin` parameter is set to `ON`). If you want to use triggers, you get error similar to the following: *You do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*. 
 
-The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely set [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to **TRUE**.
+The binary logging format is always **ROW**, and all connections to the server *always* use row-based binary logging. Row-based binary logging helps maintain security, and binary logging can't break, so you can safely set [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to `TRUE`.
 
 ### innodb_buffer_pool_size
 
@@ -63,7 +67,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 
 #### Servers on [general purpose storage v1 (supporting up to 4-TB)](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb)
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
+|**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|872415232|134217728|872415232|
 |Basic|2|2684354560|134217728|2684354560|
@@ -81,7 +85,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 
 #### Servers on [general purpose storage v2 (supporting up to 16-TB)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
+|**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|872415232|134217728|872415232|
 |Basic|2|2684354560|134217728|2684354560|
