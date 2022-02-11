@@ -11,7 +11,7 @@ ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension
 
 # Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service
 
-In this quickstart, you will deploy a Python web app (Django or Flask) to [Azure App Service](/azure/app-service/overview#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.7 and higher apps hosted in a Linux server environment.
+In this quickstart, you will deploy a Python web app (Django or Flask) to [Azure App Service](./overview.md#app-service-on-linux). Azure App Service is a fully managed web hosting service that supports Python 3.7 and higher apps hosted in a Linux server environment.
 
 To complete this quickstart, you need:
 1. An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -167,7 +167,7 @@ To deploy a web app from VS Code, you must have the [Azure Tools extension pack]
 
 ---
 
-Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
+Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 4 - Browse to the app
 
@@ -179,7 +179,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 **Congratulations!** You have deployed your Python app to App Service.
 
-Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
+Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 5 - Stream logs
 
@@ -240,7 +240,7 @@ Starting Live Log Stream ---
 
 ---
 
-Having issues? Refer first to the [Troubleshooting guide](/azure/app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
+Having issues? Refer first to the [Troubleshooting guide](./configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## Clean up resources
 
@@ -282,13 +282,13 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django) web app with PostgreSQL](/azure/app-service/tutorial-python-postgresql-app)
+> [Tutorial: Python (Django) web app with PostgreSQL](./tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure Python app](/azure/app-service/configure-language-python)
+> [Configure Python app](./configure-language-python.md)
 
 > [!div class="nextstepaction"]
-> [Add user sign-in to a Python web app](/azure/active-directory/develop/quickstart-v2-python-webapp)
+> [Add user sign-in to a Python web app](../active-directory/develop/quickstart-v2-python-webapp.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Run Python app in custom container](/azure/app-service/tutorial-custom-container)
+> [Tutorial: Run Python app in custom container](./tutorial-custom-container.md)
