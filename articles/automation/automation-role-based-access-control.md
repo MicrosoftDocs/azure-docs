@@ -34,6 +34,7 @@ In Azure Automation, access is granted by assigning the appropriate Azure role t
 
 ## Role permissions
 
+
 The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and NotActions, which restrict them.
 
 ### Owner
@@ -58,22 +59,14 @@ A Contributor can manage everything except access. The following table shows the
 
 ### Reader
 
+>[!Note]
+> We have recently made a change in the built-in Reader role permission for the Automation account.[Learn more](#reader-role-access-permissions)
+
 A Reader can view all the resources in an Automation account but can't make any changes.
 
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
-
-**Issue description** </br>
-Built-in Reader role for the Automation Account can't use the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION` to fetch the Automation Account keys. This is a high privilege operation providing sensitive information that could pose a security risk of an unwanted malicious actor with low privileges who can get access to automation account keys and can perform actions with elevated privilege level.
-
-**Fix** </br>
-To strengthen the overall Azure Automation security posture, the built-in RBAC Reader would not have access to Automation account keys through the API call - `GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`. 
-
-**Action Required**</br>
-You can use the other built-in Reader role and encounter a permission error while getting the Automation Account keys, you can switch to the built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. These roles, by default, will have the *listKeys* permission. As a best practice, we recommend creating a custom role with limited permissions needed to access the Automation account keys. For a custom role, you need to add 
-`Microsoft.Automation/automationAccounts/listKeys/action` permission to the role definition.
-[Learn more](/azure/role-based-access-control/custom-roles) about how to create custom role from the Azure portal.
 
 
 ### Automation Contributor
@@ -241,6 +234,18 @@ A User Access Administrator can manage user access to Azure resources. The follo
 |Microsoft.Authorization/*|Manage authorization|
 |Microsoft.Support/*|Create and manage support tickets|
 
+
+## Reader role access permissions
+
+>[!Important]
+> To strengthen the overall Azure Automation security posture, the built-in RBAC Reader would not have access to Automation account keys through the API call - `GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`. 
+
+The Built-in Reader role for the Automation Account can't use the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION` to fetch the Automation Account keys. This is a high privilege operation providing sensitive information that could pose a security risk of an unwanted malicious actor with low privileges who can get access to automation account keys and can perform actions with elevated privilege level. 
+
+To access the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`, you can use the other built-in Reader role. We recommend that you switch to the built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. These roles, by default, will have the *listKeys* permission. As a best practice, we recommend that you create a custom role with limited permissions to access the Automation account keys. For a custom role, you need to add 
+`Microsoft.Automation/automationAccounts/listKeys/action` permission to the role definition.
+[Learn more](/azure/role-based-access-control/custom-roles) about how to create custom role from the Azure portal.
+ 
 ## Feature setup permissions
 
 The following sections describe the minimum required permissions needed for enabling the Update Management and Change Tracking and Inventory features.
