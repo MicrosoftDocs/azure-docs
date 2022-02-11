@@ -104,10 +104,6 @@ See [Configure Azure SQL Managed Instance for Windows Authentication for Azure A
 
 The following limitations apply to Windows Authentication for Azure AD principals on Azure SQL Managed Instance:
 
-### Single instance per subnet
-
-Due to Service Principal Name (SPN) configuration requirements, during the limited private preview only one managed instance per subnet can be enabled for Windows Authentication.
-
 ###	 Azure AD cached logon
 <!--TODO: clarify -- Azure AD cached credentials? Not finding much when I search for "cached logon" -->
 
