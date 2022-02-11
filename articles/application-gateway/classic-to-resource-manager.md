@@ -18,6 +18,14 @@ Application Gateway resources will **not** be migrated automatically as part of 
 As part of VNet migration process as documented at [IaaS resources migration page](../virtual-machines/migration-classic-resource-manager-ps.md), if you have an Application Gateway resource present on the VNet that you are trying to migrate to Resource Manager deployment model, the automatic migration would not be successful. 
 
 In order to migrate your Application Gateway resource to Resource Manager deployment model, you will have to remove the Application Resource from the VNet before beginning migration and then recreate the Application Gateway resource once migration is complete.
+For more information on how to setup an Application Gateway resource post VNet migration, you can refer:
+
+* [Deployment via portal](quick-create-portal.md)
+* [Deployment via PowerShell](quick-create-powershell.md)
+* [Deployment via Azure CLI](quick-create-cli.md)
+* [Deployment via ARM template](quick-create-template.md)
 
 ## Next steps
 To get started see: [platform-supported migration of IaaS resources from classic to Resource Manager](../virtual-machines/migration-classic-resource-manager-ps.md)
+
+For any concerns around migration, you can contact Azure Support. Learn more about [Azure support here](https://azure.microsoft.com/support/options/).
