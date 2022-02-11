@@ -90,7 +90,11 @@ sections:
       - question: Can I use Virtual Network NAT gateway with Azure Firewall?
         answer: |
           Yes. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](../../firewall/integrate-with-nat-gateway.md).
-          
+
+      - question: Can I use Virtual Network NAT gateway with Virtual Network service endpoints?
+        answer: | 
+           Yes. The addition of a Virtual Network NAT Gateway to a subnet with service endpoints does not affect the endpoints. [Virtual Network service endpoints](../virtual-network-service-endpoints-overview.md) enable a more specific route for the destination Azure service traffic they represent. Traffic for the service endpoint will continue to be routed toward the service and wont go via the NAT Gateway.
+
 additionalContent: |
 
   ## Next steps

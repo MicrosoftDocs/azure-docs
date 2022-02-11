@@ -91,7 +91,7 @@ To create a Blob Storage container in Azure Storage, follow these steps.
 
 1. Go to your new storage account in the Azure portal.
 
-1. In the left menu for the storage account, scroll to the **Blob service** section, and then select **Containers**.
+1. In the left menu for the storage account, scroll to the **Data storage** section, and then select **Containers**.
 
 1. Select the **+ Container** button.
 
