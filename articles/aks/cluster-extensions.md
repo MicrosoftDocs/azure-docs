@@ -37,7 +37,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 > apiVersion: aadpodidentity.k8s.io/v1
 > kind: AzurePodIdentityException
 > metadata:
->  name: extension-exception
+>  name: k8s-extension-exception
 >  namespace: <release-namespace-of-extension>
 > spec:
 >  podLabels:
