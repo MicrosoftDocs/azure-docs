@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus data reference
 description: Important reference material needed when you monitor Azure Service Bus. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 10/29/2021
+ms.date: 02/10/2022
 ---
 
 

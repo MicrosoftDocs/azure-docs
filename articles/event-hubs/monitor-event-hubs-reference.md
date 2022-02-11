@@ -3,7 +3,7 @@ title: Monitoring Azure Event Hubs data reference
 description: Important reference material needed when you monitor Azure Event Hubs. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 01/20/2022
+ms.date: 02/10/2022
 ---
 
 
