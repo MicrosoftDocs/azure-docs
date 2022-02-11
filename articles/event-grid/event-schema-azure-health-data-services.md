@@ -1,17 +1,17 @@
 ---
-title: Azure Healthcare APIs as Event Grid source
-description: Describes the properties that are provided for Azure Healthcare APIs events with Azure Event Grid
+title: Azure Health Data Services as Event Grid source
+description: Describes the properties that are provided for Azure Health Data Services events with Azure Event Grid
 ms.topic: conceptual
 ms.date: 02/03/2022
 ---
 
-# Azure Healthcare APIs as an Event Grid source
+# Azure Health Data Services as an Event Grid source
 
-This article provides the properties and schema for Azure Healthcare APIs events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for Azure Health Data Services events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Available event types
 
-### List of events for Healthcare REST APIs
+### List of events for Azure Health Data Services REST APIs
 
 The following Fast Healthcare Interoperability Resources (FHIR&#174;) resource events are triggered when calling the REST APIs.
 
@@ -27,7 +27,7 @@ This section contains examples of what events message data would look like for e
 > [!Note]
 > Events data looks similar to these examples with the `metadataVersion` property set to a value of `1`.
 >
->For more information, see [Azure Event Grid event schema properties](/azure/event-grid/event-schema#event-properties).
+> For more information, see [Azure Event Grid event schema properties](/azure/event-grid/event-schema#event-properties).
 
 ### FhirResourceCreated event
 
