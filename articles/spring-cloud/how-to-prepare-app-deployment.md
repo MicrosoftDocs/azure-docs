@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Prepare an application for deployment in Azure Spring Cloud
 
-**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
 This article shows how to prepare an existing Steeltoe application for deployment to Azure Spring Cloud. Azure Spring Cloud provides robust services to host, monitor, scale, and update a Steeltoe app.
@@ -140,16 +140,29 @@ Azure Spring Cloud supports both Java 8 and Java 11. In general, Azure PaaS only
 
 ## Spring Boot and Spring Cloud versions
 
-To prepare an existing Spring Boot application for deployment to Azure Spring Cloud include the Spring Boot and Spring Cloud dependencies in the application POM file as shown in the following sections.
+To prepare an existing Spring Boot application for deployment to Azure Spring Cloud, include the Spring Boot and Spring Cloud dependencies in the application POM file as shown in the following sections.
 
-Azure Spring Cloud will support the latest Spring Boot or Spring Cloud release within one month after it’s been released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases).
+Azure Spring Cloud will support the latest Spring Boot or Spring Cloud release within one month after it’s been released. You can get supported Spring Boot versions from [Spring Boot Releases](https://github.com/spring-projects/spring-boot/wiki/Supported-Versions#releases) and Spring Cloud versions from [Spring Cloud Releases](https://github.com/spring-cloud/spring-cloud-release/wiki).
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
-Spring Boot version | Spring Cloud version
----|---
-2.4.x, 2.5.x | 2020.0 aka Ilford +
-2.6.x | 2021.0.0+
+### [Basic/Standard tier](#tab/basic-standard-tier)
+
+| Spring Boot version | Spring Cloud version |
+|---------------------|----------------------|
+| 2.4.x, 2.5.x        | 2020.0 aka Ilford +  |
+| 2.6.x               | 2021.0.0+            |
+
+### [Enterprise tier](#tab/enterprise-tier)
+
+| Spring Boot version | Spring Cloud version |
+|---------------------|----------------------|
+| 2.4.x, 2.5.x        | 2020.0 aka Ilford +  |
+| 2.6.x               | 2021.0.0+            |
+
+---
+
+For more information, see [Spring Boot support](https://spring.io/projects/spring-boot#support), [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support), and [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support).
 
 > [!NOTE]
 > - Upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using Spring Security, upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.

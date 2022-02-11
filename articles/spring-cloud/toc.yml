@@ -89,10 +89,10 @@ items:
   items:
   - name: Develop
     items:
+    - name: Prepare a Java Spring app for deployment
+      href: how-to-prepare-app-deployment.md
     - name: Basic/Standard Tier
       items:
-      - name: Prepare a Java Spring app for deployment
-        href: how-to-prepare-app-deployment.md
       - name: Set up a Config Server
         href: how-to-config-server.md
       - name: Enable Service Registration
