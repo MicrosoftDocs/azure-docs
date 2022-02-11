@@ -11,7 +11,7 @@ ms.author: cwatson
 
 Use a search job when you start an investigation to find specific events in logs within a given time frame. You can search all your logs, filter through them, and look for events that match your criteria.
 
-Before you start a search job, see [Start an investigation by searching large datasets (Preview)](investigate-large-datasets.md) and [Search jobs in Azure Monitor](../azure-monitor/logs/search-jobs.md).
+Before you start a search job, see [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md) and [Search jobs in Azure Monitor](../azure-monitor/logs/search-jobs.md).
 
 The search job feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 

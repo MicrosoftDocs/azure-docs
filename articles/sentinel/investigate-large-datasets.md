@@ -7,7 +7,7 @@ ms.date: 01/21/2022
 ms.author: cwatson
 ---
 
-# Start an investigation by searching for events in large datasets (Preview)
+# Start an investigation by searching for events in large datasets (preview)
 
 One of the primary activities of a security team is to search logs for specific events. For example, you might search logs for the activities of a specific user within a given time-frame.
 
@@ -52,7 +52,7 @@ To learn more, see [Search job in Azure Monitor](../azure-monitor/logs/search-jo
 
 ## Restore historical data from archived logs
 
-When you need to do a full investigation on data stored in archived logs, restore a table from the **Search** page in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes, the log data is restored and available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL
+When you need to do a full investigation on data stored in archived logs, restore a table from the **Search** page in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes, the log data is restored and available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL.
 
 A restored log table is available in a new table that has a *_RST suffix. The restored data is available as long as the underlying source data is available. But you can delete restored tables at any time without deleting the underlying source data. To save costs, we recommend you delete the restored table when you no longer need it.
 
@@ -80,5 +80,5 @@ Similar to the [threat hunting dashboard](hunting.md#use-the-hunting-dashboard),
 
 ## Next steps
 
-- [Search across long time spans in large datasets (Preview)](search-jobs.md)
-- [Restore archived logs from search (Preview)](restore.md)
+- [Search across long time spans in large datasets (preview)](search-jobs.md)
+- [Restore archived logs from search (preview)](restore.md)
