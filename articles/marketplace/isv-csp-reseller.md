@@ -9,11 +9,11 @@ ms.author: emerb
 ms.date: 02/10/2022
 ---
 
-# ISV to Cloud Reseller private offers
+# ISV to CSP partner private offers
 
 ## Overview
 
-Private offers let Independent Software Vendors (ISVs) and partners in the Cloud Solution provider (CSP) program grow their revenue by creating time-bound customized margins that suit each entity’s business needs.
+Private offers let Independent Software Vendors (ISVs) and partners in the Cloud Solution Provider (CSP) program grow their revenue by creating time-bound customized margins that suit each entity’s business needs.
 
 As an ISV, you can specify the margin and duration to create a wholesale price for your CSP partner. When your partner makes a sale to a customer, Microsoft will make its payments to you off the wholesale price.
 
@@ -26,9 +26,9 @@ As a CSP partner, you can discover all the margins available to you via Partner 
 > [!NOTE]
 > If you only publish your offer to Microsoft AppSource (so it is not available through Azure Marketplace) and opted it in to be sold by partners in the Cloud Solution Provider (CSP) program, there may be a delay with your offer displaying for CSP partners to purchase in their portal. Please contact [support](./support.md) if you believe your offer is not available for your CSP partner to transact.
 
-## Prerequisites to create a private offer for Cloud Resellers
+## Prerequisites to create a private offer for CSP partners
 
-You must meet these prerequisites to create a private offer for CSP resellers:
+You must meet these prerequisites to create a private offer for CSP partners:
 
 1. You have created a commercial marketplace account in Partner Center.
 2. Your account is enrolled in the commercial marketplace program.
@@ -48,7 +48,7 @@ Private offers can be created for all transactable marketplace offer types. This
 The **Private offers** dashboard in the left-nav menu of Partner Center is your centralized location to create and manage private offers. This dashboard has two tabs:
 
 1. **Customers**: Learn more about private offers for customers.
-2. **CSP partners**: Opens the Cloud partner offer dashboard, which lets you:
+2. **CSP partners**: Opens the CSP partners private offer dashboard, which lets you:
 
     - Create new private offers
     - View the status of all your private offers
@@ -86,7 +86,7 @@ The offer setup page lets you define private offer terms, notification contact, 
     > [!NOTE]
     > Only offers/plans that are transactable in Microsoft AppSource or Azure Marketplace appear in the selection menu.
 
-4. Select the **Cloud Resellers** you authorize to sell your private offer.
+4. Select the **CSP partners** you authorize to sell your private offer.
 
     1. Select **+Add CSP partners**.
     2. Search for your CSP partners by name/tenant ID. Or, search by applying filters such as regions, skills, or competencies.
