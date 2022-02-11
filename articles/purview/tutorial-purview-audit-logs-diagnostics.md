@@ -70,17 +70,17 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want to 
 
 - Next, go to [Azure portal](https://portal.azure.com) home page and search the name of the Event Hubs Namespace you created in *Step-1*.
 
-- Navigate to the Event Hubs Namespace and then consequently the event hub and click "Capture Data". 
+- Navigate to the Event Hubs Namespace. Select the event hub and click "Capture Data". 
 
 - Supply the name of the Event Hubs Namespace and the event hub where you would like the audit and diagnostics to be captured and streamed. Modify the "Time Window" and "Size Window" values for retention period of streaming events. Click Save.
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/H.png" alt-text="Capture Settings on Event Hubs Namespace and event hub." lightbox="./media/tutorial-purview-audit-logs-diagnostics/H.png":::
 
-- Optionally, go to "Properties" on the left navigation menu and change the "Message Retention" to any value between 1-7 days. This depends on the frequency of scheduled jobs/scripts you've created to continuously listen and capture the streaming events. If you schedule a capture once every week, take the slider to 7 days.
+- Optionally, go to "Properties" on the left navigation menu and change the "Message Retention" to any value between 1-7 days. Retention period value depends on the frequency of scheduled jobs/scripts you've created to continuously listen and capture the streaming events. If you schedule a capture once every week, take the slider to 7 days.
 
 :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/I.png" alt-text="Event Hubs properties - message retention period." lightbox="./media/tutorial-purview-audit-logs-diagnostics/I.png":::
 
-- This completes the configuration steps. Purview will start streaming all its audit diagnostics data to this eventhub and you can now proceed to read, extract and perform additional analytics and operations on the captured diagnostics and audit events.
+- At this stage the configuration will be complete. Purview will start streaming all its audit diagnostics data to this eventhub and you can now proceed to read, extract and perform additional analytics and operations on the captured diagnostics and audit events.
 
 ### Reading Captured Events
 
