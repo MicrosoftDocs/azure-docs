@@ -146,23 +146,18 @@ Azure Spring Cloud will support the latest Spring Boot or Spring Cloud release w
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
-### [Basic/Standard tier](#tab/basic-standard-tier)
+| Spring Boot version          | Spring Cloud version |
+|------------------------------|----------------------|
+| 2.4.x (Enterprise tier only) | 2020.0+ aka Ilford+  |
+| 2.5.x                        | 2020.0+ aka Ilford+  |
+| 2.6.x                        | 2021.0.0+            |
 
-| Spring Boot version | Spring Cloud version |
-|---------------------|----------------------|
-| 2.4.x, 2.5.x        | 2020.0 aka Ilford +  |
-| 2.6.x               | 2021.0.0+            |
+For more information, see the following support pages:
 
-### [Enterprise tier](#tab/enterprise-tier)
-
-| Spring Boot version | Spring Cloud version |
-|---------------------|----------------------|
-| 2.4.x, 2.5.x        | 2020.0 also known as Ilford +  |
-| 2.6.x               | 2021.0.0+            |
-
----
-
-For more information, see [Spring Boot support](https://spring.io/projects/spring-boot#support), [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support), and [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support).
+* [Spring Boot support](https://spring.io/projects/spring-boot#support)
+* [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support)
+* [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support)
+* [Spring Cloud 2020.0.0 (aka Ilford) Is Available](https://spring.io/blog/2020/12/22/spring-cloud-2020-0-0-aka-ilford-is-available)
 
 > [!NOTE]
 > - Upgrade Spring Boot to 2.5.2 or 2.4.8 to address the following CVE report [CVE-2021-22119: Denial-of-Service attack with spring-security-oauth2-client](https://tanzu.vmware.com/security/cve-2021-22119). If you're using Spring Security, upgrade it to 5.5.1, 5.4.7, 5.3.10 or 5.2.11.
