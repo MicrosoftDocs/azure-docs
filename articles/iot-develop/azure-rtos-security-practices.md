@@ -31,6 +31,14 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
 ## Embedded Security Components - Cryptography
 
+    |Cryptography topics|
+    |-------------|
+    |`True random hardware-based entropy source`| 
+    |`Real-time capability`| 
+    |`Use approved cryptographic routines with strong key sizes`| 
+    |`Hardware-based cryptography acceleration`| 
+
+
 Cryptography is a foundation of security in networked devices. There may exist some cases where cryptography may not be necessary for security. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public internet. A secure IoT device that connects to a server or cloud service using Transport Layer Security (TLS) or similar protocols requires strong cryptography with protection for keys and secrets that are based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
 
 ### True random hardware-based entropy source
