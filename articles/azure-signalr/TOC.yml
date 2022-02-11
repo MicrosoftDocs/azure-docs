@@ -91,6 +91,8 @@
     items:
     - name: Single instance
       href: signalr-howto-scale-signalr.md
+    - name: Autoscale
+      href: signalr-howto-scale-autoscale.md
     - name: Multiple instances
       href: signalr-howto-scale-multi-instances.md
   - name: Secure
