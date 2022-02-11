@@ -15,13 +15,37 @@ This guide lists step-by-step configuration on how to enable and capture Azure P
 
 ## Customer Intent
 
-As an Azure Purview administrator or Azure Purview data source admin, I want to view and monitor audit and diagnostics logs captured from [Azure Purview](https://ms.web.purview.azure.com) including timestamped activity history on actions taken by every user on [Azure Purview portal](https://ms.web.purview.azure.com). To enable audit logging on Purview, there is an easy and clean technique to capture streaming audit events via Azure Diagnostics Event Hubs. Let's go through the step-by-step guide on how to configure this Diagnostics Audit logging on Azure Purview.
+As an Azure Purview administrator or Azure Purview data-source admin, I want to view and monitor audit and diagnostics logs captured from [Azure Purview](https://ms.web.purview.azure.com) service. This includes timestamped activity history on actions taken by every user on [Azure Purview portal](https://ms.web.purview.azure.com). To enable audit logging on Purview, there is an easy and clean technique to capture streaming audit events via Azure Diagnostics Event Hubs. Let's go through the step-by-step guide on how to configure this Diagnostics Audit logging on Azure Purview.
+
+
+### Purview Audit History - Categorization of Events
+
+- These categories of audit events are available for capture and analysis. More types and categories of activity audit events are being added to Purview in the coming months.
+
+| Category   	| Activity            	| Operation       	|
+|------------	|---------------------	|-----------------	|
+| Management 	| Scan Rule Set       	| Create          	|
+| Management 	| Scan Rule Set       	| Update          	|
+| Management 	| Scan Rule Set       	| Delete          	|
+| Management 	| Classification Rule 	| Create          	|
+| Management 	| Classification Rule 	| Update          	|
+| Management 	| Classification Rule 	| Delete          	|
+| Management 	| Scan                	| Create          	|
+| Management 	| Scan                	| Update          	|
+| Management 	| Scan                	| Delete          	|
+| Management 	| Scan                	| Run             	|
+| Management 	| Scan                	| Cancel          	|
+| Management 	| Scan                	| Create            |
+| Management 	| Scan                	| Schedule          |
+| Management 	| Data Source         	| Register        	|
+| Management 	| Data Source         	| Update          	|
+| Management 	| Data Source         	| Delete          	|
 
 ## Enable Azure Purview Audit & Diagnostics 
 
 ### Configure Azure EventHubs
 
-1. Create an [Azure EventHubs Namespace and Azure EventHubs using Azure ARM Template (GitHubs)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template should one-click deploy and finish creating your EventHubs with the required configuration desirable for Purview Audit logging; follow these guides for more detailed step by step explanantions and manual setup: [Azure EventHubs: Use Azure Resource Manager Template to enable eventhub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure EventHubs: Enable capturing of events streaming manually using Azure Portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
+1. Create an [Azure EventHubs Namespace and Azure EventHubs using Azure ARM Template (GitHubs)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template will deploy and finish creating your EventHubs with the required configuration at t; follow these guides for more detailed step by step explanantions and manual setup: [Azure EventHubs: Use Azure Resource Manager Template to enable eventhub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure EventHubs: Enable capturing of events streaming manually using Azure Portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
 
 ### Connect Purview Account to Diagnostics EventHubs
 
@@ -77,27 +101,6 @@ As an Azure Purview administrator or Azure Purview data source admin, I want to 
 
 - Lastly, you can use scripts to extract and perform additional analytics and operations, and build additional utilities and custom code to extract business value out of the captured audit and diagnostics. You can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using PowerBI. While you can use any programming/scripting language to read the event hub, here is a readymade [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py) and Python tutorial on how to [Capture Event Hubss data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md) 
 
-### Purview Audit History - Categorization of Events
-
-- These categories of audit events are available for capture and analysis. More Purview audit events are being added going forward.
-
-| Category   	| Activity            	| CRUD Operation  	|
-|------------	|---------------------	|-----------------	|
-| Management 	| Scan Rule Set       	| Create          	|
-| Management 	| Scan Rule Set       	| Update          	|
-| Management 	| Scan Rule Set       	| Delete          	|
-| Management 	| Classification Rule 	| Create          	|
-| Management 	| Classification Rule 	| Update          	|
-| Management 	| Classification Rule 	| Delete          	|
-| Management 	| Scan                	| Create          	|
-| Management 	| Scan                	| Update          	|
-| Management 	| Scan                	| Delete          	|
-| Management 	| Scan                	| Run Scan        	|
-| Management 	| Scan                	| Cancel Scan     	|
-| Management 	| Scan                	| Create schedule 	|
-| Management 	| Data Source         	| Register        	|
-| Management 	| Data Source         	| Update          	|
-| Management 	| Data Source         	| Delete          	|
 
 ## Next steps
 
