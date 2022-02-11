@@ -114,7 +114,8 @@ var response = await client.GetContainer(databaseName, containerName)
 
 # [Async](#tab/api-async)
 
-Async????Java????V2????SDK????(Maven????com.microsoft.azure::azure-cosmosdb)
+Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
+
 
 ```java
 // Override consistency at the client level
@@ -130,7 +131,8 @@ AsyncDocumentClient client =
 
 # [Sync](#tab/api-sync)
 
-Sync????Java????V2????SDK????(Maven????com.microsoft.azure::azure-documentdb)
+Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
+
 
 ```java
 // Override consistency at the client level
@@ -215,7 +217,7 @@ ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(sa
 
 # [Async](#tab/api-async)
 
-Async????Java????V2????SDK????(Maven????com.microsoft.azure::azure-cosmosdb)
+Async Java V2 SDK (Maven com.microsoft.azure::azure-cosmosdb)
 
 ```java
 // Get session token from response
@@ -239,7 +241,7 @@ Observable<ResourceResponse<Document>> readObservable = client.readDocument(docu
 
 # [Sync](#tab/api-sync)
 
-Sync????Java????V2????SDK????(Maven????com.microsoft.azure::azure-documentdb)
+Sync Java V2 SDK (Maven com.microsoft.azure::azure-documentdb)
 
 ```java
 // Get session token from response

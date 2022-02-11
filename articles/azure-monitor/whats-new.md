@@ -175,7 +175,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **New articles**
 
-- [Azure Monitor - Service Bus insights](insights/service-bus-insights.md)
+- [Azure Monitor - Service Bus insights](../service-bus-messaging/service-bus-insights.md)
 
 **Updated articles**
 
