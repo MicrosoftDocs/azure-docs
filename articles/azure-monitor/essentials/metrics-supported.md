@@ -201,19 +201,19 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |jvm.memory.committed|Yes|jvm.memory.committed|Bytes|Average|Memory assigned to JVM in bytes|Deployment, AppName, Pod|
 |jvm.memory.max|Yes|jvm.memory.max|Bytes|Maximum|The maximum amount of memory in bytes that can be used for memory management|Deployment, AppName, Pod|
 |jvm.memory.used|Yes|jvm.memory.used|Bytes|Average|App Memory Used in bytes|Deployment, AppName, Pod|
-|loh-size|Yes|System.Runtime|loh-size|Bytes|Average|LOH Heap Size|Deployment, AppName, Pod|
-|monitor-lock-contention-count|Yes|System.Runtime|monitor-lock-contention-count|Count|Average|Number of times there were contention when trying to take the monitor lock|Deployment, AppName, Pod|
+|loh-size|Yes|loh-size|Bytes|Average|LOH Heap Size|Deployment, AppName, Pod|
+|monitor-lock-contention-count|Yes|monitor-lock-contention-count|Count|Average|Number of times there were contention when trying to take the monitor lock|Deployment, AppName, Pod|
 |PodCpuUsage|Yes|App CPU Usage|Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
 |PodMemoryUsage|Yes|App Memory Usage|Percent|Average|The recent Memory usage for the app|Deployment, AppName, Pod|
 |PodNetworkIn|Yes|App Network In|Bytes|Average|Cumulative count of bytes received in the app|Deployment, AppName, Pod|
 |PodNetworkOut|Yes|App Network Out|Bytes|Average|Cumulative count of bytes sent from the app|Deployment, AppName, Pod|
 |process.cpu.usage|Yes|process.cpu.usage|Percent|Average|The recent CPU usage for the JVM process|Deployment, AppName, Pod|
-|requests-per-second|Yes|Microsoft.AspNetCore.Hosting|requests-rate|Count|Average|Request rate|Deployment, AppName, Pod|
+|requests-per-second|Yes|requests-rate|Count|Average|Request rate|Deployment, AppName, Pod|
 |system.cpu.usage|Yes|system.cpu.usage|Percent|Average|The recent CPU usage for the whole system|Deployment, AppName, Pod|
-|threadpool-completed-items-count|Yes|System.Runtime|threadpool-completed-items-count|Count|Average|ThreadPool Completed Work Items Count|Deployment, AppName, Pod|
-|threadpool-queue-length|Yes|System.Runtime|threadpool-queue-length|Count|Average|ThreadPool Work Items Queue Length|Deployment, AppName, Pod|
-|threadpool-thread-count|Yes|System.Runtime|threadpool-thread-count|Count|Average|Number of ThreadPool Threads|Deployment, AppName, Pod|
-|time-in-gc|Yes|System.Runtime|time-in-gc|Percent|Average|% time in GC since the last GC|Deployment, AppName, Pod|
+|threadpool-completed-items-count|Yes|threadpool-completed-items-count|Count|Average|ThreadPool Completed Work Items Count|Deployment, AppName, Pod|
+|threadpool-queue-length|Yes|threadpool-queue-length|Count|Average|ThreadPool Work Items Queue Length|Deployment, AppName, Pod|
+|threadpool-thread-count|Yes|threadpool-thread-count|Count|Average|Number of ThreadPool Threads|Deployment, AppName, Pod|
+|time-in-gc|Yes|time-in-gc|Percent|Average|% time in GC since the last GC|Deployment, AppName, Pod|
 |tomcat.global.error|Yes|tomcat.global.error|Count|Total|Tomcat Global Error|Deployment, AppName, Pod|
 |tomcat.global.received|Yes|tomcat.global.received|Bytes|Total|Tomcat Total Received Bytes|Deployment, AppName, Pod|
 |tomcat.global.request.avg.time|Yes|tomcat.global.request.avg.time|Milliseconds|Average|Tomcat Request Average Time|Deployment, AppName, Pod|
@@ -229,8 +229,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |tomcat.sessions.rejected|Yes|tomcat.sessions.rejected|Count|Total|Tomcat Session Rejected Count|Deployment, AppName, Pod|
 |tomcat.threads.config.max|Yes|tomcat.threads.config.max|Count|Total|Tomcat Config Max Thread Count|Deployment, AppName, Pod|
 |tomcat.threads.current|Yes|tomcat.threads.current|Count|Total|Tomcat Current Thread Count|Deployment, AppName, Pod|
-|total-requests|Yes|Microsoft.AspNetCore.Hosting|total-requests|Count|Average|Total number of requests in the lifetime of the process|Deployment, AppName, Pod|
-|working-set|Yes|System.Runtime|working-set|Count|Average|Amount of working set used by the process (MB)|Deployment, AppName, Pod|
+|total-requests|Yes|total-requests|Count|Average|Total number of requests in the lifetime of the process|Deployment, AppName, Pod|
+|working-set|Yes|working-set|Count|Average|Amount of working set used by the process (MB)|Deployment, AppName, Pod|
 
 
 ## Microsoft.Automation/automationAccounts
