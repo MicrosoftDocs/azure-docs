@@ -9,6 +9,7 @@ ms.date: 12/16/2021
 ---
 
 # Log Analytics agent overview
+The Log Analytics agents are on a **deprecation path** and will no longer be supported after **August 31, 2024**. If you use the Log Analytics agents to ingest data to Azure Monitor, make sure to [migrate to the new Azure Monitor agent](./azure-monitor-agent-migration.md) prior to that date.  
 
 The Azure Log Analytics agent collects telemetry from Windows and Linux virtual machines in any cloud, on-premises machines, and those monitored by [System Center Operations Manager](/system-center/scom/) and sends collected data to your Log Analytics workspace in Azure Monitor. The Log Analytics agent also supports insights and other services in Azure Monitor such as [VM insights](../vm/vminsights-enable-overview.md), [Microsoft Defender for Cloud](../../security-center/index.yml), and [Azure Automation](../../automation/automation-intro.md). This article provides a detailed overview of the agent, system and network requirements, and deployment methods.
 

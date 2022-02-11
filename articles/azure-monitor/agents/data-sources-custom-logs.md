@@ -4,7 +4,7 @@ description: Azure Monitor can collect events from text files on both Windows an
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
+ms.date: 02/07/2022
 
 ---
 
