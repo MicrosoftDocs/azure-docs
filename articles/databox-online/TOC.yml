@@ -7,10 +7,6 @@
     items:
     - name: What is Azure Stack Edge Pro 2?
       href: azure-stack-edge-pro-2-overview.md
-  - name: Quickstarts
-    items:
-    - name: Get started
-      href: azure-stack-edge-placeholder.md
   - name: Tutorials
     items:
     - name: 0 - Get checklist
@@ -48,11 +44,7 @@
     - name: Security overview
       href: azure-stack-edge-pro-r-security.md
     - name: Review specifications
-      items:
-      - name: Device specifications
-        href: azure-stack-edge-pro-2-technical-specifications-compliance.md
-      - name: Power cord specifications
-        href: azure-stack-edge-placeholder.md
+      href: azure-stack-edge-pro-2-technical-specifications-compliance.md
         
 - name: Azure Stack Edge Pro - GPU
   items:
