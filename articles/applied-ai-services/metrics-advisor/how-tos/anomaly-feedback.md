@@ -63,7 +63,7 @@ As the figure below shows, you could select `ChangePoint` for the feedback Type,
 
 ## Seasonality
 
-For seasonal data, when we perform anomaly detection, one step is to estimate the period(seasonality) of the time series, and apply it to the anomaly detection phase. Sometimes, it's hard to identify a precise period, and the period may also change. An incorrectly defined period may have side effects on your anomaly detection results. You can find the current period from a tooltip, its name is `Min Period`.
+For seasonal data, when we perform anomaly detection, one step is to estimate the period(seasonality) of the time series, and apply it to the anomaly detection phase. Sometimes, it's hard to identify a precise period, and the period may also change. An incorrectly defined period may have side effects on your anomaly detection results. You can find the current period from a tooltip, its name is `Min Period`. The `Window` is a recommended window size to detect the last point within the window, usually the Window is `4 * Min Periods + 1`. 
 
 :::image type="content" source="../media/feedback/min-period.png" alt-text="Tooltip overlay with the words Period and the number seven highlighted in red.":::
 
