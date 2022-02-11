@@ -61,7 +61,7 @@ Familiarizing yourself with [F5 BIG-IP terminology](https://www.f5.com/services/
 
 ## Add F5 BIG-IP from the Azure AD gallery
 
-Setting up a SAML federation trust between the BIG-IP allows the Azure AD BIG-IP to hand off the pre-authentication and [Conditional Access](../azure/active-directory/conditional-access/overview.md) to Azure AD, before granting access to the published VPN service.
+Setting up a SAML federation trust between the BIG-IP allows the Azure AD BIG-IP to hand off the pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview) to Azure AD, before granting access to the published VPN service.
 
 1. Sign in to the Azure AD portal using an account with application admin rights
 
@@ -307,6 +307,6 @@ The F5 VPN application should also be visible as a target resource in Azure AD C
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [Five steps to full application integration with Azure AD](../azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad.md)
+- [Five steps to full application integration with Azure AD](/azure/active-directory/fundamentals/five-steps-to-full-application-integration-with-azure-ad)
 
 - [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
