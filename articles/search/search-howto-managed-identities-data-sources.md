@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/11/2022
 ---
 
 # Connect a search service to other Azure resources using a managed identity

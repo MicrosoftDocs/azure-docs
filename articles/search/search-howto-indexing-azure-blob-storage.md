@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 02/11/2022
 ---
 
 # Index data from Azure Blob Storage
