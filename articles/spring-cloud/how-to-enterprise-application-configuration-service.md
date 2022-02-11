@@ -24,6 +24,9 @@ With Application Configuration Service, you have a central place to manage exter
 
 - An already provisioned Azure Spring Cloud Enterprise tier instance with Application Configuration Service enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 
+  > [!NOTE]
+  > To use Application Configuration Service, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+
 ## Manage Application Configuration Service settings
 
 Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your configuration files.

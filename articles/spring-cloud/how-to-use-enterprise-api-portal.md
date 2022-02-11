@@ -21,9 +21,15 @@ This article shows you how to use the API portal with Azure Spring Cloud Enterpr
 ## Prerequisites
 
 - An already provisioned Azure Spring Cloud Enterprise tier instance with API portal enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+
+  > [!NOTE]
+  > To use API portal, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+
 - [Spring Cloud Gateway](./how-to-use-enterprise-spring-cloud-gateway.md) is enabled during provisioning and the corresponding API metadata is configured.
 
 ## Configure the API portal
+
+The following sections describe configuration in the API portal.
 
 ### Configure single sign-on (SSO)
 

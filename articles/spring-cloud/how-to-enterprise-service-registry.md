@@ -22,6 +22,9 @@ This article shows you how to use Service Registry with Azure Spring Cloud Enter
 
 - An already provisioned Azure Spring Cloud Enterprise tier instance with Service Registry enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 
+  > [!NOTE]
+  > To use Service Registry, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+
 ## Use Service Registry with apps
 
 Before your application can manage service registration and discovery using Service Registry, you must include the following dependency in your application's *pom.xml* file:

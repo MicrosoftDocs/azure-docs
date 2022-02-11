@@ -58,7 +58,7 @@ For Steeltoe 3.0, add the latest [Microsoft.Azure.SpringCloud.Client 2.x.x](http
 
 In the `Program.Main` method, call the `UseAzureSpringCloudService` method.
 
-For Steeltoe 2.4.4, call `UseAzureSpringCloudService` after `ConfigureWebHostDefaults` and after `AddConfigServer` if it is called:
+For Steeltoe 2.4.4, call `UseAzureSpringCloudService` after `ConfigureWebHostDefaults` and after `AddConfigServer` if it's called:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -157,7 +157,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version |
 |---------------------|----------------------|
-| 2.4.x, 2.5.x        | 2020.0 aka Ilford +  |
+| 2.4.x, 2.5.x        | 2020.0 also known as Ilford +  |
 | 2.6.x               | 2021.0.0+            |
 
 ---

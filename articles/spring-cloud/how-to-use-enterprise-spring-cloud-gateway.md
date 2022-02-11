@@ -16,11 +16,20 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to use Spring Cloud Gateway with Azure Spring Cloud Enterprise Tier.
 
-[Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as: Single Sign-On (SSO), access control, rate-limiting, resiliency, security, and more. Accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
+[Spring Cloud Gateway](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/index.html) is one of the commercial VMware Tanzu components. It's based on the open-source Spring Cloud Gateway project. Spring Cloud Gateway handles cross-cutting concerns for API development teams, such as Single Sign-On (SSO), access control, rate-limiting, resiliency, security, and more. You can accelerate API delivery using modern cloud native patterns, and any programming language you choose for API development.
 
 Spring Cloud Gateway also has other commercial API route filters for transporting authorized JSON Web Token (JWT) claims to application services, client certificate authorization, rate-limiting approaches, circuit breaker configuration, and support for accessing application services via HTTP Basic Authentication credentials.
 
-To integrate with [API portal](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway automatically generates OpenAPI version 3 documentation once the route configuration gets changed.
+To integrate with [API portal](./how-to-use-enterprise-api-portal.md), Spring Cloud Gateway automatically generates OpenAPI version 3 documentation after the route configuration gets changed.
+
+## Prerequisites
+
+- An already provisioned Azure Spring Cloud Enterprise tier service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+
+  > [!NOTE]
+  > To use Spring Cloud Gateway, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+
+- [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
 ## How Spring Cloud Gateway works
 
@@ -34,11 +43,6 @@ Default resource usage:
 |-------------------------------|----------------|-------------------|---------------------|
 | Spring Cloud Gateway          | 2              | 1 core            | 2Gi                 |
 | Spring Cloud Gateway operator | 2              | 1 core            | 2Gi                 |
-
-## Prerequisites
-
-- An already provisioned Azure Spring Cloud Enterprise tier service instance with Spring Cloud Gateway enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
-- [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
 ## Configure Spring Cloud Gateway
 
