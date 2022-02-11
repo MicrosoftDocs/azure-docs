@@ -26,7 +26,7 @@ This page is updated monthly, so revisit it regularly.
 <table>
 <tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
-<tr><td rowspan=5><b>Data Flow</b></td><td>Quick re-use is now automatic in all Azure IRs that use a TTL</td><td>You will no longer need to manually specify “quick reuse”. ADF mapping data flows can now start-up subsequent data flow activities in under 5 seconds once you’ve set a TTL.<br><a href="TBD">Learn more</a></td></tr>
+<tr><td rowspan=5><b>Data Flow</b></td><td>Quick re-use is now automatic in all Azure IRs that use a TTL</td><td>You will no longer need to manually specify “quick reuse”. ADF mapping data flows can now start-up subsequent data flow activities in under 5 seconds once you’ve set a TTL.<br><a href="concepts-integration-runtime-performance.md#time-to-live">Learn more</a></td></tr>
  
 <tr><td>Retrieve your custom Assert description</td><td>In the Assert transformation, you can define your own dynamic description message. We’ve added a new function called assertErrorMessage() that you can use to retrieve the row-by-row message and store it in your destination data.<br><a href="data-flow-expressions-usage.md#assertErrorMessages">Learn more</a></td></tr>
   
