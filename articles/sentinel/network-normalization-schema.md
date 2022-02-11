@@ -98,7 +98,7 @@ Network session events use the descriptors `Src` and `Dst` to denote the roles o
 
 For events reported by an endpoint and for which the event type is `EndpointNetworkSession`, the descriptors `Local` and `Remote` denote the endpoint itself and the device at the other end of the network session respectively.
 
-The descriptor 'Dvc' is used for the reporting device, which is the local system for sessions reported by an endpoint, and the intermediary device or network tap for other network session events. 
+The descriptor `Dvc` is used for the reporting device, which is the local system for sessions reported by an endpoint, and the intermediary device or network tap for other network session events. 
 
 ## Schema details
 
@@ -247,7 +247,7 @@ The descriptor 'Dvc' is used for the reporting device, which is the local system
 
 All the source and destination fields listed above, can be optionally aliased by fields with the same name and the descriptors `Local` and `Remote`. This is typically helpful for events reported by an endpoint and for which the event type is `EndpointNetworkSession`. 
 
-For such events the descriptors `Local` and `Remote` denote the endpoint itself and the device at the other end of the network session respectively. For inbound connections, the local system is the destination, `Local` fields are aliases to the `Dst` fields, and 'Remote' fields are aliases to `Src` fields. Conversely, for outbound connections, the local system is the source, `Local` fields are aliases to the `Src` fields, and 'Remote' fields are aliases to `Dst` fields.
+For such events the descriptors `Local` and `Remote` denote the endpoint itself and the device at the other end of the network session respectively. For inbound connections, the local system is the destination, `Local` fields are aliases to the `Dst` fields, and 'Remote' fields are aliases to `Src` fields. Conversely, for outbound connections, the local system is the source, `Local` fields are aliases to the `Src` fields, and `Remote` fields are aliases to `Dst` fields.
 
 For example, for an inbound event, the field `LocalIpAddr` is an alias to `DstIpAddr` and the field `RemoteIpAddr` is an alias to `SrcIpAddr`.
 
@@ -310,7 +310,7 @@ These are the changes in version 0.2.2 of the schema:
 - Defined `Hostname` and `IpAddr` as aliases for `RemoteHostname` and `LocalIpAddr` respectively when the event type is `EndpointNetworkSession`.
 - Defined `DvcInterface` as an alias to `DvcInboundInterface` or `DvcOutboundInterface`.
 - Changed the type of the following fields from Integer to Long: `SrcBytes`, `DstBytes`, `NetworkBytes`, `SrcPackets`, `DstPackets`, and `NetworkPackets`.
-- Added the fields `NetworkProtoolVersion`, `SrcSubscriptionId`, and `DstSubscriptionId`.
+- Added the fields `NetworkProtocolVersion`, `SrcSubscriptionId`, and `DstSubscriptionId`.
 - Deprecated `DstUserDomain` and `SrcUserDomain`.
 
 ## Next steps
