@@ -150,24 +150,18 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 | Spring Boot version | Spring Cloud version |
 |---------------------|----------------------|
-| 2.5.x               | 2020.0+ aka Ilford+  |
 | 2.6.x               | 2021.0.0+            |
+| 2.5.x               | 2020.0+ aka Ilford+  |
 
 ### [Enterprise tier](#tab/enterprise-tier)
 
 | Spring Boot version | Spring Cloud version |
 |---------------------|----------------------|
-| 2.4.x               | 2020.0+ aka Ilford+  |
-| 2.5.x               | 2020.0+ aka Ilford+  |
 | 2.6.x               | 2021.0.0+            |
+| 2.5.x               | 2020.0+ aka Ilford+  |
+| 2.4.x               | 2020.0+ aka Ilford+  |
 
 ---
-
-| Spring Boot version<br/>Basic/Standard | Spring Cloud version<br/>Basic/Standard | Spring Boot version<br/>Enterprise | Spring Cloud version<br>Enterprise |
-|----------------------------------------|-----------------------------------------|------------------------------------|------------------------------------|
-| not applicable                         | not applicable                          | 2.4.x                              | 2020.0+ aka Ilford+                |
-| 2.5.x                                  | 2020.0+ aka Ilford+                     | 2.5.x                              | 2020.0+ aka Ilford+                |
-| 2.6.x                                  | 2021.0.0+                               | 2.6.x                              | 2021.0.0+                          |
 
 For more information, see the following support pages:
 

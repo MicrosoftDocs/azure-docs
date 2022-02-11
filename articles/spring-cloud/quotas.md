@@ -35,7 +35,7 @@ All Azure services set default limits and quotas for resources and features.   A
 <sup>2</sup> You can increase this limit via support request to a maximum of 10.
 
 > [!TIP]
-> Limits listed for Total app instances per service instance apply for apps and deployments in any state, including stopped state. Please delete apps or deployments that are not in use.
+> Limits listed for Total app instances per service instance apply for apps and deployments in any state, including stopped state. Be sure to delete apps or deployments that aren't in use.
 
 ## Next steps
 
