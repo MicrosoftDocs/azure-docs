@@ -40,11 +40,11 @@
     - name: Review requirements
       items:
       - name: For Azure Stack Edge
-        href: azure-stack-edge-placeholder.md
+        href: azure-stack-edge-pro-2-system-requirements.md
       - name: For Azure Stack Edge Blob storage
         href: azure-stack-edge-placeholder.md
     - name: Understand limits
-      href: azure-stack-edge-placeholder.md 
+      href: azure-stack-edge-pro-2-limits.md 
     - name: Security overview
       href: azure-stack-edge-pro-r-security.md
     - name: Review specifications
