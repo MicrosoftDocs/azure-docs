@@ -56,8 +56,8 @@ To quickly create a Kubernetes cluster, use Azure Kubernetes Services (AKS).
     1. Specify your **Subscription**.
     1. Create a resource group, or specify an existing resource group.
     2. For **Cluster preset configuration**, review the available options and select for your workload. For a development/test proof of concept, use **Dev/Test**. Select a configuration with at least 4 vCPUs. 
-    3. Specify a cluster name
-    4. Specify a region
+    3. Specify a cluster name.
+    4. Specify a region.
     5. Under **Availability zones**, remove all selected zones. You should not specify any zones.
     6. Verify the Kubernetes version. For minimum supported version, see [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md).
     7. Under **Node size**, select a node size for your cluster based on the [Sizing guidance](sizing-guidance.md).
