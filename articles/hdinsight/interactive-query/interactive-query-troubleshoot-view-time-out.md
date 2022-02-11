@@ -8,7 +8,7 @@ ms.date: 01/24/2022
 
 # Scenario: Apache Hive View times out when fetching a query result in Azure HDInsight
 
-This article describes troubleshooting steps and possible resolutions for issues when using Interactive Query components in Azure HDInsight clusters.
+This article describes troubleshooting steps and possible resolutions for issues when using Interactive Query components in Azure HDInsight clusters. Future HDI 4.0 clusters will have a default timeout at 5 mins.
 
 ## Issue
 
@@ -70,6 +70,11 @@ The Hive View default timeout value may not be suitable for the query you are ru
    ```
    sudo ambari-server status
    ```
+   
+## Notes
+If you get a 502 error timing out at 2 mins (web request trace), then that is coming from the HDI gateway. The query is not suited for Hive View. It is recommended that you either try the following instead:
+- Use beeline
+- Re-write the query to be more optimal
 
 ## Next steps
 
