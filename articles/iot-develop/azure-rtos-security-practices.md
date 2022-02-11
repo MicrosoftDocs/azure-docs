@@ -24,14 +24,14 @@ Microsoft recommends an approach based on the principle of zero-trust when desig
 
 - **Least-privileged access** Devices should enforce least-privileged access control on local resources across workloads. For example, a firmware component that reports battery level shouldn't be able to access a camera component.
 
-- **Continual updates** A device should enable the Over-the-Air (OTA) feature, such as the [Device Update for IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-azure-real-time-operating-system) to push the firmware that contains the patches or bug fixes.
+- **Continual updates** A device should enable the Over-the-Air (OTA) feature, such as the [Device Update for IoT Hub](/azure/iot-hub-device-update/device-update-azure-real-time-operating-system) to push the firmware that contains the patches or bug fixes.
 
-- **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats for a large number of devices. The [Microsoft Defender for IoT](https://docs.microsoft.com/azure/defender-for-iot/device-builders/concept-rtos-security-module) can be used for that purpose.
+- **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats for a large number of devices. The [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders/concept-rtos-security-module) can be used for that purpose.
 
 
 ## Embedded Security Components - Cryptography
 
-Cryptography is a foundation of security in networked devices. There may exist some cases where cryptography may not be necessary for security. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public Internet. A secure IoT device that connects to a server or cloud service using Transport Layer Security (TLS) or similar protocols requires strong cryptography with protection for keys and secrets that are based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
+Cryptography is a foundation of security in networked devices. There may exist some cases where cryptography may not be necessary for security. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public internet. A secure IoT device that connects to a server or cloud service using Transport Layer Security (TLS) or similar protocols requires strong cryptography with protection for keys and secrets that are based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
 
 ### True random hardware-based entropy source
 
@@ -108,7 +108,7 @@ Combining hardware cryptography acceleration that implements secure cipher modes
 
 ## Embedded Security Components – Device Identity
 
-In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern Internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device to steal data, send fraudulent information, or tamper with device functionality. Therefore, you should make certain that each IoT device that connects to a cloud service has a way to identify itself that's not easily bypassed.
+In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device to steal data, send fraudulent information, or tamper with device functionality. Therefore, you should make certain that each IoT device that connects to a cloud service has a way to identify itself that's not easily bypassed.
 
 ### Unique verifiable device identifier
 
@@ -219,7 +219,7 @@ Preventing stack overflow is a primary security concern for any application. Azu
 
 ## Embedded Security Components – Secure Boot and Firmware Update
 
- An IoT device, unlike a traditional embedded device, will often be connected over the Internet to a cloud service for monitoring and data gathering. As a result, it's nearly certain that the device will be probed in some way, which could lead to an attack if a vulnerability is found. A successful attack may result in the discovery of an unknown vulnerability that further compromises the device and, more importantly, other devices of the same kind. For this reason, it's critical that an IoT device can be updated quickly and easily. This means that the firmware image itself must be verified, because if an attacker can load a compromised image onto a device then that device is lost. The solution is to pair a secure boot mechanism with remote firmware update (also called Over the Air, or OTA, update) capability. Secure boot verifies that a firmware image is valid and trusted, while an OTA update mechanism allows updates to be quickly and securely deployed to the device.
+ An IoT device, unlike a traditional embedded device, will often be connected over the internet to a cloud service for monitoring and data gathering. As a result, it's nearly certain that the device will be probed in some way, which could lead to an attack if a vulnerability is found. A successful attack may result in the discovery of an unknown vulnerability that further compromises the device and, more importantly, other devices of the same kind. For this reason, it's critical that an IoT device can be updated quickly and easily. This means that the firmware image itself must be verified, because if an attacker can load a compromised image onto a device then that device is lost. The solution is to pair a secure boot mechanism with remote firmware update (also called Over the Air, or OTA, update) capability. Secure boot verifies that a firmware image is valid and trusted, while an OTA update mechanism allows updates to be quickly and securely deployed to the device.
 
 ### Secure boot
 
@@ -349,7 +349,7 @@ When available, an IoT device should use a watchdog timer to reset an unresponsi
 
 **Azure RTOS**: No specific Azure RTOS functionality required.
 
-**Application**: Watchdog timer management – refer to device hardware platform documentation for more information.
+**Application**: Watchdog timer management--refer to device hardware platform documentation for more information.
 
 ### Remote error logging
 
@@ -363,7 +363,7 @@ Use cloud resources to record and analyze device failures remotely. Aggregate er
 
 ### Disable unused protocols and features
 
-RTOS and MCU-based applications will typically have a few dedicated functions. This is in sharp contrast to general purpose computing machines running higher-level operating systems, such as Windows and Linux, that enable dozens or hundreds of protocols and features by default. When designing an RTOS MCU application, look closely at what networking protocols are actually required. Every protocol that is enabled represents a different avenue for attackers to gain a foothold within the device. If you don’t need a feature or protocol, don’t enable it.
+RTOS and MCU-based applications will typically have a few dedicated functions. This feature is in sharp contrast to general purpose computing machines running higher-level operating systems, such as Windows and Linux, that enable dozens or hundreds of protocols and features by default. When designing an RTOS MCU application, look closely at what networking protocols are required. Every protocol that is enabled represents a different avenue for attackers to gain a foothold within the device. If you don’t need a feature or protocol, don’t enable it.
 
 **Hardware**: No specific hardware requirements, but if the platform allows unused peripherals and ports to be disabled, use that functionality to reduce your attack surface.
 
@@ -397,7 +397,7 @@ Some MCU devices permit unaligned memory accesses, but others do not. Consider t
 
 **Azure RTOS**: For processors that do NOT support unaligned access, ensure that the macro `NX_CRYPTO_DISABLE_UNALIGNED_ACCESS` is defined. Failure to do so will result in possible CPU faults during certain cryptographic operations.
 
-**Application**: In any memory operation (for example, copy or move) consider the memory alignment behavior of your hardware platform.
+**Application**: In any memory operation (for example, copy or move) considers the memory alignment behavior of your hardware platform.
 
 ### Runtime security monitoring and threat detection
 
@@ -443,7 +443,7 @@ The previous sections detailed specific design considerations with descriptions 
 
 - DO use static code analysis tools to determine if there are any errors in logic or pointer arithmetic – all errors can be potential vulnerabilities.
 
-- DO research fuzz testing (or “fuzzing”) for your application. Fuzzing is a security-focused process where message parsing for incoming data is subjected to large quantities of random or semi-random data to observe the behavior when invalid data is processed. It's based on techniques used by hackers to discover buffer overflow and other errors that may be used in an exploit to attack a system.
+- DO research fuzz testing (or “fuzzing”) for your application. Fuzzing is a security-focused process where message parsing for incoming data is subjected to large quantities of random or semi-random data. The purpose is to observe the behavior when invalid data is processed. It's based on techniques used by hackers to discover buffer overflow and other errors that may be used in an exploit to attack a system.
 
 - DO perform code walk-through audits to look for confusing logic and other errors. If you can’t understand a piece of code, it’s possible that code contains vulnerabilities.
 
@@ -463,13 +463,13 @@ The previous sections detailed specific design considerations with descriptions 
 
 - DO NOT use any TLS extensions that aren't needed. Azure RTOS TLS disables many features by default. Only enable features you need.
 
-- DO NOT try to implement “Security by obscurity”. It is NOT SECURE. The industry is littered with examples where a developer tried to be clever by obscuring or hiding code or algorithms. Obscuring your code or secret information like keys or passwords may prevent some intruders but it won't stop a dedicated attacker. Obscured code provides a false sense of security.
+- DO NOT try to implement “Security by obscurity”. It's NOT SECURE. The industry is plagued with examples where a developer tried to be clever by obscuring or hiding code or algorithms. Obscuring your code or secret information like keys or passwords may prevent some intruders but it won't stop a dedicated attacker. Obscured code provides a false sense of security.
 
-- DO NOT leave unnecessary functionality enabled or unused network or hardware ports open. If your application doesn’t need a feature, disable it. Don’t fall into the trap of leaving a TCP port open “just in case”. The more functionality that is enabled, the higher the risk that an exploit will go undetected and the interaction between different features can introduce new vulnerabilities.
+- DO NOT leave unnecessary functionality enabled or unused network or hardware ports open. If your application doesn’t need a feature, disable it. Don’t fall into the trap of leaving a TCP port open “just in case”. The more functionality that is enabled, the higher the risk that an exploit will go undetected, and the interaction between different features can introduce new vulnerabilities.
 
-- DO NOT leave debugging enabled in production code. If an attacker can just plug in a JTAG debugger and dump the contents of RAM on your device, there's very little that can be done to secure your application. Leaving a debugging port open is the equivalent of leaving your front door open with your valuables lying in plain sight. Don’t do it.
+- DO NOT leave debugging enabled in production code. If an attacker can simply plug in a JTAG debugger and dump the contents of RAM on your device, there's very little that can be done to secure your application. Leaving a debugging port open is the equivalent of leaving your front door open with your valuables lying in plain sight. Don’t do it.
 
-- DO NOT allow buffer overflows in your application. Many remote attacks start with a buffer overflow that is used to probe the contents of memory or inject malicious code to be executed. The best defense is to write defensive code. Double check any input that comes from or is derived from sources outside the device (network stack, display/GUI interface, external interrupts, etc.) and handle the error gracefully. Use compiler, linker, and runtime system tools to detect and mitigate overflow problems.
+- DO NOT allow buffer overflows in your application. Many remote attacks start with a buffer overflow that is used to probe the contents of memory or inject malicious code to be executed. The best defense is to write defensive code. Double check any input that comes from, or is derived from, sources outside the device (network stack, display/GUI interface, external interrupts, etc.) and handle the error gracefully. Use compiler, linker, and runtime system tools to detect and mitigate overflow problems.
 
 - DO NOT put network packets on local thread stacks where an overflow can affect return addresses, leading to Return-Oriented Programming vulnerabilities.
 
@@ -479,7 +479,7 @@ The previous sections detailed specific design considerations with descriptions 
 
 - DO NOT embed function pointers in data packets where overflow can overwrite function pointers.
 
-- DO NOT try to implement your own cryptography. Accepted cryptographic routines like Elliptic Curve Cryptography (ECC) and AES have been developed by experts in cryptography and have gone through rigorous analysis over many years (sometimes decades) to prove their security. It's highly unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
+- DO NOT try to implement your own cryptography. Accepted cryptographic routines like Elliptic Curve Cryptography (ECC) and AES have been developed by experts in cryptography. These routines have gone through rigorous analysis over many years (sometimes decades) to prove their security. It's highly unlikely that any algorithm you develop on your own will have the security required to protect sensitive communications and data.
 
 - DO NOT implement roll-your-own cryptography schemes. Simply using AES doesn't mean your application is secure. Protocols like TLS use various methods to mitigate well known attacks. For example:
 
