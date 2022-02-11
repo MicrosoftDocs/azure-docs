@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 01/02/2022
+ms.date: 01/25/2022
 ---
 # Enable Microsoft Defender for Containers
 
@@ -24,6 +24,14 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 > Defender for Containers' support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is a preview feature.
 > 
 > [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
+::: zone-end
+
+::: zone pivot="defender-for-container-aks"
+[!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-aks.md)]
+::: zone-end
+
+::: zone pivot="defender-for-container-arc,defender-for-container-eks"
+[!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-arc-eks.md)]
 ::: zone-end
 
 ::: zone pivot="defender-for-container-aks"

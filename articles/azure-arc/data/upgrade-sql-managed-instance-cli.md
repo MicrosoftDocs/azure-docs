@@ -1,5 +1,5 @@
 ---
-title: Upgrade an an indirectly connected Azure Arc-enabled Managed Instance using the CLI
+title: Upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
 description: Article describes how to upgrade an indirectly connected Azure Arc-enabled Managed Instance using the CLI
 services: azure-arc
 ms.service: azure-arc
@@ -47,7 +47,13 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 
 ### General Purpose
 
-During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency.
+During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency and [Retry Guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
+
+### Business Critical 
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-business-critical-upgrade.md)]
+
+### Upgrade
 
 To upgrade the Managed Instance, use the following command:
 
@@ -58,7 +64,7 @@ az sql mi-arc upgrade --name <instance name> --desired-version <version> --k8s-n
 Example:
 
 ````cli
-az sql mi-arc upgrade --name instance1 --target v1.0.0.20211028 --k8s-namespace arc1 --use-k8s
+az sql mi-arc upgrade --name instance1 --desired-version v1.0.0.20211028 --k8s-namespace arc1 --use-k8s
 ````
 
 ## Monitor

@@ -24,6 +24,8 @@ Here are main scenarios where Closed Captions are useful:
 - **Accessibility**. Scenarios when audio can't be heard, either because of a noisy environment, such as an airport, or because of an environment that must be kept quiet, such as a hospital. 
 - **Inclusivity**. Closed Captioning was developed to aid hearing-impaired people, but it could be useful for a language proficiency as well. 
 
+![closed captions work flow](../media/call-closed-caption.png)
+
 ## When to use Closed Captions
 
 - Closed Captions help maintain concentration and engagement, which can provide a better experience for viewers with learning disabilities, a language barrier, attention deficit disorder, or hearing impairment. 
@@ -45,7 +47,7 @@ The private preview will be available on all platforms.
 
 ## Next steps
 
-- Get started with a Closed Caption Quickstart (TBD)
+- Get started with a [Closed Captions Quickstart](Thttps://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/get-started-with-closed-captions?pivots=platform-iosBD)
 
 
 

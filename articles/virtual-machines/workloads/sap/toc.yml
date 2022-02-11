@@ -120,6 +120,8 @@
     href: cal-s4h.md
   - name: SAP IDES on Windows/SQL Server SAP CAL
     href: cal-ides-erp6-erp7-sp3-sql.md   
+  - name: SAP ILM
+    href: sap-information-lifecycle-management.md
   - name: SAP BOBI Platform on Azure
     items:
     - name: SAPI BOBI planning and implementation guide on Azure 
@@ -317,6 +319,8 @@
       href: automation-configure-extra-disks.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
+    - name: Configure Azure DevOps
+      href: automation-configure-devops.md  
     - name: Configure external tools
       href: automation-tools-configuration.md
   - name: Script reference
@@ -379,6 +383,8 @@
       href: automation-run-ansible.md
     - name: Deployment hands-on lab
       href: automation-tutorial.md
+    - name: Deployment DevOps hands-on lab
+      href: automation-devops-tutorial.md
     - name: Manual infrastructure deployment
       href: automation-manual-deployment.md
     - name: Sample deployment configurations

@@ -14,8 +14,7 @@ ms.custom: template-how-to
 
 This article outlines how to register SAP HANA, and how to authenticate and interact with SAP HANA in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> SAP HANA as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -34,6 +33,8 @@ When scanning SAP HANA source, Azure Purview supports extracting technical metad
 - Functions including the parameter dataset
 - Sequences
 - Synonyms
+
+When setting up scan, you can choose to scan an entire SAP HANA database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -134,7 +135,7 @@ The supported authentication type for a SAP HANA source is **Basic authenticatio
 
     1. **Database**: Specify the name of the database instance to import.
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default. When the list is empty, all available schemas are imported.
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default.
        
         Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
         * Start with A or

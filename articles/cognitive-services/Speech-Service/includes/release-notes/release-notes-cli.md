@@ -6,12 +6,59 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### Speech CLI 1.20.0: January 2022 release
+
+#### New features
+- Speaker recognition
+    - `spx profile enroll` and `spx speaker [identify/verify]` now support microphone input
+- Intent recognition (`spx intent`)
+    - `--keyword FILE.table`
+    - `--pattern` and `--patterns`
+    - `--output all/each intentid`
+    - `--output all/each entity json`
+    - `--output all/each ENTITY entity`
+    - `--once`, `--once+`, `--continuous` (continuous now default)
+    - `--output all/each connection EVENT`
+    - `--output all/each connection message` (for example, `text`, `path`)
+- CLI console output expectation checking/authoring:
+    - `--expect PATTERN` and `--not expect PATTERN` support on all commands
+    - `--auto expect` to assist authoring expected patterns
+- SDK logging output expectation checking/authoring
+    - `--log expect PATTERN` and `--not log expect PATTERN` support on all commands
+    - `--log auto expect [FILTER]` support on all commands
+    - `--log FILE` support on `spx profile` and `spx speaker`
+- Audio file input
+    - `--format ANY` support on all commands
+    - `--file -` support (reading from standard input, enabling pipe scenarios)
+- Audio file output
+    - `--audio output -` Writing to standard output, enabling pipe scenarios
+- Output files
+    - `--output all/each file -` Write to standard output
+    - `--output batch file -` Write to standard output
+    - `--output vtt file -` Write to standard output
+    - `--output json file -` Write to standard output, for `spx csr` and `spx batch` commands
+- Output properties
+    - `--output […] result XXX property` (PropertyId or string)
+    - `--output […] connection message received XXX property` (PropertyId or string)
+    - `--output […] recognizer XXX property` (PropertyId or string)
+- Azure WebJob integration
+    - `spx webjob` now follows sub-command pattern
+    - Updated WebJob help to reflect the sub-command pattern (see `spx help webjob`)
+
+
+#### Bug fixes
+
+- Fixed bug when both `--output vtt FILE` and `--output batch FILE` are used at the same time
+- `spx [...] --zip ZIPFILENAME` now includes all binaries required for all scenarios (if present)
+- `spx profile` and `spx speaker` commands now return detailed error information on cancellation
+
+
 ### 2021-May release
 
 #### New features
 
-- Added support for Profile, Speaker ID and Speaker verification - Try `spx profile` and `spx speaker` from the command line.
-- We also added Dialog support - Try `spx dialog` from the command line.
+- Added support for Profile, Speaker ID, and Speaker verification - Try `spx profile` and `spx speaker` from the command-line.
+- We also added Dialog support - Try `spx dialog` from the command-line.
 - Improved `spx` help. Please give us feedback about how this works for you by opening a [GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).
 - We've decreased the size of the .NET tool install.
 
@@ -38,7 +85,7 @@ Stay healthy!
 ### 2021-January release
 
 #### New features
-- Speech CLI is now available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.CLI/) and can be installed via .NET CLI as a .NET global tool you can call from the shell/command line.
+- Speech CLI is now available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.CLI/) and can be installed via .NET CLI as a .NET global tool you can call from the shell/command-line.
 - The [Custom Speech DevOps Template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) has been updated to use Speech CLI for its Custom Speech workflows.
 
 #### COVID-19 abridged testing
@@ -46,7 +93,7 @@ As the ongoing pandemic continues to require our engineers to work from home, pr
 Stay healthy!
 
 ### 2020-October release
-SPX is the command line interface to use the Azure Speech service without writing code.
+SPX is the command-line interface to use the Azure Speech service without writing code.
 Download the latest version [here](../../spx-basics.md). <br>
 
 #### New features
@@ -72,4 +119,4 @@ Stay healthy!
 
 ### Speech CLI (Also known as SPX): 2020-May release
 
-**SPX** is a new command line tool that allows you to perform recognition, synthesis, translation, batch transcription, and custom speech management from the command line. Use it to test the Speech Service, or to script the Speech Service tasks you need to perform. Download the tool and read the documentation [here](../../spx-overview.md).
+**SPX** is a new command-line tool that allows you to perform recognition, synthesis, translation, batch transcription, and Custom Speech management from the command-line. Use it to test the Speech service, or to script the Speech service tasks you need to perform. Download the tool and read the documentation [here](../../spx-overview.md).
