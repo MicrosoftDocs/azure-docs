@@ -10684,7 +10684,22 @@
             "source_path_from_root": "/articles/active-directory-b2c/troubleshoot-custom-policies.md",
             "redirect_url": "/azure/active-directory-b2c/troubleshoot",
             "redirect_document_id": false
-          },
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-b2c/tutorial-authenticate-nodejs-web-app-msal.md",
+            "redirect_url": "/azure/active-directory-b2c/enable-authentication-in-node-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-b2c/tutorial-acquire-access-token.md",
+            "redirect_url": "/azure/active-directory-b2c/enable-authentication-in-node-web-app-with-api",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-b2c/tutorial-call-api-with-access-token.md",
+            "redirect_url": "/azure/active-directory-b2c/enable-authentication-in-node-web-app-with-api",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md",
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm",
