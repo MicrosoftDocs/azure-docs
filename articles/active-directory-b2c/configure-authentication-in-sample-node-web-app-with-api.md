@@ -1,5 +1,5 @@
 ---
-title: Configure authentication in a sample Node.js web API by using Azure AD B2C
+title: Configure authentication in a sample Node.js web API by using Azure Active Directory B2C
 description: Follow the steps in this article to learn how to configure authentication in a sample Node.js web API by using Azure AD B2C
 titleSuffix: Azure AD B2C
 services: active-directory-b2c
@@ -54,7 +54,7 @@ To enable your app to sign in with Azure AD B2C and call a web API, you must reg
 
 The application registrations and the application architecture are described in the following diagram:
 
-![Diagram of the application registrations and the application architecture for an app with web API.](./media/enable-authentication-web-api/app-with-api-architecture.png) 
+![Diagram of the application registrations and the application architecture for an app with web A P I.](./media/enable-authentication-web-api/app-with-api-architecture.png) 
 
 ## Prerequisites
 
@@ -239,7 +239,7 @@ You're now ready to test the web application's scoped access to the web API. Run
     ```
 1. In your browser, go to `http://localhost:3000`. You should see the page with two buttons, **Sign in to call PROTECTED API** and **Or call the ANONYMOUS API**.
 
-    :::image type="content" source="./media/tutorial-call-api-using-access-token/sign-in-call-api.png" alt-text="Web page for sign in to call protected api.":::
+    :::image type="content" source="./media/tutorial-call-api-using-access-token/sign-in-call-api.png" alt-text="Web page for sign in to call protected A P I.":::
 
 1. To call the anonymous API, select the **Or call the ANONYMOUS API**. The API responds with JSON object with `date` key such as:     
 
@@ -253,7 +253,7 @@ You're now ready to test the web application's scoped access to the web API. Run
 1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you have an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the following page with **Call the PROTECTED API** button.
 
 
-    :::image type="content" source="./media/tutorial-call-api-using-access-token/signed-in-to-call-api.png" alt-text="Web page for signed to call protected api.":::
+    :::image type="content" source="./media/tutorial-call-api-using-access-token/signed-in-to-call-api.png" alt-text="Web page for signed to call protected A P I.":::
 
 1. To call the protected API, select the **Call the PROTECTED API** button. The API responds with JSON object with a `name` key whose value is your account's surname such as:
 

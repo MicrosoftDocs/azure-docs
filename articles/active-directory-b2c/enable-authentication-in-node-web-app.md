@@ -1,5 +1,5 @@
 ---
-title: Enable authentication in your own Node web application using Azure AD B2C
+title: Enable authentication in your own Node web application using Azure Active Directory B2C
 description: This article explains how to enable authentication in your own node.js web application using Azure AD B2C 
 titleSuffix: Azure AD B2C
 services: active-directory-b2c
@@ -13,7 +13,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Enable authentication in your own Node web application using Azure AD B2C
+# Enable authentication in your own Node web application using Azure Active Directory B2C
 
 In this article, you'll learn how to add Azure Active Directory B2C (Azure AD B2C) authentication in your own Node.js web application. You'll enable users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. This article uses [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to simplify adding authentication to your node web application. 
 

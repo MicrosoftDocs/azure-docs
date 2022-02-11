@@ -13,7 +13,7 @@ ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
 
-# Enable authentication options in a Node.js web app by using Azure AD B2C 
+# Enable authentication options in a Node.js web app by using Azure Active Directory B2C 
 
 This article describes how to enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Node.js web application. 
 

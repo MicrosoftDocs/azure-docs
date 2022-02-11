@@ -1,5 +1,5 @@
 ---
-title: Configure authentication in a sample Node.js web application by using Azure AD B2C
+title: Configure authentication in a sample Node.js web application by using Azure Active Directory B2C (Azure AD B2C)
 description: This article discusses how to use Azure Active Directory B2C to sign in and sign up users in a Node.js web application. 
 titleSuffix: Azure AD B2C
 services: active-directory-b2c
@@ -63,7 +63,7 @@ To register the web app, follow these steps:
 1. Select **Overview**.
 1. Record the **Application (client) ID** for later use, when you configure the web application.
 
-    ![Screenshot of the web app Overview page for recording your web app ID.](./media/configure-authentication-sample-python-web-app/get-azure-ad-b2c-app-id.png)
+    ![Screenshot of the web app Overview page for recording your web app I D.](./media/configure-authentication-sample-python-web-app/get-azure-ad-b2c-app-id.png)
 
 ### Step 2.2: Create a web app client secret
 
