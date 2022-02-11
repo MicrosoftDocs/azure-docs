@@ -108,6 +108,8 @@ To create the custom authorization and delegation in Azure Lighthouse, we use an
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
 1. Use the **Deploy to Azure** button to open the Azure portal and deploy the template directly in the portal. For more information, see [create an Azure Resource Manager template](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
+
+
    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
 1. On the **Custom deployment** page, enter the following information:
@@ -147,7 +149,9 @@ After you've deployed the template and waited a few minutes for the resource pro
 1. Sign in to the [Azure portal](https://portal.azure.com) with your **Azure AD B2C** administrative account. This account must be a member of the security group you specified in the [Delegate resource management](#3-delegate-resource-management) step.
 1. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, in the **Directory name** list,  find your Azure AD directory that contains the Azure subscription and the _azure-ad-b2c-monitor_ resource group you created, and then select **Switch**.
-1. Verify that you've selected the correct directory and subscription.
+1. Verify that you've selected the correct directory and your Azure subscription is listed and selected in the Default subscription filter
+   ![Default subscription filter](https://user-images.githubusercontent.com/38323403/153633175-947cc854-5bc3-49aa-896a-d870444b5821.png)
+
 
 ## 5. Configure diagnostic settings
 
@@ -178,7 +182,11 @@ To configure monitoring settings for Azure AD B2C activity logs:
 1. Check the box for each destination to send the logs. Select **Configure** to specify their settings **as described in the following table**.
 1. Select **Send to Log Analytics**, and then select the **Name of workspace** you created earlier (`AzureAdB2C`).
 1. Select **AuditLogs** and **SignInLogs**.
-1. Select **Save**.
+
+> [!NOTE]
+> Only the **AuditLogs** and **SignInLogs** diagnostic settings are currently supported for Azure AD B2C tenants.
+
+11. Select **Save**.
 
 > [!NOTE]
 > It can take up to 15 minutes after an event is emitted for it to [appear in a Log Analytics workspace](../azure-monitor/logs/data-ingestion-time.md). Also, learn more about [Active Directory reporting latencies](../active-directory/reports-monitoring/reference-reports-latencies.md), which can impact the staleness of data and play an important role in reporting.
