@@ -28,7 +28,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 
 1. In the **Add role assignment** pane, for **Role** field, select **CosmosRestoreOperator** role. Choose **User, group, or a service principal** for the **Assign access to** field and search for a user's name or email ID as shown in the following image:
 
-   :::image type="content" source="./media/continuous-backup-restore-permissions/assign-restore-operator-roles.png" alt-text="Assign CosmosRestoreOperator and Cosmos DB Operator roles." border="true":::
+   :::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions2.png" alt-text="Assign CosmosRestoreOperator and Cosmos DB Operator roles." border="true":::
 
 1. Select **Save** to grant the *restore/action* permission.
 
