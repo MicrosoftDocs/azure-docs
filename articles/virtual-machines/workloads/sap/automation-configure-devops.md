@@ -250,7 +250,10 @@ Create a new variable group 'SDAF-DEV' using the Library page in the Pipelines s
 | sap_fqdn                       | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.     |
 
 
-Save the variables and assign permissions for all pipelines using _Pipeline permissions_. For use with the web app, assign the administrator role to the build service using _Security_.
+Save the variables and assign permissions for all pipelines using _Pipeline permissions_. 
+
+> [!IMPORTANT]
+> For use with the web app, assign the administrator role to the build service using _Security_.
 
 ## Register the Deployer as a self-hosted agent for Azure DevOps
 
@@ -314,7 +317,7 @@ az ad app update --id $TF_VAR_app_registration_app_id --homepage https://${webap
 ---
 After updating the reply-urls, run the pipeline.
 
-After running the pipeline, by default there will be no public internet access to the website. To change the access restrictions, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, [click here](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions).
+After running the pipeline, by default there will be no public internet access to the website. To change the access restrictions, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions).
 
 ## Next step
 
