@@ -22,6 +22,7 @@ ms.custom: ignite-fall-2021
 
 | **Model**   | **Description**   |
 | --- | --- |
+| 🆕[Read (preview)](#read-preview) | Extract text lines, words, their locations, detected languages, and handwritten style if detected.  |
 | 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.  |
 | [Layout](#layout)  | Extracts text and layout information from documents.  |
 | [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
@@ -29,6 +30,19 @@ ms.custom: ignite-fall-2021
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
 | [Business card](#business-card)  | Extract key information from English business cards.  |
 | [Custom](#custom) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
+
+### Read (preview)
+
+:::image type="content" source="media/studio/read-card.png" alt-text="Screenshot: Studio read icon.":::
+
+The Read API analyzes and extracts ext lines, words, their locations, detected languages, and handwritten style if detected.
+
+***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***:
+
+:::image type="content" source="media/studio/analyze-form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
+
+> [!div class="nextstepaction"]
+> [Learn more: read model](concept-read.md)
 
 ### General document (preview)
 
