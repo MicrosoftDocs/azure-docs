@@ -146,11 +146,22 @@ Azure Spring Cloud will support the latest Spring Boot or Spring Cloud release w
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
-| Spring Boot version          | Spring Cloud version |
-|------------------------------|----------------------|
-| 2.4.x (Enterprise tier only) | 2020.0+ aka Ilford+  |
-| 2.5.x                        | 2020.0+ aka Ilford+  |
-| 2.6.x                        | 2021.0.0+            |
+### [Basic/Standard tier](#tab/basic-standard-tier)
+
+| Spring Boot version | Spring Cloud version |
+|---------------------|----------------------|
+| 2.5.x               | 2020.0+ aka Ilford+  |
+| 2.6.x               | 2021.0.0+            |
+
+### [Enterprise tier](#tab/enterprise-tier)
+
+| Spring Boot version | Spring Cloud version |
+|---------------------|----------------------|
+| 2.4.x               | 2020.0+ aka Ilford+  |
+| 2.5.x               | 2020.0+ aka Ilford+  |
+| 2.6.x               | 2021.0.0+            |
+
+---
 
 For more information, see the following support pages:
 
