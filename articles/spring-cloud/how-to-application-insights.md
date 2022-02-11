@@ -48,7 +48,7 @@ When the **Application Insights** feature is enabled, you can:
 * Select the link between customers-service and `petclinic` to see more details such as a query from SQL.
 * Select an endpoint to see all the applications making requests to the endpoint.
 
-* In the left navigation pane, select **Performance** to see the performance data of all applications' operations, as well as dependencies and roles.
+* In the left navigation pane, select **Performance** to see the performance data of all applications' operations, dependencies, and roles.
 
    :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-performance.png" alt-text="Azure portal screenshot of Application Insights with Performance page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-performance.png":::
 
@@ -56,7 +56,7 @@ When the **Application Insights** feature is enabled, you can:
 
    :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-failures.png" alt-text="Azure portal screenshot of Application Insights with Failures page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-failures.png":::
 
-* In the left navigation pane, select **Metrics** and select the namespace, you will see both Spring Boot metrics and custom metrics, if any.
+* In the left navigation pane, select **Metrics** and select the namespace, you'll see both Spring Boot metrics and custom metrics, if any.
 
    :::image type="content" source="media/spring-cloud-application-insights/insights-process-agent-metrics.png" alt-text="Azure portal screenshot of Application Insights with Metrics page showing." lightbox="media/spring-cloud-application-insights/insights-process-agent-metrics.png":::
 
@@ -88,7 +88,7 @@ Enable the Java In-Process Agent by using the following procedure.
 1. Select **Save** to save the change.
 
 > [!Note]
-> Do not use the same Application Insights instance in different Azure Spring Cloud instances, or you will see mixed data.
+> Do not use the same Application Insights instance in different Azure Spring Cloud instances, or you'll see mixed data.
 
 ::: zone-end
 
@@ -425,7 +425,7 @@ resource "azurerm_spring_cloud_service" "example" {
 
 ::: zone pivot="sc-enterprise-tier"
 
-Automation in Enterprise tier is pending support. Documentation will be added as soon as it is available.
+Automation in Enterprise tier is pending support. Documentation will be added as soon as it's available.
 
 ::: zone-end
 
@@ -438,9 +438,9 @@ The Java agent will be updated/upgraded regularly with the JDK, which may affect
 > [!Note]
 > The JDK version will be updated/upgraded quarterly per year.
 
-* Existing applications that use the Java agent before updating/upgrading will not be affected.
-* Applications created after updating/upgrading will leverage the new version of the Java agent.
-* Existing applications that did not previously use the Java agent will require restart or redeployment to leverage the new version of the Java agent.
+* Existing applications that use the Java agent before updating/upgrading won't be affected.
+* Applications created after updating/upgrading will use the new version of the Java agent.
+* Existing applications that didn't previously use the Java agent will require restart or redeployment to use the new version of the Java agent.
 
 ::: zone-end
 
@@ -480,15 +480,15 @@ The name `App Instance` from Azure Spring Cloud will be changed or generated in 
 * You restart the application.
 * You stop the deployment of an application, and then restart it.
 
-When data is stored in Application Insights, it contains the history of Azure Spring Cloud app instances created or deployed since the Java agent was enabled. This means that, in the Application Insights portal, you can see application data created yesterday, but then deleted within a specific time range, like the last 24 hours. The following scenarios show how this works:
+When data is stored in Application Insights, it contains the history of Azure Spring Cloud app instances created or deployed since the Java agent was enabled. For example, in the Application Insights portal, you can see application data created yesterday, but then deleted within a specific time range, like the last 24 hours. The following scenarios show how this works:
 
-* You created an application around 8:00 AM today from Azure Spring Cloud with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. After some testing, you change the code and deploy a new JAR file to this application at 8:30 AM today. Then, you take a break, and when you come back around 11:00 AM, you check some data from Application Insights. You will see:
-  * Three instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance, and Metrics.
-  * One instance in Application Map with a time range in the last hour, as well as Failures, Performance, and Metrics.
+* You created an application around 8:00 AM today from Azure Spring Cloud with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. After some testing, you change the code and deploy a new JAR file to this application at 8:30 AM today. Then, you take a break, and when you come back around 11:00 AM, you check some data from Application Insights. You'll see:
+  * Three instances in Application Map with time ranges in the last 24 hours, and Failures, Performance, and Metrics.
+  * One instance in Application Map with a time range in the last hour, and Failures, Performance, and Metrics.
   * One instance in Live Metrics.
-* You created an application around 8:00 AM today from Azure Spring Cloud with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. Around 8:30 AM today, you try a blue/green deployment with another JAR file. Currently, you have two deployments for this application. After a break around 11:00 AM today, you want to check some data from Application Insights. You will see:
-  * Three instances in Application Map with time ranges in the last 24 hours, as well as Failures, Performance, and Metrics.
-  * Two instances in Application Map with time ranges in last hour, as well as Failures, Performance, and Metrics.
+* You created an application around 8:00 AM today from Azure Spring Cloud with the Java agent enabled, and then you deployed a JAR file to this application around 8:10 AM today. Around 8:30 AM today, you try a blue/green deployment with another JAR file. Currently, you have two deployments for this application. After a break around 11:00 AM today, you want to check some data from Application Insights. You'll see:
+  * Three instances in Application Map with time ranges in the last 24 hours, and Failures, Performance, and Metrics.
+  * Two instances in Application Map with time ranges in last hour, and Failures, Performance, and Metrics.
   * Two instances in Live Metrics.
 
 ## Next steps

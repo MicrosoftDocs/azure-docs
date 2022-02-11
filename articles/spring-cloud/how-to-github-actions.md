@@ -288,7 +288,7 @@ jobs:
 
 #### Blue-green
 
-The following examples deploy to an existing staging deployment. This deployment will not receive production traffic until it is set as a production deployment. You can set use-staging-deployment true to find the staging deployment automatically or just allocate specific deployment-name. We will only focus on the spring-cloud-deploy action and leave out the preparatory jobs in the rest of the article.
+The following examples deploy to an existing staging deployment. This deployment won't receive production traffic until it is set as a production deployment. You can set use-staging-deployment true to find the staging deployment automatically or just allocate specific deployment-name. We will only focus on the spring-cloud-deploy action and leave out the preparatory jobs in the rest of the article.
 
 ```yml
 # environment preparation configurations omitted

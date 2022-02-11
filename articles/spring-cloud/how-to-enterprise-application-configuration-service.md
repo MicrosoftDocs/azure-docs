@@ -37,13 +37,13 @@ To manage the service settings, open the **Settings** section and add a new entr
 
 The properties for each entry are described in the following table.
 
-| Property | Required? | Description |
-| - | - | - |
-| Name | Yes | A unique name to label each Git repository. |
-| Patterns | Yes | Patterns to search in Git repositories. For each pattern, use a format like *{application}* or *{application}/{profile}* instead of *{application}-{profile}.yml*, and separate the patterns with commas. For more information, see the following [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section. |
-| URI | Yes | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`) |
-| Label | Yes | The branch name to search in the Git repository. |
-| Search path | No | Optional search paths, separated by commas, for searching subdirectories of the Git repository. |
+| Property    | Required? | Description                                                                                                                                                                                                                                                                                                                            |
+|-------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                                                            |
+| Patterns    | Yes       | Patterns to search in Git repositories. For each pattern, use a format like *{application}* or *{application}/{profile}* instead of *{application}-{profile}.yml*, and separate the patterns with commas. For more information, see the following [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section. |
+| URI         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                                                                  |
+| Label       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                                                                       |
+| Search path | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                                        |
 
 ### Pattern
 
@@ -66,21 +66,21 @@ The following image shows the three types of repository authentication supported
 
    The following table shows all the configurable properties used to set up a private Git repository with basic authentication.
 
-   | Property | Required? | Description |
-   | - | - | - |
-   | username | Yes | The username used to access the repository. |
-   | password | Yes | The password used to access the repository. |
+   | Property | Required? | Description                                 |
+   |----------|-----------|---------------------------------------------|
+   | username | Yes       | The username used to access the repository. |
+   | password | Yes       | The password used to access the repository. |
 
 - Private repository with SSH authentication
 
    The following table shows all configurable properties used to set up a private Git repository with SSH.
 
-   | Property | Required? | Description |
-   | - | - | - |
-   | Private key | Yes | The private key that identifies the Git user. Passphrase-encrypted private keys are not supported. |
-   | Host key | No | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Do not include the algorithm prefix as this is specified in `Host key algorithm`. |
-   | Host key algorithm | No | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`). |
-   | Strict host key checking | No | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`. |
+   | Property                 | Required? | Description                                                                                                                                                                                                                         |
+   |--------------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | Private key              | Yes       | The private key that identifies the Git user. Passphrase-encrypted private keys aren't supported.                                                                                                                                   |
+   | Host key                 | No        | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Don't include the algorithm prefix, because it's specified in `Host key algorithm`. |
+   | Host key algorithm       | No        | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`).                                                              |
+   | Strict host key checking | No        | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`.                                 |
 
 To validate access to the target URI, select **Validate**. After validation completes successfully, select **Apply** to update the configuration settings.
 
