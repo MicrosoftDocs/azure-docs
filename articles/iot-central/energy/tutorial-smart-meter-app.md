@@ -101,8 +101,8 @@ Click on the **Device templates** tab to see the smart meter device model. The m
 
 If you decide to not continue using this application, delete your application with the following these steps:
 
-1. From the left pane, open the **Administration** tab.
-1. Select **Application settings** and then the **Delete** button.
+1. From the left pane, open the **Application** tab.
+1. Select **Management** and then the **Delete** button.
 
     :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png" alt-text="Delete application.":::
 

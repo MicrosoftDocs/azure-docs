@@ -16,7 +16,7 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
-## May 2022
+## February 2022
 
 ### OCR (Read) API Public Preview supports 164 languages
 

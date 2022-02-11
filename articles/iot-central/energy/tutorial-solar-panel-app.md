@@ -107,7 +107,7 @@ To see the solar panel device model, select the **Device templates** tab. The mo
 
 If you decide not to continue using this application, delete your application with the following steps:
 
-1. From the left pane, select **Administration**.
-1. Select **Application settings** > **Delete**. 
+1. From the left pane, select **Application**.
+1. Select **Management** > **Delete**. 
 
     :::image type="content" source="media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png" alt-text="Screenshot of Solar Panel Monitoring Template Administration.":::
