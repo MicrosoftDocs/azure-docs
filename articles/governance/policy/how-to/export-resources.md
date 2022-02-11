@@ -3,7 +3,8 @@ title: Export Azure Policy resources
 description: Learn to export Azure Policy resources to GitHub, such as policy definitions and policy assignments.
 ms.date: 08/17/2021
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+devlang: devx-track-azurecli
 ---
 # Export Azure Policy resources
 

@@ -7,7 +7,8 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 01/27/2022
 ms.author: victorh 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Scale SNAT ports with Azure Virtual Network NAT

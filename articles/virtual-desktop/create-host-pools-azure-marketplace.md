@@ -5,7 +5,8 @@ author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions, devx-track-azurecli
 ms.date: 08/06/2021
-ms.author: helohr
+ms.author: helohr 
+ms.devlang: azurecli
 manager: femila
 ---
 # Tutorial: Create a host pool

@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: 
+ms.devlang: azurecli
 ms.topic: how-to
 author: LitKnd
 ms.author: kendralittle

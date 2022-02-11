@@ -11,7 +11,8 @@ ms.subservice: keys
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 

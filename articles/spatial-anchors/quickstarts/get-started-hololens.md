@@ -8,7 +8,8 @@ ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-api, devx-track-azurecli
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # Quickstart: Create a HoloLens app with Azure Spatial Anchors, in C++/WinRT and DirectX
 

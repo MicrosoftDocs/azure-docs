@@ -6,7 +6,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
-ms.devlang:
+ms.devlang: azurecli
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
@@ -57,7 +57,7 @@ The thumbprint of the current TDE protector of the database, and the database ID
 
 ```sql
 SELECT [database_id],
-       [encryption_state],
+???????????????  [encryption_state],
        [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/
        [encryptor_thumbprint]
  FROM [sys].[dm_database_encryption_keys]
@@ -73,11 +73,11 @@ Alternatively, you can use PowerShell or the Azure CLI:
 
 # [PowerShell](#tab/azure-powershell)
 
-The PowerShell command **Get-AzureRmSqlServerKeyVaultKey** provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
+The PowerShell command **Get-AzureRmSqlServerKeyVaultKey**???provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
 
 # [The Azure CLI](#tab/azure-cli)
 
-The PowerShell command **az sql server key show** provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
+The PowerShell command **az sql server key show**???provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
 
 * * *
 

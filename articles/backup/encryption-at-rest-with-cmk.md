@@ -6,7 +6,8 @@ ms.date: 12/02/2021
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+ms.author: v-amallick 
+ms.devlang: azurecli
 ---
 
 # Encryption of backup data using customer-managed keys

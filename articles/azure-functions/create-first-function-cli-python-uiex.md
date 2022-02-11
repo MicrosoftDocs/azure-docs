@@ -3,7 +3,7 @@ title: Create a Python function from the command line for Azure Functions
 description: Learn how to create a Python function from the command line and publish the local project to serverless hosting in Azure Functions.
 ms.date: 11/03/2020
 ms.topic: quickstart
-ms.devlang: python
+ms.devlang: python, azurecli
 ms.custom: devx-track-powershell, devx-track-azurecli, devx-track-azurepowershell, mode-api
 ROBOTS: NOINDEX,NOFOLLOW
 ---
@@ -120,7 +120,7 @@ You run all subsequent commands in this activated virtual environment.
 
 ## 3. Create a local function project
 
-In this section, you create a local <abbr title="A logical container for one or more individual functions that can be deployed and managed together.">Azure Functions project</abbr> in Python. Each function in the project responds to a specific <abbr title="The type of event that invokes the function’s code, such as an HTTP request, a queue message, or a specific time.">trigger</abbr>.
+In this section, you create a local <abbr title="A logical container for one or more individual functions that can be deployed and managed together.">Azure Functions project</abbr> in Python. Each function in the project responds to a specific <abbr title="The type of event that invokes the function???s code, such as an HTTP request, a queue message, or a specific time.">trigger</abbr>.
 
 1. Run the `func init` command to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 

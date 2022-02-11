@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 01/31/2022
 ms.service: app-service
 ms.role: developer
-ms.devlang: javascript
+ms.devlang: javascript, azurecli
 ms.custom: scenarios:getting-started, languages:JavaScript, devx-track-js, devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devx-track-azurecli
 ---
 

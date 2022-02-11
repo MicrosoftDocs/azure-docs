@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.devlang: csharp
+ms.devlang: csharp, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Scale an Azure Cache for Redis instance
@@ -178,7 +178,7 @@ While Standard and Premium caches have a 99.9% SLA for availability, there's no 
 
 ### Are there scaling limitations with geo-replication?
 
-With geo-replication configured, you might notice that you can’t scale a cache or change the shards in a cluster. A geo-replication link between two caches prevents you from scaling operation or changing the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
+With geo-replication configured, you might notice that you can???t scale a cache or change the shards in a cluster. A geo-replication link between two caches prevents you from scaling operation or changing the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
 
 ### Operations that aren't supported
 

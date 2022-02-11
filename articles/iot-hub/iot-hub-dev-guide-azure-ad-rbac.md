@@ -1,140 +1,143 @@
 ---
-title: Control access to IoT Hub by using Azure Active Directory 
-description: Developer guide. How to control access to IoT Hub for back-end apps by using Azure AD and Azure RBAC.
-author: jlian
-manager: briz
-ms.author: jlian
-ms.service: iot-hub
-services: iot-hub
-ms.topic: conceptual
-ms.date: 10/20/2021
-ms.custom: ['Role: Cloud Development', devx-track-azurecli]
+title: Tutorial - Set up the IoT resources you need for IoT Plug and Play | Microsoft Docs
+description: Tutorial - Create an IoT Hub and Device Provisioning Service instance to use with the IoT Plug and Play quickstarts and tutorials.
+author: dominicbetts
+ms.author: dobett
+ms.date: 08/11/2020
+ms.topic: quickstart
+ms.service: iot-develop
+services: iot-develop
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
-# Control access to IoT Hub by using Azure Active Directory
+# Tutorial: Set up your environment for the IoT Plug and Play quickstarts and tutorials
 
-You can use Azure Active Directory (Azure AD) to authenticate requests to Azure IoT Hub service APIs, like create device identity and invoke direct method. You can also use Azure role-based access control (Azure RBAC) to authorize those same service APIs. By using these technologies together, you can grant permissions to access IoT Hub service APIs to an Azure AD security principal. This security principal could be a user, group, or application service principal.
+Before you can complete any of the IoT Plug and Play quickstarts and tutorials, you need to configure an IoT hub and the Device Provisioning Service (DPS) in your Azure subscription. You'll also need local copies of the model files used by the sample applications and the Azure IoT explorer tool.
 
-Authenticating access by using Azure AD and controlling permissions by using Azure RBAC provides improved security and ease of use over [security tokens](iot-hub-dev-guide-sas.md). To minimize potential security issues inherent in security tokens, we recommend that you [use Azure AD with your IoT hub whenever possible](#azure-ad-access-and-shared-access-policies). 
+## Prerequisites
 
-> [!NOTE]
-> Authentication with Azure AD isn't supported for the IoT Hub *device APIs* (like device-to-cloud messages and update reported properties). Use [symmetric keys](iot-hub-dev-guide-sas.md#use-a-symmetric-key-in-the-identity-registry) or [X.509](iot-hub-x509ca-overview.md) to authenticate devices to IoT Hub.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Authentication and authorization
+[!INCLUDE [azure-cli-prepare-your-environment-h3](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-When an Azure AD security principal requests access to an IoT Hub service API, the principal's identity is first *authenticated*. For authentication, the request needs to contain an OAuth 2.0 access token at runtime. The resource name for requesting the token is `https://iothubs.azure.net`. If the application runs in an Azure resource like an Azure VM, Azure Functions app, or Azure App Service app, it can be represented as a [managed identity](../active-directory/managed-identities-azure-resources/how-managed-identities-work-vm.md). 
+## Create the resources
 
-After the Azure AD principal is authenticated, the next step is *authorization*. In this step, IoT Hub uses the Azure AD role assignment service to determine what permissions the principal has. If the principal's permissions match the requested resource or API, IoT Hub authorizes the request. So this step requires one or more Azure roles to be assigned to the security principal. IoT Hub provides some built-in roles that have common groups of permissions.
+Create an Azure resource group for the resources:
 
-## Manage access to IoT Hub by using Azure RBAC role assignment
+```azurecli-interactive
+az group create --name my-pnp-resourcegroup --location centralus
+```
 
-With Azure AD and RBAC, IoT Hub requires the principal requesting the API to have the appropriate level of permission for authorization. To give the principal the permission, give it a role assignment. 
+Create an IoT hub. The following command uses the name `my-pnp-hub` as an example for the name of the IoT hub to create. Choose a unique name for your IoT hub to use in place of `my-pnp-hub`:
 
-- If the principal is a user, group, or application service principal, follow the guidance in [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.md).
-- If the principal is a managed identity, follow the guidance in [Assign a managed identity access to a resource by using the Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md).
+```azurecli-interactive
+az iot hub create --name my-pnp-hub --resource-group my-pnp-resourcegroup --sku F1 --partition-count 2
+```
 
-To ensure least privilege, always assign the appropriate role at the lowest possible [resource scope](#resource-scope), which is probably the IoT Hub scope.
+Create a DPS instance. The following command uses the name `my-pnp-dps` as an example for the name of the DPS instance to create. Choose a unique name for your DPS instance to use in place of `my-pnp-dps`:
 
-IoT Hub provides the following Azure built-in roles for authorizing access to IoT Hub service APIs by using Azure AD and RBAC:
+```azurecli-interactive
+az iot dps create --name my-pnp-dps --resource-group my-pnp-resourcegroup
+```
 
-| Role | Description | 
-| ---- | ----------- | 
-| [IoT Hub Data Contributor](../role-based-access-control/built-in-roles.md#iot-hub-data-contributor) | Allows full access to IoT Hub data plane operations. |
-| [IoT Hub Data Reader](../role-based-access-control/built-in-roles.md#iot-hub-data-reader) | Allows full read access to IoT Hub data plane properties. |
-| [IoT Hub Registry Contributor](../role-based-access-control/built-in-roles.md#iot-hub-registry-contributor) | Allows full access to the IoT Hub device registry. |
-| [IoT Hub???Twin???Contributor](../role-based-access-control/built-in-roles.md#iot-hub-twin-contributor) | Allows read and write access to all IoT Hub device and module twins. |
+To link the DPS instance to your IoT hub, use the following commands. Replace `my-pnp-dps` and `my-pnp-hub` with the unique names you chose previously:
 
-You can also define custom roles to use with IoT Hub by combining the [permissions](#permissions-for-iot-hub-service-apis) that you need. For more information, see [Create custom roles for Azure role-based access control](../role-based-access-control/custom-roles.md).
+```azurecli-interactive
+hubConnectionString=$(az iot hub connection-string show -n my-pnp-hub --key primary --query connectionString -o tsv)
+az iot dps linked-hub create --dps-name my-pnp-dps --resource-group my-pnp-resourcegroup --location centralus --connection-string $hubConnectionString
+```
 
-### Resource scope
+## Retrieve the settings
 
-Before you assign an Azure RBAC role to a security principal, determine the scope of access that the security principal should have. It's always best to grant only the narrowest possible scope. Azure RBAC roles defined at a broader scope are inherited by the resources beneath them.
+Some quickstarts and tutorials use the connection string for your IoT hub. You also need the connection string when you set up the Azure IoT explorer tool. Retrieve the connection string and make a note of it now. Replace `my-pnp-hub` with the unique name you chose for your IoT hub:
 
-This list describes the levels at which you can scope access to IoT Hub, starting with the narrowest scope:
+```azurecli-interactive
+az iot hub connection-string show -n my-pnp-hub --key primary --query connectionString
+```
 
-- **The IoT hub.** At this scope, a role assignment applies to the IoT hub. There's no scope smaller than an individual IoT hub. Role assignment at smaller scopes, like individual device identity or twin section, isn't supported.
-- **The resource group.** At this scope, a role assignment applies to all IoT hubs in the resource group.
-- **The subscription.** At this scope, a role assignment applies to all IoT hubs in all resource groups in the subscription.
-- **A management group.** At this scope, a role assignment applies to all IoT hubs in all resource groups in all subscriptions in the management group.
+Most of the quickstarts and tutorials use the *ID scope* of your DPS configuration. Retrieve the ID scope and make a note of it now. Replace `my-pnp-dps` with the unique name you chose for your DPS instance:
 
-## Permissions for IoT Hub service APIs
+```azurecli-interactive
+az iot dps show --name my-pnp-dps --query properties.idScope
+```
 
-The following table describes the permissions available for IoT Hub service API operations. To enable a client to call a particular operation, ensure that the client's assigned RBAC role offers sufficient permissions for the operation.
+All the quickstarts and tutorials use a DPS device enrollment. Use the following command to create a `my-pnp-device` *individual device enrollment* in your DPS instance. Replace `my-pnp-dps` with the unique name you chose for your DPS instance. Make a note of the registration ID and primary key values to use in the quickstarts and tutorials:
 
-| RBAC action | Description |
-|-|-|
-| `Microsoft.Devices/IotHubs/devices/read` | Read any device or module identity. |
-| `Microsoft.Devices/IotHubs/devices/write`  | Create or update any device or module identity.  |
-| `Microsoft.Devices/IotHubs/devices/delete` | Delete any device or module identity. |
-| `Microsoft.Devices/IotHubs/twins/read` | Read any device or module twin. |
-| `Microsoft.Devices/IotHubs/twins/write` | Write any device or module twin. |
-| `Microsoft.Devices/IotHubs/jobs/read` | Return a list of jobs. |
-| `Microsoft.Devices/IotHubs/jobs/write` | Create or update any job. |
-| `Microsoft.Devices/IotHubs/jobs/delete` | Delete any job. |
-| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/send/action` | Send a cloud-to-device message to any device.  |
-| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/feedback/action` | Receive, complete, or abandon a cloud-to-device message feedback notification. |
-| `Microsoft.Devices/IotHubs/cloudToDeviceMessages/queue/purge/action` | Delete all the pending commands for a device.  |
-| `Microsoft.Devices/IotHubs/directMethods/invoke/action` | Invoke a direct method on any device or module. |
-| `Microsoft.Devices/IotHubs/fileUpload/notifications/action`  | Receive, complete, or abandon file upload notifications. |
-| `Microsoft.Devices/IotHubs/statistics/read` | Read device and service statistics. |
-| `Microsoft.Devices/IotHubs/configurations/read` | Read device management configurations. |
-| `Microsoft.Devices/IotHubs/configurations/write` | Create or update device management configurations. |
-| `Microsoft.Devices/IotHubs/configurations/delete` | Delete any device management configuration. |
-| `Microsoft.Devices/IotHubs/configurations/applyToEdgeDevice/action`  | Apply the configuration content to an edge device. |
-| `Microsoft.Devices/IotHubs/configurations/testQueries/action` | Validate the target condition and custom metric queries for a configuration. |
+```azurecli-interactive
+az iot dps enrollment create --attestation-type symmetrickey --dps-name my-pnp-dps --resource-group my-pnp-resourcegroup --enrollment-id my-pnp-device --device-id my-pnp-device --query '{registrationID:registrationId,primaryKey:attestation.symmetricKey.primaryKey}'
+```
 
-> [!TIP]
-> - The [Bulk Registry Update](/rest/api/iothub/service/bulkregistry/updateregistry) operation requires both `Microsoft.Devices/IotHubs/devices/write` and `Microsoft.Devices/IotHubs/devices/delete`.
-> - The [Twin Query](/rest/api/iothub/service/query/gettwins) operation requires `Microsoft.Devices/IotHubs/twins/read`.
-> - [Get Digital Twin](/rest/api/iothub/service/digitaltwin/getdigitaltwin) requires `Microsoft.Devices/IotHubs/twins/read`. [Update Digital Twin](/rest/api/iothub/service/digitaltwin/updatedigitaltwin) requires `Microsoft.Devices/IotHubs/twins/write`.
-> - Both [Invoke Component Command](/rest/api/iothub/service/digitaltwin/invokecomponentcommand) and [Invoke Root Level Command](/rest/api/iothub/service/digitaltwin/invokerootlevelcommand) require `Microsoft.Devices/IotHubs/directMethods/invoke/action`.
+## Create environment variables
 
-> [!NOTE]
-> To get data from IoT Hub by using Azure AD, [set up routing to a separate event hub](iot-hub-devguide-messages-d2c.md#event-hubs-as-a-routing-endpoint). To access the [the built-in Event Hubs compatible endpoint](iot-hub-devguide-messages-read-builtin.md), use the connection string (shared access key) method as before. 
+Create five environment variables to configure the samples in the quickstarts and tutorials to use the Device Provisioning Service (DPS) to connect to your IoT hub:
 
-## Azure AD access and shared access policies
+* **IOTHUB_DEVICE_SECURITY_TYPE**: the value `DPS`.
+* **IOTHUB_DEVICE_DPS_ID_SCOPE**: the DPS ID scope you made a note of previously.
+* **IOTHUB_DEVICE_DPS_DEVICE_ID**: the value `my-pnp-device`.
+* **IOTHUB_DEVICE_DPS_DEVICE_KEY**: the enrollment primary key you made a note of previously.
+* **IOTHUB_DEVICE_DPS_ENDPOINT**: the value `global.azure-devices-provisioning.net`
 
-By default, IoT Hub supports service API access through both Azure AD and [shared access policies and security tokens](iot-hub-dev-guide-sas.md). To minimize potential security vulnerabilities inherent in security tokens, disable access with shared access policies: 
+The service samples need the following environment variables to identify the hub and device to connect to:
 
-1. Ensure that your service clients and users have [sufficient access](#manage-access-to-iot-hub-by-using-azure-rbac-role-assignment) to your IoT hub. Follow the [principle of least privilege](../security/fundamentals/identity-management-best-practices.md).
-1. In the [Azure portal](https://portal.azure.com), go to your IoT hub.
-1. On the left pane, select **Shared access policies**.
-1. Under **Connect using shared access policies**, select **Deny**.
-    :::image type="content" source="media/iot-hub-dev-guide-azure-ad-rbac/disable-local-auth.png" alt-text="Screenshot that shows how to turn off IoT Hub shared access policies." border="true":::
-1. Review the warning, and then select **Save**.
+* **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
+* **IOTHUB_DEVICE_ID**: `my-pnp-device`.
 
-Your IoT Hub service APIs can now be accessed only through Azure AD and RBAC.
+For example, in a Linux bash shell:
 
-## Azure AD access from the Azure portal
+```bash
+export IOTHUB_DEVICE_SECURITY_TYPE="DPS"
+export IOTHUB_DEVICE_DPS_ID_SCOPE="<Your ID scope>"
+export IOTHUB_DEVICE_DPS_DEVICE_ID="my-pnp-device"
+export IOTHUB_DEVICE_DPS_DEVICE_KEY="<Your enrolment primary key>"
+export IOTHUB_DEVICE_DPS_ENDPOINT="global.azure-devices-provisioning.net"
+export IOTHUB_CONNECTION_STRING="<Your IoT hub connection string>"
+export IOTHUB_DEVICE_ID="my-pnp-device"
+```
 
-When you try to access IoT Hub, the Azure portal first checks whether you've been assigned an Azure role with `Microsoft.Devices/iotHubs/listkeys/action`. If you have, the Azure portal uses the keys from shared access policies to access IoT Hub. If not, the Azure portal tries to access data by using your Azure AD account. 
+For example, at the Windows command line:
 
-To access IoT Hub from the Azure portal by using your Azure AD account, you need permissions to access IoT Hub data resources (like devices and twins). You also need permissions to go to the IoT Hub resource in the Azure portal. The built-in roles provided by IoT Hub grant access to resources like devices and twin. But they don't grant access to the IoT Hub resource. So access to the portal also requires the assignment of an Azure Resource Manager role like [Reader](../role-based-access-control/built-in-roles.md#reader). The Reader role is a good choice because it's the most restricted role that lets you navigate the portal. It doesn't include the `Microsoft.Devices/iotHubs/listkeys/action` permission (which provides access to all IoT Hub data resources via shared access policies). 
+```cmd
+set IOTHUB_DEVICE_SECURITY_TYPE=DPS
+set IOTHUB_DEVICE_DPS_ID_SCOPE=<Your ID scope>
+set IOTHUB_DEVICE_DPS_DEVICE_ID=my-pnp-device
+set IOTHUB_DEVICE_DPS_DEVICE_KEY=<Your enrolment primary key>
+set IOTHUB_DEVICE_DPS_ENDPOINT=global.azure-devices-provisioning.net
+set IOTHUB_CONNECTION_STRING=<Your IoT hub connection string>
+set IOTHUB_DEVICE_ID=my-pnp-device
+```
 
-To ensure an account doesn't have access outside of the assigned permissions, don't include the `Microsoft.Devices/iotHubs/listkeys/action` permission when you create a custom role. For example, to create a custom role that can read device identities but can't create or delete devices, create a custom role that:
-- Has the `Microsoft.Devices/IotHubs/devices/read` data action.
-- Doesn't have the `Microsoft.Devices/IotHubs/devices/write` data action.
-- Doesn't have the `Microsoft.Devices/IotHubs/devices/delete` data action.
-- Doesn't have the `Microsoft.Devices/iotHubs/listkeys/action` action.
+## Download the model files
 
-Then, make sure the account doesn't have any other roles that have the `Microsoft.Devices/iotHubs/listkeys/action` permission, like [Owner](../role-based-access-control/built-in-roles.md#owner) or [Contributor](../role-based-access-control/built-in-roles.md#contributor). To allow the account to have resource access and navigate the portal, assign [Reader](../role-based-access-control/built-in-roles.md#reader).
+The quickstarts and tutorials use sample model files for the temperature controller and thermostat devices. To download the sample model files:
 
-## Azure IoT extension for Azure CLI
+1. Create a folder called *models* on your local machine.
 
-Most commands against IoT Hub support Azure AD authentication. You can control the type of authentication used to run commands by using the `--auth-type` parameter, which accepts `key` or `login` values. The `key` value is the default.
+1. Right-click [TemperatureController.json](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/TemperatureController.json) and save the JSON file to the *models* folder.
 
-- When `--auth-type` has the `key` value, as before, the CLI automatically discovers a suitable policy when it interacts with IoT Hub.
+1. Right-click [Thermostat.json](https://raw.githubusercontent.com/Azure/opendigitaltwins-dtdl/master/DTDL/v2/samples/Thermostat.json) and save the JSON file to the *models* folder.
 
-- When `--auth-type` has the `login` value, an access token from the Azure CLI logged in the principal is used for the operation.
+## Install the Azure IoT explorer
 
-For more information, see the [Azure IoT extension for Azure CLI release page](https://github.com/Azure/azure-iot-cli-extension/releases/tag/v0.10.12).
+The quickstarts and tutorials use the **Azure IoT explorer** tool. Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application for your operating system.
 
-## SDK samples
+The first time you run the tool, you're prompted for the IoT hub connection string. Use the connection string you made a note of previously.
 
-- [.NET Microsoft.Azure.Devices SDK sample](https://aka.ms/iothubaadcsharpsample)
-- [Java SDK sample](https://aka.ms/iothubaadjavasample)
+Configure the tool to use the model files you downloaded previously. From the home page in the tool, select **IoT Plug and Play Settings**, then **+ Add > Local folder**. Select the *models* folder you created previously. Then select **Save** to save the settings.
+
+To learn more, see [Install and use Azure IoT explorer](../iot-fundamentals/howto-use-iot-explorer.md).
+
+## Clean up resources
+
+You can use the IoT hub and DPS instance for all the IoT Plug and Play quickstarts and tutorials, so you only need to complete the steps in this article once. When you're finished, you can remove them from your subscription with the following command:
+
+```azurecli-interactive
+az group delete --name my-pnp-resourcegroup
+```
 
 ## Next steps
 
-- For more information on the advantages of using Azure AD in your application, see [Integrating with Azure Active Directory](../active-directory/develop/active-directory-how-to-integrate.md).
-- For more information on requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).
+Now that you've set up your environment, you can try one of the quickstarts or tutorials such as:
+
+> [!div class="nextstepaction"]
+> [Connect a sample IoT Plug and Play device application to IoT Hub](tutorial-connect-device.md)

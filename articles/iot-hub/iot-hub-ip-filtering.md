@@ -7,7 +7,8 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: jlian 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Use IP filters

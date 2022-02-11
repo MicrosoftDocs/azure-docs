@@ -8,7 +8,8 @@ ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 12/07/2021
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Deploy a VM with trusted launch enabled

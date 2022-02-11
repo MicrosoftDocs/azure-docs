@@ -6,7 +6,7 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: 
+ms.devlang: azurecli
 ms.topic: how-to
 author: urosmil
 ms.author: urmilano

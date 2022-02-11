@@ -8,7 +8,8 @@ ms.custom: subject-cost-optimization, devx-track-azurecli
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 06/08/2021 
+ms.devlang: azurecli
 ---
 
 # Manage and optimize Azure Machine Learning costs

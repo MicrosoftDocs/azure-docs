@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
-ms.devlang: 
+ms.devlang: azurecli
 ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
@@ -138,11 +138,11 @@ Create your failover group and add your database to it using PowerShell.
    # Create a failover group between the servers
    $failovergroup = Write-host "Creating a failover group between the primary and secondary server..."
    New-AzSqlDatabaseFailoverGroup `
-      –ResourceGroupName $resourceGroupName `
+      ???ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -PartnerServerName $drServerName  `
-      –FailoverGroupName $failoverGroupName `
-      –FailoverPolicy Automatic `
+      ???FailoverGroupName $failoverGroupName `
+      ???FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
    $failovergroup
 

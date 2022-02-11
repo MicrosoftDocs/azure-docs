@@ -7,7 +7,8 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 01/03/2022
 ms.reviewer: cynthn, jushiman
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom: template-how-to, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Associate a VM to a Capacity Reservation group (preview) 

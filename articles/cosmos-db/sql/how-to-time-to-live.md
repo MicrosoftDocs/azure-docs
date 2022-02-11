@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/09/2021
 ms.author: jroth
-ms.devlang: csharp
+ms.devlang: csharp, azurecli
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
 ---
 

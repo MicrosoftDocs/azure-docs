@@ -10,7 +10,8 @@ ms.topic: conceptual
 author: SudhirRaparla 
 ms.author: nvraparl
 ms.reviewer: kendralittle, mathoma, wiassaf, danil
-ms.date: 01/10/2022
+ms.date: 01/10/2022 
+ms.devlang: azurecli
 ---
 # Automated backups - Azure SQL Database & Azure SQL Managed Instance
 

@@ -7,7 +7,8 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-ms.custom: mode-api, devx-track-azurecli
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # Quickstart: Set up Azure Attestation with Azure CLI
 

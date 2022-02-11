@@ -7,7 +7,8 @@ ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-powershelltier-clitier-portaltier
 author: v-amallick
 ms.service: backup
-ms.author: v-amallick
+ms.author: v-amallick 
+ms.devlang: azurecli
 ---
 
 # Use Archive Tier support

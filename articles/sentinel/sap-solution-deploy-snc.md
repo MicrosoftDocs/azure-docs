@@ -5,7 +5,8 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021, devx-track-azurecli
-ms.date: 11/09/2021
+ms.date: 11/09/2021 
+ms.devlang: azurecli
 ---
 
 # Deploy the Microsoft Sentinel SAP data connector with SNC
