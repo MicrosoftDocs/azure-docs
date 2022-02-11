@@ -60,7 +60,7 @@ A Contributor can manage everything except access. The following table shows the
 ### Reader
 
 >[!Note]
-> We have recently made a change in the built-in Reader role permission for the Automation account.[Learn more](#reader-role-access-permissions)
+> We have recently made a change in the built-in Reader role permission for the Automation account. [Learn more](#reader-role-access-permissions)
 
 A Reader can view all the resources in an Automation account but can't make any changes.
 
