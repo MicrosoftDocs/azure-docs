@@ -46,7 +46,7 @@ sections:
           No, sign-in using a non-UPN value, such as an alternate email, isn't supported now.
           
       - question: |
-          Can I have more than one CertificateDistributionPoint (CDP) for a Certificate Authority (CA)?
+          Can I have more than one CRL Distribution Point (CDP) for a Certificate Authority (CA)?
         answer: |
           No, only one CDP is supported per CA.
 
@@ -72,7 +72,7 @@ sections:
       - question: |
           Is there a limit for CRL size?
         answer: |
-          Today as part of the public preview CRL sizes are limited as follows:
+          Today, as part of the public preview, CRL sizes are limited as follows:
           
           - 20 MB in commercial (Microsoft 365, GCC)
           - 45 MB in US Government (GCC High, Dept. of Defense)
