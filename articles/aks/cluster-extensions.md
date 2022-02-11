@@ -32,7 +32,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 * [Azure CLI](/cli/azure/install-azure-cli) version >= 2.16.0 installed.
 
 > [!NOTE]
-> If you have enabled [AAD-based pod identity][./use-azure-ad-pod-identity.md] on your AKS cluster, please add the following `AzurePodIdentityException` to the release namespace of your extension instance on the AKS cluster:
+> If you have enabled [AAD-based pod identity][use-azure-ad-pod-identity] on your AKS cluster, please add the following `AzurePodIdentityException` to the release namespace of your extension instance on the AKS cluster:
 > ```yml
 > apiVersion: aadpodidentity.k8s.io/v1
 > kind: AzurePodIdentityException
@@ -253,6 +253,7 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
+[use-azure-ad-pod-identity]: ./use-azure-ad-pod-identity.md
 
 <!-- EXTERNAL -->
 [arc-k8s-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all
