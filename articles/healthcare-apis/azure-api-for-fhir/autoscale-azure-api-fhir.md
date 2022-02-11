@@ -19,7 +19,7 @@ By default, the Azure API for FHIR is set to manual scale. This option works wel
 
 The autoscale feature is designed to scale computing resources including the database throughput `RU/s` up and down automatically according to the workloads, thus eliminating the manual steps of adjusting allocated computing resources. 
 
-## When is the guidance on when to enable autoscale?
+## What is the guidance on when to enable autoscale?
 
 In general, customers should consider autoscale when their workloads vary signficantly and are unpredictable. 
 
