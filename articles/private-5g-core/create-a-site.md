@@ -33,7 +33,7 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
     :::image type="content" source="media/create-sites-button.png" alt-text="Screenshot of the Azure portal showing the Get started tab, with the Create sites button highlighted.":::
 
-1. Use the information you collected in [Collect site resource values](collect-required-information-for-a-site.md#collect-site-resource-values) to fill out the fields on the **Basics** configuration tab, and then select **Next : Packet core >**.
+1. Use the information you collected in [Collect site resource values](collect-required-information-for-a-site.md#collect-mobile-network-site-resource-values) to fill out the fields on the **Basics** configuration tab, and then select **Next : Packet core >**.
 
     :::image type="content" source="media/how-to-guide-deploy-a-private-mobile-network-azure-portal/create-site-basics-tab.png" alt-text="Screenshot of the Azure portal showing the Basics configuration tab for a site resource.":::
 

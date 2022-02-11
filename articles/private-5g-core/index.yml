@@ -47,9 +47,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Collect the required information for a site
-            url: create-an-additional-site.md
+            url: collect-required-information-for-a-site.md
           - text: Create a site
-            url: create-an-additional-site.md
+            url: create-a-site.md
   # Card                   
   - title: Customize quality of service (QoS) and traffic control
     linkLists:

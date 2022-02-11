@@ -41,7 +41,7 @@ items:
     - name: Collect the required information for a site
       href: collect-required-information-for-a-site.md    
     - name: Create a site
-      href: create-an-additional-site.md
+      href: create-a-site.md
   - name: Services
     items:
     - name: Collect the required information for a service
