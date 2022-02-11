@@ -42,6 +42,7 @@ This article uses a GitHub template repository to make it easy for you to get st
 1. Navigate to the following location to create a new repository:
     1. [https://github.com/staticwebdev/blazor-starter/generate](https://github.com/login?return_to=%2Fstaticwebdev%2Fblazor-starter%2Fgenerate)
 1. Name your repository **my-first-static-web-app**
+
 ---
 
 Select **Create repository from template**.

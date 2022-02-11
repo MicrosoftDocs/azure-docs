@@ -85,6 +85,11 @@ After you sign in with GitHub, enter the repository information.
     1. Keep the default value in the _App location_ box.
     1. Leave the _Api location_ box empty.
     1. Keep the default value in the _App artifact location_ box.
+    
+    # [Blazor](#tab/blazor)
+
+    1. Select **Blazor** from the _Build Presets_ dropdown.
+    1. Keep the default values for the _App location_,  _Api location_ and _Output location_ boxes.
 
     ---
 
