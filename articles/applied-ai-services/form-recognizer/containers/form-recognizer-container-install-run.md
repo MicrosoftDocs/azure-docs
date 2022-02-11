@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2021
 ms.author: lajanuar
 keywords: on-premises, Docker, container, identify
@@ -373,7 +373,7 @@ events { worker_connections 1024; }
 http {
 
     sendfile on;
-
+    client_max_body_size 90M;
     upstream docker-api {
         server azure-cognitive-service-custom-api:5000;
     }

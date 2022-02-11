@@ -3,13 +3,13 @@ title: "Tutorial: Create an iOS app that takes a photo and launches it in the Im
 titleSuffix: Azure Applied AI Services
 description: In this tutorial, you will build an iOS app from scratch and add the Picture to Immersive Reader functionality.
 services: cognitive-services
-author: metanMSFT
+author: rwallerms
 
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
-ms.author: metang
+ms.author: rwaller
 #Customer intent: As a developer, I want to integrate two Cognitive Services, the Immersive Reader and the Read API into my iOS application so that I can view any text from a photo in the Immersive Reader.
 ---
 

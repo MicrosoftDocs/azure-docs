@@ -19,7 +19,7 @@ In this article, learn to secure headers based applications with Azure Active Di
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
-  * Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
+ * [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
 
   * Full SSO between Azure AD and BIG-IP published services
 
