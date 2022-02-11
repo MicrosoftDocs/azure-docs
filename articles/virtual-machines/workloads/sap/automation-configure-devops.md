@@ -79,6 +79,8 @@ Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c0
 
 $TF_VAR_app_registration_app_id=(az ad app create --display-name MGMT-webapp-registration --available-to-other-tenants false --required-resource-access ./manifest.json --query "appId").Replace('"',"")
 
+echo $TF_VAR_app_registration_app_id
+
 az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query "password" 
 
 rm ./manifest.json
