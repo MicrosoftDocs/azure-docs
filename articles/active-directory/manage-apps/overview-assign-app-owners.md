@@ -18,13 +18,12 @@ ms.author: saibandaru
 
 # Overview of enterprise application ownership in Azure Active Directory
 
-A user in Azure Active Directory (Azure AD) is automatically added as an application owner when they register an application. This ownership of an enterprise application is assigned by default only when a user with no administrator roles (Global Administrator, Application Administrator etc.) creates a new application registration. In all other cases, ownership\ isn't assigned by default to an enterprise application. Users can be owners of enterprise applications but groups can't be assigned as owners. 
+A user in Azure Active Directory (Azure AD) is automatically added as an application owner when they register an application. The ownership of an enterprise application is assigned by default only when a user with no administrator roles (Global Administrator, Application Administrator etc.) creates a new application registration. In all other cases, ownership isn't assigned by default to an enterprise application. Users can be owners of enterprise applications but groups can't be assigned as owners. 
 
-As an owner of an enterprise application in Azure AD, a user can manage the organization-specific configuration of the application, such as single sign-on, provisioning, and user assignments. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own.  Owners can add credentials to an application and use those credentials to impersonate the application’s identity. To learn more about the permissions that owners of application have, see [Ownership permissions](../fundamentals/users-default-permissions.md#owned-enterprise-applications)
+As an owner of an enterprise application in Azure AD, a user can manage the organization-specific configuration of the application, such as single sign-on, provisioning, and user assignment. An owner can also add or remove other owners. Unlike Global Administrators, owners can manage only the enterprise applications they own. The owners have the same permissions as application administrators scoped to an individual application. To learn more about the permissions that an owner of an application has, see [Ownership permissions](../fundamentals/users-default-permissions.md#owned-enterprise-applications)
  
 > [!NOTE]
-> Owners of applications have the same permissions as application administrators scoped to an individual application. For more information, see [Azure AD built-in roles](../roles/permissions-reference.md#application-administrator). 
-The application may have more permissions than the owner, and thus would be an elevation of privilege over what the owner has access to as a user. An application owner could potentially create or update users or other objects while impersonating the application, depending on the application's permissions. 
+> The application may have more permissions than the owner, and thus would be an elevation of privilege over what the owner has access to as a user. An application owner can create or update users or other objects while impersonating the application. The elevation of privilege to owners can raise a security concern in some cases depending on the application's permissions.
  
 ## FAQ
 
