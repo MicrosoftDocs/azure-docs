@@ -16,7 +16,7 @@ This article explains how to move a Recovery Services vault configured for Azure
 
 ## Supported regions
 
-All public regions and sovereign regions are supported, except France South, France Central Germany Northeast and Germany Central.
+All public regions and sovereign regions are supported, except France South, France Central, Germany Northeast and Germany Central.
 
 ## Prerequisites for moving Recovery Services vault
 
