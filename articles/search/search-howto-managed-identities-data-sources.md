@@ -211,7 +211,7 @@ The following steps are for Azure Storage. If your resource is Cosmos DB or Azur
 
 Once a managed identity is defined and given a role assignment, outbound connections use it in connection strings. Here are some examples of connection strings for various scenarios.
 
-**Blob data source (system):**
+[**Blob data source (system):**](search-howto-managed-identities-storage.md)
 
 An indexer data source includes a "credentials" property that determines how the connection is made to the data source. The following example shows a connection string that uses a system managed identity. Notice that the connection string doesn't include a container. In a data source definition, a container name is specified in the "container" property (not shown), not the connection string.
 
@@ -221,7 +221,7 @@ An indexer data source includes a "credentials" property that determines how the
     }
 ```
 
-**Blob data source (user):**
+[**Blob data source (user):**](search-howto-managed-identities-storage.md)
 
 A user-assigned managed identity is a preview feature. It's specified in an additional "identity" property, currently only supported for indexer data sources. You can use either the portal or the REST API preview version 2021-04-30-Preview to create an indexer data source that supports a user-assigned managed identity.
 
@@ -236,7 +236,7 @@ A user-assigned managed identity is a preview feature. It's specified in an addi
   }
 ```
 
-**Knowledge store:**
+[**Knowledge store:**](knowledge-store-create-rest.md)
 
 A knowledge store definition includes a connection string to Azure Storage. On Azure Storage, a knowledge store will create projections as blobs and tables. The connection string is a straightforward connection to Azure Storage. Notice that the string does not include containers or tables in the path. These are defined in the embedded projection definition, not the connection string.
 
@@ -245,7 +245,7 @@ A knowledge store definition includes a connection string to Azure Storage. On A
   "storageConnectionString": "ResourceId=/subscriptions/{subscription-ID}/resourceGroups/{resource-group-name}/providers/Microsoft.Storage/storageAccounts/storage-account-name};",
 ```
 
-**Enrichment cache:**
+[**Enrichment cache:**](search-howto-incremental-index.md)
 
 An indexer creates, uses, and remembers the container used for the cached enrichments. It's not necessary to include the container in the cache connection string. You can find the object ID on the **Identity** page of your search service in the portal.
 
@@ -257,7 +257,7 @@ An indexer creates, uses, and remembers the container used for the cached enrich
 },
 ```
 
-**Debug session:**
+[**Debug session:**](cognitive-search-debug-session.md)
 
 A debug session targets a container. Be sure to include the name of an existing container in the connection string. You can paste a string similar to the following example in the debug session that you start up in the portal.
 

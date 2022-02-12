@@ -138,7 +138,7 @@ Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call 
 
 ## Accessing network secured data in storage accounts
 
-Azure storage accounts can be further secured using firewalls and virtual networks. If you want to index content from a blob storage account or ADLS Gen2 storage account that is secured using a firewall or virtual network, follow the instructions for [Make indexer connections to Azure Storage as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
+Azure storage accounts can be further secured using firewalls and virtual networks. If you want to index content from a storage account that is secured using a firewall or virtual network, see [Make indexer connections to Azure Storage as a trusted service](search-indexer-howto-access-trusted-service-exception.md).
 
 ## See also
 
