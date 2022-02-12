@@ -118,7 +118,7 @@ RECOGNIZED: Text=I'm excited to use speech to text.
 RECOGNIZED: Text=I'm excited to use speech to text.
 ```
 
-This example uses the `RecognizeOnceAsync` operation to transcribe utterances up to 30 seconds, or when silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+This example uses the `RecognizeOnceAsync` operation to transcribe utterances up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
