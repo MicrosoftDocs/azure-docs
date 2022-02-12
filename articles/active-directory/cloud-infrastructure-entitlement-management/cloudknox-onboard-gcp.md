@@ -33,7 +33,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 
 ### 1. Create an Azure AD OIDC app.
 
-1. On **CloudKnox On Boarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure App Name**.
+1. On **CloudKnox Onboarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure App Name**.
 
     This app is used to set up an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated will create the app of this specified name in your Azure AD tenant with the right configuration.
         
@@ -43,7 +43,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
     > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your AWS account.
 
-    1. Return to CloudKnox, and in the **CloudKnox On Boarding - Azure AD OIDC App Creation**, select **Next**.
+    1. Return to CloudKnox, and in the **CloudKnox Onboarding - Azure AD OIDC App Creation**, select **Next**.
         
 ### 2. Set up a GCP OIDC project.
 

@@ -60,7 +60,7 @@ To add CloudKnox to your Azure AD tenant:
     - **True**, if you want the controller to provide CloudKnox with read and write access so that any remediation you want to do from the CloudKnox platform can be done automatically.
     - **False**, if you want the controller to provide CloudKnox with read-only access.
 
-1. Return to **CloudKnox Onboarding - Azure Subscription Details** page, and select **Next**.
+1. Return to **CloudKnox Onboarding - Azure Subscription Details** page and select **Next**.
 
 ### 2. Review and save.
 

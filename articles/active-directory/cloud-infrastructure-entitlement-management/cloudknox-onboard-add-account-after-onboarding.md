@@ -29,7 +29,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
     The **M-CIEM On Boarding - AWS Member Account Details** page displays.
 
 1. Go to **Enter Your AWS Account Ids**, and then select **Add** (the plus **+** sign).
-1. Copy and paste your account ID from AWS, and paste it into the **Enter Account ID** box.
+1. Copy your account ID from AWS and paste it into the **Enter Account ID** box.
 
     The AWS account ID is automatically added to the script.
 
@@ -40,7 +40,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 1. Create a new script for the new account and press enter.
 1. Paste the script you copied.
 1. Locate the account line, delete the original account ID (the one that was previously added), and then run the script.
-1. Return to the CloudKnox, and the new account ID you added will be added to the list of account IDs displayed in the **M-CIEM Onboarding - Summary** page.
+1. Return to CloudKnox, and the new account ID you added will be added to the list of account IDs displayed in the **M-CIEM Onboarding - Summary** page.
 1. Select **Verify now & save**.
 
     When your changes are saved, the following message displays: **Successfully updated configuration.**

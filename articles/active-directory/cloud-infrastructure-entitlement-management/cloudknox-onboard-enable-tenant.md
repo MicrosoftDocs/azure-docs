@@ -89,7 +89,7 @@ Use the **Data Collectors** dashboard in CloudKnox to configure data collection 
 1. For information on how to onboard an AWS account, Azure subscription, or GCP project into CloudKnox, select one of the following articles and follow the instructions:
 
     - [Onboard an AWS account](cloudknox-onboard-aws.md)
-    - [Onboard a Azure subscription](cloudknox-onboard-azure.md)
+    - [Onboard an Azure subscription](cloudknox-onboard-azure.md)
     - [Onboard a GCP project](cloudknox-onboard-gcp.md)
 
 ## Next steps
