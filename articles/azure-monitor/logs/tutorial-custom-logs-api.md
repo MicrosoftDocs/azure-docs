@@ -8,15 +8,23 @@ ms.author: bwren
 ms.date: 01/19/2022
 ---
 
-# Tutorial: Add ingestion-time transformation to Azure Monitor Logs using resource manager templates
+# Tutorial: Send custom logs to Azure Monitor Logs using resource manager templates (preview)
 [Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send custom data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using resource manager templates.
+
+> [!NOTE]
+> This tutorial uses resource manager templates and REST API to configure custom logs. See [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-custom-logs.md) for a similar tutorial using the Azure portal.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-> * 
-> * 
+> * Create a custom table in a Log Analytics workspace
+> * Create a data collection endpoint to receive data over HTTP
+> * Create a data collection rule that transforms incoming data to match the schema of the target table
+> * Create a sample application to send custom data to Azure Monitor
 
+
+> [!NOTE]
+> This tutorial uses PowerShell from Azure Cloud Shell to make REST API calls using the Azure Monitor **Tables** API and the Azure portal to install resource manager templates. You can use any other method to make these calls.
 
 ## Prerequisites
 To complete this tutorial, you need the following: 
@@ -65,6 +73,17 @@ Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure
 ## Create new table in Log Analytics workspace
 The custom table must be created before you can send data to it. The table for this tutorial will include three columns, as described in the resource manager template below. The  `name`, `type`, and `description` properties are mandatory for each column. ; The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
 
+Use the **Tables - Update** API to create the table with the PowerShell code below. 
+
+> [!IMPORTANT]
+> Custom tables must use a suffix of *_CL*.
+
+Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
+
+Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. Paste it into the cloud shell prompt to run it.
+
 ```PowerShell
 $tableParams = @'
 {
@@ -98,7 +117,19 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 
 
 ## Create data collection endpoint
-A [data collection endpoint (DCE)]() is required to accept the data being sent to Azure Monitor. Once you configure the DCE and link it to a data collection rule, you can send data over HTTP from your application. The DCE must be located in the same region as the Log Analytics Workspace where the data will be sent. 
+A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md) is required to accept the data being sent to Azure Monitor. Once you configure the DCE and link it to a data collection rule, you can send data over HTTP from your application. The DCE must be located in the same region as the Log Analytics Workspace where the data will be sent. 
+
+In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template":::
+
+Click **Build your own template in the editor**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor":::
+
+Paste the resource manager template below into the editor and then click **Save**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template":::
 
 
 ```json
@@ -147,6 +178,12 @@ A [data collection endpoint (DCE)]() is required to accept the data being sent t
 }
 ```
 
+On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values a **Name** for the data collection endpoint. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection endpoint.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values":::
+
+Click **Review + create** and then **Create** when you review the details.
+
 Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion** URI since you'll need this in a later step.
 
 :::image type="content" source="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" alt-text="Screenshot for data collection endpoint uri":::
@@ -158,6 +195,18 @@ Click **JSON View** to view other details for the data collection endpoint. Copy
 
 ## Create data collection rule
 The data collection rule is the component of Azure Monitor that configures ingestion collection. In this case, the schema of data that being sent to the HTTP endpoint, the transformation that will be applied to it, and the destination workspace and table the transformed data will be sent to.
+
+In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/deploy-custom-template.png" alt-text="Screenshot to deploy custom template":::
+
+Click **Build your own template in the editor**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor":::
+
+Paste the resource manager template below into the editor and then click **Save**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template":::
 
 ```json
 {
@@ -253,6 +302,19 @@ The data collection rule is the component of Azure Monitor that configures inges
 }
 ```
 
+On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values":::
+
+Click **Review + create** and then **Create** when you review the details.
+
+When the deployment is complete, expand the **Deployment details** box and click on your data collection rule to view its details. Click **JSON View**.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-details.png" alt-text="Screenshot for data collection rule details":::
+
+Copy the **Resource ID** for the data collection rule. You'll use this in the next step.
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
 
 ## Assign permissions to data collection rule
 Now that the data collection rule has been created, the application needs to be given permission to it. This will allow any application using the correct application ID and application key to send data to the new data collection endpoint, have that data processed with the nee data collection rule, and then stored in the Log Analytics workspace.
@@ -374,4 +436,6 @@ $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Header
 
 If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and execute it directly. Executing it uncommented as part of the script will not resolve the issue - the command must be executed separately.   
 
-After executing this script, you should see a `HTTP - 200 OK` response, and in just a few minutes, the data arrive to your Log Analytics workspace!  
+After executing this script, you should see a `HTTP - 200 OK` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
+
+## Next steps

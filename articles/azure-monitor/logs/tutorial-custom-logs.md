@@ -8,8 +8,11 @@ ms.author: bwren
 ms.date: 01/19/2022
 ---
 
-# Tutorial: Send custom logs to Azure Monitor Logs (preview)
-[Custom logs](custom-logs-ovewrview.md) in Azure Monitor allow you to send external data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using the Azure portal.
+# Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)
+[Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send external data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using the Azure portal.
+
+> [!NOTE]
+> This tutorial uses the Azure portal. See [Tutorial: Send custom logs to Azure Monitor Logs using resource manager templates (preview)](tutorial-custom-logs-api.md) for a similar tutorial using resource manager templates.
 
 In this tutorial, you learn to:
 
@@ -32,7 +35,7 @@ In this tutorial, we'll use a PowerShell script to send Apache access logs over 
 
 
 ## Configure application
-You need to start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but we'll follow the [Client Credential Grant Flow scheme](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
+You need to start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but we'll follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
 
 From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
@@ -287,7 +290,7 @@ Select **Monitoring Metrics Publisher** and click **Next**.  You could instead c
 
 Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select the application that you created and click **Select**.
 
-:::image type="content" source="media/tutorial-custom-logs/s.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment":::
+:::image type="content" source="media/tutorial-custom-logs/custom-log-create-select-member.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment":::
 
 
 Click **Review + assign** and verify the details before saving your role assignment.

@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs
-description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using table management features of Log Analytics workspace.
+title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs using resource manager templates
+description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using resource manager templates.
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
@@ -8,8 +8,11 @@ ms.author: bwren
 ms.date: 01/19/2022
 ---
 
-# Tutorial: Add ingestion-time transformation to Azure Monitor Logs
+# Tutorial: Add ingestion-time transformation to Azure Monitor Logs using resource manager templates (preview)
 [Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks through configuration of an ingestion time transformation using resource manager templates.
+
+> [!NOTE]
+> This tutorial uses resource manager templates and REST API to configure an ingestion-time transformation. See [Tutorial: Add ingestion-time transformation to Azure Monitor Logs using the Azure portal (preview)](tutorial-ingestion-time-transformations.md) for the same tutorial using the Azure portal.
 
 In this tutorial, you learn to:
 
@@ -64,7 +67,7 @@ Use the **Tables - Update** API to configure the table with the PowerShell code 
 > [!IMPORTANT]
 > A custom column in a built-in table must use a suffix of *_CF*. A column in a custom table does not require this suffix.
 
-Click the **Cloud Shell** button and ensure the environment is set to **PowerShell**.
+Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
 
@@ -94,7 +97,7 @@ Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourc
 ```
 
 
-:::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" alt-text="Screenshot of opening cloud shell":::
+:::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" alt-text="Screenshot of script in cloud shell":::
 
 
 
@@ -223,6 +226,7 @@ Paste the resource manager template below into the editor and then click **Save*
     }
 }
 ```
+
 On the **Custom deployment** screen, specify a **Subscription** and **Resource group** to store the data collection rule and then provide values defined in the template. This includes a **Name** for the data collection rule and the **Workspace Resource ID** that you collected in a previous step. The **Location** should be the same location as the workspace. The **Region** will already be populated and is used for the location of the data collection rule.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" lightbox="media/tutorial-ingestion-time-transformations-api/custom-deployment-values.png" alt-text="Screenshot to edit  custom deployment values":::
