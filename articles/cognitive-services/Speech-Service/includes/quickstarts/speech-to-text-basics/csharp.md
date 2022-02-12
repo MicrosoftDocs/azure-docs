@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 
 ## Set up the environment
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](/azure/cognitive-services/speech-service/quickstarts/speech-sdk#get-the-speech-sdk?pivots=programming-language-csharp) for any additional requirements.
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](/azure/cognitive-services/speech-service/quickstarts/speech-sdk.md?pivots=programming-language-csharp#get-the-speech-sdk) for any more requirements.
 
 > [!div class="nextstepaction"]
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
@@ -39,7 +39,7 @@ Follow these steps to create a new console application and install the Speech SD
     ```console
     dotnet add package Microsoft.CognitiveServices.Speech
     ```
-1. Replace the contents of Program.cs with the following:
+1. Replace the contents of Program.cs with the following code:
     
     ```csharp
     using System;
@@ -118,13 +118,13 @@ RECOGNIZED: Text=I'm excited to use speech to text.
 RECOGNIZED: Text=I'm excited to use speech to text.
 ```
 
-This example uses the `RecognizeOnceAsync` operation to transcribe utterances up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 
-Here's some suggested modifications to try out:
+Now that you have a speech to text application, here are some suggested modifications to try out:
 - To recognize speech from a file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
     ```csharp
     using var audioConfig = AudioConfig.FromWavFileInput("PathToFile.wav");
@@ -138,11 +138,11 @@ Here's some suggested modifications to try out:
     ```
 - To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md).
     ```csharp
-    speechConfig.SpeechRecognitionLanguage = "en-US";
+    speechConfig.SpeechRecognitionLanguage = "de-DE";
     ```
 - For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
 
 ## Clean up resources
 
-You can use the [Azure Portal](~/articles/cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources) or [Azure Command Line Interface (CLI)](~/articles/cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources) to remove the Speech resource you created.
+You can use the [Azure portal](~/articles/cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources) or [Azure Command Line Interface (CLI)](~/articles/cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources) to remove the Speech resource you created.
