@@ -9,7 +9,7 @@ ms.author: iqshah
 ms.date: 02/10/2022
 ---
 
-# Plan setup for a virtual machine offer on Azure Marketplace
+# Plan setup for a virtual machine offer
 
 ## Plan setup
 
