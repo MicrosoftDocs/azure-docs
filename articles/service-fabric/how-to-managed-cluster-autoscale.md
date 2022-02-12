@@ -2,10 +2,10 @@
 title: Configure autoscaling for Service Fabric managed cluster nodes
 description: Learn how to configure autoscaling policies on Service Fabric managed cluster.
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 2/14/2022
 ---
 
-# Introduction to Autoscaling on Service Fabric managed clusters (preview)
+# Introduction to Autoscaling on Service Fabric managed clusters
 [Autoscaling](../azure-monitor/autoscale/autoscale-overview.md) gives great elasticity and enables addition or reduction of nodes on demand on a secondary node type. This automated and elastic behavior reduces the management overhead and potential business impact by monitoring and optimizing the amount of nodes servicing your workload. You configure rules for your workload and let autoscaling handle the rest. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your node type. Autoscaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable autoscaling, and how to configure an example autoscale policy.
 
 
