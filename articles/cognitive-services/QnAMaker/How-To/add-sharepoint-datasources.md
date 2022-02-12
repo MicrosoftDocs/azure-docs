@@ -187,4 +187,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Collaborate on your knowledge base](../concepts/data-sources-and-content.md#file-and-url-data-types.yml)
+> [Collaborate on your knowledge base](../concepts/data-sources-and-content.md)
