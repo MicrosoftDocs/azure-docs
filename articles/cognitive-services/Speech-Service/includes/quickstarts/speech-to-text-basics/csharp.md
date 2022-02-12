@@ -20,7 +20,7 @@ ms.custom: devx-track-csharp
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
 
 ## Set up the environment
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](~/articles/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp) for any additional requirements.
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](/azure/cognitive-services/speech-service/quickstarts/speech-sdk#get-the-speech-sdk?pivots=programming-language-csharp) for any additional requirements.
 
 > [!div class="nextstepaction"]
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
