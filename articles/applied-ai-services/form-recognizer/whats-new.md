@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
-## February 2021
+## February 2022
 
 ### Form Recognizer v3.0 preview release
 
@@ -33,6 +33,7 @@ Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/d
 
   | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
   | --- | :---: |:---:| :---: | :---: |:---: |
+  |🆕Read | ✓  |   |   |   |   |
   |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
   | Layout  | ✓  |   | ✓  | ✓  |   |
   | Invoice  | ✓ | ✓  | ✓  | ✓ ||
