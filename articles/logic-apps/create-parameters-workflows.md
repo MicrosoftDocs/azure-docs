@@ -85,7 +85,7 @@ For example, if you use Visual Studio Code as your local development tool to run
    |----------|----------|-------------|
    | **Name** | Yes | The name for the parameter to create. |
    | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, **Secure Object**, **Secure String**, and **String**. |
-   | **Default Value** | Yes | The default value for the parameter. You have to specify the default parameter value because the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. <p><p>**Important**: For the **Secure Object** and **Secure String** data types, avoid setting a default value because the value is stored as plain text.|
+   | **Default Value** | Yes | The default value for the parameter. You have to specify the default parameter value because the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. <br><br>**Important**: For the **Secure Object** and **Secure String** data types, avoid setting a default value because the value is stored as plain text.|
    | **Actual Value** | No | The actual value for the parameter. |
    ||||
 
@@ -130,8 +130,8 @@ For example, if you use Visual Studio Code as your local development tool to run
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Name** | Yes | The name for the parameter to create. |
-   | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, and **String**. <p><p>**Note**: In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, aren't supported. |
-   | **Value** | Yes | The value for the parameter. <p><p>In Standard logic app workflows, you have to specify the parameter value because the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. |
+   | **Type** | Yes | The data type for the parameter, such as **Array**, **Bool**, **Float**, **Int**, **Object**, and **String**. <br><br>**Note**: In Standard logic app workflows, secure data types, such as `securestring` and `secureobject`, aren't supported. |
+   | **Value** | Yes | The value for the parameter. <br><br>In Standard logic app workflows, you have to specify the parameter value because the workflow logic, connection information, and parameter values don't exist in a single location. The designer must be able to resolve the parameter values before loading. |
    ||||
 
    The following example shows a definition for a string parameter:

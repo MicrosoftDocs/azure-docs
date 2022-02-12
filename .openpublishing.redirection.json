@@ -19173,6 +19173,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/logic-apps/parameterize-workflow-app.md",
+      "redirect_url": "/azure/logic-apps/create-parameters-workflows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/logic-apps/logic-apps-custom-connector-register.md",
       "redirect_url": "/connectors/custom-connectors",
       "redirect_document_id": false
@@ -19295,11 +19300,6 @@
     {
       "source_path_from_root": "/articles/connectors/connectors-create-api-wunderlist.md",
       "redirect_url": "/connectors/todo",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/logic-apps/parameterize-workflow-app.md",
-      "redirect_url": "/connectors/logic-apps/create-parameters-workflows",
       "redirect_document_id": false
     },
     {
