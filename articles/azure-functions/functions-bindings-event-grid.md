@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 This reference shows how to connect to Azure Event Grid using Azure Functions triggers and bindings.  
 
-[!INCLUDE [functions-event-grid-intro](../../includes/functions-event-grid-intro.md)]
+[!INCLUDE [functions-event-grid-intro](../../includes/functions-event-grid-intro.md)] 
 
 | Action | Type |
 |---------|---------|
