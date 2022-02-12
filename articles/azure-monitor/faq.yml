@@ -386,9 +386,7 @@ sections:
       - question: |
           What roles do I need to create a DCR that collects events from my servers?
         answer: |
-          - [Monitoring contributor](/azure/role-based-access-control/built-in-roles#monitoring-contributor): Required to create a DCR and an association between the DCR and the machine. If your DCR, your server, and your Log Analytics workspace are in different resource groups, you will need to have a Monitoring contributor role in each resource group.
-          - [Contributor](/azure/role-based-access-control/built-in-roles#contributor): You must have a Contributor role in the resource group where you are creating the DCR.
-          - [Virtual machine contributor](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): The AMA is automatically deployed when you first deploy a DCR in a VM, if it was not already installed. Therefore, if you don't yet have the AMA installed, you must have a Virtual machine contributor role in the server in order to install the agent.
+          See [Permissions required to create data collection rules and associations](agents/data-collection-rule-azure-monitor-agent.md#permissions-required-to-create-data-collection-rules-and-associations)
 
       - question: |
           If I create DCRs that contain the same event ID and associate it to the same VM, will the events be duplicated?
