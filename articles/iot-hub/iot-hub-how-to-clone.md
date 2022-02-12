@@ -1,12 +1,12 @@
 ---
 title: How to clone an Azure IoT hub
 description: How to clone an Azure IoT hub
-author: eross-msft
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: lizross
+ms.author: kgremban
 # Customer intent: As a customer using IoT Hub, I need to clone my IoT hub to another region. 
 ---
 

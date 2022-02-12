@@ -217,6 +217,8 @@
           maintainContext: true
         - name: Azure portal Kubernetes resource view
           href: kubernetes-portal.md
+        - name: Use tags
+          href: use-tags.md
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
