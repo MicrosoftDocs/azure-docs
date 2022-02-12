@@ -209,7 +209,7 @@
         href: search-security-manage-encryption-keys.md
       - name: Find encrypted objects
         href: search-security-get-encryption-keys.md
-    - name: Inbound security
+    - name: Inbound connections
       items:
       - name: Use key authentication
         href: search-security-api-keys.md
@@ -223,8 +223,10 @@
         href: service-create-private-endpoint.md
       - name: Troubleshoot private connections
         href: troubleshoot-shared-private-link-resources.md
-    - name: Outbound security (indexers)  
+    - name: Outbound connections
       items:
+      - name: Connect using a managed identity
+        href: search-howto-managed-identities-data-sources.md
       - name: Connect over an IP range
         href: search-indexer-howto-access-ip-restricted.md
       - name: Connect as a trusted service
@@ -323,8 +325,6 @@
         href: search-howto-index-json-blobs.md
     - name: Connect with managed identities
       items:
-      - name: Managed identities overview
-        href: search-howto-managed-identities-data-sources.md
       - name: Azure Storage
         href: search-howto-managed-identities-storage.md
       - name: Azure Cosmos DB
