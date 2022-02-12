@@ -339,7 +339,7 @@ Service Fabric managed cluster does not support in-place modification of the VM 
 * [Delete old node type via portal or PowerShell](how-to-managed-cluster-modify-node-type.md#remove-a-node-type). To remove a primary node type you will have to use PowerShell.
 
 
-## Configure multiple managed disks (preview)
+## Configure multiple managed disks
 Service Fabric managed clusters by default configure one managed disk. By configuring the following optional property and values, you can add more managed disks to node types within a cluster. You are able to specify the drive letter, disk type, and size per disk.
 
 Configure more managed disks by declaring `additionalDataDisks` property and required parameters in your Resource Manager template as follows:
@@ -369,7 +369,7 @@ Configure more managed disks by declaring `additionalDataDisks` property and req
 
 See [full list of parameters available](/azure/templates/microsoft.servicefabric/2021-11-01-preview/managedclusters)
 
-## Configure the Service Fabric data disk drive letter (preview)
+## Configure the Service Fabric data disk drive letter
 Service Fabric managed clusters by default configure a Service Fabric data disk and automatically configure the drive letter on all nodes of a node type. By configuring this optional property and value, you can specify and retrieve the Service Fabric data disk letter if you have specific requirements for drive letter mapping.
 
 **Feature Requirements**
