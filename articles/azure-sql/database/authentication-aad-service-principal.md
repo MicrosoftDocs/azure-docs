@@ -68,9 +68,11 @@ To enable an Azure AD object creation in SQL Database on behalf of an Azure AD a
     > [!NOTE]
     > Server identity can be assigned using REST API and CLI commands as well. For more information, see [az sql server create](/cli/azure/sql/server#az_sql_server_create), [az sql server update](/cli/azure/sql/server#az_sql_server_update), and [Servers - REST API](/rest/api/sql/2020-08-01-preview/servers).
 
+
 2. Grant the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission to the server identity created or assigned to the server.
     - To grant this permission, follow the description used for SQL Managed Instance that is available in the following article: [Provision Azure AD admin (SQL Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
     - The Azure AD user who is granting this permission must be part of the Azure AD **Global Administrator** or **Privileged Roles Administrator** role.
+    - For dedicated SQL pools in an Azure Synapse workspace, use the workspace's managed identity instead of the Azure SQL server identity.
 
 > [!IMPORTANT]
 > With [Microsoft Graph](/graph/overview) support for Azure SQL, the Directory Readers role can be replaced with using lower level permissions. For more information, see [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md)
