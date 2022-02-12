@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/10/2022
+ms.date: 02/11/2022
 ms.author: eur
 ms.custom: devx-track-csharp
 ---
@@ -20,22 +20,7 @@ ms.custom: devx-track-csharp
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
 
 ## Set up the environment
-
-The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. 
-
-The .NET Speech SDK can be installed from the **.NET Core CLI** with the following `dotnet add` command:
-
-```console
-dotnet add package Microsoft.CognitiveServices.Speech
-```
-
-The .NET Speech SDK can be installed from the **Package Manager** with the following `Install-Package` command:
-
-```powershell
-Install-Package Microsoft.CognitiveServices.Speech
-```
-
-For platform-specific installation instructions, see the [Speech SDK setup guide](/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp).
+The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](~/articles/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-csharp) for any additional requirements.
 
 > [!div class="nextstepaction"]
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
@@ -43,7 +28,7 @@ For platform-specific installation instructions, see the [Speech SDK setup guide
 
 ## Create a new project
 
-Follow this example to create a new console application from a command prompt.
+Follow these steps to create a new console application and install the Speech SDK.
 
 1. Open a command prompt and go to the directory where you want to create the new project.
 1. Create a new console application with the .NET CLI.
@@ -155,7 +140,7 @@ Here's some suggested modifications to try out:
     ```csharp
     speechConfig.SpeechRecognitionLanguage = "en-US";
     ```
-- For details about how to identify the language, in case one of several languages might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+- For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
 
 ## Clean up resources
