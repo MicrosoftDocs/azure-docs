@@ -16,15 +16,15 @@ ms.custom: devx-track-csharp
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 > [!div class="nextstepaction"]
-> [I have the prerequisites](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [I have the prerequisites](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 
 ## Set up the environment
 The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech) and implements .NET Standard 2.0. You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](/azure/cognitive-services/speech-service/quickstarts/speech-sdk#get-the-speech-sdk?pivots=programming-language-csharp) for any additional requirements.
 
 > [!div class="nextstepaction"]
-> [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 
 ## Create a new project
 
@@ -99,8 +99,8 @@ Follow these steps to create a new console application and install the Speech SD
 1. In Program.cs, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 > [!div class="nextstepaction"]
-> [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 
 ## Recognize speech from a microphone
 
@@ -121,8 +121,8 @@ RECOGNIZED: Text=I'm excited to use speech to text.
 This example uses the `RecognizeOnceAsync` operation to transcribe utterances up to 30 seconds, or when silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 
 > [!div class="nextstepaction"]
-> [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md#recognize-speech-from-a-microphone)
+> [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 
 Here's some suggested modifications to try out:
 - To recognize speech from a file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
