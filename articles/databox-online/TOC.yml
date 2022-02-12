@@ -7,10 +7,6 @@
     items:
     - name: What is Azure Stack Edge Pro 2?
       href: azure-stack-edge-pro-2-overview.md
-  - name: Quickstarts
-    items:
-    - name: Get started
-      href: azure-stack-edge-placeholder.md
   - name: Tutorials
     items:
     - name: 0 - Get checklist
@@ -29,9 +25,9 @@
     - name: 6 - Configure certificates
       href: azure-stack-edge-pro-2-deploy-configure-certificates.md
     - name: 7 - Activate
-      href: azure-stack-edge-placeholder.md 
+      href: azure-stack-edge-pro-2-deploy-activate.md 
     - name: 8 - Configure compute
-      href: azure-stack-edge-placeholder.md  
+      href: azure-stack-edge-gpu-deploy-configure-compute.md  
       
   - name: Concepts
     items:
@@ -48,11 +44,7 @@
     - name: Security overview
       href: azure-stack-edge-pro-r-security.md
     - name: Review specifications
-      items:
-      - name: Device specifications
-        href: azure-stack-edge-pro-2-technical-specifications-compliance.md
-      - name: Power cord specifications
-        href: azure-stack-edge-placeholder.md
+      href: azure-stack-edge-pro-2-technical-specifications-compliance.md
         
 - name: Azure Stack Edge Pro - GPU
   items:
