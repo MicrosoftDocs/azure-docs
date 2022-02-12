@@ -131,7 +131,6 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session. The Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields](network-normalization-schema.md#network-session-fields) are also included in the Web Session schema.
 
 The following ASIM Network Session schema fields have specific guidelines when used for a Web Session event:
-- The alias IpAddr should preferably alias [SrcNatIpAddr](network-normalization-schema.md#srcnatipaddr) rather than [SrcIpAddr](network-normalization-schema.md#srcipaddr).
 - The alias User should refer to the [SrcUsername](network-normalization-schema.md#srcusername) and not to [DstUsername](network-normalization-schema.md#dstusername).
 - The field [EventOriginalResultDetails](normalization-about-schemas.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
 - For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](network-normalization-schema.md#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
