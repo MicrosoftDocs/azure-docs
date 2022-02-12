@@ -47,4 +47,4 @@ The private preview will be available on all platforms.
 
 ## Next steps
 
-- Get started with a [Closed Captions Quickstart](./T/azure/communication-services/quickstarts/voice-video-calling/get-started-with-closed-captions?pivots=platform-iosBD)
+- Get started with a [Closed Captions Quickstart](/azure/communication-services/quickstarts/voice-video-calling/get-started-with-closed-captions?pivots=platform-iosBD)
