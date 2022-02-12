@@ -24,25 +24,23 @@ Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic App
 
 ## Scaling plan
 
-an Azure Virtual Desktop ARM object that defines the schedules for scaling session hosts in a host pool. One scaling plan can be assigned to multiple host pools. One host pool can only have a single scaling plan associated with it.
+A scaling plan is an Azure Virtual Desktop Azure Resource Manager object that defines the schedules for scaling session hosts in a host pool. You can assign one scaling plan to multiple host pools. Each host pool can only have one scaling plan assigned to it.
 
 ## Schedule
 
-a sub resource of a scaling plan that specifies the start time, capacity threshold, minimum percentage of hosts, load balancing algorithm, and other scaling configurations for the different phases of the selected day(s).
+Schedules are sub-resources of scaling plans that specify start time, capacity threshold, minimum percentage of hosts, the load-balancing algorithm, and other configuration settings for the different phases of the day.
 
 ## Ramp up
 
-the phase of a scaling plan schedule where users are starting to login and launch user sessions at the beginning of the workday. In this phase, it is expected that the number of user sessions will increase at a rapid pace. Maximum session concurrency is not expected to be reached in this phase.
+The ramp-up phase of a scaling plan schedule is usually at the beginning of the work day, when users start to sign in and start their sessions. In this phase, the number of active user sessions should increase at a rapid pace, but not reach the maximum number of active sessions yet.
 
 ## Peak
 
-the phase of a scaling plan schedule where the maximum user session concurrency is expected to be reached. In this phase, users are expected to be steadily working. There may be new user sessions established during this time, but it will be at a slower pace than in the ramp up phase.
+The phase of the schedule where your deployment reaches the maximum number of active sessions it can handle. In this phase, the number of active sessions are expected to hold steady until the peak ends. New active user sessions can be established during this phase, but at a slower rate than the ramp-up phase.
 
 ## Ramp down
 
-the phase of a scaling plan schedule where users are starting to
-logout of their user sessions at the end of the workday. In this phase, it is
-expected that the number of user sessions will decrease at a rapid pace.
+The ramp-down phase of the scaling plan schedule is at the end of hte work day, when users start to sign out and end their sessions for the evening. In this phase, we expect the number of active user sessions to decrease rapidly.
 
 ## Off peak
 
