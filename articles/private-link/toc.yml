@@ -6,20 +6,20 @@
     href: private-link-overview.md
 - name: Quickstarts
   items:
-  - name: Create a private endpoint - the Azure portal
+  - name: Create a private endpoint - Azure portal
     href: create-private-endpoint-portal.md
   - name: Create a private endpoint - PowerShell
     href: create-private-endpoint-powershell.md
-  - name: Create a private endpoint - the Azure CLI
+  - name: Create a private endpoint - Azure CLI
     href: create-private-endpoint-cli.md
   - name: Create a private endpoint - ARM template
     displayName: Azure Resource Manager
     href: create-private-endpoint-template.md
-  - name: Create a Private Link service - the Azure portal
+  - name: Create a Private Link service - Azure portal
     href: create-private-link-service-portal.md
   - name: Create a Private Link service - PowerShell
     href: create-private-link-service-powershell.md
-  - name: Create a Private Link service - the Azure CLI
+  - name: Create a Private Link service - Azure CLI
     href: create-private-link-service-cli.md
   - name: Create a Private Link service - ARM template
     displayName: Azure Resource Manager
@@ -35,11 +35,11 @@
     href: tutorial-private-endpoint-webapp-portal.md
   - name: SQL
     items:
-    - name: Connect to a SQL server - the Azure portal
+    - name: Connect to a SQL server - Azure portal
       href: tutorial-private-endpoint-sql-portal.md
     - name: Connect to a SQL server - PowerShell
       href: tutorial-private-endpoint-sql-powershell.md
-    - name: Connect to a SQL server - the Azure CLI
+    - name: Connect to a SQL server - Azure CLI
       href: tutorial-private-endpoint-sql-cli.md
 - name: Concepts
   items:
