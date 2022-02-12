@@ -44,10 +44,7 @@ The ramp-down phase of the scaling plan schedule is at the end of hte work day, 
 
 ## Off peak
 
-the phase of a scaling plan schedule where the minimum user
-session concurrency is expected to be reached. In this phase, very few users are
-expected to be working, but minimal resources may be kept on to accommodate
-users working outside of working hours.
+The off-peak phase of the scaling plan schedule is when the deployment reaches the minimum number of active user sessions for the day. During this phase, we don't expect many users to be active, but you may want to keep a small amount of resources on hand to accomodate users who work outside typical working hours.
 
 ## Capacity threshold
 
