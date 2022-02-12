@@ -141,7 +141,7 @@ This section guides users on modifying the cloned people counting repo with thei
 
 8. To further verify what the build and push command did, go to the Azure portal, and navigate to your container registry. In your container registry, select `Repositories` then `countmodule`
 
-    :::image type="content" source="./media/create-people-counting-solution-with-azure-percept-vision-images/azure-container-registry.png" alt-text="Container Registry Creation.":::
+    :::image type="content" source="./media/create-people-counting-solution-with-azure-percept-vision-images/azure-container-registry.png" alt-text="Select repositories.":::
 
 
 ## Step 3: Deploy edge solution to device
