@@ -30,6 +30,8 @@ In this article, you'll learn how to:
 
 [!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 ## Authorize developer accounts by using Azure AD
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 

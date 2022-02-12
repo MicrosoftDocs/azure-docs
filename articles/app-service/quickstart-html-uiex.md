@@ -18,6 +18,8 @@ This quickstart shows how to deploy a basic HTML+CSS site to <abbr title="An HTT
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 In [Cloud Shell](../cloud-shell/overview.md), create a quickstart directory and then change to it.
 
 ```bash
@@ -35,7 +37,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## 2. Create a web app
 
-Change to the directory that contains the sample code and run the `az webapp up` command. **Replace** `<app-name>` with a globally unique name.
+Change to the directory that contains the sample code and run the [az webapp up](/cli/azure/webapp#az-webapp-up) command. **Replace** `<app-name>` with a globally unique name.
 
 ```azurecli
 cd html-docs-hello-world
@@ -50,7 +52,7 @@ az webapp up --location westeurope --name <app_name> --html
 <li>Replace <code>&lt;app-name&gt;</code> with a name that's unique across all of Azure (<em>valid characters are <code>a-z</code>, <code>0-9</code>, and <code>-</code></em>). A good pattern is to use a combination of your company name and an app identifier.</li>
 <li>The <code>--sku F1</code> argument creates the web app on the Free pricing tier. Omit this argument to use a faster premium tier, which incurs an hourly cost.</li>
 <li>The <code>--html</code> argument says to treat all folder content as static content and disable build automation.</li>
-<li>You can optionally include the argument <code>--location &lt;location-name&gt;</code> where <code>&lt;location-name&gt;</code> is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the <a href="/cli/azure/appservice#az_appservice_list_locations"><code>az account list-locations</code></a> command.</li>
+<li>You can optionally include the argument <code>--location &lt;location-name&gt;</code> where <code>&lt;location-name&gt;</code> is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the <a href="/cli/azure/appservice#az-appservice-list-locations"><code>az account list-locations</code></a> command.</li>
 </ul>
 </details>
 

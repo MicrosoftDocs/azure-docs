@@ -23,6 +23,8 @@ adobe-target-content: ./quickstart-html-uiex
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 ## Download the sample
 
 In the Cloud Shell, create a quickstart directory and then change to it.
@@ -41,7 +43,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## Create a web app
 
-Change to the directory that contains the sample code and run the `az webapp up` command. In the following example, replace <app_name> with a unique app name. Static content is indicated by the `--html` flag.
+Change to the directory that contains the sample code and run the [az webapp up](/cli/azure/webapp#az-webapp-up) command. In the following example, replace <app_name> with a unique app name. Static content is indicated by the `--html` flag.
 
 ```azurecli
 cd html-docs-hello-world

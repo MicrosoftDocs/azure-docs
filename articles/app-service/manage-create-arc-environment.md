@@ -14,6 +14,8 @@ Azure Arc-enabled Kubernetes lets you make your on-premises or cloud Kubernetes 
 
 If you don't have an Azure account, [sign up today](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) for a free account.
 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 <!-- ## Prerequisites
 
 - Create a Kubernetes cluster in a supported Kubernetes distribution and connect it to Azure Arc in a supported region. See [Public preview limitations](overview-arc-integration.md#public-preview-limitations).
@@ -200,7 +202,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --output tsv)
     $logAnalyticsKeyEnc=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsKey))
     ```
-    
+
     ---
 
 ## Install the App Service extension

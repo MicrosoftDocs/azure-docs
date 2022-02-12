@@ -26,6 +26,8 @@ Creating an Azure Arc data controller in direct connectivity mode involves the f
 1. Create a custom location.
 1. Create the data controller.
 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 ## Step 1: Create an Azure Arc-enabled data services extension
 
 Use the k8s-extension CLI to create a data services extension.

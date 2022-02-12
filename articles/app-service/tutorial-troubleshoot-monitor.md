@@ -32,6 +32,8 @@ To complete this tutorial, you'll need:
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 ## Create Azure resources
 
 First, you run several commands locally to setup a sample app to use with this tutorial. The commands create Azure resources, create a deployment user, and deploy the sample app to Azure. You'll be prompted for the password supplied as a part of the creation of the deployment user. 
@@ -72,7 +74,7 @@ Diagnostic settings can be used to collect metrics for certain Azure services in
 You run the following commands to create diagnostic settings for AppServiceConsoleLogs (standard output/error) and AppServiceHTTPLogs (web server logs). Replace _\<app-name>_ and _\<workspace-name>_ with your values. 
 
 > [!NOTE]
-> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the `az monitor diagnostic-settings create` command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
+> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
 >
 
 ```azurecli
