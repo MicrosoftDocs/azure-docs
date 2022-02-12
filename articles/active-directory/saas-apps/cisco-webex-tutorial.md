@@ -160,6 +160,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
       To enable the MFA by using Azure AD, enter the two values like this:
       `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
 
+      To enable the MFA by using Azure AD during the staged rollout of cloud authentication, enter the following values:
+      `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509;urn:oasis:names:tc:SAML:2.0:ac:classes:Password;urn:federation:authentication:windows;urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified`
+
    1. Select **Auto Account Creation**.
    
       > [!NOTE]
