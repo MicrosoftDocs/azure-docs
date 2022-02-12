@@ -30,8 +30,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Open a command prompt and go to the directory where you want to create the new project.
-1. Create a new console application with the .NET CLI.
+1. Open a command prompt where you want the new project, and create a console application with the .NET CLI.
     ```console
     dotnet new console
     ```
@@ -104,7 +103,7 @@ Follow these steps to create a new console application and install the Speech SD
 
 ## Recognize speech from a microphone
 
-Run the following command to start speech recognition from your microphone:
+Run your new console application to start speech recognition from a microphone:
 
 ```console
 dotnet run
@@ -114,8 +113,8 @@ Speak into your microphone when prompted. What you speak should be output as tex
 
 ```console
 Speak into your microphone.
-RECOGNIZED: Text=I'm excited to use speech to text.
-RECOGNIZED: Text=I'm excited to use speech to text.
+RECOGNIZED: Text=I'm excited to try speech to text.
+RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
 This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
@@ -125,9 +124,9 @@ This example uses the `RecognizeOnceAsync` operation to transcribe utterances of
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 
 Now that you have a speech to text application, here are some suggested modifications to try out:
-- To recognize speech from a file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
+- To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
     ```csharp
-    using var audioConfig = AudioConfig.FromWavFileInput("PathToFile.wav");
+    using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
     ```
 - To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You can add these lines right after the new `SpeechRecognizer` object is created:
     ```csharp
@@ -136,9 +135,9 @@ Now that you have a speech to text application, here are some suggested modifica
     phraseList.AddPhrase("Jessie");
     phraseList.AddPhrase("Rehaan");
     ```
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md).
+- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language.
     ```csharp
-    speechConfig.SpeechRecognitionLanguage = "de-DE";
+    speechConfig.SpeechRecognitionLanguage = "es-ES";
     ```
 - For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
