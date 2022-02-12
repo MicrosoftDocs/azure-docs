@@ -19,11 +19,11 @@ To create a custom model, you label a dataset of documents with the values you w
 
 ## Custom model types
 
-Custom models can be one of two types, [**custom form**](concept-custom-form.md) or [**custom document**](concept-custom-document) models. The labeling and training process for both models is identical, but the models differ as follows:
+Custom models can be one of two types, [**custom form**](concept-custom-template.md ) or [**custom neural**](concept-custom-document) models. The labeling and training process for both models is identical, but the models differ as follows:
 
 ### Custom form model
 
- The custom form model relies on a consistent visual template to extract the labeled data. The accuracy of your model is affected by variances in the visual structure of your documents. Questionnaires or application forms are examples of consistent visual templates.Your training set will consist of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom form  models support key value pairs, selection marks, tables, signature fields and regions and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom form models](concept-custom-form.md).
+ The custom template model relies on a consistent visual template to extract the labeled data. The accuracy of your model is affected by variances in the visual structure of your documents. Questionnaires or application forms are examples of consistent visual templates.Your training set will consist of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom form  models support key-value pairs, selection marks, tables, signature fields and regions and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md ).
 
 > [!TIP]
 >
@@ -33,11 +33,11 @@ Custom models can be one of two types, [**custom form**](concept-custom-form.md)
 
 ### Custom document model
 
-The custom document model is a deep learning model type relies on a base model trained on a large collection of labeled documents using key-value pairs. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom document models support structured, semi-structured, and unstructured documents to extract fields. Custom document models currently support English-language documents.
+The custom neural model is a deep learning model type relies on a base model trained on a large collection of labeled documents using key-value pairs. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom document models support structured, semi-structured, and unstructured documents to extract fields. Custom document models currently support English-language documents.
 
 ## Model features
 
-The table below compares custom form and custom document features:
+The table below compares custom template and custom neural features:
 
 |Feature    |Custom Form | Custom Document |
 |-----------|------------------|-----------------------|
@@ -45,7 +45,7 @@ The table below compares custom form and custom document features:
 |Training time | 1 - 5 minutes | 20 - 60 minutes |
 |Data extraction| Key-value pairs, tables, selection marks, signatures, and regions| Key-value pairs and selections marks.|
 |Models per Document type | Requires one model per each document-type variation| Supports a single model for all document-type variations.|
-|Language support| See [custom form model language support](language-support.md#layout-and-custom-form-model)| The custom document model currently supports English-language documents only.|
+|Language support| See [custom template model language support](language-support.md#layout-and-custom-form-model)| The custom neural model currently supports English-language documents only.|
 
 ## Model capabilities
 
@@ -59,7 +59,7 @@ This table compares the supported data extraction areas:
 **Table symbols**: ✔ — supported; &#10033; — preview; **n/a** — currently unavailable
 
 > [!TIP]
-> When choosing between the two model types, start with a custom document model if it meets your functional needs. See [custom document](concept-custom-document.md) to learn more about custom document models.
+> When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md ) to learn more about custom document models.
 
 ## Development options
 
@@ -72,7 +72,7 @@ The following table describes the features available with the associated tools a
 | Custom document | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](https://docs.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-python-sdk)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!NOTE]
-> Custom form models trained with the 3.0 API will have a few improvements over the 2.1 API stemming from improvements to the OCR engine. Datasets used to train a custom form model using the 2.1 API can still be used to train a new model using the 3.0 API.
+> Custom form models trained with the 3.0 API will have a few improvements over the 2.1 API stemming from improvements to the OCR engine. Datasets used to train a custom template model using the 2.1 API can still be used to train a new model using the 3.0 API.
 
 ## Next steps
 

@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021, mode-ui
 >[!NOTE]
 > Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities. 
 
-[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom form models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
+[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom template models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
 :::image border="true" type="content" source="../media/quickstarts/form-recognizer-studio-demo.gif" alt-text="Form Recognizer Studio demo":::
 
@@ -185,7 +185,7 @@ In addition, view all your models using the Models tab on the left. From the lis
 ## Labeling as tables
 
 [!NOTE]
-> Tables are currently only supported for custom form models. When training a custom document model, labeled tables are ignored.
+> Tables are currently only supported for custom template models. When training a custom document model, labeled tables are ignored.
 
 While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
@@ -220,7 +220,7 @@ Use fixed tables to extract specific collection of values for a given set of fie
 ## Labeling for signature detection
 
 >[!NOTE]
-> Signature fields are currently only supported for custom form models. When training a custom document model, labeled signature fields are ignored. 
+> Signature fields are currently only supported for custom template models. When training a custom document model, labeled signature fields are ignored. 
 
 To label for signature detection:
 

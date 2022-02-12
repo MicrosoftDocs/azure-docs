@@ -18,7 +18,7 @@ ms.author: lajanuar
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
 
-## Layout and custom form model
+## Layout and custom template model
 
 The following lists cover the currently GA languages in the the 2.1 version and new previews in the 3.0 preview version of Form Recognizer. These languages are supported by Layout and Custom models. The preview release may include enhancements to the currently GA languages.
 

@@ -434,7 +434,7 @@ http {
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
-* Navigate back to the home tab and select the "Use custom to train a model with labels and key value pairs option".
+* Navigate back to the home tab and select the "Use custom to train a model with labels and key-value pairs option".
 * Select the train button on the left pane to train the labeled model.
 * Save this connection and use it to label your requests.
 * You can choose to analyze the file of your choice against the trained model.
@@ -555,7 +555,7 @@ $docker-compose up
 * On the left pane of the tool, select the **connections** tab.
 * Select **create a new project** and give it a name and description.
 * For the provider, choose the **local file system** option. For the local folder, make sure you enter the path to the folder where you stored the **sample data** files.
-* Navigate back to the home tab and select **Use custom to train a model with labels and key value pairs**.
+* Navigate back to the home tab and select **Use custom to train a model with labels and key-value pairs**.
 * Select the **train button** on the left pane to train the labeled model.
 * **Save** this connection and use it to label your requests.
 * You can choose to analyze the file of your choice against the trained model.

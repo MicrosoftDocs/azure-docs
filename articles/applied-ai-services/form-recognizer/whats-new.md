@@ -21,7 +21,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ### Form Recognizer v3.0 preview update 2
 
-* [**Custom document**](concept-custom-document.md) model is a new custom model to extract text and selection marks from structured forms and **unstructured documents**.
+* [**Custom document**](concept-custom-neural.md ) model is a new custom model to extract text and selection marks from structured forms and **unstructured documents**.
 
 * [**W-2 prebuilt model**](concept-w2.md) is a new prebuilt model to extract fields from W-2 tax documents.
 
@@ -546,7 +546,7 @@ pip package version 3.1.0b4
 
 * **REST API reference is available** - View the [v2.1-preview.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 * **New languages supported In addition to English**, the following [languages](language-support.md) are now supported: for `Layout` and `Train Custom Model`: English (`en`), Chinese (Simplified) (`zh-Hans`), Dutch (`nl`), French (`fr`), German (`de`), Italian (`it`), Portuguese (`pt`) and Spanish (`es`).
-* **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key value pairs for selection marks.
+* **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key-value pairs for selection marks.
 * **Model Compose** - allows multiple models to be composed and called with a single model ID. When a you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.
 * **Model name** - add a friendly name to your custom models for easier management and tracking.
 * **[New pre-built model for Business Cards](./concept-business-card.md)** for extracting common fields in English, language business cards.
@@ -598,7 +598,7 @@ pip package version 3.1.0b4
   * [Python SDK](/python/api/overview/azure/ai-formrecognizer-readme)
   * [JavaScript SDK](/javascript/api/overview/azure/ai-form-recognizer-readme)
 
-  The new SDK supports all the features of the v2.0 REST API for Form Recognizer. For example, you can train a model with or without labels and extract text, key value pairs and tables from your forms, extract data from receipts with the pre-built receipts service and extract text and tables with the layout service from your documents. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
+  The new SDK supports all the features of the v2.0 REST API for Form Recognizer. For example, you can train a model with or without labels and extract text, key-value pairs and tables from your forms, extract data from receipts with the pre-built receipts service and extract text and tables with the layout service from your documents. You can share your feedback on the SDKs through the [SDK Feedback form](https://aka.ms/FR_SDK_v1_feedback).
 
 * **Copy Custom Model** You can now copy models between regions and subscriptions using the new Copy Custom Model feature. Before invoking the Copy Custom Model API, you must first obtain authorization to copy into the target resource by calling the Copy Authorization operation against the target resource endpoint.
 

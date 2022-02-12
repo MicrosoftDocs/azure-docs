@@ -80,7 +80,7 @@ Form Recognizer offers several prebuilt models to choose from. Each model has it
 
 1. Select **Run analysis**. The Form Recognizer Sample Labeling tool will call the Analyze Prebuilt API and analyze the document.
 
-1. View the results - see the key value pairs extracted, line items, highlighted text extracted and tables detected.
+1. View the results - see the key-value pairs extracted, line items, highlighted text extracted and tables detected.
 
     :::image type="content" source="../media/label-tool/prebuilt-2.jpg" alt-text="Analyze Results of Form Recognizer invoice model":::
 
@@ -120,11 +120,11 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
      * The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is `selected` or `unselected`.
      * The `pageResults` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
-## Train a custom form model
+## Train a custom template model
 
 Train a custom model to analyze and extract data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You'll need at least five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
-### Prerequisites for training a custom form model
+### Prerequisites for training a custom template model
 
 * An Azure Storage blob container that contains a set of training data. Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this project, you can use our [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip).
 
@@ -154,7 +154,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page select **Use custom form to train a model with labels and get key value pairs**.
+1. On the sample tool home page select **Use custom template to train a model with labels and get key-value pairs**.
 
     :::image type="content" source="../media/label-tool/custom-1.jpg" alt-text="Train a custom model.":::
 
@@ -269,7 +269,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
    :::image type="content" source="../media/analyze.png" alt-text="Training view.":::
 
-That's it! You've learned how to use the Form Recognizer sample tool for Form Recognizer prebuilt, layout and custom models. You've also learned to analyze a custom form with manually labeled data. Now you can try a Form Recognizer client library SDK or REST API.
+That's it! You've learned how to use the Form Recognizer sample tool for Form Recognizer prebuilt, layout and custom models. You've also learned to analyze a custom template with manually labeled data. Now you can try a Form Recognizer client library SDK or REST API.
 
 ## Next steps
 

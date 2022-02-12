@@ -24,7 +24,7 @@ Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 * [Form Recognizer REST API](quickstarts/try-v3-rest-api.md) has been redesigned for better usability.
 * [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Custom form model (v3.0)**](concept-custom.md) supports signature detection for custom forms.
-* [**Custom document model (v3.0)**](concept-custom-document.md) is a new custom model type to extract fields from structured and unstructured documents.
+* [**Custom document model (v3.0)**](concept-custom-neural.md ) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (v3.0)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 
