@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 02/12/2022
 ms.author: v-ydequadros
 ---
 
 # Enable or disable the controller after onboarding is complete
 
-This article describes how to enable the controller in Amazon Web Services (AWS) if you disabled it during onboarding. You can only enable the controller in AWS; you cannot disable it at this time.
+This article describes how to enable the controller in Amazon Web Services (AWS) if you disabled it during onboarding. You can only enable the controller in AWS at this time; you can't disable it.
 
 This article also describes how to enable or disable the controller in Microsoft Azure, or Google Cloud Platform (GCP) after onboarding is complete.
 
 ## Enable the controller in AWS
 
 > [!NOTE] 
->  You can only enable the controller in AWS; you cannot disable it at this time.
+>  You can only enable the controller in AWS; you can't disable it at this time.
 
 1. Sign in to the AWS console of the member account in another browser window. 
-1. Return to the **CloudKnox Onboarding - AWS Member Account Details** page, select **Launch Template**. 
+1. Return to the **CloudKnox Onboarding - AWS Member Account Details** page, and then select **Launch Template**. 
 
     The **AWS CloudFormation create stack** page opens, displaying the template.
 1. In the **CloudTrailBucketName** box, enter a name. 
@@ -51,12 +51,12 @@ This article also describes how to enable or disable the controller in Microsoft
 1. In Azure, open the **Access control (IAM)** page.
 1. In the **Check access** section, in the **Find** box, enter **Cloud Infrastructure Entitlement Management**.
 
-    The **Cloud Infrastructure Entitlement Management assignments** page appears, displaying the roles assigned to you:
+    The **Cloud Infrastructure Entitlement Management assignments** page appears, displaying the roles assigned to you.
 
     - If you have read-only permission, the **Role** column displays **Reader**.
     - If you have administrative permission, the **Role** column displays **User Access Administrative**.
 
-1. To add the administrative role assignment, return to the the **Access control (IAM)** page, and then select **Add role assignment**.
+1. To add the administrative role assignment, return to the **Access control (IAM)** page, and then select **Add role assignment**.
 1. Add or remove the role assignment for Cloud Infrastructure Entitlement Management.
 1. In **CloudKnox Onboarding – Summary** page, review the controller permissions, and then select **Verify Now & Save**.
 
@@ -75,8 +75,8 @@ This article also describes how to enable or disable the controller in Microsoft
 
 1. Optionally, execute **mciem-enable-gcp-api.sh** to enable all recommended GCP APIs.
 
-1. Return to **CloudKnox Onboarding - GCP Project Ids** box, and then select **Next**.
-1. In the **CloudKnox Onboarding – Summary** box, review the information you’ve added, and then select **Verify Now & Save**.
+1. Return to **CloudKnox Onboarding - GCP Project Ids** page, and then select **Next**.
+1. In the **CloudKnox Onboarding – Summary** page, review the information you’ve added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 
@@ -85,5 +85,5 @@ This article also describes how to enable or disable the controller in Microsoft
 - For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an AWS account](cloudknox-onboard-aws.md).
 - For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md).
 - For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a GCP project](cloudknox-onboard-gcp.md).
-- For information on how to add an account/subscription/project after onboarding after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).
+- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).
 

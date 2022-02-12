@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 02/12/2022
 ms.author: v-ydequadros
 ---
 
@@ -34,13 +34,14 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 ### 1. Create an Azure AD OIDC app.
 
 1. On **CloudKnox On Boarding - Azure AD OIDC App Creation** page, enter the **OIDC Azure App Name**.
-    This app will be used to set up an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated will create the app of this specified name in your Azure AD tenant with the right configuration.
+
+    This app is used to set up an OpenID Connect (OIDC) connection to your GCP project. OIDC is an interoperable authentication protocol based on the OAuth 2.0 family of specifications. The scripts generated will create the app of this specified name in your Azure AD tenant with the right configuration.
         
-1. To create the app registration, copy the script and run it in your Azure command-line app.
+1. To create the app registration, copy the script and run it in your command-line app.
 
     > [!NOTE]    
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
-    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the "audience" value used while making an OIDC connection with your AWS account.
+    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your AWS account.
 
     1. Return to CloudKnox, and in the **CloudKnox On Boarding - Azure AD OIDC App Creation**, select **Next**.
         
@@ -54,33 +55,33 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 1. You can change the **OIDC Workload Identity Pool Id**, **OIDC Workload Identity Pool Provider Id** and **OIDC Service Account Name** to your requirements.
 
     1. Optionally, specify **G-Suite IDP Secret Name** and **G-Suite IDP User Email** to enable G-Suite integration.
-    1. You can choose to download and run the script at this point (or you can do that via Google Cloud Shell at step 6).
+    1. You can choose to download and run the script at this point (or you can do that via Google Cloud Shell).
     1. Select **Next**.
 
 ### 3. Set up GCP member projects.
 
-1. In the **CloudKnox Onboarding - GCP Project Ids** box, enter the **Project IDs**.
+1. In the **CloudKnox Onboarding - GCP Project Ids** page, enter the **Project IDs**.
 
-    You can enter up to 10 GCP project IDs in this box. Click the plus icon next to the text box to insert more project IDs.
+    You can enter up to 10 GCP project IDs. Select the plus icon next to the text box to insert more project IDs.
         
-1. You can choose to download and run the script at this point (or you can do that via Google Cloud Shell in the next step).
+1. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell, as described in the next step.
     
 ### 4. Run scripts in Cloud Shell. (Optional if not already executed.)
 
-1. In the **CloudKnox Onboarding - GCP Project Ids** box, select **Launch SSH**.
+1. In the **CloudKnox Onboarding - GCP Project Ids** page, select **Launch SSH**.
 1. To copy all your scripts into your current directory, in **Open in Cloud Shell**, select **Trust repo**, and then select **Confirm**.
+
     The Cloud Shell provisions the Cloud Shell machine and makes a connection to your Cloud Shell instance.
 
     > [!NOTE]     
     > Follow the instructions in the browser as they may be different from the ones given here.
-        
-        
+
     The **Welcome to CloudKnox GCP onboarding** screen appears, displaying four steps you must complete to onboard your GCP project.
 
 ### 5. Paste the environment vars from the CloudKnox portal.
 
 1. Return to CloudKnox and select **Copy export variables**.
-1. In the GCP Onboarding shell editor, paste the variables you copied and press enter.
+1. In the GCP Onboarding shell editor, paste the variables you copied, and then press **Enter**.
 1. Execute the **gcloud auth login**. 
 1. Follow instructions displayed on the screen to authorize access to your Google account.
 1. Execute the **sh mciem-workload-identity-pool.sh** to create the workload identity pool, provider, and service account.
@@ -92,21 +93,21 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 
 1. Optionally, execute **mciem-enable-gcp-api.sh** to enable all recommended GCP APIs.
 
-1. Return to **CloudKnox Onboarding - GCP Project Ids** box, and then select **Next**.
+1. Return to **CloudKnox Onboarding - GCP Project Ids**, and then select **Next**.
 
 ### 6. Review and save.
 
-1. In the **CloudKnox Onboarding – Summary** box, review the information you’ve added, and then select **Verify Now & Save**.
+1. In the **CloudKnox Onboarding – Summary** page, review the information you’ve added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 
-    On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting** and the **Recently Transformed On** column displays **Processing.** 
+    On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.** 
 
-    This step confirms that CloudKnox has started collecting and processing your GCP data.
+    You have now completed onboarding GCP, and CloudKnox has started collecting and processing your data.
 
-### 7. View your data.
+### 7. View the data.
 
-- To view your data, select the **Authorization Systems** tab. 
+- To view the data, select the **Authorization Systems** tab.
 
     The **Status** column in the table displays **Collecting Data.**
 
@@ -119,4 +120,4 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 - For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](cloudknox-onboard-aws.md).
 - For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md).
 - For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](cloudknox-onboard-enable-controller-after-onboarding.md).
-- For information on how to add an account/subscription/project after onboarding after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).
+- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).
