@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/11/2022
 ms.author: v-ydequadros
 ---
 
@@ -86,9 +86,9 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 1. Execute the **sh mciem-workload-identity-pool.sh** to create the workload identity pool, provider, and service account.
 1. Execute the **sh mciem-member-projects.sh** to give CloudKnox permissions to access each of the member projects. 
 
-    Choose **y** for **Enable controller** if you want to manage permissions through CloudKnox. 
+    - If you want to manage permissions through CloudKnox, select **Y** to **Enable controller**. 
 
-    If you choose **n**, the projects will onboard in a read-only mode.
+    - If you want to onboard your projects in read-only mode, select **N** to **Disable controller**.
 
 1. Optionally, execute **mciem-enable-gcp-api.sh** to enable all recommended GCP APIs.
 
@@ -96,7 +96,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 
 ### 6. Review and save.
 
-1. In **CloudKnox Onboarding – Summary**, review the information you’ve added, and then select **Verify Now & Save**.
+1. In the **CloudKnox Onboarding – Summary** box, review the information you’ve added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 
@@ -110,7 +110,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 
     The **Status** column in the table displays **Collecting Data.**
 
-    The data collection process takes a few minutes, so you may have to refresh your screen a few times to see the data.
+    The data collection process may take some time, depending on the size of the account and how much data is available for collection.
 
 
 
@@ -118,8 +118,5 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 
 - For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](cloudknox-onboard-aws.md).
 - For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md).
-- For an overview on CloudKnox, see [What's CloudKnox Permissions Management?](cloudknox-overview.md)
-- For information on how to start viewing information about your authorization system in CloudKnox, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
-- 
-<!--- - For information on how to enable or disable the controller, see [Enable or disable the controller](cloudknox-onboard-enable-controller.md).
-- For information on how to add an account/subscription/project after onboarding, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md)--->
+- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](cloudknox-onboard-enable-controller-after-onboarding.md).
+- For information on how to add an account/subscription/project after onboarding after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).

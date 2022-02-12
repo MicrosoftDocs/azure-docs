@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/11/2022
 ms.author: v-ydequadros
 ---
 
@@ -106,13 +106,11 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
     > [!NOTE]
     > For each of the accounts entered here perform the next 5 steps.
 
-1. In another browser window, sign in to the AWS console of the member account in another browser window. 
+1. In another browser window, sign in to the AWS console of the member account. 
 
 1. Return to the **CloudKnox Onboarding - AWS Member Account Details** page, select **Launch Template**. 
 
     The **AWS CloudFormation create stack** page opens, displaying the template.
-
-    <!---Insert AWS-template1.jpg, AWS-template2.jpg, AWS-template3.jpg--->
 
 1. In the **CloudTrailBucketName** box, enter a name. 
 
@@ -121,14 +119,10 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
     > [!NOTE] 
     >  A *cloud bucket* collects all the activity in a single account that CloudKnox monitors. Enter the name of a cloud bucket here to provide CloudKnox with the access required to collect activity data. 
 
-1. In the **EnableController** box, from the drop-down list, select: 
-
-    <!---Mrudula: Add the procedure "to enable/disable the controller after the onboarding."--->
+1. From the **Enable Controller** dropdown, select: 
 
     - **True**, if you want the controller to provide CloudKnox with read and write access so that any remediation you want to do from the CloudKnox platform can be done automatically.
     - **False**, if you want the controller to provide CloudKnox with read-only access.
-
-    <!---Insert AWS-template4.jpg--->
 
 1. Scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack**.
 
@@ -154,16 +148,12 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
     The **Status** column in the table displays **Collecting Data.**
 
-    The data collection process takes some time, depending on the size of the account and how much data is available for collection.
+    The data collection process may take some time, depending on the size of the account and how much data is available for collection.
 
 
 ## Next steps
 
 - For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md).
 - For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md).
-- For an overview on CloudKnox, see [What's CloudKnox Permissions Management?](cloudknox-overview.md)
-- For information on how to start viewing information about your authorization system in CloudKnox, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
-
-<!--- - For information on how to enable or disable the controller, see [Enable or disable the controller](cloudknox-onboard-enable-controller.md).
-- For information on how to add an account/subscription/project after onboarding, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md)--->
-
+- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](cloudknox-onboard-enable-controller-after-onboarding.md).
+- For information on how to add an account/subscription/project after onboarding after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).

@@ -19,10 +19,10 @@
         href: cloudknox-onboard-azure.MD
       - name: Onboard a GCP project
         href: cloudknox-onboard-gcp.md
-      #- name: Enable or disable the controller
-        #href: cloudknox-onboard-enable-controller.md
-      #- name: Add an account/subscription/project after onboarding
-        #href: cloudknox-onboard-add-account-after-onboarding.md
+      - name: Enable or disable the controller after onboarding is complete
+        href: cloudknox-onboard-enable-controller.md
+      - name: Add an account/subscription/project after onboarding is complete
+        href: cloudknox-onboard-add-account-after-onboarding.md
     - name: View risk metrics in your authorization system
       expanded: false
       items:
