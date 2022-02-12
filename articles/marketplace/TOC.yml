@@ -244,7 +244,7 @@
       - name: Update pricing
         href: azure-vm-plan-manage.md
       - name: Reorder plans
-        href: azure-vm-plans-reorder-plans.md  
+        href: azure-vm-plan-reorder-plans.md  
   - name: Consulting services offer
     items: 
     - name: Plan the offer
