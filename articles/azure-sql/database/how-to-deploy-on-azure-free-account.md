@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Use an Azure free account to try Azure SQL Database for free
 
-Azure SQL Database is an intelligent, scalable, relational database service built for the cloud. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement.   With an Azure free account, you can try Azure SQL Database for **free for 12 months** with following **monthly limit**:
+Azure SQL Database is an intelligent, scalable, relational database service built for the cloud. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. With an Azure free account, you can try Azure SQL Database for **free for 12 months** with the following **monthly limit**:
 - **1 S0 database with 10 database transaction units and 250 GB storage**
 
 This article shows you how to create and use an Azure SQL Database for free using an [Azure free account](https://azure.microsoft.com/free/). 
@@ -35,8 +35,7 @@ In this article, you'll use the Azure portal to create a SQL database with publi
     
     :::image type="content" source="./media/how-to-deploy-on-azure-free-account/search-sql-database.png" alt-text="Screenshot that shows how to search and select SQL database.":::
 
-
-    Alternatively, you can search for and navigate to **Free Services**, and then select **Azure SQL Database** tile from the list:
+    Alternatively, you can search for and navigate to **Free Services**, and then select the **Azure SQL Database** tile from the list:
     
     :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-sql-database.png" alt-text="Screenshot that shows a list of all free services on the Azure portal.":::
 
@@ -47,7 +46,7 @@ In this article, you'll use the Azure portal to create a SQL database with publi
 1. For **Server**, select **Create new**, and fill out the **New server** form with the following values:
    - **Server name**: Enter *mysqlserver*, and add some characters for uniqueness. We can't provide an exact server name to use because server names must be globally unique for all servers in Azure, not just unique within a subscription. So enter something like mysqlserver12345, and the portal lets you know if it's available or not.
    - **Server admin login**: Enter *azureuser*.
-   - **Password**: Enter a password that meets requirements, and enter it again in the **Confirm password** field.
+   - **Password**: Enter a password that meets complexity requirements, and enter it again in the **Confirm password** field.
    - **Location**: Select a location from the dropdown list.
 
    Select **OK**.
@@ -75,7 +74,7 @@ In this article, you'll use the Azure portal to create a SQL database with publi
 
    ![Security tab](./media/how-to-deploy-on-azure-free-account/create-database-security-tab.png)
   
-1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
+1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there are some tables and data to query and experiment with, as opposed to an empty blank database.
 1. Select **Review + create** at the bottom of the page.
 
     ![Additional settings](./media/how-to-deploy-on-azure-free-account/create-database-additional-settings-tab.png)
@@ -112,7 +111,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
 
 ## Monitor and track free services usage
 
-You're not charged for Azure SQL Database service included for free with your Azure free account unless you exceed the free service limit. To remain within the limit, use the Azure portal to track and monitor your free services usage.
+You are not charged for Azure SQL Database service included for free with your Azure free account unless you exceed the free service limit. To remain within the limit, use the Azure portal to track and monitor your free services usage.
 
 1. In the Azure portal, search for **Subscriptions** and select the free trial subscription. 
 
