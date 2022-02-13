@@ -32,7 +32,7 @@ To set the default workspace retention policy:
  
 1. Move the slider to increase or decrease the number of days, and then select **OK**.  
 
-## Set table retention and archive policy
+## Set retention and archive policy by table
 
 You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager or the Azure APIs. There is currently no option in the Azure portal to configure data retention for individual tables.
 
@@ -47,15 +47,19 @@ Each table is a sub-resource of the workspace. For example, the SecurityEvent ta
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
 
-Note that the data type (table) is case-sensitive. To get the current per-data-type retention settings of a particular data type (in this example SecurityEvent), use:
+Note that the table name is case-sensitive. 
+
+To get the current table-level retention policy of a particular table (in this example `SecurityEvent`), use:
 
 ```JSON
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview
 ```
 
 > [!NOTE]
-> Retention is only returned for a data type if the retention is explicitly set for it. Data types that don't have retention explicitly set (and thus inherit the workspace retention) don't return anything from this call. 
+> This call only returns the retention policy for a table if the retention is explicitly set for it. If you haven't set a table-level retention policy explicitly for a table, this call won't return anything for the table. 
 
+
+To get the current table-level retention policy settings for all tables in your workspace that have had their table-level retention set, just omit the specific table name; for example:
 
 ```JSON
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
