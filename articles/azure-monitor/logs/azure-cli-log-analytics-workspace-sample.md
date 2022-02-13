@@ -57,39 +57,39 @@ For more information about tables, see [Data structure](./log-analytics-workspac
 
 You can delete [Custom Log](custom-logs-overview.md), [Search Results](search-jobs.md) and [Restored Logs](restore.md) tables.
 
-To delete a table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-data-export-delete) command:
+To delete a table, run the [az monitor log-analytics workspace table delete](cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-data-export-delete) command:
 
 ```azurecli
 az monitor log-analytics workspace table delete –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
    --name MySearchTable_SRCH
 ```
 
-## Configure Basic Log and Analytics tables
+## Configure Basic Logs and Analytics tables
 
-You can configure specific tables as [Basic Log tables](./basic-logs-configure.md) to lower ingestion costs in exchange for reduced features if, for example, you need the logs in these tables for debugging, troubleshooting and auditing.
+[Basic Logs tables](./basic-logs-configure.md) offer lower ingestion costs in exchange for reduced features. This is a good option, for example, when you need the logs in a specific table mostly for debugging, troubleshooting and auditing.
 
-To configure a Basic Log table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command with the `--plan Basic` flag:
+To configure a Basic Logs table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command with the `--plan Basic` flag:
 
 ```azurecli
 az monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
    --name ContainerLog  --plan Basic
 ``` 
 
-To a configure an Analytics table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command with the `--plan Analytics` flag:
+To change a Basic Logs table back to an Analytics table, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command with the `--plan Analytics` flag:
 
 ```azurecli
 az monitor log-analytics workspace table update –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
    --name ContainerLog  --plan Analytics
 ```
 
-To view the table configuration, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command:
+To view a table's configuration, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-show) command:
 
 ```azurecli
 az monitor log-analytics workspace table show –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
    --name Syslog  --output table \ 
 ```
 
-For more information about Basic Log and Analytics tables, see [Log data plans](log-analytics-workspace-overview.md#log-data-plans-preview). 
+For more information about Basic Logs and Analytics tables, see [Log data plans](log-analytics-workspace-overview.md#log-data-plans-preview). 
 
 ## Export data from selected tables
 
@@ -141,8 +141,9 @@ For more information about data retention, see [Configure data retention and arc
 
 ## Run a search job
 
-Search jobs are asynchronous queries that fetch records into a new search table within your workspace for further analytics. The search job uses parallel processing and can run for hours across extremely large datasets. 
-The search job also lets you retrieve data matching particular criteria from Archived Logs and Basic Logs.
+A search job is an asynchronous query that uses parallel processing and can run for hours across extremely large datasets. The job fetches records into a new search table within your workspace for further analytics. 
+
+Search jobs are particularly well suited for retrieving data from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) based on given criteria.
 
 To trigger a search job, run the [az monitor log-analytics workspace table update](/cli/azure/monitor/log-analytics/workspace/table#az_monitor_log_analytics_workspace_table_update) command, specifying the name of the new search results table and the search parameters:
 
@@ -162,7 +163,7 @@ az monitor log-analytics workspace table update –subscription ContosoSID --res
    --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z” --no-wait
 ```
 
-To view the search results table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command:
+To view the search results table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-show) command:
 
 ```azurecli 
 az monitor log-analytics workspace table show –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \

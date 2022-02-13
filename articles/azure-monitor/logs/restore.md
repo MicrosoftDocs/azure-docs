@@ -1,5 +1,5 @@
 ---
-title: Restore logs in Azure Monitor (preview) 
+title: Restore logs in Azure Monitor (Preview) 
 description: Restore a specific time range of data in a Log Analytics workspace for high-performance queries.
 author: bwren
 ms.author: bwren
@@ -9,20 +9,20 @@ ms.date: 01/19/2022
 ---
 
 # Restore logs in Azure Monitor (preview)
-The restore operation makes a specific time range of data in a table available for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
+The restore operation makes a specific time range of data in a table available in the hot cache for high-performance queries. This article describes how to restore data, query that data, and then dismiss the data when you're done.
 
 ## When to restore logs
-Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the table source table cannot complete within the log query timeout of 10 minutes.
+Use the restore operation to query data in [Archived Logs](data-retention-archive.md). You can also use the restore operation to run powerful queries within a specific time range on any Analytics table when the log queries you run on the source table cannot complete within the log query timeout of 10 minutes.
 
 > [!NOTE]
 > Restore is one method for accessing archived data. Use restore to run queries against a set of data within a particular time range. Use [Search jobs](search-jobs.md) to access data based on specific criteria.
 
 ## What does restore do?
-When you restore data, you specify the source table that contains the data you want to query and a destination table, which is created in the same workspace and provides a view of the data in the source table. 
+When you restore data, you specify the source table that contains the data you want to query and the name of the new destination table to be created. 
 
-The restore operation also allocates additional compute resources for querying the restored data using [log queries](log-query-overview.md).
+The restore operation creates the restore table and allocates additional compute resources for querying the restored data using high-performance queries that support full KQL.
 
-The destination table provides a view of the underlying source data, but does not affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer require it. 
+The destination table provides a view of the underlying source data, but does not affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
 
 ## Cost
 The charge for the restore operation is based on the volume of the data restored and the amount of time the data is available. 
@@ -30,7 +30,9 @@ The charge for the restore operation is based on the volume of the data restored
 > [!NOTE]
 > There is no charge for restored data during the preview period.
 
-## Limits
+For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+## Limitations
 Restore is subject to the following limitations. 
 
 You can: 
@@ -90,7 +92,7 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 ## Dismiss restored data
 
-Dismiss restored data as soon as you're done with it because you are charged based on how long the data is available. To release the data from restore, delete the restored table.
+To save costs, dismiss restored data when you longer need it by deleting the restored table.
 
 Deleting the restored table does not delete the data in the source table.
 
