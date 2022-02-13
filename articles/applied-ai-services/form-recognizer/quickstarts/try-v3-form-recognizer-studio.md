@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 09/14/2021
+ms.date: 02/12/2022
 ms.author: sajagtap
 ms.custom: ignite-fall-2021, mode-ui
 ---
@@ -19,7 +19,7 @@ ms.custom: ignite-fall-2021, mode-ui
 
 [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom form models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
-:::image border="true" type="content" source="../media/quickstarts/form-recognizer-studio-demo.gif" alt-text="Form Recognizer Studio demo":::
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-demo-v3p2.gif" alt-text="Form Recognizer Studio demo":::
 
 ## Prerequisites for new users
 
@@ -48,7 +48,7 @@ After you have completed the prerequisites, navigate to the [Form Recognizer Stu
 
 1. From the Code tab, copy the code sample to get started on integrating General Documents feature with your application.
 
-:::image border="true" type="content" source="../media/quickstarts/layout-get-started-v2.gif" alt-text="Form Recognizer Layout example":::
+:::image border="true" type="content" source="../media/quickstarts/general-document-demo-v3p2.gif" alt-text="Form Recognizer General Documents demo":::
 
 ## Additional prerequisites for custom projects
 
@@ -120,19 +120,7 @@ To create custom models, you start with configuring your project:
 
 1. Once the model is ready, use the Test command to validate it with your test documents and observe the results.
 
-:::image border="true" type="content" source="../media/quickstarts/2-custom-model-basic-steps-v2.gif" alt-text="Form Recognizer Custom project basic workflow example":::
-
-### Other features
-
-In addition, view all your models using the Models tab on the left. From the list view, select model(s) to perform the following actions:
-
-1. Test the model from the list view.
-
-1. Use the Delete command to delete models that are not required.
-
-1. Download model details for offline viewing.
-
-1. Select multiple models and compose them into a new model to be used in your applications.
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-custom-model-demo-v3p2.gif" alt-text="Form Recognizer Custom model demo":::
 
 ### Labeling as tables (Custom form only)
 
@@ -142,7 +130,7 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-Label as dynamic table
+**Label as dynamic table**
 
 Use dynamic tables to extract variable count of values (rows) for a given set of fields (columns):
 
@@ -154,7 +142,7 @@ Use dynamic tables to extract variable count of values (rows) for a given set of
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Form Recognizer labeling as dynamic table example":::
 
-Label as fixed table
+**Label as fixed table**
 
 Use fixed tables to extract specific collection of values for a given set of fields (columns and/or rows):
 
