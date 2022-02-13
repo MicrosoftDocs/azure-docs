@@ -39,7 +39,7 @@ The Read API analyzes and extracts ext lines, words, their locations, detected l
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***:
 
-:::image type="content" source="media/studio/analyze-form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
+:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio Read":::
 
 > [!div class="nextstepaction"]
 > [Learn more: read model](concept-read.md)
