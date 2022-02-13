@@ -92,7 +92,7 @@ Values in training cases should be diverse and representative. For example, if a
 
 Custom document models are only available in the [v3 API](v3-migration-guide.md).
 
-|  | REST API | SDK | Label and Test Models|
+| Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
 | Custom document | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 

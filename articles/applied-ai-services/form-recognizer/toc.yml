@@ -62,10 +62,6 @@ items:
         href: supervised-table-tags.md
       - name: Compose custom models
         href: compose-custom-models.md
-  - name: Create and compose custom models v3.0 (preview)
-    items:
-    - name: Compose custom models
-      href: compose-custom-models-preview.md      
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Use containers
