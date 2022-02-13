@@ -123,7 +123,7 @@ The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) doesn't support 
 
 ## Supported languages and locales
 
- The Form Recognizer preview version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md#layout-and-custom-model).
+ The Form Recognizer preview version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
 
 ## Form Recognizer v3.0 (preview)
 
