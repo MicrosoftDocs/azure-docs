@@ -237,18 +237,20 @@
         href: flexible-server/scripts/sample-cli-monitor-and-scale.md
       - name: Restore a server
         href: flexible-server/scripts/sample-cli-restore-server.md
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
+      - name: Configure zone-redundant HA
+        href: flexible-server/scripts/sample-cli-zone-redundant-ha.md
+      - name: Configure same-zone HA
+        href: flexible-server/scripts/sample-cli-same-zone-ha.md
+      - name: Restart, Stop, Start a Server
+        href: flexible-server/scripts/sample-cli-restart-stop-start.md
+      - name: Change server parameters
+        href: flexible-server/scripts/sample-cli-change-server-parameters.md
+      - name: Create read replicas
+        href: flexible-server/scripts/sample-cli-read-replicas.md
+      - name: Configure audit logs
+        href: flexible-server/scripts/sample-cli-audit-logs.md
+      - name: Configure slow-query logs
+        href: flexible-server/scripts/sample-cli-slow-query-logs.md
 - name: Single Server
   items:
   - name: Single Server documentation
@@ -620,28 +622,16 @@
       items:
       - name: Samples overview
         href: sample-scripts-azure-cli.md
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
+      - name: Create a server
+        href: ./scripts/sample-create-server-and-firewall-rule.md
+      - name: Scale a server
+        href: ./scripts/sample-scale-server.md
+      - name: Change server configurations
+        href: ./scripts/sample-change-server-configuration.md
+      - name: Restore a server
+        href: ./scripts/sample-point-in-time-restore.md
+      - name: Enable server logs
+        href: ./scripts/sample-server-logs.md
     - name: Configure Java connection pooling
       href: sample-scripts-java-connection-pooling.md
 - name: Migration
