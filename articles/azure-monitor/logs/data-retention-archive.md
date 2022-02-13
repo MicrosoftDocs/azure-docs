@@ -15,8 +15,6 @@ Each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) r
 
 This article describes how to configure data retention and archive policies for your workspace or for individual tables.
 
-See [Overview of Log Analytics workspaces](log-analytics-workspace-overview.md) for a description of Log Analytics workspaces and how archived data is related to data plans.
-
 > [!NOTE]
 > The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
 
@@ -25,13 +23,6 @@ See [Overview of Log Analytics workspaces](log-analytics-workspace-overview.md) 
 ## Configure the default workspace retention policy
 Each workspace has a default retention policy that's applied to all tables, but you can set a different retention policy on individual tables. You set an archive policy (defined by the total retention time) individually on each table.
 
-When you shorten an existing retention policy, there's a grace period of several days before Azure Monitor removes data older than the new retention duration. 
-
-When you set the data retention policy to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which eliminates the grace period. This might be useful for compliance-related scenarios which require immediate data removal. You can only perform the immediate purge functionality using Azure Resource Manager, not using the Azure portal.
-
-Workspaces with a 30-day retention policy might actually retain data for 31 days. If you need to keep data for only 30 days, use Azure Resource Manager to set the retention to 30 days and set the `immediatePurgeDataOn30Days` parameter.
-
-### Configure the default workspace retention policy in Azure portal
 You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; upgrade to the paid tier to control this setting.
 
 To set the default workspace retention policy:
@@ -131,6 +122,20 @@ Status code: 200
 }
 ```
 
+## Removing retained data to comply with regulations
+
+When you shorten an existing retention policy, there's a grace period of several days before Azure Monitor removes data older than the new retention duration. 
+
+When you set the data retention policy to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which eliminates the grace period. This might be useful for compliance-related scenarios which require immediate data removal. 
+
+Note that workspaces with a 30-day retention policy might actually retain data for 31 days, unless you set the retention to 30 days and set the `immediatePurgeDataOn30Days` parameter.
+
+You can only perform this immediate purge functionality using Azure Resource Manager, not using the Azure portal.
+
+Another method to remove data from a workspace before the retention or archive period ends is using the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which is intended to remove personal data that was accidentally collected. You cannot purge data from archived logs. 
+
+The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. **To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types.** 
+
 ## Tables with unique retention policies
 By default, the tables of two data types - `Usage` and `AzureActivity` - retain data for a minimum of 90 days at no charge. If you lengthen the workspace retention policy to more than 90 days, the retention policy of these data types also increases. These data types are also free from data ingestion charges. 
 
@@ -147,12 +152,6 @@ Tables related to data types from workspace-based Application Insights resources
 - `AppRequests`
 - `AppSystemEvents`
 - `AppTraces`
-
-## Data purge
-Data is automatically removed from the workspace after the retention or archive period ends. The only way to remove data on demand is to use the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which is intended to remove personal data that was accidentally collected. You cannot purge archived logs. 
-
-The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. **To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types.** 
-
 
 ## Next steps
 - [Learn more about Log Analytics workspaces and data retention and archive.](log-analytics-workspace-overview.md)
