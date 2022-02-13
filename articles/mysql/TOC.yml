@@ -230,13 +230,13 @@
       - name: Samples overview
         href: flexible-server/sample-scripts-azure-cli.md
       - name: Create server with public access
-        href: ./scripts/sample-cli-create-connect-public-access.md
-      - name: 
-        href: 
-      - name: 
-        href: 
-      - name: 
-        href: 
+        href: flexible-server/scripts/sample-cli-create-connect-public-access.md
+      - name: Create server with VNet integration
+        href: flexible-server/scripts/sample-cli-create-connect-private-access.md
+      - name: Monitor and scale a server
+        href: flexible-server/scripts/sample-cli-monitor-and-scale.md
+      - name: Restore a server
+        href: flexible-server/scripts/sample-cli-restore-server.md
       - name: 
         href: 
       - name: 
