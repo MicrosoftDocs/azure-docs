@@ -42,7 +42,24 @@ With composed models, you can assign multiple custom models to a composed model 
 
 * Models composed with v2.1 of the API will continue to be supported, requiring no updates.
 
-* The limit for maximum number of custom models that can be composed is 100. 
+* The limit for maximum number of custom models that can be composed is 100.
+
+## Development options
+
+The following resources are supported by Form Recognizer v3.0:
+
+| Feature | Resources |
+|----------|-------------|
+|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/try-v3-csharp-sdk.md)</li><li>[Python SDK](quickstarts/try-v3-python-sdk.md)</li></ul>|
+| Composed model | |
+
+The following resources are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------|
+|Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](quickstarts/try-sdk-rest-api.md)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+| Composed model ||
+
 
 ## Next steps
 
@@ -51,4 +68,3 @@ Learn to crate and compose custom models:
 * [**Form Recognizer v3.0 (preview)**](compose-custom-models-preview.md)
 
 * [**Form Recobniser v2.1 (GA)**](compose-custom-models.md)
-
