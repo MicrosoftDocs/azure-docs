@@ -153,7 +153,7 @@ landingContent:
           - text: REST API (cURL)
             url: "quickstarts/try-v3-rest-api.md#try-it-general-document-model"
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+            url: "quickstarts/try-v3-form-recognizer-studio.md#pretrained-models"
 #Card 7
    - title: Try Layout model
      linkLists:
@@ -174,7 +174,7 @@ landingContent:
         - text: REST API (cURL)
           url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-layout
         - text: Form Recognizer Studio
-          url: "quickstarts/try-v3-form-recognizer-studio.md#layout"
+          url: "quickstarts/try-v3-form-recognizer-studio.md#pretrained-models"
         - text: Sample Labeling tool
           url: "concept-layout.md#sample-labeling-tool"
 # Card 8
@@ -197,7 +197,7 @@ landingContent:
           - text: Using the REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#custom-projects"
+            url: "quickstarts/try-v3-form-recognizer-studio.md#custom-models"
           - text: Sample Labeling tool
             url: "concept-custom.md#sample-labeling-tool"
 #Card 9
@@ -220,7 +220,7 @@ landingContent:
           - text:  REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-invoices
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+            url: "quickstarts/try-v3-form-recognizer-studio.md#pretrained-models"
           - text:  Sample Labeling tool
             url: "concept-business-card.md#sample-labeling-tool"
 #Card 10
@@ -243,7 +243,7 @@ landingContent:
           - text:  REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-receipts
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+            url: "quickstarts/try-v3-form-recognizer-studio.md#pretrained-models"
           - text:  Sample Labeling tool
             url: "concept-receipt.md#sample-labeling-tool"
 #Card 11
@@ -266,7 +266,7 @@ landingContent:
           - text:  REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-identity-documents
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+            url: "quickstarts/try-v3-form-recognizer-studio.md#pretrained-models"
           - text:  Sample Labeling tool
             url: "concept-id-document.md#sample-labeling-tool"
  #Card 12
@@ -289,7 +289,7 @@ landingContent:
           - text:  REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-business-cards
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models"
+            url: "quickstarts/try-v3-form-recognizer-studio.md#pretrained-models"
           - text:  Sample Labeling tool
             url: "concept-business-card.md#sample-labeling-tool"
 
