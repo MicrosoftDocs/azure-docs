@@ -370,6 +370,26 @@ This section describes how to troubleshoot issues that are certainly derived fro
 
 1. If your Virtual Machine is in Azure, verify that the network security group (NSG) allows inbound TCP/UDP connectivity from your log client (Sender) on port 514.
 
+1. Verify that packets are arriving to the Syslog Collector. To capture the syslog packets arriving to the Syslog Collector, run:
+
+    ```config
+    tcpdump -Ani any port 514 and host <ip_address_of_sender> -vv
+    ```
+
+1. Do one of the following:
+
+    - If you do not see any packets arriving, confirm the NSG security group permissions and the routing path to the Syslog Collector.
+
+    - If you do see packets arriving, confirm that they are not being rejected.
+
+    If you see rejected packets, confirm that the IP tables are not blocking the connections.
+
+    To confirm that packets are not being rejected, run:
+
+    ```config
+    watch -n 2 -d iptables -nvL
+    ```
+
 1. Verify whether the CEF server is processing the logs. Run:
 
     ```config
@@ -393,6 +413,7 @@ This section describes how to troubleshoot issues that are certainly derived fro
     ```
 
     If the connection is blocked, you may have a [blocked SELinux connection to the OMS agent](#selinux-blocking-connection-to-the-oms-agent), or a [blocked firewall process](#blocked-firewall-policy). Use the relevant instructions below to determine the issue.
+
 
 # [Syslog](#tab/syslog)
 
@@ -560,6 +581,16 @@ In such cases, continue troubleshooting by verifying the following:
 - Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](../azure-monitor/agents/log-analytics-agent.md#network-requirements)
 
 - Make sure that you have access to required URLs from your CEF collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements).
+
+Run the following command to determine if the agent is communicating successfully with Azure, or if the OMS agent is blocked from connecting to the Log Analytics workspace.
+
+```config
+Heartbeat
+ | where Computer contains "<computername>"
+ | sort by TimeGenerated desc
+```
+
+A log entry is returned if the agent is communicating successfully. Otherwise, the OMS agent may be blocked.
 
 
 # [Syslog](#tab/syslog)
