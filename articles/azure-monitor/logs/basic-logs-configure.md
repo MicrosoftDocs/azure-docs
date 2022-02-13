@@ -35,7 +35,7 @@ Basic Logs tables retain data for eight. When you change the configuration of an
 For more information, see [Configure data retention and archive in Azure Monitor Logs](data-retention-archive.md).
 
 
-## Set table configuration with the REST API
+## Set table configuration
 Call the **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#configure-basic-logs-and-analytics-tables) to configure a plan for a table. 
 
 You can configure the table for Basic Logs or Analytics:
