@@ -99,7 +99,7 @@ Deleting the restored table does not delete the data in the source table.
 > [!NOTE]
 > Restored data is available as long as the underlying source data is available. When you delete the source table from the workspace or when the source table's retention period ends, the data is dismissed from the restored table. However, the empty table will remain if you do not delete it explicitly.   
 
-Call the **Tables - Delete** API to delete the (logical) restore table.
+Call the **Tables - Delete** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#delete-a-table) to delete a (logical) restore table.
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview

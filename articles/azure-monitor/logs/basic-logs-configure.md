@@ -36,7 +36,9 @@ For more information, see [Configure data retention and archive in Azure Monitor
 
 
 ## Set table configuration with the REST API
-Call the **Tables - Update** API to configure a plan for a table. You can configure the table for Basic Logs or Analytics:
+Call the **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#configure-basic-logs-and-analytics-tables) to configure a plan for a table. 
+
+You can configure the table for Basic Logs or Analytics:
 
 ```http
 PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/tables/<tableName>?api-version=2021-12-01-preview

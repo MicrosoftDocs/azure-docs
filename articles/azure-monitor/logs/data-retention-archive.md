@@ -65,7 +65,7 @@ GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResource
 ```
 ### Set the retention and archive policy for a table
 
-Use the **Tables - Update** API to set the retention and archive duration for a table. You don't specify the archive duration directly but instead set a total retention that specifies the retention plus the archive duration.
+Use the **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#set-the-data-retention-time-for-a-table) to set the retention and archive duration for a table. You don't specify the archive duration directly but instead set a total retention that specifies the retention plus the archive duration.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
@@ -118,7 +118,7 @@ Status code: 200
    ...
 }
 ```
-
+ 
 ## Remove retained data to comply with regulations
 
 When you shorten an existing retention policy, there's a grace period of several days before Azure Monitor removes data older than the new retention duration. 

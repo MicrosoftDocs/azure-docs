@@ -82,8 +82,8 @@ The search job table schema is based on the source table schema and the specifie
 | _OriginalTimeGenerated | *TimeGenerated* value from source table. |
 | TimeGenerated          | Time at which the search job retrieved the record from the original table. |
 
-## Create a search job using API
-Call the **Tables - Create** or **Tables - Update** API to create a search job. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
+## Create a search job
+Call the **Tables - Create** or **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#run-a-search-job) to run a search job. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
  
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
