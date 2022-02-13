@@ -348,7 +348,7 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 | **Supported by** | Microsoft |
 | | |
 
-## Azure Information Protection
+## Azure Information Protection (Preview)
 
 | Connector attribute | Description |
 | --- | --- |

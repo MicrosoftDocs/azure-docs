@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: overview
-ms.date: 01/18/2022
+ms.date: 02/07/2022
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -29,9 +29,21 @@ The new v2 SKU includes the following enhancements:
 
 ![Diagram of auto-scaling zone.](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
-## Supported regions
+## Unsupported regions
 
-The Standard_v2 and WAF_v2 SKU is available in the following regions: North Central US, South Central US, West US, West US 2, East US, East US 2, Central US, North Europe, West Europe, Southeast Asia, France Central, UK West, Japan East, Japan West, Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, East Asia, Korea Central, Korea South, UK South, Central India, West India, South India,Jio India West, Norway East, Switzerland North, UAE North, South Africa North, Germany West Central.
+The Standard_v2 and WAF_v2 SKU is not currently available in the following regions:
+
+- UK North
+- UK South2
+- South Africa West
+- China East
+- China North
+- US DOD East
+- US DOD Central
+- US Gov Central
+- Germany Northeast
+- Germany Central
+- Qatar Central
 
 ## Pricing
 

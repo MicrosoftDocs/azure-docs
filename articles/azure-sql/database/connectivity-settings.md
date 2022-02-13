@@ -30,7 +30,7 @@ The connectivity settings are accessible from the **Firewalls and virtual networ
 
 ## Deny public network access
 
-The defaukt for this setting is **No** so that customers can connect by using either public endpoints (with IP-based server- level firewall rules or with virtual-network firewall rules) or private endpoints (by using Azure Private Link), as outlined in the [network access overview](network-access-controls-overview.md).
+The default for this setting is **No** so that customers can connect by using either public endpoints (with IP-based server- level firewall rules or with virtual-network firewall rules) or private endpoints (by using Azure Private Link), as outlined in the [network access overview](network-access-controls-overview.md).
 
 When **Deny public network access** is set to **Yes**, only connections via private endpoints are allowed. All connections via public endpoints will be denied with an error message similar to:  
 

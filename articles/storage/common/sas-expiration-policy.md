@@ -101,7 +101,19 @@ The SAS expiration period appears in the console output.
 
 ---
 
-## Check for SAS expiration policy violations
+## Query logs for policy violations
+
+To log the creation of a SAS that is valid over a longer interval than the SAS expiration policy recommends, first create a diagnostic setting that sends logs to an Azure Log Analytics workspace. For more information, see [Send logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics).
+
+Next, use an Azure Monitor log query to monitor whether policy has been violated. Create a new query in your Log Analytics workspace, add the following query text, and press **Run**.
+
+```kusto
+StorageBlobLogs 
+| where SasExpiryStatus startswith "Policy violated"
+| summarize count() by AccountName, SasExpiryStatus
+```
+
+## Use a built-in policy to monitor compliance
 
 You can monitor your storage accounts with Azure Policy to ensure that storage accounts in your subscription have configured SAS expiration policies. Azure Storage provides a built-in policy for ensuring that accounts have this setting configured. For more information about the built-in policy, see **Storage accounts should have shared access signature (SAS) policies configured** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
 

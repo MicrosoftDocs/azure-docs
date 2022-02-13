@@ -209,27 +209,29 @@
         href: search-security-manage-encryption-keys.md
       - name: Find encrypted objects
         href: search-security-get-encryption-keys.md
-    - name: Inbound security
+    - name: Inbound connections
       items:
-      - name: Key-based authentication
+      - name: Use key authentication
         href: search-security-api-keys.md
-      - name: Azure AD authentication
-        href: search-howto-aad.md
-      - name: Role-based authorization
+      - name: Use Azure roles
         href: search-security-rbac.md
+      - name: Authenticate apps with Azure AD
+        href: search-howto-aad.md
       - name: Configure an IP firewall
         href: service-configure-firewall.md
       - name: Create a private endpoint
         href: service-create-private-endpoint.md
       - name: Troubleshoot private connections
         href: troubleshoot-shared-private-link-resources.md
-    - name: Outbound security (indexers)  
+    - name: Outbound connections
       items:
-      - name: Data access over an IP range
+      - name: Connect using a managed identity
+        href: search-howto-managed-identities-data-sources.md
+      - name: Connect over an IP range
         href: search-indexer-howto-access-ip-restricted.md
-      - name: Data access using a system identity
+      - name: Connect as a trusted service
         href: search-indexer-howto-access-trusted-service-exception.md
-      - name: Data access through private endpoints
+      - name: Connect through private endpoints
         href: search-indexer-howto-access-private.md
     - name: Document-level security
       items:
@@ -323,8 +325,6 @@
         href: search-howto-index-json-blobs.md
     - name: Connect with managed identities
       items:
-      - name: Managed identities overview
-        href: search-howto-managed-identities-data-sources.md
       - name: Azure Storage
         href: search-howto-managed-identities-storage.md
       - name: Azure Cosmos DB

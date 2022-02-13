@@ -65,7 +65,7 @@ You must sign in to access audit reports on the STP. For more information, see [
 
 Alternatively, you can access certain audit reports and certificates in the Azure or Azure Government portal by navigating to *Home > Security Center > Regulatory compliance > Audit reports* or using direct links based on your subscription (sign in required):
 
-- Azure portal [audit reports blade](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade)
+- Azure portal [audit reports blade](https://portal.azure.com/#blade/Microsoft_Azure_Security/AuditReportsBlade)
 - Azure Government portal [audit reports blade](https://portal.azure.us/#blade/Microsoft_Azure_Security/AuditReportsBlade)
 
 You must have an existing subscription or free trial account in [Azure](https://azure.microsoft.com/free/) or [Azure Government](https://azure.microsoft.com/global-infrastructure/government/request/) to download audit documents.
