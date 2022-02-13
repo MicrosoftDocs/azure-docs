@@ -43,10 +43,10 @@ From the **Logs Analytics workspaces** menu in the Azure portal, select your wor
 
 :::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Change workspace data retention setting":::
 
-## Tables with unique cost
-By default, two data types - `Usage` and `AzureActivity` - are retained for a minimum of 90 days at no charge. If the workspace retention is increased to more than 90 days, the retention of these data types is also increased. These data types are also free from data ingestion charges. 
+## Tables with unique retention policies
+By default, the tables of two data types - `Usage` and `AzureActivity` - retain data for a minimum of 90 days at no charge. If you lengthen the workspace retention policy to more than 90 days, the retention policy of these data types also increases. These data types are also free from data ingestion charges. 
 
-The following data types from workspace-based Application Insights resources are also retained for 90 days at no charge by default. Their retention can be adjusted using the retention by data type functionality. 
+Tables related to data types from workspace-based Application Insights resources also retain data for 90 days at no charge by default. You can adjust their retention policies using the retention by data type functionality. 
 
 - `AppAvailabilityResults`
 - `AppBrowserTimings`
@@ -59,7 +59,6 @@ The following data types from workspace-based Application Insights resources are
 - `AppRequests`
 - `AppSystemEvents`
 - `AppTraces`
-
 
 ## Set retention and archive policy by table
 You can set different retention settings for individual data types from 4 to 730 days (except for workspaces in the legacy Free Trial pricing tier) and an archive period for a total retention time of 2,555 days (7 years). 
