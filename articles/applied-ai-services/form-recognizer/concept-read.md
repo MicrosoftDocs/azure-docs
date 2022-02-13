@@ -1,5 +1,5 @@
 ---
-title: Layouts - Form Recognizer
+title: Read - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Learn concepts related to Read API analysis with Form Recognizer API—usage and limits.
 author: laujan
