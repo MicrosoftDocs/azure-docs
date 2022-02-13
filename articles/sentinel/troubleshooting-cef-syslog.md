@@ -26,7 +26,7 @@ If you've deployed your connector using a method different than the documented p
 
 When information in this article is relevant only for Syslog or only for CEF connectors, we've organized the page into tabs. Make sure that you're using the instructions on the correct tab for your connector type.
 
-For example, if you're troubleshooting a CEF connector, start with [Validate CEF connectivity](#validate-cef-connectivity). If you're troubleshooting a Syslog connector, start below, with [Verify CEF or Syslog prerequisites](#verify-cef-or-syslog-prerequisites).
+For example, if you're troubleshooting a CEF connector, start with [Validate CEF connectivity](#validate-cef-connectivity). If you're troubleshooting a Syslog connector, start below, with [Verify your data connector prerequisites](#verify-your-data-connector-prerequisites).
 
 # [CEF](#tab/cef)
 
