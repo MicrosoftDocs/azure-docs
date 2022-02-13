@@ -226,7 +226,29 @@
   - name: Samples
     items:
     - name: Azure CLI samples
-      href: flexible-server/sample-scripts-azure-cli.md
+      items: 
+      - name: Samples overview
+        href: flexible-server/sample-scripts-azure-cli.md
+      - name: Create server with public access
+        href: ./scripts/sample-cli-create-connect-public-access.md
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
 - name: Single Server
   items:
   - name: Single Server documentation
@@ -595,6 +617,31 @@
     items:
     - name: Azure CLI samples
       href: sample-scripts-azure-cli.md
+      items:
+      - name: Samples overview
+        href: sample-scripts-azure-cli.md
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
+      - name: 
+        href: 
     - name: Configure Java connection pooling
       href: sample-scripts-java-connection-pooling.md
 - name: Migration
