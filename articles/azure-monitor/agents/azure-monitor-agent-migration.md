@@ -82,20 +82,20 @@ See [create new data collection rules](./data-collection-rule-azure-monitor-agen
 
 ## At-scale migration using Azure Policy
 [Azure Policy](../../governance/policy/overview.md) and [Resource Manager templates](../resource-manager-samples.md) provide scalability to migrate a large number of agents. 
-Start by analyzing your current monitoring setup with Log Analytics using the following criteria:
+Start by analyzing your current monitoring setup with the Log Analytics agent using the following criteria:
 
   - Sources, such as virtual machines, virtual machine scale sets, and on-premises servers
   - Data sources, such as performance counters, Windows event logs, and Syslog
   - Destinations, such as Log Analytics workspaces
 
 > [!IMPORTANT]
-> Before you deploy to a large number of agents, you should consider [configuring the workspace](agent-data-sources.md) to disable data collection for the Log Analytics agent. If you leave it enabled, you may collect duplicate data resulting in increased cost until you remove the Log Analytics agents from your virtual machines. You may also choose to have duplicate collection during the migration period until you can confirm that the AMA has been deployed and configured correctly.
+> Before you deploy to a large number of agents, you should consider [configuring the workspace](agent-data-sources.md) to disable data collection for the Log Analytics agent. If you leave it enabled, you may collect duplicate data resulting in increased cost until you remove the Log Analytics agents from your virtual machines. Alternatively, you may choose to have duplicate collection during the migration period until you can confirm that the AMA has been deployed and configured correctly.
 
-See [Using Azure Policy](azure-monitor-agent-manage.md#using-azure-policy) for details on deploying Azure Monitor agent across a set of virtual machines. Associate the agents to the data collection rules developed during your [testing](#test-migration-by-using-the-azure-portal). Validate data is flowing as expected with the Azure Monitor agent and that all downstream dependencies like dashboards, alerts, and runbook workers. Workbooks should all continue to function using data from the new agent.
+See [Using Azure Policy](azure-monitor-agent-manage.md#using-azure-policy) for details on deploying Azure Monitor agent across a set of virtual machines. Associate the agents to the data collection rules developed during your [testing](#test-migration-by-using-the-azure-portal). 
 
-When you confirm that data is being collected properly, [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from the resources. Don't uninstall it if you need to use it for System Center Operations Manager scenarios or others solutions not yet available on the Azure Monitor agent.
+Validate that data is flowing as expected with the Azure Monitor agent and that all downstream dependencies like dashboards, alerts, and runbook workers. Workbooks should all continue to function using data from the new agent.
 
-Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent.
+When you confirm that data is being collected properly, [uninstall the Log Analytics agent](./agent-manage.md#uninstall-agent) from the resources. Don't uninstall it if you need to use it for System Center Operations Manager scenarios or others solutions not yet available on the Azure Monitor agent. Clean up any configuration files, workspace keys, or certificates that were used previously by the Log Analytics agent.
 
 ## Next steps
 
