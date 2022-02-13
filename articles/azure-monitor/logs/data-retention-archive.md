@@ -46,7 +46,7 @@ Each table is a sub-resource of the workspace its in. For example, you can addre
 
 Note that the table name is case-sensitive. 
 
-## Get retention and archive policy by table
+### Get retention and archive policy by table
 
 Call the **Tables - Get** API to get the current table-level retention policy of a particular table (in this example `SecurityEvent`), call:
 
@@ -63,7 +63,7 @@ To get the current table-level retention policy settings for all tables in your 
 ```JSON
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
 ```
-## Set the retention and archive policy for a table
+### Set the retention and archive policy for a table
 
 Use the **Tables - Update** API to set the retention and archive duration for a table. You don't specify the archive duration directly but instead set a total retention that specifies the retention plus the archive duration.
 
@@ -77,7 +77,7 @@ You can use either PUT or PATCH, with the following difference:
 - With **PATCH**, if *retentionInDays* or *totalRetentionInDays* is null or unspecified, the existing value will be kept. 
 
 
-### Request Body
+#### Request Body
 The request body includes the values in the following table.
 
 |Name | Type | Description |
@@ -85,15 +85,15 @@ The request body includes the values in the following table.
 |properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value 8 is always. | 
 |properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Setting this property to null will default to the properties.retentionInDays value with no archive. | 
 
-### Example
+#### Example
 The following table sets table retention to workspace default of 30 days, and total of 2 years. This means that the archive duration would be 23 months.
-##### Request
+###### Request
 
 ```http
 PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/CustomLog_CL?api-version=2021-12-01-preview
 ```
 
-### Request body
+#### Request body
 ```http
 {
     "properties": {
@@ -103,7 +103,7 @@ PATCH https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000
 }
 ```
 
-##### Response
+###### Response
 
 Status code: 200
 
