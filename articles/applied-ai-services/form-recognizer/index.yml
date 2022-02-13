@@ -115,20 +115,24 @@ landingContent:
             url: concept-form-recognizer-studio.md
       - linkListType: get-started
         links:
+          - text: Use the Read model (preview)
+            url: quickstarts/try-v3-form-recognizer-studio.md#pretrained-models
+          - text: Use the W2 model (preview)
+            url: quickstarts/try-v3-form-recognizer-studio.md#pretrained-models
           - text: Use the General document model (preview)
-            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+            url: quickstarts/try-v3-form-recognizer-studio.md#pretrained-models
           - text: Use the Layout model
-            url: quickstarts/try-v3-form-recognizer-studio.md#layout
+            url: quickstarts/try-v3-form-recognizer-studio.md#pretrained-models
           - text: Use the Custom model
-            url: quickstarts/try-v3-form-recognizer-studio.md#custom-projects
+            url: quickstarts/try-v3-form-recognizer-studio.md#custom-models
           - text: Use the Invoice model
-            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+            url: quickstarts/try-v3-form-recognizer-studio.md#pretrained-models
           - text: Use the Receipt model
-            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+            url: quickstarts/try-v3-form-recognizer-studio.md#pretrained-models
           - text: Use the ID Document model
-            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+            url: quickstarts/try-v3-form-recognizer-studio.md#pretrained-models
           - text: Use the Business Card model
-            url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
+            url: quickstarts/try-v3-form-recognizer-studio.md#pretrained-models
 #Card 6
    - title: 🆕Try General document model
      linkLists:
