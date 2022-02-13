@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 02/13/2022
 ms.author: vikurpad
 recommendations: false
 ---
 
 # Form Recognizer custom neural model
 
-Custom document models or neural models are a deep learned model that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on a variety of document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
+Custom document models or neural models are a deep learned model that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
 
 |Documents | Examples |
 |---|--|
@@ -68,11 +68,12 @@ Custom document models can generalize across different formats of a single docum
 
 ### Field naming
 
-While labeling the data, labeling the field relevant to the value will improve the accuracy of the key-value pairs extracted. For example, of a field value containing the supplier id, consider naming the field "supplier_id". Field names should be in the language of the document.
+When you label the data, labeling the field relevant to the value will improve the accuracy of the key-value pairs extracted. For example, for a field value containing the supplier ID, consider naming the field "supplier_id". Field names should be in the language of the document.
 
 ### Labeling contiguous values
 
 Value tokens/words of one field must be either
+
 * Consecutive sequence in natural reading order without interleaving with other fields
 * In a region that don't cover any other fields
 
