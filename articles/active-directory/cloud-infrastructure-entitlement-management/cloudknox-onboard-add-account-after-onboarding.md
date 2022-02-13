@@ -8,11 +8,16 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2022
+ms.date: 02/13/2022
 ms.author: v-ydequadros
 ---
 
 # Add an account/subscription/project after onboarding is complete
+
+
+> [!IMPORTANT]
+> CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
+> Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This article describes how to add an Amazon Web Services (AWS) account, Microsoft Azure subscription, or Google Cloud Platform (GCP) project in Microsoft CloudKnox Permissions Management (CloudKnox) after you've completed the onboarding process.
 
