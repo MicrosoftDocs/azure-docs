@@ -15,13 +15,10 @@ Each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) r
 
 This article describes how to configure data retention and archive policies for your workspace or for individual tables.
 
-> [!NOTE]
-> The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
-
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
 ## Configure the default workspace retention policy
-Each workspace has a default retention policy that's applied to all tables, but you can set a different retention policy on individual tables. You set an archive policy (defined by the total retention time) individually on each table.
+Each workspace has a default retention policy that's applied to all tables, but you can set a different retention policy on individual tables. The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
 
 You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; upgrade to the paid tier to control this setting.
 
@@ -35,20 +32,20 @@ To set the default workspace retention policy:
  
 1. Move the slider to increase or decrease the number of days, and then select **OK**.  
 
-## Set table retention and archive policy with Azure Resource Manager
-You can set different retention settings for individual data types from 4 to 730 days (except for workspaces in the legacy Free Trial pricing tier) and an archive period for a total retention time of 2,555 days (7 years). 
+## Set table retention and archive policy
 
-> [!NOTE]
-> There is currently no option in the Azure portal to configure data retention for individual tables.
+You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager or the Azure APIs. There is currently no option in the Azure portal to configure data retention for individual tables.
 
-Each data type is a sub-resource of the workspace. For example, the SecurityEvent table can be addressed in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
+You can retain data in table between 4 and 730 days and set an archive period for a total retention time of 2,555 days (7 years). 
+
+
+### Set table retention and archive policy - with Azure Resource Manager
+
+Each table is a sub-resource of the workspace. For example, the SecurityEvent table can be addressed in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
 ```
-
-> [!NOTE]
-> The `Usage` and `AzureActivity` data types can't be set with custom retention. They take on the maximum of the default workspace retention or 90 days. 
 
 Note that the data type (table) is case-sensitive. To get the current per-data-type retention settings of a particular data type (in this example SecurityEvent), use:
 
@@ -64,7 +61,7 @@ GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResource
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
 ```
 
-## Set table retention and archive policy using UPI
+### Set table retention and archive policy - using UPI
 
 Use the **Tables - Update** API to set the retention and archive duration for a table. You don't specify the archive duration directly but instead set a total retention that specifies the retention plus the archive duration.
 
@@ -122,7 +119,7 @@ Status code: 200
 }
 ```
 
-## Removing retained data to comply with regulations
+## Remove retained data to comply with regulations
 
 When you shorten an existing retention policy, there's a grace period of several days before Azure Monitor removes data older than the new retention duration. 
 
