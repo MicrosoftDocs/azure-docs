@@ -48,7 +48,7 @@ items:
     href: how-to-guides/try-sdk-rest-api.md
   - name: Generate SAS tokens for Azure Blob containers
     href:  generate-sas-tokens.md
-  - name: Create custom models
+  - name: Create and compose custom models v2.1
     items:
     - name: Build and train custom models
       items:
@@ -60,8 +60,12 @@ items:
         href: label-tool.md
       - name: Use table tags to train your custom model
         href: supervised-table-tags.md
+      - name: Compose custom models
+        href: compose-custom-models.md
+  - name: Create and compose custom models v3.0 (preview)
+    items:
     - name: Compose custom models
-      href: compose-custom-models.md
+      href: compose-custom-models-preview.md      
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Use containers
