@@ -17,6 +17,9 @@ ms.custom: ignite-fall-2021
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## February 2022
+* Spanish support for invoice API
+
 ## January 2022
 
 ### Form Recognizer v3.0 preview update 2
