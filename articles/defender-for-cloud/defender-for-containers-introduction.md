@@ -79,9 +79,9 @@ The **Azure Policy add-on for Kubernetes** collects cluster and workload configu
 
 | Pod Name | Namespace | Kind | Short Description | Capabilities | Resource limits | Egress Required |
 |--|--|--|--|--|--|--|
-| azuredefender-collector-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment. | SYS_ADMIN, <br>SYS_RESOURCE, <br>SYS_PTRACE | memory: 64MIB<br>cpu: 60m | No |
-| azuredefender-collector-misc-* | kube-system | [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment that aren't bounded to a specific node. | N/A | memory: 64MIB <br>cpu: 60m | No |
-| azuredefender-publisher-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | Publish the collected data to Microsoft Defender for Containers' backend service where the data will be processed for and analyzed. | N/A | memory: 64MIB<br>cpu: 60m | Https 443 <br> <br> Learn more about the [outbound access prerequisites](../aks/limit-egress-traffic.md#microsoft-defender-for-containers) |
+| azuredefender-collector-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment. | SYS_ADMIN, <br>SYS_RESOURCE, <br>SYS_PTRACE | memory: 64Mi<br> <br> cpu: 60m | No |
+| azuredefender-collector-misc-* | kube-system | [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment that aren't bounded to a specific node. | N/A | memory: 64Mi <br> <br>cpu: 60m | No |
+| azuredefender-publisher-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | Publish the collected data to Microsoft Defender for Containers' backend service where the data will be processed for and analyzed. | N/A | memory: 64Mi  <br> <br> cpu: 60m | Https 443 <br> <br> Learn more about the [outbound access prerequisites](../aks/limit-egress-traffic.md#microsoft-defender-for-containers) |
 
 \* resource limits are not configurable
 
@@ -157,17 +157,19 @@ There are four triggers for an image scan:
 
 - **On push** - Whenever an image is pushed to your registry, Defender for container registries automatically scans that image. To trigger the scan of an image, push it to your repository.
 
-- **Recently pulled** - Since new vulnerabilities are discovered every day, **Microsoft Defender for container registries** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no extra charge for these rescans; as mentioned above, you're billed once per image.
+- **Recently pulled** - Since new vulnerabilities are discovered every day, **Microsoft Defender for Containers** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no extra charge for these rescans; as mentioned above, you're billed once per image.
 
-- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for container registries** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
+- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for container Containers** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
 
-- **Continuous scan** - This scan typically completes within 2 minutes, but it might take up to 40 minutes. For every vulnerability identified, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. This scan has two available modes:
+- **Continuous scan** - This trigger has two modes:
 
     - A Continuous scan based on an image pull.  This scan is performed every 7 days after an image was pulled, and only for 30 days after the image was pulled. This capability doesn't require the security profile, or extension.
 
-    - Continuous scan for running images. This scan is performed every 7 days for as long as the image runs. This trigger is used instead of the above trigger if the security agent, or profile is running on a cluster. This trigger requires the security, or profile.
+    - Continuous scan for running images. This scan is performed every 7 days for as long as the image runs. This mode runs instead of  the above mode when the Defender profile, or extension is running on the cluster.
 
-Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
+This scan typically completes within 2 minutes, but it might take up to 40 minutes. For every vulnerability identified, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. 
+
+Defender for Cloud filters, and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
 :::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
@@ -176,7 +178,7 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 
 Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities powered by the Defender profile, or extension.
 
-The new recommendation, **Running container images should have vulnerability findings resolved**, only shows vulnerabilities for running images, and relies on the Defender security profile, or extension to discover which images are currently running. This recommendation groups running images that have vulnerabilities, and provides details about the issues discovered, and how to remediate them. The Security profile, or extension is used to gain visibility into vulnerable containers that are active.
+The new recommendation, **Running container images should have vulnerability findings resolved**, only shows vulnerabilities for running images, and relies on the Defender security profile, or extension to discover which images are currently running. This recommendation groups running images that have vulnerabilities, and provides details about the issues discovered, and how to remediate them. The Defender profile, or extension is used to gain visibility into vulnerable containers that are active.
 
 This recommendation shows running images, and their vulnerabilities based on ACR image image. Images that are deployed from a non ACR registry, will not be scanned, and will appear under the Not applicable tab.
 
