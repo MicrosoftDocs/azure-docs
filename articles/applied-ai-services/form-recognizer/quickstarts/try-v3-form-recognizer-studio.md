@@ -122,9 +122,9 @@ To create custom models, you start with configuring your project:
 
 :::image border="true" type="content" source="../media/quickstarts/form-recognizer-custom-model-demo-v3p2.gif" alt-text="Form Recognizer Custom model demo":::
 
-### Labeling as tables (Custom form model)
+### Labeling as tables
 
-While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
+For custom form models, while creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
 * Dynamic or variable count of values (rows) for a given set of fields (columns)
 
@@ -154,9 +154,9 @@ Use fixed tables to extract specific collection of values for a given set of fie
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Form Recognizer Labeling as fixed table example":::
 
-### Signature detection (Custom form model)
+### Signature detection
 
-To label for signature detection:
+To label for signature detection: (Custom form only)
 
 1. In the labeling view, create a new "Signature" type label and name it.
 
