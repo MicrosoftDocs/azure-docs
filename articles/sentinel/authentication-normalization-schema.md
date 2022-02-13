@@ -134,10 +134,10 @@ In the following tables, *Type* refers to a logical type. For more information, 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
 | <a name="actoruserid"></a>**ActorUserId**    | Optional  | String     |   A machine-readable, alphanumeric, unique representation of the Actor. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
-| **ActorUserIdType**| Optional  | UserIdType |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information and list of allowed values, see [The User entity](normalization-about-schemas.md#the-user-entity).         |
+| **ActorUserIdType**| Optional  | UserIdType |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="actorusername"></a>**ActorUsername**  | Optional    | Username     | The Actor’s username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE`     |
-| **ActorUsernameType**              | Optional    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, and list of allowed values, see [The User entity](normalization-about-schemas.md#usernametype). <br><br>Example: `Windows`       |
-| **ActorUserType** | Optional | UserType | The type of the Actor. For more information, and  list of allowed values, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>For example: `Guest` |
+| **ActorUsernameType**              | Optional    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>Example: `Windows`       |
+| **ActorUserType** | Optional | UserType | The type of the Actor. For more information, and  list of allowed values, see [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>For example: `Guest` |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the sign-in session of the Actor.  <br><br>Example: `102pTUgC3p8RIqHvzxLCHnFlg`  |
 | | | | |
 
@@ -147,7 +147,7 @@ In the following tables, *Type* refers to a logical type. For more information, 
 |---------------|--------------|------------|-----------------|
 | **ActingAppId** | Optional | String | The ID of the application authorizing on behalf of the actor, including a process, browser, or service. <br><br>For example: `0x12ae8` |
 | **ActiveAppName** | Optional | String | The name of the application authorizing on behalf of the actor, including a process, browser, or service. <br><br>For example: `C:\Windows\System32\svchost.exe` |
-| **ActingAppType** | Optional | AppType | The type of acting application. For more information, and allowed list of values, see [The Application entity](normalization-about-schemas.md#the-application-entity). |
+| **ActingAppType** | Optional | AppType | The type of acting application. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md). |
 | **HttpUserAgent** |	Optional	| String |	When authentication is performed over HTTP or HTTPS, this field's value is the user_agent HTTP header provided by the acting application when performing the authentication.<br><br>For example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
 | | | | |
 
@@ -156,10 +156,10 @@ In the following tables, *Type* refers to a logical type. For more information, 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
 |<a name="targetuserid"></a> **TargetUserId**   | Optional | UserId     | A machine-readable, alphanumeric, unique representation of the target user. For more information, and for alternative fields for additional IDs, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br> Example: `00urjk4znu3BcncfY0h7`    |
-| **TargetUserIdType** | Optional | UserIdType | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information and list of allowed values, see [The User entity](normalization-about-schemas.md#the-user-entity).            <br><br> Example:  `SID`  |
+| **TargetUserIdType** | Optional | UserIdType | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information and list of allowed values, see [UserIdType](normalization-about-schemas.md#useridtype) in the [Schema Overview article](normalization-about-schemas.md).            <br><br> Example:  `SID`  |
 | <a name="targetusername"></a>**TargetUsername** | Optional | Username     | The target user username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example:   `MarieC`      |
-| **TargetUsernameType**             |Optional  | UsernameType | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information and list of allowed values, see [The User entity](normalization-about-schemas.md#the-user-entity).          |
-| **TargetUserType** | Optional | UserType | The type of the Target user. For more information, and  list of allowed values, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>For example: `Member` |
+| **TargetUsernameType**             |Optional  | UsernameType | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information and list of allowed values, see [UsernameType](normalization-about-schemas.md#usernametype) in the [Schema Overview article](normalization-about-schemas.md).          |
+| **TargetUserType** | Optional | UserType | The type of the Target user. For more information, and  list of allowed values, see [UserType](normalization-about-schemas.md#usertype) in the [Schema Overview article](normalization-about-schemas.md). <br><br>For example: `Member` |
 | **TargetSessionId** | Optional | String | The sign-in session identifier of the TargetUser on the source device. |
 | **User**  | Alias  | Username | Alias to the [TargetUsername](#targetusername) or to the [TargetUserId](#targetuserid) if [TargetUsername](#targetusername) is not defined. <br><br>Example: `CONTOSO\dadmin`     |
 | | | | |
@@ -170,10 +170,10 @@ In the following tables, *Type* refers to a logical type. For more information, 
 |---------------|--------------|------------|-----------------|
 | <a name="src"></a>**Src** | Recommended       | String     |    A unique identifier of the source device. <br><br>This field may alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1` |
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String | The ID of the source device as reported in the record. <br><br>For example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **SrcDvcIdType** | Optional | DvcIdType | The type of [SrcDvcId](#srcdvcid). For more information, and  list of allowed values, see [The User entity](normalization-about-schemas.md#the-device-entity).<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
+| **SrcDvcIdType** | Optional | DvcIdType | The type of [SrcDvcId](#srcdvcid). For more information, and  list of allowed values, see [DvcIdType](normalization-about-schemas.md#dvcidtype) in the [Schema Overview article](normalization-about-schemas.md).<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | DeviceType | The type of the source device. For more information, and  list of allowed values, see [The Device entity](normalization-about-schemas.md#the-device-entity). |
 | <a name="srchostname"></a>**SrcHostname** |Optional | Hostname| The source device hostname, including domain information when available. For more information, see [The Device entity](normalization-about-schemas.md#the-device-entity). <br><br>Example: `Constoso\DESKTOP-1282V4D`|
-| **SrcHostnameType**|Optional | HostnameType |The type of [SrcDvcHostname](#srcdvchostname), if known. For more information and list of allowed values, see [The Device entity](normalization-about-schemas.md#the-device-entity). |
+| **SrcHostnameType**|Optional | HostnameType |The type of [SrcHostname](#srchostname), if known. For more information and list of allowed values, see [HostnameType](normalization-about-schemas.md#hostnametype) in the [Schema Overview article](normalization-about-schemas.md). |
 |<a name="srcipaddr"></a>**SrcIpAddr**|Recommended |IP Address |The IP address of the source device. <br><br>Example: `185.175.35.214` |
 | **SrcDvcOs**|Optional |String |The OS of the source device. <br><br>Example: `Windows 10` |
 |**SrcIsp** | Optional|String |The Internet Service Provider (ISP) used by the source device to connect to the internet. <br><br>Example: `corpconnect` |
@@ -192,14 +192,14 @@ In the following tables, *Type* refers to a logical type. For more information, 
 | <a name="dst"></a>**Src** | Recommended       | String     |    A unique identifier of the authetication target. <br><br>This field may alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), [SrcIpAddr](#srcipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
 | <a name="targetappid"></a>**TargetAppId** |Optional | String| The ID of the application to which the authorization is required, often assigned by the reporting device. <br><br>Example: `89162` |
 |<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which the authorization is required, including a service, a URL, or a SaaS application. <br><br>Example: `Saleforce` |
-| **TargetAppType**|Optional |AppType |The type of the application authorizing on behalf of the Actor. For more information, and allowed list of values, see [The Application entity](normalization-about-schemas.md#the-application-entity).|
+| **TargetAppType**|Optional |AppType |The type of the application authorizing on behalf of the Actor. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).|
 | <a name="targeturl"></a>**TargetUrl** |Optional |URL |The URL associated with the target application. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
-|**LogonTarget**| Alias| |Alias to either [TargetAppName](#targetappname), [TargetUrl](#targeturl), or [TargetHostname](#targetdvchostname), whichever field best describes the authentication target. |
-|**TargetDvcId** |Optional | String|The ID of the target device as reported in the record. <br><br> Example: `2739` |
+|**LogonTarget**| Alias| |Alias to either [TargetAppName](#targetappname), [TargetUrl](#targeturl), or [TargetHostname](#targethostname), whichever field best describes the authentication target. |
+| <a name="targetdvcid"></a>**TargetDvcId** |Optional | String|The ID of the target device as reported in the record. <br><br> Example: `2739` |
 | **TargetDvcIdType** | Optional | DvcIdType | The type of [TargetDvcId](#srcdvcid). For more information, and  list of allowed values, see [The Device Entity](normalization-about-schemas.md#the-device-entity).<br><br>**Note**: This field is required if [TargetDvcId](#targetdvcid) is used. | 
 |<a name="targethostname"></a>**TargetHostname** | Recommended| Hostname |The target device hostname, including domain information when available. For more information, see [The Device entity](normalization-about-schemas.md#the-device-entity). |
-| **TargetHostnameType**|Recommended | HostnameType |The type of [TargetDvcHostname](#targetdvchostname). For more information and list of allowed values, see [The Device entity](normalization-about-schemas.md#the-device-entity). |
-| **TargetDeviceType** |Optional | Enumerated|The type of the target device. For more information and list of allowed values, see [The Device entity](normalization-about-schemas.md#the-device-entity). |
+| **TargetHostnameType**|Recommended | HostnameType |The type of [TargetHostname](#targethostname). For more information and list of allowed values, see [HostnameType](normalization-about-schemas.md#hostnametype) in the [Schema Overview article](normalization-about-schemas.md). |
+| **TargetDeviceType** |Optional | Enumerated|The type of the target device. For more information and list of allowed values, see [DeviceType](normalization-about-schemas.md#devicetype) in the [Schema Overview article](normalization-about-schemas.md). |
 |<a name="targetdvcipaddr"></a>**TargetDvcIpAddr** |Optional | IP Address|The IP address of the target device. <br><br>Example: `2.2.2.2` |
 | **TargetDvcOs**| Optional| String| The OS of the target device. <br><br>Example: `Windows 10`|
 | **TargetPortNumber** |Optional |Integer |The port of the target device.|
