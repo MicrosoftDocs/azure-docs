@@ -90,7 +90,7 @@ Defender for IoT enables the effective management of multiple deployments and a 
 
 The on-premises management console is a web-based administrative platform that lets you monitor and control the activities of global sensor installations. In addition to managing the data received from deployed sensors, the on-premises management console seamlessly integrates data from various business resources: CMDBs, DNS, firewalls, Web APIs, and more.
 
-:::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="On-premises management console display.":::
+:::image type="content" source="media/concept-air-gapped-networks/site-management-alert-screen.png" alt-text="On-premises management console display." lightbox="media/concept-air-gapped-networks/site-management-alert-screen.png":::
 
 We recommend that you familiarize yourself with the concepts, capabilities, and features available to sensors before working with the on-premises management console.
 
