@@ -124,7 +124,7 @@
           href: how-to-ssh-into-percept-dk.md
         - name: Connect to Azure Percept DK over serial
           href: how-to-connect-to-percept-dk-over-serial.md   
-        - name: Manually create and deploy an Azure Precept Devkit
+        - name: How to do a manual default container deployment to Azure Percept DK
           href: create-and-deploy-manually-azure-precept-devkit.md 
             
     - name: Tools
