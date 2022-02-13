@@ -105,7 +105,7 @@ You'll need a form document. You can use our [sample form document](https://raw.
 
 ## Supported languages and locales
 
- Form Recognizer preview version introduces additional language support for the layout model. *See* our [Language Support](language-support.md#layout-and-custom-model) for a complete list of supported handwritten and printed text.
+ Form Recognizer preview version introduces additional language support for the layout model. *See* our [Language Support](language-support.md#layout-and-custom-template-model) for a complete list of supported handwritten and printed text.
 
 ## Features
 

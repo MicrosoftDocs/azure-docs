@@ -120,11 +120,11 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
      * The `selectionMarks` node shows every selection mark (checkbox, radio mark) and whether its status is `selected` or `unselected`.
      * The `pageResults` section includes the tables extracted. For each table, the text, row, and column index, row and column spanning, bounding box, and more are extracted.
 
-## Train a custom template model
+## Train a custom form model
 
 Train a custom model to analyze and extract data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You'll need at least five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
 
-### Prerequisites for training a custom template model
+### Prerequisites for training a custom form model
 
 * An Azure Storage blob container that contains a set of training data. Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. For this project, you can use our [sample data set](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/sample_data_without_labels.zip).
 
@@ -154,7 +154,7 @@ Train a custom model to analyze and extract data from forms and documents specif
 
 1. Navigate to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/).
 
-1. On the sample tool home page select **Use custom template to train a model with labels and get key-value pairs**.
+1. On the sample tool home page select **Use custom form to train a model with labels and get key-value pairs**.
 
     :::image type="content" source="../media/label-tool/custom-1.jpg" alt-text="Train a custom model.":::
 
@@ -255,7 +255,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 * **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./try-sdk-rest-api.md?pivots=programming-language-rest-api) or [client library](./try-sdk-rest-api.md).
 
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
-* The list of tags, and the estimated accuracy per tag. For more information, _see_ [Interpret and improve accuracy and confidence](concept-accuracy-confidence.md).
+* The list of tags, and the estimated accuracy per tag. For more information, _see_ [Interpret and improve accuracy and confidence](../concept-accuracy-confidence.md).
 
     :::image type="content" source="../media/label-tool/custom-3.jpg" alt-text="Training view tool.":::
 
@@ -269,7 +269,7 @@ Choose the Train icon on the left pane to open the Training page. Then select th
 
    :::image type="content" source="../media/analyze.png" alt-text="Training view.":::
 
-That's it! You've learned how to use the Form Recognizer sample tool for Form Recognizer prebuilt, layout and custom models. You've also learned to analyze a custom template with manually labeled data. Now you can try a Form Recognizer client library SDK or REST API.
+That's it! You've learned how to use the Form Recognizer sample tool for Form Recognizer prebuilt, layout and custom models. You've also learned to analyze a custom form with manually labeled data. Now you can try a Form Recognizer client library SDK or REST API.
 
 ## Next steps
 

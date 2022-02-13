@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Create and compose custom models
+# Create and compose custom models | Preview
 
 > [!NOTE]
 > This how-to guide references Form Recognizer v3.0 (preview). If you would like to use Form Recognizer v2.1 (GA), see [Create and compose custom models v2.1 (GA)](compose-custom-models.md)
@@ -107,7 +107,7 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-See [Form Recognizer Studio: labeling as tables](quickstarts/try-v3-form-recognizer-studio#labeling-as-tables)
+See [Form Recognizer Studio: labeling as tables](quickstarts/try-v3-form-recognizer-studio.md#labeling-as-tables)
 
 ### [REST API](#tab/rest)
 
@@ -125,10 +125,10 @@ Training with labels leads to better performance in some scenarios. To train wit
 
 |Language |Method |SDK URL |
 |--|--|--|
-|**C#**|`StartTraining`|[Parameters](/dotnet/api/azure.ai.formrecognizer.training.formtrainingclient.starttraining?view=azure-dotnet-preview#parameters)|
-|**Java**| `beginTraining`|[Parameters](/java/api/com.azure.ai.formrecognizer.training.formtrainingasyncclient.begintraining?view=azure-java-stable)| 
-|**JavaScript** | `beginTraining` | [Parameters](/javascript/api/@azure/ai-form-recognizer/formtrainingclient?view=azure-node-latest&branch=main#@azure-ai-form-recognizer-formtrainingclient-begintraining)|
-| **Python** | `begin_training` | [Parameters](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formtrainingclient?view=azure-python-preview&branch=main#azure-ai-formrecognizer-formtrainingclient-begin-training)
+|**C#**|`StartTraining`|[Parameters](/dotnet/api/azure.ai.formrecognizer.training.formtrainingclient.starttraining?view=azure-dotnet-preview#parameters&preserve-view=true)|
+|**Java**| `beginTraining`|[Parameters](/java/api/com.azure.ai.formrecognizer.training.formtrainingasyncclient.begintraining?view=azure-java-stable&preserve-view=true)| 
+|**JavaScript** | `beginTraining` | [Parameters](/javascript/api/@azure/ai-form-recognizer/formtrainingclient?view=azure-node-latest&branch=main#@azure-ai-form-recognizer-formtrainingclient-begintraining&preserve-view=true)|
+| **Python** | `begin_training` | [Parameters](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formtrainingclient?view=azure-python-preview#azure-ai-formrecognizer-formtrainingclient-begin-create-composed-model&preserve-view=true)
 
 ---
 
@@ -198,11 +198,13 @@ Once the training process has successfully completed, you can begin to build you
 * [**Gather your custom model IDs**](#gather-your-model-ids)
 * [**Compose your custom models**](#compose-your-custom-models)
 * [**Analyze documents**](#analyze-documents)
-* [**Manage your composed models**](#manage-your-custom-models)
+* [**Manage your composed models**](#manage-your-composed-models)
+
+### [Client-libraries](#tab/sdks)
 
 #### Gather your model IDs
 
-The [**REST API**](./quickstarts/try-v3-rest-api#manage-custom-models), will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model.
+The [**REST API**](./quickstarts/try-v3-rest-api.md#manage-custom-models), will return a `201 (Success)` response with a **Location** header. The value of the last parameter in this header is the model ID for the newly trained model.
 
 #### Analyze documents
 
@@ -213,10 +215,10 @@ The [**REST API**](./quickstarts/try-v3-rest-api#manage-custom-models), will ret
 
 Once the training process has successfully completed, you can begin to build your composed model. Here are the steps for creating and using composed models:
 
-* [**Gather your custom model IDs**](#gather-your-custom-model-ids)
+* [**Gather your custom model IDs**](#gather-your--model-ids)
 * [**Compose your custom models**](#compose-your-custom-models)
 * [**Analyze documents**](#analyze-documents)
-* [**Manage your composed models**](#manage-your-custom-models)
+* [**Manage your composed models**](#manage-your-composed-models)
 
 #### Gather your model IDs
 
@@ -230,13 +232,7 @@ The client-library SDKs return a model object that can be queried to return the 
 
 * Python | [CustomFormModelInfo Class](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_create_composed_model.py)
 
-
-
-
-
-
-##
-
+---
 
 ## Create your composed model
 

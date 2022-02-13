@@ -90,11 +90,11 @@ Values in training cases should be diverse and representative. For example, if a
 
 ## Training a model
 
-Custom document models are only available in the [v3 API](v3-migration-guide).
+Custom document models are only available in the [v3 API](v3-migration-guide.md).
 
 |  | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom document | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](https://docs.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-python-sdk)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom document | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 The build operation to train model supports a new ```buildMode``` property, to train a custom neural model, set the ```buildMode``` to ```neural```.
 
@@ -117,7 +117,7 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-pr
 * Train a custom model:
 
   > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/train-custom.md)
+  > [Form Recognizer quickstart](quickstarts/try-v3-form-recognizer-studio.md#custom-projects)
 
 * View the labeling guidelines:
 

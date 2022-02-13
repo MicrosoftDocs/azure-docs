@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Create and compose custom models
+# Create and compose custom models 
 
 > [!NOTE]
 > This how-to guide references Form Recognizer v2.1 (GA). If you would like to try Form Recognizer v3.0 (preview), see [Create and compose custom models v3.0 (preview)](compose-custom-models-preview.md)

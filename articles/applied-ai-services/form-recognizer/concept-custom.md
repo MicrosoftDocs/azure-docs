@@ -19,7 +19,7 @@ To create a custom model, you label a dataset of documents with the values you w
 
 ## Custom model types
 
-Custom models can be one of two types, [**custom template**](concept-custom-template.md ) or [**custom neural**](concept-custom-document) models. The labeling and training process for both models is identical, but the models differ as follows:
+Custom models can be one of two types, [**custom template**](concept-custom-template.md ) or [**custom neural**](concept-custom-neural.md) models. The labeling and training process for both models is identical, but the models differ as follows:
 
 ### Custom template model
 
@@ -65,11 +65,11 @@ This table compares the supported data extraction areas:
 
 The following table describes the features available with the associated tools and SDKs. As a best practice, ensure that you use the compatible tools listed here.
 
-|  | REST API | SDK | Label and Test Models|
+| Document type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom form 2.1 | [Form Recognizer 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Form Recognizer SDK](https://docs.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/quickstarts/get-started-sdk-rest-api?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
-| Custom template 3.0 | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](https://docs.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-python-sdk)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
-| Custom neural | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](https://docs.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-python-sdk)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
+| Custom form 2.1 | [Form Recognizer 2.1 GA API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) | [Form Recognizer SDK](quickstarts/get-started-sdk-rest-api.md?pivots=programming-language-python)| [Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom template 3.0 | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom neural | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
 > [!NOTE]
 > Custom template models trained with the 3.0 API will have a few improvements over the 2.1 API stemming from improvements to the OCR engine. Datasets used to train a custom template model using the 2.1 API can still be used to train a new model using the 3.0 API.

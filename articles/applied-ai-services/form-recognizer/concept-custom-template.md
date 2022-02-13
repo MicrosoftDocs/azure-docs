@@ -28,7 +28,7 @@ Custom template models support key-value pairs, selection marks, tables, signatu
 
 ## Dealing with variations 
 
-Template models rely on a defined visual template, changes to the template will result in lower accuracy. In those instances, split your training dataset to include at least five samples of each template and train a model for each of the variations. You can then [compose](concept-compose-models.md) the models into a single endpoint. When dealing with subtle variations, like digital PDF documents and images, it's best to include at least five examples of each type in the same training dataset.
+Template models rely on a defined visual template, changes to the template will result in lower accuracy. In those instances, split your training dataset to include at least five samples of each template and train a model for each of the variations. You can then [compose](concept-composed-models.md) the models into a single endpoint. When dealing with subtle variations, like digital PDF documents and images, it's best to include at least five examples of each type in the same training dataset.
 
 ## Training a model
 
@@ -36,8 +36,8 @@ Template models are available generally [v2.1 API](https://westus.dev.cognitive.
 
 | Model | REST API | SDK | Label and Test Models|
 |--|--|--|--|
-| Custom template (preview) | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](https://docs.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/quickstarts/try-v3-python-sdk)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
-| Custom template | [Form Recognizer 2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)| [Form Recognizer SDK](https://docs.microsoft.com/en-us/azure/applied-ai-services/form-recognizer/quickstarts/get-started-sdk-rest-api?pivots=programming-language-python)| [Form Recognizer Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
+| Custom template (preview) | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts.md/try-v3-python-sdk)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
+| Custom template | [Form Recognizer 2.1 (GA)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)| [Form Recognizer SDK](quickstarts/get-started-sdk-rest-api.md?pivots=programming-language-python)| [Form Recognizer Sample labeling tool](https://fott-2-1.azurewebsites.net/)|
 
 On the v3 API, the build operation to train model supports a new ```buildMode``` property, to train a custom template model, set the ```buildMode``` to ```template```.
 

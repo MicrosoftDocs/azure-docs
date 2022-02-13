@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 02/13/2022
-ms.author: vkurpad
+ms.author: vikurpad
 recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
