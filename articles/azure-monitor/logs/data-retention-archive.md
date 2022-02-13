@@ -22,11 +22,6 @@ See [Overview of Log Analytics workspaces](log-analytics-workspace-overview.md) 
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
-## Data purge
-Data is automatically removed from the workspace after the retention or archive period ends. The only way to remove data on demand is to use the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which is intended to remove personal data that was accidentally collected. You cannot purge archived logs. 
-
-The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. **To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types.** 
-
 ## Set the default workspace retention policy
 Each workspace has a default retention policy that's applied to all tables, but you can set a different retention policy on individual tables. You set an archive policy (defined by the total retention time) individually on each table.
 
@@ -49,24 +44,7 @@ To set the default workspace retention policy:
  
 1. Move the slider to increase or decrease the number of days, and then select **OK**.  
 
-## Tables with unique retention policies
-By default, the tables of two data types - `Usage` and `AzureActivity` - retain data for a minimum of 90 days at no charge. If you lengthen the workspace retention policy to more than 90 days, the retention policy of these data types also increases. These data types are also free from data ingestion charges. 
-
-Tables related to data types from workspace-based Application Insights resources also retain data for 90 days at no charge by default. You can adjust their retention policies using the retention by data type functionality. 
-
-- `AppAvailabilityResults`
-- `AppBrowserTimings`
-- `AppDependencies`
-- `AppExceptions`
-- `AppEvents`
-- `AppMetrics`
-- `AppPageViews`
-- `AppPerformanceCounters`, 
-- `AppRequests`
-- `AppSystemEvents`
-- `AppTraces`
-
-## Set retention and archive policy by table
+## Set table retention and archive policy - Using Azure Resource Manager
 You can set different retention settings for individual data types from 4 to 730 days (except for workspaces in the legacy Free Trial pricing tier) and an archive period for a total retention time of 2,555 days (7 years). 
 
 > [!NOTE]
@@ -95,7 +73,7 @@ GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResource
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
 ```
 
-## Set retention and archive policy with the REST API
+## Set table retention and archive policy - Using UPI
 
 Use the **Tables - Update** API to set the retention and archive duration for a table. You don't specify the archive duration directly but instead set a total retention that specifies the retention plus the archive duration.
 
@@ -152,6 +130,29 @@ Status code: 200
    ...
 }
 ```
+
+## Tables with unique retention policies
+By default, the tables of two data types - `Usage` and `AzureActivity` - retain data for a minimum of 90 days at no charge. If you lengthen the workspace retention policy to more than 90 days, the retention policy of these data types also increases. These data types are also free from data ingestion charges. 
+
+Tables related to data types from workspace-based Application Insights resources also retain data for 90 days at no charge by default. You can adjust their retention policies using the retention by data type functionality. 
+
+- `AppAvailabilityResults`
+- `AppBrowserTimings`
+- `AppDependencies`
+- `AppExceptions`
+- `AppEvents`
+- `AppMetrics`
+- `AppPageViews`
+- `AppPerformanceCounters`, 
+- `AppRequests`
+- `AppSystemEvents`
+- `AppTraces`
+
+## Data purge
+Data is automatically removed from the workspace after the retention or archive period ends. The only way to remove data on demand is to use the [purge feature](personal-data-mgmt.md#how-to-export-and-delete-private-data), which is intended to remove personal data that was accidentally collected. You cannot purge archived logs. 
+
+The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. **To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types.** 
+
 
 ## Next steps
 - [Learn more about Log Analytics workspaces and data retention and archive.](log-analytics-workspace-overview.md)
