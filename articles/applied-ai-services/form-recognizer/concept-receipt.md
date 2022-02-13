@@ -24,13 +24,13 @@ The receipt model combines powerful Optical Character Recognition (OCR) capabili
 
 ## Development options
 
-The following resources are supported by Form Recognizer v2.1:
+The following tools are supported by Form Recognizer v2.1:
 
 | Feature | Resources |
 |----------|-------------------------|
 |**Receipt model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-The following resources are supported by Form Recognizer v3.0:
+The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -38,7 +38,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
+See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
