@@ -21,25 +21,14 @@ ms.custom: ignite-fall-2021, mode-ui
 
 :::image border="true" type="content" source="../media/quickstarts/form-recognizer-studio-demo.gif" alt-text="Form Recognizer Studio demo":::
 
-## Migrating from the sample labeling tool
-
-If you are a previous user of the [sample labeling tool](try-sample-label-tool.md), skip the prerequisites to [**sign into the Studio preview**](try-v3-form-recognizer-studio.md#sign-into-the-form-recognizer-studio-preview) to use your existing Azure account and Form Recognizer or Cognitive Services resources with the Studio. 
-
-To migrate your existing custom projects to the Studio, jump ahead to the [**Custom model getting started**](try-v3-form-recognizer-studio.md#custom-projects) section to create a new project and point it to the same Azure Blob storage location assuming you have access to it in Azure. Once you configure a new project, the Studio will load all documents and interim files for labeling and training.
-
 ## Prerequisites for new users
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 * A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [**Cognitive Services multi-service**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
-## Sign into the Form Recognizer Studio preview
+## Pretrained models
 
-> [!NOTE]
-> **Virtual networks (VNETs)** 
-> 
-> If you are using the Studio with service endpoints and blob storage configured within a virtual network (VNET), ensure that your computer is in the same VNET as the endpoint and the storage container.
-
-After you have completed the prerequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
+After you have completed the prerequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to try all pre-trained features are identical.
 
 1. Select a Form Recognizer service feature from the Studio home page.
 
@@ -47,47 +36,19 @@ After you have completed the prerequisites, navigate to the [Form Recognizer Stu
 
 1. Review and confirm your selections.
 
-:::image border="true" type="content" source="../media/quickstarts/form-recognizer-studio-get-started-v2.gif" alt-text="Form Recognizer Studio Getting Started example":::
+1. Select the Analyze command to run analysis on the sample document or try your document by using the Add command.
 
-## Layout
-
-In the Layout view:
-
-1. Select the Analyze command to run Layout analysis on the sample document or try your document by using the Add command.
-
-1. Observe the highlighted extracted text, the table icons showing the extracted table locations, and highlighted selection marks.
+1. Observe the highlighted extracted content in the document view. Hover your move over the keys and values to see details.
 
 1. Use the controls at the bottom of the screen to zoom in and out and rotate the document view.
 
-1. Show and hide the text, tables, and selection marks layers to focus on each one of them at a time.
+1. In the output section, browse the list of extracted key-value pairs and entities.
 
-1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
+1. From the results tab, check out the formatted JSON outout. Search and navigate the contents to understand the output.
+
+1. From the Code tab, copy the code sample to get started on integrating General Documents feature with your application.
 
 :::image border="true" type="content" source="../media/quickstarts/layout-get-started-v2.gif" alt-text="Form Recognizer Layout example":::
-
-## Prebuilt models
-
-There are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are prebuilt models currently supported by the Form Recognizer service:
-
-* [🆕 **General document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)—Analyze and extract text, tables, structure, key-value pairs and named entities.
-* [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
-* [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extracts text and key information from receipts.
-* [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extracts text and key information from driver licenses and international passports.
-* [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extracts text and key information from business cards.
-
-In the Prebuilt view:
-
-1. From the Studio home, select one of the prebuilt models. In this example, we are using the Invoice model.
-
-1. Select the Analyze command to run analysis on the sample document or try your invoice by using the Add command.
-
-1. In the visualization section, observe the highlighted fields and values and invoice line items. All extracted text and tables are also shown.
-
-1. In the output section's Fields tab, note the listed fields and values, and select the line items to view in a table-like format.
-
-1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
-
-:::image border="true" type="content" source="../media/quickstarts/prebuilt-get-started-v2.gif" alt-text="Form Recognizer Prebuilt example":::
 
 ## Additional prerequisites for custom projects
 
@@ -137,13 +98,11 @@ CORS should now be configured to use the storage account from Form Recognizer St
 > [!NOTE]
 > By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders if specified in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../build-training-data-set.md#organize-your-data-in-subfolders-optional)
 
-## Custom projects
-
-### Getting started
+## Custom models
 
 To create custom models, you start with configuring your project:
 
-1. From the Studio home, select the [Custom form project](https://formrecognizer.appliedai.azure.com/studio/customform/projects) to open the Custom form home page.
+1. From the Studio home, select the Custom model card to open the Custom models page.
 
 1. Use the "Create a project" command to start the new project configuration wizard.
 
@@ -151,19 +110,13 @@ To create custom models, you start with configuring your project:
 
 1. Review and submit your settings to create the project.
 
-:::image border="true" type="content" source="../media/quickstarts/1-custom-model-get-started-v2.gif" alt-text="Form Recognizer Custom project Getting Started example":::
-
-### Basic flow
-
-After the project creation step, in the custom model phase:
-
 1. From the labeling view, define the labels and their types that you are interested in extracting.
 
 1. Select the text in the document and select the label from the drop-down list or the labels pane.
 
 1. Label four more documents to get at least five documents labeled.
 
-1. Select the Train command and enter model name and description to start training your custom model.
+1. Select the Train command and enter model name, select whether you want the custom template (form) or neural (document) model to start training your custom model.
 
 1. Once the model is ready, use the Test command to validate it with your test documents and observe the results.
 
@@ -181,7 +134,7 @@ In addition, view all your models using the Models tab on the left. From the lis
 
 1. Select multiple models and compose them into a new model to be used in your applications.
 
-## Labeling as tables
+### Labeling as tables (Custom form only)
 
 While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
@@ -189,7 +142,7 @@ While creating your custom models, you may need to extract data collections from
 
 * Specific collection of values for a given set of fields (columns and/or rows)
 
-### Label as dynamic table
+Label as dynamic table
 
 Use dynamic tables to extract variable count of values (rows) for a given set of fields (columns):
 
@@ -201,7 +154,7 @@ Use dynamic tables to extract variable count of values (rows) for a given set of
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-dynamic.gif" alt-text="Form Recognizer labeling as dynamic table example":::
 
-### Label as fixed table
+Label as fixed table
 
 Use fixed tables to extract specific collection of values for a given set of fields (columns and/or rows):
 
@@ -213,7 +166,7 @@ Use fixed tables to extract specific collection of values for a given set of fie
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Form Recognizer Labeling as fixed table example":::
 
-## Labeling for signature detection
+### Signature detection (custom form model)
 
 To label for signature detection:
 
