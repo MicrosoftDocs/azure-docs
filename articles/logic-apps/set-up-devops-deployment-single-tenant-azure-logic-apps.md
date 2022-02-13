@@ -1,6 +1,6 @@
 ---
 title: Set up DevOps for Standard logic apps
-description: Set up DevOps deployment for Standard logic app workflows in single-tenant Azure Logic Apps.
+description: How to set up DevOps deployment for Standard logic app workflows in single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
