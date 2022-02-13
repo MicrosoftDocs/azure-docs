@@ -161,7 +161,7 @@ There are four triggers for an image scan:
 
 - **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for container Containers** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
 
-- **Continuous scan** - This trigger has two modes:
+- **Continuous scan** (Public Preview) - This trigger has two modes:
 
     - A Continuous scan based on an image pull.  This scan is performed every 7 days after an image was pulled, and only for 30 days after the image was pulled. This capability doesn't require the security profile, or extension.
 
