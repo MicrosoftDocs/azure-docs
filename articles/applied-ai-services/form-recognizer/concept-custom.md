@@ -39,6 +39,51 @@ The custom neural model is a deep learning model type relies on a base model tra
 
 The table below compares custom template and custom neural features:
 
+## Development options
+
+The following tools are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------|
+|Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](quickstarts/try-sdk-rest-api.md)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
+The following tools are supported by Form Recognizer v3.0:
+
+| Feature | Resources |
+|----------|-------------|
+|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/try-v3-csharp-sdk.md)</li><li>[Python SDK](quickstarts/try-v3-python-sdk.md)</li></ul>|
+
+### Try Form Recognizer
+
+See how data is extracted from your specific or unique documents by using custom models. You need the following resources:
+
+* An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
+* A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
+
+  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot that shows the keys and endpoint location in the Azure portal.":::
+
+#### Form Recognizer Studio (preview)
+
+> [!NOTE]
+> Form Recognizer Studio is available with the preview (v3.0) API.
+
+1. On the **Form Recognizer Studio** home page, select **Custom form**.
+
+1. Under **My Projects**, select **Create a project**.
+
+1. Complete the project details fields.
+
+1. Configure the service resource by adding your **Storage account** and **Blob container** to **Connect your training data source**.
+
+1. Review and create your project.
+
+1. Use the sample documents to build and test your custom model.
+
+    > [!div class="nextstepaction"]
+    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
+
+#### Sample Labeling tool
+
 
 |Feature    |Custom Template | Custom Neural |
 |-----------|-----------------|-----------------------|

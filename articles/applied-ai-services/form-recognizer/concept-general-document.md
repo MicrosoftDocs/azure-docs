@@ -32,7 +32,6 @@ The general document API supports most form types and will analyze your document
 
 * Key names are spans of text within the document that are associated with a value.
 
-
 * Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:``` 
 
 ***Sample document processed in the Form Recognizer Studio***
@@ -86,6 +85,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 Natural language processing models can identify parts of speech and classify each token or word. The named entity recognition model is able to identify entities like people, locations, and dates to provide for a richer experience. Identifying entities enables you to distinguish between customer types, for example,  an individual or an organization.
 
 The key value pair extraction model and entity identification model are run in parallel on the entire document and not just on the values of the extracted key-value pairs. This ensures that complex structures where a key cannot be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
+
 
 * The general document is a pre-trained model and can be directly invoked via the REST API.
 
