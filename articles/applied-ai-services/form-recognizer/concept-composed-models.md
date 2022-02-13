@@ -46,25 +46,26 @@ With composed models, you can assign multiple custom models to a composed model 
 
 ## Development options
 
-The following resources are supported by Form Recognizer v3.0:
+The following resources are supported by Form Recognizer **v3.0** (preview):
 
 | Feature | Resources |
 |----------|-------------|
-|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/try-v3-csharp-sdk.md)</li><li>[Python SDK](quickstarts/try-v3-python-sdk.md)</li></ul>|
-| Composed model | |
+|_**Custom model**_| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/BuildDocumentModel)</li><li>[C# SDK](quickstarts/try-v3-csharp-sdk.md)</li><li>[Java SDK](quickstarts/try-v3-java-sdk)</li><li>[JavaScript SDK](quickstarts/try-v3-javascript-sdk)</li><li>[Python SDK](quickstarts/try-v3-python-sdk.md)</li></ul>|
+| _**Composed model**_| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/ComposeDocumentModel)</li><li>[C# SDK](/dotnet/api/azure.ai.formrecognizer.documentanalysis.documentmodeladministrationclient.startcreatecomposedmodel?view=azure-dotnet-preview)</li><li>[Java SDK](/java/api/com.azure.ai.formrecognizer.administration.documentmodeladministrationclient.begincreatecomposedmodel?view=azure-java-preview)</li><li>[JavaScript SDK](/javascript/api/@azure/ai-form-recognizer/documentmodeladministrationclient?view=azure-node-preview#@azure-ai-form-recognizer-documentmodeladministrationclient-begincomposemodel)</li><li>[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formtrainingclient?view=azure-python-preview#azure-ai-formrecognizer-formtrainingclient-begin-create-composed-model)</li></ul>| |
 
 The following resources are supported by Form Recognizer v2.1:
 
 | Feature | Resources |
 |----------|-------------------------|
-|Custom model| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](quickstarts/try-sdk-rest-api.md)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
-| Composed model ||
+|_**Custom model**_| <ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net)</li><li>[REST API](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[Client library SDK](quickstarts/try-sdk-rest-api.md)</li><li>[Form Recognizer Docker container](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+| _**Composed model**_ |<ul><li>[Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/Compose)</li><li>[C# SDK](/dotnet/api/azure.ai.formrecognizer.training.createcomposedmodeloperation?view=azure-dotnet)</li><li>[Java SDK](/java/api/com.azure.ai.formrecognizer.models.createcomposedmodeloptions?view=azure-java-stable)</li><li>[JavaScript SDK](/javascript/api/@azure/ai-form-recognizer/begincreatecomposedmodeloptions?view=azure-node-latest)</li><li>[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formtrainingclient?view=azure-python#azure-ai-formrecognizer-formtrainingclient-begin-create-composed-model)</li></ul>| ||
 
 
 ## Next steps
 
-Learn to crate and compose custom models:
+Learn to create and compose custom models:
+> [!div class="nextstepaction"]
+> [**Form Recognizer v3.0 (preview)**](compose-custom-models-preview.md)
 
-* [**Form Recognizer v3.0 (preview)**](compose-custom-models-preview.md)
-
-* [**Form Recobniser v2.1 (GA)**](compose-custom-models.md)
+> [!div class="nextstepaction"]
+> [**Form Recognizer v2.1 (GA)**](compose-custom-models.md)
