@@ -241,7 +241,7 @@
         href: flexible-server/scripts/sample-cli-zone-redundant-ha.md
       - name: Configure same-zone HA
         href: flexible-server/scripts/sample-cli-same-zone-ha.md
-      - name: Restart, Stop, Start a Server
+      - name: Restart, stop, start a server
         href: flexible-server/scripts/sample-cli-restart-stop-start.md
       - name: Change server parameters
         href: flexible-server/scripts/sample-cli-change-server-parameters.md
@@ -618,13 +618,12 @@
   - name: Samples
     items:
     - name: Azure CLI samples
-      href: sample-scripts-azure-cli.md
       items:
       - name: Samples overview
         href: sample-scripts-azure-cli.md
       - name: Create a server
         href: ./scripts/sample-create-server-and-firewall-rule.md
-      - name: Scale a server
+      - name: Monitor and scale a server
         href: ./scripts/sample-scale-server.md
       - name: Change server configurations
         href: ./scripts/sample-change-server-configuration.md
