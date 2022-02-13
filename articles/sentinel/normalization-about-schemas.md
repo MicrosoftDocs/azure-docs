@@ -20,7 +20,7 @@ Schema references outline the fields that comprise each schema. ASIM currently d
 
 | Schema | Version | Status |
 | ------ | ------- | ------ |
-| [Authentication Event](authentication-normalization-schema.md) | 0.1 | Preview |
+| [Authentication Event](authentication-normalization-schema.md) | 0.1.1 | Preview |
 | [DNS Activity](dns-normalization-schema.md) | 0.1.3 | Preview |
 | [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
 | [File Activity](file-event-normalization-schema.md) | 0.1 | Preview |
@@ -105,12 +105,13 @@ The following fields are defined by ASIM for all schemas:
 | **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record might represent multiple events. <br><br>For other sources, set to `1`.   |
 | **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. <br><br>Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
-|  <a name="eventtype"></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. Each schema documents the list of values valid for this field. |
-| **EventSubType** | Optional | Enumerated | Describes a subdivision of the operation reported in the [EventType](#eventtype) field. Each schema documents the list of values valid for this field. |
+|  <a name="eventtype"></a>**EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalType](#eventoriginaltype) field. |
+| **EventSubType** | Optional | Enumerated | Describes a subdivision of the operation reported in the [EventType](#eventtype) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalSubType](#eventoriginalsubtype) field. |
 | <a name="eventresult"></a>**EventResult** | Mandatory | Enumerated | One of the following values: **Success**, **Partial**, **Failure**, **NA** (Not Applicable).<br> <br>The value might be provided in the source record by using different terms, which should be normalized to these values. Alternatively, the source might provide only the [EventResultDetails](#eventresultdetails) field, which should be analyzed to derive the EventResult value.<br><br>Example: `Success`|
-| <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Each schema documents the list of values valid for this field.<br><br>Example: `NXDOMAIN`|
+| <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | Enumerated | Reason or details for the result reported in the [EventResult](#eventresult) field. Each schema documents the list of values valid for this field. The original, source specific, value is stored in the [EventOriginalResultDetails](#eventoriginalresultdetails) field.<br><br>Example: `NXDOMAIN`|
 | **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
-| **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source. For example, this field will be used to store the original Windows event ID.<br><br>Example: `4624`|
+| <a name="eventoriginaltype"></a>**EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source. For example, this field will be used to store the original Windows event ID. This value is used to derive [EventType](#eventtype), which should have only one of the values documented for each schema.<br><br>Example: `4624`|
+| <a name="eventoriginalsubtype"></a>**EventOriginalSubType**   | Optional    | String     |   The original event sub type or ID, if provided by the source. For example, this field will be used to store the original Windows logon type. This value is used to derive [EventSubType](#eventsubtype), which should have only one of the values documented for each schema.<br><br>Example: `2`|
 | <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails** | Optional | String | The original result details provided by the source. This value is used to derive [EventResultDetails](#eventresultdetails), which should have only one of the values documented for each schema. |
 | <a name="eventseverity"></a>**EventSeverity** | Enumerated | String | The severity of the event. Valid values are: `Informational`, `Low`, `Medium`, or `High`. | 
 | <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | Optional | String | The original severity as provided by the source. This value is used to derive [EventSeverity](#eventseverity). | 
