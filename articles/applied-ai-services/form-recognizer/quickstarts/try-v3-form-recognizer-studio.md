@@ -48,7 +48,7 @@ After you have completed the prerequisites, navigate to the [Form Recognizer Stu
 
 1. From the Code tab, copy the code sample to get started on integrating General Documents feature with your application.
 
-:::image border="true" type="content" source="../media/quickstarts/general-document-demo-v3p2.gif" alt-text="Form Recognizer General Documents demo":::
+:::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-v3p2.gif" alt-text="Form Recognizer General Documents demo":::
 
 ## Additional prerequisites for custom projects
 
