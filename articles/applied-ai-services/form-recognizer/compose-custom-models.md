@@ -29,7 +29,7 @@ In this article, you'll learn how to create Form Recognizer custom and composed 
 
 ## Sample Labeling tool
 
-You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
+You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
