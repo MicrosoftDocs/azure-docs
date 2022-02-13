@@ -233,7 +233,7 @@ In this step, you create a pipeline, which first checks the number of changed re
     DECLARE  @from_lsn binary(10), @to_lsn binary(10);  
     SET @from_lsn =sys.fn_cdc_get_min_lsn('dbo_customers');  
     SET @to_lsn = sys.fn_cdc_map_time_to_lsn('largest less than or equal',  GETDATE());
-    SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
+    SELECT count(1) changecount FROM cdc.fn_cdc_get_net_changes_dbo_customers(@from_lsn, @to_lsn, 'all')
     ```
 
    3. Enable **First row only**
