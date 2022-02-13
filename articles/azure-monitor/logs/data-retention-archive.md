@@ -22,7 +22,7 @@ See [Overview of Log Analytics workspaces](log-analytics-workspace-overview.md) 
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
-## Set the default workspace retention policy
+## Configure the default workspace retention policy
 Each workspace has a default retention policy that's applied to all tables, but you can set a different retention policy on individual tables. You set an archive policy (defined by the total retention time) individually on each table.
 
 When you shorten an existing retention policy, there's a grace period of several days before Azure Monitor removes data older than the new retention duration. 
@@ -31,7 +31,7 @@ When you set the data retention policy to 30 days, you can trigger an immediate 
 
 Workspaces with a 30-day retention policy might actually retain data for 31 days. If you need to keep data for only 30 days, use Azure Resource Manager to set the retention to 30 days and set the `immediatePurgeDataOn30Days` parameter.
 
-### Set default workspace retention policy in Azure portal
+### Configure the default workspace retention policy in Azure portal
 You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; upgrade to the paid tier to control this setting.
 
 To set the default workspace retention policy:
@@ -44,7 +44,7 @@ To set the default workspace retention policy:
  
 1. Move the slider to increase or decrease the number of days, and then select **OK**.  
 
-## Set table retention and archive policy - Using Azure Resource Manager
+## Set table retention and archive policy with Azure Resource Manager
 You can set different retention settings for individual data types from 4 to 730 days (except for workspaces in the legacy Free Trial pricing tier) and an archive period for a total retention time of 2,555 days (7 years). 
 
 > [!NOTE]
@@ -73,7 +73,7 @@ GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResource
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
 ```
 
-## Set table retention and archive policy - Using UPI
+## Set table retention and archive policy using UPI
 
 Use the **Tables - Update** API to set the retention and archive duration for a table. You don't specify the archive duration directly but instead set a total retention that specifies the retention plus the archive duration.
 
