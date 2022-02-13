@@ -9,9 +9,8 @@ ms.topic: overview
 
 # Choose the right automation services in Azure
 
- This article explains various automation services offered in the Azure portfolio. 
-All of these services can automate business and operational  processes and can solve integration problems amongst various services, system, and processes. They can all define input, action or activity to be performed, conditions, error handling, and output generation. You can run them on a schedule or trigger or do a manual demand-based execution. Each service has its unique advantages and target audience.
-Using these services, you can shift effort from manually performing operational tasks towards building automation for these tasks. In doing so, you achieve so much, including:
+This article explains various automation services offered in the Azure portfolio. All these services can automate business and operational  processes and can solve integration problems amongst various services, system, and processes. They can all define input, action or activity to be performed, conditions, error handling, and output generation. You can run them on a schedule or trigger or do a manual demand-based execution. Each service has its unique advantages and target audience.
+Using these services, you can shift effort from manually performing operational tasks towards building automation for these tasks. In doing so, you achieve much, including:
 
 - Reduce time to perform an action.
 - Reduce risk in performing the action.
@@ -20,17 +19,17 @@ Using these services, you can shift effort from manually performing operational 
 
 Automation is mainly required in 3 broad categories of operations:
 
-- **Deployment & management of resources** – Many services can be created and configured programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template. Or using an automation script.
+- **Deployment & management of resources** – Create and configure programmatically using automation or infrastructure as code tooling to deliver repeatable and consistent deployment and management of cloud resources. For example, an Azure Network Security Group can be deployed, and security group rules created using an Azure Resource Manager template or by using an automation script.
 
-- **Responding to external events** – to diagnose and resolve issues on the basis of critical external event like responding to database changes, taking action on the basis of inputs given to a web page etc.
+- **Responding to external events** – Diagnose and resolve issues on the basis of critical external event like responding to database changes, taking action on the basis of inputs given to a web page etc.
 
-- **Complex Orchestration** – Integration with 1st or 3rd party products to define end to end automation workflows.
+- **Complex Orchestration** – Integrate with 1st or 3rd party products to define end to end automation workflows.
 
 There are multiple Azure services that can fulfill the above requirements. Each service has its own pros and cons and customers can use multiple services together to meet their automation requirements.
 
-- **Deployment & management of resources** – Use Azure ARM templates\Bicep, Azure Blueprints, Azure Automation, Azure Automanage.
-- **Responding to external events** – Use Azure Functions, Azure Policy, Guest Config, Azure Automation.
-- **Complex Orchestration & integration with 1st or 3rd party products** – Use Azure Logic Apps, Azure Functions or Azure Automation. Azure Logic app has over 400+ connectors to other services, which could be leveraged to meet complex automation scenarios.
+- **Deployment & management of resources** – You can use Azure ARM templates\Bicep, Azure Blueprints, Azure Automation, Azure Automanage for machine configuration and management.
+- **Responding to external events** – You can use Azure Functions, Azure Automation or Azure Policy Guest Config to take an action when there is a change in the compliance state of resource.
+- **Complex Orchestration & integration with 1st or 3rd party products** – You can use Azure Logic Apps, Azure Functions or Azure Automation. Azure Logic app has over 400+ connectors to other services, including Azure Automation and Azure Functions which could be leveraged to meet complex automation scenarios.
 
 :::image type="content" source="media/automation-services/automation-services-overview.png" alt-text="Screenshot shows an Overview of Automation services.":::
 
@@ -38,10 +37,10 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 
 ### Deploy and Manage
 
-**Services** | **Description** | **Features** | **Audience**
+**Services** | **Description** | **Scenarios** | **Users**
 --- | --- |--- | --- |
-**BICEP** | A domain-specific language (DSL) that uses declarative syntax to deploy Azure resources [Learn more](/azure/azure-resource-manager/bicep/overview?tabs=bicep). |
-**Azure Automation** | Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. </br></br> Provides persistent shared assets including variables, connections, objects, which allows orchestration of complex jobs [Learn more](/azure/automation/automation-runbook-gallery). | You can schedule tasks for example – Stop dev/test VMs or services at night and turn on during day. </br></br> You can respond to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, etc. </br></br> Hybrid automation where you can manage, automate on-premises servers like SQL server, Active Directory etc. </br></br> Azure resource life-cycle management and governance which includes Resource provisioning, deprovisioning, adding correct tags, locks, NSGs etc. | IT admins, System admins, IT operations admins who are skilled at using PowerShell or Python based scripting. </br></br> Infrastructure Admins managing on-prem infrastructure using scripts or executing long running jobs like month-end operations on servers running on-prem. |
+**Azure Resource Manager template or BICEP (Infrastructure as Code approach)** | - Simple declarative language to provision infrastructure on Azure. </br> - Leverage ARM template knowledge and investments. </br> - Simple syntax without the use of JSON. </br> - Modular: Abstract common blocks of config into reusable elements </br> Open Source: Transparency and community </br> - ntegration with Policy as Code , Azure Blueprints to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. </br>[Learn more](/azure/azure-resource-manager/bicep/overview?tabs=bicep). | - Create, manage, and update infrastructure resources, such as virtual machines, networks, storage account, containers etc. </br> - Deploy apps, add tags, assign policies, assign role-based access control all declaratively as code and integrated with your CI\CD tools. </br> Manage multiple environments like production, non-production and disaster recovery. </br> Deploy resources consistently and reliably at a scale. | - Application Developers\Infrastructure Admins\DevOps Engineers using Azure for the first time or using Azure as their primary cloud. </br> IT Engineer\Cloud Architect responsible for cloud infrastructure deployment.  
+**[Azure Automation](/azure/automation/overview)** | - Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. </br> - Provides persistent shared assets including variables, connections, objects, which allows orchestration of complex jobs [Learn more](/azure/automation/automation-runbook-gallery). | - Schedule tasks for example – Stop dev/test VMs or services at night and turn on during day. </br>- Response to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, etc. </br> - Hybrid automation where you can manage, automate on-premises servers like SQL server, Active Directory etc. </br> - Azure resource life-cycle management and governance which includes resource provisioning, deprovisioning, adding correct tags, locks, NSGs etc. | - IT admins, System admins, IT operations admins who are skilled at using PowerShell or Python based scripting. </br> - Infrastructure Admins managing on-prem infrastructure using scripts or executing long running jobs like month-end operations on servers running on-prem. |
 |**Azure Automanage for machine configuration management** | A service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. [Learn more](/azure/automanage/automanage-virtual-machines#overview). |Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy, steady state of VM is equal to hands free management. </br></br> It supports Windows and Linux operating systems. </br></br> Provides VM best practices template for Dev/Test and Production workload. </br></br>It has a point and click onboarding portal experience. | The IT Admins/Infra Admins/IT Operations Admins who are responsible for managing server workload, day to day admin tasks like backup, disaster recovery, security updates, responding to security threats, etc. across Azure and on-premise. </br></br> Developers who do not wish to manage servers or spend the time on less priority tasks.
 
 
