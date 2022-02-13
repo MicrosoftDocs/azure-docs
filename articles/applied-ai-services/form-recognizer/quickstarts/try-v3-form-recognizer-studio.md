@@ -28,7 +28,7 @@ ms.custom: ignite-fall-2021, mode-ui
 
 ## Pretrained models
 
-After you have completed the prerequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to try all pre-trained features are identical.
+After you have completed the prerequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to try other pre-trained features are similar.
 
 1. Select a Form Recognizer service feature from the Studio home page.
 
@@ -122,7 +122,7 @@ To create custom models, you start with configuring your project:
 
 :::image border="true" type="content" source="../media/quickstarts/form-recognizer-custom-model-demo-v3p2.gif" alt-text="Form Recognizer Custom model demo":::
 
-### Labeling as tables (Custom form only)
+### Labeling as tables (Custom form model)
 
 While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
@@ -154,7 +154,7 @@ Use fixed tables to extract specific collection of values for a given set of fie
 
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Form Recognizer Labeling as fixed table example":::
 
-### Signature detection (custom form model)
+### Signature detection (Custom form model)
 
 To label for signature detection:
 
