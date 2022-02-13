@@ -18,6 +18,23 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
 
+## February 2022
+
+Updates in February include:
+
+- New alert for Microsoft Defender for Storage (in preview)
+
+### New alert for Microsoft Defender for Storage (in preview)
+To expand the threat protections provided by Microsoft Defender for Storage, we've added a new preview alert.
+
+Threat actors use applications, and tools to discover, and access storage accounts. Microsoft Defender for Storage detects these applications, and tools so that you can block them, and remediate your posture.
+
+This preview alert is called `Access from a suspicious application`. The alert is relevant to Azure Blob Storage, and ADLS Gen2 only.
+
+| Alert (alert type) | Description | MITRE tactic | Severity |
+|--|--|--|--|
+| **PREVIEW - Access from a suspicious application**<br>(Storage.Blob_SuspiciousApp) | Indicates that a suspicious application has successfully accessed a container of a storage account with authentication.<br>This might indicate that an attacker has obtained the credentials necessary to access the account, and is exploiting it. This could also be an indication of a penetration test carried out in your organization.<br>Applies to: Azure Blob Storage, Azure Data Lake Storage Gen2 | Initial Access | Medium |
+
 ## January 2022
 
 Updates in January include:
