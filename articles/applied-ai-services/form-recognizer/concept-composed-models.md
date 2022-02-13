@@ -64,8 +64,6 @@ The following resources are supported by Form Recognizer v2.1:
 ## Next steps
 
 Learn to create and compose custom models:
-> [!div class="nextstepaction"]
-> [**Form Recognizer v3.0 (preview)**](compose-custom-models-preview.md)
 
 > [!div class="nextstepaction"]
 > [**Form Recognizer v2.1 (GA)**](compose-custom-models.md)

@@ -39,7 +39,7 @@ The custom neural model is a deep learning model type relies on a base model tra
 
 The table below compares custom template and custom neural features:
 
-## Development options
+## Custom model tools
 
 The following tools are supported by Form Recognizer v2.1:
 
@@ -91,12 +91,11 @@ See how data is extracted from your specific or unique documents by using custom
 |Training time | 1 - 5 minutes | 20 - 60 minutes |
 |Data extraction| Key-value pairs, tables, selection marks, signatures, and regions| Key-value pairs and selections marks.|
 |Models per Document type | Requires one model per each document-type variation| Supports a single model for all document-type variations.|
-|Language support| See [custom template model language support](language-support.md#layout-and-custom-form-model)| The custom neural model currently supports English-language documents only.|
+|Language support| See [custom template model language support](language-support.md)| The custom neural model currently supports English-language documents only.|
 
 ## Model capabilities
 
 This table compares the supported data extraction areas:
-
 
 |Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling |
 |--|:--:|:--:|:--:|:--:|:--:|
@@ -108,7 +107,7 @@ This table compares the supported data extraction areas:
 > [!TIP]
 > When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md ) to learn more about custom neural models.
 
-## Development options
+## Custom model development options
 
 The following table describes the features available with the associated tools and SDKs. As a best practice, ensure that you use the compatible tools listed here.
 
