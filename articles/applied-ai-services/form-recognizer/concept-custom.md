@@ -39,6 +39,7 @@ The custom neural model is a deep learning model type relies on a base model tra
 
 The table below compares custom template and custom neural features:
 
+
 |Feature    |Custom Template | Custom Neural |
 |-----------|-----------------|-----------------------|
 |Document structure |Template, fixed form, and structured documents.| Structured, semi-structured, and unstructured documents.|
@@ -50,6 +51,7 @@ The table below compares custom template and custom neural features:
 ## Model capabilities
 
 This table compares the supported data extraction areas:
+
 
 |Model| Form fields | Selection marks | Structured fields (Tables) | Signature | Region labeling |
 |--|:--:|:--:|:--:|:--:|:--:|
