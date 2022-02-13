@@ -39,9 +39,15 @@ Workspaces with a 30-day retention policy might actually retain data for 31 days
 ### Set default workspace retention policy in Azure portal
 You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; upgrade to the paid tier to control this setting.
 
-From the **Logs Analytics workspaces** menu in the Azure portal, select your workspace and then **Usage and estimated costs** in the left pane. Select **Data Retention** at the top of the page. Move the slider to increase or decrease the number of days, and then select **OK**.  
+To set the default workspace retention policy:
 
-:::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Change workspace data retention setting":::
+1. From the **Logs Analytics workspaces** menu in the Azure portal, select your workspace.
+1. Select **Usage and estimated costs** in the left pane. 
+1. Select **Data Retention** at the top of the page. 
+    
+    :::image type="content" source="media/manage-cost-storage/manage-cost-change-retention-01.png" alt-text="Change workspace data retention setting":::
+ 
+1. Move the slider to increase or decrease the number of days, and then select **OK**.  
 
 ## Tables with unique retention policies
 By default, the tables of two data types - `Usage` and `AzureActivity` - retain data for a minimum of 90 days at no charge. If you lengthen the workspace retention policy to more than 90 days, the retention policy of these data types also increases. These data types are also free from data ingestion charges. 
