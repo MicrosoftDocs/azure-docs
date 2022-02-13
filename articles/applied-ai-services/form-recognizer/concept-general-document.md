@@ -86,7 +86,6 @@ Natural language processing models can identify parts of speech and classify eac
 
 The key value pair extraction model and entity identification model are run in parallel on the entire document and not just on the values of the extracted key-value pairs. This ensures that complex structures where a key cannot be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
 
-
 * The general document is a pre-trained model and can be directly invoked via the REST API.
 
 * The general document model supports named entity recognition (NER) for several entity categories. NER is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. Extracting entities can be useful in scenarios where you want to validate extracted values. The entities are extracted from the entire content and not just the extracted values.
