@@ -97,7 +97,7 @@ landingContent:
           - text: Use the Layout model
             url: concept-layout.md#sample-labeling-tool
           - text: Use the Invoice model
-            url: concept-invoice.md#sample-labeling-tool
+            url: concept-invoice.md
           - text: Use the Receipt model
             url: concept-receipt.md#sample-labeling-tool
           - text: Use the ID document model

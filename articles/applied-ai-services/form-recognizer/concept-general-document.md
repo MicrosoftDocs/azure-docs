@@ -17,6 +17,7 @@ recommendations: false
 
 The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, selection marks, and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
 
+
 The general document API supports most form types and will analyze your documents and extract keys and associated values. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
 
 > [!NOTE]
@@ -31,6 +32,7 @@ The general document API supports most form types and will analyze your document
 * The general document model supports structured, semi-structured, and unstructured documents.
 
 * Key names are spans of text within the document that are associated with a value.
+
 
 * Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:``` 
 
@@ -76,9 +78,11 @@ You'll need the following resources:
 
 ## Key-value pairs
 
+
 key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, this could be the label and the value the user entered for that field or in an unstructured  document it could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
 Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example a customer or a user, the associated key will be either customer or user based on what the document contained. 
+
 
 ## Entities
 
