@@ -73,4 +73,4 @@ In the generated Derived Column transformation, each drifted column is mapped to
 :::image type="content" source="media/data-flow/mapdrifted2.png" alt-text="Screenshot shows the Derived Column's Settings tab.":::
 
 ## Next steps
-In the [Data Flow Expression Language](data-flow-expression-functions.md), you'll find additional facilities for column patterns and schema drift including "byName" and "byPosition".
+In the [Data Flow Expression Language](data-transformation-functions.md), you'll find additional facilities for column patterns and schema drift including "byName" and "byPosition".

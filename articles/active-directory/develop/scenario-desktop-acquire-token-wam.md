@@ -40,8 +40,9 @@ Using an authentication broker such as WAM has numerous benefits.
 
 ## WAM limitations
 
-- B2C authorities are not supported.
-- Available on Win10, Win Server 2016, Win Server 2019. On Mac, Linux and earlier Windows, MSAL will fallback to a browser.
+- B2C and ADFS authorities are not supported. MSAL will fallback to a browser.
+- Available on Win10+ and Win Server 2019+. On Mac, Linux and earlier Windows MSAL will fallback to a browser.
+- Not available on Xbox.
 
 ## WAM calling pattern
 

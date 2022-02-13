@@ -165,7 +165,7 @@ Once your Azure Arc Private Link Scope (preview) is created, you need to connect
 
 1. On the **Configuration** page,
 
-   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources. 
+   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure-Arc enabled server. 
 
    b. Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below.
 

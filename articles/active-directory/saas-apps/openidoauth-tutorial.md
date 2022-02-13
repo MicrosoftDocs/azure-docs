@@ -1,6 +1,6 @@
 ---
-title: 'Configure an OpenID/OAuth application from the Azure AD app gallery | Microsoft Docs'
-description: Steps to configure an OpenID/OAuth application from the Azure AD app gallery.
+title: 'Configure an OpenID Connect OAuth application from Azure AD app gallery'
+description: Steps to Configure an OpenID Connect OAuth application from Azure AD app gallery.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 02/02/2022
 ms.author: jeedes
 ms.custom: has-adal-ref
 ---
-# Configure an OpenID/OAuth application from the Azure AD app gallery
+# Configure an OpenID Connect OAuth application from Azure AD app gallery
 
 ## Process of adding an OpenID application from the gallery
 

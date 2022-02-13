@@ -186,6 +186,9 @@ Use the following workarounds for this issue:
 
 This issue is due to the expiration of service principal credentials. [Update the credentials for an AKS cluster.](update-credentials.md)
 
+## I'm getting `"The credentials in ServicePrincipalProfile were invalid."` or `"error:invalid_client AADSTS7000215: Invalid client secret is provided."`
+This is caused by special characters in the value of the client secret that have not been escaped properly. Refer to [escape special characters when updating AKS Service Principal credentials.](update-credentials.md#update-aks-cluster-with-new-service-principal-credentials)
+
 ## I can't access my cluster API from my automation/dev machine/tooling when using API server authorized IP ranges. How do I fix this problem?
 
 To resolve this issue, ensure `--api-server-authorized-ip-ranges` includes the IP(s) or IP range(s) of automation/dev/tooling systems being used. Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).

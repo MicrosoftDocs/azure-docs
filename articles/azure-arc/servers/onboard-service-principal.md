@@ -52,7 +52,7 @@ To create the service principal using PowerShell, perform the following steps.
     $credential.GetNetworkCredential().password
     ```
 
-3. In the output, find the password value under the field **password** and copy it. Also find the value under the field **ApplicationId** and copy it also. Save them for later in a secure place. If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdlet.
+3. In the output, find the password value under the field **password** and copy it. Also find the value under the field **ApplicationId** and copy it also. Save them for later in a secure place. If you forget or lose your service principal password, you can reset it using the [`New-AzADSpCredential`](/powershell/module/az.resources/new-azadspcredential) cmdlet.
 
 The values from the following properties are used with parameters passed to the `azcmagent`:
 

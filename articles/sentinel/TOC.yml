@@ -182,6 +182,8 @@
       href: connect-logstash.md
     - name: Create a custom connector
       href: create-custom-connector.md
+    - name: Create a codeless connector
+      href: create-codeless-connector.md
     - name: Connect Azure Stack VMs
       href: connect-azure-stack.md
     - name: Monitor data connector health
@@ -354,6 +356,8 @@
           href: process-events-normalization-schema.md
         - name: ASIM registry event schema
           href: registry-event-normalization-schema.md
+        - name: ASIM user management schema
+          href: user-management-normalization-schema.md
         - name: ASIM web session schema
           href: web-normalization-schema.md
         - name: Legacy network normalization schema

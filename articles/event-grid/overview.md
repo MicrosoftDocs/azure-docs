@@ -2,7 +2,7 @@
 title: What is Azure Event Grid? 
 description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
 ms.topic: overview
-ms.date: 07/27/2021
+ms.date: 02/04/2022
 ---
 
 # What is Azure Event Grid?
@@ -24,23 +24,27 @@ This article provides an overview of Azure Event Grid. If you want to get starte
 
 Currently, the following Azure services support sending events to Event Grid. For more information about a source in the list, select the link.
 
+- [Azure API Management](event-schema-api-management.md)
 - [Azure App Configuration](event-schema-app-configuration.md)
+- [Azure App Service](event-schema-app-service.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Cache for Redis](event-schema-azure-cache.md)
 - [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
+- [Azure FarmBeats](event-schema-farmbeats.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
+- [Azure Kubernetes Service (preview)](event-schema-aks.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
-- [Azure Policy](./event-schema-policy.md)
+- [Azure Policy](event-schema-policy.md)
 - [Azure resource groups](event-schema-resource-groups.md)
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Azure subscriptions](event-schema-subscriptions.md)
-- [Azure Cache for Redis](event-schema-azure-cache.md)
-- [Azure Kubernetes Service (preview)](event-schema-aks.md)
+
 
 ## Event handlers
 
