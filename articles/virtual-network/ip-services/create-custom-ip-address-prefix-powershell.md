@@ -23,10 +23,6 @@ The steps in this article detail the full process to:
 
 * Enable the range to be advertised by Microsoft
 
-> [!IMPORTANT]
-> Custom IP address prefix (BYOIP) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

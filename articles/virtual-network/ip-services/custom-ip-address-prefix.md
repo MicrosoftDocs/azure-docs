@@ -16,10 +16,6 @@ ms.author: allensu
 
 A custom IP address prefix is a contiguous range of IP addresses owned by an external customer (not Microsoft) and provisioned into a subscription. The range is owned by the customer, though Microsoft is permitted to advertise it. Addresses from a custom IP address prefix can be utilized in a similar manner to Azure owned public IP address prefixes. Addresses from a custom IP address prefix can be associated to Azure resources, interact with internal/private IPs and virtual networks, and reach external destinations outbound from the Azure Wide Area Network.
 
-> [!IMPORTANT]
-> Custom IP address prefix (BYOIP) is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability
-
 ## Benefits
 
 * Customers can retain their IP ranges (BYOIP) to maintain established reputation and continue to pass through externally controlled allowlists.
