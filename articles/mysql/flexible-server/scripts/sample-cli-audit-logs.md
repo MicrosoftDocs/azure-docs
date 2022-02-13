@@ -26,7 +26,7 @@ This sample CLI script enables [audit logs](../concepts-audit-logs.md) on an Azu
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/configure-logs/configure-audit-logs.sh" range="4-49":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/configure-logs/configure-audit-logs.sh" range="4-38":::
 
 ## Clean up resources
 
