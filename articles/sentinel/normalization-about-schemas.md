@@ -8,7 +8,7 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 --- 
 
-# Advanced SIEM Information Model (ASIM) schemas (preview)
+# Advanced SIEM Information Model (ASIM) schemas
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -18,16 +18,21 @@ To understand how schemas fit within the ASIM architecture, refer to the [ASIM a
 
 Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas:
 
- - [Network Session](normalization-schema.md)
- - [DNS Activity](dns-normalization-schema.md)
- - [DHCP Activity](dhcp-normalization-schema.md)
- - [Process Event](process-events-normalization-schema.md)
- - [Authentication Event](authentication-normalization-schema.md)
- - [Registry Event](registry-event-normalization-schema.md)
- - [File Activity](file-event-normalization-schema.md)
+| Schema | Version | Status |
+| ------ | ------- | ------ |
+| [Authentication Event](authentication-normalization-schema.md) | 0.1 | Preview |
+| [DNS Activity](dns-normalization-schema.md) | 0.1.3 | Preview |
+| [DHCP Activity](dhcp-normalization-schema.md) | 0.1 | Preview |
+| [File Activity](file-event-normalization-schema.md) | 0.1 | Preview |
+| [Network Session](normalization-schema.md) | 0.2.2 | Preview |
+| [Process Event](process-events-normalization-schema.md) | 0.1 | Preview |
+| [Registry Event](registry-event-normalization-schema.md) | 0.1 | Preview |
+| [User Management](user-management-normalization-schema.md) | 0.1 | Preview |
+| [Web Session](web-normalization-schema.md) | 0.2.2 | Preview |
+|||
 
 > [!IMPORTANT]
-> ASIM is currently in *preview*. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> ASIM schemas and parsers are currently in *preview*. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Schema concepts
@@ -60,7 +65,7 @@ Each schema field has a type. Some have built-in, Log Analytics types, such as `
 |<a name="dvcidtype"></a>**DvcIdType** | Enumerated | The type of the device ID stored in DvcId fields. Supported values include `AzureResourceId`, `MDEid`, `MD4IoTid`, `VMConnectionId`, `AwsVpcId`, and `Other`. For more information, see [The Device entity](#the-device-entity). |
 |<a name="devicetype"></a>**DeviceType** | Enumerated | The type of the device stored in DeviceType fields. For a list of allowed values and further information refer to [DeviceType](#devicetype). |
 |<a name="username"></a>**Username** | String | A valid username in one of the supported [types](#usernametype). For more information, see [The User entity](#the-user-entity). |
-|<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. Supported values include `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](#the-user-entity). |
+|<a name="usernametype"></a>**UsernameType** | Enumerated | The type of username stored in username fields. Supported values include `UPN`, `Windows`, `DN`, `Simple`, and `Unknown`. For more information, see [The User entity](#the-user-entity). |
 |<a name="useridtype"></a>**UserIdType** | Enumerated | The type of the ID stored in user ID fields. <br><br>Supported values are `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. For more information, see [The User entity](#the-user-entity).  |
 |<a name="usertype"></a>**UserType** | Enumerated | The type of a user. Supported values include: `Regular`, `Machine`, `Admin`, `System`, `Application`, `Service Principal`, and `Other`<br><br>.  For more information, see [The User entity](#the-user-entity).  |
 |<a name="apptype"></a>**AppType** | Enumerated | The type of an application. Supported values include: `Process`<br>, `Service`,  `Resource`, `URL`, `SaaS application`, `CloudService`, and `Other`. |

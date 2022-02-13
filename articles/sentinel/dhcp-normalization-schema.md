@@ -72,7 +72,7 @@ Event fields are common to all schemas, and describe the activity itself and the
 | <a name ="eventproduct"></a>**EventProduct** | Mandatory | String | The product generating the event. This field may not be available in the source record, in which case it should be set by the parser. <br><br>Example: `DHCP Server` |
 | **EventProductVersion** | Optional | String | The version of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser. <br><br>Example: `12.1` |
 | <a name="eventvendor"></a>**EventVendor** | Mandatory | String | The vendor of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser.<br><br>Example: `Microsoft`|
-| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.0**. |
+| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1**. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is **Dhcp**. |
 | **EventReportUrl** | Optional | String | A URL provided in the event for a resource that provides more information about the event. |
 | <a name="dvc"></a>**Dvc** | Alias | String | A unique identifier of the DHCP server.<br><br>Example: `ContosoDc.Contoso.Azure`<br><br>This field may alias the [DvcFQDN](#dvcfqdn), [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is not apparent device, use the same value as the [Event Product](#eventproduct) field. |
