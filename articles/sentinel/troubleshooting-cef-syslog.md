@@ -257,6 +257,8 @@ For a syslog-ng daemon, the CEF validation script runs the following checks:
 
 # [Syslog](#tab/syslog)
 
+## Troubleshooting Syslog data connectors
+
 If you are troubleshooting a Syslog data connector, start with verifying your prerequisites in the section [below](#verify-cef-or-syslog-prerequisites).
 
 ---
