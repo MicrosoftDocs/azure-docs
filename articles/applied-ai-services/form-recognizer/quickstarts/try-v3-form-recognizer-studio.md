@@ -28,13 +28,11 @@ ms.custom: ignite-fall-2021, mode-ui
 
 ## Pretrained models
 
-After you have completed the prerequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to try other pre-trained features are similar.
+After you have completed the prerequisites, navigate to the [Form Recognizer Studio General Documents preview](https://formrecognizer.appliedai.azure.com). In the following example, we use the General Documents feature. The steps to use other pre-trained features like [Read](https://formrecognizer.appliedai.azure.com/studio/read), [Layout](https://formrecognizer.appliedai.azure.com/studio/layout), [Invoice](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice), [Receipt](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt), [Business card](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard), [ID documents](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument), and [W2 tax form](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2) models are similar.
 
 1. Select a Form Recognizer service feature from the Studio home page.
 
-1. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.)
-
-1. Review and confirm your selections.
+1. This is a one-time step unless you have already selected the service resource from prior use. Select your Azure subscription, resource group, and resource. (You can change the resources anytime in "Settings" in the top menu.) Review and confirm your selections.
 
 1. Select the Analyze command to run analysis on the sample document or try your document by using the Add command.
 
@@ -42,11 +40,11 @@ After you have completed the prerequisites, navigate to the [Form Recognizer Stu
 
 1. Use the controls at the bottom of the screen to zoom in and out and rotate the document view.
 
-1. In the output section, browse the list of extracted key-value pairs and entities.
+1. In the output section's Content tab, browse the list of extracted key-value pairs and entities. For other Form Recognizer features, the Content tab will show the corresponding insights extracted.
 
-1. From the results tab, check out the formatted JSON outout. Search and navigate the contents to understand the output.
+1. From the results tab, check out the formatted JSON response from the service. Search and browse the JSON response to understand the service results.
 
-1. From the Code tab, copy the code sample to get started on integrating General Documents feature with your application.
+1. From the Code tab, copy the code sample to get started on integrating the feature with your application.
 
 :::image border="true" type="content" source="../media/quickstarts/form-recognizer-general-document-demo-v3p2.gif" alt-text="Form Recognizer General Documents demo":::
 
