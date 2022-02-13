@@ -15,13 +15,13 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer read model
 
-The Form Recognizer v3.0 preview includes the new Read API. Read extracts text lines and words from documents (PDF, TIFF) and images (JPG, PNG, BMP).
+The Form Recognizer v3.0 preview includes the new Read API. Read extracts text lines, words, their locations, detected languages, and handwritten style if detected from documents (PDF, TIFF) and images (JPG, PNG, BMP).
 
 **Data extraction features**
 
-| **Read model**   | **Text Extraction**   |
-| --- | --- | 
-| Read  | ✓  |
+| **Read model**   | **Text Extraction**   | **Language detection** |
+| --- | --- | --- | 
+| Read  | ✓  |✓  |
 
 ## Development options
 
@@ -77,9 +77,11 @@ Form Recognizer preview version supports several languages for the read model. *
 
 ### Text lines and words
 
-Layout API extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Text is extracted with information provided on lines, words, bounding boxes, confidence scores, and style (handwritten or other). All the text information is included in the `readResults` section of the JSON output.
+Read API extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Text is extracted with information provided on lines, words, bounding boxes, confidence scores, and style (handwritten or other).
 
-:::image type="content" source="./media/layout-text-extraction.png" alt-text="Layout text extraction output":::
+### Language detection (v3.0 preview)
+
+Read API in v3.0 preview 2 adds language detection as a new feature for text lines. Read will try to detect the languages at the text line level and output the language code with the highest confidence score for one or more text lines.
 
 ### Natural reading order for text lines (Latin only)
 
@@ -91,7 +93,7 @@ In Form Recognizer v3.0, the natural reading order output is used by the service
 
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. 
 
-### Select page numbers or ranges for text extraction
+### Select page (s) for text extraction
 
 For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. 
 
