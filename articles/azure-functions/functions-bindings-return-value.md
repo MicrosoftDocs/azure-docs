@@ -124,7 +124,7 @@ In JavaScript, the return value goes in the context.body:
 module.exports = function (context, input) {
     var json = JSON.stringify(input);
     context.log('Node.js script processed queue message', json);
-    context.bindings.json = json;
+    return json;
 }
 ```
 # [PowerShell](#tab/PowerShell)
