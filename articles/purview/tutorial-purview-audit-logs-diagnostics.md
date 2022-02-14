@@ -54,7 +54,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want the
 
   - Go To your Purview Account home page (where the overview information is displayed, not the Purview Studio home page.) and follow instructions as detailed below.
 
-  - Click "Monitoring" -> "Diagnostic Settings" in the left navigation menu.
+  2. Click "Monitoring" -> "Diagnostic Settings" in the left navigation menu.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/E.png" alt-text="Click Azure Purview Diagnostic Settings" lightbox="./media/tutorial-purview-audit-logs-diagnostics/E.png":::
 
