@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Tables client library for Node.js
+title: Use Azure Table storage or Azure Cosmos DB Table API from Node.js
 description: Store structured data in the cloud using Azure Tables client library for Node.js.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
@@ -10,7 +10,7 @@ author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
 ---
-# How to use the Azure Tables client library for Node.js
+# How to use Azure Table storage or the Azure Cosmos DB Table API from Node.js
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
@@ -32,7 +32,7 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 ## Configure your application to access Table Storage
 
-To use the Azure Table Storage, you need the Azure Tables SDK for Node.js, which includes a set of convenience libraries that
+To use Azure Storage or Azure Cosmos DB, you need the Azure Tables SDK for Node.js, which includes a set of convenience libraries that
 communicate with the Storage REST services.
 
 ### Use Node Package Manager (NPM) to install the package
