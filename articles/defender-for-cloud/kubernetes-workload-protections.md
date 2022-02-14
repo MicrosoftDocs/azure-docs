@@ -2,7 +2,7 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 02/14/2022
 ---
 
 # Protect your Kubernetes workloads
@@ -13,23 +13,21 @@ This page describes how to use Microsoft Defender for Cloud's set of security re
 
 Learn more about these features in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-Defender for Cloud offers more container security features if you enable Microsoft Defender for Containers. Learn more in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md)
+Defender for Cloud offers more container security features if you enable Microsoft Defender for Containers. Learn more about the benefits provided by [Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
 > [!TIP]
 > For a list of the security recommendations that might appear for Kubernetes clusters and nodes, see the [Container recommendations](recommendations-reference.md#container-recommendations) of the recommendations reference table.
 
-
 ## Availability
 
-| Aspect                          | Details                                                                                                                                      |
-|---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | General availability (GA)                                                                                                                    |
-| Pricing:                        | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes or EKS, it's billed according to the Microsoft Defender for Containers plan       |
-| Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations                                              |
-| Environment requirements:       | Kubernetes v1.14 (or newer) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
-|                                 |                                                                                                                                              |
-
+| Aspect | Details |
+|--|--|
+| Release state: | General availability (GA) |
+| Pricing: | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes or EKS, it's billed according to the Microsoft Defender for Containers plan |
+| Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations |
+| Environment requirements: | Kubernetes v1.14 (or newer) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+|  |  |
 
 ## Set up your workload protection
 
@@ -41,7 +39,51 @@ Validate the following endpoints are configured for outbound access so that the 
 
 See [Required FQDN/application rules for Azure policy](../aks/limit-egress-traffic.md#azure-policy) for the required FQDN/application rules.
 
-### Step 1: Deploy the add-on
+## Enable Kubernetes workload protection
+
+When you enable Microsoft Defender for Containers, Azure Kubernetes Service clusters, and Azure Arc enabled Kubernetes clusters (Preview) protection are both enabled by default. You can configure your Kubernetes workload protections, when you enable Microsoft Defender for Containers.
+
+**To enable Azure Kubernetes Service clusters and Azure Arc enabled Kubernetes clusters (Preview)**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
+
+1. Select the relevant subscription.
+
+1. On the Defender plans page, ensure that Containers is toggled to **On**.
+
+1. Select **Configure**.
+
+    :::image type="content" source="media/kubernetes-workload-protections/configure-containers.png" alt-text="Screenshot showing where on the defenders plan to go to to select the configure button.":::
+
+1. On the Advanced configuration page, toggle each relevant component to **On**.
+
+    :::image type="content" source="media/kubernetes-workload-protections/advanced-configuration.png" alt-text="Screenshot showing each option and the toggles to enable or disable them.":::
+
+1. Select **Save**.
+
+## Configure Defender for Containers components
+
+If you disabled any of the default protections when you enabled Microsoft Defender for Containers, you can change the configurations and reenable them via auto provisioning.
+
+**To configure the Defender for Containers components**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
+
+1. Select the relevant subscription.
+
+1. From the left side tool bar, select **Auto provisioning**.
+
+1. Ensure that Microsoft Defenders for Containers compnents (preview) is toggled to On.
+
+    :::image type="content" source="media/kubernetes-workload-protections/toggled-on.png" alt-text="Screenshot showing that Microsoft Defender for Containers is toggled to on.":::
+
+1. 
+
+### Step 1: Deploy the add-on/extension
 
 To configure the recommendations, install the  **Azure Policy add-on for Kubernetes**. 
 
