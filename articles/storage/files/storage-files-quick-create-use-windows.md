@@ -4,7 +4,7 @@ description: This tutorial covers how to create and use an Azure files shares in
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/08/2022
+ms.date: 02/14/2022
 ms.author: rogarana
 ms.subservice: files
 ms.custom: mode-ui
