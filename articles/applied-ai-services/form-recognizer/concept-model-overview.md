@@ -16,12 +16,13 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer models
 
- Azure Form Recognizer prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer extracts analyzes form and document data then  returns an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
+Azure Form Recognizer prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer extracts analyzes form and document data then  returns an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
 
 ## Model overview
 
 | **Model**   | **Description**   |
 | --- | --- |
+| 🆕[Read (preview)](#read-preview) | Extract text lines, words, their locations, detected languages, and handwritten style if detected.  |
 | 🆕[General document (preview)](#general-document-preview) | Extract text, tables, structure, key-value pairs, and named entities.  |
 | [Layout](#layout)  | Extracts text and layout information from documents.  |
 | [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
@@ -29,6 +30,19 @@ ms.custom: ignite-fall-2021
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
 | [Business card](#business-card)  | Extract key information from English business cards.  |
 | [Custom](#custom) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
+
+### Read (preview)
+
+:::image type="content" source="media/studio/read-card.png" alt-text="Screenshot: Studio read icon.":::
+
+The Read API analyzes and extracts ext lines, words, their locations, detected languages, and handwritten style if detected.
+
+***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***:
+
+:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio Read":::
+
+> [!div class="nextstepaction"]
+> [Learn more: read model](concept-read.md)
 
 ### General document (preview)
 
@@ -128,14 +142,16 @@ The custom model analyzes and extracts data from forms and documents specific to
 ## Data extraction
 
  | **Model**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
-  | --- |: ---: |:---:|: ---: |: ---: |:---: |:---: |
-  |🆕General document  | ✓  |  ✓ || ✓  | ✓  | ✓  |
+  | --- | :---: |:---:| :---: | :---: |:---: |:---: |
+  |🆕Read (preview) | ✓ |   ||   |   |   |
+  |🆕General document (preview)  | ✓  |  ✓ || ✓  | ✓  | ✓  |
   | Layout  | ✓  |   || ✓  | ✓  |   |
   | Invoice  | ✓ | ✓  |✓| ✓  | ✓ ||
   |Receipt  | ✓  |   ✓ |✓|   |  ||
   | ID document | ✓  |   ✓  |✓|   |   ||
   | Business card    | ✓  |   ✓ | ✓|  |   ||
   | Custom             |✓  |  ✓ || ✓  | ✓  | ✓  |
+
 
 ## Input requirements
 
@@ -158,6 +174,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 
   Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
+* [**Read (preview)**](concept-read.md) model is a new API that extracts text lines, words, their locations, detected languages, and handwrting style if detected.
 * [**General document (preview)**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Receipt (preview)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (preview)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
