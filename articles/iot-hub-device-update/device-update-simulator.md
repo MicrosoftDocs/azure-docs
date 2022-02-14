@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md)and configure an IoT hub.
+If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md) and configure an IoT hub.
 
 ## Add a device to Azure IoT Hub
 
@@ -105,7 +105,7 @@ Device Update for Azure IoT Hub software is subject to the following license ter
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you don't agree with the license terms, don't use the Device Update for IoT Hub agent.
 
 > [!NOTE]
-> After your testing with the simulator, run the following command to invoke the APT handler and [deploy over-the-air Package Updates](device-update-ubuntu-agent.md):
+> After your testing with the simulator, run the following command to invoke the APT handler and [deploy over-the-air package updates](device-update-ubuntu-agent.md):
 ```sh
 # sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
 ```
@@ -143,7 +143,7 @@ Read the license terms prior to using the agent. Your installation and use const
 1. On the **Import update** page, review the files to be imported. Then select **Import update** to start the import process.
    :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Screenshot that shows Import update." lightbox="media/import-update/import-start-2-ppr.png":::
 
-1. The import process begins, and the screen switches to the **Import History** section. When the **Status** column indicates the import has succeeded, select the **Available Updates** header. You should see your imported update in the list now.
+1. The import process begins, and the screen switches to the **Import History** section. When the **Status** column indicates the import has succeeded, select the **Available updates** header. You should see your imported update in the list now.
    :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Screenshot that shows the job status." lightbox="media/import-update/update-ready-ppr.png":::
 
 [Learn more](import-update.md) about how to import updates.
@@ -153,7 +153,7 @@ Read the license terms prior to using the agent. Your installation and use const
 1. Go to the **Groups and Deployments** tab at the top of the page.
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot that shows ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-1. Select the **Add group** button to create a new group.
+1. Select **Add group** to create a new group.
    :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot that shows device group addition." lightbox="media/create-update-group/add-group.png":::
 
 1. Select an **IoT Hub** tag and **Device Class** from the list. Then select **Create group**.
@@ -162,7 +162,7 @@ Read the license terms prior to using the agent. Your installation and use const
 1. After the group is created, the update compliance chart and groups list are updated. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-1. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they'll show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select the **Deploy** button next to the group.
+1. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they'll show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
 
 [Learn more](create-update-group.md) about how to add tags and create update groups.
 
@@ -178,11 +178,11 @@ Read the license terms prior to using the agent. Your installation and use const
 1. Schedule your deployment to start immediately or in the future. Then select **Create**.
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows Create deployment." lightbox="media/deploy-update/create-deployment.png":::
 
-1. Under **Deployment details**, **Status** should turn to **Active**. The deployed update should be marked with **(deploying)**.
+1. Under **Deployment details**, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows the deployment is active." lightbox="media/deploy-update/deployment-active.png":::
 
-1. View the compliance chart. You should see the update is now in progress.
-1. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same.
+1. View the compliance chart to see that the update is now in progress.
+1. After your device is successfully updated, you see that your compliance chart and deployment details updated to reflect the same.
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows Update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
 ## Monitor the update deployment
@@ -195,7 +195,7 @@ Read the license terms prior to using the agent. Your installation and use const
 
 1. Select **Refresh** to view the latest status details.
 
-You've now completed a successful end-to-end image update by using Device Update for IoT Hub using the Ubuntu (18.04 x64) Simulator Reference Agent.
+You've now completed a successful end-to-end image update by using Device Update for IoT Hub using the Ubuntu (18.04 x64) simulator reference agent.
 
 ## Clean up resources
 

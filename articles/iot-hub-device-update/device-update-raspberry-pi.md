@@ -148,7 +148,7 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
 1. Make sure that Raspberry Pi 3 is connected to the network.
 1. Follow these instructions to add the configuration details:
 
-   1. First, ssh in to the machine by using the following command in the PowerShell window:
+   1. First, SSH in to the machine by using the following command in the PowerShell window:
    
 	   ```shell
 	      ssh raspberrypi3 -l root
@@ -196,7 +196,7 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
 
 1. On the left pane, select **IoT Devices**.
 1. Select the link with your device name.
-1. At the top of the page, select **Device Twin** if you're connecting directly to Device Update by using the IoT device identity. Otherwise, select the module you created and select its **Module Twin**.
+1. At the top of the page, select **Device Twin** if you're connecting directly to Device Update by using the IoT device identity. Otherwise, select the module you created and select its module twin.
 1. Under the **reported** section of the **Device Twin** properties, look for the Linux kernel version.
 For a new device, which hasn't received an update from Device Update, the
 [DeviceManagement:DeviceInformation:1.swVersion](device-update-plug-and-play.md) value represents
@@ -214,7 +214,7 @@ Use that version number in the later "Import update" section.
 ## Add a tag to your device
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to the IoT hub.
-1. From **IoT Devices** or **IoT Edge** on the left pane, find your IoT device and go to the device twin or module twin.
+1. On the left pane, under **IoT Devices** or **IoT Edge**, find your IoT device and go to the device twin or module twin.
 1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using the device identity with the Device Update agent, make these changes on the device twin.
 1. Add a new Device Update tag value, as shown:
 
@@ -255,7 +255,7 @@ Use that version number in the later "Import update" section.
 1. Go to the **Groups and Deployments** tab at the top of the page.
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot that shows ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-1. Select the **Add group** button to create a new group.
+1. Select **Add group** to create a new group.
    :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot that shows device group addition." lightbox="media/create-update-group/add-group.png":::
 
 1. Select an **IoT Hub** tag and **Device class** from the list. Then select **Create group**.
@@ -264,13 +264,13 @@ Use that version number in the later "Import update" section.
 1. After the group is created, the update compliance chart and groups list are updated. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-1. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they'll show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select the **Deploy** button next to the group.
+1. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
 
 [Learn more](create-update-group.md) about how to add tags and create update groups.
 
 ## Deploy the update
 
-1. After the group is created, you should see a new update available for your device group. A link to the update should be under **Best Update**. You might need to refresh once. [Learn more about update compliance](device-update-compliance.md).
+1. After the group is created, you should see a new update available for your device group. A link to the update should be under **Best update**. You might need to refresh once. [Learn more about update compliance](device-update-compliance.md).
 1. Select the target group by selecting the group name. You're directed to the group details under **Group basics**.
    :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Screenshot that shows Group details." lightbox="media/deploy-update/group-basics.png":::
 
@@ -280,11 +280,11 @@ Use that version number in the later "Import update" section.
 1. Schedule your deployment to start immediately or in the future. Then select **Create**.
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows the Create button." lightbox="media/deploy-update/create-deployment.png":::
 
-1. Under **Deployment details**, **Status** should turn to **Active**. The deployed update should be marked with **(deploying)**.
+1. Under **Deployment details**, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows Deployment active." lightbox="media/deploy-update/deployment-active.png":::
 
-1. View the compliance chart. You should see the update is now in progress.
-1. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same.
+1. View the compliance chart to see that the update is now in progress.
+1. After your device is successfully updated, you see that your compliance chart and deployment details updated to reflect the same.
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows Update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
 ## Monitor the update deployment
@@ -292,7 +292,7 @@ Use that version number in the later "Import update" section.
 1. Select the **Deployment history** tab at the top of the page.
    :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Screenshot that shows Deployment history." lightbox="media/deploy-update/deployments-history.png":::
 
-1. Select the **Details** link next to the deployment you created.
+1. Select **Details** next to the deployment you created.
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows Deployment details." lightbox="media/deploy-update/deployment-details.png":::
 
 1. Select **Refresh** to view the latest status details.
@@ -306,4 +306,4 @@ When no longer needed, clean up your Device Update account, instance, IoT hub, a
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Simulator Reference Agent](device-update-simulator.md)
+> [Simulator reference agent](device-update-simulator.md)
