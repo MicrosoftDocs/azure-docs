@@ -1,11 +1,11 @@
 ---
-title: Synapse RBAC roles
-description: This article describes the built-in Synapse RBAC roles
+title: Azure Synapse RBAC roles
+description: This article describes the built-in Azure Synapse RBAC roles
 author: meenalsri
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 11/02/2021
+ms.date: 2/14/2022
 ms.author: mesrivas
 ms.reviewer: wiassaf
 ms.custom: ignite-fall-2021

@@ -1,13 +1,13 @@
 ---
-title: Synapse role-based access control
+title: Azure Synapse role-based access control
 description: An article that explains role-based access control in Azure Synapse Analytics
 author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 12/1/2020
+ms.date: 2/14/2022
 ms.author: mesrivas
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ---
 # What is Synapse role-based access control (RBAC)?
 

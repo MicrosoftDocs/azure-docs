@@ -6,9 +6,9 @@ author: vvasic-msft
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: overview
-ms.date: 04/15/2020
+ms.date: 2/14/2022
 ms.author: vvasic
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ---
 # Use Azure Active Directory Authentication for authentication with Synapse SQL
 

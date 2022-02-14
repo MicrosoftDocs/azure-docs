@@ -7,9 +7,9 @@ manager: igorstan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 11/25/2020
+ms.date: 2/14/2022
 ms.author: anvang
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ---
 
 # Enabling Synapse workspace features for a dedicated SQL pool (formerly SQL DW)
