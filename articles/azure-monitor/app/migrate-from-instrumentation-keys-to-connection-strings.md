@@ -25,13 +25,13 @@ This guide walks through migrating from [instrumentation keys](separate-resource
 3.  Configure the Application Insights SDK by following [How to set connection strings](sdk-connection-string.md#how-to-set-a-connection-string).
 
 > [!IMPORTANT]
-> Using both a connection string and instrumentation key is not recommended. Whichever was set last takes precedence.
+> Using both a connection string and instrumentation key isn't recommended. Whichever was set last takes precedence.
 
 ## Migration at scale (for multiple subscriptions)
 
 You can use environment variables to easily pass a connection string to the Application Insights SDK or Agent. If you hardcode an instrumentation key in your application code, that programming may take precedence before environment variables.
 
-To set a connection string via environment variable, simply place the value of the connection string into an environment variable named “APPLICATIONINSIGHTS_CONNECTION_STRING”. This process can be automated in your Azure deployments. For example, the following ARM template shows how you can automatically include the  correct connection string with an App Services deployment (be sure to include any other App Settings your app requires):
+To set a connection string via environment variable, place the value of the connection string into an environment variable named “APPLICATIONINSIGHTS_CONNECTION_STRING”. This process can be automated in your Azure deployments. For example, the following ARM template shows how you can automatically include the  correct connection string with an App Services deployment (be sure to include any other App Settings your app requires):
 
 ```csharp
 {
@@ -97,19 +97,19 @@ Connection strings allow you to take advantage of the latest capabilities of App
 
 - **Security:** Connection strings allow authenticated telemetry ingestion by using [Azure AD authentication for Application Insights](azure-ad-authentication.md).
 
-- **Customized endpoints (sovereign or hybrid cloud environments):** Endpoint settings allow sending data to a specific [Azure government region](custom-endpoints#regions-that-require-endpoint-modification). ([see examples](sdk-connection-string.md#how-to-set-a-connection-string))
+- **Customized endpoints (sovereign or hybrid cloud environments):** Endpoint settings allow sending data to a specific [Azure Government region](custom-endpoints#regions-that-require-endpoint-modification). ([see examples](sdk-connection-string.md#how-to-set-a-connection-string))
 
-- **Privacy (regional endpoints)** – Connection strings ease privacy concerns by sending data to regional endpoints, ensuring data does not leave a geographic region.
+- **Privacy (regional endpoints)** – Connection strings ease privacy concerns by sending data to regional endpoints, ensuring data doesn't leave a geographic region.
 
 ## Troubleshooting
 
-Verify the following if data is not arriving after migration:
+Follow these steps if data isn't arriving after migration:
 
-1. Confirm you are using a supported SDK/agent that supports connection strings. If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a connection string.
+1. Confirm you're using a supported SDK/agent that supports connection strings. If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a connection string.
 
-2. Confirm you are not setting both an instrumentation key and connection string at the same time. Instrumentation key settings should be removed from your configuration.
+2. Confirm you aren't setting both an instrumentation key and connection string at the same time. Instrumentation key settings should be removed from your configuration.
 
-3. Confirm your connection string is exactly as provided in the Azure Portal.
+3. Confirm your connection string is exactly as provided in the Azure portal.
 
 ## FAQ
 
@@ -117,11 +117,11 @@ Verify the following if data is not arriving after migration:
 The connection string is also included in the ARM resource properties for your Application Insights resource, under the field name “ConnectionString”.
 ### How does this impact auto instrumentation scenarios?
 
-Auto instrumentation scenarios are not impacted.
+Auto instrumentation scenarios aren't impacted.
 
 ### Is auto instrumentation affected?
 
-You cannot enable [Azure AD authentication](azure-ad-authentication.md) for [auto instrumentation](codeless-overview.md) scenarios. We have plans to address this in the future.
+You can't enable [Azure AD authentication](azure-ad-authentication.md) for [auto instrumentation](codeless-overview.md) scenarios. We have plans to address this limitation in the future.
 
 ### What is the difference between global and regional ingestion?
 
@@ -129,7 +129,7 @@ Global ingestion sends all telemetry data to a single endpoint, no matter where 
 
 ### How do connection strings impact the billing?
 
-Billing is not impacted.
+Billing isn't impacted.
 
 ### Microsoft Q&A
 
