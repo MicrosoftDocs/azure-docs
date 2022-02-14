@@ -8,6 +8,8 @@ ms.workload: infrastructure-services
 ms.topic: article 
 ms.date: 03/25/2021 
 ms.reviewer: cynthn
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # HBv3-series virtual machine performance

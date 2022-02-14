@@ -6,6 +6,8 @@ ms.subservice: hpc
 ms.topic: article
 ms.date: 04/16/2021
 ms.reviewer: cynthn
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Scaling HPC applications

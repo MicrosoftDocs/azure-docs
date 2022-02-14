@@ -13,7 +13,8 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/13/2022
 ms.custom: devx-track-azurepowershell
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # InfiniBand Driver Extension for Linux

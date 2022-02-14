@@ -6,7 +6,8 @@ ms.subservice: hpc
 ms.topic: article
 ms.date: 04/28/2021
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Enable InfiniBand

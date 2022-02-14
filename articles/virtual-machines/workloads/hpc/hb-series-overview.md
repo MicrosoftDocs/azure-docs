@@ -6,7 +6,8 @@ ms.subservice: hpc
 ms.topic: article
 ms.date: 08/19/2020
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # HB-series virtual machines overview

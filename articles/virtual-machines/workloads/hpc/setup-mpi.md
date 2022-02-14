@@ -6,7 +6,8 @@ ms.subservice: hpc
 ms.topic: article
 ms.date: 01/10/2022
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Set up Message Passing Interface for HPC

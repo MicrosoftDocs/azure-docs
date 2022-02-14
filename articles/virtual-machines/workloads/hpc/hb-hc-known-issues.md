@@ -6,7 +6,8 @@ ms.subservice: hpc
 ms.topic: article
 ms.date: 1/10/2022
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Known issues with H-series and N-series VMs

@@ -8,6 +8,8 @@ ms.workload: infrastructure-services
 ms.topic: article 
 ms.date: 09/28/2020 
 ms.reviewer: cynthn
+ms.author: mamccrea
+author: mamccrea
 --- 
 
 # HBv2-series virtual machine sizes
