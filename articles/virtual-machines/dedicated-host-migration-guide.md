@@ -22,6 +22,10 @@ The main differences between the retiring Dedicated Host SKUs and the newly reco
 
 Review the [FAQs](dedicated-host-retirement.md#faqs) before you get started on migration. The next section will go over which Dedicated Host SKUs to migrate to help aid in migration planning and execution.
 
+## Azure Dedicated Host Retirement
+
+Some Azure Dedicated Host SKUs will be retired soon. Please refer to the [Azure Dedicated Host SKU Retirement](dedicated-host-retirement.md#faqs) documentation to learn more
+
 ## Dsv3-Type1 and Dsv3-Type2
 
 The Dsv3-Type1 and Dsv3-Type2 run Dsv3-series VMs, which offer a combination of vCPU, memory, and temporary storage best suited for most general-purpose workloads. 
@@ -107,4 +111,4 @@ Once all VMs have been migrated from your old Dedicated Host to the target Dedic
 
 ## Help and support
 
-If you have questions, ask community experts in [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-dedicated-host.html).
+If you have questions, ask community experts in [Microsoft Q&A](https://aka.ms/azure-dedicated-host-qa).
