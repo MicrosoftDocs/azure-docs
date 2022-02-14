@@ -3,7 +3,7 @@ title: Network isolation
 description: Users can restrict public access to QnA Maker resources.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: ignite-fall-2021
 ---
