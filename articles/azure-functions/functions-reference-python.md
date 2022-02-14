@@ -409,7 +409,7 @@ Update the Python code file `init.py`, depending on the interface used by your f
 # [ASGI](#tab/asgi)
 
 ```python
-app=Flask("Test")
+app=FastAPI("Test")
 
 @app.route("/api/HandleApproach")
 def test():
