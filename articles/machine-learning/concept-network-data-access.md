@@ -34,7 +34,7 @@ In general, data access from studio involves the following checks:
 
 1. Who is accessing?
     - There are multiple different types of authentication depending on the storage type. For example, account key, token, service principal, managed identity, and user identity.
-    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage.
+    - If authentication is made using a user identity, then it's important to know *which* user is trying to access storage. Learn more about [identity-based data access](how-to-identity-based-data-access.md).
 2. Do they have permission?
     - Are the credentials correct? If so, does the service principal, managed identity, etc., have the necessary permissions on the storage? Permissions are granted using Azure role-based access controls (Azure RBAC).
     - [Reader](../role-based-access-control/built-in-roles.md#reader) of the storage account reads metadata of the storage.

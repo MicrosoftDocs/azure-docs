@@ -1,9 +1,9 @@
 ---
 title: Understand Azure IoT Hub endpoints | Microsoft Docs
 description: Developer guide - reference information about IoT Hub device-facing and service-facing endpoints.
-author: eross-msft
+author: kgremban
 
-ms.author: lizross
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
