@@ -12,7 +12,7 @@ ms.custom: subject-moving-resources
 
 # Move a Remote Rendering account between regions
 
-This article describes how to move a Remote Rendering account to a different Azure region. While a Remote Rendering account can be used to connect to any region where Remote Rendering service is available, there are reasons to move your resources to another region. For example, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+This article describes how to move a Remote Rendering account to a different Azure region. While a Remote Rendering account can be used to connect to any [region where Remote Rendering service is available](../reference/regions.md), there are reasons to move your resources to another region. For example, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Run your app or web service and verify it's still functional after the move.
 
 ## Clean up
 
-To complete the move of the Remote Rendering account, delete the source Remote Rendering or resource group. To do so, select the Remote Rendering account or resource group from your dashboard in the portal and select Delete at the top of each page.
+To complete the move of the Remote Rendering account, delete the source Remote Rendering or resource group. To do so, select the Remote Rendering account or resource group from your dashboard in the portal and select "Delete" at the top of each page.
 
 ## Next steps
 
