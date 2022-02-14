@@ -3,7 +3,6 @@ title: InfiniBand driver extension - Azure Windows VMs
 description: Microsoft Azure Extension for installing InfiniBand Drivers on H- and N-series compute VMs running Windows.
 services: virtual-machines
 documentationcenter: ''
-author: vermagit
 editor: ''
 ms.assetid:
 ms.service: virtual-machines
@@ -13,7 +12,6 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/13/2022
-ms.author: amverma 
 ms.custom: devx-track-azurepowershell
 
 ---
