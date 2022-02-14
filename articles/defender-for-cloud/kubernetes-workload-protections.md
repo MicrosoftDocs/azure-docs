@@ -89,11 +89,11 @@ If you disabled any of the default protections when you enabled Microsoft Defend
 
     :::image type="content" source="media/kubernetes-workload-protections/advanced-configuration.png" alt-text="Screenshot showing each option and the toggles to enable or disable them.":::
 
-1. Select **Save**.
+1. Select **Confirm**.
 
 ## Manually configure the Kubernetes workload add-on or extension
 
-You can manually configure the Kubernetes workload add-on, or extension protection through the Recommendations page. This can be accopmplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters` recommendations. 
+You can manually configure the Kubernetes workload add-on, or extension protection through the Recommendations page. This can be accomplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters` recommendations. 
 
 **To manually deploy the add-on, or extension**:
 
