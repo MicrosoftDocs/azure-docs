@@ -43,20 +43,26 @@ Edit a watchlist to edit or add an item to the watchlist.
 
 ## Bulk update a watchlist
 
-- Appends and dedups
-- Doesn't delete
-- Search needs to be the same 
-- Can't have blank fields in search key it will error out
+When you have many items to add to a watchlist, use bulk update. A bulk update of a watchlist appends items to the existing watchlist. Then, it de-duplicates the items in the watchlist where the search key values match.
+
+If you've deleted an item from your watchlist file and upload it, bulk update won't delete the item in the existing watchlist. Delete the watchlist item individually. Or, when you have a lot of deletions, delete and recreate the watchlist.
+
+The updated watchlist file you upload must contain the search key field used by the watchlist with no blank values.
+
+To bulk update a watchlist,
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Watchlist**.
 1. Select the watchlist you want to edit.
 1. On the details pane, select **Update watchlist** > **Bulk update**.
 
-   :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-bulk-update.png" alt-text="Screen shot of the bulk update option on the bottom of the details pane." lightbox="./media/watchlists-manage/sentinel-watchlist-bulk-update.png":::
+   :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-bulk-update.png" alt-text="Screenshot of the bulk update option on the bottom of the details pane." lightbox="./media/watchlists-manage/sentinel-watchlist-bulk-update.png":::
 
-1.
+1. Under **Upload file**, drag and drop or browse to  the file to upload.
 
+   :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-bulk-update-source.png" alt-text="Screenshot of the watchlist wizard source page where you select the file to upload and the search key field is disabled.":::
+
+1. Select **Next: Review and Create** > **Create**.
 
 ## Next steps
 
