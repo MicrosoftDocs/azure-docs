@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 02/07/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -79,9 +79,10 @@ client_id=<application-ID>
 &scope=<application-ID-URI>/<scope-name>
 &response_type=code
 ```
-This is the interactive part of the flow, where you take action. You're asked to complete the user flow's workflow. This might involve entering your username and password in a sign in form or any other number of steps. The steps you complete depend on how the user flow is defined.
 
-If you're testing this GET HTTP request, use your browser. 
+To get a feel of how the request works, paste the request into your browser and run it. 
+
+This is the interactive part of the flow, where you take action. You're asked to complete the user flow's workflow. This might involve entering your username and password in a sign in form or any other number of steps. The steps you complete depend on how the user flow is defined.
 
 The response with the authorization code should be similar to this example:
 
@@ -104,7 +105,7 @@ grant_type=authorization_code
 &client_secret=2hMG2-_:y12n10vwH...
 ```
 
-If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview.md) or [Postman](https://www.postman.com/).
+If you're testing this POST HTTP request, you can use any HTTP client such as [Microsoft PowerShell](/powershell/scripting/overview) or [Postman](https://www.postman.com/).
 
 A successful token response looks like this:
 

@@ -171,10 +171,8 @@ Here's the binding data in the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context, documents) {
+    module.exports = async function (context, documents) {
       context.log('First document Id modified : ', documents[0].id);
-
-      context.done();
     }
 ```
 

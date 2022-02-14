@@ -12,25 +12,26 @@ ms.date: 01/11/2022
 
 ## Standalone UI
 
-Change Analysis lives in a standalone pane under Azure Monitor, where you can view all changes and application dependency/resource insights.
+Change Analysis lives in a standalone pane under Azure Monitor, where you can view all changes and application dependency/resource insights. You can access Change Analysis through a couple of entry points:
 
 In the Azure portal, search for Change Analysis to launch the experience.
 
 :::image type="content" source="./media/change-analysis/search-change-analysis.png" alt-text="Screenshot of searching Change Analysis in Azure portal":::
-
+  
 Select one or more subscriptions to view:
 - All of its resources' changes from the past 24 hours. 
 - Old and new values to provide insights at one glance.
-
+  
 :::image type="content" source="./media/change-analysis/change-analysis-standalone-blade.png" alt-text="Screenshot of Change Analysis blade in Azure portal":::
-
+  
 Click into a change to view full Resource Manager snippet and other properties.
-
+  
 :::image type="content" source="./media/change-analysis/change-details.png" alt-text="Screenshot of change details":::
-
+  
 Send any feedback to the [Change Analysis team](mailto:changeanalysisteam@microsoft.com) from the Change Analysis blade:
 
 :::image type="content" source="./media/change-analysis/change-analysis-feedback.png" alt-text="Screenshot of feedback button in Change Analysis tab":::
+
 
 ### Multiple subscription support
 
@@ -124,6 +125,20 @@ If you've enabled [VM Insights](../vm/vminsights-overview.md), you can view chan
 1. Select the **Investigate Changes** button to view change details in the Application Change Analysis standalone UI.
 
     :::image type="content" source="./media/change-analysis/vm-insights-2.png" alt-text="View of the property panel, selecting Investigate Changes button.":::   
+
+## Drill to Change Analysis logs
+
+You can also drill to Change Analysis logs via a chart you've created or pinned to your resource's **Monitoring** dashboard.
+
+1. Navigate to the resource for which you'd like to view Change Analysis logs.
+1. On the resource's overview page, select the **Monitoring** tab.
+1. Select a chart from the **Key Metrics** dashboard.
+
+   :::image type="content" source="./media/change-analysis/view-change-analysis-1.png" alt-text="Chart from the Monitoring tab of the resource.":::
+
+1. From the chart, select **Drill into logs** and choose **Change Analysis** to view it.
+
+   :::image type="content" source="./media/change-analysis/view-change-analysis-2.png" alt-text="Drill into logs and select to view Change Analysis.":::
 
 ## Next steps
 

@@ -1224,8 +1224,6 @@ items:
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
       href: insights/data-explorer.md
-    - name: Azure Service Bus
-      href: insights/service-bus-insights.md
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
@@ -1237,7 +1235,7 @@ items:
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#sql-insights-preview
+        href: /azure/azure-monitor/faq#sql-insights-(preview)
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts
