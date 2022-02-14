@@ -73,7 +73,8 @@ Create variables for your resource's Azure endpoint and key.
 
 > [!IMPORTANT]
 > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
->
+
+> [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 ```javascript
@@ -139,6 +140,12 @@ The "QualityForRecognition" attribute is an indicator of the overall image quali
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="detect":::
 
+The above code processes the following remote images:
+
+![A woman smiling](../../media/quickstarts/detection1.jpg)
+![A man, woman, and baby](../../media/quickstarts/detection5.jpg)
+![An older man and woman](../../media/quickstarts/detection6.jpg)
+
 > [!TIP]
 > You can also detect faces in a local image. See the [Face](/javascript/api/@azure/cognitiveservices-face/face) methods such as [DetectWithStreamAsync](/javascript/api/@azure/cognitiveservices-face/face#detectWithStream_msRest_HttpRequestBody__FaceDetectWithStreamOptionalParams__ServiceCallback_DetectedFace____).
 
@@ -190,6 +197,14 @@ First, define a second face detection method. You need to detect faces in images
 The following method detects faces in a set of target images and in a single source image. Then, it compares them and finds all the target images that are similar to the source image. Finally, it prints the match details to the console.
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="find_similar":::
+
+In this program, the following remote image will be used as the source:
+
+![A man smiling](../../media/quickstarts/findsimilar.jpg)
+
+The face detected in this image should be returned as the face that's similar to the source image face.
+
+![A man smiling; this is the same person as the previous image](../../media/quickstarts/family1-dad1.jpg)
 
 ## Main
 
