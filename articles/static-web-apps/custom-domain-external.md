@@ -15,7 +15,7 @@ By default, Azure Static Web Apps provides an auto-generated domain name for you
 
 ## Preparation
 
-Before you begin, consider how you want to support your apex domain. Domain names without a subdomain are known as apex, root, or "naked" domains. For example the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
+Before you begin, consider how you want to support your apex domain. Domain names without a subdomain are known as apex, root, or "naked" domains. For example, the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
 
 Setting up an apex domain is a common scenario to configure once your domain name is set up. Creating an apex domain is achieved by configuring an `ALIAS` or `ANAME` record or through `CNAME` flattening. Some domain registrars like GoDaddy and Google don't support these DNS records. If your domain registrar doesn't support the all the DNS records you need, consider using [Azure DNS to configure your domain](custom-domain-azure-dns.md).
 
@@ -80,7 +80,7 @@ Domain registrars are the services that allow you to purchase and manage domain 
 
 1. Once the domain settings are in effect, open a new browser tab and navigate to your domain with the `www` subdomain.
 
-    After the DNS records are updated you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
+    After the DNS records are updated, you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 
 ## Next steps
 

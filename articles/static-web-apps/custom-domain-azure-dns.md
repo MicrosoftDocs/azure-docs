@@ -13,13 +13,13 @@ ms.author: cshoe
 
 By default, Azure Static Web Apps provides an auto-generated domain name for your website, but you can point a custom domain to your site. Free SSL/TLS certificates are automatically created for the auto-generated domain name and any custom domains you may add.
 
-This guide demonstrates how to configure your domain name with the `www` subdomain. Once this procedure is complete you can set up an [apex domain](apex-domain-azure-dns.md).
+This guide demonstrates how to configure your domain name with the `www` subdomain. Once this procedure is complete, you can set up an [apex domain](apex-domain-azure-dns.md).
 
 The following procedure requires you to copy settings from an Azure DNS zone you create and your existing static web app. Consider opening the Azure portal in two different windows to make it easier to switch between the two services.
 
 ## Create an Azure DNS zone
 
-1. Login to the [Azure portal](https://portal.azure.com).
+1. Log in to the [Azure portal](https://portal.azure.com).
 
 1. From the top search bar, enter **DNS zones**.
 
@@ -31,7 +31,7 @@ The following procedure requires you to copy settings from an Azure DNS zone you
 
     | Property | Value |
     |---|---|
-    | Subscription | Select the your Azure subscription.  |
+    | Subscription | Select your Azure subscription.  |
     | Resource group | Select to create a resource group. |
     | Name | Enter the domain name for this zone. |
 
@@ -111,7 +111,7 @@ Now that your domain is configured for Azure to manage the DNS, you can now link
 
 1. Open a new browser tab and navigate to your domain with the `www` subdomain.
 
-    After the DNS records are updated you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
+    After the DNS records are updated, you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 
 ## Next steps
 

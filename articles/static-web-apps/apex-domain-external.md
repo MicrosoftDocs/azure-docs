@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Set up an apex domain in Azure Static Web Apps
 
-Domain names without a subdomain are known as apex, root, or "naked" domains. For example the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
+Domain names without a subdomain are known as apex, root, or "naked" domains. For example, the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
 
 Some domain registrars (like Google and GoDaddy) don't allow you to point the apex domain to an existing URL. If your registrar doesn't support `ALIAS` or `ANAME` records, or doesn't allow `CNAME` flattening, then you can't point your apex domain to the generated URL for your static web app.
 
@@ -26,7 +26,7 @@ This guide demonstrates two options for configuring an apex domain.
 
     If your registrar doesn't support `ALIAS` records, but does support `ANAME` records or `CNAME` flattening, see their documentation for configuration settings.
 
-* Use the steps in [forward to www subdomain](#forward-to-www-subdomain) if your domain registrar does not support the `ALIAS` DNS record.
+* Use the steps in [forward to www subdomain](#forward-to-www-subdomain) if your domain registrar doesn't support the `ALIAS` DNS record.
 
 ## Set up with an ALIAS record
 
@@ -99,7 +99,7 @@ Before you create the `ALIAS` record, you first need to validate that you own th
 
 1. Open a new browser tab and navigate to your apex domain.
 
-    After the DNS records are updated you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
+    After the DNS records are updated, you should see your static web app in the browser. Also, inspect the location to verify that your site is served securely using `https`.
 
 ## Forward to www subdomain
 

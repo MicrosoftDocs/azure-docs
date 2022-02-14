@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Manage the default domain in Azure Static Web Apps
 
-Your static web app can be accessed using its automatically generated domain and any custom domains that you have configured. Optionally, you can configure your app to redirect all traffic to a default domain.
+Your static web app can be accessed using its automatically generated domain and any custom domains that you've configured. Optionally, you can configure your app to redirect all traffic to a default domain.
 
 ## Set a default domain
 
