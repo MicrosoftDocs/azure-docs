@@ -67,7 +67,10 @@ There are two ways of accomplishing sign-in:
 
 ### A note on iframe apps
 
-A common pattern in web apps is to use an iframe to embed one app inside another. The top-level frame handles authenticating the user, and the application hosted in the iframe can trust that the user is signed in, fetching tokens silently using the implicit flow. Silent token acquisition no longer works when third-party cookies are blocked - the application embedded in the iframe must switch to using popups to access the user's session as it can't navigate to the login page.
+A common pattern in web apps is to use an iframe to embed one app inside another. The common assumption from app developers is that, top-level frame handles authenticating the user, and the application hosted in the iframe is expected  to trust that the user is signed in and fetch the tokens silently. However, there is a caveat to this assumption. Irrespective of whether third-party cookies are enabled or disabled, application embedded in the iframe must switch to using popups to access the user's session as it can't navigate to the login page via redirect method.
+
+If the application embedded within an iframe is based on a javascript framework then, our guidance to invoke the authentication from MSAL.js via popup method can be found [here](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-browser/docs/iframe-usage.md#using-msal-in-iframed-apps). Apart from MSAL.js library, none of the other MSAL flavors(MSAL.Java or MSAL.net etc.) do not provide a way to invoke the authetication via popup method. 
+
 
 ## Security implications of refresh tokens in the browser
 
