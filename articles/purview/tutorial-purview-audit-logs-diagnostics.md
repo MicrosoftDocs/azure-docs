@@ -46,7 +46,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want the
 
 ### Configure Azure Event Hubs
 
-- Create an [Azure Event Hubs Namespace and an Azure event hub using Azure ARM Template (GitHub)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template will deploy and finish creating your Event Hubs with the required configuration at t; follow these guides for more detailed step by step explanations and manual setup: [Azure Event Hubs: Use Azure Resource Manager Template to enable eventhub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure Event Hubs: Enable capturing of events streaming manually using Azure portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
+- Create an [Azure Event Hubs Namespace and an Azure event hub using Azure ARM Template (GitHub)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-capture). While this automated Azure ARM Template will deploy and finish creating your Event Hubs with the required configuration at t; follow these guides for more detailed step by step explanations and manual setup: [Azure Event Hubs: Use Azure Resource Manager Template to enable event hub capture](../event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-capture.md) and [Azure Event Hubs: Enable capturing of events streaming manually using Azure portal](../event-hubs/event-hubs-capture-enable-through-portal.md)
 
 ### Connect Purview Account to Diagnostics Event Hubs
 
@@ -80,7 +80,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want the
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/I.png" alt-text="Event Hubs properties - message retention period." lightbox="./media/tutorial-purview-audit-logs-diagnostics/I.png":::
 
-  - At this stage, the Event Hubs configuration will be complete. Purview will start streaming all its audit history and diagnostics data to this eventhub. You can now proceed to read, extract and perform further analytics and operations on the captured diagnostics and audit events.
+  - At this stage, the Event Hubs configuration will be complete. Purview will start streaming all its audit history and diagnostics data to this event hub. You can now proceed to read, extract and perform further analytics and operations on the captured diagnostics and audit events.
 
 ### Reading captured "audit" events
 
