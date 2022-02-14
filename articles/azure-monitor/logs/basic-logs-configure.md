@@ -16,7 +16,7 @@ ms.date: 01/13/2022
 > Switching between plans is limited to once a week.
 
 ## Which tables support Basic Logs?
-All tables in your Log Analytics are Analytics tables, by default. You can configure particular tables to use Basic Logs. Certain tables cannot be configured for Basic Logs because Azure Monitor features rely on these tables.
+All tables in your Log Analytics are Analytics tables, by default. You can configure particular tables to use Basic Logs. You cannot configure a table for Basic Logs if Azure Monitor relies on that table for specific features.
 
 You can currently configure the following tables for Basic Logs:
 
