@@ -57,7 +57,7 @@ landingContent:
           - text: Deploy Azure Spring Cloud in a virtual network
             url: how-to-deploy-in-azure-virtual-network.md
           - text: Customer responsibilities for running Azure Spring Cloud in VNET
-            url: vnet-customer-responsibilities.mds
+            url: vnet-customer-responsibilities.md
           - text: Use TLS/SSL certificates in your application
             url: how-to-use-tls-certificate.md
           - text: Enable end-to-end TLS for an application
@@ -139,7 +139,7 @@ landingContent:
           - text: How to monitor Spring Boot apps with Dynatrace Java OneAgent
             url: how-to-dynatrace-one-agent-monitor.md
           - text: How to monitor Spring Boot apps using New Relic Java agent (Preview)
-            url: how-to-new-relica-monitor.md
+            url: how-to-new-relic-monitor.md
           - text: How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)
             url: how-to-appdynamics-java-agent-monitor.md
           - text: Monitor app lifecycle events using Azure Activity log and Azure Service Health
