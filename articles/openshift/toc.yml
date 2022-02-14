@@ -131,7 +131,7 @@
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
-    - name: Openshift Service Definitions
+    - name: Azure Red Hat Openshift Service Definitions
       href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md
