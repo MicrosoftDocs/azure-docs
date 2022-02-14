@@ -62,7 +62,8 @@ To bulk update a watchlist,
 
    :::image type="content" source="./media/watchlists-manage/sentinel-watchlist-bulk-update-source.png" alt-text="Screenshot of the watchlist wizard source page where you select the file to upload and the search key field is disabled.":::
 
-1. Select **Next: Review and Create** > **Create**.
+1. If you get an error, fix the issue in the file. Then select **Reset** and try the file upload again.
+1. Select **Next: Review and update** > **Update**.
 
 ## Next steps
 
