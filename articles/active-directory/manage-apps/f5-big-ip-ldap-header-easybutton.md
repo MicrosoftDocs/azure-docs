@@ -19,7 +19,7 @@ In this article, learn to secure header & LDAP based applications using Azure Ac
 
 Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
+* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services
 
@@ -108,7 +108,7 @@ For scenarios where the Guided Configuration lacks the flexibility to achieve a 
 
 ## Register Easy Button
 
-Before a client or service can access Microsoft Graph, it must be [trusted by the Microsoft identity platform.](/develop/quickstart-register-app)
+Before a client or service can access Microsoft Graph, it must be [trusted by the Microsoft identity platform.](/azure/active-directory/develop/quickstart-register-app)
 
 The Easy Button client must also be registered in Azure AD, before it is allowed to establish a trust between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
 

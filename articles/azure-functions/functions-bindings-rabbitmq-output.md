@@ -149,9 +149,8 @@ Here's the binding data in the *function.json* file:
 Here's JavaScript code:
 
 ```javascript
-module.exports = function (context, input) {
+module.exports = async function (context, input) {
     context.bindings.outputMessage = input.body;
-    context.done();
 };
 ```
 
