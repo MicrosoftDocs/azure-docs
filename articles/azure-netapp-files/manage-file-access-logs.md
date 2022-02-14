@@ -45,7 +45,7 @@ Open | Open object with the intent to delete
 Open attribute | Proposed central access policy does not grant the same access permissions as the current central access policy
 Read | Read 
 Read | Rename
-Remove | Set attributes
+Remove | Set attribute
 Rename| Unlink
 Set attribute| Write 
 Verify |  
