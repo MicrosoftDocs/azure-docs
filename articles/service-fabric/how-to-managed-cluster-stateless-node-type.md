@@ -53,7 +53,7 @@ To configure a Stateless node type spanning across multiple availability zones f
 ## Temporary disk support
 Stateless node types can be configured to use temporary disk as the data disk instead of a Managed Disk. Using a temporary disk can reduce costs for stateless workloads. To configure a stateless node type to use the temporary disk set the **useTempDataDisk** property to **true**. 
 
-* Temporary disk size must be 30GB or more. The size of the temporary disk depends on the VM size.
+* Temporary disk size must be 32GB or more. The size of the temporary disk depends on the VM size.
 * The temporary disk is not encrypted by server side encryption unless you enable encryption at host.
 * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
