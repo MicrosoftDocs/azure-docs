@@ -292,6 +292,8 @@
       href: database/sql-database-paas-overview.md
     - name: What's new?
       href: database/doc-changes-updates-release-notes-whats-new.md
+    - name: Try SQL Database for free
+      href: database/free-sql-db-free-account-how-to-deploy.md
     - name: Single databases
       href: database/single-database-overview.md
     - name: Elastic pools

@@ -1,5 +1,5 @@
 ---
-title: Use an Azure free account to try Azure SQL Database for free
+title: Free SQL Database with Azure free account
 description: Guidance on how to deploy an Azure SQL Database for free using an Azure Free Account.
 author: rsetlem 
 ms.author: rsetlem 
@@ -33,7 +33,7 @@ In this article, you'll use the Azure portal to create a SQL database with publi
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure free account.     
 1. To create a SQL database in the Azure portal, search for and select **SQL databases**
     
-    :::image type="content" source="./media/how-to-deploy-on-azure-free-account/search-sql-database.png" alt-text="Screenshot that shows how to search and select SQL database.":::
+    :::image type="content" source="./media/free-sql-db-free-account-how-to-deploy/search-sql-database.png" alt-text="Screenshot that shows how to search and select SQL database.":::
 
     Alternatively, you can search for and navigate to **Free Services**, and then select the **Azure SQL Database** tile from the list:
     
@@ -59,7 +59,7 @@ In this article, you'll use the Azure portal to create a SQL database with publi
 1. Leave **Backup storage redundancy** set to **Geo-redundant backup storage**
 1. Select **Next: Networking** at the bottom of the page.
 
-   ![New SQL database - Basic tab](./media/how-to-deploy-on-azure-free-account/create-database-basics-tab.png)
+   :::image type="content" source="./media/free-sql-db-free-account-how-to-deploy/create-database-basics-tab.png" alt-text="New SQL database - Basic tab":::
 
 1. On the **Networking** tab, for **Connectivity method**, select **Public endpoint**.
 1. For **Firewall rules**, set **Allow Azure services and resources to access this server** set to **Yes** and set **Add current client IP address** to **Yes**.
@@ -67,17 +67,17 @@ In this article, you'll use the Azure portal to create a SQL database with publi
 1. For **Encrypted Connections**, leave **Minimum TLS version** set to **TLS 1.2**.
 1. Select **Next: Security** at the bottom of the page.
 
-    ![Networking tab](./media/how-to-deploy-on-azure-free-account/create-database-networking-tab.png)
+    :::image type="content" source="./media/free-sql-db-free-account-how-to-deploy/create-database-networking-tab.png" alt-text="Networking tab":::
 
 1. Leave the values unchanged in **Security** tab. 
 1. Select **Next: Additional settings** at the bottom of the page.
 
-   ![Security tab](./media/how-to-deploy-on-azure-free-account/create-database-security-tab.png)
+   :::image type="content" source="./media/free-sql-db-free-account-how-to-deploy/create-database-security-tab.png" alt-text="Security tab":::
   
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there are some tables and data to query and experiment with, as opposed to an empty blank database.
 1. Select **Review + create** at the bottom of the page.
 
-    ![Additional settings](./media/how-to-deploy-on-azure-free-account/create-database-additional-settings-tab.png)
+    :::image type="content" source="./media/free-sql-db-free-account-how-to-deploy/create-database-additional-settings-tab.png" alt-text="Additional settings":::
 
 1. On the **Review + create** page, after reviewing, select **Create**.
  
@@ -92,7 +92,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
 1. On the page for your database, select **Query editor (preview)** in the left menu.
 1. Enter your server admin login information, and select **OK**.
 
-   ![Sign in to Query editor](./media/single-database-create-quickstart/query-editor-login.png)
+   :::image type="content" source="./media/single-database-create-quickstart/query-editor-login.png" alt-text="Sign in to Query editor":::
 
 1. Enter the following query in the **Query editor** pane.
 
@@ -105,7 +105,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
 
 1. Select **Run**, and then review the query results in the **Results** pane.
 
-   ![Query editor results](./media/single-database-create-quickstart/query-editor-results.png)
+   :::image type="content" source="./media/single-database-create-quickstart/query-editor-results.png" alt-text="Query editor results":::
 
 1. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
