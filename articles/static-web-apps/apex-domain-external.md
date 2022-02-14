@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Set up an apex domain in Azure Static Web Apps
 
-Domain names without a subdomain are known as apex, root, or "naked" domains. For example, the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
+Domain names without a subdomain are known as apex or root domains. For example, the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
 
 Some domain registrars (like Google and GoDaddy) don't allow you to point the apex domain to an existing URL. If your registrar doesn't support `ALIAS` or `ANAME` records, or doesn't allow `CNAME` flattening, then you can't point your apex domain to the generated URL for your static web app.
 

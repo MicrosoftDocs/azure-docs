@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Set up an apex domain with Azure DNS in Azure Static Web Apps
 
-Domain names without a subdomain are known as apex, root, or "naked" domains. For example, the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
+Domain names without a subdomain are known as apex or root domains. For example, the domain `www.example.com` is the `www` subdomain joined with the `example.com` apex domain.
 
 This guide demonstrates how to use `TXT` and `ALIAS` records to configure your apex domain in Azure DNS.
 

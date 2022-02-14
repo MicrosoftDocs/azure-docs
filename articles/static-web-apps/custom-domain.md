@@ -15,22 +15,32 @@ By default, Azure Static Web Apps provides an auto-generated domain name for you
 
 When you map a custom domain to a static web app, you have a few options available to you. You can configure subdomains and an apex domain.
 
-Given the domain `www.example.com`, the `www` prefix is known as the subdomain, while the remaining segment of `example.com` is referred to as the apex domain.
-
-As configure your domains, consider how you want to support your apex domain.
-
-Setting up an apex domain is a common scenario to configure once your domain name is set up. Creating an apex domain is achieved by configuring an `ALIAS` or `ANAME` record or through `CNAME` flattening. Some domain registrars like GoDaddy and Google don't support these DNS records. If your domain registrar doesn't support the all the DNS records you need, consider using [Azure DNS to configure your domain](custom-domain-azure-dns.md).
-
-When setting up a custom domain, set up the `www` subdomain first, and then configure the apex domain.
-
-## Configuring domains
-
-The following table includes links to articles that demonstrate how to configure a custom domain.
+The following table includes links to articles that demonstrate how to configure a custom domain based provider type. <sup>1</sup>
 
 | Action | Using... | Using... |
 |--|--|--|
 | Setup a domain with the `www` subdomain | [Azure DNS](custom-domain-azure-dns.md) | [External provider](custom-domain-external.md) |
 | Setup an apex domain | [Azure DNS](apex-domain-azure-dns.md) | [External provider](apex-domain-external.md) |
+
+<sup>1</sup> Some registrars like GoDaddy and Google don't support domain records that affect how you configure your apex domain. Consider using Azure DNS with these registrars to setup your apex domain.
+
+## About domains
+
+Setting up an apex domain is a common scenario to configure once your domain name is set up. Creating an apex domain is achieved by configuring an `ALIAS` or `ANAME` record or through `CNAME` flattening. Some domain registrars like GoDaddy and Google don't support these DNS records. If your domain registrar doesn't support the all the DNS records you need, consider using [Azure DNS to configure your domain](custom-domain-azure-dns.md).
+
+When setting up a custom domain, set up the `www` subdomain first, and then configure the apex domain.
+
+The following are terms you'll encounter as your set up a custom domain.
+
+* **Apex or root domains**: Given the domain `www.example.com`, the `www` prefix is known as the subdomain, while the remaining segment of `example.com` is referred to as the apex domain.
+
+* **Domain registrar**: A registrar verifies the availability of a domain sells the rights to purchase a domain name.
+
+* **DNS zone**: A Domain Name System (DNS) zone hosts the DNS records associated to a specific domain. There are a variety of records available which direct traffic for different purposes. For example, the domain `example.com` may contain several DNS records. One record handles traffic for `mail.example.com` (for a mail server), and another `www.contoso.com` (for a website).
+
+* **DNS hosting**: A DNS host maintains DNS servers which resolve a domain name to a specific IP address.
+
+* **Name server**: A name server is responsible for storing the DNS records for a domain.
 
 ## Next steps
 

@@ -51,17 +51,9 @@
     - name: Review pull requests in pre-production environments
       href: review-publish-pull-requests.md
     - name: Custom domains
-      href: custom-domain.md
-- name: How-to guides
-  items:
-    - name: APIs
       items:
-        - name: Add an API
-          href: add-api.md
-        - name: Bring your own functions
-          href: functions-bring-your-own.md
-    - name: Add a custom domain
-      items:
+      - name: About custom domains
+        href: custom-domain.md
       - name: Use Azure DNS
         items:
         - name: Delegate your domain to Azure DNS
@@ -76,8 +68,16 @@
           href: custom-domain-external.md
         - name: Set up the apex domain
           href: apex-domain-external.md
-      - name: Set up the apex domain
+      - name: Manage the default domain
         href: custom-domain-default.md
+- name: How-to guides
+  items:
+    - name: APIs
+      items:
+        - name: Add an API
+          href: add-api.md
+        - name: Bring your own functions
+          href: functions-bring-your-own.md
     - name: Security
       items:
         - name: Set up a private endpoint

@@ -21,7 +21,7 @@ The following procedure requires you to copy settings from an Azure DNS zone you
 
 ## Create an Azure DNS zone
 
-1. Log in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. From the top search bar, enter **DNS zones**.
 
