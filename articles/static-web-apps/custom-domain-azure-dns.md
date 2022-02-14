@@ -17,41 +17,11 @@ This guide demonstrates how to configure your domain name with the `www` subdoma
 
 The following procedure requires you to copy settings from an Azure DNS zone you create and your existing static web app. Consider opening the Azure portal in two different windows to make it easier to switch between the two services.
 
-## Create an Azure DNS zone
+## Prerequisites
 
-1. Log in to the [Azure portal](https://portal.azure.com).
-
-1. From the top search bar, enter **DNS zones**.
-
-1. Select **DNS zones**.
-
-1. Select the **Create** button.
-
-1. In the *Basics* tab, enter the following values.
-
-    | Property | Value |
-    |---|---|
-    | Subscription | Select your Azure subscription.  |
-    | Resource group | Select to create a resource group. |
-    | Name | Enter the domain name for this zone. |
-
-1. Select **Review + Create**.
-
-1. Select **Create** and wait for the zone to provision.
-
-1. Select **Go to resource**.
-
-    With the DNS zone created, you now have access to Azure's DNS name servers for your application.
-
-1. From the *Overview* window, copy the values for **Name server 1** and **Name server 2** and set them aside in a text editor for later use.
-
-## Update name server addresses
-
-The next step is to update the name server addresses for your domain name. Sign in to your account on your domain provider's website and find the tools to edit your domain settings. While each domain provider is different, look for *Manage DNS*, *Domain settings*, or something similar in your domain account.
-
-1. With the name server addresses you collected from the previous step, update the name server addresses for your domain name.
-
-1. Save your changes and return to the Azure portal.
+- A custom domain
+- An existing Azure DNS zone
+  - If you don't already have one, refer to [Set up an Azure DNS zone for Azure Static Web Apps](azure-dns-zone.md)
 
 ## Map the domain to your website
 
