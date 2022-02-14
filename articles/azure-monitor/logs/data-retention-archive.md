@@ -41,7 +41,7 @@ You can set retention policies for individual tables, except for workspaces in t
 
 You can retain data in a table between 4 and 730 days and set an archive period for a total retention time of up to 2,555 days (seven years). 
 
-Each table is a sub-resource of the workspace its in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
+Each table is a sub-resource of the workspace it's in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
