@@ -110,7 +110,7 @@ To view and copy your Automation account access keys from the Azure portal, foll
 
 ### Manually rotate access keys
 
-We recommend that you rotate your access keys periodically to keep the Automation account secure. Since you have two access keys, you can rotate them, either from the Azure portal or Azure PowerShell cmdlet.
+We recommend that you rotate your access keys periodically to keep the Automation account secure. Since you have two access keys, you can rotate them either from the Azure portal or Azure PowerShell cmdlet.
 
 # [Azure portal](#tab/azureportal)
 
@@ -123,12 +123,12 @@ To rotate your Automation account access keys from Azure portal:
   
 # [Azure PowerShell](#tab/azurepowershell)
 
-Call the [`New-AzAutomationKey`](/powershell/module/az.automation/new-azautomationkey) command to regenerate the primary access key, as shown in the following example: 
+Call the [New-AzAutomationKey](/powershell/module/az.automation/new-azautomationkey) command to regenerate the primary access key, as shown in the following example: 
 
   ```azurepowershell
   New-AzAutomationKey -KeyType Primary -ResourceGroup <ResourceGroup>` -AutomationAccountName <AutomationAccount>
   ```
----
+ ---
 
 ## Next steps
 
