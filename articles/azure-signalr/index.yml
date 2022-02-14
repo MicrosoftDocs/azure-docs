@@ -8,8 +8,8 @@ metadata:
   description: Build and scale real-time web app easily in serverless or server mode. Based on WebSocket supporting broad range of languages and frameworks.
   ms.service: signalr
   ms.topic: landing-page
-  author: v-chmccl
-  ms.author: wesmc
+  author: vicancy
+  ms.author: lianwei
   ms.date: 03/11/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
