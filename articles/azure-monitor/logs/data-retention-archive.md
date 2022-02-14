@@ -11,15 +11,18 @@ ms.date: 01/27/2022
 ---
 
 # Configure data retention and archive policies in Azure Monitor Logs (Preview)
-Each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) retains data for a period of time and then removes or archives the data with a reduced retention fee. Archiving data lets you store older data at a reduced cost, and you can [restore archived data for querying](restore.md) or [run a search job](search-jobs.md) on archived logs when you need to. Set data retention and archiving policies, balancing your need to have data available with the cost of data retention. 
+Each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) retains data for a configurable period and then removes or archives the data. Archiving data lets you retain older, infrequently used data in your workspace at a reduced cost. Set data retention and archiving policies, balancing your need to have data available with the cost of data retention. 
 
-This article describes how to configure data retention and archive policies for your workspace or for individual tables.
+This article describes how to configure data retention and archiving for your workspace and for individual tables.
+
+## How retention and archiving work
+Each workspace has a default retention policy that's applied to all tables, but you can set a different retention policy on individual tables. The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
-## Configure the default workspace retention policy
-Each workspace has a default retention policy that's applied to all tables, but you can set a different retention policy on individual tables. The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
+Set the interactive retention period for as long as you need the data regularly for monitoring, troubleshooting and analytics. When you no longer access the logs regularly, but still need to retain the data for compliance or occasional investigation, archive the logs to save costs. You can access archived data when you need to by [restoring archived logs](restore.md) or [run a search job](search-jobs.md) on archived data. 
 
+## Configure the default workspace retention policy
 You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; upgrade to the paid tier to control this setting.
 
 To set the default workspace retention policy:
