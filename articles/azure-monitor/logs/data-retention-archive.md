@@ -119,7 +119,7 @@ Status code: 200
 }
 ```
  
-## Remove retained data to comply with regulations
+## Purge retained data to comply with regulations
 
 When you shorten an existing retention policy, there's a grace period of several days before Azure Monitor removes data older than the new retention duration. 
 
