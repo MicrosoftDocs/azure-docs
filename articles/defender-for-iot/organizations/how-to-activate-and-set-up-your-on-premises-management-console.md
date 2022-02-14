@@ -279,7 +279,7 @@ Zones are logical entities that enable you to divide devices within a site into 
 
 You configure zones as a part of the site configuration process.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/site-management-zones-screen-v2.png" alt-text="Screenshot of the Site Management Zones view." lightbox="media/how-to-activate-and-set-up-your-on-premises-management-console/site-management-zones-screen-v2.png:::
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/site-management-zones-screen-v2.png" alt-text="Screenshot of the Site Management Zones view." lightbox="media/how-to-activate-and-set-up-your-on-premises-management-console/site-management-zones-screen-v2.png":::
 
 The following table describes the parameters in the **Site Management** window.
 
