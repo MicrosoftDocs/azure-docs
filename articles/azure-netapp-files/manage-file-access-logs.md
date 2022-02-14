@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/14/2022
 ms.author: anfdocs
 ---
 # Manage file access logs in Azure NetApp Files
@@ -32,7 +32,7 @@ File access logs supports SMB, NFSv4.1, and dual protocols.
 
 ## Recognized events
 
-File access logs captures different file and directory events depending on your protocol. 
+File access logs captures different file and directory events depending on the protocol used. 
 
 | **NFS**|**SMB events** |
 | ----- | ------------ |
@@ -40,15 +40,15 @@ Close | Create
 Create | Delete
 Get attributes | Get attributes
 Link |  Hard link
-Nverify | Log on/log off
-Open | Open object
-Open attribute | Open object with the intent to delete
-Read | Proposed central access policy does not grant the same access permissions as the current central access policy
+Nverify | Open object
+Open | Open object with the intent to delete
+Open attribute | Proposed central access policy does not grant the same access permissions as the current central access policy
 Read | Read 
-Remove | Rename
-Rename| Set attributes
-Set attribute| Unlink 
-Verify | Write 
+Read | Rename
+Remove | Set attributes
+Rename| Unlink
+Set attribute| Write 
+Verify |  
 Write | 
 
 ## Register the feature
