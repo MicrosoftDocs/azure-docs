@@ -335,7 +335,7 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
    | **Template Description** | Yes | <*template-description*> | A description for the template's task or purpose |
    | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. Sub-resource types are currently unsupported. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template available for Azure virtual machines, specify **Microsoft.Compute/virtualmachines**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
    | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | If any, the Azure resource types where you specifically don't want to make the template available. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template unavailable for Azure virtual machines, specify **Microsoft.Compute/virtualmachines**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
-   | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameter definitions](parameterize-workflow-app.md), those parameters appear in this section for you to configure further. You can select whether each parameter value is provided either from the resource or the task creator. <p><p>- If you select **From Resource**, select a **Source Parameter** property value to use from that resource: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, select a **Template** format that determines how the task creator provides the parameter value: <p>-- **Default**: The parameter value is anything other than an interval, frequency, or time zone. <p>---- Specify the parameter's display name, default value, and description. <p>---- If the value is a timestamp (*hh:mm:ss*), set the **Format** property to **Time Format**. <p>---- To mark the parameter as required, change the **Optional** to **Required**. <p>-- **Interval**: The parameter value is an interval, such as **1** or **12**. <p>-- **Frequency**: The parameter value is a frequency, such as **Hour**, **Day** or **Month**. <p>-- **Timezone**: The parameter value is a timezone, such as **(UTC-08:00) Pacific Time (US & Canada)**. |
+   | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameter definitions](create-parameters-workflows.md), those parameters appear in this section for you to configure further. You can select whether each parameter value is provided either from the resource or the task creator. <p><p>- If you select **From Resource**, select a **Source Parameter** property value to use from that resource: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, select a **Template** format that determines how the task creator provides the parameter value: <p>-- **Default**: The parameter value is anything other than an interval, frequency, or time zone. <p>---- Specify the parameter's display name, default value, and description. <p>---- If the value is a timestamp (*hh:mm:ss*), set the **Format** property to **Time Format**. <p>---- To mark the parameter as required, change the **Optional** to **Required**. <p>-- **Interval**: The parameter value is an interval, such as **1** or **12**. <p>-- **Frequency**: The parameter value is a frequency, such as **Hour**, **Day** or **Month**. <p>-- **Timezone**: The parameter value is a timezone, such as **(UTC-08:00) Pacific Time (US & Canada)**. |
    |||||
 
    The following example shows the properties for a sample automation task template that works only on an Azure virtual machine resources:
@@ -426,13 +426,17 @@ If your task runs successfully, continue by creating a pull request from your wo
 
 ### Create your pull request
 
-1. Under **Commit changes**, enter a concise but descriptive title for your pull request. You provide more information in the description box.
+1. Under **Commit changes**, enter a concise but descriptive title for your update. You can provide more information in the description box.
 
 1. Select **Create a new branch for this commit and start a pull request**. At the prompt, provide a name for your working branch, for example:
 
    `<your-GitHub-alias>-<automation-task-name>-template`
 
-1. When you're ready, select **Propose changes**.
+1. When you're ready, select **Propose changes**. On the next page, select **Create pull request**.
+
+1. Provide a name and description for your pull request. In the lower-right corner, select **Create pull request**.
+
+1. Wait for the Azure Logic Apps team to review your pull request.
 
 ## Provide feedback
 
