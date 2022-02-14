@@ -285,7 +285,7 @@ sections:
 
           - Ensure you have a balanced dataset by accounting for formats, document types, and structure.
 
-          Learn more about [composed models](concept-custom.md#what-is-a-composed-model).
+          Learn more about [composed models](concept-custom.md).
 
       - question: |
           Can I retrain a custom model?
@@ -304,7 +304,7 @@ sections:
 
            - Model Compose is currently available only for custom models trained with labels.
 
-           Learn more about [composed models](concept-custom.md#what-is-a-composed-model).
+           Learn more about [composed models](concept-custom.md).
 
       - question: |
           How do I refine a model beyond the initial training?
@@ -319,7 +319,7 @@ sections:
 
           - Compose your new model with the existing model into a single endpoint. Form Recognizer can then determine the best model for each document to be analyzed.
 
-          Learn more about [composed models](concept-custom.md#what-is-a-composed-model).
+          Learn more about [composed models](concept-custom.md).
 
       - question: |
             I'm building a custom model, what does the signature-detection label return?

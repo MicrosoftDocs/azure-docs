@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021, mode-ui
 >[!NOTE]
 > Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities. 
 
-[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom form models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
+[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service in your applications. Get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom template models and reference the models in your applications using the [Python SDK preview](try-v3-python-sdk.md) and other quickstarts.
 
 :::image border="true" type="content" source="../media/quickstarts/form-recognizer-demo-v3p2.gif" alt-text="Form Recognizer Studio demo":::
 
@@ -40,6 +40,23 @@ After you have completed the prerequisites, navigate to the [Form Recognizer Stu
 
 1. Use the controls at the bottom of the screen to zoom in and out and rotate the document view.
 
+1. Show and hide the text, tables, and selection marks layers to focus on each one of them at a time.
+
+1. In the output section's Result tab, browse the JSON output to understand the service response format. Copy and download to jumpstart integration.
+
+:::image border="true" type="content" source="../media/quickstarts/layout-get-started-v2.gif" alt-text="Form Recognizer Layout example":::
+
+## Prebuilt models
+
+There are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are prebuilt models currently supported by the Form Recognizer service:
+
+* [🆕 **General document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)—Analyze and extract text, tables, structure, key-value pairs and named entities.
+* [**Invoice**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
+* [**Receipt**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt): extracts text and key information from receipts.
+* [**ID document**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument): extracts text and key information from driver licenses and international passports.
+* [**Business card**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard): extracts text and key information from business cards.
+* [**W-2**](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2): extracts text and key information from W-2 tax forms.
+
 1. In the output section's Content tab, browse the list of extracted key-value pairs and entities. For other Form Recognizer features, the Content tab will show the corresponding insights extracted.
 
 1. From the results tab, check out the formatted JSON response from the service. Search and browse the JSON response to understand the service results.
@@ -54,10 +71,10 @@ In addition to the Azure account and a Form Recognizer or Cognitive Services res
 
 ### Azure Blob Storage container
 
-A **standard performance** [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
+A **standard performance** [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your training documents within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
 
-  * [**Create a storage account**](../../../storage/common/storage-account-create.md). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
-  * [**Create a container**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
+* [**Create a storage account**](../../../storage/common/storage-account-create.md). When creating your storage account, make sure to select **Standard** performance in the **Instance details → Performance** field.
+* [**Create a container**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When creating your container, set the **Public access level** field to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
 
 ### Configure CORS
 
@@ -94,7 +111,7 @@ CORS should now be configured to use the storage account from Form Recognizer St
     :::image border="true" type="content" source="../media/sas-tokens/upload-blob-window.png" alt-text="Screenshot: upload blob window in the Azure portal.":::
 
 > [!NOTE]
-> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders if specified in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../build-training-data-set.md#organize-your-data-in-subfolders-optional)
+> By default, the Studio will use form documents that are located at the root of your container. However, you can use data organized in folders by specifying the folder path in the Custom form project creation steps. *See* [**Organize your data in subfolders**](../build-training-data-set.md#organize-your-data-in-subfolders-optional)
 
 ## Custom models
 
@@ -114,13 +131,24 @@ To create custom models, you start with configuring your project:
 
 1. Label four more documents to get at least five documents labeled.
 
-1. Select the Train command and enter model name, select whether you want the custom template (form) or neural (document) model to start training your custom model.
+1. Select the Train command and enter model name, select whether you want the custom template (form) or custom neural (document) model to start training your custom model.
 
 1. Once the model is ready, use the Test command to validate it with your test documents and observe the results.
 
 :::image border="true" type="content" source="../media/quickstarts/form-recognizer-custom-model-demo-v3p2.gif" alt-text="Form Recognizer Custom model demo":::
 
 ### Labeling as tables
+
+> [!NOTE]
+> Tables are currently only supported for custom template models. When training a custom neural model, labeled tables are ignored.
+
+1. Use the Delete command to delete models that are not required.
+
+1. Download model details for offline viewing.
+
+1. Select multiple models and compose them into a new model to be used in your applications.
+
+Using tables as the visual pattern:
 
 For custom form models, while creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
 
@@ -153,6 +181,9 @@ Use fixed tables to extract specific collection of values for a given set of fie
 :::image border="true" type="content" source="../media/quickstarts/custom-tables-fixed.gif" alt-text="Form Recognizer Labeling as fixed table example":::
 
 ### Signature detection
+
+>[!NOTE]
+> Signature fields are currently only supported for custom template models. When training a custom neural model, labeled signature fields are ignored. 
 
 To label for signature detection: (Custom form only)
 

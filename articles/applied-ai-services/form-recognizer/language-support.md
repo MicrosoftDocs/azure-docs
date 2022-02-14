@@ -20,6 +20,7 @@ ms.author: lajanuar
 
 ## Read, Layout, and Custom form (template) model
 
+
 The following lists include the currently GA languages in the the 2.1 version and new ones in the most recent 3.0 preview. These languages are supported by Read, Layout, and Custom form (template) model features.
 
 > [!NOTE]
@@ -30,6 +31,7 @@ The following lists include the currently GA languages in the the 2.1 version an
 To use the preview languages, refer to the [v3.0 REST API migration guide](/rest/api/media/#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md).
 
 ### Handwritten languages
+
 The following table lists the handwritten languages.
 
 |Language| Language code (optional) | Language| Language code (optional) |
@@ -136,6 +138,12 @@ This section lists the supported languages in the latest GA version.
 |Inuktitut (Latin) | `iu` |Zhuang | `za` |
 |Irish    | `ga` |Zulu  | `zu` |
 |Italian | `it` |
+
+## Custom document model
+
+Language| Locale code |
+|:-----|:----:|
+|English (United States)|en-us|
 
 ## Receipt and business card models
 

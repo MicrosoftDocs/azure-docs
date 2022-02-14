@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 >[!NOTE]
 > Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) to get started analyzing documents with pre-trained models. Build custom form models and reference the models in your applications using the [Python SDK preview](quickstarts/try-v3-python-sdk.md) and other quickstarts.
+[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) to get started analyzing documents with pre-trained models. Build custom template models and reference the models in your applications using the [Python SDK preview](quickstarts/try-v3-python-sdk.md) and other quickstarts.
 
 The following image shows the Invoice prebuilt model feature at work.
 

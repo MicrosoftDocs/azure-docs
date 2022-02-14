@@ -33,6 +33,7 @@ To learn more about Form Recognizer features and development options, visit our 
 * Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
 * ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
 * Business Cards—Analyze and extract common fields from business cards, using a pre-trained business cards model.
+* W-2—Analyze and extract fields from W-2 tax documents, using a pre-trained W-2 model.
 
 ## Analyze document
 
