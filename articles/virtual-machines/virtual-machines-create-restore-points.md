@@ -6,7 +6,7 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 02/14/2022
 ms.custom: template-how-to
 ---
 
