@@ -6,7 +6,7 @@ author: StevenMatthew
 ms.author: shaas
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 02/05/2022
 ---
 
 # Manage block blobs with PowerShell
@@ -32,7 +32,9 @@ Only Blob storage data operations support the `--auth-mode` parameter. Managemen
 Run the `login` command to open a browser and connect to your Azure subscription.
 
 ```azurecli-interactive
+
 az login
+
 ```
 
 ### Create a container
@@ -40,197 +42,182 @@ az login
 All blob data is stored within containers, so you'll need at least one container resource before you can upload data. If needed, use the following example to create a storage container. For more information, see [Managing blob containers using Azure CLI](blob-containers-cli.md).
 
 ```azurecli-interactive
+
 #!/bin/bash
-export AZURE_STORAGE_ACCOUNT="<storage-account>"
+storageAccount="<storage-account>"
 containerName="demo-container"
 
 # Create a container object
 az storage container create \
     --name $containerName \
+    --account-name $storageAccount
     --auth-mode login
+
 ```
 
 When you use the following examples, you'll need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-## Upload a blob
+## Upload blobs
 
-To upload a file to a block blob, pass the required parameter values to the `az storage blob upload` command. Supply the path and file name with the `-File` parameter, and the name of the container with the `-Container` parameter. You'll also need to provide a reference to the context object with the `-Context` parameter.
+To upload a file to a block blob, pass the required parameter values to the `az storage blob upload` command. Supply the path and file name with the `--file` parameter, and the name of the container with the `--container-name` parameter. You'll also need to authorize the operation with the `--account-name` parameter.
 
-This command creates the blob if it doesn't exist, or prompts for overwrite confirmation if it exists. You can overwrite the file without confirmation if you pass the `-Force` parameter to the cmdlet.
+`This command creates the blob if it doesn't exist, or prompts for overwrite confirmation if it exists. You can overwrite the file without confirmation if you pass the -Force parameter to the cmdlet.`
 
-The following example specifies a `-File` parameter value to upload a single, named file. It also demonstrates the use of the PowerShell pipeline operator and `Get-ChildItem` cmdlet to upload multiple files. The `Get-ChildItem` cmdlet uses the `-Path` parameter to specify *C:\Temp\\\*.png*. The inclusion of the asterisk (`*`) wildcard specifies all files with the *.png* filename extension. The `-Recurse` parameter searches the *Temp* directory and its subdirectories.
+In the following example, the first operation uses the `az storage blob upload` command to upload a single, named file. The source file and destination storage container are specified with the `--file` and `--container-name` parameters.  
+
+`insert upload-batch`
+
+The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-modified-since` parameter ensures that only files modified with the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
+
+The `--pattern` parameter is used to specify files or blobs in the `--source` folder to be uploaded. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+
+You can omit the `--pattern` parameter to upload all files from a local path directory to a specific container. Files can also be included or excluded based on the last modified date . using the `--if-modified-since` and `--if-unmodified-since` parameters.
 
 ```azurecli-interactive
-#Set variables
-path="C:\temp\"
-$containerName = "demo-container"
-$filename      = "demo-file.txt"
-$imageFiles    = $path + "*.png"
-$file          = $path + $filename
+
+#!/bin/bash
+storageAccount="<storage-account>"
+containerName="demo-container"
+lastModified="2022-02-01T20:51Z"
+
+path="C:\\temp\\"
+filename="demo-file.txt"
+imageFiles="*.png"
+file="$path$filename"
 
 #Upload a single named file
-Set-AzStorageBlobContent -File $file -Container $containerName -Context $ctx
+az storage blob upload \
+    --file $file \
+    --container-name $containerName \
+    --account-name $storageAccount \
+    --auth-mode login
 
 #Upload multiple image files recursively
- Get-ChildItem -Path $imageFiles -Recurse | Set-AzStorageBlobContent -Container $containerName -Context $ctx
-```
+az storage blob upload-batch \
+    --destination $containerName \
+    --source $path \
+    --pattern *.png \
+    --account-name $storageAccount \
+    --auth-mode login \
+    --if-unmodified-since $lastModified
 
-The result displays the storage account name, the storage container name, and provides a list of the files uploaded.
-
-```Result
-   AccountName: demostorageaccount, ContainerName: demo-container
-
-Name              BlobType   Length  ContentType                LastModified          AccessTier  IsDeleted
-----              --------   ------  -----------                ------------          ----------  ---------
-demo-file.txt     BlockBlob  222     application/octet-stream   2021-12-14 01:38:03Z  Cool        False     
-hello-world.png   BlockBlob  14709   application/octet-stream   2021-12-14 01:38:03Z  Cool        False
-hello-world2.png  BlockBlob  12472   application/octet-stream   2021-12-14 01:38:03Z  Cool        False
-hello-world3.png  BlockBlob  13537   application/octet-stream   2021-12-14 01:38:03Z  Cool        False
 ```
 
 ## List blobs
 
-The `az storage blob list` cmdlet is used to list blobs stored within a container. You can use various approaches to define the scope of your search. Use the `-Container` and `-Name` parameter to list a specific blob within a known container. To generate an unfiltered list of all blobs within a specific container, use the `-Container` parameter alone, without a `-Name` value.
+The `az storage blob list` cmdlet is used to list blobs stored within a container. You can use various approaches to define the scope of your search. Use the `--container` and `--prefix` parameter to list a specific blob within a known container. To generate an unfiltered list of all blobs within a specific container, use the `-Container` parameter alone, without a `-Name` value.
 
 There's no restriction on the number of containers or blobs a storage account may have. To potentially avoid retrieving thousands of blobs, it's a good idea to limit the amount of data returned. When retrieving multiple blobs, you can use the `-Prefix` parameter to specify blobs whose names begin with a specific string. You may also use the `-Name` parameter in conjunction with a wildcard to specify file names or types.
 
 The `-MaxCount` parameter can be used to limit the number of unfiltered blobs returned from a container. A service limit of 5,000 is imposed on all Azure resources. This limit ensures that manageable amounts of data are retrieved and performance is not impacted. If the number of blobs returned exceeds either the `-MaxCount` value or the service limit, a continuation token is returned. This token allows you to use multiple requests to retrieve anynumber of blobs. More information is available on [Enumerating blob resources](/rest/api/storageservices/enumerating-blob-resources).
 
-The following example shows several approaches used to provide a list of blobs. The first approach lists a single blob within a specific container resource. The second approach uses a wildcard to list all `.jpg` files with a prefix of *louis*. The search is restricted to five containers using the `-MaxCount` parameter. The third approach uses `-MaxCount` and `-ContinuationToken` parameters to limit the retrieval of all blobs within a container.
+The following example shows several approaches used to provide a list of blobs. The first approach lists a single blob within a specific container resource. The second approach uses the `--prefix` parameter to list all files with a prefix of *louis*. The search is restricted to five containers using the `--num-results` parameter. The third approach uses `--num-results` and `--marker` parameters to limit the retrieval of all blobs within a container.
 
 ```azurecli-interactive
-#Set variables
-$namedContainer  = "named-container"
-$demoContainer   = "demo-container"
-$containerPrefix = "demo"
+
+#!/bin/bash
+storageAccount="<storage-account>"
+containerName="demo-container"
+blobPrefix="img-louis"
 
 $maxCount = 1000
 $total     = 0
 $token     = $Null
 
 #Approach 1: List all blobs in a named container
-Get-AzStorageBlob -Container $namedContainer -Context $ctx
+az storage blob list \
+    --container $containerName \
+    --account-name $storageAccount \
+    --auth-mode login
 
-#Approach 2: Use a wildcard to list blobs in all containers
-Get-AzStorageContainer -MaxCount 5 -Context $ctx | Get-AzStorageBlob -Blob "*louis*.jpg" 
+#Approach 2: Use the --prefix parameter to list blobs in all containers
 
-#Approach 3: List batches of blobs using MaxCount and ContinuationToken parameters
-Do
-{
-     #Retrieve blobs using the MaxCount parameter
-     $blobs = Get-AzStorageBlob -Container $demoContainer -MaxCount $maxCount -ContinuationToken $token -Context $ctx
-     $blobCount = 1
-     
-     #Loop through the batch
-     Foreach ($blob in $blobs)
-     {
-         #To-do: Perform some work on individual blobs here
+containerList=$( \
+    az storage container list \
+        --query "[].name" \
+        --num-results 5 \
+        --account-name $storageAccount \
+        --auth-mode login \
+        --output tsv 
+)
+for row in $containerList
+do
+    tmpName=$(echo $row | sed -e 's/\r//g')
+    echo $tmpName
+    az storage blob list \
+    --prefix $blobPrefix \
+    --container $tmpName \
+    --account-name $storageAccount \
+    --auth-mode login
+done
 
-         #Display progress bar
-         $percent = $($blobCount/$maxCount*100)
-         Write-Progress -Activity "Processing blobs" -Status "$percent% Complete" -PercentComplete $percent
-         $blobCount++
-     }
-
-     #Update $total
-     $total += $blobs.Count
-      
-     #Exit if all blobs processed
-     If($blobs.Length -le 0) { Break; }
-      
-     #Set continuation token to retrieve the next batch
-     $token = $blobs[$blobs.Count -1].ContinuationToken
- }
- While ($null -ne $token)
- Write-Host "`n`n   AccountName: $($ctx.StorageAccountName), ContainerName: $demoContainer `n"
- Write-Host "Processed $total blobs in $namedContainer."
-```
-
-The first two approaches display the storage account and container names, and a list of the blobs retrieved. The third approach displays the total count of blobs within a named container. The blobs are retrieved in batches, and a status bar shows the progress during the count.
-
-```Result
-   AccountName: demostorageaccount, ContainerName: named-container
-
-Name                 BlobType    Length    ContentType    LastModified          AccessTier    IsDeleted
-----                 --------    ------    -----------    ------------          ----------    ---------
-index.txt            BlockBlob   222       text/plain     2021-12-15 22:00:10Z  Cool          False
-miles-davis.txt      BlockBlob   23454     text/plain     2021-12-15 22:17:59Z  Cool          False
-cab-calloway.txt     BlockBlob   18419     text/plain     2021-12-15 22:17:59Z  Cool          False
-benny-goodman.txt    BlockBlob   17726     text/plain     2021-12-15 22:17:59Z  Cool          False
+#Approach 3: List batches of blobs using --num-results and --marker parameters
 
 
-   AccountName: demostorageaccount, ContainerName: demo-container
-
-Name                 BlobType    Length    ContentType    LastModified          AccessTier    IsDeleted
-----                 --------    ------    -----------    ------------          ----------    ---------
-louis-armstrong.jpg  BlockBlob   211482    image/jpeg     2021-12-14 01:38:03Z  Cool          False
-louis-jordan.jpg     BlockBlob   55766     image/jpeg     2021-12-14 01:38:03Z  Cool          False
-louis-prima.jpg      BlockBlob   290651    image/jpeg     2021-12-14 01:38:03Z  Cool          False
-
-
-   AccountName: demostorageaccount, ContainerName: demo-container
-
-Processed 5257 blobs in demo-container.
 ```
 
 ## Download a blob
 
-Depending on your use case, the `az storage blob download` cmdlet can be used to download either single or multiple blobs. As with most operations, both approaches require a context object.
+Depending on your use case, you'll use either the `az storage blob download` or `az storage blob download-batch` command to download either single or multiple blobs. To download a single named blob, you can call the `az storage blob download` command directly and supply values for the `--container-name`, `--file`, and `--name` parameters. The blob will be downloaded to the shell directory by default, but an alternate location can be specified. Because the operation can't create a destination, it will fail with an error if your specified path doesn't exist.
 
-To download a single named blob, you can call the cmdlet directly and supply values for the `-Blob` and `-Container` parameters. The blob will be downloaded to the working PowerShell directory by default, but an alternate location can be specified. To change the target location, a valid, existing path must be passed with the `-Destination` parameter. Because the operation can't create a destination, it will fail with an error if your specified path doesn't exist.
+You can use the `az storage blob download-batch` command to recursively download multiple blobs from a storage container. Specify values for the `--source` and `--destination` parameter values download all files from the specified container. This command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
-Multiple blobs can be downloaded by combining the `Get-AzStorageBlob` cmdlet and the PowerShell pipeline operator. First, create a list of blobs with the `Get-AzStorageBlob` cmdlet. Next, use the pipeline operator and the `Get-AzStorageBlobContent` cmdlet to retrieve the blobs from the container.
-
-The following sample code provides an example of both single and multiple download approaches. It also offers a simplified approach to searching all containers for specific files using a wildcard. Because some environments may have hundreds of thousands of resources, using the `-MaxCount` parameter is recommended.
+The following sample code provides an example of both single and multiple download approaches. It also offers a simplified approach to searching all containers for specific files using a wildcard. Because some environments may have hundreds of thousands of resources, using the `--num-results` parameter is recommended.
 
 ```azurecli-interactive
+#!/bin/bash
 #Set variables
-$containerName = "demo-container"
-$path          = "C:\temp\downloads\"
-$blobName      = "demo-file.txt"
-$fileList      = "*.png"
-$pipelineList  = "louis*"
-$maxCount      = 10
+storageAccount="<storage-account>"
+containerName="demo-container"
+
+destinationPath="C:\\temp\\downloads\\"
+destinationFilename="downloadedBlob.txt"
+file="$destinationPath$destinationFilename"
+sourceBlobName="demo-file.txt"
+
+fileList="*.png"
 
 #Download a single named blob
-Get-AzStorageBlobContent -Container $containerName -Blob $blobName -Destination $path -Context $ctx
 
-#Download multiple blobs using the pipeline
-Get-AzStorageBlob -Container $containerName -Blob $fileList -Context $ctx | Get-AzStorageBlobContent
+az storage blob download \
+    --container $containerName \
+    --file $file \
+    --name $sourceBlobName \
+    --account-name $storageAccount \
+    --auth-mode login
 
-#Use wildcard to download blobs from all containers
-Get-AzStorageContainer -MaxCount $maxCount -Context $ctx | Get-AzStorageBlob -Blob "louis*" | Get-AzStorageBlobContent
-```
+#Download multiple blobs using a filter
 
-The result displays the storage account and container names and provides a list of the files downloaded.
+az storage blob download-batch \
+    --destination $destinationPath \
+    --source $containerName \
+    --pattern images/*.png \
+    --account-name $storageAccount \
+    --auth-mode login
 
-```Result
-   AccountName: demostorageaccount, ContainerName: demo-container
+#Use a loop to download matching blobs in a list of containers
 
-Name                 BlobType   Length  ContentType                LastModified          AccessTier  IsDeleted
-----                 --------   ------  -----------                ------------          ----------  ---------
-demo-file.txt        BlockBlob  222     application/octet-stream   2021-12-14 01:38:03Z  Unknown     False
-hello-world.png      BlockBlob  14709   application/octet-stream   2021-12-14 01:38:03Z  Unknown     False
-hello-world2.png     BlockBlob  12472   application/octet-stream   2021-12-14 01:38:03Z  Unknown     False
-hello-world3.png     BlockBlob  13537   application/octet-stream   2021-12-14 01:38:03Z  Unknown     False
+containerList=$( \
+    az storage container list \
+        --query "[].name" \
+        --num-results 5 \
+        --account-name $storageAccount \
+        --auth-mode login \
+        --output tsv 
+)
+for row in $containerList
+do
+    tmpName=$(echo $row | sed -e 's/\r//g')
+    echo $tmpName
+   
+    az storage blob download-batch \
+        --destination $destinationPath \
+        --source $tmpName \
+        --pattern *louis*.* \
+        --account-name $storageAccount \
+        --auth-mode login
+done
 
-   AccountName: demostorageaccount, ContainerName: public-container
-
-Name                 BlobType   Length  ContentType                LastModified          AccessTier  IsDeleted
-----                 --------   ------  -----------                ------------          ----------  ---------
-louis-armstrong.jpg  BlockBlob  211482  image/jpeg                 2021-12-14 18:56:03Z  Unknown     False
-
-   AccountName: demostorageaccount, ContainerName: read-only-container
-
-Name                 BlobType   Length  ContentType                LastModified          AccessTier  IsDeleted
-----                 --------   ------  -----------                ------------          ----------  ---------
-louis-jordan.jpg     BlockBlob  55766   image/jpeg                 2021-12-14 18:56:21Z  Unknown     False
-
-   AccountName: demostorageaccount, ContainerName: hidden-container
-
-Name                 BlobType   Length  ContentType                LastModified          AccessTier  IsDeleted
-----                 --------   ------  -----------                ------------          ----------  ---------
-louis-prima.jpg      BlockBlob  290651  image/jpeg                 2021-12-14 18:56:45Z  Unknown     False
 ```
 
 ## Manage blob properties and metadata
@@ -241,114 +228,96 @@ User-defined metadata consists of one or more name-value pairs that you specify 
 
 ### Reading blob properties
 
-To read blob properties or metadata, you must first retrieve the blob from the service. Use the `az storage blob show` cmdlet to retrieve a blob's properties and metadata, but not its content. Next, use the `BlobClient.GetProperties` method to fetch the blob's properties. The properties or metadata can then be read or set as needed.
-
-The following example retrieves a blob and lists its properties.
+To read blob properties or metadata, you must first retrieve the blob from the service. Use the `az storage blob show` cmdlet to retrieve a blob's properties and metadata, but not its content. The following example retrieves a blob and lists its properties.
 
 ```azurecli-interactive
-$blob = Get-AzStorageBlob -Blob "blue-moon.mp3" -Container "demo-container" -Context $ctx
-$properties = $blob.BlobClient.GetProperties()
-Echo $properties.Value
-```
+#!/bin/bash
+#Set variables
+storageAccount="<storage-account>"
+containerName="demo-container"
 
-The result displays a list of the blob's properties as shown below.
-
-```Result
-LastModified                         : 11/16/2021 3:42:07 PM +00:00
-CreatedOn                            : 11/16/2021 3:42:07 PM +00:00
-Metadata                             : {}
-BlobType                             : Block
-LeaseDuration                        : Infinite
-LeaseState                           : Available
-LeaseStatus                          : Unlocked
-ContentLength                        : 2163298
-ContentType                          : audio/mpeg
-ETag                                 : 0x8D9C0AA9E0CBA78
-IsServerEncrypted                    : True
-AccessTier                           : Cool
-IsLatestVersion                      : False
-TagCount                             : 0
-ExpiresOn                            : 1/1/0001 12:00:00 AM +00:00
-LastAccessed                         : 1/1/0001 12:00:00 AM +00:00
-HasLegalHold                         : False
+az storage blob show \
+    --container  demo-container \
+    --name demo-file.txt \
+    --account-name $storageAccount \
+    --auth-mode login
 ```
 
 ### Read and write blob metadata
 
-Blob metadata is an optional set of name/value pairs associated with a blob. As shown in the previous example, there's no metadata associated with a blob initially, though it can be added when necessary. To read, use `az storage blob metadata show`. To update blob metadata, you'll use the `az storage blob metadata update` method. This method only accepts key-value pairs stored in a generic `IDictionary` object. For more information, see the [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) class definition.
+Blob metadata is an optional set of name/value pairs associated with a blob. As shown in the previous example, there's no metadata associated with a blob initially, though it can be added when necessary. To read, use `az storage blob metadata show`. To update blob metadata, you'll use the `az storage blob metadata update` method. For more information, see the [az storage blob metadata](/cli/azure/storage/blob/metadata?view=azure-cli-latest) reference.
 
-The example below first updates and then commits a blob's metadata, and then retrieves it. The sample blob is flushed from memory to ensure the metadata isn't being read from the in-memory object.
+The example below first updates and then commits a blob's metadata, and then retrieves it.
 
 ```azurecli-interactive
-#Set variable
-$container = "demo-container"
-$blobName  = "blue-moon.mp3"
+#!/bin/bash
+storageAccount="<storage-account>"
+containerName="demo-container"
+blobName="blue-moon.mp3"
 
-#Retrieve blob
-$blob = Get-AzStorageBlob -Blob $blobName -Container $container -Context $ctx
-
-#Create IDictionary, add key-value metadata pairs to IDictionary
-$metadata = New-Object System.Collections.Generic.Dictionary"[String,String]"
-$metadata.Add("YearWritten","1934")
-$metadata.Add("YearRecorded","1958")
-$metadata.Add("Composer","Richard Rogers")
-$metadata.Add("Lyricist","Lorenz Hart")
-$metadata.Add("Artist","Tony Bennett")
+metadata="Written=1934"
+metadata=("$metadata Recorded=1958")
+metadata=("$metadata Lyricist=\"Lorenz Hart\"")
+metadata=("$metadata Composer=\"Richard Rogers\"")
+metadata=("$metadata Artist=\"Tony Bennett\"")
+metadata="'$metadata'"
 
 #Update metadata
-$blob.BlobClient.SetMetadata($metadata, $null)
+az storage blob metadata update \
+    --container-name $containerName \
+    --name $blobName \
+    --metadata $metadata \
+    --account-name $storageAccount \
+    --auth-mode login
 
-#Flush blob from memory, retrieve updated blob, retrieve properties
-$blob = $null
-$blob = Get-AzStorageBlob -Blob $blobName -Container $container -Context $ctx
-$properties = $blob.BlobClient.GetProperties()
- 
-#Display metadata
-Echo $properties.Value.Metadata
-```
-
-The result returns the blob's newly updated metadata as shown below.
-
-```Result
-Key          Value         
----          -----         
-YearWritten  1934          
-YearRecorded 1958          
-Composer     Richard Rogers
-Lyricist     Lorenz Hart   
-Artist       Tony Bennett
+#Retrieve updated blob metadata
+az storage blob metadata show \
+    --container-name $containerName \
+    --name $blobName \
+    --account-name $storageAccount \
+    --auth-mode login
 ```
 
 ## Copy operations for blobs
 
 There are many scenarios in which blobs of different types may be copied. Examples in this article are limited to block blobs.
 
-### Copy a source blob to a destination blob
+### Copy source blobs to destination blobs
 
-For a simplified copy operation within the same storage account, use the `az storage blob copy` cmdlet. Because the operation is copying a blob within the same storage account, it's a synchronous operation. Cross-account operations are asynchronous.
+Azure CLI offers commands that perform operations on one resource or on multiple resources, depending on your requirements. To copy a single named blob, use the `az storage blob copy start` command and specify values for source and destination containers and blobs. It's also possible to provide a uniform resource identifier (URI), share, or shared access signature (SAS) as the source.
+
+You can also specify the conditions under which the blob will be copied. These conditions can be set for either the source or destination blob. You can reference the last modified date, tag data, or ETag value. For example, you may choose to copy blobs that have not been recently modified to an separate container.
+
+You can use the `az storage blob copy start-batch` command to recursively copy multiple blobs between storage containers within the same storage account. This command requires values for the `--source-container` and `--destination-container` parameters, and can copy all files between the source and destination. Like other CLI batch commands, this command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
 You should consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 
-The example below copies the **bannerphoto.png** blob from the **photos** container to the **photos** folder within the **archive** container. Both containers exist within the same storage account. The result verifies the success of the copy operation.
+The following sample code provides an example of both single and multiple copy operations. Because some environments may have hundreds of thousands of resources, using the `--num-results` parameter is recommended. The first example copies the **secret-town-road.png** blob from the **photos** container to the **locations** container. Both containers exist within the same storage account. The result verifies the success of the copy operation.
 
 ```azurecli-interactive
-$blobname = "bannerphoto.png"
-Copy-AzStorageBlob -SrcContainer "photos" -SrcBlob $blobname -DestContainer "archive" -DestBlob $("photos/$blobname") -Context $ctx
+#!/bin/bash
+storageAccount="<storage-account>"
+sourceContainer="photos"
+blobName="secret-town-road.jpg"
+destContainer="locations"
 
-AccountName: demostorageaccount, ContainerName: archive
 
-Name                BlobType   Length  ContentType  LastModified          AccessTier  SnapshotTime  IsDeleted  VersionId
-----                --------   ------  -----------  ------------          ----------  ------------  ---------  ---------
-photos/bannerphoto  BlockBlob  12472   image/png    2021-11-27 23:11:43Z  Cool                      False
+az storage blob copy start \
+    --destination-container $destContainer \
+    --destination-blob $blobName \
+    --source-container $sourceContainer \
+    --source-blob $blobName \
+    --account-name $storageAccount \
+    --auth-mode login
 ```
 
-You can use the `-Force` parameter to overwrite an existing blob with the same name at the destination. This operation effectively replaces the destination blob. It also removes any uncommitted blocks and overwrites the destination blob's metadata.
+
 
 ### Copy a snapshot to a destination blob with a different name
 
 The resulting destination blob is a writeable blob and not a snapshot.
 
-The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten. 
+The source blob for a copy operation may be a block blob, an append blob, a page blob, or a snapshot. If the destination blob already exists, it must be of the same blob type as the source blob. An existing destination blob will be overwritten.
 
 The destination blob can't be modified while a copy operation is in progress. A destination blob can only have one outstanding copy operation. In other words, a blob can't be the destination for multiple pending copy operations.
 
@@ -369,8 +338,10 @@ Any leases associated with the base blob do not affect the snapshot. You cannot 
 The following sample code retrieves a blob from a storage container and creates a snapshot of it.
 
 ```azurecli-interactive
-$blob = Get-AzStorageBlob -Container "manuscripts" -Blob "novels/fast-cars.docx" -Context $ctx
-$blob.BlobClient.CreateSnapshot()
+#!/bin/bash
+storageAccount="<storage-account>"
+containerName="demo-container"
+
 ```
 
 ## Set blob tier
@@ -382,10 +353,11 @@ Changing tiers from **Cool** or **Hot** to **Archive** take place almost immedia
 The following sample code sets the tier to **Hot** for all blobs within the `archive` container.
 
 ```azurecli-interactive
-$blobs = Get-AzStorageBlob -Container archive -Context $ctx
-Foreach($blob in $blobs) {
-    $blob.BlobClient.SetAccessTier("Hot")
-}
+#!/bin/bash
+storageAccount="<storage-account>"
+containerName="demo-container"
+
+
 ```
 
 ## Operations using blob tags
