@@ -82,7 +82,7 @@ The following samples show public client desktop applications that access the Mi
 > | .NET | [Invoke protected API with integrated Windows authentication](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) | MSAL.NET | Integrated Windows authentication |
 > | Java | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-desktop/) | MSAL Java | Integrated Windows authentication |
 > | Node.js | [Sign in users](https://github.com/Azure-Samples/ms-identity-javascript-nodejs-desktop) | MSAL Node | Authorization code with PKCE |
-> | Powershell | [Call Microsoft Graph by signing in users using username/password](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) | MSAL.NET | Resource owner password credentials |
+> | PowerShell | [Call Microsoft Graph by signing in users using username/password](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) | MSAL.NET | Resource owner password credentials |
 > | Python | [Sign in users](https://github.com/Azure-Samples/ms-identity-python-desktop) | MSAL Python | Resource owner password credentials |
 > | Universal Window Platform (UWP) | [Call Microsoft Graph](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/main/2-With-broker) | MSAL.NET | Web account manager |
 > | Windows Presentation Foundation (WPF) | [Sign in users and call Microsoft Graph](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | MSAL.NET | Authorization code with PKCE |
