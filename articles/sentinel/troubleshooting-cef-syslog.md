@@ -30,7 +30,7 @@ For example, if you're troubleshooting a CEF connector, start with [Validate CEF
 
 # [CEF](#tab/cef)
 
-## Validate CEF connectivity
+### Validate CEF connectivity
 
 After you've [deployed your log forwarder](connect-common-event-format.md) and [configured your security solution to send it CEF messages](./connect-common-event-format.md), use the steps in this section to verify connectivity between your security solution and Microsoft Sentinel.
 
@@ -257,7 +257,7 @@ For a syslog-ng daemon, the CEF validation script runs the following checks:
 
 # [Syslog](#tab/syslog)
 
-## Troubleshooting Syslog data connectors
+### Troubleshooting Syslog data connectors
 
 If you are troubleshooting a Syslog data connector, start with verifying your prerequisites in the section [below](#verify-your-data-connector-prerequisites), using the information in the **Syslog** tab.
 
