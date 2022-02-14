@@ -114,7 +114,7 @@ Perform the following steps, as preparation for using Azure NetApp Files.
    > When creating the Active Directory connection, make sure to enter SMB Server (Computer Account) Prefix no longer than 8 characters to avoid the 13 characters hostname limitation for SAP Applications (a suffix is automatically added to the SMB Computer Account name).     
    > The hostname limitations for SAP applications are described in [2718300 - Physical and Virtual hostname length limitations](https://launchpad.support.sap.com/#/notes/2718300) and [611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/611361).  
 
-4. Create Active Directory connection, as described in [Create an Active Directory connection](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection). Make sure to add the user, under which context SWPM will be executed to install the SAP system, as Administrator privilege user in the Active Directory connection. If you don't add the SAP installation user as Administrator privilege user in the Active Directory connection, SWPM will fail with permission errors, unless you run SWPM ad user with elevated Domain Admin rights.  
+4. Create Active Directory connection, as described in [Create an Active Directory connection](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection). Make sure to add the user that will run SWPM to install the SAP system, as `Administrators privilege user` in the Active Directory connection. If you don't add the SAP installation user as `Administrators privilege user` in the Active Directory connection, SWPM will fail with permission errors, unless you run SWPM as user with elevated Domain Admin rights.  
 6. Create SMB Azure NetApp Files SMB volume, following the instructions in [Add an SMB volume](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume).   
 7. Mount the SMB volume on your Windows Virtual Machine.  
 
@@ -183,7 +183,7 @@ Complete your SAP installation, by installing:
 ## Test the SAP ASCS/SCS instance failover 
 
 ### Fail over from cluster node A to cluster node B and back
-In this test scenario we will refer to cluster node sapascs1 as node A,  and to cluster node sapascs2 as node B.
+In this test scenario we'll refer to cluster node sapascs1 as node A,  and to cluster node sapascs2 as node B.
 
 1. Verify that the cluster resources are running on node A. 
 ![Figure 1: Windows Server failover cluster resources running on node A prior before the failover test](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
@@ -196,7 +196,7 @@ In this test scenario we will refer to cluster node sapascs1 as node A,  and to 
 
 1.Verify that the SAP Enqueue Replication Server (ERS) is active  
 2. Log on to the SAP system, execute transaction SU01 and open a user ID in change mode. That will generate SAP lock entry.  
-3. As you are logged in the SAP system, display the lock entry, by navigating to transaction ST12.  
+3. As you're logged in the SAP system, display the lock entry, by navigating to transaction ST12.  
 4. Fail over ASCS resources from cluster node A to cluster node B.  
 5. Verify that the lock entry, generated before the SAP ASCS/SCS cluster resources failover is retained.  
 
