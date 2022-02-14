@@ -86,9 +86,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: -- this -- Manage secrets
+          - text: -- Manage secrets --
             url: overview.md
-          - text: -- this -- End-user authentication and authorization
+          - text: -- End-user authentication and authorization --
             url: overview.md
       - linkListType: how-to-guide
         links:
@@ -104,7 +104,7 @@ landingContent:
             url: how-to-enable-system-assigned-managed-identity.md
 
   # Card (optional)
-  - title: Automate your application
+  - title: Automate end-to-end
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -118,7 +118,7 @@ landingContent:
             url: how-to-staging-environment.md
  
    # Card (optional)
-  - title: Monitor your application
+  - title: Monitor end-to-end
     linkLists:
       - linkListType: tutorial
         links:
@@ -152,6 +152,28 @@ landingContent:
             url: how-to-log-streaming.md
           - text: Application Insights Java In-Process Agent in Azure Spring Cloud
             url: how-to-application-insights.md
+
+   # Card (optional)
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Azure Spring Cloud in virtual networks
+            url: troubleshooting-vnet.md
+      - linkListType: reference
+        links:
+          - text: Troubleshoot common Azure Spring Cloud issues
+            url: troubleshoot.md
+          - text: 
+
+# Card (optional)
+  - title: Resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: -- Resources --
+            url: overview.md
+
 
   # Card (optional)
   - title: API reference
