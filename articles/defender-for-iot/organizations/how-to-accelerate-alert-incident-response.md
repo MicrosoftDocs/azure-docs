@@ -32,7 +32,7 @@ The list of available options appears in each alert. Users can select one or sev
 
 1. On the side menu, select **System Settings** > **Network Monitoring**> **Alert Comments**.
 
-3. Enter a description and select **Submit**. The 
+3. Enter a description and select **Submit**.
 
 
 ## Accelerate incident workflows by using alert groups
@@ -159,7 +159,7 @@ Create conditions based on unique values associated with the category selected. 
     - Not in Range
     - Same as (field X same as field Y)
      
-    - (> =) Greater than or equal to
+    - (>=) Greater than or equal to
     - (<) Less than 
     
     - (<=) Less than or equal to
@@ -187,7 +187,7 @@ Use the Define working hours option to instruct Defender for IoT working hours f
 The following actions can be defined for the rule:
 
 - Indicate if the rule triggers an **Alarm** or **Event**.
-- Assign a severity level to the alert (Critical, Major, Minor, Warning ).
+- Assign a severity level to the alert (Critical, Major, Minor, Warning).
 - Indicate if the alert will include a PCAP file.
 
 The rule is added to the **Customized Alerts Rules** page.
@@ -196,11 +196,11 @@ The rule is added to the **Customized Alerts Rules** page.
 
 ### Managing customer alert rules
 
-Manage the rules you create form the Custom alert rules page, for exmaple:
- :
+Manage the rules you create from the Custom alert rules page, for example:
 
-- Review the last time the rule was triggered, - the number of times the alert was triggered for the rule in the last week or the he last time the rule was modified.
-- Enable or disable rules.  a bul
+
+- Review the last time the rule was triggered, the number of times the alert was triggered for the rule in the last week, or the last time the rule was modified.
+- Enable or disable rules.
 - Delete rules.
 
 Select the checkbox next to multiple rules to perform a bulk enable/disable or delete. 
