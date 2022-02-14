@@ -30,7 +30,7 @@ You can currently configure the following tables for Basic Logs:
 
 Analytics tables retain data for a retention period you set.
 
-Basic Logs tables retain data for eight. When you change the configuration of an existing table from Analytics to Basic Logs, Azure archive data that is more than eight days old but still within the original retention period you set.
+Basic Logs tables retain data for eight days. When you change the configuration of an existing table from Analytics to Basic Logs, Azure archives data that is more than eight days old but still within the original retention period you set.
 
 For more information, see [Configure data retention and archive in Azure Monitor Logs](data-retention-archive.md).
 
