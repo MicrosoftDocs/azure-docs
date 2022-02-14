@@ -6,7 +6,7 @@ ms.author: aahi
 author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 01/10/2022
 ---
 
