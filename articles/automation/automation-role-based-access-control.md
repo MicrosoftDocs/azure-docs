@@ -243,7 +243,7 @@ A User Access Administrator can manage user access to Azure resources. The follo
 
 The Built-in Reader role for the Automation Account can't use the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION` to fetch the Automation Account keys. This is a high privilege operation providing sensitive information that could pose a security risk of an unwanted malicious actor with low privileges who can get access to automation account keys and can perform actions with elevated privilege level. 
 
-To access the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`, you can use the other built-in Reader role. We recommend that you switch to the built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. These roles, by default, will have the *listKeys* permission. As a best practice, we recommend that you create a custom role with limited permissions to access the Automation account keys. For a custom role, you need to add 
+To access the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`, we recommend that you switch to the built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. These roles, by default, will have the *listKeys* permission. As a best practice, we recommend that you create a custom role with limited permissions to access the Automation account keys. For a custom role, you need to add 
 `Microsoft.Automation/automationAccounts/listKeys/action` permission to the role definition.
 [Learn more](/azure/role-based-access-control/custom-roles) about how to create custom role from the Azure portal.
  
