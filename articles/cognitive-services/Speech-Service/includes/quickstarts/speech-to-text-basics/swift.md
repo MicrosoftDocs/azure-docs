@@ -26,13 +26,6 @@ ms.author: eur
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-swift)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-swift)
 
-## Create a new project
-
-
-> [!div class="nextstepaction"]
-> [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-swift)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-swift)
-
 ## Recognize speech from a microphone
 
 

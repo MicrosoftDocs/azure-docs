@@ -26,88 +26,84 @@ Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=pr
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
 
-## Create a new project
+## Recognize speech from a microphone
 
 Follow these steps to create a new GO module.
 
 1. Open a command prompt where you want the new module, and create a new file named `speech-recognition.go`.
 1. Replace the contents of `speech-recognition.go` with the following code. 
 
-```go
-package main
+    ```go
+    package main
+    
+    import (
+    	"bufio"
+    	"fmt"
+    	"os"
+    
+    	"github.com/Microsoft/cognitive-services-speech-sdk-go/audio"
+    	"github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
+    )
+    
+    func sessionStartedHandler(event speech.SessionEventArgs) {
+    	defer event.Close()
+    	fmt.Println("Session Started (ID=", event.SessionID, ")")
+    }
+    
+    func sessionStoppedHandler(event speech.SessionEventArgs) {
+    	defer event.Close()
+    	fmt.Println("Session Stopped (ID=", event.SessionID, ")")
+    }
+    
+    func recognizingHandler(event speech.SpeechRecognitionEventArgs) {
+    	defer event.Close()
+    	fmt.Println("Recognizing:", event.Result.Text)
+    }
+    
+    func recognizedHandler(event speech.SpeechRecognitionEventArgs) {
+    	defer event.Close()
+    	fmt.Println("Recognized:", event.Result.Text)
+    }
+    
+    func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
+    	defer event.Close()
+    	fmt.Println("Received a cancellation: ", event.ErrorDetails)
+    }
+    
+    func main() {
+        subscription :=  "YourSubscriptionKey"
+        region := "YourServiceRegion"
+    
+    	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
+    	if err != nil {
+    		fmt.Println("Got an error: ", err)
+    		return
+    	}
+    	defer audioConfig.Close()
+    	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+    	if err != nil {
+    		fmt.Println("Got an error: ", err)
+    		return
+    	}
+    	defer speechConfig.Close()
+    	speechRecognizer, err := speech.NewSpeechRecognizerFromConfig(speechConfig, audioConfig)
+    	if err != nil {
+    		fmt.Println("Got an error: ", err)
+    		return
+    	}
+    	defer speechRecognizer.Close()
+    	speechRecognizer.SessionStarted(sessionStartedHandler)
+    	speechRecognizer.SessionStopped(sessionStoppedHandler)
+    	speechRecognizer.Recognizing(recognizingHandler)
+    	speechRecognizer.Recognized(recognizedHandler)
+    	speechRecognizer.Canceled(cancelledHandler)
+    	speechRecognizer.StartContinuousRecognitionAsync()
+    	defer speechRecognizer.StopContinuousRecognitionAsync()
+    	bufio.NewReader(os.Stdin).ReadBytes('\n')
+    }
+    ```
 
-import (
-	"bufio"
-	"fmt"
-	"os"
-
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/audio"
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
-)
-
-func sessionStartedHandler(event speech.SessionEventArgs) {
-	defer event.Close()
-	fmt.Println("Session Started (ID=", event.SessionID, ")")
-}
-
-func sessionStoppedHandler(event speech.SessionEventArgs) {
-	defer event.Close()
-	fmt.Println("Session Stopped (ID=", event.SessionID, ")")
-}
-
-func recognizingHandler(event speech.SpeechRecognitionEventArgs) {
-	defer event.Close()
-	fmt.Println("Recognizing:", event.Result.Text)
-}
-
-func recognizedHandler(event speech.SpeechRecognitionEventArgs) {
-	defer event.Close()
-	fmt.Println("Recognized:", event.Result.Text)
-}
-
-func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
-	defer event.Close()
-	fmt.Println("Received a cancellation: ", event.ErrorDetails)
-}
-
-func main() {
-    subscription :=  "YourSubscriptionKey"
-    region := "YourServiceRegion"
-
-	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer audioConfig.Close()
-	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer speechConfig.Close()
-	speechRecognizer, err := speech.NewSpeechRecognizerFromConfig(speechConfig, audioConfig)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer speechRecognizer.Close()
-	speechRecognizer.SessionStarted(sessionStartedHandler)
-	speechRecognizer.SessionStopped(sessionStoppedHandler)
-	speechRecognizer.Recognizing(recognizingHandler)
-	speechRecognizer.Recognized(recognizedHandler)
-	speechRecognizer.Canceled(cancelledHandler)
-	speechRecognizer.StartContinuousRecognitionAsync()
-	defer speechRecognizer.StopContinuousRecognitionAsync()
-	bufio.NewReader(os.Stdin).ReadBytes('\n')
-}
-```
-
-> [!div class="nextstepaction"]
-> [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
-
-## Recognize speech from a microphone
+1. In `speech-recognition.go`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
 

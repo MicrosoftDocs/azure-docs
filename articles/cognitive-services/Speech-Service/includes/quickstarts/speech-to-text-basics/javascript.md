@@ -35,59 +35,74 @@ For more information on `require`, see the [require documentation](https://nodej
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-javascript)
 
 
-## Recognize speech from a microphone
-
-Recognizing speech from a microphone is *not supported in Node.js*. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech-to-text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech-to-text conversions.
-
 ## Recognize speech from a file 
 
-To recognize speech from an audio file, create an `AudioConfig` instance by using `fromWavFileInput()`, which accepts a `Buffer` object. Then initialize [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer) by passing `audioConfig` and `speechConfig`.
+1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.js`.
+1. Copy the following code into `SpeechRecognition.js`:
 
-```javascript
-const fs = require('fs');
-const sdk = require("microsoft-cognitiveservices-speech-sdk");
-const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-speechConfig.speechRecognitionLanguage = "en-US";
+    ```javascript
+    const fs = require('fs');
+    const sdk = require("microsoft-cognitiveservices-speech-sdk");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    speechConfig.speechRecognitionLanguage = "en-US";
+    
+    function fromFile() {
+        let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
+        let speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+    
+        speechRecognizer.recognizeOnceAsync(result => {
+            switch (result.reason) {
+                case sdk.ResultReason.RecognizedSpeech:
+                    console.log(`RECOGNIZED: Text=${result.text}`);
+                    break;
+                case sdk.ResultReason.NoMatch:
+                    console.log("NOMATCH: Speech could not be recognized.");
+                    break;
+                case sdk.ResultReason.Canceled:
+                    const cancellation = CancellationDetails.fromResult(result);
+                    console.log(`CANCELED: Reason=${cancellation.reason}`);
+            
+                    if (cancellation.reason == sdk.CancellationReason.Error) {
+                        console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
+                        console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
+                        console.log("CANCELED: Did you update the key and location/region info?");
+                    }
+                    break;
+            }    
+            speechRecognizer.close();
+        });
+    }
+    fromFile();
+    ```
 
-function fromFile() {
-    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
-    let speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+1. In `SpeechRecognition.js`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
-    speechRecognizer.recognizeOnceAsync(result => {
-        switch (result.reason) {
-            case sdk.ResultReason.RecognizedSpeech:
-                console.log(`RECOGNIZED: Text=${result.text}`);
-                break;
-            case sdk.ResultReason.NoMatch:
-                console.log("NOMATCH: Speech could not be recognized.");
-                break;
-            case sdk.ResultReason.Canceled:
-                const cancellation = CancellationDetails.fromResult(result);
-                console.log(`CANCELED: Reason=${cancellation.reason}`);
-        
-                if (cancellation.reason == sdk.CancellationReason.Error) {
-                    console.log(`CANCELED: ErrorCode=${cancellation.ErrorCode}`);
-                    console.log(`CANCELED: ErrorDetails=${cancellation.errorDetails}`);
-                    console.log("CANCELED: Did you update the key and location/region info?");
-                }
-                break;
-        }    
-        speechRecognizer.close();
-    });
-}
-fromFile();
+Run your new console application to start speech recognition from a file:
+
+```console
+node.exe SpeechRecognition.js
 ```
+
+The speech from the audio file should be output as text: 
+
+```console
+RECOGNIZED: Text=I'm excited to try speech to text.
+```
+
+This example uses the `recognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
 
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-javascript)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-javascript)
 
+## Try out more
 
 Now that you've transcribed speech to text, here are some suggested modifications to try out:
-- To recognize speech from an audio file, use `fromWavFileInput` instead of `fromDefaultMicrophoneInput`:
+- To recognize speech from an audio file, use `fromDefaultMicrophoneInput` instead of `fromWavFileInput`:
     ```javascript
-    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("YourAudioFile.wav"));
+    let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
     ```
+    Recognizing speech from a microphone is *not supported in Node.js*. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech-to-text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech-to-text conversions.
 - To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You can add these lines right after the new `SpeechRecognizer` object is created:
     ```javascript
     const phraseList = sdk.PhraseListGrammar.fromRecognizer(speechRecognizer);

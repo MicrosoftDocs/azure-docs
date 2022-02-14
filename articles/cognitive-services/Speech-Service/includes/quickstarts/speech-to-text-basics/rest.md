@@ -16,20 +16,34 @@ ms.author: eur
 > [I have the prerequisites](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-rest)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-rest)
 
-## Recognize speech from a microphone
+## Recognize speech from a file
 
-At a command prompt, run the following command. Insert the following values into the command:
-- Your subscription key for the Speech service.
-- Your Speech service region.
-- The path for input audio files. You can generate audio files by using [text-to-speech](../../../get-started-text-to-speech.md).
+At a command prompt, run the following cURL command. Insert the following values into the command. Replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="request":::
+```console
+# curl
+speech_key="YourSubscriptionKey"
+region="YourServiceRegion"
 
-You should receive a response like the following one:
+curl --location --request POST \
+"https://YourServiceRegion.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US" \
+--header "Ocp-Apim-Subscription-Key: YourSubscriptionKey" \
+--header "Content-Type: audio/wav" \
+--data-binary @'YourAudioFile.wav'
+```
 
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="response":::
+You should receive a response similar to what is shown here. The `DisplayText` should be the text that was recognized from your audio file.
 
-For more information, see the [speech-to-text REST API reference](../../../rest-speech-to-text.md).
+```console
+{
+    "RecognitionStatus": "Success",
+    "DisplayText": "My voice is my passport, verify me.",
+    "Offset": 6600000,
+    "Duration": 32100000
+}
+```
+
+For more information, see [speech-to-text REST API for short audio](../../../rest-speech-to-text.md).
 
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-rest)
@@ -39,21 +53,3 @@ For more information, see the [speech-to-text REST API reference](../../../rest-
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
-
-
-
-
-## Convert speech to text
-
-At a command prompt, run the following command. Insert the following values into the command:
-- Your subscription key for the Speech service.
-- Your Speech service region.
-- The path for input audio files. You can generate audio files by using [text-to-speech](../../../get-started-text-to-speech.md).
-
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="request":::
-
-You should receive a response like the following one:
-
-:::code language="curl" source="~/cognitive-services-quickstart-code/curl/speech/speech-to-text.sh" id="response":::
-
-For more information, see the [speech-to-text REST API reference](../../../rest-speech-to-text.md).

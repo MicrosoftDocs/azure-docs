@@ -29,8 +29,9 @@ Before you can do anything, you need to install the Speech SDK. Depending on you
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
 
-## Create a new project
+## Recognize speech from a microphone
 
+1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.java`.
 
 ```java
 import com.microsoft.cognitiveservices.speech.*;
@@ -80,16 +81,12 @@ public class Program {
 }
 ```
 
-> [!div class="nextstepaction"]
-> [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
-
-## Recognize speech from a microphone
+1. In `SpeechRecognition.java`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 Run your new console application to start speech recognition from a microphone:
 
 ```console
-java speech-recognition
+java Program
 ```
 
 Speak into your microphone when prompted. What you speak should be output as text: 
@@ -105,6 +102,9 @@ This example uses the `RecognizeOnceAsync` operation to transcribe utterances of
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
+
+
+## Try out more
 
 Now that you've transcribed speech to text, here are some suggested modifications to try out:
 - To recognize speech from an audio file, use `fromWavFileInput` instead of `fromDefaultMicrophoneInput`:

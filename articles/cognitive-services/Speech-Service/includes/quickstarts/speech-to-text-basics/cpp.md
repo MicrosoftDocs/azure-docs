@@ -25,7 +25,7 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
 
-## Create a new project
+## Recognize speech from a microphone
 
 Follow these steps to create a new console application and install the Speech SDK.
 
@@ -88,12 +88,6 @@ Follow these steps to create a new console application and install the Speech SD
 
 1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
-> [!div class="nextstepaction"]
-> [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
-> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
-
-## Recognize speech from a microphone
-
 Build and run your new console application to start speech recognition from a microphone.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
@@ -109,6 +103,8 @@ This example uses the `RecognizeOnceAsync` operation to transcribe utterances of
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
+
+## Try out more
 
 Now that you've transcribed speech to text, here are some suggested modifications to try out:
 - To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
