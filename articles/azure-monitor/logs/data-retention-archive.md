@@ -34,9 +34,9 @@ To set the default workspace retention policy:
 
 ## Set retention and archive policy by table
 
-You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager APIs. You cannot currently configure data retention for individual tables the Azure portal.
+You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager APIs. You cannot currently configure data retention for individual tables in the Azure portal.
 
-You can retain data in a table between 4 and 730 days and set an archive period for a total retention time of up to 2,555 days (7 years). 
+You can retain data in a table between 4 and 730 days and set an archive period for a total retention time of up to 2,555 days (seven years). 
 
 Each table is a sub-resource of the workspace its in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
 
