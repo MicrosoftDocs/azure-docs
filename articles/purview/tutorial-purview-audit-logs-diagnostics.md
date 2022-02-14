@@ -92,7 +92,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want the
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/C.png" alt-text="Navigating Azure Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/C.png":::
 
-  - Switch between "Table" and "Raw" view of the JSON output.
+  2. Switch between "Table" and "Raw" view of the JSON output.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/A.png" alt-text="Explore Purview Audit Events on Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/A.png":::
 
