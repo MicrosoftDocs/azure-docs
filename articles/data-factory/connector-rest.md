@@ -626,7 +626,7 @@ baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=1000,
 baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=10000
 ```
 
-**Step 1**: Input `sysparm_offset={offset}` either in **Base URL** or **Relative URL** as shown in the following screenshots:
+*Step 1*: Input `sysparm_offset={offset}` either in **Base URL** or **Relative URL** as shown in the following screenshots:
         
 :::image type="content" source="media/connector-rest/pagination-example-1-rest-linked-service-base-url.png" alt-text="Screenshot showing the configuration step 1 to send multiple requests whose variables are in QueryParameters.":::  
     
@@ -634,11 +634,11 @@ or
 
 :::image type="content" source="media/connector-rest/pagination-example-1-rest-linked-service-relative-url.png" alt-text="Screenshot showing the configuration step 2 to send multiple requests whose variables are in QueryParameters."::: 
         
-**Step 2**: Set **Pagination rules** as either option 1 or option 2：
+*Step 2*: Set **Pagination rules** as either option 1 or option 2：
             
-Option1: `"QueryParameters.{offset}" : "RANGE:0:10000:1000"`
+- Option1: **"QueryParameters.{offset}" : "RANGE:0:10000:1000"**
             
-Option2: `"AbsoluteUrl.{offset}" : "RANGE:0:10000:1000"`
+- Option2: **"AbsoluteUrl.{offset}" : "RANGE:0:10000:1000"**
 
 
 #### Example 2：Variables in AbsoluteUrl
@@ -653,9 +653,9 @@ BaseUrl/api/now/table/t2
 BaseUrl/api/now/table/t100
 ```
 
-**Step 1**: Input `{id}` either in **Base URL** in the linked service configuration page or **Relative URL** in the dataset connection pane.
+*Step 1*: Input `{id}` either in **Base URL** in the linked service configuration page or **Relative URL** in the dataset connection pane.
     
-**Step 2**: Set **Pagination rules** as `"AbsoluteUrl.{id}" :"RANGE:1:100:1"`.
+*Step 2*: Set **Pagination rules** as **"AbsoluteUrl.{id}" :"RANGE:1:100:1"**.
 
 
 #### Example 3：Variables in Headers
@@ -670,9 +670,9 @@ Request 2: Header(id->20)<br/>
 ......<br/>
 Request 100: Header(id->100)<br/>
 
-**Step 1**: Input `{id}` in **Additional headers**.
+*Step 1*: Input `{id}` in **Additional headers**.
     
-**Step 2**: Set **Pagination rules** as `"Headers.{id}" : "RARNGE:0:100:10"`.
+*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RARNGE:0:100:10"**.
 
 :::image type="content" source="media/connector-rest/pagination-example-3.png" alt-text="Screenshot showing the configuration steps to send multiple requests whose variables are in Headers."::: 
 
@@ -712,9 +712,9 @@ Data: [
 }
 ```
     
-**Step 1**: Set the range of **Pagination rules** as Example 1 and leave the end of range empty as `"AbsoluteUrl.{offset}": "RANGE:0::1000"`.
+*Step 1*: Set the range of **Pagination rules** as Example 1 and leave the end of range empty as **"AbsoluteUrl.{offset}": "RANGE:0::1000"**.
 
-**Step 2**: Set different end condition rules according to different last responses. Six examples are shown below:
+*Step 2*: Set different end condition rules according to different last responses. Six examples are shown below:
 
 - **Example 4.1: The pagination will end when the value of the specific node in response is empty** 
 
@@ -725,7 +725,7 @@ Data: [
     Data: []
     }
     ```
-    Set the end condition rule as `"EndCondition:$.data": "Empty"`.
+    Set the end condition rule as **"EndCondition:$.data": "Empty"**.
 
     :::image type="content" source="media/connector-rest/pagination-example-4-1.png" alt-text="Screenshot showing the EndCondition setting for Example 4.1."::: 
 
@@ -737,7 +737,7 @@ Data: [
     {
     }
     ```
-    Set the end condition rule as `"EndCondition:$.data": "NonExist"`.
+    Set the end condition rule as **"EndCondition:$.data": "NonExist"**.
         
     :::image type="content" source="media/connector-rest/pagination-example-4-2.png" alt-text="Screenshot showing the EndCondition setting for Example 4.2."::: 
 
@@ -754,7 +754,7 @@ Data: [
             Complete: true
     }
     ```
-    Set the end condition rule as `"EndCondition:$.Complete": "Exist"`.
+    Set the end condition rule as **"EndCondition:$.Complete": "Exist"**.
 
     :::image type="content" source="media/connector-rest/pagination-example-4-3.png" alt-text="Screenshot showing the EndCondition setting for Example 4.3."::: 
 
@@ -783,7 +783,7 @@ Data: [
             Complete: true
     }
     ```
-    Set the end condition rule as `"EndCondition:$.Complete": "Const:true"`.
+    Set the end condition rule as **"EndCondition:$.Complete": "Const:true"**.
         
     :::image type="content" source="media/connector-rest/pagination-example-4-4.png" alt-text="Screenshot showing the EndCondition setting for Example 4.4."::: 
 
@@ -793,7 +793,7 @@ Data: [
     ......<br/>
     Last Response header: header(Complete->1)<br/>
         
-    Set the end condition rule as `"EndCondition:headers.Complete": "Const:1"`.
+    Set the end condition rule as **"EndCondition:headers.Complete": "Const:1"**.
         
     :::image type="content" source="media/connector-rest/pagination-example-4-5.png" alt-text="Screenshot showing the EndCondition setting for Example 4.5."::: 
 
@@ -803,7 +803,7 @@ Data: [
     ......<br/>
     Last Response header: header(CompleteTime->20220920)<br/>
         
-    Set the end condition rule as `"EndCondition:headers.CompleteTime": "Exist"`.
+    Set the end condition rule as **"EndCondition:headers.CompleteTime": "Exist"**.
 
     :::image type="content" source="media/connector-rest/pagination-example-4-6.png" alt-text="Screenshot showing the EndCondition setting for Example 4.6."::: 
 
@@ -857,9 +857,9 @@ The last response is:
 }
 ```
 
-**Step 1**: Set **Pagination rules** as `"AbsoluteUrl": "$.paging.next"`.
+*Step 1*: Set **Pagination rules** as **"AbsoluteUrl": "$.paging.next"**.
    
-**Step 2**: If `next` in the last response is always same with the last request URL and not empty, endless requests will be sent. The end condition can be used to avoid endless requests. Therefore, set the end condition rule refer to Example 4.1-4.6.
+*Step 2*: If `next` in the last response is always same with the last request URL and not empty, endless requests will be sent. The end condition can be used to avoid endless requests. Therefore, set the end condition rule refer to Example 4.1-4.6.
 
 #### Example 6：Set the max request number to avoid endless request
 
