@@ -8,7 +8,7 @@ ms.date: 01/05/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.devlang: java
+ms.devlang: java, azurecli
 ---
 
 # Quickstart: Azure Key Vault Key client library for Java

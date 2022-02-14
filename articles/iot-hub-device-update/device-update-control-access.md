@@ -58,7 +58,7 @@ az account get-access-token --resource 'https://api.adu.microsoft.com/'
 
 #### Using PowerShell MSAL Library
 
-[MSAL.PS](https://github.com/AzureAD/MSAL.PS) PowerShell module is a wrapper over [Microsoft Authentication Library for .NET (MSAL .NET)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet0). It supports various authentication methods.
+[MSAL.PS](https://github.com/AzureAD/MSAL.PS) PowerShell module is a wrapper over [Microsoft Authentication Library for .NET (MSAL .NET)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). It supports various authentication methods.
 
 _Using user credentials_:
 

@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting Azure IoT Hub error 409001 DeviceAlreadyExists
 description: Understand how to fix error 409001 DeviceAlreadyExists 
-author: jlian
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 07/07/2021
-ms.author: jlian
+ms.author: kgremban
 #Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 409001 DeviceAlreadyExists errors.
 ---
 
