@@ -10,9 +10,11 @@ ms.custom: template-how-to
 ---
 
 
-# Use an Azure free account to try Azure SQL Database for free
+# Try Azure SQL Database free with Azure free account
 
-Azure SQL Database is an intelligent, scalable, relational database service built for the cloud. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. With an Azure free account, you can try Azure SQL Database for **free for 12 months** with the following **monthly limit**:
+Azure SQL Database is an intelligent, scalable, relational database service built for the cloud. SQL Database is a fully managed platform as a service (PaaS) database engine that handles most database management functions such as upgrading, patching, backups, and monitoring without user involvement. 
+
+Using an Azure free account, you can try Azure SQL Database for **free for 12 months** with the following **monthly limit**:
 - **1 S0 database with 10 database transaction units and 250 GB storage**
 
 This article shows you how to create and use an Azure SQL Database for free using an [Azure free account](https://azure.microsoft.com/free/). 
@@ -20,24 +22,25 @@ This article shows you how to create and use an Azure SQL Database for free usin
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To try Azure SQL Database for free, you need:
 
-- An Azure free account. If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin. 
-
-
-## Create an Azure SQL Database
-
-In this article, you'll use the Azure portal to create a SQL database with public access connectivity method. Alternatively, refer the respective quickstarts to create a SQL database using [Powershell, Azure CLI](./single-database-create-quickstart.md) or [ARM template](./single-database-create-arm-template-quickstart.md).
+- An Azure free account. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure free account.     
-1. To create a SQL database in the Azure portal, search for and select **SQL databases**
+## Create a database
+
+This article uses the Azure portal to create a SQL Database with public access. Alternatively, you can create a SQL Database using [Powershell, the Azure CLI](./single-database-create-quickstart.md) or an [ARM template](./single-database-create-arm-template-quickstart.md).
+
+To create your database, follow these steps: 
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure free account.
+1. Search for and select **SQL databases**: 
     
     :::image type="content" source="./media/free-sql-db-free-account-how-to-deploy/search-sql-database.png" alt-text="Screenshot that shows how to search and select SQL database.":::
 
     Alternatively, you can search for and navigate to **Free Services**, and then select the **Azure SQL Database** tile from the list:
     
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-sql-database.png" alt-text="Screenshot that shows a list of all free services on the Azure portal.":::
+    :::image type="content" source="media/free-sql-db-free-account-how-to-deploy/free-services-sql-database.png" alt-text="Screenshot that shows a list of all free services on the Azure portal.":::
 
 1. Select **Create**.
 1. On the **Basics** tab of the **Create SQL Database** form, under **Project details**, select the free trial Azure **Subscription**.
@@ -53,9 +56,10 @@ In this article, you'll use the Azure portal to create a SQL database with publi
 
 1. Leave **Want to use SQL elastic pool** set to **No**.
 1. Under **Compute + storage**, select **Configure database**.
-1. For free trial, under **Service Tier** select select **Standard (For workloads with typical performance requirements)**. Set **DTUs** to **10** and **Data max size (GB)** to **250**, and then select **Apply**.
+1. For the free trial, under **Service Tier** select **Standard (For workloads with typical performance requirements)**. Set **DTUs** to **10** and **Data max size (GB)** to **250**, and then select **Apply**.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/configure-database.png" alt-text="Screenshot that shows selecting database service tier.":::
+    :::image type="content" source="media/free-sql-db-free-account-how-to-deploy/configure-database.png" alt-text="Screenshot that shows selecting database service tier.":::
+
 1. Leave **Backup storage redundancy** set to **Geo-redundant backup storage**
 1. Select **Next: Networking** at the bottom of the page.
 
@@ -109,7 +113,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
 
 1. Close the **Query editor** page, and select **OK** when prompted to discard your unsaved edits.
 
-## Monitor and track free services usage
+## Monitor and track service usage
 
 You are not charged for Azure SQL Database service included for free with your Azure free account unless you exceed the free service limit. To remain within the limit, use the Azure portal to track and monitor your free services usage.
 
@@ -117,11 +121,11 @@ You are not charged for Azure SQL Database service included for free with your A
 
 1. On the **Overview** page, scroll down to see the tile **Top free services by usage**, and then select **View all free services**.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-usage-overview.png" alt-text="Screenshot that shows the Free Trial subscription overview page and highlights View all free services.":::
+    :::image type="content" source="media/free-sql-db-free-account-how-to-deploy/free-services-usage-overview.png" alt-text="Screenshot that shows the Free Trial subscription overview page and highlights View all free services.":::
 
 1. Locate the meters related to **Azure SQL Database** to track usage.
 
-    :::image type="content" source="media/how-to-deploy-on-azure-free-account/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
+    :::image type="content" source="media/free-sql-db-free-account-how-to-deploy/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
 
     |Meter    |Description    |Monthly Limit  |
     |---------|---------|---------|
