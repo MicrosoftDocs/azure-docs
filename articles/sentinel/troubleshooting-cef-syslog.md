@@ -506,7 +506,7 @@ This procedure describes how to confirm whether SELinux is currently in a `permi
 
 ### Blocked firewall policy
 
-This procedure describes how to verify whether a firewall policy is blocking the connection from the Rsyslog daemon to the OMS agent, and how to disable it as needed. This procedure is relevant for for both CEF and Syslog data connectors.
+This procedure describes how to verify whether a firewall policy is blocking the connection from the Rsyslog daemon to the OMS agent, and how to disable it as needed. This procedure is relevant for both CEF and Syslog data connectors.
 
 
 1. Run the following command to verify whether there are any rejects in the IP tables, indicating traffic that's being dropped by the firewall policy:
