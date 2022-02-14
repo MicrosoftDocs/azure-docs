@@ -30,11 +30,11 @@ As a CSP partner, you can discover all the margins available to you via Partner 
 
 You must meet these prerequisites to create a private offer for CSP partners:
 
-1. You have created a commercial marketplace account in Partner Center.
-2. Your account is enrolled in the commercial marketplace program.
-3. You have published a transactable and publicly available offer to Azure Marketplace.
-4. Your offer is opted in to the Cloud Reseller channel.
-5. You are creating a private offer for a partner who is part of Microsoft’s Cloud Solution Provider (CSP) program.
+- You have created a commercial marketplace account in Partner Center.
+- Your account is enrolled in the commercial marketplace program.
+- You have published a transactable and publicly available offer to Azure Marketplace.
+- Your offer is opted in to the Cloud Reseller channel.
+- You are creating a private offer for a partner who is part of Microsoft’s Cloud Solution Provider (CSP) program.
 
 ### Supported offer types
 
@@ -47,9 +47,8 @@ Private offers can be created for all transactable marketplace offer types. This
 
 The **Private offers** dashboard in the left-nav menu of Partner Center is your centralized location to create and manage private offers. This dashboard has two tabs:
 
-1. **Customers**: *Coming soon*
-2. **CSP partners**: Opens the CSP partners private offer dashboard, which lets you:
-
+- **Customers**: *Coming soon*
+- **CSP partners**: Opens the CSP partners private offer dashboard, which lets you:
     - Create new private offers
     - View the status of all your private offers
     - Clone existing private offers

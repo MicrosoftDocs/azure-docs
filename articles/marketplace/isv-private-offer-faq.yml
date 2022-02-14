@@ -31,7 +31,7 @@ sections:
         answer: |
           Each private offer has a start and end date. For offer types with monthly billing and term, the margin applies until the end date of the private offer. At the next billing event after the end date of the private offer, the CSP partner will be charged at the price without margin unless the ISV has created a new private offer for that offer and CSP partner.
 
-          For offer types with a annual term billing, the CSP will be charged at the price with margin applied if the billing event occurs during the term of the private offer.
+          For offer types with an annual term billing, the CSP will be charged at the price with margin applied if the billing event occurs during the term of the private offer.
 
           There are currently no monthly billing, annual term offers.
 
