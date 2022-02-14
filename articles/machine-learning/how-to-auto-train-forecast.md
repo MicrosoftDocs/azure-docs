@@ -139,7 +139,7 @@ However, the following steps are performed only for `forecasting` task types:
 * Create time-based features to assist in learning seasonal patterns
 * Encode categorical variables to numeric quantities
 
-To view the full list of possible engineered features generated from time series data, see [TimeIndexFeaturizer Class](https://docs.microsoft.com/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.time_index_featurizer.timeindexfeaturizer?view=azure-ml-py).
+To view the full list of possible engineered features generated from time series data, see [TimeIndexFeaturizer Class](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.time_index_featurizer.timeindexfeaturizer).
 
 > [!NOTE]
 > Automated machine learning featurization steps (feature normalization, handling missing data,
