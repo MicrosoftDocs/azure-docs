@@ -561,6 +561,12 @@ When a user assigned to the Automation Operator role on the Runbook scope views 
  
 1. Create a custom role for managing operations against Hybrid runbook workers and Hybrid runbook worker groups as defined in [Manage Role permissions for Hybrid Worker Groups](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups). 
 
+1. [Configure Azure RBAC for runbooks](/azure/automation/automation-role-based-access-control#configure-azure-rbac-for-runbooks) if a user does not require access at the automation account level.
+
+1. If you use Run As Account as the authentication mechanism for Automation runbooks, follow the above RBAC best practices and [limit the Run As Account permissions](/azure/automation/manage-runas-account#limit-run-as-account-permissions) to access just enough to get the automation job executed. Do not assign high privilege permissions like Contributor, owner etc. [Use Managed identities](/azure/automation/automation-security-overview#managed-identities) instead of Run As accounts as the recommended method of runbook authentication.
+
+1. Rotate the Azure Automation keys periodically. Key regeneration prevents future DSC or hybrid worker node registrations from using previous keys.
+
 ## Next steps
 
 * To find out more about Azure RBAC using PowerShell, see [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
