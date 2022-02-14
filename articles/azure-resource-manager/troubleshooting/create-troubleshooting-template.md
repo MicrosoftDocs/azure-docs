@@ -39,7 +39,7 @@ The following ARM template and Bicep file get information from an existing stora
 }
 ```
 
-In Bicep, use the `existing` keyword and run the deployment from the resource group where the storage account exists. Use `scope` to access a resource in a different resource group. For more information, see [existing resources](../bicep/resource-declaration.md#existing-resources).
+In Bicep, use the `existing` keyword and run the deployment from the resource group where the storage account exists. Use `scope` to access a resource in a different resource group. For more information, see [existing resources](../bicep/existing-resource.md).
 
 ```bicep
 param storageName string

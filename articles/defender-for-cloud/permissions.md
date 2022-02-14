@@ -25,7 +25,7 @@ In addition to the built-in roles, there are two roles specific to Defender for 
 
 The following table displays roles and allowed actions in Defender for Cloud.
 
-| **Action**                                                                                                                     | **Action** | [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) / <br> [Reader](../role-based-access-control/built-in-roles.md#reader) | [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) / [Owner](../role-based-access-control/built-in-roles.md#owner) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
+| **Action**   | [Security Reader](../role-based-access-control/built-in-roles.md#security-reader) / <br> [Reader](../role-based-access-control/built-in-roles.md#reader) | [Security Admin](../role-based-access-control/built-in-roles.md#security-admin) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) / [Owner](../role-based-access-control/built-in-roles.md#owner) | [Contributor](../role-based-access-control/built-in-roles.md#contributor) | [Owner](../role-based-access-control/built-in-roles.md#owner) |
 |:-|:-:|:-:|:-:|:-:|:-:|
 |  |  |  | **(Resource group level)** | **(Subscription level)** | **(Subscription level)** |
 | Add/assign initiatives (including) regulatory compliance standards) | - | - | - | ✔ | ✔ |

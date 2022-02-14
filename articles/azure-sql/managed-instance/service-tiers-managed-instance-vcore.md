@@ -1,5 +1,5 @@
 ---
-title: vCore purchase model
+title: vCore purchasing model
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
@@ -8,34 +8,47 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 05/18/2021
+ms.date: 02/02/2022
 ms.custom: ignite-fall-2021
 ---
-# Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier
+# vCore purchasing model - Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article reviews the vCore purchase model for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). For more information on choosing between the vCore and DTU purchase models, see [Choose between the vCore and DTU purchasing models](../database/purchasing-models.md).
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](../database/service-tiers-sql-database-vcore.md)
+> * [Azure SQL Managed Instance](service-tiers-managed-instance-vcore.md)
 
-The virtual core (vCore) purchase model used by Azure SQL Managed Instance has following characteristics:
+This article reviews the [vCore purchasing model](../database/service-tiers-vcore.md) for [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). 
+
+## Overview
+
+[!INCLUDE [vcore-overview](../includes/vcore-overview.md)]
+
+The virtual core (vCore) purchasing model used by Azure SQL Managed Instance provides the following benefits: 
 
 - Control over the hardware generation to better match the compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md) and [Reserved Instance (RI)](../database/reserved-capacity-overview.md).
-- Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
-- [Reserved instance pricing](../database/reserved-capacity-overview.md) is only available for vCore purchase model. 
+- Greater transparency in the hardware details that power compute, helping facilitate planning for migrations from on-premises deployments.
+- Higher scaling granularity with multiple compute sizes available.
+
 
 ## <a id="compute-tiers"></a>Service tiers
 
-Service tier options in the vCore purchase model include General Purpose and Business Critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
+Service tier options in the vCore purchasing model include General Purpose and Business Critical. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery. 
 
-|**Use case**|**General Purpose**|**Business Critical**|
+For more details, review [resource limits](resource-limits.md). 
+
+|**Category**|**General Purpose**|**Business Critical**|
 |---|---|---|
-|Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance.|
-|Storage|Uses remote storage. 32 GB - 16 TB depending on number of cores |Uses local SSD storage. <BR>- **Standard-series (Gen5):** 32 GB - 4 TB <BR>- **Premium-series:** 32 GB - 5.5 TB <BR>- **Memory optimized premium-series:** 32 GB - 16 TB |
-|IOPS and throughput (approximate)|See [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics).|See [Overview Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md#service-tier-characteristics).|
-|Availability|1 replica, no read-scale replicas|4 replicas total, 1 [read-scale replica](../database/read-scale-out.md),<br/> 2 high availability replicas (HA)|
-|Backups|[Read-access geo-redundant storage (RA-GRS)](../../storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|[RA-GRS](../../storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|
-|In-memory|Not supported|Supported|
-||||
+|**Best for**|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance.|
+|**Availability**|1 replica, no read-scale replicas|4 replicas total, 1 [read-scale replica](../database/read-scale-out.md),<br/> 2 high availability replicas (HA)|
+|**Read-only replicas**| 0 built-in <br> 0 - 4 using [geo-replication](../database/active-geo-replication-overview.md) | 1 built-in, included in price <br> 0 - 4 using [geo-replication](../database/active-geo-replication-overview.md) |
+|**Pricing/billing**| [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged| [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.
+|**Discount models**| [Reserved instances](../database/reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|[Reserved instances](../database/reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|
+|||
+
+> [!NOTE]
+> For more information on the Service Level Agreement (SLA), see [SLA for Azure SQL Managed Instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/). 
 
 ### Choosing a service tier
 
@@ -118,4 +131,4 @@ Premium-series and memory optimized premium-series hardware is in preview, and h
 - For pricing details, see 
     - [Azure SQL Managed Instance single instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/)
     - [Azure SQL Managed Instance pools pricing page](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/pools/)
-- For details about the specific compute and storage sizes available in the general purpose and business critical service tiers, see [vCore-based resource limits for Azure SQL Managed Instance](resource-limits.md).
+- For details about the specific compute and storage sizes available in the General Purpose and Business Critical service tiers, see [vCore-based resource limits for Azure SQL Managed Instance](resource-limits.md).

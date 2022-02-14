@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
     
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 
-4. If you’ve created your resource using the steps above in this [guide](../how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource
+4. If you’ve created your resource using the steps above in this [guide](../how-to/create-project.md#azure-resources), the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../how-to/create-project.md#required-roles-for-your-storage-account) before connecting it to your resource
 
 5. Enter project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later.
     >[!TIP]
@@ -74,19 +74,19 @@ In this tutorial, you learn how to:
 
 2. Get your storage account connection string by:
     
-    1. Navigating to your storage account overview page in the [Azure portal](https://ms.portal.azure.com/#home). 
+    1. Navigating to your storage account overview page in the [Azure portal](https://portal.azure.com/#home). 
     2. In the **Access Keys** section in the menu to the left of the screen, copy your **Connection string** to the `connectionString` field in the configuration file, under `blobStorage`.
     3. Go to the container where you have the files you want to index and copy container name to the `containerName` field in the configuration file, under `blobStorage`. 
 
 3. Get your cognitive search endpoint and keys by:
     
-    1. Navigating to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home).
+    1. Navigating to your resource overview page in the [Azure portal](https://portal.azure.com/#home).
     2. Copy the **Url** at the top-right section of the page to the `endpointUrl` field within `cognitiveSearch`.
     3. Go to the **Keys** section in the menu to the left of the screen. Copy your **Primary admin key** to the `apiKey` field within `cognitiveSearch`.
 
 4. Get Azure Function endpoint and keys
    
-    1. To get your Azure Function endpoint and keys, go to your function overview page in the [Azure portal](https://ms.portal.azure.com/#home).
+    1. To get your Azure Function endpoint and keys, go to your function overview page in the [Azure portal](https://portal.azure.com/#home).
     2. Go to **Functions** menu on the left of the screen, and select on the function you created.
     3. From the top menu, select **Get Function Url**. The URL will be formatted like this: `YOUR-ENDPOINT-URL?code=YOUR-API-KEY`. 
     4. Copy `YOUR-ENDPOINT-URL` to the `endpointUrl` field in the configuration file, under `azureFunction`. 
@@ -94,7 +94,7 @@ In this tutorial, you learn how to:
 
 5. Get your resource keys endpoint
 
-    1. Navigate to your resource in the [Azure portal](https://ms.portal.azure.com/#home).
+    1. Navigate to your resource in the [Azure portal](https://portal.azure.com/#home).
     2. From the menu on the left side, select **Keys and Endpoint**. You’ll need the endpoint and one of the keys for the API requests.
 
         :::image type="content" source="../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint screen in the Azure portal" lightbox="../../media/azure-portal-resource-credentials.png":::

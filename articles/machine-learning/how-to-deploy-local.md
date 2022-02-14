@@ -5,8 +5,8 @@ description: 'This article describes how to use your local computer as a target 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: laobri
-author: lobrien
+ms.author: ssalgado
+author: ssalgadodev
 ms.date: 11/20/2020
 ms.topic: how-to
 ms.custom: deploy

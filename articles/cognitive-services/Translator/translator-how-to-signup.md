@@ -33,14 +33,14 @@ The Translator service can be accessed through two different resource types:
 
 ## Create your resource
 
-* Navigate directly to the [**Create Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) page in the Azure portal to complete your project details.
+* Navigate directly to the [**Create Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) page in the Azure portal to complete your project details.
 
-* Navigate directly to the [**Create Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) page in the Azure portal to complete your project details.
+* Navigate directly to the [**Create Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) page in the Azure portal to complete your project details.
 
 >[!TIP]
 >If you prefer, you can start on the Azure Portal home page to begin the **Create** process as follows:
 >
-> 1. Navigate to the [**Azure Portal**](https://ms.portal.azure.com/#home) home page.
+> 1. Navigate to the [**Azure Portal**](https://portal.azure.com/#home) home page.
 > 1. Select ➕**Create a resource**  from the Azure services menu.
 >1. In the **Search the Marketplace** search box, enter and select **Translator** (single-service resource) or **Cognitive Services** (multi-service resource).  *See* [Choose your resource type](#create-your-resource), above.
 > 1. Select **Create** and you will be taken to the project details page.

@@ -135,7 +135,7 @@ Select the rules tab to see two different rules that exist in this application t
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
+If you're not going to continue to use this application, delete the application template by visiting **Application** > **Management** and click **Delete**.
 
 :::image type="content" source="media/tutorial-iot-central-smart-inventory-management/smart-inventory-management-cleanup.png" alt-text="Screenshot showing how to delete the application when you're done with it.":::
 
