@@ -34,8 +34,7 @@ In Azure Automation, access is granted by assigning the appropriate Azure role t
 
 ## Role permissions
 
-
-The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and NotActions, which restrict them.
+The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and Not Actions, which restrict them.
 
 ### Owner
 
@@ -372,13 +371,13 @@ Perform the following steps to create the Azure Automation custom role with Powe
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
-You can create custom Azure Automation Roles and grant following permissions to Hybrid Worker Groups and Hybrid Workers. [Learn more](/azure/role-based-access-control/custom-roles) on how to create Azure Automation custom roles.
+You can create custom Azure Automation Roles and grant the following permissions to Hybrid Worker Groups and Hybrid Workers. [Learn more](/azure/role-based-access-control/custom-roles) on how to create Azure Automation custom roles.
 
 **Actions** | **Description**
 --- | ---
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write | Creates a Hybrid Runbook Worker Group.
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Reads a Hybrid Runbook Worker.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes a Hybrid Runbook Worker.
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/read | Reads a Hybrid Runbook Worker.
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/write | Creates a Hybrid Runbook Worker.
 Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/move/action | Moves Hybrid Runbook Worker from one Worker Group to another.
