@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/12/2022
 ms.author: v-ydequadros
 ---
 
@@ -40,7 +40,7 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
     > [!NOTE] 
     > 1. To confirm that the app was created, open **App registrations** in Azure and, on the **All applications** tab, locate your app.
-    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the "audience" value used while making an OIDC connection with your AWS account.
+    > 1. Select the app name to open the **Expose an API** page. The **Application ID URI** displayed in the **Overview** page is the *audience value* used while making an OIDC connection with your AWS account.
 
 1. Return to CloudKnox, and in the **CloudKnox Onboarding - Azure AD OIDC App Creation**, select **Next**.
 
@@ -57,15 +57,15 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 ### 3. Set up an AWS master account. (Optional)
 
-1. In the **CloudKnox Onboarding - AWS Master Account Details** page, set up the master account connection if your organization has Service Control Policies (SCPs) that govern some or all of the member accounts. 
+1. If your organization has Service Control Policies (SCPs) that govern some or all of the member accounts, in the **CloudKnox Onboarding - AWS Master Account Details** page, set up the master account connection.
 
-    Setting up the master account connection also allows CloudKnox to auto detect and onboard any aws member accounts that have the correct CloudKnox role.
+    Setting up the master account connection also allows CloudKnox to auto-detect and onboard any AWS member accounts that have the correct CloudKnox role.
 
-    - In the **CloudKnox Onboarding - AWS Master Account Details** box, enter the **Master Account ID** and **Master Account Role**.
+    - In the **CloudKnox Onboarding - AWS Master Account Details** page, enter the **Master Account ID** and **Master Account Role**.
     
-1. In another browser window and sign in to the AWS console of your master account.
+1. Open another browser window and sign in to the AWS console for your master account.
 
-1.  Return to CloudKnox, and in the "**CloudKnox Onboarding - AWS Master Account Details**" select **Launch Template**.
+1.  Return to CloudKnox, and in the **CloudKnox Onboarding - AWS Master Account Details** page, select **Launch Template**.
 
     The **AWS CloudFormation create stack** page opens, displaying the template.
 
@@ -73,25 +73,27 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 1. In the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack**.
     
-    This AWS CloudFormation stack creates a role in the master account with the necessary permissions (policies) to collect SCPs and list all the accounts in your organization. A trust policy is set on this role to allow the OIDC role created in your AWS OIDC account to access it. These entities are listed in the **Resources** tab of your CloudFormation stack.
+    This AWS CloudFormation stack creates a role in the master account with the necessary permissions (policies) to collect SCPs and list all the accounts in your organization. 
+
+    A trust policy is set on this role to allow the OIDC role created in your AWS OIDC account to access it. These entities are listed in the **Resources** tab of your CloudFormation stack.
     
 1.  Return to CloudKnox, and in **CloudKnox Onboarding - AWS Master Account Details**, select **Next**.
 
 ### 4. Set up an AWS Central logging account. (Optional but recommended)
 
-1. In the **CloudKnox Onboarding - AWS Central Logging Account Details** page, set up the logging account connection if your organization has a central logging account where logs from some or all of your AWS account are stored.
+1. If your organization has a central logging account where logs from some or all of your AWS account are stored, in the **CloudKnox Onboarding - AWS Central Logging Account Details** page, set up the logging account connection.
 
-    In the **CloudKnox Onboarding - AWS Central Logging Account Details** box, enter the **Logging Account ID** and **Logging Account Role**.
+    In the **CloudKnox Onboarding - AWS Central Logging Account Details** page, enter the **Logging Account ID** and **Logging Account Role**.
     
-1. In another browser window, sign in to the AWS console of your AWS account used for central logging.
+1. In another browser window, sign in to the AWS console for the AWS account you use for central logging.
 
-1.  Return to CloudKnox, and in the **CloudKnox Onboarding - AWS Central Logging Account Details** page select **Launch Template**.
+1.  Return to CloudKnox, and in the **CloudKnox Onboarding - AWS Central Logging Account Details** page, select **Launch Template**.
 
     The **AWS CloudFormation create stack** page opens, displaying the template.
 
 1. Review the information in the template, make changes, if necessary, then scroll to the bottom of the page.
 
-1. In the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack**.
+1. In the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**, and then select **Create stack**.
     
     This AWS CloudFormation stack creates a role in the logging account with the necessary permissions (policies) to read S3 buckets used for central logging. A trust policy is set on this role to allow the OIDC role created in your AWS OIDC account to access it. These entities are listed in the **Resources** tab of your CloudFormation stack.
     
@@ -99,40 +101,36 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
 ### 5. Set up an AWS member account.
 
-1. In the **CloudKnox Onboarding - AWS Member Account Details** box, enter the **Member Account Role** and the **Member Account IDs**. 
+1. In the **CloudKnox Onboarding - AWS Member Account Details** page, enter the **Member Account Role** and the **Member Account IDs**. 
 
-     You can enter up to 10 account IDs. Click the plus icon next to the text box to insert more account IDs.
+     You can enter up to 10 account IDs. Click the plus icon next to the text box to add more account IDs.
 
     > [!NOTE]
     > For each of the accounts entered here perform the next 5 steps.
 
-1. In another browser window, sign in to the AWS console of the member account in another browser window. 
+1. In another browser window, sign in to the AWS console for the member account. 
 
 1. Return to the **CloudKnox Onboarding - AWS Member Account Details** page, select **Launch Template**. 
 
     The **AWS CloudFormation create stack** page opens, displaying the template.
 
-    <!---Insert AWS-template1.jpg, AWS-template2.jpg, AWS-template3.jpg--->
-
-1. In the **CloudTrailBucketName** box, enter a name. 
+1. In the **CloudTrailBucketName** page, enter a name. 
 
     You can copy and paste the **CloudTrailBucketName** name from the **Trails** page in AWS.
 
     > [!NOTE] 
     >  A *cloud bucket* collects all the activity in a single account that CloudKnox monitors. Enter the name of a cloud bucket here to provide CloudKnox with the access required to collect activity data. 
 
-1. In the **EnableController** box, from the drop-down list, select: 
-
-    <!---Mrudula: Add the procedure "to enable/disable the controller after the onboarding."--->
+1. From the **Enable Controller** dropdown, select: 
 
     - **True**, if you want the controller to provide CloudKnox with read and write access so that any remediation you want to do from the CloudKnox platform can be done automatically.
     - **False**, if you want the controller to provide CloudKnox with read-only access.
 
-    <!---Insert AWS-template4.jpg--->
-
 1. Scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack**.
 
-    This AWS CloudFormation stack creates a collection role in the member account with necessary permissions (policies) for data collection. A trust policy is set on this role to allow the OIDC role created in your AWS OIDC account to access it. These entities are listed in the **Resources** tab of your CloudFormation stack. 
+    This AWS CloudFormation stack creates a collection role in the member account with necessary permissions (policies) for data collection. 
+
+    A trust policy is set on this role to allow the OIDC role created in your AWS OIDC account to access it. These entities are listed in the **Resources** tab of your CloudFormation stack. 
 
 1. Return to the CloudKnox, and in the **CloudKnox Onboarding - AWS Member Account Details** page, select **Next**. 
         
@@ -144,26 +142,22 @@ This article describes how to onboard an Amazon Web Services (AWS) account on Cl
 
     The following message appears: **Successfully created configuration.**
 
-    On the **Data Collectors** dashboard, the **Recently Uploaded On** column displays **Collecting** and the **Recently Transformed On** column displays **Processing.** 
+    On the **Data Collectors** dashboard, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.** 
 
-    This step confirms that CloudKnox has started collecting and processing your AWS data.
+    You have now completed onboarding AWS, and CloudKnox has started collecting and processing your data.
 
-### 7. View your data.
+### 7. View the data.
 
-1. To view your data, select the **Authorization Systems** tab. 
+1. To view the data, select the **Authorization Systems** tab. 
 
     The **Status** column in the table displays **Collecting Data.**
 
-    The data collection process takes some time, depending on the size of the account and how much data is available for collection.
+    The data collection process may take some time, depending on the size of the account and how much data is available for collection.
 
 
 ## Next steps
 
 - For information on how to onboard a Microsoft Azure subscription, see [Onboard a Microsoft Azure subscription](cloudknox-onboard-azure.md).
 - For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md).
-- For an overview on CloudKnox, see [What's CloudKnox Permissions Management?](cloudknox-overview.md)
-- For information on how to start viewing information about your authorization system in CloudKnox, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
-
-<!--- - For information on how to enable or disable the controller, see [Enable or disable the controller](cloudknox-onboard-enable-controller.md).
-- For information on how to add an account/subscription/project after onboarding, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md)--->
-
+- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](cloudknox-onboard-enable-controller-after-onboarding.md).
+- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).

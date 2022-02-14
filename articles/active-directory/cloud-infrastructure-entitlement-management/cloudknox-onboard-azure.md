@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/12/2022
 ms.author: v-ydequadros
 ---
 
@@ -27,7 +27,7 @@ This article describes how to onboard a Microsoft Azure subscription or subscrip
 
 To add CloudKnox to your Azure AD tenant:
 - You must have an Azure AD user account, Azure CLI on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
-- You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform the tasks in Step 3. If not, you can ask someone who does to perform these tasks.
+- You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform the tasks in Step 3. If not, you can ask someone who has this permission to perform these tasks for you.
 
 ## Onboard an Azure subscription
 
@@ -43,19 +43,24 @@ To add CloudKnox to your Azure AD tenant:
 	
    > [!NOTE] 
    > To locate the Azure subscription IDs, open the **Subscriptions** page in Azure.
-   > You can enter up to 10 subscriptions IDs. Click the plus icon next to the text box to insert more subscriptions.
+   > You can enter up to 10 subscriptions IDs. Select the plus sign **(+)** icon next to the text box to enter more subscriptions.
 
-1. From the **Scope** drop-down list, select **Subscription** or **Management Group**. The script box displays the role assignment script. 
+1. From the **Scope** dropdown, select **Subscription** or **Management Group**. The script box displays the role assignment script. 
 	
    > [!NOTE] 
-   > Select **Subscription** if you want to assign permissions separately for each individual subscription. The generated script has to be executed once per subscription.
-   > Select **Management Group** if all of your subscriptions are under one management group. The generated script has to be executed once for the management group .
+   > Select **Subscription** if you want to assign permissions separately for each individual subscription. The generated script has to be executed once per subscription. 
+   > Select **Management Group** if all of your subscriptions are under one management group. The generated script must be executed once for the management group.
 
-1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it once for each subscription or once for the whole management group.
+1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it. 
 
-	<!---Add info on how to do this manually.--->
+    You can execute it once for each subscription, or once for the whole management group.
 
-1. Return to **CloudKnox Onboarding - Azure Subscription Details** page, and select **Next**.
+1. From the **Enable Controller** dropdown, select:
+
+    - **True**, if you want the controller to provide CloudKnox with read and write access so that any remediation you want to do from the CloudKnox platform can be done automatically.
+    - **False**, if you want the controller to provide CloudKnox with read-only access.
+
+1. Return to **CloudKnox Onboarding - Azure Subscription Details** page and select **Next**.
 
 ### 2. Review and save.
 
@@ -63,14 +68,13 @@ To add CloudKnox to your Azure AD tenant:
 
     The following message appears: **Successfully Created Configuration.**
 
-    On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting** and the **Recently Transformed On** column displays **Processing.** 
+    On the **Data Collectors** tab, the **Recently Uploaded On** column displays **Collecting**. The **Recently Transformed On** column displays **Processing.** 
 
-    This step confirms that CloudKnox has started collecting and processing your Azure data.
+    You have now completed onboarding Azure, and CloudKnox has started collecting and processing your data.
 
+### 3. View the data.
 
-### 3. View your data.
-
-- To view your data, select the **Authorization Systems** tab. 
+- To view the data, select the **Authorization Systems** tab. 
 
     The **Status** column in the table displays **Collecting Data.**
 
@@ -81,5 +85,7 @@ To add CloudKnox to your Azure AD tenant:
 
 - For information on how to onboard an Amazon Web Services (AWS) account, see [Onboard an Amazon Web Services (AWS) account](cloudknox-onboard-aws.md).
 - For information on how to onboard a Google Cloud Platform (GCP) project, see [Onboard a Google Cloud Platform (GCP) project](cloudknox-onboard-gcp.md).
-- For an overview on CloudKnox, see [What's CloudKnox Permissions Management?](cloudknox-overview.md)
+- For information on how to enable or disable the controller after onboarding is complete, see [Enable or disable the controller](cloudknox-onboard-enable-controller-after-onboarding.md).
+- For information on how to add an account/subscription/project after onboarding is complete, see [Add an account/subscription/project after onboarding is complete](cloudknox-onboard-add-account-after-onboarding.md).
+- For an overview on CloudKnox, see [What's CloudKnox Permissions Management?](cloudknox-overview.md).
 - For information on how to start viewing information about your authorization system in CloudKnox, see [View key statistics and data about your authorization system](cloudknox-ui-dashboard.md).
