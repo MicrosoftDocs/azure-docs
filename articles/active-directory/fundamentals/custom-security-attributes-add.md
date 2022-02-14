@@ -93,9 +93,14 @@ An attribute set is a collection of related attributes. All custom security attr
 
     Select **Yes** to require that this custom security attribute be assigned values from a predefined values list. Select **No** to allow this custom security attribute to be assigned user-defined values or potentially predefined values.
 
-    You can only add the predefined values after you add the custom security attribute by using the Edit attribute page. For more information, see [Edit a custom security attribute](#edit-a-custom-security-attribute).
+1. If **Only allow predefined values to be assigned** is **Yes**, click **Add value** to add predefined values.
 
-1. When finished, click **Add**.
+    An active value is available for assignment to objects. A value that is not active is defined, but not yet available for assignment.
+
+    ![Screenshot of New attribute pane with Add predefined value pane in Azure portal.](./media/custom-security-attributes-add/attribute-new-value-add.png)
+
+
+1. When finished, click **Save**.
 
     The new custom security attribute appears in the list of custom security attributes.
 
@@ -116,8 +121,6 @@ Once you add a new custom security attribute, you can later edit some of the pro
 1. Edit the properties that are enabled.
   
 1. If **Only allow predefined values to be assigned** is **Yes**, click **Add value** to add predefined values. Click an existing predefined value to change the **Is active?** setting.
-
-    An active value is available for assignment to objects. A value that is not active is defined, but not yet available for assignment.
 
     ![Screenshot of Add predefined value pane in Azure portal.](./media/custom-security-attributes-add/attribute-predefined-value-add.png)
 
@@ -428,6 +431,43 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 }
 ```
 
+#### Add a custom security attribute with a list of predefined values
+
+Use the [Create customSecurityAttributeDefinition](/graph/api/directory-post-customsecurityattributedefinitions) API to add a new custom security attribute definition with a list of predefined values.
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Predefined values: `Alpine`, `Baker`, `Cascade`
+
+```http
+POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
+{
+    "attributeSet": "Engineering",
+    "description": "Active projects for user",
+    "isCollection": true,
+    "isSearchable": true,
+    "name": "Project",
+    "status": "Available",
+    "type": "String",
+    "usePreDefinedValuesOnly": true,
+    "allowedValues": [
+        {
+            "id": "Alpine",
+            "isActive": true
+        },
+        {
+            "id": "Baker",
+            "isActive": true
+        },
+        {
+            "id": "Cascade",
+            "isActive": true
+        }
+    ]
+}
+```
+
 #### Update a custom security attribute
 
 Use the [Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update) API to update a custom security attribute definition.
@@ -439,6 +479,35 @@ Use the [Update customSecurityAttributeDefinition](/graph/api/customsecurityattr
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
 {
   "description": "Target completion date (YYYY/MM/DD)",
+}
+```
+
+#### Update the predefined values for a custom security attribute
+
+Use the [Update customSecurityAttributeDefinition](/graph/api/customsecurityattributedefinition-update) API to update the predefined values for a custom security attribute definition.
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Update predefined value: `Baker`
+- New predefined value: `Skagit`
+
+> [!NOTE]
+> For this request, you must add the **OData-Version** header and assign it the value `4.01`.
+
+```http
+PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project
+{
+    "allowedValues@delta": [
+        {
+            "id": "Baker",
+            "isActive": false
+        },
+        {
+            "id": "Skagit",
+            "isActive": true
+        }
+    ]
 }
 ```
 
@@ -517,10 +586,6 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 **Can you delete custom security attribute definitions?**
 
 No, you can't delete custom security attribute definitions. You can only [deactivate custom security attribute definitions](#deactivate-a-custom-security-attribute). Once you deactivate a custom security attribute, it can no longer be applied to the Azure AD objects. Custom security attribute assignments for the deactivated custom security attribute definition are not automatically removed. There is no limit to the number of deactivated custom security attributes. You can have 500 active custom security attribute definitions per tenant with 100 allowed predefined values per custom security attribute definition.
-
-**Can you add predefined values when you add a new custom security attribute?**
-
-Currently, you can only add predefined values after you defined the custom security attribute by using the [Edit attribute page](#edit-a-custom-security-attribute).
 
 ## Next steps
 

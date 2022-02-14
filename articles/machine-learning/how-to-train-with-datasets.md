@@ -316,7 +316,7 @@ myenv.environment_variables = {"AZUREML_DOWNLOAD_CONCURRENCY":64}
 
 To ensure your storage access credentials are linked to the workspace and the associated file datastore, complete the following steps:
 
-1. Navigate to your workspace in the [Azure Portal](https://ms.portal.azure.com).
+1. Navigate to your workspace in the [Azure Portal](https://portal.azure.com).
 1. Select the storage link on the workspace **Overview** page.
 1. On the storage page, select **Access keys** on the left side menu. 
 1. Copy the key.

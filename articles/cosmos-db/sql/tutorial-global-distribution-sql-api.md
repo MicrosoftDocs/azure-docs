@@ -132,7 +132,7 @@ CosmosClient client = new CosmosClient(connectionString, options);
 >
 >
 
-Below is a code example for Node.js/Javascript.
+Below is a code example for Node.js/JavaScript.
 
 ```JavaScript
 // Setting read region selection preference, in the following order -

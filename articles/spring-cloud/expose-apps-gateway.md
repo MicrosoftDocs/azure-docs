@@ -7,7 +7,8 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Expose applications to the internet using Application Gateway
@@ -97,7 +98,7 @@ Next, adapt the policy JSON as shown in the following example, indicating the `s
 }
 ```
 
-After you've finished updating the policy JSON (see [Update Certificate Policy](/rest/api/keyvault/update-certificate-policy/update-certificate-policy)), you can create a self-signed certificate in Key Vault by using the following commands:
+After you've finished updating the policy JSON (see [Update Certificate Policy](/rest/api/keyvault/certificates/update-certificate-policy/update-certificate-policy)), you can create a self-signed certificate in Key Vault by using the following commands:
 
 ```azurecli
 KV_NAME='name-of-key-vault'
