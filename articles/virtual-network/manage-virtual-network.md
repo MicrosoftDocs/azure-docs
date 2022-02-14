@@ -39,7 +39,7 @@ Complete the following tasks before completing steps in any section of this arti
      - 255.255.255.255/32 (Broadcast)
      - 127.0.0.0/8 (Loopback)
      - 169.254.0.0/16 (Link-local)
-     - 168.63.129.16/32 (Internal DNS, DHCP, and Azure Load Balancer [health probe](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
+     - 168.63.129.16/32 (Internal DNS, DHCP, and Azure Load Balancer [health probe](../load-balancer/load-balancer-custom-probe-overview.md#probe-source-ip-address))
 
      Although you can define only one address range when you create the virtual network in the portal, you can add more address ranges to the address space after the virtual network is created. To learn how to add an address range to an existing virtual network, see [Add or remove an address range](#add-or-remove-an-address-range).
 
@@ -106,7 +106,7 @@ You cannot add the following address ranges:
 - 255.255.255.255/32 (Broadcast)
 - 127.0.0.0/8 (Loopback)
 - 169.254.0.0/16 (Link-local)
-- 168.63.129.16/32 (Internal DNS, DHCP, and Azure Load Balancer [health probe](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
+- 168.63.129.16/32 (Internal DNS, DHCP, and Azure Load Balancer [health probe](../load-balancer/load-balancer-custom-probe-overview.md#probe-source-ip-address))
 
 To add or remove an address range:
 

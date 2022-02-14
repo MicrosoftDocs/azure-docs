@@ -35,6 +35,8 @@
     href: path-selection.md
   - name: Multi-region design
     href: multiregion.md
+  - name: IP anycast
+    href: anycast.md
 - name: How-to guides
   items:
   - name: Troubleshoot Route Server issues

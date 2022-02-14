@@ -86,7 +86,6 @@ For more information about pricing, see [Azure Active Directory pricing](https:/
 | |[Azure AD password reset from the login screen for Windows 10](./howto-sspr-windows.md) |
 | FAQ|[Password management frequently asked questions](./active-directory-passwords-faq.yml) |
 
-
 ### Solution architecture
 
 The following example describes the password reset solution architecture for common hybrid environments.
@@ -108,8 +107,6 @@ Note: For users who have [Password hash synchronization (PHS)](../hybrid/whatis-
 You can help users register quickly by deploying SSPR alongside another popular application or service in the organization. This action will generate a large volume of sign-ins and will drive registration.
 
 Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. You can use this data post deployment to show the value SSPR is bringing to the organization.
-
-#### Enable combined registration for SSPR and MFA
 
 ### Combined registration for SSPR and Azure AD Multi-Factor Authentication
 

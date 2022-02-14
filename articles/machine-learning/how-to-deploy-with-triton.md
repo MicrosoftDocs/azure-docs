@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: ssambare
 author: shivanissambare
-ms.custom: deploy, devplatv2
+ms.custom: deploy, devplatv2, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # High-performance serving with Triton Inference Server (Preview) 

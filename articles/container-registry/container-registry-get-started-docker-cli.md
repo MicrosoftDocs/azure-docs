@@ -149,6 +149,9 @@ Remove-AzContainerRegistryManifest -RegistryName myregistry -RepositoryName samp
 ```
 
 ---
+## Recommendations
+
+Here you can find more information on the [authentication options](../container-registry/container-registry-authentication.md).
 
 ## Next steps
 

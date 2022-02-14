@@ -76,6 +76,8 @@ If your global admin account has multifactor authentication enabled, you provide
 
 The global admin account can also have [privileged identity management](../privileged-identity-management/pim-getting-started.md) enabled.
 
+To use authentication support for non-password scenarios such as federated accounts, smartcards and MFA scenarios, you can provide the switch **/InteractiveAuth** when starting the wizard. Using this switch will bypass the Wizard's authentication user interface and use the MSAL library's UI to handle the authentication.
+
 If you see an error or have problems with connectivity, then see [Troubleshoot connectivity problems](tshoot-connect-connectivity.md).
 
 ## Sync pages
