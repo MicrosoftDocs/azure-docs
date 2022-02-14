@@ -19,7 +19,7 @@ sections:
       - question: |
           What're the different alerting solutions that Azure Backup provides?
         answer: |
-          Azure Backup supports multiple alerting options - built-in Azure Monitor alerts, Azure Monitor metric alerts, custom-log alerts, and classic alerts. If you are currently using classic alerts, we recommend you to start using Azure Monitor based alerts as they provide multiple benefits. [Learn more about the different alerting options provided by Azure Backup](monitoring-and-alerts-overview.md).
+          Azure Backup supports multiple alerting options - built-in Azure Monitor alerts, Azure Monitor metric alerts, custom-log alerts, and classic alerts. If you're currently using classic alerts, we recommend you to start using Azure Monitor based alerts as they provide multiple benefits. [Learn more about the different alerting options provided by Azure Backup](monitoring-and-alerts-overview.md).
 
       - question: |
           Are there any costs to use built-in Azure Monitor alerts for Azure Backup?

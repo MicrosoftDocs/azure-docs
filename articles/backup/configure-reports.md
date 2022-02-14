@@ -189,7 +189,7 @@ If you use [Azure Lighthouse](../lighthouse/index.yml) with delegated access to 
 - If the selected time range spans a period of 30 days of less, charts are rendered in daily view, where there is one data point for every day. If the time range spans a period greater than 30 days and less than (or equal to) 90 days, charts are rendered in weekly view. For larger time ranges, charts are rendered in monthly view. Aggregating data weekly or monthly helps in better performance of queries and easier readability of data in charts.
 - The Policy Adherence grids also follow a similar aggregation logic as described above. However, there are a couple of minor differences. The first difference is that for items with weekly backup policy, there is no daily view (only weekly and monthly views are available). Further, in the grids for items with weekly backup policy, a 'month' is considered as a 4-week period (28 days), and not 30 days, to eliminate partial weeks from consideration.
 
-## Troubleshooting
+## How to troubleshoot?
 
 If you observe data discrepancy issues in Backup Reports, perform these preliminary checks:
 
@@ -199,8 +199,11 @@ If you observe data discrepancy issues in Backup Reports, perform these prelimin
 
    - After you configure diagnostics, it might take up to 24 hours for the initial data push to complete. After data starts flowing into the Log Analytics workspace, you might not see data in the reports immediately because data for the current partial day isn't shown in the reports. We recommend you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
    - SQL log backup jobs are currently not displayed in Backup Reports.
-   - As mentioned above, the reports don't show data for the current partial day, and take only full days (UTC) into consideration. For example, in the report, even if you select a time range of 23/3 4:30 PM – 24/3 10:00 AM, internally the query runs for the period 23/3 12:00 AM UTC – 24/3 11:59 PM UTC. This meaning that the time component of the datetime is overridden by the query.
-   - Similarly, if today's date is March 29, data is only shown upto the end (11:59 pm UTC) of March 28. For jobs that were created on March 29, you can see them when you check the reports on the next day, that is, March 30.
+   - As mentioned above, the reports don't show data for the current partial day, and take only full days (UTC) into consideration.
+
+     For example, in the report, even if you select a time range of 23/3 4:30 PM – 24/3 10:00 AM, internally the query runs for the period 23/3 12:00 AM UTC – 24/3 11:59 PM UTC. This meaning that the time component of the datetime is overridden by the query.
+
+     Similarly, if today's date is March 29, data is only shown upto the end (11:59 pm UTC) of March 28. For jobs that were created on March 29, you can see them when you check the reports on the next day, that is, March 30.
 
 If none of the above explains the data seen in the report, please contact Microsoft Support.
 
