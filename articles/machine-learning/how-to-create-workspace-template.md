@@ -450,17 +450,17 @@ To deploy a workspace with existing associated resources you have to set the **v
 1. Enable service endpoints for the resources.
 
   # [Azure CLI](#tab/azcli)
-  
+    
   [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
-  
+    
   ```azurecli
   az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.Storage"
   az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.KeyVault"
   az network vnet subnet update --resource-group "examplegroup" --vnet-name "examplevnet" --name "examplesubnet" --service-endpoints "Microsoft.ContainerRegistry"
-    ```
-    
+  ```
+      
   # [Azure PowerShell](#tab/azpowershell)
-  
+    
   ```azurepowershell
   Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
   Get-AzVirtualNetwork -ResourceGroupName "examplegroup" -Name "examplevnet" | Set-AzVirtualNetworkSubnetConfig -Name "examplesubnet" -AddressPrefix "<subnet prefix>" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
