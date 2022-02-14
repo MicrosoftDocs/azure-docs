@@ -94,7 +94,7 @@ This section describes how to define users. Cyberx, support, and administrator u
    - **Access Group**: If you're creating a user for the on-premises management console, define the user's access group. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
    - **Password**: Select the user type as follows:
      - **Local User**: Define a password for the user of a sensor or an on-premises management console. Password must have at least eight characters and contain lowercase and uppercase- alphabetic characters, numbers, and symbols.
-     - **Active Directory User**: You can allow users to sign in to the sensor or management console by using Active Directory credentials. Defined Active Directory groups can be associated with specific permission levels. For example, configure a specific Active Directory group and assign all users in the group to the Read-only user type.
+     - **Active Directory User**: You can allow users to sign in to the sensor or management console by using Azure Active Directory credentials. Defined Azure Active Directory groups can be associated with specific permission levels. For example, configure a specific Azure Active Directory group and assign all users in the group to the Read-only user type.
 
 
 ## User session timeout
@@ -142,7 +142,7 @@ You can track user activity in the event timeline on each sensor. The timeline d
 
 1. Verify that  **User Operations** filter is set to **Show**.  
 
-:::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Event timeline showing user that signed in ti Defender for IoT":::
+   :::image type="content" source="media/how-to-create-and-manage-users/track-user-activity.png" alt-text="Event timeline showing user that signed in to Defender for IoT":::
 
 1. Use the filters or Ctrl F option to find the information of interest to you.
 
@@ -159,21 +159,21 @@ Two types of LDAP-based authentication are supported:
 
 - **Trusted user**: Only the user password is retrieved. Other user details that are retrieved are based on users defined in the sensor.
 
-### Active Directory and Defender for IoT permissions
+### Azure Active Directory and Defender for IoT permissions
 
-You can associate Active Directory groups defined here with specific permission levels. For example, configure a specific Active Directory group and assign Read-only permissions to all users in the group.
+You can associate Azure Active Directory groups defined here with specific permission levels. For example, configure a specific Azure Active Directory group and assign Read-only permissions to all users in the group.
 
-### Active Directory configuration guidelines
+### Azure Active Directory configuration guidelines
 
-- You must define the LDAP parameters here exactly as they appear in Active Directory.
-- For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
+- You must define the LDAP parameters here exactly as they appear in Azure Active Directory.
+- For all the Azure Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Azure Active Directory use uppercase.
 - You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
 
-**To configure Active Directory**:
+**To configure Azure Active Directory**:
 
 1. From the left pane, select **System Settings**.
 1. Select **Integrations** and then select **Active Directory**.
-:::image type="content" source="media/how-to-create-and-manage-users/active-directory-configuration.png" alt-text="Active Directory configuration dialog box":::
+:::image type="content" source="media/how-to-create-and-manage-users/active-directory-configuration.png" alt-text="Azure Active Directory configuration dialog box":::
 
 1. Enable the **Active Directory Integration Enabled** toggle.
 
@@ -184,12 +184,12 @@ You can associate Active Directory groups defined here with specific permission 
    | Domain controller FQDN | Set the fully qualified domain name (FQDN) exactly as it appears on your LDAP server. For example, enter `host1.subdomain.domain.com`. |
    | Domain controller port | Define the port on which your LDAP is configured. |
    | Primary domain | Set the domain name (for example, `subdomain.domain.com`) and the connection type according to your LDAP configuration. |
-   | Active Directory groups | Enter the group names that are defined in your Active Directory configuration on the LDAP server. You can enter a group name that you'll associate with Admin, Security Analyst and Read-only permission levels. Use these groups when creating new sensor users.|
+   | Azure Active Directory groups | Enter the group names that are defined in your Azure Active Directory configuration on the LDAP server. You can enter a group name that you'll associate with Admin, Security Analyst and Read-only permission levels. Use these groups when creating new sensor users.|
    | Trusted domains | To add a trusted domain, add the domain name and the connection type of a trusted domain. <br />You can configure trusted domains only for users who were defined under users. |
 
-#### ActiveDirectory Groups for the On-premises management console
+#### Azure Active Directory groups for the On-premises management console
 
-If you're  creating Active Directory groups for on-premises management console users, you must create an Access Group rule for each Active Directory group. On-premises management console Active Directory credentials won't work if an Access Group rule doesn't exist for the Active Directory user group. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
+If you're creating Azure Active Directory groups for on-premises management console users, you must create an Access Group rule for each Azure Active Directory group. On-premises management console Azure Active Directory credentials won't work if an Access Group rule doesn't exist for the Azure Active Directory user group. For more information, see [Define global access control](how-to-define-global-user-access-control.md).
 
 1. Select **Save**.
 
@@ -205,7 +205,7 @@ The Administrator can change the password for the Security Analyst, and Read-onl
 
 **Security Analyst and Read-only users**
 
-The Security Analyst and Read-only roles can‘t reset their, or any other role's passwords. The Security Analyst, and Read-only roles need to contact a user with a higher role level to have their passwords reset. The 
+The Security Analyst and Read-only roles can't reset their or any other role's passwords. The Security Analyst and Read-only roles need to contact a user with a higher role level to have their passwords reset.
 
 **CyberX and Support users**
 
@@ -217,11 +217,11 @@ CyberX role can change the password for all user roles. The Support role can cha
 
 1. Select **Users** from the left-hand panel.
 
-1. Locate the local user whose password needs to be changes.
+1. Locate the local user whose password needs to be changed.
     
 1. On this row, select three dots (...) and then select **Edit**.
 
-:::image type="content" source="media/how-to-create-and-manage-users/change-password.png" alt-text="Change password dialog for local sensor users":::
+   :::image type="content" source="media/how-to-create-and-manage-users/change-password.png" alt-text="Change password dialog for local sensor users":::
 
 1. Enter and confirm the new password in **Change Password** section.
 
@@ -269,7 +269,7 @@ You can recover the password for the on-premises management console, or the sens
 
 1. Enter the unique identifier that you received on the **Password recovery** screen and select **Recover**. The `password_recovery.zip` file is downloaded.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/enter-identifier.png" alt-text="Enter the unique identifier and then select recover." lightbox="media/how-to-create-and-manage-users/enter-identifier.png":::
 
     > [!NOTE]
     > Don't alter the password recovery file. It's a signed file, and will not work if tampered with.
