@@ -334,9 +334,9 @@ Get-AzSqlDatabaseActivity -ResourceGroupName $resourceGroupName -ServerName $ser
 
 # [Transact-SQL](#tab/t-sql)
 
-To monitor operations for a Hyperscale database, first connect to the master database on your [logical SQL server](logical-servers.md) using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or the client of your choice to run Transact-SQL commands.
+To monitor operations for a Hyperscale database, first connect to the master database on your [logical server](logical-servers.md) using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or the client of your choice to run Transact-SQL commands.
 
-Query the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) Dynamic Management View to review information about recent operations performed on databases in an Azure SQL Database server.
+Query the [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) Dynamic Management View to review information about recent operations performed on databases on your [logical server](logical-servers.md]. 
 
 This code sample returns all entires in `sys.dm_operation_status` for the specified database, sorted by which operations began most recently. Replace the database name with the appropriate value before running the code sample.
 
@@ -356,18 +356,18 @@ After migrating a database to Hyperscale or reconfiguring a database within the 
 
 # [Portal](#tab/azure-portal)
 
-The Azure portal shows a list of all databases on a [logical SQL server](logical-servers.md). The **Pricing tier** column includes the service tier for each database.
+The Azure portal shows a list of all databases on a [logical server](logical-servers.md). The **Pricing tier** column includes the service tier for each database.
 
-:::image type="content" source="media/manage-hyperscale-database/database-list-azure-portal.png" alt-text="The overview panel of a logical SQL server in Azure SQL Database. A list of databases appears at the bottom of the panel." lightbox="media/manage-hyperscale-database/database-list-azure-portal.png":::
+:::image type="content" source="media/manage-hyperscale-database/database-list-azure-portal.png" alt-text="The overview panel of a logical server in Azure SQL Database. A list of databases appears at the bottom of the panel." lightbox="media/manage-hyperscale-database/database-list-azure-portal.png":::
 
-1. Navigate to your [logical SQL server](logical-servers.md) in the Azure portal.
+1. Navigate to your [logical server](logical-servers.md) in the Azure portal.
 1. In the left navigation bar, select **Overview**.
-1. Scroll to the list of resources at the bottom of the pane. The window will display SQL elastic pools and databases on the logical SQL server.
+1. Scroll to the list of resources at the bottom of the pane. The window will display SQL elastic pools and databases on the logical server.
 1. Review the **Pricing tier** column to identify databases in the Hyperscale service tier.
 
 # [Azure CLI](#tab/azure-cli)
 
-This code sample calls [az sql db list](/cli/azure/sql/db/op#az-sql-db-list) to list Hyperscale databases on a [logical SQL server](logical-servers.md) with their name, location, service level objective, maximum size, and number of high availability replicas.
+This Azure CLI code sample calls [az sql db list](/cli/azure/sql/db/op#az-sql-db-list) to list Hyperscale databases on a [logical server](logical-servers.md) with their name, location, service level objective, maximum size, and number of high availability replicas.
 
 Replace `resourceGroupName` and `serverName` with the appropriate values before running the following code sample:
 
@@ -381,7 +381,7 @@ az sql db list -g $resourceGroupName -s $serverName --query "[].{Name:name, Loca
 
 # [PowerShell](#tab/azure-powershell)
 
-The [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) cmdlet returns a list of Hyperscale databases on a [logical SQL server](logical-servers.md) with their name, location, service level objective, maximum size, and number of high availability replicas.
+The Azure PowerShell [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) cmdlet returns a list of Hyperscale databases on a [logical server](logical-servers.md) with their name, location, service level objective, maximum size, and number of high availability replicas.
 
 Set the `$resourceGroupName` and `$serverName` parameters to the appropriate values before running the sample code:
 
@@ -401,7 +401,7 @@ Review the **Edition** column to identify databases in the Hyperscale service ti
 
 # [Transact-SQL](#tab/t-sql)
 
-To review the service tiers of all Hyperscale databases on a [logical SQL server](logical-servers.md) with Transact-SQL, first connect to the master database using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
+To review the service tiers of all Hyperscale databases on a [logical server](logical-servers.md) with Transact-SQL, first connect to the master database using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
 Query the [sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database) system catalog view to review databases in the Hyperscale service tier:
 
