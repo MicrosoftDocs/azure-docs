@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 The network normalization schema is used to describe reported network events, and is used by Microsoft Sentinel to enable unifying analytics.
 
-For more information, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > This article relates to version 0.1 of the network normalization schema, which was released as a preview before ASIM was available. [Version 0.2](network-normalization-schema.md) of the network normalization schema aligns with ASIM and provides other enhancements.
