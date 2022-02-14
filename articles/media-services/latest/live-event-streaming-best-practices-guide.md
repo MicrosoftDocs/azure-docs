@@ -21,8 +21,7 @@ should consider.
 
 1. Delays on the contribution encoder side. When customers use an
     encoding software such as OBS Studio, Wirecast, or others to send an
-    RTMP live stream to Media Services. Settings on this piece of
-    software is critical in affecting the end-to-end latency of a live
+    RTMP live stream to Media Services. Settings on this software is critical in affecting the end-to-end latency of a live
     stream.
 
 2. Delays in the live streaming pipeline within Azure Media Services.
@@ -42,7 +41,7 @@ recommendations for the settings that would give you the lowest possible
 latency:
 
 1. **Pick the same region physically** **closest to your contribution
-    encoder for your Media Services account.** Doing this will ensure
+    encoder for your Media Services account.** This will ensure
     that you have a great network connection to the Media Services
     account.
 
@@ -54,16 +53,16 @@ latency:
     that.** This would allow you to offload CPU work to the GPU.
 
 4. **Use an encoding profile that is optimized for low-latency.** For
-    example, with OBS Studio, if you use the NVidia H.264 encoder, you
-    may see the “zerolatency” preset.
+    example, with OBS Studio, if you use the Nvidia H.264 encoder, you
+    may see the “zero latency” preset.
 
 5. **Send content that is no higher in resolution than what you plan to
-    stream.** For example, if you are using 720p standard encoding live
+    stream.** For example, if you're using 720p standard encoding live
     events, you send files that are already at 720p.
 
 6. **Keep your framerate at 30fps or lower unless using pass-through
-    live events.** While we support 60fps input for live events, our
-    encoding live event output is still not above 30fps.
+    live events.** While we support 60 fps input for live events, our
+    encoding live event output is still not above 30 fps.
 
 ## Configuration of the Azure Media Services live event
 
@@ -81,7 +80,7 @@ our pipeline:
     | MPEG-DASH CMAF (recommended) | format=mpd-time-cmaf | https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf) |
 
 3. **If you must choose TS output, use an HLS packing ratio of 1.** This
-allows us to pack only one fragment into one HLS segment. You will not
+allows us to pack only one fragment into one HLS segment. You won't
 get the full benefits of LL-HLS in native Apple players. 
 
 ## Player optimizations
@@ -107,17 +106,15 @@ Streaming endpoints are the origin servers that deliver the live and VOD
 streaming content to the CDN or to the customer directly. If a live
 event expects a large audience, or the audience is geographically
 located far away from the streaming endpoint (origin) serving the
-content, it is *important* for the customer to shield the origin using a
+content, it's *important* for the customer to shield the origin using a
 Content Delivery Network (CDN).
 
 We recommend using Azure CDN which is provided by Verizon (Standard or
-Premium). We have optimized the integration experience so that a
-customer could configure this CDN with a single click in the Azure
-Portal. Be sure to turn on Origin Shield and Streaming Optimizations for
+Premium). We've optimized the integration experience so that a
+customer could configure this CDN with a single select in the Azure portal. Be sure to turn on Origin Shield and Streaming Optimizations for
 your CDN endpoint whenever you start your streaming endpoint.
 
-Our customers also have good experiences bringing their own CDN. Please
-ensure that measures are taken on the CDN to shield the origin from
+Our customers also have good experiences bringing their own CDN. Ensure that measures are taken on the CDN to shield the origin from
 excessive traffic.
 
 ## Streaming endpoint scaling
@@ -159,8 +156,8 @@ x percent* *handled by the streaming endpoint.*
 Let’s take a look at each of the multipliers in turn.
 
 **Average bandwidth.** What is the *average* bitrate you plan to stream?
-In other words, if you are going to have multiple bitrates available
-what bit rate is the average of all the bitrates you are planning for?
+In other words, if you're going to have multiple bitrates available
+what bit rate is the average of all the bitrates you're planning for?
 You can estimate this using one of the following methods:
 
 For a live event that *includes encoding*:
@@ -173,7 +170,7 @@ For a live event that *includes encoding*:
 
   - Look at the encoding preset used for encoding the live event, for
     example, the AdaptiveStreaming(H.264) preset. See this [output
-    example](https://docs.microsoft.com/azure/media-services/latest/encode-autogen-bitrate-ladder#output).
+    example](encode-autogen-bitrate-ladder.md#output).
 
 For a live event that is simply using pass-through and not encoding:
 
@@ -200,9 +197,9 @@ Percentage of traffic not handled by the CDN / 200 Mbps
 
 ### Example
 
-You have recently released a new product and want to present it to your
+You've recently released a new product and want to present it to your
 established customers. You want low latency because you don’t want to
-frustrate your already busy audience, so you will use premium streaming
+frustrate your already busy audience, so you'll use premium streaming
 endpoints and a CDN.
 
 You have approximately 100,000 customers, but they probably aren’t all
@@ -212,11 +209,11 @@ of them will attend, which brings your expected concurrent viewers to
 
 *Number of concurrent users =* *1,000*
 
-You have decided that you are going to use Media Services to encode your
-live stream and will not be using pass-through. You don’t know what the
-average bandwidth is going to be, but you do know that you will deliver
-in 1080p (*top* bitrate of 5.5Mbps), so your *average* bandwidth is
-estimated to be 3.5Mbps for your calculations.
+You've decided that you're going to use Media Services to encode your
+live stream and won't be using pass-through. You don’t know what the
+average bandwidth is going to be, but you do know that you'll deliver
+in 1080p (*top* bitrate of 5.5 Mbps), so your *average* bandwidth is
+estimated to be 3.5 Mbps for your calculations.
 
 *Average bandwidth =* *3.5*
 
@@ -242,7 +239,7 @@ premium streaming units.
 
 *premium streaming units needed* = 1.75
 
-We will round up this number to 2, giving us 2 units needed.
+We'll round up this number to 2, giving us 2 units needed.
 
 ### Use the portal to estimate your needs
 
@@ -251,48 +248,45 @@ streaming page, you can use the calculator provided to see the estimated
 audience reach when you change the average bandwidth, CDN hit ratio and
 number of streaming units. 
 
-1. From the media services account page, select Steaming endpoints from
+1. From the media services account page, select **Steaming endpoints** from
     the menu.
 
-2. Add a new streaming endpoint by selecting Add streaming endpoint.
+2. Add a new streaming endpoint by selecting **Add streaming endpoint**.
 
 3. Give the streaming endpoint a name.
 
-4. Select Premium streaming endpoint for the streaming endpoint type.
+4. Select **Premium streaming endpoint** for the streaming endpoint type.
 
-5. Since you are just getting an estimate at this point, don’t start
-    the streaming endpoint after creation. Select No.
+5. Since you're just getting an estimate at this point, don’t start
+    the streaming endpoint after creation. Select **No**.
 
-6. Select Standard Verizon or Premium Verizon for your CDN pricing
+6. Select *Standard Verizon* or *Premium Verizon* for your CDN pricing
     tier. The profile name will change accordingly. Leave the name as it
     is for this exercise.
 
-7. For the CDN profile, select Create New.
+7. For the CDN profile, select **Create New**.
 
-8. Select Create. Once the endpoint has been deployed, the streaming
+8. Select **Create**. Once the endpoint has been deployed, the streaming
     endpoints screen will appear.
 
 9. Select the streaming endpoint you just created. The streaming
     endpoint screen will appear with audience reach estimates.
 
 10. The default setting for the streaming endpoint with 1 streaming unit
-    shows that it is estimated to stream to 571 concurrent viewers at
-    3.5Mbps using 90% of the CDN and 10% of the streaming endpoint.
+    shows that it's estimated to stream to 571 concurrent viewers at
+    3.5 Mbps using 90% of the CDN and 10% of the streaming endpoint.
 
-![Graphical user interface, application Description automatically
-generated](media/image1.png)
+11. Change the percentage of the **Egress source** from 90% from CDN cache
+    to 0%. The calculator will estimate that you'll be able to stream
+    to 57 concurrent viewers at 3.5 Mbps at 200 Mbps **without** a CDN.
 
-11. Change the percentage of the Egress source from 90% from CDN cache
-    to 0%. The calculator will estimate that you will be able to stream
-    to 57 concurrent viewers at 3.5Mbps at 200Mbps **without** a CDN.
+12. Now change the **Egress source** back to 90%.
 
-12. Now change the Egress source back to 90%.
+13. Then, change the **streaming units** to 2. The calculator will estimate
+    that you'll be able to stream to 1143 concurrent viewers at
+    3.5 Mbps with 4000Mpbs with the CDN handling 90% of the traffic.
 
-13. Then, change the streaming units to 2. The calculator will estimate
-    that you will be able to stream to 1143 concurrent viewers at
-    3.5Mbps with 4000Mpbs with the CDN handling 90% of the traffic.
-
-14. Select Save.
+14. Select **Save**.
 
 15. You can start the streaming endpoint and try sending traffic to it.
     The metrics at the bottom of the screen will track actual traffic.
