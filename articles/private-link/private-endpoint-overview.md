@@ -18,16 +18,17 @@ The service could be an Azure service such as:
 * Azure Storage
 * Azure Cosmos DB
 * Azure SQL Database
-* Your own service, using a [Private Link service](private-link-service-overview.md).
+* Your own service, using [Private Link service](private-link-service-overview.md).
   
 ## Private endpoint properties 
- A private endpoint specifies the following properties: 
+
+A private endpoint specifies the following properties: 
 
 |Property  |Description |
 |---------|---------|
 |Name    |    A unique name within the resource group.      |
 |Subnet    |  The subnet to deploy, where the private IP address is assigned. For subnet requirements, see the [Limitations](#limitations) section later in this article.         |
-|Private link resource    |   The private-link resource to connect by using a resource ID or alias, from the list of available types. A unique network identifier is generated for all traffic that's sent to this resource.       |
+|Private-link resource    |   The private-link resource to connect by using a resource ID or alias, from the list of available types. A unique network identifier is generated for all traffic that's sent to this resource.       |
 |Target subresource   |      The subresource to connect. Each private-link resource type has various options to select based on preference.    |
 |Connection approval method    |  Automatic or manual. Depending on the Azure role-based access control (RBAC) permissions, your private endpoint can be approved automatically. If you're connecting to a private-link resource without Azure RBAC permissions, use the manual method to allow the owner of the resource to approve the connection.        |
 |Request message     |  You can specify a message for requested connections to be approved manually. This message can be used to identify a specific request.        |
@@ -57,10 +58,8 @@ As you're creating private endpoints, consider the following:
 
 - The subscription from the private-link resource must also be registered with the Microsoft network resource provider. For more information, see [Azure Resource Providers](../azure-resource-manager/management/resource-providers-and-types.md).
  
-## Private-link resources 
-A private-link resource is the destination target of a specified private endpoint. 
-
-The following table lists the available resources that support a private endpoint: 
+## Private-link resource 
+A private-link resource is the destination target of a specified private endpoint. The following table lists the available resources that support a private endpoint: 
  
 | Private-link resource&nbsp;name | Resource type | Subresources |
 | ---------------------------| ------------- | ------------- |
@@ -90,7 +89,7 @@ The following table lists the available resources that support a private endpoin
 | Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | amlworkspace |
 | Azure Migrate | Microsoft.Migrate/assessmentProjects | project |
 | Application Gateway | Microsoft.Network/applicationgateways | application gateway |
-| Private Link Service (your own service) |  Microsoft.Network/privateLinkServices | empty |
+| Private Link service (your own service) |  Microsoft.Network/privateLinkServices | empty |
 | Power BI | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
 | Azure Purview | Microsoft.Purview/accounts | account |
 | Azure Purview | Microsoft.Purview/accounts | portal |
@@ -115,7 +114,7 @@ When you use private endpoints, traffic is secured to a private-link resource. T
  
 You can completely lock down your workloads to prevent them from accessing public endpoints to connect to a supported Azure service. This control provides an extra network security layer to your resources, and this security provides protection that helps prevent access to other resources that are hosted on the same Azure service. 
  
-## Access private-link resources by using an approval workflow 
+## Access to a private-link resource using approval workflow 
 
 You can connect to a private-link resource by using the following connection approval methods:
 
@@ -139,13 +138,20 @@ Over a private-endpoint connection, a private-link resource owner can:
 
 ### Connect by using an alias
 
-An alias is a unique moniker that's generated when a service owner creates a private-link service behind a standard load balancer. Service owners can share this alias with their customers offline. 
+An alias is a unique moniker that's generated when a service owner creates a private-link service behind a standard load balancer. Service owners can share this alias offline with consumers of your service. 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 The customers can request a connection to a private-link service by using either the resource URI or the alias. To connect by using the alias, you must create a private endpoint by using the manual connection approval method. To use the manual connection approval method, set the manual request parameter to `true` during the private endpoint creation workflow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
 =======
 Consumers can request a connection to private link service using either the resource URI or the alias. If you want to connect using the alias, you must create a private endpoint using the manual connection approval method. For using manual connection approval method, set manual request parameter to true during private endpoint create flow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create). Note that this manual request can be auto approved if the consumer subscription is allowlisted on the provider side. To learn more, navigate to [controlling service access](/azure/private-link/private-link-service-overview#control-service-access).
 >>>>>>> ba80e2288804a4725e813a5c4bc28c0fdb99ebbd
+=======
+The consumers can request a connection to a private-link service by using either the resource URI or the alias. To connect by using the alias, they would create a private endpoint by using the manual connection approval method. To use the manual connection approval method, they would set the manual request parameter to *True* during the private-endpoint creation workflow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
+                                     
+> [!NOTE]
+> This manual request can be auto approved if your subscription is allow-listed on the provider side. To learn more, go to [controlling service access](/azure/private-link/private-link-service-overview#control-service-access).                                     
+>>>>>>> 747d9c2881a8981eb546358c4569f79252823f75
 
 ## DNS configuration
 
