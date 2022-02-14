@@ -23,7 +23,7 @@ The Azure portal is a single platform you can use to create and manage Azure ser
 
 Let's get started:
 
-1. Navigate to the Azure portal home page: [Azure home page](https://ms.portal.azure.com/#home).
+1. Navigate to the Azure portal home page: [Azure home page](https://portal.azure.com/#home).
 
 1. Select **Create a resource** from the Azure home page.
 

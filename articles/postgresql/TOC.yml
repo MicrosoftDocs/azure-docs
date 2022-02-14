@@ -611,18 +611,11 @@
   - name: Quickstart
     items:
     - name: Create server group
-      items:
-      - name: Azure portal
-        href: hyperscale/quickstart-create-portal.md
-        displayName: portal, create hyperscale
+      href: hyperscale/quickstart-create-portal.md
     - name: Connect
-      items:
-      - name: psql
-        href: hyperscale/quickstart-connect-psql.md
+      href: hyperscale/quickstart-connect-psql.md
     - name: Model and load data
-      items:
-      - name: Create and distribute tables
-        href: hyperscale/quickstart-distribute-tables.md
+      href: hyperscale/quickstart-distribute-tables.md
     - name: Run queries
       href: hyperscale/quickstart-run-queries.md
   - name: Tutorials

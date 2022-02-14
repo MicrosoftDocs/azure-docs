@@ -148,4 +148,4 @@ Within a few seconds, you should receive an initial response from Azure. A succe
 [az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
 
 <!-- LINKS - External -->
-[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
+[azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

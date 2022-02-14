@@ -25,6 +25,14 @@ For example, consider an environment with a set of virtual machines running a li
 
 ![Diagram shows virtual machines hosting line of business application and SQL Server associated with data collection rules named central-i t-default and lob-app for line of business application and central-i t-default and s q l for SQL Server.](media/data-collection-rule-azure-monitor-agent/associations.png)
 
+## Permissions required to create data collection rules and associations
+When using programmatic methods to create data collection rules and associations (i.e. mehtods other than Azure portal), you require the below permissions:  
+
+| Built-in Role | Scope(s) | Reason |  
+|:---|:---|:---|  
+| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | To create or edit data collection rules |
+| <ul><li>[Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)</li><li>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Arc-enabled servers</li></ul> | To deploy associations (i.e. to assign rules to the machine) |
+| Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | To deploy ARM templates |
 
 
 ## Create rule and association in Azure portal
@@ -64,7 +72,7 @@ To specify other logs and performance counters from the [currently supported dat
 
 [![Data source custom](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png#lightbox)
 
-On the **Destination** tab, add one or more destinations for the data source. Windows event and Syslog data sources can only send to Azure Monitor Logs. Performance counters can send to both Azure Monitor Metrics and Azure Monitor Logs.
+On the **Destination** tab, add one or more destinations for the data source. You can select multiple destinations of same of different types, for instance multiple Log Analytics workspaces (i.e. "multi-homing"). Windows event and Syslog data sources can only send to Azure Monitor Logs. Performance counters can send to both Azure Monitor Metrics and Azure Monitor Logs.
 
 [![Destination](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-destination.png#lightbox)
 

@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/29/2021
+ms.date: 02/07/2022
 ---
 
 # String functions for Bicep
@@ -471,6 +471,13 @@ This function is helpful when you need to create a value in the format of a glob
 
 The returned value isn't a random string, but rather the result of a hash function on the parameters. The returned value is 36 characters long. It isn't globally unique. To create a new GUID that isn't based on that hash value of the parameters, use the [newGuid](#newguid) function.
 
+> [!NOTE]
+> The order of the parameters affects the returned value. For example:
+>
+> `guid('hello', 'world')` and `guid('world', 'hello')`
+>
+> don't return the same value.
+
 The following examples show how to use guid to create a unique value for commonly used levels.
 
 Unique scoped to subscription
@@ -494,9 +501,6 @@ guid(resourceGroup().id, deployment().name)
 ### Return value
 
 A string containing 36 characters in the format of a globally unique identifier.
-
-> [!NOTE]
-> Importance of order: It is not just the same parameters, they need to be in the same order. For example: `guid('hello', 'world') != guid('world', 'hello')`
 
 ### Examples
 

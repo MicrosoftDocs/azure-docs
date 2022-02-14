@@ -260,12 +260,12 @@
     - name: Create custom guest configuration definitions
       displayName: powershell, dsc
       href: ./how-to/guest-configuration-create-definition.md
-    - name: Create a guest configuration definition from Group Policy
-      displayName: powershell, dsc, grouppolicy, windows
-      href: ./how-to/guest-configuration-create-group-policy.md
     - name: Azure Automation state configuration to guest configuration migration planning
       displayName: powershell, dsc, automation
       href: ./how-to/guest-configuration-azure-automation-migration.md
+    - name: Planning a change from Desired State Configuration extension for Linux to guest configuration
+      displayname: powershell, dsc, extension
+      href: ./how-to/guest-configuration-desired-state-configuration-extension-migration.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
