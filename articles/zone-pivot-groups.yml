@@ -1644,7 +1644,7 @@ groups:
   - id: azure-sql-single-db
     title: Single database
   - id: azure-sql-elastic-pool
-    title: Pooled database (elastic pool)
+    title: Elastic pool
 # Owner: karler
 - id: spring-cloud-tier-selection
   title: Azure Spring Cloud tier

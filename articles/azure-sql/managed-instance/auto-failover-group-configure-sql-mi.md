@@ -22,33 +22,6 @@ ms.date: 02/24/2022
 This topic teaches you how to configure an [auto-failover group](auto-failover-group-sql-mi.md) for Azure SQL Managed Instance using the Azure portal and Azure PowerShell.
 
 
-## Permissions
-
-
-<!--
-There is some overlap of content in the following articles, be sure to make changes to all if necessary:
-/azure-sql/auto-failover-group-overview.md
-/azure-sql/database/auto-failover-group-sql-db.md
-/azure-sql/database/auto-failover-group-configure-sql-db.md
-/azure-sql/managed-instance/auto-failover-group-sql-mi.md
-/azure-sql/managed-instance/auto-failover-group-configure-sql-mi.md
--->
-
-Permissions for a failover group are managed via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). 
-
-Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
-
-The following table lists specific permission scopes for Azure SQL Managed Instance: 
-
-| **Action** | **Permission** | **Scope**|
-| :---- | :---- | :---- | 
-|**Create failover group**| Azure RBAC write access | Primary managed instance </br> Secondary managed instance|
-| **Update failover group** Azure RBAC write access | Failover group </br> All databases within the managed instance|
-| **Fail over failover group** | Azure RBAC write access | Failover group on new primary managed instance |
-| | | 
-
-
-
 ## Prerequisites
 
 Consider the following prerequisites:
@@ -428,6 +401,30 @@ When you set up a failover group between primary and secondary SQL Managed Insta
    > [!NOTE]
    > For a detailed tutorial on configuring failover groups with SQL Managed Instance, see [add a SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md).
 
+## Permissions
+
+
+<!--
+There is some overlap of content in the following articles, be sure to make changes to all if necessary:
+/azure-sql/auto-failover-group-overview.md
+/azure-sql/database/auto-failover-group-sql-db.md
+/azure-sql/database/auto-failover-group-configure-sql-db.md
+/azure-sql/managed-instance/auto-failover-group-sql-mi.md
+/azure-sql/managed-instance/auto-failover-group-configure-sql-mi.md
+-->
+
+Permissions for a failover group are managed via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). 
+
+Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
+
+The following table lists specific permission scopes for Azure SQL Managed Instance: 
+
+| **Action** | **Permission** | **Scope**|
+| :---- | :---- | :---- | 
+|**Create failover group**| Azure RBAC write access | Primary managed instance </br> Secondary managed instance|
+| **Update failover group** Azure RBAC write access | Failover group </br> All databases within the managed instance|
+| **Fail over failover group** | Azure RBAC write access | Failover group on new primary managed instance |
+| | | 
 
 
 ## Next steps

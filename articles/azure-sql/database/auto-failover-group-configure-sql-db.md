@@ -23,29 +23,7 @@ zone_pivot_groups: azure-sql-deployment-option-single-elastic
 
 This topic teaches you how to configure an [auto-failover group](auto-failover-group-sql-db.md) for single and pooled databases in Azure SQL Database. 
 
-## Permissions
 
-<!--
-There is some overlap of content in the following articles, be sure to make changes to all if necessary:
-/azure-sql/auto-failover-group-overview.md
-/azure-sql/database/auto-failover-group-sql-db.md
-/azure-sql/database/auto-failover-group-configure-sql-db.md
-/azure-sql/managed-instance/auto-failover-group-sql-mi.md
-/azure-sql/managed-instance/auto-failover-group-configure-sql-mi.md
--->
-
-Permissions for a failover group are managed via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). 
-
-Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor role](../../role-based-access-control/built-in-roles.md#sql-server-contributor) has all the necessary permissions to manage failover groups.
-
-The following table lists specific permission scopes for Azure SQL Database: 
-
-| **Action** | **Permission** | **Scope**|
-| :---- | :---- | :---- | 
-| **Create failover group**| Azure RBAC write access | Primary server </br> Secondary server </br> All databases in failover group |
-| **Update failover group** | Azure RBAC write access | Failover group </br> All databases on the current primary server|
-| **Fail over failover group** | Azure RBAC write access | Failover group on new server |
-| | | 
 
 ::: zone pivot="azure-sql-single-db"
 
@@ -225,7 +203,7 @@ Consider the following prerequisites for creating your failover group for a pool
 
 - The server login and firewall settings for the secondary server must match that of your primary server.
 
-## Create the failover group
+## Create failover group
 
 Create the failover group for your elastic pool using the Azure portal or PowerShell.
 
@@ -412,6 +390,30 @@ To illustrate the change sequence, we will assume server A is the primary server
 
 > [!IMPORTANT]
 > When the failover group is deleted, the DNS records for the listener endpoints are also deleted. At that point, there is a non-zero probability of somebody else creating a failover group or a server DNS alias with the same name. Because failover group names and DNS aliases must be globally unique, this will prevent you from using the same name again. To minimize this risk, don't use generic failover group names.
+
+## Permissions
+
+<!--
+There is some overlap of content in the following articles, be sure to make changes to all if necessary:
+/azure-sql/auto-failover-group-overview.md
+/azure-sql/database/auto-failover-group-sql-db.md
+/azure-sql/database/auto-failover-group-configure-sql-db.md
+/azure-sql/managed-instance/auto-failover-group-sql-mi.md
+/azure-sql/managed-instance/auto-failover-group-configure-sql-mi.md
+-->
+
+Permissions for a failover group are managed via [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). 
+
+Azure RBAC write access is necessary to create and manage failover groups. The [SQL Server Contributor role](../../role-based-access-control/built-in-roles.md#sql-server-contributor) has all the necessary permissions to manage failover groups.
+
+The following table lists specific permission scopes for Azure SQL Database: 
+
+| **Action** | **Permission** | **Scope**|
+| :---- | :---- | :---- | 
+| **Create failover group**| Azure RBAC write access | Primary server </br> Secondary server </br> All databases in failover group |
+| **Update failover group** | Azure RBAC write access | Failover group </br> All databases on the current primary server|
+| **Fail over failover group** | Azure RBAC write access | Failover group on new server |
+| | | 
 
 ## Remarks
 
