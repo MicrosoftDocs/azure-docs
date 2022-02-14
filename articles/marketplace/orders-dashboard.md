@@ -131,9 +131,9 @@ In this widget you can view information of **All offers** (from the drop down) w
 
 In this widget you can view information of a selected offer and its SKU or offer plans (from the drop down) with seats and sites added or removed for existing subscriptions.
 
-[ ![Shows the orders tab with information about the selected offer..](./media/orders-dashboard/orders-tab-selected-offers.png) ](./media/orders-dashboard/orders-tab-selected-offers.png#lightbox)
+[ ![Shows the orders tab with information about the selected offer and its SKU or offer plans.](./media/orders-dashboard/orders-tab-selected-offers.png) ](./media/orders-dashboard/orders-tab-selected-offers.png#lightbox)
 
-[ ![Shows the orders tab with information about the selected offer..](./media/orders-dashboard/orders-tab-selected-offers-2.png) ](./media/orders-dashboard/orders-tab-selected-offers-2.png#lightbox)
+[ ![Shows the orders tab with information about the selected offer with it's SKU and offer plans, if any.](./media/orders-dashboard/orders-tab-selected-offers-2.png) ](./media/orders-dashboard/orders-tab-selected-offers-2.png#lightbox)
 
 In this widget you can view information of **All offers** (from the drop down) with billed revenue of orders purchased in the selected month range.
 
@@ -141,9 +141,9 @@ In this widget you can view information of **All offers** (from the drop down) w
 
 In this widget you can view information of **a selected offer and its offer plans** (from the drop down) with billed revenue of orders purchased in the selected month range.
 
-[ ![Illustrates the Orders tab with the selected offer and plans on the Orders dashboard.](./media/orders-dashboard/orders-tab-selected-offer-with-plans.png) ](./media/orders-dashboard/orders-tab-selected-offer-with-plans.png#lightbox)
+[ ![Illustrates the Orders tab with the selected offer and its offer plans on the Orders dashboard.](./media/orders-dashboard/orders-tab-selected-offer-with-plans.png) ](./media/orders-dashboard/orders-tab-selected-offer-with-plans.png#lightbox)
 
-[ ![Illustrates the Orders tab with the selected offer and plans on the Orders dashboard.](./media/orders-dashboard/orders-tab-selected-offer-with-plans-2.png) ](./media/orders-dashboard/orders-tab-selected-offer-with-plans-2.png#lightbox)
+[ ![Illustrates the Orders tab with the selected offer and its plans on the Orders dashboard.](./media/orders-dashboard/orders-tab-selected-offer-with-plans-2.png) ](./media/orders-dashboard/orders-tab-selected-offer-with-plans-2.png#lightbox)
 
 ### Orders by geography
 
