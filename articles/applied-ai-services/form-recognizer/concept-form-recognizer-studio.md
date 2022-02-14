@@ -28,7 +28,7 @@ The following image shows the Invoice prebuilt model feature at work.
 The following Form Recognizer service features are available in the Studio.
 
 * **Read**: Try out Form Recognizer's Read feature to extract text lines, words, detected languages, and handwritten style if detected. Start with the [Studio Read feature](https://formrecognizer.appliedai.azure.com/studio/read). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [Read overview](concept-read.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/try-v3-python-sdk.md).
-*
+
 * **Layout**: Try out Form Recognizer's Layout feature to extract text, tables, selection marks, and structure information. Start with the [Studio Layout feature](https://formrecognizer.appliedai.azure.com/studio/layout). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [Layout overview](concept-layout.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/try-v3-python-sdk.md#layout-model).
 
 * **General Documents**: Try out Form Recognizer's General Documents feature to extract key-value pairs and entities. Start with the [Studio General Documents feature](https://formrecognizer.appliedai.azure.com/studio/document). Explore with sample documents and your documents. Use the interactive visualization and JSON output to understand how the feature works. See the [General Documents overview](concept-general-document.md) to learn more and get started with the [Python SDK quickstart for Layout](quickstarts/try-v3-python-sdk.md#general-document-model).
