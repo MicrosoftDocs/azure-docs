@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: test sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: azurecli
+ms.devlang: 
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
@@ -25,7 +25,7 @@ The serverless compute tier for single databases in Azure SQL Database is parame
 
 ### Performance configuration
 
-- The **minimum vCores** and **maximum vCores** are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.??? 
+- The **minimum vCores** and **maximum vCores** are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
 - The **auto-pause delay** is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login or other activity occurs.  Alternatively, automatic pausing can be disabled.
 
 ### Cost
@@ -309,7 +309,7 @@ Metrics for monitoring the resource usage of the app package and user resource p
 |Entity|Metric|Description|Units|
 |---|---|---|---|
 |App package|app_cpu_percent|Percentage of vCores used by the app relative to max vCores allowed for the app.|Percentage|
-|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period. The amount paid during this period is the product of this metric and the vCore unit price. <br><br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second. If the amount used is less than the minimum amount provisioned as set by the min vCores and min memory, then the minimum amount provisioned is billed.???In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.|vCore seconds|
+|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period. The amount paid during this period is the product of this metric and the vCore unit price. <br><br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second. If the amount used is less than the minimum amount provisioned as set by the min vCores and min memory, then the minimum amount provisioned is billed. In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.|vCore seconds|
 |App package|app_memory_percent|Percentage of memory used by the app relative to max memory allowed for the app.|Percentage|
 |User resource pool|cpu_percent|Percentage of vCores used by user workload relative to max vCores allowed for user workload.|Percentage|
 |User resource pool|data_IO_percent|Percentage of data IOPS used by user workload relative to max data IOPS allowed for user workload.|Percentage|

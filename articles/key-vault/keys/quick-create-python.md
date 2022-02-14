@@ -1,5 +1,5 @@
 ---
-title: Quickstart ??? Azure Key Vault Python client library ??? manage keys
+title: Quickstart – Azure Key Vault Python client library – manage keys
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the Python client library
 author: msmbaldwin
 ms.author: mbaldwin
@@ -7,7 +7,7 @@ ms.date: 01/22/2022
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.devlang: python, azurecli
+ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurecli, mode-api
 ---
 

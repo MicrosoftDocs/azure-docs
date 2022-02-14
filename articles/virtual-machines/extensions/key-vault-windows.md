@@ -10,8 +10,7 @@ ms.collection: windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
-ms.devlang: azurecli
+ms.custom: devx-track-azurepowershell
 
 ---
 # Key Vault virtual machine extension for Windows
@@ -274,7 +273,7 @@ Please be aware of the following restrictions/requirements:
 ### Frequently Asked Questions
 
 * Is there is a limit on the number of observedCertificates you can setup?
-  No, Key Vault VM Extension doesn???t have limit on the number of observedCertificates.
+  No, Key Vault VM Extension doesn’t have limit on the number of observedCertificates.
 
 ### Troubleshoot
 

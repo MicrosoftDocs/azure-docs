@@ -6,7 +6,7 @@ ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli, devx-track-azurepowershel
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.devlang: powershell, azurecli
+ms.devlang: PowerShell
 ms.topic: how-to
 author: emlisa
 ms.author: emlisa
@@ -68,23 +68,23 @@ Connect-AzAccount -SubscriptionName $subscriptionName;
 $subscriptionId = Get-AzSubscription -SubscriptionName $subscriptionName;
 
 Write-Host 'Assign an alias to server 1...';
-New-AzSqlServerDnsAlias ???ResourceGroupName $resourceGroupName -ServerName $sqlServerName `
+New-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName -ServerName $sqlServerName `
     -Name $sqlServerDnsAliasName;
 
 Write-Host 'Get the aliases assigned to server 1...';
-Get-AzSqlServerDnsAlias ???ResourceGroupName $resourceGroupName -ServerName $sqlServerName;
+Get-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName -ServerName $sqlServerName;
 
 Write-Host 'Move the alias from server 1 to server 2...';
-Set-AzSqlServerDnsAlias ???ResourceGroupName $resourceGroupName2 -TargetServerName $sqlServerName2 `
+Set-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -TargetServerName $sqlServerName2 `
     -Name $sqlServerDnsAliasName `
     -SourceServerResourceGroup $resourceGroupName -SourceServerName $sqlServerName `
     -SourceServerSubscriptionId $subscriptionId.Id;
 
 Write-Host 'Get the aliases assigned to server 2...';
-Get-AzSqlServerDnsAlias ???ResourceGroupName $resourceGroupName2 -ServerName $sqlServerName2;
+Get-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName $sqlServerName2;
 
 Write-Host 'Remove the alias from server 2...';
-Remove-AzSqlServerDnsAlias ???ResourceGroupName $resourceGroupName2 -ServerName $sqlServerName2 `
+Remove-AzSqlServerDnsAlias –ResourceGroupName $resourceGroupName2 -ServerName $sqlServerName2 `
     -Name $sqlServerDnsAliasName;
 ```
 
@@ -112,23 +112,23 @@ az login -SubscriptionName $subscriptionName;
 $subscriptionId = az account list[0].i -SubscriptionName $subscriptionName;
 
 Write-Host 'Assign an alias to server 1...';
-az sql server dns-alias create ???-resource-group $resourceGroupName --server $sqlServerName `
+az sql server dns-alias create –-resource-group $resourceGroupName --server $sqlServerName `
     --name $sqlServerDnsAliasName;
 
 Write-Host 'Get the aliases assigned to server 1...';
-az sql server dns-alias show ???-resource-group $resourceGroupName --server $sqlServerName;
+az sql server dns-alias show –-resource-group $resourceGroupName --server $sqlServerName;
 
 Write-Host 'Move the alias from server 1 to server 2...';
-az sql server dns-alias set ???-resource-group $resourceGroupName2 --server $sqlServerName2 `
+az sql server dns-alias set –-resource-group $resourceGroupName2 --server $sqlServerName2 `
     --name $sqlServerDnsAliasName `
     --original-resource-group $resourceGroupName --original-server $sqlServerName `
     --original-subscription-id $subscriptionId.Id;
 
 Write-Host 'Get the aliases assigned to server 2...';
-az sql server dns-alias show ???-resource-group $resourceGroupName2 --server $sqlServerName2;
+az sql server dns-alias show –-resource-group $resourceGroupName2 --server $sqlServerName2;
 
 Write-Host 'Remove the alias from server 2...';
-az sql server dns-alias delete ???-resource-group $resourceGroupName2 --server $sqlServerName2 `
+az sql server dns-alias delete –-resource-group $resourceGroupName2 --server $sqlServerName2 `
     --name $sqlServerDnsAliasName;
 ```
 

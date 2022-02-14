@@ -3,7 +3,7 @@ title: Configure Java apps
 description: Learn how to configure Java apps to run on Azure App Service. This article shows the most common configuration tasks.
 keywords: azure app service, web app, windows, oss, java, tomcat, jboss
 author: jasonfreeberg
-ms.devlang: java, azurecli
+ms.devlang: java
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: jafreebe
@@ -886,7 +886,7 @@ Finally, we will place the driver JARs in the Tomcat classpath and restart your 
 1. In the [Cloud Shell](https://shell.azure.com), install the webapp extension:
 
     ```azurecli-interactive
-    az extension add -???name webapp
+    az extension add -–name webapp
     ```
 
 2. Run the following CLI command to create an SSH tunnel from your local system to App Service:
@@ -964,11 +964,11 @@ Adding a shared, server-level data source will require you to edit Tomcat's serv
 Your startup script will make an [xsl transform](https://www.w3schools.com/xml/xsl_intro.asp) to the server.xml file and output the resulting xml file to `/usr/local/tomcat/conf/server.xml`. The startup script should install libxslt via apk. Your xsl file and startup script can be uploaded via FTP. Below is an example startup script.
 
 ```sh
-#??Install libxslt. Also copy the transform file to /home/tomcat/conf/
+# Install libxslt. Also copy the transform file to /home/tomcat/conf/
 apk add --update libxslt
 
-# Usage:??xsltproc??--output??output.xml??style.xsl??input.xml
-xsltproc??--output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
+# Usage: xsltproc --output output.xml style.xsl input.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 An example xsl file is provided below. The example xsl file adds a new connector node to the Tomcat server.xml.
@@ -1042,7 +1042,7 @@ Finally, place the driver JARs in the Tomcat classpath and restart your App Serv
     1. In the [Cloud Shell](https://shell.azure.com), install the webapp extension:
 
       ```azurecli-interactive
-      az extension add -???name webapp
+      az extension add -–name webapp
       ```
 
     2. Run the following CLI command to create an SSH tunnel from your local system to App Service:

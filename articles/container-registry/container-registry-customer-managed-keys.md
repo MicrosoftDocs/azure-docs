@@ -3,8 +3,7 @@ title: Encrypt registry with a customer-managed key
 description: Learn about encryption-at-rest of your Azure container registry, and how to encrypt your Premium registry with a customer-managed key stored in Azure Key Vault
 ms.topic: how-to
 ms.date: 09/13/2021
-ms.custom: subject-rbac-steps, devx-track-azurecli 
-ms.devlang: azurecli
+ms.custom: subject-rbac-steps
 ---
 
 # Encrypt registry using a customer-managed key
@@ -470,7 +469,7 @@ Use [az keyvault key][az-keyvault-key] commands to create or manage your key vau
 ```azurecli
 # Create new version of existing key
 az keyvault key create \
-  ???-name <key-name> \
+  –-name <key-name> \
   --vault-name <key-vault-name>
 ```
 

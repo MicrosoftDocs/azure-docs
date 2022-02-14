@@ -3,7 +3,7 @@ title: "Create a C# function from the command line - Azure Functions"
 description: "Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions."
 ms.date: 10/03/2020
 ms.topic: quickstart
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ROBOTS: NOINDEX,NOFOLLOW
 ---
@@ -68,7 +68,7 @@ Verify your prerequisites, which depend on whether you are using the Azure CLI o
 
 ## 3. Create a local function project
 
-In this section, you create a local <abbr title="A logical container for one or more individual functions that can be deployed and managed together.">Azure Functions project</abbr> in C#. Each function in the project responds to a specific <abbr title="An event that invokes the function???s code, such as an HTTP request, a queue message, or a specific time.">trigger</abbr>.
+In this section, you create a local <abbr title="A logical container for one or more individual functions that can be deployed and managed together.">Azure Functions project</abbr> in C#. Each function in the project responds to a specific <abbr title="An event that invokes the function’s code, such as an HTTP request, a queue message, or a specific time.">trigger</abbr>.
 
 1. Run the `func init` command to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:
 

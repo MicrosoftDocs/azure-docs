@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: avanigupta
 ms.assetid: 
 ms.service: azure-app-configuration
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
@@ -39,7 +39,7 @@ In this tutorial, you'll create a secondary store in the `centralus` region and 
 
 ## Prerequisites 
 
-- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the??Azure development??workload.
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the Azure development workload.
 
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
 
@@ -63,7 +63,7 @@ az group create --name $resourceGroupName --location westus
 ## Create App Configuration stores
 
 Create your primary and secondary App Configuration stores in different regions.
-Replace??`<primary_appconfig_name>` and `<secondary_appconfig_name>` with unique names for your configuration stores. Each store name must be unique because it's used as a DNS name.
+Replace `<primary_appconfig_name>` and `<secondary_appconfig_name>` with unique names for your configuration stores. Each store name must be unique because it's used as a DNS name.
 
 ```azurecli-interactive
 primaryAppConfigName="<primary_appconfig_name>"
