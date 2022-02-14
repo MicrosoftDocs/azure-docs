@@ -101,7 +101,7 @@ landingContent:
           - text: Set up a Spring Cloud Config Server instance for your service
             url: how-to-config-server.md
           - text: Access Config Server and Service Registry
-            url: how-to-access-data-plane-azure-ad-rbac
+            url: how-to-access-data-plane-azure-ad-rbac.md
 
   # Card (optional)
   - title: Automate your application
