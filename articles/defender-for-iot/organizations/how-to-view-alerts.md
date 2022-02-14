@@ -150,7 +150,7 @@ You can generate the following alert reports:
 
 **To export a PDF:**
 
-1. Select one **or several alerts from the Alerts page.
+1. Select one or several alerts from the Alerts page.
 1. Select **Export to PDF**.
 
 **To download a PCAP file:**
