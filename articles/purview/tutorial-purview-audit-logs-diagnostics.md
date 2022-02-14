@@ -86,7 +86,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want the
 
 - Analyzing and making sense of the captured Audit and Diagnostics log data from Purview.
 
-  - Navigate to "Process Data" on the Event Hubs page to see a preview of the captured Purview audit logs and diagnostics.
+  1. Navigate to "Process Data" on the Event Hubs page to see a preview of the captured Purview audit logs and diagnostics.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/D.png" alt-text="Configure Event Hubs - Process Data." lightbox="./media/tutorial-purview-audit-logs-diagnostics/D.png":::
 
