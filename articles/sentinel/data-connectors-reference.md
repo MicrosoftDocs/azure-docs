@@ -357,11 +357,11 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 | **Supported by** | Microsoft |
 | | |
 
-> [!NOTE]
-> The Azure Information Protection data connector uses the Azure Information Protection audit logs, which are being deprecated on September 30, 2022.
->
-> Starting March 1, 2022, the Azure Information Protection data connector is available only for existing customers who already have Azure Information Protection analytics configured. Instead, we recommend that customers use the Microsoft 365 compliance center's [activity explorer](/microsoft-365/compliance/data-classification-activity-explorer) and [content explorer](/microsoft-365/compliance/data-classification-content-explorer), and ingest data to Microsoft Sentinel via Microsft 365.
-> 
+### Deprecation notice
+
+The Azure Information Protection data connector uses the Azure Information Protection audit logs, which are being deprecated on September 30, 2022.
+
+Starting March 1, 2022, the Azure Information Protection data connector is available only for existing customers who already have Azure Information Protection analytics configured. Instead, we recommend that customers use the Microsoft 365 compliance center's [activity explorer](/microsoft-365/compliance/data-classification-activity-explorer) and [content explorer](/microsoft-365/compliance/data-classification-content-explorer), and ingest data to Microsoft Sentinel via Microsft 365. 
     
 For more information, see the the relevant [TechCommunity blog](placeholder) and the [Azure Information Protection documentation](/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries).
 
