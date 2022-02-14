@@ -329,7 +329,7 @@ Once your database is created, you can use the **Query editor (preview)** in the
     VALUES (N'This is a test');
     GO
     
-    SELECT *
+    SELECT TestTableID, TestTime, TestMessage
     FROM dbo.TestTable;
     GO
     ```

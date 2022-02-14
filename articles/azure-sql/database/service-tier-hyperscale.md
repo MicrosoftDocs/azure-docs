@@ -117,7 +117,7 @@ Learn more about the [Hyperscale distributed functions architecture](hyperscale-
 
 Backups for Hyperscale database are file-snapshot based, and hence they're nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup doesn't impact performance of the primary compute node. Similarly, point in time recovery (PITR) is done by reverting to file snapshots, and as such is not a size of data operation. Restore of a Hyperscale database in the same Azure region is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of multi-terabyte databases, is doable in minutes.
 
-For geo-restore of Hyperscale databases, learn how to [restore a Hyperscale database to a different region](manage-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
+For geo-restore of Hyperscale databases, learn how to [restore a Hyperscale database to a different region](#restore-a-hyperscale-database-to-a-different-region).
 
 ## Scale and performance advantages
 
@@ -137,7 +137,7 @@ You can migrate your existing databases in Azure SQL Database to Hyperscale usin
 
 Learn [how to migrate an existing database to Hyperscale](manage-hyperscale-database.md#migrate-an-existing-database-to-hyperscale).
 
-### Reverse migrate a Hyperscale database back to the General Purpose service tier
+### Reverse migrate a Hyperscale database to the General Purpose service tier
 
 If you previously migrated an existing Azure SQL Database to the Hyperscale service tier, you can reverse migrate a Hyperscale database to the General Purpose service tier within 45 days of the original migration to Hyperscale. If you wish to migrate the database to another service tier, such as Business Critical, first reverse migrate to the General Purpose service tier, then perform a further migration.
 
@@ -153,6 +153,19 @@ For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com
 
 Hyperscale supports the ability to restore a database within the same region where it is hosted, or [to a different region](manage-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
 
+### Restore a Hyperscale database to a different region
+
+If you need to restore a Hyperscale database in Azure SQL Database to a region other than the one it's currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database. This involves exactly the same steps as what you would use to restore any other database in SQL Database to a different region:
+
+1. Create a [server](logical-servers.md) in the target region if you don't already have an appropriate server there.  This server should be owned by the same subscription as the original (source) server.
+
+1. Follow the instructions in the [geo-restore](./recovery-using-backups.md#geo-restore) section on the page on restoring a database in Azure SQL Database from automatic backups.
+
+Because the source and target are in separate regions, the database can’t share snapshot storage with the source database as in non-geo restores, which complete quickly regardless of database size. In the case of a geo-restore of a Hyperscale database, it will be a size-of-data operation, even if the target is in the paired region of the geo-replicated storage. 
+
+Therefore, a geo-restore will take time proportional to the size of the database being restored. If the target is in the paired region, data transfer will be within a region, which will be significantly faster than a cross-region data transfer, but it will still be a size-of-data operation.
+
+
 ## <a name=regions></a>Available regions
 
 The Azure SQL Database Hyperscale tier is enabled in the vast majority of Azure regions. If you want to create a Hyperscale database in a region where Hyperscale is not enabled by default, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](quota-increase-request.md) for instructions. When submitting your request, use the following guidelines:
@@ -164,11 +177,12 @@ The Azure SQL Database Hyperscale tier is enabled in the vast majority of Azure 
 
 ## Known limitations
 
-These are the current limitations to the Hyperscale service tier.  We're actively working to remove as many of these limitations as possible.
+These are the current limitations of the Hyperscale service tier.  We're actively working to remove as many of these limitations as possible.
 
 | Issue | Description |
 | :---- | :--------- |
 | Backup retention is currently seven days; long-term retention policies aren't yet supported. | Hyperscale has a unique method for managing backups, so a non-Hyperscale database can't be restored as a Hyperscale database, and a Hyperscale database can't be restored as a non-Hyperscale database.<BR/><BR/>For databases migrated to Hyperscale from other Azure SQL Database service tiers, pre-migration backups are kept for the duration of [backup retention](automated-backups-overview.md#backup-retention) period of the source database, including long-term retention policies. Restoring a pre-migration backup within the backup retention period of the database is supported [programmatically](recovery-using-backups.md#programmatic-recovery-using-automated-backups). You can restore these backups to any non-Hyperscale service tier.|
+| Service tier change from Hyperscale to another tier is not supported directly | Reverse migration to the General Purpose service tier provides an "insurance policy" for customers who have recently migrated an existing database in Azure SQL Database to the Hyperscale service tier. Databases created in the Hyperscale service tier are not eligible for reverse migration. Learn the [limitations for reverse migration](manage-hyperscale-database.md#limitations-for-reverse-migration). <BR/><BR/> For databases which don't qualify for reverse migration, the only way to migrate from Hyperscale to a non-Hyperscale service tier is to is to export/import using a bacpac file or other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS, etc.) Bacpac export/import from Azure portal, from PowerShell using [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) or [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport), from Azure CLI using [az sql db export](/cli/azure/sql/db#az_sql_db_export) and [az sql db import](/cli/azure/sql/db#az_sql_db_import), and from [REST API](/rest/api/sql/) is not supported. Bacpac import/export for smaller Hyperscale databases (up to 200 GB) is supported using SSMS and [SqlPackage](/sql/tools/sqlpackage) version 18.4 and later. For larger databases, bacpac export/import may take a long time, and may fail for various reasons. |
 | When changing Azure SQL Database service tier to Hyperscale, the operation fails if the database has any data files larger than 1 TB | In some cases, it may be possible to work around this issue by [shrinking](file-space-manage.md#shrinking-data-files) the large files to be less than 1 TB before attempting to change the service tier to Hyperscale. Use the following query to determine the current size of database files. `SELECT file_id, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | SQL Managed Instance | Azure SQL Managed Instance isn't currently supported with Hyperscale databases. |
 | Elastic Pools |  Elastic Pools aren't currently supported with Hyperscale.|
