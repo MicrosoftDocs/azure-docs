@@ -114,7 +114,7 @@ When you're considering B2B collaboration with a specific external Azure AD orga
 
 Azure AD B2C is a separate consumer-based directory that you manage in the Azure portal through the Azure AD B2C service. Each Azure AD B2C tenant is separate and distinct from other Azure Active Directory and Azure AD B2C tenants. The Azure AD B2C portal experience is similar to Azure AD, but there are key differences, such as the ability to customize your user journeys using the Identity Experience Framework.
 
-For details about configuring and managing Azure AD B2C, see the [Azure AD B2B documentation](../../active-directory-b2c/index.yml).
+For details about configuring and managing Azure AD B2C, see the [Azure AD B2C documentation](../../active-directory-b2c/index.yml).
 
 ## Related Azure AD technologies
 
