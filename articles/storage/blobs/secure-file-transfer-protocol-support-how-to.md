@@ -156,7 +156,7 @@ az feature show --namespace Microsoft.Storage --name AllowSFTP
 
 ## Enable SFTP support
 
-This section shows you how to enable SFTP support for an existing storage account. To view an Azure Resource Manager template that creates a storage account with SFTP support enabled, see [Create an Azure Storage Account and Blob Container accessible using SFTP protocol on Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-sftp).
+This section shows you how to enable SFTP support for an existing storage account. To view an Azure Resource Manager template that enables SFTP support as part of creating the account, see [Create an Azure Storage Account and Blob Container accessible using SFTP protocol on Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-sftp).
 
 ### [Portal](#tab/azure-portal)
 
