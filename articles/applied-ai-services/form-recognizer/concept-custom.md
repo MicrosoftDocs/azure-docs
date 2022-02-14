@@ -117,8 +117,62 @@ The following table describes the features available with the associated tools a
 | Custom template 3.0 | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)|
 | Custom neural | [Form Recognizer 3.0 (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)| [Form Recognizer Preview SDK](quickstarts/try-v3-python-sdk.md)| [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio)
 
+
 > [!NOTE]
 > Custom template models trained with the 3.0 API will have a few improvements over the 2.1 API stemming from improvements to the OCR engine. Datasets used to train a custom template model using the 2.1 API can still be used to train a new model using the 3.0 API.
+
+* For best results, provide one clear photo or high-quality scan per document.
+* Supported file formats are JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* For PDF and TIFF files, up to 2,000 pages can be processed. With a free tier subscription, only the first two pages are processed.
+* The file size must be less than 50 MB.
+* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
+* PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
+* The total size of the training data is 500 pages or less.
+* If your PDFs are password-locked, you must remove the lock before submission.
+* For unsupervised learning (without labeled data):
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values. They can't appear below or to the right.
+
+  > [!TIP]
+  > Training data:
+  >
+  >* If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
+  > * For filled-in forms, use examples that have all their fields filled in.
+  > * Use forms with different values in each field.
+  >* If your form images are of lower quality, use a larger dataset. For example, use 10 to 15 images.
+
+The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) doesn't support the BMP file format. This limitation relates to the tool, not the Form Recognizer service.
+
+## Supported languages and locales
+
+ The Form Recognizer preview version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md).
+
+## Form Recognizer v3.0 (preview)
+
+ Form Recognizer v3.0 (preview) introduces several new features and capabilities:
+
+* **Custom model API (v3.0)**: This version supports signature detection for custom forms. When you train custom models, you can specify certain fields as signatures. When a document is analyzed with your custom model, it indicates whether a signature was detected or not.
+* [Form Recognizer v3.0 migration guide](v3-migration-guide.md): This guide shows you how to use the preview version in your applications and workflows.
+* [REST API (preview)](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument): This API shows you more about the preview version and new capabilities.
+
+### Try signature detection
+
+1. Build your training dataset.
+
+1. Go to [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). Under **Custom models**, select **Custom form**.
+
+    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot that shows selecting the Form Recognizer Studio Custom form page.":::
+
+1. Follow the workflow to create a new project:
+
+   1. Follow the **Custom model** input requirements.
+
+   1. Label your documents. For signature fields, use **Region** labeling for better accuracy.
+
+      :::image type="content" source="media/label-tool/signature-label-region-too.png" alt-text="Screenshot that shows the Label signature field.":::
+
+After your training set is labeled, you can train your custom model and use it to analyze documents. The signature fields specify whether a signature was detected or not.
+
 
 ## Next steps
 

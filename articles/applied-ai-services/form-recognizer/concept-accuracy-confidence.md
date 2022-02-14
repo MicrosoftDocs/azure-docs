@@ -71,4 +71,4 @@ The accuracy of your model is affected by variances in the visual structure of y
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn to create custom models ](quickstarts/try-v3-form-recognizer-studio.md#getting-started)
+> [Learn to create custom models ](quickstarts/try-v3-form-recognizer-studio.md#custom-models)
