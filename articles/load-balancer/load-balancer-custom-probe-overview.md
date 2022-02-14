@@ -16,11 +16,11 @@ Health probes support multiple protocols. The availability of a specific health 
 
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
-| **[Probe types](#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
-| **[Probe down behavior](#probedown)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
+| **[Probe types](#probe-types)** | TCP, HTTP, HTTPS | TCP, HTTP |
+| **[Probe down behavior](#probe-down-behavior)** | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
 >[!IMPORTANT]
->Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance as up. Review [probe source IP address](#probesource) for details. To see this probe traffic within your backend instance, review [the Azure Load Balancer FAQ](./load-balancer-faqs.yml).
+>Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark your instance as up. Review [probe source IP address](#probe-source-ip-address) for details. To see this probe traffic within your backend instance, review [the Azure Load Balancer FAQ](./load-balancer-faqs.yml).
 >
 >
 >Regardless of configured time-out threshold, HTTP(S) load balancer health probes will automatically mark the instance as down if the server returns any status code that isn't HTTP 200 OK or if the connection is terminated via TCP reset.
