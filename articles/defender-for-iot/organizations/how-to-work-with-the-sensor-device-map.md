@@ -448,7 +448,7 @@ Important devices are calculated when generating Risk Assessment reports and Att
 
 Devices you mark as important on your sensor are also marked as important in the Device inventory on the Defender for IoT portal on Azure.
 
-:::image type="content" source="media/how-to-work-with-maps/important-devices-on-cloud.png" alt-text="Device inventory on cloud showing important devices":::
+:::image type="content" source="media/how-to-work-with-maps/important-devices-on-cloud.png" alt-text="Device inventory on cloud showing important devices" lightbox="media/how-to-work-with-maps/important-devices-on-cloud.png":::
 
 ## See also
 
