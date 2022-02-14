@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Azure AD Identity Protection has historically protected users in detecting, investigating, and remediating identity-based risks. We're now extending these capabilities to workload identities to protect applications, service principals, and Managed Identities.
 
-A workload identity is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
+A [workload identity](workload-identities-overview.md) is an identity that allows an application or service principal access to resources, sometimes in the context of a user. These workload identities differ from traditional user accounts as they:
 
 - Can’t perform multi-factor authentication.
 - Often have no formal lifecycle process.
