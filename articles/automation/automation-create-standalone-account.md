@@ -123,12 +123,12 @@ To rotate your Automation account access keys from Azure portal:
   
 # [Azure PowerShell](#tab/azurepowershell)
 
-Call the [`New-AzAutomationKey`](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationkey?view=azps-7.2.0) command to regenerate the primary access key, as shown in the following example: 
+Call the [`New-AzAutomationKey`](/powershell/module/az.automation/new-azautomationkey) command to regenerate the primary access key, as shown in the following example: 
 
   ```azurepowershell
   New-AzAutomationKey -KeyType Primary -ResourceGroup <ResourceGroup>` -AutomationAccountName <AutomationAccount>
   ```
-
+---
 
 ## Next steps
 
