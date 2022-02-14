@@ -875,6 +875,7 @@ The backend will automatically get the next URL based on the RFC 5988 style link
 
 > [!TIP]
 > If you don't want to enable this default pagination rule, you can set `supportRFC5988` to `false` or just delete it in the script.
+>
 > :::image type="content" source="media/connector-rest/pagination-example-7-2.png" alt-text="Screenshot showing how to disable RFC 5988 setting for Example 7."::: 
 
 ## Use OAuth
