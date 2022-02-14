@@ -52,7 +52,7 @@ As an Azure Purview administrator or Azure Purview data-source admin, I want the
 
 - Now that Event Hubs is deployed and created, connect Azure Purview diagnostics audit logging to this event hub.
 
-  - Go To your Purview Account home page (where the overview information is displayed, not the Purview Studio home page.) and follow instructions as detailed below.
+  1. Go To your Purview Account home page (where the overview information is displayed, not the Purview Studio home page.) and follow instructions as detailed below.
 
   2. Click "Monitoring" -> "Diagnostic Settings" in the left navigation menu.
 
