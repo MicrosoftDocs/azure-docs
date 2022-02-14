@@ -83,12 +83,6 @@ Read API extracts text from documents and images with multiple text angles and c
 
 Read API in v3.0 preview 2 adds language detection as a new feature for text lines. Read will try to detect the languages at the text line level and output the language code with the highest confidence score for one or more text lines.
 
-### Natural reading order for text lines (Latin only)
-
-In Form Recognizer v2.1, you can specify the order in which the text lines are output with the `readingOrder` query parameter. Use `natural` for a more human-friendly reading order output as shown in the following example. This feature is only supported for Latin languages.
-
-In Form Recognizer v3.0, the natural reading order output is used by the service in all cases. Therefore, there is no `readingOrder` parameter provided in this version.
-
 ### Handwritten classification for text lines (Latin only)
 
 The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. 
