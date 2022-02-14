@@ -27,13 +27,13 @@ However, if the NVA advertises via BGP to the Route Server network prefixes, the
 
 If the NVA is used to provide connectivity to on-premises network via IPsec VPNs or SD-WAN technologies, the same mechanism can be used to attract traffic from the spokes to the NVA. Additionally, the NVA can dynamically learn the Azure prefixes from the Azure Route Server, and advertise them with a dynamic routing protocol to on-premises. The following diagram describes this setup:
 
-:::image type="content" source="./media/scenarios/route-injection-vpn.png" alt-text="Basic hub and spoke topology with onprem connectivity via VPN.":::
+:::image type="content" source="./media/scenarios/route-injection-vpn.png" alt-text="Basic hub and spoke topology with on-premises connectivity via VPN.":::
 
 ## Connectivity to on-premises through Azure Virtual Network Gateways
 
-If a VPN or an ExpresRoute gateway exist in the same VNet as the Route Server and NVA to provide connectivity to on-premises networks, routes learnt by these gateways will be programmed as well in the spoke VNets. These routes would override the default route injected by the Route Server, since they would be more specific (longer network masks). The following diagram describes the previous design, where an ExpressRoute gateway has been added.
+If a VPN or an ExpresRoute gateway exists in the same VNet as the Route Server and NVA to provide connectivity to on-premises networks, routes learned by these gateways will be programmed as well in the spoke VNets. These routes would override the default route injected by the Route Server, since they would be more specific (longer network masks). The following diagram describes the previous design, where an ExpressRoute gateway has been added.
 
-:::image type="content" source="./media/scenarios/route-injection-vpn-and-er.png" alt-text="Basic hub and spoke topology with onprem connectivity via VPN and ExpressRoute.":::
+:::image type="content" source="./media/scenarios/route-injection-vpn-and-er.png" alt-text="Basic hub and spoke topology with on-premises connectivity via VPN and ExpressRoute.":::
 
 You cannot configure the subnets in the spoke VNets to only learn the routes from the Azure Route Server. Disabling "Virtual network gateway route propagation" in a route table associated to a subnet would prevent both types of routes (routes from the Virtual Network Gateway and routes from the Azure Route Server) to be injected on NICs in that subnet.
 
