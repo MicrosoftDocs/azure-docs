@@ -81,8 +81,6 @@
       href: ../connectors/compare-built-in-azure-connectors.md
     - name: Edit host and app settings for logic apps in single-tenant
       href: edit-app-settings-host-settings.md
-    - name: Create parameters for single-tenant workflows
-      href: parameterize-workflow-app.md
     - name: DevOps deployment for single-tenant
       href: devops-deployment-single-tenant-azure-logic-apps.md
     - name: Set up DevOps deployment for single-tenant
@@ -129,6 +127,8 @@
       href: logic-apps-perform-data-operations.md
     - name: Add and run code snippets with inline code
       href: logic-apps-add-run-inline-code.md
+    - name: Create cross-environment parameters for workflows
+      href: create-parameters-workflows.md
     - name: Add and run code with Azure Functions
       href: logic-apps-azure-functions.md
     - name: Call logic apps with Azure Functions
