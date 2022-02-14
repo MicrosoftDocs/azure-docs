@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/22/2021
+ms.date: 02/15/2022
 ---
 
-# Run an SSIS package with the Execute SSIS Package activity in the Azure Data Factory Studio portal
+# Run an SSIS package with the Execute SSIS Package activity in Azure portal
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
 This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity and the Azure Data Factory Studio portal UI. 
 
