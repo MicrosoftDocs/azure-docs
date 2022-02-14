@@ -20,7 +20,7 @@ ms.date: 01/27/2022
 
 Configure a [search indexer](search-indexer-overview.md) to extract content from Azure Database for MySQL and make it searchable in Azure Cognitive Search. The indexer will crawl your MySQL database on Azure, extract searchable data, and index it in Azure Cognitive Search. When configured to include a high water mark and soft deletion, the indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing files in Azure DB for MySQL.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing files in Azure DB for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
@@ -42,32 +42,42 @@ As noted, there’s no portal or SDK support for indexer creation, but a MySQL i
 
 ## Define the data source
 
-The data source definition specifies the data source type, content path, and how to connect.
+The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. The data source is defined as an independent resource so that it can be used by multiple indexers.
 
-[Create or Update Data Source](/rest/api/searchservice/create-data-source) specifies the definition. Set "credentials" to an ADO.NET connection string. You can find connection strings in Azure portal, on the **Connection strings** page for MySQL. Be sure to use a preview REST API version (2020-06-30-Preview or later) when creating the data source.
+1. [Create or Update Data Source](/rest/api/searchservice/create-data-source) specifies the definition. Be sure to use a preview REST API version (2020-06-30-Preview or later) when creating the data source.
 
-```http
-POST https://[search service name].search.windows.net/datasources?api-version=2020-06-30-Preview
-Content-Type: application/json
-api-key: [admin key]
-
-{   
-    "name" : "hotel-mysql-ds"
-    "description" : "[Description of MySQL data source]",
-    "type" : "mysql",
-    "credentials" : { 
-        "connectionString" : 
-            "Server=[MySQLServerName].MySQL.database.azure.com; Port=3306; Database=[DatabaseName]; Uid=[UserName]; Pwd=[Password]; SslMode=Preferred;" 
-    },
-    "container" : { 
-        "name" : "[TableName]" 
-    },
-    "dataChangeDetectionPolicy" : { 
-        "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName": "[HighWaterMarkColumn]"
+    ```http
+    POST https://[search service name].search.windows.net/datasources?api-version=2020-06-30-Preview
+    Content-Type: application/json
+    api-key: [admin key]
+    
+    {   
+        "name" : "hotel-mysql-ds"
+        "description" : "[Description of MySQL data source]",
+        "type" : "mysql",
+        "credentials" : { 
+            "connectionString" : 
+                "Server=[MySQLServerName].MySQL.database.azure.com; Port=3306; Database=[DatabaseName]; Uid=[UserName]; Pwd=[Password]; SslMode=Preferred;" 
+        },
+        "container" : { 
+            "name" : "[TableName]" 
+        },
+        "dataChangeDetectionPolicy" : { 
+            "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+            "highWaterMarkColumnName": "[HighWaterMarkColumn]"
+        }
     }
-}
-```
+    ```
+
+1. Set "type" to `"mysql"` (required).
+
+1. Set "credentials" to an ADO.NET connection string. You can find connection strings in Azure portal, on the **Connection strings** page for MySQL. 
+
+1. Set "container" to the name of the table.
+
+1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs.
+
+1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted.
 
 ## Add search fields to an index
 
@@ -141,7 +151,7 @@ api-key: [admin-key]
 
 If your data source meets the requirements for change and deletion detection, the indexer can incrementally index the changes in your data source since the last indexer job, which means you can avoid having to re-index the entire table or view every time an indexer runs.
 
-<a name="HighWaterMarkPolicy"></a>
+<a name="DataChangeDetectionPolicy"></a>
 
 ### High Water Mark Change Detection policy
 
@@ -173,6 +183,8 @@ To use a high water mark policy, create or update your data source like this:
 
 > [!WARNING]
 > If the source table does not have an index on the high water mark column, queries used by the MySQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
+
+<a name="dataDeletionDetectionPolicy"></a>
 
 ### Soft Delete Column Deletion Detection policy
 

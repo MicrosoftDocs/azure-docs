@@ -20,7 +20,7 @@ This article shows you how to configure an Azure Cosmos DB [indexer](search-inde
 
 Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Cognitive Search indexing, your Azure Cosmos DB database must already exist and contain data.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Cosmos DB. It uses the REST APIs to index Azure Cosmos DB data, following a three-part workflow common to all indexers in Azure Cognitive Search: create a data source, create an index, create an indexer. In the process below, data extraction from Cosmos DB starts when you submit the Create Indexer request.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to Cosmos DB. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 The Cosmos DB indexer in Azure Cognitive Search can crawl [Azure Cosmos DB items](../cosmos-db/account-databases-containers-items.md#azure-cosmos-items) accessed through the following protocols:
 
@@ -41,9 +41,7 @@ For Cosmos DB indexing, by default all documents are automatically indexed. If y
 
 ## Define the data source
 
-<!-- A **data source** specifies the data to index, credentials, and policies for identifying changes in the data (such as modified or deleted documents inside your collection). The data source is defined as an independent resource so that it can be used by multiple indexers. -->
-
-The data source definition specifies the data source type, content path, and how to connect.
+The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. The data source is defined as an independent resource so that it can be used by multiple indexers.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -72,9 +70,9 @@ The data source definition specifies the data source type, content path, and how
 
 1. Set "container" to the collection. The "name" property is required and it specifies the ID of the database collection to be indexed. The "query" property is optional. Use it to flatten an arbitrary JSON document into a flat schema that Azure Cognitive Search can index. For the MongoDB API, "query" isn't supported. 
 
-1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items.
+1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs.
 
-1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to support a soft-delete strategy that removes search documents from a search index when the source item is deleted.
+1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted.
 
 <a name="credentials"></a>
 
@@ -97,7 +95,7 @@ Avoid port numbers in the endpoint url. If you include the port number, Azure Co
 | Managed identity connection string |
 |------------------------------------|
 |`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)" }`|
-|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md). See also [Setting up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md). |
+|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md). See [Setting up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md) for more information. |
 
 ### Using queries to shape indexed data
 

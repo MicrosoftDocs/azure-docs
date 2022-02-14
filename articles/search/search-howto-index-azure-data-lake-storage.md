@@ -18,7 +18,7 @@ Configure a [search indexer](search-indexer-overview.md) to extract content and 
 
 ADLS Gen2 is available through Azure Storage. When setting up a storage account, you have the option of enabling [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md), organizing files into a hierarchy of directories and nested subdirectories. By enabling a hierarchical namespace, you enable ADLS Gen2.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from ADLS Gen2.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from ADLS Gen2. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 For a code sample in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
@@ -48,7 +48,7 @@ The ADLS Gen2 indexer can extract text from the following document formats:
 
 ## Define the data source
 
-The data source definition specifies the data source type, content path, and how to connect.
+The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. The data source is defined as an independent resource so that it can be used by multiple indexers.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 

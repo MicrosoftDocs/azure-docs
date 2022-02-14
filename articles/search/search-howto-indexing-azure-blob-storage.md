@@ -16,11 +16,11 @@ ms.date: 02/11/2022
 
 Configure a [search indexer](search-indexer-overview.md) to extract content and metadata from Azure Blob Storage and make it searchable in Azure Cognitive Search. 
 
-Blob [indexers are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. This article focuses on indexers for text-based indexing, where just the textual content and metadata are ingested for full text search scenarios. 
+Blob indexers are frequently used for both [AI enrichment](cognitive-search-concept-intro.md) and text-based processing. This article focuses on indexers for text-based indexing, where just the textual content and metadata are ingested for full text search scenarios. 
 
 Inputs to the indexer are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Blob Storage.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Blob Storage. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ The blob indexer can extract text from the following document formats:
 
 ## Define the data source
 
-The data source definition specifies the data source type, content path, and how to connect.
+The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. The data source is defined as an independent resource so that it can be used by multiple indexers.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
