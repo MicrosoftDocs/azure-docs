@@ -18,6 +18,7 @@ An IoT Central application lets you monitor and manage millions of devices throu
 
 IoT Central application administration includes the following tasks:
 
+- Create applications
 - Manage users and roles in the application.
 - Create and manage organizations.
 - Manage security such as device authentication.
@@ -25,6 +26,32 @@ IoT Central application administration includes the following tasks:
 - Upgrade applications.
 - Export and share applications.
 - Monitor application health.
+
+## Create applications
+
+You use an *application template* to create an application. An application templates consist of:
+
+- Sample dashboards
+- Sample device templates
+- Simulated devices producing real-time data
+- Pre-configured rules and jobs
+- Rich documentation including tutorials and how-tos
+
+You choose the application template when you create your application. You can't change the template an application uses after it's created.
+
+### Custom templates
+
+If you want to create your application from scratch, choose the **Custom application** template.
+
+You can also create and manage your own [custom application templates](howto-create-iot-central-application.md#create-and-use-a-custom-application-template) and [copy applications](howto-create-iot-central-application.md#copy-an-application) to create new ones.
+
+### Industry focused templates
+
+Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today:
+
+[!INCLUDE [iot-central-template-list](../../../includes/iot-central-template-list.md)]
+
+To learn more, see [Create a retail application](../retail/tutorial-in-store-analytics-create-app.md) as an example.
 
 ## Users and roles
 

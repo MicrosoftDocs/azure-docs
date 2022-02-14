@@ -1,10 +1,40 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/azure-resource-manager/managed-application-author-marketplace.md",
-            "redirect_url": "/azure/marketplace/azure-app-offer-setup",
+            "source_path_from_root": "/articles/azure/marketplace/reference-architecture-diagram.md",
+            "redirect_url": "/partner-center/reference-architecture-diagram",
             "redirect_document_id": false
         },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-states.md",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-countries.md",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-status.md",
+            "redirect_url": "/partner-center/co-sell-status",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-requirements.md",
+            "redirect_url": "/partner-center/co-sell-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-configure.md",
+            "redirect_url": "/partner-center/co-sell-configure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
+            "redirect_url": "/partner-center/co-sell-overview",
+            "redirect_document_id": false
+        },            
         {
             "source_path_from_root": "/articles/azure-resource-manager/managed-application-consume-marketplace.md",
             "redirect_url": "/azure/marketplace/azure-app-offer-setup",

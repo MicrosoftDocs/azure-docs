@@ -97,7 +97,7 @@ Next, adapt the policy JSON as shown in the following example, indicating the `s
 }
 ```
 
-After you've finished updating the policy JSON (see [Update Certificate Policy](/rest/api/keyvault/update-certificate-policy/update-certificate-policy)), you can create a self-signed certificate in Key Vault by using the following commands:
+After you've finished updating the policy JSON (see [Update Certificate Policy](/rest/api/keyvault/certificates/update-certificate-policy/update-certificate-policy)), you can create a self-signed certificate in Key Vault by using the following commands:
 
 ```azurecli
 KV_NAME='name-of-key-vault'
