@@ -74,10 +74,12 @@ our pipeline:
 2. **We recommend that you choose CMAF output for both HLS and DASH
     playback.** This allows you to share the same fragments for both
     formats. It increases your cache hit ratio when CDN is used. For example:
-    |                              | | |
-    |------------------------------|--|--|
-    | HLS CMAF (recommended)       | format=m3u8-cmaf | https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf) |
-    | MPEG-DASH CMAF (recommended) | format=mpd-time-cmaf | https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf) |
+  
+
+| Type  | Format  | URL example  |
+|---------|---------|---------|
+|HLS CMAF (recommended)     | format=m3u8-cmaf        | `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`        |
+| MPEG-DASH CMAF (recommended) | format=mpd-time-cmaf | `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 
 3. **If you must choose TS output, use an HLS packing ratio of 1.** This
 allows us to pack only one fragment into one HLS segment. You won't
