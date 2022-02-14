@@ -64,7 +64,7 @@
       items:
       - name: Use Azure DNS
         items:
-        - name: Set up an Azure DNS zone
+        - name: Delegate your domain to Azure DNS
           href: azure-dns-zone.md
         - name: Set up a custom domain
           href: custom-domain-azure-dns.md

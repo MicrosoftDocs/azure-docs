@@ -21,7 +21,7 @@ The following procedure requires you to copy settings from an Azure DNS zone you
 
 - A custom domain
 - An existing Azure DNS zone
-  - If you don't already have one, refer to [Set up an Azure DNS zone for Azure Static Web Apps](azure-dns-zone.md)
+  - If you don't already have one, refer to [Delegate your domain to Azure DNS](azure-dns-zone.md)
 
 ## Map the domain to your website
 
