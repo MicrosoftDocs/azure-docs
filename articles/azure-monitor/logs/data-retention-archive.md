@@ -20,7 +20,7 @@ Each workspace has a default retention policy that's applied to all tables, but 
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
-Set the interactive retention period for as long as you need the data regularly for monitoring, troubleshooting and analytics. When you no longer access the logs regularly, but still need to retain the data for compliance or occasional investigation, archive the logs to save costs. You can access archived data when you need to by [restoring archived logs](restore.md) or [run a search job](search-jobs.md) on archived data. 
+Set the interactive retention period for as long as you need the data regularly for monitoring, troubleshooting and analytics. When you no longer access the logs regularly, but still need to retain the data for compliance or occasional investigation, archive the logs to save costs. You can access archived data when you need to by [running a search job](search-jobs.md) on archived data or [restoring archived logs](restore.md). 
 
 ## Configure the default workspace retention policy
 You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; upgrade to the paid tier to control this setting.
