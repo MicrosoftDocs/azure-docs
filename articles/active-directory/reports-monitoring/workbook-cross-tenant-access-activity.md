@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 02/04/2022
+ms.date: 02/14/2022
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
@@ -45,7 +45,23 @@ This workbook has four sections:
 
 - Individual users for inbound and outbound collaboration by tenant ID
 
-![Screenshot showing list of external tenants with sign-in data](./media/workbook-cross-tenant-access-activity/external-tenants-list.png)
+The total number of external tenants that have had cross-tenant access activity with your tenant is shown at the top of the workbook. The first section of the workbook lists all the external tenants that have had inbound or outbound activity with your tenant. You can select a row to focus the remainder of the workbook on activity for a specific tenant.
+
+[ ![Screenshot showing list of external tenants with sign-in data.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-1.png) ](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-1.png#lightbox)
+
+When you select an external tenant in the first table, the remaining sections update with information about outbound and inbound activity for that tenant.
+
+The next section summarizes all outbound and inbound sign-in activity for the selected tenant, including the number of successful sign-ins and the resons for failed sign-ins. You can select **Outbound activity** or **Inbound activity** to update the remaining sections of the workbook with the type of activity you want to view.
+
+![Screenshot showing list of external tenants with sign-in data](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-2.png)
+
+The next section lists the applications that are being accessed by your users or external users. If you selected **Outbound activity** in the previous section, the table shows the applications in external tenants that are being accessed by your users. If you selected **Inbound activity**, you'll see the list of your applications that are being accessed by external users. You can select a row to find out which users are accessing that application.
+
+![Screenshot showing list of external tenants with sign-in data](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-3.png)
+
+The last section displays the list of users who are accessing the application you selected.
+
+![Screenshot showing list of external tenants with sign-in data](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-4.png)
 
 ## Filters
 
