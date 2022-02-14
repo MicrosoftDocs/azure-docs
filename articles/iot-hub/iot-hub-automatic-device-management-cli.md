@@ -1,12 +1,12 @@
 ---
 title: Automatic device management at scale with Azure IoT Hub (CLI) | Microsoft Docs
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices or modules
-author: eross-msft
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/08/2021
-ms.author: lizross
+ms.author: kgremban
 ---
 
 # Automatic IoT device and module management using the Azure CLI

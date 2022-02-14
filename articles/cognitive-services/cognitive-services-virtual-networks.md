@@ -1,12 +1,12 @@
 ---
-title: Virtual Networks
+title: Configure Virtual Networks for Azure Cognitive Services
 titleSuffix: Azure Cognitive Services
 description: Configure layered network security for your Cognitive Services resources.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/28/2021
 ms.author: aahi
 ---

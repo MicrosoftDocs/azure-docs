@@ -64,23 +64,6 @@ If you face the problem described in the previous paragraph, you can quickly dec
 
 In regions with dedicated hardware for training, the Speech service will use up to 20 hours of audio for training. In other regions, it will only use up to 8 hours of audio.
 
-### Supported locales
-
-Training with structured text is supported only for these locales: 
-
-* en-US
-* en-UK
-* en-IN
-* de-DE
-* fr-FR
-* fr-CA
-* es-ES
-* es-MX
-
-You must use the latest base model for these locales. 
-
-For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data.
-
 ## Upload data
 
 To upload your data:
@@ -206,6 +189,8 @@ Expected utterances often follow a certain pattern. One common pattern is that u
 
 * "I have a question about `product`," where `product` is a list of possible products. 
 * "Make that `object` `color`," where `object` is a list of geometric shapes and `color` is a list of colors. 
+
+For a list of supported base models and locales for training with structured text, see [Language support](language-support.md#speech-to-text). You must use the latest base model for these locales. For locales that don't support training with structured text, the service will take any training sentences that don't reference any classes as part of training with plain-text data.
 
 To simplify the creation of training data and to enable better modeling inside the Custom Language model, you can use a structured text in Markdown format to define lists of items. You can then reference these lists inside your training utterances. The Markdown format also supports specifying the phonetic pronunciation of words. 
 
