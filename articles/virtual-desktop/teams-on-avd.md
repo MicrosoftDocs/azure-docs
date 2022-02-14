@@ -179,7 +179,6 @@ For Teams known issues that aren't related to virtualized environments, see [Sup
 
 You can't configure audio devices from the Teams app, and the client will automatically use the default client audio device. To switch audio devices, you'll need to configure your settings from the client audio preferences instead.
 
-
 ## Collect Teams logs
 
 If you encounter issues with the Teams desktop app in your Azure Virtual Desktop environment, collect client logs under **%appdata%\Microsoft\Teams\logs.txt** on the host VM.
