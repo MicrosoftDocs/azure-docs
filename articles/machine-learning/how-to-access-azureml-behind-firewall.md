@@ -383,7 +383,7 @@ The hosts in this section are used to install R packages, and are required durin
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **cloud.r-project.org** | Used when installing CRAN packages. |
+| **cloud.r-project.org** | Used when installing CRAN packages. | 
 
 ### Azure Kubernetes Services
 
