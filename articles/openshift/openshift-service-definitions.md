@@ -111,7 +111,7 @@ If the cluster logging stack is installed, application logs sent to STDOUT are c
 
 ## Monitoring
 
-The following section provides information about Azure Red Hat OpenShift security.
+The following section provides information about Azure Red Hat OpenShift monitoring.
 ### Cluster metrics
 
 Azure Red Hat OpenShift deploys with services for maintaining the health and performance of the cluster and its components. These services include the streaming of important metrics to an Azure aggregation system for support and troubleshooting purposes. This data is only accessible to authorized support staff via approved mechanisms.
