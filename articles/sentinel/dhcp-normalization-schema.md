@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 The DHCP information model is used to describe events reported by a DHCP server, and is used by Microsoft Sentinel to enable source-agnostic analytics.
 
-For more information, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The DHCP normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -132,7 +132,7 @@ The fields below are specific to DHCP events, but many are similar to fields in 
 For more information, see:
 
 - Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

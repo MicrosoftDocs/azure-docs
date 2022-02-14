@@ -1,6 +1,6 @@
 ---
-title: Advanced SIEM Information Model (ASIM) schemas | Microsoft Docs
-description: This article explains Advanced SIEM Information Model (ASIM) schemas, and how they help. ASIM normalizes data from many different sources to a uniform presentation.
+title: Advanced Security Information Model (ASIM) schemas | Microsoft Docs
+description: This article explains Advanced Security Information Model (ASIM) schemas, and how they help. ASIM normalizes data from many different sources to a uniform presentation.
 author: oshezaf
 ms.topic: conceptual
 ms.date: 11/09/2021
@@ -8,11 +8,11 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 --- 
 
-# Advanced SIEM Information Model (ASIM) schemas
+# Advanced Security Information Model (ASIM) schemas
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-An Advanced SIEM Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
+An Advanced Security Information Model ([ASIM](normalization.md)) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
 
 To understand how schemas fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
@@ -280,6 +280,6 @@ This article provides an overview of normalization in Microsoft Sentinel and ASI
 
 For more information, see:
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

@@ -15,7 +15,7 @@ ms.author: ofshezaf
 
 The Web Session normalization schema is used to describe an IP network activity. For example, IP network activities are reported by web servers, web proxies, and web security gateways.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Network normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -192,8 +192,8 @@ The Web Session schema relies on the Network Session schema. Therefore, [Network
 For more information, see:
 
 - Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)
 
