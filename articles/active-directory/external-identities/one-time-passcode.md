@@ -162,17 +162,17 @@ Your existing guest users won't be affected if you enable email one-time passcod
 
 **What is the user experience for guests during global rollout?**
 
-During the global rollout of email one-time passcode, the user experience for guests depends on your email one-time passcode configuration and your guest's scenario. Before and after the change is rolled out to your region, the fallback authentication method could change depending on your current email one-time passcode settings, whether a guest user already has an unmanaged account, and whether you [reset a user's redemption status](reset-redemption-status.md). These scenarios are described in the following table.
+The user experience depends on your current email one-time passcode settings, whether the user already has an unmanaged account, and whether you [reset a user's redemption status](reset-redemption-status.md). The following table describes these scenarios.
 
 |User scenario  |With email one-time passcode enabled prior to rollout  |With email one-time passcode disabled prior to rollout   |
 |---------|---------|---------|
-|**User already has an unmanaged Azure AD account (not from redemption in your tenant)**      |Both before and after rollout, the user redeems invitations using email one-time passcode.         |Both before and after rollout, the user continues signing in with their unmanaged account.<sup>1</sup>             |
-|**User with an unmanaged Azure AD account, from previous redemption in your tenant**      |Both before and after rollout, the user continues to use their unmanaged account. Or, you can [reset their redemption status](reset-redemption-status.md) so they can redeem a new invitation using email one-time passcode.          |Before rollout, if you reset the user's redemption status and reinvite them, they'll continue signing in with their unmanaged account. </br>After rollout, they'll continue signing in with their unmanaged account.<sup>1</sup>         |
-|**New user with no unmanaged Azure AD account**      |Both before and after rollout, the user redeems invitations using email one-time passcode.           |Both before and after rollout, the user redeems invitations using an unmanaged account.<sup>2</sup>          |
+|**Users has an existing unmanaged Azure AD account (not from redemption in your tenant)**      |Both before and after rollout, the user redeems invitations using email one-time passcode.         |Both before and after rollout, the user continues signing in with their unmanaged account.<sup>1</sup>             |
+|**User previously redeemed an invitation to your tenant using an unmanaged Azure AD account**      |Both before and after rollout, the user continues to use their unmanaged account. Or, you can [reset their redemption status](reset-redemption-status.md) so they can redeem a new invitation using email one-time passcode.          |Both before and after rollout, the user continues to use their unmanaged account, even if you reset their redemption status and reinvite them.<sup>1</sup>         |
+|**User with no unmanaged Azure AD account**      |Both before and after rollout, the user redeems invitations using email one-time passcode.           |Both before and after rollout, the user redeems invitations using an unmanaged account.<sup>2</sup>          |
 
 <sup>1</sup> In a separate release, we’ll roll out a change that will enforce redemption with a Microsoft account. To prevent your users from having to manage both an unmanaged Azure AD account and an MSA, we strongly encourage you to enable email one-time passcode.
 
-<sup>2</sup> The user might see a sign-in error if they're redeeming a direct application link and weren't added to your directory in advance. In a separate release, we’ll roll out a change that will enforce redemption and future sign-ins with a Microsoft account.
+<sup>2</sup> The user might see a sign-in error when they're redeeming a direct application link and they weren't added to your directory in advance. In a separate release, we’ll roll out a change that will enforce redemption and future sign-ins with a Microsoft account.
 
 For more information about the different redemption pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
 
