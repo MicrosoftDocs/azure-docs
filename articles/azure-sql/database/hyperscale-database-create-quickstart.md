@@ -12,13 +12,13 @@ ms.date: 2/17/2022
 ---
 # Quickstart: Create a Hyperscale database in Azure SQL Database
 
-In this quickstart, you create a [logical SQL server](logical-servers.md) and a [Hyperscale](service-tier-hyperscale.md) database in Azure SQL Database using the Azure portal, a PowerShell script, or an Azure CLI script, with the option to create one or more [High Availability (HA) replicas](service-tier-hyperscale-replicas.md#high-availability-replica). If you would like to use an existing logical SQL server in Azure, you can also create a Hyperscale database using Transact-SQL.
+In this quickstart, you create a [logical server in Azure](logical-servers.md) and a [Hyperscale](service-tier-hyperscale.md) database in Azure SQL Database using the Azure portal, a PowerShell script, or an Azure CLI script, with the option to create one or more [High Availability (HA) replicas](service-tier-hyperscale-replicas.md#high-availability-replica). If you would like to use an existing logical server in Azure, you can also create a Hyperscale database using Transact-SQL.
 
 ## Prerequisites
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - The latest version of either [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli-windows), if you would like to follow the quickstart programmatically. Alternately, you can complete the quickstart in the Azure portal.
-- An existing [logical SQL server](logical-servers.md) in Azure is required if you would like to create a Hyperscale database with Transact-SQL. For this approach, you will need to install [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or the client of your choice to run Transact-SQL commands ([sqlcmd](/sql/tools/sqlcmd-utility), etc.).
+- An existing [logical server](logical-servers.md) in Azure is required if you would like to create a Hyperscale database with Transact-SQL. For this approach, you will need to install [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or the client of your choice to run Transact-SQL commands ([sqlcmd](/sql/tools/sqlcmd-utility), etc.).
 
 ## Create a Hyperscale database
 
@@ -124,7 +124,7 @@ az group create --name $resourceGroupName --location "$location" --tag $tag
 
 ### Create a server
 
-Create a [logical SQL server](logical-servers.md) with the [az sql server create](/cli/azure/sql/server) command.
+Create a [logical server](logical-servers.md) with the [az sql server create](/cli/azure/sql/server) command.
 
 ```azurecli-interactive
 
@@ -243,7 +243,7 @@ Create a server firewall rule with the [New-AzSqlServerFirewallRule](/powershell
 
 ```
 
-### Create a single database with PowerShell
+### Create a single database
 
 Create a single database with the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 
@@ -270,7 +270,7 @@ Run the following command to create a Hyperscale database populated with Adventu
 
 # [Transact-SQL](#tab/t-sql)
 
-To create a Hyperscale database with Transact-SQL, you must first [create or identify connection information for an existing logical SQL server](logical-servers.md) in Azure.
+To create a Hyperscale database with Transact-SQL, you must first [create or identify connection information for an existing logical server](logical-servers.md) in Azure.
 
 Connect to the master database using [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or the client of your choice to run Transact-SQL commands ([sqlcmd](/sql/tools/sqlcmd-utility), etc.).
 
