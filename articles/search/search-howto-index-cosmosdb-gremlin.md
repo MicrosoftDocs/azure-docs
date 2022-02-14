@@ -289,6 +289,6 @@ Notice how the Output Field Mapping starts with `/document` and does not include
 
 ## Next steps
 
-+ To learn more about Azure Cosmos DB Gremlin API, see the [Introduction to Azure Cosmos DB: Gremlin API]()../cosmos-db/graph-introduction.md).
++ To learn more about Azure Cosmos DB Gremlin API, see the [Introduction to Azure Cosmos DB: Gremlin API](../cosmos-db/graph-introduction.md).
 
 + For more information about Azure Cognitive Search scenarios and pricing, see the [Search service page on azure.microsoft.com](https://azure.microsoft.com/services/search/).

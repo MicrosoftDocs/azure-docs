@@ -184,7 +184,7 @@ To use a high water mark policy, create or update your data source like this:
 > [!WARNING]
 > If the source table does not have an index on the high water mark column, queries used by the MySQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
 
-<a name="dataDeletionDetectionPolicy"></a>
+<a name="DataDeletionDetectionPolicy"></a>
 
 ### Soft Delete Column Deletion Detection policy
 
@@ -216,12 +216,12 @@ The following table maps the MySQL database to Cognitive Search equivalents. See
 
 | MySQL data type |  Cognitive Search field type |
 | --------------- | -------------------------------- |
-| bool, boolean | Edm.Boolean, Edm.String |
-| tinyint, smallint, mediumint, int, integer, year | Edm.Int32, Edm.Int64, Edm.String |
-| bigint | Edm.Int64, Edm.String |
-| float, double, real | Edm.Double, Edm.String |
-| date, datetime, timestamp | Edm.DateTimeOffset, Edm.String |
-| char, varchar, tinytext, mediumtext, text, longtext, enum, set, time | Edm.String |
+| `bool`, `boolean` | Edm.Boolean, Edm.String |
+| `tinyint`, `smallint`, `mediumint`, `int`, `integer`, `year` | Edm.Int32, Edm.Int64, Edm.String |
+| `bigint` | Edm.Int64, Edm.String |
+| `float`, `double`, `real` | Edm.Double, Edm.String |
+| `date`, `datetime`, `timestamp` | Edm.DateTimeOffset, Edm.String |
+| `char`, `varchar`, `tinytext`, `mediumtext`, `text`, `longtext`, `enum`, `set`, `time` | Edm.String |
 | unsigned numerical data, serial, decimal, dec, bit, blob, binary, geometry | N/A |
 
 ## Next steps
