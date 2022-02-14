@@ -27,7 +27,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * [**Language Expansion**](language-support.md) Support for 164 languages (print) and 9 languages (handwritten). Form Recognizer Read, Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. 42 new languages including Arabic, Hindi and other languages using Arabic and Devanagari scripts. Handwritten support for the same features expands to Japanese and Korean in addition to English, Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom document models.
 * [**Invoice API**](language-support.md#invoice-model) Invoice API expands support to Spanish invoices.
-*
+
 Get stared with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/try-v3-python-sdk.md), or [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
 
  #### Form Recognizer model data extraction
