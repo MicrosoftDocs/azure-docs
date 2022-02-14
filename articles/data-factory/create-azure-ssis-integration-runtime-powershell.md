@@ -16,7 +16,8 @@ ms.custom: devx-track-azurepowershell
 
 This article shows you how to create an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) via Azure PowerShell.
 
->[!NOTE] Azure-SSIS IR in Azure Synapse Analytics Power Shell interface refers to [Set-AzSynapseIntegrationRuntime (Az.Synapse)](/powershell/module/az.synapse/set-azsynapseintegrationruntime).
+>[!NOTE] 
+>Azure-SSIS IR in Azure Synapse Analytics Power Shell interface refers to [Set-AzSynapseIntegrationRuntime (Az.Synapse)](/powershell/module/az.synapse/set-azsynapseintegrationruntime).
 
 ## Create variables
 
