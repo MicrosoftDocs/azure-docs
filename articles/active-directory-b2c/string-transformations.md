@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/14/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -548,11 +548,18 @@ Copies localized strings into claims.
 
 To use the GetLocalizedStringsTransformation claims transformation:
 
-1. Define a [localization string](localization.md) and associate it with a [self-asserted-technical-profile](self-asserted-technical-profile.md).
-1. The `ElementType` of the `LocalizedString` element must be set to `GetLocalizedStringsTransformationClaimType`.
-1. The `StringId` is a unique identifier that you define, and use it later in your claims transformation.
-1. In the claims transformation, specify the list of claims to be set with the localized string. The `ClaimTypeReferenceId` is a reference to a claim already defined in the ClaimsSchema section in the policy. The `TransformationClaimType` is the name of the localized string as defined in the `StringId` of the `LocalizedString` element.
-1. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
+1. Define a [localization string](localization.md) and associate it with a [self-asserted](self-asserted-technical-profile.md), or [claims transformation](claims-transformation-technical-profile.md) technical profiles. Make sure the technical profile defindes the `ContentDefinitionReferenceId` metadata. For example:
+  
+  ```
+  <Metadata>
+    <Item Key="ContentDefinitionReferenceId">api.selfasserted</Item>
+  </Metadata>
+  ```
+  
+2. The `ElementType` of the `LocalizedString` element must be set to `GetLocalizedStringsTransformationClaimType`.
+3. The `StringId` is a unique identifier that you define, and use it later in your claims transformation.
+4. In the claims transformation, specify the list of claims to be set with the localized string. The `ClaimTypeReferenceId` is a reference to a claim already defined in the ClaimsSchema section in the policy. The `TransformationClaimType` is the name of the localized string as defined in the `StringId` of the `LocalizedString` element.
+5. In a [self-asserted technical profile](self-asserted-technical-profile.md), or a [display control](display-controls.md) input or output claims transformation, make a reference to your claims transformation.
 
 ![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
 
