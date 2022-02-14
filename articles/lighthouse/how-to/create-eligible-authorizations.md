@@ -1,7 +1,7 @@
 ---
 title: Create eligible authorizations
 description: When onboarding customers to Azure Lighthouse, you can let users in your managing tenant elevate their role on a just-in-time basis. 
-ms.date: 09/08/2021
+ms.date: 02/14/2022
 ms.topic: how-to
 ---
 
@@ -266,7 +266,7 @@ Each user can elevate their access at any time by visiting the **My customers** 
 
 :::image type="content" source="../media/manage-eligible-roles.png" alt-text="Screenshot showing the Manage eligible roles button in the Azure portal.":::
 
-If approvers have been specified, the user won't have access to the role until approval is granted by a designated approver. All of the approvers will be notified when approval is requested, and the user won’t be able to use the eligible role until approval is granted. Approvers will also be notified when that happens. For more details about the approval process, see [Approve or deny requests for Azure resource roles in Privileged Identity Management](../../active-directory/privileged-identity-management/pim-resource-roles-approval-workflow.md).
+If approvers have been specified, the user won't have access to the role until approval is granted by a designated [approver from the managing tenant](#approvers). All of the approvers will be notified when approval is requested, and the user won't be able to use the eligible role until approval is granted. Approvers will also be notified when that happens. For more details about the approval process, see [Approve or deny requests for Azure resource roles in Privileged Identity Management](../../active-directory/privileged-identity-management/pim-resource-roles-approval-workflow.md).
 
 Once the eligible role has been activated, the user will have that role for the full duration specified in the eligible authorization. After that time period, they will no longer be able to use that role, unless they repeat the elevation process and elevate their access again.
 
