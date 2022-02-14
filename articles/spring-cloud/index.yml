@@ -96,7 +96,7 @@ landingContent:
         links:
           - text: Set up Azure Spring Cloud Config Server
             url: quickstart-setup-config-server.md
-       - linkListType: tutorial
+      - linkListType: tutorial
         links:
           - text: Set up a Spring Cloud Config Server instance for your service
             url: how-to-config-server.md
