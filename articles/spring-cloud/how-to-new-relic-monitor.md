@@ -7,7 +7,8 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/07/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # How to monitor Spring Boot apps using New Relic Java agent (Preview)
