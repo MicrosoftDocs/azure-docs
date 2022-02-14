@@ -23,7 +23,7 @@ This article describes how to move a Remote Rendering account to a different Azu
 
 ### Create a new Remote Rendering account in the target region
 
-[!INCLUDE [Create Account](create-an-account.md)]
+Follow steps to create and configure [an Azure Remote Rendering Account](create-an-account.md).
 
 ### Update your source code
 
