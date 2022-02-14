@@ -110,7 +110,7 @@ To unassign a personal desktop in the Azure portal:
     > ![A screenshot of the unassign user menu option from the ellipses menu for unassigning a personal desktop.](media/unassign.png)
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot of the unassign user menu option from the assignment menu for unassigning a personal desktop.](media/unassign2.png)
+    > ![A screenshot of the unassign user menu option from the assignment menu for unassigning a personal desktop.](media/unassign-2.png)
 
 8. Select **Unassign** when prompted with the warning.
 
@@ -138,7 +138,7 @@ To reassign a personal desktop in the Azure portal:
 7. Select the checkbox next to the session host you want to reassign to a different user, select the ellipses at the end of the row, and then select **Assign to a different user**. You can also select **Assignment** > **Assign to a different user**.
 
     > [!div class="mx-imgBorder"]
-    > ![A screenshot of the assign to a different user menu option from the ellipses menu for reassigning a personal desktop.](media/reassigndoc.png)
+    > ![A screenshot of the assign to a different user menu option from the ellipses menu for reassigning a personal desktop.](media/reassign-doc.png)
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the assign to a different user menu option from the assignment menu for reassigning a personal desktop.](media/reassign.png)
