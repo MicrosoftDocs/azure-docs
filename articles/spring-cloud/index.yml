@@ -48,8 +48,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Read a secret from Azure Key Vault in a Spring Boot application
-            url: configure-spring-boot-starter-java-app-with-azure-key-vault.md
+          - text: -- this -- Manage secrets
+            url: overview.md
           - text: -- this -- End-user authentication and authorization
             url: overview.md
       - linkListType: how-to-guide
@@ -64,6 +64,20 @@ landingContent:
             url: how-to-enable-end-to-end-tls.md
           - text: How to enable system-assigned managed identity for applications
             url: how-to-enable-system-assigned-managed-identity.md
+
+  # Card (optional)
+  - title: Manage your app
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Start, stop, and delete an application in Azure Spring Cloud
+            url: how-to-start-stop-delete.md
+          - text: Use built-in persistent storage in Azure Spring Cloud
+            url: how-to-built-in-persistent-storage.md
+          - text: Use built-in persistent storage in Azure Spring Cloud
+            url: how-to-custom-persistent-storage.md
+          - text: Move an Azure Spring Cloud service instance to another region
+            url: how-to-move-across-regions.md
 
   # Card (optional)
   - title: Scale your apps
@@ -120,9 +134,26 @@ landingContent:
             url: concept-metrics.md
       - linkListType: how-to-guide
         links:
+          - text: Analyze logs and metrics with diagnostics settings
+            url: diagnostic-services.md
+          - text: How to monitor Spring Boot apps with Dynatrace Java OneAgent
+            url: how-to-dynatrace-one-agent-monitor.md
+          - text: How to monitor Spring Boot apps using New Relic Java agent (Preview)
+            url: how-to-new-relica-monitor.md
+          - text: How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)
+            url: how-to-appdynamics-java-agent-monitor.md
+          - text: Monitor app lifecycle events using Azure Activity log and Azure Service Health
+            url: monitor-app-lifecycle-events.md
+          - text: How to use Logback to write logs to custom persistent storage
+            url: how-to-write-log-to-custom-persistent-storage.md
+          - text: How to monitor Spring Boot apps with Elastic APM Java Agent
+            url: how-to-elastic-apm-java-agent-monitor.md
           - text: Analyze logs with Elastic (ELK) using diagnostics settings
             url: how-to-elastic-diagnostic-settings.md
-          - text: 
+          - text: Stream Azure Spring Cloud app logs in real-time
+            url: how-to-log-streaming.md
+          - text: Application Insights Java In-Process Agent in Azure Spring Cloud
+            url: how-to-application-insights.md
 
   # Card (optional)
   - title: API reference
