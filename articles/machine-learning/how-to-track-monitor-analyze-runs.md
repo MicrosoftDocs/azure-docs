@@ -79,6 +79,8 @@ You'll need the following items:
         
     # [Azure CLI](#tab/azure-cli)
     
+    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+    
     To start a run of your experiment, use the following steps:
     
     1. From a shell or command prompt, use the Azure CLI to authenticate to your Azure subscription:
@@ -87,7 +89,6 @@ You'll need the following items:
         az login
         ```
         
-        [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
     
     1. Attach a workspace configuration to the folder that contains your training script. Replace `myworkspace` with your Azure Machine Learning workspace. Replace `myresourcegroup` with the Azure resource group that contains your workspace:
         
