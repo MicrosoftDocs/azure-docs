@@ -272,7 +272,7 @@ You can view the billing account for your subscription if you have admin access.
 
 ### I need VMware Spring Runtime Support (Enterprise Tier only)
 
-Enterprise tier has built-in VMware Spring Runtime Support so you can directly open support tickets to [VMware](https://via.vmw.com/ascevsrsupport) if you think your issue is in scope of VMware Spring Runtime Support. For more information, see [https://tanzu.vmware.com/spring-runtime](https://tanzu.vmware.com/spring-runtime) to open tickets to VMware. For any other issues, directly open support tickets with Microsoft.
+Enterprise tier has built-in VMware Spring Runtime Support so you can directly open support tickets to [VMware](https://aka.ms/ascevsrsupport) if you think your issue is in scope of VMware Spring Runtime Support. For more information, see [https://tanzu.vmware.com/spring-runtime](https://tanzu.vmware.com/spring-runtime). For any other issues, directly open support tickets with Microsoft.
 
 ## Next steps
 
