@@ -1,7 +1,7 @@
 ---
 title:  View quotas
 description: Learn how to view quotas and request increases in the Azure portal.
-ms.date: 02/10/2022
+ms.date: 02/14/2022
 ms.topic: how-to
 ---
 
@@ -19,7 +19,7 @@ To view the **Quotas** page, sign in to the [Azure portal](https://portal.azure.
 To view detailed information about your quotas, select **My quotas** in the left menu on the **Quotas** page.
 
 > [!NOTE]
-> You can also select a specific Azure provider from the main **Quotas** page to view quotas and usage for that provider. If you don't see a provider, check the [Azure subscription and service limits page](../..//azure-resource-manager/management/azure-subscription-service-limits.md) for more information.
+> You can also select a specific Azure provider from the **Quotas** overview page to view quotas and usage for that provider. If you don't see a provider, check the [Azure subscription and service limits page](../..//azure-resource-manager/management/azure-subscription-service-limits.md) for more information.
 
 On the **My quotas** page, you can choose which quotas and usage data to display. The filter options at the top of the page let you filter by location, provider, subscription, and usage. You can also use the search box to look for a specific quota.
 
@@ -31,19 +31,19 @@ In the list of quotas, you can toggle the arrow shown next to **Quota** to expan
 
 You can request quota increases directly from **My quotas**. The process for requesting an increase will depend on the type of quota.
 
-### Request an automatic increase
+### Request a quota increase
 
 Some quotas display a pencil icon. Select this icon to quickly request an increase for that quota.
 
 :::image type="content" source="media/view-quotas/quota-pencil-icon.png" alt-text="Screenshot of the pencil icon to request a quota increase in the Azure portal.":::
 
-After you select the pencil icon, enter the new limit for your request in the **Quota Details** pane, then select **Save and Continue**. After a few minutes, you'll see a status update confirming whether the increase was automatically approved. If you close **Quota details** before the update appears, you can check it later in the Azure Activity Log.
+After you select the pencil icon, enter the new limit for your request in the **Quota Details** pane, then select **Save and Continue**. After a few minutes, you'll see a status update confirming whether the increase was fulfilled. If you close **Quota details** before the update appears, you can check it later in the Azure Activity Log.
 
-If your request wasn't automatically approved, you can select **Create a support request** so that your request can be evaluated by our support team.
+If your request wasn't fulfilled, you can select **Create a support request** so that your request can be evaluated by our support team.
 
 ### Create a support request
 
-If the quota displays a support icon rather than a pencil, you'll need to create a support request in order to increase the quota.
+If the quota displays a support icon rather than a pencil, you'll need to create a support request in order to request the increase.
 
 :::image type="content" source="media/view-quotas/quota-support-icon.png" alt-text="Screenshot of the support icon to request a quota increase in the Azure portal.":::
 
