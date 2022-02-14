@@ -89,7 +89,7 @@ To set a connection string via environment variable, place the value of the conn
 
 ## New capabilities
 
-Just like instrumentation keys, connections strings identify a resource to associate your telemetry data with. Connection strings provide a single configuration setting and eliminate the need for multiple proxy settings. It is a reliable, secure, and useful technology for sending data to the monitoring service.
+Just like instrumentation keys, connections strings identify a resource to associate your telemetry data with. Connection strings provide a single configuration setting and eliminate the need for multiple proxy settings. It's a reliable, secure, and useful technology for sending data to the monitoring service.
 
 Connection strings allow you to take advantage of the latest capabilities of Application Insights.
 
@@ -97,7 +97,7 @@ Connection strings allow you to take advantage of the latest capabilities of App
 
 - **Security:** Connection strings allow authenticated telemetry ingestion by using [Azure AD authentication for Application Insights](azure-ad-authentication.md).
 
-- **Customized endpoints (sovereign or hybrid cloud environments):** Endpoint settings allow sending data to a specific [Azure Government region](custom-endpoints#regions-that-require-endpoint-modification). ([see examples](sdk-connection-string.md#how-to-set-a-connection-string))
+- **Customized endpoints (sovereign or hybrid cloud environments):** Endpoint settings allow sending data to a specific [Azure Government region](custom-endpoints.md#regions-that-require-endpoint-modification). ([see examples](sdk-connection-string.md#how-to-set-a-connection-string))
 
 - **Privacy (regional endpoints)** – Connection strings ease privacy concerns by sending data to regional endpoints, ensuring data doesn't leave a geographic region.
 
@@ -115,7 +115,7 @@ Follow these steps if data isn't arriving after migration:
 
 ### Where else can I find my connection string?
 The connection string is also included in the ARM resource properties for your Application Insights resource, under the field name “ConnectionString”.
-### How does this impact auto instrumentation scenarios?
+### How does this impact auto instrumentation?
 
 Auto instrumentation scenarios aren't impacted.
 
