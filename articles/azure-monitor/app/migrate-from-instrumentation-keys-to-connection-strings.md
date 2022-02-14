@@ -5,23 +5,19 @@ ms.topic: conceptual
 ms.date: 02/14/2022
 ---
 
-# Migrate to connection strings for Application Insights resources
+# Migration processe to connection strings for Application Insights resources
 
-This guide walks through migrating from [instrumentation keys](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#about-resources-and-instrumentation-keys) to [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#overview) for telemetry ingestion.
+This guide walks through migrating from [instrumentation keys](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#about-resources-and-instrumentation-keys) to [connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#overview).
 
 ## Prerequisites
 
-- A supported SDK version
-    - .NET and .NET Core v2.12.0
-    -   Java v2.5.1 and Java 3.0
-    -   JavaScript v2.3.0
-    -   NodeJS v1.5.0
-    -   Python v1.0.0
+- A [supported SDK version](https://docs.microsoft.com/azure/azure-monitor/app/migrate-from-instrumentation-keys-to-connection-strings
+- Supported SDK Versions)
 - An existing [application insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource)
 
-## Migrate to a connections string
+## Migration process
 
-1.  Your connection string is displayed on the Overview blade of your Application Insights resource.
+1.  Find your connection string displayed on the Overview blade of your Application Insights resource.
 
     <img src="./media/\migrate-from-instrumentation-keys-to-connection-strings\migrate-from-instrumentation-keys-to-connection-strings.png" style="width:10.64552in;height:2.39638in"
     alt="Application Insights overview displaying connection string" />
@@ -31,11 +27,11 @@ This guide walks through migrating from [instrumentation keys](https://docs.micr
 3.  Configure the Application Insights SDK by following [How to set connection strings](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#how-to-set-a-connection-string).
 
 > [!IMPORTANT]
-> We do not recommend using both a connection string and instrumentation key. If both are set, whichever was set last will take precedence.
+> Using both a connection string and instrumentation key is not recommended. Whichever was set last takes precedence.
 
 ## Migration at scale (for multiple subscriptions)
 
-You can use environment variables to easily pass a connection string to the Application Insights SDK or Agent. If you hardcode an Instrumentation Key in your application code, that programming may take precedence before environment variables.
+You can use environment variables to easily pass a connection string to the Application Insights SDK or Agent. If you hardcode an instrumentation key in your application code, that programming may take precedence before environment variables.
 
 To set a connection string via environment variable, simply place the value of the connection string into an environment variable named “APPLICATIONINSIGHTS_CONNECTION_STRING”. This process can be automated in your Azure deployments. For example, the following ARM template shows how you can automatically include the  correct connection string with an App Services deployment (be sure to include any other App Settings your app requires):
 
@@ -85,6 +81,13 @@ To set a connection string via environment variable, simply place the value of t
 }
 
 ```
+## Supported SDK Versions
+
+- .NET and .NET Core v2.12.0
+- Java v2.5.1 and Java 3.0
+- JavaScript v2.3.0
+- NodeJS v1.5.0
+- Python v1.0.0
 
 ## New capabilities
 
@@ -104,16 +107,16 @@ Connection strings allow you to take advantage of the latest capabilities of App
 
 If data is no longer arriving in Application Insights after migration from an instrumentation key to a connection string, verify the following:
 
-1.  Confirm you are using a supported SDK/agent that supports connection strings. If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a Connection String.
+1.  Confirm you are using a supported SDK/agent that supports connection strings. If you use Application Insights integration in another Azure product offering, check its documentation on how to properly configure a connection string.
 
 2.  Confirm you are not setting both an instrumentation key and connection string at the same time. Instrumentation key settings should be completely removed from your configuration.
 
-3.  Confirm your Connection String is exactly as provided in the Azure Portal.
+3.  Confirm your connection string is exactly as provided in the Azure Portal.
 
 ## FAQ
 
 ### Where else can I find my connection string?
-To aid with automation, the connection string is also included in the ARM resource properties for your Application Insights resource, under the field name “ConnectionString”.
+The connection string is also included in the ARM resource properties for your Application Insights resource, under the field name “ConnectionString”.
 ### How does this impact auto instrumentation scenarios?
 
 Auto instrumentation scenarios are not impacted, but you cannot enable [Azure AD authentication](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication?tabs=net) for [auto instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/codeless-overview) scenarios.
