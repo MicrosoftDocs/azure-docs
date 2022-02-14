@@ -28,12 +28,9 @@ You can currently configure the following tables for Basic Logs:
 > Tables created with the [Data Collector API](data-collector-api.md) do not support Basic Logs.
 ## Data retention and archiving of Basic Logs
 
-Analytics tables retain data for a retention period you set.
+Analytics tables retain data based on a [retention and archive policy](data-retention-archive.md) you set.
 
 Basic Logs tables retain data for eight days. When you change the configuration of an existing table from Analytics to Basic Logs, Azure archives data that is more than eight days old but still within the original retention period you set.
-
-For more information, see [Configure data retention and archive in Azure Monitor Logs](data-retention-archive.md).
-
 
 ## Set table configuration
 Call the **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#configure-basic-logs-and-analytics-tables) to configure a table for Basic Logs or Analytics Logs:
