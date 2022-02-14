@@ -66,7 +66,7 @@ landingContent:
             url: how-to-start-stop-delete.md
           - text: Use built-in persistent storage in Azure Spring Cloud
             url: how-to-built-in-persistent-storage.md
-          - text: Use built-in persistent storage in Azure Spring Cloud
+          - text: Use custom persistent storage in Azure Spring Cloud
             url: how-to-custom-persistent-storage.md
           - text: Move an Azure Spring Cloud service instance to another region
             url: how-to-move-across-regions.md
@@ -116,8 +116,6 @@ landingContent:
             url: github-actions-key-vault.md
           - text: Enable Blue-Green deployments using Azure Spring Cloud
             url: how-to-staging-environment.md
-          - text: Use built-in persistent storage
-            url: how-to-built-in-persistent-storage.md
  
    # Card (optional)
   - title: Monitor your application
