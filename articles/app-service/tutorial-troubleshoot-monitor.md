@@ -29,7 +29,9 @@ You can follow the steps in this tutorial on macOS, Linux, Windows.
 To complete this tutorial, you'll need:
 
 - [Azure subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+
 - [Azure CLI](/cli/azure/install-azure-cli)
+
 - [Git](https://git-scm.com/)
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]

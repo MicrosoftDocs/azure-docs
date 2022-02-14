@@ -26,11 +26,12 @@ In this article, you'll learn how to:
 ## Prerequisites
 
 - Complete the [Create an Azure API Management instance](get-started-create-service-instance.md) quickstart.
+
 - [Import and publish](import-and-publish.md) an Azure API Management instance.
 
-[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
-
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## Authorize developer accounts by using Azure AD
 

@@ -16,6 +16,8 @@ ms.custom: seodec18, references_regions, devx-track-azurecli
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
+## Summary
+
 The App Service Environment (ASE) is a single tenant deployment of the Azure App Service that runs in your Azure Virtual Network (VNet).  While the ASE does run in your VNet, it must still be accessible from a number of dedicated IP addresses that are used by the Azure App Service to manage the service.  In the case of an ASE, the management traffic traverses the user-controlled network. If this traffic is blocked or misrouted, the ASE will become suspended. For details on the ASE networking dependencies, read [Networking considerations and the App Service Environment][networking]. For general information on the ASE, you can start with [Introduction to the App Service Environment][intro].
 
 All ASEs have a public VIP which management traffic comes into. The incoming management traffic from these addresses comes in from to ports 454 and 455 on the public VIP of your ASE. This document lists the App Service source addresses for management traffic to the ASE. These addresses are also in the IP Service Tag named AppServiceManagement.
