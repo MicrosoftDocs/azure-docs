@@ -42,7 +42,7 @@ This section describes how to view and filter alerts details on your sensor.
 
 - Select **Alerts** from the side menu. The  page displays the alerts detected by your sensor.
 
-    :::image type="content" source="media/how-to-view-alerts/view-alerts-main-page.png" alt-text="Alerts page on sensor" lightbox="media/how-to-view-alerts/view-alerts-main-page-expanded.png":::
+    :::image type="content" source="media/how-to-view-alerts/view-alerts-main-page.png" alt-text="Alerts page on sensor" lightbox="media/how-to-view-alerts/view-alerts-main-page.png":::
 
 The following information is available from the Alerts page:
 
@@ -110,11 +110,11 @@ Gain contextual insight about alert activity by:
 
 - Viewing source and destination devices in map view with other connected devices. Select **Map View** to see the map.
 
-    :::image type="content" source="media/how-to-view-alerts/view-alerts-map.png" alt-text="Map view of source and detected device from alert" lightbox="media/how-to-view-alerts/view-alerts-map-expanded.png" :::
+    :::image type="content" source="media/how-to-view-alerts/view-alerts-map.png" alt-text="Map view of source and detected device from alert" lightbox="media/how-to-view-alerts/view-alerts-map.png" :::
  
 - Viewing an Event timeline with recent activity of the device. Select **Event Timeline** and use the filter options to customize the information displayed. 
  
-    :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Alert timeline for selected alert from Alerts page" lightbox="media/how-to-view-alerts/alert-event-timeline-expanded.png" :::
+    :::image type="content" source="media/how-to-view-alerts/alert-event-timeline.png" alt-text="Alert timeline for selected alert from Alerts page" lightbox="media/how-to-view-alerts/alert-event-timeline.png" :::
 
 ### Remediate the alert incident
 
