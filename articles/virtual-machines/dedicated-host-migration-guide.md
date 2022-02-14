@@ -24,7 +24,7 @@ Review the [FAQs](dedicated-host-retirement.md#faqs) before you get started on m
 
 ## Azure Dedicated Host Retirement
 
-Some Azure Dedicated Host SKUs will be retired soon. Please refer to the [Azure Dedicated Host SKU Retirement](dedicated-host-retirement.md#faqs) documentation to learn more
+Some Azure Dedicated Host SKUs will be retired soon. Please refer to the [Azure Dedicated Host SKU Retirement](dedicated-host-retirement.md#faqs) documentation to learn more.
 
 ## Dsv3-Type1 and Dsv3-Type2
 
