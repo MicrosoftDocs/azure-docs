@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 01/07/2022
+ms.date: 02/14/2022
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -40,7 +40,7 @@ The following permissions are available to toggle device states.
 
 ## Read BitLocker recovery keys
 
-The following permission is available to read BitLocker metadata and recovery keys.
+The following permission is available to read BitLocker metadata and recovery keys. Note that this single permission provides read for both BitLocker metadata and recovery keys.
 
 - microsoft.directory/bitlockerKeys/key/read
 
@@ -109,6 +109,5 @@ The following permission is available to update tenant-wide device registration 
 
 ## Next steps
 
-- [Block self-service BitLocker key access](bitlocker-key-access.md)
 - [Create and assign a custom role in Azure Active Directory](custom-create.md)
 - [List Azure AD role assignments](view-assignments.md)

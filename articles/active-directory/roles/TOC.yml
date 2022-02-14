@@ -90,8 +90,6 @@
       href: delegate-app-roles.md
     - name: My Staff delegation
       href: my-staff-configure.md
-  - name: Block BitLocker key access
-    href: bitlocker-key-access.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot roles assigned to groups
