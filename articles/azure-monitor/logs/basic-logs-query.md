@@ -17,7 +17,7 @@ Note that other tools that use the Azure API for querying - for example, Grafana
 ## Limits
 Queries with Basic Logs are subject to the following limitations:
 ### KQL language limits
-Log queries against Basic Logs are intended for simple data retrieval and use a subset of the KQL language, including the following operators: 
+Log queries against Basic Logs are optimized for simple data retrieval using a subset of KQL language, including the following operators: 
 
 - [where](/azure/data-explorer/kusto/query/whereoperator)
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
