@@ -123,7 +123,6 @@ go build
 go run speech-recognition
 ```
 
-
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)

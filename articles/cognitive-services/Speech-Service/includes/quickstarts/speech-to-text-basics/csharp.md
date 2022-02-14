@@ -129,7 +129,7 @@ Now that you've transcribed speech to text, here are some suggested modification
     ```
 - To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You can add these lines right after the new `SpeechRecognizer` object is created:
     ```csharp
-    var phraseList = PhraseListGrammar.FromRecognizer(recognizer);
+    var phraseList = PhraseListGrammar.FromRecognizer(speechRecognizer);
     phraseList.AddPhrase("Contoso");
     phraseList.AddPhrase("Jessie");
     phraseList.AddPhrase("Rehaan");
