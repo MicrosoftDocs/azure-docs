@@ -178,7 +178,7 @@ Finally, detect the single source face that you'll use for matching, and save it
 
 :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_matcher":::
 
-![A man smiling](../../media/quickstarts/findsimilar.jpg)
+![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
 
 ### Find matches
 
@@ -213,7 +213,7 @@ You'll receive a JSON response that lists the IDs of the faces that match your q
 
 In this program, the face detected in this image should be returned as the face that's similar to the source image face.
 
-![A man smiling; this is the same person as the previous image](../../media/quickstarts/family1-dad1.jpg)
+![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Clean up resources
 

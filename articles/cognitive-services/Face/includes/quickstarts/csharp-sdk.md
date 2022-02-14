@@ -148,9 +148,9 @@ Create a new method to detect faces. The `DetectFaceExtract` method processes th
 
 The above code processes the following remote images:
 
-![A woman smiling](../../media/quickstarts/detection1.jpg)
-![A man, woman, and baby](../../media/quickstarts/detection5.jpg)
-![An older man and woman](../../media/quickstarts/detection6.jpg)
+![Photo of a woman smiling](../../media/quickstarts/detection-1.jpg)
+![Photo of a man, woman, and baby](../../media/quickstarts/detection-5.jpg)
+![Photo of an older man and woman](../../media/quickstarts/detection-6.jpg)
 
 > [!TIP]
 > You can also detect faces in a local image. See the [IFaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations) methods such as **DetectWithStreamAsync**.
@@ -228,7 +228,7 @@ The following method detects faces in a set of target images and in a single sou
 
 In this program, the following remote image will be used as the source:
 
-![A man smiling](../../media/quickstarts/findsimilar.jpg)
+![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
 
 ### Print matches
 
@@ -238,7 +238,7 @@ The following code prints the match details to the console:
 
 In this program, the face detected in this image should be returned as the face that's similar to the source image face.
 
-![A man smiling; this is the same person as the previous image](../../media/quickstarts/family1-dad1.jpg)
+![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Run the application
 
