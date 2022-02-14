@@ -49,9 +49,9 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 | --- | --- | --- |
 |properties.plan | string  | The table plan. Possible values are *Analytics* and *Basic*.|
 
-## Example
+### Example
 This example configures the `ContainerLog` table for Basic Logs.
-### Sample Request
+#### Sample Request
 
 ```http
 PUT https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
@@ -77,7 +77,7 @@ Use this request body to change to Analytics Logs:
 }
 ```
 
-### Sample Response
+#### Sample Response
 This is the response for a table changed to Basic Logs.
 
 Status code: 200
