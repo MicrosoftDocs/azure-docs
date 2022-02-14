@@ -13,17 +13,17 @@ ms.date: 01/27/2022
 # Configure data retention and archive policies in Azure Monitor Logs (Preview)
 Each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) retains data for a configurable period and then removes or archives the data. Archiving data lets you retain older, infrequently used data in your workspace at a reduced cost. Set data retention and archiving policies, balancing your need to have data available with the cost of data retention. 
 
-This article describes how to configure data retention and archiving for your workspace and for individual tables.
+This article describes how to configure data retention and archiving.
 
 ## How retention and archiving work
-Each workspace has a default retention policy that's applied to all tables, but you can set a different retention policy on individual tables. The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
+Each workspace has a default retention policy that's applied to all tables. You can set a different retention policy on individual tables. The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
 
 :::image type="content" source="media/data-retention-configure/retention-archive.png" alt-text="Overview of data retention and archive periods":::
 
-Set the interactive retention period for as long as you need the data regularly for monitoring, troubleshooting and analytics. When you no longer access the logs regularly, but still need to retain the data for compliance or occasional investigation, archive the logs to save costs. You can access archived data when you need to by [running a search job](search-jobs.md) on archived data or [restoring a specific time range of archived logs](restore.md). 
+Set the interactive retention period for as long as you need the data for monitoring, troubleshooting and analytics. When you no longer use the logs, but still need to keep the data for compliance or occasional investigation, archive the logs to save costs. You can access archived data by [running a search job](search-jobs.md) or [restoring archived logs](restore.md). 
 
 ## Configure the default workspace retention policy
-You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you can't modify the data retention period; upgrade to the paid tier to control this setting.
+You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
 
 To set the default workspace retention policy:
 
@@ -39,7 +39,7 @@ To set the default workspace retention policy:
 
 You can set retention policies for individual tables, except for workspaces in the legacy Free Trial pricing tier, using Azure Resource Manager APIs. You cannot currently configure data retention for individual tables in the Azure portal.
 
-You can retain data in a table between 4 and 730 days and set an archive period for a total retention time of up to 2,555 days (seven years). 
+You can keep data in interactive retention between 4 and 730 days. You can set the archive period for a total retention time of up to 2,555 days (seven years). 
 
 Each table is a sub-resource of the workspace it's in. For example, you can address the `SecurityEvent` table in [Azure Resource Manager](../../azure-resource-manager/management/overview.md) as:
 
@@ -51,7 +51,7 @@ Note that the table name is case-sensitive.
 
 ### Get retention and archive policy by table
 
-Call the **Tables - Get** API to get the current table-level retention policy of a particular table (in this example `SecurityEvent`), call:
+Call the **Tables - Get** API to get the current table-level retention policy of a particular table (in this example `SecurityEvent`):
 
 ```JSON
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview
