@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Spring Cloud documentation # < 60 chars
-summary: Azure Spring Cloud provides a managed service that lets you run microservices on Azure using Spring-boot or Steeltoe (preview) with no code changes. # < 160 chars
+summary: Azure Spring Cloud is a fully managed service for building and running Spring Boot and Steeltoe apps without the hassle of managing infrastructure. # < 160 chars
 
 metadata:
   title: Azure Spring Cloud # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Spring Cloud provides a managed service that lets you run microservices on Azure using Spring-boot or Steeltoe (preview) with no code changes.  # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Spring Cloud is a fully managed service for building and running Spring Boot and Steeltoe apps without the hassle of managing infrastructure. # Required; article description that is displayed in search results. < 160 chars.
   services: spring-cloud
   ms.service: spring-cloud #Required; service per approved list. service slug assigned to your service.
   ms.topic: landing-page # Required
@@ -43,6 +43,33 @@ landingContent:
           - text: Prepare a Spring or Steeltoe app for deployment
             url: how-to-prepare-app-deployment.md
 
+  # Card (optional)
+  - title: Secure Spring Boot apps
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Read a secret from Azure Key Vault in a Spring Boot application
+            url: configure-spring-boot-starter-java-app-with-azure-key-vault.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Azure Spring Cloud in a virtual network
+            url: how-to-deploy-in-azure-virtual-network.md
+          - text: Use TLS/SSL certificates in your application
+            url: how-to-use-tls-certificate.md
+          - text: Enable end-to-end TLS for an application
+            url: how-to-enable-end-to-end-tls.md
+
+  # Card (optional)
+  - title: Scale your apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manually scale your application
+            url: how-to-scale-manual.md
+          - text: Set up autoscale for applications
+            url: how-to-setup-autoscale.md
+
+  # Card (optional)
   - title: Configure your service
     linkLists:
       - linkListType: tutorial
@@ -51,6 +78,10 @@ landingContent:
             url: how-to-config-server.md
           - text: Manually scale your application
             url: how-to-scale-manual.md
+
+  # Card (optional)
+  - title: Automate end-to-end
+    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Automate your CI/CD pipeline in Azure Spring Cloud
@@ -60,9 +91,8 @@ landingContent:
           - text: Use built-in persistent storage
             url: how-to-built-in-persistent-storage.md
  
-
-  # Card
-  - title: Monitor your application
+   # Card (optional)
+  - title: Monitor end-to-end
     linkLists:
       - linkListType: tutorial
         links:
@@ -75,18 +105,7 @@ landingContent:
           - text: Understanding Azure Monitor Metrics for Spring Cloud
             url: concept-metrics.md
 
-  # Card
-  - title: Bind with other services
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Bind your application with Azure Cache for Redis
-            url: how-to-bind-redis.md
-          - text: Bind your application to an Azure MySQL DB
-            url: how-to-bind-mysql.md
-          - text: Bind your application to Azure CosmosDB
-            url: how-to-bind-cosmos.md
-   # Card
+  # Card (optional)
   - title: API reference
     linkLists:
       - linkListType: reference
