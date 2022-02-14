@@ -275,7 +275,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     
     For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
-    # [Azure Portal](#tab/portal)
+    # [Azure portal](#tab/portal)
 
     Currently there isn't a way to set the image build compute from the Azure portal.
 
