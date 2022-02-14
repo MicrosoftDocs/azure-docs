@@ -383,13 +383,13 @@ The hosts in this section are used to install R packages, and are required durin
 
 | **Host name** | **Purpose** |
 | ---- | ---- |
-| **cloud.r-project.org** | Used when installing CRAN packages. | 
+| **cloud.r-project.org** | Used when installing CRAN packages. |
 
 ### Azure Kubernetes Services
 
 When using Azure Kubernetes Service with Azure Machine Learning, the following traffic must be allowed:
 
-* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) article.
+* General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../en-us/aks/limit-egress-traffic.md) article.
 * __Outbound__ to mcr.microsoft.com.
 * When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
 
