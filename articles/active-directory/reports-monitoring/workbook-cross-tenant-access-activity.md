@@ -53,15 +53,15 @@ When you select an external tenant in the first table, the remaining sections up
 
 The next section summarizes all outbound and inbound sign-in activity for the selected tenant, including the number of successful sign-ins and the resons for failed sign-ins. You can select **Outbound activity** or **Inbound activity** to update the remaining sections of the workbook with the type of activity you want to view.
 
-![Screenshot showing list of external tenants with sign-in data](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-2.png)
+![Screenshot showing activity for the selected tenant.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-2.png)
 
-The next section lists the applications that are being accessed by your users or external users. If you selected **Outbound activity** in the previous section, the table shows the applications in external tenants that are being accessed by your users. If you selected **Inbound activity**, you'll see the list of your applications that are being accessed by external users. You can select a row to find out which users are accessing that application.
+The next section lists the applications that are being accessed across tenants. If you selected **Outbound activity** in the previous section, the table shows the applications in external tenants that are being accessed by your users. If you selected **Inbound activity**, you'll see the list of your applications that are being accessed by external users. You can select a row to find out which users are accessing that application.
 
-![Screenshot showing list of external tenants with sign-in data](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-3.png)
+![Screenshot showing application activity for the selected tenant.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-3.png)
 
 The last section displays the list of users who are accessing the application you selected.
 
-![Screenshot showing list of external tenants with sign-in data](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-4.png)
+![Screenshot showing users accessing an app.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-4.png)
 
 ## Filters
 
