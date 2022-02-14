@@ -71,7 +71,7 @@ Based on our learnings from customer engagements, we built Azure Spring Cloud En
 
 The fully managed Tanzu Build Service in Azure Spring Cloud Enterprise tier automates container creation, management and governance at enterprise scale using open-source [Cloud Native Buildpacks](https://buildpacks.io/) and commercial [Tanzu Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/). Tanzu Build Service offers a higher-level abstraction for building apps and provides a balance of control that reduces the operational burden on developers and supports enterprise IT operators who manage applications at scale. You can configure what Buildpacks to apply and build Spring applications and polyglot applications that run alongside Spring applications on Azure Spring Cloud.
 
-Tanzu Buildpacks makes it easier to build Spring, Java, NodeJS, Python, Go and .NET Core applications and configure application performance monitoring agents such as Application Insights, New Relic, Dynatrace, AppDynamics and Elastic.
+Tanzu Buildpacks makes it easier to build Spring, Java, NodeJS, Python, Go and .NET Core applications and configure application performance monitoring agents such as Application Insights, New Relic, Dynatrace, AppDynamics, and Elastic.
 
 ### Route client requests to applications
 
@@ -87,19 +87,19 @@ API Portal for VMware Tanzu provides API consumers with the ability to find and 
 
 ### Use flexible and configurable VMware Tanzu components
 
-With Azure Spring Cloud Enterprise tier, you can use VMware Tanzu components on managed Azure infrastructure. Tanzu Build Service, Tanzu Spring Cloud Gateway, API Portal for VMware Tanzu, Tanzu Application Configuration Service, and Tanzu Service Registry are available during public preview. You'll have the flexibility to select which Tanzu components you want during instance creation.
+With Azure Spring Cloud Enterprise tier, you can use fully managed VMware Tanzu components on Azure. You can select which VMware Tanzu components you want to use in your environment during Enterprise instance creation. VMware Tanzu Build Service, VMware Spring Cloud Gateway, API Portal for VMware Tanzu, VMware Application Configuration Service, and VMware Tanzu Service Registry are available during public preview.
 
-Tanzu components deliver increased value so you can:
+VMware Tanzu components deliver increased value so you can:
 
 * Grow your enterprise grade application portfolio from a few applications to thousands with end-to-end observability while delegating operational complexity to Microsoft and VMware.
 * Lift and shift Spring applications across Azure Spring Cloud and any other compute environment.
 * Control your build dependencies, deploy polyglot applications, and deploy Spring Cloud middleware components as needed.
 
-Microsoft and VMware will continue to add more Tanzu components such as Application Live View for Tanzu, Tanzu Application Accelerator, and Spring Cloud Data Flow, although the Azure Spring Cloud Enterprise tier roadmap is not confirmed and is subject to change.
+Microsoft and VMware will continue to add more enterprise-grade features, including Tanzu components such as Application Live View for Tanzu, VMware Tanzu Application Accelerator, and Spring Cloud Data Flow, although the Azure Spring Cloud Enterprise tier roadmap is not confirmed and is subject to change.
 
 ### Unlock Spring’s full potential with Long-Term Support (LTS)
 
-Azure Spring Cloud Enterprise tier includes VMware Spring Runtime Support for application development and deployments. This support gives you access to Spring experts, enabling you to unlock the full potential of the Spring ecosystem and develop and deploy applications faster.
+Azure Spring Cloud Enterprise tier includes VMware Spring Runtime Support for application development and deployments. This support gives you access to Spring experts, enabling you to unlock the full potential of the Spring ecosystem to develop and deploy applications faster.
 
 Typically, open-source Spring project minor releases are supported for a minimum of 12 months from the date of initial release. In Azure Spring Cloud Enterprise, Spring project minor releases will receive commercial support for a minimum of 24 months from the date of initial release through the VMware Spring Runtime Support entitlement. This extended support ensures the security and stability of your Spring application portfolio even after the open source end of life dates. For more information, see [Spring Boot support](https://spring.io/projects/spring-boot#support).
 
