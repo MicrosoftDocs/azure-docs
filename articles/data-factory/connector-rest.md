@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/13/2022
+ms.date: 02/14/2022
 ms.author: makromer
 ---
 
@@ -508,7 +508,7 @@ This generic REST connector supports the following pagination patterns:
 | Headers.*request_header* OR Headers['request_header'] | "request_header" is user-defined, which references one header name in the next HTTP request. |
 | EndCondition:*end_condition* | "end_condition" is user-defined, which indicates the condition that will end the pagination loop in the next HTTP request. |
 | MaxRequestNumber | Indicates the maximum pagination request number. Leave it as empty means no limit. |
-| SupportRFC5988 | RFC 5988 is supported in the pagination rules. By default, this is set to true. It will only be honored if no other pagination rules are defined. If you don't want to enable this default pagination rule, you can set supportRFC5988 to false or just delete it in script.
+| SupportRFC5988 | RFC 5988 is supported in the pagination rules. By default, this is set to true. It will only be honored if no other pagination rules are defined. If you don't want to enable this default pagination rule, you can set `supportRFC5988` to `false` or just delete it in script.
 
 **Supported values** in pagination rules:
 
@@ -658,9 +658,9 @@ BaseUrl/api/now/table/t100
 **Step 2**: Set **Pagination rules** as `"AbsoluteUrl.{id}" :"RANGE:1:100:1"`.
 
 
-#### Example 3：Variables in Header
+#### Example 3：Variables in Headers
 
-This example provides the configuration steps to send multiple requests whose variables are in Header.
+This example provides the configuration steps to send multiple requests whose variables are in Headers.
 
 **Multiple requests:**<br/>
 RequestUrl: https://example/table<br/>
@@ -674,11 +674,11 @@ Request 100: Header(id->100)<br/>
     
 **Step 2**: Set **Pagination rules** as `"Headers.{id}" : "RARNGE:0:100:10"`.
 
-:::image type="content" source="media/connector-rest/pagination-example-3.png" alt-text="Screenshot showing the configuration steps to send multiple requests whose variables are in Header."::: 
+:::image type="content" source="media/connector-rest/pagination-example-3.png" alt-text="Screenshot showing the configuration steps to send multiple requests whose variables are in Headers."::: 
 
-#### Example 4：Variables are in AbsoluteUrl/QueryParameters/Header, the end variable is not pre-defined and the end condition is based on the response.
+#### Example 4：Variables are in AbsoluteUrl/QueryParameters/Headers, the end variable is not pre-defined and the end condition is based on the response.
 
-This example provides configuration steps to send multiple requests whose variables are in AbsoluteUrl/QueryParameters/Header but the end variable is not defined. For different responses, there are different settings end condition rule as shown in Example 4.1-4.6.
+This example provides configuration steps to send multiple requests whose variables are in AbsoluteUrl/QueryParameters/Headers but the end variable is not defined. For different responses, different end condition rule settings are shown in Example 4.1-4.6.
 
 **Multiple requests:**
 
@@ -696,8 +696,8 @@ Response 1：
 ```
 {
 Data: [
-    		        {key1: val1, key2: val2},
-    {key1: val3, key2: val4}
+    		    {key1: val1, key2: val2},
+ {key1: val3, key2: val4}
         ]
 }
 ```
@@ -706,15 +706,15 @@ Response 2：
 ```
 {
 Data: [
-    		        {key1: val5, key2: val6},
-    {key1: val7, key2: val8}
+    		    {key1: val5, key2: val6},
+ {key1: val7, key2: val8}
             ]
 }
 ```
     
 **Step 1**: Set the range of **Pagination rules** as Example 1 and leave the end of range empty as `"AbsoluteUrl.{offset}": "RANGE:0::1000"`
 
-**Step 2**: Set different end condition rules according to different last responses. There are six examples shown below:
+**Step 2**: Set different end condition rules according to different last responses. Six examples are shown below:
 
 - **Example 4.1: The pagination will end when the value of the specific node in response is empty** 
 
@@ -727,7 +727,7 @@ Data: [
     ```
     Set the end condition rule as `"EndCondition:$.data": "Empty"`.
 
-    :::image type="content" source="media/connector-rest/pagination-example-4-1.png" alt-text="Screenshot showing the EndCondition setting for example 4.1."::: 
+    :::image type="content" source="media/connector-rest/pagination-example-4-1.png" alt-text="Screenshot showing the EndCondition setting for Example 4.1."::: 
 
 - **Example 4.2: The pagination will end when the value of the specific node in response dose not exist** 
 
@@ -739,7 +739,7 @@ Data: [
     ```
     Set the end condition rule as `"EndCondition:$.data": "NonExist"`
         
-    :::image type="content" source="media/connector-rest/pagination-example-4-2.png" alt-text="Screenshot showing the EndCondition setting for example 4.2."::: 
+    :::image type="content" source="media/connector-rest/pagination-example-4-2.png" alt-text="Screenshot showing the EndCondition setting for Example 4.2."::: 
 
 - **Example 4.3: The pagination will end when the value of the specific node in response exists**
     
@@ -749,14 +749,14 @@ Data: [
     {
     Data: [
         		    {key1: val991, key2: val992},
-        {key1: val993, key2: val994}
+     {key1: val993, key2: val994}
             ],
             Complete: true
     }
     ```
     Set the end condition rule as `"EndCondition:$.Complete": "Exist"`
 
-    :::image type="content" source="media/connector-rest/pagination-example-4-3.png" alt-text="Screenshot showing the EndCondition setting for example 4.3."::: 
+    :::image type="content" source="media/connector-rest/pagination-example-4-3.png" alt-text="Screenshot showing the EndCondition setting for Example 4.3."::: 
 
 - **Example 4.4: The pagination will end when the value of the specific node in response is a user-defined const value.**
 
@@ -766,7 +766,7 @@ Data: [
     {
     Data: [
         		    {key1: val1, key2: val2},
-        {key1: val3, key2: val4}
+     {key1: val3, key2: val4}
             ],
             Complete: false
     }
@@ -777,15 +777,15 @@ Data: [
     ```
     {
     Data: [
-        		        {key1: val991, key2: val992},
-        {key1: val993, key2: val994}
+        		    {key1: val991, key2: val992},
+     {key1: val993, key2: val994}
             ],
             Complete: true
     }
     ```
     Set the end condition rule as `"EndCondition:$.Complete": "Const:true"`
         
-    :::image type="content" source="media/connector-rest/pagination-example-4-4.png" alt-text="Screenshot showing the EndCondition setting for example 4.4."::: 
+    :::image type="content" source="media/connector-rest/pagination-example-4-4.png" alt-text="Screenshot showing the EndCondition setting for Example 4.4."::: 
 
 - **Example 4.5: The pagination will end when the value of the header key in response is equal to user-defined const value**
 
@@ -795,7 +795,7 @@ Data: [
         
     Set the end condition rule as `"EndCondition:headers.Complete": "Const:1"`
         
-    :::image type="content" source="media/connector-rest/pagination-example-4-5.png" alt-text="Screenshot showing the EndCondition setting for example 4.5."::: 
+    :::image type="content" source="media/connector-rest/pagination-example-4-5.png" alt-text="Screenshot showing the EndCondition setting for Example 4.5."::: 
 
 - **Example 4.6: The pagination will end when the key exists in the response header**
 
@@ -805,7 +805,7 @@ Data: [
         
     Set the end condition rule as `"EndCondition:headers.CompleteTime": "Exist"`
 
-    :::image type="content" source="media/connector-rest/pagination-example-4-6.png" alt-text="Screenshot showing the EndCondition setting for example 4.6."::: 
+    :::image type="content" source="media/connector-rest/pagination-example-4-6.png" alt-text="Screenshot showing the EndCondition setting for Example 4.6."::: 
 
 #### Example 5：The range rule is not used but the end condition can be set to avoid endless requests
 
@@ -859,23 +859,23 @@ The last response is:
 
 **Step 1**: Set **Pagination rules** as `"AbsoluteUrl": "$.paging.next"`
    
-**Step 2**: If `next` in the last response is always same with the last request URL and not empty, endless requests will be sent. The end condition can be used to avoid endless requests. Therefore, set the **EndCondition** rule refer to Example 4.1-4.6.
+**Step 2**: If `next` in the last response is always same with the last request URL and not empty, endless requests will be sent. The end condition can be used to avoid endless requests. Therefore, set the end condition rule refer to Example 4.1-4.6.
 
-#### Example 6：Set MaxRequestNumber to avoid endless request
+#### Example 6：Set the max request number to avoid endless request
 
 Set **MaxRequestNumber** to avoid endless request as shown in the following screenshot:
 
-:::image type="content" source="media/connector-rest/pagination-example-6.png" alt-text="Screenshot showing the MaxRequestNumber setting for example 6."::: 
+:::image type="content" source="media/connector-rest/pagination-example-6.png" alt-text="Screenshot showing the MaxRequestNumber setting for Example 6."::: 
 
-#### Example 7：Support RFC 5988 pagination rule by default
+#### Example 7：The RFC 5988 pagination rule is supported by default
 
 The backend will automatically get the next URL based on the RFC 5988 style links in the header.  
 
-:::image type="content" source="media/connector-rest/pagination-example-7-1.png" alt-text="Screenshot showing the MaxRequestNumber setting for example 6."::: 
+:::image type="content" source="media/connector-rest/pagination-example-7-1.png" alt-text="Screenshot showing the MaxRequestNumber setting for Example 7."::: 
 
 > [!TIP]
-> If you don't want to enable this default pagination rule, you can set supportRFC5988 to false or just delete it in the script.
-> :::image type="content" source="media/connector-rest/pagination-example-7-2.png" alt-text="Screenshot showing how to disable RFC 5988 setting for example 7."::: 
+> If you don't want to enable this default pagination rule, you can set `supportRFC5988` to `false` or just delete it in the script.
+> :::image type="content" source="media/connector-rest/pagination-example-7-2.png" alt-text="Screenshot showing how to disable RFC 5988 setting for Example 7."::: 
 
 ## Use OAuth
 This section describes how to use a solution template to copy data from REST connector into Azure Data Lake Storage in JSON format using OAuth. 
