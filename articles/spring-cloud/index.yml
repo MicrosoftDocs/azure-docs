@@ -164,7 +164,6 @@ landingContent:
         links:
           - text: Troubleshoot common Azure Spring Cloud issues
             url: troubleshoot.md
-          - text: 
 
 # Card (optional)
   - title: Resources
