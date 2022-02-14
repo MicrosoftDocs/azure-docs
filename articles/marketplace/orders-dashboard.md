@@ -115,7 +115,7 @@ For different statuses, the _Orders_ sub-tab provides information about the coun
 - Hovering over a slice in the graph displays the number of orders and percentage of that offer compared to your total number of orders across all offers.
 - The **orders by offers trend** displays month-by-month growth trends. The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted alongside the bar graphs.
 
-### Order by offers - Orders subtab 
+### Order by offers - Orders subtab
 
 In this widget you can view information of All offers with different order statuses under the **Orders** subtab.
 
@@ -176,30 +176,30 @@ The Order details table displays a numbered list of the 500 top orders sorted by
 | MonthStartDate | Month Start Date | Month Start Date represents month of Purchase. The format is yyyy-mm-dd. | MonthStartDate |
 | Offer Type | Offer Type | The type of commercial marketplace offering. | OfferType |
 | Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as Channel. The possible values are:<ul><li>[Cloud Solution Provider](cloud-solution-providers.md)</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>GTM</li></ul> | AzureLicenseType |
-| Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
+| Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | The plan associated with the offer | SKU |
 | Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
 | Is Preview SKU | Is Preview SKU | The value will let you know if you have tagged the SKU as "preview". Value will be "Yes" if the SKU has been tagged accordingly, and only Azure subscriptions authorized by you can deploy and use this image. Value will be "No" if the SKU has not been identified as "preview". | IsPreviewSKU |
-| Order ID | Order ID | The unique identifier of the customer order for your commercial marketplace service. Virtual Machine usage-based offers are not associated with an order. | OrderId |
-| Order Quantity | Order Quantity | Number of assets associated with the order ID for active orders | OrderQuantity |
+| Asset ID | Asset ID | The unique identifier of the customer order for your commercial marketplace service. Virtual Machine usage-based offers are not associated with an order. | AssetId |
+| Quantity | Quantity | Number of assets associated with the order ID for active orders | OrderQuantity |
 | Cloud Instance Name | Cloud Instance Name | The Microsoft Cloud in which a VM deployment occurred. | CloudInstanceName |
 | Is New Customer | Is New Customer | The value identifies whether a new customer acquired one or more of your offers for the first time. Value will be "Yes" if within the same calendar month for "Date Acquired". Value will be "No" if the customer has purchased any of your offers prior to the calendar month reported. | IsNewCustomer |
-| Order Status | Order Status | The status of a commercial marketplace order at the time the data was last refreshed. Possible values are: <ul><li>Active</li><li>Cancelled</li><li>Expired</li><li>abandoned</li><li>Warning</li></ul> | OrderStatus |
+| Order Status | Order Status | The status of a commercial marketplace order at the time the data was last refreshed. Possible values are: <ul><li>**Active**: Subscription asset is active and used by customer</li><li>**Cancelled**: Subscription of an asset is cancelled by customer</li><li>**Expired**: Subscription for an offer expired in the system automatically post trial period</li><li>**Abandoned**: Indicates a system error during offer creation or subscription fulfilment was not completed<li><li>**Warning**: </li>Subscription order is still active but customer has defaulted in payments</ul> | OrderStatus |
 | Order Cancel Date | Order Cancel Date | The date the commercial marketplace order was canceled. | OrderCancelDate |
 | Customer Company Name | Customer Company Name | The company name provided by the customer. Name could be different than the city in a customer's Azure subscription. | CustomerCompanyName |
 | Order Purchase Date | Order Purchase Date | The date the commercial marketplace order was created. The format is yyyy-mm-dd. | OrderPurchaseDate |
 | Offer Name | Offer Name | The name of the commercial marketplace offering. | OfferName |
-| Is Private Offer | Is Private Offer | Indicates whether a marketplace offer is private or a public offer | Is Private Offer |
+| Is Private Offer | Is Private Offer | Indicates whether a marketplace offer is private or a public offer<ul><li>0 value indicates false</li><li>1 value indicates true</li</ul> | Is Private Offer |
 | Term Start Date | TermStartDate | Indicates the start date of a term for an order. | TermStartDate |
 | Term End Date | TermEndDate | Indicates the end date of a term for an order. | TermEndDate |
-| Not available | purchaseRecordId | The identifier of the purchase record related to an order. | purchaseRecordId |
+| Not available | purchaseRecordId | The identifier of the purchase record for an order purchase | purchaseRecordId |
 | Not available | purchaseRecordLineItemId | The identifier of the purchase record line item related to this order. | purchaseRecordLineItemId |
-| Billed Revenue USD | EstimatedCharges | The price the customer will be charged for all order units before taxation. In tax inclusive countries, this price includes the tax, otherwise it does not. | EstimatedCharges |
-| Not available | Currency | BillingCurrency for the offer | Currency |
-| Not available | HasTrial | Represents whether an offer SKU is in trial period | HasTrial |
-| Is Trial | IsTrial | Represents whether an offer has trial period enabled. | IsTrial |
-| Order Action | Order Action | Indicates the customer action for the offer subscription. Possible values are: <ul><li>Purchase: Order was purchased</li><li>Renewed: Order was renewed</li><li>Canceled: Order was canceled</li></ul> | OrderAction |
-| Seats changed | Seats changed | The net change in seats added and seats removed | SeatsChanged |
+| Billed Revenue USD | EstimatedCharges | The price the customer will be charged for all order units before taxation. This is calculated in customer transaction currency. In tax inclusive countries, this price includes the tax, otherwise it does not. | EstimatedCharges |
+| Not available | Currency | Billing currency for the order purchase | Currency |
+| Not available | HasTrial | Represents whether an offer has trial period enabled | HasTrial |
+| Is Trial | IsTrial | Represents whether an offer SKU is in trial period | IsTrial |
+| Order Action | Order Action | Indicates the customer action for an offer subscription. Possible values are: <ul><li>**Purchase**: Order was purchased</li><li>**Renewed**: Order was renewed</li><li>**Canceled**: Order was canceled</li></ul> | OrderAction |
+| Quantity changed | Quantity changed | The net change in seats added and seats removed for existing subscription orders. Same applies for sites (flat rate) pricing model | QuantityChanged |
 | Trial End Date | Trial End Date | The date the trial period for this order will end or has ended. | TrialEndDate |
 | Customer ID | Customer ID | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. | CustomerID |
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
