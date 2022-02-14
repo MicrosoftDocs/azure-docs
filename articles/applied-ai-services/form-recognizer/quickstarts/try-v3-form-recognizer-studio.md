@@ -143,7 +143,6 @@ To create custom models, you start with configuring your project:
 > [!NOTE]
 > Tables are currently only supported for custom template models. When training a custom neural model, labeled tables are ignored.
 
-<<<<<<< HEAD
 1. Use the Delete command to delete models that are not required.
 
 1. Download model details for offline viewing.
@@ -156,9 +155,7 @@ To create custom models, you start with configuring your project:
 > Tables are currently only supported for custom template models. When training a custom document model, labeled tables are ignored.
 
 While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
-=======
 For custom form models, while creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:
->>>>>>> 5c900ba13515f7f3be489efb8cf3f6a00a7aa78e
 
 * Dynamic or variable count of values (rows) for a given set of fields (columns)
 
