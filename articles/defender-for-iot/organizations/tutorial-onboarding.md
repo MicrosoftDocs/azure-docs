@@ -1,8 +1,6 @@
 ---
 title: Microsoft Defender for IoT trial setup
 description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with a virtual sensor, on a virtual machine, with a trial subscription of Microsoft Defender for IoT.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 11/09/2021
 ms.custom: template-tutorial
