@@ -22,7 +22,7 @@ Defender for Cloud offers more container security features if you enable Microso
 
 | Aspect | Details |
 |--|--|
-| Release state: | AKS - General availability (GA) <ber> Extension - Preview |
+| Release state: | AKS - General availability (GA) <br> Extension - Preview |
 | Pricing: | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes, it's billed according to the Microsoft Defender for Containers plan |
 | Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations |
 | Environment requirements: | Kubernetes v1.14 (or newer) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
@@ -108,7 +108,7 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
 
 1. Select the relevant cluster, and **Remediate**.
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
+    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for Azure Policy add-on for Kubernetes should be installed and enabled on your clusters.":::
 
 ## View and configure the bundle of recommendations
 
