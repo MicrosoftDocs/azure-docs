@@ -36,7 +36,7 @@ For a detailed description of the Events message structure and both required and
 
 ### What is the throughput for the Events messages?
 
-The throughput of FHIR events is governed by the throughput of the FHIR service and the Event Grid. When a request made to the FHIR service is successful, it will return a 2xx HTTP status code. It will also generate a FHIR resource changing event. The current limitation is 5,000 events/second per a workspace for all FHIR service instances in it. If you require events that exceed the current limitation, [Create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). For more information about Azure support options, see [Azure support plans](https://azure.microsoft.com/en-us/support/options/#support-plans). 
+The throughput of FHIR events is governed by the throughput of the FHIR service and the Event Grid. When a request made to the FHIR service is successful, it will return a 2xx HTTP status code. It will also generate a FHIR resource changing event. The current limitation is 5,000 events/second per a workspace for all FHIR service instances in it. If you require events that exceed the current limitation, [Create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). For more information about Azure support options, see [Azure support plans](https://azure.microsoft.com/support/options/#support-plans). 
 
 ### How am I charged for using Events?
 
