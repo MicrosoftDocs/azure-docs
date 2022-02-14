@@ -10,9 +10,9 @@ ms.service: iot-central
 ---
 # Export IoT data to cloud destinations using data export (legacy)
 
-The legacy data export feature is now deprecated and you should plan to migrate to the new [data export feature](howto-export-data.md). The legacy data export lacks important capabilities such as the availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export:
+The legacy data export (classic) feature is now deprecated and you should plan to migrate to the new [data export feature](howto-export-data.md). The legacy data export lacks important capabilities such as the availability of different data types, filtering, and message transformation. See the following table for a comparison of legacy data export with new data export:
 
-| Capability  | Legacy data export | New data export |
+| Capability  | Legacy data export (classic) | New data export |
 | :------------- | :---------- | :----------- |
 | Available data types | Telemetry, devices, device templates | Telemetry, property changes, device connectivity changes, device lifecycle changes, device template lifecycle changes |
 | Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
@@ -24,7 +24,7 @@ The legacy data export feature is now deprecated and you should plan to migrate 
 
 ## Migration considerations
 
-To migrate a legacy data export to new data export, you should:
+To migrate a legacy data export (classic) to new data export, you should:
 
 1. Use a test IoT Central application and create a new data export with the same data type and destination. You can optionally use the enrichments and data transformation functionality to make your export message shape similar to the message shape from your legacy data export.
 1. When you've tested your new data export and are ready to go to production, ensure any workflows or dependencies on your active legacy data exports are safely removed.
@@ -65,7 +65,7 @@ In the new data export, you can create a destination and reuse it across differe
 > [!Note]
 > This article describes the legacy data export features in IoT Central
 >
-> - Legacy data exports are scheduled to be retired on 31 March 2023. Migrate any legacy data exports to new exports
+> - Legacy data exports (classic) are scheduled to be retired. Migrate any legacy data exports to new exports
 > 
 > - For information about the latest data export features, see [Export IoT data to cloud destinations using data export](./howto-export-data.md).
 
