@@ -510,7 +510,7 @@ However, to access an Azure key vault with your managed identity, you have to cr
 
 | Tool | Documentation |
 |------|---------------|
-| Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/templates/microsoft.keyvault/vaults/) |
+| Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/azure/templates/microsoft.keyvault/vaults) |
 | Azure PowerShell | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-powershell) |
 | Azure CLI | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-cli) |
 |||
@@ -1076,7 +1076,7 @@ Following this `Microsoft.Web/connections` resource definition, make sure that y
 }
 ```
 
-For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/templates/microsoft.web/connections?tabs=json) documentation.
+For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/azure/templates/microsoft.web/connections) documentation.
 
 ---
 
