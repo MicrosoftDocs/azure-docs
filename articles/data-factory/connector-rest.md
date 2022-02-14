@@ -508,7 +508,7 @@ This generic REST connector supports the following pagination patterns:
 | Headers.*request_header* OR Headers['request_header'] | "request_header" is user-defined, which references one header name in the next HTTP request. |
 | EndCondition:*end_condition* | "end_condition" is user-defined, which indicates the condition that will end the pagination loop in the next HTTP request. |
 | MaxRequestNumber | Indicates the maximum pagination request number. Leave it as empty means no limit. |
-| SupportRFC5988 | RFC 5988 is supported in the pagination rules. By default, this is set to true. It will only be honored if no other pagination rules are defined.
+| SupportRFC5988 | RFC 5988 is supported in the pagination rules. By default, this is set to true. It will only be honored if no other pagination rules are defined. If you don't want to enable this default pagination rule, you can set supportRFC5988 to false or just delete it in script.
 
 **Supported values** in pagination rules:
 
@@ -609,6 +609,273 @@ If you want to send multiple sequence requests with one variable in a range, you
     `AbosoluteUrl = baseUrl/api/now/table/t{id}`
 
     The pagination rule is: `AbsoluteUrl.{id} = RANGE:1:100:1`
+
+### Pagination examples
+
+This section provides examples of sending different kinds of multiple requests.
+
+#### Example 1: Variables in QueryParameters
+
+This example provides the configuration steps to send multiple requests whose variables are in QueryParameters.
+
+**Multiple requests:**
+```
+baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=0,
+baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=1000,
+...... 
+baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=10000
+```
+
+**Step 1**: Input `sysparm_offset={offset}` either in **Base URL** or **Relative URL** as shown in the following screenshots:
+        
+:::image type="content" source="media/connector-rest/pagination-example-1-rest-linked-service-base-url.png" alt-text="Screenshot showing the configuration step 1 to send multiple requests whose variables are in QueryParameters":::  
+    
+or
+
+:::image type="content" source="media/connector-rest/pagination-example-1-rest-linked-service-relative-url.png" alt-text="Screenshot showing the configuration step 2 to send multiple requests whose variables are in QueryParameters"::: 
+        
+**Step 2**: Set **Pagination rules** as either option 1 or option 2：
+            
+Option1: `"QueryParameters.{offset}" : "RANGE:0:10000:1000"`
+            
+Option2: `"AbsoluteUrl.{offset}" : "RANGE:0:10000:1000"`
+
+
+#### Example 2：Variables in AbsoluteUrl
+
+This example provides the configuration steps to send multiple requests whose variables are in AbsoluteUrl.
+
+**Multiple requests:**
+```
+BaseUrl/api/now/table/t1
+BaseUrl/api/now/table/t2
+...... 
+BaseUrl/api/now/table/t100
+```
+
+**Step 1**: Input `{id}` either in **Base URL** in the linked service configuration page or **Relative URL** in the dataset connection pane.
+    
+**Step 2**: Set **Pagination rules** as `"AbsoluteUrl.{id}" :"RANGE:1:100:1"`.
+
+
+#### Example 3：Variables in Header
+
+This example provides the configuration steps to send multiple requests whose variables are in Header.
+
+**Multiple requests:**<br/>
+RequestUrl: https://example/table<br/>
+Request 1: Header(id->0)<br/>
+Request 2: Header(id->10)<br/>
+Request 2: Header(id->20)<br/>
+......<br/>
+Request 100: Header(id->100)<br/>
+
+**Step 1**: Input `{id}` in **Additional headers**.
+    
+**Step 2**: Set **Pagination rules** as `"Headers.{id}" : "RARNGE:0:100:10"`.
+
+:::image type="content" source="media/connector-rest/pagination-example-3.png" alt-text="Screenshot showing the configuration steps to send multiple requests whose variables are in Header."::: 
+
+#### Example 4：Variables are in AbsoluteUrl/QueryParameters/Header, the end variable is not pre-defined and the end condition is based on the response.
+
+This example provides configuration steps to send multiple requests whose variables are in AbsoluteUrl/QueryParameters/Header but the end variable is not defined. For different responses, there are different settings end condition rule as shown in Example 4.1-4.6.
+
+**Multiple requests:**
+
+```
+Request 1: baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=0, 
+Request 2: baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=1000,
+Request 3: baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=2000,
+...... 
+```
+
+Two responses encountered in this example:<br/>
+
+Response 1：
+
+```
+{
+Data: [
+    		        {key1: val1, key2: val2},
+    {key1: val3, key2: val4}
+        ]
+}
+```
+
+Response 2：
+```
+{
+Data: [
+    		        {key1: val5, key2: val6},
+    {key1: val7, key2: val8}
+            ]
+}
+```
+    
+**Step 1**: Set the range of **Pagination rules** as Example 1 and leave the end of range empty as `"AbsoluteUrl.{offset}": "RANGE:0::1000"`
+
+**Step 2**: Set different end condition rules according to different last responses. There are six examples shown below:
+
+- **Example 4.1: The pagination will end when the value of the specific node in response is empty** 
+
+    Last response:
+        
+    ```
+    {
+    Data: []
+    }
+    ```
+    Set the end condition rule as `"EndCondition:$.data": "Empty"`.
+
+    :::image type="content" source="media/connector-rest/pagination-example-4-1.png" alt-text="Screenshot showing the EndCondition setting for example 4.1."::: 
+
+- **Example 4.2: The pagination will end when the value of the specific node in response dose not exist** 
+
+    Last response:
+
+    ```
+    {
+    }
+    ```
+    Set the end condition rule as `"EndCondition:$.data": "NonExist"`
+        
+    :::image type="content" source="media/connector-rest/pagination-example-4-2.png" alt-text="Screenshot showing the EndCondition setting for example 4.2."::: 
+
+- **Example 4.3: The pagination will end when the value of the specific node in response exists**
+    
+    Last response:
+
+    ```
+    {
+    Data: [
+        		    {key1: val991, key2: val992},
+        {key1: val993, key2: val994}
+            ],
+            Complete: true
+    }
+    ```
+    Set the end condition rule as `"EndCondition:$.Complete": "Exist"`
+
+    :::image type="content" source="media/connector-rest/pagination-example-4-3.png" alt-text="Screenshot showing the EndCondition setting for example 4.3."::: 
+
+- **Example 4.4: The pagination will end when the value of the specific node in response is a user-defined const value.**
+
+    Last response:
+
+    ```
+    {
+    Data: [
+        		    {key1: val1, key2: val2},
+        {key1: val3, key2: val4}
+            ],
+            Complete: false
+    }
+    ```
+    
+    or
+
+    ```
+    {
+    Data: [
+        		        {key1: val991, key2: val992},
+        {key1: val993, key2: val994}
+            ],
+            Complete: true
+    }
+    ```
+    Set the end condition rule as `"EndCondition:$.Complete": "Const:true"`
+        
+    :::image type="content" source="media/connector-rest/pagination-example-4-4.png" alt-text="Screenshot showing the EndCondition setting for example 4.4."::: 
+
+- **Example 4.5: The pagination will end when the value of the header key in response is equal to user-defined const value**
+
+    Response header 1: header(Complete->0)<br/>
+    ......<br/>
+    Last Response header: header(Complete->1)<br/>
+        
+    Set the end condition rule as `"EndCondition:headers.Complete": "Const:1"`
+        
+    :::image type="content" source="media/connector-rest/pagination-example-4-5.png" alt-text="Screenshot showing the EndCondition setting for example 4.5."::: 
+
+- **Example 4.6: The pagination will end when the key exists in the response header**
+
+    Response header 1: header()<br/>
+    ......<br/>
+    Last Response header: header(CompleteTime->20220920)<br/>
+        
+    Set the end condition rule as `"EndCondition:headers.CompleteTime": "Exist"`
+
+    :::image type="content" source="media/connector-rest/pagination-example-4-6.png" alt-text="Screenshot showing the EndCondition setting for example 4.6."::: 
+
+#### Example 5：The range rule is not used but the end condition can be set to avoid endless requests
+
+This example provides the configuration steps to send multiple requests when the range rule is not used. The end condition can be set refer to Example 4.1-4.6 to avoid endless requests. The REST API returns response in the following structure, in which case next page's URL is represented in ***paging.next***.
+
+```json
+{
+    "data": [
+        {
+            "created_time": "2017-12-12T14:12:20+0000",
+            "name": "album1",
+            "id": "1809938745705498_1809939942372045"
+        },
+        {
+            "created_time": "2017-12-12T14:14:03+0000",
+            "name": "album2",
+            "id": "1809938745705498_1809941802371859"
+        },
+        {
+            "created_time": "2017-12-12T14:14:11+0000",
+            "name": "album3",
+            "id": "1809938745705498_1809941879038518"
+        }
+    ],
+    "paging": {
+        "cursors": {
+            "after": "MTAxNTExOTQ1MjAwNzI5NDE=",
+            "before": "NDMyNzQyODI3OTQw"
+        },
+        "previous": "https://graph.facebook.com/me/albums?limit=25&before=NDMyNzQyODI3OTQw",
+        "next": "https://graph.facebook.com/me/albums?limit=25&after=MTAxNTExOTQ1MjAwNzI5NDE="
+    }
+}
+...
+```
+The last response is:
+
+```json
+{
+    "data": [],
+    "paging": {
+        "cursors": {
+            "after": "MTAxNTExOTQ1MjAwNzI5NDE=",
+            "before": "NDMyNzQyODI3OTQw"
+        },
+        "previous": "https://graph.facebook.com/me/albums?limit=25&before=NDMyNzQyODI3OTQw",
+        "next": "Same with Last Request URL"
+    }
+}
+```
+
+**Step 1**: Set **Pagination rules** as `"AbsoluteUrl": "$.paging.next"`
+   
+**Step 2**: If `next` in the last response is always same with the last request URL and not empty, endless requests will be sent. The end condition can be used to avoid endless requests. Therefore, set the **EndCondition** rule refer to Example 4.1-4.6.
+
+#### Example 6：Set MaxRequestNumber to avoid endless request
+
+Set **MaxRequestNumber** to avoid endless request as shown in the following screenshot:
+
+:::image type="content" source="media/connector-rest/pagination-example-6.png" alt-text="Screenshot showing the MaxRequestNumber setting for example 6."::: 
+
+#### Example 7：Support RFC 5988 pagination rule by default
+
+The backend will automatically get the next URL based on the RFC 5988 style links in the header.  
+
+:::image type="content" source="media/connector-rest/pagination-example-7-1.png" alt-text="Screenshot showing the MaxRequestNumber setting for example 6."::: 
+
+> [!TIP]
+> If you don't want to enable this default pagination rule, you can set supportRFC5988 to false or just delete it in the script.
+> :::image type="content" source="media/connector-rest/pagination-example-7-2.png" alt-text="Screenshot showing how to disable RFC 5988 setting for example 7."::: 
 
 ## Use OAuth
 This section describes how to use a solution template to copy data from REST connector into Azure Data Lake Storage in JSON format using OAuth. 
