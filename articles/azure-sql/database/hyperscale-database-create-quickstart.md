@@ -276,12 +276,12 @@ Connect to the master database using [SQL Server Management Studio (SSMS)](/sql/
 
 When creating a Hyperscale database, carefully consider the setting for `BACKUP_STORAGE_REDUNDANCY`. Backup storage redundancy can only be specified during the database creation process for Hyperscale databases. Your backups may be locally redundant (preview), zone-redundant (preview), or geo-redundant. Allowed values for the `BackupStorageRedundancy` parameter are: `LOCAL`, `ZONE`, `GEO`.  Unless explicitly specified, databases will be configured to use geo-redundant backup storage. Existing databases can migrate to different storage redundancy using database copy or point in time restore.
 
-Run the following Transact-SQL command to create a new Hyperscale database with Gen 5 hardware, 2 vCores, and geo-redundant backup storage. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) for a list of valid service objectives.
+Run the following Transact-SQL command to create a new Hyperscale database with Gen 5 hardware, 2 vCores, and geo-redundant backup storage. You must specify both the edition and service objective in the `CREATE DATABASE` statement. Refer to the [resource limits](./resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen4) for a list of valid service objectives, such as `HS_Gen5_2`.
 
-This sample code creates an empty database. If you would like to create a database with sample data, use the Azure portal, Azure CLI, or PowerShell examples in this quickstart.
+This example code creates an empty database. If you would like to create a database with sample data, use the Azure portal, Azure CLI, or PowerShell examples in this quickstart.
 
 ```sql
-CREATE DATABASE [mySampleDatabase] 
+CREATE DATABASE [myHyperscaleDatabase] 
     (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_2', BACKUP_STORAGE_REDUNDANCY= 'GEO');
 GO
 ```
@@ -381,7 +381,7 @@ To delete a Hyperscale database with Transact-SQL, connect to the master databas
 Run the following Transact-SQL command to drop the database:
 
 ```sql
-DROP DATABASE [mySampleDatabase];
+DROP DATABASE [myHyperscaleDatabase];
 GO
 ```
 

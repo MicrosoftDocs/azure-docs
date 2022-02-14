@@ -145,7 +145,7 @@ Before you initiate a reverse migration from Hyperscale to the General Purpose s
 
 ### Backup policies
 
-You will be [billed using the regular pricing](automated-backups-overview.md?tabs=single-database#backup-storage-costs) for all existing database backups within the [configured retention period](automated-backups-overview.md#backup-retention). After backup billing for Hyperscale databases is introduced, you will be billed for the Hyperscale backup storage snapshots and for size-of-data storage blobs that must be retained to be able to restore the backup: although the database has been moved to a different tier, Hyperscale backups will treat the database as deleted for backup billing and retention purposes.
+You will be [billed using the regular pricing](automated-backups-overview.md?tabs=single-database#backup-storage-costs) for all existing database backups within the [configured retention period](automated-backups-overview.md#backup-retention). After backup billing for Hyperscale databases is introduced, you will be billed for the Hyperscale backup storage snapshots and for size-of-data storage blobs that must be retained to be able to restore the backup: although the database has been moved to a different tier, the Hyperscale database is treated as deleted for backup billing and retention purposes.
 
 You can migrate a database to Hyperscale and reverse migrate back to General Purpose multiple times. Only backups from the current and once-previous tier of your database will be available for restore. If you have moved from the General Purpose service tier to Hyperscale and back to General Purpose, the only backups available are the ones from the current General Purpose database and the immediately previous Hyperscale database. Any previous tiers tried won't have backups available.
 
@@ -172,7 +172,7 @@ Select the tab for your preferred method to reverse migrate your database:
 
 The Azure portal enables you to reverse migrate to the General Purpose service tier by modifying the pricing tier for your database.
 
-:::image type="content" source="media/manage-hyperscale-database/reverse-migrate-hyperscale-service-compute-tier-pane.png" alt-text="The compute & storage panel of a database in Azure SQL Database. The service tier dropdown is expanded, displaying the option for the Hyperscale service tier." lightbox="media/manage-hyperscale-database/reverse-migrate-hyperscale-service-compute-tier-pane.png":::
+:::image type="content" source="media/manage-hyperscale-database/reverse-migrate-hyperscale-service-compute-tier-pane.png" alt-text="The compute & storage panel of a Hyperscale database in Azure SQL Database." lightbox="media/manage-hyperscale-database/reverse-migrate-hyperscale-service-compute-tier-pane.png":::
 
 1. Navigate to the database you wish to migrate in the Azure portal.
 1. In the left navigation bar, select **Compute + storage**.
