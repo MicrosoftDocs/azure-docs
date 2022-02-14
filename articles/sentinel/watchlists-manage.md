@@ -43,7 +43,7 @@ Edit a watchlist to edit or add an item to the watchlist.
 
 ## Bulk update a watchlist
 
-When you have many items to add to a watchlist, use bulk update. A bulk update of a watchlist appends items to the existing watchlist. Then, it de-duplicates the items in the watchlist where the search key values match.
+When you have many items to add to a watchlist, use bulk update. A bulk update of a watchlist appends items to the existing watchlist. Then, it de-duplicates the items in the watchlist where all the value in each column match.
 
 If you've deleted an item from your watchlist file and upload it, bulk update won't delete the item in the existing watchlist. Delete the watchlist item individually. Or, when you have a lot of deletions, delete and recreate the watchlist.
 
