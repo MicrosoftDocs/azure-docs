@@ -51,24 +51,23 @@ Note that the table name is case-sensitive.
 
 ### Get retention and archive policy by table
 
-Call the **Tables - Get** API to get the current table-level retention policy of a particular table (in this example `SecurityEvent`):
+Call the **Tables - Get** API to get the retention policy of a particular table (in this example, `SecurityEvent`):
 
 ```JSON
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview
 ```
 
 > [!NOTE]
-> This call only returns the retention policy for a table if the retention is explicitly set for it. If you haven't set a table-level retention policy explicitly for a table, this call won't return anything for the table. 
+> This call only returns the retention policy if you set the policy at the table level. If you haven't set a table-level retention policy, this call won't return anything for the table. 
 
-
-To get the current table-level retention policy settings for all tables in your workspace that have had their table-level retention set, just omit the specific table name; for example:
+To get all table-level retention policies in your workspace, don't set a table name; for example:
 
 ```JSON
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2021-12-01-preview
 ```
 ### Set the retention and archive policy for a table
 
-Use the **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#set-the-data-retention-time-for-a-table) to set the retention and archive duration for a table. You don't specify the archive duration directly but instead set a total retention that specifies the retention plus the archive duration.
+Use the **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#set-the-data-retention-time-for-a-table) to set the retention and archive duration for a table. You don't actually specify the archive duration. Instead, set the total retention, which specifies the retention plus the archive duration.
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
@@ -76,8 +75,8 @@ PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups
 
 You can use either PUT or PATCH, with the following difference: 
 
-- With **PUT**, if *retentionInDays* or *totalRetentionInDays* is null or unspecified, its value will be set to default.
-- With **PATCH**, if *retentionInDays* or *totalRetentionInDays* is null or unspecified, the existing value will be kept. 
+- The **PUT** API sets *retentionInDays* and *totalRetentionInDays* to the default value if you don't set non-null values.
+- The **PATCH** API doesn't change the *retentionInDays* or *totalRetentionInDays* values if you don't specify values. 
 
 
 #### Request Body
@@ -86,7 +85,7 @@ The request body includes the values in the following table.
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value 8 is always. | 
-|properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Setting this property to null will default to the properties.retentionInDays value with no archive. | 
+|properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Set this property to null if you don't want to archive data.  | 
 
 #### Example
 The following table sets table retention to workspace default of 30 days, and total of 2 years. This means that the archive duration would be 23 months.
@@ -122,9 +121,9 @@ Status code: 200
 }
 ```
  
-## Purge retained data to comply with regulations
+## Purge retained data
 
-When you shorten an existing retention policy, there's a grace period of several days before Azure Monitor removes data older than the new retention duration. 
+When you shorten an existing retention policy, it takes several days for Azure Monitor to remove data that you no longer want to retain. 
 
 When you set the data retention policy to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which eliminates the grace period. This might be useful for compliance-related scenarios which require immediate data removal. 
 
@@ -137,9 +136,9 @@ Another method to remove data from a workspace before the retention or archive p
 The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing and is intended to be used for very limited cases. **To reduce your retention bill, the retention period must be reduced either for the workspace or for specific data types.** 
 
 ## Tables with unique retention policies
-By default, the tables of two data types - `Usage` and `AzureActivity` - retain data for a minimum of 90 days at no charge. If you lengthen the workspace retention policy to more than 90 days, the retention policy of these data types also increases. These data types are also free from data ingestion charges. 
+By default, the tables of two data types - `Usage` and `AzureActivity` - keep data for at least 90 days at no charge. Increasing the workspace retention policy to more than 90 days also increases the retention policy of these tables. These tables are also free from data ingestion charges. 
 
-Tables related to data types from workspace-based Application Insights resources also retain data for 90 days at no charge by default. You can adjust their retention policies using the retention by data type functionality. 
+Tables related to Application Insights resources also keep data for 90 days at no charge. You can adjust their retention policies using the retention by data type functionality. 
 
 - `AppAvailabilityResults`
 - `AppBrowserTimings`
