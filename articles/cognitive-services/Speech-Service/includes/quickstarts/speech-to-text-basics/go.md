@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/15/2020
+ms.date: 02/12/2022
 ms.author: eur
 ---
 
@@ -14,13 +14,24 @@ ms.author: eur
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-### Install the Speech SDK
+> [!div class="nextstepaction"]
+> [I have the prerequisites](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
 
-Before you can do anything, you need to install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser).
+## Set up the environment
 
-## Recognize speech-to-text from a microphone
+Install the [Speech SDK for Go](../../../quickstarts/setup-platform.md?pivots=programming-language-go&tabs=dotnet%252cwindows%252cjre%252cbrowser). Check the [platform-specific installation instructions](/azure/cognitive-services/speech-service/quickstarts/speech-sdk.md?pivots=programming-language-csharp#get-the-speech-sdk) for any more requirements.
 
-Use the following code sample to run speech recognition from your default device microphone. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion). Running the script will start a recognition session on your default microphone and output text.
+> [!div class="nextstepaction"]
+> [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+
+## Create a new project
+
+Follow these steps to create a new GO module.
+
+1. Open a command prompt where you want the new module, and create a new file named `speech-recognition.go`.
+1. Replace the contents of `speech-recognition.go` with the following code. 
 
 ```go
 package main
@@ -60,8 +71,8 @@ func cancelledHandler(event speech.SpeechRecognitionCanceledEventArgs) {
 }
 
 func main() {
-    subscription :=  "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
+    subscription :=  "YourSubscriptionKey"
+    region := "YourServiceRegion"
 
 	audioConfig, err := audio.NewAudioConfigFromDefaultMicrophoneInput()
 	if err != nil {
@@ -69,13 +80,13 @@ func main() {
 		return
 	}
 	defer audioConfig.Close()
-	config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
+	speechConfig, err := speech.NewSpeechConfigFromSubscription(subscription, region)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
 	}
-	defer config.Close()
-	speechRecognizer, err := speech.NewSpeechRecognizerFromConfig(config, audioConfig)
+	defer speechConfig.Close()
+	speechRecognizer, err := speech.NewSpeechRecognizerFromConfig(speechConfig, audioConfig)
 	if err != nil {
 		fmt.Println("Got an error: ", err)
 		return
@@ -92,10 +103,16 @@ func main() {
 }
 ```
 
-Run the following commands to create a *go.mod* file that links to components hosted on GitHub:
+> [!div class="nextstepaction"]
+> [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+
+## Recognize speech from a microphone
+
+Run the following commands to create a `go.mod` file that links to components hosted on GitHub:
 
 ```cmd
-go mod init quickstart
+go mod init speech-recognition
 go get github.com/Microsoft/cognitive-services-speech-sdk-go
 ```
 
@@ -103,87 +120,16 @@ Now build and run the code:
 
 ```cmd
 go build
-go run quickstart
+go run speech-recognition
 ```
 
-For detailed information, see the [reference content for the `SpeechConfig` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and the [reference content for the `SpeechRecognizer` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).
 
-## Recognize speech-to-text from an audio file
+> [!div class="nextstepaction"]
+> [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-go)
 
-Use the following sample to run speech recognition from an audio file. Replace the variables `subscription` and `region` with your speech key and location/region, respectively. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion). Additionally, replace the variable `file` with a path to a .wav file. Running the script will recognize speech from the file and output the text result.
 
-```go
-package main
+## Clean up resources
 
-import (
-	"fmt"
-	"time"
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]
 
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/audio"
-	"github.com/Microsoft/cognitive-services-speech-sdk-go/speech"
-)
-
-func main() {
-    subscription :=  "<paste-your-speech-key-here>"
-    region := "<paste-your-speech-location/region-here>"
-    file := "path/to/file.wav"
-
-	audioConfig, err := audio.NewAudioConfigFromWavFileInput(file)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer audioConfig.Close()
-	config, err := speech.NewSpeechConfigFromSubscription(subscription, region)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer config.Close()
-	speechRecognizer, err := speech.NewSpeechRecognizerFromConfig(config, audioConfig)
-	if err != nil {
-		fmt.Println("Got an error: ", err)
-		return
-	}
-	defer speechRecognizer.Close()
-	speechRecognizer.SessionStarted(func(event speech.SessionEventArgs) {
-		defer event.Close()
-		fmt.Println("Session Started (ID=", event.SessionID, ")")
-	})
-	speechRecognizer.SessionStopped(func(event speech.SessionEventArgs) {
-		defer event.Close()
-		fmt.Println("Session Stopped (ID=", event.SessionID, ")")
-	})
-
-	task := speechRecognizer.RecognizeOnceAsync()
-	var outcome speech.SpeechRecognitionOutcome
-	select {
-	case outcome = <-task:
-	case <-time.After(5 * time.Second):
-		fmt.Println("Timed out")
-		return
-	}
-	defer outcome.Close()
-	if outcome.Error != nil {
-		fmt.Println("Got an error: ", outcome.Error)
-	}
-	fmt.Println("Got a recognition!")
-	fmt.Println(outcome.Result.Text)
-}
-```
-
-Run the following commands to create a *go.mod* file that links to components hosted on GitHub:
-
-```cmd
-go mod init quickstart
-go get github.com/Microsoft/cognitive-services-speech-sdk-go
-```
-
-Now build and run the code:
-
-```cmd
-go build
-go run quickstart
-```
-
-For detailed information, see the [reference content for the `SpeechConfig` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechConfig) and the [reference content for the `SpeechRecognizer` class](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go@v1.15.0/speech#SpeechRecognizer).

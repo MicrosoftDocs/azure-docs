@@ -2,9 +2,8 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/11/2022
+ms.date: 02/12/2022
 ms.author: eur
-ms.custom: devx-track-csharp
 ---
 
 [!INCLUDE [Header](../../common/csharp.md)]
@@ -38,7 +37,7 @@ Follow these steps to create a new console application and install the Speech SD
     ```console
     dotnet add package Microsoft.CognitiveServices.Speech
     ```
-1. Replace the contents of Program.cs with the following code:
+1. Replace the contents of `Program.cs` with the following code. 
     
     ```csharp
     using System;
@@ -70,13 +69,13 @@ Follow these steps to create a new console application and install the Speech SD
                     {
                         Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
                         Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
-                        Console.WriteLine($"CANCELED: Did you update the speech key and location/region info?");
+                        Console.WriteLine($"CANCELED: Double check the speech resource key and region.");
                     }
                     break;
             }
         }
 
-        async static Task FromMicrophone(SpeechConfig speechConfig)
+        async static Task RecognizeFromMicrophone(SpeechConfig speechConfig)
         {
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
             using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
@@ -90,12 +89,12 @@ Follow these steps to create a new console application and install the Speech SD
         {
             var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
             speechConfig.SpeechRecognitionLanguage = "en-US";
-            await FromMicrophone(speechConfig);
+            await RecognizeFromMicrophone(speechConfig);
         }
     }
     ```
 
-1. In Program.cs, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. In `Program.cs`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 > [!div class="nextstepaction"]
 > [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
@@ -123,7 +122,7 @@ This example uses the `RecognizeOnceAsync` operation to transcribe utterances of
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 
-Now that you have a speech to text application, here are some suggested modifications to try out:
+Now that you've transcribed speech to text, here are some suggested modifications to try out:
 - To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
     ```csharp
     using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
@@ -144,4 +143,5 @@ Now that you have a speech to text application, here are some suggested modifica
 
 ## Clean up resources
 
-You can use the [Azure portal](~/articles/cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources) or [Azure Command Line Interface (CLI)](~/articles/cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources) to remove the Speech resource you created.
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]
+

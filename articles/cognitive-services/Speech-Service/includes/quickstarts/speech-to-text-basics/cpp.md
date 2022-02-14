@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/06/2020
+ms.date: 02/12/2022
 ms.author: eur
 ---
 
@@ -29,17 +29,18 @@ The Speech SDK is available as a [NuGet package](https://www.nuget.org/packages/
 
 Follow these steps to create a new console application and install the Speech SDK.
 
-1. Open a command prompt where you want the new project, and create a console application with the .NET CLI.
-    ```console
-    dotnet new console
+1. Create a new C++ console project in Visual Studio.
+1. Install the Speech SDK in your new project with the NuGet package manager.
+    ```powershell
+    Install-Package Microsoft.CognitiveServices.Speech
     ```
-1. Install the Speech SDK in your new project with the .NET CLI.
-    ```console
-    dotnet add package Microsoft.CognitiveServices.Speech
-    ```
-1. Replace the contents of Program.cs with the following code:
+1. Replace the contents of `main.cpp` with the following code:
     
     ```cpp
+    #include "stdafx.h"
+    #include <iostream> 
+    #include <speechapi_cxx.h>
+    
     using namespace std;
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -47,37 +48,45 @@ Follow these steps to create a new console application and install the Speech SD
     auto YourSubscriptionKey = "YourSubscriptionKey";
     auto YourServiceRegion = "YourServiceRegion";
     
-    auto config = SpeechConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
-    auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
-    auto recognizer = SpeechRecognizer::FromConfig(config);
-    cout << "Speak into your microphone.\n";
-
-    auto result = recognizer->RecognizeOnceAsync().get();
-
-    // Checks result.
-    if (result->Reason == ResultReason::RecognizedSpeech)
+    void recognizeFromMicrophone()
     {
-        cout << "RECOGNIZED: Text=" << result->Text << std::endl;
-    }
-    else if (result->Reason == ResultReason::NoMatch)
-    {
-        cout << "NOMATCH: Speech could not be recognized." << std::endl;
-    }
-    else if (result->Reason == ResultReason::Canceled)
-    {
-        auto cancellation = CancellationDetails::FromResult(result);
-        cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
-
-        if (cancellation->Reason == CancellationReason::Error)
+        auto speechConfig = SpeechConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
+        speechConfig->SetSpeechRecognitionLanguage("en-US");
+        auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
+        auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);    
+    
+        cout << "Speak into your microphone.\n";
+        auto result = recognizer->RecognizeOnceAsync().get();
+    
+        if (result->Reason == ResultReason::RecognizedSpeech)
         {
-            cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
-            cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-            cout << "CANCELED: Did you update the subscription info?" << std::endl;
+            cout << "RECOGNIZED: Text=" << result->Text << std::endl;
+        }
+        else if (result->Reason == ResultReason::NoMatch)
+        {
+            cout << "NOMATCH: Speech could not be recognized." << std::endl;
+        }
+        else if (result->Reason == ResultReason::Canceled)
+        {
+            auto cancellation = CancellationDetails::FromResult(result);
+            cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
+    
+            if (cancellation->Reason == CancellationReason::Error)
+            {
+                cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
+                cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
+                cout << "CANCELED: Double check the speech resource key and region" << std::endl;
+            }
         }
     }
+    
+    int main()
+    {
+    	recognizeFromMicrophone();
+    }                    
     ```
 
-1. In Program.cpp, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
 
 > [!div class="nextstepaction"]
 > [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
@@ -85,11 +94,7 @@ Follow these steps to create a new console application and install the Speech SD
 
 ## Recognize speech from a microphone
 
-Run your new console application to start speech recognition from a microphone:
-
-```console
-dotnet run
-```
+Build and run your new console application to start speech recognition from a microphone.
 
 Speak into your microphone when prompted. What you speak should be output as text: 
 
@@ -105,7 +110,7 @@ This example uses the `RecognizeOnceAsync` operation to transcribe utterances of
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
 
-Now that you have a speech to text application, here are some suggested modifications to try out:
+Now that you've transcribed speech to text, here are some suggested modifications to try out:
 - To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
     ```cpp
     auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
@@ -126,4 +131,4 @@ Now that you have a speech to text application, here are some suggested modifica
 
 ## Clean up resources
 
-You can use the [Azure portal](~/articles/cognitive-services/cognitive-services-apis-create-account.md#clean-up-resources) or [Azure Command Line Interface (CLI)](~/articles/cognitive-services/cognitive-services-apis-create-account-cli.md#clean-up-resources) to remove the Speech resource you created.
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]

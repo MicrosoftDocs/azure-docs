@@ -2,8 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2020
-ms.custom: devx-track-java
+ms.date: 02/12/2022
 ms.author: eur
 ---
 
@@ -14,6 +13,40 @@ ms.author: eur
 ## Prerequisites
 
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
+
+
+> [!div class="nextstepaction"]
+> [I have the prerequisites](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
+
+## Set up the environment
+
+
+> [!div class="nextstepaction"]
+> [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
+
+## Create a new project
+
+
+> [!div class="nextstepaction"]
+> [My project is ready to run](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
+
+## Recognize speech from a microphone
+
+
+> [!div class="nextstepaction"]
+> [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
+> [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-java)
+
+
+## Clean up resources
+
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]
+
+
+
 
 ### Install the Speech SDK
 
