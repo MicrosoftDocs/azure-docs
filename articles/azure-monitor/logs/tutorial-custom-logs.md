@@ -290,7 +290,7 @@ Select **Monitoring Metrics Publisher** and click **Next**.  You could instead c
 
 Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select the application that you created and click **Select**.
 
-:::image type="content" source="media/tutorial-custom-logs/custom-log-create-select-member.png" lightbox="media/tutorial-custom-logs/custom-log-create-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment":::
+:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-member.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment":::
 
 
 Click **Review + assign** and verify the details before saving your role assignment.

@@ -94,11 +94,11 @@ items:
   - name: Data collection rules
     items: 
     - name: Agent
-      href: essentials/dcr-sample-agent.md
+      href: agents/dcr-sample-agent.md
     - name: Custom logs
-      href: essentials/dcr-sample-custom-logs.md
+      href: logs/dcr-sample-custom-logs.md
     - name: Workspace transformation
-      href: essentials/dcr-sample-workspace.md
+      href: logs/dcr-sample-workspace.md
   - name: Azure CLI
     href: cli-samples.md
   - name: Monitor Logs in Azure CLI
@@ -433,8 +433,11 @@ items:
       items:
       - name: Overview
         href: logs/ingestion-time-transformations.md
-      - name: Tutorial
+      - name: Tutorial - portal
         href: logs/tutorial-ingestion-time-transformations.md
+      - name: Tutorial - API
+        href: logs/tutorial-ingestion-time-transformations-api.md
+
   - name: Agents
     items:
     - name: Overview
