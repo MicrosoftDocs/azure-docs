@@ -275,7 +275,7 @@ During the sign-out, Azure AD B2C simultaneously sends an HTTP request to the re
 To support single sign-out, the token issuer technical profiles for both JWT and SAML must specify:
 
 - The protocol name, such as `<Protocol Name="OpenIdConnect" />`
-- The reference  to the session technical profile, such as `UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />`.
+- The reference  to the session technical profile, such as `UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />`.
 
 The following example illustrates the JWT and SAML token issuers with single sign-out:
 
@@ -289,11 +289,11 @@ The following example illustrates the JWT and SAML token issuers with single sig
       <Protocol Name="OpenIdConnect" />
       <OutputTokenFormat>JWT</OutputTokenFormat>
       ...    
-      <UseTechnicalProfileForSessionManagement ReferenceId="SM-OAuth-issuer" />
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-jwt-issuer" />
     </TechnicalProfile>
 
     <!-- Session management technical profile for OIDC based tokens -->
-    <TechnicalProfile Id="SM-OAuth-issuer">
+    <TechnicalProfile Id="SM-jwt-issuer">
       <DisplayName>Session Management Provider</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.OAuthSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
     </TechnicalProfile>

@@ -20,6 +20,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 ### Support limitations for Azure Key Vault (AKV) secrets provider extension
 - Following Kubernetes distributions are currently supported
     - Cluster API Azure
+    - Azure Kubernetes Service on Azure Stack HCI (AKS-HCI)
     - Google Kubernetes Engine
     - OpenShift Kubernetes Distribution
     - Canonical Kubernetes Distribution
@@ -371,7 +372,7 @@ This output should not include AKV secrets provider. If you don't have any other
 ## Reconciliation and Troubleshooting
 Azure Key Vault secrets provider extension is self-healing. All extension components that are deployed on the cluster at the time of extension installation are reconciled to their original state in case somebody tries to intentionally or unintentionally change or delete them. The only exception to that is CRDs. In case the CRDs are deleted, they are not reconciled. You can bring them back by using the 'az k8s-exstension create' command again and providing the existing extension instance name.
 
-Some common issues and troubleshooting steps for Azure Key Vault secrets provider are captured in the open source documentation [here](https://azure.github.io/secrets-store-csi-driver-provider-azure/troubleshooting/) for your reference.
+Some common issues and troubleshooting steps for Azure Key Vault secrets provider are captured in the open source documentation [here](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/) for your reference.
 
 Additional troubleshooting steps that are specific to the Secrets Store CSI Driver Interface can be referenced [here](https://secrets-store-csi-driver.sigs.k8s.io/troubleshooting.html).
 

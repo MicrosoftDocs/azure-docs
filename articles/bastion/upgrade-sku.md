@@ -18,7 +18,7 @@ This article helps you upgrade from the Basic Tier (SKU) to Standard. Once you u
 
 ## Configuration steps
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the Azure portal, navigate to your Bastion host.
 1. On the **Configuration** page, for **Tier**, select **Standard** from the dropdown.
 

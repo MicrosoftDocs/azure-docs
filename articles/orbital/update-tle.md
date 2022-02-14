@@ -21,7 +21,7 @@ Update the TLE of an existing spacecraft resource.
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Update the spacecraft TLE
 

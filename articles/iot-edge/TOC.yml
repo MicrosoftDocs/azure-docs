@@ -113,6 +113,8 @@
     href: support.md
   - name: Production deployment checklist
     href: production-checklist.md
+  - name: Limits and restrictions
+    href: iot-edge-limits-and-restrictions.md
 - name: How-to guides
   items:
   - name: Install and provision IoT Edge
@@ -314,15 +316,15 @@
     - name: IoT Hub Device Provisioning Service
       href: ../iot-dps/index.yml
     - name: IoT Central
-      href: /microsoft-iot-central/
+      href: ../iot-central/index.yml
     - name: IoT Edge
-      href: ./index.yml
-    - name: IoT Plug and Play
-      href: ../iot-develop/index.yml
+      href: ../iot-edge/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights
       href: ../time-series-insights/index.yml
+  - name: IoT device developer
+    href: ../iot-develop/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs

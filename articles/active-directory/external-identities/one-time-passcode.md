@@ -27,7 +27,7 @@ You can enable this feature at any time in the Azure portal by configuring the E
 
 > [!IMPORTANT]
 >
-> - **Starting November 1, 2021**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. To minimize disruptions during the holidays and deployment lockdowns, the majority of tenants will see changes rolled out in January 2022. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
+> - **As of November 1, 2021**, we began rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft no longer creates new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. To minimize disruptions during the holidays and deployment lockdowns, the majority of tenants will see changes rolled out in January 2022. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
 > - Email one-time passcode settings have moved in the Azure portal from **External collaboration settings** to **All identity providers**.
 
 > [!NOTE]
@@ -90,7 +90,7 @@ Guest user teri@gmail.com is invited to Fabrikam, which does not have Google fed
 
 ## Disable email one-time passcode
 
-Starting November 1, 2021, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants.  At that time, Microsoft will no longer support the redemption of invitations by creating unmanaged ("viral" or "just-in-time") Azure AD accounts and tenants for B2B collaboration scenarios. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, you have the option of disabling this feature if you choose not to use it.
+Starting November 1, 2021, we began rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. Microsoft no longer supports the redemption of invitations by creating unmanaged ("viral" or "just-in-time") Azure AD accounts and tenants for B2B collaboration scenarios. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, you have the option of disabling this feature if you choose not to use it.
 
 > [!NOTE]
 >
@@ -148,7 +148,7 @@ To enable the email one-time passcode feature in Azure US Government cloud:
 4. Select **Email one-time passcode**, and then select **Yes**.
 5. Select **Save**.
 
-For more information about current limitations, see [Azure US Government clouds](current-limitations.md#azure-us-government-clouds).
+For more information about current limitations, see [Azure AD B2B in government and national clouds](b2b-government-national-clouds.md).
 
 ## Frequently asked questions
 
@@ -204,4 +204,4 @@ When we support the ability to disable Microsoft Account in the Identity provide
 
 **Does this change include SharePoint and OneDrive integration with Azure AD B2B?**
 
-No, the global rollout of the change to enable email one-time passcode by default that begins on November 1, 2021 doesn't include SharePoint and OneDrive integration with Azure AD B2B. To learn how to enable integration so that collaboration on SharePoint and OneDrive uses B2B capabilities, or how to disable this integration, see [SharePoint and OneDrive Integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration).
+No, the global rollout of the change to enable email one-time passcode by default that began on November 1, 2021 doesn't include SharePoint and OneDrive integration with Azure AD B2B. To learn how to enable integration so that collaboration on SharePoint and OneDrive uses B2B capabilities, or how to disable this integration, see [SharePoint and OneDrive Integration with Azure AD B2B](/sharepoint/sharepoint-azureb2b-integration).

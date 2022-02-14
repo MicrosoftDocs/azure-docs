@@ -105,6 +105,11 @@ sections:
           If I enable DDoS Protection Standard for my load balancer frontend, what does that mean for the resources in the backend pool?
         answer: |
           When enabled on the frontend IP for a load balancer, DDoS Protection Standard will apply protection for all backend pool resources that are accessible through that public IP.  Please see [Azure DDoS Protection Reference](../ddos-protection/ddos-protection-reference-architectures.md) for more details. 
+      
+      - question: |
+          Why are certain ports restricted for HTTP health probes?
+        answer: |
+          The following ports are restricted for HTTP health probes: 19, 21, 25, 70, 110, 119, 143, 220, 993. These ports are blocked for security reasons by WinHTTP, meaning that Load Balancer health probes are unable to use these ports. Please see [What's New in WinHTTP 5.1](/windows/win32/winhttp/what-s-new-in-winhttp-5-1#changes-to-default-settings) for more details.
 
 additionalContent: |
 

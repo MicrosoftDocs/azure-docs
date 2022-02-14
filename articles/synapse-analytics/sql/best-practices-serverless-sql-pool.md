@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Best practices for serverless SQL pool in Azure Synapse Analytics

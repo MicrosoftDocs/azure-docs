@@ -27,7 +27,7 @@ For this tutorial, we use a simple [DSC configuration](/powershell/dsc/configura
 - An Azure Resource Manager VM (not classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see
   [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 - Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
-- Familiarity with Desired State Configuration (DSC). For information about DSC, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview/overview).
+- Familiarity with Desired State Configuration (DSC). For information about DSC, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview).
 
 ## Support for partial configurations
 
@@ -64,6 +64,8 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
+> Configuration names in Azure Automation must be limited to no more than 100 characters.
+> 
 > In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources,
 > make sure each module has a unique `Import-DscResource` line in your configuration.
 

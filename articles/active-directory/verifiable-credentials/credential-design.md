@@ -168,21 +168,19 @@ During the issuance flow, the user can be asked to input some self-attested info
 ```json
 {
   "attestations": {
-    "selfIssued": {
+    "selfIssued" :
+    {
       "mapping": {
-        "alias": {
-          "claim": "name"
-        }
-      },
-    },
-    "validityInterval": 25920000,
-    "vc": {
-      "type": [
-        "ProofOfNinjaNinja"
-      ],
+        "firstName": { "claim": "firstName" },
+        "lastName": { "claim": "lastName" }
+      }
     }
+  },
+  "validityInterval": 2592001,
+  "vc": {
+    "type": [ "VerifiedCredentialExpert" ]
   }
-
+}
 
 
 ```

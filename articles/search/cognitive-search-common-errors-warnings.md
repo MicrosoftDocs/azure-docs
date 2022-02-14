@@ -86,7 +86,7 @@ Indexer was not able to run a skill in the skillset.
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Transient connectivity issues | A transient error occurred. Please try again later. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
-| Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. Please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) to get help. |
+| Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. Please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get help. |
 | A skill has encountered an error during execution | (From Merge Skill) One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will require action to resolve. |
 
 <a name="could-not-execute-skill-because-the-web-api-request-failed"></a>
@@ -99,7 +99,7 @@ While debugging this issue, be sure to pay attention to any [skill input warning
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>
 
 ## Error: Could not execute skill because Web API skill response is invalid
-Skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) to get assistance.
+Skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance.
 
 <a name="skill-did-not-execute-within-the-time-limit"></a>
 
@@ -109,7 +109,7 @@ There are two cases under which you may encounter this error message, each of wh
 ### Built-in Cognitive Service skills
 Many of the built-in cognitive skills, such as language detection, entity recognition, or OCR, are backed by a Cognitive Service API endpoint. Sometimes there are transient issues with these endpoints and a request will time out. For transient issues, there is no remedy except to wait and try again. As a mitigation, consider setting your indexer to [run on a schedule](search-howto-schedule-indexers.md). Scheduled indexing picks up where it left off. Assuming transient issues are resolved, indexing and cognitive skill processing should be able to continue on the next scheduled run.
 
-If you continue to see this error on the same document for a built-in cognitive skill, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) to get assistance, as this is not expected.
+If you continue to see this error on the same document for a built-in cognitive skill, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance, as this is not expected.
 
 ### Custom skills
 If you encounter a timeout error with a custom skill you have created, there are a couple of things you can try. First, review your custom skill and ensure that it is not getting stuck in an infinite loop and that it is returning a result consistently. Once you have confirmed that is the case, determine what the execution time of your skill is. If you didn't explicitly set a `timeout` value on your custom skill definition, then the default `timeout` is 30 seconds. If 30 seconds is not long enough for your skill to execute, you may specify a higher `timeout` value on your custom skill definition. Here is an example of a custom skill definition where the timeout is set to 90 seconds:
@@ -189,8 +189,8 @@ This error occurs when the indexer is attempting to [project data into a knowled
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Could not update projection blob `'blobUri'` in container `'containerName'` |The specified container does not exist. | The indexer will check if the specified container has been previously created and will create it if necessary, but it only performs this check once per indexer run. This error means that something deleted the container after this step.  To resolve this error, try this: leave your storage account information alone, wait for the indexer to finish, and then rerun the indexer. |
-| Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
-| Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
+| Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
+| Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
@@ -301,7 +301,7 @@ Incremental progress during indexing ensures that if indexer execution is interr
 
 The ability to resume an unfinished indexing job is predicated on having documents ordered by the `_ts` column. The indexer uses the timestamp to determine which document to pick up next. If the `_ts` column is missing or if the indexer can't determine if a custom query is ordered by it, the indexer starts at beginning and you'll see this warning.
 
-It is possible to override this behavior, enabling incremental progress and suppressing this warning by using the `assumeOrderByHighWatermarkColumn` configuration property.
+It is possible to override this behavior, enabling incremental progress and suppressing this warning by using the `assumeOrderByHighWaterMarkColumn` configuration property.
 
 For more information, see [Incremental progress and custom queries](search-howto-index-cosmosdb.md#IncrementalProgress).
 
