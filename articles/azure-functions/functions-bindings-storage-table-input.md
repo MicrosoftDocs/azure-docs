@@ -397,10 +397,9 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, myQueueItem) {
+module.exports = async function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
     context.log('Person entity name: ' + context.bindings.personEntity.Name);
-    context.done();
 };
 ```
 
