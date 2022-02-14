@@ -28,7 +28,6 @@ To use Azure Kubernetes Service clusters for Azure Machine Learning training and
 Before deploying the Azure Machine Learning extension on Azure Kubernetes Service clusters, you have to:
 
 - Register the feature in your AKS cluster. For more information, see [Azure Kubernetes Service prerequisites](#aks-prerequisites).
-- Configure inbound and outbound network traffic. For more information, see [Configure inbound and outbound network traffic (AKS)](how-to-access-azureml-behind-firewall.md#azure-kubernetes-services-1).
 
 To deploy the Azure Machine Learning extension on AKS clusters, see the [Deploy Azure Machine Learning extension](#deploy-azure-machine-learning-extension) section.
 
@@ -54,7 +53,7 @@ To deploy the Azure Machine Learning extension on AKS clusters, see the [Deploy 
     ```  
 ### Meet network requirements
 
-Clusters running behind an outbound proxy server or firewall need additional network configurations. Fulfill [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements) needed by Azure Arc agents. Besides that, the following output URLs are required for Azure Machine Learning,
+Clusters running behind an outbound proxy server or firewall need additional network configurations. Fulfill [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements) needed by Azure Arc agents. Besides that, the following outbound URLs are required for Azure Machine Learning,
 
 | Outbound Endpoint| Port | Description|Training |Inference |
 |--|--|--|--|--|
