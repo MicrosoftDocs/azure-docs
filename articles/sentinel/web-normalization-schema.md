@@ -15,7 +15,7 @@ ms.author: ofshezaf
 
 The Web Session normalization schema is used to describe an IP network activity. For example, IP network activities are reported by web servers, web proxies, and web security gateways.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Network normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -122,7 +122,7 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
 | <a name="eventresultdetails"></a>**EventResultDetails** | Optional | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `WebSession`. |
-| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`         |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.2`         |
 | **Dvc** fields|        |      | For Web Session events,  device fields refer to the system reporting the Web Session event.  |
 | | | | |
 
@@ -183,13 +183,17 @@ The following are additional fields that are specific to web sessions:
 
 If the event is reported by one of the endpoints of the web session, it may include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](process-events-normalization-schema.md) to normalize this information.
 
+### Schema updates
+
+The Web Session schema relies on the Network Session schema. Therefore, [Network Session schema updates](network-normalization-schema.md#schema-updates) apply to the Web Session schema as well.
+
 ## Next steps
 
 For more information, see:
 
 - Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) parsers](normalization-parsers-overview.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)
 

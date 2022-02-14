@@ -116,8 +116,8 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
 
     > [!TIP]
     >
-    > * You can create a new file using Powershell.
-    > * Open a Powershell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * You can create a new file using PowerShell.
+    > * Open a PowerShell window in your project directory by holding down the Shift key and right-clicking the folder.
     > * Type the following command **New-Item FormRecognizer.java**.
 
 1. Open the `FormRecognizer.java` file in your preferred editor or IDE and add the following   `import` statements:

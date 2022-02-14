@@ -1,17 +1,10 @@
 ---
 title: Import SOAP API using the Azure portal | Microsoft Docs
 description: Learn how to import a standard XML representation of a SOAP API, and then test the API in the Azure and Developer portals.
-services: api-management
-documentationcenter: ''
 author: dlepow
-manager: cfowler
-editor: ''
-
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 04/22/2020
+ms.topic: how-to
+ms.date: 02/10/2022
 ms.author: danlep
 
 ---
@@ -24,7 +17,6 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Import SOAP API
 > * Test the API in the Azure portal
-> * Test the API in the Developer portal
 
 ## Prerequisites
 
@@ -57,7 +49,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 8. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 9. Select **Create**.
 
-### Test the new API in the administrative portal
+### Test the new API in the portal
 
 Operations can be called directly from the administrative portal, which provides a convenient way to view and test the operations of an API.  
 
@@ -69,6 +61,18 @@ Operations can be called directly from the administrative portal, which provides
 1. Press **Send**.
 
     Backend responds with **200 OK** and some data.
+
+## Wildcard SOAP action
+
+If you need to pass a SOAP request that doesn't have a dedicated action defined in the API, you can configure a wildcard SOAP action. The wildcard action will match any SOAP request that isn't defined in the API.  
+
+To define a wildcard SOAP action:
+
+1. In the portal, select the API you created in the previous step.
+1. In the **Design** tab, select **+ Add Operation**.
+1. Enter a **Display name** for the operation.
+1. In the URL, select `POST` and enter `/soapAction={any}` in the resource. The template parameter inside the curly brackets is arbitrary and doesn't affect the execution.
+
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
