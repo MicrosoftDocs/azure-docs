@@ -6,9 +6,9 @@ author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to 
 ms.subservice: security 
-ms.date: 2/14/2022
-ms.author: mesrivas
-ms.reviewer: sngun
+ms.date: 8/05/2021
+ms.author: ronytho
+ms.reviewer: sngun, wiassaf
 ms.custom: subject-rbac-steps
 ---
 

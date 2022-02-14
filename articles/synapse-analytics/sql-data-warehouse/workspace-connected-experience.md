@@ -7,7 +7,7 @@ manager: igorstan
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 2/14/2022
+ms.date: 11/25/2020
 ms.author: jasonh
 ms.reviewer: sngun
 ---
