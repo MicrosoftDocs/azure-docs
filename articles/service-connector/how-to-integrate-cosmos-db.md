@@ -3,7 +3,7 @@ title: Integrate Azure Cosmos DB with Service Connector
 description: Integrate Azure Cosmos DB into your application with Service Connector
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: how-to 
 ms.date: 11/11/2021
 ---

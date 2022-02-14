@@ -25,7 +25,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Use Azure Purview Studio
-            url: use-purview-studio.md
+            url: use-azure-purview-studio.md
           - text: Understand Azure Purview access control
             url: catalog-permissions.md
           - text: Understand the elastic data map
@@ -158,3 +158,14 @@ landingContent:
           url: catalog-private-link-name-resolution.md
         - text: Connect to private networks
           url: manage-integration-runtimes.md
+  #Card
+  - title: Secure your data
+    linkLists:
+    - linkListType: tutorial
+      links:
+        - text: Authoring data owner access policies
+          url: how-to-data-owner-policy-authoring-generic.md
+        - text: Data owner policies for Azure Storage
+          url: tutorial-data-owner-policies-storage.md
+        - text: Data owner policies on resource groups or subscriptions
+          url: tutorial-data-owner-policies-resource-group.md  

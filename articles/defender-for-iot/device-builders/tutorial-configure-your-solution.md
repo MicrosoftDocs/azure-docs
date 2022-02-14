@@ -35,7 +35,7 @@ In this tutorial you'll learn how to:
 
 **To add new resource to your IoT solution**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Search for, and select **IoT Hub**.
 
