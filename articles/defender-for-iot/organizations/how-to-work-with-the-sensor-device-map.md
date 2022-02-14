@@ -416,7 +416,7 @@ Unauthorized devices are included in Risk Assessment reports and Attack Vectors 
 
 - **Attack Vector Reports:** Devices marked as unauthorized are resolved in the Attack Vector as suspected rogue devices that might be a threat to the network.
 
-   :::image type="content" source="media/how-to-work-with-maps/attack-vector-reports.png" alt-text="Vew your attack vector reports":::
+   :::image type="content" source="media/how-to-work-with-maps/attack-vector-reports.png" alt-text="View your attack vector reports.":::
 
 - **Risk Assessment Reports:** Devices marked as unauthorized are identified in Risk Assessment reports.
 
