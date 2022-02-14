@@ -273,8 +273,7 @@ Don't scale your cluster down to fewer than three nodes. Scaling your cluster to
 
 ### Azure Active Directory Domain Services (Azure AD DS) & Scaling Operations 
 
-Customers with HDInsight cluster using Enterprise Security Package (ESP) that is joined to an Azure Active Directory Domain Services (Azure AD DS) managed domain, are recommended to throttle load on the AADDS, in case of complex directory structures [scoped sync](../active-directory-domain-services/scoped-synchronization.md) is recommended to avoid impact to scaling operations.
-
+If you use an HDInsight cluster with Enterprise Security Package (ESP) that is joined to an Azure Active Directory Domain Services (Azure AD DS) managed domain, we recommend to throttle load on the Azure AD DS. In case of complex directory structures [scoped sync](../active-directory-domain-services/scoped-synchronization.md) we recommend to avoid impact to scaling operations.
 
 ### Set the Hive configuration Maximum Total Concurrent Queries for the peak usage scenario
 
