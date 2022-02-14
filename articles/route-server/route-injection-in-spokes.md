@@ -27,7 +27,7 @@ However, if the NVA advertises via BGP to the Route Server network prefixes, the
 
 If the NVA is used to provide connectivity to on-premises network via IPsec VPNs or SD-WAN technologies, the same mechanism can be used to attract traffic from the spokes to the NVA. Additionally, the NVA can dynamically learn the Azure prefixes from the Azure Route Server, and advertise them with a dynamic routing protocol to on-premises. The following diagram describes this setup:
 
-:::image type="content" source="./media/senarios/route-injection-vpn.png" alt-text="Basic hub and spoke topology with onprem connectivity via VPN.":::
+:::image type="content" source="./media/scenarios/route-injection-vpn.png" alt-text="Basic hub and spoke topology with onprem connectivity via VPN.":::
 
 ## Connectivity to on-premises through Azure Virtual Network Gateways
 
