@@ -31,7 +31,7 @@ You can also run code snippets without using Azure Functions. For more informati
 
   If you don't have a function app, [create your function app first](../azure-functions/functions-get-started.md). You can then create your function either outside your logic app in the Azure portal or [from inside your logic app](#create-function-designer) in the workflow designer.
 
-* When working with logic app resources, the same requirements apply to both function apps and functions, existing or new:
+* When you work with logic app resources, the same requirements apply to both function apps and functions, existing or new:
 
   * Your function app resource and logic app resource must use the same Azure subscription.
 
@@ -372,7 +372,7 @@ Now you're ready to set up Azure AD authentication for your function app by crea
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Application (client) ID** | Yes | <*object-ID*> | The object ID for your logic app's managed identity. |
-   | **Client secret** | <*client-secret*> | No, but recommended | The secret value that the app uses to prove its identity when requesting a token. With a client secret, hybrid flow is used and the App Service returns access and refresh tokens. When the client secret is not set, implicit flow is used and only an ID token is returned. These tokens are sent by the provider and stored in the EasyAuth token store. <br><br>The client secret is created and stored as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. To manage the secret in Azure Key Vault instead, you can update this setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md). |
+   | **Client secret** | <*client-secret*> | No, but recommended | The secret value that the app uses to prove its identity when requesting a token. With a client secret, hybrid flow is used and the App Service returns access and refresh tokens. When the client secret isn't set, implicit flow is used and only an ID token is returned. These tokens are sent by the provider and stored in the EasyAuth token store. <br><br>The client secret is created and stored as a slot-sticky [application setting](../app-service/configure-common.md#configure-app-settings) named **MICROSOFT_PROVIDER_AUTHENTICATION_SECRET**. To manage the secret in Azure Key Vault instead, you can update this setting later to use [Key Vault references](../app-service/app-service-key-vault-references.md). |
    | **Issuer URL** | No | **<*authentication-endpoint-URL*>/<*Azure-AD-tenant-ID*>/v2.0** | This URL redirects users to the correct Azure AD tenant and downloads the appropriate metadata to determine the appropriate token signing keys and token issuer claim value. For apps that use Azure AD v1, omit **/v2.0** from the URL. <br><br>For this scenario, use the following URL: **`https://sts.windows.net/`<*Azure-AD-tenant-ID*>** |
    | **Allowed token audiences** | No | <*application-ID-URI*> | The application ID URI (resource ID) for the function app. For a cloud or server app where you want to allow authentication tokens from a web app, add the application ID URI for the web app. The configured client ID is always implicitly considered as an allowed audience. <br><br>For this scenario, the value is **https://management.azure.com**. Later, you can use the same URI in the **Audience** property when you [set up your function action in your workflow to use the managed identity](create-managed-service-identity.md#authenticate-access-with-identity). <p><p>**Important**: The application ID URI (resource ID) must exactly match the value that Azure AD expects, including any required trailing slashes. |
    |||||
@@ -387,7 +387,7 @@ Now you're ready to set up Azure AD authentication for your function app by crea
 
 1. To finish creating the app registration, select **Add**.
 
-   When you're done, the **Authentication** page now lists the identity provider and app ID (client ID) for the app registration. Your function app can now this app registration for authentication.
+   When you're done, the **Authentication** page now lists the identity provider and app ID (client ID) for the app registration. Your function app can now use this app registration for authentication.
 
 1. Copy the app registration's app ID (client ID) for later use in your workflow.
 
