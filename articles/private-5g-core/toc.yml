@@ -66,5 +66,9 @@ items:
      href: /rest/api/private-5g-core
 - name: Resources
   items:
+  - name: Azure private MEC documentation
+    href: https://docs.microsoft.com/en-us/azure/private-multi-access-edge-compute-mec/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/networking

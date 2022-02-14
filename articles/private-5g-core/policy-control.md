@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Policy control
 
-Azure Private 5G Core Preview provides *flexible traffic handling*. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
+Azure Private 5G Core Preview provides flexible traffic handling. You can customize how your packet core instance applies quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
 
 ## 5G quality of service (QoS) and QoS Flows
 The packet core instance is a key component in establishing *protocol data unit (PDU) sessions*, which are used to transport user plane traffic between a UE and the data network. Within each PDU session, there are one or more *service data flows (SDFs)*. Each SDF is a single IP flow or a set of aggregated IP flows of UE traffic that is used for a specific service.
