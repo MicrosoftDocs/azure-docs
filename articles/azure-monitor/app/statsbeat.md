@@ -3,7 +3,7 @@ title: Statsbeat in Azure Application Insights | Microsoft Docs
 description: Statistics about Application Insights SDKs and Auto-Instrumentation
 ms.topic: conceptual
 ms.date: 09/20/2021
-
+ms.custom: references_regions
 ---
 
 # Statsbeat in Azure Application Insights
@@ -54,6 +54,8 @@ N/A
 #### [Python](#tab/eu-python)
 
 N/A
+
+---
 
 ### Essential Statsbeat
 
