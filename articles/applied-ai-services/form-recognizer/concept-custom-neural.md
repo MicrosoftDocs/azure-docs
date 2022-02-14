@@ -119,7 +119,7 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-pr
 * Train a custom model:
 
   > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-v3-form-recognizer-studio.md#custom-projects)
+  > [Form Recognizer quickstart](quickstarts/try-v3-form-recognizer-studio.md#custom-models)
 
 * View the labeling guidelines:
 
