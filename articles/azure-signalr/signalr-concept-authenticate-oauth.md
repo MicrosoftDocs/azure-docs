@@ -6,7 +6,7 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: lianwei
-ms.devlang: csharp
+ms.devlang: csharp, azurecli
 ms.custom: "devx-track-js, devx-track-csharp, devx-track-azurecli"
 ---
 # Azure SignalR Service authentication
