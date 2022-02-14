@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: mysql
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
 ms.topic: quickstart
-ms.devlang: java
+ms.devlang: java, azurecli
 ms.date: 01/16/2021
 ---
 
