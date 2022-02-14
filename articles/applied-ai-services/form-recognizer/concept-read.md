@@ -48,7 +48,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2.png" alt-text="Screenshot: Read processing in Form Recognizer Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-read-v3p2-updated.png" alt-text="Screenshot: Read processing in Form Recognizer Studio.":::
 
 1. On the Form Recognizer Studio home page, select **Read**
 
@@ -56,7 +56,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/form-recognizer-studio-read-analyze-v3p2.png" alt-text="Screenshot: analyze read menu.":::
+    :::image type="content" source="media/studio/form-recognizer-studio-read-analyze-v3p2-updated.png" alt-text="Screenshot: analyze read menu.":::
 
    > [!div class="nextstepaction"]
    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
