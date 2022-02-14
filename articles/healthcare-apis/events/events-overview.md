@@ -6,15 +6,20 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/08/2022
+ms.date: 02/14/2022
 ms.author: jasteppe
 ---
 
 # What are Events?
 
-The Events feature enables you to receive event notification messages from Azure Healthcare APIs. When data resources change and get committed to the FHIR service, the Events feature sends notification messages. These event notification occurrences can be used to trigger downstream automated workflows. The Events feature integrates with the Azure Event Grid service and creates a system topic for the Azure Healthcare APIs Workspace. 
+The Events feature enables you to receive event notification messages from Azure Healthcare APIs. When data resources change and get committed to the Fast Healthcare Interoperability Resources (FHIR&#174;) service, the Events feature sends notification messages. These event notification occurrences can be used to trigger downstream automated workflows. The Events feature integrates with the Azure Event Grid service and creates a system topic for the Azure Healthcare APIs Workspace.
+
+> [!IMPORTANT]
+>
+> FHIR resource change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past FHIR resource changes or when the feature is turned off.
 
 > [!TIP]
+> 
 > For more information about the features, configurations, and to learn about the use cases of the Azure Event Grid service, see [Azure Event Grid](../../event-grid/overview.md)
 
 :::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the Events pipeline" lightbox="media/events-overview/events-overview-flow.png":::
@@ -40,6 +45,7 @@ Events are designed to support growth and change in healthcare by using autoscal
 Use advanced features like filters, dead-lettering, and retry policies to tune event message delivery options.
 
 > [!NOTE]
+> 
 > The advanced features are only available for the Event Grid service at this time.
 
 ## Extensible
