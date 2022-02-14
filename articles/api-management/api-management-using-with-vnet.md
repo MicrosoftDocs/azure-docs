@@ -78,6 +78,7 @@ The API Management service depends on several Azure services. When API Managemen
 
 > [!IMPORTANT]
 > If you plan to use a custom DNS server(s) for the VNet, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates).
+> The process of applying Network Configuration might take 15 to 45 minutes or more. The Developer SKU has downtime during the process. The Basic and higher SKUs don't have downtime during the process.
 
 ## Routing
 
