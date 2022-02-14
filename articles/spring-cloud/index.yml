@@ -171,8 +171,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: -- Resources --
-            url: overview.md
+          - text: Azure Spring Cloud developer resources
+            url: resources.md
 
 
   # Card (optional)
