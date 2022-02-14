@@ -22,8 +22,8 @@ Defender for Cloud offers more container security features if you enable Microso
 
 | Aspect | Details |
 |--|--|
-| Release state: | General availability (GA) |
-| Pricing: | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes or EKS, it's billed according to the Microsoft Defender for Containers plan |
+| Release state: | AKS - General availability (GA) <ber> Extension - Preview |
+| Pricing: | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes, it's billed according to the Microsoft Defender for Containers plan |
 | Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations |
 | Environment requirements: | Kubernetes v1.14 (or newer) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
@@ -81,31 +81,36 @@ If you disabled any of the default protections when you enabled Microsoft Defend
 
     :::image type="content" source="media/kubernetes-workload-protections/toggled-on.png" alt-text="Screenshot showing that Microsoft Defender for Containers is toggled to on.":::
 
-1. 
+1. Select **Edit configuration**.
 
-### Step 1: Deploy the add-on/extension
+    :::image type="content" source="media/kubernetes-workload-protections/edit-configuration.png" alt-text="Screenshot showing the edit configuration button.":::
 
-To configure the recommendations, install the  **Azure Policy add-on for Kubernetes**. 
+1. On the Advanced configuration page, toggle each relevant component to **On**.
 
-- You can auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
+    :::image type="content" source="media/kubernetes-workload-protections/advanced-configuration.png" alt-text="Screenshot showing each option and the toggles to enable or disable them.":::
 
-    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Using Defender for Cloud's auto provisioning tool to install the policy add-on for Kubernetes":::
+1. Select **Save**.
 
-- To manually deploy the add-on:
+## Manually configure the Kubernetes workload add-on or extension
 
-    1. From the recommendations page, search for the recommendation "**Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**". 
+You can manually configure the Kubernetes workload add-on, or extension protection through the Recommendations page. This can be accopmplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters` recommendations. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
+**To manually deploy the add-on, or extension**:
 
-        > [!TIP]
-        > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
+1. From the recommendations page, search for the recommendation `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters`. 
 
-    1. From any of the security controls, select the recommendation to see the resources on which you can install the add-on.
-    1. Select the relevant cluster, and **Remediate**.
+    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
+
+  > [!TIP]
+  > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
+
+1. From any of the security controls, select the recommendation to see the resources on which you can install the add-on.
+
+1. Select the relevant cluster, and **Remediate**.
 
         :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recommendation details page for **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
 
-### Step 2: View and configure the bundle of recommendations
+## View and configure the bundle of recommendations
 
 1. Approximately 30 minutes after the add-on installation completes, Defender for Cloud shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
@@ -137,20 +142,23 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
     ||||
 
-
-1. For the recommendations with parameters that need to be customized, set the parameters:
+1. For recommendations with parameters that need to be customized, set the parameters:
 
     1. From Defender for Cloud's menu, select **Security policy**.
+    
     1. Select the relevant subscription.
+    
     1. From the **Defender for Cloud default policy** section, select **View effective policy**.
+    
     1. Select the default policy for the scope you're updating.
+    
     1. Open the **Parameters** tab and modify the values as required.
 
         :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modifying the parameters for one of the recommendations in the Kubernetes workload protection bundle.":::
 
     1. Select **Review + save**.
+    
     1. Select **Save**.
-
 
 1. To enforce any of the recommendations, 
 
