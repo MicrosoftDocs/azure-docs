@@ -26,7 +26,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Azure Blob Storage](../storage/blobs/storage-blobs-overview.md), Standard performance (general-purpose v2).
 
-+ [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
++ [Access tiers](../storage/blobs/access-tiers-overview.md) for Blob Storage include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
 + Blobs containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis. Blob content can’t exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
@@ -99,31 +99,33 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store blob content and metadata:
 
     ```http
-    POST /indexes?api-version=2020-06-30
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
     {
-      "name" : "my-search-index",
-      "fields": [
-          { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
-          { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
-          { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
-          { "name": "metadata_storage_path", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },
-          { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": true, "sortable": true  },
-          { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },        
-      ]
+        "name" : "my-search-index",
+        "fields": [
+            { "name": "ID", "type": "Edm.String", "key": true, "searchable": false },
+            { "name": "content", "type": "Edm.String", "searchable": true, "filterable": false },
+            { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
+            { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": true, "sortable": true  },
+            { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },        
+        ]
+      }
     }
     ```
 
-1. Create a document key field ("key": true). For blob content, the best candidates are metadata properties. Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
+1. Create a document key field ("key": true). For blob content, the best candidates are metadata properties. 
 
-   + **`metadata_storage_path`** (default) full path to the object or file
+   + **`metadata_storage_path`** (default) full path to the object or file. The key field ("ID" in this example) will be populated with values from metadata_storage_path because it's the default.
 
-   + **`metadata_storage_name`** usable only if names are unique
+   + **`metadata_storage_name`**, usable only if names are unique. If want this field as the key, move `"key": true` to this field definition.
 
    + A custom metadata property that you add to blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed. If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
 
+   Metadata properties often include characters, such as `/` and `-`, that are invalid for document keys. Because the indexer has a "base64EncodeKeys" property (true by default), it automatically encodes the metadata property, with no configuration or field mapping required.
+
 1. Add a "content" field to store extracted text from each file through the blob's "content" property. You aren't required to use this name, but doing so lets you take advantage of implicit field mappings. 
 
-1. Add more fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
+1. Add fields for standard metadata properties. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
 ## Configure the blob indexer
 
