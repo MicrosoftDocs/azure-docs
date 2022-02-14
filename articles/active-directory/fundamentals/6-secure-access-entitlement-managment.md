@@ -93,7 +93,7 @@ You can perform [Entitlement Management functions by using Microsoft Graph](/gra
 
 * [Manage access packages](/graph/api/resources/accesspackage)
 
-* [Manage access reviews](/graph/api/resources/accessreviewsv2-root)
+* [Manage access reviews](/graph/api/resources/accessreviewsv2-overview)
 
 * [Manage connected organizations](/graph/api/resources/connectedorganization)
 

@@ -26,6 +26,8 @@
       href: entitlement-management-onboard-external-user.md
     - name: Manage the lifecycle of your group-based licenses in Azure AD
       href: entitlement-management-group-licenses.md
+    - name: Automate identity governance tasks
+      href: identity-governance-automation.md
 - name: Concepts
   expanded: true
   items:
@@ -141,7 +143,7 @@
 - name: Reference
   expanded: true
   items:
-  - name: Access reviews - Graph API
-    href: /graph/api/resources/accessreviewsv2-root
-  - name: Entitlement management - Graph API
-    href: /graph/api/resources/entitlementmanagement-root
+  - name: Access reviews - Microsoft Graph API
+    href: /graph/api/resources/accessreviewsv2-overview
+  - name: Entitlement management - Microsoft Graph API
+    href: /graph/api/resources/entitlementmanagement-overview

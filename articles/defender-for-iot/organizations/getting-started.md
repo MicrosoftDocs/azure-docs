@@ -38,11 +38,11 @@ Administrative user permissions are required to activate the sensor and manageme
 
 The following table describes user access permissions to Azure portal tools:
 
-| Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
+| Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
 | View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
 | Onboard sensors  |  |  ✓ | ✓ | ✓ |
-| Onboard subscriptions and update committed devices  |  |  | ✓ | ✓ |
+| Onboard subscriptions and update committed devices  |  | ✓ | ✓ | ✓ |
 | Recover passwords  | ✓  |  ✓ | ✓ | ✓ |
 
 ## Identify the solution infrastructure

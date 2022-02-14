@@ -62,6 +62,8 @@
     href: virtual-network-support.md
   - name: Reprovisioning
     href: concepts-device-reprovision.md  
+  - name: High availabilty and disaster recovery
+    href: iot-dps-ha-dr.md
   - name: Understanding DPS IP addresses
     href: iot-dps-understand-ip-address.md
   - name: TLS support

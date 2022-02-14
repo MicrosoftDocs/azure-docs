@@ -6,12 +6,14 @@
     href: core/overview-iot-central.md
   - name: Tour of the UI
     href: core/overview-iot-central-tour.md
+  - name: Tour of the API
+    href: core/overview-iot-central-api-tour.md
   - name: What's new?
     href: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
 - name: Quickstarts
   expanded: true
   items:
-    - name: 1. Create a new application
+    - name: 1. Connect your first device
       href: core/quick-deploy-iot-central.md
     - name: 2. Configure rules and actions
       href: core/quick-configure-rules.md
@@ -19,7 +21,7 @@
       href: core/quick-export-data.md
 - name: Tutorials
   items:
-    - name: Develop and connect devices
+    - name: Connect devices
       items:
       - name: Create and connect a device
         href: core/tutorial-connect-device.md
@@ -27,15 +29,15 @@
         href: core/tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
         href: /learn/modules/connect-iot-edge-device-to-iot-central
-    - name: Build integrated solutions
-      items:
       - name: Create a device group
         href: core/tutorial-use-device-groups.md
+    - name: Extend your application
+      items:
       - name: Create a rule
         href: core/tutorial-create-telemetry-rules.md
       - name: Explore the IoT Central APIs
         href: /learn/modules/manage-iot-central-apps-with-rest-api/
-    - name: Industry specific solutions
+    - name: Create industry specific demo apps
       items:
       - name: Retail
         items:
@@ -82,34 +84,40 @@
       href: core/concepts-architecture.md
     - name: Scalability and high availability
       href: core/concepts-scalability-availability.md
-    - name: Quotas and limits
-      href: core/concepts-quotas-limits.md
-    - name: Device developer guide
+    - name: Device connectivity guide
       href: core/overview-iot-central-developer.md
-    - name: Solution builder guide
-      href: core/overview-iot-central-solution-builder.md
-    - name: Administrator guide
-      href: core/overview-iot-central-admin.md
-    - name: Operator guide
-      href: core/overview-iot-central-operator.md
-    - name: What are application templates?
-      href: core/concepts-app-templates.md        
-    - name: What are device templates?
-      href: core/concepts-device-templates.md
-    - name: Device connectivity
-      href: core/concepts-get-connected.md
-    - name: Message payloads
-      href: core/concepts-telemetry-properties-commands.md
-    - name: Connect IoT Edge devices
-      href: core/concepts-iot-edge.md
-    - name: Best practices
-      href: core/concepts-best-practices.md
+      items:
+      - name: Device connectivity concepts
+        href: core/concepts-get-connected.md
+      - name: Device templates
+        href: core/concepts-device-templates.md      
+      - name: Connect IoT Edge devices
+        href: core/concepts-iot-edge.md
+      - name: Message payloads
+        href: core/concepts-telemetry-properties-commands.md
 
+    - name: Device management guide
+      href: core/overview-iot-central-operator.md
+    - name: Data integration guide
+      href: core/overview-iot-central-solution-builder.md
+    - name: Application management guide
+      href: core/overview-iot-central-admin.md
+    - name: FAQ
+      href: core/howto-faq.yml
+      items:
+      - name: Why should I start with IoT Central?
+        href: core/concepts-faq-start-iot-central.md
+      - name: How do I extend IoT Central?
+        href: core/concepts-faq-extend.md
+      - name: What are IoT Central's scale limits?
+        href: core/concepts-quotas-limits.md
+      - name: How do I move between aPaaS and PaaS solutions?
+        href: core/concepts-faq-apaas-paas.md
 - name: How-to guides
   items:
     - name: Create an application
       href: core/howto-create-iot-central-application.md
-    - name: Develop and connect devices
+    - name: Build and connect devices
       items:
         - name: Set up a device template
           href: core/howto-set-up-template.md
@@ -133,34 +141,47 @@
           href: core/howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
           href: core/howto-connect-rigado-cascade-500.md
-    - name: Build integrated solutions
+        - name: Troubleshoot device connections
+          href: core/troubleshoot-connection.md
+    - name: View and analyze device data
       items:
+        - name: Build analytics queries
+          href: core/howto-create-analytics.md
         - name: Create dashboards
           href: core/howto-manage-dashboards.md
         - name: Use location data
           href: core/howto-use-location-data.md
+    - name: Manage your devices
+      items:
+        - name: Manage devices individually
+          href: core/howto-manage-devices-individually.md
+        - name: Manage devices in bulk with jobs
+          href: core/howto-manage-devices-in-bulk.md
+    - name: Extend your application
+      items:
         - name: Configure rules
           href: core/howto-configure-rules.md
-        - name: Analyze your device data
-          href: core/howto-create-analytics.md
+        - name: Create custom rules
+          href: core/howto-create-custom-rules.md
+        - name: Use rules and workflows to integrate with other services
+          href: core/howto-configure-rules-advanced.md
         - name: Export data to cloud destinations
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
+        - name: Troubleshoot data export
+          href: core/troubleshoot-data-export.md
+        - name: Export data and visualize with Databricks
+          href: core/howto-create-custom-analytics.md
         - name: Transform data internally on ingress
           href: core/howto-map-data.md
         - name: Transform data internally for export
           href: core/howto-transform-data-internally.md
         - name: Transform data externally
           href: core/howto-transform-data.md
-        - name: Use workflows to integrate with other services
-          href: core/howto-configure-rules-advanced.md
-        - name: Create custom rules
-          href: core/howto-create-custom-rules.md
-        - name: Create custom analytics with Databricks
-          href: core/howto-create-custom-analytics.md
-        - name: Connect other IoT clouds
+        - name: Connect other clouds with device bridge
           href: core/howto-build-iotc-device-bridge.md
+
     - name: Use the REST API
       items:
         - name: Authenticate and authorize REST API calls
@@ -181,14 +202,11 @@
           href: core/howto-manage-jobs-with-rest-api.md
         - name: Manage applications
           href: core/howto-manage-iot-central-with-rest-api.md
-    - name: Manage your devices
+
+    - name: Secure and administer your application
       items:
-        - name: Manage devices individually
-          href: core/howto-manage-devices-individually.md
-        - name: Manage devices in bulk
-          href: core/howto-manage-devices-in-bulk.md
-    - name: Administer your solution
-      items:
+        - name: Manage your personal preferences
+          href: core/howto-manage-preferences.md
         - name: Change application settings
           href: core/howto-administer.md
         - name: Manage users and roles
@@ -207,16 +225,6 @@
           href: core/howto-manage-iot-central-from-cli.md
         - name: Manage from CSP portal
           href: core/howto-create-and-manage-applications-csp.md
-    - name: Troubleshoot
-      items:
-      - name: Device connections
-        href: core/troubleshoot-connection.md
-      - name: Data exports
-        href: core/troubleshoot-data-export.md
-    - name: FAQ
-      href: core/howto-faq.yml
-    - name: Manage your personal preferences
-      href: core/howto-manage-preferences.md
 
 - name: Reference
   items:

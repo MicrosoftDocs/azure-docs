@@ -6,7 +6,7 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 10/21/2021
+ms.date: 1/31/2022
 ms.subservice: hybrid
 ms.author: rodejo
 ms.custom: has-adal-ref
@@ -34,10 +34,29 @@ Topic |  Details
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](how-to-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [Azure AD Connect: Accounts and permissions](reference-connect-accounts-permissions.md#upgrade).
 
+## Retiring Azure AD Connect 1.x versions
 > [!IMPORTANT]
 > *On August 31, 2022, all 1.x versions of Azure AD Connect will be retired because they include SQL Server 2012 components that will no longer be supported.* Upgrade to the most recent version of Azure AD Connect (2.x version) by that date or [evaluate and switch to Azure AD cloud sync](../cloud-sync/what-is-cloud-sync.md).
 
-Make sure you're running a recent version of Azure AD Connect to receive an optimal support experience.
+## Retiring Azure AD Connect 2.x versions
+> [!IMPORTANT]
+> We will begin retiring past versions of Azure AD Connect Sync 2.x 12 months from the date they are superseded by a newer version. 
+> This policy will go into effect on 15 March 2023, when we will retire all versions that are superseded by a newer version on 15 March 2022.
+> 
+> The following versions will retire on 15 March 2023:
+>
+> - 2.0.89.0
+> - 2.0.88.0
+> - 2.0.28.0
+> - 2.0.25.1
+> - 2.0.10.0
+> - 2.0.9.0
+> - 2.0.8.0
+> - 2.0.3.0
+> 
+> If you are not already using the latest release version of Azure AD Connect Sync, you should upgrade your Azure AD Connect Sync software before that date. 
+> 
+> This policy does not change the retirement of all 1.x versions of Azure AD Connect Sync on 31 August 2022, which is due to the retirement of the SQL Server 2012 and Azure AD Authentication Library (ADAL) components.
 
 If you run a retired version of Azure AD Connect, it might unexpectedly stop working. You also might not have the latest security fixes, performance improvements, troubleshooting and diagnostic tools, and service enhancements. If you require support, we might not be able to provide you with the level of service your organization needs.
 
@@ -58,6 +77,16 @@ If you want all the latest features and updates, check this page and install wha
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.0.91.0
+
+### Release status
+
+01/19/2022: Released for download only, not available for auto upgrade
+
+### Functional changes
+
+- We updated the Azure AD Connect Health component in this release from version 3.1.110.0 to version 3.2.1823.12. This new version provides compliance of the Azure AD Connect Health component with the [Federal Information Processing Standards (FIPS)](https://www.nist.gov/standardsgov/compliance-faqs-federal-information-processing-standards-fips) requirements. 
+
 ## 2.0.89.0
 
 ### Release status
@@ -66,7 +95,8 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 ### Bug fixes
 
-We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users and mailboxes of certain resource objects, were getting deleted.
+- We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users and mailboxes of certain resource objects, were getting deleted.
+- We fixed an issue which causes upgrade to Azure AD Connect version 2.x to fail, when using SQL localdb along with a VSA service account for ADSync.
 
 ## 2.0.88.0
 

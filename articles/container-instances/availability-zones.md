@@ -192,4 +192,4 @@ az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
 [az-container-show]: /cli/azure/container#az_container_show
 [az-group-create]: /cli/azure/group#az_group_create
 [az-deployment-group-create]: /cli/azure/deployment#az_deployment_group_create
-[availability-zone-overview]: /azure/availability-zones/az-overview
+[availability-zone-overview]: ../availability-zones/az-overview.md

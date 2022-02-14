@@ -34,7 +34,7 @@ The following services and tools are required for this quickstart.
 
 * [azure-search-documents package](https://pypi.org/project/azure-search-documents/)
 
-* [Create a search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use the Free tier for this quickstart. 
+* [Create a search service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use the Free tier for this quickstart. 
 
 ## Copy a key and URL
 

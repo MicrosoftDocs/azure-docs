@@ -39,7 +39,7 @@ For more information, see the examples section of this article.
 
 ## Advanced
 
-AzCopy automatically detects the content type of the files when you upload them from the local disk. AzCopy detects the content type based on the file extension or content (if no extension is specified).
+AzCopy automatically detects the content type of the files based on the file extension or content (if no extension is specified) when you upload them from the local disk.
 
 The built-in lookup table is small, but on Unix, it is augmented by the local system's `mime.types` file(s) if they are available under one or more of these names:
 

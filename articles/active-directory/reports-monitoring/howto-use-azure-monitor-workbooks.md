@@ -12,9 +12,9 @@ ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/21/2021
+ms.date: 01/10/2022
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: sarbar
 ---
 # How to use Azure Monitor workbooks for Azure Active Directory reports
 
@@ -328,6 +328,17 @@ You can filter the Risky Users trends by:
 - Risk level
 
 If you have a high number of risky users where "no action" has been taken, consider enabling a Conditional Access policy to require secure password change when a user is high risk.
+
+## Best practices
+
+### Query partially succeeded
+
+After running a workbook, you might see the following error: "Query partially succeeded; results may be incomplete or incorrect"
+
+This error means that your query timed out in the database layer. In this case, it still “succeeded” to workbooks (it got results) but the results also contained an error/warning message that some part of the query failed. In this case, you review your query and start troubleshooting by reducing the scope of it.
+For example, you could add or rearrange a where condition to reduce the amount of data the query has to process. 
+
+
 
 ## Next steps
 

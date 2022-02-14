@@ -15,15 +15,15 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
 
-In this article, you'll learn how to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications by using F5's BIG-IP advanced configuration. 
+In this tutorial, you'll learn to implement Secure Hybrid Access (SHA) with single sign-on (SSO) to Kerberos applications by using F5's BIG-IP advanced configuration. 
 
-Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
+Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-* Improved Zero Trust governance through Azure AD pre-authentication and authorization.
+* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services.
 
-* Management of identities and access from a single control plane, the [Azure portal](https://portal.azure.com/).
+* Management of identities and access from a single control plane, the [Azure portal](https://azure.microsoft.com/features/azure-portal/)
 
 To learn about all of the benefits, see [Integrate F5 BIG-IP with Azure Active Directory](./f5-aad-integration.md) and [What is single sign-on in Azure Active Directory?](/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -52,7 +52,7 @@ The SHA solution for this scenario consists of the following elements:
 
 The following image illustrates the SAML SP-initiated flow for this scenario, but IdP-initiated flow is also supported.
 
-![Diagram of the scenario architecture.](./media/f5-big-ip-kerberos-advanced/scenario-architecture.png)
+![Diagram of the scenario architecture.](./media/f5-big-ip-kerberos-easy-button/scenario-architecture.png)
 
 | Step| Description |
 | -------- |-------|
@@ -90,7 +90,7 @@ Prior BIG-IP experience isn't necessary, but you will need:
 
 * An existing Kerberos application, or [set up an Internet Information Services (IIS) app](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) for KCD SSO.
 
-## Configuration methods
+## BIG-IP configuration methods
 
 There are many methods to configure BIG-IP for this scenario, including two template-based options and an advanced configuration. This article covers the advanced approach, which provides a more flexible way of implementing SHA by manually creating all BIG-IP configuration objects. You would also use this approach for scenarios that the guided configuration templates don't cover.
 
@@ -235,7 +235,7 @@ If the **web_svc_account** service runs in context of a computer account, use th
 
 For more information, see [Kerberos Constrained Delegation across domains](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 
-## Make BIG-IP advanced configurations
+## BIG-IP advanced configuration
 
 Now you can proceed with setting up the BIG-IP configurations.
 
@@ -348,7 +348,7 @@ An *access profile* binds many APM elements that manage access to BIG-IP virtual
 
     ![Screenshot that shows the list box for configuring an A A A server.](./media/f5-big-ip-kerberos-advanced/configure-aaa-server.png)
 
-6. Select the link in the upper **Deny** box to change the **Successful** branch to **Allow**.
+6. Select the link in the upper **Deny** box to change the **Successful** branch to **Allow**, and then select **Save**.
 
     ![Screenshot that shows changing the successful branch to Allow.](./media/f5-big-ip-kerberos-advanced/select-allow-successful-branch.png)
 
@@ -503,6 +503,6 @@ For help with diagnosing KCD-related problems, see the F5 BIG-IP deployment guid
 
 * [Forget passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
-* [What is Conditional Access?](../conditional-access/overview.md)
+* [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
 
 * [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)

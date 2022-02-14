@@ -4,13 +4,13 @@ description: Use Azure RTOS embedded software to connect an MXCHIP AZ3166 device
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
-ms.devlang: c
+ms.devlang: c, azurecli
 ms.topic: quickstart
 ms.date: 06/09/2021
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli
 ---
 
-# Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub
+# Connect an MXCHIP AZ3166 devkit to IoT Hub
 
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes

@@ -15,9 +15,9 @@ items:
     - name: Create an account - PowerShell/CLI
       href: create-catalog-powershell.md
     - name: Create an account - .NET SDK
-      href: create-purview-dotnet.md
+      href: create-azure-purview-dotnet.md
     - name: Create an account - Python
-      href: create-purview-python.md
+      href: create-azure-purview-python.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
 - name: Tutorials
@@ -28,6 +28,12 @@ items:
       href: tutorial-data-sources-readiness.md
     - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
+  - name: Data owner access policies
+    items:
+    - name: Data owner policies for Azure Storage
+      href: tutorial-data-owner-policies-storage.md
+    - name: Data owner policies on resource groups or subscriptions
+      href: tutorial-data-owner-policies-resource-group.md
   - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
   - name: Use REST APIs for data planes
@@ -37,13 +43,15 @@ items:
 - name: Concepts
   items:
   - name: Use Azure Purview Studio
-    href: use-purview-studio.md
+    href: use-azure-purview-studio.md
   - name: Best practices and guidelines
     items:
       - name: Accounts architecture best practices
         href: concept-best-practices-accounts.md
-      - name: Accounts - Default Purview account 
+      - name: Accounts - Default Azure Purview account 
         href: concept-default-purview-account.md
+      - name: Asset lifecycle best practices
+        href: concept-best-practices-asset-lifecycle.md
       - name: Automation best practices 
         href: concept-best-practices-automation.md
       - name: Backup, recovery and migration best practices
@@ -85,8 +93,6 @@ items:
       href: concept-classification.md
   - name: Data catalog
     items:
-    - name: Catalog search
-      href: concept-search.md
     - name: Business glossary
       href: concept-business-glossary.md 
     - name: Asset normalization
@@ -100,7 +106,7 @@ items:
   - name: Manage sources
     items: 
     - name: Supported sources
-      href: purview-connector-overview.md
+      href: azure-purview-connector-overview.md
     - name: Manage data sources
       href: manage-data-sources.md
     - name: Manage credentials
@@ -148,7 +154,7 @@ items:
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
-    - name: DB2
+    - name: Db2
       href: register-scan-db2.md
     - name: Erwin
       href: register-scan-erwin-source.md
@@ -212,28 +218,12 @@ items:
       href: how-to-link-azure-data-share.md
     - name: Azure Synapse Analytics lineage
       href: how-to-lineage-azure-synapse-analytics.md
-    - name: Cassandra lineage
-      href: how-to-lineage-cassandra.md
-    - name: Erwin lineage
-      href: how-to-lineage-erwin.md
-    - name: Looker lineage
-      href: how-to-lineage-looker.md
-    - name: Google BigQuery lineage
-      href: how-to-lineage-google-bigquery.md
-    - name: Oracle lineage
-      href: how-to-lineage-oracle.md
     - name: Power BI lineage
       href: how-to-lineage-powerbi.md
-    - name: SAP S/4HANA lineage
-      href: how-to-lineage-saps4hana.md
-    - name: SAP ECC lineage
-      href: how-to-lineage-sapecc.md
     - name: Spark lineage
       href: how-to-lineage-spark-atlas-connector.md
     - name: SQL Server Integration Services lineage
       href: how-to-lineage-sql-server-integration-services.md
-    - name: Teradata lineage
-      href: how-to-lineage-teradata.md
   - name: Business glossary
     items:
     - name: Create, import, & export glossary terms
@@ -276,8 +266,10 @@ items:
         href: catalog-private-link.md
       - name: End-to-end network isolation
         href: catalog-private-link-end-to-end.md
-      - name: Isolate network for Purview account and portal
+      - name: Isolate network for account and portal
         href: catalog-private-link-account-portal.md
+      - name: Managed virtual network
+        href: catalog-managed-vnet.md        
       - name: Configure DNS for private endpoint
         href: catalog-private-link-name-resolution.md
       - name: Troubleshoot private endpoints
@@ -285,7 +277,13 @@ items:
       - name: Private endpoint FAQ
         href: catalog-private-link-faqs.md
     - name: Azure policy exceptions
-      href: create-purview-portal-faq.md
+      href: create-azure-purview-portal-faq.md
+    - name: Conditional access
+      href: catalog-conditional-access.md
+  - name: Data owner policies
+    items:
+    - name: Authoring and publishing data owner access policies
+      href: how-to-data-owner-policy-authoring-generic.md
   - name: Manage Kafka notifications - .NET
     href: manage-kafka-dotnet.md
   - name: Disaster recovery
@@ -294,18 +292,12 @@ items:
     href: how-to-monitor-with-azure-monitor.md
   - name: Integrate with Azure security products
     href: how-to-integrate-with-azure-security-products.md
-  - name: Data owner access policies
-    items:
-    - name: Data access policy Azure Storage
-      href: how-to-access-policies-storage.md
 - name: Reference
   items:
     - name: Azure Purview product glossary
-      href: reference-purview-glossary.md
+      href: reference-azure-purview-glossary.md
     - name: Supported browsers
       href: supported-browsers.md
-    - name: Supported data sources and file types
-      href: sources-and-scans.md
     - name: Supported classifications
       href: supported-classifications.md
     - name: Azure Purview limits
@@ -321,7 +313,7 @@ items:
     - name: REST
       href: /rest/api/purview/
     - name: Azure Purview open-source tools utilities
-      href: tutorial-purview-tools.md
+      href: tutorial-azure-purview-tools.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
     - name: Frequently asked questions (FAQ)

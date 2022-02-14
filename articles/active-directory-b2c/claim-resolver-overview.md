@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/12/2021
+ms.date: 1/11/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -133,8 +133,30 @@ The following table lists the [OAuth2 identity provider](oauth2-technical-profil
 
 | Claim | Description | Example |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | The access token. | N/A |
-| {oauth2:refresh_token} | The refresh token. | N/A |
+| {oauth2:access_token} | The OAuth2 identity provider access token. The `access_token` attribute. | `eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni...` |
+| {oauth2:token_type}   | The type of the access token. The `token_type` attribute. | Bearer  |
+| {oauth2:expires_in}   | The length of time that the access token is valid in seconds. The `expires_in` attribute. The output claim [DataType](claimsschema.md#datatype) must be `int` or `long`. | 960000 |
+| {oauth2:refresh_token} | The OAuth2 identity provider refresh token. The `refresh_token` attribute. | `eyJraWQiOiJacW9pQlp2TW5pYVc2MUY...` |
+
+To use the OAuth2 identity provider claim resolvers, set the output claim's `PartnerClaimType` attribute to the claim resolver.  The following example demonstrates how the get the external identity provider claims:
+
+```xml
+<ClaimsProvider>
+  <DisplayName>Contoso</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="Contoso-OAUTH">
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="identityProviderAccessToken" PartnerClaimType="{oauth2:access_token}" />
+        <OutputClaim ClaimTypeReferenceId="identityProviderAccessTokenType" PartnerClaimType="{oauth2:token_type}" />
+        <OutputClaim ClaimTypeReferenceId="identityProviderAccessTokenExpiresIn" PartnerClaimType="{oauth2:expires_in}" />
+        <OutputClaim ClaimTypeReferenceId="identityProviderRefreshToken" PartnerClaimType="{oauth2:refresh_token}" />
+      </OutputClaims>
+      ...
+    </TechnicalProfile>
+  </TechnicalProfiles>
+</ClaimsProvider>
+```
+
 
 ## Using claim resolvers
 

@@ -35,7 +35,7 @@ The timer trigger is provided in the [Microsoft.Azure.WebJobs.Extensions](https:
 
 # [C#](#tab/csharp)
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that is executed each time the minutes have a value divisible by five (eg if the function starts at 18:57:00, the next performance will be at 19:00:00). The [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) object is passed into the function.
+The following example shows a [C# function](functions-dotnet-class-library.md) that is executed each time the minutes have a value divisible by five (eg if the function starts at 18:55:00, the next performance will be at 19:00:00). The [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) object is passed into the function.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -110,7 +110,7 @@ Here's the binding data in the *function.json* file:
 Here's the JavaScript code:
 
 ```JavaScript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     if (myTimer.isPastDue)
@@ -118,8 +118,6 @@ module.exports = function (context, myTimer) {
         context.log('Node is running late!');
     }
     context.log('Node timer trigger function ran!', timeStamp);   
-
-    context.done();
 };
 ```
 
