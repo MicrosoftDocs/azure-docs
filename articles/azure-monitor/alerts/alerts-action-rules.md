@@ -124,11 +124,11 @@ In the fourth tab (**Details**), you give this rule a name, pick where it will b
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can use Azure CLI to work with alert processing rules. See the `az monitor alert-processing-rules` page in the [Azure CLI docs](/cli/azure/monitor/alert-processing-rule) in for detailed documentation and additional examples.
+You can use Azure CLI to work with alert processing rules. See the `az monitor alert-processing-rules` page in the [Azure CLI docs](/cli/azure/monitor/alert-processing-rule) in for detailed documentation and examples.
 
 ### Prepare your environment
 
-1. **Intall the Auzre CLI**
+1. **Inatall the Auzre CLI**
 
    Follow the [Installation instructions of the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -178,7 +178,7 @@ az monitor alert-processing-rule create \
 --description "Add ActionGroup1 to all alerts in the subscription"
 ```
 
-The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include additional examples, and explanation of each parameter.
+The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include mope examples and an explanation of each parameter.
 
 * * *
 
