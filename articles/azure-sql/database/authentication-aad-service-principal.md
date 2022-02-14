@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma, wiassaf
-ms.date: 12/15/2021
+ms.date: 02/14/2022
 ---
 
 # Azure Active Directory service principal with Azure SQL
