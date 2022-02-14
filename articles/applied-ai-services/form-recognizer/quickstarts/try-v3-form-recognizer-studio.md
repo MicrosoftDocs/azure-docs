@@ -184,7 +184,7 @@ In addition, view all your models using the Models tab on the left. From the lis
 
 ## Labeling as tables
 
-[!NOTE]
+> [!NOTE]
 > Tables are currently only supported for custom template models. When training a custom document model, labeled tables are ignored.
 
 While creating your custom models, you may need to extract data collections from your documents. These may appear in a couple of formats. Using tables as the visual pattern:

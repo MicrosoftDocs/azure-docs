@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 02/13/2022
 ms.author: vikurpad
+ms.custom: references_regions
 recommendations: false
 ---
 
