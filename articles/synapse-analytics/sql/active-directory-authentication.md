@@ -8,7 +8,7 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 2/14/2022
 ms.author: vvasic
-ms.reviewer: wiassaf
+ms.reviewer: sngun
 ---
 # Use Azure Active Directory Authentication for authentication with Synapse SQL
 
