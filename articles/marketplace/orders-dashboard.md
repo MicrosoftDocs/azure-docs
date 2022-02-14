@@ -83,7 +83,7 @@ Each monthly data point on the line graph represents the total count of seats or
 - Growth % of these subscription seats and site count for the selected month range
 - Month over month trend of these orders for the selected month range
 
-[![Illustrates the Orders widget on the Orders dashboard that shows the orders per seat and site trend.](./media/orders-dashboard/seats-sites.png)](./media/orders-dashboard/seats-sites.png#lightbox)
+[![Illustrates the Orders widget on the Orders dashboard that shows the orders per seat and site trend.](./media/orders-dashboard/seats-per-site.png)](./media/orders-dashboard/seats-per-site.png#lightbox)
 
 Subscription offers can use one of two pricing models with each plan: either site-based (flat rate) or seat-based (per user).
 
@@ -121,7 +121,7 @@ In this widget you can view information of All offers with different order statu
 
 :::image type="content" source="./media/orders-dashboard/orders-by-offers.png" alt-text="Illustrates the Orders by Offers chart on the Orders dashboard.":::
 
-In this widget you can view information of a selected offer and its SKU or offer plans (from the drop down) with different order statuses under the **Orders** subtab.
+In this widget you can view information of **a selected offer and its SKU or offer plans** (from the drop down) with different order statuses under the **Orders** subtab.
 
 :::image type="content" source="./media/orders-dashboard/offer-trends-private.png" alt-text="Illustrates the Orders by Private Offers chart on the Orders dashboard.":::
 
