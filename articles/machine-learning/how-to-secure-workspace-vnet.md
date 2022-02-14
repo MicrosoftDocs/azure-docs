@@ -257,6 +257,7 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
       -g myresourcegroup \
       -i mycomputecluster
     ```
+    ---
 
 > [!TIP]
 > When ACR is behind a VNet, you can also [disable public access](../container-registry/container-registry-access-selected-networks.md#disable-public-network-access) to it.
