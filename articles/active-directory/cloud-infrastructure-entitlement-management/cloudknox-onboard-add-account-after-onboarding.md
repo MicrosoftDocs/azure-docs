@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/13/2022
+ms.date: 02/14/2022
 ms.author: v-ydequadros
 ---
 
@@ -23,7 +23,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 
 ## Add an AWS account after onboarding is complete
 
-1.In the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data collectors** tab.
+1. In the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data collectors** tab.
 1. On the **Data collectors** dashboard, select **AWS**.
 1. Select the ellipses **(...)** at the end of the row, and then select **Edit Configuration**.
 
@@ -53,7 +53,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 
 ## Add an Azure subscription after onboarding is complete
 
-1.In the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data collectors** tab.
+1. In the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data collectors** tab.
 1. On the **Data collectors** dashboard, select **Azure**.
 1. Select the ellipses **(...)** at the end of the row, and then select **Edit Configuration**.
 
@@ -79,7 +79,7 @@ This article describes how to add an Amazon Web Services (AWS) account, Microsof
 
 ## Add a GCP project after onboarding is complete
 
-1.In the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data collectors** tab.
+1. In the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data collectors** tab.
 1. On the **Data collectors** dashboard, select **GCP**.
 1. Select the ellipses **(...)** at the end of the row, and then select **Edit Configuration**.
 
