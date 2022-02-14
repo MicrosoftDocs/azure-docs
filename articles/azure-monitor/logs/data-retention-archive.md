@@ -11,7 +11,7 @@ ms.date: 01/27/2022
 ---
 
 # Configure data retention and archive policies in Azure Monitor Logs (Preview)
-Each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) retains data for a period of time and then removes or archives the data with a reduced retention fee. Set a data retention policy, balancing your need to have data available with the cost of data retention. 
+Each table in a [Log Analytics workspace](log-analytics-workspace-overview.md) retains data for a period of time and then removes or archives the data with a reduced retention fee. Archiving data lets you store older data at a reduced cost, and you can [restore archived data for querying](restore.md) when you need to. Set data retention and archiving policies, balancing your need to have data available with the cost of data retention. 
 
 This article describes how to configure data retention and archive policies for your workspace or for individual tables.
 
