@@ -119,7 +119,6 @@ sections:
           - West Europe
           - Southeast Asia
           - Japan East
-- Korea Central
           
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |
