@@ -43,7 +43,7 @@ An Owner can manage everything, including access. The following table shows the 
 
 |Actions|Description|
 |---|---|
-|Microsoft.Automation/automationAccounts/|Create and manage resources of all types.|
+|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types.|
 
 ### Contributor
 
@@ -51,7 +51,7 @@ A Contributor can manage everything except access. The following table shows the
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/|Create and manage resources of all types|
+|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types|
 |**Not Actions**||
 |Microsoft.Authorization/*/Delete| Delete roles and role assignments.       |
 |Microsoft.Authorization/*/Write     |  Create roles and role assignments.       |
@@ -369,6 +369,21 @@ Perform the following steps to create the Azure Automation custom role with Powe
    ```
 
 1. Complete the remaining steps as outlined in [Create or update Azure custom roles using Azure PowerShell](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). It can take a few minutes for your custom role to appear everywhere.
+
+## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
+
+You can create custom Azure Automation Roles and grant following permissions to Hybrid Worker Groups and Hybrid Workers. [Learn more](/azure/role-based-access-control/custom-roles) on how to create Azure Automation custom roles.
+
+**Actions** | **Description**
+--- | ---
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write | Creates a Hybrid Runbook Worker Group.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Reads a Hybrid Runbook Worker.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/read | Reads a Hybrid Runbook Worker.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/write | Creates a Hybrid Runbook Worker.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/move/action | Moves Hybrid Runbook Worker from one Worker Group to another.
+Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete | Deletes a Hybrid Runbook Worker.
+
 
 ## Update Management permissions
 
