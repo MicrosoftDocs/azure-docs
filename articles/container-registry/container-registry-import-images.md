@@ -64,6 +64,9 @@ To import an image to an Azure container registry, your identity must have write
 
 ## Import from a public registry
 
+> [!IMPORTANT]
+> To import from a public registry to a network-restricted Azure container registry requires the restricted registry to [**allow access by trusted services**](allow-access-trusted-services.md) to bypass the network.By default, the setting is enabled, allowing import. If the setting isn't enabled in a newly created registry with a private endpoint or with registry firewall rules, import will fail.
+
 ### Import from Docker Hub
 
 ### [Azure CLI](#tab/azure-cli)

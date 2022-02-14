@@ -24,7 +24,7 @@ Your device-to-cloud twin operation (such as read or patch reported properties) 
 
 ## Cause
 
-Another client created a new connection to IoT Hub using the same credentials, so IoT Hub closed the previous connection. IoT Hub doesn't allow more than one client to connect using the same set of credentials.
+Another client created a new connection to IoT Hub using the same identity, so IoT Hub closed the previous connection. IoT Hub doesn't allow more than one client to connect using the same identity.
 
 ## Solution
 

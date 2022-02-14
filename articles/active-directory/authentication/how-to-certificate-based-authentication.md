@@ -1,12 +1,12 @@
 ---
-title: How to configure cloud-native certificate-based authentication without federation (Preview) - Azure Active Directory
-description: Topic that shows how to configure cloud-native certificate-based authentication in Azure Active Directory
+title: How to configure Azure AD certificate-based authentication without federation (Preview) - Azure Active Directory
+description: Topic that shows how to configure Azure AD certificate-based authentication in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 02/09/2022
 
 ms.author: justinha
 author: justinha
@@ -16,20 +16,20 @@ ms.reviewer: tommma
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ---
-# How to configure cloud-native certificate-based authentication against Azure Active Directory (Preview)
+# How to configure Azure AD certificate-based authentication (Preview)
 
-Cloud-native certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates verified against their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt phishing resistant authentication by using an x.509 certificate.
+Azure Active Directory (Azure AD) certificate-based authentication (CBA) enables customers to configure their Azure AD tenants to allow or require users to authenticate with X.509 certificates verified against their Enterprise Public Key Infrastructure (PKI) for app and browser sign-in. This feature enables customers to adopt phishing resistant authentication by using an x.509 certificate.
  
 During sign-in, users will see an option to authenticate with a certificate instead of entering a password. 
 If multiple matching certificates are present on the device, the user can pick which one to use. The certificate is validated, the binding to the user account is checked, and if successful, they are signed in.
 
 <!---Clarify plans that are covered --->
-This topic covers how to configure and use certificate-based authentication for tenants in Office 365 Enterprise, US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
+This topic covers how to configure and use certificate-based authentication for tenants in Office 365 Enterprise and US Government plans. You should already have a [public key infrastructure (PKI)](https://aka.ms/securingpki) configured.
 
-Follow these instructions to configure and use cloud-native certificate-based authentication (CBA) for tenants in Azure Active Directory.
+Follow these instructions to configure and use Azure AD CBA.
 
 >[!NOTE]
->Cloud-native certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+>Azure AD certificate-based authentication is currently in public preview. Some features might not be supported or have limited capabilities. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## Prerequisites
 
@@ -44,17 +44,17 @@ Make sure that the following prerequisites are in place.
 >[!IMPORTANT]
 >Make sure the PKI is secure and cannot be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both synced and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
 
-## Steps to configure and test cloud-native CBA
+## Steps to configure and test Azure AD CBA
 
-There are some configuration steps to complete before enabling cloud-native CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators make changes. Configuring the certificate authority is done only by the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role.
+There are some configuration steps to complete before enabling Azure AD CBA. First, an admin must configure the trusted CAs that issue user certificates. As seen in the following diagram, we use role-based access control to make sure only least-privileged administrators make changes. Configuring the certificate authority is done only by the [Privileged Authentication Administrator](../roles/permissions-reference.md#privileged-authentication-administrator) role.
 
-Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor and configure username bindings to map certificate field to a user object attribute. Configuring user-related settings can be done by [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator). Once all the configurations are complete, enable cloud-native CBA on the tenant. 
+Optionally, you can also configure authentication bindings to map certificates to single-factor or multifactor and configure username bindings to map certificate field to a user object attribute. Configuring user-related settings can be done by [Authentication Policy Administrators](../roles/permissions-reference.md#authentication-policy-administrator). Once all the configurations are complete, enable Azure AD CBA on the tenant. 
 
-:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="steps to enable cloud-native certificate-based authentication works in Azure AD.":::
+:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/steps.png" alt-text="steps to enable Azure AD certificate-based authentication works in Azure AD.":::
 
 ## Step 1: Configure the certificate authorities
 
-Only one Certificate Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs are not supported.
+Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can only be HTTP URLs. Online Certificate Status Protocol (OCSP) or Lightweight Directory Access Protocol (LDAP) URLs are not supported.
 
 [!INCLUDE [Configure certificate authorities](../../../includes/active-directory-authentication-configure-certificate-authorities.md)]
 
@@ -251,7 +251,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 1. Because policy OID rule takes precedence over issuer rule, the certificate will satisfy multifactor authentication.
 1. The conditional access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
 
-### Enable cloud-native CBA using Microsoft Graph API
+### Enable Azure AD CBA using Microsoft Graph API
 
 To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps.
 
@@ -327,9 +327,9 @@ To enable the certificate-based authentication and configure username bindings u
  
 ## Next steps 
 
-- [Overview of cloud-native CBA](concept-cloud-native-certificate-based-authentication.md)
-- [Technical deep dive for cloud-native CBA](concept-cloud-native-certificate-based-authentication-technical-deep-dive.md)   
-- [Limitations with cloud-native CBA](concept-cloud-native-certificate-based-authentication-limitations.md)
-- [FAQ](cloud-native-certificate-based-authentication-faq.yml)
-- [Troubleshoot cloud-native CBA](troubleshoot-cloud-native-certificate-based-authentication.md)
+- [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
+- [Technical deep dive for Azure AD CBA](concept-certificate-based-authentication-technical-deep-dive.md)   
+- [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
+- [FAQ](certificate-based-authentication-faq.yml)
+- [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
 
