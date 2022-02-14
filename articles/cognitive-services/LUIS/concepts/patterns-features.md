@@ -8,7 +8,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 12/07/2021
 
 ---
