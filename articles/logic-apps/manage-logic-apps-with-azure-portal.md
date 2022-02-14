@@ -69,6 +69,8 @@ To stop the trigger from firing the next time when the trigger condition is met,
   1. Save your changes. This step resets your trigger's current state.
   1. [Reactivate your logic app](#disable-enable-single-logic-app).
 
+* When a workflow is disabled, you can still resubmit runs.
+
 <a name="disable-enable-single-logic-app"></a>
 
 ### Disable or enable a single logic app
@@ -85,9 +87,6 @@ To stop the trigger from firing the next time when the trigger condition is met,
      > If your logic app is already enabled, you only see the **Disable** option.
 
 1. To confirm whether your operation succeeded or failed, on the main Azure toolbar, open the **Notifications** list (bell icon).
-
-> [!NOTE]
-> When a logic app workflow is disabled, you can still resubmit runs.
 
 <a name="disable-or-enable-multiple-logic-apps"></a>
 

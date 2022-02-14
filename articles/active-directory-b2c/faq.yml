@@ -131,7 +131,7 @@ sections:
       - question: |
           Should I use Azure AD B2C or B2B to manage external identities?
         answer: |
-          Read [Compare B2B collaboration and B2C in Azure AD](../active-directory/external-identities/compare-with-b2c.md) to learn more about applying the appropriate features to your external identity scenarios.
+          Read [Compare solutions for External Identities](../active-directory/external-identities/external-identities-overview.md) to learn more about applying the appropriate features to your external identity scenarios.
           
       - question: |
           What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
@@ -219,6 +219,16 @@ sections:
           Can I get Azure AD B2C as part of Enterprise Mobility Suite?
         answer: |
           No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise Mobility Suite.
+          
+      - question: |
+          Can I purchase Azure AD Premium P1 and Azure AD Premium P2 licensing for my Azure AD B2C tenant?
+        answer: |
+          No, Azure AD B2C tenants don't use Azure AD Premium P1 or Azure AD Premium P2 licensing. Azure AD B2C uses [Azure AD B2C Premium P1 or P2](billing.md#change-your-azure-ad-pricing-tier) licenses, which are different from Azure AD Premium P1 or P2 licenses for a Standard Azure AD tenant. Azure AD B2C tenants natively support some features that are similar to Azure AD Premium features, as explained in [Supported Azure AD features](supported-azure-ad-features.md).
+         
+      - question: |
+          Can I use group-based assignment for Azure AD Enterprise Applications in my Azure AD B2C tenant?
+        answer: |
+          No, Azure AD B2C tenants do not support [group-based assignment to Azure AD Enterprise Applications](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
           
       - question: |
           What Azure AD B2C features are unavailable in Microsoft Azure Government?

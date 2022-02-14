@@ -296,6 +296,14 @@ productDirectory:
         - analytics
       url: analysis-services/index.yml
     # Card
+    - title: Azure Chaos Studio (Preview)
+      summary: Improve application resilience by introducing faults and simulating outages
+      imageSrc: ./media/index/chaos-studio.svg
+      azureCategories:
+        - analytics
+        - management-and-governance
+      url: chaos-studio/index.yml
+    # Card
     - title: Azure Data Explorer
       summary: Fast and highly scalable data exploration service
       imageSrc: https://static.docs.com/ui/media/product/azure/data-explorer.svg

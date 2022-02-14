@@ -34,7 +34,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a configuration
 
-Review the code below and note the presence of two node [configurations](/powershell/dsc/configurations/configurations): `IsPresent` and `IsNotPresent`. This configuration calls one resource in each node block: the [nxPackage resource](/powershell/dsc/reference/resources/linux/lnxpackageresource). This resource manages the presence of the **apache2** package. Then, in a text editor, copy the following code to a local file and name it `LinuxConfig.ps1`:
+Review the code below and note the presence of two node [configurations](/powershell/dsc/configurations/configurations): `IsPresent` and `IsNotPresent`. This configuration calls one resource in each node block: the [nxPackage resource](/powershell/dsc/reference/resources/linux/lnxpackageresource). This resource manages the presence of the **apache2** package. Configuration names in Azure Automation must be limited to no more than 100 characters.
+
+Then, in a text editor, copy the following code to a local file and name it `LinuxConfig.ps1`:
 
 ```powershell
 Configuration LinuxConfig

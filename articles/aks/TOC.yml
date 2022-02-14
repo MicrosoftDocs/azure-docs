@@ -217,6 +217,8 @@
           maintainContext: true
         - name: Azure portal Kubernetes resource view
           href: kubernetes-portal.md
+        - name: Use tags
+          href: use-tags.md
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers
@@ -438,18 +440,8 @@
           href: open-service-mesh-deploy-addon-bicep.md
         - name: Install the OSM CLI
           href: open-service-mesh-binary.md
-        - name: Manage a new application
-          href: open-service-mesh-deploy-new-application.md          
-        - name: Onboard existing applications
-          href: open-service-mesh-deploy-existing-application.md
-        - name: Configure IP address and port range exclusion
-          href: open-service-mesh-ip-port-exclusion.md
         - name: Configure Azure Monitor
           href: open-service-mesh-azure-monitor.md
-        - name: Integrate with Azure Application Gateway Ingress
-          href: open-service-mesh-azure-application-gateway-ingress.md
-        - name: Integrate with NGINX Ingress Controller
-          href: open-service-mesh-nginx-ingress.md
         - name: Troubleshoot Open Service Mesh
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on

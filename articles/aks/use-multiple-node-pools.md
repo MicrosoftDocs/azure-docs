@@ -348,6 +348,35 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 It takes a few minutes to delete the nodes and the node pool.
 
+## Associate capacity reservation groups to node pools (preview)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+As your application workloads demands, you may associate node pools to capacity reservation groups created prior. This ensures guaranteed capacity is allocated for your node pools.  
+
+For more information on the capacity reservation groups, please refer to [Capacity Reservation Groups][capacity-reservation-groups].
+
+Associating a node pool with an existing capacity reservation group can be done using [az aks nodepool add][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag" The capacity reservation group should already exist , otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated. 
+
+```azurecli-interactive
+az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
+```
+Associating a system node pool with an existing capacity reservation group can be done using [az aks create][az-aks-create] command. If the capacity reservation group specified does not exist, then a warning is issued and the cluster gets created without any capacity reservation group association. 
+
+```azurecli-interactive
+az aks create -g MyRG --cluster-name MyMC --capacityReservationGroup myCRG
+```
+Deleting a node pool command will implicitly dissociate a node pool from any associated capacity reservation group, before that node pool is deleted.
+
+```azurecli-interactive
+az aks nodepool delete -g MyRG --cluster-name MyMC -n myAP
+```
+Deleting a cluster command implicitly dissociates all node pools in a cluster from their associated capacity reservation groups.
+
+```azurecli-interactive
+az aks delete -g MyRG --cluster-name MyMC
+```
+
 ## Specify a VM size for a node pool
 
 In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations](#setting-nodepool-taints) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
@@ -423,9 +452,6 @@ az aks nodepool add \
     --node-taints sku=gpu:NoSchedule \
     --no-wait
 ```
-
-> [!NOTE]
-> A taint can only be set for node pools during node pool creation.
 
 The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *taintnp* is *Creating* nodes with the specified *nodeTaints*:
 
@@ -531,7 +557,7 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> Label can only be set for node pools during node pool creation. Labels must also be a key/value pair and have a [valid syntax][kubernetes-label-syntax].
+> Labels must be a key/value pair and have a [valid syntax][kubernetes-label-syntax].
 
 The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *labelnp* is *Creating* nodes with the specified *nodeLabels*:
 
@@ -560,53 +586,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 ### Setting nodepool Azure tags
 
-You can apply an Azure tag to node pools in your AKS cluster. Tags applied to a node pool are applied to each node within the node pool and are persisted through upgrades. Tags are also applied to new nodes added to a node pool during scale-out operations. Adding a tag can help with tasks such as policy tracking or cost estimation.
-
-Azure tags have keys which are case-insensitive for operations, such as when retrieving a tag by searching the key. In this case a tag with the given key will be updated or retrieved regardless of casing. Tag values are case-sensitive.
-
-In AKS, if multiple tags are set with identical keys but different casing, the tag used is the first in alphabetical order. For example, `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}` results in `Key1` and `val1` being set.
-
-Create a node pool using the [az aks nodepool add][az-aks-nodepool-add]. Specify the name *tagnodepool* and use the `--tag` parameter to specify *dept=IT* and *costcenter=9999* for tags.
-
-```azurecli-interactive
-az aks nodepool add \
-    --resource-group myResourceGroup \
-    --cluster-name myAKSCluster \
-    --name tagnodepool \
-    --node-count 1 \
-    --tags dept=IT costcenter=9999 \
-    --no-wait
-```
-
-> [!NOTE]
-> You can also use the `--tags` parameter when using [az aks nodepool update][az-aks-nodepool-update] command as well as during cluster creation. During cluster creation, the `--tags` parameter applies the tag to the initial node pool created with the cluster. All tag names must adhere to the limitations in [Use tags to organize your Azure resources][tag-limitation]. Updating a node pool with the `--tags` parameter updates any existing tag values and appends any new tags. For example, if your node pool had *dept=IT* and *costcenter=9999* for tags and you updated it with *team=dev* and *costcenter=111* for tags, you nodepool would have *dept=IT*, *costcenter=111*, and *team=dev* for tags.
-
-The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *tagnodepool* is *Creating* nodes with the specified *tag*:
-
-```azurecli
-az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
-```
-
-```output
-[
-  {
-    ...
-    "count": 1,
-    ...
-    "name": "tagnodepool",
-    "orchestratorVersion": "1.15.7",
-    ...
-    "provisioningState": "Creating",
-    ...
-    "tags": {
-      "dept": "IT",
-      "costcenter": "9999"
-    },
-    ...
-  },
- ...
-]
-```
+For more details on using Azure tags with node pools, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Add a FIPS-enabled node pool
 
@@ -892,6 +872,7 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
+[capacity-reservation-groups]:/azure/virtual-machines/capacity-reservation-associate-virtual-machine-scale-set
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
@@ -913,6 +894,7 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-aks-nodepool-add]: /cli/azure/aks#az_aks_nodepool_add
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
@@ -931,3 +913,4 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [az-public-ip-prefix-create]: /cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create
 [node-image-upgrade]: node-image-upgrade.md
 [fips]: /azure/compliance/offerings/offering-fips-140-2
+[use-tags]: use-tags.md

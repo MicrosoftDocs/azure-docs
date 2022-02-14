@@ -348,7 +348,7 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 | **Supported by** | Microsoft |
 | | |
 
-## Azure Information Protection
+## Azure Information Protection (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1054,15 +1054,6 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | | |
 
             
-## Microsoft Project (Preview)
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
-| **Log Analytics table(s)** | ProjectActivity |
-| **Supported by** | Microsoft |
-| | |      
-
 ## Microsoft Defender for Cloud
 
 | Connector attribute | Description |
@@ -1141,6 +1132,15 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | PowerBIActivity |
 | **Supported by** | Microsoft |
 | | |
+        
+## Microsoft Project (Preview)
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
+| **Log Analytics table(s)** | ProjectActivity |
+| **Supported by** | Microsoft |
+| | |      
 
 ## Microsoft Sysmon for Linux (Preview)
 
@@ -1731,7 +1731,7 @@ For more information, see [Gather insights about your DNS infrastructure with th
 
 ### Additional instructions for deploying the Windows Forwarded Events connector
 
-We recommend installing the [Advanced SIEM Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
+We recommend installing the [Advanced Security Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
 
 ## Windows Firewall
 

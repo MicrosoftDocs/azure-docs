@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: nitinme
 ms.devlang: csharp

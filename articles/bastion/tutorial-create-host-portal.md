@@ -76,7 +76,7 @@ You can use the following example values when creating this configuration, or yo
 
 This section helps you create the bastion object in your VNet. This is required in order to create a secure connection to a VM in the VNet.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Bastion** into the search.
 1. Under services, click **Bastions**.
 1. On the Bastions page, click **+ Create** to open the **Create a Bastion** page.

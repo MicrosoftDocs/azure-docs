@@ -100,7 +100,7 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 > You can scope the vCenter Server account to limit discovery to specific vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers. Learn how to [scope the vCenter Server user account](set-discovery-scope.md).
 
 > [!NOTE]
-> vCenter assets connected via Linked-Mode to the vCenter server specified for discovery will not be discovered by Azure Migrate. An Azure Migrate Appliance should be deployed for each vCenter environment you wish to discover.
+> vCenter assets connected via Linked-Mode to the vCenter server specified for discovery will not be discovered by Azure Migrate.
 
 ### Create an account to access servers
 

@@ -75,7 +75,7 @@ Once your ADB cluster is set up,
 Linking your ADB workspace to your Azure Machine Learning workspace enables you to track your experiment data in the Azure Machine Learning workspace.
 
 To link your ADB workspace to a new or existing Azure Machine Learning workspace, 
-1. Sign in to [Azure portal](https://ms.portal.azure.com).
+1. Sign in to [Azure portal](https://portal.azure.com).
 1. Navigate to your ADB workspace's **Overview** page.
 1. Select the **Link Azure Machine Learning workspace** button on the bottom right. 
 

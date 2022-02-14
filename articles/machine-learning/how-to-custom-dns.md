@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 01/18/2022
+ms.date: 02/01/2022
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
@@ -338,7 +338,7 @@ If you cannot access the workspace from a virtual machine or jobs fail on comput
 1. **Locate the workspace FQDNs on the Private Endpoint**:
 
     Navigate to the Azure portal using one of the following links:
-    - [Azure Public regions](https://ms.portal.azure.com/?feature.privateendpointmanagedns=false)
+    - [Azure Public regions](https://portal.azure.com/?feature.privateendpointmanagedns=false)
     - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
@@ -416,7 +416,7 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.azureml.us```     
+    - ```instances.azureml.ms```     
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
@@ -440,7 +440,7 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.azureml.us```
+    - ```instances.azureml.ms```
     
     **Azure China regions**:
     - ```api.ml.azure.cn```
@@ -537,7 +537,7 @@ If after running through the above steps you are unable to access the workspace 
 1. **Locate the workspace FQDNs on the Private Endpoint**:
 
     Navigate to the Azure portal using one of the following links:
-    - [Azure Public regions](https://ms.portal.azure.com/?feature.privateendpointmanagedns=false)
+    - [Azure Public regions](https://portal.azure.com/?feature.privateendpointmanagedns=false)
     - [Azure China regions](https://portal.azure.cn/?feature.privateendpointmanagedns=false)
     - [Azure US Government regions](https://portal.azure.us/?feature.privateendpointmanagedns=false)
 
