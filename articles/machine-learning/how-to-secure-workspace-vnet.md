@@ -203,12 +203,6 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
 1. Find the name of the Azure Container Registry for your workspace, using one of the following methods:
 
-    # [Azure portal](#tab/portal)
-
-    From the overview section of your workspace, the __Registry__ value links to the Azure Container Registry.
-
-    :::image type="content" source="./media/how-to-enable-virtual-network/azure-machine-learning-container-registry.png" alt-text="Azure Container Registry for the workspace" border="true":::
-
     # [Azure CLI](#tab/cli)
 
     If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information.
@@ -218,6 +212,29 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     ```
 
     This command returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
+
+    # [Python SDK](#tab/python)
+
+    The following code snippet demonstrates how to get the container registry information using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/):
+
+    ```python
+    from azureml.core import Workspace
+    # Load workspace from an existing config file
+    ws = Workspace.from_config()
+    # Get details on the workspace
+    details = ws.get_details()
+    # Print container registry information
+    print(details['containerRegistry'])
+    ```
+
+    This code returns a value similar to `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`. The last part of the string is the name of the Azure Container Registry for the workspace.
+
+    # [Azure portal](#tab/portal)
+
+    From the overview section of your workspace, the __Registry__ value links to the Azure Container Registry.
+
+    :::image type="content" source="./media/how-to-enable-virtual-network/azure-machine-learning-container-registry.png" alt-text="Azure Container Registry for the workspace" border="true":::
+
     ---
 
 1. Limit access to your virtual network using the steps in [Connect privately to an Azure Container Registry](../container-registry/container-registry-private-link.md). When adding the virtual network, select the virtual network and subnet for your Azure Machine Learning resources.
@@ -231,7 +248,18 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     > [!IMPORTANT]
     > When using a compute cluster for image builds, only a CPU SKU is supported.
 
-    # [Python SDK](#tab/sdk)
+    # [Azure CLI](#tab/cli)
+
+    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace update` command to set a build compute. In the following command, replace `myworkspace` with your workspace name, `myresourcegroup` with the resource group that contains the workspace, and `mycomputecluster` with the compute cluster name:
+
+    ```azurecli
+    az ml workspace update \
+      -n myworkspace \
+      -g myresourcegroup \
+      -i mycomputecluster
+    ```
+
+    # [Python SDK](#tab/python)
 
     The following code snippet demonstrates how to update the workspace to set a build compute using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/). Replace `mycomputecluster` with the name of the cluster to use:
 
@@ -247,16 +275,10 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
     
     For more information, see the [update()](/python/api/azureml-core/azureml.core.workspace.workspace#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) method reference.
 
-    # [Azure CLI](#tab/cli)
+    # [Azure Portal](#tab/portal)
 
-    If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace update` command to set a build compute. In the following command, replace `myworkspace` with your workspace name, `myresourcegroup` with the resource group that contains the workspace, and `mycomputecluster` with the compute cluster name:
+    Currently there isn't a way to set the image build compute from the Azure portal.
 
-    ```azurecli
-    az ml workspace update \
-      -n myworkspace \
-      -g myresourcegroup \
-      -i mycomputecluster
-    ```
     ---
 
 > [!TIP]
