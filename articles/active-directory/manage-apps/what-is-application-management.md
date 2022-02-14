@@ -94,7 +94,7 @@ Azure AD provides customizable ways to deploy applications to users in your orga
 
 ## Configure properties
 
-When you add an application to your Azure AD tenant, you have the opportunity to [configure properties](add-application-portal-configure.md) that affect the way users can sign in. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application.
+When you add an application to your Azure AD tenant, you have the opportunity to configure properties that affect the way users can interact with the application. You can enable or disable the ability to sign in and user assignment can be required. You can also determine the visibility of the application, what logo represents the application, and any notes about the application. For more information about the properties that can be configured, see [Properties of an enterprise application](application-properties.md).
 
 ## Secure the application
 
