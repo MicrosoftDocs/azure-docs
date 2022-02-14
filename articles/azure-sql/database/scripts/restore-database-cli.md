@@ -29,7 +29,7 @@ This Azure CLI example restores a single database in Azure SQL Database to a spe
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/restore-database/restore-database.sh" range="4-41":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/restore-database/restore-database.sh" range="4-42":::
 
 ## Clean up resources
 
