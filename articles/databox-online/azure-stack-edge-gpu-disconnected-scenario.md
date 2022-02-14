@@ -33,7 +33,7 @@ Choose this option if:
 
 Before you disconnect your Azure Stack Edge device from the network that allows internet access, make these preparations:
 
-- Activate your device. For instructions, see [Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md), [Activate Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-activate.md), or [Activate Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-activate.md).
+- Activate your device. For instructions, see [Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md#activate-the-device), [Activate Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-activate.md#activate-the-device), or [Activate Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-activate.md#activate-the-device).
 
 - For an IoT Edge and Kubernetes deployment, complete these tasks before you disconnect:
   1. Deploy Kubernetes on your device.
@@ -68,4 +68,4 @@ The following table describes the behavior of features and components when the d
 ## Next steps
 
 - Review use cases for [Azure Stack Edge Pro with GPU](azure-stack-edge-gpu-overview.md#use-cases), [Azure Stack Edge Pro R](azure-stack-edge-pro-r-overview.md#use-cases), and [Azure Stack Edge Mini R](azure-stack-edge-mini-r-overview.md#use-cases).
-- [Get pricing](/pricing/details/azure-stack/edge/).
+- [Get pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/).
