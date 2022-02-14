@@ -118,7 +118,7 @@ Here's the output binding in the *function.json* file:
 }
 ```
 
-In JavaScript, the return value goes in the context.body:
+Here's the JavaScript code:
 
 ```javascript
 module.exports = function (context, input) {
