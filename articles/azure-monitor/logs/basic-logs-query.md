@@ -56,7 +56,7 @@ You can also hover over a table name for the table information view. This will s
 ![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png)
 
 
-When you add a table to the query, Log Analytics will identify a Basic Logs table an align the authoring experience accordingly. The following example shows when you attempt to use an operator that isn't supported by Basic Logs.
+When you add a table to the query, Log Analytics will identify a Basic Logs table and align the authoring experience accordingly. The following example shows when you attempt to use an operator that isn't supported by Basic Logs.
 
 ![Screenshot of Query on Basic Logs limitations.](./media/basic-logs-query/query-validator.png)
 
