@@ -117,7 +117,7 @@ landingContent:
           - text: Enable Blue-Green deployments using Azure Spring Cloud
             url: how-to-staging-environment.md
  
-   # Card (optional)
+  # Card (optional)
   - title: Monitor end-to-end
     linkLists:
       - linkListType: tutorial
@@ -153,7 +153,7 @@ landingContent:
           - text: Application Insights Java In-Process Agent in Azure Spring Cloud
             url: how-to-application-insights.md
 
-   # Card (optional)
+  # Card (optional)
   - title: Troubleshoot
     linkLists:
       - linkListType: how-to-guide
@@ -165,14 +165,13 @@ landingContent:
           - text: Troubleshoot common Azure Spring Cloud issues
             url: troubleshoot.md
 
-# Card (optional)
+  # Card (optional)
   - title: Resources
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: reference
         links:
           - text: Azure Spring Cloud developer resources
             url: resources.md
-
 
   # Card (optional)
   - title: API reference
