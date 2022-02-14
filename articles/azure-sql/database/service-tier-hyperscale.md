@@ -33,11 +33,11 @@ The Hyperscale service tier in Azure SQL Database is the newest service tier in 
 
 The Hyperscale service tier in Azure SQL Database provides the following additional capabilities:
 
-- Support for up to 100 TB of database size
-- Nearly instantaneous database backups (based on file snapshots stored in Azure Blob storage) regardless of size with no IO impact on compute resources  
-- Fast database restores (based on file snapshots) in minutes rather than hours or days (not a size of data operation)
-- Higher overall performance due to higher transaction log throughput and faster transaction commit times regardless of data volumes
-- Rapid scale out - you can provision one or more [read-only replicas](service-tier-hyperscale-replicas.md) for offloading your read workload and for use as hot-standbys
+- Support for up to 100 TB of database size.
+- Nearly instantaneous database backups (based on file snapshots stored in Azure Blob storage) regardless of size with no IO impact on compute resources.
+- Fast database restores (based on file snapshots) in minutes rather than hours or days (not a size of data operation).
+- Higher overall performance due to higher transaction log throughput and faster transaction commit times regardless of data volumes.
+- Rapid scale out - you can provision one or more [read-only replicas](service-tier-hyperscale-replicas.md) for offloading your read workload and for use as hot-standbys.
 - Rapid Scale up - you can, in constant time, scale up your compute resources to accommodate heavy workloads when needed, and then scale the compute resources back down when not needed.
 
 The Hyperscale service tier removes many of the practical limits traditionally seen in cloud databases. Where most other databases are limited by the resources available in a single node, databases in the Hyperscale service tier have no such limits. With its flexible storage architecture, storage grows as needed. In fact, Hyperscale databases aren't created with a defined max size. A Hyperscale database grows as needed - and you're billed only for the capacity you use. For read-intensive workloads, the Hyperscale service tier provides rapid scale-out by provisioning additional replicas as needed for offloading read workloads.
@@ -151,7 +151,7 @@ For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com
 
 ## Disaster recovery for Hyperscale databases
 
-Hyperscale supports the ability to restore a database within the same region where it is hosted, or [to a different region](manage-hyperscale-database.md#restore-a-hyperscale-database-to-a-different-region).
+Hyperscale supports the ability to restore a database [within the same region](#backup-and-restore) where it is hosted, or to a different region.
 
 ### Restore a Hyperscale database to a different region
 
@@ -168,7 +168,7 @@ Therefore, a geo-restore will take time proportional to the size of the database
 
 ## <a name=regions></a>Available regions
 
-The Azure SQL Database Hyperscale tier is enabled in the vast majority of Azure regions. If you want to create a Hyperscale database in a region where Hyperscale is not enabled by default, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](quota-increase-request.md) for instructions. When submitting your request, use the following guidelines:
+The Azure SQL Database Hyperscale tier is enabled in the vast majority of Azure regions. If you want to create a Hyperscale database in a region where Hyperscale is not enabled by default, you can send an onboarding request via Azure portal. For instructions, see [Request quota increases for Azure SQL Database](quota-increase-request.md). When submitting your request, use the following guidelines:
 
 - Use the [Region access](quota-increase-request.md#region) SQL Database quota type.
 - In the description, add the compute SKU/total cores including high-availability and named replicas, and indicate that you are requesting Hyperscale capacity.

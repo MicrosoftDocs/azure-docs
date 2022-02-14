@@ -288,7 +288,7 @@ GO
 
 Refer to [CREATE DATABASE (Transact-SQL)](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true) for more parameters and options.
 
-To add one or more [High Availability (HA) replica](service-tier-hyperscale-replicas.md#high-availability-replica) to your database, use the **Compute and storage** pane for the database in the Azure portal, the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell command, or the [az sql db update](/cli/azure/sql/db#az_sql_db_update) Azure CLI command.
+To add one or more [High Availability (HA) replicas](service-tier-hyperscale-replicas.md#high-availability-replica) to your database, use the **Compute and storage** pane for the database in the Azure portal, the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell command, or the [az sql db update](/cli/azure/sql/db#az_sql_db_update) Azure CLI command.
 
 ---
 
