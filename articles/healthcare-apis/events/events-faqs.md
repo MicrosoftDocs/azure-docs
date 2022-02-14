@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/09/2022
+ms.date: 02/14/2022
 ms.author: jasteppe
 ---
 
@@ -36,7 +36,7 @@ For a detailed description of the Events message structure and both required and
 
 ### What is the throughput for the Events messages?
 
-Events throughput is governed by the throughput of the FHIR service. When a request made to the FHIR service is successful, it will display a return code (for example, 2XX). It will also generate a FHIR Resources event such as create, update, and delete. The event is estimated to be delivered within a 5-second period after receiving the successful response from the FHIR service. 
+The throughput of FHIR events is governed by the throughput of the FHIR service and the Event Grid. When a request made to the FHIR service is successful, it will return a 2xx HTTP status code. It will also generate a FHIR resource changing event. The current limitation is 5,000 events/second per a workspace for all FHIR service instances in it. If you require events that exceed the current limitation, [Create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). For more information about Azure support options, see [Azure support plans](https://azure.microsoft.com/en-us/support/options/#support-plans). 
 
 ### How am I charged for using Events?
 
@@ -59,8 +59,17 @@ Yes, you can. However, we recommend that you use different subscribers for each 
 Yes, Event Grid is Health Insurance Portability and Accountability Act (HIPAA) and Health Information Trust Alliance (HITRUST) compliant. For more information, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
 
-     
+ ### What is the expected time to receive an Events message?
 
+You should receive your event within 1 second after a successful HTTP request on average. 99.99% of the events should be delivered within 5 seconds unless the limitation has been met.
+
+### Is it possible to receive duplicate Events message?
+
+Yes. The Event Grid guarantees at least one Events message delivery with its push mode. There may be chances that the event delivery request returns with a transient failure status code for random reasons. In this situation, the Event Grid will consider that as a delivery failure and will resend the Events message. For more information, see [Azure Event Grid delivery and retry](../../event-grid/delivery-and-retry.md).
+
+
+Generally, we recommend that developers ensure idempotency for the event subscriber. The event ID or the combination of all fields in the ```data``` property of the message content are unique per each event. The developer can rely on them to de-duplicate. 
+   
 ## More frequently asked questions
 [FAQs about the Azure Healthcare APIs](../healthcare-apis-faqs.md)
 
