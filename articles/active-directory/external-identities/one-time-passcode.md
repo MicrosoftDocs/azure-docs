@@ -166,7 +166,7 @@ The user experience depends on your current email one-time passcode settings, wh
 
 |User scenario  |With email one-time passcode enabled prior to rollout  |With email one-time passcode disabled prior to rollout   |
 |---------|---------|---------|
-|**Users has an existing unmanaged Azure AD account (not from redemption in your tenant)**      |Both before and after rollout, the user redeems invitations using email one-time passcode.         |Both before and after rollout, the user continues signing in with their unmanaged account.<sup>1</sup>             |
+|**User has an existing unmanaged Azure AD account (not from redemption in your tenant)**      |Both before and after rollout, the user redeems invitations using email one-time passcode.         |Both before and after rollout, the user continues signing in with their unmanaged account.<sup>1</sup>             |
 |**User previously redeemed an invitation to your tenant using an unmanaged Azure AD account**      |Both before and after rollout, the user continues to use their unmanaged account. Or, you can [reset their redemption status](reset-redemption-status.md) so they can redeem a new invitation using email one-time passcode.          |Both before and after rollout, the user continues to use their unmanaged account, even if you reset their redemption status and reinvite them.<sup>1</sup>         |
 |**User with no unmanaged Azure AD account**      |Both before and after rollout, the user redeems invitations using email one-time passcode.           |Both before and after rollout, the user redeems invitations using an unmanaged account.<sup>2</sup>          |
 
