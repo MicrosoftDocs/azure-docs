@@ -124,13 +124,13 @@ In the fourth tab (**Details**), you give this rule a name, pick where it will b
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can use Azure CLI to work with alert processing rules. See the `az monitor alert-processing-rules` page in the [Azure CLI docs](/cli/azure/monitor/alert-processing-rule) in for detailed documentation and examples.
+You can use the Azure CLI to work with alert processing rules. See the `az monitor alert-processing-rules` page in the [Azure CLI docs](/cli/azure/monitor/alert-processing-rule)  for detailed documentation and examples.
 
 ### Prepare your environment
 
 1. **Install the Auzre CLI**
 
-   Follow the [Installation instructions of the Azure CLI](/cli/azure/install-azure-cli).
+   Follow the [Installation instructions for the Azure CLI](/cli/azure/install-azure-cli).
 
    Alternatively, you can use Azure Cloud Shell, which is an interactive shell environment that you use through your browser. To start a Cloud Shell:
 
@@ -140,7 +140,7 @@ You can use Azure CLI to work with alert processing rules. See the `az monitor a
 
 1. **Sign in**
 
-   If you're using a local install of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
+   If you're using a local installation of the CLI, sign in using the [az login](/cli/azure/reference-index#az-login) command.  Follow the steps displayed in your terminal to complete the authentication process.
 
     ```azurecli
     az login
@@ -148,7 +148,7 @@ You can use Azure CLI to work with alert processing rules. See the `az monitor a
 
 1. **Install the `alertsmanagement` extension**
 
-   The `az monitor alert-processing-rule` commands are included a preview extension of the core Azure CLI. 
+   In order to use the `az monitor alert-processing-rule` commands, install the `alertsmanagement` preview extension.
 
    ```azurecli
    az extension add --name alertsmanagement
@@ -178,7 +178,7 @@ az monitor alert-processing-rule create \
 --description "Add ActionGroup1 to all alerts in the subscription"
 ```
 
-The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include mope examples and an explanation of each parameter.
+The [CLI documentation](/cli/azure/monitor/alert-processing-rule#az-monitor-alert-processing-rule-create) include more examples and an explanation of each parameter.
 
 * * *
 
