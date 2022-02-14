@@ -170,11 +170,9 @@ During the global rollout of email one-time passcode, the user experience for gu
 |**User with an unmanaged Azure AD account, from previous redemption in your tenant**      |Both before and after rollout, the user continues to use their unmanaged account. Or, you can [reset their redemption status](reset-redemption-status.md) so they can redeem a new invitation using email one-time passcode.          |Before rollout, if you reset the user's redemption status and reinvite them, they'll continue signing in with their unmanaged account. </br>After rollout, they'll continue signing in with their unmanaged account.<sup>1</sup>         |
 |**New user with no unmanaged Azure AD account**      |Both before and after rollout, the user redeems invitations using email one-time passcode.           |Both before and after rollout, the user redeems invitations using an unmanaged account.<sup>2</sup>          |
 
-|         |
-|---------|
-|<sup>1</sup> In a separate release, we’ll roll out a change that will enforce redemption with a Microsoft account. To prevent your users from having to manage both an unmanaged Azure AD account and an MSA, we strongly encourage you to enable email one-time passcode.     |
-|<sup>2</sup> The user might see a sign-in error if they're redeeming a direct application link and weren't added to your directory in advance. In a separate release, we’ll roll out a change that will enforce redemption and future sign-ins with a Microsoft account.    |
-|         |
+<sup>1</sup> In a separate release, we’ll roll out a change that will enforce redemption with a Microsoft account. To prevent your users from having to manage both an unmanaged Azure AD account and an MSA, we strongly encourage you to enable email one-time passcode.
+
+<sup>2</sup> The user might see a sign-in error if they're redeeming a direct application link and weren't added to your directory in advance. In a separate release, we’ll roll out a change that will enforce redemption and future sign-ins with a Microsoft account.
 
 For more information about the different redemption pathways, see [B2B collaboration invitation redemption](redemption-experience.md).
 
