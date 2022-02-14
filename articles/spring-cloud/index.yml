@@ -34,13 +34,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Quickstart - Deploy your first Spring Boot app in Azure Spring Cloud
+          - text: Quickstart - Deploy your first application in Azure Spring Cloud
             url: quickstart.md
-          - text: Introduction to PiggyMetrics sample app
+          - text: Introduction to the sample app
             url: quickstart-sample-app-introduction.md
       - linkListType: tutorial
         links:
-          - text: Prepare a Spring or Steeltoe app for deployment
+          - text: Prepare an application for deployment in Azure Spring Cloud
             url: how-to-prepare-app-deployment.md
 
   # Card (optional)
@@ -50,14 +50,20 @@ landingContent:
         links:
           - text: Read a secret from Azure Key Vault in a Spring Boot application
             url: configure-spring-boot-starter-java-app-with-azure-key-vault.md
+          - text: -- this -- End-user authentication and authorization
+            url: overview.md
       - linkListType: how-to-guide
         links:
           - text: Deploy Azure Spring Cloud in a virtual network
             url: how-to-deploy-in-azure-virtual-network.md
+          - text: Customer responsibilities for running Azure Spring Cloud in VNET
+            url: vnet-customer-responsibilities.mds
           - text: Use TLS/SSL certificates in your application
             url: how-to-use-tls-certificate.md
           - text: Enable end-to-end TLS for an application
             url: how-to-enable-end-to-end-tls.md
+          - text: How to enable system-assigned managed identity for applications
+            url: how-to-enable-system-assigned-managed-identity.md
 
   # Card (optional)
   - title: Scale your apps
@@ -72,27 +78,35 @@ landingContent:
   # Card (optional)
   - title: Configure your service
     linkLists:
-      - linkListType: tutorial
+      - linkListType: quickstart
         links:
-          - text: Use Config Server to maintain application configuration
+          - text: Set up Azure Spring Cloud Config Server
+            url: quickstart-setup-config-server.md
+       - linkListType: tutorial
+        links:
+          - text: Set up a Spring Cloud Config Server instance for your service
             url: how-to-config-server.md
-          - text: Manually scale your application
-            url: how-to-scale-manual.md
+          - text: Access Config Server and Service Registry
+            url: how-to-access-data-plane-azure-ad-rbac
 
   # Card (optional)
-  - title: Automate end-to-end
+  - title: Automate your application
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Automate your CI/CD pipeline in Azure Spring Cloud
             url: how-to-cicd.md
+          - text: Azure Spring Cloud CI/CD with GitHub Actions
+            url: how-to-github-actions.md
+          - text: Authenticate Azure Spring Cloud with Key Vault in GitHub Actions
+            url: github-actions-key-vault.md
           - text: Enable Blue-Green deployments using Azure Spring Cloud
             url: how-to-staging-environment.md
           - text: Use built-in persistent storage
             url: how-to-built-in-persistent-storage.md
  
    # Card (optional)
-  - title: Monitor end-to-end
+  - title: Monitor your application
     linkLists:
       - linkListType: tutorial
         links:
@@ -104,6 +118,11 @@ landingContent:
         links:
           - text: Understanding Azure Monitor Metrics for Spring Cloud
             url: concept-metrics.md
+      - linkListType: how-to-guide
+        links:
+          - text: Analyze logs with Elastic (ELK) using diagnostics settings
+            url: how-to-elastic-diagnostic-settings.md
+          - text: 
 
   # Card (optional)
   - title: API reference
