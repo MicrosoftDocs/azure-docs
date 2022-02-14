@@ -128,7 +128,7 @@ You can use Azure CLI to work with alert processing rules. See the `az monitor a
 
 ### Prepare your environment
 
-1. **Inatall the Auzre CLI**
+1. **Install the Auzre CLI**
 
    Follow the [Installation instructions of the Azure CLI](/cli/azure/install-azure-cli).
 
