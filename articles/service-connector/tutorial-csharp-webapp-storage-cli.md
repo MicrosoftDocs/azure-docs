@@ -6,7 +6,8 @@ ms.author: xshi
 ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/28/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Tutorial: Deploy Web Application Connected to Azure Storage Blob with Service Connector
