@@ -23,7 +23,7 @@ Perform these steps on the node of the device that you were trying to prepare. Y
 
     ![Screenshot of local web UI "Get started" page when Preparing a node for clustering with Undo node preparation is selected.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/undo-node-preparation-1.png)
 
-1. When you select **Undo node preparation**, you will go back to the **Get authentication token** tile and **Prepare node** option will be available. If you decide to prepare this node again, you'll need to select **Prepare node** again.
+1. When you select **Undo node preparation**, you'll go back to the **Get authentication token** tile and **Prepare node** option will be available. If you decide to prepare this node again, you'll need to select **Prepare node** again.
 
     ![Screenshot of local web UI "Get started" page when Preparing a node for clustering with Prepare node is selected in Get authentication token tile.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/undo-node-preparation-2.png)
 
@@ -32,7 +32,7 @@ Perform these steps on the node of the device that you were trying to prepare. Y
 1. In the local UI, go to the **Cluster** page. 
 1. Under **Existing nodes**, you can view the existing nodes for your cluster.
 
-    ![Screenshot of local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/view-cluster-nodes-1.png)
+    ![Screenshot of local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node -1.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/view-cluster-nodes-1.png)
 
 ## Replace a node
 
@@ -44,7 +44,7 @@ You may need to replace a node if one of the nodes on your device is down or not
 
 1. Select **Replace node** and enter the following inputs.
 
-    1. Choose the node to replace. This should be automatically selected as the node which is down. 
+    1. Choose the node to replace. This should be automatically selected as the node, which is down. 
     1. Prepare another node. Configure the networking on this node in the same way as you set up on the first node. Get the node serial number and authentication token from the new incoming node.
     1. Provide the **Node serial number** for the incoming replacement node.
     1. Supply the **Node token** for the incoming replacement node.
@@ -65,7 +65,7 @@ Perform these steps on the first node of the device.
 
 1. In the local UI, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
 
-    ![Screenshot of local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-1m.png)
+    ![Screenshot of local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node - 2.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-1m.png)
 
 1. In the **Modify cluster witness** blade, enter the following inputs.
     1. Choose the **Witness type** as **Cloud.**
@@ -82,7 +82,7 @@ Perform these steps on the first node of the device.
 
 1. In the local UI, go to the **Cluster** page. Under **Cluster witness type**, select **Modify**.
 
-    ![Screenshot of local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-1m.png)
+    ![Screenshot of local web UI "Cluster" page with "Modify" option selected for "Cluster witness" on first node - 3.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-cluster-witness-1m.png)
 
 1. In the **Modify cluster witness** blade, enter the following inputs.
     1. Choose the **Witness type** as **Local.**
