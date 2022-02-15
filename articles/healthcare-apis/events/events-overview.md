@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/14/2022
+ms.date: 02/15/2022
 ms.author: jasteppe
 ---
 
@@ -30,7 +30,7 @@ The Events feature enables you to receive event notification messages from Azure
 >
 > - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
-> - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+> - **FhirResourceChanged** - The event emitted after a FHIR resource gets changed successfully.
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 > 

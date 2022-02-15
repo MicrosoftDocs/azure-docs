@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: jasteppe
 ---
 
@@ -19,7 +19,7 @@ In this article, you'll learn about the Events message structure, required and n
 >
 > - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
-> - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+> - **FhirResourceChanged** - The event emitted after a FHIR resource gets changed successfully.
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 >

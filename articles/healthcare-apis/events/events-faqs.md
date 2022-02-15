@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/14/2022
+ms.date: 02/15/2022
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,7 @@ ms.author: jasteppe
 
 The following are some of the frequently asked questions about Events.
 
-### Can I use Events with a different Fast Hospital Interoperability Resources (FHIR®) service other than the Azure Healthcare APIs FHIR service?
+### Can I use Events with a different FHIR service other than the Azure Healthcare APIs FHIR service?
 
 No. The Azure Healthcare APIs Events feature only currently supports the Azure Healthcare APIs FHIR service.
 
@@ -24,7 +24,7 @@ Events are generated from the following FHIR service types:
 
 - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 
-- **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+- **FhirResourceChanged** - The event emitted after a FHIR resource gets changed successfully.
 
 - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 
