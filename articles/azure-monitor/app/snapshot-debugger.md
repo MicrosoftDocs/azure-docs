@@ -50,7 +50,7 @@ Subscription owners should assign the `Application Insights Snapshot Debugger` r
 
 1. Assign the Debugger role to the **Application Insights Snapshot**.
 
-    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).  
 
 
 > [!IMPORTANT]
