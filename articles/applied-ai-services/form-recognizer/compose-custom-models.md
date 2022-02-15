@@ -70,15 +70,7 @@ to an Azure blob storage container. If you don't know how to create an Azure sto
 
 ## Train your custom model
 
-You can [train your model](./quickstarts/try-sdk-rest-api.md#train-a-custom-model)  with or without labeled data sets. Unlabeled datasets rely solely on the [Layout API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeLayoutAsync) to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.
-
-### Train without labels
-
-Form Recognizer uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. When you submit your input forms, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Training without labels doesn't require manual data labeling or intensive coding and maintenance, and we recommend you try this method first.
-
-See [Build a training data set](./build-training-data-set.md) for tips on how to collect your training documents.
-
-### Train with labels
+You [train your model](./quickstarts/try-sdk-rest-api.md#train-a-custom-model)  with labeled data sets. Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. Start with at least five completed forms of the same type for your labeled training data.
 
 When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
