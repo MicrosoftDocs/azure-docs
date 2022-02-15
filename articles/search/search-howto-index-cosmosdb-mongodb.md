@@ -186,24 +186,6 @@ The purpose of a data change detection policy is to efficiently identify changed
 
 Using this policy is highly recommended to ensure good indexer performance. 
 
-<a name="IncrementalProgress"></a>
-
-### Incremental progress and custom queries
-
-Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to reindex the entire collection from scratch. This is especially important when indexing large collections. 
-
-To enable incremental progress when using a custom query, ensure that your query orders the results by the `_ts` column. This enables periodic check-pointing that Azure Cognitive Search uses to provide incremental progress in the presence of failures.   
-
-In some cases, even if your query contains an `ORDER BY [collection alias]._ts` clause, Azure Cognitive Search may not infer that the query is ordered by the `_ts`. You can tell Azure Cognitive Search that results are ordered by using the `assumeOrderByHighWaterMarkColumn` configuration property. To specify this hint, create or update your indexer as follows: 
-
-```http
-{
-    ... other indexer definition properties
-    "parameters" : {
-        "configuration" : { "assumeOrderByHighWaterMarkColumn" : true } }
-} 
-```
-
 <a name="DataDeletionDetectionPolicy"></a>
 
 ## Indexing deleted documents

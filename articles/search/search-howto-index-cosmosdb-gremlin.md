@@ -74,7 +74,7 @@ For this call, specify a [preview REST API version](search-api-preview.md) (2020
 
 1. Set "container" to the collection. The "name" property is required and it specifies the ID of the graph. The "query" property is optional. The query default is `g.V()`. To index the edges, set the query to `g.E()`.
 
-<!-- 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs. Incremental progress will be enabled by default using `_ts` as the high water mark column. -->
+1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs. Incremental progress will be enabled by default using `_ts` as the high water mark column.
 
 1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted.
 
@@ -187,6 +187,22 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+
+<a name="DataChangeDetectionPolicy"></a>
+
+## Indexing changed documents
+
+The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified in the data source definition as follows:
+
+```http
+"dataChangeDetectionPolicy": {
+    "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+"  highWaterMarkColumnName": "_ts"
+},
+```
+
+Using this policy is highly recommended to ensure good indexer performance. 
+
 <a name="DataDeletionDetectionPolicy"></a>
 
 ## Indexing deleted documents
