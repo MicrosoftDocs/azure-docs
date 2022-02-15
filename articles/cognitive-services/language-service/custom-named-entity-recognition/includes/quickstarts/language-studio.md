@@ -23,7 +23,7 @@ Before you can use custom NER, you’ll need to create an Azure Language resourc
 >
 > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See [create project](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
+1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
 
     |Azure resource requirement  |Required value  |
     |---------|---------|
@@ -74,29 +74,13 @@ Once your resource and storage container are configured, create a new conversati
 
 5. Enter the project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later. 
 
-6. Select the container where you’ve uploaded your data. For this quickstart, we’ll use the existing tags file available in the container. Then click **Next**.
+6. Select the container where you’ve uploaded your data. When asked if your files are already tagged with classes, select **Yes** and choose the available file. Then click **Next**.
 
 7. Review the data you entered and select **Create Project**.
 
 ## Train your model
 
-Typically after you create a project, you would import your data and begin [tagging the entities](../../how-to/tag-data.md) within it to train the classification model. For this quickstart, you’ll use the example tagged data file you downloaded earlier, and stored in your Azure storage account.
-
-A model is the machine learning object that will be trained to classify text. Your model will learn from the example data, and be able to classify loan agreements afterwards.
-
-To start training your model:
-
-1. Select **Train** from the left side menu.
-
-2. Select **Train a new model** and type in the model name in the text box below.
-
-    :::image type="content" source="../../media/train-model.png" alt-text="A screenshot showing the model selection page for training" lightbox="../../media/train-model.png":::
-
-3. Click on the **Train** button at the bottom of the page.
-
-    > [!NOTE]
-    > * While training, the data will be spilt into 2 sets: 80% for training and 20% for testing. You can learn more about data splitting [here](../../how-to/train-model.md#data-split)
-    > * Training can take up to a few hours.
+[!INCLUDE [Train a model using Language Studio](../train-model-language-studio.md)]
 
 ## Deploy your model
 
@@ -116,7 +100,7 @@ After your model is deployed, you can start using it for entity extraction. Use 
 
 2. Select the model you want to test.
 
-3. Add your text to the textbox, you can also upload a `.txt` file. 
+3. Using one of the files you downloaded earlier, add the file's text to the textbox. You can also upload a `.txt` file. 
 
 4. Click on **Run the test**.
 

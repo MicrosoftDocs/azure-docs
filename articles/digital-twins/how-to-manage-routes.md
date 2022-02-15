@@ -156,7 +156,7 @@ az resource create --id <Azure-Digital-Twins-instance-Azure-resource-ID>/endpoin
 
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
 
-You can set up the necessary storage resources using the [Azure portal](https://ms.portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt). However, to create an endpoint with dead-lettering enabled, you'll need use the [Azure Digital Twins CLI](/cli/azure/dt) or [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
+You can set up the necessary storage resources using the [Azure portal](https://portal.azure.com/#home) or the [Azure Digital Twins CLI](/cli/azure/dt). However, to create an endpoint with dead-lettering enabled, you'll need use the [Azure Digital Twins CLI](/cli/azure/dt) or [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
 
 To learn more about dead-lettering, see [Endpoints and event routes](concepts-route-events.md#dead-letter-events). For instructions on how to set up an endpoint with dead-lettering, continue through the rest of this section.
 
@@ -177,7 +177,7 @@ Next, create a **SAS token** for your storage account that the endpoint can use 
 
 # [Portal](#tab/portal)
 
-1. Start by navigating to your storage account in the [Azure portal](https://ms.portal.azure.com/#home) (you can find it by name with the portal search bar).
+1. Start by navigating to your storage account in the [Azure portal](https://portal.azure.com/#home) (you can find it by name with the portal search bar).
 1. In the storage account page, choose the _Shared access signature_ link in the left navigation bar to start setting up the SAS token.
 
     :::image type="content" source="./media/how-to-manage-routes/generate-sas-token-1.png" alt-text="Screenshot of the storage account page in the Azure portal." lightbox="./media/how-to-manage-routes/generate-sas-token-1.png":::

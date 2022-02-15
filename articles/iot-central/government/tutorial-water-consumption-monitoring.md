@@ -251,22 +251,21 @@ To learn more, see [How to run a job](../core/howto-manage-devices-in-bulk.md).
 
 As an administrator, you can change several settings to customize the user experience in your application.
 
-1. Select **Administration** > **Customize your application**.
+1. Select **Application** > **Management**.
 1. To choose an image to upload as the **Application logo**, select the **Change** button.
 1. To choose a **Browser icon** image that will appear on browser tabs, select the **Change** button.
 1. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes. For more information about **HEX Value** color notation, see [HTML Colors](https://www.w3schools.com/html/html_colors.asp).
 
    ![Selections for application logo, browser icon, and browser colors](./media/tutorial-waterconsumptionmonitoring/water-consumption-monitoring-customize-your-application.png)
 
-1. You can also change application images by selecting **Administration** > **Application settings**. To choose an image to upload as the application image, select the **Select image** button.
+1. You can also change application images by selecting  **Application** > **Management**. To choose an image to upload as the application image, select the **Select image** button.
 
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete it.
 
-1. Select **Administration** on the left pane of your Azure IoT Central application.
-1. Select **Application settings**, and then select **Delete** at the bottom of the page.
+1. Select **Application** > **Management** on the left pane of your Azure IoT Central application and then select **Delete** at the bottom of the page.
 
 ## Next steps
  

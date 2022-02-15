@@ -34,6 +34,8 @@ To enable autoscale for an endpoint, you first define an autoscale profile. This
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 The following snippet sets the endpoint and deployment names:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="set_endpoint_deployment_name" :::
@@ -76,6 +78,8 @@ A common scaling out rule is one that increases the number of VM instances when 
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_out_on_cpu_util" :::
 
 The rule is part of the `my-scale-settings` profile (`autoscale-name` matches the `name` of the profile). The value of its `condition` argument says the rule should trigger when "The average CPU consumption among the VM instances exceeds 70% for five minutes." When that condition is satisfied, two more VM instances are allocated. 
@@ -104,6 +108,8 @@ When load is light, a scaling in rule can reduce the number of VM instances. The
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_in_on_cpu_util" :::
 
 # [Portal](#tab/azure-portal)
@@ -131,6 +137,8 @@ The previous rules applied to the deployment. Now, add a rule that applies to th
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="scale_up_on_request_latency" :::
 
 # [Portal](#tab/azure-portal)
@@ -157,6 +165,8 @@ You can also create rules that apply only on certain days or at certain times. I
 
 # [Azure CLI](#tab/azure-cli)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-moe-autoscale.sh" ID="weekend_profile" :::
 
 # [Portal](#tab/azure-portal)
@@ -175,6 +185,8 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 ## Delete resources
 
 If you are not going to use your deployments, delete them:
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 

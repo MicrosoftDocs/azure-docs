@@ -37,6 +37,9 @@ First, the script deploys a virtual appliance, called [Azure Arc resource bridge
 
 - An external virtual network/switch and internet access, directly or through a proxy.
 
+> [!NOTE]
+> Azure Arc-enabled VMware vSphere  (preview)  supports vCenters with a maximum of 2500 VMs. If your vCenter has more than 2500 VMs, it is not recommended to use Arc-enabled VMware vSphere with it at this point.
+
 ### vSphere accounts
 
 A vSphere account that can:
