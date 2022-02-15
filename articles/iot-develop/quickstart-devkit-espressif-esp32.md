@@ -33,8 +33,6 @@ Hardware:
 - USB 2.0 A male to Micro USB male cable
 - Wi-Fi 2.4 GHz
 
-Software: ESP-IDF v4.3
-
 ## Prepare the development environment
 
 To set up your development environment, first you install the ESPRESSIF ESP-IDF build environment. The installer includes all the tools required to clone, build, flash, and monitor your device.
