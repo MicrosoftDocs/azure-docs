@@ -129,9 +129,14 @@ Follow these steps:
 Run the [New-AzAutomationKey](/powershell/module/az.automation/new-azautomationkey) command to regenerate the primary access key, as shown in the following example: 
 
   ```azurepowershell
-  New-AzAutomationKey -KeyType Primary -ResourceGroup <ResourceGroup>` -AutomationAccountName <AutomationAccount>
+  New-AzAutomationKey -KeyType Primary -ResourceGroup <ResourceGroup> -AutomationAccountName <AutomationAccount>
   ```
  ---
+
+### View registration URL
+The DSC node registers with the State Configuration service using the registration URL and authenticates using a registration access key along with the Automation Account access keys.
+
+:::image type="content" source="./media/automation-create-standalone-account/automation-demo-keys-url-inline.png" alt-text="Automation Keys page" lightbox="./media/automation-create-standalone-account/automation-demo-keys-url-expanded.png" :::
 
 ## Next steps
 
