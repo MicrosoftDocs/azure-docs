@@ -9,9 +9,9 @@ ms.date: 02/03/2022
 ms.author: jomore
 ---
 
-# Multi-region networking
+# Multi-region networking with Azure Route Server
 
-Applications that have high availability or disaster recovery requirements often need to be deployed in more than one Azure region, where spoke VNets in multiple regions need to communicate between each other. A possibility to achieve this communication pattern is peering to each other all spokes that need to communicate, but those flows would any central NVAs in the hubs, such as firewalls. Another possibility is using User Defined Routes (UDRs) in the subnets where the hub NVAs are deployed, but that can be difficult to maintain. Azure Route Server offers an alternative which is very dynamic and adapts to topology changes without manual intervention.
+Applications that have high availability or disaster recovery requirements often need to be deployed in more than one Azure region, where spoke VNets in multiple regions need to communicate between each other. A possibility to achieve this communication pattern is peering to each other all spokes that need to communicate, but those flows would bypass any central NVAs in the hubs, such as firewalls. Another possibility is using User Defined Routes (UDRs) in the subnets where the hub NVAs are deployed, but that can be difficult to maintain. Azure Route Server offers an alternative which is very dynamic and adapts to topology changes without manual intervention.
 
 ## Topology
 
@@ -19,7 +19,7 @@ The following diagram shows a dual-region architecture, where a hub and spoke to
 
 :::image type="content" source="./media/scenarios/multiregion.png" alt-text="Diagram of multi-region design with Route Server.":::
 
-Each NVA learns the prefixes from the local hub and spokes from its Azure Route Server, and will communicate it to the NVA in the other region via BGP. This communication between the NVAs should be established over an encapsulation technology such as IPsec or VXLAN, since otherwise routing loops can occur in the network.
+Each NVA learns the prefixes from the local hub and spokes from its Azure Route Server, and will communicate it to the NVA in the other region via BGP. This communication between the NVAs should be established over an encapsulation technology such as IPsec or Virtual eXtensible LAN (VXLAN), since otherwise routing loops can occur in the network.
 
 The spokes need to be peered with the hub VNet with the setting "Use Remote Gateways", so that the Route Server advertises their prefixes to the local NVAs, and it injects learnt routes back into the spokes. 
 
