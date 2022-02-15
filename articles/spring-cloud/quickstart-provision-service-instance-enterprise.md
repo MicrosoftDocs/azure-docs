@@ -111,4 +111,4 @@ It takes about 5 minutes to finish the resource provisioning.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
+> [Quickstart: Set up Application Configuration Service](quickstart-setup-application-configuration-service-enterprise.md)

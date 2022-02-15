@@ -174,21 +174,21 @@ Use the following steps to create an example application using Spring Cloud Gate
    Save the following content to the *customers-service.json* file.
 
    ```json
-      [
-            {
-               "title": "Customers service",
-               "description": "Route to customer service",
-               "predicates": [
-                  "Path=/api/customers-service/owners"
-               ],
-               "filters": [
-                  "StripPrefix=2"
-               ],
-               "tags": [
-                  "pet clinic"
-               ]
-            }
-      ]
+   [
+      {
+         "title": "Customers service",
+         "description": "Route to customer service",
+         "predicates": [
+            "Path=/api/customers-service/owners"
+         ],
+         "filters": [
+            "StripPrefix=2"
+         ],
+         "tags": [
+            "pet clinic"
+         ]
+      }
+   ]
    ```
 
    Use the following command to apply the rule to the app `customers-service`:

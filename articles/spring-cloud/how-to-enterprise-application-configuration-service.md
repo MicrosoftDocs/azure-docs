@@ -40,7 +40,7 @@ The properties for each entry are described in the following table.
 | Property    | Required? | Description                                                                                                                                                                                                                                                                                                                            |
 |-------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Name        | Yes       | A unique name to label each Git repository.                                                                                                                                                                                                                                                                                            |
-| Patterns    | Yes       | Patterns to search in Git repositories. For each pattern, use a format like *{application}* or *{application}/{profile}* instead of *{application}-{profile}.yml*, and separate the patterns with commas. For more information, see the following [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section. |
+| Patterns    | Yes       | Patterns to search in Git repositories. For each pattern, use a format like *{application}* or *{application}/{profile}* instead of *{application}-{profile}.yml*, and separate the patterns with commas. For more information, see the [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section. |
 | URI         | Yes       | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`)                                                                                                                                                                                                  |
 | Label       | Yes       | The branch name to search in the Git repository.                                                                                                                                                                                                                                                                                       |
 | Search path | No        | Optional search paths, separated by commas, for searching subdirectories of the Git repository.                                                                                                                                                                                                                                        |
@@ -49,8 +49,8 @@ The properties for each entry are described in the following table.
 
 Configuration will be pulled from Git backends using what is defined in a pattern. A pattern is a combination of *{application}/{profile}* as described in the following list.
 
-- {application} - The name of an application for which the configuration is being retrieved. The value `application` is considered the default application and includes configuration shared across multiple applications. Any other value specifies a specific application and will include properties for both the specified application and shared properties for the default application.
-- {profile} - Optional. The name of a profile for which properties may be retrieved. An empty value, or the value `default`, includes properties that are shared across any and all profiles. Non-default values include properties for the specified profile and properties for the default profile.
+- *{application}* - The name of an application for which the configuration is being retrieved. The value `application` is considered the default application and includes configuration shared across multiple applications. Any other value specifies a specific application and will include properties for both the specified application and shared properties for the default application.
+- *{profile}* - Optional. The name of a profile for which properties may be retrieved. An empty value, or the value `default`, includes properties that are shared across any and all profiles. Non-default values include properties for the specified profile and properties for the default profile.
 
 ### Authentication
 
@@ -58,11 +58,11 @@ The following image shows the three types of repository authentication supported
 
 :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of where to edit authentication types.":::
 
-- Public repository
+- Public repository.
 
    You don't need extra Authentication configuration when using a public repository. Just select **Public** in the **Authentication** form.
 
-- Private repository with basic authentication
+- Private repository with basic authentication.
 
    The following table shows all the configurable properties used to set up a private Git repository with basic authentication.
 
@@ -71,7 +71,7 @@ The following image shows the three types of repository authentication supported
    | username | Yes       | The username used to access the repository. |
    | password | Yes       | The password used to access the repository. |
 
-- Private repository with SSH authentication
+- Private repository with SSH authentication.
 
    The following table shows all configurable properties used to set up a private Git repository with SSH.
 
@@ -86,13 +86,13 @@ To validate access to the target URI, select **Validate**. After validation comp
 
 ## Refresh strategies
 
-To refresh your application configuration after you update the configuration file in the Git repo, follow these steps to load the new configuration files.
+Use the following steps to refresh your application configuration after you update the configuration file in the Git repository.
 
-1. Load the configuration to Application Configuration Service
+1. Load the configuration to Application Configuration Service.
 
-The refresh frequency is managed by Azure Spring Cloud and fixed to 60 seconds.
+   The refresh frequency is managed by Azure Spring Cloud and fixed to 60 seconds.
 
-1. Load the configuration to your application
+1. Load the configuration to your application.
 
 A Spring application holds the properties as the beans of the Spring Application Context via the Environment interface. The following list shows several ways to load the new configurations:
 
@@ -100,7 +100,7 @@ A Spring application holds the properties as the beans of the Spring Application
 
 - Call the */actuator/refresh* endpoint exposed on the config client via the Spring Actuator.
 
-   To use this method, add the following dependency to your configuration client’s pom.xml
+   To use this method, add the following dependency to your configuration client’s *pom.xml* file.
 
    ``` xml
    <dependency>
@@ -142,7 +142,7 @@ You can configure Application Configuration Service using the portal by followin
 
    ![Application Configuration Service Overview screen](./media/enterprise/getting-started-enterprise/config-service-overview.png)
 
-1. Select **Settings** and add a new entry in the **Repositories** section with the Git backend information:
+1. Select **Settings** and add a new entry in the **Repositories** section with the Git backend information.
 
 1. Select **Validate** to validate access to the target URI. After validation completes successfully, select **Apply** to update the configuration settings.
 

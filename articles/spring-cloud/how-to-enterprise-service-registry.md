@@ -30,23 +30,22 @@ This article shows you how to use Service Registry with Azure Spring Cloud Enter
 Before your application can manage service registration and discovery using Service Registry, you must include the following dependency in your application's *pom.xml* file:
 
 ```xml
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
 ```
 
 Additionally, add an annotation to the top level class of your application as shown in the following example:
 
 ```java
-    @SpringBootApplication
-    @EnableEurekaClient
-    public class DemoApplication {
-
-        public static void main(String[] args) {
-            SpringApplication.run(DemoApplication.class, args);
-        }
+@SpringBootApplication
+@EnableEurekaClient
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
     }
+}
 ```
 
 Use the following steps to bind an application to the Service Registry.
@@ -56,6 +55,9 @@ Use the following steps to bind an application to the Service Registry.
 1. Select **Bind app** and choose one app in the dropdown, then select **Apply** to bind.
 
    :::image type="content" source="media/enterprise/how-to-enterprise-service-registry/service-reg-app-bind-dropdown.png" alt-text="Screenshot of Azure portal showing Azure Spring Cloud Service Registry page and 'App binding' section with 'Bind app' dropdown showing.":::
+
+   > [!NOTE]
+   > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
 
 ## Next steps
 

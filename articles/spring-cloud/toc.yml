@@ -3,6 +3,7 @@ items:
   href: index.yml
   displayName: Azure Spring Cloud
 - name: Overview
+  expanded: true
   items:
   - name: What is Azure Spring Cloud?
     href: overview.md

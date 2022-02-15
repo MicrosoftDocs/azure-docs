@@ -80,4 +80,4 @@ A list under **App name** shows the apps bound with Application Configuration Se
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set up Service Registry](quickstart-setup-service-registry-enterprise.md)
+> [Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
