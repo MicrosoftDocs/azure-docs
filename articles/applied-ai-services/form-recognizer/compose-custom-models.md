@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/12/2022
+ms.date: 02/15/2022
 ms.author: lajanuar
 recommendations: false
 ---
 
-# Create and compose custom models 
+# Compose custom models v2.1
 
 > [!NOTE]
-> This how-to guide references Form Recognizer v2.1 (GA). 
+> This how-to guide references Form Recognizer v2.1 (GA). To try Form Recognizer v3.0 (preview), see [Compose custom models v3.0 (preview)](compose-custom-models-preview.md).
 
 Form Recognizer uses advanced machine-learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
 

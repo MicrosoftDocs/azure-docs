@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/02/2021
+ms.date: 02/15/2022
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
