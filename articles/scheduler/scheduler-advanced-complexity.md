@@ -3,10 +3,10 @@ title: Build advanced job schedules and recurrences
 description: Learn how to create advanced schedules and recurrences for jobs in Azure Scheduler.
 services: scheduler
 ms.service: scheduler
-author: derek1ee
-ms.author: deli
-ms.reviewer: estfan, azla
 ms.suite: infrastructure-services
+author: ecfan
+ms.author: estfan
+ms.reviewer: deli, azla
 ms.topic: how-to
 ms.date: 02/15/2022
 ---

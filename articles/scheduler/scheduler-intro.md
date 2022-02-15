@@ -4,9 +4,9 @@ description: Create schedule, and run automated jobs that call services inside o
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
-author: derek1ee
-ms.author: deli
-ms.reviewer: estfan, azla
+author: ecfan
+ms.author: estfan
+ms.reviewer: deli, azla
 ms.topic: conceptual
 ms.date: 02/15/2022
 ---

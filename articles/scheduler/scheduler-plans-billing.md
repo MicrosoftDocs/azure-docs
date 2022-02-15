@@ -1,11 +1,12 @@
 ---
 title: Plans and billing
-description: Learn about plans and billing for Azure Scheduler,
+description: Learn about plans and billing for Azure Scheduler.
 services: scheduler
 ms.service: scheduler
-author: derek1ee
-ms.author: deli
-ms.reviewer: estfan, azla
+ms.suite: infrastructure-services
+author: ecfan
+ms.author: estfan
+ms.reviewer: deli, azla
 ms.topic: conceptual
 ms.date: 02/15/2022
 ---

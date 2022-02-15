@@ -3,9 +3,10 @@ title: Limits, quotas, and thresholds in Azure Scheduler
 description: Learn about limits, quotas, default values, and throttle thresholds for Azure Scheduler.
 services: scheduler
 ms.service: scheduler
-author: derek1ee
-ms.author: deli
-ms.reviewer: estfan, azla
+ms.suite: infrastructure-services
+author: ecfan
+ms.author: estfan
+ms.reviewer: deli, azla
 ms.topic: conceptual
 ms.date: 02/15/2022
 ---
