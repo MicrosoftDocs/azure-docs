@@ -1,12 +1,12 @@
 ---
-title: Azure Virtual Desktop Autoscale (preview) glossary - Azure
+title: Azure Virtual Desktop autoscale (preview) glossary - Azure
 description: A glossary of terms and concepts for the Azure Virtual Desktop autoscale (preview) feature.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 02/14/2022
 ms.author: helohr
 manager: femila
 ---
@@ -16,11 +16,11 @@ This article is a list of definitions for key terms and concepts related to the 
 
 ## Autoscale
 
-Autoscale is Azure Virtual Desktop’s native scaling service that turns VMs on and off based on the number of sessions on the session hosts in the host pool.
+The autoscale feature is Azure Virtual Desktop’s native scaling service that turns VMs on and off based on the number of sessions on the session hosts in the host pool.
 
 ## Scaling tool
 
-Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic Apps to scale the amount of active VMs throughout the day to maximize performance. The scaling tool shuts down and deallocates session host VMs during off-peak usage hours, then turns them back on and reallocates them during peak hours.
+Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic Apps to scale the amount of active VMs throughout the day to maximize performance. The scaling tool shuts down and deallocates session host VMs during [off-peak](#off-peak) usage hours, then turns them back on and reallocates them during [peak](#peak) hours.
 
 ## Scaling plan
 
@@ -32,72 +32,68 @@ Schedules are sub-resources of scaling plans that specify start time, capacity t
 
 ## Ramp up
 
-The ramp-up phase of a scaling plan schedule is usually at the beginning of the work day, when users start to sign in and start their sessions. In this phase, the number of active user sessions should increase at a rapid pace, but not reach the maximum number of active sessions yet.
+The ramp-up phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is usually at the beginning of the work day, when users start to sign in and start their sessions. In this phase, the number of [active user sessions](#active-user-session) should increase at a rapid pace, but not reach the maximum number of active sessions yet.
 
 ## Peak
 
-The phase of the schedule where your deployment reaches the maximum number of active sessions it can handle. In this phase, the number of active sessions are expected to hold steady until the peak ends. New active user sessions can be established during this phase, but at a slower rate than the ramp-up phase.
+The phase of the schedule where your deployment reaches the maximum number of [active user sessions](#active-user-session) it can handle. In this phase, the number of active sessions are expected to hold steady until the peak ends. New active user sessions can be established during this phase, but at a slower rate than the ramp-up phase.
 
 ## Ramp down
 
-The ramp-down phase of the scaling plan schedule is at the end of hte work day, when users start to sign out and end their sessions for the evening. In this phase, we expect the number of active user sessions to decrease rapidly.
+The ramp-down phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is at the end of the work day, when users start to sign out and end their sessions for the evening. In this phase, we expect the number of [active user sessions](#active-user-session) to decrease rapidly.
 
-## Off peak
+## Off-peak
 
-The off-peak phase of the scaling plan schedule is when the deployment reaches the minimum number of active user sessions for the day. During this phase, we don't expect many users to be active, but you may want to keep a small amount of resources on hand to accomodate users who work outside typical working hours.
+The off-peak phase of the [scaling plan](#scaling-plan) [schedule](#schedule) is when the deployment reaches the minimum number of[active user sessions](#active-user-session) for the day. During this phase, we don't expect many users to be active, but you may want to keep a small amount of resources on hand to accommodate users who work outside typical working hours.
 
 ## Capacity threshold
 
-the percentage of host pool capacity that is used to
-determine when to trigger a scaling action. If the host pool capacity is below
-the capacity threshold and VM(s) can be turned off without exceeding the
-capacity threshold, those VM(s) will be turned off. If the host pool capacity
-exceeds the capacity threshold, VM(s) will be turned on until the host pool
-capacity is below the capacity threshold.
+The capacity threshold is the percentage of a [host pool's capacity](#host-pool-capacity) that, when reached, triggers the scaling process to happen.
+
+For example:
+
+- If the host pool's current capacity is below the threshold and you can turn off virtual machines (VMs) without going over the capacity threshold, then scaling will turn the VMs off.
+- If the [host pool capacity](#host-pool-capacity) goes over the capacity threshold, then scaling will keep the VMs on until the host pool goes below the capacity threshold.
 
 ## Host pool capacity
 
-the host pool’s max session limit \* the number of
-available (on) session hosts in the host pool
+Host pool capacity is how many [active sessions](#active-user-session) a host pool can contain. The host pool capacity is the host pool's maximum session limit divided by the number of available session hosts in the host pool.
+
+In other words:
+
+Host pool maximum session limit ÷ number of available session hosts = host pool capacity.
 
 ## Used host pool capacity
 
-the number of active and disconnected user
-sessions / the host pool capacity
+The used host pool capacity is the amount of [maximum host pool capacity](#host-pool-capacity) that's currently taken up by [active user sessions](#active-user-session).
+
+In other words:
+
+The number of [active](#active-user-session) and [disconnected or inactive user sessions](#disconnected-user-session) ÷ [the host pool's capacity](#host-pool-capacity) = used host pool capacity.
 
 ## Scaling action
 
-the action Autoscale takes to turn VMs on or turn VMs off
+Scaling actions are when [the autoscale feature](#autoscale) turns VMs on or off.
 
 ## Minimum percentage of hosts
 
-the lowest percentage of all session hosts in
-the host pool that must be on in each phase of a scaling plan schedule.
+The minimum percentage of hosts is the lowest percentage of all session hosts in the host pool that must be active for each phase of the [scaling plan](#scaling-plan) [schedule](#schedule).
 
 ## Active user session
 
-the type of user session that users have when they log
-in and connect to their remote app or desktop resource.
+A user session is considered "active" when the user signs in and connects to their remote app or desktop resource.
 
 ## Disconnected user session
 
-an inactive user session that has not been
-logged off. If a user has a disconnected user session, when they reconnect to
-their desktop or remote app, they will be redirected to their disconnected
-session on whatever session host it was on previously. At this point, the
-disconnected session becomes an active session.
+A disconnected user session is an inactive session that the user hasn't signed out of yet. When a user reconnects to their remote resources, they'll be redirected to either their disconnected session or a new session on the session host they were working in. At this point, the disconnected session becomes an [active session](#active-user-session) again.
 
 ## Force sign-out ("logoff")
 
- – a mechanism to remove a user session without the user’s
-consent.
+A forced sign-out (sometimes called a "logoff" in certain code text) is when the service ends an [active user session](#active-user-session) without the user's consent.
 
 ## Exclusion tag
 
-a property of a scaling plan that indicates the name of a
-tag that’ll be applied to VMs you want to exclude from scaling actions.
-Autoscale only performs scaling actions on VMs that don’t have a tag name
-matching the scaling plan exclusion tag.
+An exclusion tag is a bit of metadata in the scaling plan that's applied to VMs you want to exclude from scaling actions. [The autoscale feature](#autoscale) only performs scaling actions on VMs without tag names that match the exclusion tag.
 
 ## Next steps
 
