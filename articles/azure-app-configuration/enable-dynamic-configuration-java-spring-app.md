@@ -103,7 +103,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
 
     | Key | Value |
     |---|---|
-    | Sentinel | 2 |
+    | sentinel | 2 |
 
 1. Refresh the browser page to see the new message displayed.
 
