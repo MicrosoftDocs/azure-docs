@@ -409,6 +409,8 @@ This [example notebook](https://github.com/Azure/MachineLearningNotebooks/tree/m
 
 ## Create and manage environments with the Azure CLI
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 [!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 The [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) mirrors most of the functionality of the Python SDK. You can use it to create and manage environments. The commands that we discuss in this section demonstrate fundamental functionality.

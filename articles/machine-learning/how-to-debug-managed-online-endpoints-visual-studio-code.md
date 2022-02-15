@@ -16,6 +16,8 @@ ms.devlang: azurecli
 
 # Debug online endpoints locally in Visual Studio Code (preview)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Learn how to use the Visual Studio Code (VS Code) debugger to test and debug online endpoints locally before deploying them to Azure.
 
 Azure Machine Learning local endpoints help you test and debug your scoring script, environment configuration, code configuration, and machine learning model locally.
@@ -45,7 +47,7 @@ This guide assumes you have the following items installed locally on your PC.
 - [Docker](https://docs.docker.com/engine/install/)
 - [VS Code](https://code.visualstudio.com/#alt-downloads)
 - [Azure CLI](/cli/azure/install-azure-cli)
-- [Azure CLI `ml` extension](how-to-configure-cli.md)
+- [Azure CLI `ml` extension (v2)](how-to-configure-cli.md)
 
 For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
 
