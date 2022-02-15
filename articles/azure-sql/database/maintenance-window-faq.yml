@@ -10,7 +10,7 @@ metadata:
   ms.author: wiassaf
   ms.reviewer: kendralittle, mathoma
   ms.custom: 
-  ms.date: 09/30/2021
+  ms.date: 03/02/2022
 
 title: Maintenance window FAQ
 summary: This article answers frequently asked questions about the maintenance window for [Azure SQL database](sql-database-paas-overview.md) and [SQL managed instance](../managed-instance/sql-managed-instance-paas-overview.md).
@@ -108,6 +108,9 @@ sections:
       - question: I am not able to set up advance notifications for planned maintenance, will I still see planned maintenance event in Service Health dashboard?
         answer: |
           No, if advance notifications are not configured, Service Health will not show the planned maintenance events. 
+      - question: Does advance notification cover all maintenance events? 
+        answer: | 
+          No, advance notifications focus only on planned maintenance events that can cause a service interruption. 
 
 
 additionalContent: |
