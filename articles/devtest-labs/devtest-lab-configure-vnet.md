@@ -7,7 +7,7 @@ ms.date: 02/15/2022
 
 # Add a virtual network in Azure DevTest Labs
 
-Azure DevTest Labs creates a new virtual network for each lab. If you have another virtual network configured with Azure ExpressRoute or site-to-site VPN, you can add it to your lab. You can then create lab virtual machines (VMs) in that virtual network. This article explains how to add a virtual network to a lab and configure it for creating lab VMs.
+Azure DevTest Labs creates a new virtual network for each lab. If you have another virtual network, such as one configured with Azure ExpressRoute or site-to-site virtual private network (VPN), you can add it to your lab. You can then create lab virtual machines (VMs) in that virtual network. This article explains how to add a virtual network to a lab and configure it for creating lab VMs.
 
 ## Add a virtual network to a lab
 
@@ -31,9 +31,11 @@ To add a configured virtual network and subnet to a lab, take the following step
 
    :::image type="content" source="./media/devtest-lab-configure-vnet/choose-virtual-network.png" alt-text="Screenshot that shows the Choose virtual network page with a list of virtual networks.":::
 
-1. The **Virtual network** page shows the virtual network name you chose. Select **Save**.
+1. The **Virtual network** page now shows the virtual network you chose. Select **Save**.
 
-1. The chosen virtual network now appears in the list on the lab's **Virtual networks** page. Select the new network name.
+1. The chosen virtual network now appears in the list on the lab's **Virtual networks** page. Select the new virtual network.
+
+   :::image type="content" source="./media/devtest-lab-configure-vnet/choose-virtual-network.png" alt-text="Screenshot that shows the Choose virtual network page with a list of virtual networks.":::
 
 1. The **Virtual network** page shows the subnets for the virtual network. Select a subnet to configure.
 
@@ -41,7 +43,7 @@ To add a configured virtual network and subnet to a lab, take the following step
 
    - **Use in virtual machine creation** to allow VM creation in the subnet.
    - **Enable shared public IP** to enable a [shared public IP address](devtest-lab-shared-ip.md).
-   - **Allow public IP creation** to allow public IP addresses in the subnet
+   - **Allow public IP creation** to allow public IP addresses in the subnet.
 
 1. Under **Maximum virtual machines per user**, enter the maximum number of VMs each user can create in the subnet. If you don't want to restrict the number of VMs, leave this field blank.
 
@@ -49,12 +51,13 @@ To add a configured virtual network and subnet to a lab, take the following step
 
    :::image type="content" source="./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png" alt-text="Screenshot that shows the settings for the Lab subnet pane.":::
 
-If you chose to allow VM creation in one of the subnets, you can now use the configured virtual network to [create lab VMs](devtest-lab-add-vm.md).
+If you allowed VM creation in one of the subnets, you can now use the configured virtual network to [create lab VMs](devtest-lab-add-vm.md).
 
 ## Add a virtual network during VM creation
 
-You can also specify a configured virtual network to use at the time you create a VM in a lab. For complete details and instructions, see [Create and add virtual machines](devtest-lab-add-vm.md).
+You can also specify a configured virtual network at VM creation time. For instructions, see [Create and add virtual machines](devtest-lab-add-vm.md).
 
 ## Next steps
 
-For information about how to set up, use, and manage virtual networks, see the [Azure virtual network documentation](/azure/virtual-network/index.yml).
+- For more information about how to set up, use, and manage virtual networks, see the [Azure virtual network documentation](/azure/virtual-network/index.yml).
+- You can deploy [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) in a new or existing virtual network to enable browser connection to your lab VMs. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).
