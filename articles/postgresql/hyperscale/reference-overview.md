@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 02/11/2022
+ms.date: 02/14/2022
 ---
 
 # The Hyperscale (Citus) SQL API
@@ -34,7 +34,7 @@ Foo bar baz
 
 | Name | Description |
 |------|-------------|
-| [citus_add_rebalance_strategy](reference_functions.md@citus_add_rebalance_strategy) | append a row to `pg_dist_rebalance_strategy` |
+| [citus_add_rebalance_strategy](reference_functions.md#citus_add_rebalance_strategy) | append a row to `pg_dist_rebalance_strategy` |
 | [citus_move_shard_placement](reference-functions.md#master_move_shard_placement) | typically used indirectly during shard rebalancing rather than being called directly by a database administrator |
 | [citus_set_default_rebalance_strategy](reference-functions.md#) | change the strategy named by its argument to be the default chosen when rebalancing shards |
 | [get_rebalance_progress](reference-functions.md#get_rebalance_progress) | monitor the moves planned and executed by `rebalance_table_shards` |
@@ -142,9 +142,25 @@ Foo bar baz
 
 ## System tables
 
-### Foo
+The Hyperscale (Citus) coordinator node contains metadata tables and views to
+help you see data properties and query activity across the server group.
 
-### Bar
+| Name | Description |
+|------|-------------|
+| [citus_dist_stat_activity](reference-metadata.md#distributed-query-activity) | distributed queries that are executing on all nodes |
+| [citus_lock_waits](reference-metadata.md#distributed-query-activity) | queries blocked throughout the server group |
+| citus_shards | the location of each shard, the type of table it belongs to, and its size |
+| [citus_stat_statements](reference-metadata.md#query-statistics-table) | stats about how queries are being executed, and for whom |
+| citus_tables | a summary of all distributed and reference tables |
+| [citus_worker_stat_activity](reference-metadata.md#distributed-query-activity) | queries on workers, including tasks on individual shards |
+| [pg_dist_colocation](reference-metadata.md#colocation-group-table) | which tables' shards should be placed together |
+| [pg_dist_node](reference-metadata.md#worker-node-table) | information about worker nodes in the server group |
+| [pg_dist_object](reference-metadata.md#distributed-object-table) | objects such as types and functions that have been created on the coordinator node and propagated to worker nodes |
+| [pg_dist_placement](reference-metadata.md#shard-placement-table) | the location of shard replicas on worker nodes |
+| [pg_dist_rebalance_strategy](reference-metadata.md#rebalancer-strategy-table) |  strategies that `rebalance_table_shards` can use to determine where to move shards |
+| [pg_dist_shard](reference-metadata.md#shard-table) | the table, distribution column, and value ranges for every shard |
+| time_partitions | information about each partition managed by such functions as `create_time_partitions` and `drop_old_time_partitions` |
+
 
 ## Next steps
 
