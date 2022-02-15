@@ -1,18 +1,18 @@
 ---
-title: Deploy workspace in the Azure portal - Azure Healthcare APIs
+title: Deploy workspace in the Azure portal - Azure Health Data Services
 description: This document teaches users how to deploy a workspace in the Azure portal.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 01/21/2022
+ms.date: 02/15/2022
 ms.author: ginle
 ms.custom: mode-api
 ---
 
-# Deploy Healthcare APIs workspace using Azure portal
+# Deploy Azure Health Data Services workspace using Azure portal
 
-In this article, you’ll learn how to create a workspace by deploying Azure Healthcare APIs through the Azure portal. The workspace is a centralized logical container for all your healthcare APIs services such as FHIR services, DICOM® services, and IoT Connectors. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
+In this article, you’ll learn how to create a workspace by deploying Azure Health Data Services through the Azure portal. The workspace is a centralized logical container for all your healthcare APIs services such as FHIR services, DICOM® services, and IoT Connectors. It allows you to organize and manage certain configuration settings that are shared among all the underlying datasets and services where applicable.
 
 
 ## Prerequisite
@@ -26,15 +26,15 @@ In the Azure portal, select **Create a resource**.
 
 [ ![Create resource](media/create-resource.png) ](media/create-resource.png#lightbox)
 
-## Search for Azure Healthcare APIs
+## Search for Azure Health Data Services
 
-In the searchbox, enter **Azure Healthcare APIs**.
+In the searchbox, enter **Azure Health Data Services**.
 
-[ ![Search for Healthcare APIs](media/search-for-healthcare-apis.png) ](media/search-for-healthcare-apis.png#lightbox)
+[ ![Search for HAzure Health Data Services](media/search-for-healthcare-apis.png) ](media/search-for-healthcare-apis.png#lightbox)
 
-## Create Azure Healthcare API account
+## Create Azure Health Data Services account
 
-Select **Create** to create a new Azure Healthcare APIs account.
+Select **Create** to create a new Azure Health Data Services account.
 
    [ ![Create workspace](media/create-workspace-preview.png) ](media/create-workspace-preview.png#lightbox)
 
@@ -64,8 +64,8 @@ Select **Create** to create a new Azure Healthcare APIs account.
 
 Now that the workspace is created, you can:
 
-* Deploy FHIR services
-* Deploy DICOM services
+* Deploy FHIR service
+* Deploy DICOM service
 * Deploy an IoT Connector and ingest data to your FHIR service.
 * Transform your data into different formats and secondary use through our conversion and de-identification APIs.
 

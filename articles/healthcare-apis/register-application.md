@@ -1,17 +1,17 @@
 ---
-title: Register a client application in Azure Active Directory for the Azure Healthcare APIs
-description: How to register a client application in the Azure AD and how to add a secret and API permissions to the Azure Healthcare APIs
+title: Register a client application in Azure Active Directory for the Azure Health Data Services
+description: How to register a client application in the Azure AD and how to add a secret and API permissions to the Azure Health Data Services
 services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/06/2022
+ms.date: 02/15/2022
 ms.author: zxue
 ---
 
 # Register a client application in Azure Active Directory
 
-In this article, you'll learn how to register a client application in Azure Active Directory (Azure AD) in order to access the Healthcare APIs. You can find more information on [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+In this article, you'll learn how to register a client application in Azure Active Directory (Azure AD) in order to access Azure Health Data Services. You can find more information on [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 ## Register a new application
 
@@ -67,7 +67,7 @@ Optionally, you can upload a certificate (public key) and use the Certificate ID
 
 ## API permissions
 
-The following steps are required for the DICOM service, but optional for the FHIR service. In addition, user access permissions or role assignments for the Healthcare APIs are managed through RBAC. For more details, visit [Configure Azure RBAC for the Healthcare APIs](configure-azure-rbac.md).
+The following steps are required for the DICOM service, but optional for the FHIR service. In addition, user access permissions or role assignments for the Azure Health Data Services are managed through RBAC. For more details, visit [Configure Azure RBAC for the Healthcare APIs](configure-azure-rbac.md).
 
 1. Select the **API permissions** blade.
 
@@ -89,13 +89,13 @@ The following steps are required for the DICOM service, but optional for the FHI
 
 >[!NOTE]
 >Use  grant_type of client_credentials when trying to otain an access token for the FHIR service using tools such as Postman or Rest Client. For more details, visit [Access using Postman](./fhir/use-postman.md) and [Accessing the Healthcare APIs using the REST Client Extension in Visual Studio Code](./fhir/using-rest-client.md).
->>Use  grant_type of client_credentials or authentication_doe when trying to otain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
+>>Use  grant_type of client_credentials or authentication_doe when trying to obtain an access token for the DICOM service. For more details, visit [Using DICOM with cURL](dicom/dicomweb-standard-apis-curl.md).
 
 Your application registration is now complete.
 
 ## Next steps
 
-In this article, you learned how to register a client application in the Azure AD. Additionally, you learned how to add a secret and API permissions to the Azure Healthcare APIs. For more information about Azure Healthcare APIs, see
+In this article, you learned how to register a client application in the Azure AD. Additionally, you learned how to add a secret and API permissions to Azure Health Data Services. For more information about Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
->[Overview of Azure Healthcare APIs](healthcare-apis-overview.md)
+>[Overview of Azure Health Data Services](healthcare-apis-overview.md)

@@ -1,23 +1,23 @@
 ---
-title:  What is the workspace? - Azure Healthcare APIs
-description: This article describes an overview of the Azure Healthcare APIs workspace.
+title:  What is the workspace? - Azure Health Data Services
+description: This article describes an overview of the Azure Health Data Services workspace.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: ginle
 ---
 
-# What is Healthcare APIs workspace?
+# What is Azure Health Data Services workspace?
 
-The Azure Healthcare APIs workspace is a logical container for all your healthcare service instances such as Fast Healthcare Interoperability Resources (FHIR®) services, Digital Imaging and Communications in Medicine (DICOM®) services, and Internet of things (IoT) Connectors. The workspace also creates a compliance boundary (HIPAA, HITRUST) within which protected health information can travel.
+The Azure Health Data Services workspace is a logical container for all your healthcare service instances such as Fast Healthcare Interoperability Resources (FHIR®) services, Digital Imaging and Communications in Medicine (DICOM®) services, and Internet of things (IoT) Connectors. The workspace also creates a compliance boundary (HIPAA, HITRUST) within which protected health information can travel.
 
 You can provision multiple data services within a workspace, and by design, they work seamlessly with one another. With the workspace, you can organize all your Healthcare APIs instances and manage certain configuration settings that are shared among all the underlying datasets and services where it is applicable.
 
 ## Workspace provisioning process
  
-One or more workspaces can be created in a resource group from the Azure portal, or using deployment scripts. A Healthcare APIs workspace, as a parent item in the hierarchical service tree, must be created first before one or more child service instances can be created.   
+One or more workspaces can be created in a resource group from the Azure portal, or using deployment scripts. An Azure Health Data Services workspace, as a parent item in the hierarchical service tree, must be created first before one or more child service instances can be created.   
  
 A workspace can't be deleted unless all child service instances within the workspace have been deleted. This feature helps prevent any accidental deletion of service instances. However, when a workspace resource group is deleted, all the workspaces and child service instances within the workspace resource group get deleted. 
 
@@ -27,9 +27,9 @@ Workspace names can be re-used in the same Azure subscription, but not in a diff
  
 When you create a workspace, it must be configured for an Azure region, which can be the same as or different from the resource group. The region cannot be changed after the workspace is created. Within each workspace, all Healthcare APIs services (FHIR service, DICOM service, and IoT Connector service) must be created in the region of the workspace and cannot be moved to a different workspace. 
 
-## Workspace and Azure Healthcare APIs service instances 
+## Workspace and Azure Health Data Services service instances 
 
-Once the Azure Healthcare APIs workspace is created, you’re now ready to create one or more service instances from the Azure portal. You can create multiple service instances of the same type or different types in one workspace. Within the workspace, you can apply shared configuration settings to child service instances, which are covered in the workspace and configuration settings section.
+Once the Azure Health Data Services workspace is created, you’re now ready to create one or more service instances from the Azure portal. You can create multiple service instances of the same type or different types in one workspace. Within the workspace, you can apply shared configuration settings to child service instances, which are covered in the workspace and configuration settings section.
 
 [ ![Azure Resource Group](media/azure-resource-group.png) ](media/azure-resource-group.png#lightbox)
 
@@ -72,7 +72,7 @@ to. For more information, see [Azure RBAC](../role-based-access-control/index.ym
 
 ## Next steps
 
-To start working with the Azure Healthcare APIs, follow the 5-minute quick start to deploying a workspace.
+To start working with Azure Health Data Services, follow the 5-minute quick start to deploying a workspace.
 
 >[!div class="nextstepaction"]
 >[Deploy workspace in the Azure portal](healthcare-apis-quickstart.md)

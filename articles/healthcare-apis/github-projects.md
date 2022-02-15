@@ -1,20 +1,20 @@
 ---
-title: Related GitHub Projects for Azure Healthcare APIs
+title: Related GitHub Projects for Azure Health Data Services
 description: List all Open Source (GitHub) repositories
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: ginle
 ---
 # GitHub Projects
 
 We have many open-source projects on GitHub that provide you the source code and instructions to deploy services for various uses. You're always welcome to visit our GitHub repositories to learn and experiment with our features and products. 
 
-## Healthcare APIs samples
+## Azure Health Data Services samples
 
-* This repo contains [samples for Healthcare APIs](https://github.com/microsoft/healthcare-apis-samples), including Fast Healthcare Interoperability Resources (FHIR&#174;), DICOM, IoT connector, and data-related services.
+* This repo contains [samples for Azure Health Data Services](https://github.com/microsoft/healthcare-apis-samples), including Fast Healthcare Interoperability Resources (FHIR&#174;), DICOM, IoT connector, and data-related services.
 
 ## FHIR Server
 
@@ -75,10 +75,10 @@ This solution enables you to transform the data into tabular format as it gets w
 
 ## Next steps
 
-In this article, you learned about some of the Healthcare APIs open-source GitHub projects that provide source code and instructions to let you experiment and deploy services for various uses. For more information about Healthcare APIs, see 
+In this article, you learned about some of Azure Health Data Services open-source GitHub projects that provide source code and instructions to let you experiment and deploy services for various uses. For more information about Azure Health Data Services, see 
 
 
 >[!div class="nextstepaction"]
->[Overview of Azure Healthcare APIs](healthcare-apis-overview.md)
+>[Overview of Azure Health Data Services](healthcare-apis-overview.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 

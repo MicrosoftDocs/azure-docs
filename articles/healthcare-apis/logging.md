@@ -1,25 +1,25 @@
 ---
-title: Logging for Azure Healthcare APIs
-description: This article explains how logging works and how to enable logging for the Azure Healthcare APIs
+title: Logging for Azure Health Data Services
+description: This article explains how logging works and how to enable logging for the Azure Health Data Services
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: ginle
 ---
 
-# Logging for Azure Healthcare APIs
+# Logging for Azure Health Data Services
 
-The Azure platform provides three types of logs, activity logs, resource logs and Azure Active Directory logs. See more details on [activity logs](../azure-monitor/essentials/platform-logs-overview.md). In this article, you’ll learn about how logging works for the Azure Healthcare APIs.
+The Azure platform provides three types of logs, activity logs, resource logs and Azure Active Directory logs. For more information, see [activity logs](../azure-monitor/essentials/platform-logs-overview.md). In this article, you’ll learn about how logging works for the Azure Health Data Services.
 
 ## AuditLogs
-While activity logs are available for each Azure resource from the Azure portal, the Healthcare APIs emit resource logs, which include two categories of logs, AuditLogs and DiagnosticLogs.
+While activity logs are available for each Azure resource from the Azure portal, Azure Health Data Services emit resource logs, which include two categories of logs, AuditLogs and DiagnosticLogs.
 
 - AuditLogs provide auditing trails for healthcare services. For example, a caller's IP address and resource URL are logged when a user or application accesses the FHIR service. Each service emits required properties and optionally implements additional properties.
 - DiagnosticLogs provides insight into the operation of the service, for example, log level (information, warning or error) and log message.
 
-At this time, Healthcare APIs only supports AuditLogs. Diagnostic Logs will be coming soon.
+At this time, Azure Health Data Services only supports AuditLogs. Diagnostic Logs will be coming soon.
 
 Below is one example of the AuditLog.
 
@@ -51,7 +51,7 @@ Below is one example of the AuditLog.
 
 ## Next steps
 
-In this article, you learned how to enable diagnostic logging for Azure Healthcare APIs. For more information about the supported metrics for Azure Healthcare APIs with Azure Monitor, see 
+In this article, you learned how to enable diagnostic logging for Azure Health Data Services. For more information about the supported metrics for Azure Health Data Services with Azure Monitor, see 
 
 >[!div class="nextstepaction"]
 >[Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
