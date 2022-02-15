@@ -6,7 +6,7 @@ author: manojraheja
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
-ms.date: 10/07/2020
+ms.date: 02/15/2022
 ms.author: maraheja
 ms.reviewer: sngun
 ms.custom: mode-other

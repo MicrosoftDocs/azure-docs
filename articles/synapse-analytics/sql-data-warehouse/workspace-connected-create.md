@@ -4,7 +4,6 @@ description: This document describes how a user can enable the Synapse workspace
 services: synapse-analytics
 author: sowmi93
 ms.author: sosivara
-manager: 
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
