@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,6 +18,9 @@ ms.author: v-ydequadros
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+> [!Note]
+> Sign up for the CloudKnox Permissions Management public preview by filling [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9AT7gfYe2NPtdIbYxQQX45UNEpIVjY4WUJNSUhMVjcyNzdYOFY2NFhISi4u).
 
 ## Overview
 
@@ -36,7 +39,7 @@ Organizations have to consider permissions management as a central piece of thei
 
 ## Key use cases
  
-CloudKnox  allows customers to address three key use cases: 
+CloudKnox  allows customers to address three key use cases: *Discover*, *Remediate*, and *Monitor*.
 
 ### Discover
 
@@ -56,16 +59,16 @@ Customers can right-size permissions based on usage, grant new permissions on-de
 
 ### Monitor
 
-Customers can detect anomalous activities with ML-powered alerts and generate detailed forensic reports.
+Customers can detect anomalous activities with machine language-powered (ML-powered) alerts and generate detailed forensic reports.
 
-- Machine learning-powered anomaly detections.
-- Forensic reports: Context-rich reports around identities, actions, and resources to support rapid investigation and remediation.
+- ML-powered anomaly detections.
+- Context-rich forensic reports around identities, actions, and resources to support rapid investigation and remediation.
 
 CloudKnox  deepens Zero Trust security strategies by augmenting the least privilege access principle, allowing customers to: 
 
 - Get comprehensive visibility: Discover which identity is doing what, where, and when. 
 - Automate least privilege access: Use access analytics to ensure identities have the right permissions, at the right time. 
-- Unify access policies across IaaS platforms: Implement consistent security policies across your cloud infrastructure. 
+- Unify access policies across infrastructure as a service (IaaS) platforms: Implement consistent security policies across your cloud infrastructure. 
 
 
 

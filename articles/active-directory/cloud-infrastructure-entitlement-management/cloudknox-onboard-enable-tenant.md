@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -21,14 +21,14 @@ ms.author: v-ydequadros
 This article describes how to enable CloudKnox Permissions Management (CloudKnox) in your organization. Once you've enabled CloudKnox, you can connect it to your Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) platforms.
 
 > [!NOTE] 
-> To complete this task, you must have Global Administrator permissions on a user in that tenant. You can't enable CloudKnox as a user from other tenant who has signed in via B2B or via Azure Lighthouse.
+> To complete this task, you must have *global administrator* permissions as a user in that tenant. You can't enable CloudKnox as a user from other tenant who has signed in via B2B or via Azure Lighthouse.
 
 ## Prerequisites
 
-To enable CloudKnox in your organization, you must have:
+To enable CloudKnox in your organization, you must:
 
-- An Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
-- Eligible or active assignment to the global administrator role on a user in that tenant.
+- Have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
+- Be eligible for or have an active assignment to the global administrator role as a user in that tenant.
 
 > [!NOTE]
 > During public preview, CloudKnox doesn't perform a license check.
@@ -41,7 +41,7 @@ To enable CloudKnox in your organization, you must have:
     1. If needed, activate the global administrator role in your Azure AD tenant.
     1. In the Azure AD portal, select **Features highlights**, and then select **CloudKnox Permissions Management**.
 
-    1. If you're asked to select an account to sign in, sign in as a global administrator to a specified tenant.
+    1. If you're prompted to select a sign in account, sign in as a global administrator for a specified tenant.
 
         The **Welcome to CloudKnox Permissions Management** screen appears, displaying information on how to enable CloudKnox on your tenant.
 
