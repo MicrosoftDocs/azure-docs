@@ -336,7 +336,7 @@ The **Set-EflowVmFeature** command enables or disables the status of IoT Edge fo
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| feature | **DpsTpm** | Feature name to toggle. |
+| feature | **DpsTpm**, **Defender** | Feature name to toggle. |
 | enable | None | If this flag is present, the command enables the feature. |
 
 For more information, use the command `Get-Help Set-EflowVmFeature -full`.
