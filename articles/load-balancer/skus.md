@@ -17,7 +17,7 @@ ms.author: allensu
 Azure Load Balancer has three SKUs.
 
 ## <a name="skus"></a> SKU comparison
-Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and have differences in scale, features, and pricing. 
+Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
 
 To compare and understand the differences between Basic and Standard SKU, see the following table. For more information, see [Azure Standard Load Balancer overview](./load-balancer-overview.md). For information on Gateway SKU - catered for third-party network virtual appliances (NVAs) currently in preview, see [Gateway Load Balancer overview](gateway-overview.md)
 
