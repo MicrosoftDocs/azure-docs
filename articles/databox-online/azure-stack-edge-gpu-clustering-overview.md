@@ -1,13 +1,13 @@
 ---
-title: Overview of clustering on your Azure Stack Edge device
-description: Describes clustering on your Azure Stack Edge device.
+title: Overview of clustering on your Azure Stack Edge Pro GPU device
+description: Describes an overview of clustering on your Azure Stack Edge Pro GPU device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/28/2022
+ms.date: 02/15/2022
 ms.author: alkohli
 ---
 
@@ -114,18 +114,18 @@ On your two-node cluster, you can deploy non-containerized workloads or containe
 
 You can manage the Azure Stack Edge cluster via the PowerShell interface of the device, or through the local UI. Some typical management tasks are:
 
-- [Add a node](azure-stack-edge-placeholder.md)
-- [Unprepare a node](azure-stack-edge-placeholder.md)
-- [Configure cloud witness](azure-stack-edge-placeholder.md)
-- [Set up a local witness](azure-stack-edge-placeholder.md)
-- [Configure virtual IP settings](azure-stack-edge-placeholder.md)
-- [Remove the cluster](azure-stack-edge-placeholder.md)
-- Update the cluster
+- [Undo node preparation](azure-stack-edge-gpu-manage-cluster.md#undo-node-preparation)
+- [Configure cloud witness](azure-stack-edge-gpu-manage-cluster.md#configure-cloud-witness)
+- [Set up a local witness](azure-stack-edge-gpu-manage-cluster.md#configure-local-witness)
+- [Configure virtual IP settings](azure-stack-edge-gpu-manage-cluster.md#configure-virtual-ips)
+- [Remove the cluster](azure-stack-edge-gpu-manage-cluster.md#remove-the-cluster)
 
 
-<!--## Cluster upgrades
+## Cluster updates
 
-A two-node clustered device upgrade will first apply the device updates followed by the Kubernetes cluster updates. Rolling updates to device nodes ensure minimal downtime of workloads. For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).-->
+A two-node clustered device upgrade will first apply the device updates followed by the Kubernetes cluster updates. Rolling updates to device nodes ensure minimal downtime of workloads. 
+
+When you apply these updates via the Azure portal, you only have to start the process on one node and both the nodes are updated.For step-by-step instructions, see [Apply updates to your two-node Azure Stack Edge device](azure-stack-edge-gpu-install-update.md).
 
 ## Billing
 

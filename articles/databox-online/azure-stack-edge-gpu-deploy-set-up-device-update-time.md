@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/07/2021
+ms.date: 02/15/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -62,14 +62,11 @@ Follow these steps to configure device related settings:
 
 1. To validate and apply the configured device settings, select **Apply**.
 
-    <!--![Local web UI "Device" page 1](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)-->
+    ![Local web UI "Device" page 1](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
     When the device name and the DNS domain are changed, the SMB endpoint is created.  
 
-    If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You need to choose one of the following options when you configure certificates.: 
-        
-    - Generate and download the device certificates. 
-    - Bring your own certificates for the device including the signing chain.
+    If you have changed the device name and the DNS domain, the automatically generated self-signed certificates on the device will not work. You'll need to regenerate device certificates or bring your own certificates.
     
     ![Local web UI "Device" page 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
   
