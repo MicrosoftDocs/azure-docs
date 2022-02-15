@@ -52,6 +52,9 @@ Follow these steps to create a new console application and install the Speech SD
     {
         auto speechConfig = SpeechConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
         speechConfig->SetSpeechRecognitionLanguage("en-US");
+
+        //To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
+        //auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
         auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);    
     
@@ -86,7 +89,8 @@ Follow these steps to create a new console application and install the Speech SD
     }                    
     ```
 
-1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
 Build and run your new console application to start speech recognition from a microphone.
 
@@ -103,27 +107,6 @@ This example uses the `RecognizeOnceAsync` operation to transcribe utterances of
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-cpp)
-
-## Try out more
-
-Now that you've transcribed speech to text, here are some suggested modifications to try out:
-- To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
-    ```cpp
-    auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
-    ```
-- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You can add these lines right after the new `SpeechRecognizer` object is created:
-    ```cpp
-    auto phraseListGrammar = PhraseListGrammar::FromRecognizer(recognizer);
-    phraseListGrammar->AddPhrase("Contoso");
-    phraseListGrammar->AddPhrase("Jessie");
-    phraseListGrammar->AddPhrase("Rehaan");
-    ```
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language.
-    ```cpp
-    speechConfig->SetSpeechRecognitionLanguage = "es-ES";
-    ```
-- For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
-
 
 ## Clean up resources
 

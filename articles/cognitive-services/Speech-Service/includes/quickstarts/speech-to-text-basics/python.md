@@ -45,6 +45,9 @@ Follow these steps to create a new console application and install the Speech SD
     def recognize_from_microphone():
         speech_config = speechsdk.SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
         speech_config.speech_recognition_language="en-US"
+
+        #To recognize speech from an audio file, use `filename` instead of `use_default_microphone`:
+        #audio_config = speechsdk.audio.AudioConfig(filename="YourAudioFile.wav")
         audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
         speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
         
@@ -64,7 +67,7 @@ Follow these steps to create a new console application and install the Speech SD
     recognize_from_microphone()
     ```
 1. In `speech_recognition.py`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
-
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
 Run your new console application to start speech recognition from a microphone:
 
@@ -83,27 +86,6 @@ RECOGNIZED: Text=I'm excited to try speech to text.
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-python)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-python)
-
-## Try out more
-
-Now that you've transcribed speech to text, here are some suggested modifications to try out:
-- To recognize speech from an audio file, use `filename` instead of `use_default_microphone`:
-    ```python
-    audio_config = speechsdk.AudioConfig(filename="YourAudioFile.wav")
-    ```
-- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You can add these lines right after the new `SpeechRecognizer` object is created:
-    ```python
-    phrase_list_grammar = speechsdk.PhraseListGrammar.from_recognizer(speech_recognizer)
-    phrase_list_grammar.addPhrase("Contoso")
-    phrase_list_grammar.addPhrase("Jessie")
-    phrase_list_grammar.addPhrase("Rehaan")
-    ```
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language.
-    ```python
-    speech_config.speech_recognition_language="es-ES";
-    ```
-- For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
-
 
 ## Clean up resources
 

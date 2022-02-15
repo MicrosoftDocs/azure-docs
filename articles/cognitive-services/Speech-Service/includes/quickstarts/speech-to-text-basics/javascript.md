@@ -37,6 +37,8 @@ For more information on `require`, see the [require documentation](https://nodej
 
 ## Recognize speech from a file 
 
+Follow these steps to create a new console application for speech recognition.
+
 1. Open a command prompt where you want the new project, and create a new file named `SpeechRecognition.js`.
 1. Copy the following code into `SpeechRecognition.js`:
 
@@ -76,6 +78,7 @@ For more information on `require`, see the [require documentation](https://nodej
     ```
 
 1. In `SpeechRecognition.js`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
 Run your new console application to start speech recognition from a file:
 
@@ -95,26 +98,8 @@ This example uses the `recognizeOnceAsync` operation to transcribe utterances of
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-javascript)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-javascript)
 
-## Try out more
-
-Now that you've transcribed speech to text, here are some suggested modifications to try out:
-- To recognize speech from an audio file, use `fromDefaultMicrophoneInput` instead of `fromWavFileInput`:
-    ```javascript
-    let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
-    ```
-    Recognizing speech from a microphone is *not supported in Node.js*. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech-to-text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech-to-text conversions.
-- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You can add these lines right after the new `SpeechRecognizer` object is created:
-    ```javascript
-    const phraseList = sdk.PhraseListGrammar.fromRecognizer(speechRecognizer);
-    phraseList.addPhrase("Contoso");
-    phraseList.addPhrase("Jessie");
-    phraseList.addPhrase("Rehaan");
-    ```
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language.
-    ```javascript
-    speechConfig.speechRecognitionLanguage = "es-ES";
-    ```
-- For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+> [!NOTE]
+> Recognizing speech from a microphone is not supported in Node.js. It's supported only in a browser-based JavaScript environment. For more information, see the [React sample](https://github.com/Azure-Samples/AzureSpeechReactSample) and the [implementation of speech-to-text from a microphone](https://github.com/Azure-Samples/AzureSpeechReactSample/blob/main/src/App.js#L29) on GitHub. The React sample shows design patterns for the exchange and management of authentication tokens. It also shows the capture of audio from a microphone or file for speech-to-text conversions.
 
 ## Clean up resources
 

@@ -74,9 +74,14 @@ Follow these steps to create a new console application and install the Speech SD
                     break;
             }
         }
-
-        async static Task RecognizeFromMicrophone(SpeechConfig speechConfig)
+    
+        async static Task Main(string[] args)
         {
+            var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
+            speechConfig.SpeechRecognitionLanguage = "en-US";
+            
+            //To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
+            //using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
             using var speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
     
@@ -84,17 +89,11 @@ Follow these steps to create a new console application and install the Speech SD
             var speechRecognitionResult = await speechRecognizer.RecognizeOnceAsync();
             OutputSpeechRecognitionResult(speechRecognitionResult);
         }
-    
-        async static Task Main(string[] args)
-        {
-            var speechConfig = SpeechConfig.FromSubscription(YourSubscriptionKey, YourServiceRegion);        
-            speechConfig.SpeechRecognitionLanguage = "en-US";
-            await RecognizeFromMicrophone(speechConfig);
-        }
     }
     ```
 
 1. In `Program.cs`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
 
 Run your new console application to start speech recognition from a microphone:
 
@@ -115,27 +114,6 @@ This example uses the `RecognizeOnceAsync` operation to transcribe utterances of
 > [!div class="nextstepaction"]
 > [My speech was recognized](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
 > [I ran into an issue](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-csharp)
-
-## Try out more
-
-Now that you've transcribed speech to text, here are some suggested modifications to try out:
-- To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
-    ```csharp
-    using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
-    ```
-- To improve recognition accuracy of specific words or utterances, use a [phrase list](~/articles/cognitive-services/speech-service/improve-accuracy-phrase-list.md). You can add these lines right after the new `SpeechRecognizer` object is created:
-    ```csharp
-    var phraseList = PhraseListGrammar.FromRecognizer(speechRecognizer);
-    phraseList.AddPhrase("Contoso");
-    phraseList.AddPhrase("Jessie");
-    phraseList.AddPhrase("Rehaan");
-    ```
-- To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language.
-    ```csharp
-    speechConfig.SpeechRecognitionLanguage = "es-ES";
-    ```
-- For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
-
 
 ## Clean up resources
 
