@@ -120,7 +120,7 @@ Follow these steps to configure the network for your device.
 
     After you have configured and applied the network settings, select **Next: Advanced networking** to configure compute network.
 
-## Configure virtual switch for compute and virtual networks
+## Configure virtual switches and compute IPs
 
 Follow these steps to enable compute on a virtual switch and configure virtual networks. 
 
