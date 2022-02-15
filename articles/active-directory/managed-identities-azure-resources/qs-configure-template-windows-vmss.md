@@ -54,10 +54,11 @@ Regardless of the option you choose, template syntax is the same during initial 
 
 ## System-assigned managed identity
 
-In this section, you will enable and disable the system-assigned managed identity using an Azure Resource Manager template.
+In this section, you will enable and disable the system-assigned managed identity using an Azure Resource Manager or Bicep template.
 
 ### Enable system-assigned managed identity during the creation of a virtual machines scale set or an existing virtual machine scale set
 
+# [Resource Manager Template](#tab/azure-resource-manager)
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
 2. To enable the system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachinesScaleSets` resource of interest within the resources section and add the `identity` property at the same level as the `"type": "Microsoft.Compute/virtualMachinesScaleSets"` property. Use the following syntax:
 
@@ -67,7 +68,7 @@ In this section, you will enable and disable the system-assigned managed identit
    }
    ```
 
-4. When you're done, the following sections should added to the resource section of your template  and should resemble the example shown below:
+3. When you're done, the following sections should added to the resource section of your template and should resemble the example shown below:
 
    ```json
     "resources": [
@@ -91,6 +92,35 @@ In this section, you will enable and disable the system-assigned managed identit
     ]
    ```
 
+# [Bicep](#tab/bicep)
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
+2. To enable the system-assigned managed identity, load the template into an editor, locate the `Microsoft.Compute/virtualMachinesScaleSets` resource of interest and add the `identity` property at the same level as the `name: vmssName` property. Use the following syntax:
+
+   ```bicep
+   identity: {
+       type: 'SystemAssigned'
+   }
+   ```
+
+3. When you're done, the following sections should added to the resource section of your template and should resemble the example shown below:
+
+   ```bicep
+   module VMSS 'Microsoft.Compute/virtualMachineScaleSets@2018-06-01' = {
+     name: vmssName
+     location: resourceGroup().location
+     identity: {
+       type: 'SystemAssigned'
+     }
+     properties: {
+       //Other resource provider properties
+       virtualMachineProfile: {
+         //Other virtual machine profile properties
+         
+       }
+     }
+   }
+   ```
+
 ### Disable a system-assigned managed identity from an Azure virtual machine scale set
 
 If you have a virtual machine scale set that no longer needs a system-assigned managed identity:
@@ -106,8 +136,6 @@ If you have a virtual machine scale set that no longer needs a system-assigned m
    **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
 
    If your apiVersion is `2017-12-01` and your virtual machine scale set has both system and user-assigned managed identities, remove `SystemAssigned` from the identity type and keep `UserAssigned` along with the `identityIds` array of the user-assigned managed identities.
-
-
 
    The following example shows you how to remove a system-assigned managed identity from a virtual machine scale set with no user-assigned managed identities:
 
@@ -131,6 +159,8 @@ In this section, you assign a user-assigned managed identity to a virtual machin
 > To create a user-assigned managed identity using an Azure Resource Manager Template, see [Create a user-assigned managed identity](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
 ### Assign a user-assigned managed identity to a virtual machine scale set
+
+# [Resource Manager Template](#tab/azure-resource-manager)
 
 1. Under the `resources` element, add the following entry to assign a user-assigned managed identity to your virtual machine scale set.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user-assigned managed identity you created.
 
@@ -224,7 +254,105 @@ In this section, you assign a user-assigned managed identity to a virtual machin
         }
     ]
    ```
+# [Bicep](#tab/bicep)
+
+1. Update your `Microsoft.Compute/virtualMachineScaleSets` resoruce to include the following values to assign a user-assigned identity to your virtual machine scale set.  Be sure to replace `<USERASSIGNEDIDENTITY>` with the name of the user-assigned managed identity you created.
+
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
+
+   If your apiVersion is `2018-06-01`, your user-assigned managed identities are stored in the `userAssignedIdentities` dictionary format. The `<USERASSIGNEDIDENTITYNAME>` value must be populated with the name of your user-assigned managed identity, whether this is provided as a string, a parameter or a variable. In the example below, we'll reference the user-assigned identity and pass in its resource ID into the key value of the `userAssignedIdentities` dictionary.
+
+   ```bicep
+   resource UserAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' existing = {
+     name: '<USERASSIGNEDIDENTITYNAME>'
+   }
+  
+   resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2018-06-01' = {
+     name: vmssName
+     location: Location
+     identity: {
+       type: 'UserAssigned'
+       userAssignedIdentities: {
+         '${UserAssignedIdentity.id}': {}
+       }
+     }
+   }
+   ```   
+
+   **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
+
+   If your `apiVersion` is `2017-12-01` or earlier, your user-assigned managed identities are stored in the `identityIds` array. The `<USERASSIGNEDIDENTITYNAME>` value must be populated with the name of your user-assigned managed identity, whether this is provided as a string, a parameter or a variable. In the example below, we'll reference the user-assigned identity and pass in its resource ID into the key value of the `userAssignedIdentities` dictionary.
+
+   ```bicep
+     resource UserAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' existing = {
+       name: '<USERASSIGNEDIDENTITYNAME>'
+     }
+     
+     resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2017-03-30' = {
+       name: vmssName
+       location: Location
+       identity: {
+         type: 'UserAssigned'
+         identityIds: [
+           UserAssignedIdentity.id
+         ]
+       }
+     }
+
+3. When you are done, your template should look similar to the following:
+
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**   
+
+   ```bicep
+   resource UserAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' existing = {
+     name: '<USERASSIGNEDIDENTITYNAME>'
+   }
+   
+   resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2018-06-01' = {
+     location: resourceGroup().location
+     identity: {
+       type: 'UserAssigned'
+       userAssignedIdentities: {
+         '${UserAssignedIdentity.id}': ''
+       }
+     }
+     properties: {
+       //other virtual machine properties
+       virtualMachineProfile: {
+         //other virtual machine profile properties
+       }
+     }
+   }
+   ```
+
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
+
+   ```bicep
+   resource UserAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' existing = {
+     name: '<USERASSIGNEDIDENTITYNAME>'
+   }
+   
+   resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2017-12-01' = {
+     name: vmssName
+     location: resourceGroup().location
+     identity: {
+       type: 'UserAssigned'
+       identityIds: [
+         UserAssignedIdentity.id
+       ]
+     }
+     properties: {
+       //other virtual machine properties...
+       virtualMachineProfile: {
+         //other virtual machine profile properties...
+       }
+     }
+   }
+   ```
+   
 ### Remove user-assigned managed identity from an Azure virtual machine scale set
+
+# [Resource Manager Template](#tab/azure-resource-manager)
 
 If you have a virtual machine scale set that no longer needs a user-assigned managed identity:
 
@@ -242,6 +370,38 @@ If you have a virtual machine scale set that no longer needs a user-assigned man
        "identity": {
            "type": "None"
         }
+   }
+   ```
+
+   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
+
+   To remove a single user-assigned managed identity from a virtual machine scale set, remove it from the `userAssignedIdentities` dictionary.
+
+   If you have a system-assigned identity, keep it in the `type` value under the `identity` value.
+
+   **Microsoft.Compute/virtualMachineScaleSets API version 2017-12-01**
+
+   To remove a single user-assigned managed identity from a virtual machine scale set, remove it from the `identityIds` array.
+
+   If you have a system-assigned managed identity, keep it in the `type` value under the `identity` value.
+   
+   # [Bicep](#tab/bicep)
+
+If you have a virtual machine scale set that no longer needs a user-assigned managed identity:
+
+1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the virtual machine scale set.
+
+2. Load the template into an [editor](#azure-resource-manager-templates) and locate the `Microsoft.Compute/virtualMachineScaleSets` resource of interest within your Bicep template. If you have a virtual machine scale set that only has user-assigned managed identity, you can disable it by changing the identity type to `None`.
+
+   The following example shows you how to remove all user-assigned managed identities from a VM with no system-assigned managed identities:
+
+   ```bicep
+   resource VMSS 'Microsoft.Compute/virtualMachineScaleSets@2017-12-01' = {
+     name: vmssName
+     location: resourceGroup().location
+     identity: {
+       type: 'None'
+     }
    }
    ```
 
