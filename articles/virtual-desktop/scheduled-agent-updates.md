@@ -104,7 +104,7 @@ To configure Scheduled Agent Updates using PowerShell:
     ```
 
 >[!NOTE]
-The maintenance window hour must be specified according to the 24-hour clock. For example, specifying 21 as the hour here would be translated as 9pm.
+The maintenance window hour must be specified according to the 24-hour clock. For example, specifying 21 as the hour here would be translated as 9:00 PM.
 
 3. Run the following cmdlet to disable Scheduled Agent Updates:
 
