@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 ## Prerequisites
 
-Refer to the [Voice Calling Quickstart](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/getting-started-with-calling?pivots=platform-android) to set up a sample app with voice calling.
+Refer to the [Voice Calling Quickstart](../../getting-started-with-calling.md?pivots=platform-android) to set up a sample app with voice calling.
 
 ## Models
 
@@ -101,4 +101,4 @@ public void switchCaptionsLanguage() {
 ```
 
 ## Clean up
-Learn more about [cleaning up resources here.](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources)
+Learn more about [cleaning up resources here.](../../../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources)
