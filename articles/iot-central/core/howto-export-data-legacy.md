@@ -60,7 +60,7 @@ Device templates: If you're currently using legacy data exports with the device 
 In the new data export, you can create a destination and reuse it across different data exports. When you migrate from legacy data exports, you should create destinations in the new data exports that store information on your existing legacy data export destinations.  
 
 > [!Note]
-> The new data export doesn't support exporting non-valid JSON messages
+> The new data export doesn't support exporting non-valid JSON messages.
 
 ## Export IoT data to cloud destinations (legacy)
 
