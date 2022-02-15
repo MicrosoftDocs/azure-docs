@@ -31,7 +31,7 @@ First, some definitions:
 
 * [**Resource group**][group] - Every resource belongs to one group. A group is a convenient way to manage related resources, particularly for access control. For example, into one resource group you could put a Web App, an Application Insights resource to monitor the app, and a Storage resource to keep exported data.
 
-* [**Subscription**](https://portal.azure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package and, if it's an organization subscription, choose the members and their access permissions.
+* [**Subscription**](https://portal.azure.com) - To use Application Insights or other Azure resources, you sign in to an Azure subscription. Every resource group belongs to one Azure subscription, where you choose your price package.  If it's an organization subscription, the owner may choose the members and their access permissions.
 * [**Microsoft account**][account] - The username and password that you use to sign in to Microsoft Azure subscriptions, XBox Live, Outlook.com, and other Microsoft services.
 
 ## <a name="access"></a> Control access in the resource group
@@ -60,7 +60,7 @@ Where applicable we link to the associated official reference documentation.
 | [Contributor](../../role-based-access-control/built-in-roles.md#contributor) |Can edit anything, including all resources. |
 | [Application Insights Component contributor](../../role-based-access-control/built-in-roles.md#application-insights-component-contributor) |Can edit Application Insights resources. |
 | [Reader](../../role-based-access-control/built-in-roles.md#reader) |Can view but not change anything. |
-| [Application Insights Snapshot Debugger](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Gives the user permission to use Application Insights Snapshot Debugger features. Note that this role is included in neither the Owner nor Contributor roles. |
+| [Application Insights Snapshot Debugger](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Gives the user permission to use Application Insights Snapshot Debugger features. This role is included in neither the Owner nor Contributor roles. |
 | Azure Service Deploy Release Management Contributor | Contributor role for services deploying through Azure Service Deploy. |
 | [Data Purger](../../role-based-access-control/built-in-roles.md#data-purger) | Special role for purging personal data. See our [guidance for personal data](../logs/personal-data-mgmt.md) for more information.   |
 | ExpressRoute Administrator | Can create delete and manage express routes.|
