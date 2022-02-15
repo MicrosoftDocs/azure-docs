@@ -47,7 +47,7 @@ Include the SDK in your app, so it can gather data.
 
    ![Copy instrumentation key](./media/nodejs/instrumentation-key-001.png)
 
-2. Add the Node.js client library library to your app's dependencies via package.json. From the root folder of your app, run:
+2. Add the Node.js client library to your app's dependencies via package.json. From the root folder of your app, run:
 
    ```bash
    npm install applicationinsights --save
