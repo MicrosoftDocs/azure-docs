@@ -19,7 +19,7 @@ This article helps you identify things to consider when you need to use Azure St
 
 Some environments require that your Azure Stack Edge device not be connected to the internet. As a result, Azure Stack Edge becomes a standalone deployment that is disconnected from and doesn't communicate with Azure and other Azure services.
 
-In a disconnected scenario, certain functionality of the device is limited or unusable. The workloads running in virtual machines, Kubernetes K8 containers, and IoT Edge might require connectivity to Azure.
+In a disconnected scenario, certain functionality of the device is limited or unusable. The workloads running in virtual machines, Kubernetes K8 containers, and IoT Edge might require connectivity to Azure.<!--Sentence 2 from Matthew's review.-->
 
 ## Scenarios for disconnected use
 
@@ -38,7 +38,7 @@ Before you disconnect your Azure Stack Edge device from the network that allows 
 - Activate your device. For instructions, see [Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md#activate-the-device), [Activate Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-activate.md#activate-the-device), or [Activate Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-activate.md#activate-the-device).
 
 - For an IoT Edge and Kubernetes deployment, complete these tasks before you disconnect:
-  1. Deploy Kubernetes on your device.
+  1. Deploy Kubernetes on your device.<!--TO BE RESOLVED: "Can you be more specific that ‘IoT Edge modules’ (I think that’s the right word) that need to be deployed in addition to K8s containers. The doc seems to focus more on K8s containers and needs to include IoT Modules."-->
   1. Enable the Kubernetes components.
   1. Deploy compute modules and containers on the device.
   1. Make sure the modules and components are running.
