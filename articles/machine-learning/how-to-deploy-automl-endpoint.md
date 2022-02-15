@@ -10,7 +10,8 @@ ms.reviewer: laobri
 author: shivanissambare
 ms.date: 12/22/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2
+ms.custom: how-to, devplatv2, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # How to deploy an AutoML model to an online endpoint (preview)
@@ -20,7 +21,7 @@ In this article, you'll learn how to deploy an AutoML-trained machine learning m
 In this article you'll know how to deploy AutoML trained machine learning model to online endpoints using: 
 
 - Azure Machine Learning studio
-- Azure Machine Learning CLI 2.0
+- Azure Machine Learning CLI (v2))
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -89,6 +90,8 @@ To deploy using these files, you can use either the studio or the Azure CLI.
  
 # [CLI](#tab/CLI)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 ## Configure the CLI 
 
 To create a deployment from the CLI, you'll need the Azure CLI with the ML v2 extension. Run the following command to confirm that you've both:
@@ -143,7 +146,9 @@ You'll need to modify this file to use the files you downloaded from the AutoML 
     > [!NOTE]
     > For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
 
-3. From the command line, run: 
+1. From the command line, run: 
+
+    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
     ```azurecli
     az ml online-endpoint create -f automl_endpoint.yml
