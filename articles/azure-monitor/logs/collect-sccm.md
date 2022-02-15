@@ -46,7 +46,7 @@ In the following procedure, you grant the *Contributor* role in your Log Analyti
 
 1. Assign the Contributor role to the Log Analytics scope.
 
-    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).git
 
 ## Download and install the agent
 

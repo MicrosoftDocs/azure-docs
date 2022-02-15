@@ -20,7 +20,7 @@ You can also manually grant this role from the Azure portal by performing the fo
 
 1. Assign the **Publisher** role to the **Monitoring Metrics** scope.
 
-    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Container insights is enabled but not reporting any information
 

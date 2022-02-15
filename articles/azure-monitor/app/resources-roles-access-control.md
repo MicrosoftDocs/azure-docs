@@ -48,7 +48,7 @@ The user must have a [Microsoft Account][account], or access to their [organizat
 
 1. Assign the Contributor role to the Role Based Access Control.
 
-    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).  
+    For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).  
 
 #### Select a role
 
