@@ -103,7 +103,7 @@ npm run build validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-x
 
 ## Create an Azure pipeline
 
-While npm packages can be consumed in various ways, one of the primary benefits is being consumed via [Azure Pipeline](/azure/devops/pipelines/get-started/). On each merge into your collaboration branch, a pipeline can be triggered that first validates all of the code and then exports the ARM template into a [build artifact](/azure/devops/pipelines/artifacts/build-artifacts) that can be consumed by a release pipeline. How it differs from the current CI/CD process is that you will *point your release pipeline at this artifact instead of the existing `adf_publish` branch*.
+While npm packages can be consumed in various ways, one of the primary benefits is being consumed via [Azure Pipeline](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops). On each merge into your collaboration branch, a pipeline can be triggered that first validates all of the code and then exports the ARM template into a [build artifact](/azure/devops/pipelines/artifacts/build-artifacts) that can be consumed by a release pipeline. How it differs from the current CI/CD process is that you will *point your release pipeline at this artifact instead of the existing `adf_publish` branch*.
 
 Follow these steps to get started:
 
