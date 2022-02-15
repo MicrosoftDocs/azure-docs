@@ -1,27 +1,23 @@
 ---
 title: Build advanced job schedules and recurrences
-description: Learn how to create advanced schedules and recurrences for jobs in Azure Scheduler
+description: Learn how to create advanced schedules and recurrences for jobs in Azure Scheduler.
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan
+ms.reviewer: estfan, azla
 ms.suite: infrastructure-services
-ms.topic: article
-ms.date: 11/14/2018
+ms.topic: how-to
+ms.date: 02/15/2022
 ---
 
 # Build advanced schedules and recurrences for jobs in Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
-> [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
-> To continue working with the jobs that you set up in Scheduler, please 
-> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
->
-> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
-> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
-> at this time so that you can manage your jobs and job collections.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) has replaced Azure Scheduler, which is fully deprecated since January 31, 2022. 
+> Please migrate your Azure Scheduler jobs by recreating them as workflows in Azure Logic Apps following the steps in this article. 
+> Azure Scheduler is longer available in the Azure portal. The [Azure Scheduler REST API](/rest/api/scheduler) and 
+> [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) no longer work.
 
 Within an [Azure Scheduler](../scheduler/scheduler-intro.md) job, 
 the schedule is the core that determines when and how the Scheduler 

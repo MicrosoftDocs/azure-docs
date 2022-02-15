@@ -1,26 +1,22 @@
 ---
 title: Limits, quotas, and thresholds in Azure Scheduler
-description: Learn about limits, quotas, default values, and throttle thresholds for Azure Scheduler
+description: Learn about limits, quotas, default values, and throttle thresholds for Azure Scheduler.
 services: scheduler
 ms.service: scheduler
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan
-ms.topic: article
-ms.date: 08/18/2016
+ms.reviewer: estfan, azla
+ms.topic: conceptual
+ms.date: 02/15/2022
 ---
 
 # Limits, quotas, and throttle thresholds in Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
-> [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
-> To continue working with the jobs that you set up in Scheduler, please 
-> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
->
-> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
-> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
-> at this time so that you can manage your jobs and job collections.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) has replaced Azure Scheduler, which is fully deprecated since January 31, 2022. 
+> Please migrate your Azure Scheduler jobs by recreating them as workflows in Azure Logic Apps following the steps in this article. 
+> Azure Scheduler is longer available in the Azure portal. The [Azure Scheduler REST API](/rest/api/scheduler) and 
+> [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) no longer work.
 
 ## Limits, quotas, and thresholds
 
