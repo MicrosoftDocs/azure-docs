@@ -7,7 +7,7 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 01/17/2022
+ms.date: 02/14/2022
 ms.custom: generated
 ---
 
@@ -596,7 +596,7 @@ View Virtual Machines in the portal and login as administrator [Learn more](../a
 
 ### Virtual Machine Contributor
 
-Create and manage virtual machines, manage disks and disk snapshots, install and run software, reset password of the root user of the virtual machine using VM extensions, and manage local user accounts using VM extensions. This role does not grant you management access to the virtual network or storage account the virtual machines are connected to. This role does not allow you to assign roles in Azure RBAC. [Learn more](/azure/architecture/reference-architectures/n-tier/linux-vm)
+Create and manage virtual machines, manage disks, install and run software, reset password of the root user of the virtual machine using VM extensions, and manage local user accounts using VM extensions. This role does not grant you management access to the virtual network or storage account the virtual machines are connected to. This role does not allow you to assign roles in Azure RBAC. [Learn more](/azure/architecture/reference-architectures/n-tier/linux-vm)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -839,6 +839,7 @@ Can view CDN endpoints, but can't make changes.
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/edgenodes/read |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/operationresults/* |  |
 > | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/endpoints/*/read |  |
+> | [Microsoft.Cdn](resource-provider-operations.md#microsoftcdn)/profiles/afdendpoints/validateCustomDomain/action |  |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -865,6 +866,7 @@ Can view CDN endpoints, but can't make changes.
         "Microsoft.Cdn/edgenodes/read",
         "Microsoft.Cdn/operationresults/*",
         "Microsoft.Cdn/profiles/endpoints/*/read",
+        "Microsoft.Cdn/profiles/afdendpoints/validateCustomDomain/action",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
@@ -6093,11 +6095,11 @@ Allows for access to Blockchain Member nodes [Learn more](../blockchain/service/
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Blockchain](resource-provider-operations.md#microsoftblockchain)/blockchainMembers/transactionNodes/read | Gets or Lists existing Blockchain Member Transaction Node(s). |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.Blockchain](resource-provider-operations.md#microsoftblockchain)/blockchainMembers/transactionNodes/connect/action | Connects to a Blockchain Member Transaction Node. |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -9591,6 +9593,9 @@ Microsoft Sentinel Automation Contributor [Learn more](../sentinel/roles.md)
 > | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/triggers/read | Reads the trigger. |
 > | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/triggers/listCallbackUrl/action | Gets the callback URL for trigger. |
 > | [Microsoft.Logic](resource-provider-operations.md#microsoftlogic)/workflows/runs/read | Reads the workflow run. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/triggers/read | List Web Apps Hostruntime Workflow Triggers. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/triggers/listCallbackUrl/action | Get Web Apps Hostruntime Workflow Trigger Uri. |
+> | [Microsoft.Web](resource-provider-operations.md#microsoftweb)/sites/hostruntime/webhooks/api/workflows/runs/read | List Web Apps Hostruntime Workflow Runs. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -9612,7 +9617,10 @@ Microsoft Sentinel Automation Contributor [Learn more](../sentinel/roles.md)
         "Microsoft.Authorization/*/read",
         "Microsoft.Logic/workflows/triggers/read",
         "Microsoft.Logic/workflows/triggers/listCallbackUrl/action",
-        "Microsoft.Logic/workflows/runs/read"
+        "Microsoft.Logic/workflows/runs/read",
+        "Microsoft.Web/sites/hostruntime/webhooks/api/workflows/triggers/read",
+        "Microsoft.Web/sites/hostruntime/webhooks/api/workflows/triggers/listCallbackUrl/action",
+        "Microsoft.Web/sites/hostruntime/webhooks/api/workflows/runs/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -10935,10 +10943,11 @@ List cluster user credentials action.
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/listClusterUserCredentials/action | List clusterUser credential |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/listClusterUserCredentials/action | List clusterUser credential(preview) |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Kubernetes](resource-provider-operations.md#microsoftkubernetes)/connectedClusters/listClusterUserCredential/action | List clusterUser credential |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -10964,7 +10973,8 @@ List cluster user credentials action.
         "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Support/*"
+        "Microsoft.Support/*",
+        "Microsoft.Kubernetes/connectedClusters/listClusterUserCredential/action"
       ],
       "notActions": [],
       "dataActions": [],
