@@ -11,10 +11,6 @@ ms.date: 02/14/2022
 
 This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes workload protection.
 
-Learn more about these features in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control)
-
-Defender for Cloud offers more container security features if you enable Microsoft Defender for Containers. Learn more about the benefits provided by [Microsoft Defender for Containers](defender-for-containers-introduction.md).
-
 > [!TIP]
 > For a list of the security recommendations that might appear for Kubernetes clusters and nodes, see the [Container recommendations](recommendations-reference.md#container-recommendations) of the recommendations reference table.
 
@@ -22,22 +18,22 @@ Defender for Cloud offers more container security features if you enable Microso
 
 | Aspect | Details |
 |--|--|
-| Release state: | AKS - General availability (GA) <br> Extension - Preview |
+| Release state: | AKS - General availability (GA) <br> Arc enabled Kubernetes - Preview |
 | Pricing: | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes, it's billed according to the Microsoft Defender for Containers plan |
 | Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations |
 | Environment requirements: | Kubernetes v1.14 (or newer) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
-| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+| Azure Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
+| Non-Azure Clouds, and On-prem: |  supported via Arc enabled Kubernetes. |
 |  |  |
 
 ## Set up your workload protection
 
-Microsoft Defender for Cloud includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
+Microsoft Defender for Cloud includes a bundle of recommendations that are available once you've installed the **Azure Policy add-on for Kubernetes or extensions**.
 
 ## Prerequisites
 
-Validate the following endpoints are configured for outbound access so that the Azure Policy add-on for Kubernetes can connect to Azure Policy to synchronize Kubernetes policies:
-
-See [Required FQDN/application rules for Azure policy](../aks/limit-egress-traffic.md#azure-policy) for the required FQDN/application rules.
+-  Add the [Required FQDN/application rules for Azure policy](../aks/limit-egress-traffic.md#azure-policy).
+- (For non AKS clusters) [Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 ## Enable Kubernetes workload protection
 
@@ -91,11 +87,11 @@ If you disabled any of the default protections when you enabled Microsoft Defend
 
 1. Select **Confirm**.
 
-## Manually configure the Kubernetes workload add-on or extension
+## Deploy the add-on to specified clusters
 
 You can manually configure the Kubernetes workload add-on, or extension protection through the Recommendations page. This can be accomplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters` recommendations. 
 
-**To manually deploy the add-on, or extension**:
+**To Deploy the add-on to specified clusters**:
 
 1. From the recommendations page, search for the recommendation `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters`. 
 
@@ -142,50 +138,55 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
     ||||
 
-1. For recommendations with parameters that need to be customized, set the parameters:
+For recommendations with parameters that need to be customized, you will need to set the parameters:
 
-    1. From Defender for Cloud's menu, select **Security policy**.
+**To set the parameters**:
+ 
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Environment settings**.
+
+1. Select the relevant subscription.
+
+1. From Defender for Cloud's menu, select **Security policy**.
     
-    1. Select the relevant subscription.
+1. Select the relevant assignment. ASC is selected by default.
     
-    1. From the **Defender for Cloud default policy** section, select **View effective policy**.
+1. Open the **Parameters** tab and modify the values as required.
+
+    :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modifying the parameters for one of the recommendations in the Kubernetes workload protection bundle.":::
+
+1. Select **Review + save**.
     
-    1. Select the default policy for the scope you're updating.
-    
-    1. Open the **Parameters** tab and modify the values as required.
+1. Select **Save**.
 
-        :::image type="content" source="media/kubernetes-workload-protections/containers-parameter-requires-configuration.png" alt-text="Modifying the parameters for one of the recommendations in the Kubernetes workload protection bundle.":::
+**To enforce any of the recommendations**:
 
-    1. Select **Review + save**.
-    
-    1. Select **Save**.
+1. Open the recommendation details page and select **Deny**:
 
-1. To enforce any of the recommendations, 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Deny option for Azure Policy parameter.":::
 
-    1. Open the recommendation details page and select **Deny**:
+    This will open the pane where you set the scope. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Deny option for Azure Policy parameter.":::
+1. When you've set the scope, select **Change to deny**.
 
-        This will open the pane where you set the scope. 
+**To see which recommendations apply to your clusters**:
 
-    1. When you've set the scope, select **Change to deny**.
+1. Open Defender for Cloud's [asset inventory](asset-inventory.md) page and use the resource type filter to **Kubernetes services**.
 
-1. To see which recommendations apply to your clusters:
+1. Select a cluster to investigate and review the available recommendations available for it. 
 
-    1. Open Defender for Cloud's [asset inventory](asset-inventory.md) page and use the resource type filter to **Kubernetes services**.
+When viewing a recommendation from the workload protection set, you'll see the number of affected pods ("Kubernetes components") listed alongside the cluster. For a list of the specific pods, select the cluster and then select **Take action**.
 
-    1. Select a cluster to investigate and review the available recommendations available for it. 
+:::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Viewing the affected pods for a K8s recommendation."::: 
 
-1. When viewing a recommendation from the workload protection set, you'll see the number of affected pods ("Kubernetes components") listed alongside the cluster. For a list of the specific pods, select the cluster and then select **Take action**.
+**To test the enforcement, use the two Kubernetes deployments below**:
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Viewing the affected pods for a K8s recommendation."::: 
+- One is for a healthy deployment, compliant with the bundle of workload protection recommendations.
 
-1. To test the enforcement, use the two Kubernetes deployments below:
+- The other is for an unhealthy deployment, non-compliant with *any* of the recommendations.
 
-    - One is for a healthy deployment, compliant with the bundle of workload protection recommendations.
-    - The other is for an unhealthy deployment, non-compliant with *any* of the recommendations.
-
-    Deploy the example .yaml files as-is, or use them as a reference to remediate your own workload (step VIII)  
+Deploy the example .yaml files as-is, or use them as a reference to remediate your own workload (step VIII)  
 
 
 ## Healthy deployment example .yaml file
