@@ -81,8 +81,7 @@ To complete this tutorial, you need to:
 1. On the server's home page, Select **Azure SQL Migration** extension.
 1. On the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
-1. In the first step of the migration wizard, link your Azure account if you've signed in to Azure Data Studio already or link a new Azure account.
-
+1. The first page of the wizard will allow you to start a new session or resume a previously saved one. Pick the first option to start a new session.
 ## Run database assessment and select target
 
 1. Select the database(s) to run assessment and select **Next**.
@@ -90,11 +89,15 @@ To complete this tutorial, you need to:
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
 1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**.
     :::image type="content" source="media/tutorial-sql-server-to-managed-instance-offline-ads/assessment-issues-details.png" alt-text="Database assessment details":::
-1. Specify your **target Azure SQL Managed Instance** by selecting your subscription, location, resource group from the corresponding drop-down lists and select **Next**.
+1. Click the Get **Azure recommendation** button.
+2. Pick the **Collect performance data now** option and enter a path for performance logs to be collected and click the **Start** button.
+3. Azure Data Studio will now collect performance data until you either stop the collection, press the **Next** button in the wizard or close Azure Data Studio.
+4. After 10 minutes you will see a recommended configuration for your Azure SQL Managed Instance. Click the **View details** button for more information about your recommendation. 
+5. Press the **Next** button and specify your **Azure SQL Managed Instance** by selecting your subscription, location, resource group from the corresponding drop-down lists and select **Next**.
 
 ## Configure migration settings
 
-1. Select **Online migration** as the migration mode.
+1. Select **Offline migration** as the migration mode.
     > [!NOTE]
     > In the offline migration mode, the source SQL Server database is not available for read and write activity while database backups are restored on target Azure SQL Managed Instance. Application downtime needs to be considered till the migration completes.
 1. Select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
