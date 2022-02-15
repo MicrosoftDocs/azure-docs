@@ -65,7 +65,7 @@ The binary logging format is always **ROW**, and all connections to the server *
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) to learn more about this parameter.
 
-#### Servers on [general purpose storage v1 (supporting up to 4-TB)](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb)
+#### Servers on [general purpose storage v1 (supporting up to 4 TB)](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb)
 
 |**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
@@ -83,7 +83,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 |Memory Optimized|16|65498251264|134217728|65498251264|
 |Memory Optimized|32|132070244352|134217728|132070244352|
 
-#### Servers on [general purpose storage v2 (supporting up to 16-TB)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
+#### Servers on [general purpose storage v2 (supporting up to 16 TB)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
 
 |**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
