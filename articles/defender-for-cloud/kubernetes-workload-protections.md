@@ -83,17 +83,17 @@ If you disabled any of the default protections when you enabled Microsoft Defend
 
 1. On the Advanced configuration page, toggle each relevant component to **On**.
 
-    :::image type="content" source="media/kubernetes-workload-protections/advanced-configuration.png" alt-text="Screenshot showing each option and the toggles to enable or disable them.":::
+    :::image type="content" source="media/kubernetes-workload-protections/toggles.png" alt-text="Screenshot showing each option and the toggles to enable or disable them.":::
 
 1. Select **Confirm**.
 
 ## Deploy the add-on to specified clusters
 
-You can manually configure the Kubernetes workload add-on, or extension protection through the Recommendations page. This can be accomplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters` recommendations. 
+You can manually configure the Kubernetes workload add-on, or extension protection through the Recommendations page. This can be accomplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters` recommendation. 
 
 **To Deploy the add-on to specified clusters**:
 
-1. From the recommendations page, search for the recommendation `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters`. 
+1. From the recommendations page, search for the recommendation `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`. 
 
     :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
 
@@ -150,7 +150,7 @@ For recommendations with parameters that need to be customized, you will need to
 
 1. From Defender for Cloud's menu, select **Security policy**.
     
-1. Select the relevant assignment. ASC is selected by default.
+1. Select the relevant assignment. The default assignment is `ASC default`.
     
 1. Open the **Parameters** tab and modify the values as required.
 
