@@ -142,7 +142,7 @@ You might also need to update the date or time zone of your computer. If you sel
 
 ##### Log Analytics gateway not configured
 
-Follow the steps mentioned [here](/azure/azure-monitor/agents/gateway#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
+Follow the steps mentioned [here](../../azure-monitor/agents/gateway.md#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
 
 
 ### <a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker 
