@@ -1,5 +1,5 @@
 ---
-title: Search jobs in Azure Monitor (preview)
+title: Search jobs in Azure Monitor (Preview)
 description: Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics.
 author: bwren
 ms.author: bwren
@@ -42,18 +42,19 @@ For example, if your table holds 500 GB per day, for a query on three days, you 
 > [!NOTE]
 > There is no charge for search jobs during the public preview. However, you will be charged for data ingestion.
 
-## Limits
+For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+## Limitations
 Search jobs are subject to the following limitations:
 
-- Date range of up to one year.
-- Execution of up to 24 hours.
-- 1 million records in the result set.
-- Concurrent execution of up to five search jobs per workspace.
-- 100 search job executions per day per workspace.
-- 100 existing search results tables per workspace.
+- Optimized to query one table at a time.
+- Search date range is up to one year.
+- Supports long running searches up to a 24-hour time-out.
+- Results are limited to one million records in the record set.
+- Concurrent execution is limited to five search jobs per workspace.
+- Limited to 100 search results tables per workspace.
+- Limited to 100 search job executions per day per workspace. 
 
 When you reach the record limit, Azure aborts the job with a status of *partial success*, and the table will contain only records ingested up to that point. 
-
 
 ## KQL language limits
 Log queries in a search job are intended to scan very large sets of data. To support distribution and segmentation, the queries use a subset of KQL, including the operators: 
@@ -81,14 +82,12 @@ The search job table schema is based on the source table schema and the specifie
 | _OriginalTimeGenerated | *TimeGenerated* value from source table. |
 | TimeGenerated          | Time at which the search job retrieved the record from the original table. |
 
-## Create a search job using API
-Call the **Tables - Create** or **Tables - Update** API to create a search job. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
+## Create a search job
+Call the **Tables - Create** or **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#run-a-search-job) to run a search job. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
  
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
-
-
 
 ### Request Body
 Include the following values in the body of the request:
@@ -99,7 +98,6 @@ Include the following values in the body of the request:
 |properties.searchResults.limit | integer  | Maximum number of records in the result set, up to one million records. (Optional)|
 |properties.searchResults.startSearchTime | string  |Start of the time range to restore. |
 |properties.searchResults.endSearchTime | string  | End of the time range to restore. |
-
 
 
 ### Sample Request

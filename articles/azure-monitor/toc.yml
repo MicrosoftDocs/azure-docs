@@ -278,7 +278,7 @@ items:
         href: logs/move-workspace-region.md
       - name: Configure Basic Logs
         href: logs/basic-logs-configure.md
-      - name: Set retention and archive
+      - name: Set retention and archive policy
         href: logs/data-retention-archive.md
       - name: Run a search job
         href: logs/search-jobs.md

@@ -10,19 +10,14 @@ ms.date: 01/27/2022
 ---
 
 # Query Basic Logs in Azure Monitor (Preview)
-Basic Logs is a feature of Azure Monitor that reduces the cost for high-volume verbose logs that don’t require analytics and alerts. Tables in a Log Analytics workspace that are configured as Basic logs have a reduced cost for ingestion with limitations on log queries and other Azure Monitor features. This article describes how to query data from tables configured for Basic Logs. This includes guidance for running queries from Log Analytics in the Azure portal and from the Log Analytics REST API.
+Basic Logs reduce the cost of high-volume verbose logs you don’t need for analytics and alerts. Basic Logs have reduced charges for ingestion and limitations on log queries and other Azure Monitor features. This article describes how to query data from tables configured for Basic Logs in the Azure portal and using the Log Analytics REST API. 
 
-### Cost
-Log queries on Basic Logs are charged according to the amount of data they scan, not just the amount of data they return. For example, If a query is scanning three days of data for a table that ingests 100 GB/day, it would be charged on 300 GB. Calculation is based on chunks of up to one day of data. 
-
-> [!NOTE]
-> During the preview period, there is no cost for log queries on Basic Logs.
-
+Note that other tools that use the Azure API for querying - for example, Grafana and PowerBI - cannot access Basic Logs. 
 
 ## Limits
 Queries with Basic Logs are subject to the following limitations:
 ### KQL language limits
-Log queries against Basic Logs are intended for simple data retrieval and use a subset of the KQL language, including the following operators: 
+Log queries against Basic Logs are optimized for simple data retrieval using a subset of KQL language, including the following operators: 
 
 - [where](/azure/data-explorer/kusto/query/whereoperator)
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
@@ -34,19 +29,19 @@ Log queries against Basic Logs are intended for simple data retrieval and use a 
 - [parse](/azure/data-explorer/kusto/query/parseoperator)
 - [parse-where](/azure/data-explorer/kusto/query/parsewhereoperator)
 
-All functions and binary operators are supported when used within these operators.
+You can use all functions and binary operators within these operators.
 
 ### Time range
-The time range must be specified in the query header in Log Analytics or in the API call. You can't specify the time range in the query body using a **where** statement.
+Specify the time range in the query header in Log Analytics or in the API call. You can't specify the time range in the query body using a **where** statement.
 
 ### Query context
 Queries with Basic Logs must use a workspace for the scope. You can't run queries using another resource for the scope. For more details, see [Log query scope and time range in Azure Monitor Log Analytics](scope.md).
 
 ### Concurrent queries
-Up to only 2 concurrent queries are supported per user. 
+You can run two concurrent queries per user. 
 
 ### Purge
-[Purge](personal-data-mgmt.md#how-to-export-and-delete-private-data) is not supported on Basic Logs tables. 
+You cannot [purge personal data](personal-data-mgmt.md#how-to-export-and-delete-private-data) from Basic Logs tables. 
 
 
 ## Run a query from the Azure portal
@@ -61,7 +56,7 @@ You can also hover over a table name for the table information view. This will s
 ![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png)
 
 
-When you add a table to the query, Log Analytics will identify a Basic Logs table an align the authoring experience accordingly. The following example shows when you attempt to use an operator that isn't supported by Basic Logs.
+When you add a table to the query, Log Analytics will identify a Basic Logs table and align the authoring experience accordingly. The following example shows when you attempt to use an operator that isn't supported by Basic Logs.
 
 ![Screenshot of Query on Basic Logs limitations.](./media/basic-logs-query/query-validator.png)
 
@@ -84,6 +79,13 @@ https://api.loganalytics.io/v1/workspaces/testWS/search?timespan=P1D
 }
 ```
 
+## Costs
+The charge for a query on Basic Logs is based on the amount of data the query scans, not just the amount of data the query returns. For example, a query that scans three days of data in a table that ingests 100 GB each day, would be charged for 300 GB. Calculation is based on chunks of up to one day of data. 
+
+For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+> [!NOTE]
+> During the preview period, there is no cost for log queries on Basic Logs.
 
 ## Next steps
 
