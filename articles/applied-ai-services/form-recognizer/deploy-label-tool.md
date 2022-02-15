@@ -9,7 +9,8 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: lajanuar
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Deploy the Sample Labeling tool
