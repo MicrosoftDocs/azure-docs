@@ -55,7 +55,7 @@ When you enable Microsoft Defender for Containers, Azure Kubernetes Service clus
 
 1. On the Advanced configuration page, toggle each relevant component to **On**.
 
-    :::image type="content" source="media/kubernetes-workload-protections/advanced-configuration.png" alt-text="Screenshot showing each option and the toggles to enable or disable them.":::
+    :::image type="content" source="media/kubernetes-workload-protections/advanced-configuration.png" alt-text="Screenshot showing the toggles used to enable or disable them.":::
 
 1. Select **Save**.
 
