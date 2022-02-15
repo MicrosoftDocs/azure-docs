@@ -13,7 +13,7 @@ ms.date: 02/15/2022
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article discusses how to enable materialized views. 
 
 ## Materialized view support
-Materialized views are disabled by default, but users can enable them on their cluster. However, we discourage users of Azure Managed Instances for Apache Cassandra from using materialized views. They are experimental (see
+Materialized views are disabled by default, but users can enable them on their cluster. However, we discourage users of Azure Managed Instance for Apache Cassandra from using materialized views. They are experimental (see
 [Materialized Views marked experimental-Apache Mail Archives](https://lists.apache.org/thread/o5bk8xyxyl6k3sjf7kkblqw52gm5s9mp) and the [proposal to do so](https://www.mail-archive.com/dev@cassandra.apache.org/msg11516.html)). In particular:
 
 - The implementation of materialized views is distributed system design that
@@ -47,7 +47,7 @@ ENCODED_FRAGMENT=$(echo "$FRAGMENT" | base64 -w 0)
 resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
-az managed-cassandra datacenter \
+az managed-cassandra datacenter update \
     --resource-group $resourceGroupName \
 	--cluster-name $clusterName \
 	--data-center-name $dataCenterName \
