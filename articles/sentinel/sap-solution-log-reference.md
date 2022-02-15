@@ -556,8 +556,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ## HANA DB Audit Trail
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
-
+To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](connect-syslog.md) to gather Syslog data from the machine running HANA DB.
 
 - **Name in Microsoft Sentinel**: `Syslog`
 
