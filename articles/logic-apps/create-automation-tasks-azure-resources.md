@@ -286,7 +286,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 ## Create automation task template from workflow
 
-You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring or event-based trigger. For this task, you'll need the following items:
+You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring or event-based trigger, but not HTTP-based triggers or HTTP-based webhook triggers. For this task, you'll need the following items:
 
 * A [GitHub](https://github.com) account
 
@@ -319,7 +319,7 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
 ### Export workflow to automation task template
 
-1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. Make sure that the workflow starts with a recurring or event-based trigger.
+1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. Make sure that the workflow starts with a recurring or event-based trigger, not an HTTP-based trigger or HTTP-based webhook trigger.
 
 1. On the logic app resource menu, select **Overview**.
 
