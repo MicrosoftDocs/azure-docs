@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Create and compose custom models v3.0 | Preview
+# Compose custom models v3.0 | Preview
 
 > [!NOTE]
 > This how-to guide references Form Recognizer v3.0 (preview). To use Form Recognizer v2.1 (GA), see [Create and compose custom models v2.1 (GA)](compose-custom-models.md).
@@ -268,7 +268,7 @@ Try one of our quickstarts to get started using Form Recognizer preview
 > [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md)
 
 > [!div class="nextstepaction"]
-> [REST API](/quickstarts/try-v3-rest-api.md)
+> [REST API](quickstarts/try-v3-rest-api.md)
 
 > [!div class="nextstepaction"]
 > [C#](quickstarts/try-v3-csharp-sdk.md)
