@@ -1,6 +1,6 @@
 ---
-title: REST API error codes - Azure Key Vault
-description: These error codes could be returned by an operation on an Azure Key Vault web service.
+title: Secure key release policy grammar
+description: Secure key release policy grammar
 keywords: 
 services: key-vault
 author: msmbaldwin
@@ -12,6 +12,6 @@ ms.topic: reference
 ms.date: 02/15/2022
 ---
  
-# Policy grammar
+# Secure key release policy grammar
 
 [!INCLUDE [Policy grammar](../../../includes/key-management-policy-grammar.md)]

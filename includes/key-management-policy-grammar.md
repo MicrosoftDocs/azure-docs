@@ -6,7 +6,7 @@ ms.date: 02/15/2022
 ms.author: mbaldwin
 ---
 
-The following is a simplified EBNF grammar for Secure Key Release policy, which itself is modelled on Azure Policy:
+The following is a simplified EBNF grammar for secure key release policy, which itself is modelled on [Azure Policy](/azure/governance/policy/)
 
 ```json
 (* string and number from JSON *)
@@ -251,4 +251,4 @@ An Environment Assertion is a signed assertion, in JSON Web Token form, from a t
 - The TEE keys claim (x-ms-runtime-claims/keys). This claim is a JSON object representing a JSON Web Key Set .
 - The Enclave Held Data claim (maa-ehd ) claim. The maa-ehd claim is expected to contain a string that is the Base64 URL encoding of an array of octets that contain a JSON document; within this document, AKV requires that there be a keys element containing a JSON Web Key Set.
 
-Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.I
+Within the JWKS, one of the keys must meet the requirements for use as an encryption key (key_use is "enc", or key_ops contains "encrypt"). The first suitable key is chosen.
