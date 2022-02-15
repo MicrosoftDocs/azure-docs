@@ -55,7 +55,7 @@ The following table lists the features of Azure SQL Managed Instance that have t
 |[Linked server - managed identity Azure AD authentication](/sql/relational-databases/system-stored-procedures/sp-addlinkedserver-transact-sql#h-create-sql-managed-instance-linked-server-with-managed-identity-azure-ad-authentication) |November 2021 | Create a linked server with managed identity authentication for your Azure SQL Managed Instance.|
 |[Linked server - pass-through Azure AD authentication](/sql/relational-databases/system-stored-procedures/sp-addlinkedserver-transact-sql#i-create-sql-managed-instance-linked-server-with-pass-through-azure-ad-authentication) |November 2021 | Create a linked server with pass-through Azure AD authentication for your Azure SQL Managed Instance. |
 |[Long-term backup retention](long-term-backup-retention-configure.md) |November 2021 | Store full backups for a specific database with configured redundancy for up to 10 years in Azure Blob storage, restoring the database as a new database. |
-| [Maintenance window](../database/maintenance-window.md)| The maintenance window feature allows you to configure maintenance schedule for your Azure SQL Managed Instance. Advance notifications, however, are in preview for Azure SQL Managad Instance.|
+| [Maintenance window](../database/maintenance-window.md)| The maintenance window feature allows you to configure maintenance schedule for your Azure SQL Managed Instance. [Maintenance window advance notifications](../database/advance-notifications.md), however, are in preview for Azure SQL Managed Instance.|
 |[Move instance to different subnet](vnet-subnet-move-instance.md)| November 2021 | Move SQL Managed Instance to a different subnet using the Azure portal, Azure PowerShell or the Azure CLI.  |
 |[Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. |
 |[Granular permissions for dynamic data masking](../database/dynamic-data-masking-overview.md)| March 2021 | Dynamic data masking helps prevent unauthorized access to sensitive data by enabling customers to designate how much of the sensitive data to reveal with minimal impact on the application layer. It's a policy-based security feature that hides the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. It's now possible to assign granular permissions for data that's been dynamically masked. To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). |
@@ -65,6 +65,13 @@ The following table lists the features of Azure SQL Managed Instance that have t
 ## Documentation changes
 
 Learn about significant changes to the Azure SQL Managed Instance documentation.
+
+### March 2022
+
+| Changes | Details |
+| --- | --- |
+| **GA for maintenance window** | The [maintenance window](maintenance-window.md) feature allows you to configure a maintenance schedule for your Azure SQL Database and receive advance notifications of maintenance windows. [Maintenance window advance notifications](../database/advance-notifications.md) (preview) are available for databases configured to use a non-default [maintenance window](maintenance-window.md). | 
+| | | 
 
 ### November 2021
 

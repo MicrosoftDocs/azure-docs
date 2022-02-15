@@ -49,14 +49,22 @@ The following table lists the features of Azure SQL Database that have transitio
 | [Azure Active Directory-only authentication](authentication-azure-ad-only-authentication.md) | November 2021 | It's possible to configure your Azure SQL Database to allow authentication only from Azure Active Directory. | 
 | [AAD service principal](authentication-aad-service-principal.md) |  September 2021 | Azure Active Directory (Azure AD) supports user creation in Azure SQL Database on behalf of Azure AD applications (service principals).| 
 | [Audit management operations](../database/auditing-overview.md#auditing-of-microsoft-support-operations) |  March 2021 | Azure SQL audit capabilities enable you  you to audit operations done by Microsoft support engineers when they need to access your SQL assets during a support request, enabling more transparency in your workforce. | 
-| [Maintenance window advance notifications](../database/advance-notifications.md)| Advance notifications (Preview) are available for databases configured to use a non-default [maintenance window](maintenance-window.md). |
-| [Maintenance window feature](maintenance-window.md) |  The maintenance window feature allows you to configure a maintenance schedule for your Azure SQL Database and receive advance notifications of maintenance windows.  | 
+| [Maintenance window](maintenance-window.md) |  The maintenance window feature allows you to configure a maintenance schedule for your Azure SQL Database and receive advance notifications of maintenance windows.  | 
+| [Maintenance window advance notifications](../database/advance-notifications.md)| Advance notifications are available for databases configured to use a non-default [maintenance window](maintenance-window.md). |
 |||| 
 
 
 ## Documentation changes
 
 Learn about significant changes to the Azure SQL Database documentation.
+
+### March 2022
+
+| Changes | Details |
+| --- | --- |
+| **GA for maintenance window and advance notifications ** | The [maintenance window](maintenance-window.md) feature allows you to configure a maintenance schedule for your Azure SQL Database and receive advance notifications of maintenance windows. [Maintenance window advance notifications](../database/advance-notifications.md) are available for databases configured to use a non-default [maintenance window](maintenance-window.md).| 
+| | | 
+
 
 ### November 2021
 
@@ -91,7 +99,7 @@ Learn about significant changes to the Azure SQL Database documentation.
 
 | Changes | Details |
 | --- | --- |
-| **Query store hints** | It's now possible to use query hints to optimize your query execution via the OPTION clause. This feature is currently in preview. To learn more, see [Query store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-current&preserve-view=true). | 
+| **Query Store hints** | It's now possible to use query hints to optimize your query execution via the OPTION clause. This feature is currently in preview. To learn more, see [Query store hints](/sql/relational-databases/performance/query-store-hints?view=azuresqldb-current&preserve-view=true). | 
 |||
 
 ### May 2021
