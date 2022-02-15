@@ -28,15 +28,17 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Prerequisites
 
-+ An [Azure Cosmos DB account, database, container and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). We recommend using the same region or location for both Azure Cognitive Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
++ An [Azure Cosmos DB account, database, container and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Cosmos DB for lower latency and to avoid any bandwidth charges.
 
-+ An [indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, enabled and set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration for Cosmos DB. Indexing collections with a Lazy indexing policy isn't recommended and may result in missing data. Collections with indexing disabled aren't supported.
++ An [automatic indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
-+ In Azure Cognitive Search, use either the [Import data wizard](search-import-data-portal.md) or the [preview REST API version](search-api-preview.md) 2020-06-30-Preview or 2021-04-30-Preview to index using Gremlin. Currently, there is no SDK support.
++ In Azure Cognitive Search, use either the [Import data wizard](search-import-data-portal.md) or a REST client, such as [Postman](search-get-started-rest.md) or the [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. Currently, there is no SDK support.
 
 ## Define the data source
 
 The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
+
+For this call, specify a [preview REST API version](search-api-preview.md) (2020-06-30-Preview or 2021-04-30-Preview) to create a data source that connects using the Gremlin API.
 
 1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition: 
 
@@ -61,7 +63,7 @@ The data source definition specifies the data to index, credentials, and policie
 
 1. Set "container" to the collection. The "name" property is required and it specifies the ID of the graph. The "query" property is optional. The query default is `g.V()`. To index the edges, set the query to `g.E()`.
 
-1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs. Incremental progress will be enabled by default using `_ts` as the high water mark column.
+<!-- 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs. Incremental progress will be enabled by default using `_ts` as the high water mark column. -->
 
 1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted.
 

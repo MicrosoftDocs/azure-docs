@@ -20,9 +20,9 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Prerequisites
 
-+ An [Azure Cosmos DB account, database, container and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). We recommend using the same region or location for both Azure Cognitive Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
++ An [Azure Cosmos DB account, database, container and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Cosmos DB for lower latency and to void any bandwidth charges.
 
-+ An [indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, enabled and set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration for Cosmos DB. Indexing collections with a Lazy indexing policy isn't recommended and may result in missing data. Collections with indexing disabled aren't supported.
++ An [automatic indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
 ## Define the data source
 

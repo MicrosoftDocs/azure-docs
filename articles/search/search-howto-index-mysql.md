@@ -16,7 +16,7 @@ ms.date: 01/27/2022
 # Index data from Azure Database for MySQL
 
 > [!IMPORTANT] 
-> MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API](search-api-preview.md) (2020-06-30-preview or later) to index your content. There is currently no SDK or portal support.
+> MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). </p>Use a [preview REST API](search-api-preview.md) (2020-06-30-preview or later) to index your content. There is currently no SDK or portal support.
 
 Configure a [search indexer](search-indexer-overview.md) to extract content from Azure Database for MySQL and make it searchable in Azure Cognitive Search. The indexer will crawl your MySQL database on Azure, extract searchable data, and index it in Azure Cognitive Search. When configured to include a high water mark and soft deletion, the indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index.
 
@@ -26,9 +26,9 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + [Azure Database for MySQL](../mysql/overview.md) ([single server](../mysql/single-server-overview.md)).
 
-+ A table or view that provides the content. A primary key is required. If you're using a view, it must have a high water mark column.
++ A table or view that provides the content. A primary key is required. If you're using a view, it must have a [high water mark column](#DataChangeDetectionPolicy).
 
-+ A REST API client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to create the data source, index, and indexer.
++ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer.
 
 + [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
 
@@ -38,7 +38,7 @@ Currently, change tracking and deletion detection aren't working if the date or 
 
 The preview doesn’t support geometry types and blobs.
 
-As noted, there’s no portal or SDK support for indexer creation, but a MySQL indexer and data source can be managed in the portal once they exist.
+As noted, there’s no portal or SDK support for indexer creation, but a MySQL indexer and data source can be managed in the portal once they exist. For example, you can edit the definitions, and reset, run, or schedule the indexer.
 
 ## Define the data source
 
@@ -155,33 +155,36 @@ If your data source meets the requirements for change and deletion detection, th
 
 ### High Water Mark Change Detection policy
 
-This change detection policy relies on a "high water mark" column capturing the version or time when a row was last updated. If you're using a view, you must use a high water mark policy. The high water mark column must meet the following requirements.
+An indexer's change detection policy relies on having a "high water mark" column that captures the row version, or the date and time when a row was last updated. It's often a DATE, DATETIME, or TIMESTAMP column at a granularity sufficient for meeting the requirements of a high water mark column. 
 
-#### Requirements 
+In your MySQL database, the high water mark column must meet the following requirements:
 
-+ All inserts specify a value for the column.
++ All data inserts must specify a value for the column.
 + All updates to an item also change the value of the column.
 + The value of this column increases with each insert or update.
 + Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
-#### Usage
-
-To use a high water mark policy, create or update your data source like this:
+To set a high water mark policy in your indexer data source, create or update your data source like this:
 
 ```http
-{
-    "name" : "[Data source name]",
-    "type" : "mysql",
-    "credentials" : { "connectionString" : "[connection string]" },
-    "container" : { "name" : "[table or view name]" },
-    "dataChangeDetectionPolicy" : {
-        "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName" : "[last_updated column name]"
+POST https://[search service name].search.windows.net/datasources?api-version=2020-06-30-Preview
+Content-Type: application/json
+api-key: [admin key]
+    {
+        "name" : "[Data source name]",
+        "type" : "mysql",
+        "credentials" : { "connectionString" : "[connection string]" },
+        "container" : { "name" : "[table or view name]" },
+        "dataChangeDetectionPolicy" : {
+            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+            "highWaterMarkColumnName" : "[last_updated column name]"
+        }
     }
-}
 ```
 
-> [!WARNING]
+> [!IMPORTANT]
+> If you're using a view, you must set a high water mark policy in your indexer data source. 
+>
 > If the source table does not have an index on the high water mark column, queries used by the MySQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
 
 <a name="DataDeletionDetectionPolicy"></a>

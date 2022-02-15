@@ -1,7 +1,7 @@
 ---
-title: Create a managed identity
+title: Connect using a managed identity
 titleSuffix: Azure Cognitive Search
-description: Create a managed identity for your search service for Azure Active Directory authentication to other cloud services.
+description: Create a managed identity for your search service and use Azure Active Directory authentication and role-based-access controls for connections to other cloud services.
 
 manager: nitinme
 author: HeidiSteen

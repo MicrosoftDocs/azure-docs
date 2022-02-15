@@ -21,13 +21,17 @@ You can use a system-assigned managed identity or a user-assigned managed identi
 Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
 
 * [Indexer overview](search-indexer-overview.md)
-* [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
+* [Azure Cosmos DB indexer (SQL API)](search-howto-index-cosmosdb.md)
+* [Azure Cosmos DB indexer (MongoDB API - preview)](search-howto-index-cosmosdb-mongodb.md)
+* [Azure Cosmos DB indexer (Gremlin API - preview)](search-howto-index-cosmosdb-gremlin.md)
 
 ## Prerequisites
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role). For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request.
+* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Cosmos DB. For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request.
+
+The easiest way to test the connection is using the [Import data wizard](search-import-data-portal.md). The wizard supports data source connections for both system and user managed identities.
 
 ## Create the data source
 
