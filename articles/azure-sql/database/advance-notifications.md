@@ -10,7 +10,7 @@ ms.topic: how-to
 author: scott-kim-sql
 ms.author: scottkim
 ms.reviewer: kendralittle, mathoma, wiassaf
-ms.date: 03/07/2022
+ms.date: 03/02/2022
 ---
 # Advance notifications for planned maintenance events (Preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
