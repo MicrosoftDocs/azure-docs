@@ -1,8 +1,6 @@
 ---
 title: Configure a micro agent twin
 description: Learn how to configure a micro agent twin.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: how-to
 ms.date: 01/16/2022
 ---
