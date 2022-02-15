@@ -1,6 +1,6 @@
 ---
-title: Create and deploy applications using PowerShell
-description: How to create and deploy applications using PowerShell
+title: Create and deploy applications in Azure Spring Cloud using PowerShell
+description: How to create and deploy applications in Azure Spring Cloud using PowerShell
 author: karlerickson
 ms.author: karler
 ms.topic: conceptual
@@ -23,9 +23,9 @@ before you begin.
 [!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
 
    > [!IMPORTANT]
-   > While the **Az.SpringCloud** PowerShell module is in preview, you must install it separately using
+   > While the **Az.SpringCloud** PowerShell module is in preview, you must install it using
    > the `Install-Module` cmdlet. After this PowerShell module becomes generally available, it will be
-   > part of future Az PowerShell module releases and available by default from within Azure Cloud
+   > part of future Az PowerShell releases and available by default from within Azure Cloud
    > Shell.
 
    ```azurepowershell-interactive
