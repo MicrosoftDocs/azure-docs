@@ -1,19 +1,17 @@
 ---
 title: Kubernetes failover scenarios on a clustered Azure Stack Edge Pro GPU, Pro R, Mini R device
-description: Describes Kubernetes failover scenarios and the device responses on your Azure Stack Edge Pro GPU, Pro R, Mini R 2-node cluster device.
+description: Describes Kubernetes failover scenarios and the device responses on your Azure Stack Edge Pro GPU 2-node cluster device.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/07/2021
+ms.date: 02/15/2022
 ms.author: alkohli
 ---
 
 # Kubernetes failover scenarios on a clustered Azure Stack Edge device
-
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Kubernetes cluster is deployed is a popular open-source platform to orchestrate containerized applications. This article describes how Kubernetes works on your 2-node Azure Stack Edge device including the failure modes and the corresponding device responses. 
 
@@ -33,14 +31,14 @@ The Kubernetes cluster comprises of a master node and worker nodes. The Kubernet
 
 The Kubernetes cluster on the 2-node device has one master node and two worker nodes. The 2-node device is highly available and if one of the node fails, both the device and the Kubernetes cluster keep running. For more information on the Kubernetes cluster architecture, go to [Kubernetes core concepts](https://kubernetes.io/docs/concepts/architecture/).
 
-The following diagram illustrates the implementation of Kubernetes on a 2-node Azure Stack Edge device.
+<!--The following diagram illustrates the implementation of Kubernetes on a 2-node Azure Stack Edge device.-->
 
 <!-- update this diagram-->
 
-![Kubernetes architecture for a 2-node Azure Stack Edge device](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-workloads-infrastructure-cluster.png)
+<!--![Kubernetes architecture for a 2-node Azure Stack Edge device](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-workloads-infrastructure-cluster.png)-->
 
  
-The Kubernetes master VM and a Kubernetes worker VM are running on node A of your device. On the node B, a single Kubernetes worker VM is running.
+On a 2-node Azure Stack Edge device, the Kubernetes master VM and a Kubernetes worker VM are running on node A of your device. On the node B, a single Kubernetes worker VM is running.
 
 Each worker VM in the Kubernetes cluster, is a pinned Hyper-V VM. A pinned VM is tied to the specific node it is running on. If the node A on the device fails, the master VM fails over to node B. But the worker VM on node A which is a pinned VM does not fail over to node B and vice-versa. Instead, the pods from the worker VM on node A are rebalanced onto node B. 
 

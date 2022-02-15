@@ -29,7 +29,7 @@ For more information, see [How Kubernetes works](https://www.youtube.com/watch?v
 
 On your Azure Stack Edge device, you can create a Kubernetes cluster by configuring the compute. When the compute role is configured, the Kubernetes cluster including the master and worker nodes are all deployed and configured for you. This cluster is then used for workload deployment via `kubectl`, IoT Edge, or Azure Arc.
 
-The Azure Stack Edge device is available as a 1-node configuration or a 2-node configuration that constitutes the infrastructure cluster. The Kubernetes cluster is separate from the infrastructure cluster and is deployed on top of the infrastructure cluster. The infrastructure cluster provides the persistent storage for your Azure Stack Edge device while the Kubernetes cluster is responsible solely for application orchestration. 
+The Azure Stack Edge device is available as a 1-node configuration or a 2-node configuration (for Pro GPU model only) that constitutes the infrastructure cluster. The Kubernetes cluster is separate from the infrastructure cluster and is deployed on top of the infrastructure cluster. The infrastructure cluster provides the persistent storage for your Azure Stack Edge device while the Kubernetes cluster is responsible solely for application orchestration. 
 
 The Kubernetes cluster has master node and worker nodes. The Kubernetes nodes in a cluster are virtual machines that run your applications and cloud workflows. 
 
@@ -43,10 +43,10 @@ The following diagram illustrates the implementation of Kubernetes on a 1-node A
 
 ### Kubernetes cluster on two-node device
 
-The following diagram illustrates the implementation of Kubernetes on a 2-node Azure Stack Edge device. The 2-node device has one master node and two worker nodes. The 2-node device is highly available and if one of the node fails, the master node fails over to the other node. Both the device and the Kubernetes cluster keep running. 
+<!--The following diagram illustrates the implementation of Kubernetes on a 2-node Azure Stack Edge device.--> The 2-node Azure Stack Edge device has one master node and two worker nodes. The 2-node device is highly available and if one of the node fails, the master node fails over to the other node. Both the device and the Kubernetes cluster keep running. 
 
 
-![Kubernetes architecture for a 2-node Azure Stack Edge device](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-workloads-infrastructure-cluster.png)
+<!--![Kubernetes architecture for a 2-node Azure Stack Edge device](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-workloads-infrastructure-cluster.png)-->
 
 For more information on the Kubernetes cluster architecture, go to [Kubernetes core concepts](https://kubernetes.io/docs/concepts/architecture/).
 

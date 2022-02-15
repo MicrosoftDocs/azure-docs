@@ -63,6 +63,8 @@
         href: azure-stack-edge-gpu-cluster-failover-scenarios.md
       - name: Cluster management
         href: azure-stack-edge-gpu-manage-cluster.md
+      - name: Kubernetes failover on clustered device
+        href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
 
 - name: Azure Stack Edge Pro R
   items:
@@ -287,8 +289,6 @@
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
         href: azure-stack-edge-gpu-kubernetes-workload-management.md
-      - name: Kubernetes failover scenarios
-        href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
       - name: Deploy Kubernetes workloads
         items:
         - name: Via kubectl
