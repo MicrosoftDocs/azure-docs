@@ -155,19 +155,19 @@ One solution is to not run the app as elevated, if possible. Another solution is
 
 ### "WAM Account Picker did not return an account" error message
 
-This indicates that either the end-user of the application closed the dialog which displays accounts, or that the dialog itself crashed. A crash can occur if the AccountsControl, a Windows control, is badly registered in Windows. To repair this component, follow these steps: 
+This message indicates that either the application user closed the dialog that displays accounts, or the dialog itself crashed. A crash might occur if AccountsControl, a Windows control, is registered incorrectly in Windows. To resolve this issue: 
 
-1. Right-click the Windows icon in your task bar, and then select Windows PowerShell (Admin).
-1. If you're prompted by a User Account Control (UAC) window, select Yes to start PowerShell.
-1. Copy and execute the followin script
+1. In the taskbar, right-click **Start**, and then select **Windows PowerShell (Admin)**.
+1. If you're prompted by a User Account Control (UAC) dialog, select **Yes** to start PowerShell.
+1. Copy and then run the following script:
 
-```powershell
-if (-not (Get-AppxPackage Microsoft.AccountsControl)) { Add-AppxPackage -Register "$env:windir\SystemApps\Microsoft.AccountsControl_cw5n1h2txyewy\AppxManifest.xml" -DisableDevelopmentMode -ForceApplicationShutdown } Get-AppxPackage Microsoft.AccountsControl
-```
+   ```powershell
+   if (-not (Get-AppxPackage Microsoft.AccountsControl)) { Add-AppxPackage -Register "$env:windir\SystemApps\Microsoft.AccountsControl_cw5n1h2txyewy\AppxManifest.xml" -DisableDevelopmentMode -ForceApplicationShutdown } Get-AppxPackage Microsoft.AccountsControl
+   ```
 
 ### Connection issues
 
-The end-user of the application is displayed an error message along the lines of "Please check your connection and try again". If this issue occurs regularly, please [see the  troubleshooting guide for Office](https://docs.microsoft.com/en-us/office365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses WAM.
+The application user sees an error message similar to "Please check your connection and try again". If this issue occurs regularly, see the [troubleshooting guide for Office](/office365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses WAM.
 
 ## Sample
 
