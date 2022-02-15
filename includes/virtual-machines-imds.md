@@ -1175,6 +1175,8 @@ You can find the intermediate certificates in the [PKI repository](https://www.m
 > The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
 If you pinned the intermediate certificates for Azure China as part of a root chain authority change, the intermediate certificates must be updated.
 
+> [!NOTE]
+Starting February 2022, our attested data certificates are migrating from SSIAdminV2 to Microsoft PKI. Due to this, the root CA will change from Baltimore to DigiCert Global G2 CA. If you have the Baltimore cert pinned or other intermediate certificates listed in **[this post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953)** please follow the instructions listed in the post immediately to prevent any distruptions by using the Attested Data endpoint.
 
 ## Managed identity
 
