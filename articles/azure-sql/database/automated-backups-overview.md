@@ -219,9 +219,6 @@ For more details about backup storage pricing visit [Azure SQL Database pricing 
 > [!IMPORTANT]
 > Backup storage redundancy for Hyperscale can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
 
-> [!NOTE]
-> Backup storage redundancy for Hyperscale is currently in preview. 
-
 ### Monitor costs
 
 To understand backup storage costs, go to **Cost Management + Billing** in the Azure portal, select **Cost Management**, and then select **Cost analysis**. Select the desired subscription as the **Scope**, and then filter for the time period and service that you're interested in as follows:
