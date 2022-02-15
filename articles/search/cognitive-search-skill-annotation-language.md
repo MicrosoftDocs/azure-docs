@@ -234,9 +234,9 @@ When used inside an expression, paths should be enclosed between `"$("` and `")"
 |---|---|
 |`=true&&true`|`true`|
 |`=true&&false`|`false`|
-|`=true\|\|true`|`true`|
-|`=true\|\|false`|`true`|
-|`=false\|\|false`|`false`|
+|`=true||true`|`true`|
+|`=true||false`|`true`|
+|`=false||false`|`false`|
 |`=true^false`|`true`|
 |`=true^true`|`false`|
 
