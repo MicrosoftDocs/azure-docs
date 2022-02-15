@@ -149,7 +149,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
 ## Create an Active Directory connection
 
-1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
+1. From your NetApp account, select **Active Directory connections**, then select **Join**.  
 
     Azure NetApp Files supports only one Active Directory connection within the same region and the same subscription. If Active Directory is already configured by another NetApp account in the same subscription and region, you cannot configure and join a different Active Directory from your NetApp account. However, you can enable the Shared AD feature to allow an Active Directory configuration to be shared by multiple NetApp accounts within the same subscription and the same region. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad).
 
@@ -324,7 +324,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         ![Active Directory credentials](../media/azure-netapp-files/active-directory-credentials.png)
 
-3. Click **Join**.  
+3. Select **Join**.  
 
     The Active Directory connection you created appears.
 
