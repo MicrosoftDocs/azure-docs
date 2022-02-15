@@ -4,11 +4,11 @@ description: This tutorial demonstrates how to deploy a Spring Boot application 
 author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: java
+ms.devlang: java, azurecli
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: jroth
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli
 ---
 
 # Tutorial - Spring Boot Application with Azure Cosmos DB SQL API and Azure Kubernetes Service
