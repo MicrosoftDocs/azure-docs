@@ -26,8 +26,6 @@ landingContent:
         links:
           - text: What is Azure Spring Cloud?
             url: overview.md
-          - text: Understanding Azure Spring Cloud quotas and limits
-            url: quotas.md
 
   # Card (optional)
   - title: Get started
@@ -36,26 +34,24 @@ landingContent:
         links:
           - text: Quickstart - Deploy your first application in Azure Spring Cloud
             url: quickstart.md
-          - text: Introduction to the sample app
-            url: quickstart-sample-app-introduction.md
-      - linkListType: tutorial
-        links:
-          - text: Prepare an application for deployment in Azure Spring Cloud
-            url: how-to-prepare-app-deployment.md
-
-  # Card (optional)
-  - title: Configure your service
+ 
+ # Card (optional)
+  - title: Develop and deploy apps
     linkLists:
-      - linkListType: quickstart
+      - linkListType: how-to-guide
         links:
-          - text: Set up Azure Spring Cloud Config Server
-            url: quickstart-setup-config-server.md
-      - linkListType: tutorial
-        links:
-          - text: Set up a Spring Cloud Config Server instance for your service
+          - text: Prepare Spring Boot app
+            url: how-to-prepare-app-deployment.md
+          - text: Set up Config Server
             url: how-to-config-server.md
-          - text: Access Config Server and Service Registry
-            url: how-to-access-data-plane-azure-ad-rbac.md
+          - text: Enable Service Registration
+            url: how-to-service-registration.md
+          - text: Deploy app using IntelliJ
+            url: how-to-intellij-deploy-apps.md
+          - text: -- Deploy app using VS Code --
+            url: overview.md
+          - text: -- Deploy app using Maven --
+            url: how-to-launch-from-source.md
 
   # Card (optional)
   - title: Manage your app
@@ -64,12 +60,8 @@ landingContent:
         links:
           - text: Start, stop, and delete an application in Azure Spring Cloud
             url: how-to-start-stop-delete.md
-          - text: Use built-in persistent storage in Azure Spring Cloud
-            url: how-to-built-in-persistent-storage.md
           - text: Use custom persistent storage in Azure Spring Cloud
             url: how-to-custom-persistent-storage.md
-          - text: Move an Azure Spring Cloud service instance to another region
-            url: how-to-move-across-regions.md
 
   # Card (optional)
   - title: Scale your apps
@@ -86,44 +78,30 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: -- Manage secrets --
-            url: overview.md
-          - text: -- End-user authentication and authorization --
+          - text: -- Isolate and enable on-premises connectivity --
             url: overview.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy Azure Spring Cloud in a virtual network
-            url: how-to-deploy-in-azure-virtual-network.md
-          - text: Customer responsibilities for running Azure Spring Cloud in VNET
-            url: vnet-customer-responsibilities.md
-          - text: Use TLS/SSL certificates in your application
-            url: how-to-use-tls-certificate.md
-          - text: Enable end-to-end TLS for an application
+          - text: Secure communications
             url: how-to-enable-end-to-end-tls.md
-          - text: How to enable system-assigned managed identity for applications
-            url: how-to-enable-system-assigned-managed-identity.md
+          - text: Use roles and permissions for access
+            url: how-to-permissions.md
 
   # Card (optional)
-  - title: Automate end-to-end
+  - title: Automate your application
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: quickstart
         links:
-          - text: Automate your CI/CD pipeline in Azure Spring Cloud
-            url: how-to-cicd.md
-          - text: Azure Spring Cloud CI/CD with GitHub Actions
-            url: how-to-github-actions.md
-          - text: Authenticate Azure Spring Cloud with Key Vault in GitHub Actions
-            url: github-actions-key-vault.md
-          - text: Enable Blue-Green deployments using Azure Spring Cloud
-            url: how-to-staging-environment.md
+          - text: Provision using ARM Template
+            url: quickstart-deploy-infrastructure-vnet.md
+          - text: Provision using Terraform
+            url: quickstart-deploy-infrastructure-vnet-terraform.md
  
   # Card (optional)
   - title: Monitor end-to-end
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Monitor your application by using distributed tracing and App Insights
-            url: how-to-distributed-tracing.md
           - text: Enable Diagnostic Services on your Java Spring application
             url: diagnostic-services.md
       - linkListType: concept
@@ -132,46 +110,38 @@ landingContent:
             url: concept-metrics.md
       - linkListType: how-to-guide
         links:
-          - text: Analyze logs and metrics with diagnostics settings
-            url: diagnostic-services.md
-          - text: How to monitor Spring Boot apps with Dynatrace Java OneAgent
-            url: how-to-dynatrace-one-agent-monitor.md
-          - text: How to monitor Spring Boot apps using New Relic Java agent (Preview)
+          - text: Stream app logs in real-time
+            url: how-to-log-streaming.md
+          - text: Monitor using Application Insights
+            url: how-to-application-insights.md
+          - text: Monitor using New Relic Java agent (Preview)
             url: how-to-new-relic-monitor.md
-          - text: How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)
-            url: how-to-appdynamics-java-agent-monitor.md
           - text: Monitor app lifecycle events using Azure Activity log and Azure Service Health
             url: monitor-app-lifecycle-events.md
-          - text: How to use Logback to write logs to custom persistent storage
-            url: how-to-write-log-to-custom-persistent-storage.md
-          - text: How to monitor Spring Boot apps with Elastic APM Java Agent
+          - text: Monitor using Elastic APM Java Agent
             url: how-to-elastic-apm-java-agent-monitor.md
           - text: Analyze logs with Elastic (ELK) using diagnostics settings
             url: how-to-elastic-diagnostic-settings.md
-          - text: Stream Azure Spring Cloud app logs in real-time
-            url: how-to-log-streaming.md
-          - text: Application Insights Java In-Process Agent in Azure Spring Cloud
-            url: how-to-application-insights.md
+          - text: Monitor app lifecycle events using Azure Activity log and Azure Service Health
+            url: monitor-app-lifecycle-events.md
+          - text: How to use Logback to write logs to custom persistent storage
+            url: how-to-write-log-to-custom-persistent-storage
 
   # Card (optional)
   - title: Troubleshoot
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Azure Spring Cloud in virtual networks
-            url: troubleshooting-vnet.md
-      - linkListType: reference
-        links:
-          - text: Troubleshoot common Azure Spring Cloud issues
+          - text: Troubleshooting guide
             url: troubleshoot.md
-
-  # Card (optional)
-  - title: Resources
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure Spring Cloud developer resources
-            url: resources.md
+          - text: Capture heap and thread dumps
+            url: how-to-capture-dumps.md
+          - text: Capture heap and thread dumps on fatal exit
+            url: how-to-dump-jvm-options.md
+          - text: Diagnose and solve problems
+            url: how-to-self-diagnose-solve.md
+          - text: Diagnose and solve problems in VNET
+            url: how-to-self-diagnose-running-in-vnet.md
 
   # Card (optional)
   - title: API reference
