@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/28/2022
+ms.date: 02/15/2022
 ms.author: lajanuar
 ms.custom: ignite-fall-2021, mode-api
 ---
@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021, mode-api
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
 
-| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) | [Azure REST API reference](/rest/api/azure/) |
+| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) |
 
 Get started with Azure Form Recognizer using the C# programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 

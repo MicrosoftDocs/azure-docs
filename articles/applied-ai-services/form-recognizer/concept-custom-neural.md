@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/13/2022
+ms.date: 02/15/2022
 ms.author: vikurpad
 ms.custom: references_regions
 recommendations: false

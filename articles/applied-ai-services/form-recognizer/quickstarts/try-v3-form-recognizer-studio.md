@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/12/2022
+ms.date: 02/15/2022
 ms.author: sajagtap
 ms.custom: ignite-fall-2021, mode-ui
 ---

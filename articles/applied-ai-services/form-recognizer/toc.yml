@@ -60,8 +60,10 @@ items:
         href: label-tool.md
       - name: Use table tags to train your custom model
         href: supervised-table-tags.md
-      - name: Compose custom models
-        href: compose-custom-models.md
+      - name: Compose custom models v3.0 (preview)
+        href: compose-custom-models-preview.md
+      - name: Compose custom models v2.1 (GA)
+        href: compose-custom-models.md   
   - name: Back up and recover models
     href: disaster-recovery.md
   - name: Use containers
