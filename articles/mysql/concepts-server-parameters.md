@@ -184,7 +184,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 > [!NOTE]
 > The query cache is deprecated as of MySQL 5.7.20 and has been removed in MySQL 8.0.
 
-|**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value **|
+|**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
