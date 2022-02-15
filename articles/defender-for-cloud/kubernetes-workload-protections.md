@@ -97,8 +97,8 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
 
     :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**.":::
 
-  > [!TIP]
-  > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
+   > [!TIP]
+   > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
 
 1. From any of the security controls, select the recommendation to see the resources on which you can install the add-on.
 
