@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 02/11/2021
+ms.date: 02/15/2022
 ---
 
 # Customer retention dashboard
