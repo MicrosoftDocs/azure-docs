@@ -114,7 +114,7 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
     :::image type="content" source="media/getting-started/extension-presets-blazor.png" alt-text="Application presets: Blazor":::
 
-    Enter **BlazorBasic** as the location for the application files, since this is the root folder of the Blazor project.
+    Enter **Client** as the location for the application files, since this is the root folder of the Blazor project.
 
     Enter **wwwroot** as the build output location.
 
