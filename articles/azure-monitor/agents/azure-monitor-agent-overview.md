@@ -97,12 +97,11 @@ The following table shows the current support for the Azure Monitor agent with A
 | [Connect using private links](data-collection-endpoint-overview.md#enable-network-isolation-for-the-azure-monitor-agent) | Public preview | No sign-up needed |
 | [VM insights guest health](../vm/vminsights-health-overview.md) | Public preview | Available only on the new agent |
 | [SQL insights](../insights/sql-insights-overview.md) | Public preview | Available only on the new agent |
-
+| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud. |
 The following table shows the current support for the Azure Monitor agent with Azure solutions.
 
 | Solution | Current support | More information |
 |:---|:---|:---|
-| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud private preview.  | [Sign-up link](https://aka.ms/AMAgent) |
 | [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn't require an agent. | [Sign-up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
 
 ## Coexistence with other agents
