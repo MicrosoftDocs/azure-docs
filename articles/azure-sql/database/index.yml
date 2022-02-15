@@ -44,8 +44,6 @@ landingContent:
             url: sql-database-paas-overview.md
           - text: Purchasing options
             url: purchasing-models.md
-          - text: Service tiers
-            url: service-tiers-general-purpose-business-critical.md
           - text: Serverless compute
             url: serverless-tier-overview.md
           - text: Hyperscale service tier

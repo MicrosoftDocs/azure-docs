@@ -92,6 +92,8 @@ items:
         href: public-ip-upgrade-classic.md
     - name: Virtual machines
       items:
+      - name: Migrate a virtual machine public IP address
+        href: ../../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-network/ip-services/toc.json
       - name: Add public IP address to existing VM
         href: associate-public-ip-address-vm.md
       - name: Dissociate public IP address from a VM

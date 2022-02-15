@@ -342,22 +342,24 @@ Before a certificate expires, you should add the renewed certificate into App Se
 To replace an expiring certificate, how you update the certificate binding with the new certificate can adversely affect user experience. For example, your inbound IP address can change when you delete a binding, even if that binding is IP-based. This is especially important when you renew a certificate that's already in an IP-based binding. To avoid a change in your app's IP address, and to avoid downtime for your app due to HTTPS errors, follow these steps in order:
 
 1. [Upload the new certificate](#upload-a-private-certificate).
-2. [Bind the new certificate to the same custom domain](configure-ssl-bindings.md) without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate binding.
+2. Bind the new certificate to the same custom domain without deleting the existing (expiring) certificate. This action replaces the binding instead of removing the existing certificate binding. To do this, navigate to the TLS/SSL settings blade of your App Service and select the Add Binding button.
 3. Delete the existing certificate.
 
 ### Renew an App Service certificate
 
 > [!NOTE]
-> Beginning on September 23 2021, App Service certificates require domain verification every 395 days.
+> Beginning September 23 2021, App Service certificates require domain verification during renew or rekey if you haven't verified domain in the last 395 days. The new certificate order remains in "pending issuance" during renew or rekey until you complete the domain verification.
 > 
-> Unlike App Service Managed Certificate, domain re-verification for App Service certificates is *not* automated. Refer to [verify domain ownership](#verify-domain-ownership) for more information on how to verify your App Service certificate.
+> Unlike App Service Managed Certificate, domain re-verification for App Service certificates is *not* automated, and failure to verify domain ownership will result in failed renewals. Refer to [verify domain ownership](#verify-domain-ownership) for more information on how to verify your App Service certificate. 
 
 > [!NOTE]
 > The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.
 
-To toggle the automatic renewal setting of your App Service certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a one-year validity period.
+By default, App Service certificates have a one-year validity period. Near the time of expiration, App Service certificates, can be renewed in one-year increments automatically or manually. In effect, th renewal process gives you a new App Service certificate with the expiration date extended to one year from the existing certificate's expiration date.
 
-Select **On** or **Off** and click **Save**. Certificates can start automatically renewing 31 days before expiration if you have automatic renewal turned on.
+To toggle the automatic renewal setting of your App Service certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation.
+
+Select **On** or **Off** and click **Save**. Certificates can start automatically renewing 32 days before expiration if you have automatic renewal turned on.
 
 ![Renew App Service certificate automatically](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
@@ -412,6 +414,18 @@ Because an App Service Certificate is a [Key Vault secret](../key-vault/general/
 > [!NOTE]
 > The exported certificate is an unmanaged artifact. For example, it isn't synced when the App Service Certificate is [renewed](#renew-an-app-service-certificate). You must export the renewed certificate and install it where you need it.
 
+# [Azure portal](#tab/portal)
+
+1. Select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then select **Export Certificate** from the left navigation.
+
+1. Select **Open in Key Vault**.
+
+1. Select the current version of the certificate.
+
+1. Select **Download as a certificate**.
+
+# [Azure CLI](#tab/cli)
+
 To export the App Service Certificate as a PFX file, run the following commands in the [Cloud Shell](https://shell.azure.com). You can also run it locally if you [installed Azure CLI](/cli/azure/install-azure-cli). Replace the placeholders with the names you used when you [created the App Service certificate](#start-certificate-order).
 
 ```azurecli-interactive
@@ -429,7 +443,9 @@ az keyvault secret download \
     --encoding base64
 ```
 
-The downloaded *appservicecertificate.pfx* file is a raw PKCS12 file that contains both the public and private certificates. In each prompt, use an empty string for the import password and the PEM pass phrase.
+-----
+
+The downloaded PFX file is a raw PKCS12 file that contains both the public and private certificates, and its import password is an empty string. You can install it locally by leaving the password field empty. Notable is the fact that it can't be [uploaded into App Service](#upload-a-private-certificate) as-is because it's not [password protected](#private-certificate-requirements).
 
 ### Delete certificate 
 
