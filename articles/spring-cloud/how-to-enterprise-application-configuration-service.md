@@ -185,7 +185,7 @@ To use the centralized configurations, you must bind the app to Application Conf
 
    d. In the **Config file patterns** dropdown, choose one or more patterns from the list.
 
-   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the pattern selection screen.":::
+      :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the pattern selection screen.":::
 
    e. Select **Save**
 
