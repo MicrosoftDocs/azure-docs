@@ -14,7 +14,7 @@ Azure DevTest Labs supports changing the size of a lab virtual machine (VM), bas
 
 ## Stop the VM
 
-To prevent losing work, disconnect from and stop the VM before resizing it.
+To avoid losing work, disconnect from and stop the VM before resizing it.
 
 1. If you're connected to the VM through secure shell (SSH) or remote desktop session (RDP), save your work and disconnect from the VM.
 
