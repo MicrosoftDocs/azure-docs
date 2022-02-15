@@ -29,7 +29,7 @@ Before learning more about this feature, it is recommended that you have an unde
 
 * [Create a managed identity](search-howto-managed-identities-data-sources.md) for your search service.
 
-* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Cosmos DB. For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request.
+* [Assign a role](search-howto-managed-identities-data-sources.md#assign-a-role) in Cosmos DB. For data reader access, you'll need the **Cosmos DB Account Reader** role and the identity used to make the request. This role works for all Cosmos DB APIs supported by Cognitive Search.
 
 The easiest way to test the connection is using the [Import data wizard](search-import-data-portal.md). The wizard supports data source connections for both system and user managed identities.
 

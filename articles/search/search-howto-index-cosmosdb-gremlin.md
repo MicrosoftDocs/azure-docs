@@ -15,7 +15,7 @@ ms.date: 02/15/2022
 # Index data from Azure Cosmos DB using the Gremlin API
 
 > [!IMPORTANT]
-> The Gremlin API indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). [Sign up for the preview](https://aka.ms/azure-cognitive-search/indexer-preview). After access is enabled, use a [preview REST API](search-api-preview.md) (2020-06-30-preview or later) to index your data. There is currently limited portal support, and no .NET SDK support.
+> The Gremlin API indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
 This article shows you how to configure an Azure Cosmos DB indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure Cosmos DB using the [Gremlin API](../cosmos-db/choose-api.md#gremlin-api).
 
@@ -27,7 +27,9 @@ Although Cosmos DB indexing is easiest with the [Import data wizard](search-impo
 
 ## Prerequisites
 
-+ An [Azure Cosmos DB account, database, container and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Cosmos DB for lower latency and to avoid any bandwidth charges.
++ [Register for the preview](https://aka.ms/azure-cognitive-search/indexer-preview) to provide feedback and get help with any issues you encounter.
+
++ An [Azure Cosmos DB account, database, container and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). Use the same region for both Cognitive Search and Cosmos DB for lower latency and to avoid bandwidth charges.
 
 + An [automatic indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 

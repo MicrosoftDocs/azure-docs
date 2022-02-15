@@ -88,7 +88,7 @@ Avoid port numbers in the endpoint URL. If you include the port number, the conn
 
 ### Using queries to shape indexed data
 
-In the Container.Query property, you can specify a SQL query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
+In the "query" property under "container", you can specify a SQL query to flatten nested properties or arrays, project JSON properties, and filter the data to be indexed. 
 
 Example document:
 
