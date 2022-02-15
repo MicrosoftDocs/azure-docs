@@ -14,10 +14,8 @@ ms.author: inhenkel
 
 # Media Services live streaming best practices guide
 
-A question that is often asked by our customers is “how can I reduce the
-end-to-end latency of my live stream?”. There are many factors that
-determine the end-to-end latency of a stream. Here are some that you
-should consider.
+Customers often ask how they can reduce the latency of their live stream. There are many factors that
+determine the end-to-end latency of a stream. Here are some that you should consider:
 
 1. Delays on the contribution encoder side. When customers use an
     encoding software such as OBS Studio, Wirecast, or others to send an
@@ -134,7 +132,7 @@ streaming units. A *streaming unit* is a compute resource allocated to a
 streaming endpoint. Each streaming unit can stream approximately 200
 Mbps of traffic.
 
-NOTE: While you can concurrently stream many live events at once using
+While you can concurrently stream many live events at once using
 the same streaming endpoint, the maximum default streaming units needed
 for one streaming endpoint is 10. You can open a support ticket to
 request more than the default 10.
@@ -292,19 +290,6 @@ number of streaming units.
 
 15. You can start the streaming endpoint and try sending traffic to it.
     The metrics at the bottom of the screen will track actual traffic.
-
-## Monitoring your streaming endpoint
-
-Set an alert to monitor your streaming endpoints based on any of the
-following metrics:
-
-- CPU usage
-
-- Egress bandwidth
-
-- Error status codes
-
-- Total egress
 
 ## Timing
 
