@@ -1596,7 +1596,8 @@ groups:
     title: CMake
   - id: iot-toolset-iar-ewarm
     title: IAR EWAR
-  - id: iot-develop-stm32-toolset
+# Owner: timlt
+- id: iot-develop-stm32-toolset
   title: IoT Devices
   prompt: Choose a build environment
   pivots:
