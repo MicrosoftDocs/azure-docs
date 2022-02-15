@@ -48,7 +48,7 @@ The Read API analyzes and extracts ext lines, words, their locations, detected l
 
 :::image type="content" source="media/studio/general-document.png" alt-text="Screenshot: Studio general document icon.":::
 
-* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It's ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
 * The general document is a pre-trained model and can be directly invoked via the REST API.
 

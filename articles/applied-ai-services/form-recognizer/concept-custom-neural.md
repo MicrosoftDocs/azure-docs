@@ -15,7 +15,7 @@ recommendations: false
 
 # Form Recognizer custom neural model
 
-Custom document models or neural models are a deep learned model that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
+Custom neural models or neural models are a deep learned model that combines layout and language features to accurately extract labeled fields from documents. The base custom neural model is trained on various document types that makes it suitable to be trained for extracting fields from structured, semi-structured and unstructured documents. The table below lists common document types for each category:
 
 |Documents | Examples |
 |---|--|
@@ -23,11 +23,11 @@ Custom document models or neural models are a deep learned model that combines l
 |semi-structured | invoices, purchase orders |
 |unstructured | contracts, letters|
 
-Custom document models share the same labeling format and strategy as custom template models. Currently custom neural models only support a subset of the field types supported by custom template models. 
+Custom neural models share the same labeling format and strategy as custom template models. Currently custom neural models only support a subset of the field types supported by custom template models. 
 
 ## Model capabilities
 
-Custom document models currently only support key-value pairs and selection marks, future releases will include support for structured fields (tables) and signature.
+Custom neural models currently only support key-value pairs and selection marks, future releases will include support for structured fields (tables) and signature.
 
 | Form fields | Selection marks | Tables | Signature | Region |
 |--|--|--|--|--|
@@ -61,11 +61,11 @@ You can copy a model trained in one of the regions listed above to any other reg
 
 ## Best practices
 
-Custom document models differ from custom template models in a few different ways. 
+Custom neural models differ from custom template models in a few different ways. 
 
 ### Dealing with variations 
 
-Custom document models can generalize across different formats of a single document type. As a best practice, create a single model for all variations of a document type. Add at least five labeled samples for each of the different variations to the training dataset.
+Custom neural models can generalize across different formats of a single document type. As a best practice, create a single model for all variations of a document type. Add at least five labeled samples for each of the different variations to the training dataset.
 
 ### Field naming
 
@@ -86,13 +86,13 @@ Values in training cases should be diverse and representative. For example, if a
 ## Current Limitations
 
 * The model doesn't recognize values split across page boundaries.
-* Custom document models are only trained in English and model performance will be lower for documents in other languages.
+* Custom neural models are only trained in English and model performance will be lower for documents in other languages.
 * If a dataset labeled for custom template models is used to train a custom neural model, the unsupported field types are ignored.
-* Custom document models are limited to 10 build operations per month. Open a support request if you need the limit increased.
+* Custom neural models are limited to 10 build operations per month. Open a support request if you need the limit increased.
 
 ## Training a model
 
-Custom document models are only available in the [v3 API](v3-migration-guide.md).
+Custom neural models are only available in the [v3 API](v3-migration-guide.md).
 
 | Document Type | REST API | SDK | Label and Test Models|
 |--|--|--|--|
@@ -121,7 +121,7 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-pr
   > [!div class="nextstepaction"]
   > [Form Recognizer quickstart](quickstarts/try-v3-form-recognizer-studio.md#custom-models)
 
-* View the labeling guidelines:
+* View the REST API:
 
     > [!div class="nextstepaction"]
     > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)

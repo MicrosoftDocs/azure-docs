@@ -18,7 +18,7 @@ recommendations: false
 The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs, selection marks, and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
 
 
-The general document API supports most form types and will analyze your documents and extract keys and associated values. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+The general document API supports most form types and will analyze your documents and extract keys and associated values. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to training a custom model without labels.
 
 > [!NOTE]
 > The ```2022-01-30-preview``` update to the general document model adds support for selection marks. 

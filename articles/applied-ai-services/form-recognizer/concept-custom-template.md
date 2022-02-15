@@ -67,9 +67,9 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-pr
 * Learn more about custom neural models:
 
   > [!div class="nextstepaction"]
-  > [Custom document models](concept-custom-neural.md )
+  > [Custom neural models](concept-custom-neural.md )
 
-* View the labeling guidelines:
+* View the REST API:
 
     > [!div class="nextstepaction"]
     > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm)

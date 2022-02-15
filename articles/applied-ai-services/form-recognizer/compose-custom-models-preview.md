@@ -71,17 +71,10 @@ to an Azure blob storage container.
 
 If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents.
 
-*See* [Train with labels](#train-with-labels)
 
 ## Train your custom model
 
-You can [train your model](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)  with or without labeled data sets. Unlabeled datasets rely solely on the [prebuilt-layout model](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) to detect and identify key information without added human input. Labeled datasets also rely on the Layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled and unlabeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.
-
-### Train without labels
-
-Form Recognizer uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. When you submit your input forms, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Training without labels doesn't require manual data labeling or intensive coding and maintenance, and we recommend you try this method first.
-
-### Train with labels
+You [train your model](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects). Labeled datasets rely on the prebuilt-layout API, but supplementary human input is included such as your specific labels and field locations. To use both labeled data, start with at least five completed forms of the same type for the labeled training data and then add unlabeled data to the required data set.
 
 When you train with labeled data, the model uses supervised learning to extract values of interest, using the labeled forms you provide. Labeled data results in better-performing models and can produce models that work with complex forms or forms containing values without keys.
 
