@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 04/01/2021
+ms.date: 02/14/2022
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -20,12 +20,6 @@ ms.author: barclayn
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article:
-> [!div class="checklist"]
-> * Why do we need to link our DID to our domain?
-> * How do we link DIDs and domains?
-> * How does the domain linking process work?
-> * How does the verify/unverified domain logic work?
 
 ## Prerequisites
 
@@ -39,12 +33,16 @@ A DID starts out as an identifier that is not anchored to existing systems. A DI
 
 Linking a DID to a domain solves the initial trust problem by allowing any entity to cryptographically verify the relationship between a DID and a Domain.
 
+## When do we need to manage linked domains?
+
+ Any situation that requires the domain associated with your company to change, like a company merger or a company rename, may mean that you need to manage your linked domain. In either one of these cases, you would make changes to your domain list through the Azure AD Portal and those changes would be published in the greater Decentralized Network.  
+
 ## How do we link DIDs and domains?
 
 We make a link between a domain and a DID by implementing an open standard written by the Decentralized Identity Foundation called [Well-Known DID configuration](https://identity.foundation/.well-known/resources/did-configuration/). The verifiable credentials service in Azure Active Directory (Azure AD) helps your organization make the link between the DID and domain by including the domain information that you provided in your DID, and generating the well-known config file:
 
 1. Azure AD uses the domain information you provide during organization setup to write a Service Endpoint within the DID Document. All parties who interact with your DID can see the domain your DID proclaims to be associated with.  
-
+  
     ```json
     "service": [
       {
@@ -80,7 +78,7 @@ After you have the well-known configuration file, you need to make the file avai
 >[!IMPORTANT]
 >Microsoft Authenticator does not honor redirects, the URL specified must be the final destination URL.
 
-## User experience 
+## User experience
 
 When a user is going through an issuance flow or presenting a verifiable credential, they should know something about organization and its DID. If the domain our verifiable credential wallet, Microsoft Authenticator, validates a DID's relationship with the domain in the DID document and presents users with two different experiences depending on the outcome.
 
@@ -106,6 +104,19 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 * The DID the user is interacting with is malicious and actually can't prove they own a domain (since they actually don't). Due to this last point, it is imperative that you link your DID to the domain the user is familiar with, to avoid propagating the warning message.
 
 ![unverified domain warning in the add credential screen](media/how-to-dnsbind/add-credential-not-verified-authenticated.png)
+
+## How do you change a linked domain?
+
+
+TBD
+
+### Do I need to wait for my DID Doc to be updated to verify my newly added domains?
+
+Yes. You need to wait until the config.json file gets updated before you publish it using your domain's hosting location.  
+
+### How do I know when the linked domain update has successfully completed?
+
+Today, we can’t explicitly predict when your domain link change will complete. The process has a two hour upper limit so check the Azure portal for updates in two hours.  
 
 ## Distribute well-known config
 
