@@ -34,7 +34,7 @@ Foo bar baz
 
 | Name | Description |
 |------|-------------|
-| [citus_add_rebalance_strategy](reference_functions.md#citus_add_rebalance_strategy) | append a row to `pg_dist_rebalance_strategy` |
+| [citus_add_rebalance_strategy](reference-functions.md#citus_add_rebalance_strategy) | append a row to `pg_dist_rebalance_strategy` |
 | [citus_move_shard_placement](reference-functions.md#master_move_shard_placement) | typically used indirectly during shard rebalancing rather than being called directly by a database administrator |
 | [citus_set_default_rebalance_strategy](reference-functions.md#) | change the strategy named by its argument to be the default chosen when rebalancing shards |
 | [get_rebalance_progress](reference-functions.md#get_rebalance_progress) | monitor the moves planned and executed by `rebalance_table_shards` |
