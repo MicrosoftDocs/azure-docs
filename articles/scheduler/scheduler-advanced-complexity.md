@@ -14,7 +14,7 @@ ms.date: 02/15/2022
 # Build advanced schedules and recurrences for jobs in Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) has replaced Azure Scheduler, which is fully deprecated 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) has replaced Azure Scheduler, which is fully retired 
 > since January 31, 2022. Please migrate your Azure Scheduler jobs by recreating them as workflows in Azure Logic Apps 
 > following the steps in [Migrate Azure Scheduler jobs to Azure Logic Apps](migrate-from-scheduler-to-logic-apps.md). 
 > Azure Scheduler is longer available in the Azure portal. The [Azure Scheduler REST API](/rest/api/scheduler) and 
