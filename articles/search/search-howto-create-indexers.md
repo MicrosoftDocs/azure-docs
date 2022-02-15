@@ -96,7 +96,7 @@ AI enrichment is out of scope for this article. For more information, start with
 
 + Be under the [maximum limits](search-limits-quotas-capacity.md#indexer-limits) for your service tier. The Free tier allows three objects of each type and 1-3 minutes of indexer processing or 3-10 if there's a skillset.
 
-## Prepare data
+## Prepare external data
 
 Indexers work with data sets. When you run an indexer, it connects to your data source, retrieves the data from the container or folder, optionally serializes it into JSON before passing it to the search engine for indexing. This section describes the requirements of incoming data for text-based indexing.
 
@@ -115,21 +115,33 @@ Cognitive Search can't search over binary data in any format, although it can ex
 
 Given that indexers don't fix data problems, other forms of data cleansing or manipulation might be needed. For more information, you should refer to the product documentation of your [Azure database product](../index.yml?product=databases).
 
+## Prepare a data source
+
+Indexers require a data source that specifies the type, location, and connection information.
+
+1. Make sure you're using a [supported data source type](search-indexer-overview.md#supported-data-sources).
+
+1. [Create a data source](/rest/api/searchservice/create-data-source). The following list is a few of the more frequently used data sources:
+
+   + [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
+   + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+   + [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+
 ## Prepare an index
 
-Recall that indexers pass off the search documents to the search engine for indexing. Just as indexers have properties that determine execution behavior, an index schema has properties that profoundly affect how strings are indexed (only strings are analyzed and tokenized). 
+Indexers also require a search index. Recall that indexers pass data off to the search engine for indexing. Just as indexers have properties that determine execution behavior, an index schema has properties that profoundly affect how strings are indexed (only strings are analyzed and tokenized). 
 
 1. Start with [Create a search index](search-how-to-create-search-index.md).
 
-1. Set up the fields collection. 
+1. Set up the fields collection and field attributes. 
 
-   The output of an indexer is a search index, and the attributed fields in the index will receive the incoming data. Fields are the only receptors of external content. Depending on how the fields are attributed, the values for each field will be analyzed, tokenized, or stored as verbatim strings for filters, fuzzy search, and typeahead queries.
+   Fields are the only receptors of external content. Depending on how the fields are attributed in the schema, the values for each field will be analyzed, tokenized, or stored as verbatim strings for filters, fuzzy search, and typeahead queries.
 
    Indexers can automatically map source fields to target index fields when the names and types are equivalent. If a field can't be implicitly mapped, remember that you can [define an explicit field mapping](search-indexer-field-mappings.md) that tells the indexer how to route the content.
 
 1. Review the analyzer assignments on each field. Analyzers can transform strings. As such, indexed strings might be different from what you passed in. You can evaluate the effects of analyzers using [Analyze Text (REST)](/rest/api/searchservice/test-analyzer). For more information about analyzers, see [Analyzers for text processing](search-analyzers.md).
 
-In terms of how indexers interact with an index, an indexer only checks field names and types. There's no validation step that ensures incoming content is correct for the corresponding search field in the index.
+During indexing, an indexer only checks field names and types. There's no validation step that ensures incoming content is correct for the corresponding search field in the index.
 
 ## Create an indexer
 
