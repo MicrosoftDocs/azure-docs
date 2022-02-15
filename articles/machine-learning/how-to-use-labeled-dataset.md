@@ -19,7 +19,7 @@ In this article, you'll learn how to export the data labels from an Azure Machin
 
 ## What are datasets with labels 
 
-We refer to Azure Machine Learning datasets with labels as labeled datasets. These specific dataset types of labeled datasets are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project [for image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md). Machine Learning supports data labeling projects for image classification, either multi-label or multi-class, and object identification together with bounded boxes.
+Azure Machine Learning datasets with labels are referred to as labeled datasets. These specific datasets are [TabularDatasets](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset) with a dedicated label column and are only created as an output of Azure Machine Learning data labeling projects. Create a data labeling project [for image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md). Machine Learning supports data labeling projects for image classification, either multi-label or multi-class, and object identification together with bounded boxes.
 
 ## Prerequisites
 
@@ -47,21 +47,18 @@ You can access the exported Azure Machine Learning dataset in the **Datasets** s
 
 Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
 
-## Explore labeled datasets
+## Explore labeled datasets via pandas dataframe
 
-Load your labeled datasets into a pandas dataframe to leverage popular open-source libraries for data exploration.
+Load your labeled datasets into a pandas dataframe to leverage popular open-source libraries for data exploration with the [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method from the `azureml-dataprep` class. 
 
-### Pandas dataframe
-
-You can load labeled datasets into a pandas dataframe with the [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method from the `azureml-dataprep` class. Install the class with the following shell command: 
+Install the class with the following shell command: 
 
 ```shell
 pip install azureml-dataprep
 ```
 
-The exported dataset is a TabularDataset. If you plan to use download() or moint() methods, be sure to set the parameter `stream column ='<image_url>'`
-
 In the following code, the `animal_labels` dataset is the output from a labeling project previously saved to the workspace.
+The exported dataset is a [TabularDataset](/python/api/azureml-core/azureml.data.tabular_dataset.tabulardataset). If you plan to use [download()] or [mount()] methods, be sure to set the parameter `stream column ='image_url'`
 
 ```Python
 import azureml.core
@@ -72,8 +69,8 @@ from azureml.core import Dataset, Workspace
 animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
 animal_pd = animal_labels.to_pandas_dataframe()
 
-# download the imagess to local 
-animal_labels.download('<image_url>') 
+# download the images to local 
+animal_labels.download(stream_column='image_url') 
 
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -84,3 +81,6 @@ imgplot = plt.imshow(img)
 ```
 
 ## Next steps
+
+* Learn to [train image classification models in Azure](./tutorial-train-deploy-notebook.md)
+* [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
