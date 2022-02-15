@@ -46,6 +46,8 @@ The information in this document is based on using a model stored in ONNX format
 
 ## Deploy using CLI (v2)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 This section shows how you can deploy Triton to managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
 
 > [!IMPORTANT]
