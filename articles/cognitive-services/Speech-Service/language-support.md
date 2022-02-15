@@ -25,6 +25,8 @@ To improve accuracy, customization is available for some languages and baseline 
 
 | Language                          | Locale (BCP-47) | Customizations                                                  |
 |-----------------------------------|-----------------|-----------------------------------------------------------------|
+| Afrikaans (South Africa)          | `af-ZA`         | Plain text                                                            |
+| Amharic (Ethiopia)                | `am-ET`         | Plain text                                                            |
 | Arabic (Algeria)                  | `ar-DZ`         | Plain text                                                            |
 | Arabic (Bahrain), modern standard | `ar-BH`         | Plain text                                                            |
 | Arabic (Egypt)                    | `ar-EG`         | Plain text                                                            |
@@ -44,6 +46,7 @@ To improve accuracy, customization is available for some languages and baseline 
 | Arabic (United Arab Emirates)     | `ar-AE`         | Plain text                                                            |
 | Arabic (Yemen)                    | `ar-YE`         | Plain text                                                            |
 | Bulgarian (Bulgaria)              | `bg-BG`         | Plain text                                                            |
+| Burmese (Myanmar)                 | `my-MM`         | Plain text                                                            |
 | Catalan (Spain)                   | `ca-ES`         | Plain text<br/>Pronunciation                                          |
 | Chinese (Cantonese, Traditional)  | `zh-HK`         | Plain text                                       |
 | Chinese (Mandarin, Simplified)    | `zh-CN`         | Plain text                                       |
@@ -51,6 +54,7 @@ To improve accuracy, customization is available for some languages and baseline 
 | Croatian (Croatia)                | `hr-HR`         | Plain text<br/>Pronunciation                                          |
 | Czech (Czech)                     | `cs-CZ`         | Plain text<br/>Pronunciation                                          |
 | Danish (Denmark)                  | `da-DK`         | Plain text<br/>Pronunciation                                          |
+| Dutch (Belgium)                   | `nl-BE`         | Plain text                                                            |
 | Dutch (Netherlands)               | `nl-NL`         | Plain text<br/>Pronunciation                     |
 | English (Australia)               | `en-AU`         | Plain text<br/>Pronunciation                     |
 | English (Canada)                  | `en-CA`         | Plain text<br/>Pronunciation                     |
@@ -70,6 +74,7 @@ To improve accuracy, customization is available for some languages and baseline 
 | Estonian (Estonia)                 | `et-EE`         | Plain text<br/>Pronunciation                                          |
 | Filipino (Philippines)            | `fil-PH`        | Plain text<br/>Pronunciation                                          |
 | Finnish (Finland)                 | `fi-FI`         | Plain text<br/>Pronunciation                                          |
+| French (Belgium)                  | `fr-BE`         | Plain text                                                            |
 | French (Canada)                   | `fr-CA`         | Audio (20201015)<br>Plain text<br>Structured Text (20210908)<br>Pronunciation                     |
 | French (France)                   | `fr-FR`         | Audio (20201015)<br>Plain text<br>Structured Text (20210908)<br>Pronunciation                     |
 | French (Switzerland)              | `fr-CH`         | Plain text<br/>Pronunciation                                          |
@@ -81,14 +86,19 @@ To improve accuracy, customization is available for some languages and baseline 
 | Hebrew (Israel)                   | `he-IL`         | Plain text                                                            |
 | Hindi (India)                     | `hi-IN`         | Plain text                                       |
 | Hungarian (Hungary)               | `hu-HU`         | Plain text<br/>Pronunciation                                          |
+| Icelandic (Iceland)               | `is-IS`         | Plain text                                                            |
 | Indonesian (Indonesia)            | `id-ID`         | Plain text<br/>Pronunciation                                          |
 | Irish (Ireland)                   | `ga-IE`         | Plain text<br/>Pronunciation                                          |
 | Italian (Italy)                   | `it-IT`         | Audio (20201016)<br>Plain text<br>Pronunciation                     |
 | Japanese (Japan)                  | `ja-JP`         | Plain text                                                            |
+| Javanese (Indonesia)              | `jv-ID`         | Plain text                                                            |
 | Kannada (India)                   | `kn-IN`         | Plain text                                                            |
+| Khmer (Cambodia)                  | `km-KH`         | Plain text                                                            |
 | Korean (Korea)                    | `ko-KR`         | Audio (20201015)<br>Plain text                                       |
+| Lao (Laos)                        | `lo-LA`         | Plain text                                                            |
 | Latvian (Latvia)                  | `lv-LV`         | Plain text<br/>Pronunciation                                          |
 | Lithuanian (Lithuania)            | `lt-LT`         | Plain text<br/>Pronunciation                                          |
+| Macedonian (North Macedonia)      | `mk-MK`         | Plain text                                                            |
 | Malay (Malaysia)                  | `ms-MY`         | Plain text                                                            |
 | Maltese (Malta)                   | `mt-MT`         | Plain text                                                            |
 | Marathi (India)                   | `mr-IN`         | Plain text                                                            |
@@ -99,6 +109,8 @@ To improve accuracy, customization is available for some languages and baseline 
 | Portuguese (Portugal)             | `pt-PT`         | Plain text<br/>Pronunciation                                          |
 | Romanian (Romania)                | `ro-RO`         | Plain text<br/>Pronunciation                                          |
 | Russian (Russia)                  | `ru-RU`         | Plain text                                       |
+| Serbian (Serbia)                  | `sr-RS`         | Plain text                                                            |
+| Sinhala (Sri Lanka)               | `si-LK`         | Plain text                                                            |
 | Slovak (Slovakia)                 | `sk-SK`         | Plain text<br/>Pronunciation                                          |
 | Slovenian (Slovenia)              | `sl-SI`         | Plain text<br/>Pronunciation                                          |
 | Spanish (Argentina)               | `es-AR`         | Plain text<br/>Pronunciation                                          |
@@ -124,12 +136,16 @@ To improve accuracy, customization is available for some languages and baseline 
 | Spanish (USA)                     | `es-US`         | Plain text<br/>Pronunciation                                          |
 | Spanish (Venezuela)               | `es-VE`         | Plain text<br/>Pronunciation                                          |
 | Swahili (Kenya)                   | `sw-KE`         | Plain text                                                            |
+| Swahili (Tanzania)                | `sw-TZ`         | Plain text                                                            |
 | Swedish (Sweden)                  | `sv-SE`         | Plain text<br/>Pronunciation                                          |
 | Tamil (India)                     | `ta-IN`         | Plain text                                                            |
 | Telugu (India)                    | `te-IN`         | Plain text                                                            |
 | Thai (Thailand)                   | `th-TH`         | Plain text                                                            |
 | Turkish (Turkey)                  | `tr-TR`         | Plain text                                                            |
+| Ukrainian (Ukraine)               | `uk-UA`         | Plain text                                                            |
+| Uzbek (Uzbekistan)                | `uz-UZ`         | Plain text                                                            |
 | Vietnamese (Vietnam)              | `vi-VN`         | Plain text                                                            |
+| Zulu (South Africa)               | `zu-ZA`         | Plain text                                                            |
 
 ### Phrase list
 
