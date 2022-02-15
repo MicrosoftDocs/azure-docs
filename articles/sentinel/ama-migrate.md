@@ -24,6 +24,7 @@ The following tables show gap analyses for the log types that currently rely on 
 
 > [!IMPORTANT]
 > The AMA currently has a limit of 5,000 Events Per Second (EPS). Verify whether this limit works for your organization, especially if you are using your servers as log forwarders, such as for Windows forwarded events or Syslog events.
+
 ### Windows logs
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
