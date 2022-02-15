@@ -23,8 +23,6 @@ adobe-target-content: ./quickstart-html-uiex
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 ## Download the sample
 
 In the Cloud Shell, create a quickstart directory and then change to it.

@@ -12,9 +12,7 @@ Azure Arc-enabled Kubernetes lets you make your on-premises or cloud Kubernetes 
 
 ## Prerequisites
 
-- If you don't have an Azure account, [sign up today](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) for a free account.
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+If you don't have an Azure account, [sign up today](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) for a free account.
 
 <!-- ## Prerequisites
 
@@ -73,7 +71,7 @@ az extension add --upgrade --yes --name appservice-kube
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli-interactive
+    ```powershell
     $aksClusterGroupName="<group-name>" # Name of resource group for the AKS cluster
     $aksName="${aksClusterGroupName}-aks" # Name of the AKS cluster
     $resourceLocation="eastus" # "eastus" or "westeurope"
@@ -104,7 +102,7 @@ az extension add --upgrade --yes --name appservice-kube
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli-interactive
+    ```powershell
     $groupName="<group-name>" # Name of resource group for the connected cluster
 
     az group create -g $groupName -l $resourceLocation
@@ -125,7 +123,7 @@ az extension add --upgrade --yes --name appservice-kube
     # [PowerShell](#tab/powershell)
 
 
-    ```azurecli-interactive
+    ```powershell
     $clusterName="${groupName}-cluster" # Name of the connected cluster resource
 
     az connectedk8s connect --resource-group $groupName --name $clusterName
@@ -157,7 +155,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli-interactive
+    ```powershell
     $workspaceName="$groupName-workspace"
 
     az monitor log-analytics workspace create `
@@ -188,7 +186,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli-interactive
+    ```powershell
     $logAnalyticsWorkspaceId=$(az monitor log-analytics workspace show `
         --resource-group $groupName `
         --workspace-name $workspaceName `
@@ -202,7 +200,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
         --output tsv)
     $logAnalyticsKeyEnc=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($logAnalyticsKey))
     ```
-
+    
     ---
 
 ## Install the App Service extension
@@ -257,7 +255,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli-interactive
+    ```powershell
     az k8s-extension create `
         --resource-group $groupName `
         --name $extensionName `
@@ -320,7 +318,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli-interactive
+    ```powershell
     $extensionId=$(az k8s-extension show `
         --cluster-type connectedClusters `
         --cluster-name $clusterName `
@@ -356,7 +354,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
 
     # [bash](#tab/bash)
 
-    ```azurecli-interactive
+    ```bash
     customLocationName="my-custom-location" # Name of the custom location
     
     connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
@@ -364,7 +362,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
 
     # [PowerShell](#tab/powershell)
 
-    ```azurecli-interactive
+    ```powershell
     $customLocationName="my-custom-location" # Name of the custom location
     
     $connectedClusterId=$(az connectedk8s show --resource-group $groupName --name $clusterName --query id --output tsv)
