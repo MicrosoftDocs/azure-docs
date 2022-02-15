@@ -26,7 +26,7 @@ When the data from a Data Box Disk is uploaded in the Azure datacenter, a copy/e
 
 To find the logs from a data upload, do the following steps.
 
-1. Open your order in the [Azure portal](https://ms.portal.azure.com).
+1. Open your order in the [Azure portal](https://portal.azure.com).
 
 2. As the data upload completes for each disk, the **Overview** pane displays the disk status and the paths to diagnostics logs for the disk.
 

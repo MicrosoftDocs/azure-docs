@@ -142,7 +142,7 @@ Here are some considerations to bear in mind as you're defining classifications:
     * Describe the phases in the data preparation processes (raw zone, landing zone, and so on) and assign the classifications to specific assets to mark the phase in the process.
 
 * With Azure Purview, you can assign classifications at the asset or column level automatically by including relevant classifications in the scan rule, or you can assign them manually after you ingest the metadata into Azure Purview.
-* For automatic assignment, see [Supported data stores in Azure Purview](./purview-connector-overview.md).
+* For automatic assignment, see [Supported data stores in Azure Purview](./azure-purview-connector-overview.md).
 * Before you scan your data sources in Azure Purview, it is important to understand your data and configure the appropriate scan rule set for it (for example, by selecting relevant system classification, custom classifications, or a combination of both), because it could affect your scan performance. For more information, see [Supported classifications in Azure Purview](./supported-classifications.md).
 * The Azure Purview scanner applies data sampling rules for deep scans (subject to classification) for both system and custom classifications. The sampling rule is based on the type of data sources. For more information, see the "Sampling within a file" section in [Supported data sources and file types in Azure Purview](./sources-and-scans.md#sampling-within-a-file). 
 
@@ -152,7 +152,7 @@ Here are some considerations to bear in mind as you're defining classifications:
 * The sampling rules apply to resource sets as well. For more information, see the "Resource set file sampling" section in [Supported data sources and file types in Azure Purview](./sources-and-scans.md#resource-set-file-sampling).
 * Custom classifications can't be applied on document type assets using custom classification rules. Classifications for such types can be applied manually only.
 * Custom classifications aren't included in any default scan rules. Therefore, if automatic assignment of custom classifications is expected, you must deploy and use a custom scan rule that includes the custom classification to run the scan.
-* If you apply classifications manually from Purview Studio, such classifications are retained in subsequent scans. 
+* If you apply classifications manually from Azure Purview Studio, such classifications are retained in subsequent scans. 
 * Subsequent scans won't remove any classifications from assets, if they were detected previously, even if the classification rules are inapplicable.
 * For *encrypted source* data assets, Azure Purview picks only file names, fully qualified names, schema details for structured file types, and database tables. For classification to work, decrypt the encrypted data before you run scans. 
 

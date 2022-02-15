@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: luisquintanilla
-ms.author: luquinta
+author: ssalgadodev
+ms.author: ssalgado
 ms.date: 05/25/2021
 ms.custom: contperf-fy20q4 
 
@@ -15,6 +15,8 @@ ms.custom: contperf-fy20q4
 ---
 
 # Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension (preview)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Learn how to train an image classification model to recognize hand-written numbers using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 
@@ -157,4 +159,4 @@ For next steps, see:
 * [Connect Visual Studio Code to a compute instance](how-to-set-up-vs-code-remote.md) for a full development experience.
 * For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).
 * [Run Jupyter Notebooks in Visual Studio Code](how-to-manage-resources-vscode.md) using a remote Jupyter server.
-* For a walkthrough of how to train with Azure Machine Learning outside of Visual Studio Code, see [Tutorial: Train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
+* For a walkthrough of how to train with Azure Machine Learning outside of Visual Studio Code, see [Tutorial: Train and deploy a model with Azure Machine Learning](tutorial-train-deploy-notebook.md).

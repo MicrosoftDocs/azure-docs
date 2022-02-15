@@ -3,7 +3,7 @@ title: Troubleshoot common Azure deployment errors
 description: Describes common errors for Azure resources deployed with Azure Resource Manager templates (ARM templates) or Bicep files.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 01/10/2022
+ms.date: 01/13/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -63,6 +63,7 @@ If your error code isn't listed, submit a GitHub issue. On the right side of the
 | PrivateIPAddressInReservedRange | The specified IP address includes an address range required by Azure. Change IP address to avoid reserved range. | [Private IP addresses](../../virtual-network/ip-services/private-ip-addresses.md)
 | PrivateIPAddressNotInSubnet | The specified IP address is outside of the subnet range. Change IP address to fall within subnet range. | [Private IP addresses](../../virtual-network/ip-services/private-ip-addresses.md) |
 | PropertyChangeNotAllowed | Some properties can't be changed on a deployed resource. When updating a resource, limit your changes to permitted properties. | [Update resource](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
+| RegionDoesNotAllowProvisioning | Select a different region or submit a quota support request for **Region access**. | |
 | RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you're trying to do during deployment. Find the policy that blocks the action. If possible, change your deployment to meet the limitations from the policy. | [Resolve policies](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Provide a resource name that doesn't include a reserved name. | [Reserved resource names](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wait for deletion to complete. | |

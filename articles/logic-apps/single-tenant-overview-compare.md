@@ -144,6 +144,22 @@ With the **Logic App (Standard)** resource type, you can create these workflow t
   > unavailable, or unsupported triggers, actions, and connectors, see 
   > [Changed, limited, unavailable, or unsupported capabilities](#limited-unavailable-unsupported).
 
+### Summary differences between stateful and stateless workflows
+
+<center>
+
+| Stateless                                                    | Stateful                                                    |
+|--------------------------------------------------------------|-------------------------------------------------------------|
+| Doesn't store run history, inputs, or outputs by default     | Stores run history, inputs, and outputs                     |
+| Managed connector triggers are unavailable or not allowed    | Managed connector triggers are available and allowed        |
+| No support for chunking                                      | Supports chunking                                           |
+| No support for asynchronous operations                       | Supports asynchronous operations                            |
+| Best for workflows with max duration under 5 minutes         | Edit default max run duration in host configuration         |
+| Best for handling small message sizes (under 64K)            | Handles large messages                                      |
+|||
+
+</center>
+
 <a name="nested-behavior"></a>
 
 ### Nested behavior differences between stateful and stateless workflows
@@ -209,13 +225,13 @@ The single-tenant model and **Logic App (Standard)** resource type include many 
 
   * **Logic App (Standard)** resources can run anywhere because Azure Logic Apps generates Shared Access Signature (SAS) connection strings that these logic apps can use for sending requests to the cloud connection runtime endpoint. Azure Logic Apps service saves these connection strings with other application settings so that you can easily store these values in Azure Key Vault when you deploy in Azure.
 
+  * The **Logic App (Standard)** resource type supports having the [system-assigned managed identity *and* multiple user-assigned managed identities](create-managed-service-identity.md) enabled at the same time, though you still can only select one identity to use at any time.
+
     > [!NOTE]
-    > By default, the **Logic App (Standard)** resource type has the [system-assigned managed identity](create-managed-service-identity.md) 
-    > automatically enabled to authenticate connections at run time. This identity differs from the authentication 
-    > credentials or connection string that you use when you create a connection. If you disable this identity, 
-    > connections won't work at run time. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
-    >
-    > The user-assigned managed identity is currently unavailable on the **Logic App (Standard)** resource type.
+    > By default, the system-assigned identity is already enabled to authenticate connections at run time. 
+    > This identity differs from the authentication credentials or connection string that you use when you 
+    > create a connection. If you disable this identity, connections won't work at run time. To view 
+    > this setting, on your logic app's menu, under **Settings**, select **Identity**.
 
 * You can locally run, test, and debug your logic apps and their workflows in the Visual Studio Code development environment.
 

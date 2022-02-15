@@ -54,6 +54,12 @@ The OSS component versions associated with HDInsight 3.6 are listed in the follo
 | Apache Zeppelin        | 0.7.3                       |
 | Mono                   | 4.2.1                       |
 
+## HDInsight 3.6 to 4.0 Migration Guides
+- [Migrate Apache Spark 2.1 and 2.2 workloads to 2.3 and 2.4](spark/migrate-versions.md).
+- [Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0](interactive-query/apache-hive-migrate-workloads.md).
+- [Migrate Apache Kafka workloads to Azure HDInsight 4.0](kafka/migrate-versions.md).
+- [Migrate an Apache HBase cluster to a new version](hbase/apache-hbase-migrate-new-version.md).
+
 ## Next steps
 
 - [Cluster setup for Apache Hadoop, Spark, and more on HDInsight](hdinsight-hadoop-provision-linux-clusters.md)

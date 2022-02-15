@@ -146,7 +146,7 @@ Use the advanced protection tiles in the [workload protections dashboard](worklo
 
 - To get started with Defender for Cloud, you need a subscription to Microsoft Azure. If you don't have a subscription, [sign up for a free trial](https://azure.microsoft.com/free/).
 
-- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud pages in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/security-center/).
+- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud pages in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 - If you're ready to enable enhanced security features now, [Quickstart: Enable enhanced security features](enable-enhanced-security.md) walks you through the steps.
 

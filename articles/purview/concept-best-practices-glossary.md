@@ -34,7 +34,7 @@ You will also observe when there are language barriers, in which, most organizat
 
 ## Recommendations for implementing new glossary terms
 
-Creating terms is necessary to build the business vocabulary and apply it to assets within Azure Purview. When a new Purview account is created, by default, there are no built-in terms in the account.
+Creating terms is necessary to build the business vocabulary and apply it to assets within Azure Purview. When a new Azure Purview account is created, by default, there are no built-in terms in the account.
 
 This creation process should follow strict naming standards to ensure that the glossary does not contain duplicate or competing terms.
 
@@ -44,7 +44,7 @@ This creation process should follow strict naming standards to ensure that the g
 - Always use the provide search glossary terms feature before adding a new term. This will help you avoid adding duplicate terms to the glossary.
 - Avoid deploying terms with duplicated names. In Azure Purview, terms with the same name can exist under different parent terms. This can lead to confusion and should be well thought out before building your business glossary to avoid duplicated terms. 
 
-Glossary terms in Purview are case sensitive and allow white space. The following shows a poorly executed example of implementing glossary terms and demonstrates the confusion caused:
+Glossary terms in Azure Purview are case sensitive and allow white space. The following shows a poorly executed example of implementing glossary terms and demonstrates the confusion caused:
 
  :::image type="content" source="media/concept-best-practices/glossary-duplicated-term-search.png" alt-text="Screenshot that shows searching duplicated glossary terms.":::
 
@@ -54,10 +54,10 @@ As a best practice it always best to: Plan, search, and strictly follow standard
 
 ## Recommendations for deploying glossary term templates
 
-When building new term templates in Purview, review the following considerations:
+When building new term templates in Azure Purview, review the following considerations:
 
 - Term templates are used to add custom attributes to glossary terms.
-- By default, Purview offers several [out-of-the-box term attributes](./concept-business-glossary.md#custom-attributes) such as Name, Nick Name, Status, Definition, Acronym, Resources, Related terms, Synonyms, Stewards, Experts, and Parent term, which are found in the "System Default" template. 
+- By default, Azure Purview offers several [out-of-the-box term attributes](./concept-business-glossary.md#custom-attributes) such as Name, Nick Name, Status, Definition, Acronym, Resources, Related terms, Synonyms, Stewards, Experts, and Parent term, which are found in the "System Default" template. 
 - Default attributes cannot be edited or deleted. 
 - Custom attributes extend beyond default attributes, allowing the data curators to add more descriptive details to each term to completely describe the term in the organization.
 - As a reminder, Azure Purview stores only meta-data. Attributes should describe the meta-data; not the data itself.
@@ -68,7 +68,7 @@ When building new term templates in Purview, review the following considerations
 
 - Terms may be imported with the "System default" or custom template.
 - When importing terms, use the sample .CSV file to guide you. This can save hours of frustration.
-- When importing terms from a .CSV file, be sure that terms already existing in Purview are intended to be updated. When using the import feature, Purview will overwrite existing terms.
+- When importing terms from a .CSV file, be sure that terms already existing in Azure Purview are intended to be updated. When using the import feature, Azure Purview will overwrite existing terms.
 - Before importing terms, test the import in a lab environment to ensure that no unexpected results occur, such as duplicate terms. 
 - The email address for Stewards and Experts should be the primary address of the user from the Azure Active Directory group. Alternate email, user principal name and non-Azure Active Directory emails are not yet supported.
 - Glossary terms provide fours status: draft, approved, expire, alert. Draft is not officially implemented, approved is official/stand/approved for production, expired means should no longer be used, alert need to pay more attention.
@@ -76,7 +76,7 @@ For more information, see [Create, import, and export glossary terms](./how-to-c
 
 ## Recommendations for exporting glossary terms 
 
-Exporting terms may be useful in Purview account to account, Backup, or Disaster Recovery scenarios. Exporting terms in Purview Studio must be done one term template at a time. Choosing terms from multiple templates will disable the "Export terms" button. As a best practice, using the "Term template" filter before bulk selecting will make the export process quick.
+Exporting terms may be useful in Azure Purview account to account, Backup, or Disaster Recovery scenarios. Exporting terms in Azure Purview Studio must be done one term template at a time. Choosing terms from multiple templates will disable the "Export terms" button. As a best practice, using the "Term template" filter before bulk selecting will make the export process quick.
 
 ## Glossary Management 
 
@@ -84,7 +84,7 @@ Exporting terms may be useful in Purview account to account, Backup, or Disaster
 
 - While classifications and sensitivity labels are applied to assets automatically by the system based on classification rules, glossary terms are not applied automatically.
 - Similar to classifications, glossary terms can be mapped to assets at the asset level or scheme level.
-- In Purview, terms can be added to assets in different ways:
+- In Azure Purview, terms can be added to assets in different ways:
   - Manually, using Azure Purview Studio.
   - Using Bulk Edit mode to update up to 25 assets, using Azure Purview Studio.
   - Curated Code using the Atlas API.

@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 09/15/2021
+ms.date: 02/09/2022
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -116,7 +116,7 @@ To create the custom authorization and delegation in Azure Lighthouse, we use an
    | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | Subscription          | Select the directory that contains the Azure subscription where the _azure-ad-b2c-monitor_ resource group was created.                                                                                                                                                                                                                                                                                                                                                                                                       |
    | Region                | Select the region where the resource will be deployed.                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-   | Msp Offer Name        | A name describing this definition. For example, _Azure AD B2C Monitoring_. This is the name that will be displayed in Azure Lighthouse.                                                                                                                                                                                                                                                                                                                                                                                          |
+   | Msp Offer Name        | A name describing this definition. For example, _Azure AD B2C Monitoring_. This is the name that will be displayed in Azure Lighthouse.  The **MSP Offer Name** must be unique in your Azure AD. To monitor multiple Azure AD B2C tenants, use different names. |
    | Msp Offer Description | A brief description of your offer. For example, _Enables Azure Monitor in Azure AD B2C_.                                                                                                                                                                                                                                                                                                                                                                                                                                     |
    | Managed By Tenant Id  | The **Tenant ID** of your Azure AD B2C tenant (also known as the directory ID).                                                                                                                                                                                                                                                                                                                                                                                                                                              |
    | Authorizations        | Specify a JSON array of objects that include the Azure AD `principalId`, `principalIdDisplayName`, and Azure `roleDefinitionId`. The `principalId` is the **Object ID** of the B2C group or user that will have access to resources in this Azure subscription. For this walkthrough, specify the group's Object ID that you recorded earlier. For the `roleDefinitionId`, use the [built-in role](../role-based-access-control/built-in-roles.md) value for the _Contributor role_, `b24988ac-6180-42a0-ab88-20f7382dd24c`. |
@@ -139,6 +139,9 @@ After you deploy the template, it can take a few minutes (typically no more than
 ## 4. Select your subscription
 
 After you've deployed the template and waited a few minutes for the resource projection to complete, follow these steps to associate your subscription with your Azure AD B2C directory.
+
+> [!NOTE]
+> On the **Portal settings | Directories + subscriptions** page, ensure that your Azure AD B2C and Azure AD tenants are selected under **Current + delegated directories**.
 
 1. Sign out of the Azure portal if you're currently signed in (this allows your session credentials to be refreshed in the next step).
 1. Sign in to the [Azure portal](https://portal.azure.com) with your **Azure AD B2C** administrative account. This account must be a member of the security group you specified in the [Delegate resource management](#3-delegate-resource-management) step.

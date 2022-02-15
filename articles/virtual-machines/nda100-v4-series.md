@@ -36,6 +36,7 @@ These instances provide excellent performance for many AI, ML, and analytics too
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 InfiniBand: Supported, GPUDirect RDMA, 8 x 200 Gigabit HDR<br>
 Nvidia NVLink Interconnect: Supported<br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 <br>
 The ND A100 v4 series supports the following kernel versions: <br>
 CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>

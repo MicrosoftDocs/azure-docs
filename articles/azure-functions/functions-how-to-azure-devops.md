@@ -5,7 +5,8 @@ author: juliakm
 ms.topic: conceptual
 ms.date: 12/08/2021
 ms.author: jukullam
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli" 
+ms.devlang: azurecli
 ---
 
 # Continuous delivery with Azure Pipelines
@@ -97,7 +98,7 @@ You can use the following sample to create a YAML file to build a .NET app:
 
 ```yaml
 pool:
-      vmImage: 'windows-2019'
+  vmImage: 'windows-latest'
 steps:
 - script: |
     dotnet restore
@@ -128,7 +129,7 @@ You can use the following sample to create a YAML file to build a JavaScript app
 
 ```yaml
 pool:
-      vmImage: ubuntu-latest # Use 'windows-2019' if you have Windows native +Node modules
+  vmImage: ubuntu-latest # Use 'windows-latest' if you have Windows native +Node modules
 steps:
 - bash: |
     if [ -f extensions.csproj ]
@@ -218,7 +219,7 @@ You can use the following sample to create a YAML file to package a PowerShell a
 
 ```yaml
 pool:
-      vmImage: 'windows-2019'
+  vmImage: 'windows-latest'
 steps:
 - task: ArchiveFiles@2
   displayName: "Archive files"

@@ -81,7 +81,7 @@ Azure Front Door Standard/Premium sends periodic HTTP/HTTPS probe requests to ea
     >[!NOTE]
     >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with say, 100 Front Door POPs globally, each backend will receive about 200 probe requests per minute.
 
-For more information, see [Health probes](/azure/frontdoor/front-door-health-probes).
+For more information, see [Health probes](../front-door-health-probes.md).
 
 ### Load-balancing settings
 
@@ -105,7 +105,7 @@ There are four traffic routing methods available in Azure Front Door Standard/Pr
 * **[Priority](#priority):** You can assign priorities to your backends when you want to configure a primary backend to service all traffic. The secondary backend can be a backup in case the primary backend becomes unavailable.
 * **[Weighted](#weighted):** You can assign weights to your backends when you want to distribute traffic across a set of backends. Whether you want to evenly distribute or according to the weight coefficients.
 
-All Azure Front Door Standard/Premium configurations include monitoring of backend health and automated instant global failover. For more information, see [Backend Monitoring](/azure/frontdoor/front-door-health-probes). Your Front Door can work based off of a single routing method. But depending on your application needs, you can also combine multiple routing methods to build an optimal routing topology.
+All Azure Front Door Standard/Premium configurations include monitoring of backend health and automated instant global failover. For more information, see [Backend Monitoring](../front-door-health-probes.md). Your Front Door can work based off of a single routing method. But depending on your application needs, you can also combine multiple routing methods to build an optimal routing topology.
 
 ### <a name = "latency"></a>Lowest latencies based traffic-routing
 

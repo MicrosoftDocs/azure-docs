@@ -52,6 +52,9 @@ Private endpoint uses a private IP address in the managed Virtual Network to eff
 
 > [!NOTE]
 > It's recommended that you create Managed private endpoints to connect to all your Azure data sources. 
+
+> [!NOTE]
+> Make sure resource provider Microsoft.Network is registered to your subscription.
  
 > [!WARNING]
 > If a PaaS data store (Blob, ADLS Gen2, Azure Synapse Analytics) has a private endpoint already created against it, and even if it allows access from all networks, ADF would only be able to access it using a managed private endpoint. If a private endpoint does not already exist, you must create one in such scenarios. 
