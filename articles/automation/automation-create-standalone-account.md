@@ -102,10 +102,10 @@ When you create an Automation account, Azure generates two 512-bit automation ac
 
 ### View Automation account keys
 
-To view and copy your Automation account access keys from the Azure portal, follow these steps:
+To view and copy your Automation account access keys, follow these steps:
 1. In the [Azure portal](https://portal.azure.com/), go to your Automation account.
-1. Under the **Account Settings**, select **Keys** to view your Automation account's primary and secondary access keys. 
-You can use either of the two keys to access your Automation account. However, we recommend that you use the first key and reserve the use of second key.
+1. Under **Account Settings**, select **Keys** to view your Automation account's primary and secondary access keys. 
+You can use any of the two keys to access your Automation account. However, we recommend that you use the first key and reserve the use of second key.
 
    :::image type="content" source="./media/automation-create-standalone-account/automation-demo-keys-inline.png" alt-text="Automation Keys page" lightbox="./media/automation-create-standalone-account/automation-demo-keys-expanded.png" :::
 
@@ -121,7 +121,7 @@ Follow these steps:
 1. Go to your Automation account in [Azure portal](https://portal.azure.com/).
 1. Under **Account Settings**, select **Keys**.
 1. Select **Regenerate primary** to regenerate the primary access key for your Automation account.
-1. Select the **Regenerate secondary** button to regenerate the secondary access key.
+1. Select the **Regenerate secondary** to regenerate the secondary access key.
   :::image type="content" source="./media/automation-create-standalone-account/regenerate-keys.png" alt-text="Regenerate keys":::
   
 # [Azure PowerShell](#tab/azurepowershell)
@@ -136,7 +136,7 @@ Run the [New-AzAutomationKey](/powershell/module/az.automation/new-azautomationk
 ### View registration URL
 The DSC node registers with the State Configuration service using the registration URL and authenticates using a registration access key along with the Automation Account access keys.
 
-:::image type="content" source="./media/automation-create-standalone-account/automation-demo-keys-url-inline.png" alt-text="Automation Keys page" lightbox="./media/automation-create-standalone-account/automation-demo-keys-url-expanded.png" :::
+:::image type="content" source="./media/automation-create-standalone-account/automation-demo-keys-url-inline.png" alt-text="Screenshot of Automation Keys and URL" lightbox="./media/automation-create-standalone-account/automation-demo-keys-url-expanded.png" :::
 
 ## Next steps
 
