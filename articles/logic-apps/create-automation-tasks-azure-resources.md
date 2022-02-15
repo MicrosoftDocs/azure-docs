@@ -346,7 +346,8 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
    | Parameter | Description |
    |-----------|-------------|
-   | **numberOf** | Specifies the maximum number of time units that a virtual machine can stay idle. This parameter uses the **Default** template, which lets you specify the parameter's information, the expected format, and whether the parameter is optional or not. For this example parameter, the expected format is **None**, and the parameter is **Required**. |
+   | **emailAddress** | Specifies the email address for where to send the report. This parameter uses the **Default** template, which lets you specify the parameter's information, the expected format, and whether the parameter is optional or not. For this example parameter, the expected format is **None**, and the parameter is **Required**. |
+   | **numberOf** | Specifies the maximum number of time units that a virtual machine can stay idle. This parameter uses the **Default** template. |
    | **timeUnit** | Specifies the time unit to use for the parameter value. This parameter uses the **Frequency** template, which shows the time units that the task creator can select, for example, **Hour**, **Day**, or **Month**. |
    |||
 
