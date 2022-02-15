@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 02/15/2022
 
 ms.author: justinha
 author: vimrang
@@ -49,7 +49,7 @@ Let's cover each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
-1. After the user clicks the link, the client is redirected to the certauth endpoint [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). This endpoint is different in each Microsoft cloud. Refer to specific Microsoft cloud guidance for the correct endpoint for your environment. For example, see this [table of API endpoints](/azure-government/compare-azure-government-global-azure.md#guidance-for-developers) for the correct endpoint for Azure Government cloud.
+1. After the user clicks the link, the client is redirected to the certauth endpoint, which is [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](/azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [http://certauth.login.microsoftonline.us](http://certauth.login.microsoftonline.us). For the correct endpoint for other environments, see the specific Microsoft cloud docs. 
 
    The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
 
