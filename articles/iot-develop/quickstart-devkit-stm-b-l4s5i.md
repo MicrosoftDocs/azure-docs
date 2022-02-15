@@ -8,17 +8,19 @@ ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/02/2021
 ms.custom: mode-other
-zone_pivot_groups: iot-develop-stm-toolset
+zone_pivot_groups: iot-develop-stm32-toolset
 
 # Owner: timlt
-# - id: iot-develop-stm-toolset
-#   title: IoT Devices
-#   prompt: Choose a build environment
+#- id: iot-develop-stm32-toolset
+#  title: IoT Devices
+#  prompt: Choose a build environment
 #  pivots:
 #  - id: iot-toolset-cmake
 #    title: CMake
 #  - id: iot-toolset-iar-ewarm
 #    title: IAR EWARM
+#  - id: iot-toolset-stm32cube
+#    title: STM32Cube IDE
 
 ---
 
@@ -30,7 +32,7 @@ zone_pivot_groups: iot-develop-stm-toolset
 :::zone pivot="iot-toolset-cmake"
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/STMicroelectronics/)
 :::zone-end
-:::zone pivot="iot-toolset-iar-ewarm"
+:::zone pivot="iot-toolset-iar-ewarm, iot-toolset-stm32cube"
 [![Browse code](media/common/browse-code.svg)](https://github.com/azure-rtos/samples/)
 :::zone-end
 
