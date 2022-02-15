@@ -71,7 +71,6 @@ to an Azure blob storage container.
 
 If you want to use manually labeled data, you'll also have to upload the *.labels.json* and *.ocr.json* files that correspond to your training documents.
 
-*See* [Train with labels](#train-with-labels)
 
 ## Train your custom model
 
