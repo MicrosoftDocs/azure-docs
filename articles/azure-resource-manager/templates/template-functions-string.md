@@ -2,7 +2,7 @@
 title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: conceptual
-ms.date: 10/29/2021
+ms.date: 02/11/2022
 ---
 
 # String functions for ARM templates
@@ -42,6 +42,9 @@ Resource Manager provides the following functions for working with strings in yo
 * [uri](#uri)
 * [uriComponent](#uricomponent)
 * [uriComponentToString](#uricomponenttostring)
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [string](../bicep/bicep-functions-string.md) functions.
 
 ## base64
 
