@@ -48,10 +48,8 @@ landingContent:
             url: how-to-service-registration.md
           - text: Deploy app using IntelliJ
             url: how-to-intellij-deploy-apps.md
-          - text: -- Deploy app using VS Code --
-            url: overview.md
-          - text: -- Deploy app using Maven --
-            url: how-to-launch-from-source.md
+          - text: Deploy app using VS Code
+            url: https://code.visualstudio.com/docs/java/java-spring-cloud
 
   # Card (optional)
   - title: Manage your app
@@ -78,8 +76,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: -- Isolate and enable on-premises connectivity --
-            url: overview.md
+          - text: Isolate and enable on-premises connectivity
+            url: how-to-deploy-in-azure-virtual-network.md
       - linkListType: how-to-guide
         links:
           - text: Secure communications
