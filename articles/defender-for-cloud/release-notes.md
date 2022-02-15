@@ -25,9 +25,9 @@ Updates in February include:
 
 ### Kubernetes workload protection for Arc enabled K8s clusters 
 
-We have extended the Kubernetes for Arc protection to also inclue Arc enabled Kubernetes clusters.
+Defender for Containers for Kubernetes workloads previously only protected AKS. We have now extended the protective coverage to include Azure Arc enabled Kubernetes clusters.
 
-Learn how to [set up your Kubernetes workload protection](kubernetes-workload-protections?#set-up-your-workload-protection)
+Learn how to [set up your Kubernetes workload protection](kubernetes-workload-protections?#set-up-your-workload-protection) for AKS and Azure Arc enabled Kubernetes clusters.
 
 ## January 2022
 
