@@ -19,11 +19,11 @@
             "source_path_from_root": "/articles/azure/marketplace/co-sell-status.md",
             "redirect_url": "/partner-center/co-sell-status",
             "redirect_document_id": false
-        }
+        },
         {   "source_path_from_root": "/articles/azure/marketplace/co-sell-requirements.md",
             "redirect_url": "/partner-center/co-sell-requirements",
-            "redirect_document_id": false,
-        }        
+            "redirect_document_id": false
+        },     
         {
             "source_path_from_root": "/articles/azure/marketplace/co-sell-configure.md",
             "redirect_url": "/partner-center/co-sell-configure",
