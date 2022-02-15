@@ -127,8 +127,11 @@ Here's an example of a runtime audit log entry:
 
 ```
 
-## Application metrics Logs
+## Application metrics logs
 Application metrics logs capture the aggregated information on certain metrics related to data plane operations. The captured information includes the following runtime metrics. 
+
+> [!NOTE] 
+> Application metrics logs are currently available only in the **dedicated** tier.  
 
 Name | Description
 ------- | -------
