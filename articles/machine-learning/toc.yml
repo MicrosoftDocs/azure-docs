@@ -55,9 +55,6 @@
             - name: Object detection with AutoML 
               displayName: automl, automated, auto ml, computer vision, images
               href: tutorial-auto-train-image-models.md
-        - name: Batch score models with pipelines
-          displayName: pipelines
-          href: tutorial-pipeline-batch-scoring-classification.md
         - name: Prep your code for production
           displayName: mlops, mlopspython, production
           href: tutorial-convert-ml-experiment-to-production.md
@@ -102,6 +99,8 @@
       href: "tutorial-create-secure-workspace.md"
     - name: "Create a secure workspace with templates"
       href: "tutorial-create-secure-workspace-template.md"
+    - name: "Build a training pipeline (Python)"
+      href: "tutorial-pipeline-python-sdk.md"
 - name: Samples
   items:
     - name: Jupyter Notebooks
@@ -168,9 +167,9 @@
             href: concept-component.md
           - name: MLflow
             href: concept-mlflow.md
-          - name: Responsible ML
+          - name: Responsible AI
             items:
-              - name: Responsible ML overview
+              - name: Responsible AI overview
                 displayName: responsible,ml
                 href: concept-responsible-ml.md
               - name: Model interpretability
@@ -297,8 +296,12 @@
                 href: how-to-manage-workspace-terraform.md
               - name: Use REST
                 href: how-to-manage-rest.md
+              - name: How to move a workspace
+                href: how-to-move-workspace.md
               - name: Link to Azure Synapse Analytics workspace
                 href: how-to-link-synapse-ml-workspaces.md
+              - name: Securely integrate Azure Synapse & Azure Machine Learning
+                href: how-to-private-endpoint-integration-synapse.md
               - name: Workspace Diagnostics
                 href: how-to-workspace-diagnostic-api.md
           - name: Create & manage compute resources
@@ -309,9 +312,6 @@
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
-              - name: Upgrade host OS
-                displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
-                href: how-to-compute-cluster-instance-os-upgrade.md
               - name: Azure Arc-enabled machine learning
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
                 href: how-to-attach-arc-kubernetes.md
@@ -723,6 +723,9 @@
         - name: Manage resources VS Code
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
+        - name: Search across workspaces
+          displayName: search, global, assets
+          href: how-to-search-cross-workspace.md
 - name: Troubleshoot & debug
   items:
     - name: VS Code interactive debugging
@@ -812,8 +815,11 @@
     - name: Image data schemas for AutoML
       displayName: automl, schema, data
       href: reference-automl-images-schema.md
-    - name: Designer module reference
-      displayName: module, reference, algorithm, studio
+    - name: Hyperparameters for AutoML computer vision tasks
+      displayName: automl, yolo-5
+      href: reference-automl-images-hyperparameters.md
+    - name: Designer component reference
+      displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md

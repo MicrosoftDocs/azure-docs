@@ -25,7 +25,7 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          Which of the methods to sign in to Azure AD, Pass-through Authentication, password hash synchronization, and Active Directory Federation Services (AD FS), should I choose?
+          Which of the methods to sign in to Azure AD, Pass-through Authentication, password hash synchronization, and Active Directory Federation Services (AD FS) should I choose?
         answer: |
           Review [this guide](./choose-ad-authn.md) for a comparison of the various Azure AD sign-in methods and how to choose the right sign-in method for your organization.
           
@@ -71,6 +71,15 @@ sections:
           
           If you have not configured password writeback for a specific user or if the user doesn't have a valid Azure AD license assigned, the user can't update their password in the cloud. They can't update their password, even if their password has expired. The user instead sees this message: "Your organization doesn't allow you to update your password on this site. Update it according to the method recommended by your organization, or ask your admin if you need help." The user or the administrator must reset their password in on-premises Active Directory.
           
+      - question: |
+          The user logs on to Azure AD with his credentials (username, password). In the meantime the user’s password expires, but the user can still access Azure AD resources. Why does this happen?
+        answer: |
+          The password expiry does not trigger the revocation of authentication tokens or cookies. Until the tokens or cookies are valid, the user will be able to use them. This applies regardless of the authentication type (PTA, PHS and federated scenarios).
+
+          For more details please check the documentation below:
+          [Microsoft identity platform access tokens - Microsoft identity platform | Microsoft Docs](../develop/access-tokens.md#revocation)
+
+     
       - question: |
           How does Pass-through Authentication protect you against brute-force password attacks?
         answer: |
@@ -171,20 +180,34 @@ sections:
           If you uninstall a Pass-through Authentication Agent from a server, it causes the server to stop accepting sign-in requests. To avoid breaking the user sign-in capability on your tenant, ensure that you have another Authentication Agent running before you uninstall a Pass-through Authentication Agent.
 
       - question: |
-          I have an older tenant that was originally setup using AD FS.  We recently migrated to PTA but now are not seeing our UPN changes synchronizing to Azure AD.  Why are our UPN changes not being synchronized?
+          I have an older tenant that was originally setup using AD FS. We recently migrated to PTA, but now are not seeing our UPN changes synchronizing to Azure AD. Why are our UPN changes not being synchronized?
         answer: |
-          A: Under the following circumstances your on-premises UPN changes may not synchronize if:
+          Under the following circumstances your on-premises UPN changes might not synchronize if:
           
-          - Your Azure AD tenant was created prior to June 15th 2015
-          - You initially were federated with your Azure AD tenant using AD FS for authentication
-          - You switched to having managed users using PTA as authentication
+          - Your Azure AD tenant was created prior to June 15, 2015.
+          - You initially were federated with your Azure AD tenant using AD FS for authentication.
+          - You switched to having managed users using PTA as authentication.
           
-          This is because the default behavior of tenants created prior to June 15th 2015 was to block UPN changes.  If you need to un-block UPN changes you need to run the following PowerShell cmdlt:  
+          This is because the default behavior of tenants created prior to June 15, 2015 was to block UPN changes. If you need to un-block UPN changes you need to run the following PowerShell cmdlet:  
           
           `Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
           
-          Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
+          Tenants created after June 15, 2015 have the default behavior of synchronizing UPN changes.   
           
+      - question: |
+          How do I capture the PTA Agent ID from Azure AD sign-in logs and the PTA server to validate which PTA server was used for a sign-in event?
+        answer: |
+          To validate which local server or authentication agent was used for a specific sign-in event:
+
+          1. In the Azure portal, go to the sign-in event.
+          2. Select **Authentication Details**. In the **Authentication Method Detail** column, Agent ID details are shown in the format "Pass-through Authentication; PTA AgentId: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX".
+          3. To get Agent ID details for the agent that's installed on your local server, log in to your local server and run following cmdlet: 
+          
+              `Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Authentication Agent' | Select *Instance*`
+          
+              The GUID value that's returned is the Agent ID of the authentication agent that's installed on that specific server. If you have multiple agents in your environment, you can run this cmdlet on each agent server and capture the Agent ID details.
+          4. Correlate the Agent ID that you get from the local server and from the Azure AD sign-in logs to validate which agent or server acknowledged the sign-request.
+            
 additionalContent: |
 
   ## Next steps

@@ -23,7 +23,7 @@ Clients on a VNet using the private endpoint should use the same DNS name to con
 > [!IMPORTANT]
 > Use the same DNS names to the Media Services endpoints when using private endpoints as you’d otherwise use. Please don't connect to the Media Services endpoints using its privatelink subdomain URL.
 
-Media Services creates a [private DNS zone](/azure/dns/private-dns-overview) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on DNS changes below describes the updates required for private endpoints.
+Media Services creates a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on DNS changes below describes the updates required for private endpoints.
 
 ## DNS changes for private endpoints
 
@@ -66,8 +66,8 @@ The recommended DNS zone names for private endpoints for storage services, and t
 
 For more information about configuring your own DNS server to support private endpoints, refer to the following articles:
 
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for private endpoints](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+- [DNS configuration for private endpoints](../../private-link/private-endpoint-overview.md#dns-configuration)
 
 ## Public network access flag
 

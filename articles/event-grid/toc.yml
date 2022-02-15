@@ -233,9 +233,9 @@
       items:
       - name: Overview 
         href: authentication-overview.md
-      - name: Authenticate using Azure Active Directory
+      - name: Publish events using Azure Active Directory authentication
         href: authenticate-with-active-directory.md
-      - name: Authenticate using access key or shared access signatures
+      - name: Publish events using access key or shared access signature authentication
         href: authenticate-with-access-keys-shared-access-signatures.md
     - name: Authorize access to Event Grid resources 
       href: security-authorization.md

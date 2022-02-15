@@ -1,5 +1,5 @@
 ---
-title: Best practices for scanning of data sources in Purview
+title: Best practices for scanning of data sources in Azure Purview
 description: This article provides best practices for registering and scanning various data sources in Azure Purview.
 author: athenads
 ms.author: athenadsouza
@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Azure Purview scanning best practices
 
-Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, and sensitivity labels if your Purview account is connected to a Microsoft 365 Security & Compliance Center.
+Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, and sensitivity labels if your Azure Purview account is connected to a Microsoft 365 Security & Compliance Center.
 
 ## Why do you need best practices to manage data sources?
 
@@ -25,7 +25,7 @@ The design considerations and recommendations have been organized based on the k
 
 - The hierarchy aligning with the organization’s strategy (geographical, business function, source of data, etc.) defining the data sources to be registered and scanned needs to be created using Collections.
 
-- By design, you cannot register data sources multiple times in the same Purview account. This architecture helps to avoid the risk of assigning different access control to the same data source.
+- By design, you cannot register data sources multiple times in the same Azure Purview account. This architecture helps to avoid the risk of assigning different access control to the same data source.
 
 ### Design recommendations
 
@@ -80,10 +80,10 @@ To avoid unexpected cost and rework, it is recommended to plan and follow the be
     > This feature has cost considerations, refer to the [pricing page](https://azure.microsoft.com/pricing/details/azure-purview/) for details.
 
 3. **Set up a scan** for the registered data source(s)
-    - **Scan name**: By default, Purview uses a naming convention **SCAN-[A-Z][a-z][a-z]** which is not helpful when trying to identify a scan that you have run. As a best practice, use a meaningful naming convention.  An instance could be naming the scan as _environment-source-frequency-time_, for example DEVODS-Daily-0200, which would represent a daily scan at 0200 hrs.
+    - **Scan name**: By default, Azure Purview uses a naming convention **SCAN-[A-Z][a-z][a-z]** which is not helpful when trying to identify a scan that you have run. As a best practice, use a meaningful naming convention.  An instance could be naming the scan as _environment-source-frequency-time_, for example DEVODS-Daily-0200, which would represent a daily scan at 0200 hrs.
     
     - **Authentication**: Azure Purview offers various authentication methods for scanning the data sources, depending on the type of source (Azure cloud or on-prem or third-party sources). It is recommended to follow the least privilege principle for authentication method following below order of preference:
-        - Purview MSI - Managed Identity (for example, for Azure Data Lake Gen2 sources)
+        - Azure Purview MSI - Managed Identity (for example, for Azure Data Lake Gen2 sources)
         - User-assigned Managed Identity
         - Service Principal
         - SQL Authentication (for example, for on-prem or Azure SQL sources)
@@ -146,9 +146,9 @@ To avoid unexpected cost and rework, it is recommended to plan and follow the be
 
 ### Points to note
 
-- If a field / column, table, or a file is removed from the source system after the scan was executed, it will only be reflected (removed) in Purview after the next scheduled full / incremental scan.
+- If a field / column, table, or a file is removed from the source system after the scan was executed, it will only be reflected (removed) in Azure Purview after the next scheduled full / incremental scan.
 - An asset can be deleted from Azure Purview catalog using the **delete** icon under the name of the asset (this will not remove the object in the source). However, if you run full scan on the same source, it would get reingested in the catalog. If you have scheduled a weekly / monthly scan instead (incremental) the deleted asset will not be picked unless the object is modified at source (for example, a column is added / removed from the table).
-- To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through Purview Studio, refer to [Catalog asset details](./catalog-asset-details.md#scans-on-edited-assets).
+- To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through Azure Purview Studio, refer to [Catalog asset details](./catalog-asset-details.md#scans-on-edited-assets).
 - For more details refer the tutorial on [how to view, edit, and delete assets](./catalog-asset-details.md)
 
 ## Next steps

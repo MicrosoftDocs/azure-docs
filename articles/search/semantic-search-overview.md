@@ -8,15 +8,15 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2021
+ms.date: 01/13/2022
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
 
 > [!IMPORTANT]
-> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable. For more information about, see [Availability and pricing](semantic-search-overview.md#availability-and-pricing).
+> Semantic search is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). It's available through the Azure portal, preview REST API, and beta SDKs. These features are billable (see [Availability and pricing](semantic-search-overview.md#availability-and-pricing)).
 
-Semantic search is a collection of query-related capabilities that bring semantic relevance and language understanding to search results. This article is a high-level introduction to semantic search all-up, with descriptions of each feature and how they work collectively. The embedded video describes the technology, and the section at the end covers availability and pricing.
+Semantic search is a collection of query-related capabilities that bring semantic relevance and language understanding to search results. This article is a high-level introduction to semantic search. The embedded video describes the technology, and the section at the end covers availability and pricing.
 
 Semantic search is a premium feature. We recommend this article for background, but if you'd rather get started, follow these steps:
 
@@ -24,7 +24,7 @@ Semantic search is a premium feature. We recommend this article for background, 
 > * [Check regional and service tier requirements](#availability-and-pricing).
 > * [Enable semantic search](#enable-semantic-search) on your search service.
 > * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
-> * Add a few more query properties to also return [semantic answers](semantic-answers.md).
+> * Add a few more query properties to also [return semantic answers](semantic-answers.md).
 
 ## What is semantic search?
 
@@ -32,7 +32,7 @@ Semantic search is a collection of features that improve the quality of search r
 
 | Feature | Description |
 |---------|-------------|
-| [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning to compute a new relevance score over existing results. |
+| [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning of a query to compute a new relevance score over existing results. |
 | [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
 | [Semantic answers](semantic-answers.md) | An optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document have text with the characteristics of an answer. |
 

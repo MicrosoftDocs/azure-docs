@@ -41,7 +41,7 @@
       displayName: .NET, SDK, client, library, C#
     - name: Connect with Node.js / JavaScript SDK
       href: configure-connect-nodejs-howto.md
-      displayName: Node, Node.js, Typescript, Javascript, SDK, client, library
+      displayName: Node, Node.js, TypeScript, JavaScript, SDK, client, library
     - name: Connect with Python SDK
       href: configure-connect-python-howto.md
       displayName: Python, SDK, client, library
@@ -52,9 +52,9 @@
       href: setup-postman-rest-how-to.md
   - name: Try an SDK sample
     items:
-      - name: GitHub code samples
+      - name: GitHub samples by language
         href: samples-overview.md
-        displayName: samples, SDK, Tutorial
+        displayName: samples, SDK, tutorial, GitHub, .NET, Python, Nodejs, Node, Node.JS Java, TypeScript, TS, JavaScript, JS
   - name: Try Media Services in the portal
     items:
     - name: Live event with portal and Wirecast
@@ -89,7 +89,7 @@
       href: analyze-videos-tutorial.md
       displayName: SDK, Tutorial, .NET, sample, analyze, video analyzer, audio analyzer, speech to text, captions, subtitles
     - name: Encrypt dynamically with AES-128
-      href: drm-playready-license-template-concept.md
+      href: drm-protect-with-aes128-tutorial.md
       displayName: SDK, Tutorial, .NET, sample, streaming, content protection, AES-128, encrypt
     - name: Encrypt dynamically with DRM
       href: drm-protect-with-drm-tutorial.md
@@ -123,10 +123,10 @@
     items:
     - name: Encode and stream a remote file Node.js
       href: stream-files-nodejs-quickstart.md
-      displayName: Tutorial, Node.js, Typescript, Node, Javascript, remote ingest, SAS, HTTP, JobInputHttp, S3, URL, ingest, upload, SDK, sample
+      displayName: Tutorial, Node.js, TypeScript, Node, JavaScript, remote ingest, SAS, HTTP, JobInputHttp, S3, URL, ingest, upload, SDK, sample
     - name: Stream live with Node.js
       href: stream-live-tutorial-with-nodejs.md
-      displayName: SDK, Tutorial, Node.js, Typescript, Node, Javascript, live, live event, streaming, sample
+      displayName: SDK, Tutorial, Node.js, TypeScript, Node, JavaScript, live, live event, streaming, sample
   - name: Python
     items:
     - name: Python Basic Encoding
@@ -145,12 +145,9 @@
       displayName: events, event grid, log analytics, tutorial, portal, monitoring, monitor
 - name: Samples
   items:
-  - name: GitHub code samples
+  - name: GitHub samples by language
     href: samples-overview.md
-    displayName: samples, SDK, tutorial, GitHub
-  - name: Media Services v3 GitHub samples
-    displayName: .NET, Python, Nodejs, Java, samples, tutorials, SDK, GitHub
-    href: https://github.com/Azure-Samples?q=media-services&type=&language=&sort=
+    displayName: samples, SDK, tutorial, GitHub, .NET, C#, Python, Nodejs, Node, Node.JS Java, TypeScript, TS, JavaScript, JS
   - name: Media Services v3 GitHub REST samples
     href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts
@@ -628,13 +625,13 @@
     items:
     - name: Azure Media Player full set up
       href: ../azure-media-player/azure-media-player-full-setup.md
-      displayName: AMP, embed, iframe, player, player control, setup player, publish, React, Vue, Angular, javascript, Typescript, node, node.js, playback, stream, CMS, web page, HTML, HTML5, MSE, EME, HTML video, video tag
+      displayName: AMP, embed, iframe, player, player control, setup player, publish, React, Vue, Angular, javascript, TypeScript, node, node.js, playback, stream, CMS, web page, HTML, HTML5, MSE, EME, HTML video, video tag
     - name: Use the Video.js player
       href: player-how-to-video-js-player.md
-      displayName: Videojs, Video.js, player, player setup, embed, iframe, React, Vue, Angular, javascript, Typescript, playback, stream, CMS, web page, HTML, HTML5, MSE, EME, video tag
+      displayName: Videojs, Video.js, player, player setup, embed, iframe, React, Vue, Angular, javascript, TypeScript, playback, stream, CMS, web page, HTML, HTML5, MSE, EME, video tag
     - name: Use the Shaka video player
       href: player-shaka-player-how-to.md
-      displayName: Shaka, Shaka player, Google, Google Shaka, player, player setup, embed, iframe, React, Vue, Angular, javascript, Typescript, playback, stream, CMS, web page, HTML, HTML5, MSE, EME, video tag
+      displayName: Shaka, Shaka player, Google, Google Shaka, player, player setup, embed, iframe, React, Vue, Angular, javascript, TypeScript, playback, stream, CMS, web page, HTML, HTML5, MSE, EME, video tag
     - name: Pass authentication tokens
       href: security-pass-authentication-tokens-how-to.md
       displayName: token auth, token, token authentication, player
@@ -662,7 +659,7 @@
       displayName: SDK, Python SDK, Python, Python docs, Python reference, reference Python, developer, develop, Python library, pypi, package, pip, pip install
     - name: Node.js
       href: /javascript/api/overview/azure/arm-mediaservices-readme
-      displayName: SDK, Node SDK, Node.js, Nodejs, Nodejs SDk, Node.js SDk, Javscript, Javascript SDK, Typescript, Typescript SDK, Javascript docs, Node docs, Node.js Docs, Node.js reference, reference Node, developer, develop, Node.js library, Typescript library, package, npm, npm install
+      displayName: SDK, Node SDK, Node.js, Nodejs, Nodejs SDk, Node.js SDk, Javscript, JavaScript SDK, TypeScript, TypeScript SDK, JavaScript docs, Node docs, Node.js Docs, Node.js reference, reference Node, developer, develop, Node.js library, TypeScript library, package, npm, npm install
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
       displayName: Go, Go SDK, SDK, Go reference, Go docs, Go Documentation, Go library, go package
@@ -710,7 +707,7 @@
       displayName:  SDK, install SDK, get SDK, client SDK, Python SDK, install Python SDK, Python, install, download SDK, pypi, pip, pip3 package, package manager, get started
     - name: Node.js
       href: https://aka.ms/ams-v3-nodejs-sdk   
-      displayName: SDK, install SDK, get SDK, client SDK, Node.js SDK, install Node.js SDK, Node.js, Typescript, Javascript install, download SDK, npm, package, package manager, node package, get started
+      displayName: SDK, install SDK, get SDK, client SDK, Node.js SDK, install Node.js SDK, Node.js, TypeScript, JavaScript install, download SDK, npm, package, package manager, node package, get started
     - name: Go
       href: https://aka.ms/ams-v3-go-sdk   
       displayName: SDK, install SDK, get SDK, client SDK, Go SDK, install Go SDK, Go, Go install, download SDK, get started   

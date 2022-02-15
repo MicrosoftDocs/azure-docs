@@ -15,28 +15,28 @@
         href: quickstart-send-telemetry-central.md
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
-    - name: Azure RTOS - Embedded device development
+    - name: Azure RTOS — Embedded device development
       items:
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
-      - name: MXCHIP AZ3166 - IoT Hub
-        href: quickstart-devkit-mxchip-az3166-iot-hub.md
       - name: Microchip ATSAME54-XPro
         href: quickstart-devkit-microchip-atsame54-xpro.md
       - name: NXP MIMXRT1050-EVKB
         href: quickstart-devkit-nxp-mimxrt1050-evkb.md
       - name: NXP MIMXRT1060-EVK
         href: quickstart-devkit-nxp-mimxrt1060-evk.md
-      - name: Renesas RX65N-2MB
+      - name: Renesas RX65N-2 MB
         href: quickstart-devkit-renesas-rx65n-2mb.md
       - name: Renesas RX65N Cloud Kit
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
       - name: STMicroelectronics L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l4s5i.md
-    - name: Azure FreeRTOS - Embedded device development
+    - name: Azure FreeRTOS — Embedded device development
       items:
       - name: ESPRESSIF ESP32
         href: quickstart-devkit-espressif-esp32.md
+      - name: STMicroelectronics L475E
+        href: quickstart-devkit-stm-b-l475e-freertos.md
 - name: Tutorials
   items:
     - name: Build a device solution with IoT Hub
@@ -55,7 +55,7 @@
       href: tutorial-use-mqtt.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Preview - Connect and analyze data with Time Series Insights Gen2
+    - name: Preview — Connect and analyze data with Time Series Insights Gen2
       href: tutorial-configure-tsi.md
 - name: Concepts
   items:
@@ -103,6 +103,8 @@
     items:
     - name: STMicroelectronics B-L475-IOT01A
       href: quickstart-devkit-stm-b-l475e.md
+    - name: MXCHIP AZ3166 — IoT Hub
+      href: quickstart-devkit-mxchip-az3166-iot-hub.md
   - name: Troubleshoot
     items:
       - name: Troubleshoot embedded quickstarts
