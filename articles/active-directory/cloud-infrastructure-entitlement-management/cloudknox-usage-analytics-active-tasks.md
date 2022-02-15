@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -92,7 +92,7 @@ You can filter user details by type of user, user role, app, or service used, or
 
 1. From the **Authorization system type** dropdown, select the authorization system you want to use: **AWS**, **Azure**, or **GCP**.
 1. From the **Authorization system** dropdown, select from a **List** of accounts and **Folders**.
-1. From the **Task type** dropdown, select the type of user: **All**, **High risk tasks**, or **Delete tasks**.
+1. From the **Task type** dropdown, select the type of tasks: **All**, **High risk tasks**, or **Delete tasks**.
 1. Select **Apply** to run your query and display the information you selected.
 
     Select **Reset filter** to discard your changes.

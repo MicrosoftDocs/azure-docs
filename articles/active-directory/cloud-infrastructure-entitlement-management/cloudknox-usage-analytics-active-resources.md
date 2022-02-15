@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -36,14 +36,14 @@ This article describes how to view usage analytics about active resources.
     The dashboard only lists tasks that are active. The following components make up the **Active resources** dashboard:
 1. From the dropdowns, select:
     - **Authorization system type**: The authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-    - **Authorization system**: The **List** of accounts and **Folders** ou want to include.
+    - **Authorization system**: The **List** of accounts and **Folders** you want to include.
     - **Tasks type**: Select **All** tasks, **High-risk tasks** or, for a list of tasks where users have deleted data, select **Delete tasks**.
     - **Service resource type**: The service resource type.
     - **Search**: Enter criteria to find specific tasks.
 
 1. Select **Apply** to display the criteria you've selected.
 
-    Select**Reset filter** to discard your changes.
+    Select **Reset filter** to discard your changes.
 
 
 ## View the results of your query
@@ -54,7 +54,7 @@ The **Active resources** table displays the results of your query:
     - To view details about the task, select the down arrow. 
 - **Account**: The name of the account.
 - **Resources type**: The type of resources used, for example, **bucket** or **key**.
-- **Tasks** Displays the number of **Granted** and **Executed** tasks.
+- **Tasks**: Displays the number of **Granted** and **Executed** tasks.
 - **Number of users**: The number of users with access and accessed.
 - Select the ellipses **(...)** and select **Tags** to add a tag.
 

@@ -18,6 +18,9 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
+> [!Note]
+> Sign up for the CloudKnox Permissions Management public preview by filling [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9AT7gfYe2NPtdIbYxQQX45UNEpIVjY4WUJNSUhMVjcyNzdYOFY2NFhISi4u).
+
 This article describes how to onboard a Google Cloud Platform (GCP) project on CloudKnox Permissions Management (CloudKnox).
 
 > [!NOTE]
@@ -56,7 +59,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 
     Optionally, specify **G-Suite IDP Secret Name** and **G-Suite IDP User Email** to enable G-Suite integration.
 
-    You can either download and run the script at this point or you can do it in the Google Cloud Shell, as described [below](cloudknox-onboard-gcp#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
+    You can either download and run the script at this point or you can do it in the Google Cloud Shell, as described in [later in this article](cloudknox-onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
 1. Select **Next**.
 
 ### 3. Set up GCP member projects.
@@ -65,7 +68,7 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 
     You can enter up to 10 GCP project IDs. Select the plus icon next to the text box to insert more project IDs.
         
-1. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell, as described in the [next step](cloudknox-onboard-gcp#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
+1. You can choose to download and run the script at this point, or you can do it via Google Cloud Shell, as described in the [next step](cloudknox-onboard-gcp.md#4-run-scripts-in-cloud-shell-optional-if-not-already-executed).
     
 ### 4. Run scripts in Cloud Shell. (Optional if not already executed.)
 
