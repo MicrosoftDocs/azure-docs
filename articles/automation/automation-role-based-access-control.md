@@ -75,6 +75,7 @@ An Automation Contributor can manage all resources in the Automation account exc
 
 |**Actions**  |**Description**  |
 |---------|---------|
+|[Microsoft.Automation](/azure/role-based-access-control/resource-provider-operations#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
 |Microsoft.Authorization/*/read|Read roles and role assignments.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
@@ -122,6 +123,7 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
+|[Microsoft.ResourceHealth](/azure/role-based-access-control/resource-provider-operations#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
 
 ### Automation Job Operator
 
@@ -142,6 +144,8 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.|
+|Microsoft.Automation/automationAccounts/jobs/output/read | Gets the output of a job.|
 
 ### Automation Runbook Operator
 
@@ -174,6 +178,7 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Storage/storageAccounts/listKeys/action|List storage account keys.|
 |Microsoft.Support/*|Create and manage support tickets.|
+|Microsoft.HybridCompute/machines/extensions/write| Installs or Updates an Azure Arc extensions.|
 
 ### Log Analytics Reader
 
