@@ -44,10 +44,13 @@ The following Azure Policy built-in definitions are available for use with Azure
     This policy definition disallows the use of the NFSv3 protocol type to prevent unsecure access to volumes. NFSv4.1 or NFSv4.1 with Kerberos protocol should be used to access NFS volumes to ensure data integrity and encryption.
  
 * *Azure NetApp Files volumes of type NFSv4.1 should use Kerberos data encryption.*   
-    This policy definition allows only the use of Kerberos privacy (`5p`) security mode to ensure that data is encrypted.
+    This policy definition allows only the use of Kerberos privacy (`krb5p`) security mode to ensure that data is encrypted.
  
 * *Azure NetApp Files volumes of type NFSv4.1 should use Kerberos data integrity or data privacy.*   
-    This policy definition ensures that either Kerberos integrity (`5i`) or Kerberos privacy (`5p`) is selected to ensure data integrity and data privacy.
+    This policy definition ensures that either Kerberos integrity (`krb5i`) or Kerberos privacy (`krb5p`) is selected to ensure data integrity and data privacy.
+
+* *Azure NetApp Files SMB volumes should use SMB3 encryption.*   
+    This policy definition disallows the creation of SMB volumes without SMB3 encryption to ensure data integrity and data privacy.
 
 To learn how to assign a policy to resources and view compliance report, see [Assign the Policy](../storage/common/transport-layer-security-configure-minimum-version.md#assign-the-policy).
 
