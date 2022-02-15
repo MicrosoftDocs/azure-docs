@@ -22,8 +22,10 @@ In this tutorial, you migrate the **Adventureworks** database from an on-premise
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
-> * Launch the Migrate to Azure SQL wizard in Azure Data Studio.
+> * Launch the Migrate to Azure SQL wizard in Azure Data Studio
 > * Run an assessment of your source SQL Server database(s)
+> * Collect performance data from your source SQL Server
+> * Get a recommendation of the Azure SQL Managed Instance SKU best suited for your workload
 > * Specify details of your source SQL Server, backup location and your target Azure SQL Managed Instance
 > * Create a new Azure Database Migration Service and install the self-hosted integration runtime to access source server and backups.
 > * Start and monitor the progress for your migration through to completion
