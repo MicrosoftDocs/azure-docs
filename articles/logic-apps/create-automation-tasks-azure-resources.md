@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/04/2022
+ms.date: 02/14/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -286,7 +286,7 @@ When you change the underlying workflow for an automation task, your changes aff
 
 ## Create automation task template from workflow
 
-You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring trigger. For this task, you'll need the following items:
+You can create your own automation task template by using any Consumption logic app workflow that starts with a recurring or event-based trigger. For this task, you'll need the following items:
 
 * A [GitHub](https://github.com) account
 
@@ -319,7 +319,7 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
 
 ### Export workflow to automation task template
 
-1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. Make sure that the workflow starts with a recurring trigger.
+1. In the [Azure portal](https://portal.azure.com), open the logic app workflow that you want to export. Make sure that the workflow starts with a recurring or event-based trigger.
 
 1. On the logic app resource menu, select **Overview**.
 
@@ -333,12 +333,12 @@ After the Azure Logic Apps team reviews and approves your PR for merging to the 
    |----------|----------|-------|-------------|
    | **Template Name** | Yes | <*template-name*> | The friendly display name for the automation task template. <p><p>**Important**: Make sure that you use a concise and easy-to-understand name, for example, **List stale virtual machines**. |
    | **Template Description** | Yes | <*template-description*> | A description for the template's task or purpose |
-   | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. Sub-resource types are currently unsupported. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template available for Azure virtual machines, specify **Microsoft.Compute/virtualmachines**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
-   | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | If any, the Azure resource types where you specifically don't want to make the template available. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template unavailable for Azure virtual machines, specify **Microsoft.Compute/virtualmachines**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
+   | **Supported Resource Types** | No | Empty or <*supported-Azure-resource-type-list*> | The first-class Azure resource types where you want to make the template available. Sub-resource types are currently unsupported. To include all first-class Azure resource types, leave this property empty. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template available for Azure resource groups, specify **Microsoft.Resources/resourceGroups**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
+   | **Unsupported Resource Types** | No | Empty or <*unsupported-Azure-resource-type-list*> | If any, the Azure resource types where you specifically don't want to make the template available. To specify multiple resource types, separate each name with a comma and use the following syntax: <p><p>**Microsoft.<*service-provider*>/<*entity*>** <p><p>For example, to make the template unavailable for Azure resource groups, specify **Microsoft.Resources/resourceGroups**. For more information, review [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md). |
    | **Configure Parameters** | No | Varies | If your workflow includes cross-environment [parameter definitions](create-parameters-workflows.md), those parameters appear in this section for you to configure further. You can select whether each parameter value is provided either from the resource or the task creator. <p><p>- If you select **From Resource**, select a **Source Parameter** property value to use from that resource: <p>-- **Resource Name** <br>-- **Resource Type** <br>-- **Resource Id** <br>-- **Subscription Id** <br>-- **Resource Group** <br>-- **Resource Location**. <p><p>- If you select **User Provided**, select a **Template** format that determines how the task creator provides the parameter value: <p>-- **Default**: The parameter value is anything other than an interval, frequency, or time zone. <p>---- Specify the parameter's display name, default value, and description. <p>---- If the value is a timestamp (*hh:mm:ss*), set the **Format** property to **Time Format**. <p>---- To mark the parameter as required, change the **Optional** to **Required**. <p>-- **Interval**: The parameter value is an interval, such as **1** or **12**. <p>-- **Frequency**: The parameter value is a frequency, such as **Hour**, **Day** or **Month**. <p>-- **Timezone**: The parameter value is a timezone, such as **(UTC-08:00) Pacific Time (US & Canada)**. |
    |||||
 
-   The following example shows the properties for a sample automation task template that works only on an Azure virtual machine resources:
+   The following example shows the properties for a sample automation task template that works only on an Azure resource group:
 
    ![Screenshot showing the 'Export to Automation Task' pane with example properties for an automation task template.](./media/create-automation-tasks-azure-resources/export-template-properties.png)
 
