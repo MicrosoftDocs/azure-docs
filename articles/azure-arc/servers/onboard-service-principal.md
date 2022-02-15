@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a service principal for onboarding at scale
 
-You can create a service principal in the Azure Portal or by using Azure PowerShell.
+You can create a service principal in the Azure portal or by using Azure PowerShell.
 
 > [!NOTE]
 > To create a service principal and assign roles, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding. If you don't have sufficient permissions to configure role assignments, the service principal might still be created, but it won't be able to onboard machines.
