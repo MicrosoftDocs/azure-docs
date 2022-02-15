@@ -47,7 +47,7 @@ Foo bar baz
 |------|-------------|
 | [create_distributed_function](reference-functions.md#create_distributed_function) | make function run on workers near colocated shards |
 | [mark_tables_colocated](reference-functions.md#mark_tables_colocated) | put targets into the same colocation group as the source |
-| [update_distributed_table_colocation](reference-functions.md#update_distributed_table_colocation) | update or break colocation of a distributed table |
+| update_distributed_table_colocation | update or break colocation of a distributed table |
 
 ### Columnar storage
 
