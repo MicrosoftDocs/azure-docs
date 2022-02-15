@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 02/14/2022
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,13 +18,13 @@ ms.custom: devx-track-azurepowershell
 
 This article describes how to manage the access, power, and connectivity mode for your Azure Stack Edge Pro with GPU device. These operations are performed via the local web UI or the Azure portal.
 
-This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
-
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Manage device access
+> * Enable device access via remote PowerShell over HTTP
+> * Enable device access from outside network
 > * Manage resource access
 > * Manage connectivity mode
 > * Manage power
@@ -110,6 +110,19 @@ Follow these steps in the local UI to enable remote PowerShell over HTTP:
 1. Select **Apply**.
 
 You can now connect to the PowerShell interface of the device over HTTP. For details, see [Connect to the PowerShell interface of your device](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
+
+## Enable device access from outside network
+
+If any of your users need to connect to the appliance from an outside network, you'll need this network configuration:
+
+- For in-bound traffic from the customer laptop network (network A) to the appliance's network (network B), network A should have a clear route to network B, possibly through defined gateways.<!--Is this a correct interpretation of "possibly through the right gateways defined" - configure a specific route vs. automatic routing to the best available network?-->
+
+- For outbound traffic (network B to network A), configure the correct gateways on the appliance so that traffic can reach network A. If you configure multiple gateways on the appliance, ensure that network A can be reached on all gateways.
+
+  An appliance ideally tries to use the network interface card (NIC) with the lowest route metric. However, there's no clear way for an Azure Stack Edge appliance to identify the NIC with the lowest metric. So it's best to make network A reachable on all configured gateways.
+
+  Diagnostic tests for Azure Stack Edge return a warning if all gateways don't have internet connectivity. For diagnostics information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics). <!--Terminology creep: This is the first reference to internet connectivity.-->
+
 
 ## Manage resource access
 
