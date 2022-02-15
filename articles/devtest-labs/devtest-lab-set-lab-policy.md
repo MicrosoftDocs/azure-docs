@@ -7,7 +7,7 @@ ms.date: 02/14/2022
 
 # Manage lab policies to control costs in Azure DevTest Labs
 
-This article describes how you can manage DevTest Labs policies to control lab costs and minimize waste. Lab policies you can set to control costs include:
+This article describes how you can manage Azure DevTest Labs policies to control lab costs and minimize waste. Lab policies you can set to control costs include:
 
 - Allowed virtual machine (VM) sizes
 - Maximum VMs per user
@@ -83,7 +83,7 @@ This policy specifies the total maximum number of VMs that can be created or cla
 
 If a user tries to create or claim a VM when the user limit has been met, an error message indicates that the VM can't be created or claimed.
 
-## Set auto-shutdown schedule
+## Set auto-shutdown
 
 Auto-shutdown helps minimize lab waste by shutting down lab VMs at a specific time of day.
 
@@ -93,7 +93,7 @@ Auto-shutdown helps minimize lab waste by shutting down lab VMs at a specific ti
 
 1. For **Scheduled shutdown** and **Time zone**, if you enabled auto-shutdown, specify the time and time zone to shut down all lab VMs.
 
-1. For **Send notification before auto-shutdown?**, select **Yes** or **No** for the option to send a notification before the specified auto-shutdown time.
+1. For **Send notification before auto-shutdown**, select **Yes** or **No** for the option to send a notification before the specified auto-shutdown time.
 
    If you choose **Yes**, enter a webhook URL endpoint under **Webhook URL** or semicolon-separated email addresses under **Email address** where you want to post or send the notification.
 
