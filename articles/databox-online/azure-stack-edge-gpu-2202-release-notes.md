@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Edge 2202 release notes
-description: Describes critical open issues and resolutions for the Azure Stack Edge running 2111 release.
+description: Describes critical open issues and resolutions for the Azure Stack Edge running 2202 release.
 services: databox
 author: alkohli
  
