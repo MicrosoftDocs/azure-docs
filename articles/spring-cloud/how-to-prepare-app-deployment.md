@@ -277,6 +277,8 @@ public class GatewayApplication {
 
 ### Distributed configuration
 
+#### [Basic/Standard tier](#tab/basic-standard-tier)
+
 To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
 
 ```xml
@@ -292,6 +294,32 @@ To enable distributed configuration, include the following `spring-cloud-config-
 
 > [!WARNING]
 > Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
+
+#### [Enterprise tier](#tab/enterprise-tier)
+
+To enable distributed configuration in Enterprise tier, use [Application Configuration Service (ACS)](https://docs.pivotal.io/tcs-k8s/0-1/), which is one of the proprietary VMware Tanzu components. ACS is Kubernetes-native, and totally different from Spring Cloud Config Server. ACS enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+
+In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service to manage centralized configurations. For more information, see [Use Application Configuration Service](how-to-enterprise-application-configuration-service.md)
+
+To use Application Configuration Service, do the following steps for each of your apps:
+
+1. Add an explicit app binding to declare that your app needs to use Application Configuration Service.
+
+   > [!NOTE]
+   > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
+
+1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](how-to-enterprise-application-configuration-service.md#pattern) section of [Use Application Configuration Service](how-to-enterprise-application-configuration-service.md).
+
+   Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
+
+   ```azurecli
+      az spring-cloud app deploy \
+          --name <app-name> \
+          --artifact-path <path-to-your-JAR-file> \
+          --config-file-pattern <config-file-pattern>
+   ```
+
+---
 
 ### Metrics
 
