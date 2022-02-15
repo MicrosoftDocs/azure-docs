@@ -73,7 +73,7 @@ If you disabled any of the default protections when you enabled Microsoft Defend
 
 1. From the left side tool bar, select **Auto provisioning**.
 
-1. Ensure that Microsoft Defenders for Containers compnents (preview) is toggled to On.
+1. Ensure that Microsoft Defenders for Containers components (preview) is toggled to On.
 
     :::image type="content" source="media/kubernetes-workload-protections/toggled-on.png" alt-text="Screenshot showing that Microsoft Defender for Containers is toggled to on.":::
 
@@ -95,7 +95,7 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
 
 1. From the recommendations page, search for the recommendation `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`. 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**":::
+    :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**.":::
 
   > [!TIP]
   > The recommendation is included in five different security controls and it doesn't matter which one you select in the next step.
@@ -186,7 +186,7 @@ When viewing a recommendation from the workload protection set, you'll see the n
 
 - The other is for an unhealthy deployment, non-compliant with *any* of the recommendations.
 
-Deploy the example .yaml files as-is, or use them as a reference to remediate your own workload (step VIII)  
+Deploy the example .yaml files as-is, or use them as a reference to remediate your own workload (step VIII).  
 
 
 ## Healthy deployment example .yaml file
