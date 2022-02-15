@@ -45,21 +45,21 @@ This workbook has four sections:
 
 - Individual users for inbound and outbound collaboration by tenant ID
 
-The total number of external tenants that have had cross-tenant access activity with your tenant is shown at the top of the workbook. The first section of the workbook lists all the external tenants that have had inbound or outbound activity with your tenant. You can select a row to focus the remainder of the workbook on activity for a specific tenant.
+The total number of external tenants that have had cross-tenant access activity with your tenant is shown at the top of the workbook. 
+
+Under **Step 1**, the external tenant list shows all the tenants that have had inbound or outbound activity with your tenant. When you select an external tenant in the table, the remaining sections update with information about outbound and inbound activity for that tenant.
 
 [ ![Screenshot showing list of external tenants with sign-in data.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-1.png) ](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-1.png#lightbox)
 
-When you select an external tenant in the first table, the remaining sections update with information about outbound and inbound activity for that tenant.
-
-The next section summarizes all outbound and inbound sign-in activity for the selected tenant, including the number of successful sign-ins and the resons for failed sign-ins. You can select **Outbound activity** or **Inbound activity** to update the remaining sections of the workbook with the type of activity you want to view.
+The table under **Step 2** summarizes all outbound and inbound sign-in activity for the selected tenant, including the number of successful sign-ins and the resons for failed sign-ins. You can select **Outbound activity** or **Inbound activity** to update the remaining sections of the workbook with the type of activity you want to view.
 
 ![Screenshot showing activity for the selected tenant.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-2.png)
 
-The next section lists the applications that are being accessed across tenants. If you selected **Outbound activity** in the previous section, the table shows the applications in external tenants that are being accessed by your users. If you selected **Inbound activity**, you'll see the list of your applications that are being accessed by external users. You can select a row to find out which users are accessing that application.
+Under **Step 3**, the table lists the applications that are being accessed across tenants. If you selected **Outbound activity** in the previous section, the table shows the applications in external tenants that are being accessed by your users. If you selected **Inbound activity**, you'll see the list of your applications that are being accessed by external users. You can select a row to find out which users are accessing that application.
 
 ![Screenshot showing application activity for the selected tenant.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-3.png)
 
-The last section displays the list of users who are accessing the application you selected.
+The table in **Step 4** displays the list of users who are accessing the application you selected.
 
 ![Screenshot showing users accessing an app.](./media/workbook-cross-tenant-access-activity/cross-tenant-workbook-step-4.png)
 
