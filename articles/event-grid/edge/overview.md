@@ -2,7 +2,7 @@
 title: Event driven architectures on edge — Azure Event Grid on IoT Edge
 description: Use Azure Event Grid as a module on IoT Edge for forward events between modules, edge devices, and the cloud.
 ms.topic: overview
-ms.date: 05/10/2021
+ms.date: 02/15/2022
 ms.subservice: iot-edge
 ---
 
