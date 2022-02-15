@@ -176,6 +176,8 @@
             href: f5-big-ip-ldap-header-easybutton.md
           - name: Oracle EBS
             href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+          - name: Oracle JDE
+            href: f5-big-ip-oracle-jde-easy-button.md
         - name: Advanced configuration
           items:
             - name: Headers

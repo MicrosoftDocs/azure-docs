@@ -62,6 +62,8 @@ items:
       href: custom-classification/how-to/improve-model.md
     - name: Deploy a model and classify text
       href: custom-classification/how-to/call-api.md
+    - name: Back up and recover your models
+      href: custom-classification/fail-over.md
   - name: Concepts
     items:
     - name: Evaluation metrics
@@ -106,6 +108,20 @@ items:
     href: custom-named-entity-recognition/language-support.md
   - name: FAQ
     href: custom-named-entity-recognition/faq.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for custom NER
+      href: /legal/cognitive-services/language-service/cner-transparency-note?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for Custom NER, Custom NER Transparency, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/language-service/cner-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/language-service/cner-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+      displayName: Custom NER characteristics, Custom NER limitations
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language-service/cner-data-privacy-security?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Create projects
@@ -122,6 +138,8 @@ items:
       href: custom-named-entity-recognition/how-to/improve-model.md
     - name: Deploy a model and extract entities from text
       href: custom-named-entity-recognition/how-to/call-api.md
+    - name: Back up and recover your models
+      href: custom-named-entity-recognition/fail-over.md
   - name: Tutorials
     items:
       - name: Enrich a Cognitive Search index with custom entities
@@ -176,6 +194,8 @@ items:
         href: conversational-language-understanding/how-to/train-model.md
       - name: Deploy a model and get predictions
         href: conversational-language-understanding/how-to/deploy-query-model.md
+      - name: Back up and recover your models
+        href: conversational-language-understanding/fail-over.md
   - name: Concepts
     items:
       - name: Backwards compatibility

@@ -174,7 +174,7 @@ Azure Service Health entries are part of the activity log. The process for creat
 
    1. In the **If true** condition, follow the instructions in steps 6 through 8 in [Create an activity log alert](#create-an-activity-log-alert-administrative) to add the Microsoft Teams action.
 
-   1. Define the message by using a text and dynamic content. Copy and paste the following content into the **Message** field. Replace the `[incidentType]`, `[trackingID]`, `[title]`, and `[communication]` fields with dynamic content tags of the same name. Use edit options available in Message to add strong/bold texts and links. The link *"For details, log in to the Azure Service Health dashboard."* in the below image has the destination set to https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues 
+   1. Define the message by using a text and dynamic content. Copy and paste the following content into the **Message** field. Replace the `[incidentType]`, `[trackingID]`, `[title]`, and `[communication]` fields with dynamic content tags of the same name. Use edit options available in Message to add strong/bold texts and links. The link *"For details, log in to the Azure Service Health dashboard."* in the below image has the destination set to https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues 
 
        !["Service Health true condition post action"](media/action-groups-logic-app/service-health-true-condition-post-action-2.png "Service Health true condition post action")
 

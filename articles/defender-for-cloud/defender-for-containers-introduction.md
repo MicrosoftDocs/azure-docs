@@ -2,29 +2,28 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 01/23/2022
+ms.date: 02/14/2022
 ---
+
 # Overview of Microsoft Defender for Containers
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Defender for Containers is the cloud-native solution for securing your containers.
+Microsoft Defender for Containers is the cloud-native solution for securing your containers. 
 
-This plan merges the capabilities of two existing Microsoft Defender plans, "Defender for Kubernetes" and "Defender for Container registries", and provides new and improved features without deprecating any of the functionality from those plans. 
-
-On this page, you'll learn how how you can use Defender for Containers to improve, monitor, and maintain the security of your clusters, containers, and their applications.
+On this page, you'll learn how you can use Defender for Containers to improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
 ## Availability
 
-| Aspect                          | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | General availability (GA)<br>Where indicated, specific features are in preview. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Pricing:                        | **Microsoft Defender for Containers** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Registries and images:          | **Supported**<br> • Linux images in Azure Container Registry (ACR) registries accessible from the public internet with shell access<br> • Private registries with access granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services)<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)<br><br>**Unsupported**<br> • Windows images<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) |
-| Kubernetes distributions and configurations:       | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br><br>**Unsupported**<br> • Any [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) applied to your nodes *might* disrupt the configuration of Defender for Containers<br>•The AKS Defender profile doesn't support AKS clusters that don't have RBAC enabled.<br><br>**Tested on**<br> • [Azure Kubernetes Service](../aks/intro-kubernetes.md)<br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)                                                                        |
-| Required roles and permissions: | • To auto provision the required components, [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), or [Azure Kubernetes Service Contributor Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)<br> • **Security admin** can dismiss alerts<br> • **Security reader** can view vulnerability assessment findings<br> See also [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md)                                                                                                                                                                                                                        |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) (Except for preview features)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-|                                 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Aspect | Details |
+|--|--|
+| Release state: | General availability (GA)<br>Where indicated, specific features are in preview. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)] |
+| Pricing: | **Microsoft Defender for Containers** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
+| Registries and images: | **Supported**<br> • Linux images in Azure Container Registry (ACR) registries accessible from the public internet with shell access<br> • Private registries with access granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services)<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)<br><br>**Unsupported**<br> • Windows images<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) |
+| Kubernetes distributions and configurations: | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br><br>**Unsupported**<br> • Any [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) applied to your nodes *might* disrupt the configuration of Defender for Containers<br>•The AKS Defender profile doesn't support AKS clusters that don't have RBAC role enabled.<br><br>**Tested on**<br> • [Azure Kubernetes Service](../aks/intro-kubernetes.md)<br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
+| Required roles and permissions: | • To auto provision the required components, [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), or [Azure Kubernetes Service Contributor Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)<br> • **Security admin** can dismiss alerts<br> • **Security reader** can view vulnerability assessment findings<br> See also [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md) |
+| Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) (Except for preview features)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview) |
+|  |  |
 
 ## What are the benefits of Microsoft Defender for Containers?
 
@@ -32,7 +31,7 @@ Defender for Containers helps with the core aspects of container security:
 
 - **Environment hardening** - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-prem / IaaS, or Amazon EKS. By continuously assessing clusters, Defender for Containers provides visibility into misconfigurations and guidelines to help mitigate identified threats. Learn more in [Environment hardening through security recommendations](#environment-hardening-through-security-recommendations).
 
-- **Vulnerability assessment scanning** - Vulnerability assessment and management tools for images **stored** in ACR registries and **running** in Azure Kubernetes Service. Learn more in [Vulnerability assessment](#vulnerability-assessment).
+- **Vulnerability assessment** - Vulnerability assessment and management tools for images **stored** in ACR registries and **running** in Azure Kubernetes Service. Learn more in [Vulnerability assessment](#vulnerability-assessment).
 
 - **Run-time threat protection for nodes and clusters** - Threat protection for clusters and Linux nodes generates security alerts for suspicious activities. Learn more in [Run-time protection for Kubernetes nodes, clusters, and hosts](#run-time-protection-for-kubernetes-nodes-and-clusters).
 
@@ -76,6 +75,15 @@ The **Azure Policy add-on for Kubernetes** collects cluster and workload configu
 
 :::image type="content" source="./media/defender-for-containers/architecture-aks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, and Azure Policy." lightbox="./media/defender-for-containers/architecture-aks-cluster.png":::
 
+#### Defender profile component details
+
+| Pod Name | Namespace | Kind | Short Description | Capabilities | Resource limits | Egress Required |
+|--|--|--|--|--|--|--|
+| azuredefender-collector-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment. | SYS_ADMIN, <br>SYS_RESOURCE, <br>SYS_PTRACE | memory: 64Mi<br> <br> cpu: 60m | No |
+| azuredefender-collector-misc-* | kube-system | [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) | A set of containers that focus on collecting inventory and security events from the Kubernetes environment that aren't bounded to a specific node. | N/A | memory: 64Mi <br> <br>cpu: 60m | No |
+| azuredefender-publisher-ds-* | kube-system | [DeamonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) | Publish the collected data to Microsoft Defender for Containers' backend service where the data will be processed for and analyzed. | N/A | memory: 64Mi  <br> <br> cpu: 60m | Https 443 <br> <br> Learn more about the [outbound access prerequisites](../aks/limit-egress-traffic.md#microsoft-defender-for-containers) |
+
+\* resource limits are not configurable
 
 ### [**Azure Arc-enabled Kubernetes**](#tab/defender-for-container-arch-arc)
 
@@ -118,11 +126,9 @@ We use AWS's CloudWatch to collect log data. To monitor your EKS clusters with D
 
 ### Continuous monitoring of your Kubernetes clusters - wherever they're hosted
 
-Defender for Cloud continuously assesses the configurations of your clusters and compares them with the initiatives applied to your subscriptions. When it finds misconfigurations, Defender for Cloud generates security recommendations. Use Defender for Cloud's **recommendations page** to view recommendations and remediate issues. For details of the relevant Defender for Cloud recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
+Defender for Cloud continuously assesses the configurations of your clusters and compares them with the initiatives applied to your subscriptions. When it finds misconfigurations, Defender for Cloud generates security recommendations. Use Defender for Cloud's **recommendations page** to view recommendations and remediate issues. For details of the relevant Defender for Cloud recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-container) of the recommendations reference table.
 
 For Kubernetes clusters on EKS, you'll need to connect your AWS account to Microsoft Defender for Cloud via the environment settings page as described in [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md). Then ensure you've enabled the CSPM plan.
-
-For details of the relevant Defender for Cloud recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
 When reviewing the outstanding recommendations for your container-related resources, whether in asset inventory or the recommendations page, you can use the resource filter:
 
@@ -147,26 +153,34 @@ Learn more in [Protect your Kubernetes workloads](kubernetes-workload-protection
 
 Defender for Containers includes an integrated vulnerability scanner for scanning images in Azure Container Registry registries.
 
-There are three triggers for an image scan:
+There are four triggers for an image scan:
 
 - **On push** - Whenever an image is pushed to your registry, Defender for container registries automatically scans that image. To trigger the scan of an image, push it to your repository.
 
-- **Recently pulled** - Since new vulnerabilities are discovered every day, **Microsoft Defender for container registries** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no extra charge for these rescans; as mentioned above, you're billed once per image.
+- **Recently pulled** - Since new vulnerabilities are discovered every day, **Microsoft Defender for Containers** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no extra charge for these rescans; as mentioned above, you're billed once per image.
 
-- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for container registries** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
- 
-The scan typically completes within 2 minutes, but it might take up to 40 minutes. For every vulnerability identified, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. 
+- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for container Containers** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
 
-Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
+- **Continuous scan**- This trigger has two modes:
+
+    - A Continuous scan based on an image pull.  This scan is performed every 7 days after an image was pulled, and only for 30 days after the image was pulled. This mode doesn't require the security profile, or extension.
+
+    -  (Preview) Continuous scan for running images. This scan is performed every 7 days for as long as the image runs. This mode runs instead of  the above mode when the Defender profile, or extension is running on the cluster.
+
+This scan typically completes within 2 minutes, but it might take up to 40 minutes. For every vulnerability identified, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. 
+
+Defender for Cloud filters, and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
 :::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
 
-### Scanning images at runtime
+### View vulnerabilities for running images
 
-Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities powered by the Defender profile.
+Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities powered by the Defender profile, or extension.
 
-The new recommendation, **Running container images should have vulnerability findings resolved** groups running images that have vulnerabilities and provides details about the issues discovered and how to remediate them.
+The new recommendation, **Running container images should have vulnerability findings resolved**, only shows vulnerabilities for running images, and relies on the Defender security profile, or extension to discover which images are currently running. This recommendation groups running images that have vulnerabilities, and provides details about the issues discovered, and how to remediate them. The Defender profile, or extension is used to gain visibility into vulnerable containers that are active.
+
+This recommendation shows running images, and their vulnerabilities based on ACR image image. Images that are deployed from a non ACR registry, will not be scanned, and will appear under the Not applicable tab.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="Screenshot showing where the recommendation is viewable" lightbox="media/defender-for-containers/running-image-vulnerabilities-recommendation-expanded.png":::
 
@@ -174,9 +188,9 @@ The new recommendation, **Running container images should have vulnerability fin
 
 Defender for Cloud provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-Threat protection at the cluster level is provided by the Defender profile and analysis of the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts.
+Threat protection at the cluster level is provided by the Defender profile and analysis of the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high-privileged roles, and the creation of sensitive mounts.
 
-In addition, our threat detection goes beyond the Kubernetes management layer. Defender for Containers includes **host-level threat detection** with over sixty Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload. Our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered. Together, this solution monitors the growing attack surface of multi-cloud Kubernetes deployments and tracks the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework that was developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/ctid/) in close partnership with Microsoft and others.
+In addition, our threat detection goes beyond the Kubernetes management layer. Defender for Containers includes **host-level threat detection** with over 60 Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload. Our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered. Together, this solution monitors the growing attack surface of multi-cloud Kubernetes deployments and tracks the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework that was developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/ctid/) in close partnership with Microsoft and others.
 
 The full list of available alerts can be found in the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
@@ -196,10 +210,11 @@ Subscriptions that already have one of these plans enabled can continue to benef
 If you haven't enabled them yet, or create a new subscription, these plans can no longer be enabled.
 
 ### Is Defender for Containers a mandatory upgrade?
-No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsoft Defender for container registries enabled don't need to be upgraded to the new Microsoft Defender for Containers plan. However, they won't benefit from the new and improved capabilities and they will have an upgrade icon shown alongside them in the Azure portal. 
+
+No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsoft Defender for container registries enabled don't need to be upgraded to the new Microsoft Defender for Containers plan. However, they won't benefit from the new and improved capabilities and they’ll have an upgrade icon shown alongside them in the Azure portal. 
 
 ### Does the new plan reflect a price increase?
-No. There is no direct price increase. The new comprehensive Container security plan  combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. 
+No. There’s no direct price increase. The new comprehensive Container security plan  combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. 
 
 ### What are the options to enable the new plan at scale? 
 We’ve rolled out a new policy in Azure Policy, **Configure Microsoft Defender for Containers to be enabled**, to make it easier to enable the new plan at scale. 

@@ -132,11 +132,9 @@ You may need to reactivate your sensor because you want to:
 
 1. Sign in to the Defender for IoT sensor console.
 
-1. In the sensor console, select **System Settings** and then select **Reactivation**.
+1. In the sensor console, select **System settings** > **Sensor management** > **Subscription & Activation Mode**.
 
-   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Upload your activation file to reactivate the sensor.":::
-
-1. Select **Upload** and select the file you saved from the Onboard sensor page.
+1. Select **Select file** choose the file you saved from the Onboard sensor page.
 
 1. Select **Activate**.
 

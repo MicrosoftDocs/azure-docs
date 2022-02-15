@@ -75,9 +75,9 @@ If you already have a virtual network to host an Azure Spring Cloud instance, sk
 
 1. For the IPv4 address space, enter **10.1.0.0/16**.
 
-1. Select **Add subnet**. Then enter **service-runtime-subnet** for **Subnet name** and enter **10.1.0.0/28** for **Subnet address range**. Then select **Add**.
+1. Select **Add subnet**. Then enter **service-runtime-subnet** for **Subnet name** and enter **10.1.0.0/24** for **Subnet address range**. Then select **Add**.
 
-1. Select **Add subnet** again, and then enter **Subnet name** and **Subnet address range**. For example, enter **apps-subnet** and **10.1.1.0/28**. Then select **Add**.
+1. Select **Add subnet** again, and then enter **Subnet name** and **Subnet address range**. For example, enter **apps-subnet** and **10.1.1.0/24**. Then select **Add**.
 
 1. Select **Review + create**. Leave the rest as defaults, and select **Create**.
 
@@ -121,11 +121,11 @@ If you already have a virtual network to host an Azure Spring Cloud instance, sk
    ```azurecli
    az network vnet subnet create --resource-group $RESOURCE_GROUP \
        --vnet-name $VIRTUAL_NETWORK_NAME \
-       --address-prefixes 10.1.0.0/28 \
+       --address-prefixes 10.1.0.0/24 \
        --name service-runtime-subnet 
    az network vnet subnet create --resource-group $RESOURCE_GROUP \
        --vnet-name $VIRTUAL_NETWORK_NAME \
-       --address-prefixes 10.1.1.0/28 \
+       --address-prefixes 10.1.1.0/24 \
        --name apps-subnet 
    ```
 
