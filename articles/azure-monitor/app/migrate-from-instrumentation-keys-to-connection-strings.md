@@ -18,8 +18,7 @@ This guide walks through migrating from [instrumentation keys](separate-resource
 
 1.  Find your connection string displayed on the Overview blade of your Application Insights resource.
 
-:::image type="complex" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string" lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
-:::image-end:::
+    :::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string" lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
 2.  Hover over the connection string and select the “Copy to clipboard” icon.
 
