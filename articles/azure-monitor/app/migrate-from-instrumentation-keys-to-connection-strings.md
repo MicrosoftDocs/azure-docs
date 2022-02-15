@@ -18,7 +18,8 @@ This guide walks through migrating from [instrumentation keys](separate-resource
 
 1.  Find your connection string displayed on the Overview blade of your Application Insights resource.
 
-    <img src="./media/\migrate-from-instrumentation-keys-to-connection-strings\migrate-from-instrumentation-keys-to-connection-strings.png" alt="Screenshot displaying Application Insights overview and connection string" />
+:::image type="complex" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string" lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
+:::image-end:::
 
 2.  Hover over the connection string and select the “Copy to clipboard” icon.
 
@@ -33,7 +34,7 @@ You can use environment variables to easily pass a connection string to the Appl
 
 To set a connection string via environment variable, place the value of the connection string into an environment variable named “APPLICATIONINSIGHTS_CONNECTION_STRING”. This process can be automated in your Azure deployments. For example, the following ARM template shows how you can automatically include the  correct connection string with an App Services deployment (be sure to include any other App Settings your app requires):
 
-```csharp
+```JSON
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
