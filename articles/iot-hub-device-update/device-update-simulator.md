@@ -176,7 +176,7 @@ Read the license terms prior to using the agent. Your installation and use const
 
 ## Deploy the update
 
-1. After the group is created, you should see a new update available for your device group. A link to the update should be under **Best Update**. You might need to refresh once. [Learn more about update compliance](device-update-compliance.md).
+1. After the group is created, you should see a new update available for your device group. A link to the update should be under **Best update**. You might need to refresh once. [Learn more about update compliance](device-update-compliance.md).
 1. Select the target group by selecting the group name. You're directed to **Group details** under **Group basics**.
 
    :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Screenshot that shows Group details." lightbox="media/deploy-update/group-basics.png":::
