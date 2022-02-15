@@ -32,6 +32,36 @@ An organization might need to use an emergency access account in the following s
 - The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it does not prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
 - Unforeseen circumstances such as a natural disaster emergency, during which a mobile phone or other networks might be unavailable. 
 
+## How to create an emergency access account
+
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as an existing Global Administrator.
+
+1. Select **Azure Active Directory** > **Users**.
+
+1. Select **New user**.
+
+1. Select **Create user**.
+
+1. Give the account a **User name**.
+
+1. Give the account a **Name**.
+
+1. Create a long and complex password for the account.
+
+1. Under **Roles**, assign the **Global Administrator** role.
+
+1. Under **Usage location**, select the appropriate location.
+
+    :::image type="content" source="./media/security-emergency-access/create-emergency-access-account-azure-ad.png" alt-text="Creating an emergency access account in Azure AD." lightbox="./media/security-emergency-access/create-emergency-access-account-azure-ad.png":::
+
+1. Select **Create**.
+
+1. [Store account credentials safely](#store-account-credentials-safely).
+
+1. [Monitor sign-in and audit logs](#monitor-sign-in-and-audit-logs).
+
+1. [Validate accounts regularly](#validate-accounts-regularly).
+
 ## Create emergency access accounts
 
 Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the \*.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment.
