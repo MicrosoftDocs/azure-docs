@@ -125,7 +125,7 @@ landingContent:
           - text: Monitor app lifecycle events using Azure Activity log and Azure Service Health
             url: monitor-app-lifecycle-events.md
           - text: How to use Logback to write logs to custom persistent storage
-            url: how-to-write-log-to-custom-persistent-storage
+            url: how-to-write-log-to-custom-persistent-storage.md
 
   # Card (optional)
   - title: Troubleshoot
