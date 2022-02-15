@@ -40,7 +40,7 @@ Optionally assign the following permissions to the Service Principal:
 ```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
-## Deploy the Webapp
+## Prepare the Webapp
 This step is optional. If you would like a browser-based UX to assist in the configuration of SAP workload zones and systems, run the following commands before deploying the control plane.
 ```bash
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
