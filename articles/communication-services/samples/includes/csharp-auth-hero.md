@@ -33,7 +33,7 @@ This Azure Communication Services Solutions - Authentication server sample provi
 ## Next steps
 
 >[!div class="nextstepaction"]
->Download the sample from GitHub for [C#](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp)
+>[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp)
 
 ## Additional reading
 
