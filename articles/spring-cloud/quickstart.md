@@ -12,11 +12,13 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Quickstart: Deploy your first application to Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 ::: zone pivot="programming-language-csharp"
 This quickstart explains how to deploy a small application to run on Azure Spring Cloud.
 
 >[!NOTE]
-> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services aren't meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 By following this quickstart, you'll learn how to:
 > [!div class="checklist"]
