@@ -80,7 +80,7 @@ Learn how to obtain a new update and import it into Device Update for IoT Hub. I
 
 In addition to importing via the Azure portal, you can also import an update programmatically by:
 * Using `Azure SDK` for [.NET](/dotnet/api/azure.iot.deviceupdate), [Java](/java/api/com.azure.iot.deviceupdate), [JavaScript](/javascript/api/@azure/iot-device-update) or [Python](/python/api/azure-mgmt-deviceupdate/azure.mgmt.deviceupdate)
-* Using [Import Update REST API](/rest/api/deviceupdate/updates/import-update)
+* Using [Import Update REST API](/rest/api/deviceupdate/2020-09-01/updates)
 * Using [sample PowerShell modules](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets)
 
 > [!NOTE]

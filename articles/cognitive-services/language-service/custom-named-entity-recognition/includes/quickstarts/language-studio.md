@@ -74,7 +74,7 @@ Once your resource and storage container are configured, create a new conversati
 
 5. Enter the project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later. 
 
-6. Select the container where you’ve uploaded your data. For this quickstart, we’ll use the existing tags file available in the container. Then click **Next**.
+6. Select the container where you’ve uploaded your data. When asked if your files are already tagged with classes, select **Yes** and choose the available file. Then click **Next**.
 
 7. Review the data you entered and select **Create Project**.
 
@@ -100,7 +100,7 @@ After your model is deployed, you can start using it for entity extraction. Use 
 
 2. Select the model you want to test.
 
-3. Add your text to the textbox, you can also upload a `.txt` file. 
+3. Using one of the files you downloaded earlier, add the file's text to the textbox. You can also upload a `.txt` file. 
 
 4. Click on **Run the test**.
 

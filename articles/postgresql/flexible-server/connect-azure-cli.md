@@ -22,7 +22,7 @@ This quickstart demonstrates how to connect to an Azure Database for PostgreSQL 
 - Login using Azure CLI with ```az login``` command 
 - Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat a lot of arguments like resource group or location.
 
-## Create an PostgreSQL Flexible Server
+## Create a PostgreSQL Flexible Server
 
 The first thing we'll create is a managed PostgreSQL server. In [Azure Cloud Shell](https://shell.azure.com/), run the following script and make a note of the **server name**, **username** and  **password** generated from this command.
 
