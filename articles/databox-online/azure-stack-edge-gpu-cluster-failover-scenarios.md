@@ -7,13 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 02/15/2022
 ms.author: alkohli
 ---
 
 # Cluster failover scenarios on your Azure Stack Edge Pro GPU device
-
-[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 This article identifies the common failover scenarios, how the Azure Stack Edge device responds, and the overall impact on the workloads deployed on the cluster should a failover occur.
 
@@ -88,13 +86,13 @@ This table summarizes the failure scenarios when an entire node has failed on yo
 | Node update | Reboot                                                       | No               | -        | Cluster goes offline                |
 | Node update | Core component fails such as motherboard, DIMM, and OS disk. | No               | -        | Cluster goes offline                |
 
-## High availability requirements and procedures 
+<!--## High availability requirements and procedures 
 
 Review the following information carefully to ensure the high availability of your Azure Stack Edge two-node devices.
 
 ### PSUs
 
-Azure Stack Edge devices include redundant, hot-swappable power supply units (PSUs). Each PSU has enough capacity to provide service for the entire chassis. To ensure high availability, both PSUs must be installed. <!--are these hot swappable?-->
+Azure Stack Edge devices include redundant, hot-swappable power supply units (PSUs). Each PSU has enough capacity to provide service for the entire chassis. To ensure high availability, both PSUs must be installed. Are these hot swappable?
 
 - Connect your PSUs to different power sources to provide availability if a power source fails.
 - If a PSU fails, request a replacement immediately.
@@ -125,7 +123,7 @@ Azure Stack Edge devices include NVMe solid state disks (SSDs) that are protecte
 - Make sure that all SSDs modules are installed.
 - If an SSD fails, request a replacement immediately.
 - If an SSD fails or requires replacement, make sure that you remove only the SSD that requires replacement.
-- Do not remove more than one SSD from the system at any point in time. A failure of 2 or more disks on a node would result in failover to another node. 
+- Do not remove more than one SSD from the system at any point in time. A failure of 2 or more disks on a node would result in failover to another node. -->
 
 ## Next steps
 
