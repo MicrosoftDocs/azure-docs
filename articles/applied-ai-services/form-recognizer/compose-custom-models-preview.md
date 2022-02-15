@@ -12,10 +12,10 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Create and compose custom models | Preview
+# Create and compose custom models v3.0 | Preview
 
 > [!NOTE]
-> This how-to guide references Form Recognizer v3.0 (preview). If you would like to use Form Recognizer v2.1 (GA), see [Create and compose custom models v2.1 (GA)](compose-custom-models.md)
+> This how-to guide references Form Recognizer v3.0 (preview). To use Form Recognizer v2.1 (GA), see [Create and compose custom models v2.1 (GA)](compose-custom-models.md).
 
 A composed model is created by taking a collection of custom models and assigning them to a single model comprised of your form types. You can assign up to 100 trained custom models to a single composed model. When you call Analyze with the composed model ID, Form Recognizer will first classify the form you submitted, choose the best matching assigned model, and then return results for that model.
 
