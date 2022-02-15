@@ -150,24 +150,22 @@ Here's the binding data in the *function.json* file:
 Here's JavaScript script code that creates a single message:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
     context.bindings.outputSbQueue = message;
-    context.done();
 };
 ```
 
 Here's JavaScript script code that creates multiple messages:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
     context.bindings.outputSbQueue = [];
     context.bindings.outputSbQueue.push("1 " + message);
     context.bindings.outputSbQueue.push("2 " + message);
-    context.done();
 };
 ```
 

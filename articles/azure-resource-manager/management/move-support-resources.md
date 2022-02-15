@@ -1847,7 +1847,7 @@ Jump to a resource provider namespace:
 > | servers / elasticpools | Yes | Yes | Yes <br/><br/> [Learn more](../../azure-sql/database/move-resources-across-regions.md) about moving elastic pools across regions.<br/><br/> [Learn more](../../resource-mover/tutorial-move-region-sql.md) about using Azure Resource Mover to move Azure SQL elastic pools.  |
 > | servers / jobaccounts | Yes | Yes | No |
 > | servers / jobagents | Yes | Yes | No |
-> | virtualclusters | Yes | Yes | Yes |
+> | virtualclusters | No | No | No |
 
 ## Microsoft.SqlVirtualMachine
 
