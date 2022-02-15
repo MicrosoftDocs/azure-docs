@@ -34,7 +34,7 @@
   - name: Path selection
     href: path-selection.md
   - name: Injecting routes to AVS
-    href: avs-default-route.md
+    href: vmware-solution-default-route.md
   - name: Default route injection in spoke VNets
     href: route-injection-in-spokes.md
   - name: IP anycast
