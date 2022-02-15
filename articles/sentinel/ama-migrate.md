@@ -22,6 +22,8 @@ This article provides specific details and differences for Microsoft Sentinel.
 ## Gap analysis between agents
 The following tables show gap analyses for the log types that currently rely on agent-based data collection for Microsoft Sentinel. This will be updated as support for AMA grows towards parity with the Log Analytics agent. 
 
+> [!IMPORTANT]
+> The AMA currently has a limit of 5,000 Events Per Second (EPS). Verify whether this limit works for your organization, especially if you are using your servers as log forwarders, such as for Windows forwarded events or Syslog events.
 ### Windows logs
 
 |Log type / Support  |Azure Monitor agent support |Log Analytics agent support  |
