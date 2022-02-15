@@ -93,6 +93,8 @@
       href: signalr-howto-scale-signalr.md
     - name: Multiple instances
       href: signalr-howto-scale-multi-instances.md
+    - name: Autoscale
+      href: signalr-howto-scale-autoscale.md
   - name: Secure
     items:
     - name: Access key rotation
