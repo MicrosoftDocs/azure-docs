@@ -59,12 +59,10 @@
       href: ../azure-functions/functions-bindings-signalr-service.md
     - name: Upstream settings
       href: concept-upstream.md
-  - name: Availability
-    items:
-      - name: Gracefully shutdown your app server.
-        href: server-graceful-shutdown.md
   - name: High availability
     items:
+    - name: Gracefully shutdown your app server
+      href: server-graceful-shutdown.md
     - name: Resiliency and disaster recovery
       href: signalr-concept-disaster-recovery.md
   - name: Messages and connections
