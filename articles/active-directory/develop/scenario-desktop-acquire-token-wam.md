@@ -22,9 +22,9 @@ MSAL is able to call Web Account Manager, a Windows 10 component that ships with
 
 ## Availability
 
-MSAL 4.25+ supports WAM on UWP, .NET Classic, .NET Core 3.x, and .NET 5.
+MSAL 4.25+ supports WAM on UWP, .NET Classic, .NET Core 3.1, and .NET 5.
 
-For .NET Classic and .NET Core 3.x, WAM functionality is fully supported but you have to add a reference to [Microsoft.Identity.Client.Desktop](https://www.nuget.org/packages/Microsoft.Identity.Client.Desktop/) package, alongside MSAL, and instead of `WithBroker()`, call `.WithWindowsBroker()`.
+For .NET Classic and .NET Core 3.1, WAM functionality is fully supported but you have to add a reference to [Microsoft.Identity.Client.Desktop](https://www.nuget.org/packages/Microsoft.Identity.Client.Desktop/) package, alongside MSAL, and instead of `WithBroker()`, call `.WithWindowsBroker()`.
 
 For .NET 5, target `net5.0-windows10.0.17763.0` (or higher) and not just `net5.0`. Your app will still run on older versions of Windows if you add `<SupportedOSPlatformVersion>7</SupportedOSPlatformVersion>` in the csproj. MSAL will use a browser when WAM is not available.
 
@@ -147,9 +147,27 @@ Applications cannot remove accounts from Windows!
 
 ## Troubleshooting
 
+### "Either the user cancelled the authentication or the WAM Account Picker crashed because the app is running in an elevated process" error message
+
 When an app that uses MSAL is run as an elevated process, some of these calls within WAM may fail due to different process security levels. Internally MSAL.NET uses native Windows methods ([COM](/windows/win32/com/the-component-object-model)) to integrate with WAM. Starting with version 4.32.0, MSAL will display a descriptive error message when it detects that the app process is elevated and WAM returned no accounts.
 
-One solution is to not run the app as elevated, if possible. Another potential workaround is to call `WindowsNativeUtils.InitializeProcessSecurity` method when the app starts up. This will set the security of the processes used by WAM to the same levels. See [this sample app](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/devapps/WAM/NetCoreWinFormsWam/Program.cs#L18-L21) for an example. However, note, that this workaround is not guaranteed to succeed to due external factors like the underlying CLR behavior. In that case, an `MsalClientException` will be thrown. See issue [#2560](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/2560) for additional information.
+One solution is to not run the app as elevated, if possible. Another solution is for the app developer to call `WindowsNativeUtils.InitializeProcessSecurity` method when the app starts up. This will set the security of the processes used by WAM to the same levels. See [this sample app](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/master/tests/devapps/WAM/NetCoreWinFormsWam/Program.cs#L18-L21) for an example. However, note, that this solution is not guaranteed to succeed to due external factors like the underlying CLR behavior. In that case, an `MsalClientException` will be thrown. See issue [#2560](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/2560) for additional information.
+
+### "WAM Account Picker did not return an account" error message
+
+This indicates that either the end-user of the application closed the dialog which displays accounts, or that the dialog itself crashed. A crash can occur if the AccountsControl, a Windows control, is badly registered in Windows. To repair this component, follow these steps: 
+
+1. Right-click the Windows icon in your task bar, and then select Windows PowerShell (Admin).
+1. If you're prompted by a User Account Control (UAC) window, select Yes to start PowerShell.
+1. Copy and execute the followin script
+
+```powershell
+if (-not (Get-AppxPackage Microsoft.AccountsControl)) { Add-AppxPackage -Register "$env:windir\SystemApps\Microsoft.AccountsControl_cw5n1h2txyewy\AppxManifest.xml" -DisableDevelopmentMode -ForceApplicationShutdown } Get-AppxPackage Microsoft.AccountsControl
+```
+
+### Connection issues
+
+The end-user of the application is displayed an error message along the lines of "Please check your connection and try again". If this issue occurs regularly, please [see the  troubleshooting guide for Office](https://docs.microsoft.com/en-us/office365/troubleshoot/authentication/connection-issue-when-sign-in-office-2016), which also uses WAM.
 
 ## Sample
 
