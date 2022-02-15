@@ -33,13 +33,15 @@ Hardware:
 - USB 2.0 A male to Micro USB male cable
 - Wi-Fi 2.4 GHz
 
+Software: ESP-IDF v4.3
+
 ## Prepare the development environment
 
 To set up your development environment, first you install the ESPRESSIF ESP-IDF build environment. The installer includes all the tools required to clone, build, flash, and monitor your device.
 
 To install the ESP-IDF tools:
 1. Download and launch the [ESP-IDF Online installer](https://dl.espressif.com/dl/esp-idf).
-1. When the installer prompts for a version, select the latest release version.
+1. When the installer prompts for a version, select version ESP-IDF v4.3.
 1. When the installer prompts for the components to install, select all components. 
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
