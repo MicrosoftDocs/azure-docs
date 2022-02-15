@@ -118,7 +118,8 @@ run_id = ''
 automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
 ```
-Use the following model specific arguments to submit the script.
+
+Use the following model specific arguments to submit the script. For more details on arguments refer to model specific [hyperparameters](https://docs.microsoft.com/en-us/azure/machine-learning/reference-automl-images-hyperparameters).
 
 # [Object detection with Faster R-CNN](#tab/object-detect-cnn-args)
 ```python
