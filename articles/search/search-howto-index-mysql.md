@@ -16,7 +16,7 @@ ms.date: 01/27/2022
 # Index data from Azure Database for MySQL
 
 > [!IMPORTANT] 
-> MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a preview REST API [(2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently no SDK or portal support.
+> MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API](search-api-preview.md) (2020-06-30-preview or later) to index your content. There is currently no SDK or portal support.
 
 Configure a [search indexer](search-indexer-overview.md) to extract content from Azure Database for MySQL and make it searchable in Azure Cognitive Search. The indexer will crawl your MySQL database on Azure, extract searchable data, and index it in Azure Cognitive Search. When configured to include a high water mark and soft deletion, the indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index.
 

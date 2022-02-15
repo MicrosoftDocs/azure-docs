@@ -71,8 +71,8 @@ The 2021-04-30-preview REST API supports connections based on a user-assigned ma
 * First, the format of the "credentials" property is the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Cosmos DB, the resource group, and the Cosmos DB account name.
 
   * For SQL collections, the connection string does not require an ApiKind. 
-  * For MongoDB collections, add "ApiKind=MongoDb" to the connection string. 
-  * For Gremlin graphs, sign up for the [gated indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access to the preview and information about how to format the credentials.
+  * For MongoDB collections, add `"ApiKind=MongoDb"` to the connection string. 
+  * For Gremlin graphs, add `"ApiKind=Gremlin"` to the connection string. 
 
 * Second, you'll add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
 
@@ -150,4 +150,6 @@ Check to see if the Cosmos DB account has its access restricted to select networ
 
 ## See also
 
-* [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
+* [Azure Cosmos DB indexer using SQL API](search-howto-index-cosmosdb.md)
+* [Azure Cosmos DB indexer using MongoDB API](search-howto-index-cosmosdb-mongodb.md)
+* [Azure Cosmos DB indexer using Gremlin API](search-howto-index-cosmosdb-gremlin.md)

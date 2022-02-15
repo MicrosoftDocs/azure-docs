@@ -117,7 +117,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
    + **`metadata_storage_path`** (default) full path to the object or file. The key field ("ID" in this example) will be populated with values from metadata_storage_path because it's the default.
 
-   + **`metadata_storage_name`**, usable only if names are unique. If want this field as the key, move `"key": true` to this field definition.
+   + **`metadata_storage_name`**, usable only if names are unique. If you want this field as the key, move `"key": true` to this field definition.
 
    + A custom metadata property that you add to blobs. This option requires that your blob upload process adds that metadata property to all blobs. Since the key is a required property, any blobs that are missing a value will fail to be indexed. If you use a custom metadata property as a key, avoid making changes to that property. Indexers will add duplicate documents for the same blob if the key property changes.
 
