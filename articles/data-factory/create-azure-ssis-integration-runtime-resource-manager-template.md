@@ -19,9 +19,7 @@ In this section, you use an Azure Resource Manager template to create the Azure-
 ## Sample Azure Resource Manager template
 
 >[!NOTE] 
-> Azure-SSIS IR in Azure Synapse Analytics ARM template refers to [Microsoft.Synapse workspaces/integrationRuntimes](/azure/templates/microsoft.synapse/workspaces/integrationruntimes).
-> 
-> Azure-SSIS IR in Azure Synapse Analytics PowerShell interfaces refer to [Set-AzSynapseIntegrationRuntime (Az.Synapse)](/powershell/module/az.synapse/set-azsynapseintegrationruntime), [Start-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/start-azsynapseintegrationruntime) and [Stop-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/stop-azsynapseintegrationruntime).
+> For Azure-SSIS IR in Azure Synapse Analytics, use corresponding Azure Synapse Analytics ARM template [Microsoft.Synapse workspaces/integrationRuntimes](/azure/templates/microsoft.synapse/workspaces/integrationruntimes), and corresponding Azure Synapse Analytics PowerShell interfaces: [Set-AzSynapseIntegrationRuntime (Az.Synapse)](/powershell/module/az.synapse/set-azsynapseintegrationruntime), [Start-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/start-azsynapseintegrationruntime) and [Stop-AzSynapseIntegrationRuntime](/powershell/module/az.synapse/stop-azsynapseintegrationruntime).
 
 Following are steps to create an Azure-SSIS integration runtime with an Azure Resource Manager template:
 

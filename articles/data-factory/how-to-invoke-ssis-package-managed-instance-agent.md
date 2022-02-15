@@ -103,6 +103,8 @@ In this procedure, you use SQL Managed Instance Agent to run an SSIS package tha
 
 ## Run an SSIS package in the package store
 
+> [!Note] Package store is not supported in Azure-SSIS IR in Azure Synapse.
+
 In this procedure, you use SQL Managed Instance Agent to run an SSIS package that's stored in the  Azure-SSIS IR package store.
 
 1. In the latest version of SSMS, connect to a SQL Managed Instance.
