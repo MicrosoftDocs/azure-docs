@@ -1,11 +1,11 @@
 ---
-title:  Using DICOMweb&trade;Standard APIs with C# - Azure Healthcare APIs 
+title:  Using DICOMweb&trade;Standard APIs with C# - Azure Health Data Services
 description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with C#. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: aersoy
 ---
 

@@ -1,18 +1,18 @@
 ---
-title: Get started with the DICOM service - Azure Healthcare APIs
-description: This document describes how to get started with the DICOM service in Azure Healthcare APIs.
+title: Get started with the DICOM service - Azure Health Data Services
+description: This document describes how to get started with the DICOM service in Azure Health Data Services.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 01/06/2022
+ms.date: 02/15/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
 
 # Get started with the DICOM service
 
-This article outlines the basic steps to get started with the DICOM service in [Azure Healthcare APIs](../healthcare-apis-overview.md). 
+This article outlines the basic steps to get started with the DICOM service in [Azure Health Data Services](../healthcare-apis-overview.md). 
 
 As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
 
@@ -20,14 +20,14 @@ As a prerequisite, you'll need an Azure subscription and have been granted prope
 
 ## Create a workspace in your Azure Subscription
 
-You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 > [!NOTE]
 > There are limits to the number of workspaces and the number of DICOM service instances you can create in each Azure subscription.
 
 ## Create a DICOM service in the workspace
 
-You can create a DICOM service instance from the [Azure portal](deploy-dicom-services-in-azure.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a DICOM service instance from the [Azure portal](deploy-dicom-services-in-azure.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [IoT connector](../iot/deploy-iot-connector-in-azure.md) in the workspace.
 
@@ -37,7 +37,7 @@ The DICOM service is secured by Azure Active Directory (Azure AD) that can't be 
 
 ### Register a client application
 
-You can create or register a client application from the [Azure portal](../register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more DICOM service instances. It can also be used for other services in Azure Healthcare APIs.
+You can create or register a client application from the [Azure portal](../register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more DICOM service instances. It can also be used for other services in Azure Health Data Services.
 
 If the client application is created with a certificate or client secret, ensure that you renew the certificate or client secret before expiration and replace the client credentials in your applications.
 

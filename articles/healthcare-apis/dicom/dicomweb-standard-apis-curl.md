@@ -1,11 +1,11 @@
 ---
-title:  Using DICOMweb&trade;Standard APIs with cURL - Azure Healthcare APIs 
+title:  Using DICOMweb&trade;Standard APIs with cURL - Azure Health Data Services
 description: In this tutorial, you'll learn how to use DICOMweb Standard APIs with cURL. 
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: aersoy
 ---
 

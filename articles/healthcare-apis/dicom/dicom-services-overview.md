@@ -1,11 +1,11 @@
 ---
-title:  Overview of the DICOM service - Azure Healthcare APIs
+title:  Overview of the DICOM service - Azure Health Data Services
 description: In this article, you'll learn concepts of DICOM, Medical Imaging, and DICOM service.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: aersoy
 ---
 
@@ -23,7 +23,7 @@ DICOM (Digital Imaging and Communications in Medicine) is the international stan
 
 ## DICOM service
 
-A DICOM service is a managed service that needs an Azure subscription and an Azure Active Directory account to be deployed on Azure Healthcare APIs workspace. It allows standards-based communication with any DICOMweb&trade; enabled systems. DICOM service injects DICOM metadata into a FHIR service, or FHIR server, allowing a single source of truth for both clinical data and imaging metadata. 
+A DICOM service is a managed service that needs an Azure subscription and an Azure Active Directory account to be deployed on Azure Health Data Services workspace. It allows standards-based communication with any DICOMweb&trade; enabled systems. DICOM service injects DICOM metadata into a FHIR service, or FHIR server, allowing a single source of truth for both clinical data and imaging metadata. 
 
 The need to effectively integrate non-clinical data has become acute. In order to effectively treat patients, research new treatments, diagnose solutions, or provide an effective overview of the health history of a single patient, organizations must integrate data across several sources. One of the most pressing integrations is between clinical and imaging data.
 

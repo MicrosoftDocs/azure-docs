@@ -1,11 +1,11 @@
 ---
-title: Configure Azure RBAC for the DICOM service - Azure Healthcare APIs
+title: Configure Azure RBAC for the DICOM service - Azure Health Data Services
 description: This article describes how to configure Azure RBAC for the DICOM service
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to 
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: aersoy
 ---
 # Configure Azure RBAC for the DICOM service
