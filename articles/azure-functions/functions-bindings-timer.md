@@ -114,7 +114,7 @@ Here's the binding data in the *function.json* file:
 Here's the JavaScript code:
 
 ```JavaScript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     if (myTimer.isPastDue)
@@ -122,8 +122,6 @@ module.exports = function (context, myTimer) {
         context.log('Node is running late!');
     }
     context.log('Node timer trigger function ran!', timeStamp);   
-
-    context.done();
 };
 ```
 
