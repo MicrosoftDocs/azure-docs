@@ -3,8 +3,6 @@ title: Supported tables for ingestion-time transformations
 description: Reference of tables that are supported by ingestion-time transformations in Azure Monitor.
 ms.topic: reference
 ms.tgt_pltfrm: na
-author: bwren
-ms.author: bwren
 ms.date: 01/27/2022
 ---
 

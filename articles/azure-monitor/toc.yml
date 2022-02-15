@@ -405,9 +405,9 @@ items:
     items:
     - name: Data collection rules
       items:
-      - name: Overview
+      - name: Structure
         displayName: Data collection rules
-        href: essentials/data-collection-rule-create.md
+        href: essentials/data-collection-rule-structure.md
       - name: Transformations
         displayName: Data collection rules
         href: essentials/data-collection-rule-transformations.md

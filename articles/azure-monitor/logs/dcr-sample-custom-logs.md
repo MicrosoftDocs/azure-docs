@@ -2,9 +2,7 @@
 title: Sample data collection rule - custom logs
 description: Sample data collection rule for custom logs.
 ms.topic: sample
-author: bwren
-ms.author: bwren
-ms.date: 12/30/2021
+ms.date: 02/15/2022
 ms.custom: references_region
 
 ---

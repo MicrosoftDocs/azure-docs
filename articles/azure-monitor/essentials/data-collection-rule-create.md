@@ -10,23 +10,10 @@ ms.date: 01/06/2022
 
 
 
-# Create data collection rule in Azure Monitor
+# Data collection rule structure
+[Data Collection Rules (DCRs)](data-collection-rules-overview.md) in Azure Monitor define the way that data coming into Azure Monitor should be handled. Some data collection rules will be created and managed by Azure Monitor, while you may create others to customize data collection for your particular requirements. This article describes the structure of DCRs for creating and editing data collection rules in those cases where you need to work with them directly.
 
-## Create a DCR
-You can currently use any of the following methods to create a DCR:
 
-- [Use the Azure portal](../agents/data-collection-rule-azure-monitor-agent.md) to create a data collection rule and have it associated with one or more virtual machines.
-- Directly edit the data collection rule in JSON and [submit using the REST API](/rest/api/monitor/datacollectionrules).
-- Create DCR and associations with [Azure CLI](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md).
-- Create DCR and associations with Azure PowerShell.
-  - [Get-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRule.md)
-  - [New-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRule.md)
-  - [Set-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Set-AzDataCollectionRule.md)
-  - [Update-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Update-AzDataCollectionRule.md)
-  - [Remove-AzDataCollectionRule](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRule.md)
-  - [Get-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Get-AzDataCollectionRuleAssociation.md)
-  - [New-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/New-AzDataCollectionRuleAssociation.md)
-  - [Remove-AzDataCollectionRuleAssociation](https://github.com/Azure/azure-powershell/blob/master/src/Monitor/Monitor/help/Remove-AzDataCollectionRuleAssociation.md)
 
 ## Components of a data collection rule
 Data collection rules include the following components.
@@ -64,7 +51,9 @@ The DCR contains three main sections: `streamDeclarations`, `destinations`, and 
 
 
 
-## Data collection endpoint
-
 
 ## Next steps
+
+- [Overview of data collection rules including methods for creating them.](data-collection-rule-overview.md)
+- [Sample of DCR for Azure Monitor agent](../agents/dcr-sample-agent.md)
+- [Sample of DCR ]
