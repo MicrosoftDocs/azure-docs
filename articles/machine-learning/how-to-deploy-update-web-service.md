@@ -79,6 +79,8 @@ print(service.get_logs())
 
 You can also update a web service by using the ML CLI. The following example demonstrates registering a new model and then updating a web service to use the new model:
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 ```azurecli
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --output-metadata-file modelinfo.json
 az ml service update -n myservice --model-metadata-file modelinfo.json
