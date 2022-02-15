@@ -44,7 +44,7 @@ For SQL Database, the backup storage redundancy can be configured at the time of
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Backup storage redundancy for Hyperscale is currently in preview. 
+> Locally redundant and zone-redundant backup storage redundancy for Hyperscale are currently in preview.
 
 ### Backup usage
 
@@ -219,7 +219,7 @@ Backup storage redundancy impacts backup costs in the following way:
 For more details about backup storage pricing visit [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) and [Azure SQL Managed Instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 > [!IMPORTANT]
-> Backup storage redundancy for Hyperscale can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
+> Backup storage redundancy for Hyperscale can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) or point in time restore can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
 
 > [!NOTE]
 > Backup storage redundancy for Hyperscale is currently in preview. 

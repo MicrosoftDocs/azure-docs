@@ -65,6 +65,8 @@ Azure Storage contains all data files in a database. Page servers keep data file
 
 Backups are implemented using storage snapshots of data files. Restore operations using snapshots are fast regardless of data size. A database can be restored to any point in time within its backup retention period.
 
+Hyperscale supports configurable storage redundancy. When creating a Hyperscale database, you can choose read-access geo-redundant storage (RA-GRS), zone-redundant storage (ZRS)(preview), or locally redundant storage (LRS)(preview) Azure standard storage. The selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and [backup storage redundancy](automated-backups-overview.md#backup-storage-redundancy).
+
 ## Next steps
 
 Learn more about Hyperscale in the following articles:
