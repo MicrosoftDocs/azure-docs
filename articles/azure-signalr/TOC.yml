@@ -65,6 +65,8 @@
       href: server-graceful-shutdown.md
     - name: Resiliency and disaster recovery
       href: signalr-concept-disaster-recovery.md
+    - name: Availability zones
+      href: availability-zones.md
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
   - name: Performance considerations
