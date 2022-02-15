@@ -10,7 +10,7 @@ ms.custom: references_region
 ---
 
 # Sample data collection rule - agent
-The sample [data collection rule](data-collection-rule-overview.md) below is for virtual machines with Azure Monitor agent and has the following details:
+The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for virtual machines with Azure Monitor agent and has the following details:
 
 - Performance data
   - Collects specific Processor, Memory, Logical Disk, and Physical Disk counters every 15 seconds and uploads every minute.

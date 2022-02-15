@@ -152,9 +152,9 @@ The system has several rate limits and protections in place. They are as follows
 * Only the following built-in tables support ingesting custom data into them: `CommonSecurityLog`, `SecurityEvents`, `Syslog`, `WindowsEvents`.  
 * Built-in tables can only be routed to themselves post-transformation (eg, data originally for Table A after a transformation can only flow back into Table A).  
 * The `columns` section supports the following data types: `string`, `int`, `long`, `real`, `boolean`, `datetime`.  
-* The transformations can only use a [subset](customlogs_kql_guidance.md) of KQL.  
+* The transformations can only use a [subset](data-collection-rule-transformations.md#supported-kql-features) of KQL.  
 * Only one transformation is allowed per stream.  
-* Only one destination is allowed per stream, _except_ data originating through the [Azure Monitoring agent (AMA)](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview). Data collected by AMA can have multiple destinations for the multi-homing scenario.  
+* Only one destination is allowed per stream, _except_ data originating through the [Azure Monitoring agent (AMA)](../agents/azure-monitor-agent-overview.md). Data collected by AMA can have multiple destinations for the multi-homing scenario.  
 
 ### Table limits
 

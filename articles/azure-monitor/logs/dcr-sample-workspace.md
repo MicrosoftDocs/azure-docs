@@ -10,7 +10,7 @@ ms.custom: references_region
 ---
 
 # Sample data collection rule - workspace transformation
-The sample [data collection rule](data-collection-rule-overview.md) below is for use with [workspace transformation](). It has the following details:
+The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for use with [workspace transformation](). It has the following details:
 
 - 
 
