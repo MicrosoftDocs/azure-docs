@@ -55,6 +55,10 @@ Subscription owners should assign the `Application Insights Snapshot Debugger` r
 1. Search for and enter a name for the user to add.
 1. Click the **Save** button to add the user to the role.
 
+1. Assign the Debugger role to the **Application Insights Snapshot**.
+
+    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
 
 > [!IMPORTANT]
 > Please note that snapshots may contain personal data or other sensitive information in variable and parameter values. Snapshot data is stored in the same region as your App Insights resource.
