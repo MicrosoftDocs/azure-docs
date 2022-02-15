@@ -53,3 +53,9 @@ az managed-cassandra datacenter update \
 	--data-center-name $dataCenterName \
 	--base64-encoded-cassandra-yaml-fragment "$ENCODED_FRAGMENT"
 ```
+
+## Next steps
+
+* [Create a managed instance cluster from the Azure portal](create-cluster-portal.md)
+* [Deploy a Managed Apache Spark Cluster with Azure Databricks](deploy-cluster-databricks.md)
+* [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
