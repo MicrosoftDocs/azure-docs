@@ -277,6 +277,8 @@ To create a user-assigned managed identity, use the following template. Replace 
 
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
+# [Resource Manager](#tab/azure-resource-manager)
+
 ```json
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -305,6 +307,19 @@ To create a user-assigned managed identity, use the following template. Replace 
   }
 }
 ```
+# [Bicep](#tab/bicep)
+```
+@description('<USER ASSIGNED IDENTITY NAME>')
+param resourceName string
+
+resource UserAssignedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
+  name: resourceName
+  location: resourceGroup().location
+}
+
+output identityName string = resourceName
+```
+
 ## Next steps
 
 For information on how to assign a user-assigned managed identity to an Azure VM by using a Resource Manager template, see [Configure managed identities for Azure resources on an Azure VM using a template](qs-configure-template-windows-vm.md).
