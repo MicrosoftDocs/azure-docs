@@ -12,44 +12,63 @@ ms.date: 01/27/2022
 # Skill context and input annotation language
 
 Azure Cognitive Search skills can use and [enrich the data coming from the data source and from the output of other skills](cognitive-search-defining-skillset.md).
-During the indexing process, the data is internally organized in a tree-like structure that can be queried to be used as skill inputs or to be added to the index.
-The nodes in the tree can be simple values such as strings and numbers, arrays, or complex objects.
+The data working set that represents the current state of the indexer work for the current document starts from the raw data coming from the data source and is
+progressively enriched with each skill iteration's output data.
+That data is internally organized in a tree-like structure that can be queried to be used as skill inputs or to be added to the index.
+The nodes in the tree can be simple values such as strings and numbers, arrays, or complex objects and even binary files.
 Even simple values can be enriched with additional structured information.
 For example, a string can be annotated with additional information that is stored beneath it in the enrichment tree.
 The expressions used to query that internal structure use a rich syntax that is detailed in this article.
+The enriched data structure can be [inspected from debug sessions](cognitive-search-debug-session.md#ai-enrichments-tab--enriched-data-structure).
+Expressions querying the structure can also be [tested from debug sessions](cognitive-search-debug-session.md#expression-evaluator).
 
-Throughout the article, we'll use the following document tree as an example:
+Throughout the article, we'll use the following enriched data as an example.
+This data is typical of the kind of structure you would get when enriching a document using a skillset with [OCR](cognitive-search-skill-ocr.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [text translation](cognitive-search-skill-text-translation.md), [language detection](cognitive-search-skill-language-detection.md), [entity recognition](cognitive-search-skill-entity-recognition-v3.md) skills and a custom tokenizer skill.
 
-* document
-    * pages
-        * `[0]`
-            * content: "this is page one"
-                * words
-                    * `[0]`: "this"
-                    * `[1]`: "is"
-                    * `[2]`: "page"
-                    * `[3]`: "one"
-        * `[1]`
-            * content: "page two"
-                * words
-                    * `[0]`: "page"
-                    * `[1]`: "two"
-    * obj
-        * property: "value"
-        * otherProperty: 42
-        * bool: true
-    * arr
-        * `[0]`
-            * `[0]`
-                * `[0]`: 1
-                * `[1]`: null
-            * `[1]`
-                * `[0]` null
-        * `[1]`
-            * `[0]`
-            * `[1]`
-                * `[0]` 2
-                * `[1]` 3
+|Path|Value|
+|---|---|
+|`document`||
+|&emsp;`merged_content`|"Study of BMN 110 in Pediatric Patients"...|
+|&emsp;&emsp;`keyphrases`||
+|&emsp;&emsp;&emsp;`[0]`|"Study of BMN"|
+|&emsp;&emsp;&emsp;`[1]`|"Syndrome"|
+|&emsp;&emsp;&emsp;`[2]`|"Pediatric Patients"|
+|&emsp;&emsp;&emsp;...||
+|&emsp;&emsp;`locations`||
+|&emsp;&emsp;&emsp;`[0]`|"IVA"|
+|&emsp;&emsp;`translated_text`|"Étude de BMN 110 chez les patients pédiatriques"...|
+|&emsp;&emsp;`entities`||
+|&emsp;&emsp;&emsp;`[0]`||
+|&emsp;&emsp;&emsp;&emsp;`category`|"Organization"|
+|&emsp;&emsp;&emsp;&emsp;`subcategory`|`null`|
+|&emsp;&emsp;&emsp;&emsp;`confidenceScore`|0.72|
+|&emsp;&emsp;&emsp;&emsp;`length`|3|
+|&emsp;&emsp;&emsp;&emsp;`offset`|9|
+|&emsp;&emsp;&emsp;&emsp;`text`|"BMN"|
+|&emsp;&emsp;&emsp;...||
+|&emsp;&emsp;`organizations`||
+|&emsp;&emsp;&emsp;`[0]`|"BMN"|
+|&emsp;&emsp;`language`|"en"|
+|&emsp;`normalized_images`||
+|&emsp;&emsp;`[0]`||
+|&emsp;&emsp;&emsp;`layoutText`|...|
+|&emsp;&emsp;&emsp;`text`||
+|&emsp;&emsp;&emsp;&emsp;`words`||
+|&emsp;&emsp;&emsp;&emsp;&emsp;`[0]`|"Study"|
+|&emsp;&emsp;&emsp;&emsp;&emsp;`[1]`|"of"|
+|&emsp;&emsp;&emsp;&emsp;&emsp;`[2]`|"BMN"|
+|&emsp;&emsp;&emsp;&emsp;&emsp;`[3]`|"110"|
+|&emsp;&emsp;&emsp;&emsp;&emsp;...||
+|&emsp;&emsp;`[1]`||
+|&emsp;&emsp;&emsp;`layoutText`|...|
+|&emsp;&emsp;&emsp;`text`||
+|&emsp;&emsp;&emsp;&emsp;`words`||
+|&emsp;&emsp;&emsp;&emsp;&emsp;`[0]`|"it"|
+|&emsp;&emsp;&emsp;&emsp;&emsp;`[1]`|"is"|
+|&emsp;&emsp;&emsp;&emsp;&emsp;`[2]`|"certainly"|
+|&emsp;&emsp;&emsp;&emsp;&emsp;...||
+|&emsp;&emsp;&emsp;&emsp;...
+|&emsp;&emsp;...||
 
 ## Document root
 
@@ -65,9 +84,9 @@ This syntax is similar to [the JSON Pointer specification](https://datatracker.i
 The properties of nodes that represent objects add their values to the tree under the property's name.
 Those values can be obtained by appending the property name as a token separated by a slash:
 
-```
-/document/obj/property → "value"
-```
+|Expression|Value|
+|---|---|
+|`/document/merged_content/language`|`"en"`|
 
 Property name tokens are case-sensitive.
 
@@ -75,9 +94,10 @@ Property name tokens are case-sensitive.
 
 Specific elements of an array can be referenced by using their numeric index like a property name:
 
-```
-/document/arr/1/1/0 → 2
-```
+|Expression|Value|
+|---|---|
+|`/document/merged_content/keyphrases/1`|`"Syndrome"`|
+|`/document/merged_content/entities/0/text`|`"BMN"`|
 
 ### Escape sequences
 
@@ -88,21 +108,21 @@ Those characters must be escaped respectively as `'~0'` and `'~1'`.
 
 An array of values can be obtained using the `'*'` token:
 
-```
-/document/pages/0/content/words/* → ["this", "is", "page", "one"]
-```
+|Expression|Value|
+|---|---|
+|`/document/normalized_images/0/text/words/*`|`["Study", "of", "BMN", "110" ...]`|
 
 The `'*'` token doesn't have to be at the end of the path. It's possible to enumerate all nodes matching a path with a star in the middle or with multiple stars:
 
-```
-/document/pages/*/content/words/* → ["this", "is", "page", "one", "page", "two"]
-```
+|Expression|Value|
+|---|---|
+|`/document/normalized_images/*/text/words/*`|`["Study", "of", "BMN", "110" ... "it", "is", "certainly" ...]`|
 
 This example returned a flat list of all matching nodes. It's possible to maintain more structure and get a separate array for the words of each page by using a `'#'` token instead of the second `'*'` token:
 
-```
-/document/pages/*/content/words/# → [["this","is","page","one"],["page","two"]]
-```
+|Expression|Value|
+|---|---|
+|`/document/normalized_images/*/text/words/#`|`[["Study", "of", "BMN", "110" ...], ["it", "is", "certainly" ...] ...]`|
 
 The `'#'` token expresses that the array should be treated as a single value instead of being enumerated.
 
@@ -113,43 +133,28 @@ This can be done by setting the context of the skill to an enumeration instead o
 
 In the following example, we use one of the input expressions we used before, but with a different context that changes the resulting value.
 
-Context:
-```
-/document/pages/*
-```
+|Context|Expression|Values|
+|---|---|---|
+|`/document/normalized_images/*`|`/document/normalized_images/*/text/words/*`|`["Study", "of", "BMN", "110" ...]`<br/>`["it", "is", "certainly" ...]`<br>...|
 
-Input source expression:
-```
-/document/pages/*/content/words/*
-```
-
-For this combination of context and input, the skill will get executed twice: once for `"/document/pages/0"` and once for `"/document/pages/1"`.
-The input values for each skill execution are respectively:
-
-```
-["this","is","page","one"]
-```
-and:
-```
-["page","two"]
-```
+For this combination of context and input, the skill will get executed once for each normalized image: once for `"/document/normalized_images/0"` and once for `"/document/normalized_images/1"`. The two input values corresponding to each skill execution are detailed in the values column.
 
 When enumerating an array in context, any outputs the skill produces will also be added to the document as enrichments of the context.
-In the above example, an output named `"out"` will have its values for each execution added to the document respectively under `"/document/pages/0/out"` and `"/document/pages/1/out"`.
+In the above example, an output named `"out"` will have its values for each execution added to the document respectively under `"/document/normalized_images/0/out"` and `"/document/normalized_images/1/out"`.
 
 ## Literal values
 
 Skill inputs can take literal values as their inputs instead of dynamic values queried from the existing document. This can be achieved by prefixing the value with an equal sign. Values can be numbers, strings or Boolean.
 String values can be enclosed in single `'` or double `"` quotes.
 
-```
-=42 → 42
-=2.45E-4 → 0.000245
-="some string" → "some string"
-='some other string' → "some other string"
-="unicod\u0065" → "unicode"
-=false → false
-```
+|Expression|Value|
+|---|---|
+|`=42`|`42`|
+|`=2.45E-4`|`0.000245`|
+|`="some string"`|`"some string"`|
+|`='some other string'`|`"some other string"`|
+|`="unicod\u0065"`|`"unicode"`|
+|`=false`|`false`|
 
 ## Composite expressions
 
@@ -159,91 +164,90 @@ When used inside an expression, paths should be enclosed between `"$("` and `")"
 
 ### Boolean not `'!'`
 
-```
-=!false → true
-=!$(/document/obj/bool) → false
-```
+|Expression|Value|
+|---|---|
+|`=!false`|`true`|
 
 ### Negative `'-'`
 
-```
-=-42 → -42
-=-$(/document/obj/otherProperty) → -42
-```
+|Expression|Value|
+|---|---|
+|`=-42`|`-42`|
+|`=-$(/document/merged_content/entities/0/offset)`|`-9`|
 
 ### Addition `'+'`
 
-```
-=2+2 → 4
-=2+$(/document/obj/otherProperty) → 44
-```
+|Expression|Value|
+|---|---|
+|`=2+2`|`4`|
+|`=2+$(/document/merged_content/entities/0/offset)`|`11`|
 
 ### Subtraction `'-'`
 
-```
-=2-1 → 1
-=$(/document/obj/otherProperty)-2 → 40
-```
+|Expression|Value|
+|---|---|
+|`=2-1`|`1`|
+|`=$(/document/merged_content/entities/0/offset)-2`|`7`|
 
 ### Multiplication `'*'`
 
-```
-=2*3 → 6
-=$(/document/obj/otherProperty)*2 → 84
-```
+|Expression|Value|
+|---|---|
+|`=2*3`|`6`|
+|`=$(/document/merged_content/entities/0/offset)*2`|`18`|
 
 ### Division `'/'`
 
-```
-=3/2 → 1.5
-=$(/document/obj/otherProperty)/2 → 21
-```
+|Expression|Value|
+|---|---|
+|`=3/2`|`1.5`|
+|`=$(/document/merged_content/entities/0/offset)/3`|`3`|
 
 ### Modulo `'%'`
 
-```
-=15%4 → 3
-=$(/document/obj/otherProperty)%20 → 2
-```
+|Expression|Value|
+|---|---|
+|`=15%4`|`3`|
+|`=$(/document/merged_content/entities/0/offset)%2`|`1`|
 
 ### Less than, less than or equal, greater than and greater than or equal `'<'` `'<='` `'>'` `'>='`
 
-```
-=15<4 → false
-=4<=4 → true
-=15>4 → true
-=1>=2 → false
-```
+|Expression|Value|
+|---|---|
+|`=15<4`|`false`|
+|`=4<=4`|`true`|
+|`=15>4`|`true`|
+|`=1>=2`|`false`|
 
 ### Equality and non-equality `'=='` `'!='`
 
-```
-=15==4 → false
-=4==4 → true
-=15!=4 → true
-=1!=1 → false
-```
+|Expression|Value|
+|---|---|
+|`=15==4`|`false`|
+|`=4==4`|`true`|
+|`=15!=4`|`true`|
+|`=1!=1`|`false`|
 
 ### Logical operations and, or and exclusive or `'&&'` `'||'` `'^'`
 
-```
-=true&&true → true
-=true&&false → false
-=true||true → true
-=true||false → true
-=false||false → false
-=true^false → true
-=true^true → false
-```
+|Expression|Value|
+|---|---|
+|`=true&&true`|`true`|
+|`=true&&false`|`false`|
+|`=true\|\|true`|`true`|
+|`=true\|\|false`|`true`|
+|`=false\|\|false`|`false`|
+|`=true^false`|`true`|
+|`=true^true`|`false`|
 
 ### Ternary operator `'?:'`
 
 It is possible to give an input different values based on the evaluation of a Boolean expression using the ternary operator.
 
-```
-=true?"true":"false" → "true"
-=$(/document/obj/otherProperty)==42?"forty-two":"not forty-two" → "forty-two"
-```
+|Expression|Value|
+|---|---|
+|`=true?"true":"false"`|`"true"`|
+|`=$(/document/merged_content/entities/0/offset)==9?"nine":"not nine"`|`"nine"`|
 
 ### Parentheses and operator priority
 
@@ -252,10 +256,10 @@ Usual associativity rules also apply.
 
 Parentheses can be used to change or disambiguate evaluation order.
 
-```
-=3*2+5 → 11
-=3*(2+5) → 21
-```
+|Expression|Value|
+|---|---|
+|`=3*2+5`|`11`|
+|`=3*(2+5)`|`21`|
 
 ## See also
 + [Create a skillset in Azure Cognitive Search](cognitive-search-defining-skillset.md)
