@@ -27,9 +27,10 @@ This feature enables customers to adopt a phishing resistant authentication and 
 
 ## What is Azure AD CBA?
 
-Before this feature brought cloud-managed support for CBA to Azure AD, customers had to implement federated certificate-based authentication. Federated CBA requires deploying Active Directory Federation Services (AD FS) to be able to authenticate using X.509 certificates against Azure AD. With Azure AD certificate-based authentication, customers can authenticate directly against Azure AD. Azure AD CBA eliminates the need for federated AD FS, which helps simplify customer environments and reduce costs.
+Before this feature brought cloud-managed support for CBA to Azure AD, customers had to implement federated certificate-based authentication or Conditional Access App Control using Microsoft Defender for Cloud Apps. Federated CBA requires deploying Active Directory Federation Services (AD FS) to be able to authenticate using X.509 certificates against Azure AD. With Azure AD certificate-based authentication, customers can authenticate directly against Azure AD. Azure AD CBA eliminates the need for federated AD FS, which helps simplify customer environments and reduce costs.
+Microsoft Defender for Cloud Apps is another method of performing CBA for Azure AD but requires additional licensing. see https://docs.microsoft.com/en-us/defender-cloud-apps/proxy-intro-aad#client-certificate-authenticated-devices
 
-The following images show how Azure AD CBA simplifies the customer environment by eliminating federated AD FS. 
+The following images show how Azure AD CBA simplifies the customer environment by eliminating federated AD FS, or for those customers who do not own Microsoft Defender for Cloud Apps.
 
 **Certificate-based authentication with federated AD FS**
 
