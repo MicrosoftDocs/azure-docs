@@ -1,7 +1,7 @@
 ---
 title: Local inference using ONNX for AutoML image
 titleSuffix: Azure Machine Learning
-description: Use ONNX with Azure Machine Learning automated ML to make predictions on computer vision models for classification, object detection, and segmentation.
+description: Use ONNX with Azure Machine Learning automated ML to make predictions on computer vision models for classification, object detection, and instance segmentation.
 author: vadthyavath
 ms.author: rvadthyavath
 ms.service: machine-learning
@@ -20,7 +20,7 @@ To use ONNX for predictions, you need to:
 1. Understand the inputs and outputs of an ONNX model.
 1. Preprocess your data so it's in the required format for input images.
 1. Perform inference with ONNX Runtime for Python.
-1. Visualize predictions for object detection and segmentation tasks.
+1. Visualize predictions for object detection and instance segmentation tasks.
 
 [ONNX](https://onnx.ai/about.html) is an open standard for machine learning and deep learning models. It enables model import and export (interoperability) across the popular AI frameworks. For more details, explore the [ONNX GitHub project](https://github.com/onnx/onnx).
 
@@ -30,7 +30,7 @@ In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://on
 
 ## Prerequisites
 
-* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or segmentation. [Learn more about AutoML support for computer vision tasks](how-to-auto-train-image-models.md).
+* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or instance segmentation. [Learn more about AutoML support for computer vision tasks](how-to-auto-train-image-models.md).
 
 * Install the [onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) package. The methods in this article have been tested with versions 1.3.0 to 1.8.0.
 
@@ -87,7 +87,7 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 - For classification, by default, generated ONNX model for the best child-run support batch scoring. Proceed to the next section
 
-- By default, object detection and segmentation models don't support batch inferencing
+- By default, object detection and instance segmentation models don't support batch inferencing
 
 - In case of batch inference, use the following procedure to generate an ONNX model for the required batch size (models generated for a specific batch size don't work for other batch sizes)
 
