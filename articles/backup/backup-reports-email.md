@@ -86,7 +86,7 @@ To get a valid Office 365 mailbox, submit a request to your Exchange or Global a
 
 When attempting to authorize the Azure Monitor logs connection, you might see an _InvalidAuthenticationTokenTenant_ error. This generally happens when you're logged in to a different tenant at the time of authorizing the connection to Azure Monitor logs. You need to log in to the same tenant as the tenant where the Log Analytics workspace exists to complete the authorization successfully.
 
-To ensure you're logged in to the right tenant, you can open _portal.azure.com/</tenant-id-of-workspace>/_ in the browser and perform the authorization. To find the tenant ID, go to **Azure Activity Directory -> **Overview** -> **Manage Tenants**.
+To ensure you're logged in to the right tenant, you can open _portal.azure.com/< tenant-id-of-workspace >_ in the browser and perform the authorization. To find the tenant ID, go to **Azure Activity Directory -> **Overview** -> **Manage Tenants**.
 
 If the issues persist, contact Microsoft support.
 
