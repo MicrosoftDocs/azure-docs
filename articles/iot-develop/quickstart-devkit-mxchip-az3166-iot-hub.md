@@ -7,7 +7,7 @@ ms.service: iot-develop
 ms.devlang: c, azurecli
 ms.topic: quickstart
 ms.date: 06/09/2021
-ms.custom: mode-other, devx-track-azurecli
+ms.custom: mode-other, devx-track-azurecli, contperf-fy22q3
 ---
 
 # Connect an MXCHIP AZ3166 devkit to IoT Hub
