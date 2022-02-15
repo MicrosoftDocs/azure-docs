@@ -6,7 +6,7 @@ ms.author: judubois
 ms.service: mysql
 ms.custom: mvc, devcenter, devx-track-azurecli, mode-api
 ms.topic: quickstart
-ms.devlang: java
+ms.devlang: java, azurecli
 ms.date: 08/17/2020
 ---
 

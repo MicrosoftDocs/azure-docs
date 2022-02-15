@@ -1,8 +1,6 @@
 ---
 title: Get started with Enterprise IoT
 description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with an Enterprise IoT deployment
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 12/12/2021
 ms.custom: template-tutorial
