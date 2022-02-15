@@ -79,9 +79,9 @@ For more information:
 - Become familiar with how to [export Resource Manager templates](../azure-resource-manager/templates/export-template-portal.md) or read the overview of [Azure Resource Manager](../azure-resource-manager/management/overview.md).
 - Review the [Service Bus overview](../service-bus-messaging/service-bus-messaging-overview.md).
 
-## Logic Apps
+## Azure Logic Apps
 
-Azure Logic Apps isn't available in Azure Germany, but you can create scheduling jobs by using Logic Apps in global Azure instead. Although previously available in Azure Germany, Azure Scheduler is being retired.
+Azure Logic Apps isn't available in Azure Germany, but you can create scheduling jobs by using Azure Logic Apps in global Azure instead. Although previously available in Azure Germany, Azure Scheduler is fully retired since January 31, 2022.
 
 For more information:
 
