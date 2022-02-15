@@ -121,7 +121,7 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-pr
   > [!div class="nextstepaction"]
   > [Form Recognizer quickstart](quickstarts/try-v3-form-recognizer-studio.md#custom-models)
 
-* View the labeling guidelines:
+* View the REST API:
 
     > [!div class="nextstepaction"]
     > [Form Recognizer API v3.0](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
