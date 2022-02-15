@@ -35,10 +35,7 @@ LUIS has one portal you can use regardless of region, [www.luis.ai](https://www.
 
 ## Publishing regions and Azure resources
 
-Publishing regions are the regions where the application will be used in runtime. To use the application in a publishing region, you must create a resource in this region and publish your application to it.
-
-
-The app is published to all regions associated with the LUIS resources added in the LUIS portal. For example, for an app created on [www.luis.ai][www.luis.ai], if you create a LUIS or Cognitive Service resource in **westus** and [add it to the app as a resource](luis-how-to-azure-subscription.md), the app is published in that region.
+Publishing regions are the regions where the application will be used in runtime. To use the application in a publishing region, you must create a resource in this region and publish your application to it. For example, for an app created with an authoring region in **westus**, if you publish your applicaiton to predicition resources in **eastus** and **brazilsouth** regions, the app will be published to these regions.
 
 ## Public apps
 A public app is published in all regions so that a user with a region-based LUIS resource key can access the app in whichever region is associated with their resource key.
@@ -51,17 +48,13 @@ When you first create our LUIS application, you are required to choose an [autho
 
 The authoring region app can only be published to a corresponding publish region. If your app is currently in the wrong authoring region, export the app, and import it into the correct authoring region for your publishing region.
 
-> [!NOTE]
-> LUIS apps created on https://www.luis.ai can now be published to all endpoints including the [European](#publishing-to-europe) and [Australian](#publishing-to-australia) regions.
-
 ## Single data residency
 
-Single data residency is where the data does not leave the boundaries of the region. 
+Single data residency means that the data does not leave the boundaries of the region.
 
-To ensure single data residency, make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the publishing region. 
+For an app created with an authoring resource in **westus**, if you published it to a predection resource in **brazilsouth** region, and `log=true` in your [V3 API](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) call, the data will be returned to the authoring region for active learning, and single data residenct is not achived in this case.
 
-If `log=true`, data is returned to the authoring region for active learning even if the publishing region does not have a [failover region](#Failover regions)
-
+To ensure single data residency when using your predection resource, make sure to set `log=false` for [V3 APIs](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a91e54c9db63d589f433) to disable active learning. By default this value is `false`, to ensure that data does not leave the boundaries of the publishing region. 
 
 ## Publishing to Europe
 
