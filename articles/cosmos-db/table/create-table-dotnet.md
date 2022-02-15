@@ -4,11 +4,11 @@ description: This quickstart shows how to access the Azure Cosmos DB Table API f
 author: DavidCBerry13
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.devlang: csharp
+ms.devlang: csharp, azurecli
 ms.topic: quickstart
 ms.date: 09/26/2021
 ms.author: daberry
-ms.custom: devx-track-csharp, mode-api
+ms.custom: devx-track-csharp, mode-api, devx-track-azurecli
 ---
 
 # Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB
