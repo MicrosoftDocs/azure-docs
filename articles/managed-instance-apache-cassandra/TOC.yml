@@ -51,7 +51,7 @@
       href: network-rules.md
     - name: Visualize metrics in Prometheus with Grafana
       href: visualize-prometheus-grafana.md
-    - name: Enabled materialized views
+    - name: Enable materialized views
       href: materialized-views.md      
 - name: Reference
   items:
