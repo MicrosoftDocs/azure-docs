@@ -70,7 +70,7 @@ An **expert** is a user who has been identified as having an informed â€œexpertâ
 
 ## Owner
 
-An **owner** is a user who has more privileges for managing a data asset in Azure Data Catalog. Users can take ownership of registered data assets, and owners can add other users as co-owners. For more information, see [How to manage data assets](data-catalog-how-to-manage.md)  
+An **owner** is a user who has more privileges for managing a data asset in Azure Data Catalog. Users can take ownership of registered data assets, and owners can add other users as co-owners. For more information, see the [article on how to manage data assets](data-catalog-how-to-manage.md).  
 
 > [!NOTE]
 > Ownership and management are available only in the Standard Edition of Azure Data Catalog.
