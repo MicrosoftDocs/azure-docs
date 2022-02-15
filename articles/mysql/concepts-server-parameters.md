@@ -103,18 +103,20 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 
 ### innodb_file_per_table
 
+MySQL stores the `InnoDB` table in different tablespaces, based on the configuration you provide during the table creation. The [system tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) is the storage area for the `InnoDB` data dictionary. A [file-per-table tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contains data and indexes for a single `InnoDB` table, and is stored in the file system in its own data file.
+
+You control this behavior by using the `innodb_file_per_table` server parameter. Setting `innodb_file_per_table` to `OFF` causes `InnoDB` to create tables in the system tablespace. Otherwise, `InnoDB` creates tables in file-per-table tablespaces.
+
 > [!NOTE]
-> `innodb_file_per_table` can only be updated in the General Purpose and Memory Optimized pricing tiers on [general purpose storage v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) and [general purpose storage v1](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb).
+> You can only update `innodb_file_per_table` in the general purpose and memory optimized pricing tiers on [general purpose storage v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage) and [general purpose storage v1](concepts-pricing-tiers.md#general-purpose-storage-v1-supports-up-to-4-tb).
 
-MySQL stores the InnoDB table in different tablespaces based on the configuration you provided during the table creation. The [system tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) is the storage area for the InnoDB data dictionary. A [file-per-table tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contains data and indexes for a single InnoDB table, and is stored in the file system in its own data file. This behavior is controlled by the `innodb_file_per_table` server parameter. Setting `innodb_file_per_table` to `OFF` causes InnoDB to create tables in the system tablespace. Otherwise, InnoDB creates tables in file-per-table tablespaces.
-
-Azure Database for MySQL supports at largest, **4-TB**,  in a single data file on [general purpose storage v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage). If your database size is larger than 4 TB, you should create the table in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size larger than 4-TB, you should use the partition table.
+Azure Database for MySQL supports 4 TB (at the largest) in a single data file on [general purpose storage v2](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage). If your database size is larger than 4 TB, you should create the table in the [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size that is larger than 4 TB, you should use the partition table.
 
 ### join_buffer_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
+|**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
@@ -132,7 +134,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 ### max_connections
 
-|**Pricing Tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
+|**Pricing tier**|**vCore(s)**|**Default value**|**Min value**|**Max value**|
 |---|---|---|---|---|
 |Basic|1|50|10|50|
 |Basic|2|100|10|100|
@@ -148,22 +150,16 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|16|5000|10|10000|
 |Memory Optimized|32|10000|10|20000|
 
-When connections exceed the limit, you may receive the following error:
-> ERROR 1040 (08004): Too many connections
+When the number of connections exceeds the limit, you might receive an error.
 
-> [!IMPORTANT]
-> For best experience, we recommend that you use a connection pooler like ProxySQL to efficiently manage connections.
-
-Creating new client connections to MySQL takes time and once established, these connections occupy database resources, even when idle. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. A connection pooler that decreases idle connections and reuses existing connections will help avoid this. To learn about setting up ProxySQL, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
-
->[!Note]
->ProxySQL is an open source community tool. It is supported by Microsoft on a best effort basis. In order to get production support with authoritative guidance, you can evaluate and reach out to [ProxySQL Product support](https://proxysql.com/services/support/).
+> [!TIP]
+> To manage connections efficiently, it's a good idea to use a connection pooler, like ProxySQL. To learn about setting up ProxySQL, see the blog post [Load balance read replicas using ProxySQL in Azure Database for MySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042). Note that ProxySQL is an open source community tool. It's supported by Microsoft on a best-effort basis.
 
 ### max_heap_table_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
+|**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
@@ -186,9 +182,9 @@ The query cache is turned off by default. To enable the query cache, configure t
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) to learn more about this parameter.
 
 > [!NOTE]
-> The query cache is deprecated as of MySQL 5.7.20 and has been removed in MySQL 8.0
+> The query cache is deprecated as of MySQL 5.7.20 and has been removed in MySQL 8.0.
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value **|
+|**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value **|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
@@ -206,27 +202,27 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 ### lower_case_table_names
 
-The lower_case_table_name is set to 1 by default and you can update this parameter in MySQL 5.6 and MySQL 5.7
+The `lower_case_table_name` parameter is set to 1 by default, and you can update this parameter in MySQL 5.6 and MySQL 5.7.
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names) to learn more about this parameter.
 
 > [!NOTE]
-> In MySQL 8.0, the lower_case_table_name is set to 1 by default and you cannot change it.
+> In MySQL 8.0, `lower_case_table_name` is set to 1 by default, and you can't change it.
 
 ### innodb_strict_mode
 
-If you receive an error similar to "Row size too large (> 8126)" then you may want to turn OFF the parameter **innodb_strict_mode**. The server parameter **innodb_strict_mode** is not allowed to be modified globally at the server level because if row data size is larger than 8k, the data will be truncated without an error leading to potential data loss. We recommend to modify the schema to fit the page size limit. 
+If you receive an error similar to `Row size too large (> 8126)`, consider turning off the `innodb_strict_mode` parameter. You can't modify `innodb_strict_mode` globally at the server level. If row data size is larger than 8 k, the data is truncated, without an error notification, leading to potential data loss. It's a good idea to modify the schema to fit the page size limit. 
 
-This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](./howto-server-parameters.md#setting-parameters-not-listed).
+You can set this parameter at a session level, by using `init_connect`. To set `innodb_strict_mode` at a session level, refer to [setting parameter not listed](./howto-server-parameters.md#setting-parameters-not-listed).
 
 > [!NOTE]
-> If you have a read replica server, setting **innodb_strict_mode** to OFF at the session-level on a source server will break the replication. We suggest keeping the parameter set to OFF if you have read replicas.
+> If you have a read replica server, setting `innodb_strict_mode` to `OFF` at the session-level on a source server will break the replication. We suggest keeping the parameter set to `OFF` if you have read replicas.
 
 ### sort_buffer_size
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
+|**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
@@ -246,7 +242,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) to learn more about this parameter.
 
-|**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
+|**Pricing tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
 |Basic|1|Not configurable in Basic tier|N/A|N/A|
 |Basic|2|Not configurable in Basic tier|N/A|N/A|
@@ -262,45 +258,49 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 |Memory Optimized|16|16777216|1024|1073741824|
 |Memory Optimized|32|16777216|1024|1073741824|
 
-### InnoDB Buffer Pool Warmup
-After restarting Azure Database for MySQL server, the data pages residing in disk are loaded as the tables are queried. This leads to increased latency and slower performance for the first execution of the queries. This may not be acceptable for latency sensitive workloads. Utilizing InnoDB buffer pool warmup shortens the warmup period by reloading disk pages that were in the buffer pool before the restart rather than waiting for DML or SELECT operations to access corresponding rows.
+### InnoDB buffer pool warmup
 
-You can reduce the warmup period after restarting your Azure Database for MySQL server which represents a performance advantage by configuring [InnoDB buffer pool server parameters](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html). InnoDB saves a percentage of the most recently used pages for each buffer pool at server shutdown and restores these pages at server startup.
+After you restart Azure Database for MySQL, the data pages that reside in the disk are loaded, as the tables are queried. This leads to increased latency and slower performance for the first run of the queries. For workloads that are sensitive to latency, you might find this slower performance unacceptable.
 
-It is also important to note that improved performance comes at the expense of longer start-up time for the server. When this parameter is enabled, the server startup and restart time is expected to increase depending on the IOPS provisioned on the server. We recommend to test and monitor the restart time to ensure the start-up/restart performance is acceptable as the server is unavailable during that time. It is not recommend to use this parameter when IOPS provisioned is less than 1000 IOPS (or in other words, when storage provisioned is less than 335GB.
+You can use `InnoDB` buffer pool warmup to shorten the warmup period. This process reloads disk pages that were in the buffer pool *before* the restart, rather than waiting for DML or SELECT operations to access corresponding rows. For more information, see [InnoDB buffer pool server parameters](https://dev.mysql.com/doc/refman/8.0/en/innodb-preload-buffer-pool.html).
 
-To save the state of the buffer pool at server shutdown set server parameter `innodb_buffer_pool_dump_at_shutdown` to `ON`. Similarly, set server parameter `innodb_buffer_pool_load_at_startup` to `ON` to restore the buffer pool state at server startup. You can control the impact on start-up/restart by lowering and fine tuning the value of server parameter `innodb_buffer_pool_dump_pct`, By default, this parameter is set to `25`.
+Note that improved performance comes at the expense of longer start-up time for the server. When you enable this parameter, the server startup and restart time is expected to increase, depending on the IOPS provisioned on the server. It's a good idea to test and monitor the restart time, to ensure that the start-up or restart performance is acceptable, because the server is unavailable during that time. Don't use this parameter when the IOPS provisioned is less than 1000 IOPS (in other words, when the storage provisioned is less than 335 GB).
+
+To save the state of the buffer pool at server shutdown, set the server parameter `innodb_buffer_pool_dump_at_shutdown` to `ON`. Similarly, set the server parameter `innodb_buffer_pool_load_at_startup` to `ON` to restore the buffer pool state at server startup. You can control the impact on start-up or restart by lowering and fine-tuning the value of the server parameter `innodb_buffer_pool_dump_pct`. By default, this parameter is set to `25`.
 
 > [!Note]
-> InnoDB buffer pool warmup parameters are only supported in general purpose storage servers with up to 16-TB storage. Learn more about [Azure Database for MySQL storage options here](./concepts-pricing-tiers.md#storage).
+> `InnoDB` buffer pool warmup parameters are only supported in general purpose storage servers with up to 16 TB storage. For more information, see [Azure Database for MySQL storage options](./concepts-pricing-tiers.md#storage).
 
 ### time_zone
 
-Upon initial deployment, an Azure for MySQL server includes systems tables for time zone information, but these tables are not populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
+Upon initial deployment, a server running Azure Database for MySQL includes systems tables for time zone information, but these tables aren't populated. You can populate the tables by calling the `mysql.az_load_timezone` stored procedure from tools like the MySQL command line or MySQL Workbench. For information about how to call the stored procedures and set the global or session-level time zones, see [Working with the time zone parameter (Azure portal)](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Working with the time zone parameter (Azure CLI)](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter).
 
 ### binlog_expire_logs_seconds 
 
-In Azure Database for MySQL this parameter specifies the number of seconds the service waits before purging the binary log file.
+In Azure Database for MySQL, this parameter specifies the number of seconds the service waits before purging the binary log file.
 
-The binary log contains “events” that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log are used mainly for two purposes , replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. In case of multiple replica, it would wait for the slowest replica to read the changes before it is been purged. If you want to persist binary logs for a more duration of time you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0 which is the default value, it will purge as soon as the handle to the binary log is freed. if binlog_expire_logs_seconds > 0 then it would wait for the until the seconds configured before it purges. For Azure database for MySQL, managed features like backup and read replica purging of binary files are handled internally . When you replicate the data-out from the Azure Database for MySQL service, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs will not get purged soon enough and can lead to increase in the storage billing. 
+The *binary log* contains events that describe database changes, such as table creation operations or changes to table data. It also contains events for statements that can potentially make changes. The binary log is used mainly for two purposes, replication and data recovery operations.
 
+Usually, the binary logs are purged as soon as the handle is free from service, backup, or the replica set. In case of multiple replicas, the binary logs wait for the slowest replica to read the changes before being purged. If you want binary logs to persist longer, you can configure the parameter `binlog_expire_logs_seconds`. If you set `binlog_expire_logs_seconds` to `0`, which is the default value, it purges as soon as the handle to the binary log is freed. If you set `binlog_expire_logs_seconds` to greater than 0, then the binary log only purges after that period of time.
+
+For Azure Database for MySQL, managed features like backup and read replica purging of binary files are handled internally. When you replicate the data out from the Azure Database for MySQL service, you must set this parameter in the primary to avoid purging binary logs before the replica reads from the changes from the primary. If you set the `binlog_expire_logs_seconds` to a higher value, then the binary logs won't get purged soon enough. This can lead to an increase in the storage billing. 
 
 ## Non-configurable server parameters
 
-The below server parameters are not configurable in the service:
+The following server parameters aren't configurable in the service:
 
 |**Parameter**|**Fixed value**|
 | :------------------------ | :-------- |
-|innodb_file_per_table in Basic tier|OFF|
-|innodb_flush_log_at_trx_commit|1|
-|sync_binlog|1|
-|innodb_log_file_size|256MB|
-|innodb_log_files_in_group|2|
+|`innodb_file_per_table` in the basic tier|OFF|
+|`innodb_flush_log_at_trx_commit`|1|
+|`sync_binlog`|1|
+|`innodb_log_file_size`|256 MB|
+|`innodb_log_files_in_group`|2|
 
-Other variables not listed here are set to the default MySQL out-of-the-box values. Refer to the MySQL docs for versions [8.0](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html), [5.7](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html), and [5.6](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html) for the default values. 
+Other variables not listed here are set to the default MySQL values. Refer to the MySQL docs for versions [8.0](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html), [5.7](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html), and [5.6](https://dev.mysql.com/doc/refman/5.6/en/server-system-variables.html). 
 
 ## Next steps
 
-- Learn how to [configure sever parameters using the Azure portal](./howto-server-parameters.md)
-- Learn how to [configure sever parameters using the Azure CLI](./howto-configure-server-parameters-using-cli.md)
-- Learn how to [configure sever parameters using PowerShell](./howto-configure-server-parameters-using-powershell.md)
+- Learn how to [configure server parameters by using the Azure portal](./howto-server-parameters.md)
+- Learn how to [configure server parameters by using the Azure CLI](./howto-configure-server-parameters-using-cli.md)
+- Learn how to [configure server parameters by using PowerShell](./howto-configure-server-parameters-using-powershell.md)
