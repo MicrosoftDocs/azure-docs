@@ -3,14 +3,13 @@ title: Azure Cosmos DB Gremlin indexer
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Cosmos DB indexer to automate indexing of Gremlin API content for full text search in Azure Cognitive Search. This article explains how index data using the Gremlin API protocol.
 
-author: gmndrg
-ms.author: gimondra
+author: mgottein 
+ms.author: magottei
 manager: nitinme
 
-ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 02/15/2022
 ---
 
 # Index data from Azure Cosmos DB using the Gremlin API
@@ -24,7 +23,7 @@ Because terminology can be confusing, it's worth noting that [Azure Cosmos DB in
 
 By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make every vertex in your graph a document in the index. Edges will be ignored. Alternatively, you could set the query to only index the edges.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to Cosmos DB. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
+Although Cosmos DB indexing is easiest with the [Import data wizard](search-import-data-portal.md), this article uses the REST APIs to explain concepts and steps. 
 
 ## Prerequisites
 
@@ -32,7 +31,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + An [automatic indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
-+ In Azure Cognitive Search, use either the [Import data wizard](search-import-data-portal.md) or a REST client, such as [Postman](search-get-started-rest.md) or the [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. Currently, there is no SDK support.
+Unfamiliar with indexers? Start with [**Create an indexer**](search-howto-create-indexers.md) for more background.
 
 ## Define the data source
 
@@ -46,26 +45,52 @@ For this call, specify a [preview REST API version](search-api-preview.md) (2020
     POST https://[service name].search.windows.net/datasources?api-version=2021-04-30-Preview
     Content-Type: application/json
     api-key: [Search service admin key]
-    
     {
-        "name": "mycosmosdbgremlindatasource",
-        "type": "cosmosdb",
-        "credentials": {
-            "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;ApiKind=Gremlin;Database=myCosmosDbDatabaseId"
-        },
-        "container": { "name": "myGraphId", "query": null }
+      "name": "[my-cosmosdb-gremlin-ds]",
+      "type": "cosmosdb",
+      "credentials": {
+        "connectionString": "AccountEndpoint=https://[cosmos-account-name].documents.azure.com;AccountKey=[cosmos-account-key];Database=[cosmos-database-name];ApiKind=Gremlin;"
+      },
+      "container": {
+        "name": "[cosmos-db-collection]",
+        "query": "g.V()"
+      },
+      "dataChangeDetectionPolicy": {
+        "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+        "highWaterMarkColumnName": "_ts"
+      },
+      "dataDeletionDetectionPolicy": null,
+      "encryptionKey": null,
+      "identity": null
+    }
     }
    ```
 
 1. Set "type" to `"cosmosdb"` (required).
 
-1. Set "credentials" must include an AccountEndpoint, AccountKey, ApiKind, and Database. The "ApiKind" is "Gremlin". The AccountEndpoint must use the `*.documents.azure.com` endpoint.
+1. Set "credentials" to a connection string.  The next section describes the supported formats.
 
 1. Set "container" to the collection. The "name" property is required and it specifies the ID of the graph. The "query" property is optional. The query default is `g.V()`. To index the edges, set the query to `g.E()`.
 
 <!-- 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs. Incremental progress will be enabled by default using `_ts` as the high water mark column. -->
 
 1. [Set "dataDeletionDetectionPolicy"](#DataDeletionDetectionPolicy) if you want to remove search documents from a search index when the source item is deleted.
+
+### Supported credentials and connection strings
+
+Indexers can connect to a collection using the following connections. For connections that target the [Gremlin API](../cosmos-db/graph/graph-introduction.md), be sure to include "ApiKind" in the connection string.
+
+Avoid port numbers in the endpoint URL. If you include the port number, the connection will fail.  
+
+| Full access connection string |
+|-----------------------------------------------|
+|`{ "connectionString" : "AccountEndpoint=https://<Cosmos DB account name>.documents.azure.com;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb" }` |
+| You can get the connection string from the Cosmos DB account page in Azure portal by selecting **Keys** in the left navigation pane. Make sure to select a full connection string and not just a key.  |
+
+| Managed identity connection string |
+|------------------------------------|
+|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.DocumentDB/databaseAccounts/<your cosmos db account name>/;(ApiKind=[api-kind];)" }`|
+|This connection string doesn't require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md) and created a role assignment that grants **Cosmos DB Account Reader Role** permissions. See [Setting up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md) for more information. |
 
 ## Add search fields to an index
 
@@ -95,18 +120,6 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
             "synonymMaps": [],
             "fields": []
         },{
-            "name": "id",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "retrievable": true,
-            "sortable": false,
-            "facetable": false,
-            "key": false,
-            "indexAnalyzer": null,
-            "searchAnalyzer": null,
-            "analyzer": "standard.lucene",
-            "synonymMaps": []
         }, {
             "name": "label",
             "type": "Edm.String",
@@ -126,6 +139,8 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 1. Create a document key field ("key": true). For partitioned collections, the default document key is Azure Cosmos DB's `_rid` property, which Azure Cognitive Search automatically renames to `rid` because field names can’t start with an underscore character. Also, Azure Cosmos DB `_rid` values contain characters that are invalid in Azure Cognitive Search keys. For this reason, the `_rid` values are Base64 encoded. 
 
+1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
+
 ### Mapping between JSON Data Types and Azure Cognitive Search Data Types
 
 | JSON data type | Compatible target index field types |
@@ -134,46 +149,54 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 | Numbers that look like integers |Edm.Int32, Edm.Int64, Edm.String |
 | Numbers that look like floating-points |Edm.Double, Edm.String |
 | String |Edm.String |
-| Arrays of primitive types, such as ["a", "b", "c"] |Collection(Edm.String) |
+| Arrays of primitive types such as ["a", "b", "c"] |Collection(Edm.String) |
 | Strings that look like dates |Edm.DateTimeOffset, Edm.String |
-| GeoJSON objects, such as { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
+| GeoJSON objects such as { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Other JSON objects |N/A |
 
 ## Configure and run the Cosmos DB indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. The "configuration" section determines what content gets indexed.
+Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
-    api-key: [admin key]
-    
+    api-key: [search service admin key]
     {
-      "name": "mycosmosdbgremlinindexer",
-      "description": "My Cosmos DB Gremlin API indexer",
-      "dataSourceName": "mycosmosdbgremlindatasource",
-      "targetIndexName": "mysearchindex"
+        "name" : "[my-cosmosdb-indexer]",
+        "dataSourceName" : "[my-cosmosdb-gremlin-ds]",
+        "targetIndexName" : "[my-search-index]",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+        "batchSize": null,
+        "maxFailedItems": 0,
+        "maxFailedItemsPerBatch": 0,
+        "base64EncodeKeys": false,
+        "configuration": {}
+        },
+        "fieldMappings": [],
+        "encryptionKey": null
     }
     ```
 
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
-
 <a name="DataDeletionDetectionPolicy"></a>
 
 ## Indexing deleted documents
 
-When graph data is deleted, you might want to delete its corresponding document from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items and delete the full document from the index. The data deletion detection policy isn't meant to delete partial document information. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified as follows:
+When graph data is deleted, you might want to delete its corresponding document from the search index as well. The purpose of a data deletion detection policy is to efficiently identify deleted data items and delete the full document from the index. The data deletion detection policy isn't meant to delete partial document information. Currently, the only supported policy is the `Soft Delete` policy (deletion is marked with a flag of some sort), which is specified in the data source definition as follows:
 
 ```http
-  {
-      "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
-      "softDeleteColumnName" : "the property that specifies whether a document was deleted",
-      "softDeleteMarkerValue" : "the value that identifies a document as deleted"
-  }
+"dataDeletionDetectionPolicy"": {
+    "@odata.type" : "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
+    "softDeleteColumnName" : "the property that specifies whether a document was deleted",
+    "softDeleteMarkerValue" : "the value that identifies a document as deleted"
+}
 ```
 
 The following example creates a data source with a soft-deletion policy:
@@ -184,12 +207,12 @@ Content-Type: application/json
 api-key: [Search service admin key]
 
 {
-    "name": "mycosmosdbgremlindatasource",
+    "name": "[my-cosmosdb-gremlin-ds]",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "AccountEndpoint=https://myCosmosDbEndpoint.documents.azure.com;AccountKey=myCosmosDbAuthKey;ApiKind=Gremlin;Database=myCosmosDbDatabaseId"
+        "connectionString": "AccountEndpoint=https://[cosmos-account-name].documents.azure.com;AccountKey=[cosmos-account-key];Database=[cosmos-database-name];ApiKind=Gremlin"
     },
-    "container": { "name": "myCollection" },
+    "container": { "name": "[my-cosmos-collection]" },
     "dataChangeDetectionPolicy": {
         "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
         "highWaterMarkColumnName": "`_ts`"

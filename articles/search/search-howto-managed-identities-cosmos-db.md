@@ -35,7 +35,7 @@ The easiest way to test the connection is using the [Import data wizard](search-
 
 ## Create the data source
 
-Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview). 
+Create the data source and provide either a system-assigned managed identity or a user-assigned managed identity (preview) in the connection string. 
 
 ### System-assigned managed identity
 
@@ -55,16 +55,15 @@ Content-Type: application/json
 api-key: [Search service admin key]
 
 {
-    "name": "cosmos-db-datasource",
+    "name": "[my-cosmosdb-ds]",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.DocumentDB/databaseAccounts/[Cosmos DB account name]/;"
+        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];"
     },
-    "container": { "name": "myCollection", "query": null },
-    "dataChangeDetectionPolicy": {
-        "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName": "_ts"
-    }
+    "container": { "name": "[my-cosmos-collection]", "query": null },
+    "dataChangeDetectionPolicy": null
+
+ 
 }
 ```
 
@@ -89,22 +88,19 @@ Content-Type: application/json
 api-key: [Search service admin key]
 
 {
-    "name": "cosmos-db-datasource",
+    "name": "[my-cosmosdb-ds]",
     "type": "cosmosdb",
     "credentials": {
-        "connectionString": "Database=sql-test-db;ResourceId=/subscriptions/[subscription ID]/resourceGroups/[resource group name]/providers/Microsoft.DocumentDB/databaseAccounts/[Cosmos DB account name]/;"
+        "connectionString": "ResourceId=/subscriptions/[subscription-id]/resourceGroups/[rg-name]/providers/Microsoft.DocumentDB/databaseAccounts/[cosmos-account-name];Database=[cosmos-database];ApiKind=[SQL | Gremlin | MongoDB];"
     },
     "container": { 
-        "name": "myCollection", "query": null 
+        "name": "[my-cosmos-collection]", "query": null 
     },
     "identity" : { 
         "@odata.type": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
-        "userAssignedIdentity" : "/subscriptions/[subscription ID]/resourcegroups/[resource group name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[managed identity name]" 
+        "userAssignedIdentity": "/subscriptions/[subscription-id]/resourcegroups/[rg-name]/providers/Microsoft.ManagedIdentity/userAssignedIdentities/[my-user-managed-identity-name]" 
     },
-    "dataChangeDetectionPolicy": {
-        "@odata.type": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-        "highWaterMarkColumnName": "_ts"
-    }
+    "dataChangeDetectionPolicy": null
 }
 ```
 
@@ -150,7 +146,7 @@ Here's a [Create Indexer](/rest/api/searchservice/create-indexer) REST API call 
 
 If you recently rotated your Cosmos DB account keys you will need to wait up to 15 minutes for the managed identity connection string to work.
 
-Check to see if the Cosmos DB account has its access restricted to select networks. You can rule out any firewall issues by trying the connection with and without restrictions in place.
+Check to see if the Cosmos DB account has its access restricted to select networks. You can rule out any firewall issues by trying the connection without restrictions in place.
 
 ## See also
 
