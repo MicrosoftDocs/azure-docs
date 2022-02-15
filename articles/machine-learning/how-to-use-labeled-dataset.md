@@ -8,14 +8,14 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
-ms.date: 10/21/2021
+ms.date: 02/15/2022
 
 # Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
 
 # Create and explore Azure Machine Learning dataset with labels
 
-In this article, you'll learn how to export the data labels from an Azure Machine Learning data labeling project and load them into popular formats such as, a pandas dataframe for data exploration or a Torchvision dataset for image transformation. 
+In this article, you'll learn how to export the data labels from an Azure Machine Learning data labeling project and load them into popular formats such as, a pandas dataframe for data exploration. 
 
 ## What are datasets with labels 
 
@@ -25,7 +25,6 @@ We refer to Azure Machine Learning datasets with labels as labeled datasets. The
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro), or access to [Azure Machine Learning studio](https://ml.azure.com/).
-    * Install the [azure-contrib-dataset](/python/api/azureml-contrib-dataset/) package
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 * Access to an Azure Machine Learning data labeling project. If you don't have a labeling project, first create one for [image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md).
 
@@ -50,34 +49,31 @@ Once you have exported your labeled data to an Azure Machine Learning dataset, y
 
 ## Explore labeled datasets
 
-Load your labeled datasets into a pandas dataframe or Torchvision dataset to leverage popular open-source libraries for data exploration, as well as PyTorch provided libraries for image transformation and training.
+Load your labeled datasets into a pandas dataframe to leverage popular open-source libraries for data exploration.
 
 ### Pandas dataframe
 
-You can load labeled datasets into a pandas dataframe with the [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method from the `azureml-contrib-dataset` class. Install the class with the following shell command: 
+You can load labeled datasets into a pandas dataframe with the [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) method from the `azureml-dataprep` class. Install the class with the following shell command: 
 
 ```shell
-pip install azureml-contrib-dataset
+pip install azureml-dataprep
 ```
 
->[!NOTE]
->The azureml.contrib namespace changes frequently, as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
-
-Azure Machine Learning offers the following file handling options for file streams when converting to a pandas dataframe.
-* Download: Download your data files to a local path.
-* Mount: Mount your data files to a mount point. Mount only works for Linux-based compute, including Azure Machine Learning notebook VM and Azure Machine Learning Compute.
+The exported dataset is a TabularDataset. If you plan to use download() or moint() methods, be sure to set the parameter `stream column ='<image_url>'`
 
 In the following code, the `animal_labels` dataset is the output from a labeling project previously saved to the workspace.
 
 ```Python
 import azureml.core
-import azureml.contrib.dataset
 from azureml.core import Dataset, Workspace
-from azureml.contrib.dataset import FileHandlingOption
+
 
 # get animal_labels dataset from the workspace
 animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
-animal_pd = animal_labels.to_pandas_dataframe(file_handling_option=FileHandlingOption.DOWNLOAD, target_path='./download/', overwrite_download=True)
+animal_pd = animal_labels.to_pandas_dataframe()
+
+# download the imagess to local 
+animal_labels.download('<image_url>') 
 
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
@@ -85,35 +81,6 @@ import matplotlib.image as mpimg
 #read images from downloaded path
 img = mpimg.imread(animal_pd.loc[0,'image_url'])
 imgplot = plt.imshow(img)
-```
-
-### Torchvision datasets
-
-You can load labeled datasets into Torchvision dataset with the [to_torchvision()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset#to-torchvision--) method also from the `azureml-contrib-dataset` class. To use this method, you need to have [PyTorch](https://pytorch.org/) installed. 
-
-In the following code, the `animal_labels` dataset is the output from a labeling project previously saved to the workspace.
-
-```python
-import azureml.core
-import azureml.contrib.dataset
-from azureml.core import Dataset, Workspace
-from azureml.contrib.dataset import FileHandlingOption
-
-from torchvision.transforms import functional as F
-
-# get animal_labels dataset from the workspace
-animal_labels = Dataset.get_by_name(workspace, 'animal_labels')
-
-# load animal_labels dataset into torchvision dataset
-pytorch_dataset = animal_labels.to_torchvision()
-img = pytorch_dataset[0][0]
-print(type(img))
-
-# use methods from torchvision to transform the img into grayscale
-pil_image = F.to_pil_image(img)
-gray_image = F.to_grayscale(pil_image, num_output_channels=3)
-
-imgplot = plt.imshow(gray_image)
 ```
 
 ## Next steps
