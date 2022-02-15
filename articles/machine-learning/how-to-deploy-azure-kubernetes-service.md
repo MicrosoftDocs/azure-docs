@@ -89,7 +89,7 @@ Azureml-fe scales both up (vertically) to use more cores, and out (horizontally)
 
 When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens. Scaling up and out will only occur if there are enough cluster resources available.
 
-When scale-up or scale-down, azureml-fe pods will be restarted to apply the cpu/memory changes.
+When scale-up or scale-down, azureml-fe pods will be restarted to apply the cpu/memory changes. Inferencing requests are not affected by the restarts.
 
 <a id="connectivity"></a>
 
@@ -107,7 +107,7 @@ The following diagram shows the connectivity requirements for AKS inferencing. B
 
 For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
-For access azureml behind firewall, see [How to access azureml behind firewall](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/machine-learning/how-to-access-azureml-behind-firewall.md).
+For accessing Azure ML services behind a firewall, see [How to access azureml behind firewall](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/machine-learning/how-to-access-azureml-behind-firewall.md).
 
 ### Overall DNS resolution requirements
 
