@@ -19,7 +19,7 @@ Azure Payment HSM Service is a "BareMetal" service delivered using [Thales paySh
 
 Payment HSMs are provisioned and connected directly to users' virtual network, and HSMs are under users' sole administration control. HSMs can be easily provisioned as a pair of devices and configured for high availability. Users of the service utilize [Thales payShield Manager](https://cpl.thalesgroup.com/encryption/hardware-security-modules/payment-hsms/payshield-manager) for secure remote access to the HSMs as part of their Azure-based subscription. Multiple subscription options are available to satisfy a broad range of performance and multiple application requirements that can be upgraded quickly in line with end-user business growth. Azure payment HSM service offers highest performance level 2500 CPS.
 
-Azure Payment HSM a highly specialized service. Therefore, we recommend that you fully understand the key concepts, including [pricing](https://azure.microsoft.com/services/azure-payment-hsm/) and [support](getting-started.md#support).
+Azure Payment HSM a highly specialized service. Therefore, we recommend that you fully understand the key concepts, including [pricing](https://azure.microsoft.com/services/payment-hsm/) and [support](getting-started.md#support).
 
 ## Why use Azure Payment HSM?
 
