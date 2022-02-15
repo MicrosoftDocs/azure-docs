@@ -29,6 +29,9 @@ Consider the following when developing your application:
 * Use Direct + TCP connectivity mode
 * Avoid High CPU. Make sure to look at Max CPU and not average, which is the default for most logging systems. Anything above roughly 40% can increase the latency.
 
+## Metadata operations
+
+Avoid performing metadata operations on the same flow as your data plane operations. Metadata operations are considered any operation not performed on items, such as calling `CreateIfNotExist` or `Read` on a database or a container. Unless it is expected that databases and/or containers are deleted during the application's lifecycle, these metadata operations not only will generate extra end-to-end latency, but they have no SLA, and can incur into [system throttling](https://aka.ms/CosmosDB/sql/errors/metadata-429).
 
 ## <a name="capture-diagnostics"></a>Capture the diagnostics
 
