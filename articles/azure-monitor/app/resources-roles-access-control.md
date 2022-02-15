@@ -46,19 +46,9 @@ The user must have a [Microsoft Account][account], or access to their [organizat
 
 #### Navigate to resource group or directly to the resource itself
 
-Choose **Access control (IAM)** from the left-hand menu.
+1. Assign the Contributor role to the Role Based Access Control.
 
-![Screenshot of Access control button in Azure portal](./media/resources-roles-access-control/0001-access-control.png)
-
-Select **Add role assignment**
-
-![Screenshot of Access control menu with add button highlighted in red](./media/resources-roles-access-control/0002-add.png)
-
-The **Add permissions** view below is primarily specific to Application Insights resources, if you were viewing the access control permissions from a higher level like resource groups, you would see additional non-Application Insights-centric roles.
-
-To view information on all Azure role-based access control built-in roles use the [official reference content](../../role-based-access-control/built-in-roles.md).
-
-![Screenshot of Access control user role list](./media/resources-roles-access-control/0003-user-roles.png)
+    For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 #### Select a role
 
