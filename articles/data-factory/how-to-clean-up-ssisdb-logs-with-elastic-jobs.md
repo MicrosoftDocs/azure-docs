@@ -4,7 +4,7 @@ description: This article describes how to clean up SSIS project deployment and 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 02/15/2022
 author: swinarko
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
@@ -12,9 +12,9 @@ ms.custom: devx-track-azurepowershell
 
 # How to clean up SSISDB logs automatically
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-Once you provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF), you can use it to run SSIS packages deployed into:
+Once you provision an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines, you can use it to run SSIS packages deployed into:
 
 - SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance (Project Deployment Model)
 - file system, Azure Files, or SQL Server database (MSDB) hosted by Azure SQL Managed Instance (Package Deployment Model)
@@ -47,7 +47,7 @@ These SSISDB stored procedures clean up different SSISDB tables:
 
 These SSISDB stored procedures can also be invoked automatically on schedule via ADF, Azure SQL Managed Instance Agent, or Elastic Database Jobs.
 
-## Clean up SSISDB logs automatically via ADF
+## Clean up SSISDB logs automatically via ADF or Synapse Pipelines
 Regardless whether you use Azure SQL database server/Managed Instance to host SSISDB, you can always use ADF to clean up SSISDB logs automatically on schedule. To do so, you can prepare an Execute SSIS Package activity in ADF pipeline with an embedded package containing a single Execute SQL Task that invokes the relevant SSISDB stored procedures. See example 4) in our blog: [Run Any SQL Anywhere in 3 Easy Steps with SSIS in Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-sql-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2457244).
 
 :::image type="content" source="media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/run-sql-ssis-activity-ssis-parameters-ssisdb-clean-up.png" alt-text="SSISDB log clean-up via ADF":::

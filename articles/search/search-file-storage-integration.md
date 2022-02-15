@@ -27,6 +27,8 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Files containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis.
 
++ Read permissions on Azure Storage. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles instead, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Data and Reader** permissions.
+
 ## Supported document formats
 
 The Azure Files indexer can extract text from the following document formats:
@@ -62,15 +64,15 @@ A data source definition can also include [soft deletion policies](search-howto-
 
 Indexers can connect to a file share using the following connections.
 
-| Managed identity connection string |
-|------------------------------------|
-|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
-|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-storage.md).|
-
 | Full access storage account connection string |
 |-----------------------------------------------|
 |`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }` |
 | You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key. |
+
+| Managed identity connection string |
+|------------------------------------|
+|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
+|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md).|
 
 | Storage account shared access signature** (SAS) connection string |
 |-------------------------------------------------------------------|

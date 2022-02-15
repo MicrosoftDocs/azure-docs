@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 10/22/2021
+ms.date: 02/15/2022
 ---
 
-# Configure a self-hosted IR as a proxy for an Azure-SSIS IR in Azure Data Factory
+# Configure a self-hosted IR as a proxy for an Azure-SSIS IR
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) in Azure Data Factory (ADF) with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
+This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
 
 With this feature, you can access data and run tasks on premises without having to [join your Azure-SSIS IR to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md). The feature is useful when your corporate network has a configuration too complex or a policy too restrictive for you to inject your Azure-SSIS IR into it.
 

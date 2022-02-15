@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy a Python web app to Azure App Service'
+title: 'Quickstart: Deploy a Python (Django or Flask) web app to Azure'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
 ms.date: 01/28/2022
@@ -101,7 +101,7 @@ Having issues? [Let us know](https://aka.ms/PythonAppServiceQuickstartFeedback).
 
 ## 2 - Create a web app in Azure
 
-To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), VS Code using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
+To host your application in Azure, you need to create Azure App Service web app in Azure. You can create a web app using the [Azure portal](https://portal.azure.com/), [VS Code](https://code.visualstudio.com/) using the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack), or the Azure CLI.
 
 ### [Azure portal](#tab/azure-portal)
 
