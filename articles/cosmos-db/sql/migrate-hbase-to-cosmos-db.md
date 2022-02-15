@@ -447,7 +447,8 @@ For Azure Cosmos DB Spark connector, refer to the [Quick Start Guide](create-sql
 1. Write DataFrame data to Azure Cosmos DB.
 
    ```scala
-   import org.apache.spark.sql.SaveMode df.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
+   import org.apache.spark.sql.SaveMode
+   df.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
    ```
 
 It writes in parallel at high speed, its performance is high. On the other hand, note that it may consume up RU/s on the Azure Cosmos DB side.
