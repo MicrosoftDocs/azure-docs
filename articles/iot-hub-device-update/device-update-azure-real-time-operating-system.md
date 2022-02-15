@@ -57,15 +57,19 @@ Learn more about [Azure RTOS](/azure/rtos/).
 ## Create an update group
 
 1. Go to the **Groups and Deployments** tab at the top of the page.
+
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot that shows ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
 1. Select **Add group** to create a new group.
+
    :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot that shows a device group addition." lightbox="media/create-update-group/add-group.png":::
 
 1. Select an **IoT Hub** tag and **Device class** from the list. Then select **Create group**.
+
    :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot that shows tag selection." lightbox="media/create-update-group/select-tag.png":::
 
 1. After the group is created, you see that the update compliance chart and groups list are updated. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
+
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
 1. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
@@ -77,9 +81,11 @@ Learn more about [Azure RTOS](/azure/rtos/).
 1. After the group is created, you should see a new update available for your device group with a link to the update under **Best update**. You might need to refresh once. [Learn more about update compliance](device-update-compliance.md).
 
 1. Select the target group by selecting the group name. You're directed to the group details under **Group basics**.
+
    :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Screenshot that shows Group details." lightbox="media/deploy-update/group-basics.png":::
 
 1. To start the deployment, go to the **Current deployment** tab. Select the deploy link next to the desired update from the **Available updates** section. The best available update for a given group is denoted with a **Best** highlight.
+
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows selecting an update." lightbox="media/deploy-update/select-update.png":::
 
 1. Schedule your deployment to start immediately or in the future. Then select **Create**.
@@ -90,19 +96,23 @@ Learn more about [Azure RTOS](/azure/rtos/).
    :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows the Create deployment screen." lightbox="media/deploy-update/create-deployment.png":::
 
 1. Under **Deployment details**, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
+
     :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
 
 1. View the compliance chart to see that the update is now in progress.
 
 1. After your device is successfully updated, you see that your compliance chart and deployment details updated to reflect the same.
+
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
 ## Monitor the update deployment
 
 1. Select the **Deployment history** tab at the top of the page.
+
    :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Screenshot that shows the deployment history." lightbox="media/deploy-update/deployments-history.png":::
 
 1. Select **Details** next to the deployment you created.
+
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
 
 1. Select **Refresh** to view the latest status details.

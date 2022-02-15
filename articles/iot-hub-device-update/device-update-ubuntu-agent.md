@@ -122,12 +122,12 @@ Read the license terms before you use a package. Your installation and use of a 
 1. On the left pane, under **IoT Edge**, find your IoT Edge device and go to the device twin or module twin.
 1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using Device identity with Device Update agent, make these changes on the device twin.
 1. Add a new Device Update tag value, as shown:
-
-```JSON
-    "tags": {
-            "ADUGroup": "<CustomTagValue>"
-            },
-```
+    
+    ```JSON
+        "tags": {
+                "ADUGroup": "<CustomTagValue>"
+                },
+    ```
 
 ## Import the update
 
@@ -143,13 +143,17 @@ Read the license terms before you use a package. Your installation and use of a 
    :::image type="content" source="media/import-update/storage-account-ppr.png" alt-text="Screenshot that shows Storage account." lightbox="media/import-update/storage-account-ppr.png":::
 
 1. In your container, select **Upload** and go to the files you downloaded in step 1. After you select all your update files, select **Upload**. Then select the **Select** button to return to the **Import update** page.
+
    :::image type="content" source="media/import-update/import-select-ppr.png" alt-text="Screenshot that shows selecting uploaded files." lightbox="media/import-update/import-select-ppr.png":::
+   
    _This screenshot shows the import step. File names might not match the ones used in the example._
 
 1. On the **Import update** page, review the files to be imported. Then select **Import update** to start the import process.
+
    :::image type="content" source="media/import-update/import-start-2-ppr.png" alt-text="Screenshot that shows starting the Import process." lightbox="media/import-update/import-start-2-ppr.png":::
 
 1. The import process begins, and the screen switches to the **Import History** section. When the **Status** column indicates that the import succeeded, select the **Available updates** header. You should see your imported update in the list now.
+
    :::image type="content" source="media/import-update/update-ready-ppr.png" alt-text="Screenshot that shows the job status." lightbox="media/import-update/update-ready-ppr.png":::
 
 [Learn more](import-update.md) about how to import updates.
@@ -157,15 +161,19 @@ Read the license terms before you use a package. Your installation and use of a 
 ## Create an update group
 
 1. Go to the **Groups and Deployments** tab at the top of the page.
+
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Screenshot that shows ungrouped devices." lightbox="media/create-update-group/ungrouped-devices.png":::
 
 1. Select the **Add group** button to create a new group.
+
    :::image type="content" source="media/create-update-group/add-group.png" alt-text="Screenshot that shows device group addition." lightbox="media/create-update-group/add-group.png":::
 
 1. Select an **IoT Hub** tag and **Device Class** from the list. Then select **Create group**.
+
    :::image type="content" source="media/create-update-group/select-tag.png" alt-text="Screenshot that shows tag selection." lightbox="media/create-update-group/select-tag.png":::
 
 1. After the group is created, you see that the update compliance chart and groups list are updated. The update compliance chart shows the count of devices in various states of compliance: **On latest update**, **New updates available**, and **Updates in progress**. [Learn about update compliance](device-update-compliance.md).
+
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot that shows the update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
 1. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they show up in a corresponding invalid group. To deploy the best available update to the new user-defined group from this view, select **Deploy** next to the group.
@@ -177,9 +185,11 @@ Read the license terms before you use a package. Your installation and use of a 
 1. After the group is created, you should see a new update available for your device group with a link to the update under **Best update**. You might need to refresh once. [Learn more about update compliance](device-update-compliance.md).
 
 1. Select the target group by selecting the group name. You're directed to the group details under **Group basics**.
+
    :::image type="content" source="media/deploy-update/group-basics.png" alt-text="Screenshot that shows Group details." lightbox="media/deploy-update/group-basics.png":::
 
 1. To initiate the deployment, go to the **Current deployment** tab. Select the **deploy** link next to the desired update from the **Available updates** section. The best available update for a given group is denoted with a **Best** highlight.
+
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Screenshot that shows selecting an update." lightbox="media/deploy-update/select-update.png":::
 
 1. Schedule your deployment to start immediately or in the future. Then select **Create**.
@@ -190,19 +200,23 @@ Read the license terms before you use a package. Your installation and use of a 
     :::image type="content" source="media/deploy-update/create-deployment.png" alt-text="Screenshot that shows creating a deployment." lightbox="media/deploy-update/create-deployment.png":::
 
 1. Under **Deployment details**, **Status** turns to **Active**. The deployed update is marked with **(deploying)**.
+
    :::image type="content" source="media/deploy-update/deployment-active.png" alt-text="Screenshot that shows the deployment as Active." lightbox="media/deploy-update/deployment-active.png":::
 
 1. View the compliance chart to see that the update is now in progress.
 
 1. After your device is successfully updated, you see that your compliance chart and deployment details updated to reflect the same.
+
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Screenshot that shows the update succeeded." lightbox="media/deploy-update/update-succeeded.png":::
 
 ## Monitor the update deployment
 
 1. Select the **Deployment history** tab at the top of the page.
+
    :::image type="content" source="media/deploy-update/deployments-history.png" alt-text="Screenshot that shows Deployment history." lightbox="media/deploy-update/deployments-history.png":::
 
 1. Select the **details** link next to the deployment you created.
+
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Screenshot that shows deployment details." lightbox="media/deploy-update/deployment-details.png":::
 
 1. Select **Refresh** to view the latest status details.

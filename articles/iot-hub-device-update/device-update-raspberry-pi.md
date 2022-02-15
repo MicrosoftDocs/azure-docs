@@ -216,7 +216,7 @@ value to represent the firmware version running on the device.
    adu-<image type>-image-<machine>-<version number>.<extension>
    ```
 
-Use that version number in the later "Import update" section.
+Use that version number in the later "Import the update" section.
 
 ## Add a tag to your device
 
@@ -224,12 +224,12 @@ Use that version number in the later "Import update" section.
 1. On the left pane, under **IoT Devices** or **IoT Edge**, find your IoT device and go to the device twin or module twin.
 1. In the module twin of the Device Update agent module, delete any existing Device Update tag values by setting them to null. If you're using the device identity with the Device Update agent, make these changes on the device twin.
 1. Add a new Device Update tag value, as shown:
-
-```JSON
-    "tags": {
-            "ADUGroup": "<CustomTagValue>"
-            }
-```
+    
+    ```JSON
+        "tags": {
+                "ADUGroup": "<CustomTagValue>"
+                }
+    ```
 
 ## Import the update
 
