@@ -25,7 +25,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + An [Azure Cosmos DB account, database, container and items](../cosmos-db/sql/create-cosmosdb-resources-portal.md). We recommend using the same region or location for both Azure Cognitive Search and Azure Cosmos DB for lower latency and to avoid bandwidth charges.
 
-+ An [indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). Indexing collections with a Lazy indexing policy isn't recommended and may result in missing data. Collections with indexing disabled aren't supported.
++ An [indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, enabled and set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration for Cosmos DB. Indexing collections with a Lazy indexing policy isn't recommended and may result in missing data. Collections with indexing disabled aren't supported.
 
 + In Azure Cognitive Search, use either the [Import data wizard](search-import-data-portal.md) or the [preview REST API version](search-api-preview.md) 2020-06-30-Preview or 2021-04-30-Preview to index using MongoDB. Currently, there is no SDK support.
 

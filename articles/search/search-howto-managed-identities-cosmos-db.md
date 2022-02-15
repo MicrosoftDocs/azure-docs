@@ -39,9 +39,9 @@ The [REST API](/rest/api/searchservice/create-data-source), Azure portal, and th
 
 When you're connecting with a system-assigned managed identity, the only change to the data source definition is the format of the "credentials" property. You'll provide the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Cosmos DB, the resource group, and the Cosmos DB account name.
 
-* For SQL collections, the connection string does not require an ApiKind. 
-* For MongoDB collections, add "ApiKind=MongoDb" to the connection string. 
-* For Gremlin graphs, sign up for the [gated indexer preview](https://aka.ms/azure-cognitive-search/indexer-preview) to get access to the preview and information about how to format the credentials.
+* For SQL collections, the connection string does not require "ApiKind". 
+* For MongoDB collections, add "ApiKind=MongoDb" to the connection string and use a preview REST API.
+* For Gremlin graphs, add "ApiKind=Gremlin" to the connection string and use a preview REST API.
 
 Here is an example of how to create a data source to index data from a storage account using the [Create Data Source](/rest/api/searchservice/create-data-source) REST API and a managed identity connection string. The managed identity connection string format is the same for the REST API, .NET SDK, and the Azure portal.
 
@@ -70,9 +70,9 @@ The 2021-04-30-preview REST API supports connections based on a user-assigned ma
 
 * First, the format of the "credentials" property is the database name and a ResourceId that has no account key or password. The ResourceId must include the subscription ID of Cosmos DB, the resource group, and the Cosmos DB account name.
 
-  * For SQL collections, the connection string does not require an ApiKind. 
-  * For MongoDB collections, add `"ApiKind=MongoDb"` to the connection string. 
-  * For Gremlin graphs, add `"ApiKind=Gremlin"` to the connection string. 
+  * For SQL collections, the connection string does not require "ApiKind". 
+  * For MongoDB collections, add "ApiKind=MongoDb" to the connection string
+  * For Gremlin graphs, add "ApiKind=Gremlin" to the connection string.
 
 * Second, you'll add an "identity" property that contains the collection of user-assigned managed identities. Only one user-assigned managed identity should be provided when creating the data source. Set it to type "userAssignedIdentities".
 
