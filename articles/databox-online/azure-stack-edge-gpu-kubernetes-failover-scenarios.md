@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Kubernetes failover scenarios on a clustered Azure Stack Edge device
 
-Kubernetes cluster is deployed is a popular open-source platform to orchestrate containerized applications. This article describes how Kubernetes works on your 2-node Azure Stack Edge device including the failure modes and the corresponding device responses. 
+Kubernetes cluster is deployed as a popular open-source platform to orchestrate containerized applications. This article describes how Kubernetes works on your 2-node Azure Stack Edge device including the failure modes and the corresponding device responses. 
 
 ## About Kubernetes on Azure Stack Edge 
 
@@ -21,7 +21,7 @@ On your Azure Stack Edge device, you can create a Kubernetes cluster by configur
 
 The Azure Stack Edge device is available as a 1-node configuration or a 2-node configuration that constitutes the infrastructure cluster. The Kubernetes cluster is separate from the infrastructure cluster and is deployed on top of the infrastructure cluster. The infrastructure cluster provides the persistent storage for your Azure Stack Edge device while the Kubernetes cluster is responsible solely for application orchestration. 
 
-The Kubernetes cluster comprises of a master node and worker nodes. The Kubernetes nodes in a cluster are virtual machines that run your applications and cloud workflows. 
+The Kubernetes cluster comprises a master node and worker nodes. The Kubernetes nodes in a cluster are virtual machines that run your applications and cloud workflows. 
 
 - The Kubernetes master node is responsible for maintaining the desired state for your cluster. The master node also controls the worker node.
 - The worker nodes run the containerized applications.
@@ -29,7 +29,7 @@ The Kubernetes cluster comprises of a master node and worker nodes. The Kubernet
 
 ### Kubernetes cluster on two-node device
 
-The Kubernetes cluster on the 2-node device has one master node and two worker nodes. The 2-node device is highly available and if one of the node fails, both the device and the Kubernetes cluster keep running. For more information on the Kubernetes cluster architecture, go to [Kubernetes core concepts](https://kubernetes.io/docs/concepts/architecture/).
+The Kubernetes cluster on the 2-node device has one master node and two worker nodes. The 2-node device is highly available, and if one of the nodes fails, both the device and the Kubernetes cluster keep running. For more information on the Kubernetes cluster architecture, go to [Kubernetes core concepts](https://kubernetes.io/docs/concepts/architecture/).
 
 <!--The following diagram illustrates the implementation of Kubernetes on a 2-node Azure Stack Edge device.-->
 
@@ -40,7 +40,7 @@ The Kubernetes cluster on the 2-node device has one master node and two worker n
  
 On a 2-node Azure Stack Edge device, the Kubernetes master VM and a Kubernetes worker VM are running on node A of your device. On the node B, a single Kubernetes worker VM is running.
 
-Each worker VM in the Kubernetes cluster, is a pinned Hyper-V VM. A pinned VM is tied to the specific node it is running on. If the node A on the device fails, the master VM fails over to node B. But the worker VM on node A which is a pinned VM does not fail over to node B and vice-versa. Instead, the pods from the worker VM on node A are rebalanced onto node B. 
+Each worker VM in the Kubernetes cluster is a pinned Hyper-V VM. A pinned VM is tied to the specific node it is running on. If the node A on the device fails, the master VM fails over to node B. But the worker VM on node A which is a pinned VM does not fail over to node B and vice-versa. Instead, the pods from the worker VM on node A are rebalanced onto node B. 
 
 In order for the rebalanced pods to have enough capacity to run on the device node B, the system enforces that no more than 50% of each ASE node’s capacity be used during regular 2-node Azure Stack Edge cluster operations. This capacity usage is done on a best effort basis and there are circumstances (for example, workloads requiring unavailable GPU resources when they are rebalanced to ASE Node B) in which rebalanced pods may not have sufficient resources to run. 
 
