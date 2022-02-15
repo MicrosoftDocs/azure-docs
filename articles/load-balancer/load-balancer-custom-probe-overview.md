@@ -44,7 +44,7 @@ Health probe configuration consists of the following elements:
 
 The interval value determines how frequently the health probe will probe for a response from your backend pool instances. If the health probe fails, it will immediately mark your backend pool instances as unhealthy. On the next healthy probe up, the health probe will immediately mark your backend pool instances as healthy.
 
-For example, a health probe set to fives seconds. The time at which a probe is sent isn't synchronized with when your application may change state. The total time it takes for your health probe to reflect your application state can fall into one of the two following scenarios:
+For example, a health probe set to five seconds. The time at which a probe is sent isn't synchronized with when your application may change state. The total time it takes for your health probe to reflect your application state can fall into one of the two following scenarios:
 
 1. If your application produces a time-out response just before the next probe arrives, the detection of the events will take 5 seconds plus the duration of the application time-out when the probe arrives. You can assume the detection to take slightly over 5 seconds.
 
