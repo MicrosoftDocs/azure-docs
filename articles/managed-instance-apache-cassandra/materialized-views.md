@@ -28,7 +28,7 @@ Materialized views are disabled by default, but users can enable them on their c
 
 Microsoft cannot offer any SLA or support on issues with materialized views.
 
-## What should I do instead?
+## Alternatives to materialized views
 Like most NoSQL stores, Apache Cassandra is not designed to have a normalized data model. If you need to update data in more than one place, your program should send all the necessary statements as part of a [BATCH](https://cassandra.apache.org/doc/trunk/cassandra/cql/dml.html#batch_statement). This has two advantages over materialized views:
 
 - BATCH guarantees that all statements in the batch are committed or none.
@@ -36,7 +36,7 @@ Like most NoSQL stores, Apache Cassandra is not designed to have a normalized da
 
 If your workload truly needs a normalized data model, consider a scalable relational store like Azure's [Hyperscale PostgreSQL](/azure/postgresql/hyperscale/).
 
-## How do I enable materialized views?
+## How to enable materialized views
 You need to set `enable_materialized_views: true` in the `rawUserConfig` field of your Cassandra data center. To do so, use the following Azure CLI command to update each data center in your cluster:
 
 ```azurecli-interactive
