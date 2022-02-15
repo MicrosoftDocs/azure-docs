@@ -61,9 +61,9 @@ If the value of `managedIdentityCertificateExpirationTime` indicates a timestamp
 > [!NOTE]
 > `az connectedk8s delete` will also delete configurations and cluster extensions on top of the cluster. After running `az connectedk8s connect`, recreate the configurations and cluster extensions on the cluster, either manually or using Azure Policy.
 
-## If I am already using CI/CD pipelines, can I still use Azure Arc-enabled Kubernetes and configurations?
+## If I am already using CI/CD pipelines, can I still use Azure Arc-enabled Kubernetes or AKS and GitOps configurations?
 
-Yes, you can still use configurations on a cluster receiving deployments via a CI/CD pipeline. Compared to traditional CI/CD pipelines, configurations feature two extra benefits:
+Yes, you can still use configurations on a cluster receiving deployments via a CI/CD pipeline. Compared to traditional CI/CD pipelines, GitOps configurations feature some extra benefits:
 
 **Drift reconciliation**
 
@@ -73,9 +73,39 @@ The CI/CD pipeline applies changes only once during pipeline run. However, the G
 
 CI/CD pipelines are useful for event-driven deployments to your Kubernetes cluster (for example, a push to a Git repository). However, if you want to deploy the same configuration to all of your Kubernetes clusters, you would need to manually configure each Kubernetes cluster's credentials to the CI/CD pipeline. 
 
-For Azure Arc-enabled Kubernetes, since Azure Resource Manager manages your configurations, you can automate creating the same configuration across all Azure Arc-enabled Kubernetes resources using Azure Policy, within scope of a subscription or a resource group. This capability is even applicable to Azure Arc-enabled Kubernetes resources created after the policy assignment.
+For Azure Arc-enabled Kubernetes, since Azure Resource Manager manages your configurations, you can automate creating the same configuration across all Azure Arc-enabled Kubernetes and AKS resources using Azure Policy, within scope of a subscription or a resource group. This capability is even applicable to Azure Arc-enabled Kubernetes and AKS resources created after the policy assignment.
 
 This feature applies baseline configurations (like network policies, role bindings, and pod security policies) across the entire Kubernetes cluster inventory to meet compliance and governance requirements.
+
+**Cluster compliance**
+
+The compliance state of each GitOps configuration is reported back to Azure. This lets you keep track of any failed deployments.
+
+## Error installing the microsoft.flux extension (Flux v2)
+
+The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or AKS clusters. If you experience an error during installation below are some troubleshooting actions.
+
+* Error message
+
+    ```console
+    {'code':'DeploymentFailed','message':'At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.','details':[{'code':'ExtensionCreationFailed','message':' Request failed to https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/managedclusters/<CLUSTER_NAME>/extensionaddons/flux?api-version=2021-03-01. Error code: BadRequest. Reason: Bad Request'}]}
+    ```
+    
+* For AKS cluster, assure that the subscription has the following feature flag enabled: `Microsoft.ContainerService/AKS-ExtensionManager`.
+
+     ```console
+     az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
+    ```
+    
+* Force delete the extension.
+
+    ```console
+    az k8s-extension delete --force -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <managedClusters OR connectedClusters>
+    ```
+
+* Assure that the cluster does not have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
+    
+After you have verified the above, you can re-install the extension.
 
 ## Does Azure Arc-enabled Kubernetes store any customer data outside of the cluster's region?
 
