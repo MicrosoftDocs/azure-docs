@@ -42,17 +42,17 @@ This policy specifies the VM sizes that users can create in the lab.
 
 ## Set virtual machines per user
 
-This policy specifies the maximum number of VMs that an individual lab user can create or claim.
+This policy specifies the maximum number of VMs that an individual lab user can own.
 
 1. On the **Configuration and policies** page, select **Virtual machines per user** from the left navigation.
 
 1. On the **Virtual machines per user** screen, under **Limit the number of virtual machines**, select **On** or **Off** to enable or disable the policy.
 
-1. If you enable the policy, under **What is the limit**, enter the maximum number of VMs that a user can create or claim.
+1. If you enable the policy, under **What is the limit**, enter the maximum number of VMs that a user can own.
 
-1. Under **Limit the number of virtual machines using premium OS disks**, select **On** or **Off** to enable or disable limiting the number of VMs that use premium solid-state disks (SSDs).
+1. Under **Limit the number of virtual machines using premium OS disks**, select **On** or **Off** to enable or disable limiting the number of a user's VMs that use premium solid-state disks (SSDs).
 
-1. If you selected **On**, enter the maximum number of VMs using premium disks that a user can create or claim.
+1. If you selected **On**, enter the maximum number of VMs using premium disks that a user can own.
 
    > [!NOTE]
    > This policy applies only to Premium SSDs. The limitation doesn't apply to Standard SSDs.
@@ -61,7 +61,9 @@ This policy specifies the maximum number of VMs that an individual lab user can 
 
    :::image type="content" source="./media/devtest-lab-set-lab-policy/max-vms-per-user.png" alt-text="Screenshot showing Virtual machines per user.":::
 
-If a user tries to create or claim a VM when the user limit has been met, an error message indicates that the VM can't be created or claimed.
+If a user tries to create or claim a VM when the user limit has been met, an error message indicates that the user can't exceed their VM limit.
+
+:::image type="content" source="./media/devtest-lab-set-lab-policy/error.png" alt-text="Screenshot showing the error that the user can't exceed their VM limit.":::
 
 ## Set virtual machines per lab
 
@@ -123,7 +125,7 @@ Lab owners can configure auto-shutdown on all lab VMs centrally, and set a polic
 
    - **User sets a schedule and cannot opt out**: Lab users can override the lab schedule for their VMs, but they can't opt out of auto-shutdown. This option ensures that every VM in the lab is on some auto-shutdown schedule.
 
-   - **User has no control over the schedule set by lab admin**: Lab users can't override or opt out of the lab auto-shutdown schedule. Lab users can set up auto-shutdown notifications for their own VMs.
+   - **User has no control over the schedule set by lab administrator**: Lab users can't override or opt out of the lab auto-shutdown schedule. Lab users can set up auto-shutdown notifications for their own VMs.
 
 1. Select **Save**.
 
