@@ -1304,6 +1304,8 @@
         href: logmein-tutorial.md
       - name: Logz.io - Azure AD Integration
         href: logzio-cloud-observability-for-engineers-tutorial.md
+      - name: Looker Analytics Platform
+        href: looker-analytics-platform-tutorial.md  
       - name: Loop Flow CRM
         href: loop-flow-crm-tutorial.md  
       - name: Lucid (All Products)
@@ -2080,6 +2082,8 @@
         href: synergi-tutorial.md
       - name: Synerise AI Growth Operating System
         href: synerise-ai-growth-ecosystem-tutorial.md
+      - name: Sentry
+        href: sentry-tutorial.md  
       - name: Syxsense
         href: syxsense-tutorial.md
     - name: T - V
@@ -2402,6 +2406,8 @@
         href: yuhu-property-management-platform-tutorial.md
       - name: Zendesk
         href: zendesk-tutorial.md
+      - name: Zengine
+        href: zengine-tutorial.md  
       - name: ZenQMS
         href: zenqms-tutorial.md
       - name: ZephyrSSO
