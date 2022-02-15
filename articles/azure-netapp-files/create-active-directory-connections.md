@@ -38,6 +38,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 * If you change the password of the Active Directory user account that is used in Azure NetApp Files, be sure to update the password configured in the [Active Directory Connections](#create-an-active-directory-connection). Otherwise, you will not be able to create new volumes, and your access to existing volumes might also be affected depending on the setup.  
 
+* Before you can remove an Active Directory connection from your NetApp account, you need to first remove all volumes associated with it. 
+
 * Proper ports must be open on the applicable Windows Active Directory (AD) server.  
     The required ports are as follows: 
 
