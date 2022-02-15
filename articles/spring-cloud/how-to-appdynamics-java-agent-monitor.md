@@ -7,7 +7,8 @@ ms.author: jiec
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 10/19/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # How to monitor Spring Boot apps with the AppDynamics Java Agent (Preview)

@@ -2,7 +2,7 @@
 title: Connect sensors with a proxy
 description: Learn how to configure Microsoft Defender for IoT to communicate with a sensor through a proxy with no direct internet access.
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 02/06/2022
 ---
 
 # Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy 
@@ -66,15 +66,15 @@ For this scenario we will be installing, and configuring the latest version of [
 
 ## Set up a sensor to use Squid
 
+This section describes how to set up a sensor to use Squid.
+
 **To set up a sensor to use Squid**:
 
 1. Sign in to the sensor.
 
-1. Navigate to **System settings** > **Network**.
+1. Navigate to **System settings** > **Basic**> **Sensor Network Settings**.
 
-1. Select **Enable Proxy**.
-
-    :::image type="content" source="media/how-to-connect-sensor-by-proxy/enable-proxy.png" alt-text="Select enable proxy from the Sensor Network Configuration window.":::
+1. Turn on the **Enable Proxy** toggle.
 
 1. Enter the proxy address.
 

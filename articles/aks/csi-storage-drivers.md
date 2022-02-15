@@ -71,9 +71,19 @@ If you have created custom storage classes based on the in-tree storage drivers,
 
 Whilst explicit migration to the CSI provider is not needed for your storage classes to still be valid, to be able to use CSI features (snapshotting etc.) you will need to carry out the migration.
 
-Migration of these storage classes will involve deleting the existing storage classes, and re-provisioning them with the provisioner set to **disk.csi.azure.com** if using Azure Disks, and **files.csi.azure.com** if using Azure Files.  As an example for Azure disks:
+Migration of these storage classes will involve deleting the existing storage classes, and re-provisioning them with the provisioner set to **disk.csi.azure.com** if using Azure Disks, and **files.csi.azure.com** if using Azure Files.  
 
-### Original In-tree storage class definition
+Whilst this will update the mapping of the storage classes, the binding of the Persistent Volume to the CSI provisioner will only take place at provisioning time.  This could be during a cordon & drain operation (cluster update) or by detaching and reattaching the Volume.
+
+> [!IMPORTANT]
+> If your Storage class reclaimPolicy is set to Delete you will need to change the Persistent Volume to Retain to persist your data.  This can be achieved via a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/).
+
+
+### Migrating Storage Class provisioner
+
+As an example for Azure disks:
+
+#### Original In-tree storage class definition
 
 ```yaml
 kind: StorageClass
@@ -87,7 +97,7 @@ parameters:
   kind: Managed
 ```
 
-### CSI storage class definition
+#### CSI storage class definition
 
 ```yaml
 kind: StorageClass

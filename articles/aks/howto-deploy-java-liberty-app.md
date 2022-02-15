@@ -32,6 +32,7 @@ For more details on Open Liberty, see [the Open Liberty project page](https://op
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+* Please make sure you have been assigned either `Owner` role or `Contributor` and `User Access Administrator` roles of the subscription. You can verify it by following steps in [List role assignments for a user or group](../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-or-group)
 
 ## Create a resource group
 
@@ -218,7 +219,6 @@ export DB_PORT_NUMBER=1433
 export DB_NAME=<Database name>
 export DB_USER=<Server admin login>@<Database name>
 export DB_PASSWORD=<Server admin password>
-export PULL_SECRET=acr-secret
 export NAMESPACE=${OPERATOR_NAMESPACE}
 
 mvn clean install
@@ -313,14 +313,12 @@ The steps in this section deploy the application.
 
 Follow steps below to deploy the Liberty application on the AKS cluster.
 
-1. Create a pull secret so that the AKS cluster is authenticated to pull image from the ACR instance.
+1. Attach the ACR instance to the AKS cluster so that the AKS cluster is authenticated to pull image from the ACR instance.
 
-   ```bash
-   kubectl create secret docker-registry ${PULL_SECRET} \
-      --docker-server=${LOGIN_SERVER} \
-      --docker-username=${USER_NAME} \
-      --docker-password=${PASSWORD}
+   ```azurecli-interactive
+   az aks update -n $CLUSTER_NAME -g $RESOURCE_GROUP_NAME --attach-acr $REGISTRY_NAME
    ```
+
 1. Retrieve the value for `artifactId` defined in `pom.xml`.
 
    ```bash
@@ -358,13 +356,10 @@ Follow steps below to deploy the Liberty application on the AKS cluster.
 
 Follow steps below to deploy the Liberty application on the AKS cluster.
 
-1. Create a pull secret so that the AKS cluster is authenticated to pull image from the ACR instance.
+1. Attach the ACR instance to the AKS cluster so that the AKS cluster is authenticated to pull image from the ACR instance.
 
    ```azurecli-interactive
-   kubectl create secret docker-registry acr-secret \
-      --docker-server=${LOGIN_SERVER} \
-      --docker-username=${USER_NAME} \
-      --docker-password=${PASSWORD}
+   az aks update -n $CLUSTER_NAME -g $RESOURCE_GROUP_NAME --attach-acr $REGISTRY_NAME
    ```
 
 1. Verify the current working directory is `javaee-app-simple-cluster/target` of your local clone.

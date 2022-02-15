@@ -2,8 +2,11 @@
 title: Overview of Backup vaults
 description: An overview of Backup vaults.
 ms.topic: conceptual
-ms.date: 10/31/2021
+ms.date: 02/14/2022
 ms.custom: references_regions
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Backup vaults overview
 
@@ -19,7 +22,7 @@ A Backup vault is an entity that stores the backups and recovery points created 
 
 - Azure Backup automatically handles storage for the vault. Choose the storage redundancy that matches your business needs when creating the Backup vault.
 
-- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-redundant-storage) and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
+- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-redundant-storage), [zonal (preview)](../storage/common/storage-redundancy.md#zone-redundant-storage), and [local](../storage/common/storage-redundancy.md#locally-redundant-storage) redundancy.
 
 ## Encryption settings in the Backup vault
 

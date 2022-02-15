@@ -403,7 +403,7 @@ For example, let’s say `myCapacityReservation` has a quantity reserved 5. You 
 
 To resolve this failure, take the following steps to locate the old quantity reserved value:  
 
-1. Go to [Application Change Analysis](https://ms.portal.azure.com/#blade/Microsoft_Azure_ChangeAnalysis/ChangeAnalysisBaseBlade) in the Azure portal 
+1. Go to [Application Change Analysis](https://portal.azure.com/#blade/Microsoft_Azure_ChangeAnalysis/ChangeAnalysisBaseBlade) in the Azure portal 
 1. Select the applicable **Subscription**, **Resource group**, and **Time range** in the filters
     - You can only go back up to 14 days in the past in the **Time range** filter 
 1. Search for the name of the Capacity Reservation

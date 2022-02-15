@@ -188,8 +188,6 @@ The Connected waste management application has two simulated devices associated 
     :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-devices-bin-1.png" alt-text="Screenshot of Connected Waste Management Template Device Properties.":::
 
 
-1. Go to the **Cloud Properties** tab. Update the value of **Bin full alert threshold** from **95** to **100**. 
-
 Explore the **Device Properties** and **Device Dashboard** tabs. 
 
 > [!NOTE]
@@ -253,7 +251,7 @@ As a builder, you can change several settings to customize the user experience i
 ### Change the application theme
 
 Here's how:
-1. Go to **Administration** > **Customize your application**.
+1. Go to **Application** > **Management**.
 1. Select **Change** to choose an image to upload for the **Application logo**.
 1. Select **Change** to choose an image to upload for the **Browser icon** (an image that will appear on browser tabs).
 1. You can also replace the default browser colors by adding HTML hexadecimal color codes. Use the **Header** and **Accent** fields for this purpose.
@@ -261,7 +259,7 @@ Here's how:
     :::image type="content" source="media/tutorial-connectedwastemanagement/connected-waste-management-customize-your-application.png" alt-text="Screenshot of Connected Waste Management Template Customize your application.":::
 
 
-1. You can also change application images. Select **Administration** > **Application settings** > **Select image** to choose an image to upload as the application image.
+1. You can also change application images. Select  **Application** > **Management** > **Select image** to choose an image to upload as the application image.
 1. Finally, you can also change the theme by selecting **Settings** on the masthead of the application.
 
 ## Clean up resources
@@ -269,7 +267,7 @@ Here's how:
 If you're not going to continue to use this application, delete your application with the following steps:
 
 1. From the left pane of your Azure IoT Central app, select **Administration**.
-1. Select **Application settings** > **Delete**.
+1. Select  **Application** > **Management** > **Delete**.
 
 ## Next steps
 

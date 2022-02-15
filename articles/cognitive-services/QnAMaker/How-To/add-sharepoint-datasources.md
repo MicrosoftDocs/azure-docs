@@ -3,7 +3,7 @@ title: SharePoint files - QnA Maker
 description: Add secured SharePoint data sources to your knowledge base to enrich the knowledge base with questions and answers that may be secured with Active Directory.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/25/2022
 ---
 
@@ -84,7 +84,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 ### Grant access from the App Registrations list
 
-1. The Active Directory manager signs in to the Azure portal and opens **[App registrations list](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)**.
+1. The Active Directory manager signs in to the Azure portal and opens **[App registrations list](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)**.
 
 1. Search for and select the **QnAMakerPortalSharePoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
 

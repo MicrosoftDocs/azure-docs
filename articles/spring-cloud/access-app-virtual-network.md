@@ -6,7 +6,8 @@ ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/30/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Access your application in a private network

@@ -4,8 +4,8 @@ description: Learn how to store and restore automated backups for Azure SQL Data
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: devx-track-azurepowershell
-ms.devlang: 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.devlang: azurecli
 ms.topic: how-to
 author: SudhirRaparla
 ms.author: nvraparl
