@@ -16,6 +16,8 @@ ms.custom: devplatv2
 
 # Troubleshooting online endpoints deployment and scoring (preview)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints (preview).
 
 This document is structured in the way you should approach troubleshooting:
