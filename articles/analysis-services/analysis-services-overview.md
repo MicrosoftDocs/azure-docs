@@ -258,7 +258,7 @@ Things are changing rapidly. Get the latest information on the [Power BI blog](h
 
 ## Q&A
 
-Microsoft [Q&A](/answers/products/) is a technical community platform part of Microsoft Docs that provides a rich online experience in answering your technical questions. Join the conversation on [Q&A - Azure Analysis Services forum](/answers/topics/azure-analysis-services).
+Microsoft [Q&A](/answers/products/) is a technical community platform part of Microsoft Docs that provides a rich online experience in answering your technical questions. Join the conversation on [Q&A - Azure Analysis Services forum](/answers/topics/azure-analysis-services.html).
 
 ## Next steps
 
