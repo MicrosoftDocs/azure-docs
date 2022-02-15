@@ -4,7 +4,8 @@ description: This article describes how to enable disk encryption for Azure Serv
 
 ms.topic: article
 ms.date: 03/22/2019 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # Enable disk encryption for Azure Service Fabric cluster nodes in Linux 
 > [!div class="op_single_selector"]
