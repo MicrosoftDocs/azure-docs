@@ -40,7 +40,24 @@ Optionally assign the following permissions to the Service Principal:
 ```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
+## Deploy the Webapp
+This step is optional. If you would like a browser-based UX to assist in the configuration of SAP workload zones and systems, run the following commands before deploying the control plane.
+```bash
+echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
 
+export TF_VAR_app_registration_app_id=$(az ad app create \
+    --display-name ${region_code}-webapp-registration    \
+    --available-to-other-tenants false                   \
+    --required-resource-access @manifest.json            \
+    --query "appId" | tr -d '"')
+
+export TF_VAR_webapp_client_secret=$(az ad app credential reset \
+    --id $TF_VAR_app_registration_app_id --append               \
+    --query "password" | tr -d '"')
+
+export TF_VAR_use_webapp=true
+rm manifest.json
+```
 ## Deploy the control plane
    
 The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
@@ -65,12 +82,13 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 az logout
 az login
+
 export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
-export       subscriptionID=<subscriptionID>
-export               spn_id=<appID>
-export           spn_secret=<password>
-export            tenant_id=<tenant>
-export          region_code=WEEU
+export subscriptionID=<subscriptionID>
+export spn_id=<appID>
+export spn_secret=<password>
+export tenant_id=<tenant>
+export region_code=WEEU
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                            \
         --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars \
