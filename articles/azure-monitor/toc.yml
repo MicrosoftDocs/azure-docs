@@ -848,6 +848,8 @@ items:
       href: app/create-workspace-resource.md
     - name: Migrate to a workspace-based resource
       href: app/convert-classic-resource.md
+    - name: Migrate to connection strings
+      href: app/migrate-from-instrumentation-keys-to-connection-strings.md
     - name: Application dashboard
       displayName: dashboard, Application Insights dashboard
       href: app/overview-dashboard.md
