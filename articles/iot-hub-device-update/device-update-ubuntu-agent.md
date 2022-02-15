@@ -51,8 +51,8 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 
 1. Fill in the available text boxes:
 
-    [!div class="mx-imgBorder"]
-    [![Screenshot showing the iotedge-vm-deploy template.](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
+    > [!div class="mx-imgBorder"]
+    > [![Screenshot showing the iotedge-vm-deploy template.](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
     
    - **Subscription**: The active Azure subscription to deploy the virtual machine into.
    - **Resource group**: An existing or newly created resource group to contain the virtual machine and its associated resources.
@@ -73,11 +73,11 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
 
     You can obtain the **DNS name** from the **Overview** section of the newly deployed virtual machine in the Azure portal.
 
-    [!div class="mx-imgBorder"]
-    [![Screenshot showing the DNS name of the iotedge vm.](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+    > [!div class="mx-imgBorder"]
+    > [![Screenshot showing the DNS name of the iotedge vm.](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
    
     > [!TIP]
-   > If you want to SSH into this VM after setup, use the associated **DNS name** with the following command:
+    > If you want to SSH into this VM after setup, use the associated **DNS name** with the following command:
     `ssh <adminUsername>@<DNS_Name>`.
 
 ### Manually prepare a device
