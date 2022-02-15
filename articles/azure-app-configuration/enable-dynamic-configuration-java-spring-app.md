@@ -72,7 +72,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `azu
 
     | Key | Value |
     |---|---|
-    | Sentinel | 1 |
+    | sentinel | 1 |
 
     Leave **Label** and **Content Type** empty for now.
 
