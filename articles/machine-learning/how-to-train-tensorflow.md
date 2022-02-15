@@ -27,7 +27,7 @@ Run this code on either of these environments:
 
 - Azure Machine Learning compute instance - no downloads or installation necessary
 
-    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow** folder.
 
 - Your own Jupyter Notebook server
@@ -126,7 +126,7 @@ For more information on compute targets, see the [what is a compute target](conc
 To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
 
 #### Use a curated environment
-Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. For more info, see [here](resource-curated-environments.md).
+Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. For more info, see [Azure ML Curated Environments](resource-curated-environments.md).
 
 If you want to use a curated environment, you can run the following command instead:
 
@@ -168,7 +168,7 @@ dependencies:
 
 Create an Azure ML environment from this conda environment specification. The environment will be packaged into a Docker container at runtime.
 
-By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you'll need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo for more information.
+By default if no base image is specified, Azure ML will use a CPU image `azureml.core.environment.DEFAULT_CPU_IMAGE` as the base image. Since this example runs training on a GPU cluster, you'll need to specify a GPU base image that has the necessary GPU drivers and dependencies. Azure ML maintains a set of base images published on Microsoft Container Registry (MCR) that you can use, see the [Azure/AzureML-Containers GitHub repo](https://github.com/Azure/AzureML-Containers) for more information.
 
 ```python
 tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')

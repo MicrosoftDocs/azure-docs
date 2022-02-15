@@ -50,8 +50,10 @@
       href: supportability/how-to-create-azure-support-request.md
     - name: Manage an Azure support request
       href: supportability/how-to-manage-azure-support-request.md
-  - name: Request quota increases
+  - name: View and increase quotas
     items:
+    - name: View quotas
+      href: supportability/view-quotas.md
     - name: Increase vCPU quotas
       items:
       - name: Increase VM-family vCPU quotas

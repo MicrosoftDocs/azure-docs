@@ -565,7 +565,7 @@ Once the relevant configuration is obtained for primary region restore or second
 Once the relevant recovery Config object is obtained and verified, use the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) PowerShell cmdlet to start the restore process.
 
 ```powershell
-Restore-AzRecoveryServicesBackupItem -WLRecoveryConfig $AnotherInstanceWithLogConfig -VaultId $testVault.ID
+Restore-AzRecoveryServicesBackupItem -WLRecoveryConfig $AnotherInstanceWithLogConfig -VaultId $testVault.ID -RestoreToSecondaryRegion
 ```
 
 The restore operation returns a job to be tracked.
