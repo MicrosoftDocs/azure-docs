@@ -43,12 +43,19 @@ There is only one way to set up authentication for SQL server on-premises:
 - SQL Authentication
 
 #### SQL Authentication to register
+Ensure the SQL Server deployment is configured to allow SQL Server and Windows Authentication.
 
-The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Azure Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
+To enable this, within SQL Server Management Studio (SSMS), navigate to "Server Properties" and change from "Windows Authentication Mode" to "SQL Server and Windows Authentication mode".
+
+:::image type="content" source="media/register-scan-on-premises-sql-server/enable-sqlserver-authentication.png" alt-text="Enable SQL Server and Windows Authentication.":::
+
+A change to the Server Authentication will require a restart of the SQL Server Instance and SQL Server Agent, this can be triggered within SSMS by navigating to the SQL Server instance and selecting "Restart" within the right-click options pane.### SQL Authentication to register
 
 ##### Creating a new login and user
 
 If you would like to create a new login and user to be able to scan your SQL server, follow the steps below:
+
+The SQL account must have access to the **master** database. This is because the `sys.databases` is in the master database. The Azure Purview scanner needs to enumerate `sys.databases` in order to find all the SQL databases on the server.
 
 > [!Note]
 > All the steps below can be executed using the code provided [here](https://github.com/Azure/Purview-Samples/blob/master/TSQL-Code-Permissions/grant-access-to-on-prem-sql-databases.sql)
