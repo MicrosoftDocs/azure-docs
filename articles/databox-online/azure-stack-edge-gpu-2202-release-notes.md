@@ -23,10 +23,9 @@ This article applies to the **Azure Stack Edge 2202** release, which maps to sof
 
 ## What's new
 
-The Azure Stack Edge 2202 contains the following features or enhancements:
+The Azure Stack Edge 2202 release introduces clustering for Azure Stack Edge for a two-node device in addition to the existing single node device. The clustering feature is available only for the Azure Stack Edge Pro GPU devices.
 
-1. This release introduces clustering for Azure Stack Edge for a two-node device in addition to the existing single node device. For more information, see [What is clustering on Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md). The clustering feature is available only for the Azure Stack Edge Pro GPU devices.
-1. What else?
+For more information, see [What is clustering on Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md).
 
 
 ## Issues fixed in 2202 release
@@ -36,9 +35,6 @@ The following table lists the issues that were release noted in previous release
 | No. | Feature | Issue | 
 | --- | --- | --- |
 |**1.**|Multi-Access Edge Compute | In  previous releases, the Azure Stack Edge device did not send VNF operation results back to the Azure Network Function Manager, owing to the MEC Operation Manager (a component of MEC agent) being reset.  |
-|**2.**|Multi-Access Edge Compute |On Mellanox ConnectX-4 Lx Ethernet Adapter, the maximum number of virtual functions was set to 8 in the earlier releases. Beginning 2111, the default number of virtual functions per port is increased to 32. |
-|**3.**|Multi-Access Edge Compute |If Azure Stack Edge is running 2106, and a Network Function Device resource is created, the device is then updated to 2110. If you deploy the Network Functions, the deployment will fail. The virtual network is not created after the device is updated to 2110. The failure does not occur if there is an existing Network Functions deployment on Azure Stack Edge. |
-|**4.**|Multi-Access Edge Compute |Azure Stack Edge was updated to version 2110 while the Network Functions VMs were running. In these instances, the update may fail with the following error in the event log: *The network interface "Mellanox ConnectX-4 Lx Ethernet Adapter" has begun resetting. There will be a momentary disruption in network connectivity while the hardware resets. Reason: The network driver did not respond to an OID request in a timely fashion. This network interface has reset 3 time(s) since it was last initialized.* | 
 
 
 ## Known issues in 2202 release
