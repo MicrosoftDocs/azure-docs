@@ -133,8 +133,6 @@ The following table provides a brief description of each built-in role. Click th
 > | [Log Analytics Reader](#log-analytics-reader) | Log Analytics Reader can view and search all monitoring data as well as and view monitoring settings, including viewing the configuration of Azure diagnostics on all Azure resources. | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | [Schema Registry Contributor (Preview)](#schema-registry-contributor-preview) | Read, write, and delete Schema Registry groups and schemas. | 5dffeca3-4936-4216-b2bc-10343a5abb25 |
 > | [Schema Registry Reader (Preview)](#schema-registry-reader-preview) | Read and list Schema Registry groups and schemas. | 2c56ea50-c6b3-40a6-83c0-9d98858bc7d2 |
-> | **Blockchain** |  |  |
-> | [Blockchain Member Node Access (Preview)](#blockchain-member-node-access-preview) | Allows for access to Blockchain Member nodes | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **AI + machine learning** |  |  |
 > | [AzureML Data Scientist](#azureml-data-scientist) | Can perform all actions within an Azure Machine Learning workspace, except for creating or deleting compute resources and modifying the workspace itself. | f6c7c914-8db3-469d-8ca1-694a8f32e121 |
 > | [Cognitive Services Contributor](#cognitive-services-contributor) | Lets you create, read, update, delete and manage keys of Cognitive Services. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
@@ -6080,50 +6078,6 @@ Read and list Schema Registry groups and schemas.
     }
   ],
   "roleName": "Schema Registry Reader (Preview)",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-## Blockchain
-
-
-### Blockchain Member Node Access (Preview)
-
-Allows for access to Blockchain Member nodes [Learn more](../blockchain/service/configure-aad.md)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Allows for access to Blockchain Member nodes",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/31a002a1-acaf-453e-8a5b-297c9ca1ea24",
-  "name": "31a002a1-acaf-453e-8a5b-297c9ca1ea24",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Blockchain/blockchainMembers/transactionNodes/read"
-      ],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Blockchain Member Node Access (Preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
