@@ -12,6 +12,8 @@ ms.date: 04/30/2020
 
 Resource owners have the option to create and manage their workbooks programmatically via Resource Manager templates.
 
+TESTING PUBLIC CHANGE. 
+
 This can be useful in scenarios like:
 * Deploying org- or domain-specific analytics reports along with resources deployments. For instance, you may deploy org-specific performance and failure workbooks for your new apps or virtual machines.
 * Deploying standard reports or dashboards using workbooks for existing resources.
