@@ -313,7 +313,7 @@ If changes to the workload pattern occur (but remain periodic), the model recogn
 
 ### What if the model isn't working well for me?
 
-The modeling works best with workloads that exhibit periodicity. We recommended you first evaluate the predictions by enabling “forecast only” which will overlay the scale set’s predicted CPU usage with the actual, observed usage.  Once you compare and evaluate the results, you can then choose to enable scaling based on the predicted metrics if the model predictions are close enough for your scenario.
+The modeling works best with workloads that exhibit periodicity. We recommended you first evaluate the predictions by enabling "forecast only" which will overlay the scale set’s predicted CPU usage with the actual, observed usage.  Once you compare and evaluate the results, you can then choose to enable scaling based on the predicted metrics if the model predictions are close enough for your scenario.
 
 ### Why do I need to enable standard autoscale before enabling predictive autoscale?
 
@@ -333,9 +333,9 @@ This message means you attempted to enable predictive autoscale before you enabl
 
 ### No predictive data
 
-You won't see data on the predictive charts under certain conditions.  
+You won't see data on the predictive charts under certain conditions.  This isn't an error; it's the intended behavior.
 
-When predictive autoscale is disabled, you instead receive a message saying “No data to show…”. 
+When predictive autoscale is disabled, you instead receive a message beginning with "No data to show..." and giving you instructions on what to enable so you can see a predictive chart.
   
    :::image type="content" source="media/autoscale-predictive/message-no-data-to-show-11.png" alt-text="Screenshot of message No data to show":::
 
@@ -347,8 +347,8 @@ When you first create a virtual machine scale set and enable forecast only mode,
 
 Learn more about Autoscale by referring to the following:
 
-* [Overview of autoscale](./autoscale-overview.md)
-* [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
-* [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
-* [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
-* [Autoscale REST API](/rest/api/monitor/autoscalesettings)
+- [Overview of autoscale](./autoscale-overview.md)
+- [Azure Monitor autoscale common metrics](./autoscale-common-metrics.md)
+- [Best practices for Azure Monitor autoscale](./autoscale-best-practices.md)
+- [Use autoscale actions to send email and webhook alert notifications](./autoscale-webhook-email.md)
+- [Autoscale REST API](/rest/api/monitor/autoscalesettings)
