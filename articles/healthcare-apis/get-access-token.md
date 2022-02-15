@@ -8,7 +8,8 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 01/06/2022
 ms.author: zxue
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Get access token using Azure CLI or Azure PowerShell

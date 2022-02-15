@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 02/04/2022
 author: alexwolfmsft
 ms.author: alexwolf
-ms.devlang: csharp
+ms.devlang: csharp, azurecli
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli"
 ---
 
