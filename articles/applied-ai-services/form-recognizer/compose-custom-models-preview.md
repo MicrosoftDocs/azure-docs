@@ -205,7 +205,7 @@ The [**REST API**](./quickstarts/try-v3-rest-api.md#manage-custom-models), will 
 
 The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/ComposeDocumentModel) accepts a list of models to be composed.
 
-:::image type="content" source="media/compose/model-request-body.png" alt-text="Screenshot of compose model request.":::
+:::image type="content" source="media/compose-model-request-body.png" alt-text="Screenshot of compose model request.":::
 
 #### Analyze documents
 
@@ -253,10 +253,31 @@ You can manage your custom models throughout their lifecycle by viewing a list o
 
 |Programming language| Code sample |
 |--|--|
-|**C#** | [Analyze a document with a custom/composed model](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_AnalyzeWithCustomModel.md)
-|**Java** | [Custom model management operations](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/administration/ManageCustomModels.java)
-)
-|**JavaScript** | [Get model types and schema](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/getModel.js)
-|**Python** | [Manage models](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_manage_models.py)
+|**C#** | [Analyze a document with a custom/composed model](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/Sample_AnalyzeWithCustomModel.md)|
+|**Java** | [Custom model management operations](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/administration/ManageCustomModels.java)|
+|**JavaScript** | [Get model types and schema](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/getModel.js)|
+|**Python** | [Manage models](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_manage_models.py)|
 
 ---
+
+## Next steps
+
+Try one of our quickstarts to get started using Form Recognizer preview
+
+> [!div class="nextstepaction"]
+> [Form Recognizer Studio](quickstarts/try-v3-form-recognizer-studio.md)
+
+> [!div class="nextstepaction"]
+> [REST API](/quickstarts/try-v3-rest-api.md)
+
+> [!div class="nextstepaction"]
+> [C#](quickstarts/try-v3-csharp-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Java](quickstarts/try-v3-java-sdk.md)
+
+> [!div class="nextstepaction"]
+> [JavaScript](quickstarts/try-v3-javascript-sdk.md)
+
+> [!div class="nextstepaction"]
+> [Python](quickstarts/try-v3-python-sdk.md)
