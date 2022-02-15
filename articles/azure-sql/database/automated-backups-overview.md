@@ -542,7 +542,7 @@ For more details, see [az sql db create](/cli/azure/sql/db#az_sql_db_create) and
 
 Configuring backup storage redundancy is not available for a SQL Managed Instance when using the Azure CLI. For more information, see the [Azure portal](#configure-backup-storage-redundancy-by-using-the-azure-portal) or [PowerShell](#configure-backup-storage-redundancy-by-using-powershell) options.
 
-#### [SQL Database](#tab/single-database)
+#### [Hyperscale](#tab/hyperscale)
 
 To configure backup storage redundancy when creating a new Hyperscale database, you can specify the `backup-storage-redundancy` parameter. Possible values are Geo, Zone, and Local. By default, all Hyperscale Databases use geo-redundant storage for backups. Geo-restore is disabled if a database is created local or zone redundant backup storage.
 
