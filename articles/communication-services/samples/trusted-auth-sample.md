@@ -10,7 +10,8 @@ ms.author: dademath
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.subservice: chat
+ms.subservice: auth
+zone_pivot_groups: acs-js-csharp
 ---
 
 # Get started with the trusted authentication service hero sample
@@ -44,36 +45,10 @@ To be able to run this sample, you will need to:
 - Create an Azure Communication Services resource through [Azure Portal](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp). Follow [Quickstart: Create and manage Communication Services resources](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp) to create an ACS resource using Azure Portal.
 - Update the Server (Web API) application with information from the app registrations.
 
-## Getting Started
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [NodeJS Auth Hero](./includes/node-auth-hero.md)]
+::: zone-end
 
-If you're wondering where to get started, here are a few scenarios to help you get going:
-
-* "I want to see what this Azure Communication Services Authentication Server sample can do by running it!"
-  * Check out our [local deployment guide](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp/blob/main/docs/deployment-guides/deploy-locally.md) guide.
-
-* "How does the Azure Communication Services Authentication server sample work?"
-  * Take a look at our conceptual documentation on:
-    - [Azure Communication Services Authentication Server Sample Architecture Design](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp/blob/main/docs/design-guides/architecture-overview.md).
-    - [Secured Web API Architecture Design](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp/blob/main/docs/design-guides/secured-web-api-design.md).
-    - [Identity Mapping Architecture Design](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp/blob/main/docs/design-guides/identity-mapping-design-graph-open-extensions.md).
-
-
-## Endpoints
-
-This Azure Communication Services Solutions - Authentication server sample provides responses for **user** and **token** endpoints. For more details, please check our [Endpoints and Responses design doc](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp/blob/main/docs/design-guides/endpoints-and-responses.md).
-
-## Next steps
-
->[!div class="nextstepaction"]
->Download the sample from GitHub for [node.JS](https://github.com/Azure-Samples/communication-services-authentication-hero-nodejs)
-
->[!div class="nextstepaction"]
->Download the sample from GitHub for [C#](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp)
-
-## Additional reading
-
-- [Azure Communication Services Documentation](https://docs.microsoft.com/azure/communication-services/) - Find more about how to add voice, video, chat, and telephony on our official documentation.
-- [Azure Communication Services Hero Samples](https://docs.microsoft.com/azure/communication-services/samples/overview) - Find more Azure Communication Services samples and examples on our samples overview page.
-- [On-Behalf-Of workflow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) - Find more about the OBO workflow.
-- [Creating a protected API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) - Detailed example of creating a protected API.
-- [Graph Open Extensions](https://docs.microsoft.com/graph/extensibility-open-users) - Find out more about Microsoft Graph open extensions.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [C# Auth hero](./includes/csharp-auth-hero.md)]
+::: zone-end
