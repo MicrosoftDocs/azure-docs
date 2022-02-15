@@ -139,7 +139,7 @@ This section lists the supported languages in the latest GA version.
 |Irish    | `ga` |Zulu  | `zu` |
 |Italian | `it` |
 
-## Custom document model
+## Custom neural model
 
 Language| Locale code |
 |:-----|:----:|

@@ -67,7 +67,7 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-pr
 * Learn more about custom neural models:
 
   > [!div class="nextstepaction"]
-  > [Custom document models](concept-custom-neural.md )
+  > [Custom neural models](concept-custom-neural.md )
 
 * View the labeling guidelines:
 

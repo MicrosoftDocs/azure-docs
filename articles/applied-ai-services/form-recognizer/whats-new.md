@@ -25,12 +25,12 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * [**Read**](concept-read.md) API extracts text lines, words, their locations, detected languages, and handwritten style if detected.  
 * [**Language Expansion**](language-support.md) Form Recognizer Read, Layout, and Custom Form add support for 42 new languages including Arabic, Hindi, and other languages using Arabic and Devanagari scripts to expand the coverage to 164 languages. Handwritten support for the same features expands to Japanese and Korean in addition to English, Chinese Simplified, French, German, Italian, Portuguese, and Spanish languages.
-* [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom document models.
+* [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
 * [**Invoice API**](language-support.md#invoice-model) Invoice API expands support to Spanish invoices.
 
 Get stared with the new [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument), [Python](quickstarts/try-v3-python-sdk.md), or [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
 
- #### Form Recognizer model data extraction
+#### Form Recognizer model data extraction
 
   | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
   | --- | :---: |:---:| :---: | :---: |:---: |
@@ -42,8 +42,6 @@ Get stared with the new [REST API](https://westus.dev.cognitive.microsoft.com/do
   | ID document | ✓  |   ✓  |   |   ||
   | Business card    | ✓  |   ✓ |   |   ||
   | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
-
-## January 2022
 
 ### Form Recognizer v3.0 preview update 2
 
@@ -58,7 +56,6 @@ Get stared with the new [REST API](https://westus.dev.cognitive.microsoft.com/do
 * Read API, Form Recognizer customers can now call the Read API from Form Recognizer.
 
 * [Expanded language support](language-support.md) With this preview, Read, Layout and Custom form now support 164 languages for print text including Russian, Hindi and Arabic and similar regional languages. The preview also expands the handwritten support to Japanese and Korean resulting in a total of 9 supported languages.
-
 
 ## November 2021
 

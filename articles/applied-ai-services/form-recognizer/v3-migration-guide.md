@@ -7,10 +7,9 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 02/15/2022
 ms.author: vikurpad
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
 
 # Form Recognizer v3.0 migration | Preview
@@ -23,10 +22,10 @@ Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 
 * [Form Recognizer REST API](quickstarts/try-v3-rest-api.md) has been redesigned for better usability.
 * [**General document (v3.0)**](concept-general-document.md) model is a new API that extracts text, tables, structure, key-value pairs, and named entities from forms and documents.
-* [**Custom form model (v3.0)**](concept-custom.md) supports signature detection for custom forms.
-* [**Custom document model (v3.0)**](concept-custom-neural.md ) is a new custom model type to extract fields from structured and unstructured documents.
+* [**Custom document model (v3.0)**](concept-custom-document.md) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (v3.0)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom forms.
 
 In this article, you'll learn the differences between Form Recognizer v2.1 and v3.0 and how to move to the newer version of the API.
 
@@ -64,6 +63,7 @@ https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/
 | **Receipt** | /prebuilt/receipt/analyze    | /documentModels/prebuilt-receipt:analyze |
 | **ID document** | /prebuilt/idDocument/analyze |  /documentModels/prebuilt-idDocument:analyze |
 |**Business card**| /prebuilt/businessCard/analyze| /documentModels/prebuilt-businessCard:analyze|
+|**W-2**| /prebuilt/w-2/analyze| /documentModels/prebuilt-w-2:analyze|
 
 ### Analyze request body
 
@@ -250,7 +250,7 @@ The model object has three updates in the new API
 
 * ```modelId``` is now a property that can be set on a model for a human readable name.
 * ```modelName``` has been renamed to ```description```
-* ```buildMode``` is a new proerty with values of ```template``` for custom form models or ```neural``` for custom document models.
+* ```buildMode``` is a new proerty with values of  ```template``` for custom form models or ```neural``` for custom document models.
 
 The ```build``` operation is invoked to train a model. The request payload and call pattern remain unchanged. The build operation specifies the model and training dataset, it returns the result via the Operation-Location header in the response. Poll this model operation URL, via a GET request to check the status of the build operation (minimum recommended interval between requests is 1 second). Unlike v2.1, this URL is not the resource location of the model. Instead, the model URL can be constructed from the given modelId, also retrieved from the resourceLocation property in the response. Upon success, status is set to ```succeeded``` and result contains the custom model info. If errors are encountered, status is set to ```failed``` and the error is returned.
 
@@ -262,6 +262,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build
 {
   "modelId": {modelId},
   "description": "Sample model",
+  "buildMode": "template",
   "azureBlobSource": {
     "containerUrl": "https://{storageAccount}.blob.core.windows.net/{containerName}?{sasToken}",
     "prefix": "{folderName/}"
@@ -283,7 +284,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compo
     { "modelId": "{modelId2}" },
   ]
 }
-
+  
 ```
 
 ## Changes to copy model

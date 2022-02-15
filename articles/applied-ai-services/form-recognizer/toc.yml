@@ -134,9 +134,9 @@ items:
     href: concept-business-card.md
   - name: Custom model
     href: concept-custom.md
-  - name: Custom form model 
+  - name: Custom template model 
     href: concept-custom-template.md 
-  - name: Custom document model
+  - name: Custom neural model
     href: concept-custom-neural.md 
   - name: "Custom models: accuracy and confidence scores"
     href: concept-accuracy-confidence.md
