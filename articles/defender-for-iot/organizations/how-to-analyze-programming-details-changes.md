@@ -1,6 +1,6 @@
 ---
 title: Analyze programming details and changes
-description: nhance forensics by displaying programming events carried out on your network devices and analyzing code changes. This information helps you discover suspicious programming activity.
+description: Enhance forensics by displaying programming events carried out on your network devices and analyzing code changes. This information helps you discover suspicious programming activity.
 ms.date: 01/30/2022
 ms.topic: how-to
 ---
@@ -30,7 +30,7 @@ You may need to review programming activity:
 
   - When a process or machine is not working correctly (to see who carried out the last update and when)
 
-:::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Programing Change Log":::
+:::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Programming Change Log":::
 
 Other options let you:
 
@@ -38,7 +38,7 @@ Other options let you:
 
   - Download a *.txt file with the current code.
 
-## About authorized vs unauthorized programming events 
+## About authorized versus unauthorized programming events 
 
 Unauthorized programming events are carried out by devices that have not been learned or manually defined as programming devices. Authorized programming events are carried out by devices that were resolved or manually defined as programming devices.
 
@@ -96,7 +96,7 @@ This section describes how to choose a file to review.
 
 1. Select an event from the **Recent Events** pane
 
-2. Select a file form the File pane. The file appears in the Current pane.
+2. Select a file from the File pane. The file appears in the Current pane.
 
 :::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Select the file to work with.":::
 
@@ -122,17 +122,17 @@ This section describes how to compare programming files.
 
    The number is calculated by adjacent lines of changed text. For example, if eight consecutive lines of code were changed (deleted, updated, or added) this will be calculated as one difference.
 
-   :::image type="content" source="media/how-to-work-with-maps/program-timeline.png" alt-text="Your programing timeline view.":::
+   :::image type="content" source="media/how-to-work-with-maps/program-timeline.png" alt-text="Your programming timeline view.":::
 
 4. Select a date. The file detected on the selected date appears in the window.
 
 5. The file selected from the Recent Events/Files pane always appears on the right.
 
-## Device programming information: other locations
+## Device programming information: Other locations
 
 In addition to reviewing details in the Programming Timeline, you can access programming information in the Device Properties window and the Device Inventory.
 
 | Device type | Description |
 |--|--|
-| Device properties | The device properties window provides information on the last programming event detected on the device\. :::image type="content" source="media/how-to-work-with-maps/information-from-device-v2.png" alt-text="Your device's properties"::: |
-| The device inventory | The device inventory indicates if the device is a programming device\. :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="The inventory of devices"::: |
+| Device properties | The device properties window provides information on the last programming event detected on the device. <br> :::image type="content" source="media/how-to-work-with-maps/information-from-device-v2.png" alt-text="Your device's properties"::: |
+| The device inventory | The device inventory indicates if the device is a programming device. <br> :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="The inventory of devices"::: |

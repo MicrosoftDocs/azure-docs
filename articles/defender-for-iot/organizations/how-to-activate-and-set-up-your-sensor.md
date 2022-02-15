@@ -82,7 +82,7 @@ For more information about working with certificates, see [Manage certificates](
 1. Enter the credentials defined during the sensor installation, or select the **Password recovery** option. If you purchased a preconfigured sensor from Arrow, generate a password first. For more information on password recovery, see [Investigate password failure at initial sign-in](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md#investigate-password-failure-at-initial-sign-in).
 
 
-1. Select **Login/Next**TBD.  The **Sensor Network Settings** tab opens.
+1. Select **Login/Next**.  The **Sensor Network Settings** tab opens.
 
       :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-wizard-activate.png" alt-text="log in to sensor":::   
 
@@ -98,7 +98,7 @@ For more information about working with certificates, see [Manage certificates](
     
     If you want to work with a proxy, enable the proxy toggle and add the proxy host, port and username.
 
-    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-wizard-activate-proxy.png" alt-text="Initial Log in to sendoor using a proxy":::
+    :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/sensor-log-in-wizard-activate-proxy.png" alt-text="Initial Log in to sensor using a proxy":::
 
 1. Select **Next.** The Activation tab opens.
 
@@ -122,7 +122,7 @@ For more information about working with certificates, see [Manage certificates](
 
 1. Select **Finish**.  
 
-**You might need to refresh your screen after uploading the CA-signed certificate.** TBD
+You might need to refresh your screen after uploading the CA-signed certificate.
 
 For information about uploading a new certificate, supported certificate parameters, and working with CLI certificate commands, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
@@ -189,7 +189,7 @@ The learning mode should run for about 2 to 6 weeks, depending on your network s
 
 **To disable learning mode:**
 
-- Select **System Settings**, **Network Monitoring,**  **Detection Engines and Network Modelling** and disable the **Learning** toggle.
+- Select **System Settings**, **Network Monitoring,**  **Detection Engines and Network Modeling** and disable the **Learning** toggle.
 
 ## First-time sign in for security analysts and read-only users
 
@@ -215,9 +215,9 @@ You can access console tools from the side menu.  Tools help you:
 
 | Tools| Description |
 | -----------|--|
-| Overview | View a dashboard with high-level information about your sensor deployment, alerts, traffic, and more. For more information, see TBD|
+| Overview | View a dashboard with high-level information about your sensor deployment, alerts, traffic, and more. <!--- For more information, see TBD --->|
 | Device map | View the network devices, device connections, Purdue levels, and device properties in a map. Various zoom, highlight, and filter options are available to help you gain the insight you need. For more information, see [Investigate sensor detections in the Device Map](how-to-work-with-the-sensor-device-map.md#investigate-sensor-detections-in-the-device-map). |
-| Device inventory | The Device inventory displays a list of device attributes that this sensor detects. Options are available to: <br /> - Sort, or filter the information according to the table fields, and see the filtered information displayed. <br /> - Export information to a CSV file. <br /> - Import Windows registry details. For more information, see[Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md#investigate-sensor-detections-in-a-device-inventory).|
+| Device inventory | The Device inventory displays a list of device attributes that this sensor detects. Options are available to: <br /> - Sort, or filter the information according to the table fields, and see the filtered information displayed. <br /> - Export information to a CSV file. <br /> - Import Windows registry details. For more information, see [Investigate sensor detections in a device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md#investigate-sensor-detections-in-a-device-inventory).|
 | Alerts | Alerts are triggered when sensor engines detect changes or suspicious activity in network traffic that require your attention.  For more information, see [View alerts on your sensor](how-to-view-alerts.md#view-alerts-on-your-sensor).|
 
 ### Analyze

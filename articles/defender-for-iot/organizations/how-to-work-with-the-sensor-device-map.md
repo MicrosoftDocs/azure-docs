@@ -15,7 +15,7 @@ The Device map provides a graphical representation of network devices detected, 
 
   - Generate reports, for example export device details and summaries.
 
-:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="Screenshot of the device map." lightbox="media/how-to-work-with-maps/device-map-v2-expanded.png":::
+:::image type="content" source="media/how-to-work-with-maps/device-map-v2.png" alt-text="Screenshot of the device map." lightbox="media/how-to-work-with-maps/device-map-v2.png":::
 
 **To access the map:**
 
@@ -112,7 +112,7 @@ This view provides an at-a-glance view of devices represented as follows:
 
   - Black dots indicate devices with no alerts
 
-    :::image type="content" source="media/how-to-work-with-maps/colored-dots-v2.png" alt-text="Bird eye view" lightbox="media/how-to-work-with-maps/colored-dots-v2-expanded.png":::
+    :::image type="content" source="media/how-to-work-with-maps/colored-dots-v2.png" alt-text="Bird eye view" lightbox="media/how-to-work-with-maps/colored-dots-v2.png":::
 
 ### Device type and connection view 
 
@@ -126,14 +126,14 @@ This view presents devices represented as icons on the map.
 
 Overall connections are displayed.
 
-:::image type="content" source="media/how-to-work-with-maps/colored-rings.png" alt-text="connection view" lightbox="media/how-to-work-with-maps/colored-rings-expanded.png" :::
+:::image type="content" source="media/how-to-work-with-maps/colored-rings.png" alt-text="connection view" lightbox="media/how-to-work-with-maps/colored-rings.png" :::
 
 **To view specific connections:**
 
 1. Select a device in the map.
 1. Specific connections between devices are displayed in blue. In addition, you will see connections that cross various Purdue levels.
 
-    :::image type="content" source="media/how-to-work-with-maps/connections-purdue-level.png" alt-text="Detailed view" lightbox="media/how-to-work-with-maps/connections-purdue-level-expanded.png" :::
+    :::image type="content" source="media/how-to-work-with-maps/connections-purdue-level.png" alt-text="Detailed view" lightbox="media/how-to-work-with-maps/connections-purdue-level.png" :::
 
 ### View IT subnets
 
@@ -416,7 +416,7 @@ Unauthorized devices are included in Risk Assessment reports and Attack Vectors 
 
 - **Attack Vector Reports:** Devices marked as unauthorized are resolved in the Attack Vector as suspected rogue devices that might be a threat to the network.
 
-   :::image type="content" source="media/how-to-work-with-maps/attack-vector-reports.png" alt-text="Vew your attack vector reports":::
+   :::image type="content" source="media/how-to-work-with-maps/attack-vector-reports.png" alt-text="View your attack vector reports.":::
 
 - **Risk Assessment Reports:** Devices marked as unauthorized are identified in Risk Assessment reports.
 
@@ -448,7 +448,7 @@ Important devices are calculated when generating Risk Assessment reports and Att
 
 Devices you mark as important on your sensor are also marked as important in the Device inventory on the Defender for IoT portal on Azure.
 
-:::image type="content" source="media/how-to-work-with-maps/important-devices-on-cloud.png" alt-text="Device inventory on cloud showing important devices":::
+:::image type="content" source="media/how-to-work-with-maps/important-devices-on-cloud.png" alt-text="Device inventory on cloud showing important devices" lightbox="media/how-to-work-with-maps/important-devices-on-cloud.png":::
 
 ## See also
 
