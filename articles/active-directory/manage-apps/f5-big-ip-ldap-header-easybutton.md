@@ -33,7 +33,7 @@ This scenario looks at the classic legacy application using HTTP authorization h
 
 Being legacy, the application lacks any form of modern protocols to support a direct integration with Azure AD. Modernizing the app is also costly, requires careful planning, and introduces risk of potential downtime. 
 
-One option would be to consider [Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy), to gate remote access to the application.
+One option would be to consider [Azure AD Application Proxy](../app-proxy/application-proxy.md), to gate remote access to the application.
 
 Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC), as it too provides the protocol transitioning required to bridge legacy applications to the modern ID control plane.
 

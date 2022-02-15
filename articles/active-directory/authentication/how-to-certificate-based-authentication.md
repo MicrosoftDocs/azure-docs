@@ -42,7 +42,7 @@ Make sure that the following prerequisites are in place.
 >Each CA should have a certificate revocation list (CRL) that can be referenced from internet-facing URLs. If the trusted CA does not have a CRL configured, Azure AD will not perform any CRL checking, revocation of user certificates will not work, and authentication will not be blocked.
 
 >[!IMPORTANT]
->Make sure the PKI is secure and cannot be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both synced and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
+>Make sure the PKI is secure and cannot be easily compromised. In the event of a compromise, the attacker can create and sign client certificates and compromise any user in the tenant, both synced and cloud-only users. However, a strong key protection strategy, along with other physical and logical controls such as HSM activation cards or tokens for the secure storage of artifacts, can provide defense-in-depth to prevent external attackers or insider threats from compromising the integrity of the PKI. For more information, see [Securing PKI](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn786443(v=ws.11)).
 
 ## Steps to configure and test Azure AD CBA
 
@@ -332,4 +332,3 @@ To enable the certificate-based authentication and configure username bindings u
 - [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 - [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
-
