@@ -31,7 +31,7 @@ To purchase in the Azure Marketplace, you must meet the following prerequisites:
 
 ## View Azure Spring Cloud Enterprise Tier with VMware Tanzu offering from Azure Marketplace
 
-To see the offering and read a detailed description, see [Azure Spring Cloud Enterprise Tier w/VMware Tanzu](https://aka.ms/ascmpoffer).
+To see the offering and read a detailed description, see [Azure Spring Cloud Enterprise Tier](https://aka.ms/ascmpoffer).
 
 To see the supported plans in your market, select **Plans + Pricing**.
 

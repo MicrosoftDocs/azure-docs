@@ -1,7 +1,7 @@
 ---
-title: How to Use Build Service in Azure Spring Cloud Enterprise Tier
+title: How to Use Tanzu Build Service in Azure Spring Cloud Enterprise Tier
 titleSuffix: Azure Spring Cloud Enterprise Tier
-description: How to Use Build Service in Azure Spring Cloud Enterprise Tier
+description: How to Use Tanzu Build Service in Azure Spring Cloud Enterprise Tier
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-cloud
@@ -10,7 +10,7 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Use Build Service
+# Use Tanzu Build Service
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
