@@ -663,12 +663,12 @@ BaseUrl/api/now/table/t100
 This example provides the configuration steps to send multiple requests whose variables are in Headers.
 
 **Multiple requests:**<br/>
-RequestUrl: https://example/table<br/>
-Request 1: Header(id->0)<br/>
-Request 2: Header(id->10)<br/>
-Request 2: Header(id->20)<br/>
+RequestUrl: *https://example/table*<br/> 
+Request 1: `Header(id->0)`<br/>
+Request 2: `Header(id->10)`<br/>
+Request 2: `Header(id->20)`<br/>
 ......<br/>
-Request 100: Header(id->100)<br/>
+Request 100: `Header(id->100)`<br/>
 
 *Step 1*: Input `{id}` in **Additional headers**.
     
@@ -718,32 +718,32 @@ Data: [
 
 - **Example 4.1: The pagination will end when the value of the specific node in response is empty** 
 
-    Last response:
+    The REST API returns the last response in the following structure:
         
     ```
     {
     Data: []
     }
     ```
-    Set the end condition rule as **"EndCondition:$.data": "Empty"**.
+    Set the end condition rule as **"EndCondition:$.data": "Empty"** to end the pagination when the value of the specific node in response is empty.
 
     :::image type="content" source="media/connector-rest/pagination-example-4-1.png" alt-text="Screenshot showing the EndCondition setting for Example 4.1."::: 
 
 - **Example 4.2: The pagination will end when the value of the specific node in response dose not exist** 
 
-    Last response:
+    The REST API returns the last response in the following structure:
 
     ```
     {
     }
     ```
-    Set the end condition rule as **"EndCondition:$.data": "NonExist"**.
+    Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response dose not exist.
         
     :::image type="content" source="media/connector-rest/pagination-example-4-2.png" alt-text="Screenshot showing the EndCondition setting for Example 4.2."::: 
 
 - **Example 4.3: The pagination will end when the value of the specific node in response exists**
     
-    Last response:
+    The REST API returns the last response in the following structure:
 
     ```
     {
@@ -754,14 +754,13 @@ Data: [
             Complete: true
     }
     ```
-    Set the end condition rule as **"EndCondition:$.Complete": "Exist"**.
+    Set the end condition rule as **"EndCondition:$.Complete": "Exist"** to end the pagination when the value of the specific node in response exists.
 
     :::image type="content" source="media/connector-rest/pagination-example-4-3.png" alt-text="Screenshot showing the EndCondition setting for Example 4.3."::: 
 
 - **Example 4.4: The pagination will end when the value of the specific node in response is a user-defined const value**
 
-    Last response:
-
+    The REST API returns the response in the following structure:
     ```
     {
     Data: [
@@ -771,8 +770,9 @@ Data: [
             Complete: false
     }
     ```
-    
-    or
+    ......
+
+    And the last response is in the following structure:
 
     ```
     {
@@ -783,27 +783,31 @@ Data: [
             Complete: true
     }
     ```
-    Set the end condition rule as **"EndCondition:$.Complete": "Const:true"**.
+    Set the end condition rule as **"EndCondition:$.Complete": "Const:true"** to end the pagination when the value of the specific node in response is a user-defined const value.
         
     :::image type="content" source="media/connector-rest/pagination-example-4-4.png" alt-text="Screenshot showing the EndCondition setting for Example 4.4."::: 
 
 - **Example 4.5: The pagination will end when the value of the header key in response is equal to user-defined const value**
 
-    Response header 1: header(Complete->0)<br/>
+    The header keys in REST API responses are shown in the structure below:
+
+    Response header 1: `header(Complete->0)`<br/>
     ......<br/>
-    Last Response header: header(Complete->1)<br/>
+    Last Response header: `header(Complete->1)`<br/>
         
-    Set the end condition rule as **"EndCondition:headers.Complete": "Const:1"**.
+    Set the end condition rule as **"EndCondition:headers.Complete": "Const:1"** to end the pagination when the value of the header key in response is equal to user-defined const value.
         
     :::image type="content" source="media/connector-rest/pagination-example-4-5.png" alt-text="Screenshot showing the EndCondition setting for Example 4.5."::: 
 
 - **Example 4.6: The pagination will end when the key exists in the response header**
 
-    Response header 1: header()<br/>
+    The header keys in REST API responses are shown in the structure below:
+
+    Response header 1: `header()`<br/>
     ......<br/>
-    Last Response header: header(CompleteTime->20220920)<br/>
+    Last Response header: `header(CompleteTime->20220920)`<br/>
         
-    Set the end condition rule as **"EndCondition:headers.CompleteTime": "Exist"**.
+    Set the end condition rule as **"EndCondition:headers.CompleteTime": "Exist"** to end the pagination when the key exists in the response header.
 
     :::image type="content" source="media/connector-rest/pagination-example-4-6.png" alt-text="Screenshot showing the EndCondition setting for Example 4.6."::: 
 
