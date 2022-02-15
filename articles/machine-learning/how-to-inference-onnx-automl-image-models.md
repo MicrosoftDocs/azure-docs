@@ -122,7 +122,8 @@ Use the following model specific arguments to submit the script.
 
 # [Object detection with Faster R-CNN](#tab/object-detect-cnn-args)
 ```python
-arguments = ['--batch_size', 5,  # enter the batch size of your choice
+arguments = ['--model_name', 'faster-rcnn',  # enter the model name from ['yolo', 'faster-rcnn']
+             '--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 600,  # enter the height of input to ONNX model
              '--width_onnx', 800,  # enter the width of input to ONNX model
              '--experiment_name', experiment_name,
@@ -142,7 +143,8 @@ arguments = ['--batch_size', 5,  # enter the batch size of your choice
 # [Object detection with YOLO](#tab/object-detect-yolo-args)
 
 ```python
-arguments = ['--batch_size', 5,  # enter the batch size of your choice
+arguments = ['--model_name', 'yolo',  # enter the model name from ['yolo', 'faster-rcnn']
+             '--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 640,  # enter the height of input to ONNX model
              '--width_onnx', 640,  # enter the width of input to ONNX model
              '--experiment_name', experiment_name,
@@ -161,7 +163,8 @@ arguments = ['--batch_size', 5,  # enter the batch size of your choice
 # [Instance segmentation](#tab/instance-segmentation-args)
 
 ```python
-arguments = ['--batch_size', 5,  # enter the batch size of your choice
+arguments = ['--model_name', 'mask-rcnn',  # enter the model name from ['mask-rcnn']
+             '--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 600,  # enter the height of input to ONNX model
              '--width_onnx', 800,  # enter the width of input to ONNX model
              '--experiment_name', experiment_name,
