@@ -43,6 +43,8 @@ The following table shows connectivity locations and the service providers for e
 
 * **Zone** refers to [pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
+* **ER Direct** refers to [ExpressRoute Direct](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-erdirect-about) support at each peering location. If you want to view the available bandwidth see [Determine available bandwidth] (https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-erdirect#resources)
+
 ### Global commercial Azure
 | **Location** | **Address** | **Zone** | **Local Azure regions** | **ER Direct** | **Service providers** |
 | --- | --- | --- | --- | --- | --- |
