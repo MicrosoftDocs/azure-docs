@@ -44180,6 +44180,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/managed-identity-byos.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/managed-identities",
+      "redirect_document_id": false
+    },
+    {
     "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
     "redirect_url": "/azure/advisor/advisor-overview",
     "redirect_document_id": false
@@ -44203,6 +44208,25 @@
         "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
         "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
         "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/azure/marketplace/co-sell-requirements.md",
+          "redirect_url": "/partner-center/co-sell-requirements",
+          "redirect_document_id": false
+      },        
+      {
+        "source_path_from_root": "/articles/azure/marketplace/co-sell-status.md",
+        "redirect_url": "/partner-center/co-sell-status",
+        "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/azure/marketplace/co-sell-configure.md",
+          "redirect_url": "/partner-center/co-sell-configure",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
+          "redirect_url": "/partner-center/co-sell-overview",
+          "redirect_document_id": false
       }
   ]
 }

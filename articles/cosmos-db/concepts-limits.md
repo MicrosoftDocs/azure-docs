@@ -113,7 +113,7 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 | --- | --- |
 | Maximum number of databases | 500 |
 | Maximum number of containers per database with shared throughput |25 |
-| Maximum number of containers per database or account with dedicated throughput  | 500 |
+| Maximum number of containers per account | 500 |
 | Maximum number of regions | No limit (All Azure regions) |
 
 ### Serverless
