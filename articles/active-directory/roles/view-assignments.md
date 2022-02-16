@@ -44,7 +44,7 @@ This procedure describes how to list role assignments with organization-wide sco
 
 It's easy to list your own permissions as well. Select **Your Role** on the **Roles and administrators** page to see the roles that are currently assigned to you.
 
-    ![List my role assignments](./media/view-assignments/list-my-role-assignments.png)
+   ![List my role assignments](./media/view-assignments/list-my-role-assignments.png)
 
 ### Download role assignments
 
