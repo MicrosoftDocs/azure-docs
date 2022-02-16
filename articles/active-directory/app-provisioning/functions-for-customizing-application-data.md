@@ -970,7 +970,7 @@ Here is another example where the domain suffix from a UPN is replaced with an e
 
 `Replace([userPrincipalName], , "(?<Suffix>@(.)*)", "Suffix", "", , )`
 
-* **source: `[userPrincipalName]` = “jsmith@contoso.com”
+* **source:** `[userPrincipalName]` = “jsmith@contoso.com”
 * **regexPattern:** “`(?<Suffix>@(.)*)`”
 * **regexGroupName:** “Suffix”
 * **replacementValue:** “” (empty string)
