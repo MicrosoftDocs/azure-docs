@@ -27,7 +27,7 @@ Different Azure hosts use different models of Mellanox physical NIC, so Linux au
 
 FreeBSD provides the same support for Accelerated Networking as Linux when running in Azure. The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD. 
 
-### Bonding
+## Bonding
 
 The synthetic network interface and VF interface are automatically paired and act as a single interface in most aspects that are seen by applications. The bonding is done by the netvsc driver. Depending on the Linux distro, udev rules and scripts might help in naming the VF interface and in network configuration. If the VM is configured with multiple virtual NICs, the Azure host provides a unique serial number for each one. It's used to allow Linux to do the proper pairing of synthetic and VF interfaces for each virtual NIC. 
  
@@ -64,7 +64,7 @@ $ ethtool -i <interface name> | grep driver
 
 If the driver is “hv_netvsc”, it's the synthetic interface. The VF interface has a driver name that contains “mlx”. The VF interface is also identifiable because its flags field includes “SLAVE.” This flag indicates that it's under the control of the synthetic interface that has the same MAC address. Finally, IP addresses are assigned only to the synthetic interface, and the output of ‘ifconfig’ or ‘ip addr’ shows this distinction as well. 
 
-### Application Usage
+## Application Usage
 
 Applications should interact only with the synthetic interface, just like in any other networking environment. Outgoing network packets are passed from the netvsc driver to the VF driver and then transmitted through the VF interface. Incoming packets are received and processed on the VF interface before being passed to the synthetic interface. Exceptions are incoming TCP SYN packets and broadcast/multicast packets that are processed by the synthetic interface only. 
  
@@ -97,7 +97,7 @@ In this example, the last line of output identifies a VF from the Mellanox Conne
  
 The “ethtool -l” or “ethtool -L” command (to get and set the number of transmit and receive queues) is an exception to the guidance to interact with the “eth\<n\>” interface. This command can be used directly against the VF interface to control the number of queues for the VF interface. The number of queues for the VF interface is independent of the number of queues for the synthetic interface.
 
-### Interpreting Boot-up Messages
+## Interpreting Boot-up Messages
 
 During booting, Linux shows many messages related to the initialization and configuration of the VF interface. Information about the bonding with the synthetic interface is shown as well. Understanding these messages can be helpful in identifying any problems in the process.  
  
@@ -177,7 +177,7 @@ These messages indicate that the data path for the bonded pair has switched to u
 The final message indicates that the data path has switched to using the VF interface. It's expected during normal operation of the VM. 
 
 
-### Azure Host Servicing
+## Azure Host Servicing
 
 When Azure host servicing is performed, all VF interfaces might be temporarily removed from the VM during the servicing. When the servicing is complete, the VF interfaces are added back to the VM and normal operation continues. While the VM is operating without the VF interfaces, network traffic continues to flow through the synthetic interface without any disruption to applications.  In this context, Azure host servicing might include updating the various components of the Azure network infrastructure or a full upgrade of the Azure host hypervisor software. Such servicing events occur at time intervals depending on the operational needs of the Azure infrastructure. These events typically can be expected several times over the course of a year. If applications interact only with the synthetic interface, the automatic switching between the VF interface and the synthetic interface ensures that workloads aren't disturbed by such servicing events. Latencies and CPU load might be higher during the periods because of the use of the synthetic interface. The duration of such periods is typically on the order of 30 seconds, but sometimes might be as long as a few minutes. 
  
@@ -224,7 +224,7 @@ The mlx5 driver initializes the VF interface, and the interface is now functiona
 
 The data path has been switched back to the VF interface. 
 
-### Disable/Enable Accelerated Networking in a Running VM 
+## Disable/Enable Accelerated Networking in a Running VM 
 
 Accelerated Networking can be toggled on a virtual NIC in a running VM with Azure CLI. For example: 
 
