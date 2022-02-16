@@ -52,19 +52,19 @@ Once the user has an Azure AD account, [add the Azure AD user account to Lab Cre
 
 ### Using a non-Microsoft email account
 
-Instructors can use non-Microsoft email accounts to register and sign in to a lab.  However, the sign-in to the Lab Services portal requires that instructors first create a Microsoft account that's linked to their non-Microsoft email address.
+Educators can use non-Microsoft email accounts to register and sign in to a lab.  However, the sign-in to the Lab Services portal requires that educators first create a Microsoft account that's linked to their non-Microsoft email address.
 
-Many instructors might already have a Microsoft account linked to their non-Microsoft email addresses. For example, instructors already have a Microsoft account if they have used their email address with Microsoft’s other products or services, such as Office, Skype, OneDrive, or Windows.  
+Many educators might already have a Microsoft account linked to their non-Microsoft email addresses. For example, educators already have a Microsoft account if they have used their email address with Microsoft’s other products or services, such as Office, Skype, OneDrive, or Windows.  
 
-When instructors sign in to the Lab Services portal, they are prompted for their email address and password. If the instructor attempts to sign in with a non-Microsoft account that does not have a Microsoft account linked, the instructor will receive the following error message:
+When educators sign in to the Lab Services portal, they are prompted for their email address and password. If the educator attempts to sign in with a non-Microsoft account that does not have a Microsoft account linked, the educator will receive the following error message:
 
 ![Error message](./media/how-to-configure-student-usage/cant-find-account.png)
 
-To sign up for a Microsoft account, instructors should go to [http://signup.live.com](http://signup.live.com).  
+To sign up for a Microsoft account, educators should go to [http://signup.live.com](http://signup.live.com).  
 
 ### Using a GitHub Account
 
-Instructors can also use an existing GitHub account to register and sign in to a  lab. If the instructor already has a Microsoft account linked to their GitHub account, then they can sign in and provide their password as shown in the previous section. If they have not yet linked their GitHub account to a Microsoft account, they should select **Sign-in options**:
+Educators can also use an existing GitHub account to register and sign in to a  lab. If the educator already has a Microsoft account linked to their GitHub account, then they can sign in and provide their password as shown in the previous section. If they have not yet linked their GitHub account to a Microsoft account, they should select **Sign-in options**:
 
 ![Sign-in options link](./media/how-to-configure-student-usage/signin-options.png)
 
@@ -72,7 +72,7 @@ On the **Sign-in options** page, select **Sign in with GitHub**.
 
 ![Sign in with GitHub link](./media/how-to-configure-student-usage/signin-github.png)
 
-Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the instructor selects **Next**.  The instructor is then immediately signed in and connected to the lab.
+Finally, they are prompted to create a Microsoft account that's linked to their GitHub account. It happens automatically when the educator selects **Next**.  The educator is then immediately signed in and connected to the lab.
 
 ## Next steps
 

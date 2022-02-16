@@ -19,7 +19,7 @@ This article shows you how to attach or detach a shared image gallery to a lab a
 Here are the couple of scenarios supported by this feature:
 
 - A lab account admin attaches a shared image gallery to the lab account.  The VM image is uploaded to the shared image gallery outside the context of a lab.  The lab admin has to enable the use of the image on the lab account. Lab creators can use that image from the shared image gallery when creating labs.
-- A lab account admin attaches a shared image gallery to the lab account. A lab creator (instructor) saves the customized image of their lab to the shared image gallery. Then, other lab creators can select this image from the shared image gallery to create a template for their labs.
+- A lab account admin attaches a shared image gallery to the lab account. A lab creator (educator) saves the customized image of their lab to the shared image gallery. Then, other lab creators can select this image from the shared image gallery to create a template for their labs.
 
     When an image is saved to a shared image gallery, Azure Lab Services replicates the saved image to other regions available in the same [geography](https://azure.microsoft.com/global-infrastructure/geographies/). It ensures that the image is available for labs created in other regions in the same geography. Saving images to a shared image gallery incurs an additional cost, which includes cost for all replicated images. This cost is separate from the Azure Lab Services usage cost. For more information about Shared Image Gallery pricing, see [Shared Image Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
 

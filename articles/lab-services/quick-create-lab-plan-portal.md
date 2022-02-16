@@ -8,19 +8,13 @@ ms.custom: template-quickstart
 
 # Quickstart: Create a lab plan using the Azure portal
 
-Azure Lab Services provides students and teachers with access to virtual computer labs directly from their own computers.  Using virtual computer labs, students can access industry-standard software required for their programs of study through Virtual Machines (VMs).
-
-A VM is a virtual environment and acts as a replacement for a real, physical computer that you can access over the internet.  Each VM has its own processor, memory, and storage.  VMs give students access to operating systems and software without the need to have them installed on a student’s own computer.  Azure Lab Services provides a tool for students to access and navigate VMs and for teachers to manage their virtual computer labs.
-
-To create a virtual computer lab using Azure Lab Services, your first need to set up a lab plan in your Azure subscription.  Creating resources in the [Azure portal](https://portal.azure.com) is typically done by your institution’s IT department or Azure administrator.  A lab plan is used to give permission to others to create labs and set policies that apply to the labs created from it. For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
-
-In this quickstart, you create a lab plan using the Azure portal.
+A lab plan for Azure Lab Services can be created through the Azure portal.  This quickstart shows you, as the admin, how to use the Azure portal to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites
 
 To complete this quick start, make sure that you have:
 
-- Azure subscription.  If you don’t have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
 ## Create a lab plan
 

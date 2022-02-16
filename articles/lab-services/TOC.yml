@@ -12,10 +12,14 @@
       items:
       - name: Azure portal
         href: quick-create-lab-plan-portal.md
+      - name: PowerShell
+        href: quick-create-lab-plan-powershell.md
     - name: Create a lab (educator)
       items:
       - name: Azure Lab Services website
         href: quick-create-lab-portal.md
+      - name: PowerShell
+        href: quick-create-lab-powershell.md
 - name: Tutorials
   items:
   - name: Set up a lab plan (admin)
@@ -141,7 +145,7 @@
       href: how-to-manage-labs.md
     - name: Use a shared image gallery
       href: how-to-use-shared-image-gallery.md            
-    - name: Enable remote desktop connection for Linux
+    - name: Enable remote desktop for Linux
       href: how-to-enable-remote-desktop-linux.md
     - name: Create a lab with GPUs
       href: how-to-setup-lab-gpu.md
@@ -239,6 +243,8 @@
         href: how-to-connect-peer-virtual-network.md
       - name: Attach or detach a shared image gallery
         href: how-to-attach-detach-shared-image-gallery-1.md
+      - name: Specify Marketplace images for labs 
+        href: specify-marketplace-images-1.md
       - name: Add additional owners to a lab
         href: how-to-add-user-lab-owner.md
       - name: Manage labs in a lab account
@@ -246,13 +252,15 @@
     - name: Administrator guide
       href: administrator-guide-1.md
     - name: Lab account creation guide
-      href: account-setup-guide.md    
+      href: account-setup-guide.md
+    - name: Az.LabServices PowerShell module (deprecated)
+      href: reference-powershell-module.md     
 - name: Reference
   items:
   - name: REST API
     href: /rest/api/labservices/
   - name: Az.LabServices PowerShell module (preview)
-    href: reference-powershell-module.md
+    href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
 - name: Resources

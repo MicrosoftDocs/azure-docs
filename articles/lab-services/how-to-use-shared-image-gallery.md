@@ -12,7 +12,7 @@ An image contains the operating system, software applications, files, and settin
 - Azure Marketplace images that are prebuilt by Microsoft for use within Azure.  These images have either Windows or Linux installed and may also include software applications.  For example, the [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm) includes installed deep learning frameworks and tools.
 - Custom images that are created by your institution’s IT department and\or other educators.  You can create both Windows and Linux custom images and have the flexibility to install Microsoft and 3rd party applications based on your unique needs.  You also can add files, change application settings, and more.
 
-This article shows how educators/lab admins can create and save a custom image from a template virtual machine to a [compute galler](../virtual-machines/shared-image-galleries.md) so that it can be used by others to create new labs.
+This article shows how educators/lab admins can create and save a custom image from a template virtual machine to a [compute gallery](../virtual-machines/shared-image-galleries.md) so that it can be used by others to create new labs.
 
 > [!IMPORTANT]
 > While using a Azure compute galleries, Azure Lab Services supports only images with less than 128 GB of OS Disk Space. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
@@ -22,17 +22,17 @@ This article shows how educators/lab admins can create and save a custom image f
 Here are the couple of scenarios supported by this feature:
 
 - A lab plan admin attaches a compute gallery to the lab plan, and uploads an image to the compute gallery outside the context of a lab. Then, lab creators can use that image from the compute gallery to create labs.
-- A lab plan admin attaches a compute gallery to the lab plan. A lab creator (instructor) saves the customized image of his/her lab to the compute gallery. Then, other lab creators can select this image from the compute gallery to create a template for their labs.
+- A lab plan admin attaches a compute gallery to the lab plan. A lab creator (educator) saves the customized image of their lab to the compute gallery. Then, other lab creators can select this image from the compute gallery to create a template for their labs.
 
 ## Prerequisites
 
 - Create a [compute gallery](../virtual-machines/create-gallery.md).
-- You have attached the compute gallery to the lab plan. For step-by-step instructions, see [How to attach or detach compute gallery](how-to-attach-detach-shared-image-gallery.md).
+- You've attached the compute gallery to the lab plan. For step-by-step instructions, see [How to attach or detach compute gallery](how-to-attach-detach-shared-image-gallery.md).
 - Image must be replicated to the same region as the lab plan.
 
 ## Save an image to a compute gallery
 
-After a compute gallery is attached, a lab plan admin or an educator can save an image to the compute gallery so that it can be reused by other educators.
+After a compute gallery is attached, an educator can save an image to the compute gallery so that it can be reused by other educators.
 
 1. On the **Template** page for the lab, select **Export to Azure Compute Gallery** on the toolbar.
 
@@ -41,7 +41,7 @@ After a compute gallery is attached, a lab plan admin or an educator can save an
 
     :::image type="content" source="./media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png" alt-text="Export to Azure Compute Gallery dialog":::
 
-3. You will see a note telling you to go to the Azure port to see the progress of this operation. This operation can take sometime.
+3. You'll see a note telling you to go to the Azure port to see the progress of this operation. This operation can take sometime.
 
     ![Export in progress](./media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
 
@@ -55,7 +55,7 @@ After you save the image to the compute gallery, you can use that image from the
 
 ## Use a custom image from the compute gallery
 
-An educator can pick a custom image available in the compute gallery for the template VM that is created when you setup a new lab.  Educators can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
+An educator can pick a custom image available in the compute gallery for the template VM when creating a new lab.  Educators can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
 
 ![Use virtual machine image from the gallery](./media/how-to-use-shared-image-gallery/use-shared-image.png)
 
@@ -66,9 +66,9 @@ For more information about replicating images, see  [replication in Azure Comput
 
 ### Re-save a custom image to compute gallery
 
-After you've created a lab from a custom image in a compute gallery, you can make changes to the image using the template VM and reexport the image to compute gallery.  When you reexport, you have the option to either create a new image or to update the original image.
+After you've created a lab from a custom image in a compute gallery, you can make changes to the image using the template VM and reexport the image to compute gallery.  When you reexport, you can either create a new image or to update the original image.
 
-If you choose **Create new image**, a new [image definition](../virtual-machines/shared-image-galleries.md#image-definitions) is created.  This allows you to save an entirely new custom image without changing the original custom image that already exists in compute gallery.
+If you choose **Create new image**, a new [image definition](../virtual-machines/shared-image-galleries.md#image-definitions) is created.  Creating a new image allows you to save an entirely new custom image without changing the original custom image that already exists in compute gallery.
 
 If instead you choose **Update existing image**, the original custom image's definition is updated with a new [version](../virtual-machines/shared-image-galleries.md#image-versions).  Lab Services automatically will use the most recent version the next time a lab is created using the custom image.
 

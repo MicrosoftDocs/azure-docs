@@ -85,7 +85,7 @@ New-NetFirewallRule -DisplayName "Allow access to Port 1337" -Direction Inbound 
 ```
 
 >[!IMPORTANT]
->Instructors must use the template VM or another lab VM to access a student's website.
+>Educators must use the template VM or another lab VM to access a student's website.
 
 ## Cost
 

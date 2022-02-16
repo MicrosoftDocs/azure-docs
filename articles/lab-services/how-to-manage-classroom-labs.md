@@ -25,7 +25,6 @@ To set up a lab in a lab account, you must be a member of the **Lab Creator** ro
     1. Select the **size of the virtual machines** you need for the class. For the list of sizes available, see the [VM Sizes](#vm-sizes) section.
     1. Select the **virtual machine image** that you want to use for the lab. If you select a Linux image, you see an option to **enable remote desktop connection**. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
 
-        If you signed in using lab account owner credentials, you will see an option to enable more images for the lab. For more information, see [Enable images at the time of lab creation](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     1. Review the **total price per hour** displayed on the page.
     1. Select **Save**.
 

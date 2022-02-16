@@ -7,9 +7,9 @@ ms.date: 02/01/2022
 
 # Connect to a VM using X2Go
 
-Students can use X2Go to connect to their Linux VMs after their instructor sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment
+Students can use X2Go to connect to their Linux VMs after their educator sets up their lab with X2Go and the GUI packages for a Linux graphical desktop environment
 
-Students need to find out from their instructor which Linux graphical desktop environment their instructor has installed.  This information is needed in the next steps to connect using the X2Go client.
+Students need to find out from their educator which Linux graphical desktop environment their educator has installed.  This information is needed in the next steps to connect using the X2Go client.
 
 ## Install X2Go client
 
@@ -35,7 +35,7 @@ Install the [X2Go client](https://wiki.x2go.org/doku.php/doc:installation:x2gocl
    - **Host** - The ID of your VM; for example, **`ml-lab-00000000-0000-0000-0000-000000000000.eastus2.cloudapp.azure.com`**.
    - **Login** - The username for your VM; for example, **student**.
    - **SSH port** - The unique port assigned to your VM; for example, **12345**.
-   - **Session type** - Select the Linux graphical desktop environment that your instructor configured your VM.  You  need to get this information from your instructor.  For example, select `XFCE` if you're using either XFCE or Xubuntu graphical desktop environments.
+   - **Session type** - Select the Linux graphical desktop environment that your educator configured your VM.  You  need to get this information from your educator.  For example, select `XFCE` if you're using either XFCE or Xubuntu graphical desktop environments.
 
     Finally, select **OK** to create the session.
 
