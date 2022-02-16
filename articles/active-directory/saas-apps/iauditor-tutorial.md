@@ -75,7 +75,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `urn:auth0:safetyculture:<CustomerName>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://safetyculture.au.auth0.com/login/callback?connection=<CustomerName>`
+    `https://auth.safetyculture.com/login/callback?connection=<CustomerName>`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -134,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure iAuditor SSO
 
-To configure single sign-on on **iAuditor** side, you need to send the **Certificate (PEM)** to [iAuditor support team](mailto:support@safetyculture.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **iAuditor** side, you need to send the **Certificate (PEM)** and sign in URL to [iAuditor support team](mailto:support@safetyculture.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create iAuditor test user
 
