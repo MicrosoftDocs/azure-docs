@@ -233,3 +233,8 @@ $ az network nic update --name u1804895 --resource-group testrg --accelerated-ne
 ```
 
 Disabling Accelerated Networking that is enabled in the guest VM produces a “dmesg” output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same “dmesg” output as when the VF interface is readded after Azure host servicing. These Azure CLI commands can be used to simulate Azure host servicing, which can help test applications in your VM don't have to directly interact with the VF interface.
+
+## Next steps
+* Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
+* Learn how to [create a VM with Accerelated Networking using Azure CLI](../virtual-network/create-vm-accelerated-networking-cli.md)
+* Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
