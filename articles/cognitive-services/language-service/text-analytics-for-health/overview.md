@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/19/2021
+ms.date: 02/16/2022
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -19,19 +19,19 @@ ms.custom: language-service-health, ignite-fall-2021
 
 Text Analytics for health is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. 
 
-Text Analytics for health extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.
-
 This documentation contains the following types of articles:
 
 * [**Quickstarts**](quickstart.md) are getting-started instructions to guide you through making requests to the service.
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 * The [**conceptual articles**](concepts/health-entity-categories.md) provide in-depth explanations of the service's functionality and features.
 
-> [!VIDEO https://docs.microsoft.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
-
 ## Text Analytics for health features
 
+Text Analytics for health extracts and labels relevant medical information from unstructured texts such as doctor's notes, discharge summaries, clinical documents, and electronic health records.
+
 [!INCLUDE [Text Analytics for health](includes/features.md)]
+
+> [!VIDEO https://docs.microsoft.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## Get started with Text analytics for health
 
