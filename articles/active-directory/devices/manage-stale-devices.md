@@ -169,7 +169,7 @@ Before deleting any devices, back up any BitLocker recovery keys you may need in
 Building on the [disable devices example](#disable-devices) we look for disabled devices, now inactive for 120 days, and pipe the output to `Remove-AzureADDevice` to delete those devices.
 
 ```powershell
-$dt = (Get-Date).AddDays(-90)
+$dt = (Get-Date).AddDays(-120)
 $Devices = Get-AzureADDevice -All:$true | Where {($_.ApproximateLastLogonTimeStamp -le $dt) -and ($_.AccountEnabled -eq $false)}
 foreach ($Device in $Devices) {
 Remove-AzureADDevice -ObjectId $Device.ObjectId
