@@ -33,10 +33,10 @@ Applications must be represented by an app object in Azure Active Directory so t
 
 ### Step 1: Configure your application in the Azure portal
 For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
-> [!div class="nextstepaction"]
+> [!div id="makechanges" class="nextstepaction" class="configure-app-button"]
 > [Make these changes for me]()
 
-> [!div class="alert alert-info"]
+> [!div id="appconfigured" class="alert alert-info"]
 > ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
 
 ### Step 2: Download the project

@@ -36,10 +36,10 @@ The quickstart applies to both iOS and macOS apps. Some steps are needed only fo
 
 #### Step 1: Configure your application
 For the code sample for this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
-> [!div class="nextstepaction"]
+> [!div id="makechanges" class="nextstepaction" class="configure-app-button"]
 > [Make this change for me]()
 
-> [!div class="alert alert-info"]
+> [!div id="appconfigured" class="alert alert-info"]
 > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with these attributes
 
 #### Step 2: Download the sample project
