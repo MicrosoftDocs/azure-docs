@@ -83,7 +83,7 @@ Your terms of service must contain ALL of the following:
 ##### Example:
 **Terms of Service** 
 
-:::image type="content" source= "../media/short-code-terms.png" alt-text="Screenshot showing web opt-in mock up.":::
+:::image type="content" source= "../media/short-code-terms.png" alt-text="Screenshot showing terms of service mock up.":::
 
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com.
