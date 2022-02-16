@@ -3,11 +3,11 @@ title: T-SQL feature in Synapse SQL pool
 description: List of Transact-SQL features that are available in Synapse SQL.
 services: synapse analytics
 author: jovanpop-msft
+ms.author: jovanpop
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 01/01/2022
-ms.author: jovanpop
+ms.date: 02/15/2022
 ms.reviewer: sngun
 ---
 

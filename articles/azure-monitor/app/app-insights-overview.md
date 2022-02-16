@@ -135,7 +135,7 @@ There are several ways to get started with Application Insights. Begin with what
 
 ### Prerequisites
 
-- You need an Azure account. Application Insights is hosted in Azure, and sends its telemetry to Azure for analysis and presentation. If you don't have an Azure subscription, you can [sign up for free](https://azure.microsoft.com/free). If your organization already has an Azure subscription, an administrator can [add you to it](/azure/active-directory/fundamentals/add-users-azure-active-directory).
+- You need an Azure account. Application Insights is hosted in Azure, and sends its telemetry to Azure for analysis and presentation. If you don't have an Azure subscription, you can [sign up for free](https://azure.microsoft.com/free). If your organization already has an Azure subscription, an administrator can [add you to it](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 - The basic [Application Insights pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) has no charge until your app has substantial usage. 
 
@@ -217,4 +217,3 @@ When you receive an alert or discover a problem:
 [portal]: https://portal.azure.com/
 [qna]: ../faq.yml
 [redfield]: ./status-monitor-v2-overview.md
-

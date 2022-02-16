@@ -61,7 +61,7 @@ sections:
           We highly recommend not to disable certificate revocation list (CRL) checking as you won't be able to revoke certificates. 
           However, to disable CRL checking if there are issues with CRL for a particular CA, you can update a trusted certificate authority and set the crlDistributionPoint attribute to """.
           
-          Use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
+          Use the [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
           
           ```powershell
           $c=Get-AzureADTrustedCertificateAuthority
@@ -98,4 +98,3 @@ additionalContent: |
     * [Limitations with Azure AD CBA](concept-certificate-based-authentication-limitations.md)
     * [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
     * [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
-
