@@ -83,7 +83,7 @@ web_paths = [
             'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
             'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
             ]
-dataset = Dataset.File.from_files(path=web_paths)
+dataset = Dataset.File.from_files(path = web_paths)
 ```
 
 Use the `register()` method to register the data set to your workspace so they can be shared with others, reused across various experiments, and referred to by name in your training script.
@@ -137,17 +137,23 @@ tf_env = Environment.get(workspace=ws, name=curated_env_name)
 ```
 
 To see the packages included in the curated environment, you can write out the conda dependencies to disk:
+
 ```python
+
 tf_env.save_to_directory(path=curated_env_name)
 ```
 
 Make sure the curated environment includes all the dependencies required by your training script. If not, you'll have to modify the environment to include the missing dependencies. If the environment is modified, you'll have to give it a new name, as the 'AzureML' prefix is reserved for curated environments. If you modified the conda dependencies YAML file, you can create a new environment from it with a new name, for example:
+
 ```python
+
 tf_env = Environment.from_conda_specification(name='tensorflow-2.2-gpu', file_path='./conda_dependencies.yml')
 ```
 
 If you had instead modified the curated environment object directly, you can clone that environment with a new name:
+
 ```python
+
 tf_env = tf_env.clone(new_name='tensorflow-2.2-gpu')
 ```
 
