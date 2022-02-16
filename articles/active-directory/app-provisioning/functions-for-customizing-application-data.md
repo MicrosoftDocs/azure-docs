@@ -890,8 +890,8 @@ Replaces values within a string in a case-sensitive manner. The function behaves
   * The function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with **replacementValue**
 * When **regexPattern**, **regexGroupName**, **replacementAttributeName** are provided:
   
-  * If **source** has no value, **source** is returned
-  * If **source** has a value, the function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with the value associated with **replacementAttributeName**
+  * If **source** has a value, **source** is returned
+  * If **source** has no value, the function applies the **regexPattern** to the **replacementAttributeName** and returns the value matching **regexGroupName**
 
 **Parameters:** 
 
@@ -899,8 +899,8 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the **source** object. |
 | **oldValue** |Optional |String |Value to be replaced in **source** or **template**. |
-| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when **replacementPropertyName** is used, pattern to extract value from **replacementPropertyName**. |
-| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  **replacementPropertyName** is used, we will extract value of this group as **replacementValue** from **replacementPropertyName**. |
+| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. When **replacementAttributeName** is used, the regexPattern is applied to extract a value from **replacementAttributeName**. |
+| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. When named **replacementAttributeName** is used, we will extract the value of the named regex group from the **replacementAttributeName** and return it as the replacement value. |
 | **replacementValue** |Optional |String |New value to replace old one with. |
 | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
