@@ -30,7 +30,7 @@ landingContent:
         links: 
           - text: Use Visual Studio Code to develop and debug modules
             url: how-to-vs-code-develop-module.md
-  - title: Develop & Deploy using Windows devices and EFLOW
+  - title: Develop and deploy using Windows devices
     linkLists: 
       - linkListType: concept
         links: 
