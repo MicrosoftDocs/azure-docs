@@ -6,7 +6,7 @@ ms.date: 02/15/2022
 ms.subservice: iot-edge
 ---
 
-# ransition from Event Grid on Azure IoT Edge to Azure IoT Edge native capabilities
+# Transition from Event Grid on Azure IoT Edge to Azure IoT Edge native capabilities
 
 On March 31, 2023, Event Grid on Azure IoT Edge support will be retired, so make sure to transition to IoT Edge native capabilities prior to that date.
 
