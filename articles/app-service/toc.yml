@@ -79,6 +79,7 @@
               - name: .NET
                 href: tutorial-connect-msi-sql-database.md
           - name: Connect to services
+            items:
               - name: .NET
                 href: scenario-secure-app-access-storage.md
               - name: JavaScript
