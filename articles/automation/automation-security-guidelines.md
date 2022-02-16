@@ -3,11 +3,11 @@ title: Azure Automation security guidelines
 description: This article helps you with the guidelines that Azure Automation offers to ensure data privacy and data security.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 16/02/2022
+ms.date: 02/16/2022
 ms.topic: conceptual 
 ---
 
-# Security best practices for Azure Automation.
+# Best practices for security in Azure Automation
 
 This article details the best practices to securely execute the automation jobs and ensure that you have all the guardrails in place to avoid any exploitation.
 
@@ -43,7 +43,7 @@ This section guides you in configuring your Automation account securely.
 1. If you use Run As accounts as the authentication mechanism for your runbooks, ensure the following:
    - Track the service principals in your inventory. Service principals often have elevated permissions.
    - Delete any unused Run As accounts to minimize your exposed attack surface. 
-   - [Renew the RunAs certificate](https://docs.microsoft.com/en-us/azure/automation/manage-runas-account#cert-renewal) periodically.
+   - [Renew the RunAs certificate](/azure/automation/manage-runas-account#cert-renewal) periodically.
    - Follow the RBAC guidelines to limit the permissions assigned to Run As account using this [script](/azure/automation/manage-runas-account#limit-run-as-account-permissions). Do not assign high privilege permissions like Contributor, Owner and so on.
 
 1. Use [Managed identities](/azure/automation/automation-security-overview#managed-identities) instead of Run As accounts as the recommended method of runbook authentication and also to minimize the administrative overhead of managing Run As accounts. A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information about managed identities in Azure Automation, see [Managed identities for Azure Automation](/azure/automation/automation-security-overview#managed-identities)
