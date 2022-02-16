@@ -19,7 +19,7 @@ In this article, you'll learn about the Events message structure, required and n
 >
 > - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
-> - **FhirResourceChanged** - The event emitted after a FHIR resource gets changed successfully.
+> - **FhirResourceUpdated** - The event emitted after a FHIR resource gets updated successfully.
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 >

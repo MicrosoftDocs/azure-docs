@@ -13,6 +13,10 @@ ms.author: jasteppe
 
 This article provides guides and resources to troubleshoot Events.
 
+> [!IMPORTANT]
+>
+> FHIR resource change data is only written and event messages are sent when the Events feature is turned on. The Event feature doesn't send messages on past FHIR resource changes or when the feature is turned off.
+
 :::image type="content" source="media/events-overview/events-overview-flow.png" alt-text="Diagram of data flow from users to a FHIR service and then into the Events pipeline" lightbox="media/events-overview/events-overview-flow.png":::
 
 ## Events resources for troubleshooting
@@ -22,7 +26,7 @@ This article provides guides and resources to troubleshoot Events.
 >
 > - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 >
-> - **FhirResourceChanged** - The event emitted after a FHIR resource gets changed successfully.
+> - **FhirResourceUpdated** - The event emitted after a FHIR resource gets updated successfully.
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 > 

@@ -19,7 +19,7 @@ In this quickstart, you’ll learn how to deploy the Azure Health Data Services 
 It's important that you have the following prerequisites completed before you begin the steps of deploying the Events feature in Azure Health Data Services.
 
 * [An active Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
-* [Event Hubs namespace and Event Hubs deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
+* [Event Hubs namespace and an event hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
 * [Workspace deployed in Azure Health Data Services](../healthcare-apis-quickstart.md)  
 * [FHIR service deployed in Azure Health Data Services](../fhir/fhir-portal-quickstart.md)
 
@@ -58,7 +58,9 @@ It's important that you have the following prerequisites completed before you be
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-created.png" alt-text="Screenshot of a successfully deployed Events subscription"  lightbox="media/events-deploy-in-portal/events-new-subscription-created.png":::
     
 >[!Important]
->The Event Subscription will still require access to whichever endpoint you chose to send Events messages to. For more information, see [Event delivery with a managed identity](/azure/event-grid).
+>The Event Subscription will still require access to whichever endpoint you chose to send Events messages to. For more information, see [Event delivery with a managed identity](../../event-grid/managed-service-identity.md).
+
+ 
 
 >[!TIP]
 >For more information about managed identities, see [What are managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).

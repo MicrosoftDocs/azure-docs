@@ -24,7 +24,7 @@ Events are generated from the following FHIR service types:
 
 - **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
 
-- **FhirResourceChanged** - The event emitted after a FHIR resource gets changed successfully.
+- **FhirResourceUpdated** - The event emitted after a FHIR resource gets updated successfully.
 
 - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 
