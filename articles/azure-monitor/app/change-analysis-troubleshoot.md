@@ -66,6 +66,8 @@ This general unauthorized error message occurs when the current user does not ha
 * To view infrastructure changes returned by Azure Resource Graph and Azure Resource Manager, reader access is required. 
 * For web app in-guest file changes and configuration changes, contributor role is required. 
 
+## Cannot see in-guest changes for newly enabled Web App.
+
 You may not immediately see web app in-guest file changes and configuration changes. While we work on providing the option to restart the app in the Azure portal, the current procedure is:
 
 1. User adds the hidden tracking tag, notifying the scheduled worker.
