@@ -37,7 +37,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
 Navigate to the Integrate tab in Synapse Studio (represented by the pipeline icon), then create a new pipeline.
 
-:::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui-synapse.png" alt-text="Shows the steps to create a new pipeline using Synapse Studio.":::
+:::image type="content" source="media/concepts-pipelines-activities/create-pipeline-with-ui-synapse.png" alt-text="Screenshot of shows the steps to create a new pipeline using Synapse Studio.":::
 
 ---
 
