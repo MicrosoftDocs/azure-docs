@@ -122,7 +122,7 @@ The W-2 model analyzes and extracts key information reported in each box on a W-
 
 ***Sample W-2 document processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
 
-:::image type="content" source="./media/studio/w-2.png" alt-text="Screenshot of a sample invoice.":::
+:::image type="content" source="./media/studio/w-2.png" alt-text="Screenshot of a sample W-2.":::
 
 > [!div class="nextstepaction"]
 > [Learn more: W-2 model](concept-w2.md)
