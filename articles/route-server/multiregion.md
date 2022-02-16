@@ -1,5 +1,5 @@
 ---
-title: 'Multi-region designs with Route Server'
+title: 'Multi-region designs with Azure Route Server'
 description: Learn about how Azure Route Server enables multi-region designs.
 services: route-server
 author: jomore
@@ -17,11 +17,11 @@ Applications that have high availability or disaster recovery requirements often
 
 The following diagram shows a dual-region architecture, where a hub and spoke topology exists in each region, and the hub VNets are peered to each other via VNet global peering:
 
-:::image type="content" source="./media/scenarios/multiregion.png" alt-text="Diagram of multi-region design with Route Server.":::
+:::image type="content" source="./media/scenarios/multiregion.png" alt-text="Diagram of multi-region design with Azure Route Server.":::
 
 Each NVA learns the prefixes from the local hub and spokes from its Azure Route Server, and will communicate it to the NVA in the other region via BGP. This communication between the NVAs should be established over an encapsulation technology such as IPsec or Virtual eXtensible LAN (VXLAN), since otherwise routing loops can occur in the network.
 
-The spokes need to be peered with the hub VNet with the setting "Use Remote Gateways", so that the Route Server advertises their prefixes to the local NVAs, and it injects learnt routes back into the spokes. 
+The spokes need to be peered with the hub VNet with the setting "Use Remote Gateways", so that Azure Route Server advertises their prefixes to the local NVAs, and it injects learnt routes back into the spokes. 
 
 The NVAs will advertise to their local Route Server the routes that they learn from the remote region, and Route Server will configure these routes in the local spokes, hence attracting traffic. If there are multiple NVAs in the same region (Route Server supports up to 8 BGP adjacencies), AS path prepending can be used to make one of the NVAs preferred to the others, hence defining an active/standby NVA topology.
 
