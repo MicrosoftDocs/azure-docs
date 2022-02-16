@@ -9,7 +9,7 @@ ms.topic: how-to
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 12/01/2020
+ms.date: 02/16/2022
 ---
 # Configure Advanced Threat Protection for Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
