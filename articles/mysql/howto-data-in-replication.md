@@ -28,6 +28,7 @@ Review the [limitations and requirements](concepts-data-in-replication.md#limita
 
    > [!IMPORTANT]
    > The Azure Database for MySQL server must be created in the General Purpose or Memory Optimized pricing tiers as data-in replication is only supported in these tiers.
+   > GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB (General purpose storage v2).
 
 2. Create the same user accounts and corresponding privileges.
 
