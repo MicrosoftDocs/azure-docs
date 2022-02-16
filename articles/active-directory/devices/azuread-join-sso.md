@@ -41,7 +41,7 @@ If you have a hybrid environment, with both Azure AD and on-premises AD, it's li
 > [!NOTE]
 > Windows Hello for Business requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 >
-> FIDO2 security key based passwordless authentication with Windows 10 requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md). 
+> FIDO2 security key based passwordless authentication with Windows 10 or newer requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md). 
 
 During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
 
@@ -57,7 +57,7 @@ With SSO, on an Azure AD joined device you can:
 - Access a UNC path on an AD member server
 - Access an AD member web server configured for Windows-integrated security 
 
-If you want to manage your on-premises AD from a Windows device, install the [Remote Server Administration Tools for Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
+If you want to manage your on-premises AD from a Windows device, install the [Remote Server Administration Tools](https://www.microsoft.com/download/details.aspx?id=45520).
 
 You can use:
 
