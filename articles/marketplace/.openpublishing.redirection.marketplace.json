@@ -1565,7 +1565,12 @@
             "redirect_url": "/azure/marketplace/integrated-solutions-for-publishers",
             "redirect_document_id": false
         },
-        {
+         {
+            "source_path_from_root": "/articles/marketplace/isv-private-offer-faq.yml",
+            "redirect_url": "/azure/marketplace/isv-csp-faq",
+            "redirect_document_id": false
+        },
+       {
             "source_path_from_root": "/articles/marketplace/iot-edge-module.md",
             "redirect_url": "/azure/marketplace/marketplace-iot-edge",
             "redirect_document_id": false
