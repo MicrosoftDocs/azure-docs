@@ -36,7 +36,7 @@ Once you have the above prerequisites, sign in to the [Custom Translator](https:
 You can read an overview of translation and custom translation, learn some tips, and watch a getting started video in the [Azure AI technical blog](https://techcommunity.microsoft.com/t5/azure-ai/customize-a-translation-to-make-sense-in-a-specific-context/ba-p/2811956).
 
 >[!Note]
->Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](/azure/api-management/api-management-using-with-vnet?tabs=stv2).
+>Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](../../../../api-management/api-management-using-with-vnet.md?tabs=stv2).
 
 ## Process summary
 
