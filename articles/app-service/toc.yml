@@ -93,7 +93,11 @@
         - name: With Key Vault
           items: 
           - name: Connect to Cognitive Services
-            href: tutorial-connect-msi-key-vault.md
+            items: 
+              - name: .NET
+                href: tutorial-connect-msi-key-vault.md
+              - name: PHP
+                href: tutorial-connect-msi-key-vault-php.md              
     - name: Securely connect to Azure resources on behalf of user
       items:
         - name: Overview
