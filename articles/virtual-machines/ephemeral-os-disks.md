@@ -9,7 +9,6 @@ ms.date: 07/23/2020
 ms.author: aarthiv
 ms.subservice: disks 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Ephemeral OS disks for Azure VMs

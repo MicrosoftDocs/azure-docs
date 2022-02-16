@@ -4,7 +4,6 @@ description: Learn how Azure Backup allows you to encrypt your backup data using
 ms.topic: conceptual
 ms.date: 12/02/2021 
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
-ms.devlang: azurecli
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick

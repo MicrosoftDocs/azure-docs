@@ -6,7 +6,6 @@ services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ms.topic: conceptual
 author: SudhirRaparla 
 ms.author: nvraparl

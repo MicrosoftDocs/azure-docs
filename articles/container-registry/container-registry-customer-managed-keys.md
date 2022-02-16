@@ -4,7 +4,6 @@ description: Learn about encryption-at-rest of your Azure container registry, an
 ms.topic: how-to
 ms.date: 09/13/2021
 ms.custom: subject-rbac-steps, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Encrypt registry using a customer-managed key

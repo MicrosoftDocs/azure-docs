@@ -4,7 +4,6 @@ description: This article describes how to use managed identities to access with
 ms.topic: article
 ms.date: 01/06/2022
 ms.custom: subject-rbac-steps, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources

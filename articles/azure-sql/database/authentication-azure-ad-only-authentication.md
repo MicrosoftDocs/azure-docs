@@ -10,7 +10,6 @@ ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma, wiassaf
 ms.date: 02/14/2022
 ms.custom: ignite-fall-2021, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Azure AD-only authentication with Azure SQL

@@ -7,7 +7,6 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2021
 ms.custom: devx-track-java, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # How to use Logback to write logs to custom persistent storage

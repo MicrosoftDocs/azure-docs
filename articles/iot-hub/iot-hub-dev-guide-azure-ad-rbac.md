@@ -9,7 +9,6 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/20/2021
 ms.custom: ['Role: Cloud Development', devx-track-azurecli]
-ms.devlang: azurecli
 ---
 
 # Control access to IoT Hub by using Azure Active Directory

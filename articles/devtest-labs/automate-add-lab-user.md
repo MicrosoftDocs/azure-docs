@@ -4,7 +4,6 @@ description: This article shows you how to automate adding a user to a lab in Az
 ms.topic: how-to
 ms.date: 06/26/2020 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Automate adding a lab user to a lab in Azure DevTest Labs

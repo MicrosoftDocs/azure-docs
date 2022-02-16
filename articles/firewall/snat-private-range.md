@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 04/14/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Azure Firewall SNAT private IP address ranges

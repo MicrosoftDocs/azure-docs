@@ -4,7 +4,6 @@ description: Learn how to enable disk encryption for Azure Service Fabric manage
 ms.topic: how-to
 ms.date: 11/8/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 # Enable disk encryption for Service Fabric managed cluster nodes
 

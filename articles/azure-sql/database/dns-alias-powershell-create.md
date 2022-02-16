@@ -6,7 +6,7 @@ ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli, devx-track-azurepowershel
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.devlang: PowerShell, azurecli
+ms.devlang: PowerShell
 ms.topic: how-to
 author: emlisa
 ms.author: emlisa

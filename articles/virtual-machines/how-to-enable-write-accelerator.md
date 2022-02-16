@@ -10,7 +10,6 @@ ms.date: 12/10/2021
 ms.author: raiye
 ms.subservice: disks 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Enable Write Accelerator

@@ -4,7 +4,6 @@ description: Describes how to create template specs and share them with other us
 ms.topic: conceptual
 ms.date: 01/12/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Azure Resource Manager template specs

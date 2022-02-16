@@ -6,7 +6,7 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Scale an Azure Cache for Redis instance

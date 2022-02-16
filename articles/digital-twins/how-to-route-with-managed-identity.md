@@ -9,7 +9,6 @@ ms.date: 6/15/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: subject-rbac-steps, contperf-fy21q4, devx-track-azurecli
-ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

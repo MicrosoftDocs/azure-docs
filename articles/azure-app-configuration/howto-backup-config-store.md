@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: avanigupta
 ms.assetid: 
 ms.service: azure-app-configuration
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020

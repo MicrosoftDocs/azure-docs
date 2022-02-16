@@ -12,7 +12,6 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: mbaldwin 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Bring your own key specification

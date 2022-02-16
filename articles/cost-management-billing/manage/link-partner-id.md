@@ -9,7 +9,6 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Link a partner ID to your Azure accounts

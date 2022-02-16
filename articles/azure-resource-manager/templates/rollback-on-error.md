@@ -4,7 +4,6 @@ description: Specify that a failed deployment should roll back to a successful d
 ms.topic: conceptual
 ms.date: 02/02/2021 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 # Rollback on error to successful deployment
 

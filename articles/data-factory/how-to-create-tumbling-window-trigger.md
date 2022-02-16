@@ -8,7 +8,6 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse, devx-track-azurecli
-ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 09/09/2021
 ---

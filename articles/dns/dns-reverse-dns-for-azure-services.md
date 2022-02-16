@@ -11,7 +11,6 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2021
 ms.author: rohink 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Configure reverse DNS for services hosted in Azure

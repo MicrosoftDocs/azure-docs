@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.date: 03/22/2021
 ms.author: kgremban 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ---
 
 # Use IP filters
