@@ -1,6 +1,6 @@
 ---
 title: Accelerated Networking Overview
-description: Create a Windows virtual machine (VM) with accelerated networking to greatly improve its networking performance.
+description: Accelerated Networking to improves networking performance of Azure VMs.
 services: virtual-network
 documentationcenter: ''
 author: steveesp
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/01/2022
+ms.date: 02/15/2022
 ms.author: steveesp
 ---
 
@@ -70,7 +70,8 @@ Support for Accelerated Networking can be found in the individual [virtual machi
 
 ### Custom images
 
-If you're using a custom image and your image supports Accelerated Networking, be sure that you have the required drivers that work with Mellanox ConnectX-3 and ConnectX-4 Lx NICs on Azure.
+
+If you're using a custom image and your image supports Accelerated Networking, make sure that you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Also, Accelerated Networking requires network configurations that exempt the configuration of the virtual functions (mlx4_en and mlx5_core drivers). In images that have cloud-init >=19.4, networking is correctly configured to support Accelerated Networking during provisioning.
 
 ### Regions
 
@@ -83,3 +84,10 @@ A supported VM size without accelerated networking enabled can only have the fea
 ### Deployment through Azure Resource Manager
 
 Virtual machines (classic) can't be deployed with accelerated networking.
+
+## Next steps
+* Learn [how Accelerated Networking works](../accelerated-networking-how-it-works.md)
+* Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
+* Learn how to [create a VM with Accerelated Networking using Azure CLI](../virtual-network/create-vm-accelerated-networking-cli.md)
+* Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
+* 
