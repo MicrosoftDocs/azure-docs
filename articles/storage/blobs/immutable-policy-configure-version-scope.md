@@ -71,6 +71,8 @@ az storage account create \
 
 ---
 
+If version-level immutability support is enabled for the storage account and the account contains one or more containers, then you must delete all containers before you delete the storage account, even if there are no immutability policies in effect for the account or containers.
+
 ### Enable version-level immutability support on a container
 
 Both new and existing containers can be configured to support version-level immutability. However, an existing container must undergo a migration process in order to enable support.
@@ -131,6 +133,8 @@ az storage container-rm show \
 ```
 
 ---
+
+If version-level immutability support is enabled for a container and the container contains one or more blobs, then you must delete all blobs in the container before you can delete the container, even if there are no immutability policies in effect for the container or its blobs.
 
 #### Migrate an existing container to support version-level immutability
 

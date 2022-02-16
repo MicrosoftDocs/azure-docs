@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 12/28/2021
+ms.date: 02/11/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -22,6 +22,9 @@ Resource Manager provides the following functions for getting resource values in
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
 
 To get deployment scope values, see [Scope functions](template-functions-scope.md).
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource](../bicep/bicep-functions-resource.md) functions.
 
 ## extensionResourceId
 
@@ -170,7 +173,6 @@ The possible uses of `list*` are shown in the following table.
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-connection-strings) |
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-keys) |
 | Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-10-15/notebook-workspaces/list-connection-info) |
-| Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/controlplane-version2021-12-01/domains/list-shared-access-keys) |
 | Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/controlplane-version2021-12-01/topics/list-shared-access-keys) |

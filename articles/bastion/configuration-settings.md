@@ -67,7 +67,7 @@ You can configure this setting using the following methods:
 | --- | --- |--- |
 | Azure portal | Subnet  |[Quickstart - Configure Bastion from VM settings](quickstart-host-portal.md)<br>[Tutorial - Configure Bastion](tutorial-create-host-portal.md)|
 | Azure PowerShell | -subnetName|[cmdlet](/powershell/module/az.network/new-azbastion#parameters) |
-| Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az_network_vnet_create) |
+| Azure CLI |  --subnet-name | [command](/cli/azure/network/vnet#az-network-vnet-create) |
 
 ## <a name="public-ip"></a>Public IP address
 

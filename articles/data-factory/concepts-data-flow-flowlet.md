@@ -1,6 +1,6 @@
 ---
-title: Flowlets in mapping data flows  | Microsoft Docs
-itleSuffix: Azure Data Factory & Azure Synapse
+title: Flowlets in mapping data flows
+titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the concepts of Flowlets in mapping data flow
 author: joshuha-msft
 ms.author: joowen

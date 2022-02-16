@@ -4,8 +4,6 @@ description: Sample Azure Resource Graph queries for Azure Arc-enabled Kubernete
 ms.date: 01/20/2022
 ms.topic: sample
 ms.service: azure-arc
-author: mgoedtel
-ms.author: magoedte
 ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Azure Arc-enabled Kubernetes

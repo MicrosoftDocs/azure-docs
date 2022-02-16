@@ -88,9 +88,9 @@ The following list presents the set of Teams capabilities, which are currently a
 |                         | Placing a call honors Teams guest access configuration                               |   ✔️      |
 |                         | Joining Teams meeting honors configuration for automatic people admit in the Lobby   |   ✔️      |
 |                         | Actions available in the Teams meeting are defined by assigned role                  |   ✔️      |
-| Mid call control        | Forward a call                                                                       |   ❌      |
-|                         | Receive simultaneous ringing                                                         |   ❌      |
-|                         | Play music on hold                                                                 |   ❌      |
+| Mid call control        | Receive forwarded call                                                               |   ✔️      |
+|                         | Receive simultaneous ringing                                                         |   ✔️      |
+|                         | Play music on hold                                                                   |   ❌      |
 |                         | Park a call                                                                          |   ❌      |
 |                         | Transfer a call to a person                                                          |   ✔️      |
 |                         | Transfer a call to a call                                                            |   ✔️      |
@@ -100,10 +100,12 @@ The following list presents the set of Teams capabilities, which are currently a
 |                         | Start call recording                                                                 |   ❌      |
 |                         | Start call transcription                                                             |   ❌      |
 |                         | Start live captions                                                                  |   ❌      |
+|                         | Receive information of call being recorded                                           |   ✔️      |
 | PSTN                    | Make an Emergency call                                                               |   ❌      |
 |                         | Place a call honors location-based routing                                           |   ❌      |
 |                         | Support for survivable branch appliance                                              |   ❌      |
 | Compliance              | Place a call honors information barriers                                             |   ✔️      |
+|                         | Support for compliance recording                                                     |   ✔️      |
 
 ## Next steps
 
