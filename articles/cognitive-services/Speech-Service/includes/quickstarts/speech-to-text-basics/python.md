@@ -31,10 +31,8 @@ The Speech SDK for Python is available as a [Python Package Index (PyPI) module]
 Follow these steps to create a new console application and install the Speech SDK.
 
 1. Open a command prompt where you want the new project, and create a new file named `speech-recognition.py`.
-1. Create a virtual environment and install the Speech SDK.
+1. Install the Speech SDK.
     ```console
-    virtualenv env
-    env/scripts/activate
     pip install azure-cognitiveservices-speech
     ```
 1. Replace the contents of `speech_recognition.py` with the following code. 
