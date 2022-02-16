@@ -103,7 +103,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 ### Review access for one or more users in a multi-stage access review (preview)
 
-If multi-stage access reviews have been enabled by the administrator, there will be 2 or 3 total stages of review. Each stage of review will have a specified reviewer.
+If multi-stage access reviews have been enabled by the administrator, there will be 2 or 3 total stages of review. Each stage of review will have a specified reviewer(s).
 
 You will review access either manually or accept the recommendations based on sign-in activity for the stage you are assigned as the reviewer.
 
