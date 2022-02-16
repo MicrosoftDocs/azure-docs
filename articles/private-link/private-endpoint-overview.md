@@ -140,12 +140,13 @@ Over a private-endpoint connection, a private-link resource owner can:
 
 An alias is a unique moniker that's generated when a service owner creates a private-link service behind a standard load balancer. Service owners can share this alias offline with consumers of your service. 
 
-The consumers can request a connection to a private-link service by using either the resource URI or the alias. To connect by using the alias, they would create a private endpoint by using the manual connection approval method. To use the manual connection approval method, they would set the manual request parameter to *True* during the private-endpoint creation workflow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
+
+The consumers can request a connection to a private-link service by using either the resource URI or the alias. To connect by using the alias, create a private endpoint by using the manual connection approval method. To use the manual connection approval method, set the manual request parameter to *True* during the private-endpoint create flow. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint) and [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create).
                                      
 > [!NOTE]
-> This manual request can be auto approved if your subscription is allow-listed on the provider side. To learn more, go to [controlling service access](/azure/private-link/private-link-service-overview#control-service-access).                                     
+> This manual request can be auto approved if the consumer's subscription is allow-listed on the provider side. To learn more, go to [controlling service access](./private-link-service-overview.md#control-service-access).                                     
 
-  ## DNS configuration
+## DNS configuration
 
 The DNS settings that you use to connect to a private-link resource are important. Ensure that your DNS settings are correct when you use the fully qualified domain name (FQDN) for the connection. The settings must resolve to the private IP address of the private endpoint. Existing Azure services might already have a DNS configuration you can use when you're connecting over a public endpoint. This configuration must be overwritten so that you can connect by using your private endpoint. 
  
@@ -199,5 +200,5 @@ The following table list the known limitations to the use of private endpoints:
  
 ## Next steps
 
-- For more information about private endpoints and Azure Private Link, see [What is Azure Private Link?](private-link-overview.md).
+- For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md).
 - To get started with creating a private endpoint for a web app, see [Quickstart: Create a private endpoint by using the Azure portal](create-private-endpoint-portal.md).
