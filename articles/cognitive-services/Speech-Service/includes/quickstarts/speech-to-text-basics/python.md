@@ -20,7 +20,7 @@ ms.author: eur
 
 ## Set up the environment
 
-[!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
+The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS. Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). You install the Speech SDK in the next section of this article, but first check the [platform-specific installation instructions](/azure/cognitive-services/speech-service/quickstarts/speech-sdk.md?pivots=programming-language-csharp#get-the-speech-sdk) for any more requirements.
 
 > [!div class="nextstepaction"]
 > [I have the tools I need](~/articles/cognitive-services/speech-service/get-started-speech-to-text.md?pivots=programming-language-python)

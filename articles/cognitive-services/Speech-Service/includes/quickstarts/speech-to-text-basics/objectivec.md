@@ -39,7 +39,7 @@ Follow these steps to recognize speech in a macOS application.
 1. Open the `helloworld.xcworkspace` workspace in Xcode.
 1. Open the file named `AppDelegate.m` and locate the `buttonPressed` method as shown here.
 
-    ```objective-c
+    ```ObjectiveC
     - (void)buttonPressed:(NSButton *)button {
         // Creates an instance of a speech config with specified subscription key and service region.
         // Replace with your own subscription key // and service region (e.g., "westus").
