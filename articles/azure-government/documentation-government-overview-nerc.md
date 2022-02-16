@@ -6,7 +6,7 @@ ms.author: stevevi
 ms.topic: article
 ms.service: azure-government
 recommendations: false
-ms.date: 02/15/2022
+ms.date: 02/16/2022
 ---
 
 # NERC CIP standards and cloud computing
@@ -21,10 +21,7 @@ Both Azure and Azure Government are suitable for registered entities deploying c
 
 ## NERC overview
 
-The [North American Electric Reliability Corporation (NERC)](https://www.nerc.com/AboutNERC/Pages/default.aspx) is a not-for-profit regulatory authority whose mission is to ensure the reliability of the North American bulk power system. NERC is subject to oversight by the US Federal Energy Regulatory Commission (FERC) and governmental authorities in Canada. In 2006, FERC granted the Electric Reliability Organization (ERO) designation to NERC in accordance with the Energy Policy Act of 2005, as stated in the US Public Law 109-58. NERC has jurisdiction over users, owners, and operators of the bulk power system that serves more than 334 million people. Figure 1 shows [regional reliability organizations and interconnections](https://www.nerc.com/AboutNERC/keyplayers/Pages/default.aspx) under NERC authority.
-
-:::image type="content" source="./media/nerc-map.png" alt-text="Regional reliability organizations and interconnections under NERC authority" border="false":::
-**Figure 1.**  Regional reliability organizations and interconnections under NERC authority (Source: NERC)
+The [North American Electric Reliability Corporation (NERC)](https://www.nerc.com/AboutNERC/Pages/default.aspx) is a not-for-profit regulatory authority whose mission is to ensure the reliability of the North American bulk power system. NERC is subject to oversight by the US Federal Energy Regulatory Commission (FERC) and governmental authorities in Canada. In 2006, FERC granted the Electric Reliability Organization (ERO) designation to NERC in accordance with the Energy Policy Act of 2005, as stated in the US Public Law 109-58. NERC has jurisdiction over users, owners, and operators of the bulk power system that serves nearly 400 million people in North America. For more information about NERC ERO Enterprise and NERC regional entities, see [NREC key players](https://www.nerc.com/AboutNERC/keyplayers/Pages/default.aspx).
 
 NERC develops and enforces reliability standards known as NERC [CIP standards](https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx). In the United States, FERC approved the first set of CIP standards in 2007 and has continued to do so with every new revision. In Canada, the Federal, Provincial, and Territorial Monitoring and Enforcement Subgroup (MESG) develops provincial summaries for making CIP standards enforceable in Canadian jurisdictions.
 
@@ -157,12 +154,7 @@ The [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/) is a non
 
 The CSA [Cloud Controls Matrix (CCM)](https://cloudsecurityalliance.org/research/cloud-controls-matrix/) is a controls framework composed of 197 control objectives covering fundamental security principles across 17 domains to help cloud customers assess the overall security risk of a CSP. The CCM maps to industry-accepted security standards, regulations, and control frameworks such as ISO 27001, ISO 27017, ISO 27018, NIST SP 800-53, PCI DSS, AICPA Trust Services Criteria, and others.
 
-CSA STAR provides [two levels of assurance](https://cloudsecurityalliance.org/star/#levels) based on the CCM. CSA STAR Self-Assessment is the introductory offering at Level 1, which is free and open to all CSPs. Going further up the assurance stack, Level 2 of the STAR program involves third-party assessment-based certifications (for example, CSA STAR Certification and CSA STAR Attestation). **Azure and Azure Government maintain CSA STAR Certification and CSA STAR Attestation submissions in the STAR Registry, in addition to CSA STAR Self-Assessment.**
-
-:::image type="content" source="./media/nerc-csa-star.png" alt-text="CSA STAR Registry listings for Microsoft Azure" border="false":::
-**Figure 2.**  CSA STAR Registry listing for Microsoft Azure (Source: Cloud Security Alliance)
-
-For more information, see:
+CSA STAR provides [two levels of assurance](https://cloudsecurityalliance.org/star/#levels) based on the CCM. CSA STAR Self-Assessment is the introductory offering at Level 1, which is free and open to all CSPs. Going further up the assurance stack, Level 2 of the STAR program involves third-party assessment-based certifications (for example, CSA STAR Certification and CSA STAR Attestation). **Azure and Azure Government maintain CSA STAR Certification and CSA STAR Attestation submissions in the STAR Registry, in addition to CSA STAR Self-Assessment.** For more information, see:
 
 - [CSA STAR Level 1 Self-Assessment](/azure/compliance/offerings/offering-csa-star-self-assessment)
 - [CSA STAR Level 2 Certification](/azure/compliance/offerings/offering-csa-star-certification)
@@ -182,12 +174,7 @@ A SOC 2 Type 2 attestation is performed under:
 
 At the conclusion of a SOC 2 Type 2 audit, the auditor renders an opinion in a SOC 2 Type 2 report. The attestation report describes the cloud service provider’s (CSP’s) system and assesses the fairness of the CSP’s description of its controls. It also evaluates whether the CSP’s controls are designed appropriately, were in operation on a specified date, and were operating effectively over a specified time period.
 
-**Azure and Azure Government undergo rigorous independent third-party SOC 2 Type 2 audits conducted by a reputable Certified Public Accountant (CPA) firm.** The resulting SOC 2 Type 2 reports are relevant to system Security, Availability, Processing Integrity, Confidentiality, and Privacy. In addition, these reports address the requirements in the Cloud Security Alliance (CSA) Cloud Controls Matrix (CCM) and the German Federal Office for Information Security (BSI) Cloud Computing Compliance Criteria Catalogue (C5:2020).
-
-:::image type="content" source="./media/nerc-soc-2.png" alt-text="Azure and Azure Government SOC 2 Type 2 attestation report" border="false":::
-**Figure 3.**  Azure and Azure Government SOC 2 Type 2 attestation report
-
-For more information, see [Azure SOC 2 Type 2 compliance offering](/azure/compliance/offerings/offering-soc-2).
+**Azure and Azure Government undergo rigorous independent third-party SOC 2 Type 2 audits conducted by a reputable Certified Public Accountant (CPA) firm.** The resulting SOC 2 Type 2 reports are relevant to system Security, Availability, Processing Integrity, Confidentiality, and Privacy. In addition, these reports address the requirements in the Cloud Security Alliance (CSA) Cloud Controls Matrix (CCM) and the German Federal Office for Information Security (BSI) Cloud Computing Compliance Criteria Catalogue (C5:2020). For more information, see [Azure SOC 2 Type 2 compliance offering](/azure/compliance/offerings/offering-soc-2).
 
 ### FedRAMP
 
@@ -210,11 +197,6 @@ The FedRAMP High authorization represents the highest bar for FedRAMP compliance
 **Both Azure and Azure Government maintain FedRAMP High P-ATOs issued by the JAB** in addition to more than 250 Moderate and High ATOs issued by individual federal agencies for the in-scope services. For more information, see [Azure FedRAMP compliance offering](/azure/compliance/offerings/offering-fedramp).
 
 A comparison between the FedRAMP Moderate control baseline and NERC CIP standards requirements reveals that FedRAMP Moderate control baseline encompasses all NERC CIP requirements. Microsoft has developed a **[Cloud implementation guide for NERC audits](https://aka.ms/AzureNERCGuide)** that includes control mappings between the current set of NERC CIP standards requirements and FedRAMP Moderate control baseline as documented in [NIST SP 800-53 Rev 4](https://csrc.nist.gov/Projects/risk-management/sp800-53-controls/release-search#!/800-53). The Cloud implementation guide for NERC audits contains pre-filled [Reliability Standard Audit Worksheets](https://www.nerc.com/pa/comp/Pages/Reliability-Standard-Audit-Worksheets-(RSAWs).aspx) (RSAWs) narratives that help explain how Azure controls address NERC CIP requirements. It also contains guidance to help you use Azure services to implement controls that you own. You can download the Cloud implementation guide for NERC audits under a non-disclosure agreement (NDA) from the Service Trust Portal (STP). You must sign in to access this document on the STP. For more information, see [Get started with the Microsoft Service Trust Portal](https://aka.ms/stphelp).
-
-Figure 4 shows the listing of current NERC CIP standards and FedRAMP control families.
-
-:::image type="content" source="./media/nerc-cip-standards-fedramp.png" alt-text="NERC CIP standards and FedRAMP control set" border="false":::
-**Figure 4.**  NERC CIP standards and FedRAMP control set (Source: NERC and FedRAMP)
 
 There are many valid reasons why a registered entity subject to NERC CIP compliance obligations might want to use an existing FedRAMP P-ATO or ATO when assessing the security posture of a cloud services offering:
 
