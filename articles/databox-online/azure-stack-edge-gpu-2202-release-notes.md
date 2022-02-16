@@ -23,7 +23,7 @@ This article applies to the **Azure Stack Edge 2202** release, which maps to sof
 
 ## What's new
 
-The Azure Stack Edge 2202 release introduces clustering for Azure Stack Edge for a two-node device in addition to the existing single node device. The clustering feature is available only for the Azure Stack Edge Pro GPU devices.
+The 2202 release introduces clustering for Azure Stack Edge. You can now deploy a two-node device cluster in addition to a single node device. The clustering feature is in preview and is available only for the Azure Stack Edge Pro GPU devices.
 
 For more information, see [What is clustering on Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md).
 
@@ -44,7 +44,7 @@ The following table provides a summary of known issues in this release.
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
 |**1.**|Preview features |For this release, the following features are available in preview: <ul><li>Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only. </li><li>VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only.</li><li>Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R.</li></ul>  |These features will be generally available in later releases. |
-
+|**2.**|Update |For a two-node cluster, in rare instances the update may fail. | If the update fails and you see a message indicating that updates are available, retry updating your device. If the update fails and no updates are available, and your device continues to be in maintenance mode, contact Microsoft Support to determine next steps.  |
 
 ## Known issues from previous releases
 
@@ -67,7 +67,7 @@ The following table provides a summary of known issues carried over from the pre
 |**13.**|Kubernetes |If you bring your own certificates for IoT Edge and add those certificates on your Azure Stack Edge device after the compute is configured on the device, the new certificates are not picked up.|To work around this problem, you should upload the certificates before you configure compute on the device. If the compute is already configured, [Connect to the PowerShell interface of the device and run IoT Edge commands](azure-stack-edge-gpu-connect-powershell-interface.md#use-iotedge-commands). Restart `iotedged` and `edgehub` pods.|
 |**14.**|Certificates |In certain instances, certificate state in the local UI may take several seconds to update. |The following scenarios in the local UI may be affected.<ul><li>**Status** column in **Certificates** page.</li><li>**Security** tile in **Get started** page.</li><li>**Configuration** tile in **Overview** page.</li></ul>  |
 |**15.**|Certificates|Alerts related to signing chain certificates aren't removed from the portal even after uploading new signing chain certificates.| |
-|**16.**|Compute + Kubernetes |Compute/Kubernetes does not support NTLM web proxy. ||
+|**16.**|Web proxy |NTLM authentication-based web proxy is not supported. ||
 |**17.**|Internet Explorer|If enhanced security features are enabled, you may not be able to access local web UI pages. | Disable enhanced security, and restart your browser.|
 |**18.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event Grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP.NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
 |**19.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster.  |To allow the deletion of resources when they're deleted from the git repository, set `--sync-garbage-collection` in Arc OperatorParams. For more information, see [Delete a configuration](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters). |
