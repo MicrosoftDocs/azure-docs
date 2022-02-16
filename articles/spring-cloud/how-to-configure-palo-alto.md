@@ -13,6 +13,8 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Java ✔️ C#
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article describes how to use Azure Spring Cloud with a Palo Alto firewall.
 
 For example, the [Azure Spring Cloud reference architecture](./reference-architecture.md) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Cloud deployment and use Palo Alto instead, as described in this article.
