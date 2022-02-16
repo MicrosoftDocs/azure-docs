@@ -11,7 +11,7 @@ ms.author: cavoeg
 ---
 # FHIR service access token validation
 
-How the FHIR service in Azure Health Data Services (hereby called the FHIR service) validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
+How the FHIR service in Azure Health Data Services (hereby called the FHIR service) validates the access token will depend on implementation and configuration. In this article, we'll walk through the validation steps, which can be helpful when troubleshooting access issues.
 
 ## Validate token has no issues with identity provider
 
@@ -89,7 +89,7 @@ Azure AD will return a document like the one below to the FHIR server.
     "rbac_url": "https://pas.windows.net"
 }
 ``` 
-The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate that it is receiving an authentic token.
+The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate that it's receiving an authentic token.
 
 ## Validate claims of the token
 
@@ -109,4 +109,4 @@ When using the OSS Microsoft FHIR server for Azure, the server will validate:
 
 Consult details on how to [define roles on the FHIR server](https://github.com/microsoft/fhir-server/blob/master/docs/Roles.md).
 
-A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, the FHIR service does not validate token scopes.
+A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, the FHIR service doesn't validate token scopes.

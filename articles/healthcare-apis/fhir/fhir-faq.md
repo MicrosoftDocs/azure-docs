@@ -49,7 +49,7 @@ The FHIR service is our implementation of the FHIR specification that sits in th
 
 * The FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
 * The FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
-* The Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that are not yet available in the FHIR service in the Azure Health Data Services. More details will follow on these features by GA.
+* The Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that aren't yet available in the FHIR service in the Azure Health Data Services. More details will follow on these features by GA.
 
 ### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
 
@@ -65,7 +65,7 @@ The FHIR service is available in all regions that Azure Health Data Services is 
 
 The [release notes](../release-notes.md) page provides an overview of everything that has shipped to the managed service in the previous month. 
 
-To see what will be releasing to the managed service, you can review the [releases page](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure Health Data Services if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on how to [test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. We are evaluating how to best share additional managed service updates.
+To see what will be releasing to the managed service, you can review the [releases page](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We've worked to tag items with Azure Health Data Services if they'll release to the managed service and are available two weeks after they are on the release page in open-source. We have also included instructions on how to [test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. We're evaluating how to best share additional managed service updates.
 
 To see what release package is currently in the managed service, you can view the capability statement for the FHIR service and under the `software.version` property. You'll see which package is deployed. 
 
@@ -93,7 +93,7 @@ We have a basic SMART on FHIR proxy as part of the managed service. If this does
 
 ### Can I create a custom FHIR resource?
 
-We do not allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](http://www.hl7.org/fhir/basic.html) with extensions. 
+We don't allow custom FHIR resources. If you need a custom FHIR resource, you can build a custom resource on top of the [Basic resource](http://www.hl7.org/fhir/basic.html) with extensions. 
 
 ### Are [extensions](https://www.hl7.org/fhir/extensibility.html) supported on the FHIR service?
 
@@ -125,7 +125,7 @@ No, the FHIR service doesn't support terminology operations today.
 
 ### What are the differences between delete types in the FHIR service? 
 
-There're two basic Delete types supported within the FHIR service. These are [Delete and Conditional Delete](././../fhir/fhir-rest-api-capabilities.md#delete-and-conditional-delete).
+There are two basic Delete types supported within the FHIR service. These are [Delete and Conditional Delete](././../fhir/fhir-rest-api-capabilities.md#delete-and-conditional-delete).
 
 
 * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.

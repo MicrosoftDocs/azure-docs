@@ -42,12 +42,12 @@ Once you've deployed an instance of the DICOM service, retrieve the URL for your
 3. Copy the **Service URL** of your DICOM service. 
 4. If you haven't already obtained a token, see [Get access token for the DICOM service using Azure CLI](dicom-get-access-token-azure-cli.md). 
 
-For this code, we'll be accessing an Public Preview Azure service. It is important that you don't upload any private health information (PHI).
+For this code, we'll be accessing an Public Preview Azure service. It's important that you don't upload any private health information (PHI).
 
 
 ## Working with the DICOM service
  
-The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; Standard awkward. However, once you have it up and running, it's easy to use. It just takes a little familiarity to get started.
+The DICOMweb&trade; Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb&trade; Standard awkward. However, once you've it up and running, it's easy to use. It just takes a little familiarity to get started.
 
 The cURL commands each contain at least one, and sometimes two, variables that must be replaced. To simplify running the commands, search and replace the following variables by replacing them with your specific values:
 
@@ -163,7 +163,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 --output "suppressWarnings.txt"
 ```
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these are not direct DICOM files, only a text representation of the multipart/related download.
+This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these aren't direct DICOM files, only a text representation of the multipart/related download.
 
 ### Retrieve metadata of all instances in study
 
@@ -176,7 +176,7 @@ _Details:_
    * Accept: application/dicom+json
    * Authorization: Bearer {token value}
 
-This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these are not direct DICOM files, only a text representation of the multipart/related download.
+This cURL command will show the downloaded bytes in the output file (suppressWarnings.txt), but these aren't direct DICOM files, only a text representation of the multipart/related download.
 
 ```
 curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420/metadata"
@@ -401,7 +401,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 This request deletes a single instance within a single study and single series.
 
-Delete is not part of the DICOM standard, but it's been added for convenience.
+Delete isn't part of the DICOM standard, but it's been added for convenience.
 
 _Details:_
 * Path: ../studies/{study}/series/{series}/instances/{instance}
@@ -418,7 +418,7 @@ curl --request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.49
 
 This request deletes a single series (and all child instances) within a single study.
 
-Delete is not part of the DICOM standard, but it's been added for convenience.
+Delete isn't part of the DICOM standard, but it's been added for convenience.
 
 _Details:_
 * Path: ../studies/{study}/series/{series}
@@ -435,7 +435,7 @@ curl --request DELETE "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.49
 
 This request deletes a single study (and all child series and instances).
 
-Delete is not part of the DICOM standard, but it has been added for convenience.
+Delete isn't part of the DICOM standard, but it has been added for convenience.
 
 _Details:_
 * Path: ../studies/{study}

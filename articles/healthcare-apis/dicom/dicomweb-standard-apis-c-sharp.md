@@ -348,7 +348,7 @@ _Details:_
 DicomWebResponse response = await client.DeleteSeriesAsync(studyInstanceUid, seriesInstanceUid);
 ```
 
-This response deletes the green-square instance (it is the only element left in the series) from the server. If it's successful, the response status code will contain no content.
+This response deletes the green-square instance (it's the only element left in the series) from the server. If it's successful, the response status code will contain no content.
 
 ### Delete a specific study
 
@@ -362,7 +362,7 @@ _Details:_
 DicomWebResponse response = await client.DeleteStudyAsync(studyInstanceUid);
 ```
 
-This response deletes the blue-circle instance (it is the only element left in the series) from the server. If it's successful, the response status code contains no content.
+This response deletes the blue-circle instance (it's the only element left in the series) from the server. If it's successful, the response status code contains no content.
 
 ### Next Steps
 

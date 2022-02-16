@@ -36,11 +36,11 @@ The OpenApi Doc for the supported versions can be found at the following url:
 
 ## Prerelease versions
 
-An API version with the label "prerelease" indicates that the version is not ready for production, and it should only be used in testing environments. These endpoints may experience breaking changes without notice.
+An API version with the label "prerelease" indicates that the version isn't ready for production, and it should only be used in testing environments. These endpoints may experience breaking changes without notice.
 
 ## How versions are incremented
 
-We currently only increment the major version whenever there is a breaking change, which is considered to be not backwards compatible. All minor versions are implied to be 0. All versions are in the format `Major.0`.
+We currently only increment the major version whenever there's a breaking change, which is considered to be not backwards compatible. All minor versions are implied to be 0. All versions are in the format `Major.0`.
 
 Below are some examples of breaking changes (Major version is incremented):
 
@@ -51,7 +51,7 @@ Below are some examples of breaking changes (Major version is incremented):
 5. Changing the type of a property.
 6. Behavior when an API changes such as changes in business logic used to do foo, but it now does bar.
 
-Non-breaking changes (Version is not incremented):
+Non-breaking changes (Version isn't incremented):
 
 1. Addition of properties that are nullable or have a default value.
 2. Addition of properties to a response model.
@@ -59,7 +59,7 @@ Non-breaking changes (Version is not incremented):
 
 ## Header in response
 
-ReportApiVersions is turned on, which means we will return the headers api-supported-versions and api-deprecated-versions when appropriate.
+ReportApiVersions is turned on, which means we'll return the headers api-supported-versions and api-deprecated-versions when appropriate.
 
 * api-supported-versions will list which versions are supported for the requested API. It's only returned when calling an endpoint annotated with `ApiVersion("<someVersion>")`.
 

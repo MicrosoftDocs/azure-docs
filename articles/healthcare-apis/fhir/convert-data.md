@@ -29,10 +29,10 @@ $convert-data takes a [Parameter](http://hl7.org/fhir/parameters.html) resource 
 | ----------- | ----------- | ----------- |
 | inputData      | Data to be converted. | For `Hl7v2`: string <br> For `Ccda`: XML <br> For `Json`: JSON |
 | inputDataType   | Data type of input. | ```HL7v2```, ``Ccda``, ``Json`` |
-| templateCollectionReference | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection on [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). It is the image containing Liquid templates to use for conversion. It can be a reference either to the default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting those on ACR, and registering to the FHIR service. | For ***default/sample*** templates: <br> **HL7v2** templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br> **C-CDA** templates: <br> ``microsofthealth/ccdatemplates:default`` <br> **JSON** templates: <br> ``microsofthealth/jsontemplates:default`` <br><br> For ***custom*** templates: <br> \<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
+| templateCollectionReference | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection on [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). It's the image containing Liquid templates to use for conversion. It can be a reference either to the default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting those on ACR, and registering to the FHIR service. | For ***default/sample*** templates: <br> **HL7v2** templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br> **C-CDA** templates: <br> ``microsofthealth/ccdatemplates:default`` <br> **JSON** templates: <br> ``microsofthealth/jsontemplates:default`` <br><br> For ***custom*** templates: <br> \<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
 | rootTemplate | The root template to use while transforming the data. | For **HL7v2**:<br>```ADT_A01```, ```OML_O21```, ```ORU_R01```, ```VXU_V04```<br><br> For **C-CDA**:<br>```CCD```, `ConsultationNote`, `DischargeSummary`, `HistoryandPhysical`, `OperativeNote`, `ProcedureNote`, `ProgressNote`, `ReferralNote`, `TransferSummary` <br><br> For **JSON**: <br> `ExamplePatient`, `Stu3ChargeItem` <br> |
 
-💡 **Note**: JSON templates are sample templates for use, not "default" templates that adhere to any pre-defined JSON message types. JSON does not have any standardized message types, unlike HL7v2 messages or C-CDA documents. Therefore, instead of default templates we provide you with some sample templates that you can use as a starting guide for your own customized templates.
+💡 **Note**: JSON templates are sample templates for use, not "default" templates that adhere to any pre-defined JSON message types. JSON doesn't have any standardized message types, unlike HL7v2 messages or C-CDA documents. Therefore, instead of default templates we provide you with some sample templates that you can use as a starting guide for your own customized templates.
 
 > [!WARNING]
 > Default templates are released under MIT License and are **not** supported by Microsoft Support.
@@ -94,7 +94,7 @@ You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/
 
 ## Host and use templates
 
-It's strongly recommended that you host your own copy of templates on ACR. There're four steps involved in hosting your own copy of templates and using those in the $convert-data operation:
+It's recommended that you host your own copy of templates on ACR. There are four steps involved in hosting your own copy of templates and using those in the $convert-data operation:
 
 1. Push the templates to your Azure Container Registry.
 1. Enable Managed Identity on your FHIR service instance.
@@ -130,7 +130,7 @@ For more information about assigning roles in the Azure portal, see [Azure built
 You can register the ACR server using the Azure portal, or using CLI.
 
 #### Registering the ACR server using Azure portal
-Browse to the **Artifacts** blade under **Data transformation** in your FHIR service instance. You will see the list of currently registered ACR servers. Select **Add**, and then select your registry server from the drop-down menu. You'll need to select **Save** for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
+Browse to the **Artifacts** blade under **Data transformation** in your FHIR service instance. You'll see the list of currently registered ACR servers. Select **Add**, and then select your registry server from the drop-down menu. You'll need to select **Save** for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
 
 #### Registering the ACR server using CLI
 You can register up to 20 ACR servers in the FHIR service.
@@ -194,10 +194,10 @@ In the table below, you'll find the IP address for the Azure region where the FH
 > [!NOTE]
 > The above steps are similar to the configuration steps described in the document How to configure FHIR export settings. For more information, see [Configure export settings](./configure-export-data.md)
 
-For a private network access (i.e. private link), you can also disable the public network access of ACR.
+For a private network access (that is, private link), you can also disable the public network access of ACR.
 * Select Networking blade of the Azure storage account from the portal.
 * Select `Disabled`.
-* Select Firewall exception : Allow trusted Microsoft services to access this container registry.
+* Select Firewall exception: Allow trusted Microsoft services to access this container registry.
 
 ![private link for ACR](media/convert-data/configure-private-network-container-registry.png)
 

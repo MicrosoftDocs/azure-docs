@@ -13,7 +13,7 @@ ms.author: aersoy
 
 This tutorial provides an overview of how to use the DICOMweb&trade; Standard APIs with the DICOM service.
 
-The DICOM service supports a subset of the DICOMweb&trade; Standard that includes the following:
+The DICOM service supports a subset of the DICOMweb&trade; Standard that includes:
 
 * Store (STOW-RS)
 * Retrieve (WADO-RS)
@@ -70,7 +70,7 @@ Refer to the [Using DICOMWeb™ Standard APIs with Python](dicomweb-standard-api
 
 Postman is an excellent tool for designing, building, and testing REST APIs. [Download Postman](https://www.postman.com/downloads/) to get started. You can learn how to effectively use Postman at the [Postman learning site](https://learning.postman.com/).
 
-One important caveat with Postman and the DICOMweb&trade; Standard is that Postman can only support uploading DICOM files using the single part payload defined in the DICOM standard. This reason is because Postman cannot support custom separators in a multipart/related POST request. For more information, see [Multipart POST not working for me # 576](https://github.com/postmanlabs/postman-app-support/issues/576). Thus, all examples in the Postman collection for uploading DICOM documents using a multipart request are prefixed with [will not work - see description]. The examples for uploading using a single part request are included in the collection and are prefixed with "Store-Single-Instance".
+One important caveat with Postman and the DICOMweb&trade; Standard is that Postman can only support uploading DICOM files using the single part payload defined in the DICOM standard. This reason is because Postman can’t support custom separators in a multipart/related POST request. For more information, see [Multipart POST not working for me # 576](https://github.com/postmanlabs/postman-app-support/issues/576). Thus, all examples in the Postman collection for uploading DICOM documents using a multipart request are prefixed with [won't work - see description]. The examples for uploading using a single part request are included in the collection and are prefixed with "Store-Single-Instance".
 
 To use the Postman collection, you'll need to download the collection locally and import the collection through Postman. To access this collection, see [Postman Collection Examples](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
 

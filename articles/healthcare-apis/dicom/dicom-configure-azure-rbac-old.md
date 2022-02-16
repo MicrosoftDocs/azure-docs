@@ -10,7 +10,7 @@ ms.author: aersoy
 ---
 # Configure Azure RBAC for the DICOM service
 
-In this article, you will learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the DICOM service. 
+In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/index.yml) to assign access to the DICOM service. 
 
 ## Assign roles
 
@@ -28,7 +28,7 @@ You can choose between:
 * DICOM Data Owner:  Full access to DICOM data.
 * DICOM Data Reader: Read and search DICOM data.
 
-If these roles are not sufficient for your need, you can use PowerShell to create custom roles.  For information about creating custom roles, see [Create a custom role using Azure PowerShell](../../role-based-access-control/tutorial-custom-role-powershell.md).
+If these roles aren't sufficient for your need, you can use PowerShell to create custom roles.  For information about creating custom roles, see [Create a custom role using Azure PowerShell](../../role-based-access-control/tutorial-custom-role-powershell.md).
 
 In the **Select** box, search for a user, service principal, or group that you want to assign the role to.
 

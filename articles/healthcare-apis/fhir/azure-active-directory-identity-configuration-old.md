@@ -29,7 +29,7 @@ Using [authorization code flow](../../active-directory/azuread-dev/v1-protocols-
 1. The client makes a request to the FHIR service, for example `GET /Patient` to search all patients. When making the request, it includes the access token in an HTTP request header, for example `Authorization: Bearer eyJ0e...`, where `eyJ0e...` represents the Base64 encoded access token.
 1. The FHIR service validates that the token contains appropriate claims (properties in the token). If everything checks out, it will complete the request and return a FHIR bundle with results to the client.
 
-It's important to note that the FHIR service isn't involved in validating user credentials and it doesn't issue the token. The authentication and token creation is done by Azure AD. The FHIR service simply validates that the token is signed correctly (it is authentic) and that it has appropriate claims.
+It's important to note that the FHIR service isn't involved in validating user credentials and it doesn't issue the token. The authentication and token creation is done by Azure AD. The FHIR service simply validates that the token is signed correctly (it's authentic) and that it has appropriate claims.
 
 ## Structure of an access token
 
@@ -85,11 +85,11 @@ The token can be decoded and inspected with tools such as [https://jwt.ms](https
 
 ## Obtaining an access token
 
-As mentioned above, there are several ways to obtain a token from Azure AD. They are described in detail in the [Azure AD developer documentation](../../active-directory/develop/index.yml).
+As mentioned above, there are several ways to obtain a token from Azure AD. They're described in detail in the [Azure AD developer documentation](../../active-directory/develop/index.yml).
 
 Azure AD has two different versions of the OAuth 2.0 endpoints, which are referred to as `v1.0` and `v2.0`. Both of these versions are OAuth 2.0 endpoints and the `v1.0` and `v2.0` designations refer to differences in how Azure AD implements that standard. 
 
-When using a FHIR server, you can use either the `v1.0` or the `v2.0` endpoints. The choice may depend on the authentication libraries you are using in your client application.
+When using a FHIR server, you can use either the `v1.0` or the `v2.0` endpoints. The choice may depend on the authentication libraries you're using in your client application.
 
 The pertinent sections of the Azure AD documentation are:
 
@@ -100,7 +100,7 @@ The pertinent sections of the Azure AD documentation are:
     * [Authorization code flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
     * [Client credentials flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
-There are other variations (for example on behalf of flow) for obtaining a token. Check the Azure AD documentation for details. When using the FHIR service, there are also some shortcuts for obtaining an access token (for debugging purposes) [using the Azure CLI](get-healthcare-apis-access-token-cli.md).
+There are other variations (for example, on behalf of flow) for obtaining a token. Check the Azure AD documentation for details. When using the FHIR service, there are also some shortcuts for obtaining an access token (for debugging purposes) [using the Azure CLI](get-healthcare-apis-access-token-cli.md).
 
 ## Next steps
 

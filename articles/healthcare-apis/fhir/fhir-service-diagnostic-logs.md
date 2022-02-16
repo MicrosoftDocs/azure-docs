@@ -31,11 +31,11 @@ Access to diagnostic logs is essential for any healthcare service. Compliance wi
 
    - **Send to Log Analytics workspace** is for sending logs and metrics to a Log Analytics workspace in Azure Monitor. You need to create your Log Analytics workspace before you can select this option.
    
-   - **Archive to a storage account** is for auditing or manual inspection. The storage account that you want to use needs to be already created. The retention option only applies to a storage account. Retention policy ranges from 1 to 365 days. If you do not want to apply any retention policy and retain data forever, set the retention (days) to 0.
+   - **Archive to a storage account** is for auditing or manual inspection. The storage account that you want to use needs to be already created. The retention option only applies to a storage account. Retention policy ranges from 1 to 365 days. If you don't want to apply any retention policy and retain data forever, set the retention (days) to 0.
 
    - **Stream to an event hub** is for ingestion by a third-party service or custom analytic solution. You need to create an event hub namespace and event hub policy before you can configure this option.
    
-   - **Send to partner solution** should be selected if you have enabled a partner solution that Azure supports. For more information, see [Extend Azure with solutions from partners](../../partner-solutions/overview.md).
+   - **Send to partner solution** should be selected if you've enabled a partner solution that Azure supports. For more information, see [Extend Azure with solutions from partners](../../partner-solutions/overview.md).
 
 6. Select **AuditLogs**.
 
