@@ -64,7 +64,7 @@ Enabling predictive autoscale or forecast only with Azure portal
 
 4. If desired, specify a pre-launch time so the instances are full running before they're needed. You can pre-launch instances between 5 and 60 minutes before the needed prediction time.
 
-   :::image type="content" source="media/autoscale-predictive/pre-lauch-4.png" alt-text="Screenshot of predictive autoscale pre-launch setup":::
+   :::image type="content" source="media/autoscale-predictive/pre-launch-4.png" alt-text="Screenshot of predictive autoscale pre-launch setup":::
   
 5. Once you have enabled predictive autoscale or forecast only and saved it, select *Predictive charts*.
   
