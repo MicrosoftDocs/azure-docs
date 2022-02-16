@@ -136,6 +136,15 @@ The following sample shows a public client application running on a device witho
 > | Java | [Sign in users and invoke protected API](https://github.com/Azure-Samples/ms-identity-java-devicecodeflow) | MSAL Java | Device code |
 > | Python | [Call Microsoft Graph](https://github.com/Azure-Samples/ms-identity-python-devicecodeflow) | MSAL Python | Device code |
 
+## Microsoft Teams applications
+
+The following samples illustrate Microsoft Teams applications that sign in users. Some samples also demonstrate how to call Microsoft Graph, or your own web API with the user's identity using the Microsoft Authentication Library (MSAL).
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Language/<br/>Platform | Code sample(s) <br/>on GitHub | Auth<br/> libraries | Auth flow |  
+> | ------- | -------- | ------------- | -------------- |  
+> | Node | [Teams Tab App - Single Sign on and call Microsoft Graph via OBO](https://github.com/OfficeDev/Microsoft-Teams-Samples/tree/main/samples/tab-sso/nodejs) | MSAL Node |  On-Behalf-Of (OBO) |
+
 ## Multi-tenant SaaS
 
 The following samples show how to configure your application to accept sign-ins from any Azure Active Directory (Azure AD) tenant. Configuring your application to be _multi-tenant_ means that you can offer a **Software as a Service** (SaaS) application to many organizations, allowing their users to be able to sign-in to your application after providing consent.
