@@ -70,6 +70,7 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 ### Prerequisites
 
 1. [Send Azure AD sign-in logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) to Azure Monitor.
+2. Ensure you have the microsoft.insights resource provider registered. For [more info](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).
 
 ### Obtain Object IDs of the break glass accounts
 
