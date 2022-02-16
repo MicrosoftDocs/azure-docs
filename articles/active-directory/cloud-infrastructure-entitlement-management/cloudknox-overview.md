@@ -39,7 +39,7 @@ Organizations have to consider permissions management as a central piece of thei
 
 ## Key use cases
  
-CloudKnox  allows customers to address three key use cases: *Discover*, *Remediate*, and *Monitor*.
+CloudKnox  allows customers to address three key use cases: *discover*, *remediate*, and *monitor*.
 
 ### Discover
 

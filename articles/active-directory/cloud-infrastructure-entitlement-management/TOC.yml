@@ -59,22 +59,22 @@
         href: cloudknox-usage-analytics-access-keys.md
       - name: View analytic information about serverless functions
         href: cloudknox-usage-analytics-serverless-functions.md
-    - name: Manage roles/ policies and permission requests
+    - name: Manage roles/policies and permission requests
       expanded: false
       items:
-      - name: View roles/ policies and requests for permission in the Remediation dashboard
+      - name: View roles/policies and requests for permission in the Remediation dashboard
         href: cloudknox-ui-remediation.md
-      - name: View information about roles/ policies
+      - name: View information about roles/policies
         href: cloudknox-howto-view-role-policy.md
       - name: View information about active and completed tasks
         href: cloudknox-ui-tasks.md
-      - name: Create a role/ policy
+      - name: Create a role/policy
         href: cloudknox-howto-create-role-policy.md
-      - name: Clone a role/ policy
+      - name: Clone a role/policy
         href: cloudknox-howto-clone-role-policy.md
-      - name: Modify a role/ policy
+      - name: Modify a role/policy
         href: cloudknox-howto-modify-role-policy.md
-      - name: Delete a role/ policy
+      - name: Delete a role/policy
         href: cloudknox-howto-delete-role-policy.md
       - name: Attach and detach policies for AWS identities
         href: cloudknox-howto-attach-detach-permissions.md
