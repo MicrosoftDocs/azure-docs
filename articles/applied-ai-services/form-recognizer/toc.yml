@@ -51,10 +51,10 @@ items:
   - name: Custom models
     items:
     - name: Build a custom model (v2.1)
-    - items:
+      items:
       - name: Assemble a training data set
         href: build-training-data-set.md
-      - name:   Deploy the sample-labeling tool
+      - name: Deploy the sample-labeling tool
         href: deploy-label-tool.md
       - name: Train a custom model with the sample-labeling tool
         href: label-tool.md
