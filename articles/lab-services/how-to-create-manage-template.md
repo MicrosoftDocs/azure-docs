@@ -16,7 +16,7 @@ When you create a lab, the template VM is created but it’s not started. You ca
 
 ## Set or update template title and description
 
-Use the following steps to set title and description for the lab.  Educators and students will see the title and description on the tiles of the [My Virtual Machines](educator-access-virtual-machines.md) page.
+Use the following steps to set title and description for the lab.  Educators and students will see the title and description on the tiles of the [My Virtual Machines](instructor-access-virtual-machines.md) page.
 
 1. On the **Template** page, enter the new **title** for the lab.  
 2. Enter the new **description** for the template. When you move the focus out of the text box, it's automatically saved.
