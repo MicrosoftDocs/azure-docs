@@ -112,7 +112,7 @@ az aks nodepool add --cluster-name MyManagedCluster --name agentpool3 --resource
 ## Remove a Dedicated Host Nodepool from an AKS cluster
 
 ```azurecli-interactive
-az aks nodepool delete --cluster-name MyManagedCluster --name agentpool3 --resource-group MyResourceGroup --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3
+az aks nodepool delete --cluster-name MyManagedCluster --name agentpool3 --resource-group MyResourceGroup
 ```
 
 ## Next steps
