@@ -42,7 +42,7 @@ You can also view your pending access reviews by using your browser to open My A
 
 2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
 
-## Review access for one or more users
+## Review access
 
 After you open My Access under Groups and Apps you can see:
 
