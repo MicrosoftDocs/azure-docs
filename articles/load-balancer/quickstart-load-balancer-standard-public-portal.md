@@ -13,7 +13,7 @@ ms.custom: mvc, mode-ui
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure portal
 
-Get started with Azure Load Balancer by using the Azure portal to create a public load balancer and three virtual machines.
+Get started with Azure Load Balancer by using the Azure portal to create a public load balancer and two virtual machines.
 
 ## Prerequisites
 
