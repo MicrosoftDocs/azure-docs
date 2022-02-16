@@ -26,21 +26,22 @@ You can receive notifications about the detected threats via [email notification
 2. Navigate to the configuration page of the [server](logical-servers.md) you want to protect. In the security settings, select **Microsoft Defender for Cloud**.
 3. On the **Microsoft Defender for Cloud** configuration page:
 
-   - If Microsoft Defender for SQL hasn't yet been enabled, select **Enable Microsoft Defender for SQL**.
-   - Select **Configure**.
+   1. If Microsoft Defender for SQL hasn't yet been enabled, select **Enable Microsoft Defender for SQL**.
    
-   :::image type="content" source="media/azure-defender-for-sql/enable-microsoft-defender-sql.png" alt-text="Enable Microsoft Defender for SQL." lightbox="media/azure-defender-for-sql/enable-microsoft-defender-sql.png":::
+   1. Select **Configure**.
+   
+       :::image type="content" source="media/azure-defender-for-sql/enable-microsoft-defender-sql.png" alt-text="Enable Microsoft Defender for SQL." lightbox="media/azure-defender-for-sql/enable-microsoft-defender-sql.png":::
+    
+   1. Under **ADVANCED THREAT PROTECTION SETTINGS**, select **Add your contact details to the subscription's email settings in Defender for Cloud**.
 
-   - Under **ADVANCED THREAT PROTECTION SETTINGS**, select **Add your contact details to the subscription's email settings in Defender for Cloud**.
-
-   :::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-add-contact-details.png" alt-text="Select link to proceed to advanced threat protection settings." lightbox="media/azure-defender-for-sql/advanced-threat-protection-add-contact-details.png":::
-
-   - Provide the list of emails to receive notifications upon detection of anomalous database activities in the **Additional email addresses (separated by commas)** text box.
+       :::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-add-contact-details.png" alt-text="Select link to proceed to advanced threat protection settings." lightbox="media/azure-defender-for-sql/advanced-threat-protection-add-contact-details.png":::
+    
+   1. Provide the list of emails to receive notifications upon detection of anomalous database activities in the **Additional email addresses (separated by commas)** text box.
    - Optionally customize the severity of alerts that will trigger notifications to be sent under **Notification types**.
    - Select **Save**.
 
-   :::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-configure-emails.png" alt-text="Enter emails for Advanced Threat Protection notifications." lightbox="media/azure-defender-for-sql/advanced-threat-protection-configure-emails.png":::
-
+       :::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-configure-emails.png" alt-text="Enter emails for Advanced Threat Protection notifications." lightbox="media/azure-defender-for-sql/advanced-threat-protection-configure-emails.png":::
+    
 ## Set up Advanced Threat Protection using PowerShell
 
 For a script example, see [Configure auditing and Advanced Threat Protection using PowerShell](scripts/auditing-threat-detection-powershell-configure.md).
