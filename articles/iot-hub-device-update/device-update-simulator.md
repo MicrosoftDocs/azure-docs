@@ -65,7 +65,7 @@ Once the Device Update agent is running on an IoT device, the device needs to be
    sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
    ```
    
-   To register and invoke the simulator handler, the use the following format:
+   To register and invoke the simulator handler, use the following format, filling in the placeholders:
    
    `sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>`
 
