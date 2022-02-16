@@ -67,5 +67,5 @@ The easiest way to test the connection is by running the Import data wizard.
 + [Connect to other Azure resources using a managed identity](search-howto-managed-identities-data-sources.md)
 + [Azure Blob indexer](search-howto-indexing-azure-blob-storage.md)
 + [Azure Data Lake Storage Gen2 indexer](search-howto-index-azure-data-lake-storage.md)
-+ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication.md)
++ [Authenticate with Azure Active Directory](/azure/architecture/framework/security/design-identity-authentication)
 + [About managed identities (Azure Active Directory)](../active-directory/managed-identities-azure-resources/overview.md)
