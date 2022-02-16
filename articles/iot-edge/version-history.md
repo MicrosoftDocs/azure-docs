@@ -20,16 +20,16 @@ The IoT Edge documentation on this site is available for two different versions 
 
 * **IoT Edge 1.2** contains content for new features and capabilities that are in the latest stable release. This version of the documentation also contains content for the IoT Edge for Linux on Windows (EFLOW) continuous release version, which is based on IoT Edge 1.2 and contains the latest features and capabilities.
 * **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. The documentation for this version covers all features and capabilities from all previous versions through 1.1. This version of the documentation also contains content for the IoT Edge for Linux on Windows long-term support version, which is based on IoT Edge 1.1 LTS.
-  * This documentation version will be stable through the supported lifetime of version 1.1, and will not reflect new features released in later versions. IoT Edge 1.1 LTS will be supported until December 3, 2022 to match the [.NET Core 3.1 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+  * This documentation version will be stable through the supported lifetime of version 1.1, and won't reflect new features released in later versions. IoT Edge 1.1 LTS will be supported until December 3, 2022 to match the [.NET Core 3.1 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 For more information about IoT Edge releases, see [Azure IoT Edge supported systems](support.md).
 
-### Iot Edge for Linux on Windows 
+### IoT Edge for Linux on Windows 
 Azure IoT Edge for Linux on Windows (EFLOW) supports the following versions:
 * **EFLOW Continuous Release (CR)** based on Azure IoT Edge 1.2 version, it contains new features and capabilities that are in the latest stable release. 
-* **EFLOW 1.1 (LTS)** based on Azure IoT Edge 1.1, it is the Long-term support version. This version will be stable through the supported lifetime of this version and will not include new features released in later versions. This version will be supported until Dec 2022 to match the IoT Edge 1.1 LTS release lifecycle.  
+* **EFLOW 1.1 (LTS)** based on Azure IoT Edge 1.1, it's the Long-term support version. This version will be stable through the supported lifetime of this version and won't include new features released in later versions. This version will be supported until Dec 2022 to match the IoT Edge 1.1 LTS release lifecycle.  
 
-All new releases are made available in the [Azure IoT Edge for Linux on Windows project](https://github.com/Azure/iotedge-eflow). For more information about EFLOW releases and issues, see [Azure EFLOW GitHub](https://github.com/Azure/iotedge-eflow).
+All new releases are made available in the [Azure IoT Edge for Linux on Windows project](https://github.com/Azure/iotedge-eflow).
 
 ## Version history
 
@@ -43,10 +43,10 @@ This table provides recent version history for IoT Edge package releases, and hi
 | [1.0.9](https://github.com/Azure/azure-iotedge/releases/tag/1.0.9) | Stable | March 2020 | X.509 auto-provisioning with DPS<br>[RestartModule direct method](how-to-edgeagent-direct-method.md#restart-module)<br>[support-bundle command](troubleshoot.md#gather-debug-information-with-support-bundle-command) |
 
 
-### Iot Edge for Linux on Windows 
+### IoT Edge for Linux on Windows 
 | Release notes and assets | Type | Date | Highlights |
 | ------------------------ | ---- | ---- | ---------- |
-| [Continous Release (CR)](https://github.com/Azure/iotedge-eflow/releases/tag/1.2.7.07022) | Stable | January 2022 | **Public Preview** |
+| [Continuous Release (CR)](https://github.com/Azure/iotedge-eflow/releases/tag/1.2.7.07022) | Stable | January 2022 | **Public Preview** |
 | [1.1](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2106.0) | Long-term support (LTS) | June 2021 | [Long-term support plan and supported systems updates](support.md) |
 
 ## Next steps
