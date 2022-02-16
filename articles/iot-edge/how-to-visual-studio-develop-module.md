@@ -76,6 +76,9 @@ After your Visual Studio 2019 is ready, you also need the following tools and co
 
 1. If your version is older than what's available on Visual Studio Marketplace, update your tools in Visual Studio as shown in the following section.
 
+> [!NOTE]
+> If you are using Visual Studio 2022, [Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2022&preserve-view=true) is retired. To deploy Azure IoT Edge modules, use [Azure CLI](how-to-deploy-modules-cli.md?view=iotedge-2020-11&preserve-view=true) or [Azure portal](how-to-deploy-modules-portal.md?view=iotedge-2020-11&preserve-view=true).
+
 ### Update your tools
 
 1. In the **Manage Extensions** window, expand **Updates > Visual Studio Marketplace**, select **Azure IoT Edge Tools** or **Cloud Explorer for Visual Studio** and select **Update**.
