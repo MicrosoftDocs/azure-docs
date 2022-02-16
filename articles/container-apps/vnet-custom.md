@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  how-to
-ms.date: 1/28/2021
+ms.date: 2/3/2022
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -21,7 +21,7 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 - You can restrict inbound requests to the environment exclusively to the VNET by deploying the environment as internal.
 
 > [!IMPORTANT]
-> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to the [custom VNET security sample](https://aka.ms/azurecontainerapps/customvnet) for additional details.
+> In order to ensure the environment deployment within your custom VNET is successful, configure your VNET with an "allow-all" configuration by default. The full list of traffic dependencies required to configure the VNET as "deny-all" is not yet available. Refer to [Known issues for public preview](https://github.com/microsoft/azure-container-apps/wiki/Known-Issues-for-public-preview) for additional details.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 
@@ -66,6 +66,10 @@ When set to internal, the environment has no public endpoint. Internal environme
 To create an internal only environment, provide the `--internal-only` parameter to the `az containerapp env create` command.
 
 ::: zone-end
+
+## Managed resources
+
+When you deploy an internal or an external environment into your own network, a new resource group prefixed with `MC_` is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform, and shouldn't be modified. The resource group contains Public IP addresses used specifically for outbound connectivity from your environment as well as a load balancer. As the load balancer is created in your subscription, there are additional costs associated with deploying the service to a custom virtual network.
 
 ## Example
 

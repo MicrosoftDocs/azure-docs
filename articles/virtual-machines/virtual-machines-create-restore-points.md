@@ -42,7 +42,7 @@ Keep the following restrictions in mind when you work with VM restore points:
     - Creating restore points in a region other than the source VM.
 - Currently, cross-region creation and copy of VM restore points are only available in the following regions:
 
-  |                 |                                              |
+  | Area            | Regions    |
   |-----------------|----------------------------------------------|
   |**Americas**     | East US, East US 2, Central US, North Central US, <br/>South Central US, West Central US, West US, West US 2 |
   |**Asia Pacific** | Central India, South India |
