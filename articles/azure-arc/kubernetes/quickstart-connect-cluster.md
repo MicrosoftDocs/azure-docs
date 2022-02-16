@@ -1,12 +1,10 @@
 ---
 title: Quickstart: Connect an existing Kubernetes cluster to Azure Arc
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
-ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 02/16/2022
 ms.custom: template-quickstart, mode-other, devx-track-azurecli 
 ms.devlang: azurecli
-keywords: "Kubernetes, Arc, Azure, cluster"
 ---
 
 # Quickstart: Connect an existing Kubernetes cluster to Azure Arc
@@ -41,9 +39,9 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
   * If you want to connect a OpenShift cluster to Azure Arc, you need to execute the following command just once on your cluster before running `az connectedk8s connect`:
 
-        ```
-        oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
-        ```
+    ```
+    oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
+    ```
 
     >[!NOTE]
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
@@ -78,9 +76,9 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
   * If you want to connect a OpenShift cluster to Azure Arc, you need to execute the following command just once on your cluster before running `New-AzConnectedKubernetes`:
 
-        ```
-        oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
-        ```
+    ```
+    oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
+    ```
 
     >[!NOTE]
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
@@ -150,6 +148,8 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
     Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
 
+---
+
 ## Create a resource group
 
 Run the following command:
@@ -174,13 +174,14 @@ New-AzResourceGroup -Name AzureArcTest -Location EastUS
 ```
 
 Output:
-<pre>
+
+```
 ResourceGroupName : AzureArcTest
 Location          : eastus
 ProvisioningState : Succeeded
 Tags              :
 ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AzureArcTest
-</pre>
+```
 
 ---
 
@@ -251,6 +252,8 @@ Location Name          Type
 eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 ```
 
+---
+
 ## Connect using an outbound proxy server
 
 If your cluster is behind an outbound proxy server, requests must be routed via the outbound proxy server.
@@ -293,6 +296,8 @@ If your cluster is behind an outbound proxy server, requests must be routed via 
     New-AzConnectedKubernetes -ClusterName <cluster-name> -ResourceGroupName <resource-group> -Location eastus -Proxy 'https://<proxy-server-ip-address>:<port>'
     ```
 
+---
+
 ## Verify cluster connection
 
 Run the following command:
@@ -325,10 +330,12 @@ Location Name          Type
 eastus   AzureArcTest1 microsoft.kubernetes/connectedclusters
 ```
 
+---
+
 > [!NOTE]
 > After onboarding the cluster, it takes around 5 to 10 minutes for the cluster metadata (cluster version, agent version, number of nodes, etc.) to surface on the overview page of the Azure Arc-enabled Kubernetes resource in Azure portal.
 
-## 6. View Azure Arc agents for Kubernetes
+## View Azure Arc agents for Kubernetes
 
 Azure Arc-enabled Kubernetes deploys a few agents into the `azure-arc` namespace.
 
@@ -393,6 +400,8 @@ Remove-AzConnectedKubernetes -ClusterName AzureArcTest1 -ResourceGroupName Azure
 
 >[!NOTE]
 > Deleting the Azure Arc-enabled Kubernetes resource using the Azure portal removes any associated configuration resources, but *does not* remove any agents running on the cluster. Best practice is to delete the Azure Arc-enabled Kubernetes resource using `Remove-AzConnectedKubernetes` rather than deleting the resource in the Azure portal.
+
+---
 
 ## Next steps
 
