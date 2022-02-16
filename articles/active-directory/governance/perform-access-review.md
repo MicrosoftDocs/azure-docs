@@ -72,7 +72,7 @@ There are two ways that you can approve or deny access:
 1. Select one or more users by clicking the circle next to their names.
 
 1. Select **Approve** or **Deny** on the bar above.
-    - If you are unsure if a user should continue to have access or not, you can click **Don't know**. The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
+    - If you are unsure if a user should continue to have access or not, you can click **Don't know**. The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide may be available to other reviewers.
 
     ![Open access review listing the users who need review](./media/perform-access-review/user-list-preview.png)
 
