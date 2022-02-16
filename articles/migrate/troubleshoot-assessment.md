@@ -177,6 +177,10 @@ No, currently only disk size, total throughput, and total IOPS are used for sizi
 
 This result is possible because not all VM sizes that support Ultra disk are present in all Ultra disk supported regions. Change the target assessment region to get the VM size for this server.
 
+## Why is my assessment showing a warning that it was created with an invalid offer?
+
+Your assessment was created with an offer that is no longer valid and hence the **Edit** and **Recalculate** buttons are disabled. You can create a new assessment with any of the valid offers - *Pay as you go*, *Pay as you go Dev/Test*, and *Enterprise Agreement*. You can also use the **Discount(%)** field to specify any custom discount on top of the Azure offer. [Learn more](concepts-assessment-calculation.md#whats-an-assessment).
+
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime, and Discount (%)?
 
 When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** properties aren't applicable. As your assessment was created with an invalid combination of these properties, the **Edit** and **Recalculate** buttons are disabled. Create a new assessment. [Learn more](./concepts-assessment-calculation.md#whats-an-assessment).
