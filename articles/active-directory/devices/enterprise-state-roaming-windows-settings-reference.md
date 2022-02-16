@@ -68,29 +68,29 @@ Settings that don't roam or sync will not belong to a group.
 
 | Settings | Desktop | Mobile | Group |
 | --- | --- | --- | --- |
-| **Accounts**: account picture |sync |X |Theme |
+| **Accounts**: account picture |X |X |Theme |
 | **Accounts**: other account settings |X |X | |
 | **Advanced mobile broadband**: Internet connection sharing network name (enables autodiscovery of mobile Wi-Fi hotspots via Bluetooth) |X |X |Passwords |
 | **App data**: individual apps can sync data |sync backup |sync backup |internal |
 | **App list**: list of installed apps |X |backup |Other |
 | **Bluetooth**: all Bluetooth settings |X |X | |
-| **Command prompt**: Command prompt "Defaults" settings |sync |X |internal |
-| **Credentials**: Credential Locker |sync |sync |password |
+| **Command prompt**: Command prompt "Defaults" settings |X |X |internal |
+| **Credentials**: Credential Locker |X |sync |password |
 | **Date, Time, and Region**: automatic time (Internet time sync) |sync |sync |language |
-| **Date, Time, and Region**: 24-hour clock |sync |X |language |
-| **Date, Time, and Region**: date and time |sync |X |language |
+| **Date, Time, and Region**: 24-hour clock |X |X |language |
+| **Date, Time, and Region**: date and time |X |X |language |
 | **Date, Time, and Region**: time zone | |X |language |
-| **Date, Time, and Region**: daylight savings time |sync |X |language |
+| **Date, Time, and Region**: daylight savings time |X |X |language |
 | **Date, Time, and Region**: country/region |sync |X |language |
-| **Date, Time, and Region**: first day of week |sync |X |language |
+| **Date, Time, and Region**: first day of week |X |X |language |
 | **Date, Time, and Region**: region format (locale) |sync |X |language |
-| **Date, Time, and Region**: short date |sync |X |language |
-| **Date, Time, and Region**: long date |sync |X |language |
-| **Date, Time, and Region**: short time |sync |X |language |
-| **Date, Time, and Region**: long time |sync |X |language |
-| **Desktop personalization**: desktop Theme (background, system color, default system sounds, screen saver) |sync |X |Theme |
-| **Desktop personalization**: slideshow wallpaper |sync |X |Theme |
-| **Desktop personalization**: taskbar settings (position, auto-hide, etc.) |sync |X |Theme |
+| **Date, Time, and Region**: short date |X |X |language |
+| **Date, Time, and Region**: long date |X |X |language |
+| **Date, Time, and Region**: short time |X |X |language |
+| **Date, Time, and Region**: long time |X |X |language |
+| **Desktop personalization**: desktop Theme (background, system color, default system sounds, screen saver) |X |X |Theme |
+| **Desktop personalization**: slideshow wallpaper |X |X |Theme |
+| **Desktop personalization**: taskbar settings (position, auto-hide, etc.) |X |X |Theme |
 | **Desktop personalization**: start screen layout |X |backup | |
 | **Devices**: shared printers you've connected to |X |X |other |
 | **Microsoft Edge browser**: reading list |sync |sync |internal |
@@ -108,8 +108,8 @@ Settings that don't roam or sync will not belong to a group.
 | **Microsoft Edge browser**: cookies preference <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: let sites save protected media licenses on my device <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: screen reader setting <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **High Contrast**: On or Off |sync |X |ease of access |
-| **High contrast**: Theme settings |sync |X |ease of access |
+| **High Contrast**: On or Off |X |X |ease of access |
+| **High contrast**: Theme settings |X |X |ease of access |
 | **Internet Explorer**: open tabs (URL and title) |sync |sync |Internet Explorer |
 | **Internet Explorer**: reading list |sync |sync |Internet Explorer |
 | **Internet Explorer**: typed URLs |sync |sync |Internet Explorer |
@@ -118,63 +118,63 @@ Settings that don't roam or sync will not belong to a group.
 | **Internet Explorer**: excluded URLs |sync |sync |Internet Explorer |
 | **Internet Explorer**: home pages |sync |sync |Internet Explorer |
 | **Internet Explorer**: domain suggestions |sync |sync |Internet Explorer |
-| **Keyboard**: users can turn on/off on-screen keyboard |sync |X |ease of access |
-| **Keyboard**: turn on sticky yes (off by default) |sync |X |ease of access |
-| **Keyboard**: turn on filter keys (off by default) |sync |X |ease of access |
+| **Keyboard**: users can turn on/off on-screen keyboard |X |X |ease of access |
+| **Keyboard**: turn on sticky yes (off by default) |X |X |ease of access |
+| **Keyboard**: turn on filter keys (off by default) |X |X |ease of access |
 | **Keyboard**: turn on toggle keys (off by default) |sync |X |ease of access |
-| **Internet Explorer**: domain Language: Chinese (CHS) QWERTY - enable self-learning |sync |X |Language |
-| **Language**: CHS QWERTY - enable dynamic candidate ranking |sync |X |Language |
-| **Language**: CHS QWERTY - char-set Simplified Chinese |sync |X |Language |
-| **Language**: CHS QWERTY - char-set Traditional Chinese |sync |X |Language |
-| **Language**: CHS QWERTY - fuzzy pinyin |sync |backup |Language |
-| **Language**: CHS QWERTY - fuzzy pairs |sync |backup |Language |
-| **Language**: CHS QWERTY - full pinyin |sync |X |Language |
-| **Language**: CHS QWERTY - double pinyin |sync |X |Language |
-| **Language**: CHS QWERTY - reading auto correction |sync |X |Language |
-| **Language**: CHS QWERTY - C/E switch key, shift |sync |X |Language |
-| **Language**: CHS QWERTY - C/E switch key, Ctrl |sync |X |Language |
-| **Language**: CHS WUBI - single character input mode |sync |X |Language |
-| **Language**: CHS WUBI - show the remaining coding of the candidate |sync |X |Language |
-| **Language**: CHS WUBI - beep when 4-coding is invalid |sync |X |Language |
-| **Language**: CHT Bopomofo - include CJK Ext-A |sync |X |Language |
-| **Language**: Japanese IME - predictive typing and custom words |sync |sync |Language |
+| **Internet Explorer**: domain Language: Chinese (CHS) QWERTY - enable self-learning |X |X |Language |
+| **Language**: CHS QWERTY - enable dynamic candidate ranking |X |X |Language |
+| **Language**: CHS QWERTY - char-set Simplified Chinese |X |X |Language |
+| **Language**: CHS QWERTY - char-set Traditional Chinese |X |X |Language |
+| **Language**: CHS QWERTY - fuzzy pinyin |X |backup |Language |
+| **Language**: CHS QWERTY - fuzzy pairs |X |backup |Language |
+| **Language**: CHS QWERTY - full pinyin |X |X |Language |
+| **Language**: CHS QWERTY - double pinyin |X |X |Language |
+| **Language**: CHS QWERTY - reading auto correction |X |X |Language |
+| **Language**: CHS QWERTY - C/E switch key, shift |X |X |Language |
+| **Language**: CHS QWERTY - C/E switch key, Ctrl |X |X |Language |
+| **Language**: CHS WUBI - single character input mode |X |X |Language |
+| **Language**: CHS WUBI - show the remaining coding of the candidate |X |X |Language |
+| **Language**: CHS WUBI - beep when 4-coding is invalid |X |X |Language |
+| **Language**: CHT Bopomofo - include CJK Ext-A |X |X |Language |
+| **Language**: Japanese IME - predictive typing and custom words |X |sync |Language |
 | **Language**: Korean (KOR) IME |X |X |Language |
 | **Language**: handwriting recognition |X |X |Language |
 | **Language**: language profile |sync |backup |Language |
-| **Language**: spellcheck - autocorrect and highlight misspellings |sync |backup |Language |
+| **Language**: spellcheck - autocorrect and highlight misspellings |X |backup |Language |
 | **Language**: list of keyboards |sync |backup |Language |
 | **Lock Screen**: all lock screen settings |X |X | |
 | **Magnifier**: on or off (master toggle) |X |X |Ease of access |
-| **Magnifier**: turn inversion color on or off (off by default) |sync |X |Ease of access |
-| **Magnifier**: tracking - follow the keyboard focus |sync |X |Ease of access |
-| **Magnifier**: tracking - follow the mouse cursor |sync |X |Ease of access |
-| **Magnifier**: start when users sign in (off by default) |sync |X |Ease of access |
-| **Mouse**: change the size of mouse cursor |sync |X |other |
-| **Mouse**: change the color of mouse cursor |sync |X |other |
+| **Magnifier**: turn inversion color on or off (off by default) |X |X |Ease of access |
+| **Magnifier**: tracking - follow the keyboard focus |X |X |Ease of access |
+| **Magnifier**: tracking - follow the mouse cursor |X |X |Ease of access |
+| **Magnifier**: start when users sign in (off by default) |X |X |Ease of access |
+| **Mouse**: change the size of mouse cursor |X |X |other |
+| **Mouse**: change the color of mouse cursor |X |X |other |
 | **Mouse**: all other settings |X |X | |
-| **Narrator**: quick launch |sync |X |Ease of access |
-| **Narrator**: users can change Narrator speaking pitch |sync |X |Ease of access |
-| **Narrator**: users can turn on or off Narrator reading hints for common items (on by default) |sync |X |Ease of access |
-| **Narrator**: users can turn on or off whether they can hear typed characters (on by default) |sync |X |Ease of access |
-| **Narrator**: users can turn on or off whether they can hear typed words (on by default) |sync |X |Ease of access |
-| **Narrator**: have insert cursor following Narrator (on by default) |sync |X |Ease of access |
-| **Narrator**: enable visual highlighting of Narrator cursor (on by default) |sync |X |Ease of access |
-| **Narrator**: play audio cues (on by default) |sync |X |Ease of access |
-| **Narrator**: activate keys on the touch keyboard when you lift your finger (off by default) |sync |X |Ease of access |
-| **Ease of access**: set the thickness of the blinking cursor |sync |X |Ease of access |
-| **Ease of access**: remove background images (off by default) |sync |X |Ease of access |
+| **Narrator**: quick launch |X |X |Ease of access |
+| **Narrator**: users can change Narrator speaking pitch |X |X |Ease of access |
+| **Narrator**: users can turn on or off Narrator reading hints for common items (on by default) |X |X |Ease of access |
+| **Narrator**: users can turn on or off whether they can hear typed characters (on by default) |X |X |Ease of access |
+| **Narrator**: users can turn on or off whether they can hear typed words (on by default) |X |X |Ease of access |
+| **Narrator**: have insert cursor following Narrator (on by default) |X |X |Ease of access |
+| **Narrator**: enable visual highlighting of Narrator cursor (on by default) |X |X |Ease of access |
+| **Narrator**: play audio cues (on by default) |X |X |Ease of access |
+| **Narrator**: activate keys on the touch keyboard when you lift your finger (off by default) |X |X |Ease of access |
+| **Ease of access**: set the thickness of the blinking cursor |X |X |Ease of access |
+| **Ease of access**: remove background images (off by default) |X |X |Ease of access |
 | **Power and Sleep**: all settings |X |X | |
 | **Start screen personalization**: accent color (phone only) |X |sync |Theme |
-| **Typing**: spelling dictionary |sync |backup |Language |
-| **Typing**: autocorrect misspelled word |sync |backup |Language |
-| **Typing**: highlight misspelled words |sync |backup |Language |
-| **Typing**: show text suggestions as I type |sync |backup |Language |
-| **Typing**: add a space after I choose a text suggestion |sync |backup |Language |
-| **Typing**: add a period after I double-tap the spacebar |sync |backup |Language |
-| **Typing**: capitalize the first letter of each sentence |sync |backup |Language |
-| **Typing**: use all uppercase letters when I double-tap shift key |sync |backup |Language |
-| **Typing**: play key sounds as I type |sync |backup |Language |
-| **Typing**: personalization data for touch keyboard |sync |backup |Language |
+| **Typing**: spelling dictionary |X |backup |Language |
+| **Typing**: autocorrect misspelled word |X |backup |Language |
+| **Typing**: highlight misspelled words |X |backup |Language |
+| **Typing**: show text suggestions as I type |X |backup |Language |
+| **Typing**: add a space after I choose a text suggestion |X |backup |Language |
+| **Typing**: add a period after I double-tap the spacebar |X |backup |Language |
+| **Typing**: capitalize the first letter of each sentence |X |backup |Language |
+| **Typing**: use all uppercase letters when I double-tap shift key |X |backup |Language |
+| **Typing**: play key sounds as I type |X |backup |Language |
+| **Typing**: personalization data for touch keyboard |X |backup |Language |
 | **Wi-Fi**: Wi-Fi profiles (only WPA) |sync |sync |Passwords |
 
 ###### Footnote 1
