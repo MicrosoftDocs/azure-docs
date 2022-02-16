@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/10/2022
+ms.date: 02/16/2022
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
