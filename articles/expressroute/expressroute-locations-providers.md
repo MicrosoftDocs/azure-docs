@@ -53,7 +53,7 @@ The following table shows connectivity locations and the service providers for e
 | **Auckland** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/a | Supported | Devoli, Kordia, Megaport, REANNZ, Spark NZ, Vocus Group NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | n/a | Supported | AIS, National Telecom UIH |
 | **Berlin** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Germany North | Supported | Colt, Equinix, NTT Global DataCenters EMEA|
-| **Bogota** | [Equinix BG1](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | n/a | 10G | CenturyLink Cloud Connect, Equinix |
+| **Bogota** | [Equinix BG1](https://www.equinix.com/locations/americas-colocation/colombia-colocation/bogota-data-centers/bg1/) | 4 | n/a | Supported | CenturyLink Cloud Connect, Equinix |
 | **Busan** | [LG CNS](https://www.lgcns.com/En/Service/DataCenter) | 2 | Korea South | n/a | LG CNS |
 | **Campinas** | [Ascenty](https://www.ascenty.com/en/data-centers-en/campinas/) | 3 | Brazil South | Supported | Ascenty |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia Central | Supported | CDC |
@@ -78,7 +78,7 @@ The following table shows connectivity locations and the service providers for e
 | **Jakarta** | [Telin](https://www.telin.net/) | 4 | n/a | Supported | NTT Communications, Telin, XL Axiata |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | South Africa North | Supported | BCX, British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, MTN Global Connect, Orange, Teraco, Vodacom |
 | **Kuala Lumpur** | [TIME dotCom Menara AIMS](https://www.time.com.my/enterprise/connectivity/direct-cloud) | 2 | n/a | n/a | TIME dotCom |
-| **Las Vegas** | [Switch LV](https://www.switch.com/las-vegas) | 1 | n/a | 10G, 100G | CenturyLink Cloud Connect, Megaport, PacketFabric |
+| **Las Vegas** | [Switch LV](https://www.switch.com/las-vegas) | 1 | n/a | Supported | CenturyLink Cloud Connect, Megaport, PacketFabric |
 | **London** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | UK South | Supported | AT&T NetBond, British Telecom, CenturyLink, Colt, Equinix, euNetworks, Intelsat, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
 | **London2** | [Telehouse North Two](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | UK South | Supported | BICS, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, GTT, Interxion, IX Reach, JISC, Megaport, NTT Global DataCenters EMEA, Orange, SES, Sohonet, Telehouse - KDDI, Zayo |
 | **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | n/a | Supported | CoreSite, Equinix*, Megaport, Neutrona Networks, NTT, Zayo</br></br> **New ExpressRoute circuits are no longer supported with Equinix in Los Angeles. Please create new circuits in Los Angeles2.* |
