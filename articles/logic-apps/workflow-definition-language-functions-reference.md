@@ -3911,6 +3911,8 @@ And returns this array with the remaining items: `[1,2,3]`
 
 <a name="slice"></a>
 
+### slice
+
 Return a substring by specifying the starting and ending position or value.
 
 ```
