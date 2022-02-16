@@ -3,15 +3,15 @@ title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 12/07/2021
+ms.date: 02/15/2022
 ms.topic: article
-description: "Troubleshooting common issues with Azure Arc-enabled Kubernetes clusters."
-keywords: "Kubernetes, Arc, Azure, containers"
+description: "Troubleshooting common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
+keywords: "Kubernetes, Arc, Azure, containers, GitOps, Flux"
 ---
 
-# Azure Arc-enabled Kubernetes troubleshooting
+# Azure Arc-enabled Kubernetes and GitOps troubleshooting
 
-This document provides troubleshooting guides for issues with connectivity, permissions, and agents.
+This document provides troubleshooting guides for issues with Azure Arc-enabled Kubernetes connectivity, permissions, and agents.  It also provides troubleshooting guides for Azure GitOps, which can be used in either Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters.
 
 ## General troubleshooting
 
@@ -227,12 +227,14 @@ metadata:
 
 ### Installing the `microsoft.flux` extension (Flux v2)
 
-If the `microsoft.flux` extension is in a failed state, you can run a script to investigate.  The cluster-type parameter can be set to `connectedClusters` for Arc cluster or `managedClusters` for AKS cluster. The name of the `microsoft.flux` extension will be "flux" if the extension was installed automatically during creation of a `fluxConfigurations` resource. Look in the "statuses" object for information.
+The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. If the extension is not already installed in a cluster and you create a GitOps configuration resource for that cluster, the extension will be installed automatically.
+
+If you experience an error during installation or if the extension is in a failed state, you can first run a script to investigate.  The cluster-type parameter can be set to `connectedClusters` for an Arc-enabled cluster or `managedClusters` for an AKS cluster. The name of the `microsoft.flux` extension will be "flux" if the extension was installed automatically during creation of a GitOps configuration. Look in the "statuses" object for information.
 
 One example:
 
 ```azurecli
-az k8s-extension show --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAME --cluster-type connectedClusters -n flux
+az k8s-extension show -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <connectedClusters or managedClusters>
 ```
 
 ```output
@@ -250,7 +252,7 @@ az k8s-extension show --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAM
 Another example:
 
 ```azurecli
-az k8s-extension show --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAME --cluster-type connectedClusters -n flux
+az k8s-extension show -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <connectedClusters or managedClusters>
 ```
 
 ```output
@@ -265,18 +267,39 @@ az k8s-extension show --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAM
   ]
 ```
 
-In both of these cases, delete the `flux-system` namespace and uninstall the Helm release. This should resolve the extension installation issue.
+Another example from the portal:
 
 ```console
-kubectl delete namespaces flux-system -A
-helm uninstall flux -n -flux-system
+{'code':'DeploymentFailed','message':'At least one resource deployment operation failed. Please list 
+deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.
+','details':[{'code':'ExtensionCreationFailed', 'message':' Request failed to https://management.azure.com/
+subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/
+managedclusters/<CLUSTER_NAME>/extensionaddons/flux?api-version=2021-03-01. Error code: BadRequest. 
+Reason: Bad Request'}]}
 ```
 
-If that doesn't resolve the issue, you can delete the extension. After deleting the extension, you can either [re-create a flux configuration](./tutorial-use-gitops-flux2.md) which will install the flux extension automatically or you can re-install the flux extension manually.
+For all these cases, possible remediation actions are to force delete the extension, uninstall the Helm release, and delete the `flux-system` namespace from the cluster.
 
 ```azurecli
-az k8s-extension delete --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAME --cluster-type connectedClusters –name flux
+az k8s-extension delete --force -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <managedClusters OR connectedClusters>
 ```
+
+```console
+helm uninstall flux -n flux-system
+kubectl delete namespaces flux-system
+```
+
+Some other aspects to consider:
+    
+* For AKS cluster, assure that the subscription has the following feature flag enabled: `Microsoft.ContainerService/AKS-ExtensionManager`.
+
+     ```azurecli
+     az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
+     ```
+
+* Assure that the cluster does not have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
+
+With these actions accomplished you can either [re-create a flux configuration](./tutorial-use-gitops-flux2.md) which will install the flux extension automatically or you can re-install the flux extension manually.
 
 ## Monitoring
 
