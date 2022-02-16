@@ -37,8 +37,8 @@ You can receive notifications about the detected threats via [email notification
        :::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-add-contact-details.png" alt-text="Select link to proceed to advanced threat protection settings." lightbox="media/azure-defender-for-sql/advanced-threat-protection-add-contact-details.png":::
     
    1. Provide the list of emails to receive notifications upon detection of anomalous database activities in the **Additional email addresses (separated by commas)** text box.
-   - Optionally customize the severity of alerts that will trigger notifications to be sent under **Notification types**.
-   - Select **Save**.
+   1. Optionally customize the severity of alerts that will trigger notifications to be sent under **Notification types**.
+   1. Select **Save**.
 
        :::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-configure-emails.png" alt-text="Enter emails for Advanced Threat Protection notifications." lightbox="media/azure-defender-for-sql/advanced-threat-protection-configure-emails.png":::
     
