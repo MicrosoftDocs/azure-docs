@@ -3,7 +3,7 @@ author: philmea
 ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: python
+ms.devlang: python, azurecli
 ms.topic: include
 ms.custom: [mvc, mqtt, devx-track-python, devx-track-azurecli]
 ms.date: 09/14/2020

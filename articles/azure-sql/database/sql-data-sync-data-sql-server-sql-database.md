@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: MaraSteiu 
 ms.author: masteiu
 ms.reviewer: kendralittle, mathoma
-ms.date: 09/09/2021
+ms.date: 2/2/2022
 ---
 # What is SQL Data Sync for Azure?
 
@@ -151,7 +151,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - Moving servers between different subscriptions isn't supported. 
 - If two primary keys are only different in case (e.g. Foo and foo), Data Sync won't support this scenario.
 - Truncating tables is not an operation supported by Data Sync (changes won't be tracked).
-- Hyperscale databases are not supported. 
+- Using a Hyperscale database as a Hub or Sync Metadata database is not supported. However, a Hyperscale database can be a member database in a Data Sync topology.
 - Memory-optimized tables are not supported.
 
 #### Unsupported data types

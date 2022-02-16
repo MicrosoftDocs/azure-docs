@@ -1,6 +1,6 @@
 ---
 title: Create an image definition and image version
-description: Learn how to create an image in a Azure Compute Gallery.
+description: Learn how to create an image in an Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: gallery
@@ -18,7 +18,7 @@ ms.custom:
 
 A [Azure Compute Gallery](shared-image-galleries.md) (formerly known as Shared Image Gallery)simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
-The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an AAD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. 
+The Azure Compute Gallery lets you share your custom VM images with others in your organization, within or across regions, within an Azure AD tenant. Choose which images you want to share, which regions you want to make them available in, and who you want to share them with. You can create multiple galleries so that you can logically group images. 
 
 The Azure Compute Gallery feature has multiple resource types:
 
@@ -34,7 +34,7 @@ To complete this article, you must have an existing Azure Compute Gallery, and a
 - OS and data disks as VHDs in a storage account.
 - Other image versions either in the same gallery or another gallery in the same subscription.
 
-If the the image will contain data disks, the data disk size cannot be more than 1 TB.
+If the image will contain data disks, the data disk size cannot be more than 1 TB.
 
 Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](shared-image-galleries.md#image-definitions).
 
@@ -82,7 +82,7 @@ To create an image using a source other than a VM, follow these steps.
 1. For **End of life date**, select a date from the calendar for when you think this version should stop being used.
 1. In the **Replication** tab, select the storage type from the drop-down.
 1. Set the **Default replica count**, you can override this for each region you add. 
-1. You need to replicate to the source region, so the first replica in the list will be in the region where you created the image. You can add more replicas by select the region from the drop-down and adjusting the replica count as necessary.
+1. You need to replicate to the source region, so the first replica in the list will be in the region where you created the image. You can add more replicas by selecting the region from the drop-down and adjusting the replica count as necessary.
 1. When you are done, select **Review + create**. Azure will validate the configuration.
 1. When image version passes validation, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
@@ -164,7 +164,7 @@ Image definitions create a logical grouping for images. When making your image d
 
 For more information about the values you can specify for an image definition, see [Image definitions](./shared-image-galleries.md#image-definitions).
 
-Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion). 
+Create the image definition using [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimagedefinition).
 
 In this example, the image definition is named *myImageDefinition*, and is for a specialized VM running Windows. To create a definition for images using Linux, use `-OsType Linux`. 
 

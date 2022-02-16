@@ -19,7 +19,7 @@ As part of our effort to consolidate the language offerings from Cognitive Servi
 
 ## Creating a new custom question answering service
 
-[Create a Text Analytics resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) to use question answering and other features such as entity recognition, sentiment analysis, etc.  
+[Create a Text Analytics resource](https://portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) to use question answering and other features such as entity recognition, sentiment analysis, etc.  
 
 Now when you create a new Text Analytics resource, you can select features that you want included. Select **custom question answering (preview)** and continue to create your resource.  
 

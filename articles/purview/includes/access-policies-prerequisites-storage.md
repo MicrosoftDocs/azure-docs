@@ -9,7 +9,10 @@ ms.custom: references_regions
 ---
 
 ### Enable access policy enforcement for the Azure Storage account
-To enable Azure Purview to manage policies for one or more Storage accounts, execute the following PowerShell commands in the subscription where the Azure Storage account resides. It will cover all Azure Storage accounts in that subscription.
+To enable Azure Purview to manage policies for one or more Azure Storage accounts, execute the following PowerShell commands in the subscription where you'll deploy your Azure Storage account. These PowerShell commands will enable Azure Purview to manage policies on all newly created Azure Storage accounts in that subscription.
+
+If you’re executing these commands locally, be sure to run PowerShell as an administrator.
+Alternatively, you can use the [Azure Cloud Shell](../../cloud-shell/overview.md) in the Azure portal: [https://shell.azure.com](https://shell.azure.com).
 
 ```powershell
 # Install the Az module
@@ -19,22 +22,18 @@ Connect-AzAccount -Subscription <SubscriptionID>
 # Register the feature
 Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderNamespace Microsoft.Storage
 ```
-If the output of the last command shows value of *RegistrationState* as *Registered*, then your subscription is enabled for this functionality. In case the output is *Registering*, retry the last command after waiting at least 10 minutes.
+
+If the output of the last command shows *RegistrationState* as *Registered*, then your subscription is enabled for access policies.
+If the output is *Registering*, wait at least 10 minutes before retrying the command.
 
 >[!IMPORTANT]
-> The access policy feature is only available on **new** Azure Storage accounts. Only Storage accounts meeting all the following requirements will enforce access policies published from Azure Purview.
+> The access policy feature is only available on **new** Azure Storage accounts. Storage accounts must meet the following requirements to enforce access policies published from Azure Purview.
 > - Storage account versions >= 81.x.x.
 > - Created in the subscription **after** the feature *AllowPurviewPolicyEnforcement* is registered
 
 ### Create a new Azure Storage account
-- Create new Azure Storage account(s) in one of the regions listed in the next section. You can [follow this guide to create one](../../storage/common/storage-account-create.md)
+After you’ve enabled the access policy above, create new Azure Storage account(s) in one of the regions listed below:
 
-### Supported regions
+[!INCLUDE [Azure Storage specific pre-requisites](access-policies-storage-regions.md)]
 
-#### Azure Purview (management side)
-The Azure Purview access policies capability is available in all Azure Purview [regions](https://azure.microsoft.com/global-infrastructure/services/?products=purview&regions=all)
-
-#### Azure Storage (enforcement side)
-Azure Purview access policies can only be enforced in the following Azure Storage regions
--   France Central
--   Canada Central
+You can [follow this guide to create one](../../storage/common/storage-account-create.md).
