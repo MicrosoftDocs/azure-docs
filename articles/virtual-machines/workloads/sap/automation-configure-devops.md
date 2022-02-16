@@ -57,7 +57,7 @@ Enter a Service connection name, for instance 'Connection to DEV subscription' a
 
 ## Set up the Web App
 
-The automation framework optionally provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. In order to successfully do so, you must first create an app registration for authentication purposes. Open the Azure cloud shell and execute the following commands:
+The automation framework optionally provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. If you would like to use the web app, you must first create an app registration for authentication purposes. Open the Azure cloud shell and execute the following commands:
 
 # [Linux](#tab/linux)
 Replace MGMT with your environment as necessary.
@@ -249,9 +249,9 @@ Create a new variable group 'SDAF-DEV' using the Library page in the Pipelines s
 | ARM_SUBSCRIPTION_ID            | Target subscription ID                         |                                                          |
 | ARM_TENANT_ID                  | Tenant ID for service principal                |                                                          |
 | AZURE_CONNECTION_NAME          | Previously created connection name             |                                                          |
-| TF_VAR_app_registration_app_id | App registration application ID                | Optional -- include if deploying the web app             |
-| TF_VAR_webapp_client_secret    | App registration password                      | Optional -- include if deploying the web app             |
-| PAT                            | Your personal access token                     | Optional -- include if deploying the web app             |
+| TF_VAR_app_registration_app_id | App registration application ID                | Only needed if deploying the web app                     |
+| TF_VAR_webapp_client_secret    | App registration password                      | Only needed if deploying the web app                     |
+| PAT                            | Your personal access token                     | Only needed if deploying the web app                     |
 | sap_fqdn                       | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.     |
 
 
@@ -305,7 +305,9 @@ Select the _Control plane deployment_ pipeline and choose "Run" to deploy the co
 
 ## Deploying the web app
 
-Checking the "deploy the web app infrastructure" parameter when running the Control plane deployment pipeline will provision the infrastructure necessary for hosting the web app. After that has completed, the "Deploy web app" pipeline will publish the app's software to the infrastructure. Before doing so, you must update the reply-url values for the app registration. After you have run the SAP workload zone deployment pipeline, part of the web app URL needed will be stored in a variable called "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
+Checking the "deploy the web app infrastructure" parameter when running the Control plane deployment pipeline will provision the infrastructure necessary for hosting the web app. The "Deploy web app" pipeline will publish the app's software to that infrastructure. 
+
+Before running the Deploy web app pipeline, first update the reply-url values for the app registration. As a result of running the SAP workload zone deployment pipeline, part of the web app URL needed will be stored in a variable called "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
 
 # [Linux](#tab/linux)
 
