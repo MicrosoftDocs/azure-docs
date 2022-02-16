@@ -36,9 +36,13 @@ The Events feature sends notification messages to Event subscribers. Event notif
 > 
 > For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
+## Scalable
+
+Events are designed to support growth and change in healthcare by using autoscaling features and the Azure Event Grid service. 
+
 ## Extensible
 
-Use Events to send messages to other services like Azure Functions, Azure Event Hubs to trigger downstream automated workflows. Events support other end points to enhance items such as operational data, data analysis, and visibility to the incoming data that's captured in real time.
+Use Events to send messages to other services like Azure Functions, Azure Event Hubs to trigger downstream automated workflows. Events support other end points to enhance items such as operational data, data analysis, and visibility to the incoming data capturing near real time.
  
 ## Secure
 
