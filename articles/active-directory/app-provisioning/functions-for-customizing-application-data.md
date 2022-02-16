@@ -899,35 +899,48 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute from the **source** object. |
 | **oldValue** |Optional |String |Value to be replaced in **source** or **template**. |
-| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. When **replacementAttributeName** is used, the regexPattern is applied to extract a value from **replacementAttributeName**. |
+| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. When **replacementAttributeName** is used, the **regexPattern** is applied to extract a value from **replacementAttributeName**. |
 | **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. When named **replacementAttributeName** is used, we will extract the value of the named regex group from the **replacementAttributeName** and return it as the replacement value. |
 | **replacementValue** |Optional |String |New value to replace old one with. |
 | **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
 #### Replace characters using a regular expression
-Example 1: Using **oldValue** and **replacementValue**
+**Example 1:** Using **oldValue** and **replacementValue** to replace a business title.
 
 Use this pattern when you want to replace the entire source string with another string. 
 Let’s say your HR system has an attribute `BusinessTitle`. As part of recent job title changes, your company wants to update anyone with the business title “Product Developer” to “Software Engineer”. 
 Then in this case, you can use the following expression in your attribute mapping. 
+
+`Replace([BusinessTitle],"Product Developer", , , "Software Engineer", , )`
 
 * **source**: \[BusinessTitle\]
 * **oldValue**: “Product Developer”
 * **replacementValue**: “Software Engineer”
 * **Expression output**: Software Engineer
 
-`Replace([BusinessTitle],"Product Developer", , , "Software Engineer", , )`
+**Example 2:** Using **oldValue** and **template** to insert the source string into another *templatized* string. 
 
-Example 5: You need to find characters that match a regular expression value and remove them.
+The parameter **oldValue** is a misnomer in this scenario. It is actually the value that will get replaced.  
+Let’s say you want to always generate login id in the format `<username>@contoso.com`. There is a source attribute called **UserID** and you want that value to be used for the `<username>` portion of the login id. 
+Then in this case, you can use the following expression in your attribute mapping. 
+
+`Replace([UserID],"<username>", , , , , "<username>@contoso.com")`
+
+**source:** `[UserID]` = “jsmith”
+**oldValue:** “`<username>`”
+**template:** “`<username>@contoso.com`”
+**Expression output:** “jsmith@contoso.com”
+
+
+**Example 5:** You need to find characters that match a regular expression value and remove them.
+
+`Replace([mailNickname], , "[a-zA-Z_]*", , "", , )`
 
 * **source** \[mailNickname\]
 * **oldValue**: "john_doe72"
 * **replaceValue**: ""
 * **Expression output**: 72
-
-`Replace([mailNickname], , "[a-zA-Z_]*", , "", , )`
-
 
 ---
 ### SelectUniqueValue
