@@ -161,11 +161,12 @@ az group create --name AzureArcTest --location EastUS --output table
 ```
 
 Output:
-<pre>
+
+```
 Location    Name
 ----------  ------------
 eastus      AzureArcTest
-</pre>
+```
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
