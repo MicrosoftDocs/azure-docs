@@ -76,6 +76,9 @@ Create a new datastore in a few steps with the Azure Machine Learning studio. Le
 1. Select **Datastores** on the left pane under **Manage**.
 1. Select **+ New datastore**.
 1. Complete the form to create and register a new datastore. The form intelligently updates itself based on your selections for Azure storage type. See [which storage types support identity-based](how-to-identity-based-data-access.md#storage-access-permissions) data access.
+    1. Customers need to choose the storage acct and container name they want to use
+Blob reader role (for ADLS Gen 2 and Blob storage) is required; whoever is creating needs permissions to see the contents of the storage
+Reader role of the subscription and resource group
 1. Select **No** to  not **Save credentials with the datastore for data access**.
 
 The following example demonstrates what the form looks like when you create an **Azure blob datastore**:
@@ -157,7 +160,7 @@ To ensure you securely connect to your Azure storage service, Azure Machine Lear
 
 ### Virtual network
 
-If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Network isolation & privacy](how-to-enable-studio-virtual-network.md) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
+If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
 
 ### Access validation
 

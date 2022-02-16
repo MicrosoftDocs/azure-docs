@@ -137,7 +137,7 @@ A PubSub WebSocket client can:
 You may have noticed that for a [simple WebSocket client](#simple_client), the *server* is a MUST HAVE role to handle the events from clients. A simple WebSocket connection always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. With the help of the `json.webpubsub.azure.v1` subprotocol, an authorized client can join a group and publish messages to a group directly. It can also route messages to different upstream (event handlers) by customizing the *event* the message belongs. 
 
 #### Scenarios:
-Such clients can be used when clients want to talk to each other. Messages are sent from `client1` to the service and the service delivers the message directly to `client2` if the clients are authorized to do so.
+Such clients can be used when clients want to talk to each other. Messages are sent from `client2` to the service and the service delivers the message directly to `client1` if the clients are authorized to do so.
 
 Client1:
 

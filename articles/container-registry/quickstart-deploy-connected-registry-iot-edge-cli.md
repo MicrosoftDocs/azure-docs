@@ -5,7 +5,8 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Deploy a connected registry to an IoT Edge device

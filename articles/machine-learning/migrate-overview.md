@@ -11,7 +11,7 @@ ms.author: zhanxia
 ms.date: 10/21/2021
 ---
 
-# Migrate to Azure Machine Learning 
+# Migrate to Azure Machine Learning from ML Studio (classic)
 
 > [!IMPORTANT]
 > Support for Machine Learning Studio (classic) will end on 31 August 2024. We recommend you transition to [Azure Machine Learning](./overview-what-is-azure-machine-learning.md) by that date.

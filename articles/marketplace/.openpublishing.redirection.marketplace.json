@@ -1,8 +1,18 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/azure-resource-manager/managed-application-author-marketplace.md",
-            "redirect_url": "/azure/marketplace/azure-app-offer-setup",
+            "source_path_from_root": "/articles/azure/marketplace/reference-architecture-diagram.md",
+            "redirect_url": "/partner-center/reference-architecture-diagram",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-states.md",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-countries.md",
+            "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
             "redirect_document_id": false
         },
         {
@@ -1555,7 +1565,12 @@
             "redirect_url": "/azure/marketplace/integrated-solutions-for-publishers",
             "redirect_document_id": false
         },
-        {
+         {
+            "source_path_from_root": "/articles/marketplace/isv-private-offer-faq.yml",
+            "redirect_url": "/azure/marketplace/isv-csp-faq",
+            "redirect_document_id": false
+        },
+       {
             "source_path_from_root": "/articles/marketplace/iot-edge-module.md",
             "redirect_url": "/azure/marketplace/marketplace-iot-edge",
             "redirect_document_id": false
@@ -1570,6 +1585,16 @@
             "redirect_url": "/azure/marketplace/publisher-guide-by-offer-type",
             "redirect_document_id": true
         },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-managed-apps.md",
+            "redirect_url": "/azure/marketplace/plan-azure-app-managed-app",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/marketplace-solution-templates.md",
+            "redirect_url": "/azure/marketplace/plan-azure-app-solution-template",
+            "redirect_document_id": true
+        },                
         {
             "source_path_from_root": "/articles/marketplace/marketplace-co-sell.md",
             "redirect_url": "/azure/marketplace/co-sell-overview",
