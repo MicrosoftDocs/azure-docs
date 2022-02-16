@@ -391,7 +391,7 @@ Follow these steps to create your App Service resources and publish your project
     1. Select **Create a new App Service plan**, provide a name, and select the **F1 Free** [pricing tier][app-service-pricing-tier].
     1. Select **Skip for now** for the Application Insights resource.
 
-1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes**. As long as you're in the same workspace, Visual Studio Code deploys to the same App Service app each time.
+1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes**, so that Visual Studio Code deploys to the same App Service app each time, when you're in the same workspace.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
     ### [.NET 6.0](#tab/net60)
@@ -432,7 +432,7 @@ Follow these steps to create your App Service resources and publish your project
     - Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
     - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
     
-    The command might take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then, a outputs message with the app's URL is displayed:
+    The command might take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. Then it shows a message with the app's URL:
     
     ```azurecli
     You can launch the app at http://<app-name>.azurewebsites.net
@@ -477,7 +477,7 @@ Follow these steps to create your App Service resources and publish your project
     New-AzWebApp -Name <app-name> -Location westeurope
     ```
 
-    - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). Combination of your company name and an app identifier is a good pattern.
+    - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A combination of your company name and an app identifier is a good pattern.
     - You can optionally include the parameter `-Location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) command.
 
     The command might take a few minutes to complete. While running, it creates a resource group, an App Service plan, and the App Service resource.
