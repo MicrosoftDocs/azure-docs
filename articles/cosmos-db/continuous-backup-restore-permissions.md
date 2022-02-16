@@ -4,17 +4,17 @@ description: Learn how to isolate and restrict the restore permissions for conti
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 02/16/2022
 ms.author: govindk
-ms.reviewer: sngun
+ms.reviewer: wiassaf
 ---
 
 # Manage permissions to restore an Azure Cosmos DB account
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. These permissions can be applied at the subscription scope  as shown in the following image:
+Azure Cosmos DB allows you to isolate and restrict the restore permissions for continuous backup account to a specific role or a principal. The owner of the account can trigger a restore and assign a role to other principals to perform the restore operation. These permissions can be applied at the subscription scope as shown in the following image:
 
-:::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions2.png" alt-text="List of roles required to perform restore operation." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions2.png" border="false":::
+:::image type="content" source="./media/continuous-backup-restore-permissions/restore-roles-permissions.svg" alt-text="List of roles required to perform restore operation." lightbox="./media/continuous-backup-restore-permissions/restore-roles-permissions.svg" border="false":::
 
 Scope is a set of resources that have access, to learn more on scopes, see the [Azure RBAC](../role-based-access-control/scope-overview.md) documentation. In Azure Cosmos DB, applicable scopes are the source subscription and database account for most of the use cases. The principal performing the restore actions should have write permissions to the destination resource group.
 
