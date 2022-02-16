@@ -49,7 +49,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) (ADAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../../active-directoryactive-directory/develop/authentication-flows-app-scenarios.md) (MSAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
 
 ```powershell
 $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -71,6 +71,7 @@ $authHeader = @{
 'Accept'='application/json'
 'Authorization'=$result.CreateAuthorizationHeader()
 }
+ 
 ```
 
 After authenticating, queries can then be executed against the Azure Monitor REST API. There are two helpful queries:
@@ -95,6 +96,7 @@ For example, to retrieve the metric definitions for an Azure Storage account, th
 
 ```powershell
 $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2018-01-01"
+
 
 Invoke-RestMethod -Uri $request `
                   -Headers $authHeader `
