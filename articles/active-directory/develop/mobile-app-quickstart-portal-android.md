@@ -260,7 +260,7 @@ private void loadAccount() {
 
 #### Call Microsoft Graph
 
-When a user is signed in, the call to Microsoft Graph is made via an HTTP request by `callGraphAPI()` which is defined in `SingleAccountModeFragment.java`. This function is a wrapper that simplifies the sample by doing some tasks such as getting the access token from the `authenticationResult` and packaging the call to the MSGraphRequestWrapper, and displaying the results of the call.
+When a user is signed in, the call to Microsoft Graph is made via an HTTP request by `callGraphAPI()` that is defined in `SingleAccountModeFragment.java`. This function is a wrapper that simplifies the sample by doing some tasks such as getting the access token from the `authenticationResult` and packaging the call to the MSGraphRequestWrapper, and displaying the results of the call.
 
 ```java
 private void callGraphAPI(final IAuthenticationResult authenticationResult) {
@@ -286,7 +286,7 @@ private void callGraphAPI(final IAuthenticationResult authenticationResult) {
 
 ### auth_config_single_account.json
 
-This is the configuration file for a MSAL app that uses a single account.
+This is the configuration file for an MSAL app that uses a single account.
 
 See [Understand  the Android MSAL configuration file ](msal-configuration.md) for an explanation of these fields.
 
