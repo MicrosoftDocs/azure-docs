@@ -2,8 +2,8 @@
 title: Understand Azure IoT Hub quotas and throttling
 
 description: Developer guide - description of the quotas that apply to IoT Hub and the expected throttling behavior.
-author: eross-msft
-ms.author: lizross
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

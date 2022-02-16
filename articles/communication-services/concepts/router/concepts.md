@@ -128,10 +128,10 @@ An exception policy controls the behavior of a Job based on a trigger and execut
 [nuget]: https://www.nuget.org/
 [netstandars2mappings]:https://github.com/dotnet/standard/blob/master/docs/versions.md
 [useraccesstokens]:https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens?pivots=programming-language-csharp
-[communication_resource_docs]: https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
-[communication_resource_create_portal]:  https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp
-[communication_resource_create_power_shell]: https://docs.microsoft.com/powershell/module/az.communication/new-azcommunicationservice
-[communication_resource_create_net]: https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-net
+[communication_resource_docs]: ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
+[communication_resource_create_portal]:  ../../quickstarts/create-communication-resource.md?pivots=platform-azp&tabs=windows
+[communication_resource_create_power_shell]: /powershell/module/az.communication/new-azcommunicationservice
+[communication_resource_create_net]: ../../quickstarts/create-communication-resource.md?pivots=platform-net&tabs=windows
 
 [subscribe_events]: ../../how-tos/router-sdk/subscribe-events.md
 [worker_registered_event]: ../../how-tos/router-sdk/subscribe-events.md#microsoftcommunicationrouterworkerregistered
