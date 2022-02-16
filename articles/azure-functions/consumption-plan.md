@@ -24,7 +24,7 @@ To learn more about how to estimate costs when running in a Consumption plan, se
 
 ## Create a Consumption plan function app
 
-When you create a function app in the Azure portal, the Consumption plan is the default. When using APIs to create you function app, you don't have to first create an App Service plan as you do with Premium and Dedicated plans.
+When you create a function app in the Azure portal, the Consumption plan is the default. When using APIs to create your function app, you don't have to first create an App Service plan as you do with Premium and Dedicated plans.
 
 Use the following links to learn how to create a serverless function app in a Consumption plan, either programmatically or in the Azure portal:
 

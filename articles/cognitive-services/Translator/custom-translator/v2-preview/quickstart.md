@@ -24,7 +24,7 @@ To use the [Custom Translator](https://preview.portal.customtranslator.azure.ai/
 * A [Microsoft account](https://signup.live.com).
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
-* Once you have an Azure subscription, [create a Translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* Once you have an Azure subscription, [create a Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
 
     :::image type="content" source="../../media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
@@ -36,7 +36,7 @@ Once you have the above prerequisites, sign in to the [Custom Translator](https:
 You can read an overview of translation and custom translation, learn some tips, and watch a getting started video in the [Azure AI technical blog](https://techcommunity.microsoft.com/t5/azure-ai/customize-a-translation-to-make-sense-in-a-specific-context/ba-p/2811956).
 
 >[!Note]
->Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](/azure/api-management/api-management-using-with-vnet?tabs=stv2).
+>Custom Translator does not support creating workspace for a Translator Text API resource created inside an [Enabled VNet](../../../../api-management/api-management-using-with-vnet.md?tabs=stv2).
 
 ## Process summary
 
