@@ -74,5 +74,5 @@ This command may take a minute to run.
 ## Next steps
 
 - [Tutorial: Isolate back-end communication with Virtual Network integration](../../tutorial-networking-isolate-vnet.md)
-- [Integrate your app with an Azure virtual network](overview-vnet-integration.md)
+- [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
 - [App Service networking features](../../networking-features.md)

@@ -27,8 +27,6 @@ ms.custom: devx-track-azurecli
     az webapp up --sku F1 --resource-group $groupName --name $appName --plan $appName --location $region
     ```
 
-    ### [PHP](#tab/php)
-
     ```azurecli-interactive
     # Clone and prepare sample application
     git clone https://github.com/Azure-Samples/app-service-language-detector.git

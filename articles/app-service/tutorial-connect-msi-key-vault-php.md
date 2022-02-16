@@ -14,6 +14,18 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-connect-msi-key-vault/introduction.md)]
 
+1. Create a Cognitive Services resource. Replace *\<cs-resource-name>* with a unique name of your choice.
+
+    ```azurecli-interactive
+    # Save resource name as variable for convenience. 
+    csResourceName=<cs-resource-name>
+
+    az cognitiveservices account create --resource-group $groupName --name $csResourceName --location $region --kind TextAnalytics --sku F0 --custom-domain $csResourceName
+    ```
+
+    > [!NOTE]
+    > `--sku F0` creates a free tier Cognitive Services resource. Each subscription is limited to a quota of one free-tier `TextAnalytics` resource. If you're already over the quota, use `--sku S` instead.
+
     ```azurecli-interactive
     # Clone and prepare sample application
     git clone https://github.com/Azure-Samples/app-service-language-detector.git

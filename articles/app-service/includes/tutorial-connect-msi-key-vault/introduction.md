@@ -8,7 +8,7 @@
 With this architecture: 
 
 - Connectivity to Key Vault is secured by managed identities
-- App Service accesses the secrets using [Key Vault references](../../app../../-service-key-vault-references.md) as app settings.
+- App Service accesses the secrets using [Key Vault references](../../app-service-key-vault-references.md) as app settings.
 - Access to the key vault is restricted to the app. App contributors, such as administrators, may have complete control of the App Service resources, and at the same time have no access to the Key Vault secrets.
 - If your application code already accesses connection secrets with app settings, no change is required.
 
@@ -38,14 +38,3 @@ Prepare your environment for the Azure CLI.
     az group create --name $groupName --location $region
     ```
 
-1. Create a Cognitive Services resource. Replace *\<cs-resource-name>* with a unique name of your choice.
-
-    ```azurecli-interactive
-    # Save resource name as variable for convenience. 
-    csResourceName=<cs-resource-name>
-
-    az cognitiveservices account create --resource-group $groupName --name $csResourceName --location $region --kind TextAnalytics --sku F0 --custom-domain $csResourceName
-    ```
-
-    > [!NOTE]
-    > `--sku F0` creates a free tier Cognitive Services resource. Each subscription is limited to a quota of one free-tier `TextAnalytics` resource. If you're already over the quota, use `--sku S` instead.
