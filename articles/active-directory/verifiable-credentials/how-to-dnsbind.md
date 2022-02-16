@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/14/2022
+ms.date: 02/16/2022
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -107,8 +107,18 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 
 ## How do you change a linked domain?
 
+1. Navigate to the Verifiable Credentials | Getting Started page.  
+1. One the left side of the page select **Domaain**.
+1. In the **Domain** box enter your new domain name.
+1. Choose **Publish**.
 
-TBD
+:::image type="content" source="media/how-to-dnsbind/publish-update-domain.png" alt-text="Choose the publish button so your changes become":::
+
+>[!NOTE]
+>If your changes are successful you will need to [verify](#verified-domain) your newly added domain.
+
+
+:::image type="content" source="media/how-to-dnsbind/verification.png" alt-text="You need to verify your domain once that the publishing process completes":::
 
 ### Do I need to wait for my DID Doc to be updated to verify my newly added domains?
 
