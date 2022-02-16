@@ -22,7 +22,7 @@ In this tutorial, you migrate the **AdventureWorks** database from an on-premise
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
-> * Launch the Migrate to Azure SQL wizard in Azure Data Studio
+> * Launch the *Migrate to Azure SQL* wizard in Azure Data Studio
 > * Run an assessment of your source SQL Server database(s)
 > * Collect performance data from your source SQL Server
 > * Get a recommendation of the Azure SQL Managed Instance SKU best suited for your workload
@@ -44,7 +44,7 @@ To complete this tutorial, you need to:
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Owner or Contributor role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
     - Owner or Contributor role for the Azure subscription (required if creating a new DMS service).
-* Create a SQL Managed Instance by following the detail in the article [Create a SQL Managed Instance in the Azure portal](../azure-sql/managed-instance/instance-create-quickstart.md).
+* Create a target [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 * Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
 * Provide an SMB network share, Azure storage account file share, or Azure storage account blob container that contains your full database backup files and subsequent transaction log backup files, which Azure Database Migration Service can use for database migration.
     > [!IMPORTANT]
