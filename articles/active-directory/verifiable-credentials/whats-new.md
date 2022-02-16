@@ -51,8 +51,8 @@ Applications that use the Azure Active Directory Verifiable Credentials service 
 
 | Tenant region | Request API endpoint POST |
 |------------|-------------------|
-| Europe | https://beta.eu.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request |
-| Non-EU | https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request  |
+| Europe | `https://beta.eu.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request` |
+| Non-EU | `https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request`  |
 
 To confirm which endpoint you should use, we recommend checking your Azure AD tenant's region as described above. If the Azure AD tenant is in the EU, you should use the Europe endpoint.  
 
