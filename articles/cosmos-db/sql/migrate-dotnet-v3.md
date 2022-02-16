@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/13/2022
+ms.date: 02/15/2022
 ms.devlang: csharp
 ---
 
@@ -88,6 +88,8 @@ The following classes have been replaced on the 3.0 SDK:
 * `Microsoft.Azure.Documents.Resource`
 
 The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design. The fluent design builds URLs internally and allows a single `Container` object to be passed around instead of a `DocumentClient`, `DatabaseName`, and `DocumentCollection`.
+
+Because the .NET v3 SDK allows users to configure a custom serialization engine, there is no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
 
 ### Changes to item ID generation
 

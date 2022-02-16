@@ -5,9 +5,9 @@ keywords: external Hive Metastore,share,Synapse
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
-ms.author: yanacai 
-author: yanancai
-ms.date: 09/08/2021
+author: juluczni
+ms.author: juluczni
+ms.date: 02/15/2022
 ---
 
 # Use external Hive Metastore for Synapse Spark Pool

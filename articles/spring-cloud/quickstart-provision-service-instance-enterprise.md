@@ -111,4 +111,4 @@ It takes about 5 minutes to finish the resource provisioning.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set up Application Configuration Service](quickstart-setup-application-configuration-service-enterprise.md)
+> [Quickstart: Set up Application Configuration Service for Tanzu](quickstart-setup-application-configuration-service-enterprise.md)
