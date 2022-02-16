@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/09/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -36,7 +36,7 @@ This article describes how to use the **Activity triggers** dashboard in CloudKn
     - **Alerts**
     - **Alert triggers**
 
-## The Alerts subtab
+## View information about alerts
 
 The **Alerts** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tabs display the following information:
 
@@ -59,7 +59,7 @@ The **Rule-based anomaly** tab and the **Statistical anomaly** tab both have one
 - **Columns**: Select the columns you want to display: **Task**, **Resource**, and **Identity**.
     - To return to the system default settings, select **Reset to default**.
 
-## The Alert triggers subtab
+## View information about alert triggers
 
 The **Alert triggers** subtab in the **Activity**, **Rule-based anomaly**, **Statistical anomaly**, and **Permission analytics** tab displays the following information:
 

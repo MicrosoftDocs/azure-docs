@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -55,7 +55,7 @@ The report name appears in the **Reports** table.
     - **Report Name**: The name of the report.
     - **Category**: The type of report: **Permission**.
     - **Authorization System**: The authorization system in which you can view the report: AWS, Azure, and GCP.
-    - **Format**: The format of the report, comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format
+    - **Format**: The format of the report, **CSV**, **PDF**, or **XLSX** format.
 
 1. To view a report, from the **Report Name** column, select the report you want.
 1. To download a report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.
