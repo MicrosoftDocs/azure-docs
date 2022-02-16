@@ -4,7 +4,7 @@ description: Learn how to isolate and restrict the restore permissions for conti
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 02/15/2022
 ms.author: govindk
 ms.reviewer: sngun
 ---
