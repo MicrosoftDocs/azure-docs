@@ -39,7 +39,7 @@ At the top of the report, you’ll see two filters:
 - **Aggregation type** – Each of the insights in the report have been aggregated by user counts and tenant counts (count of unique customers using your app). You can choose which aggregation type you want to explore for each of the subsequent metrics.
 - **App name** – Provides a list of Teams store apps that you have published. The insights in this report are specific to the app you select.
 
-[ ![Screenshot of the Teams apps usage page in Partner Center that shows the aggregation type and App name filters.](./images/teams-apps-usage-report/teams-apps-usage-menu.png) ](./images/teams-apps-usage-report/teams-apps-usage-menu.png#lightbox)
+[ ![Screenshot of the Teams apps usage page in Partner Center that shows the aggregation type and App name filters.](./images/teams-apps-usage-report/teams-apps-usage-filters.png) ](./images/teams-apps-usage-report/teams-apps-usage-filters.png#lightbox)
 
 ### Filter by other Dimensions
 
@@ -92,7 +92,7 @@ This table defines the metrics in this widget.
 | Monthly active users | The count of distinct users or tenants who opened your app in a given RL30 (Rolling 30 day) period. |
 | Weekly active users | The count of distinct users or tenants who opened your app in a given RL7 (Rolling 7 day) period. |
 | Daily active users | The count of distinct users or tenants who opened your app in a given RL1 (Rolling 1 day) period. |
-| DAU/MAU | The average number of unique users or tenants who used your app each day divided by the Monthly active users for the selected RL30 time-period. This is also known as the _stickiness ratio_. |
+| DAU/MAU | The average number of unique users or tenants who used your app each day divided by the _Monthly active users_ for the selected RL30 time-period. This is also known as the _stickiness ratio_. |
 | New users | Active users or tenants who are new during this RL30 time-period and have not used this app before. |
 | Resurrected users | Active users or tenants who have used your app before, but not in the immediately preceding RL30 time-period. |
 | Returning users | Active users or tenants who used your app during a given RL30 time-period and the immediately preceding RL30 time-period. |
@@ -111,7 +111,7 @@ Available Operating System endpoints:
 - Windows
 - Mac
 - iOS
-- Android.
+- Android
 
 Available Platform endpoints:
 - Desktop
