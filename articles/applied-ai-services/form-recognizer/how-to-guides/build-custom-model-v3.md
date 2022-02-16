@@ -40,7 +40,7 @@ When you've put together the set of forms or documents that you'll use for train
 
 The Form Recognizer Studio provides orchestrates all the API calls required to create the files required to complete your dataset and to train your model.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). If this is your first time using the Studio, you'll need to [initialize it for use](../quickstarts/try-v3-form-recognizer-studio.md#sign-into-the-form-recognizer-studio-preview). Follow the [additional prerequisite for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). If this is your first time using the Studio, you'll need to [initialize it for use](../quickstarts/try-v3-form-recognizer-studio.md). Follow the [additional prerequisite for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 
 1. In the Studio select the `Custom models` tile, on the custom models page select on the `Create a project` button.
