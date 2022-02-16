@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Connect an existing Kubernetes cluster to Azure Arc
+title: "Quickstart: Connect an existing Kubernetes cluster to Azure Arc"
 description: In this quickstart, you learn how to connect an Azure Arc-enabled Kubernetes cluster.
 ms.topic: quickstart
 ms.date: 02/16/2022
@@ -37,7 +37,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
   * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
   * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
   * Self-managed Kubernetes cluster using [Cluster API](https://cluster-api.sigs.k8s.io/user/quick-start.html)
-  * If you want to connect a OpenShift cluster to Azure Arc, you need to execute the following command just once on your cluster before running `az connectedk8s connect`:
+  * If you want to connect a OpenShift cluster to Azure Arc, execute the following command one time on your cluster before running `az connectedk8s connect`:
 
     ```
     oc adm policy add-scc-to-user privileged system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa
@@ -341,15 +341,15 @@ Azure Arc-enabled Kubernetes deploys a few agents into the `azure-arc` namespace
 
 1. View these deployments and pods using:
 
-  ```
-  kubectl get deployments,pods -n azure-arc
-  ```
+   ```
+   kubectl get deployments,pods -n azure-arc
+   ```
 
 1. Verify all pods are in a `Running` state.
 
-  Output:
+   Output:
 
-  ```
+   ```
     NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
     deployment.apps/cluster-metadata-operator   1/1     1            1           13d
     deployment.apps/clusterconnect-agent        1/1     1            1           13d
@@ -373,7 +373,7 @@ Azure Arc-enabled Kubernetes deploys a few agents into the `azure-arc` namespace
     pod/kube-aad-proxy-67b87b9f55-bthqv             2/2     Running   0          13d
     pod/metrics-agent-575c565fd9-k5j2t              2/2     Running   0          13d
     pod/resource-sync-agent-6bbd8bcd86-x5bk5        2/2     Running   0          13d
-  ```
+   ```
 
 For more information about these agents, see [Azure Arc-enabled Kubernetes agent overview](conceptual-agent-overview.md).
 
