@@ -184,7 +184,7 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
 1. The duration will be set to the sum of the duration day(s) you specified in each stage.
 
-1. Specify the **Review recurrence**, the **Start date**, and **End date** for the review. 
+1. Specify the **Review recurrence**, the **Start date**, and **End date** for the review. The recurrence type must be at least as long as the total duration of the recurrence (i.e., the max duration for a weekly review recurrence is 7 days).
 
 1. To specify which reviewees will continue from stage to stage, select one of the following options next to **Specify reviewees to go to next stage** :
      ![Screenshot that shows specify reviewees setting and options for multi-stage review.](./media/create-access-review/next-stage-reviewees-setting.png)
