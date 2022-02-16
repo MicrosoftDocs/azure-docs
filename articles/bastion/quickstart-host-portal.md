@@ -76,7 +76,7 @@ You can use the following example values when creating this configuration, or yo
 
 There are a few different ways to configure a bastion host. In the following steps, you'll create a bastion host in the Azure portal directly from your VM. When you create a host from a VM, various settings will automatically populate corresponding to your virtual machine and/or virtual network.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the VM that you want to connect to, then select **Connect**.
 
    :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="Screenshot of virtual machine settings." lightbox="./media/quickstart-host-portal/vm-connect.png":::

@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 01/24/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 # Connect to Azure Data Lake Gen2 in Azure Purview
@@ -252,10 +252,21 @@ It is important to give your service principal the permission to scan the ADLS G
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Access policy
-[!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
-[!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
 
-Follow this configuration guide to [enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
+Access policies allow data owners to manage access to datasets from Azure Purview. Owners can monitor and manage data use from within the Azure Purview Studio, without directly modifying the storage account where the data is housed.
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+To create an access policy for Azure Data Lake Storage Gen 2, follow the guidelines below.
+
+[!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
+
+### Create an access policy
+
+Now that you’ve prepared your storage account and environment for access policies, you can follow one of these configuration guides to create your policies:
+
+- [Single storage account](./tutorial-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single storage account in your subscription.
+- [All sources in a subscription or resource group](./tutorial-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
 
 ## Next steps
 
