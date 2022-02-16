@@ -1,7 +1,7 @@
 ---
 title: Connect hybrid machines to Azure at scale
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using a service principal.
-ms.date: 02/10/2022
+ms.date: 02/16/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 You can create a service principal in the Azure portal or by using Azure PowerShell.
 
 > [!NOTE]
-> To create a service principal and assign roles, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding. If you don't have sufficient permissions to configure role assignments, the service principal might still be created, but it won't be able to onboard machines.
+> To create a service principal and assign roles, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding.
 
 ### Azure portal
 
@@ -78,7 +78,7 @@ The values from the following properties are used with parameters passed to the 
 > [!TIP]
 > Make sure to use the service principal **ApplicationId** property, not the **Id** property.
 
-The **Azure Connected Machine Onboarding** role contains only the permissions required to onboard a machine. You can assign the service principal permission to allow its scope to include a resource group or a subscription. To add role assignments, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) or [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+4. Assign the **Azure Connected Machine Onboarding** role to the service principal for the designated resource group or subscription. This role contains only the permissions required to onboard a machine. Note that your account must be a member of the **Owner** or **User Access Administrator** role for the subscription to which the service principal will have access. For information on how to add role assignments, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md) or [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
 ## Generate the installation script from the Azure portal
 
