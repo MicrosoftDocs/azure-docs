@@ -113,4 +113,5 @@ We invite you to join our community here: <horizon-community@microsoft.com>
 
 ## Next steps
 
-[Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules).
+[Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules)
+[About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information)
