@@ -37,13 +37,13 @@ You can create a MedTech service from the [Azure portal](deploy-iot-connector-in
 
 Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [DICOM service](../dicom/deploy-dicom-services-in-azure.md) in the workspace.
 
-## Assign roles to allow IoT to access Event Hub
+## Assign roles to allow MedTech serviceto access Event Hub
 
-By design, the MedTech service retrieves data from the specified Event Hub using the system-managed identity. For more information on how to assign the role to the MedTech service from [Event Hub](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-iot-connector-access).
+By design, the MedTech service retrieves data from the specified Event Hub using the system-managed identity. For more information on how to assign the role to the MedTech service from [Event Hub](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-medtech-service-access).
 
 ## Assign roles to allow MedTech service to access FHIR service
 
-The MedTech service persists the data to the FHIR store using the system-managed identity. See details on how to assign the role to the MedTech service from the [FHIR service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-iot-connector-from-the-fhir-service).
+The MedTech service persists the data to the FHIR store using the system-managed identity. See details on how to assign the role to the MedTech service from the [FHIR service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-medtech-service-from-the-fhir-service).
 
 ## Sending data to the MedTech service
 
