@@ -15,10 +15,12 @@ ms.date: 01/05/2022
 # What's new in Azure SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqlmi.md)]
 
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](../database/doc-changes-updates-release-notes-whats-new.md)
+> * [Azure SQL Managed Instance](../managed-instance/doc-changes-updates-release-notes-whats-new.md)
+
 This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Managed Instance](https://azure.microsoft.com/updates/?product=sql-database&query=sql%20managed%20instance). To learn more about Azure SQL Managed Instance, see the [overview](sql-managed-instance-paas-overview.md).
 
-
-For Azure SQL Database, see [What's new](../database/doc-changes-updates-release-notes-whats-new.md).
 
 ## Preview
 

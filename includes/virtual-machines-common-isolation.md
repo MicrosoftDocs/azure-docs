@@ -24,6 +24,10 @@ The current Isolated virtual machine offerings include:
 * Standard_E104is_v5
 * Standard_E104id_v5
 * Standard_E104ids_v5
+* Standard_M192is_v2
+* Standard_M192ims_v2
+* Standard_M192ids_v2
+* Standard_M192idms_v2
 * Standard_F72s_v2
 * Standard_M128ms
 * Standard_DC8_v2

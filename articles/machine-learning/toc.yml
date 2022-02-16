@@ -300,6 +300,8 @@
                 href: how-to-move-workspace.md
               - name: Link to Azure Synapse Analytics workspace
                 href: how-to-link-synapse-ml-workspaces.md
+              - name: Securely integrate Azure Synapse & Azure Machine Learning
+                href: how-to-private-endpoint-integration-synapse.md
               - name: Workspace Diagnostics
                 href: how-to-workspace-diagnostic-api.md
           - name: Create & manage compute resources
@@ -310,9 +312,6 @@
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
-              - name: Upgrade host OS
-                displayName: upgrade compute cluster, upgrade compute instance, upgrade ubuntu
-                href: how-to-compute-cluster-instance-os-upgrade.md
               - name: Azure Arc-enabled machine learning
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
                 href: how-to-attach-arc-kubernetes.md
@@ -724,6 +723,9 @@
         - name: Manage resources VS Code
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
+        - name: Search across workspaces
+          displayName: search, global, assets
+          href: how-to-search-cross-workspace.md
 - name: Troubleshoot & debug
   items:
     - name: VS Code interactive debugging
@@ -816,8 +818,8 @@
     - name: Hyperparameters for AutoML computer vision tasks
       displayName: automl, yolo-5
       href: reference-automl-images-hyperparameters.md
-    - name: Designer module reference
-      displayName: module, reference, algorithm, studio
+    - name: Designer component reference
+      displayName: module, component, reference, algorithm, studio
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md

@@ -37,6 +37,8 @@ Add the following application settings with below values, then click Save on the
 XDT_MicrosoftApplicationInsights_Java -> 1
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ```
+> [!IMPORTANT]
+> This feature will have a cold start implication of 8-9 seconds in the Windows Consumption plan.
 
 #### Linux Dedicated/Premium
 ```

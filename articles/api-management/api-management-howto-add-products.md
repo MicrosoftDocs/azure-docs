@@ -7,7 +7,8 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 01/18/2022
 ms.author: danlep
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 # Tutorial: Create and publish a product

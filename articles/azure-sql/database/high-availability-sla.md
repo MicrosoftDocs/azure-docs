@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma, emlisa
-ms.date: 1/20/2022
+ms.date: 1/27/2022
 ---
 
 # High availability for Azure SQL Database and SQL Managed Instance
@@ -49,7 +49,7 @@ Zone-redundant configuration for the general purpose service tier is offered for
 
 Zone-redundant configuration for the general purpose tier has two layers:  
 
-- A stateful data layer with the database files (.mdf/.ldf) that are stored in ZRS(zone-redundant storage). Using [ZRS](../../storage/common/storage-redundancy.md) the data and log files are synchronously copied across three physically-isolated Azure availability zones.
+- A stateful data layer with the database files (.mdf/.ldf) that are stored in ZRS(zone-redundant storage). Using [ZRS](../../storage/common/storage-redundancy.md) the data and log files are synchronously copied across three physically isolated Azure availability zones.
 - A stateless compute layer that runs the sqlservr.exe process and contains only transient and cached data, such as TempDB, model databases on the attached SSD, and plan cache, buffer pool, and columnstore pool in memory. This stateless node is operated by Azure Service Fabric that initializes sqlservr.exe, controls health of the node, and performs failover to another node if necessary. For zone-redundant serverless and provisioned general purpose databases, nodes with spare capacity are readily available in other Availability Zones for failover.
 
 The zone-redundant version of the high availability architecture for the general purpose service tier is illustrated by the following diagram:
@@ -57,7 +57,7 @@ The zone-redundant version of the high availability architecture for the general
 ![Zone redundant configuration for general purpose](./media/high-availability-sla/zone-redundant-for-general-purpose.png)
 
 > [!IMPORTANT]
-> Zone-redundant configuration is only available when the Gen5 compute hardware is selected. This feature is not available in SQL Managed Instance. Zone-redundant configuration for serverless and provisioned general purpose tier is only available in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Southeast Asia, Australia East, Japan East, UK South, and France Central.
+> Zone-redundant configuration is not available in SQL Managed Instance. In SQL Database this feature is only available when the Gen5 compute hardware is selected. Additionally, for serverless and provisioned general purpose tier, the zone-redundant configuration is only available in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Southeast Asia, Australia East, Japan East, UK South, and France Central.
 
 > [!NOTE]
 > General Purpose databases with a size of 80 vcore may experience performance degradation with zone-redundant configuration. Additionally, operations such as backup, restore, database copy, setting up Geo-DR relationships, and downgrading a zone-redundant database from Business Critical to General Purpose may experience slower performance for any single databases larger than 1 TB. Please see our [latency documentation on scaling a database](single-database-scale.md) for more information.
@@ -82,10 +82,7 @@ By default, the cluster of nodes for the premium availability model is created i
 Because the zone-redundant databases have replicas in different datacenters with some distance between them, the increased network latency may increase the commit time and thus impact the performance of some OLTP workloads. You can always return to the single-zone configuration by disabling the zone-redundancy setting. This process is an online operation similar to the regular service tier upgrade. At the end of the process, the database or pool is migrated from a zone-redundant ring to a single zone ring or vice versa.
 
 > [!IMPORTANT]
-> When using the Business Critical tier, zone-redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone-redundant databases, see [Services support by region](../../availability-zones/az-region.md).
-
-> [!NOTE]
-> This feature is not available in SQL Managed Instance.
+> This feature is not available in SQL Managed Instance. In SQL Database, when using the Business Critical tier, zone-redundant configuration is only available when the Gen5 compute hardware is selected. For up to date information about the regions that support zone-redundant databases, see [Services support by region](../../availability-zones/az-region.md).
 
 The zone-redundant version of the high availability architecture is illustrated by the following diagram:
 
@@ -122,9 +119,9 @@ A failover can be initiated using PowerShell, REST API, or Azure CLI:
 
 |Deployment type|PowerShell|REST API| Azure CLI|
 |:---|:---|:---|:---|
-|Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az_rest) may be used to invoke a REST API call from Azure CLI|
-|Elastic pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/javascript/api/@azure/arm-sql/elasticpools#failover_string__string__string__msRest_RequestOptionsBase)|[az rest](/cli/azure/reference-index#az_rest) may be used to invoke a REST API call from Azure CLI|
-|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az_sql_mi_failover)|
+|Database|[Invoke-AzSqlDatabaseFailover](/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Database failover](/rest/api/sql/databases/failover)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
+|Elastic pool|[Invoke-AzSqlElasticPoolFailover](/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Elastic pool failover](/javascript/api/@azure/arm-sql/elasticpools)|[az rest](/cli/azure/reference-index#az-rest) may be used to invoke a REST API call from Azure CLI|
+|Managed Instance|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Managed Instances - Failover](/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
 > The Failover command is not available for readable secondary replicas of Hyperscale databases.
