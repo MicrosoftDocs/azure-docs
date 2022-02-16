@@ -28,7 +28,7 @@ Add managed instances of Azure SQL Managed Instance to a failover group. In this
  * [global VNet peering](../../virtual-network/virtual-network-peering-overview.md)
  * VPN gateways
 
-This tutorial provides steps for creating and connecting the VPN gateways. If you prefer to use ExpressRoute or VNet peering, replace the gateway steps accordingly, or 
+This tutorial provides steps for creating and connecting VPN gateways. If you prefer to use ExpressRoute or VNet peering, replace the gateway steps accordingly, or 
 skip ahead to [Step 7](#create-a-failover-group) if you already have ExpressRoute or global VNet peering configured. 
 
 
