@@ -562,11 +562,10 @@ To configure bring your own load balancer:
       {
       "apiVersion": "[variables('sfApiVersion')]",
       "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-      ...
       "properties": {
           "isPrimary": false,
           "useDefaultPublicLoadBalancer": true
-          ...
+          }
       }
    ```
 
