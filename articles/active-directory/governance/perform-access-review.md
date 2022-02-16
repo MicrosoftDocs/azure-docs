@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 2/09/2022
+ms.date: 2/18/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 Azure Active Directory (Azure AD) simplifies how enterprises manage access to groups and applications in Azure AD and other Microsoft Online Services with a feature called Azure AD access reviews. This article will go over how a designated reviewer performs an access review for members of a group or users with access to an application. If you would like to review access to an access package read [Review access of an access package in Azure AD entitlement management](entitlement-management-access-reviews-review-access.md)
 
 ## Perform access review using My Access
-You can review access to groups and applications two ways. You can review either via email or via My Access.
+You can review access to groups and applications via My Access, an end-user friendly portal for granting, approving, and reviewing access needs.
 
-### Use email
+### Use email to navigate to My Access
 
 >[!IMPORTANT]
 > There could be delays in receiving email and it some cases it could take up to 24 hours. Add azure-noreply@microsoft.com to your safe recipients list to make sure that you are receiving all emails.
@@ -34,15 +34,15 @@ You can review access to groups and applications two ways. You can review either
 
 1. Click the **Start review** link to open the access review.git pu
 
-### Use My Access 
+### Navigate directly to My Access 
 
 You can also view your pending access reviews by using your browser to open My Access.
 
-1. Sign  in to the My Access at https://myaccess.microsoft.com/
+1. Sign in to the My Access at https://myaccess.microsoft.com/
 
 2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
 
-## Review access
+## Review access for one or more users
 
 After you open My Access under Groups and Apps you can see:
 
@@ -62,7 +62,7 @@ Once that it opens, you will see the list of users in scope for the access revie
 
 There are two ways that you can approve or deny access:
 
-- You can manually approve or deny access for one or more users. You can also mark users as "Don't Know".
+- You can manually approve or deny access for one or more users.
 - You can accept the system recommendations.
 
 ### Manually review access for one or more users
@@ -72,7 +72,7 @@ There are two ways that you can approve or deny access:
 1. Select one or more users by clicking the circle next to their names.
 
 1. Select **Approve** or **Deny** on the bar above.
-    - If you are unsure if a user should continue to have access or not, you can click **Don't know**. The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide may be available to other reviewers.
+    - If you are unsure if a user should continue to have access or not, you can click **Don't know**. The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
 
     ![Open access review listing the users who need review](./media/perform-access-review/user-list-preview.png)
 
@@ -87,7 +87,7 @@ There are two ways that you can approve or deny access:
 
 ### Review access based on recommendations
 
-To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity in the 30-day period before the review started.
+To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
 
 1. Select one or more users and then Click **Accept recommendations**.
 
@@ -103,11 +103,11 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 ### Review access for one or more users in a multi-stage access review (preview)
 
-If multi-stage access reviews have been enabled by the administrator, there will be 2 or 3 total stages of review. Each stage of review will have a specified reviewer(s).
+If multi-stage access reviews have been enabled by the administrator, there will be 2 or 3 total stages of review. Each stage of review will have a specified reviewer.
 
 You will review access either manually or accept the recommendations based on sign-in activity for the stage you are assigned as the reviewer.
 
-If you are the 2nd stage or 3rd stage reviewer, you will also see the decisions made by the reviewers in the prior stage(s) if the administrator enabled this setting when creating the access review.
+If you are the 2nd stage or 3rd stage reviewer, you will also see the decisions made by the reviewers in the prior stage(s) if the administrator enabled this setting when creating the access review. The decision made by a 2nd or 3rd stage reviewer will overwrite the previous stage. So, the decision the 2nd stage reviewer makes will overwrite the first stage, and the 3rd stage reviewer's decision will overwrite the second stage.
 
  ![Select user to show the multi-stage access review results](./media/perform-access-review/multi-stage-access-review.png)
 
@@ -117,11 +117,9 @@ Approve or deny access as outlined in [Review access for one or more users](#rev
 > The next stage of the review won't become active until the duration specified during the access review setup has passed. If the administrator believes a stage is done but the review duration for this stage has not expired yet, they can use the **Stop current stage** button in the overview of the access review in the Azure AD portal. This will close the active stage and start the next stage. 
 
 ## If no action is taken on access review
-When the access review is setup, the administrator has the option to use advanced settings to determine what will
-happen in the event a reviewer doesn't respond to an access review request. 
+When the access review is setup, the administrator has the option to use advanced settings to determine what will happen in the event a reviewer doesn't respond to an access review request. 
 
-- If the administrator set **If reviewers don't respond** to **Remove access**, then the user's access will be removed if you don't take action on the access review request.
-- If the administrator set **If reviewers don't respond** to **Take recommendations**, then similar to when you accept recommendations, the user's access with be determined by their sign in activity if you don't take action on the access review request.
+The administrator can set up the review so that if reviewers do not respond at the end of the review period, all unreviewed users can have an automatic decision made on their access. This includes the loss of access to the group or application under review.
 
 ## Next steps
 
