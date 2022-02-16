@@ -342,6 +342,9 @@ call mysql. az_replication_skip_gtid_transaction(‘<transaction_gtid>’)
 
 The procedure can skip the transaction for the given GTID. If the GTID format is not right or the GTID transaction has already been executed, the procedure will fail to execute. The GTID for a transaction can be determined by parsing the binary log to check the transaction events. MySQL provides a utility [mysqlbinlog](https://dev.mysql.com/doc/refman/5.7/en/mysqlbinlog.html) to parse binary logs and display their contents in text format, which can be used to identify GTID of the transaction.
 
+>[!Important]
+>This procedure can be only used to skip one transaction, and can't be used to skip gtid set or set gtid_purged.
+
 To skip the next transaction after the current replication position, use the following command to identify the GTID of next transaction as shown below.
 
 ```sql
