@@ -21,7 +21,7 @@ Form Recognizer models require as few as five training documents to get started.
 
 First, make sure your training data set follows the input requirements for Form Recognizer.
 
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
+[!INCLUDE [input requirements](../includes/input-requirements.md)]
 
 ## Training data tips
 
