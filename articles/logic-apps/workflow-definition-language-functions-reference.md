@@ -1215,8 +1215,7 @@ These examples show the different supported types of input for `bool()`:
 
 ### coalesce
 
-Return the first non-null value from one or more parameters.
-Empty strings, empty arrays, and empty objects are not null.
+Return the first non-null value from one or more parameters. Empty strings, empty arrays, and empty objects aren't null.
 
 ```
 coalesce(<object_1>, <object_2>, ...)
@@ -1229,7 +1228,7 @@ coalesce(<object_1>, <object_2>, ...)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*first-non-null-item*> | Any | The first item or value that is not null. If all parameters are null, this function returns null. |
+| <*first-non-null-item*> | Any | The first item or value that isn't null. If all parameters are null, this function returns null. |
 ||||
 
 *Example*
@@ -1883,7 +1882,7 @@ And returns these results:
 
 Check whether a string ends with a specific substring.
 Return true when the substring is found, or return false when not found.
-This function is not case-sensitive.
+This function isn't case-sensitive.
 
 ```
 endsWith('<text>', '<searchText>')
@@ -2425,7 +2424,7 @@ if(equals(1, 1), 'yes', 'no')
 ### indexOf
 
 Return the starting position or index value for a substring.
-This function is not case-sensitive,
+This function isn't case-sensitive,
 and indexes start with the number 0.
 
 ```
@@ -2440,7 +2439,7 @@ indexOf('<text>', '<searchText>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*index-value*>| Integer | The starting position or index value for the specified substring. <br><br>If the string is not found, return the number -1. |
+| <*index-value*>| Integer | The starting position or index value for the specified substring. <br><br>If the string isn't found, return the number -1. |
 ||||
 
 *Example*
@@ -2855,7 +2854,7 @@ And returns these results:
 
 ### lastIndexOf
 
-Return the starting position or index value for the last occurrence of a substring. This function is not case-sensitive, and indexes start with the number 0.
+Return the starting position or index value for the last occurrence of a substring. This function isn't case-sensitive, and indexes start with the number 0.
 
 ```json
 lastIndexOf('<text>', '<searchText>')
@@ -3266,7 +3265,7 @@ nthIndexOf('<text>', '<searchText>', <occurrence>)
 
 | Return value | Type | Description |
 |--------------|------|-------------|
-| <*index-value*> | Integer | The starting position or index value for the *n*th occurrence of the specified substring.If the substring isn't found or fewer than *n* occurrences of the substring exist, return `-1`. |
+| <*index-value*> | Integer | The starting position or index value for the *n*th occurrence of the specified substring. If the substring isn't found or fewer than *n* occurrences of the substring exist, return `-1`. |
 ||||
 
 *Examples*
@@ -3548,7 +3547,7 @@ replace('<text>', '<oldText>', '<newText>')
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*updated-text*> | String | The updated string after replacing the substring <br><br>If the substring is not found, return the original string. |
+| <*updated-text*> | String | The updated string after replacing the substring <br><br>If the substring isn't found, return the original string. |
 ||||
 
 *Example*
@@ -4093,7 +4092,7 @@ And returns this result: `"2018-03-01"`
 
 ### startsWith
 
-Check whether a string starts with a specific substring. Return true when the substring is found, or return false when not found. This function is not case-sensitive.
+Check whether a string starts with a specific substring. Return true when the substring is found, or return false when not found. This function isn't case-sensitive.
 
 ```
 startsWith('<text>', '<searchText>')
