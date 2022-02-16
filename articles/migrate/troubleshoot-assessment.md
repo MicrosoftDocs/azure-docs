@@ -179,7 +179,7 @@ This result is possible because not all VM sizes that support Ultra disk are pre
 
 ## Why is my assessment showing a warning that it was created with an invalid offer?
 
-Your assessment was created with an offer that is no longer valid and hence, the **Edit** and **Recalculate** buttons are disabled. You can create a new assessment with any of the valid offers - *Pay as you go*, *Pay as you go Dev/Test*, and *Enterprise Agreement*. You can also use the **Discount(%)** field to specify any custom discount on top of the Azure offer. [Learn more](concepts-assessment-calculation.md#whats-an-assessment).
+Your assessment was created with an offer that is no longer valid and hence, the **Edit** and **Recalculate** buttons are disabled. You can create a new assessment with any of the valid offers - *Pay as you go*, *Pay as you go Dev/Test*, and *Enterprise Agreement*. You can also use the **Discount(%)** field to specify any custom discount on top of the Azure offer. [Learn more](how-to-create-assessment.md).
 
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime, and Discount (%)?
 
