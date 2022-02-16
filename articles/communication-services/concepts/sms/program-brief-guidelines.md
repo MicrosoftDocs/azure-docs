@@ -72,13 +72,26 @@ Message Senders are required to maintain a privacy policy and terms and conditio
 
 In this field, you can provide a URL of the privacy policy and terms and conditions where customers can access it. If you don’t have the privacy policy URL yet, you can provide the URL of screenshots of what the policy will look like (a design mockup of the website that will go live once the campaign is launched).
 
+Your terms of service must contain ALL of the following:
+- Program Name and Description
+- Message Frequency, it can be either listed as Message Frequency Varies or the accurate frequency, it also needs to match with what is listed in the CTA (Call-To-Action)
+- The disclaimer: "Message and data rates may apply" written verbatim
+- Customer care information, for example: "For help call [phone number] or send an email to [email]"
+- Opt-Out message: "Text STOP to cancel"
+- A link to the Privacy Policy or the whole Privacy policy. 
+
+##### Example:
+**Terms of Service** 
+
+:::image type="content" source= "../media/short-code-terms.png" alt-text="Screenshot showing web opt-in mock up.":::
+
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com.
 
 ### Program Sign up type and URL 
 This field captures the call to action (CTA), an instruction for the customers to take action for ensuring that the customer consents to receive text messages, and understands the nature of the program. Call to action can be over SMS, Interactive Voice Response (IVR), website, or point of sale. Carriers require that all short code program brief applications are submitted with mock ups for the call to action.
 
-In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design.
+In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design. If the program sign up type is SMS, then you must provide the keywords the customer will send to the short code for opting in. 
 
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com.
