@@ -29,7 +29,15 @@ Azure Firewall Premium includes the following features:
 
 ## TLS inspection
 
-Azure Firewall Premium terminates outbound and east-west TLS connections. Inbound TLS inspection is supported with [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) allowing end-to-end encryption. Azure Firewall does the required value-added security functions and re-encrypts the traffic that is sent to the original destination.
+The TLS (Transport Layer Security) protocol primarily provides cryptography for privacy, integrity and authenticity using certificates between two or more communicating applications. It runs in the application layer and is widely used to encrypt both HTTP and WebSocket protocols.
+
+Encrypted traffic has a possible security risk and can hide illegal user activity and malicious traffic. Azure Firewall Premium terminates and inspects TLS connections to detect, alert, and mitigate malicious activity in HTTPS as well as WebSocket protocols.
+
+The following three use cases are supported:
+- Outbound TLS Inspection: To protect against malicious traffic that is sent from an internal client hosted in Azure to the Internet.
+- East-West TLS Inspection: To protect your Azure workloads from potential malicious traffic sent from within Azure.
+- Inbound TLS Inspection: To protect internal servers or applications hosted in Azure from malicious requests that arrive from the Internet or an external network. Inbound TLS inspection is supported with [Azure Application Gateway](../web-application-firewall/ag/ag-overview.md) which provides end-to-end encryption.
+
 
 > [!TIP]
 > TLS 1.0 and 1.1 are being deprecated and won’t be supported. TLS 1.0 and 1.1 versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable, and while they still currently work to allow backwards compatibility, they aren't recommended. Migrate to TLS 1.2 as soon as possible.
