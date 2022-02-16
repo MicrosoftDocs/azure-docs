@@ -61,4 +61,4 @@ keywords: speech to text, speech to text software
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Translate speech to text](get-started-speech-translation.md)
+> [Learn more about speech recognition](how-to-recognize-speech.md)

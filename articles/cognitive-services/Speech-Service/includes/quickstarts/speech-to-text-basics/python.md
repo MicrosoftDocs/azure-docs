@@ -80,7 +80,6 @@ Speak into your microphone when prompted. What you speak should be output as tex
 ```console
 Speak into your microphone.
 RECOGNIZED: Text=I'm excited to try speech to text.
-RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
 > [!div class="nextstepaction"]

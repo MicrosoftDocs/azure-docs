@@ -38,7 +38,6 @@ Speak into the microphone, and you see transcription of your words into text in 
 ```console
 Connection CONNECTED...
 RECOGNIZED: Text=I'm excited to try speech to text.
-RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
 This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
