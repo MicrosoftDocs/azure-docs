@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 10/18/2021
 ---
 
-# Make predictions with ONNX on computer vision models from AutoML 
+# Make predictions with ONNX on computer vision models from AutoML
 
 In this article, you learn how to use Open Neural Network Exchange (ONNX) to make predictions on computer vision models generated from automated machine learning (AutoML) in Azure Machine Learning. 
 
@@ -119,11 +119,11 @@ automl_image_run = AutoMLRun(experiment=experiment, run_id=run_id)
 best_child_run = automl_image_run.get_best_child()
 ```
 
-Use the following model specific arguments to submit the script. For more details on arguments refer to model specific [hyperparameters](https://docs.microsoft.com/en-us/azure/machine-learning/reference-automl-images-hyperparameters).
+Use the following model specific arguments to submit the script. For more details on arguments refer to model specific [hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) and for supported object detection model names refer to this [article](how-to-auto-train-image-models.md#supported-model-algorithms).
 
-# [Object detection with Faster R-CNN](#tab/object-detect-cnn-args)
+# [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn-args)
 ```python
-arguments = ['--model_name', 'faster-rcnn',  # enter the model name from ['yolo', 'faster-rcnn']
+arguments = ['--model_name', 'fasterrcnn_resnet34_fpn',  # enter the faster rcnn or retinanet model name
              '--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 600,  # enter the height of input to ONNX model
              '--width_onnx', 800,  # enter the width of input to ONNX model
@@ -144,7 +144,7 @@ arguments = ['--model_name', 'faster-rcnn',  # enter the model name from ['yolo'
 # [Object detection with YOLO](#tab/object-detect-yolo-args)
 
 ```python
-arguments = ['--model_name', 'yolo',  # enter the model name from ['yolo', 'faster-rcnn']
+arguments = ['--model_name', 'yolov5',  # enter the yolo model name
              '--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 640,  # enter the height of input to ONNX model
              '--width_onnx', 640,  # enter the width of input to ONNX model
@@ -164,7 +164,7 @@ arguments = ['--model_name', 'yolo',  # enter the model name from ['yolo', 'fast
 # [Instance segmentation](#tab/instance-segmentation-args)
 
 ```python
-arguments = ['--model_name', 'mask-rcnn',  # enter the model name from ['mask-rcnn']
+arguments = ['--model_name', 'maskrcnn_resnet50_fpn',  # enter the maskrcnn model name
              '--batch_size', 5,  # enter the batch size of your choice
              '--height_onnx', 600,  # enter the height of input to ONNX model
              '--width_onnx', 800,  # enter the width of input to ONNX model
@@ -254,7 +254,7 @@ for idx, output in enumerate(range(len(sess_output))):
 
 Every ONNX model has a predefined set of input and output formats.
 
-# [Multi-class image classification ](#tab/multi-class)
+# [Multi-class image classification](#tab/multi-class)
 
 This example applies the model trained on the [fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) dataset with 134 images and 4 classes/labels to explain ONNX model inference. For more information on training an image classification task, see the [multi-class image classification notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
 
@@ -697,7 +697,7 @@ else:
 assert batch_size == img_data.shape[0]
 ```
 
-# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
 For object detection with the Faster R-CNN algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`. You can get the expected input height and width with the following code.
 
@@ -925,7 +925,7 @@ def get_predictions_from_ONNX(onnx_session,img_data):
 scores = get_predictions_from_ONNX(session, img_data)
 ```
 
-# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
 ```python
 def get_predictions_from_ONNX(onnx_session, img_data):
@@ -1068,7 +1068,7 @@ for image_idx, class_idx in zip(image_wise_preds[0], image_wise_preds[1]):
 For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported algorithms in AutoML.
 
 
-# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
 - Predictions are already on the scale of height_onnx, width_onnx
 - In order to transform the predicted box coordinates to original image dimensions 
@@ -1111,6 +1111,8 @@ def _get_prediction(boxes, labels, scores, image_shape, classes):
 score_threshold = 0.8
 filtered_boxes_batch = []
 for batch_sample in range(0, batch_size*3, 3):
+    # in case of retinanet change the order of boxes, labels, scores to boxes, scores, labels
+    # confirm the same from order of boxes, labels, scores output_names 
     boxes, labels, scores = predictions[batch_sample], predictions[batch_sample + 1], predictions[batch_sample + 2]
     bounding_boxes = _get_prediction(boxes, labels, scores, (height_onnx, width_onnx), classes)
     filtered_bounding_boxes = [box for box in bounding_boxes if box['score'] >= score_threshold]
@@ -1179,7 +1181,7 @@ print(json.dumps(bounding_boxes_batch, indent=1))
 ## Visualize predictions
 
 
-# [Multi-class image classification ](#tab/multi-class)
+# [Multi-class image classification](#tab/multi-class)
 
 Visualize an input image with Labels
 
