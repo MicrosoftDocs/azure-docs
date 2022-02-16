@@ -70,13 +70,13 @@
       items:
         - name: Overview
           href: tutorial-connect-overview.md
-        - name: With secrets in App Settings
+        - name: With secrets in app settings
           href: configure-common.md?tabs=portal
-        - name: With Managed Identity
+        - name: With managed identity
           items: 
-          - name: Connect to SQL DB
+          - name: Connect to databases
             href: tutorial-connect-msi-sql-database.md
-          - name: Connect to Storage
+          - name: Connect to services
             href: scenario-secure-app-access-storage.md
           - name: Connect to Microsoft Graph
             href: scenario-secure-app-access-microsoft-graph-as-app.md            
