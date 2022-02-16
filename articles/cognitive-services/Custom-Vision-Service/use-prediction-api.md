@@ -6,7 +6,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/27/2021
 ms.author: pafarley
 ms.devlang: csharp

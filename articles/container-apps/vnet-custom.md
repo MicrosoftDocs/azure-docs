@@ -41,7 +41,7 @@ Additionally, subnets must have a size between /21 and /12.
 As a Container Apps environment is created, you provide resource IDs for two different subnets. Both subnets must be defined in the same container apps.
 
 - **App subnet**: Subnet for user app containers. Subnet that contains IP ranges mapped to applications deployed as containers.
-- **Control plane subnet**: Subnet for [control plane infrastructure](/azure/azure-resource-manager/management/control-plane-and-data-plane) components and user app containers.
+- **Control plane subnet**: Subnet for [control plane infrastructure](../azure-resource-manager/management/control-plane-and-data-plane.md) components and user app containers.
 
 ::: zone pivot="azure-cli"
 
@@ -407,9 +407,9 @@ az group delete `
 
 ## Additional resources
 
-- Refer to [What is Azure Private Endpoint](/azure/private-link/private-endpoint-overview) for more details on configuring your private endpoint.
+- Refer to [What is Azure Private Endpoint](../private-link/private-endpoint-overview.md) for more details on configuring your private endpoint.
 
-- To set up DNS name resolution for internal services, you must [set up your own DNS server](/azure/dns/).
+- To set up DNS name resolution for internal services, you must [set up your own DNS server](../dns/index.yml).
 
 ## Next steps
 

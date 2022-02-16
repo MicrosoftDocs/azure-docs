@@ -1,17 +1,17 @@
 ---
-title: Manage Advanced SIEM Information Model (ASIM) parsers | Microsoft Docs
-description: This article explains how to manage Advanced SIEM Information Model (ASIM) parsers, add a customer parser, and replace a built-in parser.
+title: Manage Advanced Security Information Model (ASIM) parsers | Microsoft Docs
+description: This article explains how to manage Advanced Security Information Model (ASIM) parsers, add a customer parser, and replace a built-in parser.
 author: oshezaf
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
 --- 
 
-# Manage Advanced SIEM Information Model (ASIM) parsers (Public preview)
+# Manage Advanced Security Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Advanced SIEM Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and get all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
+Advanced Security Information Model (ASIM) users use *unifying parsers* instead of table names in their queries, to view data in a normalized format and get all the data relevant to the schema in a single query. Each unifying parser uses multiple source-specific parsers that handle each source's specific details. 
 
 To understand how parsers fit within the ASIM architecture, refer to the [ASIM architecture diagram](normalization.md#asim-components).
 
@@ -182,7 +182,7 @@ Some parsers requires you to update the list of sources that are relevant to the
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses managing the Advanced SIEM Information Model (ASIM) parsers.
+This article discusses managing the Advanced Security Information Model (ASIM) parsers.
 
 Learn more about ASIM parsers:
 
@@ -193,6 +193,6 @@ Learn more about ASIM parsers:
 Learn more about the ASIM in general: 
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Advanced SIEM Information Model (ASIM) overview](normalization.md)
-- [Advanced SIEM Information Model (ASIM) schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model (ASIM) content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

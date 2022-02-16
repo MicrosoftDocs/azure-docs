@@ -2,8 +2,9 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 01/23/2022
+ms.date: 02/15/2022
 ---
+
 # Important upcoming changes to Microsoft Defender for Cloud
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
@@ -18,17 +19,19 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ## Planned changes
 
-| Planned change                                                                                                                                                                      | Estimated date for change |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | January 2022              |
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | January 2022              |
-| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | February 2022             |
-| [Deprecating the recommendation to use service principals to protect your subscriptions](#deprecating-the-recommendation-to-use-service-principals-to-protect-your-subscriptions)   | February 2022             |
-| [Deprecating the recommendations to install the network traffic data collection agent](#deprecating-the-recommendations-to-install-the-network-traffic-data-collection-agent)       | February 2022             |
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | March 2022                |
-| [AWS recommendations to GA](#aws-recommendations-to-ga)                                                                                                                                                                                    | March 2022                          |
-| [Relocation of custom recommendations](#relocation-of-custom-recommendations)                                                                                                                                                                                    | March 2022                          |
-
+| Planned change | Estimated date for change |
+|--|--|
+| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses) | January 2022 |
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013) | January 2022 |
+| [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | February 2022 |
+| [Deprecating the recommendation to use service principals to protect your subscriptions](#deprecating-the-recommendation-to-use-service-principals-to-protect-your-subscriptions) | February 2022 |
+| [Moving recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices](#moving-recommendation-vulnerabilities-in-container-security-configurations-should-be-remediated-from-the-secure-score-to-best-practices) | February 2022 |
+| [Deprecating the recommendations to install the network traffic data collection agent](#deprecating-the-recommendations-to-install-the-network-traffic-data-collection-agent) | February 2022 |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | March 2022 |
+| [AWS recommendations to GA](#aws-recommendations-to-ga) | March 2022 |
+| [Relocation of custom recommendations](#relocation-of-custom-recommendations) | March 2022 |
+| [Deprecating Microsoft Defender for IoT device recommendations](#deprecating-microsoft-defender-for-iot-device-recommendations)| March 2022 |
+| [Deprecating Microsoft Defender for IoT device alerts](#deprecating-microsoft-defender-for-iot-device-alerts) | March 2022 |
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
 **Estimated date for change:** January 2022 
@@ -128,14 +131,19 @@ Changes in our roadmap and priorities have removed the need for the network traf
 |[Network traffic data collection agent should be installed on Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/24d8af06-d441-40b4-a49c-311421aa9f58) |Defender for Cloud uses the Microsoft Dependency agent to collect network traffic data from your Azure virtual machines to enable advanced network protection features such as traffic visualization on the network map, network hardening recommendations, and specific network threats.<br />(Related policy: [Network traffic data collection agent should be installed on Windows virtual machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f2f2ee1de-44aa-4762-b6bd-0893fc3f306d)) |Medium |
 |||
 
+### Moving recommendation Vulnerabilities in container security configurations should be remediated from the secure score to best practices 
 
+**Estimated date for change:** February 2022
 
+The recommendation for 'Vulnerabilities in container security configurations should be remediated' is being moved from the secure score section to best practices section.
+
+The current user experience only provides the score when all compliance checks have passed. Most customers have difficulties with meeting all the required checks. We are working on an improved experience for this recommendation, and once released the recommendation will be moved back to the secure score.
 
 ### Changes to recommendations for managing endpoint protection solutions
 
 **Estimated date for change:** March 2022
 
-In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, see [the release note](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
+In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
 When the recommendations are released to general availability, they will replace the following existing recommendations:
 
@@ -174,8 +182,32 @@ Custom recommendation are those created by a user, and have no impact on the sec
 
 When the move occurs, the custom recommendations will be found via a new "recommendation type" filter.
 
-Learn more: 
-- [Create custom security initiatives and policies](custom-security-policies.md).
+Learn more in [Create custom security initiatives and policies](custom-security-policies.md).
+
+### Deprecating Microsoft Defender for IoT device recommendations
+
+**Estimated date for change:** March 2022 
+
+Microsoft Defender for IoT device recommendations will no longer be visible in Microsoft Defender for Cloud. These recommendations will still be available on Microsoft Defender for IoT's Recommendations page, and in Microsoft Sentinel.
+
+The following recommendations will be deprecated:
+
+| Assessment key | Recommendations |
+|--|--|
+| 1a36f14a-8bd8-45f5-abe5-eef88d76ab5b: IoT Devices | Open Ports On Device |
+| ba975338-f956-41e7-a9f2-7614832d382d: IoT Devices | Permissive firewall rule in the input chain was found |
+| beb62be3-5e78-49bd-ac5f-099250ef3c7c: IoT Devices | Permissive firewall policy in one of the chains was found |
+| d5a8d84a-9ad0-42e2-80e0-d38e3d46028a: IoT Devices | Permissive firewall rule in the output chain was found |
+| 5f65e47f-7a00-4bf3-acae-90ee441ee876: IoT Devices | Operating system baseline validation failure |
+|a9a59ebb-5d6f-42f5-92a1-036fd0fd1879: IoT Devices | Agent sending underutilized messages |
+| 2acc27c6-5fdb-405e-9080-cb66b850c8f5: IoT Devices | TLS cipher suite upgrade needed |
+|d74d2738-2485-4103-9919-69c7e63776ec: IoT Devices | Auditd process stopped sending events |
+
+### Deprecating Microsoft Defender for IoT device alerts
+
+**Estimated date for change:** March 2022 
+
+All Microsoft Defender for IoT device alerts will no longer be visible in Microsoft Defender for Cloud. These alerts will still be available on Microsoft Defender for IoT's Alert page, and in Microsoft Sentinel.
 
 ## Next steps
 
