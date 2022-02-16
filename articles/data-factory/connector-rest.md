@@ -882,6 +882,60 @@ The backend will automatically get the next URL based on the RFC 5988 style link
 >
 > :::image type="content" source="media/connector-rest/pagination-example-7-2.png" alt-text="Screenshot showing how to disable RFC 5988 setting for Example 7."::: 
 
+#### Example 8: The next request URL is from the response body when use pagination in mapping data flows
+
+This example states how to set the pagination rule and the end condition rule in mapping data flows when the next request URL is from the response body.
+
+The response schema is shown below:
+
+:::image type="content" source="media/connector-rest/pagination-example-8-response-schema.png" alt-text="Screenshot showing the response schema of Example 8."::: 
+
+The pagination rules should be set as the following screenshot:
+
+:::image type="content" source="media/connector-rest/pagination-example-8-pagination-rule.png" alt-text="Screenshot showing how to set the pagination rule for Example 8."::: 
+
+By default, the pagination will stop when body **.{@odata.nextLink}** is null or empty. 
+
+But if the value of **@odata.nextLink** in the last response body is equal to the last request URL, then it will lead to the endless loop. To avoid this condition, define end condition rules.
+
+- If **Value** in the last response is **Empty**, then the end condition rule can be set as below: 
+
+    :::image type="content" source="media/connector-rest/pagination-example-8-end-condition-1.png" alt-text="Screenshot showing setting the end condition rule when the last response is empty."::: 
+    
+- If the value of the complete key in the response header equals to true indicates the end of pagination, then the end condition rule can be set as below: 
+
+    :::image type="content" source="media/connector-rest/pagination-example-8-end-condition-2.png" alt-text="Screenshot showing setting the end condition rule when the complete key in the response header equals to true indicates the end of pagination."::: 
+
+#### Example 9: The response format is XML and the next request URL is from the response body when use pagination in mapping data flows
+
+This example states how to set the pagination rule in mapping data flows when the response format is XML and the next request URL is from the response body. As shown in the following screenshot, the first URL is *https://\<user\>.dfs.core.windows.net/bugfix/test/movie_1.xml*
+
+
+:::image type="content" source="media/connector-rest/pagination-example-9-situation.png" alt-text="Screenshot showing the response format is XML and the next request URL is from the response body."::: 
+
+
+The response schema is shown below:
+
+:::image type="content" source="media/connector-rest/pagination-example-9-response-schema.png" alt-text="Screenshot showing the response schema of Example 9."::: 
+
+The pagination rules should be set as below:
+
+:::image type="content" source="media/connector-rest/pagination-example-9-pagination-rule.png" alt-text="Screenshot showing setting the pagination rule for Example 9."::: 
+
+
+>[!NOTE]
+> The pagination in mapping data flows is different from it in copy activities in the following aspects:
+>1. RANGE in Rest pagination is not supported in mapping data flows.
+>2. `['']` is not supported in mapping data flows and will use `{}` to escape special character. For example, `body.{@odata.nextLink}`, and its JSON node `@odata.nextLink` contains special character `.` .
+>3. The end condition is supported in mapping data flows, but the condition syntax is a little different from it in copy activities. `$` is not used to indicate the response body, instead, `body` is used. `headers` is not used to indicate the response header, instead, `header` is used. Here are two examples showing this difference:<br/>
+>     - Example 1:<br/>
+>         Copy activities: **"EndCondition:$.data": "Empty"**<br/>
+>         Mapping data flows: **"EndCondition:body.data": "Empty"**<br/>
+>     - Example 2:<br/>
+>         Copy activities: **"EndCondition:headers.complete": "Exist"**<br/>
+>         Mapping data flows: **"EndCondition:header.complete": "Exist"**<br/>
+
+
 ## Use OAuth
 This section describes how to use a solution template to copy data from REST connector into Azure Data Lake Storage in JSON format using OAuth. 
 
