@@ -21,7 +21,7 @@ ms.author: steveesp
 
 ## VM creation using the portal
 
-Though this article provides steps to create a VM with accelerated networking using Azure PowerShell, you can also [use the Azure portal to create a virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that enables accelerated networking. When you create a VM in the portal, in the **Create a virtual machine** page, choose the **Networking** tab. This tab has an option for **Accelerated networking**. If you have chosen a [supported operating system](../accelerated-networking-overview.md#supported-operating-systems) and [VM size](../accelerated-networking-overview.md#supported-vm-instances), this option is automatically set to **On**. Otherwise, the option is set to **Off**, and Azure displays the reason why it can't be enabled.
+Though this article provides steps to create a VM with accelerated networking using Azure PowerShell, you can also [use the Azure portal to create a virtual machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that enables accelerated networking. When you create a VM in the portal, in the **Create a virtual machine** page, choose the **Networking** tab. This tab has an option for **Accelerated networking**. If you have chosen a [supported operating system](./accelerated-networking-overview.md#supported-operating-systems) and [VM size](./accelerated-networking-overview.md#supported-vm-instances), this option is automatically set to **On**. Otherwise, the option is set to **Off**, and Azure displays the reason why it can't be enabled.
 You can also enable or disable accelerated networking through the portal after VM creation by navigating to the network interface and clicking the button at the top of the **Overview** blade.
 
 > [!NOTE]
@@ -300,6 +300,6 @@ A VM with accelerated networking enabled can't be resized to a VM instance that 
 3. After you disable accelerated networking, move the VM, availability set, or scale set to a new size that doesn't support accelerated networking, and then restart them.
 
 ## Next steps
-* Learn [how Accelerated Networking works](../accelerated-networking-how-it-works.md)
-* Learn how to [create a VM with Accerelated Networking using Azure CLI](../virtual-network/create-vm-accelerated-networking-cli.md)
+* Learn [how Accelerated Networking works](./accelerated-networking-how-it-works.md)
+* Learn how to [create a VM with Accerelated Networking using Azure CLI](./create-vm-accelerated-networking-cli.md)
 * Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
