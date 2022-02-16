@@ -433,11 +433,10 @@ items:
       items:
       - name: Overview
         href: logs/ingestion-time-transformations.md
-      - name: Tutorial - portal
+      - name: Tutorial (portal)
         href: logs/tutorial-ingestion-time-transformations.md
-      - name: Tutorial - API
+      - name: Tutorial (API)
         href: logs/tutorial-ingestion-time-transformations-api.md
-
   - name: Agents
     items:
     - name: Overview

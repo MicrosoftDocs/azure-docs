@@ -57,7 +57,7 @@ For more information about tables, see [Data structure](./log-analytics-workspac
 
 You can delete [Custom Log](custom-logs-overview.md), [Search Results](search-jobs.md) and [Restored Logs](restore.md) tables.
 
-To delete a table, run the [az monitor log-analytics workspace table delete](cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-data-export-delete) command:
+To delete a table, run the [az monitor log-analytics workspace table delete](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-data-export-delete) command:
 
 ```azurecli
 az monitor log-analytics workspace table delete –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
@@ -82,7 +82,7 @@ az monitor log-analytics workspace table update –subscription ContosoSID --res
    --name ContainerLog  --plan Analytics
 ```
 
-To view a table's configuration, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-show) command:
+To view a table's configuration, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command:
 
 ```azurecli
 az monitor log-analytics workspace table show –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \
@@ -163,7 +163,7 @@ az monitor log-analytics workspace table update –subscription ContosoSID --res
    --start-search-time "2022-01-01T00:00:00.000Z" --end-search-time "2022-01-08T00:00:00.000Z” --no-wait
 ```
 
-To view the search results table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table?view=azure-cli-latest#az-monitor-log-analytics-workspace-table-show) command:
+To view the search results table, run the [az monitor log-analytics workspace table show](/cli/azure/monitor/log-analytics/workspace/table#az-monitor-log-analytics-workspace-table-show) command:
 
 ```azurecli 
 az monitor log-analytics workspace table show –subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace \

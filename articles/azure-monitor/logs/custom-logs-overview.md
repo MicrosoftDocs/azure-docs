@@ -34,7 +34,7 @@ The source data is formatted in JSON and must match the structure expected by th
 
 The DCR must understand the structure of the input data and the structure of the target table. If the two don't match, it can use a transform to convert the source data to match the target table. You may also use the transform to filter source data and perform any other calculations or conversions.
 
-### 7. Send data to the Data Collection Endpoint
+## Send data to the data collection endpoint
 Ingestion is a straightforward POST call to the Data Collection Endpoint via HTTP. Details are as follows:
 
 #### Endpoint URI

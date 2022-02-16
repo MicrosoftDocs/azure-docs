@@ -52,4 +52,6 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 
 ## Next steps
 
-- [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine using the Azure Monitor agent.
+- [Walk through a tutorial on configuring custom logs using resource manager templates.](tutorial-custom-logs-api.md)
+- [Get details on the structure of data collection rules.](../essentials/data-collection-rule-structure.md)
+- [Get an overview on custom logs](custom-logs-overview.md).

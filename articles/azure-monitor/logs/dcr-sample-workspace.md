@@ -8,9 +8,10 @@ ms.custom: references_region
 ---
 
 # Sample data collection rule - workspace transformation
-The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for use with [workspace transformation](). It has the following details:
+The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for use with [workspace transformation](ingestion-time-transformations.md). It has the following details:
 
-- 
+- Creates a transformation for the `LAQueryLogs` table.
+- Transformation filters records for queries against the `LAQueryLogs` table itself and adds a column with the workspace name.
 
 ```json
 {
@@ -84,4 +85,6 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 
 ## Next steps
 
-- [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine using the Azure Monitor agent.
+- [Walk through a tutorial on configuring ingestion-time transformations in workspace DCRs using resource manager templates.](tutorial-ingestion-time-transformations-api.md)
+- [Get details on the structure of data collection rules.](../essentials/data-collection-rule-structure.md)
+- [Get an overview on ingestion-time transformations in workspace DCRs](ingestion-time-transformations.md).
