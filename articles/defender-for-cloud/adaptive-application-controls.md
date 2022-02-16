@@ -72,6 +72,7 @@ Select the recommendation, or open the adaptive application controls page to vie
       - It's missing a Log Analytics agent
       - The Log Analytics agent isn't sending events
       - It's a Windows machine with a pre-existing [AppLocker](/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) policy enabled by either a GPO or a local security policy
+      - AppLocker is not available (Windows Server Core installations)
 
       > [!TIP]
       > Defender for Cloud needs at least two weeks of data to define the unique recommendations per group of machines. Machines that have recently been created, or which belong to subscriptions that were only recently protected by Microsoft Defender for servers, will appear under the **No recommendation** tab.
