@@ -57,10 +57,10 @@ Enter a Service connection name, for instance 'Connection to DEV subscription' a
 
 ## Set up the Web App
 
-The automation framework provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. In order to successfully do so, you must first create an app registration for authentication purposes. Open the Azure cloud shell and execute the following commands:
+The automation framework optionally provisions a web app as a part of the control plane to assist with the deployment of SAP workload zones and systems. In order to successfully do so, you must first create an app registration for authentication purposes. Open the Azure cloud shell and execute the following commands:
 
 # [Linux](#tab/linux)
-Replace MGMT with your environment if needed.
+Replace MGMT with your environment as necessary.
 ```bash
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json 
 
@@ -73,7 +73,7 @@ az ad app credential reset --id $TF_VAR_app_registration_app_id --append --query
 rm manifest.json
 ```
 # [Windows](#tab/windows)
-Replace MGMT with your environment if needed.
+Replace MGMT with your environment as necessary.
 ```powershell
 Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
 
@@ -126,6 +126,9 @@ Create the SAP system deployment pipeline by choosing _New Pipeline_ from the Pi
 | Name    | SAP system deployment (infrastructure)           |
 
 Save the Pipeline, to see the Save option select the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP system deployment (infrastructure)' by choosing 'Rename/Move' from the three-dot menu on the right.
+
+> [!NOTE]
+> In order for the web app to function correctly, the SAP workload zone deployment and SAP system deployment pipelines must be named as specified.
 
 ## SAP web app deployment pipeline
 
@@ -246,9 +249,9 @@ Create a new variable group 'SDAF-DEV' using the Library page in the Pipelines s
 | ARM_SUBSCRIPTION_ID            | Target subscription ID                         |                                                          |
 | ARM_TENANT_ID                  | Tenant ID for service principal                |                                                          |
 | AZURE_CONNECTION_NAME          | Previously created connection name             |                                                          |
-| TF_VAR_app_registration_app_id | App registration application ID                | See section ["Set up the web app"](#set-up-the-web-app)  |
-| TF_VAR_webapp_client_secret    | App registration password                      | Change variable type to secret                           |
-| PAT                            | Your personal access token                     | Change variable type to secret                           |
+| TF_VAR_app_registration_app_id | App registration application ID                | Optional -- include if deploying the web app             |
+| TF_VAR_webapp_client_secret    | App registration password                      | Optional -- include if deploying the web app             |
+| PAT                            | Your personal access token                     | Optional -- include if deploying the web app             |
 | sap_fqdn                       | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.     |
 
 
@@ -298,11 +301,11 @@ The agent will now be configured and started.
 
 Newly created pipelines might not be visible in the default view. Select on recent tab and go back to All tab to view the new pipelines.
 
-Select the _Control plane deployment_ pipeline and choose "Run" to deploy the control plane.
+Select the _Control plane deployment_ pipeline and choose "Run" to deploy the control plane. Optionally, be sure to check the "deploy the web app infrastructure" if you would like to set up the web app.
 
 ## Deploying the web app
 
-Before running the "Deploy web app" pipeline, you must update the reply-url values for the app registration. Part of the URL needed will be stored in a variable called "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
+Checking the "deploy the web app infrastructure" parameter when running the Control plane deployment pipeline will provision the infrastructure necessary for hosting the web app. After that has completed, the "Deploy web app" pipeline will publish the app's software to the infrastructure. Before doing so, you must update the reply-url values for the app registration. After you have run the SAP workload zone deployment pipeline, part of the web app URL needed will be stored in a variable called "WEBAPP_URL_BASE" in your environment-specific variable group. Copy this value, and use it in the following command:
 
 # [Linux](#tab/linux)
 
