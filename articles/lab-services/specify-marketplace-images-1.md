@@ -1,5 +1,5 @@
 ---
-title: Specify marketplace images for a lab in Azure Lab Services
+title: Specify marketplace images in a lab account (deprecated)
 description: This article shows you how to specify the Marketplace images that a lab creator can use to create labs.
 ms.topic: how-to
 ms.date: 02/15/2022
