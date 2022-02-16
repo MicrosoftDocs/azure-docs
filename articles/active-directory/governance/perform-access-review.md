@@ -62,7 +62,7 @@ Once that it opens, you will see the list of users in scope for the access revie
 
 There are two ways that you can approve or deny access:
 
-- You can manually approve or deny access for one or more users.
+- You can manually approve or deny access for one or more users. You can also mark users as "Don't Know".
 - You can accept the system recommendations.
 
 ### Manually review access for one or more users
