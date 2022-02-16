@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/13/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,17 +18,19 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to enable the controller in Amazon Web Services (AWS) if you disabled it during onboarding. You can only enable the controller in AWS at this time; you can't disable it.
+This article describes how to enable or disable the controller in Microsoft Azure and Google Cloud Platform (GCP) after onboarding is complete.
 
-This article also describes how to enable or disable the controller in Microsoft Azure, or Google Cloud Platform (GCP) after onboarding is complete.
+This article also describes how to enable the controller in Amazon Web Services (AWS) if you disabled it during onboarding. You can only enable the controller in AWS at this time; you can't disable it.
 
 ## Enable the controller in AWS
 
 > [!NOTE] 
 >  You can only enable the controller in AWS; you can't disable it at this time.
 
-1. Sign in to the AWS console of the member account in another browser window. 
-1. Return to the **CloudKnox Onboarding - AWS Member Account Details** page, and then select **Launch Template**. 
+1. Sign in to the AWS console of the member account in a separate browser window. 
+1. Go to the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
+1. On the **Data Collectors** dashboard, select **AWS**, and then select **Create Configuration**.
+1. On the **CloudKnox Onboarding - AWS Member Account Details** page, select **Launch Template**.
 
     The **AWS CloudFormation create stack** page opens, displaying the template.
 1. In the **CloudTrailBucketName** box, enter a name. 
@@ -40,12 +42,12 @@ This article also describes how to enable or disable the controller in Microsoft
 
 1. In the **EnableController** box, from the drop-down list, select **True** to provide CloudKnox with read and write access so that any remediation you want to do from the CloudKnox platform can be done automatically.
 
-1. Scroll to the bottom of the page, and in the **Capabilities** box, select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack**.
+1. Scroll to the bottom of the page, and in the **Capabilities** box and select **I acknowledge that AWS CloudFormation might create IAM resources with custom names**. Then select **Create stack**.
 
     This AWS CloudFormation stack creates a collection role in the member account with necessary permissions (policies) for data collection. A trust policy is set on this role to allow the OIDC role created in your AWS OIDC account to access it. These entities are listed in the **Resources** tab of your CloudFormation stack. 
 
-1. Return to the CloudKnox, and in the **CloudKnox Onboarding - AWS Member Account Details** page, select **Next**. 
-1. In **CloudKnox Onboarding – Summary**, review the information you’ve added, and then select **Verify Now & Save**.
+1. Return to CloudKnox, and on the CloudKnox **Onboarding - AWS Member Account Details** page, select **Next**.
+1. On **CloudKnox Onboarding – Summary** page, review the information you’ve added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully created configuration.**
 
@@ -62,7 +64,11 @@ This article also describes how to enable or disable the controller in Microsoft
 
 1. To add the administrative role assignment, return to the **Access control (IAM)** page, and then select **Add role assignment**.
 1. Add or remove the role assignment for Cloud Infrastructure Entitlement Management.
-1. In **CloudKnox Onboarding – Summary** page, review the controller permissions, and then select **Verify Now & Save**.
+
+1. Go to the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
+1. On the **Data Collectors** dashboard, select **Azure**, and then select **Create Configuration**.
+1. On the **CloudKnox Onboarding - Azure Subscription Details** page, enter the **Subscription ID**, and then select **Next**.
+1. On **CloudKnox Onboarding – Summary** page, review the controller permissions, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 
@@ -79,8 +85,12 @@ This article also describes how to enable or disable the controller in Microsoft
 
 1. Optionally, execute **mciem-enable-gcp-api.sh** to enable all recommended GCP APIs.
 
-1. Return to **CloudKnox Onboarding - GCP Project Ids** page, and then select **Next**.
-1. In the **CloudKnox Onboarding – Summary** page, review the information you’ve added, and then select **Verify Now & Save**.
+1. Go to the CloudKnox home page, select **Settings** (the gear icon), and then select the **Data Collectors** subtab.
+1. On the **Data Collectors** dashboard, select **GCP**, and then select **Create Configuration**.
+1. On the **CloudKnox Onboarding - Azure AD OIDC App Creation** page, select **Next**.
+1. On the **CloudKnox Onboarding - GCP OIDC Account Details & IDP Access** page, enter the **OIDC Project Number** and **OIDC Project ID**, and then select **Next**.
+1. On the **CloudKnox Onboarding - GCP Project IDs** page, enter the **Project IDs**, and then select **Next**.
+1. On the **CloudKnox Onboarding – Summary** page, review the information you’ve added, and then select **Verify Now & Save**.
 
     The following message appears: **Successfully Created Configuration.**
 

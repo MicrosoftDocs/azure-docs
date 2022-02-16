@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -33,9 +33,9 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 
      You can't modify **System** policies and roles.
 
-1. On the **Statements** screen, make your changes to the **Tasks**, **Resources**, **Request conditions**, and **Effect** sections as required, and then select **Next**.
+1. On the **Statements** page, make your changes to the **Tasks**, **Resources**, **Request conditions**, and **Effect** sections as required, and then select **Next**.
 
-1. Review the changes to the JSON or script on the **Preview** screen, and then select **Submit**.
+1. Review the changes to the JSON or script on the **Preview** page, and then select **Submit**.
 
 ## Next steps
 

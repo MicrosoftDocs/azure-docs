@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -41,7 +41,7 @@ The CloudKnox Permissions Management (CloudKnox) **Dashboard** provides an overv
 
 1. The **Highest PCI change** displays the authorization system name with the PCI number and the change number for the last seven days, if applicable.
  
-    -To view all the changes and PCI ratings in your authorization system, select **View all**.
+    - To view all the changes and PCI ratings in your authorization system, select **View all**.
 
 1. To return to the PCI graph, select the **Graph** icon in the upper right of the list box. 
 
@@ -60,7 +60,7 @@ The **Permission creep index (PCI)** heat map shows the incurred risk of users w
 
 ## View information about users, roles, resources, and PCI trends
 
-To view specific information about the following, select the number displayed on the heat map:
+To view specific information about the following, select the number displayed on the heat map.
 
 - **Users**: Displays the total number of users and how many fall into the high, medium, and low categories.
 - **Roles**: Displays the total number of roles and how many fall into the high, medium, and low categories.

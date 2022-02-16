@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -32,6 +32,7 @@ This article describes how you can revoke high-risk and unused tasks or assign r
 1. From the **Search for** dropdown, select **Group**, **User**, or **APP**.
 1. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **Task usage** dropdowns.
 1. Select **Apply**.
+
     CloudKnox displays a list of groups, users, and service accounts that match your criteria.
 1. In **Enter a username**, enter or select a user.
 1. In **Enter a group name**, enter or select a group, then select **Apply**.

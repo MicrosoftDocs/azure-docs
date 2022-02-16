@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -43,7 +43,7 @@ The **Remediation** dashboard has two privilege-on-demand (POD) workflows you ca
     1. From the **Select an authorization system** dropdown, select the accounts you want to access.
     1. From the **Identity** dropdown, select the identity on whose behalf you’re requesting access.
 
-        - If the identity you select is a Security Assertions Markup Language (SAML) user, and since a SAML user accesses the system through assumption of a role, in **Role**, select the user’s role.
+        - If the identity you select is a Security Assertions Markup Language (SAML) user, and since a SAML user accesses the system through assumption of a role, select the user’s role in **Role**.
 
         - If the identity you select is a local user, to select the policies you want:
             1. Select **Request policy(s)**.
@@ -80,8 +80,7 @@ The **Remediation** dashboard has two privilege-on-demand (POD) workflows you ca
 1. In **Schedule**, select when (how quickly) you want your request to be processed:
     - **ASAP**
     - **Once** 
-        1. In **Create Schedule**, select the **Frequency**, **Date**, **Time** and **For** the required duration. 
-        1. Select **Schedule**.
+        - In **Create Schedule**, select the **Frequency**, **Date**, **Time**, and **For** the required duration, then select **Schedule**.
     - **Daily**
     - **Weekly**
     - **Monthly**
@@ -96,7 +95,7 @@ The **Remediation** dashboard has two privilege-on-demand (POD) workflows you ca
 1. On the CloudKnox home page, select the **Remediation** tab, and then select the **My requests** subtab.
 1. To view a list of requests that haven't yet been reviewed, select **Pending Requests**.
 1. In the **Request Summary** list, select the ellipses **(…)** menu on the right of a request, and then select:
-1. 
+
     - **Details** to view the details of the request.
     - **Approve** to approve the request.
     - **Reject** to reject the request.

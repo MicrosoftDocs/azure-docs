@@ -1,6 +1,6 @@
 ---
-title: View information about roles/policies in the Remediation dashboard in CloudKnox Permissions Management
-description: How to view and filter information about roles/policies in the Remediation dashboard in CloudKnox Permissions Management.
+title: View information about roles/ policies in the Remediation dashboard in CloudKnox Permissions Management
+description: How to view and filter information about roles/ policies in the Remediation dashboard in CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
-# View information about roles/policies in the Remediation dashboard
+# View information about roles/ policies in the Remediation dashboard
 
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.

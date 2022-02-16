@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -31,7 +31,7 @@ This article describes how to view usage analytics about access keys.
 
 ## Create a query to view access keys
 
-When you select **Active tasks**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
+When you select **Access keys**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
 
 1. On the main **Analytics** dashboard, select **Access keys** from the  drop-down list at the top of the screen. 
 

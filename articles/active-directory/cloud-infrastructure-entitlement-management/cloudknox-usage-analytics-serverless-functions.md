@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -38,7 +38,7 @@ When you select **Serverless functions**, the **Analytics** dashboard provides a
     The following components make up the **Serverless functions** dashboard:
 
     - **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
-    - **Authorization system**: Select from a **List** of accounts and **Folders***.
+    - **Authorization system**: Select from a **List** of accounts and **Folders**.
     - **Search**: Enter criteria to find specific tasks.
 1. Select **Apply** to display the criteria you've selected.
 
@@ -55,10 +55,10 @@ The **Serverless functions** table displays the results of your query.
 - The **Permission creep index (PCI)**: Provides the following information:
     - **Index**: A numeric value assigned to the PCI.
     - **Since**: How many days the PCI value has been at the displayed level.
-- **Tasks** Displays the number of **Granted** and **Executed** tasks.
+- **Tasks**: Displays the number of **Granted** and **Executed** tasks.
 - **Resources**: The number of resources used.
 - **Last activity on**: The date the function was last accessed.
-- Select the ellipses **(...)** and select **Tags** to add a tag.
+- Select the ellipses **(...)**, and then select **Tags** to add a tag.
 
 ## Add a tag to a serverless function
 
