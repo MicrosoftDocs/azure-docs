@@ -26,7 +26,8 @@ ms.custom:
 Though this article provides steps to create a virtual machine with accelerated networking using the Azure CLI, you can also [create a virtual machine with accelerated networking using the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, in the **Create a virtual machine** blade, choose the **Networking** tab.  In this tab, there is an option for **Accelerated networking**.  If you have chosen a [supported operating system](./accelerated-networking-overview.md#supported-operating-systems) and [VM size](./accelerated-networking-overview.md#supported-vm-instances), this option will automatically populate to "On."  If not, it will populate the "Off" option for Accelerated Networking and give the user a reason why it isn't enabled.   
 You can also enable or disable accelerated networking through the portal after VM creation by navigating to the network interface and clicking the button at the top of the **Overview** blade.
 
-* *Note:* Only supported operating systems can be enabled through the portal. If you're using a custom image, and your image supports Accelerated Networking, create your VM using CLI or PowerShell. 
+>[!NOTE]
+> Only supported operating systems can be enabled through the portal. If you're using a custom image, and your image supports Accelerated Networking, create your VM using CLI or PowerShell. 
 
 After the VM is created, you can confirm that Accelerated Networking is enabled by following the [confirmation instructions](#confirm-that-accelerated-networking-is-enabled).
 
@@ -230,7 +231,8 @@ az vmss update --name myvmss \
     --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
 ```
 
-Note: a VMSS has VM upgrades that apply updates using three different settings, automatic, rolling, and manual. In these instructions, the policy is set to automatic so that the VMSS will pick up the changes immediately after reboot. To set it to automatic so that the changes are immediately picked up: 
+>[!NOTE]
+> A VMSS has VM upgrades that apply updates using three different settings, automatic, rolling, and manual. In these instructions, the policy is set to automatic so that the VMSS will pick up the changes immediately after reboot. To set it to automatic so that the changes are immediately picked up: 
 
 ```azurecli
 az vmss update \
