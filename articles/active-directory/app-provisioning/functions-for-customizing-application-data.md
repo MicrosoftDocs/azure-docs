@@ -906,15 +906,14 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
 #### Replace characters using a regular expression
-**Example 1:** Using **oldValue** and **replacementValue** to replace a business title.
+**Example 1:** Using **oldValue** and **replacementValue** to replace the entire source string with another string.
 
-Use this pattern when you want to replace the entire source string with another string. 
 Let’s say your HR system has an attribute `BusinessTitle`. As part of recent job title changes, your company wants to update anyone with the business title “Product Developer” to “Software Engineer”. 
 Then in this case, you can use the following expression in your attribute mapping. 
 
 `Replace([BusinessTitle],"Product Developer", , , "Software Engineer", , )`
 
-* **source**: \[BusinessTitle\]
+* **source**: `[BusinessTitle]`
 * **oldValue**: “Product Developer”
 * **replacementValue**: “Software Engineer”
 * **Expression output**: Software Engineer
@@ -927,13 +926,70 @@ Then in this case, you can use the following expression in your attribute mappin
 
 `Replace([UserID],"<username>", , , , , "<username>@contoso.com")`
 
-**source:** `[UserID]` = “jsmith”
-**oldValue:** “`<username>`”
-**template:** “`<username>@contoso.com`”
-**Expression output:** “jsmith@contoso.com”
+* **source:** `[UserID]` = “jsmith”
+* **oldValue:** “`<username>`”
+* **template:** “`<username>@contoso.com`”
+* **Expression output:** “jsmith@contoso.com”
 
+**Example 3:** Using **regexPattern** and **replacementValue** to extract a portion of the source string and replace it with an empty string or a custom value built using regex patterns or regex group names.
+ 
+Let’s say you have a source attribute `telephoneNumber` that has components `country code` and `phone number` separated by a space character. E.g. `+91 9998887777`
+Then in this case, you can use the following expression in your attribute mapping to extract the 10 digit phone number. 
 
-**Example 5:** You need to find characters that match a regular expression value and remove them.
+`Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", , "${phoneNumber}", , )`
+
+* **source:** `[telephoneNumber]` = “+91 9998887777”
+* **regexPattern:** “`\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})`”
+* **replacementValue:** “`${phoneNumber}`”
+* **Expression output:** 9998887777
+
+You can also use this pattern to remove characters and collapse a string. 
+For example, the expression below removes parenthesis, dashes and space characters in the mobile number string and returns only digits. 
+
+`Replace([mobile], , "[()\\s-]+", , "", , )`
+
+* **source:** `[mobile] = “+1 (999) 888-7777”`
+* **regexPattern:** “`[()\\s-]+`”
+* **replacementValue:** “” (empty string)
+* **Expression output:** 19998887777
+
+**Example 4:** Using **regexPattern**, **regexGroupName** and **replacementValue** to extract a portion of the source string and replace it with another literal value or empty string.
+
+Let’s say your source system has an attribute AddressLineData with two components street number and street name. As part of a recent move, let’s say the street number of the address changed and you want to update only the street number portion of the address line. 
+Then in this case, you can use the following expression in your attribute mapping to extract the 10 digit phone number.
+
+`Replace([AddressLineData], ,"(?<streetNumber>^\\d*)","streetNumber", "888", , )`
+
+* **source:** `[AddressLineData]` = “545 Tremont Street”
+* **regexPattern:** “`(?<streetNumber>^\\d*)`”
+* **regexGroupName:** “streetNumber”
+* **replacementValue:** “888”
+* **Expression output:** 888 Tremont Street
+
+Here is another example where the domain suffix from a UPN is replaced with an empty string to generate login id without domain suffix. 
+
+`Replace([userPrincipalName], , "(?<Suffix>@(.)*)", "Suffix", "", , )`
+
+* **source: `[userPrincipalName]` = “jsmith@contoso.com”
+* **regexPattern:** “`(?<Suffix>@(.)*)`”
+* **regexGroupName:** “Suffix”
+* **replacementValue:** “” (empty string)
+* **Expression output:** jsmith
+
+**Example 5:** Using **regexPattern**, **regexGroupName** and **replacementAttributeName** to handle scenarios when the source attribute is empty or doesn’t have a value.
+
+Let’s say your source system has an attribute telephoneNumber. If telephoneNumber is empty, you want to extract the 10 digits of the mobile number attribute.
+Then in this case, you can use the following expression in your attribute mapping. 
+
+`Replace([telephoneNumber], , "\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})", "phoneNumber" , , [mobile], )`
+
+* **source:** `[telephoneNumber]` = “” (empty string)
+* **regexPattern:** “`\\+(?<isdCode>\\d* )(?<phoneNumber>\\d{10})`”
+* **regexGroupName:** “phoneNumber”
+* **replacementAttributeName:** `[mobile]` = “+91 8887779999”
+* **Expression output:** 8887779999
+
+**Example 6:** You need to find characters that match a regular expression value and remove them.
 
 `Replace([mailNickname], , "[a-zA-Z_]*", , "", , )`
 
