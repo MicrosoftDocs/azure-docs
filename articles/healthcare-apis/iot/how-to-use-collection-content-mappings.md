@@ -1,20 +1,20 @@
 ---
-title: CollectionContentTemplate mappings in IoT Connector Device mappings - Azure Healthcare APIs
-description: This article describes how to use CollectionContentTemplate mappings with IoT connector Device mappings. 
+title: CollectionContentTemplate mappings in IoT Connector Device mappings - Azure Health Data Services
+description: This article describes how to use CollectionContentTemplate mappings with MedTech service Device mappings. 
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/03/2022
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 
 # How to use CollectionContentTemplate mappings
 
 > [!TIP]
-> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
 
-This article describes how to use CollectionContentTemplate mappings with IoT connector Device mappings templates.
+This article describes how to use CollectionContentTemplate mappings with the MedTech service Device mappings templates.
 
 ## CollectionContentTemplate
 
@@ -62,7 +62,7 @@ The CollectionContentTemplate may be used to represent a list of templates that 
 }
 ```
 > [!TIP]
-> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
+> See the MedTech service [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
 
 ## Next steps
 
