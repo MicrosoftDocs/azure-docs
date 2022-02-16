@@ -16,19 +16,15 @@ ms.date: 01/31/2022
 
 # How to set up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)
 
-TODO: update other prereq tables with mods here.
-
 This article gives an overview of how to set up infrastructure and managed instances to implement [Windows Authentication for Azure AD principals on Azure SQL Managed Instance](winauth-azuread-overview.md).
 
-There are two phases to set up Windows Authentication for Azure SQL Managed Instance using Azure AD and Kerberos. 
+There are two phases to set up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory (Azure AD) and Kerberos.
 
-- **One-time infrastructure setup**
-TODO: refer to matrix and update these
-
+- **One-time infrastructure setup.**
     - Synchronize Active Directory (AD) and Azure AD, if this has not already been done.
-    - Set up incoming trust-based authentication flow for down-level clients. 
-    - Enable the modern interactive authentication flow for clients running Windows 10 21H1 and higher. The modern interactive flow is recommended when available. 
-- **Configuration of Azure SQL Managed Instance**
+    - Enable the modern interactive authentication flow, when available. The modern interactive flow is recommended for organizations with Azure AD joined or Hybrid AD joined clients running Windows 10 20H1 / Windows Server 2022 and higher.
+    - Set up the incoming trust-based authentication flow. This is recommended for customers who cannot use the modern interactive flow, but who have AD joined clients running Windows 10 / Windows Server 2012 and higher.
+- **Configuration of Azure SQL Managed Instance.**
     - Create a system assigned service principal for each managed instance.
 
 ## One-time infrastructure setup
