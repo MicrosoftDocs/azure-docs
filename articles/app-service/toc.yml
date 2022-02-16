@@ -88,8 +88,8 @@
             items: 
               - name: .NET
                 href: scenario-secure-app-access-microsoft-graph-as-app.md
-              - name: PHP
-                href: scenario-secure-app-access-microsoft-graph-as-app-php.md
+              - name: JavaScript
+                href: scenario-secure-app-access-microsoft-graph-as-app-javascript.md
         - name: With Key Vault
           items: 
           - name: Connect to Cognitive Services

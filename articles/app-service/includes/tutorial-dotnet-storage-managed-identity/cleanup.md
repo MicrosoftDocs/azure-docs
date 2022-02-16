@@ -1,15 +1,16 @@
 ---
-services: storage, app-service-web
+services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
+
 ms.service: app-service-web
 ms.topic: include
 ms.workload: identity
-ms.date: 02/16/2022
+ms.date: 01/21/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.devlang: csharp azurecli
-ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.custom: azureday1, devx-track-azurepowershell
+#Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---
 
 ## Next steps
