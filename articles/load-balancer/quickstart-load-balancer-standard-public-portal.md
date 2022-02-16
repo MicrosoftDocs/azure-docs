@@ -346,9 +346,9 @@ When no longer needed, delete the resource group, load balancer, and all related
 
 In this quickstart, you:
 
-* Created an Azure Standard or Basic Load Balancer
-* Attached 2 VMs to the load balancer.
-* Tested the load balancer.
+* Created an Azure Load Balancer
+* Attached 2 VMs to the load balancer
+* Tested the load balancer
 
 To learn more about Azure Load Balancer, continue to:
 > [!div class="nextstepaction"]
