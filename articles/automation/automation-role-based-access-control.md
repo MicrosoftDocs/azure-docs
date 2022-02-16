@@ -375,17 +375,11 @@ Perform the following steps to create the Azure Automation custom role with Powe
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
-You can create custom Azure Automation Roles and grant the following permissions to Hybrid Worker Groups and Hybrid Workers. [Learn more](/azure/role-based-access-control/custom-roles) on how to create Azure Automation custom roles.
+You can create custom Azure Automation Roles and grant the following permissions to Hybrid Worker Groups and Hybrid Workers. [Learn more](/azure/role-based-access-control/custom-roles) on how to create Azure custom roles.
 
-**Actions** | **Description**
---- | ---
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/write | Creates a Hybrid Runbook Worker Group.
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/delete | Deletes a Hybrid Runbook Worker.
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/read | Reads a Hybrid Runbook Worker.
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/write | Creates a Hybrid Runbook Worker.
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/move/action | Moves Hybrid Runbook Worker from one Worker Group to another.
-Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookWorkers/delete | Deletes a Hybrid Runbook Worker.
+- [Learn more](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups) on the permissions applicable for extension-based Hybrid Runbook Worker.
+- [Learn more](/azure/automation/automation-windows-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) on the permissions applicable for agent-based Windows Hybrid Runbook Worker.</br>
+ - [Learn more](/azure/automation/automation-linux-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) on the permissions applicable for agent-based Linux Hybrid Runbook Worker. 
 
 
 ## Update Management permissions
