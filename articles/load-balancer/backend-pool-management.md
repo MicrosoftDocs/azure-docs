@@ -8,8 +8,8 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 12/27/2021
 ms.author: allensu 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.devlang: azurecli
 ---
 # Backend pool management
 The backend pool is a critical component of the load balancer. The backend pool defines the group of resources that will serve traffic for a given load-balancing rule.

@@ -6,7 +6,8 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Tutorial: Map an existing custom domain to Azure Spring Cloud

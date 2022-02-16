@@ -5,8 +5,8 @@ description: This article describes how to create and manage Azure SQL Managed I
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: devx-track-azurepowershell
-ms.devlang: 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.devlang: azurecli
 ms.topic: how-to
 author: urosmil
 ms.author: urmilano

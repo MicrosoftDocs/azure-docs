@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: test sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: 
+ms.devlang: azurecli
 ms.topic: conceptual
 author: oslake
 ms.author: moslake

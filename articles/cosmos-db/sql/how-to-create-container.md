@@ -7,8 +7,9 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 01/03/2022
 ms.author: mjbrown
-ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.devlang: csharp, azurecli
+ms.custom: devx-track-csharp, devx-track-azurecli
+ms.devlang: azurecli
 ---
 
 # Create a container in Azure Cosmos DB SQL API

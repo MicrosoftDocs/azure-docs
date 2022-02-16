@@ -4,7 +4,7 @@ description: Reference material for using Azure HDInsight SDK for Go and Apache 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
-ms.devlang: golang
+ms.devlang: golang, azurecli
 ms.date: 01/03/2020
 ---
 

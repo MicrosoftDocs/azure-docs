@@ -4,7 +4,8 @@ description: Learn how to deploy the Microsoft Sentinel data connector for SAP e
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc, ignite-fall-2021, devx-track-azurecli
+ms.devlang: azurecli
 ms.date: 11/09/2021
 ---
 

@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.date: 10/16/2020
 author: manishmsfte
 ms.author: mansha
-ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.devlang: csharp, azurecli
+ms.custom: devx-track-csharp, devx-track-azurecli
 ---
 
 # Create a container in Azure Cosmos DB Gremlin API

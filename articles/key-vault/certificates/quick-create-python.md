@@ -7,7 +7,7 @@ ms.date: 01/22/2022
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.devlang: python
+ms.devlang: python, azurecli
 ms.custom: devx-track-python, devx-track-azurecli, mode-api
 ---
 
