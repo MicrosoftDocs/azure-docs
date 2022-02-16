@@ -22,7 +22,7 @@ ms.custom:
 # Create a Linux virtual machine with Accelerated Networking using Azure CLI
 
 ## Portal creation
-Though this article provides steps to create a virtual machine with Accelerated Networking using the Azure CLI, you can also [create a virtual machine with Accelerated Networking from the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, in the **Create a virtual machine** blade, choose the **Networking** tab.  In this tab, there's an option for **Accelerated Networking**. If you have chosen a [supported operating system](#supported-operating-systems) and [VM size](#supported-vm-instances), this option automatically populates to "On." If not, it populates the "Off" option for Accelerated Networking and provide a reason why it isn't enabled.   
+Though this article provides steps to create a virtual machine with Accelerated Networking using the Azure CLI, you can also [create a virtual machine with Accelerated Networking from the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, in the **Create a virtual machine** blade, choose the **Networking** tab.  In this tab, there's an option for **Accelerated Networking**. If you have chosen a [supported operating system](../accelerated-networking-overview.md#supported-operating-systems) and [VM size](../accelerated-networking-overview.md#supported-vm-instances), this option automatically populates to "On." If not, it populates the "Off" option for Accelerated Networking and provide a reason why it isn't enabled.   
 
 * *Note:* Only supported operating systems can be enabled through the portal. If you're using a custom image, and your image supports Accelerated Networking, create your VM using CLI or PowerShell. 
 
@@ -256,3 +256,9 @@ A VM with Accelerated Networking enabled can't be resized to a VM instance that 
 * Stop/Deallocate the VM or if in an availability set/VMSS, stop/deallocate all the VMs in the set/VMSS.
 * Accelerated Networking must be disabled on the NIC of the VM or if in an availability set/VMSS, all VMs in the set/VMSS.
 * Once Accelerated Networking is disabled, the VM/availability set/VMSS can be moved to a new size that doesn't support Accelerated Networking and restarted.
+
+## Next steps
+* Learn [how Accelerated Networking works](../accelerated-networking-how-it-works.md)
+* Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
+* Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
+
