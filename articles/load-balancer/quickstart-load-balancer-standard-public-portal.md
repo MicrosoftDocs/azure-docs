@@ -5,7 +5,7 @@ description: This quickstart shows how to create a load balancer by using the Az
 author: asudbring
 ms.service: load-balancer
 ms.topic: quickstart
-ms.date: 2/15/2022
+ms.date: 02/16/2022
 ms.author: allensu
 ms.custom: mvc, mode-ui
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
@@ -151,7 +151,7 @@ During the creation of the load balancer, you'll configure:
 
 5. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
-6. Enter *myFrontend** in **Name**.
+6. Enter **myFrontend** in **Name**.
 
 7. Select **IPv4** or **IPv6** for the **IP version**.
 
