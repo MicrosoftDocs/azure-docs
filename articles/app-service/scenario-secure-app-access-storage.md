@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 11/02/2021
+ms.date: 02/16/2022
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.devlang: csharp, javascript, azurecli
@@ -15,13 +15,19 @@ ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-r
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
 ---
 
-# Tutorial: Access Azure Storage from a web app
+# Tutorial: Access Azure services from a web app
 
-Learn how to access Azure Storage for a web app (not a signed-in user) running on Azure App Service by using managed identities.
+Learn how to access Azure services, _such as Azure Storage_, from a web app (not a signed-in user) running on Azure App Service by using managed identities. This tutorial demonstrates connecting to Azure Storage as an example. 
+
+[Any service](/azure/active-directory/managed-identities-azure-resources/managed-identities-status) that supports managed identity (_B_ in the following image) can be securely accessed using this tutorial: 
+
+* Azure Storage
+* Azure SQL Database
+* Azure Key Vault
 
 :::image type="content" alt-text="Diagram that shows how to access storage." source="./media/scenario-secure-app-access-storage/web-app-access-storage.svg" border="false":::
 
-You want to add access to the Azure data plane (Azure Storage, Azure SQL Database, Azure Key Vault, or other services) from your web app. You could use a shared key, but then you have to worry about operational security of who can create, deploy, and manage the secret. It's also possible that the key could be checked into GitHub, which hackers know how to scan for. A safer way to give your web app access to data is to use [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+You want to add secure access to Azure services (Azure Storage, Azure SQL Database, Azure Key Vault, or other services) from your web app. You could use a shared key, but then you have to worry about operational security of who can create, deploy, and manage the secret. It's also possible that the key could be checked into GitHub, which hackers know how to scan for. A safer way to give your web app access to data is to use [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 A managed identity from Azure Active Directory (Azure AD) allows App Service to access resources through role-based access control (RBAC), without requiring app credentials. After assigning a managed identity to your web app, Azure takes care of the creation and distribution of a certificate. People don't have to worry about managing secrets or app credentials.
 
