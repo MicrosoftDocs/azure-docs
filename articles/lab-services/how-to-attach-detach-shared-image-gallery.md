@@ -83,7 +83,7 @@ All images in the attached compute gallery are disabled by default. To enable se
 
 To disable selected images:
 
-1. Check images you want to enable.
+1. Check images you want to disable.
 1. Select **Disable image**  button.
 1. Select **Apply**.
 

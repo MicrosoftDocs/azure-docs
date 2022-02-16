@@ -243,6 +243,8 @@
         href: how-to-connect-peer-virtual-network.md
       - name: Attach or detach a shared image gallery
         href: how-to-attach-detach-shared-image-gallery-1.md
+      - name: Specify Marketplace images for labs 
+        href: specify-marketplace-images-1.md
       - name: Add additional owners to a lab
         href: how-to-add-user-lab-owner.md
       - name: Manage labs in a lab account
