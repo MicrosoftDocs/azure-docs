@@ -36,13 +36,3 @@ ms.author: mahilleb
 | US | West US | `westus` |
 | US | West US 2 | `westus2` |
 | US | West US 3 | 'westus3' |
- 
-
-
-
-
-
-
-
-
-
