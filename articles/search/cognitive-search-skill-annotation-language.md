@@ -11,6 +11,8 @@ ms.date: 01/27/2022
 ---
 # Skill context and input annotation language
 
+This article is the reference documentation for skill context and input syntax. It's a full description of the expression language used to construct paths to nodes in an enriched document.
+
 Azure Cognitive Search skills can use and [enrich the data coming from the data source and from the output of other skills](cognitive-search-defining-skillset.md).
 The data working set that represents the current state of the indexer work for the current document starts from the raw data coming from the data source and is
 progressively enriched with each skill iteration's output data.
@@ -118,7 +120,9 @@ The `'*'` token doesn't have to be at the end of the path. It's possible to enum
 |---|---|
 |`/document/normalized_images/*/text/words/*`|`["Study", "of", "BMN", "110" ... "it", "is", "certainly" ...]`|
 
-This example returned a flat list of all matching nodes. It's possible to maintain more structure and get a separate array for the words of each page by using a `'#'` token instead of the second `'*'` token:
+This example returns a flat list of all matching nodes.
+
+It's possible to maintain more structure and get a separate array for the words of each page by using a `'#'` token instead of the second `'*'` token:
 
 |Expression|Value|
 |---|---|
