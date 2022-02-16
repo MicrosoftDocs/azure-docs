@@ -83,14 +83,18 @@ To complete this tutorial, you need to:
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
 1. In the first step of the migration wizard, link your existing or new Azure account to Azure Data Studio.
 
-## Run database assessment and select target
+## Run database assessment, collect performance data and select target
 
 1. Select the database(s) to run assessment and select **Next**.
 1. Select SQL Server on Azure Virtual Machine as the target.
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
 1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**.
-1. Specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and select **Next**.
-
+1. Click the **Get Azure recommendation** button.
+2. Pick the **Collect performance data now** option and enter a path for performance logs to be collected and click the **Start** button.
+3. Azure Data Studio will now collect performance data until you either stop the collection, press the **Next** button in the wizard or close Azure Data Studio.
+4. After 10 minutes you will see a recommended configuration for your Azure SQL Managed Instance. You can also press the **Refresh recommendation** link to get the recommendation sooner.
+5. In the above **SQL Server on Azure Virtual Machine** box click the **View details** button for more information about your recommendation. 
+6. Close the view details box and press the **Next** button and specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and then select **Next**.
 
 ## Configure migration settings
 
