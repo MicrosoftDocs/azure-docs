@@ -50,7 +50,7 @@ Once your resource and storage container are configured, create a new conversati
 
 [!INCLUDE [Create custom NER project](../create-project.md)]
 
-Select the container where you’ve uploaded your data. When asked if your files are already tagged with classes, select **Yes** and choose the available file. Then click **Next**. Review the data you entered and select **Create Project**.
+Under **Are your files already tagged with entities**, select **Yes** and choose the available file. Then click **Next**. Review the data you entered and select **Create Project**.
 
 ## Train your model
 

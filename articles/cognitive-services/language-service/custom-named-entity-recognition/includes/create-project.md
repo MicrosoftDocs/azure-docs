@@ -32,3 +32,5 @@ ms.custom: ignite-fall-2021
     :::image type="content" source="../media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../media/connect-storage.png":::
 
 5. Enter the project information, including a name, description, and the language of the files in your project. You won’t be able to change the name of your project later. 
+
+6. Select the container where you’ve uploaded your data.
