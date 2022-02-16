@@ -15,7 +15,7 @@ This article describes how to create a custom image from a provisioned Azure Dev
 
 To create a custom image from a lab VM, take the following steps:
 
-1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), on your lab's **Overview** page, select the VM you want to use from the list under **My virtual machines**.
+1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), on your lab's **Overview** page, select the VM to use for the image from the **My virtual machines** list.
 
    :::image type="content" source="./media/devtest-lab-create-custom-image-vm/overview-page.png" alt-text="Screenshot that shows a V M selected on a lab's Overview page.":::
 
@@ -25,9 +25,9 @@ To create a custom image from a lab VM, take the following steps:
 
 1. Under **Image preparation**, select one of the following options:
 
-   - **I have not generalized this virtual machine** if you haven't run [sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) and don't want to run sysprep on the VM when creating the custom image
-   - **I have already generalized this virtual machine** if you already ran sysprep on the VM
-   - **Generalize this virtual machine (Run sysprep)** if you haven't run sysprep and want sysprep to be run on the VM when creating the custom image
+   - **I have not generalized this virtual machine** if you haven't run [sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) and don't want to run sysprep on the VM when creating the custom image.
+   - **I have already generalized this virtual machine** if you already ran sysprep on the VM.
+   - **Generalize this virtual machine (Run sysprep)** if you haven't run sysprep and you want sysprep to be run on the VM when creating the custom image.
 
 1. Select **OK**.
 

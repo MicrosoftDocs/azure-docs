@@ -27,13 +27,13 @@ To add a configured virtual network and subnet to a lab, take the following step
 
    :::image type="content" source="./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png" alt-text="Screenshot that shows Select virtual network selected on the Virtual network page.":::
 
-1. The **Choose virtual network** page shows all the virtual networks in the subscription that are in the same region as the lab. Select the virtual network you want to add.
+1. The **Choose virtual network** page appears, showing all virtual networks in the subscription that are in the same region as the lab. Select the virtual network you want to add.
 
    :::image type="content" source="./media/devtest-lab-configure-vnet/choose-virtual-network.png" alt-text="Screenshot that shows the Choose virtual network page with a list of virtual networks.":::
 
-1. The **Virtual network** page now shows the virtual network you chose. Select **Save**.
+1. The virtual network you chose shows on the **Virtual network** page. Select **Save**.
 
-1. The chosen virtual network now appears in the list on the lab's **Virtual networks** page. Select the new virtual network.
+1. The virtual network appears in the list on the lab's **Virtual networks** page. When the **Status** shows as **Ready**, select the new virtual network.
 
    :::image type="content" source="./media/devtest-lab-configure-vnet/lab-subnet.png" alt-text="Screenshot that shows the added virtual network on the lab's Virtual networks page.":::
 
@@ -41,9 +41,9 @@ To add a configured virtual network and subnet to a lab, take the following step
 
 1. On the **Lab Subnet** pane, select **Yes** or **No** under the following options:
 
-   - **Use in virtual machine creation** to allow VM creation in the subnet.
-   - **Enable shared public IP** to enable a [shared public IP address](devtest-lab-shared-ip.md).
-   - **Allow public IP creation** to allow public IP addresses in the subnet.
+   - **Use in virtual machine creation** to allow or disallow VM creation in the subnet.
+   - **Enable shared public IP** to enable or disable a [shared public IP address](devtest-lab-shared-ip.md).
+   - **Allow public IP creation** to allow or disallow creating public IP addresses in the subnet.
 
 1. Under **Maximum virtual machines per user**, enter the maximum number of VMs each user can create in the subnet. If you don't want to restrict the number of VMs, leave this field blank.
 
@@ -51,11 +51,17 @@ To add a configured virtual network and subnet to a lab, take the following step
 
    :::image type="content" source="./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png" alt-text="Screenshot that shows the settings for the Lab subnet pane.":::
 
-If you allowed VM creation in one of the subnets, you can now use the configured virtual network to [create lab VMs](devtest-lab-add-vm.md).
+1. On the **Virtual network** page, select **Save** again.
 
-## Add a virtual network during VM creation
+## Create VMs in the added virtual network
 
-You can also specify a virtual network to use at the time you create a new lab VM. For instructions, see [Create and add virtual machines](devtest-lab-add-vm.md).
+If you allowed VM creation in one of the subnets, you can now create lab VMs in the added virtual network.
+
+1. Follow the instructions at [Create and add virtual machines](devtest-lab-add-vm.md) to add a lab VM and select a VM base.
+1. On the **Create lab resource** screen, select the **Advanced settings** tab.
+1. Select the drop-down arrow in the **Virtual network** field, and select the virtual network you added.
+1. If necessary, select the drop-down arrow in the **Subnet Selector** field, and select the subnet you want.
+1. Proceed with VM creation.
 
 ## Next steps
 

@@ -10,7 +10,7 @@ ms.date: 02/15/2022
 Azure DevTest Labs supports changing the size of a lab virtual machine (VM), based on changing needs for CPU, network, or disk performance. This article describes how to resize a lab VM.
 
 > [!NOTE]
-> The resize feature complies with lab policy for [allowed VM sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes). You can resize a VM only to sizes that the lab allows.
+> The resize feature complies with lab policy for [allowed VM sizes](devtest-lab-set-lab-policy.md#set-allowed-virtual-machine-sizes). You can resize a VM only to sizes that lab policy allows.
 
 ## Stop the VM
 
@@ -42,7 +42,7 @@ Once the VM stops, or if the VM is already stopped, **Stop** is grayed out.
 
    :::image type="content" source="./media/devtest-lab-resize-vm/resize-status.png" alt-text="Screenshot of the Notifications window that shows resizing status.":::
 
-1. When the resize finishes, select **Start** from the VM **Overview** page toolbar.
+1. When the resize finishes, start the VM by selecting **Start** from the VM's **Overview** page toolbar.
 
 ## Next steps
 
