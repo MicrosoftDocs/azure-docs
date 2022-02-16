@@ -75,11 +75,20 @@
         - name: With managed identity
           items: 
           - name: Connect to databases
-            href: tutorial-connect-msi-sql-database.md
+            items: 
+              - name: .NET
+                href: tutorial-connect-msi-sql-database.md
           - name: Connect to services
-            href: scenario-secure-app-access-storage.md
+              - name: .NET
+                href: scenario-secure-app-access-storage.md
+              - name: JavaScript
+                href: scenario-secure-app-access-storage-javascript.md
           - name: Connect to Microsoft Graph
-            href: scenario-secure-app-access-microsoft-graph-as-app.md            
+            items: 
+              - name: .NET
+                href: scenario-secure-app-access-microsoft-graph-as-app.md
+              - name: PHP
+                href: scenario-secure-app-access-microsoft-graph-as-app-php.md
         - name: With Key Vault
           items: 
           - name: Connect to Cognitive Services
