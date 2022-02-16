@@ -88,7 +88,7 @@ az group create --name myResourceGroup --location eastus
 Use the [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) command to deploy the target registry, using the template:
 
 ```azurecli
-az deployment group --resource-group myResourceGroup \
+az deployment group create --resource-group myResourceGroup \
    --template-file template.json --name mydeployment
 ```
 

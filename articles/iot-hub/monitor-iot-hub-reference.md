@@ -1,8 +1,8 @@
 ---
 title: Monitoring Azure IoT Hub data reference  
 description: Important reference material needed when you monitor Azure IoT Hub 
-author: eross-msft
-ms.author: lizross
+author: kgremban
+ms.author: kgremban
 ms.topic: reference
 ms.service: iot-hub
 ms.custom: subject-monitoring

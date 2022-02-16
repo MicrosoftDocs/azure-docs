@@ -72,7 +72,7 @@ In addition to the above prerequisites that are used for VM creation, you'll als
     1. Identify all the VMs running on your device. This includes Kubernetes VMs, or any VM workloads that you may have deployed.
 
         ```powershell
-        get-vm -force
+        get-vm
         ```
     1. Stop all the running VMs.
     

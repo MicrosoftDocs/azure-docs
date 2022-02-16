@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Customer responsibilities for running Azure Spring Cloud in VNET
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This article includes specifications for the use of Azure Spring Cloud in a virtual network.
 
 When Azure Spring Cloud is deployed in your virtual network, it has outbound dependencies on services outside of the virtual network. For management and operational purposes, Azure Spring Cloud must access certain ports and fully qualified domain names (FQDNs). Azure Spring Cloud requires these endpoints to communicate with the management plane and to download and install core Kubernetes cluster components and security updates.
@@ -61,7 +63,6 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 
 <sup>1</sup> Please note that these FQDNs aren't included in the FQDN tag.
 
-
 ## Azure Spring Cloud optional FQDN for third-party application performance management
 
 Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the following configurations:
@@ -74,7 +75,7 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | <i>*.live.ruxit.com</i>            | TCP:443    | Required network of Dynatrace APM agents.                    |
 | <i>*.saas.appdynamics.com</i>      | TCP:443/80 | Required network of AppDynamics APM agents, also see [SaaS Domains and IP Ranges](https://docs.appdynamics.com/display/PAA/SaaS+Domains+and+IP+Ranges). |
 
-## See also
+## Next steps
 
-* [Access your application in a private network](access-app-virtual-network.md)
-* [Expose applications to the internet using Application Gateway](expose-apps-gateway.md)
+- [Access your application in a private network](access-app-virtual-network.md)
+- [Expose applications to the internet using Application Gateway](expose-apps-gateway.md)

@@ -68,6 +68,9 @@
     href: concept-recommendations.md
 - name: How-to guides
   items:
+  - name: Install Defender for IoT micro agent for Edge (Preview)
+    displayName: Edge, micro agent, 
+    href: how-to-install-micro-agent-for-edge.md
   - name: Connect to Microsoft Sentinel
     displayName: log analytics, service notes
     href: how-to-configure-with-sentinel.md

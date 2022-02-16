@@ -31,7 +31,7 @@ Azure offers a range of approved Linux distributions. For a current list, see [L
 
 ## Create VM on the Azure portal
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Virtual machines**.
 3. Select **+ Create** and **+ Virtual machine** from the drop-down menu to open the **Create a virtual machine** screen.
 4. Select the image from the dropdown list or select **See all images** to search or browse all available virtual machine images. You can also configure the VM generation of your image depending on the image you select.
@@ -103,7 +103,7 @@ Windows OS disks are generalized with the [sysprep](/windows-hardware/manufactur
 
 Once your VM is ready, you can capture it in an Azure Compute Gallery (formerly know as Shared Image Gallery). Follow the below steps to capture:
 
-1. On the [Azure portal](https://ms.portal.azure.com/), go to your Virtual Machine’s page.
+1. On the [Azure portal](https://portal.azure.com/), go to your Virtual Machine’s page.
 2. Select **Capture**.
 3. Under **Share image to Azure Compute Gallery** select **Yes, share it to a gallery as an image version**.
 4. Under **Operating system state** select Generalized.
