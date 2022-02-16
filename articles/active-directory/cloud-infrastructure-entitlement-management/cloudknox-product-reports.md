@@ -53,7 +53,7 @@ CloudKnox offers the following reports for management associated with the author
 
 - **User entitlements and usage**: 
 	- **Summary of report**: Provides information about the identities' permissions, for example, entitlement, usage, and PCI.
-	- **Applies to**: AWS, Azure, Google Cloud Platform (GCP), and VCENTER
+	- **Applies to**: AWS, Azure, and Google Cloud Platform (GCP)
 	- **Report output type**: CSV
 	- **Ability to collate report**: Yes
 	- **Type of report**: **Summary** or **Detailed**
@@ -62,7 +62,7 @@ CloudKnox offers the following reports for management associated with the author
 
 - **Group entitlements and usage**:
 	- **Summary of report**: Provides information about the group's permissions, for example, entitlement, usage, and PCI.
-	- **Applies to**: AWS, Azure, GCP, and VCENTER
+	- **Applies to**: AWS, Azure, and GCP
 	- **Report output type**: CSV
 	- **Ability to collate report**: Yes
 	- **Type of report**: **Summary** 
@@ -71,7 +71,7 @@ CloudKnox offers the following reports for management associated with the author
 
 - **Identity permissions**:
 	- **Summary of report**: Report on identities that have specific permissions, for example, identities that have permission to delete any S3 buckets.
-	- **Applies to**: AWS, Azure, GCP, VCENTER
+	- **Applies to**: AWS, Azure, and GCP
 	- **Report output type**: CSV
 	- **Ability to collate report**: No
 	- **Type of report**: **Summary** 
@@ -80,7 +80,7 @@ CloudKnox offers the following reports for management associated with the author
 
 - **Identity privilege activity report** 
 	- **Summary of report**: Provides information about permission changes that have occurred in the selected duration.
-	- **Applies to**: AWS, Azure, GCP, VCENTER
+	- **Applies to**: AWS, Azure, and GCP
 	- **Report output type**: PDF
 	- **Ability to collate report**: No
 	- **Type of report**: **Summary**
@@ -94,7 +94,7 @@ CloudKnox offers the following reports for management associated with the author
 
 - **Permissions analytics report** 
 	- **Summary of report**: Provides information about the violation of key security best practices.
-	- **Applies to**: AWS, Azure, GCP, VCENTER
+	- **Applies to**: AWS, Azure, and GCP
 	- **Report output type**: CSV
 	- **Ability to collate report**: Yes
 	- **Type of report**: **Detailed**
