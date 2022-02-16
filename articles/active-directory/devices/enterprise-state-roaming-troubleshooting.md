@@ -11,7 +11,7 @@ ms.date: 02/15/2022
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: tanning
+ms.reviewer: guovivian
 
 ms.collection: M365-identity-device-management
 ---
@@ -103,30 +103,12 @@ Make sure the Windows 10 v1511 client has the July 2016 Cumulative Update ([KB31
 
 ---
 
-### Theme is not syncing, as well as data protected with Windows Information Protection 
-
-To prevent data leakage, data that is protected with [Windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update.
-
-**Recommended action**  
-None. Future updates to Windows may resolve this issue.
-
----
-
 ### Date, Time, and Region settings do not sync on domain-joined device 
   
 Devices that are domain-joined will not experience sync for the setting Date, Time, and Region: automatic time. Using automatic time may override the other Date, Time, and Region settings and cause those settings not to sync. 
 
 **Recommended action**  
 None. 
-
----
-
-### UAC Prompts when syncing passwords
-
-Affects devices running the Windows 10 November Update (Version 1511) with a wireless NIC that is configured to sync passwords.
-
-**Recommended action**  
-Make sure the Windows 10 v1511 client has the Cumulative Update ([KB3140743](https://support.microsoft.com/kb/3140743) OS Build 10586.494).
 
 ---
 
