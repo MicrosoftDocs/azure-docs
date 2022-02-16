@@ -1,12 +1,12 @@
 ---
-title: Configure export settings in the FHIR service - Azure Healthcare APIs
+title: Configure export settings in the FHIR service - Azure Health Data Services
 description: This article describes how to configure export settings in the FHIR service
 author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: references_regions
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: cavoeg
 ---
 
@@ -142,7 +142,7 @@ FHIR service is provisioned.
 | West US 2            | 40.64.135.77      |
 
 > [!NOTE]
-> The above steps are similar to the configuration steps described in the document How to convert data to FHIR (Preview). For more information, see [Host and use templates](./convert-data.md#host-and-use-templates)
+> The above steps are similar to the configuration steps described in the document How to convert data to FHIR. For more information, see [Host and use templates](./convert-data.md#host-and-use-templates)
 
 ### Allowing specific IP addresses for the Azure storage account in the same region
 

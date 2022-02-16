@@ -12,11 +12,11 @@ ms.author: cavoeg
 
 # Release notes: Azure Health Data Services
 
-Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Healthcare APIs including the different service types (FHIR service, DICOM service, and IoT connector) that seamlessly work with one another.
+Azure Health Data Services is a set of managed API services based on open standards and frameworks for the healthcare industry. They enable you to build scalable and secure healthcare solutions by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. This document provides details about the features and enhancements made to Azure Health Data Services including the different service types (FHIR service, DICOM service, and IoT connector) that seamlessly work with one another.
 
 ## January 2022
 
-### Azure Healthcare APIs 
+### Azure Health Data Services 
 
 ### **Features and enhancements**
 
@@ -31,7 +31,7 @@ Azure Health Data Services is a set of managed API services based on open standa
 
 |Enhancements | Related information |
 | :------------------------ | -------------------------------: |
-|Customers can define their own query tags using the Extended Query Tags feature |With Extended Query Tags feature, customers now efficiently query non-DICOM metadata for capabilities like multitenancy and cohorts. It's available for all customers in Azure Healthcare APIs.  |
+|Customers can define their own query tags using the Extended Query Tags feature |With Extended Query Tags feature, customers now efficiently query non-DICOM metadata for capabilities like multitenancy and cohorts. It's available for all customers in Azure Health Data Services.  |
 ## December 2021
 
 ### Azure Health Data Services 

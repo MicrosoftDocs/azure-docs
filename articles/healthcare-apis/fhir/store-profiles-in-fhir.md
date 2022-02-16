@@ -1,5 +1,5 @@
 ---
-title: Store profiles in the FHIR service in Azure Healthcare APIs
+title: Store profiles in the FHIR service in Azure Health Data Services
 description: This article describes how to store profiles in the FHIR service
 author: ginalee-dotcom
 ms.service: healthcare-apis
@@ -14,7 +14,7 @@ ms.author: cavoeg
 HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
 [FHIR profile](https://www.hl7.org/fhir/profiling.html) allows you to narrow down and customize resource definitions using constraints and extensions.
 
-The FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
+The FHIR service in the Azure Health Data Services (hereby called the FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
 
 ## FHIR profile: the basics
 

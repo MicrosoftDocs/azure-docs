@@ -1,18 +1,18 @@
 ---
 title: Supported FHIR features in the FHIR service 
-description: This article explains which features of the FHIR specification that are implemented in Healthcare APIs
+description: This article explains which features of the FHIR specification that are implemented in Azure Health Data Services
 services: healthcare-apis
 author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: cavoeg
 ---
 
 # Supported FHIR Features
 
-The FHIR&reg; service in Azure Healthcare APIs (hereby called the FHIR service) provides a fully managed deployment of the [open-source FHIR Server](https://github.com/microsoft/fhir-server) and is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR service.
+The FHIR&reg; service in Azure Health Data Services (hereby called the FHIR service) provides a fully managed deployment of the [open-source FHIR Server](https://github.com/microsoft/fhir-server) and is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR service.
 
 ## FHIR version
 

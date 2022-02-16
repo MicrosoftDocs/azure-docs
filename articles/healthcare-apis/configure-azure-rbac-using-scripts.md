@@ -5,14 +5,14 @@ services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 02/11/2022
+ms.date: 02/15/2022
 ms.author: zxue
 ---
 
 # Configure Azure RBAC role Using Azure CLI and REST API
 
 In this article, you'll learn how to grant permissions to client applications (and users) to access Azure Health Data Services using Azure Command-Line Interface (CLI) and REST API. This step is referred to as "role assignment" or Azure 
-[role-based access control (Azure RBAC role)](./../role-based-access-control/role-assignments-cli.md). To further your understanding about the application roles defined for Healthcare APIs, see [Configure Azure RBAC role](configure-azure-rbac.md).
+[role-based access control (Azure RBAC role)](./../role-based-access-control/role-assignments-cli.md). To further your understanding about the application roles defined for Azure Health Data Services, see [Configure Azure RBAC role](configure-azure-rbac.md).
 
 You can view and download the [CLI scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-cli.http) and [REST API scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-rest-api.http) from [Healthcare APIs Samples](https://github.com/microsoft/healthcare-apis-samples).
 
@@ -31,13 +31,13 @@ az role definition list --name "DICOM Data Owner"
 az role definition list --name 58a3b984-7adf-4c20-983a-32417c86fbc8
 ```
 
-### Healthcare APIs role assignment
+### Azure Health Data Services role assignment
 
-The role assignments for Healthcare APIs require the following values.
+The role assignments for Azure Health Data Services require the following values.
 
 - Application role name or GUID ID.
 - Service principal ID for the user or client application.
-- Scope for the role assignment, that is, the Healthcare APIs service instance. It includes subscription, resource group, workspace name, and FHIR or DICOM service name. You can use the absolute or relative URL for the scope. Note that "/" isn’t added at the beginning of the relative URL.
+- Scope for the role assignment, that is, the Azure Health Data Services service instance. It includes subscription, resource group, workspace name, and FHIR or DICOM service name. You can use the absolute or relative URL for the scope. Note that "/" isn’t added at the beginning of the relative URL.
 
 ```
 #healthcare apis role assignment
@@ -92,7 +92,7 @@ The API requires the following values:
 
 - Assignment ID, which is a GUID value that uniquely identifies the transaction. You can use tools such as Visual Studio or Visual Studio Code extension to get a GUID value. Also, you can use online tools such as [UUID Generator](https://www.uuidgenerator.net/api/guid) to get it.
 - API version that is supported by the API.
-- Scope for the Healthcare APIs to which you grant access permissions. It includes subscription ID, resource group name, and the FHIR or DICOM service instance name.
+- Scope for Azure Health Data Services to which you grant access permissions. It includes subscription ID, resource group name, and the FHIR or DICOM service instance name.
 - Role definition ID for roles such as "FHIR Data Contributor" or "DICOM Data Owner". Use `az role definition list --name "<role name>"` to list the role definition IDs.
 - Service principal ID for the user or the client application.
 - Azure AD access token to the [management resource](https://management.azure.com/), not the Healthcare APIs. You can get the access token using an existing tool or using Azure CLI command, `az account get-access-token --resource  "https://management.azure.com/"`
@@ -150,11 +150,11 @@ Accept: application/json
 }
 ```
 
-## List service instances of Healthcare APIs
+## List service instances of Azure Health Data Services
 
-Optionally, you can get a list of Healthcare APIs services, or Azure API for FHIR. Note that the API version is based on Healthcare APIs, not the version for the role assignment REST API.
+Optionally, you can get a list of Azure Health Data Services services, or Azure API for FHIR. Note that the API version is based on Azure Health Data Services, not the version for the role assignment REST API.
 
-For Healthcare APIs, specify the subscription ID, resource group name, workspace name, FHIR or DICOM services, and the API version.
+For Azure Health Data Services, specify the subscription ID, resource group name, workspace name, FHIR or DICOM services, and the API version.
 
 ```
 ### Get Healthcare APIs DICOM services
@@ -184,7 +184,7 @@ Accept: application/json
 
 ```
 
-Now that you've granted proper permissions to the client application, you can access the Healthcare APIs in your applications.
+Now that you've granted proper permissions to the client application, you can access Azure Health Data Services in your applications.
 
 ## Next steps
 

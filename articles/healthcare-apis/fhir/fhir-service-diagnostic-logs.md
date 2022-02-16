@@ -1,17 +1,17 @@
 ---
-title: View and enable diagnostic settings in the FHIR service - Azure Healthcare APIs
+title: View and enable diagnostic settings in the FHIR service - Azure Health Data Services
 description: This article describes how to enable diagnostic settings in the FHIR service and review some sample queries for audit logs.
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: how-to
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: zxue
 ---
 
 # View and enable diagnostic settings in the FHIR service
 
-Access to diagnostic logs is essential for any healthcare service. Compliance with regulatory requirements like Health Insurance Portability and Accountability Act (HIPAA) is a must. In this article, you'll learn how to choose settings for diagnostic logs in the FHIR service within Azure Healthcare APIs. You'll also review some sample queries for these logs.
+Access to diagnostic logs is essential for any healthcare service. Compliance with regulatory requirements like Health Insurance Portability and Accountability Act (HIPAA) is a must. In this article, you'll learn how to choose settings for diagnostic logs in the FHIR service within Azure Health Data Services. You'll also review some sample queries for these logs.
 
 ## Steps to enable diagnostic logs
 
@@ -98,7 +98,7 @@ You can use these basic Application Insights queries to explore your log data:
 Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. In this article, you learned how to enable these logs for the FHIR service. 
 
 > [!NOTE]
-> Metrics will be added when the Azure Healthcare APIs service is generally available.
+> Metrics will be added when the Azure Health Data Services service is generally available.
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.date: 02/02/2022
 
 # Introduction: Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule
 
-In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) to support these implementation guides.
+In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the FHIR service in Azure Health Data Services (hereby called the FHIR service) to support these implementation guides.
 
 
 ## Rule overview

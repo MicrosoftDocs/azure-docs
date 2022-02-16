@@ -1,12 +1,12 @@
 ---
-title: Data conversion for Azure Healthcare APIs
-description: Use the $convert-data endpoint and customize-converter templates to convert data in the Healthcare APIs
+title: Data conversion for Azure Health Data Services
+description: Use the $convert-data endpoint and customize-converter templates to convert data in Azure Health Data Services
 services: healthcare-apis
 author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: ranku
 ---
 

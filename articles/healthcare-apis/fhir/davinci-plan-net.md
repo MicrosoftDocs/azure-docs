@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Da Vinci Plan Net - Azure Healthcare APIs
+title: Tutorial - Da Vinci Plan Net - Azure Health Data Services
 description: This tutorial walks through setting up the Azure API for FHIR to pass Touchstone tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ---
 
 # Da Vinci Plan Net
 
-In this tutorial, we'll walk through setting up the the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
+In this tutorial, we'll walk through setting up the the FHIR service in Azure Health Data Services (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Da Vinci PDEX Payer Network (Plan-Net) Implementation Guide.
 
 ## Touchstone capability statement
 

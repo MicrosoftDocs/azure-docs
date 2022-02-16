@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ---
 
 # CARIN Implementation Guide for Blue Button&#174;
 
-In this tutorial, we'll walk through setting up the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
+In this tutorial, we'll walk through setting up the FHIR service in Azure Health Data Services (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [CARIN Implementation Guide for Blue Button](https://build.fhir.org/ig/HL7/carin-bb/index.html) (C4BB IG).
 
 ## Touchstone capability statement
 

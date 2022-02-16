@@ -1,17 +1,17 @@
 ---
-title: Access the Azure Healthcare APIs FHIR service using Postman
-description: This article describes how to access the Azure Healthcare APIs FHIR service with Postman.
+title: Access the Azure Health Data Services FHIR service using Postman
+description: This article describes how to access Azure Health Data Services FHIR service with Postman.
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: zxue
 ---
 
 # Access using Postman
 
-In this article, we will walk through the steps of accessing the Healthcare APIs FHIR service (hear by called the FHIR service) with [Postman](https://www.getpostman.com/).
+In this article, we'll walk through the steps of accessing the Azure Health Data Services (hear by called the FHIR service) with [Postman](https://www.getpostman.com/).
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ In this article, we will walk through the steps of accessing the Healthcare APIs
 
 ## Using Postman: create workspace, collection, and environment
 
-If you are new to Postman, follow the steps below. Otherwise, you can skip this step.
+If you're new to Postman, follow the steps below. Otherwise, you can skip this step.
  
 Postman introduces the workspace concept to enable you and your team to share APIs, collections, environments, and other components. You can use the default “My workspace” or “Team workspace” or create a new workspace for you or your team.
  
@@ -38,7 +38,7 @@ You can also import and export Postman collections. For more information, see [t
 
 ## Create or update environment variables
 
-While you can use the full URL in the request, it is recommended that you store the URL and other data in variables and use them.
+While you can use the full URL in the request, it's recommended that you store the URL and other data in variables and use them.
 
 To access the FHIR service, we'll need to create or update the following variables.
 
@@ -157,7 +157,7 @@ Select **Send**. You should notice a `202 Accepted` response. Select the **Heade
 
 ## Next steps
 
-In this article, you learned how to access the FHIR service in Azure Healthcare APIs with Postman. For information about the FHIR service in Azure Healthcare APIs, see
+In this article, you learned how to access the FHIR service in Azure Health Data Services with Postman. For information about the FHIR service in Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[What is FHIR service?](overview.md)

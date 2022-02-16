@@ -1,17 +1,17 @@
 ---
-title: Access the Azure Healthcare APIs with cURL
-description: This article explains how to access the Healthcare APIs with cURL
+title: Access Azure Health Data Services with cURL
+description: This article explains how to access Azure Health Data Services with cURL
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: ginle
 ---
 
 # Access the Healthcare APIs with cURL
 
-In this article, you will learn how to access the Azure Healthcare APIs with cURL.
+In this article, you'll learn how to access Azure Health Data Services with cURL.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ In this article, you will learn how to access the Azure Healthcare APIs with cUR
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
 * If you want to run the code locally, install [Azure CLI](/cli/azure/install-azure-cli). 
-* Optionally, install a Bash shell, such as Git Bash, which it is included in [Git for Windows](https://gitforwindows.org/).
+* Optionally, install a Bash shell, such as Git Bash, which it's included in [Git for Windows](https://gitforwindows.org/).
 * Optionally, run the scripts in Visual Studio Code with the Rest Client extension. For more information, see [Make a link to the Rest Client doc](using-rest-client.md).
 * Download and install [cURL](https://curl.se/download.html).
 
@@ -118,9 +118,9 @@ dicomservice="https://<dicomservice>.dicom.azurehealthcareapis.com"
 
 ## Next steps
 
-In this article, you learned how to access the Healthcare APIs data using cURL.
+In this article, you learned how to access Azure Health Data Services data using cURL.
 
-To learn about how to access the Healthcare APIs data using REST Client extension in Visual Studio Code, see 
+To learn about how to access Azure Health Data Services data using REST Client extension in Visual Studio Code, see 
 
 >[!div class="nextstepaction"]
->[Access the Healthcare APIs using REST Client](using-rest-client.md)
+>[Access Azure Health Data Services using REST Client](using-rest-client.md)

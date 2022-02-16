@@ -66,8 +66,8 @@ Now that the workspace is created, you can:
 
 * Deploy FHIR service
 * Deploy DICOM service
-* Deploy an IoT Connector and ingest data to your FHIR service.
-* Transform your data into different formats and secondary use through our conversion and de-identification APIs.
+* Deploy an IoT Connector and ingest data to your FHIR service
+* Transform your data into different formats and secondary use through our conversion and de-identification APIs
 
 
 [ ![Deploy different services](media/healthcare-apis-deploy-services.png) ](media/healthcare-apis-deploy-services.png)

@@ -6,12 +6,12 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: cavoeg
 ---
 # FHIR service access token validation
 
-How the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
+How the FHIR service in Azure Health Data Services (hereby called the FHIR service) validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
 
 ## Validate token has no issues with identity provider
 

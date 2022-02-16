@@ -1,17 +1,17 @@
 ---
-title: Access the Azure Healthcare APIs using REST Client
-description: This article explains how to access the Healthcare APIs using the REST Client extension in VSCode
+title: Access Azure Health Data Services using REST Client
+description: This article explains how to access the Healthcare APIs using the REST Client extension in VS Code
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: ginle
 ---
 
 # Accessing the Healthcare APIs using the REST Client Extension in Visual Studio Code
 
-In this article, you will learn how to access the Healthcare APIs using [REST Client extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
+In this article, you'll learn how to access Azure Health Data Services using [REST Client extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 
 ## Install REST Client extension
 
@@ -21,7 +21,7 @@ Select the Extensions icon on the left side panel of your Visual Studio Code, an
 
 ## Create a `.http` file and define variables
 
-Create a new file in Visual Studio Code. Enter a `GET` request command line in the file, and save it as `test.http`. The file suffix `.http` automatically activates the REST Client environment. Click on `Send Request` to get the metadata. 
+Create a new file in Visual Studio Code. Enter a `GET` request command line in the file, and save it as `test.http`. The file suffix `.http` automatically activates the REST Client environment. Select `Send Request` to get the metadata. 
 
 [ ![Send Request](media/rest-send-request.png) ](media/rest-send-request.png#lightbox)
 
@@ -44,7 +44,7 @@ In your `test.http` file, include the following information obtained from regist
 
 ## Get Azure AD Access Token
 
-After including the information below in your `test.http` file, hit `Send Request`. You will see an HTTP response that contains your access token.
+After including the information below in your `test.http` file, hit `Send Request`. You'll see an HTTP response that contains your access token.
 
 The line starting with `@name` contains a variable that captures the HTTP response containing the access token. The variable, `@token`, is used to store the access token.
 
@@ -92,8 +92,8 @@ You can run PowerShell or CLI scripts within Visual Studio Code. Press `CTRL` an
 
 ## Troubleshooting
 
-If you are unable to get the metadata, which does not require access token based on the HL7 specification, check that your FHIR server is running properly.
+If you're unable to get the metadata, which doesn't require access token based on the HL7 specification, check that your FHIR server is running properly.
 
-If you are unable to get an access token, make sure that the client application is registered properly and you are using the correct values from the application registration step.
+If you're unable to get an access token, make sure that the client application is registered properly and you're using the correct values from the application registration step.
 
-If you are unable to get data from the FHIR server, make sure that the client application (or the service principal) has been granted access permissions such as "FHIR Data Contributor" to the FHIR server.
+If you're unable to get data from the FHIR server, make sure that the client application (or the service principal) has been granted access permissions such as "FHIR Data Contributor" to the FHIR server.

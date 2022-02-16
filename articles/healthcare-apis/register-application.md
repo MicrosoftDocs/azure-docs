@@ -75,7 +75,7 @@ The following steps are required for the DICOM service, but optional for the FHI
 
 2. Select **Add a permission**.
 
-   If you're using the Azure Healthcare APIs, you'll add a permission to the DICOM service by searching for **Azure API for DICOM** under **APIs my organization** uses. 
+   If you're using Azure Health Data Services, you'll add a permission to the DICOM service by searching for **Azure API for DICOM** under **APIs my organization** uses. 
 
    [ ![Search API permissions](dicom/media/dicom-search-apis-permissions.png) ](dicom/media/dicom-search-apis-permissions.png#lightbox)
 

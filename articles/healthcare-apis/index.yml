@@ -5,7 +5,7 @@ summary: Documentation for all of Azure Health Data Services capabilities, inclu
 
 metadata:
   title: Azure Health Data Services documentation
-  description: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and IoT connector
+  description: documentation for all of Azure Health Data Services products and services, including FHIR, DICOM, and IoT connector
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.topic: landing-page 

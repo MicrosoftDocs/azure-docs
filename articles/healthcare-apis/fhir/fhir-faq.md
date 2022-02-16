@@ -1,19 +1,19 @@
 ---
-title: FAQs about FHIR services in Azure Healthcare APIs
+title: FAQs about FHIR services in Azure Health Data Services
 description: Get answers to frequently asked questions about the FHIR service, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
 author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/02/2022
+ms.date: 02/15/2022
 ms.author: cavoeg
 ms.custom: references_regions
 ---
 
 # Frequently asked questions about the FHIR service
 
-This section covers some of the frequently asked questions about the Azure Healthcare APIs FHIR service (hereby called the FHIR service).
+This section covers some of the frequently asked questions about the Azure Health Data Services FHIR service (hereby called the FHIR service).
 
 ## FHIR service: The Basics
 
@@ -23,7 +23,7 @@ The Fast Healthcare Interoperability Resources (FHIR - Pronounced "fire") is an 
 
 ### Is the data behind the FHIR APIs stored in Azure?
 
-Yes, the data is stored in managed databases in Azure. The FHIR service in the Azure Healthcare APIs does not provide direct access to the underlying data store.
+Yes, the data is stored in managed databases in Azure. The FHIR service in Azure Health Data Services doesn't provide direct access to the underlying data store.
 
 ## How can I get access to the underlying data?
 
@@ -45,27 +45,27 @@ For more information, see [Supported FHIR features](fhir-features-supported.md).
 
 ### What is the difference between Azure API for FHIR and the FHIR service in the Healthcare APIs?
 
-The FHIR service is our implementation of the FHIR specification that sits in the Azure Healthcare APIs, which allows you to have a FHIR service and a DICOM service within a single workspace. The Azure API for FHIR was our initial GA product and is still available as a stand-alone product. The main feature differences are:
+The FHIR service is our implementation of the FHIR specification that sits in the Azure Health Data Services, which allows you to have a FHIR service and a DICOM service within a single workspace. The Azure API for FHIR was our initial GA product and is still available as a stand-alone product. The main feature differences are:
 
 * The FHIR service has a limit of 4 TB, and Azure API for FHIR supports more than 4 TB.
 * The FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
-* The Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that are not yet available in the FHIR service in the Azure Healthcare APIs. More details will follow on these features by GA.
+* The Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that are not yet available in the FHIR service in the Azure Health Data Services. More details will follow on these features by GA.
 
-### What's the difference between the FHIR service in the Azure Healthcare APIs and the open-source FHIR server?
+### What's the difference between the FHIR service in Azure Health Data Services and the open-source FHIR server?
 
-The FHIR service in the Azure Healthcare APIs is a hosted and managed version of the open-source [Microsoft FHIR Server for Azure](https://github.com/microsoft/fhir-server). In the managed service, Microsoft provides all maintenance and updates.
+The FHIR service in Azure Health Data Services is a hosted and managed version of the open-source [Microsoft FHIR Server for Azure](https://github.com/microsoft/fhir-server). In the managed service, Microsoft provides all maintenance and updates.
 
 When you run the FHIR Server for Azure, you have direct access to the underlying services, but we're responsible for maintaining and updating the server and all required compliance work if you're storing PHI data.
 
 ### In which regions is the FHIR service available?
 
-The FHIR service is available in all regions that the Azure Healthcare APIs is available. You can see that on the [Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page.
+The FHIR service is available in all regions that Azure Health Data Services is available. You can see that on the [Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page.
 
 ### Where can I see what is releasing into the FHIR service?
 
 The [release notes](../release-notes.md) page provides an overview of everything that has shipped to the managed service in the previous month. 
 
-To see what will be releasing to the managed service, you can review the [releases page](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure Healthcare APIs if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on how to [test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. We are evaluating how to best share additional managed service updates.
+To see what will be releasing to the managed service, you can review the [releases page](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure Health Data Services if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on how to [test the build](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you'd like to test in your own environment. We are evaluating how to best share additional managed service updates.
 
 To see what release package is currently in the managed service, you can view the capability statement for the FHIR service and under the `software.version` property. You'll see which package is deployed. 
 

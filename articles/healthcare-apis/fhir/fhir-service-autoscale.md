@@ -1,17 +1,17 @@
 ---
-title: Autoscale feature for Azure Healthcare APIs FHIR service
-description: This article describes the Autoscale feature for Azure Healthcare APIs FHIR service.
+title: Autoscale feature for Azure Health Data Services FHIR service
+description: This article describes the Autoscale feature for Azure Health Data Services FHIR service.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 2/2/2022
+ms.date: 02/15/2022
 ms.author: zxue
 ---
 
 # FHIR service autoscale
 
-The FHIR service in Azure Healthcare APIs is a managed service allowing customers to persist FHIR-compliant healthcare data and interact with it securely through the API service endpoint. The FHIR service provides the built-in autoscale capability to meet various workloads.  
+The FHIR service in Azure Health Data Services is a managed service allowing customers to persist FHIR-compliant healthcare data and interact with it securely through the API service endpoint. The FHIR service provides the built-in autoscale capability to meet various workloads.  
 
 ## What is FHIR service autoscale?   
 
@@ -29,7 +29,7 @@ The autoscale feature incurs no extra costs to customers based on the new API bi
 
 ## Next steps
 
-In this article, you've learned about the FHIR service autoscale feature in Azure Healthcare APIs, for more information about the FHIR service supported features, see
+In this article, you've learned about the FHIR service autoscale feature in Azure Health Data Services, for more information about the FHIR service supported features, see
 
 >[!div class="nextstepaction"]
 >[Supported FHIR features](fhir-features-supported.md)
