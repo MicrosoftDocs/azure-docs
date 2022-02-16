@@ -102,14 +102,18 @@ Create an AKS cluster, and add the Host Group you just configured.
 az aks create -g MyResourceGroup -n MyManagedCluster --location westus2 --kubernetes-version 1.20.13 --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
 ```
 
-## Add a Dedicated Host nodepool to an existing AKS cluster
+## Add a Dedicated Host Nodepool to an existing AKS cluster
 Add a Host Group to an already existing AKS cluster.
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name MyManagedCluster --name agentpool3 --resource-group MyResourceGroup --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3
 ```
 
-## Verification
+## Remove a Dedicated Host Nodepool from an AKS cluster
+
+```azurecli-interactive
+az aks nodepool delete --cluster-name MyManagedCluster --name agentpool3 --resource-group MyResourceGroup --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3
+```
 
 ## Next steps
 
