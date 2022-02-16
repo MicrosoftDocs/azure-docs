@@ -334,10 +334,23 @@ For more information, use the command `Get-Help Set-EflowVM -full`.
 
 The **Set-EflowVmFeature** command enables or disables the status of IoT Edge for Linux on Windows features.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | feature | **DpsTpm** | Feature name to toggle. |
 | enable | None | If this flag is present, the command enables the feature. |
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| feature | **DpsTpm**, **Defender** | Feature name to toggle. |
+| enable | None | If this flag is present, the command enables the feature. |
+:::moniker-end
+<!-- end 1.2 -->
 
 For more information, use the command `Get-Help Set-EflowVmFeature -full`.
 

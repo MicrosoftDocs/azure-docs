@@ -3,7 +3,7 @@ title: Create Windows VM with accelerated networking - Azure PowerShell
 description: Create a Windows virtual machine (VM) with accelerated networking to greatly improve its networking performance.
 services: virtual-network
 documentationcenter: ''
-author: gsilva5
+author: steveesp
 manager: gedegrac
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
-ms.author: gsilva
+ms.author: steveesp
 ---
 
 # Create a Windows VM with accelerated networking using Azure PowerShell
