@@ -13,8 +13,9 @@ ms.custom: "seodec18, devx-track-csharp"
 
 Azure Stream Analytics offers a SQL-like query language for performing transformations and computations over streams of event data. There are many built-in functions, but some complex scenarios require additional flexibility. With .NET Standard user-defined functions (UDF), you can invoke your own functions written in any .NET standard language (C#, F#, etc.) to extend the Stream Analytics query language. UDFs allow you to perform complex math computations, import custom ML models using ML.NET, and use custom imputation logic for missing data. The UDF feature for Stream Analytics jobs is currently in preview and shouldn't be used in production workloads.
 
-.NET user-defined-function for cloud jobs is available in:
-* [Stream Analytics clusters](./cluster-overview.md)
+## Regions
+
+The .NET user-defined-function feature is enable for cloud jobs that run on [Stream Analytics clusters](./cluster-overview.md) and on the following public regions:
 * West Central US
 * North Europe
 * East US
