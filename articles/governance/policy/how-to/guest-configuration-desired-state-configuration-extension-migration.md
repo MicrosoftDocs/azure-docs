@@ -98,7 +98,7 @@ If your deployment templates include the DSC extension
 there are two changes required.
 
 First, replace the DSC extension with the
-[extension for the guest configuration feature](/virtual-machines/extensions/guest-configuration.md).
+[extension for the guest configuration feature](/azure/virtual-machines/extensions/guest-configuration).
 
 Then, add a
 [guest configuration assignment](../concepts/guest-configuration-assignments.md)
