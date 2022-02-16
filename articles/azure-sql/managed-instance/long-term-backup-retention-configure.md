@@ -264,7 +264,7 @@ This example shows how to list the LTR policies within an instance for a single 
 
 ```powershell
 # gets the current version of LTR policy for a database
-$LTRPolicies = @{
+$LTRPolicy = @{
     InstanceName = $instanceName 
     DatabaseName = $dbName 
     ResourceGroupName = $resourceGroup
