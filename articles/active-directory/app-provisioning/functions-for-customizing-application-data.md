@@ -883,7 +883,8 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 * When **regexPattern** and **replacementValue** are provided:
 
   * The function applies the **regexPattern** to the **source** string and you can use the regex group names to construct the string for **replacementValue**
-[!NOTE] To learn more about regex grouping constructs and named sub-expressions, see [Grouping Constructs in Regular Expressions](/dotnet/standard/base-types/grouping-constructs-in-regular-expressions).
+> [!NOTE] 
+> To learn more about regex grouping constructs and named sub-expressions, see [Grouping Constructs in Regular Expressions](/dotnet/standard/base-types/grouping-constructs-in-regular-expressions).
 * When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
   * The function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with **replacementValue**
