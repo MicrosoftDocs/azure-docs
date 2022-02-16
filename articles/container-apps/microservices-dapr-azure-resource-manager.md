@@ -144,18 +144,21 @@ az extension add `
 
 ---
 
-Now that the extension is installed, register the `Microsoft.Web` namespace.
+Now that the extension is installed, register the `Microsoft.App` namespace.
+
+> [!NOTE]
+> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az provider register --namespace Microsoft.Web
+az provider register --namespace Microsoft.App
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Register-AzResourceProvider -ProviderNamespace Microsoft.Web
+Register-AzResourceProvider -ProviderNamespace Microsoft.App
 ```
 
 ---
@@ -355,12 +358,12 @@ Save the following file as *serviceapp.json*:
     "resources": [
         {
             "name": "nodeapp",
-            "type": "Microsoft.Web/containerApps",
+            "type": "Microsoft.App/containerApps",
             "apiVersion": "2021-03-01",
             "kind": "containerapp",
             "location": "[parameters('location')]",
             "properties": {
-                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+                "kubeEnvironmentId": "[resourceId('Microsoft.App/kubeEnvironments', parameters('environment_name'))]",
                 "configuration": {
                     "ingress": {
                         "external": true,
@@ -442,12 +445,12 @@ param storage_account_name string
 param storage_account_key string
 param storage_container_name string
 
-resource nodeapp 'Microsoft.Web/containerapps@2021-03-01' = {
+resource nodeapp 'Microsoft.App/containerapps@2021-03-01' = {
   name: 'nodeapp'
   kind: 'containerapp'
   location: location
   properties: {
-    kubeEnvironmentId: resourceId('Microsoft.Web/kubeEnvironments', environment_name)
+    kubeEnvironmentId: resourceId('Microsoft.App/kubeEnvironments', environment_name)
     configuration: {
       ingress: {
         external: true
@@ -535,12 +538,12 @@ Save the following file as *clientapp.json*:
     "resources": [
         {
             "name": "pythonapp",
-            "type": "Microsoft.Web/containerApps",
+            "type": "Microsoft.App/containerApps",
             "apiVersion": "2021-03-01",
             "kind": "containerapp",
             "location": "[parameters('location')]",
             "properties": {
-                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+                "kubeEnvironmentId": "[resourceId('Microsoft.App/kubeEnvironments', parameters('environment_name'))]",
                 "configuration": {},
                 "template": {
                     "containers": [
@@ -578,12 +581,12 @@ Save the following file as *clientapp.bicep*:
 param location string = 'canadacentral'
 param environment_name string
 
-resource pythonapp 'Microsoft.Web/containerApps@2021-03-01' = {
+resource pythonapp 'Microsoft.App/containerApps@2021-03-01' = {
   name: 'pythonapp'
   kind: 'containerapp'
   location: location
   properties: {
-    kubeEnvironmentId: resourceId('Microsoft.Web/kubeEnvironments', environment_name)
+    kubeEnvironmentId: resourceId('Microsoft.App/kubeEnvironments', environment_name)
     configuration: {}
     template: {
       containers: [

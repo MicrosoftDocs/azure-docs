@@ -16,7 +16,7 @@
     "resources": [
     {
         "name": "queuereader",
-        "type": "Microsoft.Web/containerApps",
+        "type": "Microsoft.App/containerApps",
         "apiVersion": "2021-03-01",
         "kind": "containerapp",
         "location": "[parameters('location')]",
