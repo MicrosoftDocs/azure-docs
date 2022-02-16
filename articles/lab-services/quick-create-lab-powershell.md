@@ -7,7 +7,7 @@ ms.date: 02/15/2022
 ms.custom: template-quickstart
 ---
 
-# Quickstart: Using PowerShell to manage Azure Lab Services
+# Quickstart: Create a lab using PowerShell and the Azure module
 
 In this quickstart, you, as the educator, create a lab using PowerShell and the Azure modules.  The lab will use the settings from a previously created lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 

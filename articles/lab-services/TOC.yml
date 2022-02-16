@@ -252,13 +252,15 @@
     - name: Administrator guide
       href: administrator-guide-1.md
     - name: Lab account creation guide
-      href: account-setup-guide.md    
+      href: account-setup-guide.md
+    - name: Az.LabServices PowerShell module (deprecated)
+      href: reference-powershell-module.md     
 - name: Reference
   items:
   - name: REST API
     href: /rest/api/labservices/
   - name: Az.LabServices PowerShell module (preview)
-    href: reference-powershell-module.md
+    href: /powershell/module/az.labservices/
   - name: Azure CLI
     href: https://github.com/Azure/azure-cli-extensions/tree/main/src/hack
 - name: Resources
