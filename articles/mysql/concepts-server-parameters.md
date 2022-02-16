@@ -211,7 +211,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-
 
 ### innodb_strict_mode
 
-If you receive an error similar to `Row size too large (> 8126)`, consider turning off the `innodb_strict_mode` parameter. You can't modify `innodb_strict_mode` globally at the server level. If row data size is larger than 8 k, the data is truncated, without an error notification, leading to potential data loss. It's a good idea to modify the schema to fit the page size limit. 
+If you receive an error similar to `Row size too large (> 8126)`, consider turning off the `innodb_strict_mode` parameter. You can't modify `innodb_strict_mode` globally at the server level. If row data size is larger than 8K, the data is truncated, without an error notification, leading to potential data loss. It's a good idea to modify the schema to fit the page size limit. 
 
 You can set this parameter at a session level, by using `init_connect`. To set `innodb_strict_mode` at a session level, refer to [setting parameter not listed](./howto-server-parameters.md#setting-parameters-not-listed).
 
