@@ -52,7 +52,7 @@ Foo bar baz
 | [alter_columnar_table_set](reference-functions.md#alter_columnar_table_set) | change settings on a columnar table |
 | alter_table_set_access_method | convert a table between heap or columnar storage |
 
-### Partitioning
+### Timeseries partitioning
 
 | Name | Description |
 |------|-------------|
@@ -88,7 +88,7 @@ Foo bar baz
 | [citus.multi_shard_commit_protocol](reference-parameters.md#citusmulti_shard_commit_protocol-enum) | the commit protocol to use when performing COPY on a hash distributed table |
 | citus.propagate_set_commands | which SET commands are propagated from the coordinator to workers |
 
-### Debugging
+### Informational
 
 | Name | Description |
 |------|-------------|
