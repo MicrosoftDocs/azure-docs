@@ -4,16 +4,23 @@ description: Learn how to restore your app from a snapshot. Recover from unexpec
 
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
-ms.date: 12/01/2021
+ms.date: 02/16/2022
 ms.reviewer: nicking
 ms.custom: seodec18
 
 ---
 # Restore an app in Azure from a snapshot
-This article shows you how to restore an app in [Azure App Service](../app-service/overview.md) from a snapshot. You can restore your app to a previous state, based on one of your app's snapshots. You do not need to enable snapshot backups; the platform automatically saves a hourly snapshot of each app's content and configuration for data recovery purposes.
+This article shows you how to restore an app in [Azure App Service](../app-service/overview.md) from a snapshot. You can restore your app to a previous state, based on one of your app's snapshots. You do not need to enable snapshot backups; the platform automatically saves a hourly snapshot of each app's content and configuration for data recovery purposes. Hourly snapshots for the last 30 days are available. The retention period and snapshot frequency are not configurable.
 
-Restoring from snapshots is available to apps running in **Standard** tier or higher. For information about scaling
-up your app, see [Scale up an app in Azure](manage-scale-up.md).
+Restoring from snapshots is available to apps running in one of the **Standard** or **Premium** tiers. For information about scaling up your app, see [Scale up an app in Azure](manage-scale-up.md).
+
+> [!NOTE]
+> Snapshot restore is not available for: 
+>
+> - App Service environments (**Isolated** tier)
+> - Azure Functions in the [**Consumption**](../azure-functions/consumption-plan.md) or [**Elastic Premium**](../azure-functions/functions-premium-plan.md) pricing plans.
+>
+> Snapshot restore is available in preview for Azure Functions in [dedicated (App Service)](../azure-functions/dedicated-plan.md) **Standard** or **Premium** tiers.
 
 ## Snapshots vs Backups
 
@@ -21,18 +28,50 @@ Snapshots are incremental shadow copies and offer several advantages over [stand
 
 - No file copy errors due to file locks.
 - Higher maximum snapshot size (30GB).
-- No configuration required for supported pricing tiers.
-- Snapshots can be restored to a new or existing App Service app in any Azure region.
+- Enabled by default in supported pricing tiers and no configuration required.
+- Restored to a new or existing App Service app or slot in any Azure region.
 
-## Limitations
+## What snapshot restore includes
 
-- Snapshots are not available for App Service environments and Azure Functions.
-- For Windows or Linux container apps, only content that's deployed to [persistent storage](configure-custom-container.md?pivots=container-linux#use-persistent-shared-storage) is saved in the snapshot backup along with the app configuration.
-- Maximum supported size for snapshot restore is 30GB. Snapshot restore fails if your storage size is greater than 30GB. To reduce your storage size, consider moving files like logs, images, audios, and videos to [Azure Storage](../storage/index.yml), for example.
-- Any connected database that [standard backup](manage-backup.md#what-gets-backed-up) supports or [mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows) is *not* included in the snapshot. Consider using the native backup capabilities of the connected Azure service (for example, [SQL Database](../azure-sql/database/automated-backups-overview.md) and [Azure Files](../storage/files/storage-snapshots-files.md)).
-- App Service stops the target app or target slot while restoring a snapshot. To minimize downtime for the production app, restore the snapshot to a [staging slot](deploy-staging-slots.md) first, then swap into production.
+> [!NOTE]
+> Maximum supported size for snapshot restore is 30GB. Snapshot restore fails if your storage size is greater than 30GB. To reduce your storage size, consider moving files like logs, images, audios, and videos to [Azure Storage](../storage/index.yml), for example.
+
+When you restore a snapshot, the following content and configuration are restored:
+
+# [Windows apps](#tab/windowsnative)
+
+- All app content under `%HOME%`
+
+# [Linux apps](#tab/linux)
+
+- All app content under `/home`
+
+# [Custom containers (Windows and Linux)](#tab/windowscontainers)
+
+- Content in [persistent storage](configure-custom-container.md?pivots=container-linux#use-persistent-shared-storage)
+
+-----
+
+- [Native log settings](troubleshoot-diagnostic-logs.md), including the Azure Storage account and container to write logs to, if applicable.
+- Application Insights configuration.
+- [Health check](monitor-instances-health-check.md).
 - If you [run your app directly from a ZIP package](deploy-run-package.md), snapshot backups don't include the content of the ZIP package.
-- Snapshots for the last 30 days are available. The retention period and snapshot frequency are not configurable.
+
+The following content and configuration are *not included*. You must configure them manually after the restore:
+
+- Content of the [run-from-ZIP package](deploy-run-package.md)
+- Content from [custom mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows)
+- Network features, such as [private endpoints](networking/private-endpoint.md), [hybrid connections](app-service-hybrid-connections.md), and [virtual network integration](overview-vnet-integration.md).
+- [Authentication](overview-authentication-authorization.md)
+- [Managed identities](overview-managed-identity.md)
+- [Custom domains](app-service-web-tutorial-custom-domain.md)
+- [TLS/SSL](configure-ssl-bindings.md)
+- [Scale out](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json)
+- [Diagnostics with Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
+- [Alerts and Metrics](alerts-classic-portal.md)
+- [Backup](manage-backup.md)
+- Associated [deployment slots](deploy-staging-slots.md)
+- Any connected database that [standard backup](manage-backup.md#what-gets-backed-up) supports
 
 ## Restore from a snapshot
 
@@ -44,7 +83,7 @@ Snapshots are incremental shadow copies and offer several advantages over [stand
 
 1. On the **Settings** page of your app in the [Azure portal](https://portal.azure.com), click **Backups** to display the **Backups** page. Then click **Restore** under the **Snapshot** section.
    
-    ![Screenshot that shows how to restore an app from a snapshot.](./media/app-service-web-restore-snapshots/1.png)
+    :::image type="content" source="./media/app-service-web-restore-snapshots/1.png" alt-text="Screenshot that shows how to restore an app from a snapshot.":::
 
 2. In the **Restore** page, select the snapshot to restore.
    
@@ -60,7 +99,7 @@ Snapshots are incremental shadow copies and offer several advantages over [stand
       
 4. You can choose to restore your site configuration.
    
-    ![Screenshot that shows how to restore site configuration.](./media/app-service-web-restore-snapshots/4.png)
+    :::image type="content" source="./media/app-service-web-restore-snapshots/4.png" alt-text="Screenshot that shows how to restore site configuration.":::
 
 5. Click **OK**.
 
