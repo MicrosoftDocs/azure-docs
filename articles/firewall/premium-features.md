@@ -29,7 +29,7 @@ Azure Firewall Premium includes the following features:
 
 ## TLS inspection
 
-The TLS (Transport Layer Security) protocol primarily provides cryptography for privacy, integrity and authenticity using certificates between two or more communicating applications. It runs in the application layer and is widely used to encrypt both HTTP and WebSocket protocols.
+The TLS (Transport Layer Security) protocol primarily provides cryptography for privacy, integrity, and authenticity using certificates between two or more communicating applications. It runs in the application layer and is widely used to encrypt both HTTP and WebSocket protocols.
 
 Encrypted traffic has a possible security risk and can hide illegal user activity and malicious traffic. Azure Firewall Premium terminates and inspects TLS connections to detect, alert, and mitigate malicious activity in HTTPS as well as WebSocket protocols.
 
