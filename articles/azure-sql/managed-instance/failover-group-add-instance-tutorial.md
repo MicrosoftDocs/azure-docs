@@ -23,7 +23,7 @@ Add managed instances of Azure SQL Managed Instance to a failover group. In this
 > - Create a secondary managed instance as part of a [failover group](../database/auto-failover-group-overview.md). 
 > - Test failover.
 
- There are multiple ways to establish connectivity between Managed instances in different virtual networks, including:
+ There are multiple ways to establish connectivity between managed instances in different virtual networks, including:
  * [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)
  * [global VNet peering](../../virtual-network/virtual-network-peering-overview.md)
  * VPN gateways
