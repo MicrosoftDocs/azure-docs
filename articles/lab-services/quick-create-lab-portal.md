@@ -18,6 +18,7 @@ To complete this quick start, make sure that you have:
 - Lab plan.  If you haven't create a lab plan, see [Quickstart: Create a lab plan using the Azure portal](quick-create-lab-plan-portal.md).
 
 ## Create a lab
+
 The following steps show how to create a lab with Azure Lab Services.
 
 1. Sign into the [Azure Lab Service portal](https://labs.azure.com).
@@ -28,7 +29,7 @@ The following steps show how to create a lab with Azure Lab Services.
 1. In the **New Lab** window, choose the basic settings for the lab.
     1. Set the **Name** to *Lab 101*.
     1. Set the **Virtual machine image** to **Windows 11 Pro**.
-    1. Set the **Virtual machine size** to **Medium**. 
+    1. Set the **Virtual machine size** to **Medium**.
 
         :::image type="content" source="./media/quick-create-lab-portal/new-lab-window.png" alt-text="Screenshot of the New lab window for Azure Lab Services.":::
 
