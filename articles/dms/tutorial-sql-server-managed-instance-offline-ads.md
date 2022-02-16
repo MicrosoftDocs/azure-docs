@@ -128,7 +128,7 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > If you had previously created DMS using the Azure Portal, you cannot reuse it in the migration wizard in Azure Data Studio. Only DMS created previously using Azure Data Studio can be reused.
 1. Select the **Resource group** where you have an existing DMS or need to create a new one. The **Azure Database Migration Service** dropdown will list any existing DMS in the selected resource group.
-1. To reuse an existing DMS, select it from the dropdown list and the status of the self-hosted integration runtime will be displayed at the bottom of the page.
+1. To reuse an existing DMS, select it from the dropdown list and press Next to view the summary screen and when ready to begin the migration press the **Start migration** button.
 1. To create a new DMS, select **Create new**. On the **Create Azure Database Migration Service**, screen provide the name for your DMS and select **Create**.
 1. After successful creation of DMS, you'll be provided with details to set up **integration runtime**.
 1. Select on **Download and install integration runtime** to open the download link in a web browser. Complete the download. Install the integration runtime on a machine that meets the pre-requisites of connecting to source SQL Server and the location containing the source backup.
