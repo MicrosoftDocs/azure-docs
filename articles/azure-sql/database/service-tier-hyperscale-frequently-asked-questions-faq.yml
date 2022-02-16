@@ -11,7 +11,7 @@ metadata:
   author: dimitri-furman
   ms.author: dfurman
   ms.reviewer: kendralittle, mathoma
-  ms.date: 11/4/2021
+  ms.date: 02/02/2022
     
 title: Azure SQL Database Hyperscale FAQ
 summary: |
@@ -39,28 +39,8 @@ sections:
       - question: |
           How does the Hyperscale service tier differ from the General Purpose and Business Critical service tiers?
         answer: |
-          The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum size, as described in the following table.
-          
-          | | Resource type | General Purpose |  Hyperscale | Business Critical |
-          |:---:|:---:|:---:|:---:|:---:|
-          | **Best for** |All|Offers budget oriented balanced compute and storage options.|Most business workloads. Autoscaling storage size up to 100 TB, fast vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
-          |  **Resource type** ||SQL Database / SQL Managed Instance | Single database | SQL Database / SQL Managed Instance |
-          | **Compute size**|SQL Database* | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
-          | **Compute size**|SQL Managed Instance | 8, 16, 24, 32, 40, 64, 80  vCores | N/A | 8, 16, 24, 32, 40, 64, 80  vCores |
-          | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
-          | **Storage size** | SQL Database *| 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
-          | **Storage size** | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-          | **IOPS** | Single database | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
-          | **IOPS** | SQL Managed Instance | Depends on file size | N/A | 1375 IOPS/vCore |
-          |**Availability**|All|1 replica, no Read Scale-out, zone-redundant HA (preview), no local cache | Multiple replicas, up to 4 Read Scale-out, partial local cache | 3 replicas, 1 Read Scale-out, zone-redundant HA, full local storage |
-          |**Backups**|All| A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 1-35 day retention (default 7 days) | A choice of geo-redundant, zone-redundant\*\*\*, or locally-redundant\*\*\* backup storage, 7 day retention. | A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 1-35 day retention (default 7 days) |
-          
-          \* Elastic pools are not supported in the Hyperscale service tier
-
-          \*\* In preview
-
-          \*\*\* In preview, for new Hyperscale databases only
-          
+          The vCore-based service tiers are differentiated based on database availability and storage type, performance, and maximum storage size as described in [resource limit comparison](service-tier-hyperscale.md#compare-resource-limits). 
+                   
       - question: |
           Who should use the Hyperscale service tier?
         answer: |
@@ -156,16 +136,16 @@ sections:
       - question: |
           How many Read Scale-out replicas are supported?
         answer: |
-          The Hyperscale databases are created with one Read Scale-out replica (two replicas including primary) by default. You can scale the number of read-only replicas between 0 and 4 using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate). Additionally, many read scale-out scenarios can be enabled using [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview).
+          You can scale the number of read-only replicas between 0 and 4 using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate). Additionally, many read scale-out scenarios can be enabled using [named replicas](service-tier-hyperscale-replicas.md#named-replica-in-preview).
           
       - question: |
           For high availability, do I need to provision additional compute replicas?
         answer: |
           In Hyperscale databases, data resiliency is provided at the storage level. You only need one replica to provide resiliency. When the compute replica is down, a new replica is created automatically with no data loss.
           
-          However, if there’s only one replica, it may take some time to build the local cache in the new replica after failover. During the cache rebuild phase, the database fetches data directly from the page servers, resulting in higher storage latency and degraded query performance.
+          However, if there's only one replica, it may take some time to build the local cache in the new replica after failover. During the cache rebuild phase, the database fetches data directly from the page servers, resulting in higher storage latency and degraded query performance.
           
-          For mission-critical apps that require high availability with minimal failover impact, you should provision at least 2 compute replicas including the primary compute replica. This is the default configuration. That way there is a hot-standby replica available that serves as a failover target.
+          For mission-critical apps that require high availability with minimal failover impact, you should provision at least 2 compute replicas including the primary compute replica. That way there is a hot-standby replica available that serves as a failover target.
           
   - name: Data size and storage questions
     questions:
@@ -176,7 +156,7 @@ sections:
       - question: |
           What is the size of the transaction log with Hyperscale?
         answer: |
-          The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, log generation rate might be throttled for continuous aggressively writing workloads. The peak sustained log generation rate is 100 MB/s.
+          The transaction log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1TB of log. Additionally , if using [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server), at most 1TB of log can be generated since the start of the  oldest active transaction. It is recommended to avoid unnecessarily large transactions to stay below this limit. Other than the restrictions stated, you do not need to worry about running out of log space on a system that has a high log throughput. However, log generation rate might be throttled for continuous aggressively writing workloads. The peak sustained log generation rate is 100 MB/s.
 
       - question: |
           Does my `tempdb` scale as my database grows?
@@ -434,7 +414,7 @@ sections:
       - question: |
           How many secondary HA replicas can I provision?
         answer: |
-          We create one secondary HA replica for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate).
+          Between 0 and 4. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com) or [REST API](/rest/api/sql/databases/createorupdate).
           
       - question: |
           How do I connect to secondary HA replicas?

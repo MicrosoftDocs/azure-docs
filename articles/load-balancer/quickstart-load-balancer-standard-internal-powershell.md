@@ -426,9 +426,6 @@ $lbip = @{
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @lbip
 
-## Create load balancer frontend configuration and place in variable. ##
-$feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEnd' -PublicIpAddress $publicIp
-
 ## Create backend address pool configuration and place in variable. ##
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 

@@ -15,7 +15,7 @@ ms.date: 12/31/2021
 
 Start a debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
 
-A debug session is a cached indexer and skillset execution, scoped to a single document, that you can edit and test your changes interactively. If you are unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
+A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
 > [!Important]
 > Debug sessions is a preview portal feature, provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -24,9 +24,9 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 + An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index.
 
-+ Azure Storage, used to save session state.
+  A debug session works with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The MongoDB API (preview) of Cosmos DB is currently not supported.
 
-Debug sessions work with all generally available data sources and most preview data sources. The MongoDB API (preview) of Cosmos DB is currently not supported.
++ Azure Storage, used to save session state.
 
 ## Create a debug session
 
@@ -36,19 +36,23 @@ Debug sessions work with all generally available data sources and most preview d
 
 1. Select **+ New Debug Session**.
 
-1. Provide a name for the session and specify a general-purpose storage account that will be used to cache the skill executions.
+   :::image type="content" source="media/cognitive-search-debug/new-debug-session.png" alt-text="Screenshot of the debug sessions commands in the portal page." border="true":::
 
-1. Select the indexer that drives the skillset you want to debug. Copies of both the indexer and skillset are used to create the session.
+1. In **Debug session name**, provide a name that will help you remember which skillset, indexer, and data source the debug session is about.
 
-1. Choose a document. The session will default to the first document in the data source, but you can also choose which document to step through. 
+1. In **Storage connection**, find a general-purpose storage account for caching the debug session. You'll be prompted to select and optionally create a blob container in Blob Storage or Azure Data Lake Storage Gen2. You can reuse the same container for all subsequent debug sessions you create. A helpful container name might be "cognitive-search-debug-sessions".
 
-   If your document resides in a blob container in the same storage account used to cache your debug session, you can copy the document URL from the blob property page in the portal.
+1. In **Indexer template**, select the indexer that drives the skillset you want to debug. Copies of both the indexer and skillset are used to initialize the session.
+
+1. In **Document to debug**, choose the first document in the index or select a specific document. If you select a specific document, depending on the data source, you'll be asked for a URI or a row ID.
+
+   If your specific document is a blob, you'll be asked for the blob URI. You can find the URL in the blob property page in the portal.
 
    :::image type="content" source="media/cognitive-search-debug/copy-blob-url.png" alt-text="Screenshot of the URI property in blob storage." border="true":::
 
-1. Optionally, specify any indexer execution settings that should be used to create the session. Any indexer options that you specify in a debug session have no effect on the indexer itself.
+1. Optionally, in **Indexer settings**, specify any indexer execution settings used to create the session. The settings should mimic the settings used by the actual indexer. Any indexer options that you specify in a debug session have no effect on the indexer itself.
 
-1. Select **Save Session** to get started.
+1. Your configuration should look similar to this screenshot. Select **Save Session** to get started.
 
    :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
 
@@ -64,15 +68,15 @@ As a best practice, resolve problems with inputs before moving on to outputs.
 
 To prove whether a modification resolves an error, follow these steps:
 
-1. Select **Save** in Skill Details to preserve your changes.
+1. Select **Save** in the skill details pane to preserve your changes.
 
 1. Select **Run** in the session window to invoke skillset execution using the modified definition.
 
-1. Return to **Errors/Warnings** to see if the count is reduced. The list will not be refreshed until you open the tab.
+1. Return to **Errors/Warnings** to see if the count is reduced. The list won't be refreshed until you open the tab.
 
 ## View content of enrichment nodes
 
-AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`) plus nodes for any content that is directly ported from the data source (such as a document key) and metadata. Additional nodes are created by skills during skill execution, where each skill output adds a new node to the enrichment tree. 
+AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`), plus nodes for any content that is lifted directly from the data source, such as metadata and the document key. More nodes are created by skills during skill execution, where each skill output adds a new node to the enrichment tree. 
 
 Enriched documents are internal, but a debug session gives you access to the content produced during skill execution. To view the content or output of each skill, follow these steps:
 
@@ -80,7 +84,7 @@ Enriched documents are internal, but a debug session gives you access to the con
 
 1. Select a skill.
 
-1. In the details pane to the right, select **Executions**, select an OUTPUT, and then open the Expression Evaluator (**`</>`**) to view the expression and it's result.
+1. In the details pane to the right, select **Executions**, select an OUTPUT, and then open the Expression Evaluator (**`</>`**) to view the expression and its result.
 
    :::image type="content" source="media/cognitive-search-debug/enriched-doc-output-expression.png" alt-text="Screenshot of a skill execution showing output values." border="true":::
 
@@ -103,7 +107,7 @@ The following steps show you how to get information about a skill.
    + **Skill Settings** if you prefer a visual editor
    + **Skill JSON Editor** to edit the JSON document directly
 
-1. Check the [path syntax for referencing nodes](cognitive-search-concept-annotations-syntax.md) in an enrichment tree. Inputs are usually one of the following:
+1. Check the [path syntax for referencing nodes](cognitive-search-concept-annotations-syntax.md) in an enrichment tree. Following are some of the most common input paths:
 
    + `/document/content` for chunks of text. This node is populated from the blob's content property.
    + `/document/merged_content` for chunks of text in skillets that include Text Merge skill.
@@ -111,15 +115,15 @@ The following steps show you how to get information about a skill.
 
 ## Check field mappings
 
-If skills produce output but the search index is empty, check the field mappings that specify how content moves out of the pipeline and into a search index.
+If skills produce output but the search index is empty, check the field mappings. Field mappings specify how content moves out of the pipeline and into a search index.
 
 1. Start with the default views: **AI enrichment > Skill Graph**, with the graph type set to **Dependency Graph**.
 
-1. Select **Field Mappings** near the top. You should find at least the document key that uniquely identifies and associates each search document in the search index with it's source document in the data source. 
+1. Select **Field Mappings** near the top. You should find at least the document key that uniquely identifies and associates each search document in the search index with its source document in the data source. 
 
-   If you are importing raw content straight from the data source, bypassing enrichment, you should find those fields in **Field Mappings**.
+   If you're importing raw content straight from the data source, bypassing enrichment, you should find those fields in **Field Mappings**.
 
-1. Select **Output Field Mappings** at the bottom of the graph. Here you will find mappings from skill outputs to target fields in the search index. Unless you used the Import Data wizard, output field mappings are defined manually and could be incomplete or mistyped. 
+1. Select **Output Field Mappings** at the bottom of the graph. Here you'll find mappings from skill outputs to target fields in the search index. Unless you used the Import Data wizard, output field mappings are defined manually and could be incomplete or mistyped. 
 
    Verify that the fields in **Output Field Mappings** exist in the search index as specified, checking for spelling and [enrichment node path syntax](cognitive-search-concept-annotations-syntax.md). 
 

@@ -17,9 +17,6 @@ ms.date: 06/23/2021
 
 Azure SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single server and share a set number of resources at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.
 
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
-
 ## What are SQL elastic pools
 
 SaaS developers build applications on top of large scale data-tiers consisting of multiple databases. A common application pattern is to provision a single database for each customer. But different customers often have varying and unpredictable usage patterns, and it's difficult to predict the resource requirements of each individual database user. Traditionally, you had two options:
@@ -129,15 +126,22 @@ Pooled databases generally support the same [business continuity features](busin
 
 ## Creating a new SQL Database elastic pool using the Azure portal
 
-There are two ways you can create an elastic pool in the Azure portal.
+You can create an elastic pool in the Azure portal in two ways:
+
+- Create an elastic pool and select an existing or new server.
+- Create an elastic pool from an existing server.
+
+To create an elastic pool and select an existing or new server:
 
 1. Go to the [Azure portal](https://portal.azure.com) to create an elastic pool. Search for and select **Azure SQL**.
-2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about elastic pools by selecting **Show details** on the **Databases** tile.
-3. On the **Databases** tile, select **Elastic pool** in the **Resource type** dropdown, then select **Create**:
+2. Select **Create** to open the **Select SQL deployment option** pane. To view more information about elastic pools, on the **Databases** tile, select **Show details**.
+3. On the **Databases** tile, in the **Resource type** dropdown, select **Elastic pool**, and then select **Create**.
 
    ![Create an elastic pool](./media/elastic-pool-overview/create-elastic-pool.png)
 
-4. Or you can create an elastic pool by navigating to an existing server and clicking **+ New pool** to create a pool directly into that server.
+To create an elastic pool from an existing server:
+
+- Go to an existing server and select **New pool** to create a pool directly in that server.
 
 > [!NOTE]
 > You can create multiple pools on a server, but you can't add databases from different servers into the same pool.

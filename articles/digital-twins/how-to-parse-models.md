@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use the parser library to parse DTDL models.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/2/2021
+ms.date: 1/6/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
@@ -17,6 +17,8 @@ ms.custom: contperf-fy21q3
 ---
 
 # Parse and validate models with the DTDL parser library
+
+This article describes how to parse and validate Azure Digital Twins models using the DTDL validator sample or the .NET parser library.
 
 [Models](concepts-models.md) in Azure Digital Twins are defined using the JSON-LD-based Digital Twins Definition language (DTDL). **It is recommended to validate your models offline before uploading them to your Azure Digital Twins instance.**
 

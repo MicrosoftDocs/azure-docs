@@ -261,6 +261,26 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 -----
 
+## WordPress
+
+> [!div class="mx-tdCol5BreakAll"]
+> |Application Setting | Scope | Value | Max | Description
+> |-------------|-------------|-------------|---------------|--------------------|
+> |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts. |
+> |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
+> |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
+> |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
+> |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
+> |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased up to 256M.|
+> |POST_MAX_SIZE|PHP|128M|256M|Can be increased up to 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
+> |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
+> |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
+> |MAX_INPUT_VARS|PHP|10000|10000|-|
+> |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
+> |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
+> |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
+> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to WordPress.|
+
 ## Domain and DNS
 
 | Setting name| Description | Example |
@@ -391,7 +411,7 @@ The following are 'fake' environment variables that don't exist if you enumerate
 | Setting name| Description |
 |-|-|
 | `WEBSITE_LOCAL_CACHE_OPTION` | Whether local cache is enabled. Available options are: <br/>- `Default`: Inherit the stamp-level global setting.<br/>- `Always`: Enable for the app.<br/>- OnStorageUnavailability<br/>- `Disabled`: Disabled for the app. |
-| `WEBSITE_LOCAL_CACHE_READWRITE_OPTION` | Read-write options of the local cache. Available options are: <br/>- `ReadOnly`: Cache is read-only.<br/>- `WriteWithCopyBack`: Allow writes to local cache and copy periodically to shared storage. Applicable only for single instance apps as the SCM site points to local cache.<br/>- `WriteButDiscardChanges`: Allow writes to local cache but discard changes made locally. |
+| `WEBSITE_LOCAL_CACHE_READWRITE_OPTION` | Read-write options of the local cache. Available options are: <br/>- `ReadOnly`: Cache is read-only.<br/>- `WriteButDiscardChanges`: Allow writes to local cache but discard changes made locally. |
 | `WEBSITE_LOCAL_CACHE_SIZEINMB` | Size of the local cache in MB. Default is `1000` (1 GB). |
 | `WEBSITE_LOCALCACHE_READY` | Read-only flag indicating if the app using local cache. |
 | `WEBSITE_DYNAMIC_CACHE` | Due to network file shared nature to allow access for multiple instances, the dynamic cache improves performance by caching the recently accessed files locally on an instance. Cache is invalidated when file is modified. The cache location is `%SYSTEMDRIVE%\local\DynamicCache` (same `%SYSTEMDRIVE%\local` quota is applied). By default, full content caching is enabled (set to `1`), which includes both file content and directory/file metadata (timestamps, size, directory content). To conserve local disk use, set to `2` to cache only directory/file metadata (timestamps, size, directory content). To turn off caching, set to `0`. |

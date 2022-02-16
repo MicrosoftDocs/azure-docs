@@ -3,7 +3,7 @@ title: Content Moderator encryption of data at rest
 titleSuffix: Azure Cognitive Services
 description: Content Moderator encryption of data at rest.
 author: erindormier
-manager: venkyv
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
@@ -25,13 +25,6 @@ Content Moderator automatically encrypts your data when it is persisted to the c
 Customer-managed keys are available in all Azure regions.
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
-
-## Enable data encryption for your Content Moderator Team
-
-To enable data encryption for your Content Moderator Review Team, see the [Quickstart: Try Content Moderator on the web](quick-start.md#create-a-review-team).  
-
-> [!NOTE]
-> You'll need to provide a _Resource ID_ with the Content Moderator E0 pricing tier.
 
 ## Next steps
 

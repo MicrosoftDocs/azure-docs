@@ -14,7 +14,9 @@ ms.custom: ignite-fall-2021, mode-other
 
 # Quickstart: Configure Azure Bastion from VM settings
 
-This quickstart article shows you how to configure Azure Bastion based on your VM settings in the Azure portal, and then connect to a VM via private IP address. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. The VM doesn't need a public IP address, client software, agent, or a special configuration. If you don't need the public IP address on your VM for anything else, you can remove it. You then connect to your VM through the portal using the private IP address. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md) 
+This quickstart article shows you how to configure Azure Bastion based on your VM settings, and then connect to the VM via private IP address using the Azure portal. Once the Bastion service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. 
+
+When connecting via Azure Bastion, your VM doesn't need a public IP address, client software, agent, or a special configuration. Additionally, if you don't need the public IP address on your VM for anything else, you can remove it and connect to your VM through the portal using the private IP address. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md) 
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -74,7 +76,7 @@ You can use the following example values when creating this configuration, or yo
 
 There are a few different ways to configure a bastion host. In the following steps, you'll create a bastion host in the Azure portal directly from your VM. When you create a host from a VM, various settings will automatically populate corresponding to your virtual machine and/or virtual network.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to the VM that you want to connect to, then select **Connect**.
 
    :::image type="content" source="./media/quickstart-host-portal/vm-connect.png" alt-text="Screenshot of virtual machine settings." lightbox="./media/quickstart-host-portal/vm-connect.png":::

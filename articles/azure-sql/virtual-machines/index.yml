@@ -34,7 +34,7 @@ landingContent:
       - linkListType: video
         links:
           - text: SQL Server on Azure VM overview
-            url: https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
+            url: /shows/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61
       - linkListType: overview 
         links:
           - text: What's new? 

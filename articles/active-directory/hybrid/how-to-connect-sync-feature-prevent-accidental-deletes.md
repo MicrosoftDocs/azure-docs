@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect sync: Prevent accidental deletes | Microsoft Docs'
-description: This topic describes the prevent accidental deletes (preventing accidental deletions) feature in Azure AD Connect.
+description: This topic describes how to prevent accidental deletes in Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -24,7 +24,7 @@ This topic describes the prevent accidental deletes (preventing accidental delet
 When installing Azure AD Connect, prevent accidental deletes is enabled by default and configured to not allow an export with more than 500 deletes. This feature is designed to protect you from accidental configuration changes and changes to your on-premises directory that would affect many users and other objects.
 
 ## What is prevent accidental deletes
-Common scenarios when you see many deletes include:
+Common scenarios involving many deletes include:
 
 * Changes to [filtering](how-to-connect-sync-configure-filtering.md) where an entire [OU](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) or [domain](how-to-connect-sync-configure-filtering.md#domain-based-filtering) is unselected.
 * All objects in an OU are deleted.
@@ -53,7 +53,7 @@ If this was unexpected, then investigate and take corrective actions. To see whi
 
 ![Search Connector Space](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] If you aren't sure all deletes are desired, and wish to go down a safer route. You can use the PowerShell cmdlet : `Enable-ADSyncExportDeletionThreshold` to set a new threshold rather than disabling the threshold which could allow undesired deletions. 
+[!NOTE] If you aren't sure all deletes are desired, and wish to go down a safer route. You can use the PowerShell cmdlet: `Enable-ADSyncExportDeletionThreshold` to set a new threshold rather than disabling the threshold which could allow undesired deletions. 
 
 ## If all deletes are desired
 If all the deletes are desired, then do the following:
