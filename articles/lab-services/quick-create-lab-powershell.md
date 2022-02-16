@@ -20,7 +20,7 @@ In this quickstart, you, as the educator, create a lab using PowerShell and the 
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure and verify an active subscription.
 
-## Create Lab
+## Create a lab
 
 Before we can create a lab, we need the lab plan object.
 

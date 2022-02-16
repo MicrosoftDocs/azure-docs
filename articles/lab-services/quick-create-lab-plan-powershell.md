@@ -19,7 +19,7 @@ In this article you, as the admin, use PowerShell and the Azure module to create
 
 Run [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) to sign in to Azure and verify an active subscription.
 
-## Create a Lab Plan
+## Create a lab plan
 
 The following steps will show you how to create a lab plan.  Any properties set in the lab plan will be used in labs created with this plan.
 
@@ -53,9 +53,9 @@ Remove-AzRoleAssignment -SignInName <emailOrUserprincipalname> `
 $plan | Remove-AzLabServicesLabPlan
 ```
 
-## Next Steps
+## Next steps
 
 In this QuickStart, you created a resource group and a lab plan.  As an admin, you can learn more about [Azure PowerShell module](/powershell/azure) and [Az.LabServices cmdlets](/powershell/module/az.labservices/).
 
-[!div class="nextstepaction"]
-[Quickstart: Using PowerShell to manage Azure Lab Services](quick-create-lab-powershell.md)
+> [!div class="nextstepaction"]
+> [Quickstart: Using PowerShell to manage Azure Lab Services](quick-create-lab-powershell.md)

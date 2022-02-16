@@ -18,7 +18,7 @@ As the admin, you can specify the Marketplace images that educators can use when
 
 Select **Marketplace images** on the menu to the left. By default, you see the full list of images (both enabled and disabled). You can filter  for **Status** to be equal to **Enabled** or **Disabled**.
 
-:::image type="content" source="./media/specify-marketplace-images/marketplace-images-page.png" alt-text="Screenshot that shows the Marketplace images page for a lab account.  The Marketplace images menu is highlighted.  The status filter for the image list is also highlighted.":::
+:::image type="content" source="./media/specify-marketplace-images/marketplace-images-page.png" alt-text="Screenshot that shows the Marketplace images page for a lab plan.  The Marketplace images menu and status filter are highlighted.":::
 
 The Marketplace images that are displayed in the list are only the ones that satisfy the following conditions:
 

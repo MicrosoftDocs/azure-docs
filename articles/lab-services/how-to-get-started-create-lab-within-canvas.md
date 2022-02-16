@@ -13,12 +13,12 @@ This article shows you how to add the Azure Lab Services app to [Canvas](https:/
 
 To use Azure Lab Services in Canvas, two tasks must be completed. The first is to enable the Azure Lab Services app in your school's Canvas instance.  The second is to connect the Canvas instance to a lab plan resource in Azure.
 
-### Prerequisites
+## Prerequisites
 
 - Canvas administrator permissions.
 - Write access to [lab plan](tutorial-setup-lab-plan.md) to be linked to Canvas.
 
-### Enable Azure Lab Services app in Canvas
+## Enable Azure Lab Services app in Canvas
 
 First, let us turn on Azure Lab Services developer key for Canvas.
 
@@ -38,8 +38,8 @@ Now that Azure Lab Services app is enabled in Canvas, we need to link the lab pl
 
 Only linked lab plans will be available for Canvas educators to use when creating labs.
 
-1. [Add Azure Lab Services to a course in Canvas](#add-azure-lab-services-app-to-a-course).  Canvas administrator will need to add Azure Lab Services to the course *only* if there are no other courses with Azure Lab Services.  If there is already a course with the Azure Lab Services app, navigate to that course in Canvas and skip this step.  
-2. [Create a lab plan in Azure](./tutorial-setup-lab-plan.md) if you have not already.
+1. [Add Azure Lab Services to a course in Canvas](#add-azure-lab-services-app-to-a-course).  Canvas administrator will need to add Azure Lab Services to the course *only* if there are no other courses with Azure Lab Services.  If there's already a course with the Azure Lab Services app, navigate to that course in Canvas and skip this step.  
+2. [Create a lab plan in Azure](./tutorial-setup-lab-plan.md) if you haven't already.
 3. Open the Azure Lab Services app in the course.
 4. Select the tool icon in the upper right to see the list all the lab plans.
 5. Choose which lab plans to link.
@@ -55,20 +55,20 @@ If you view the lab plan in the [Azure portal](https://portal.azure.com), the **
 1. In Canvas, go to the course that will use Azure Lab Services.
 1. Choose **Settings**, then select the **Apps** tab.
 1. Select **View App Configurations** button at the top right of the page.
-    :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-settings-apps.png" alt-text="Screenshot that shows the App tab of a the settings page for a course in Canvas.":::
+    :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-settings-apps.png" alt-text="Screenshot that shows the App tab of the settings page for a course in Canvas.":::
 
 1. Select the blue **+ App** button at the top right of the page.
     :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-add-app.png" alt-text="Screenshot that shows Add app button in Canvas.":::
 
 1. On the **Add App** dialog, in the **Configuration Type** dropdown, choose **By Client ID**.  Enter the Azure Lab Services client ID, which is **170000000000711**, into the **Client ID** field. Select the **Submit** button.
-    :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/enable-lab-services.png" alt-text="Screenshot that shows Add by Client Id dialog in Canvas.":::
+    :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/enable-lab-services.png" alt-text="Screenshot that shows Add by Client ID dialog in Canvas.":::
 
 1. When the **Add App** dialog asks *Tool "Azure Lab Services" found for client ID 170000000000711. Would you like to install it?* select **Install**.
 1. The Azure Lab Services app will take a few moments to show in the course navigation list.
 
 ## Create labs in Canvas
 
-Once Azure Lab Services is added to your course, you will see **Azure Lab Services** in the course navigation menu.  If you are authenticated in Canvas as an educator, you will see this sign in screen before you can use the service. You will need to sign in here with an Azure AD account or Microsoft account that has been added as a Lab Creator.
+Once Azure Lab Services is added to your course, you'll see **Azure Lab Services** in the course navigation menu.  If you're authenticated in Canvas as an educator, you'll see this sign in screen before you can use the service. You'll need to sign in here with an Azure AD account or Microsoft account that has been added as a Lab Creator.
     :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/welcome-to-lab-services.png" alt-text="Canvas -> Welcome":::
 
 For instructions to create a lab, see [Create a lab](quick-create-lab-portal.md).  Make sure to verify the resource group in which to create the lab before creating the lab.
@@ -82,17 +82,17 @@ The student list for the course is automatically synced with the course roster. 
 
 This section outlines common error messages that you may see, along with the steps to resolve them.
 
-- Student sees warning that the lab is not available yet.
+- Student sees warning that the lab isn't available yet.
 
-  In Canvas, you will see the following message if the educator has not published the lab yet.  Educators must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
+  In Canvas, you'll see the following message if the educator hasn't published the lab yet.  Educators must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
 
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
 
 - Insufficient permissions to create lab.
 
-  In Canvas, an educator will see a message indicating that they do not have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
+  In Canvas, an educator will see a message indicating that they don't have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
 
-- Message that there is not enough capacity to create lab VMs.
+- Message that there isn't enough capacity to create lab VMs.
 
   [Request a limit increase](capacity-limits.md#request-a-limit-increase).  
 
