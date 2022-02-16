@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article defines the management operations and features provided by the service. It also explains the separation of responsibilities between the Azure support team and customers when maintaining standalone and [hybrid](configure-hybrid-cluster.md) clusters.
 
 ## Compaction
-* The system currently does not perform a major compaction. There are plans to do so after a topology change though but in the meantime customers are encouraged to do so after a change through the DBA command facility.
+* The system currently does not perform a major compaction. 
 * Repair (see below) performs a Merkle tree compaction, which is a special kind of compaction.
 * Deoending on the compaction startegy on the keyspace Cassandra will automaticlaly compact when the keyspace reaches a certain size. We recommend to carefully select a compaction strategy for your workload and not perform any manual compactions outside.
 
