@@ -308,6 +308,8 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
 
 1. Set the following property on a Service Fabric managed cluster resource.
    ```json
+       "resources": [
+            {
             "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
@@ -315,6 +317,7 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
                 "enableIpv6": true
                 },
             }
+       ]
    ```
 
 2. Deploy your IPv6 enabled managed cluster. Customize the [sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-IPv6) as needed or build your own.
@@ -425,6 +428,7 @@ This feature allows customers to use an existing virtual network by specifying a
                 "subnetId": "subnetId",
             ...
             }
+    ]
    ```
    See the [bring your own VNet cluster sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-BYOVNET) or customize your own.
 
@@ -559,6 +563,7 @@ To configure bring your own load balancer:
    * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
    ```json
+    "resources": [
       {
       "apiVersion": "[variables('sfApiVersion')]",
       "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
@@ -567,6 +572,7 @@ To configure bring your own load balancer:
           "useDefaultPublicLoadBalancer": true
           }
       }
+    ]
    ```
 
 4. Optionally configure an inbound application port and related probe on your existing Azure Load Balancer.
@@ -590,7 +596,7 @@ To configure bring your own load balancer:
 
 <a id="accelnet"></a>
 ## Enable Accelerated Networking
-Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) for additional considerations. 
+Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints) for additional considerations. 
 
 * Note that Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs.
 
@@ -631,14 +637,16 @@ Configure auxiliary subnets by declaring `auxiliarySubnets` property and require
         {
             "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters",
-            ...
-            "properties": {
+              "properties": {
                 "auxiliarySubnets": [
                   {
                   "name" : "mysubnet",
                   "enableIpv6" : "true"
                   }
-                ]              
+                ]
+              }
+        }
+    ]              
 ```
 
 See [full list of parameters available](/azure/templates/microsoft.servicefabric/2022-01-01/managedclusters)
