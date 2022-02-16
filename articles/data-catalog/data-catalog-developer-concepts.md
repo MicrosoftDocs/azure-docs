@@ -141,7 +141,7 @@ Root asset types are those types that represent the various types of data assets
 ||||Documentation||
 ||measure|Column||Metadata describing the measure.|
 ||isCalculated |Boolean||Specifies if the measure is calculated or not.|
-||measureGroup |String|||Specifies if the measure is calculated or not.|
+||measureGroup |String||Specifies if the measure is calculated or not.|
 |KPI ("kpis")  |||Description||
 ||||FriendlyName||
 ||||Tag||
