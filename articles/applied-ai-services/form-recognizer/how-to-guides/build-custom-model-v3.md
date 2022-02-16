@@ -44,7 +44,7 @@ The Form Recognizer Studio provides orchestrates all the API calls required to c
 
 
 1. In the Studio select the `Custom models` tile, on the custom models page select on the `Create a project` button.
-:::image type="content" source="media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Form Recognizer Studio.":::
+:::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Form Recognizer Studio.":::
 
 1. On the create project dialog, provide a name for your project, optionally a description and hit continue.  
 
@@ -53,11 +53,11 @@ The Form Recognizer Studio provides orchestrates all the API calls required to c
 > [!IMPORTANT]
 > Custom neural models (custom document) models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these regions](https://aka.ms/fr-neural#l#supported-regions).
 
-:::image type="content" source="media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
+:::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
 
 1. Next select the storage account where you uploaded the dataset you wish to use to train the custom model. The `Folder path` should be empty if your training documents are in the root of the container. If your documents are in a sub folder, enter the relative path from the container root in the `Folder path`. Once your storage account is configured, hit continue.
 
-:::image type="content" source="media/how-to/studio-select-storage.png" alt-text="Screenshot: Select the storage account.":::
+:::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot: Select the storage account.":::
 
 1. Finally review your project settings and hit `Create Project` to create a new project. You should now be in the labeling experience with the files in your dataset listed.
 
@@ -69,7 +69,7 @@ You'll see the files you uploaded to storage on the left of your screen, with th
 
 1. To start labeling your dataset, create your first field by clicking the `+` button on the top right of your screen to select a field type. 
 
-:::image type="content" source="media/how-to/studio-create-label.png" alt-text="Screenshot: Create a label.":::
+:::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot: Create a label.":::
 
 1. Enter a name for the field
 
@@ -89,7 +89,7 @@ With your dataset labeled, you're now ready to train your model. Select on the t
 
 1. For the build mode, select the type of model you want to train. There's a link on the page to learn more about the [model types and capabilities](concept-custom.md).
 
-:::image type="content" source="media/how-to/studio-train-model.png" alt-text="Screenshot: Train model dialog":::
+:::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot: Train model dialog":::
 
 1. Select train to initiate the training process.
 
