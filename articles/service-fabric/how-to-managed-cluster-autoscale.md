@@ -10,7 +10,7 @@ ms.date: 2/14/2022
 
 
 **Requirements and supported metrics:**
-* In order to use autoscaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 * The cluster SKU must be Standard.
 * Can only be configured on a secondary node type in your cluster.
 * After enabling autoscale for a node type, configure `vmInstanceCount` property to `-1` when redeploying the resource.
@@ -130,7 +130,7 @@ The following example will set a policy for `nodeType2Name` to be at least 3 nod
                                 "metricTrigger": {
                                   "metricName": "Percentage CPU",
                                   "metricNamespace": "",
-                                  "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/SFC_', reference(resourceId('Microsoft.ServiceFabric/managedClusters', parameters('clusterName')), '2021-07-01-preview').clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('nodeType2Name'))]",
+                                  "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/SFC_', reference(resourceId('Microsoft.ServiceFabric/managedClusters', parameters('clusterName')), '2022-01-01').clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('nodeType2Name'))]",
                                   "timeGrain": "PT1M",
                                   "statistic": "Average",
                                   "timeWindow": "PT30M",
@@ -149,7 +149,7 @@ The following example will set a policy for `nodeType2Name` to be at least 3 nod
                                 "metricTrigger": {
                                   "metricName": "Percentage CPU",
                                   "metricNamespace": "",
-                                  "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/SFC_', reference(resourceId('Microsoft.ServiceFabric/managedClusters', parameters('clusterName')), '2021-07-01-preview').clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('nodeType2Name'))]",
+                                  "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/SFC_', reference(resourceId('Microsoft.ServiceFabric/managedClusters', parameters('clusterName')), '2022-01-01').clusterId,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('nodeType2Name'))]",
                                   "timeGrain": "PT1M",
                                   "statistic": "Average",
                                   "timeWindow": "PT30M",
