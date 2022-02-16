@@ -13,7 +13,7 @@ On March 31, 2023, Event Grid on Azure IoT Edge will be retired, so make sure to
 ## Why are we retiring? 
 There are multiple reasons for deciding to retire Event Grid on IoT Edge, which is currently in Preview, in March 2023.
 
-- Event Grid has been evolving in the cloud native space to provide more robust capabilities not only in Azure but also in on-prem scenarios with [Kubernetes with Azure Arc](kubernetes/overview.md).
+- Event Grid has been evolving in the cloud native space to provide more robust capabilities not only in Azure but also in on-prem scenarios with [Kubernetes with Azure Arc](../kubernetes/overview.md).
 - We've seen an increase of adoption of MQTT brokers in the IoT space, this adoption has been the motivation to allow IoT Edge team to build a new native MQTT broker that provides a better integration for pub/sub messaging scenarios. With the new MQTT broker provided natively on IoT Edge, you'll be able to connect to this broker, publish, and subscribe to messages over user-defined topics, and use IoT Hub messaging primitives. The IoT Edge MQTT broker is built in the IoT Edge hub.
 
 Here's the list of the features that will be removed with the retirement of Event Grid on Azure IoT Edge and a list of the new IoT Edge native capabilities. 
@@ -27,7 +27,7 @@ Here's the list of the features that will be removed with the retirement of Even
 
 To transition to use the Azure IoT Edge features, follow these steps.
 
-1. Learn about the feature differences between [Event Grid on Azure IoT Edge](edge/overview.md#when-to-use-event-grid-on-iot-edge) and [Azure IoT Edge](../../iot-edge/how-to-publish-subscribe.md).
+1. Learn about the feature differences between [Event Grid on Azure IoT Edge](overview.md#when-to-use-event-grid-on-iot-edge) and [Azure IoT Edge](../../iot-edge/how-to-publish-subscribe.md).
 2. Identify your scenario based on the feature table in the next section. 
 3. Follow the documentation to change your architecture and make code changes based on the scenario you want to transition.
 4. Validate your updated architecture by sending and receiving messages/events.
