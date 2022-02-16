@@ -28,13 +28,13 @@ The Azure Stack Edge 2202 release introduces clustering for Azure Stack Edge for
 For more information, see [What is clustering on Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md).
 
 
-## Issues fixed in 2202 release
+<!--## Issues fixed in 2202 release
 
 The following table lists the issues that were release noted in previous releases and fixed in the current release.
 
 | No. | Feature | Issue | 
 | --- | --- | --- |
-|**1.**|Multi-Access Edge Compute | In  previous releases, the Azure Stack Edge device did not send VNF operation results back to the Azure Network Function Manager, owing to the MEC Operation Manager (a component of MEC agent) being reset.  |
+|**1.**|Multi-Access Edge Compute | In  previous releases, the Azure Stack Edge device did not send VNF operation results back to the Azure Network Function Manager, owing to the MEC Operation Manager (a component of MEC agent) being reset.  |-->
 
 
 ## Known issues in 2202 release

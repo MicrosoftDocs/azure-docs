@@ -432,7 +432,7 @@
     items:
     - name: 2202 - Current
       href: azure-stack-edge-gpu-2202-release-notes.md
-    - name: 2111 - Current
+    - name: 2111 
       href: azure-stack-edge-gpu-2111-release-notes.md
     - name: 2110 
       href: azure-stack-edge-gpu-2110-release-notes.md
