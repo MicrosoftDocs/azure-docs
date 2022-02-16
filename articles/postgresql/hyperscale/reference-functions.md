@@ -107,6 +107,84 @@ defined as a reference table
 SELECT create_reference_table('nation');
 ```
 
+### alter_distributed_table
+
+The alter_distributed_table() function can be used to change the distribution
+column, shard count or colocation properties of a distributed table.
+
+#### Arguments
+
+**table\_name:** Name of the table that will be altered.
+
+**distribution\_column:** (Optional) Name of the new distribution column.
+
+**shard\_count:** (Optional) The new shard count.
+
+**colocate\_with:** (Optional) The table that the current distributed table
+will be colocated with. Possible values are `default`, `none` to start a new
+colocation group, or the name of another table with which to colocate. (See
+[table colocation](concepts-colocation.md).)
+
+**cascade_to_colocated:** (Optional) When this argument is set to "true",
+`shard_count` and `colocate_with` changes will also be applied to all of the
+tables that were previously colocated with the table, and the colocation will
+be preserved. If it is "false", the current colocation of this table will be
+broken.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+-- change distribution column
+SELECT alter_distributed_table('github_events', distribution_column:='event_id');
+
+-- change shard count of all tables in colocation group
+SELECT alter_distributed_table('github_events', shard_count:=6, cascade_to_colocated:=true);
+
+-- change colocation
+SELECT alter_distributed_table('github_events', colocate_with:='another_table');
+```
+
+### undistribute\_table
+
+The undistribute_table() function undoes the action of create_distributed_table
+or create_reference_table. Undistributing moves all data from shards back into
+a local table on the coordinator node (assuming the data can fit), then deletes
+the shards.
+
+Citus will not undistribute tables that have -- or are referenced by -- foreign
+keys, unless the cascade_via_foreign_keys argument is set to true. If this
+argument is false (or omitted), then you must manually drop the offending
+foreign key constraints before undistributing.
+
+#### Arguments
+
+**table_name:** Name of the distributed or reference table to undistribute.
+
+**cascade_via_foreign_keys:** (Optional) When this argument set to "true,"
+undistribute_table also undistributes all tables that are related to table_name
+through foreign keys. Use caution with this parameter, because it can
+potentially affect many tables.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+This example distributes a `github_events` table and then undistributes it.
+
+```postgresql
+-- first distribute the table
+SELECT create_distributed_table('github_events', 'repo_id');
+
+-- undo that and make it local again
+SELECT undistribute_table('github_events');
+```
+
 ### upgrade\_to\_reference\_table
 
 The upgrade\_to\_reference\_table() function takes an existing distributed
@@ -850,50 +928,6 @@ SELECT * from citus_remote_connection_stats();
 ----------------+------+---------------+--------------------------
  citus_worker_1 | 5432 | postgres      |                        3
 (1 row)
-```
-
-### replicate\_table\_shards
-
-The replicate\_table\_shards() function replicates the under-replicated shards
-of the given table. The function first calculates the list of under-replicated
-shards and locations from which they can be fetched for replication. The
-function then copies over those shards and updates the corresponding shard
-metadata to reflect the copy.
-
-#### Arguments
-
-**table\_name:** The name of the table whose shards need to be
-replicated.
-
-**shard\_replication\_factor:** (Optional) The desired replication
-factor to achieve for each shard.
-
-**max\_shard\_copies:** (Optional) Maximum number of shards to copy to
-reach the desired replication factor.
-
-**excluded\_shard\_list:** (Optional) Identifiers of shards that
-shouldn't be copied during the replication operation.
-
-#### Return Value
-
-N/A
-
-#### Examples
-
-The example below will attempt to replicate the shards of the
-github\_events table to shard\_replication\_factor.
-
-```postgresql
-SELECT replicate_table_shards('github_events');
-```
-
-This example will attempt to bring the shards of the github\_events table to
-the desired replication factor with a maximum of 10 shard copies. The
-rebalancer will copy a maximum of 10 shards in its attempt to reach the desired
-replication factor.
-
-```postgresql
-SELECT replicate_table_shards('github_events', max_shard_copies:=10);
 ```
 
 ### isolate\_tenant\_to\_new\_shard

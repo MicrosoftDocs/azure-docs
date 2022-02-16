@@ -19,13 +19,13 @@ Foo bar baz
 
 | Name | Description |
 |------|-------------|
-| alter_distributed_table | change the distribution column, shard count or colocation properties of a distributed table |
+| [alter_distributed_table](reference-functions.md#alter_distributed_table) | change the distribution column, shard count or colocation properties of a distributed table |
 | [citus_copy_shard_placement](reference-functions.md#master_copy_shard_placement) | repair an inactive shard placement using data from a healthy placement |
 | [create_distributed_table](reference-functions.md#create_distributed_table) | turn a PostgreSQL table into a distributed (sharded) table |
 | [create_reference_table](reference-functions.md#create_reference_table) | maintain full copies of a table in sync across all nodes |
 | [isolate_tenant_to_new_shard](reference-functions.md#isolate_tenant_to_new_shard) | create a new shard to hold rows with a specific single value in the distribution column |
 | truncate_local_data_after_distributing_table | truncate all local rows after distributing a table |
-| undistribute_table | undo the action of create_distributed_table or create_reference_table |
+| [undistribute_table](reference-functions.md#undistribute_table) | undo the action of create_distributed_table or create_reference_table |
 
 ### Shard rebalancing
 
