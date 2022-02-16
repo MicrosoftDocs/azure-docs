@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2022
+ms.date: 02/15/2022
 ms.author: steveesp
 ms.custom: 
 
@@ -22,7 +22,9 @@ ms.custom:
 # Create a Linux virtual machine with Accelerated Networking using Azure CLI
 
 ## Portal creation
-Though this article provides steps to create a virtual machine with Accelerated Networking using the Azure CLI, you can also [create a virtual machine with Accelerated Networking from the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, in the **Create a virtual machine** blade, choose the **Networking** tab.  In this tab, there's an option for **Accelerated Networking**. If you have chosen a [supported operating system](../accelerated-networking-overview.md#supported-operating-systems) and [VM size](../accelerated-networking-overview.md#supported-vm-instances), this option automatically populates to "On." If not, it populates the "Off" option for Accelerated Networking and provide a reason why it isn't enabled.   
+
+Though this article provides steps to create a virtual machine with accelerated networking using the Azure CLI, you can also [create a virtual machine with accelerated networking using the Azure portal](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). When creating a virtual machine in the portal, in the **Create a virtual machine** blade, choose the **Networking** tab.  In this tab, there is an option for **Accelerated networking**.  If you have chosen a [supported operating system](../accelerated-networking-overview.md#supported-operating-systems) and [VM size](../accelerated-networking-overview.md#supported-vm-instances), this option will automatically populate to "On."  If not, it will populate the "Off" option for Accelerated Networking and give the user a reason why it isn't enabled.   
+You can also enable or disable accelerated networking through the portal after VM creation by navigating to the network interface and clicking the button at the top of the **Overview** blade.
 
 * *Note:* Only supported operating systems can be enabled through the portal. If you're using a custom image, and your image supports Accelerated Networking, create your VM using CLI or PowerShell. 
 

@@ -10,7 +10,8 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
 # Enable Key Vault logging
@@ -157,7 +158,7 @@ To configure diagnostic settings in the Azure portal, follow these steps:
 
     :::image type="content" source="../media/diagnostics-portal-2.png" alt-text="Screenshot that shows adding a diagnostic setting.":::
  
-1. Select a name for your diagnostic setting. To configure logging for Azure Monitor for Key Vault, select **AuditEvent** and **Send to Log Analytics workspace**. Then choose the subscription and Log Analytics workspace to which you want to send your logs.
+1. Select a name for your diagnostic setting. To configure logging for Azure Monitor for Key Vault, select **AuditEvent** and **Send to Log Analytics workspace**. Then choose the subscription and Log Analytics workspace to which you want to send your logs. You can also select the option to **Archive to a storage account**.
 
     :::image type="content" source="../media/diagnostics-portal-3.png" alt-text="Screenshot of diagnostic settings options.":::
 

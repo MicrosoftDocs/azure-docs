@@ -44,7 +44,7 @@ Collections in Azure Purview are used to organize assets and sources into a cust
 
 ### Check permissions
 
-To create and manage collections in Azure Purview, you'll need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](use-purview-studio.md).
+To create and manage collections in Azure Purview, you'll need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](use-azure-purview-studio.md).
 
 1. Select **Data Map > Collections** from the left pane to open the collection management page.
 

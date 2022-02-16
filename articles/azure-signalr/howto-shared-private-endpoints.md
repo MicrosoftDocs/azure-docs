@@ -3,12 +3,11 @@ title: Secure Azure SignalR outbound traffic through Shared Private Endpoints
 titleSuffix: Azure SignalR Service
 description: How to secure outbound traffic through Shared Private Endpoints to avoid traffic go to public network
 services: signalr
-author: ArchangelSDY
-
+author: vicancy
 ms.service: signalr
 ms.topic: article
 ms.date: 07/08/2021
-ms.author: dayshen
+ms.author: lianwei
 ---
 
 # Secure Azure SignalR outbound traffic through Shared Private Endpoints

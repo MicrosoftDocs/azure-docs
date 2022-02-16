@@ -1,12 +1,12 @@
 ---
 title: Authoring and publishing data owner access policies
 description: Step-by-step guide on how a data owner can author and publish access policies in Azure Purview
-author: ePpnqeqR
+author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 1/28/2022
+ms.date: 2/2/2022
 ms.custom:
 ---
 

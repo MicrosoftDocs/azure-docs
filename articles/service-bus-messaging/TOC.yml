@@ -220,6 +220,8 @@
       href: service-bus-end-to-end-tracing.md
     - name: Monitoring Azure Service Bus
       href: monitor-service-bus.md
+    - name: Azure Monitor - Service Bus insights
+      href: service-bus-insights.md
   - name: Integrate
     items:
     - name: Integrate with RabbitMQ
@@ -269,7 +271,7 @@
       href: private-link-service.md
     - name: Encrypt data using customer-managed keys
       href: configure-customer-managed-key.md
-    - name: Disable location or SAS authentication
+    - name: Disable local or SAS authentication
       href: disable-local-authentication.md
   - name: Troubleshoot
     items:

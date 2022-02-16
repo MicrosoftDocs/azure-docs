@@ -241,6 +241,10 @@ az group delete --name osm-bicep-test
 
 Alternatively, you can uninstall the OSM add-on and the related resources from your cluster. For more information, see [Uninstall the Open Service Mesh (OSM) add-on from your AKS cluster][osm-uninstall].
 
+## Next steps
+
+This article showed you how to install the OSM add-on on an AKS cluster and verify it is installed an running. With the the OSM add-on on your cluster you can [Deploy a sample application][osm-deploy-sample-app] or [Onboard an existing application][osm-onboard-app] to work with your OSM mesh.
+
 <!-- Links -->
 <!-- Internal -->
 
@@ -250,3 +254,5 @@ Alternatively, you can uninstall the OSM add-on and the related resources from y
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
 [osm-uninstall]: open-service-mesh-uninstall-add-on.md
+[osm-deploy-sample-app]: https://release-v1-0.docs.openservicemesh.io/docs/getting_started/install_apps/
+[osm-onboard-app]: https://release-v1-0.docs.openservicemesh.io/docs/guides/app_onboarding/
