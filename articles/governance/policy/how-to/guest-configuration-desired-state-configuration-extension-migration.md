@@ -94,7 +94,7 @@ before you can create a guest configuration package.
 #### Update deployment templates
 
 If your deployment templates include the DSC extension
-(see [examples](/virtual-machines/extensions/dsc-template.md)),
+(see [examples](/azure/virtual-machines/extensions/dsc-template)),
 there are two changes required.
 
 First, replace the DSC extension with the
