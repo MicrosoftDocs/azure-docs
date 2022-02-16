@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor and on-premises management console
 description: Troubleshoot your sensor and on-premises management console to eliminate any problems you might be having.
-ms.date: 11/09/2021
+ms.date: 02/10/2022
 ms.topic: article
 ---
 # Troubleshoot the sensor and on-premises management console
@@ -160,29 +160,6 @@ Another indication of the same problem is when multiple internet-related alerts 
 
 1. In the data-mining report, select :::image type="icon" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/administrator-mode.png" border="false"::: to enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Tweak the sensor's Quality of Service (QoS)
-
-To save your network resources, you can limit the interface bandwidth that the sensor uses for day-to-day procedures.
-
-To limit the interface bandwidth, use the `cyberx-xsense-limit-interface` CLI tool that needs to be run with sudo permissions. The tool gets the following arguments:
-
-- `* -i`: interfaces (example: eth0).
-
-- `* -l`: limit (example: 30 kbit / 1 mbit). You can use the following bandwidth units: kbps, mbps, kbit, mbit, or bps.
-
-- `* -c`: clear (to clear the interface bandwidth limitation).
-
-**To tweak the Quality of Service (QoS)**:
-
-1. Sign in to the sensor CLI as a Defender for IoT user, and enter `sudo cyberx-xsense-limit-interface-I eth0 -l value`.
-
-   For example: `sudo cyberx-xsense-limit-interface -i eth0 -l 30kbit`
-
-   > [!NOTE]
-   > For a physical appliance, use the em1 interface.
-
-1. To clear interface limitation, enter `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
-
 ## On-premises management console troubleshooting tools
 
 ### Investigate a lack of expected alerts on the management console
@@ -239,11 +216,8 @@ In addition to tools for monitoring and analyzing your network, you can send inf
 
 **To export logs**:
 
-1. On the left pane, select **System Settings**.
+1. On the left pane, select **System settings** > **Health and troubleshooting** > **Backup & Restore**.
 
-1. Select **Export Logs**.
-
-    :::image type="content" source="media/how-to-troubleshoot-the-sensor-and-on-premises-management-console/sensor-export-log.png" alt-text="Screenshot of the export a log to system support screen.":::
 
 1. In the **File Name** field, enter the file name that you want to use for the log export. The default is the current date.
 
@@ -251,6 +225,7 @@ In addition to tools for monitoring and analyzing your network, you can send inf
 
     | Export category | Description |
     |--|--|
+    | **Support Ticket Diagnostics** | Select this option to get a summary of log and system information that will be added to support tickets you open with your Microsoft support team. |
     | **Operating System Logs** | Select this option to get information about the operating system state. |
     | **Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters. |
     | **System Sanity Output** | Select this option to check system performance. |
