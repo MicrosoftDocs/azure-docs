@@ -30,8 +30,7 @@ Time Series Insights (TSI) service provides access to historical data ingested t
 | Feature | TSI | ADX |
 | ---| ---| ---|
 | Data ingestion | Event hub, IoT hub limited to 1MB/s | Event hub, IoT hub, Kafka, Spark, Azure storage, Azure Stream Analytics, Azure Data Factory, Logstash, Power automate, Logic apps, Telegraf, Apache Nifi. No limits on ingestion (scalable), Ingestion benchmark is 200 MB/s/node on a 16 core machine in ADX cluster. |
-| Data storage and retention | Warm store – multitenant ADX Cluster | Cold Store - Azure Blob storage in customer’s subscription	Distributed columnar store with highly optimized hot(on SSD of compute nodes) and cold(on Azure storage) store
-Choose any ADX SKU so full flexibility |
+| Data storage and retention | Warm store – multitenant ADX Cluster | Cold Store - Azure Blob storage in customer’s subscription	Distributed columnar store with highly optimized hot(on SSD of compute nodes) and cold(on Azure storage) store. Choose any ADX SKU so full flexibility |
 | Data formats | JSON | JSON, CSV, Avro, Parquet, ORC, TXT and various others [Data formats supported by Azure Data Explorer for ingestion](../data-explorer/ingestion-supported-formats.md). |
 | Data Querying | TSQ | KQL, SQL |
 | Data Visualization | TSI Explorer, PBI | PBI, ADX Dashboards, Grafana, Kibana and other visualization tools using ODBC/JDBC connectors |
@@ -67,3 +66,6 @@ TSI Gen2 stores all data on cold storage using Parquet format as a blob in custo
 1.	Delete TSI Environment 
 
 Detailed FAQ and engineering experience is outlined in [How to migrate TSI Gen2 to ADX](./how-to-tsi-gen2-migration.md)
+
+> [!NOTE]
+> If you are unable to migrate to Time Series Insights to Azure Data Explorer by 31 March 2025, your Time Series Insights resources will be automatically migrated. You’ll be able to access Gen2 data in your storage account. However, you’ll only be able to perform management operations (such as updating storage account settings, getting storage account properties/keys, and deleting storage accounts) through Azure Resource Manager. For Gen 1 data, if you have a support plan, please create a support ticket to retrieve your Gen1 data. We will keep your Gen 1 data until 30 April 2025. 
