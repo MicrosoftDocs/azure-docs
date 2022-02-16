@@ -1,5 +1,5 @@
 ---
-title: 'TSI Gen2 migration to Azure Data Explorer | Microsoft Docs'
+title: 'Time Series Insights Gen2 migration to Azure Data Explorer | Microsoft Docs'
 description: How to migrate Azure Time Series Insights Gen 2 environments to Azure Data Explorer.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,7 +12,7 @@ ms.date: 3/1/2022
 ms.custom: tvilutis
 ---
 
-# Migrating TSI Gen2 to Azure Data Explorer
+# Migrating Time Series Insights (TSI) Gen2 to Azure Data Explorer
 
 ## Overview
 
