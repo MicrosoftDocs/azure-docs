@@ -20,7 +20,7 @@ You can create a confidential or public client application by following the step
 
 ## Sign in to your Azure subscription
 
-Before signing in to Azure, check the `az` version you have installed in your environment, and upgrade it to the latest version if necessary. Also, ensure that you have the account and Azure Health Data Services extensions installed.
+Before signing in to Azure, check the `az` version you've installed in your environment, and upgrade it to the latest version if necessary. Also, ensure that you have the account and Azure Health Data Services extensions installed.
 
 ```
 az --version
@@ -38,7 +38,7 @@ az account show --output table
 
 ## Create a client application
 
-You can use the CLI command to create a confidential client application registration. You will need to change the display name "myappregtest1" in your scripts.
+You can use the CLI command to create a confidential client application registration. You'll need to change the display name "myappregtest1" in your scripts.
 
 `
 az ad app create --display-name myappregtest1
@@ -59,7 +59,7 @@ You can use `echo $<variable name>` to display the value of a specified variable
 
 ## Remove the user_impersonation scope
 
-The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting by selecting the **Expose an API** blade in application registrations from the Azure portal. This scope is not required in most cases. Therefore, you can remove it.
+The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting by selecting the **Expose an API** blade in application registrations from the Azure portal. This scope isn't required in most cases. Therefore, you can remove it.
 
 [![User_Impersonation](media/app-registration-scope.png)](media/app-registration-scope.png#lightbox)
 
@@ -83,7 +83,7 @@ clientid=$(az rest -m post -u https://graph.microsoft.com/v1.0/applications  --h
 
 For confidential client applications, you'll need to add a client secret. For public client applications, you can skip this step.
 
-Choose a name for the secret and specify the expiration duration. The default is one year, but you can use the `--end-date` option to specify the duration. The client secret is saved in the variable and can be displayed with the echo command. Make a note of it as it is not visible on the portal.  In your deployment scripts, you can save and store the value in Azure Key Vault and rotate it periodically.
+Choose a name for the secret and specify the expiration duration. The default is one year, but you can use the `--end-date` option to specify the duration. The client secret is saved in the variable and can be displayed with the echo command. Make a note of it as it isn't visible on the portal.  In your deployment scripts, you can save and store the value in Azure Key Vault and rotate it periodically.
 
 ```
 ###Add client secret with expiration. The default is one year.
@@ -121,7 +121,7 @@ graphurl=https://graph.microsoft.com/v1.0/applications/$objectid
 az rest --method PATCH --uri $graphurl --headers 'Content-Type=application/json' --body '{"'$redirecttype'":{"redirectUris":["'$redirecturl'"]}}'
 ```
 
-For more information about iOS/macOS, and Android applications, see [github](https://github.com/Azure/azure-cli/issues/9501).
+For more information about iOS/macOS, and Android applications, see [GitHub](https://github.com/Azure/azure-cli/issues/9501).
 
 ## Create a service principal
 

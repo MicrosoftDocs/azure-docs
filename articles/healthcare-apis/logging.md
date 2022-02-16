@@ -14,7 +14,7 @@ ms.author: ginle
 The Azure platform provides three types of logs, activity logs, resource logs and Azure Active Directory logs. For more information, see [activity logs](../azure-monitor/essentials/platform-logs-overview.md). In this article, you’ll learn about how logging works for the Azure Health Data Services.
 
 ## AuditLogs
-While activity logs are available for each Azure resource from the Azure portal, Azure Health Data Services emit resource logs, which include two categories of logs, AuditLogs and DiagnosticLogs.
+While activity logs are available for each Azure resource from the Azure portal, Azure Health Data Services emits resource logs, which include two categories of logs, AuditLogs and DiagnosticLogs.
 
 - AuditLogs provide auditing trails for healthcare services. For example, a caller's IP address and resource URL are logged when a user or application accesses the FHIR service. Each service emits required properties and optionally implements additional properties.
 - DiagnosticLogs provides insight into the operation of the service, for example, log level (information, warning or error) and log message.

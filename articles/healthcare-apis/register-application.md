@@ -33,13 +33,13 @@ After registering a new application, you can find the application (client) ID an
 
 ## Authentication setting: confidential vs. public
 
-Click on **Authentication** to review the settings. The default value for **Allow public client flows** is "No".
+Select **Authentication** to review the settings. The default value for **Allow public client flows** is "No".
 
 If you keep this default value, the application registration is a **confidential client application** and a certificate or secret is required.
 
 [ ![Screenshot of confidential client application.](media/register-application-five.png) ](media/register-application-five.png#lightbox)
 
-If you change the default value to "Yes" for the "Allow public client flows" option in the advanced setting, the application registration is a **public client application** and a certificate or secret is not required. The "Yes" value is useful when you want to use the client application in your mobile app or a JavaScript app where you do not want to store any secrets.
+If you change the default value to "Yes" for the "Allow public client flows" option in the advanced setting, the application registration is a **public client application** and a certificate or secret isn't required. The "Yes" value is useful when you want to use the client application in your mobile app or a JavaScript app where you don't want to store any secrets.
 
 For tools that require a redirect URL, select **Add a platform** to configure the platform.
 

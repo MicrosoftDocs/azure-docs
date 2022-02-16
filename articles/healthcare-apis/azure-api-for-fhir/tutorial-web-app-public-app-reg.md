@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 01/03/2020
+ms.date: 02/15/2022
 ---
 
 # Client application registration for Azure API for FHIR

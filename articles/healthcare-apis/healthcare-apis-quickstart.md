@@ -28,7 +28,7 @@ In the Azure portal, select **Create a resource**.
 
 ## Search for Azure Health Data Services
 
-In the searchbox, enter **Azure Health Data Services**.
+In the search box, enter **Azure Health Data Services**.
 
 [ ![Search for HAzure Health Data Services](media/search-for-healthcare-apis.png) ](media/search-for-healthcare-apis.png#lightbox)
 
@@ -44,7 +44,7 @@ Select **Create** to create a new Azure Health Data Services account.
 
    [ ![Create workspace new](media/create-healthcare-api-workspace-new.png) ](media/create-healthcare-api-workspace-new.png#lightbox)
 
-2. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all in lowercase. Do not use a hyphen "-" as it is an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
+2. Enter a **Name** for the workspace, and then select a **Region**. The name must be 3 to 24 alphanumeric characters, all in lowercase. Don't use a hyphen "-" as it's an invalid character for the name. For information about regions and availability zones, see [Regions and Availability Zones in Azure](../availability-zones/az-overview.md).
 
 3. (**Optional**) Select **Next: Tags >**. Enter a **Name** and **Value**, and then select **Next: Review + create**. 
 

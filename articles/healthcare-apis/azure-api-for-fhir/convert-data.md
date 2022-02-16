@@ -6,7 +6,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 05/11/2021
+ms.date: 02/15/2022
 ms.author: ranku
 ---
 
@@ -35,7 +35,7 @@ $convert-data takes a [Parameter](http://hl7.org/fhir/parameters.html) resource 
 | ----------- | ----------- | ----------- |
 | inputData      | Data to be converted. | A valid JSON String|
 | inputDataType   | Data type of input. | ```HL7v2```, ``Ccda`` |
-| templateCollectionReference | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection on [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). It is the image containing Liquid templates to use for conversion. It can be a reference either to the default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting those on ACR, and registering to the FHIR service. | For **HL7v2** default templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br><br>For **C-CDA** default templates: ``microsofthealth/ccdatemplates:default`` <br>\<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
+| templateCollectionReference | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection on [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). It's the image containing Liquid templates to use for conversion. It can be a reference either to the default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting those on ACR, and registering to the FHIR service. | For **HL7v2** default templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br><br>For **C-CDA** default templates: ``microsofthealth/ccdatemplates:default`` <br>\<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
 | rootTemplate | The root template to use while transforming the data. | For **HL7v2**:<br>```ADT_A01```, ```OML_O21```, ```ORU_R01```, ```VXU_V04```<br><br> For **C-CDA**:<br>```CCD```, `ConsultationNote`, `DischargeSummary`, `HistoryandPhysical`, `OperativeNote`, `ProcedureNote`, `ProgressNote`, `ReferralNote`, `TransferSummary` |
 
 > [!WARNING]
@@ -99,7 +99,7 @@ You can use the [FHIR Converter extension](https://marketplace.visualstudio.com/
 
 ## Host and use templates
 
-It's strongly recommended that you host your own copy of templates on ACR. There're four steps involved in hosting your own copy of templates and using those in the $convert-data operation:
+It's recommended that you host your own copy of templates on ACR. There are four steps involved in hosting your own copy of templates and using those in the $convert-data operation:
 
 1. Push the templates to your Azure Container Registry.
 1. Enable Managed Identity on your Azure API for FHIR instance.
@@ -135,7 +135,7 @@ For more information about assigning roles in the Azure portal, see [Azure built
 You can register the ACR server using the Azure portal, or using CLI.
 
 #### Registering the ACR server using Azure portal
-Browse to the **Artifacts** blade under **Data transformation** in your Azure API for FHIR instance. You will see the list of currently registered ACR servers. Select **Add**, and then select your registry server from the drop-down menu. You'll need to select **Save** for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
+Browse to the **Artifacts** blade under **Data transformation** in your Azure API for FHIR instance. You'll see the list of currently registered ACR servers. Select **Add**, and then select your registry server from the drop-down menu. You'll need to select **Save** for the registration to take effect. It may take a few minutes to apply the change and restart your instance.
 
 #### Registering the ACR server using CLI
 You can register up to 20 ACR servers in the Azure API for FHIR.

@@ -6,12 +6,12 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/01/2021
+ms.date: 02/15/2022
 ms.author: ginle
 ---
 # Related GitHub Projects
 
-We have many open-source projects on GitHub that provide you the source code and instructions to deploy services for various uses. You are always welcome to visit our GitHub repositories to learn and experiment with our features and products. 
+We have many open-source projects on GitHub that provide you the source code and instructions to deploy services for various uses. You're always welcome to visit our GitHub repositories to learn and experiment with our features and products. 
 
 ## FHIR Server
 * [microsoft/fhir-server](https://github.com/microsoft/fhir-server/): open-source FHIR Server,  which is the basis for Azure API for FHIR
@@ -22,12 +22,12 @@ We have many open-source projects on GitHub that provide you the source code and
 
 #### FHIR Converter
 * [microsoft/FHIR-Converter](https://github.com/microsoft/FHIR-Converter): a conversion utility to translate legacy data formats into FHIR
-* Integrated with the Azure API for FHIR as well as FHIR server for Azure in the form of $convert-data operation
+* Integrated with the Azure API for FHIR and FHIR server for Azure in the form of $convert-data operation
 * Ongoing improvements in OSS, and continual integration to the FHIR servers
  
 #### FHIR Converter - VS Code Extension
 * [microsoft/FHIR-Tools-for-Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization): a set of tools for helping with data (in FHIR format) anonymization
-* Integrated with the Azure API for FHIR as well as FHIR server for Azure in the form of ‘de-identified export’
+* Integrated with the Azure API for FHIR and FHIR server for Azure in the form of ‘de-identified export’
 
 #### FHIR Tools for Anonymization
 * [microsoft/vscode-azurehealthcareapis-tools](https://github.com/microsoft/vscode-azurehealthcareapis-tools): a VS Code extension that contains a collection of tools to work with Azure Healthcare APIs

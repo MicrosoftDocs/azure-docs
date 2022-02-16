@@ -63,7 +63,7 @@ resource exampleWorkspace 'Microsoft.HealthcareApis/workspaces@2021-06-01-previe
 }
 ```
 
-To use or reference an existing workspace without creating one, use the keyword *existing*. Specify the workspace resource name, and the existing workspace instance name for the name property. Note that a different name for the existing workspace resource is used in the template, but that is not a requirement.
+To use or reference an existing workspace without creating one, use the keyword *existing*. Specify the workspace resource name, and the existing workspace instance name for the name property. Note that a different name for the existing workspace resource is used in the template, but that isn't a requirement.
 
 ```
 //Use an existing workspace
@@ -260,7 +260,7 @@ tenantid=$(az account show --subscription $subscriptionid --query tenantId --out
 az deployment group create --resource-group $resourcegroupname --template-file $bicepfilename --parameters workspaceName=$workspacename fhirName=$fhirname dicomName=$dicomname iotName=$iotname tenantId=$tenantid
 ```
 
-Note that the child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name does not need to include the parent resource name, and the "dependsOn" property is not required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
+Note that the child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name doesn't need to include the parent resource name, and the "dependsOn" property isn't required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
 
 ## Debugging Bicep templates
 

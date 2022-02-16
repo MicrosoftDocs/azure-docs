@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/28/2022
+ms.date: 02/15/2022
 ms.author: ginle
 ---
 
@@ -40,7 +40,7 @@ After configuring your FHIR server, you can follow the [documentation](./export-
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}  
 ```
 
-You can also use `_type` parameter in the `$export` call above to restrict the resources we you want to export. For example, the following call will export only `Patient`, `MedicationRequest`, and `Observation` resources:
+You can also use `_type` parameter in the `$export` call above to restrict the resources that you want to export. For example, the following call will export only `Patient`, `MedicationRequest`, and `Observation` resources:
 
 ```rest
 https://{{FHIR service base URL}}/Group/{{GroupId}}/$export?_container={{BlobContainer}}&
