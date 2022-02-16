@@ -13,7 +13,7 @@ ms.author: vikurpad
 ms.custom: ignite-fall-2021
 ---
 
-# Build a training data set for a custom model
+# Build the training data set for the custom model
 
 Form Recognizer models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 
@@ -34,13 +34,13 @@ Follow these other tips to further optimize your data set for training.
 
 ## Upload your training data
 
-When you've put together the set of forms or documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
+When you've put together the set of forms or documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
 
 ## Create a project in the Form Recognizer Studio
 
 The Form Recognizer Studio provides orchestrates all the API calls required to create the files required to complete your dataset and to train your model.
 
-1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). If this is your first time using the Studio, you'll need to [initialize it for use](quickstarts/try-v3-form-recognizer-studio#sign-into-the-form-recognizer-studio-preview.md). Follow the [additional prerequisite for custom projects](quickstarts/try-v3-form-recognizer-studio#additional-prerequisites-for-custom-projects.md) to configure the Studio to access your training dataset.
+1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). If this is your first time using the Studio, you'll need to [initialize it for use](../quickstarts/try-v3-form-recognizer-studio#sign-into-the-form-recognizer-studio-preview.md). Follow the [additional prerequisite for custom projects](../quickstarts/try-v3-form-recognizer-studio#additional-prerequisites-for-custom-projects.md) to configure the Studio to access your training dataset.
 
 
 1. In the Studio select the `Custom models` tile, on the custom models page select on the `Create a project` button.
@@ -87,7 +87,7 @@ With your dataset labeled, you're now ready to train your model. Select on the t
 
 1. On the train model dialog, provide a unique model id and optionally a description
 
-1. For the build mode, select the type of model you want to train. There's a link on the page to learn more about the [model types and capabilities](concept-custom.md).
+1. For the build mode, select the type of model you want to train. There's a link on the page to learn more about the [model types and capabilities](../concept-custom.md).
 
 :::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot: Train model dialog":::
 
@@ -118,7 +118,7 @@ Congratulations you've trained a custom model in the Form Recognizer Studio! You
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about custom model types](concept-custom.md)
+> [Learn about custom model types](../concept-custom.md)
 
 > [!div class="nextstepaction"]
-> [Learn about accuracy and confidence with custom models](accuracy-and-confidence.md)
+> [Learn about accuracy and confidence with custom models](../concept-accuracy-confidence.md)
