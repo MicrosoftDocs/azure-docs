@@ -87,7 +87,7 @@ There are two ways that you can approve or deny access:
 
 ### Review access based on recommendations
 
-To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
+To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity in the 30-day period before the review started.
 
 1. Select one or more users and then Click **Accept recommendations**.
 
