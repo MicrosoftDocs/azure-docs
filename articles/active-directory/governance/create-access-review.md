@@ -182,7 +182,7 @@ A multi-stage review allows the administrator to define two or three sets of rev
 
     ![Screenshot that shows duration and show previous stages setting enabled for multi-stage review.](./media/create-access-review/reveal-multi-stage-results-and-duration.png)
 
-1. The duration will be set to the sum of the duration day(s) you specified in each stage.
+1. The duration of each recurrence will be set to the sum of the duration day(s) you specified in each stage.
 
 1. Specify the **Review recurrence**, the **Start date**, and **End date** for the review. The recurrence type must be at least as long as the total duration of the recurrence (i.e., the max duration for a weekly review recurrence is 7 days).
 
