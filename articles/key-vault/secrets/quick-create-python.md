@@ -9,7 +9,6 @@ ms.subservice: secrets
 ms.topic: quickstart
 ms.devlang: python, azurecli
 ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli, mode-api
-ms.devlang: azurecli
 ---
 
 # Quickstart: Azure Key Vault secret client library for Python
