@@ -32,7 +32,7 @@ Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/c
 
 The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayControl](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
-![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
+![Diagram shows how to use the assert string claims are equal claims transformation.](./media/string-transformations/assert-execution.png)
 
 ### Example of AssertStringClaimsAreEqual
 
@@ -569,7 +569,7 @@ To use the GetLocalizedStringsTransformation claims transformation:
 
 The following diagram shows how to configure the claims transformation with the localization elements:
 
-![Diagram shows how to use the get localized strings transformation](./media/string-transformations/get-localized-strings-transformation.png)
+![Diagram shows how to use the get localized strings claims transformation.](./media/string-transformations/get-localized-strings-transformation.png)
 
 ### Example of GetLocalizedStringsTransformation
 
@@ -713,7 +713,7 @@ The following example looks up the domain name in one of the inputParameters col
 
 When `errorOnFailedLookup` input parameter is set to `true`, the **LookupValue** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `LookupNotFound` metadata of a self-asserted technical profile controls the error message that is presented to the user.
 
-![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
+![Diagram shows how to use the lookup value claims transformation.](./media/string-transformations/assert-execution.png)
 
 The following example looks up the domain name in one of the inputParameters collections. The claims transformation looks up the domain name in the identifier and returns its value (an application ID), or raises an error message.
 
