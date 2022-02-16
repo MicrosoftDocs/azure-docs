@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -27,15 +27,15 @@ Hybrid Azure AD joined devices require network line of sight to your on-premises
 | **Primary audience** | Suitable for hybrid organizations with existing on-premises AD infrastructure |
 |   | Applicable to all users in an organization |
 | **Device ownership** | Organization |
-| **Operating Systems** | Windows 10, 8.1 and 7 |
+| **Operating Systems** | Windows 10 or newer, 8.1 and 7 |
 |   | Windows Server 2008/R2, 2012/R2, 2016 and 2019 |
-| **Provisioning** | Windows 10, Windows Server 2016/2019 |
+| **Provisioning** | Windows 10 or newer, Windows Server 2016/2019 |
 |   | Domain join by IT and autojoin via Azure AD Connect or ADFS config |
 |   | Domain join by Windows Autopilot and autojoin via Azure AD Connect or ADFS config |
 |   | Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2 - Require MSI |
 | **Device sign in options** | Organizational accounts using: |
 |   | Password |
-|   | Windows Hello for Business for Win10 |
+|   | Windows Hello for Business for Win10 and above |
 | **Device management** | [Group Policy](/mem/configmgr/comanage/faq#my-environment-has-too-many-group-policy-objects-and-legacy-authenticated-apps--do-i-have-to-use-hybrid-azure-ad-) |
 |   | [Configuration Manager standalone or co-management with Microsoft Intune](/mem/configmgr/comanage/overview) |
 | **Key capabilities** | SSO to both cloud and on-premises resources |

@@ -211,7 +211,7 @@ az storage account create \
 
 ### Grant the server permissions to write ledger digests
 
-Assign the managed identity of the server to the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role with the [az role assignment create](/cli/azure/sql/db) command.  This gives the SQL server the appropriate permissions to publish database digests to the storage account.
+Assign the managed identity of the server to the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role with the [az role assignment create](/cli/azure/sql/db) command.  This gives the SQL server the appropriate permissions to publish database digests to the storage account.
 
 ```azurecli-interactive
 az role assignment create \
@@ -390,7 +390,7 @@ $storage
 
 ### Grant the server permissions to write ledger digests
 
-Assign the managed identity of the server to the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) role with the [New-AzRoleAssignment](/powershell/module/az.Resources/New-azRoleAssignment) cmdlet. This gives the SQL server the appropriate permissions to publish database digests to the storage account.
+Assign the managed identity of the server to the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role with the [New-AzRoleAssignment](/powershell/module/az.Resources/New-azRoleAssignment) cmdlet. This gives the SQL server the appropriate permissions to publish database digests to the storage account.
 
 ```azurepowershell-interactive
 Write-host "Granting the server access to the storage account..."
@@ -489,4 +489,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 Connect and query your database by using different tools and languages:
 
 - [Create and use updatable ledger tables](ledger-how-to-updatable-ledger-tables.md)
-- [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md) 
+- [Create and use append-only ledger tables](ledger-how-to-append-only-ledger-tables.md)

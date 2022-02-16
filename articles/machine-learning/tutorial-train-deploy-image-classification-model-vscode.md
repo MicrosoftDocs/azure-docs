@@ -16,6 +16,8 @@ ms.custom: contperf-fy20q4
 
 # Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension (preview)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Learn how to train an image classification model to recognize hand-written numbers using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 
 In this tutorial, you learn the following tasks:
