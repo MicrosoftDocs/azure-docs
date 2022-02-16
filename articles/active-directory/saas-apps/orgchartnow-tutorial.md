@@ -2,8 +2,8 @@
 title: 'Tutorial: Azure Active Directory integration with OrgChart Now | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OrgChart Now.
 services: active-directory
-author: jeevansd
-manager: CelesteDG
+author: KMeunier
+manager: CBacchi
 ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -25,6 +25,7 @@ In this tutorial, you'll learn how to integrate OrgChart Now with Azure Active D
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* The following Azure AD permissions: Application Administrator and Cloud Application Administrator.
 * OrgChart Now single sign-on (SSO) enabled subscription.
 
 ## Scenario description
@@ -36,16 +37,22 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Add OrgChart Now from the gallery
+## Create a new Enterprise Application for OrgChart Now
 
-To configure the integration of OrgChart Now into Azure AD, you need to add OrgChart Now from the gallery to your list of managed SaaS apps.
+To configure the integration of OrgChart Now into Azure AD, you need to create a SAML app in Azure Active Directory.
+> [!NOTE]
+> You must have the appropriate permissions to create a new, non-gallery Enterprise application.
+
 
 1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **OrgChart Now** in the search box.
-1. Select **OrgChart Now** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+2.  On the left navigation pane, select the **Azure Active Directory** service.
+3.  Navigate to **Enterprise Applications** and then select **All Applications**.
+4.  Click on the **+ New application** option to add a new Enterprise application.
+5.  Click on the **+ Create your own application** option.
+6.  Enter a name for the application (i.e. OrgChart Now SSO).
+7.  Click on the **Integrate any other application you don't find in the gallery (Non-gallery)** option.
+8.  Click on **Create**.
+
 
 ## Configure and test Azure AD SSO for OrgChart Now
 
@@ -70,26 +77,32 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
+4. Click on the **Add Identifier** option under the **Indetifier (Entity ID)** heading. Then, in the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
-    In the **Identifier** text box, type the URL:
-    `https://sso2.orgchartnow.com`
-
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
-
+    `https://{OrgChartNowServer}.orgchartnow.com/saml/sso_metadata?entityID={Your_Azure_AD_Entity_ID}`
+    
 	> [!NOTE]
-	> `<YourEntityID>` is the **Azure AD Identifier** copied from the **Set up OrgChart Now** section, described later in tutorial.
+> The name of your OrgChart Now server is the first part of the URL displayed while logged in to OrgChart (e.g., unicorn2).
+	
+	> [!NOTE]
+> To find your Azure AD Entity ID, download the **Federation Metadata XML** in the **SAML Signing Certificate** section. The Entity ID is listed between quotation marks, following the **entityID=** indicator, and then copy the Azure AD Identifier value. The entire copied value must be pasted after the **entityID=** portion of the Identifier Entity ID URL listed above.
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+5. Click on the **Add reply URL** option under the **Reply URL (Assertion Consumer Service URL)** heading. Then, in the **Reply URL (Assertion Consumer URL)** text box, type a URL using the following pattern:
 
-	![The Certificate download link](common/metadataxml.png)
+    
+    `https://{OrgChartNowServer}.orgchartnow.com/saml/sso_acs?entityID={Your_Azure_AD_Entity_ID}`
+	
+	> [!NOTE]
+> To find your Azure AD Entity ID, download the **Federation Metadata XML** in the **SAML Signing Certificate** section. The Entity ID is listed between quotation marks, following the **entityID=** indicator, and then copy the Azure AD Identifier value. The entire copied value must be pasted after the **entityID=** portion of the Redirect URL (Assertion Consumer SErvice URL) listed above.
 
-7. On the **Set up OrgChart Now** section, copy the appropriate URL(s) as per your requirement.
+6. In the **Sign ON URL** text box, enter a URL using the following pattern:
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	`https://{OrgChartNowServer}.orgchartnow.com/saml/sso_acs?entityID={Your_Azure_AD_Entity_ID}`
+	> [!NOTE]
+> To find your Azure AD Entity ID, download the **Federation Metadata XML** in the **SAML Signing Certificate** section. The Entity ID is listed between quotation marks, following the **entityID=** indicator, and then copy the Azure AD Identifier value. The entire copied value must be pasted after the **entityID=** portion of the Redirect URL (Assertion Consumer SErvice URL) listed above.
+
+7. Click on **Save**.
+8. Optionally, copy the App Federation Metadata URL or download the Federation Metadata XML (in the **SAML Signing Certificate** section). You will need either the metadata URL (remote) or metadata XML (local) to complete the SSO setup in OrgChart.
 
 ### Create an Azure AD test user 
 
@@ -117,47 +130,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure OrgChart Now SSO
 
-To configure single sign-on on **OrgChart Now** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [OrgChart Now support team](mailto:ocnsupport@officeworksoftware.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on in **OrgChart Now**, follow the steps enumerated in the [Configuring SSO](https://help.orgchartnow.com/en/topics/sso-configuration.html#configuring-sso-41334) section of the [SSO Configuration](https://help.orgchartnow.com/en/topics/sso-configuration.html) article on OrgChart Now's Help site.
 
 ### Create OrgChart Now test user
 
-To enable Azure AD users to log in to OrgChart Now, they must be provisioned into OrgChart Now. 
+To enable Azure AD users to log in to OrgChart Now, they must be set up as a user in OrgChart Now, or **Auto-Provisioning** must be enabled in the [SSO Configuration](https://help.orgchartnow.com/en/topics/sso-configuration.html#configuring-sso-41334) panel.
 
-1. OrgChart Now supports just-in-time provisioning, which is by default enabled. A new user is created during an attempt to access OrgChart Now if it doesn't exist yet. The just-in-time user provisioning feature will only create a **read-only** user when an SSO request comes from a recognized IDP and the email in the SAML assertion is not found in the user list. For this auto provisioning feature you need to create an access group titled **General** in OrgChart Now. Please follow the below steps to create an access group:
 
-	a. Go to the **Manage Groups** option after clicking the **gear** in the top right corner of the UI.
+If you do not wish to enable auto-provisioning at this time, you can manually add a user to OrgChart Now for SSO testing purposes. To do so, follow the steps enumerated in the [Creating a New User](https://help.orgchartnow.com/en/account-settings/manage-users.html#UUID-a921b00b-a5a2-3099-8fe5-d0f28f5a50b9_bridgehead-idm4532421481724832584395125038) section of the [Account Settings: Manage Users](https://help.orgchartnow.com/en/account-settings/manage-users.html) article.
 
-   	  ![OrgChart Now groups](./media/orgchartnow-tutorial/groups.png)	
-
-	b. Select the **Add** icon and name the group **General** then click **OK**. 
-
-	  ![OrgChart Now add](./media/orgchartnow-tutorial/general.png)
-
-	c. Select the folder(s) you wish the general or read-only users to be able to access:
-	
-	  ![OrgChart Now folders](./media/orgchartnow-tutorial/folders.png)
-
-	d. **Lock** the folders so that only Admin users can modify them. Then press **OK**.
-
-	  ![OrgChart Now lock](./media/orgchartnow-tutorial/lock.png)
-
-2. To create **Admin** users and **read/write** users, you must manually create a user in order to get access to their privilege level via SSO. To provision a user account, perform the following steps:
-
-	a. Log in to OrgChart Now as a Security Administrator.
-
-	b. Click on **Settings** on the top right corner and then navigate to **Manage Users**.
-
-	  ![OrgChart Now settings](./media/orgchartnow-tutorial/settings.png)
-
-	c. Click on **Add** and perform the following steps:
-
-	  ![OrgChart Now manage](./media/orgchartnow-tutorial/manage-users.png)
-
-	1. In the **User ID** textbox, enter the User ID like **brittasimon\@contoso.com**.
-
-	1. In **Email Address** text box, enter the email of user like **brittasimon\@contoso.com**.
-
-	1. Click **Add**.
 
 ## Test SSO
 
@@ -165,9 +146,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to OrgChart Now Sign on URL where you can initiate the login flow.  
+To test SP initiated SSO, type a URL into the URL bar using the following pattern:
 
-* Go to OrgChart Now Sign-on URL directly and initiate the login flow from there.
+	`https://{OrgChartNowServer}.orgchartnow.com/saml/sso_endpoint?entityID={Your_Azure_AD_Entity_ID}`
 
 #### IDP initiated:
 
