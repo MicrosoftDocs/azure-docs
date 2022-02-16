@@ -1,7 +1,7 @@
 ---
-title: How to generate AutoML model training code 
+title: How to view AutoML model training code 
 titleSuffix: Azure Machine Learning AutoML
-description: How to generate model training code for an automated ML trained model and explanation of each stage.
+description: How to view model training code for an automated ML trained model and explanation of each stage.
 services: machine-learning
 author: cesardl
 ms.author: cesardl
@@ -11,11 +11,11 @@ ms.topic: how-to
 ms.date: 02/16/2022
 ---
 
-# Generate an AutoML model's training code (preview)
+#  View automated ML model's training code (preview)
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-In this article, you learn how to generate the training code from any automated machine learning trained model. 
+In this article, you learn how to view the generated training code from any automated machine learning trained model. 
 
 Code generation for automated ML trained models allows you to see the following details that automated ML uses to train and build the model for a specific run.
 
@@ -24,7 +24,7 @@ Code generation for automated ML trained models allows you to see the following 
 * Featurization
 * Hyperparameters 
 
-You can select any automated ML trained model, recommended or child run, and generate the Python training code that created that specific model.
+You can select any automated ML trained model, recommended or child run, and view the generated Python training code that created that specific model.
 
 With the generated model's training code you can, 
 
@@ -119,7 +119,7 @@ Alternatively, you can also access to the model's generated code from the top of
 
 The `script.py` file contains the core logic needed to train a model with the previously used hyperparameters. While intended to be executed in the context of an Azure ML script run, with some modifications, the model's training code can also be run standalone in your own on-premises environment.
 
-The script can roughly be broken down into several the following parts: data loading, data preparation, data featurization, preprocessor algorithm specification, and training.
+The script can roughly be broken down into several the following parts: data loading, data preparation, data featurization, preprocessor/algorithm specification, and training.
 
 ### Data loading
 
@@ -138,7 +138,16 @@ def get_training_dataset(dataset_id):
 
 When running as part of a script run, `Run.get_context().experiment.workspace` retrieves the correct workspace. However, if this script is run inside of a different workspace or run locally without using `ScriptRunConfig`, you need to modify the script to [explicitly specify the appropriate workspace](/python/api/azureml-core/azureml.core.workspace.workspace).
 
-Once the workspace has been retrieved, the original dataset is retrieved by its ID. Another dataset with exactly the same structure could also be specified by ID or name with the [`get_by_id()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-id-workspace--id-) if  or [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--), respectively.
+Once the workspace has been retrieved, the original dataset is retrieved by its ID. Another dataset with exactly the same structure could also be specified by ID or name with the [`get_by_id()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-id-workspace--id-) or [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--), respectively. You can find the ID later on in the script, in a similar section as the following code.
+
+```python
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--training_dataset_id', type=str, default='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx', help='Default training dataset id is populated from the parent run')
+    args = parser.parse_args()
+    
+    main(args.training_dataset_id)
+```
 
 You can also opt to replace this entire function with your own data loading mechanism; the only constraints are that the return value must be a Pandas dataframe and that the data must have the same shape as in the original experiment.
 
@@ -148,6 +157,7 @@ The function `prepare_data()` cleans the data, splits out the feature and sample
 This function can vary depending on the type of dataset and the experiment task type: classification, regression, or time-series forecasting.
 
 The following example shows that in general, the dataframe from the data loading step is passed in. The label column and sample weights, if originally specified, are extracted and rows containing `NaN` are dropped from the input data.
+
 ```python
 def prepare_data(dataframe):
     from azureml.training.tabular.preprocessing import data_cleaning
@@ -202,7 +212,7 @@ def get_mapper_c6ba98(column_names):
                 'stop_words': None,
                 'strip_accents': None,
                 'token_pattern': '(?u)\\b\\w\\w+\\b',
-                'tokenizer': DataTransformer._wrap_in_lst,
+                'tokenizer': wrap_in_lst,
                 'vocabulary': None,
             },
         ]
@@ -236,9 +246,9 @@ def generate_data_transformation_config():
 
 This approach allows you to have a more streamlined code, by not having a transformer's code-block for each column, which can be especially cumbersome even when you have tens or hundreds of columns in your dataset.
 
-With a classification and regression tasks, featurizers are combined with the corresponding [`DataFrameMappers`](https://github.com/scikit-learn-contrib/sklearn-pandas) into `TransformerAndMapper` objects. These combined objects are wrapped in the `DataTransformer`.
-
+With classification and regression tasks, [`FeatureUnion`] is used for featurizers.
 For time-series forecasting models, multiple time series-aware featurizers are collected into a scikit-learn pipeline, then wrapped in the `TimeSeriesTransformer`.
+Any user provided featurizations for time series forecasting models happens before the ones provided by automated ML. 
 
 ### Preprocessor specification code
 
@@ -304,7 +314,7 @@ def generate_algorithm_config():
     return algorithm
 ```
 
-As you can notice, the generated code in most cases uses open source software (OSS) packages and classes. In this case, XGBoost classifier but other commonly used libraries like LightGBM or Scikit-Learn algorithms can be applied as well. There are instances where intermediate wrapper classes are used to simplify more complex code.
+The generated code in most cases uses open source software (OSS) packages and classes. There are instances where intermediate wrapper classes are used to simplify more complex code. For example, XGBoost classifier and other commonly used libraries like LightGBM or Scikit-Learn algorithms can be applied. 
 
 As an ML Professional, you are able to customize that algorithm's configuration code by tweaking its hyperparameters as needed based on your skills and experience for that algorithm and your particular ML problem.
 
@@ -333,6 +343,7 @@ def build_model_pipeline():
 The scikit-learn pipeline includes the featurization step, a preprocessor (if used), and the algorithm or model.
 
 For time-series forecasting models, the scikit-learn pipeline is wrapped in a `ForecastingPipelineWrapper`, which has some additional logic needed to properly handle time-series data depending on the applied algorithm.
+For all task types, we use `PipelineWithYTransformer` in cases where the label column needs to be encoded.
 
 Once you have the scikit-Learn pipeline, all that is left to call is the `fit()` method to train the model:
 
@@ -375,7 +386,7 @@ def main(training_dataset_id=None):
         run.log(metric, metrics[metric])
 ```
 
-Once you have the trained model, you can use it for making predictions.
+Once you have the trained model, you can use it for making predictions with the predict() method. If your experiment is for a time series model, use the forecast() method for predictions. 
 
 ```python
 y_pred = model.predict(X)
@@ -424,7 +435,7 @@ run = experiment.submit(config=src)
 
 ### Download and load the serialized trained model in-memory
 
-Once you have a trained model, you can save/serialize it to a `.pkl` file. It’s possible that the model won't serialize/deserialize correctly with `pickle.dump()` and `pickle.load()` due to pickle limitations, for example, lambda functions can’t be serialized using pickle. So it's recommended to use `joblib.dump()` and `joblib.load()`.
+Once you have a trained model, you can save/serialize it to a `.pkl` file with  `pickle.dump()` and `pickle.load()`.  You can also use `joblib.dump()` and `joblib.load()`.
 
 The following example is how you download and load  a model in-memory that was trained in AML compute with `ScriptRunConfig`. This code can run in the same notebook you used the Azure ML SDK `ScriptRunConfig`.
 
