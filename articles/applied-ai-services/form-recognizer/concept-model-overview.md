@@ -28,7 +28,7 @@ Azure Form Recognizer prebuilt models enable you to add intelligent document pro
 | [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
-| 🆕[W-2 (preview)](#w2-preview) | Extract employee, employer, wage information, etc. from US W-2 forms.  |
+| 🆕[W-2 (preview)](#w-2-preview) | Extract employee, employer, wage information, etc. from US W-2 forms.  |
 | [Business card](#business-card)  | Extract key information from English business cards.  |
 | [Custom](#custom) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
 
