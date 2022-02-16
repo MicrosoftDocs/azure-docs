@@ -37,7 +37,7 @@ Both interfaces are visible via the “ifconfig” or “ip addr” command in L
 
 ```output
 U1804:~$ ifconfig 
-enP53091s1np0: flags=6211<UP,BROADCAST,RUNNING,SLAVE,MULTICAST>  mtu 1500 
+enP53091s1np0: flags=6211<UP,BROADCAST,RUNNING,SLA\/E,MULTICAST>  mtu 1500 
 ether 00:0d:3a:f5:76:bd  txqueuelen 1000  (Ethernet) 
 RX packets 365849  bytes 413711297 (413.7 MB) 
 RX errors 0  dropped 0  overruns 0  frame 0 
