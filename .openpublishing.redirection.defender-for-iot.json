@@ -31,12 +31,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/defender-for-iot/organizations/how-to-view-information-provided-in-alerts.md",
+            "source_path_from_root": "/azure/defender-for-iot/organizations/how-to-view-information-provided-in-alerts.md",
             "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-alerts",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "articles/defender-for-iot/organizations/how-to-work-with-alerts-on-your-sensor.md",
+            "source_path_from_root": "/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-your-sensor.md",
             "redirect_url": "/azure/defender-for-iot/organizations/concept-key-concepts#analytics-and-self-learning-engines",
             "redirect_document_id": false
         },
