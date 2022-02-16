@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 02/14/2022
+ms.date: 02/16/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -19,7 +19,7 @@ On this page, you'll learn how you can use Defender for Containers to improve, m
 |--|--|
 | Release state: | General availability (GA)<br>Where indicated, specific features are in preview. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)] |
 | Pricing: | **Microsoft Defender for Containers** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) |
-| Registries and images: | **Supported**<br> • Linux images in Azure Container Registry (ACR) registries accessible from the public internet with shell access<br> • Private registries with access granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services)<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)<br><br>**Unsupported**<br> • Windows images<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) |
+| Registries and images: | **Supported**<br> • Linux images in Azure Container Registry (ACR) registries accessible from the public internet with shell access<br> • Private registries with access granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services)<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)<br> Google GKE Standard clusters <br><br>**Unsupported**<br> • Windows images<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) |
 | Kubernetes distributions and configurations: | **Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br><br>**Unsupported**<br> • Any [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) applied to your nodes *might* disrupt the configuration of Defender for Containers<br>•The AKS Defender profile doesn't support AKS clusters that don't have RBAC role enabled.<br><br>**Tested on**<br> • [Azure Kubernetes Service](../aks/intro-kubernetes.md)<br> • [Amazon Elastic Kubernetes Service (EKS)](https://aws.amazon.com/eks/)<br> • [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | Required roles and permissions: | • To auto provision the required components, [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), or [Azure Kubernetes Service Contributor Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)<br> • **Security admin** can dismiss alerts<br> • **Security reader** can view vulnerability assessment findings<br> See also [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md) |
 | Clouds: | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) (Except for preview features)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview) |
@@ -46,6 +46,8 @@ Defender for Containers protects your clusters whether they're running in:
 - **Amazon Elastic Kubernetes Service (EKS) in a connected Amazon Web Services (AWS) account** - Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
 
 - **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
+
+- **Google GKE Standard clusters** - 
 
 > [!NOTE]
 > Defender for Containers' support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is a preview feature.
@@ -119,8 +121,19 @@ We use AWS's CloudWatch to collect log data. To monitor your EKS clusters with D
 
 :::image type="content" source="./media/defender-for-containers/architecture-eks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Amazon Web Services' EKS clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-eks-cluster.png":::
 
----
+### [**GKE**](#tab/defender-for-container-gke)
 
+### Architecture diagram of Defender for Cloud and AKS clusters<a name="jit-asc"></a>
+
+When Defender for Cloud protects a cluster hosted in Azure Arc-enable Kubernetes Service, the collection of audit log data is collected by the Cloud Logging Agent (GKE).
+
+The **Defender extension** deployed to each node provides the runtime protections and collects signals from nodes using [eBPF technology](https://ebpf.io/).
+
+The **Azure Policy add-on for Kubernetes** collects cluster and workload configuration for admission control policies as explained in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
+
+:::image type="content" source="./media/defender-for-containers/architecture-gke.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Google GKE clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-gke.png":::
+
+---
 
 ## Environment hardening through security recommendations
 

@@ -47,7 +47,7 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 - To connect an AWS account to your Azure subscription, you'll obviously need access to an AWS account.
 
-- **To enable the Defender for Kubernetes plan**, you'll need:
+- **To enable the Defender for Containers plan**, you'll need:
     - At least one Amazon EKS cluster with permission to access to the EKS K8s API server. If you need to create a new EKS cluster, follow the instructions in [Getting started with Amazon EKS – eksctl](https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html).
     - The resource capacity to create a new SQS queue, Kinesis Fire Hose delivery stream, and S3 bucket in the cluster's region.
 
@@ -97,7 +97,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
     - To extend Defender for Servers coverage to your AWS EC2, set the **Servers** plan to **On** and edit the configuration as required. 
 
-    - For Defender for Kubernetes to protect your AWS EKS clusters, Azure Arc-enabled Kubernetes and the Defender extension should be installed. Set the **Containers** plan to **On**, and use the dedicated Defender for Cloud recommendation to deploy the extension (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters).
+    - For Defender for Containers to protect your AWS EKS clusters, Azure Arc-enabled Kubernetes and the Defender extension should be installed. Set the **Containers** plan to **On**, and use the dedicated Defender for Cloud recommendation to deploy the extension (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters).
 
 1. Complete the setup:
     1. Select **Next: Configure access**.

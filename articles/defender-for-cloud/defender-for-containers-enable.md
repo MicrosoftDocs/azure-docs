@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 01/25/2022
+ms.date: 02/16/2022
 ---
 # Enable Microsoft Defender for Containers
 
@@ -17,9 +17,11 @@ Defender for Containers protects your clusters whether they're running in:
 
 - **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
 
+- **GKE clusters** -  
+
 Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
-::: zone pivot="defender-for-container-arc,defender-for-container-eks"
+::: zone pivot="defender-for-container-arc,defender-for-container-eks,"
 > [!NOTE]
 > Defender for Containers' support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is a preview feature.
 > 
@@ -30,7 +32,7 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 [!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-aks.md)]
 ::: zone-end
 
-::: zone pivot="defender-for-container-arc,defender-for-container-eks"
+::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-gke"
 [!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-arc-eks.md)]
 ::: zone-end
 
@@ -69,6 +71,6 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
 
-::: zone pivot="defender-for-container-aks"
+::: zone pivot="defender-for-container-aks,defender-for-gke"
 [!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end

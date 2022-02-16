@@ -93,10 +93,10 @@ Follow the steps below to create your GCP cloud connector.
 1. Paste the script into the Cloud Shell terminal and run it.
 
 1. Ensure that the following resources were created:
-
-    - CSPM service account reader role
-    - MDFC identity federation
-    - CSPM identity pool
+    
+    | GCP| Defender for Containers|
+    |--|--|
+    | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool | Microsoft Defender Containers’ service account role, <br> Microsoft Defender Data Collector service account role <br> microsoft defender for cloud identity pool <br> Identity federation providers <br>  - containers <br> - containers-datapipeline |
 
 1. Navigate back to the Microsoft Defender for Cloud portal.
 
@@ -134,7 +134,7 @@ By default, all plans are toggled to `On`, on the plans select screen. To get th
 
 1. On the Select plans screen select **Configure**.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/containers-configure.png" alt-text="Screenshot showing where to click to configure the Servers plan.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/containers-configure.png" alt-text="Screenshot showing where to click to configure the Containers plan.":::
 
 1. On the Auto provisioning screen, toggle the switches on, or off depending on your need.
 
