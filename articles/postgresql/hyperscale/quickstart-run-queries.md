@@ -43,42 +43,11 @@ SELECT count(*) FROM github_users;
 
 Recall that `github_users` is a distributed table, meaning its data is divided
 between multiple shards. Hyperscale (Citus) automatically runs the count on all
-shards in parallel, and combines the results. To see it in action, let's
-temporarily enable remote logging and look at the queries running on shards.
-
-```sql
--- reveal the per-shard queries behind the scenes
-
-SET citus.log_remote_commands TO on;
-
--- run the count again
-
-SELECT count(*) FROM github_users;
-```
-
-```
-NOTICE:  issuing SELECT count(*) AS count FROM public.github_events_102040 github_events WHERE true
-DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connectionId: 1
-NOTICE:  issuing SELECT count(*) AS count FROM public.github_events_102041 github_events WHERE true
-DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connectionId: 1
-NOTICE:  issuing SELECT count(*) AS count FROM public.github_events_102042 github_events WHERE true
-DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connectionId: 1
-
-... etc, one for each of the 32 shards
-```
-
-The advanced Hyperscale (Citus) query planner can transform almost all
-PostgreSQL queries into tasks running across shards. Its broad SQL support
-means that applications written for PostgreSQL can use Hyperscale (Citus) with
-minimal modification.
+shards in parallel, and combines the results.
 
 Let's continue looking at a few more query examples:
 
 ```sql
--- hide the remote queries again
-
-SET citus.log_remote_commands TO off;
-
 -- Find all events for a single user.
 -- (A common transactional/operational query)
 
