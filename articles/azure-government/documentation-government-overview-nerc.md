@@ -21,7 +21,7 @@ Both Azure and Azure Government are suitable for registered entities deploying c
 
 ## NERC overview
 
-The [North American Electric Reliability Corporation (NERC)](https://www.nerc.com/AboutNERC/Pages/default.aspx) is a not-for-profit regulatory authority whose mission is to ensure the reliability of the North American bulk power system. NERC is subject to oversight by the US Federal Energy Regulatory Commission (FERC) and governmental authorities in Canada. In 2006, FERC granted the Electric Reliability Organization (ERO) designation to NERC in accordance with the Energy Policy Act of 2005, as stated in the US Public Law 109-58. NERC has jurisdiction over users, owners, and operators of the bulk power system that serves nearly 400 million people in North America. For more information about NERC ERO Enterprise and NERC regional entities, see [NREC key players](https://www.nerc.com/AboutNERC/keyplayers/Pages/default.aspx).
+The [North American Electric Reliability Corporation (NERC)](https://www.nerc.com/AboutNERC/Pages/default.aspx) is a not-for-profit regulatory authority whose mission is to ensure the reliability of the North American bulk power system. NERC is subject to oversight by the US Federal Energy Regulatory Commission (FERC) and governmental authorities in Canada. In 2006, FERC granted the Electric Reliability Organization (ERO) designation to NERC in accordance with the Energy Policy Act of 2005, as stated in the US Public Law 109-58. NERC has jurisdiction over users, owners, and operators of the bulk power system that serves nearly 400 million people in North America. For more information about NERC ERO Enterprise and NERC regional entities, see [NERC key players](https://www.nerc.com/AboutNERC/keyplayers/Pages/default.aspx).
 
 NERC develops and enforces reliability standards known as NERC [CIP standards](https://www.nerc.com/pa/Stand/Pages/CIPStandards.aspx). In the United States, FERC approved the first set of CIP standards in 2007 and has continued to do so with every new revision. In Canada, the Federal, Provincial, and Territorial Monitoring and Enforcement Subgroup (MESG) develops provincial summaries for making CIP standards enforceable in Canadian jurisdictions.
 
@@ -40,32 +40,14 @@ Both Azure and Azure Government have the same strong security controls in place 
 
 [Azure Government](./documentation-government-welcome.md) is a US government community cloud that is physically separated from the Azure cloud. It provides extra assurances regarding US government specific background screening requirements. For example, Azure Government mandates US persons verification for operations personnel with potential access to customer data. Azure Government can also support customers subject to certain [export controls laws and regulations](./documentation-government-overview-itar.md). **Both Azure and Azure Government are suitable for registered entities deploying certain workloads subject to compliance with NERC CIP standards.**
 
-Azure and Azure Government have the broadest [compliance coverage](../compliance/index.yml) in the industry, including key independent certifications and attestations such as:
+Azure and Azure Government have the broadest [compliance coverage](../compliance/index.yml) in the industry, including key independent certifications and attestations. Azure Government adds extra [compliance coverage](./documentation-government-plan-compliance.md) that is specific to US government requirements.
 
-- ISO 27001
-- ISO 27017
-- ISO 27018
-- ISO 22301
-- ISO 27701
-- ISO 9001
-- ISO 20000-1
-- SOC 1/2/3
-- PCI DSS
-- PCI 3DS
-- HITRUST
-- CSA STAR Certification
-- CSA STAR Attestation
-- FedRAMP High
-- And many others
-
-Azure Government adds extra [compliance coverage](./documentation-government-plan-compliance.md) that is specific to US government requirements.
-
-Nuclear electric utility customers may also be subject to the Department of Energy (DoE) / National Nuclear Security Administration (NNSA) 10 CFR Part 810 export control requirements. Among other things, DoE 10 CFR Part 810 controls the export of unclassified nuclear technology and assistance. Paragraph 810.7 (b) states that specific DoE authorization is required for providing or transferring sensitive nuclear technology to any foreign entity.
+Nuclear electric utility customers may also be subject to the Department of Energy (DoE) / National Nuclear Security Administration (NNSA) 10 CFR Part 810 export control requirements. Among other things, **DoE 10 CFR Part 810** controls the export of unclassified nuclear technology and assistance. Paragraph 810.7 (b) states that specific DoE authorization is required for providing or transferring sensitive nuclear technology to any foreign entity.
 
 - Export is the transfer of protected technology or information to a foreign destination or foreign person irrespective of the destination.
 - Deemed export represents the transmission of protected technology and information to a foreign person inside the United States.
 
-Azure Government is designed to meet specific controls that restrict access to information and systems to US persons. This commitment isn't applied in Azure. Therefore, customers deploying on Azure should conduct proper risk assessment to determine if extra technical measures should be deployed to secure data that shouldn't be disclosed to foreign persons. For more information, see Azure [10 CFR Part 810 compliance offering](/azure/compliance/offerings/offering-doe-10-cfr-part-810).
+Azure Government is designed to meet specific controls that restrict access to information and systems to US persons. This commitment isn't applied in Azure. Therefore, customers deploying on Azure should conduct proper risk assessment to determine if extra technical measures should be deployed to secure data that shouldn't be disclosed to foreign persons. For more information, see Azure [DoE 10 CFR Part 810 compliance offering](/azure/compliance/offerings/offering-doe-10-cfr-part-810).
 
 **Nuclear utility customers are wholly responsible for ensuring their own compliance with all applicable laws and regulations. The forgoing isn't legal advice, and you should consult your legal advisors for any questions regarding regulatory compliance.**
 
