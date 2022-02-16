@@ -1,7 +1,7 @@
 ---
-title: Use Application Configuration Service with Azure Spring Cloud Enterprise Tier
+title: Use Application Configuration Service for Tanzu with Azure Spring Cloud Enterprise Tier
 titleSuffix: Azure Spring Cloud Enterprise Tier
-description: How to use Application Configuration service with Azure Spring Cloud Enterprise Tier.
+description: How to use Application Configuration Service for Tanzu with Azure Spring Cloud Enterprise Tier.
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
@@ -10,26 +10,26 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java
 ---
 
-# Use Application Configuration Service
+# Use Application Configuration Service for Tanzu
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to use Application Configuration Service with Azure Spring Cloud Enterprise Tier.
+This article shows you how to use Application Configuration Service for VMware Tanzu® with Azure Spring Cloud Enterprise Tier.
 
-[Application Configuration Service](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+[Application Configuration Service for Tanzu](https://docs.pivotal.io/tcs-k8s/0-1/) is one of the commercial VMware Tanzu components. It enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
-With Application Configuration Service, you have a central place to manage external properties for applications across all environments.
+With Application Configuration Service for Tanzu, you have a central place to manage external properties for applications across all environments.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier instance with Application Configuration Service enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
+- An already provisioned Azure Spring Cloud Enterprise tier instance with Application Configuration Service for Tanzu enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using the Enterprise tier](quickstart-provision-service-instance-enterprise.md).
 
   > [!NOTE]
-  > To use Application Configuration Service, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
+  > To use Application Configuration Service for Tanzu, you must enable it when you provision your Azure Spring Cloud service instance. You cannot enable it after provisioning at this time.
 
-## Manage Application Configuration Service settings
+## Manage Application Configuration Service for Tanzu settings
 
-Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your configuration files.
+Application Configuration Service for Tanzu supports Azure DevOps, GitHub, GitLab, and Bitbucket for storing your configuration files.
 
 To manage the service settings, open the **Settings** section and add a new entry under the **Repositories** section.
 
@@ -54,7 +54,7 @@ Configuration will be pulled from Git backends using what is defined in a patter
 
 ### Authentication
 
-The following image shows the three types of repository authentication supported by Application Configuration Service.
+The following image shows the three types of repository authentication supported by Application Configuration Service for Tanzu.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-auth.png" alt-text="Screenshot of where to edit authentication types.":::
 
@@ -88,7 +88,7 @@ To validate access to the target URI, select **Validate**. After validation comp
 
 Use the following steps to refresh your application configuration after you update the configuration file in the Git repository.
 
-1. Load the configuration to Application Configuration Service.
+1. Load the configuration to Application Configuration Service for Tanzu.
 
    The refresh frequency is managed by Azure Spring Cloud and fixed to 60 seconds.
 
@@ -133,12 +133,12 @@ A Spring application holds the properties as the beans of the Spring Application
    curl -X POST http://{app-endpoint}/actuator/refresh
    ```
 
-## Configure Application Configuration Service settings using the portal
+## Configure Application Configuration Service for Tanzu settings using the portal
 
-You can configure Application Configuration Service using the portal by following these steps:
+You can configure Application Configuration Service for Tanzu using the portal by following these steps:
 
 1. Select **Application Configuration Service**.
-1. Select **Overview** to view the running state and resources allocated to Application Configuration Service.
+1. Select **Overview** to view the running state and resources allocated to Application Configuration Service for Tanzu.
 
    ![Application Configuration Service Overview screen](./media/enterprise/getting-started-enterprise/config-service-overview.png)
 
@@ -148,9 +148,9 @@ You can configure Application Configuration Service using the portal by followin
 
    ![Application Configuration Service Settings overview](./media/enterprise/getting-started-enterprise/config-service-settings.png)
 
-## Configure Application Configuration Service settings using the CLI
+## Configure Application Configuration Service for Tanzu settings using the CLI
 
-You can configure Application Configuration Service using the CLI, by following these steps:
+You can configure Application Configuration Service for Tanzu using the CLI, by following these steps:
 
 ```azurecli
 az spring-cloud application-configuration-service git repo add \
@@ -160,11 +160,11 @@ az spring-cloud application-configuration-service git repo add \
     --label <git-branch-name>
 ```
 
-## Use Application Configuration Service with applications using the portal
+## Use Application Configuration Service for Tanzu with applications using the portal
 
-When you use Application Configuration Service with a Git back end, keep the following items in mind.
+When you use Application Configuration Service for Tanzu with a Git back end, keep the following items in mind.
 
-To use the centralized configurations, you must bind the app to Application Configuration Service. After binding the app, you'll need to configure which pattern to be used by the app by following these steps:
+To use the centralized configurations, you must bind the app to Application Configuration Service for Tanzu. After binding the app, you'll need to configure which pattern to be used by the app by following these steps:
 
 1. Open the **App binding** tab.
 
@@ -185,13 +185,13 @@ To use the centralized configurations, you must bind the app to Application Conf
 
    d. In the **Config file patterns** dropdown, choose one or more patterns from the list.
 
-   :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the pattern selection screen.":::
+      :::image type="content" source="media/enterprise/how-to-enterprise-application-configuration-service/config-service-pattern.png" alt-text="Screenshot of the pattern selection screen.":::
 
    e. Select **Save**
 
-## Use Application Configuration Service with applications using the CLI
+## Use Application Configuration Service for Tanzu with applications using the CLI
 
-You can use Application Configuration Service with applications, by using this command:
+You can use Application Configuration Service for Tanzu with applications, by using this command:
 
 ```azurecli
 az spring-cloud application-configuration-service bind --app <app-name>
