@@ -2,7 +2,7 @@
 title: Configure or modify a Service Fabric managed cluster node type
 description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
-ms.date: 12/10/2021 
+ms.date: 2/14/2022 
 ---
 
 # Service Fabric managed cluster node types
@@ -192,7 +192,7 @@ You can choose to enable automatic OS image upgrades to the virtual machines run
 
 To enable automatic OS upgrades:
 
-* Use the `2021-05-01` (or later) version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
+* Use apiVersion `2021-05-01` or later version of *Microsoft.ServiceFabric/managedclusters* and *Microsoft.ServiceFabric/managedclusters/nodetypes* resources
 * Set the cluster's property `enableAutoOSUpgrade` to *true*
 * Set the cluster nodeTypes' resource property `vmImageVersion` to *latest*
 
@@ -200,7 +200,7 @@ For example:
 
 ```json
     {
-      "apiVersion": "2021-05-01",
+      "apiVersion": "[variables('sfApiVersion')]",
       "type": "Microsoft.ServiceFabric/managedclusters",
       ...
       "properties": {
@@ -209,7 +209,7 @@ For example:
       },
     },
     {
-      "apiVersion": "2021-05-01",
+      "apiVersion": "[variables('sfApiVersion')]",
       "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
        ...
       "properties": {
@@ -348,7 +348,7 @@ Configure more managed disks by declaring `additionalDataDisks` property and req
 * Lun must be unique per disk and can not use reserved lun 0
 * Disk letter cannot use reserved letters C or D and cannot be modified once created. S will be used as default if not specified.
 * Must specify a [supported disk type](how-to-managed-cluster-managed-disk.md)
-* The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```json
      {
@@ -374,7 +374,7 @@ Service Fabric managed clusters by default configure a Service Fabric data disk 
 
 **Feature Requirements**
 * Disk letter cannot use reserved letters C or D and cannot be modified once created. S will be used as default if not specified.
-* The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```json
      {

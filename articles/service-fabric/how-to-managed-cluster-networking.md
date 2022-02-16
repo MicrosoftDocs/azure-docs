@@ -2,7 +2,7 @@
 title: Configure network settings for Service Fabric managed clusters
 description: Learn how to configure your Service Fabric managed cluster for NSG rules, RDP port access, load-balancing rules, and more.
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 2/14/2022
 ---
 # Configure network settings for Service Fabric managed clusters
 
@@ -304,9 +304,11 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
 > [!NOTE]
 > This setting is not available in portal and cannot be changed once the cluster is created
 
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
 1. Set the following property on a Service Fabric managed cluster resource.
    ```json
-            "apiVersion": "2021-07-01-preview",
+            "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             "properties": {
@@ -410,10 +412,12 @@ This feature allows customers to use an existing virtual network by specifying a
 
 3. Configure the `subnetId` property for the cluster deployment after the role is set up as shown below:
 
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
+
    ```JSON
     "resources": [
         {
-            "apiVersion": "2021-07-01-preview",
+            "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters",
             ...
             },
@@ -502,7 +506,7 @@ To configure bring your own load balancer:
 
    In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. 
 
-   Obtain the required `Id` property info from the existing Azure Load Balancer. We'll 
+   Obtain the required `Id` property info from the existing Azure Load Balancer. 
 
    ```powershell
    Login-AzAccount
@@ -552,7 +556,7 @@ To configure bring your own load balancer:
    
    To configure the node type to use the default load balancer set the following in your template: 
    
-   * The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+   * The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
    ```json
       {
@@ -593,7 +597,7 @@ Accelerated networking enables single root I/O virtualization (SR-IOV) to a virt
 
 Enable accelerated networking by declaring `enableAcceleratedNetworking` property in your Resource Manager template as follows:
 
-* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```json
    {
@@ -621,7 +625,7 @@ Auxiliary subnets provide the ability to create additional managed subnets witho
 
 Configure auxiliary subnets by declaring `auxiliarySubnets` property and required parameters in your Resource Manager template as follows:
 
-* The Service Fabric managed cluster resource apiVersion should be **2021-11-01-preview** or later.
+* The Service Fabric managed cluster resource apiVersion should be **2022-01-01** or later.
 
 ```JSON
     "resources": [
@@ -638,7 +642,7 @@ Configure auxiliary subnets by declaring `auxiliarySubnets` property and require
                 ]              
 ```
 
-See [full list of parameters available](/azure/templates/microsoft.servicefabric/2021-11-01-preview/managedclusters)
+See [full list of parameters available](/azure/templates/microsoft.servicefabric/2022-01-01/managedclusters)
 
 ## Next steps
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
