@@ -115,9 +115,9 @@ The following fields are defined by ASIM for all schemas:
 | <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails** | Optional | String | The original result details provided by the source. This value is used to derive [EventResultDetails](#eventresultdetails), which should have only one of the values documented for each schema. |
 | <a name="eventseverity"></a>**EventSeverity** | Enumerated | String | The severity of the event. Valid values are: `Informational`, `Low`, `Medium`, or `High`. | 
 | <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | Optional | String | The original severity as provided by the source. This value is used to derive [EventSeverity](#eventseverity). | 
-| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |  The product generating the event. The value should be one of the values listed in <br><br>Example: `Sysmon`  |
+| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |  The product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Sysmon`  |
 | **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`      |
-| <a name="eventvendor"></a>**EventVendor**         | Mandatory   | String     |   The vendor of the product generating the event. The value should be one of the values listed in <br><br>Example: `Microsoft`  <br><br>  |
+| <a name="eventvendor"></a>**EventVendor**  | Mandatory   | String     |   The vendor of the product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Microsoft`  <br><br>  |
 | **EventSchema** | Mandatory | String | The schema the event is normalized to. Each schema documents its schema name. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. Each schema documents its current version.         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides more information about the event.|
