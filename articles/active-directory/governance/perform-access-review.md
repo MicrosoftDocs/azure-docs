@@ -93,7 +93,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
     ![Open access review listing showing the Accept recommendations button](./media/perform-access-review/accept-recommendations-preview.png)
 
-1. Or to accept recommendations for all users, make sure that no users are selected and click on the **Accept recommendations** button on the top bar.
+1. Or to accept recommendations for all unreviewed users, make sure that no users are selected and click on the **Accept recommendations** button on the top bar.
 
 1. Click **Submit** to accept the recommendations.
 
