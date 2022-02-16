@@ -228,7 +228,7 @@ To remove a Hybrid Runbook Worker group of Linux machines, you use the same step
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
-You can create custom Azure Automation roles and grant following permissions to Hybrid Worker Groups and Hybrid Workers. To learn more about how to create Azure Automation custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles)
+You can create custom Azure Automation roles and grant following permissions to Hybrid Worker Groups and Hybrid Workers. To learn more about how to create Azure Automation custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md)
 
 **Actions** | **Description**
 --- | ---
