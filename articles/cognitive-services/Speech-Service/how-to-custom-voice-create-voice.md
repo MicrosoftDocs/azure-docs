@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/23/2022
 ms.author: eur
+ms.custom: references_regions
 ---
 
 # Train your voice model
