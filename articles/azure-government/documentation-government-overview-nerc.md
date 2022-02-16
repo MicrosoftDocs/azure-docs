@@ -70,7 +70,7 @@ Nuclear electric utility customers may also be subject to the Department of Ener
 
 Azure Government is designed to meet specific controls that restrict access to information and systems to US persons. This commitment isn't applied in Azure. Therefore, customers deploying on Azure should conduct proper risk assessment to determine if extra technical measures should be deployed to secure data that shouldn't be disclosed to foreign persons. For more information, see Azure [10 CFR Part 810 compliance offering](/azure/compliance/offerings/offering-doe-10-cfr-part-810).
 
-**Nuclear utility customers are wholly responsible for ensuring their own compliance with all applicable laws and regulations. The forgoing is not legal advice, and you should consult your legal advisors for any questions regarding regulatory compliance.**
+**Nuclear utility customers are wholly responsible for ensuring their own compliance with all applicable laws and regulations. The forgoing isn't legal advice, and you should consult your legal advisors for any questions regarding regulatory compliance.**
 
 ## Categorizing NERC CIP data and workloads
 
@@ -153,7 +153,7 @@ NERC CIP compliance requirements can be addressed during a NERC audit and in lin
 
 ### CSA STAR
 
-The [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/) is a nonprofit organization led by a broad coalition of industry practitioners, corporations, and other important stakeholders. It is dedicated to defining best practices to help ensure a more secure cloud computing environment. CSA helps potential cloud customers make informed decisions when transitioning their IT operations to the cloud. CSA maintains the [Security, Trust, Assurance, and Risk (STAR)](https://cloudsecurityalliance.org/star/) Registry, a free, publicly accessible registry in which cloud service providers (CSPs) can publish their CSA-related assessments.
+The [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/) is a nonprofit organization led by a broad coalition of industry practitioners, corporations, and other important stakeholders. It's dedicated to defining best practices to help ensure a more secure cloud computing environment. CSA helps potential cloud customers make informed decisions when transitioning their IT operations to the cloud. CSA maintains the [Security, Trust, Assurance, and Risk (STAR)](https://cloudsecurityalliance.org/star/) Registry, a free, publicly accessible registry in which cloud service providers (CSPs) can publish their CSA-related assessments.
 
 The CSA [Cloud Controls Matrix (CCM)](https://cloudsecurityalliance.org/research/cloud-controls-matrix/) is a controls framework composed of 197 control objectives covering fundamental security principles across 17 domains to help cloud customers assess the overall security risk of a CSP. The CCM maps to industry-accepted security standards, regulations, and control frameworks such as ISO 27001, ISO 27017, ISO 27018, NIST SP 800-53, PCI DSS, AICPA Trust Services Criteria, and others.
 
@@ -172,7 +172,7 @@ To download the Azure and Azure Government CSA STAR Registry submissions, see th
 
 ### SOC 2 Type 2
 
-System and Organization Controls (SOC) for Service Organizations are internal control reports created by the American Institute of Certified Public Accountants (AICPA). They are intended to examine services provided by a service organization so that end users can assess and address the risk associated with an outsourced service.
+System and Organization Controls (SOC) for Service Organizations are internal control reports created by the American Institute of Certified Public Accountants (AICPA). They're intended to examine services provided by a service organization so that end users can assess and address the risk associated with an outsourced service.
 
 A SOC 2 Type 2 attestation is performed under:
 
@@ -219,7 +219,7 @@ Figure 4 shows the listing of current NERC CIP standards and FedRAMP control fam
 There are many valid reasons why a registered entity subject to NERC CIP compliance obligations might want to use an existing FedRAMP P-ATO or ATO when assessing the security posture of a cloud services offering:
 
 - Reinventing the established NIST SP 800-53 standard and FedRAMP assessment and authorization program would be a significant undertaking.
-- FedRAMP is already in place, and it is an adopted framework for US federal government agencies when assessing cloud services.
+- FedRAMP is already in place, and it's an adopted framework for US federal government agencies when assessing cloud services.
 - In the United States, FERC approves NERC CIP standards. As a US federal agency, FERC relies on FedRAMP when assessing cloud services for their own cloud computing needs. The choice of FedRAMP as a compliance path for CSPs would be consistent with the approach adopted by FERC and other US government agencies. 
 - In Canada, the Federal, Provincial, and Territorial Monitoring and Enforcement Subgroup develops provincial summaries for making CIP standards enforceable in Canadian jurisdictions. The Government of Canada has aligned their [security control profile for cloud-based services](https://www.canada.ca/en/government/system/digital-government/digital-government-innovations/cloud-services/government-canada-security-control-profile-cloud-based-it-services.html) to the FedRAMP Moderate security control profile to maximize both the interoperability of cloud services and reusability of the authorization evidence produced by CSPs.
 - FedRAMP relies on an in-depth audit with mandatory provisions for continuous monitoring. It provides strong assurances to registered entities that audited controls are operating effectively.
@@ -231,7 +231,7 @@ The NERC ERO Enterprise [released](https://www.nerc.com/pa/comp/guidance/Pages/d
 
 ## Restrictions on insider access
 
-Microsoft takes strong measures to protect [customer data](https://www.microsoft.com/trust-center/privacy/customer-data-definitions) from inappropriate access or use by unauthorized persons. Access to customer data isn't needed to operate Azure and Azure Government, and Microsoft engineers don't have default access to customer data in the cloud. Instead, they are granted access, under management oversight, only when necessary. Customer data includes data subject to NERC CIP standards protection. For more information, see [Restrictions on insider access](./documentation-government-plan-security.md#restrictions-on-insider-access)
+Microsoft takes strong measures to protect [customer data](https://www.microsoft.com/trust-center/privacy/customer-data-definitions) from inappropriate access or use by unauthorized persons. Access to customer data isn't needed to operate Azure and Azure Government, and Microsoft engineers don't have default access to customer data in the cloud. Instead, they're granted access, under management oversight, only when necessary. Customer data includes data subject to NERC CIP standards protection. For more information, see [Restrictions on insider access](./documentation-government-plan-security.md#restrictions-on-insider-access)
 
 ## Background screening
 
@@ -261,7 +261,7 @@ For more information, see [Identity-based isolation](./azure-secure-isolation-gu
 
 ### Data encryption key management
 
-Azure services rely on [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated cryptographic modules in the underlying operating system. With Azure services, you have a [wide range of options for encrypting data](../security/fundamentals/encryption-overview.md) in transit and at rest. You can manage data encryption keys using [Azure Key Vault](../key-vault/general/overview.md), which can store encryption keys in FIPS 140 validated hardware security modules (HSMs). You can use [customer-managed keys](../security/fundamentals/encryption-models.md) (CMK) with Azure Key Vault to have sole control over encryption keys stored in HSMs. Keys generated inside the Azure Key Vault HSMs are not exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. Moreover, Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.
+Azure services rely on [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated cryptographic modules in the underlying operating system. With Azure services, you have a [wide range of options for encrypting data](../security/fundamentals/encryption-overview.md) in transit and at rest. You can manage data encryption keys using [Azure Key Vault](../key-vault/general/overview.md), which can store encryption keys in FIPS 140 validated hardware security modules (HSMs). You can use [customer-managed keys](../security/fundamentals/encryption-models.md) (CMK) with Azure Key Vault to have sole control over encryption keys stored in HSMs. Keys generated inside the Azure Key Vault HSMs aren't exportable – there can be no clear-text version of the key outside the HSMs. This binding is enforced by the underlying HSM. Moreover, Azure Key Vault is designed, deployed, and operated such that Microsoft and its agents don't see or extract your cryptographic keys.
 
 You're responsible for choosing the Azure regions for deploying your applications and data. Moreover, you're responsible for designing your applications to use end-to-end data encryption that meets NERC CIP standards requirements. Microsoft doesn't inspect or approve your Azure applications.
 
@@ -275,7 +275,7 @@ For more information, see [Compute isolation](./azure-secure-isolation-guidance.
 
 ### Networking isolation
 
-The logical isolation of tenant infrastructure in a public multi-tenant cloud is fundamental to maintaining security. The overarching principle for a virtualized solution is to allow only connections and communications that are necessary for that virtualized solution to operate, blocking all other ports and connections by default. Azure Virtual Network (VNet) helps ensure that your private network traffic is logically isolated from traffic belonging to other customers. Virtual Machines (VMs) in one VNet cannot communicate directly with VMs in a different VNet even if both VNets are created by the same customer. Networking isolation ensures that communication between your VMs remains private within a VNet. You have multiple options to connect your VNets depending on your connectivity options, including bandwidth, latency, and encryption requirements.
+The logical isolation of tenant infrastructure in a public multi-tenant cloud is fundamental to maintaining security. The overarching principle for a virtualized solution is to allow only connections and communications that are necessary for that virtualized solution to operate, blocking all other ports and connections by default. Azure Virtual Network (VNet) helps ensure that your private network traffic is logically isolated from traffic belonging to other customers. Virtual Machines (VMs) in one VNet can't communicate directly with VMs in a different VNet even if both VNets are created by the same customer. Networking isolation ensures that communication between your VMs remains private within a VNet. You have multiple options to connect your VNets depending on your connectivity options, including bandwidth, latency, and encryption requirements.
 
 Azure provides many options for encrypting data in transit. Data encryption in transit isolates your network traffic from other traffic and helps protect data from interception.
 
