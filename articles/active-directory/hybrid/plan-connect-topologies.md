@@ -140,9 +140,6 @@ We recommend having a single tenant in Azure AD for an organization. Before you 
 
 ![Diagram that shows a topology of multiple Azure A D tenants.](./media/plan-connect-topologies/multi-tenant-2.png)
 
-> [!NOTE]
-> This topology is currently in Public Preview. As the supported scenarios might still change, we recommend not deploying this topology in a production environment.
-
 AADConnect can synchronize the same users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial.
 
 #### Use Cases
