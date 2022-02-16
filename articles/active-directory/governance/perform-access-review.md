@@ -42,7 +42,7 @@ You can also view your pending access reviews by using your browser to open My A
 
 2. Select **Access reviews** from the menu on the left side bar to see a list of pending access reviews assigned to you.
 
-## Review access for one or more users
+## Review access
 
 After you open My Access under Groups and Apps you can see:
 
@@ -62,7 +62,7 @@ Once that it opens, you will see the list of users in scope for the access revie
 
 There are two ways that you can approve or deny access:
 
-- You can manually approve or deny access for one or more users.
+- You can manually approve or deny access for one or more users. You can also mark users as "Don't Know".
 - You can accept the system recommendations.
 
 ### Manually review access for one or more users
@@ -72,7 +72,7 @@ There are two ways that you can approve or deny access:
 1. Select one or more users by clicking the circle next to their names.
 
 1. Select **Approve** or **Deny** on the bar above.
-    - If you are unsure if a user should continue to have access or not, you can click **Don't know**. The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide will be available to other reviewers. They can read your comments and take them into account when they review the request.
+    - If you are unsure if a user should continue to have access or not, you can click **Don't know**. The user gets to keep their access and your choice is recorded in the audit logs. It is important that you keep in mind that any information you provide may be available to other reviewers.
 
     ![Open access review listing the users who need review](./media/perform-access-review/user-list-preview.png)
 
@@ -87,7 +87,7 @@ There are two ways that you can approve or deny access:
 
 ### Review access based on recommendations
 
-To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
+To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity in the 30-day period before the review started.
 
 1. Select one or more users and then Click **Accept recommendations**.
 
@@ -103,7 +103,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
 ### Review access for one or more users in a multi-stage access review (preview)
 
-If multi-stage access reviews have been enabled by the administrator, there will be 2 or 3 total stages of review. Each stage of review will have a specified reviewer.
+If multi-stage access reviews have been enabled by the administrator, there will be 2 or 3 total stages of review. Each stage of review will have a specified reviewer(s).
 
 You will review access either manually or accept the recommendations based on sign-in activity for the stage you are assigned as the reviewer.
 
