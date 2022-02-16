@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/07/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -37,8 +37,8 @@ This article provides an overview of the components of the **Remediation** dashb
     - **Roles/Policies**: Use this subtab to add filters to your role/policy.
     - **Permissions**: Use this subtab to add filters to your permissions.
     - **Role/Policy template**: Use this subtab to create a template for roles/policies.
-    - **Requests**: Use this subtab to 
-    - **My requests**: Use this subtab to 
+    - **Requests**: Use this subtab to view pending, approved, and processed requests.
+    - **My requests**: Use this subtab to view pending, approved, and processed requests that you initiated or are assigned to you for approval.
     - **Settings**: Use this subtab to select **Request role/policy filters**, **Request settings**, and **Auto-approve** settings.
 
 1. Use the dropdown to select the **Authorization System Type** and **Authorization System**, and then select **Apply**.
@@ -55,13 +55,14 @@ The **Role/Policies** subtab provides the following settings that you can use to
 - **Apply**: Select this option to save the changes you've made.
 - **Reset Filter**: Select this option to discard the changes you've made.
 
-The **Role/Policies list** displays a list of existing roles/policies and the following information about each role/policy
-    - **Role/Policy name**: The name of the roles/policies available to you.
-    - **Role/Policy type**: **Custom**, **System**, or **CloudKnox only**
-    - **Actions** 
-        - Select **Clone** to create a duplicate copy of the role/policy.
-        - Select **Modify** to change the existing role/policy.
-        - Select **Delete** to delete the role/policy.  
+The **Role/Policies list** displays a list of existing roles/policies and the following information about each role/policy.
+
+- **Role/Policy name**: The name of the roles/policies available to you.
+- **Role/Policy type**: **Custom**, **System**, or **CloudKnox only**
+- **Actions** 
+    - Select **Clone** to create a duplicate copy of the role/policy.
+    - Select **Modify** to change the existing role/policy.
+    - Select **Delete** to delete the role/policy.  
 
 Other options available to you:
 - **Search**: Select this option to search for a specific role/policy.

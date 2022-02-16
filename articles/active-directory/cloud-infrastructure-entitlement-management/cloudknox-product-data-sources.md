@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -19,13 +19,13 @@ ms.author: v-ydequadros
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 
-You can use the **Data collectors** dashboard in CloudKnox Permissions Management (CloudKnox) to view and configure settings for collecting data from your authorization systems. It also provides information about the status of the data collection.
+You can use the **Data Collectors** dashboard in CloudKnox Permissions Management (CloudKnox) to view and configure settings for collecting data from your authorization systems. It also provides information about the status of the data collection.
 
 ## Access and view data sources
 
-1. To access your data sources, in the CloudKnox home page, select **Settings** (the gear icon). Then select the **Data collectors** tab.
+1. To access your data sources, in the CloudKnox home page, select **Settings** (the gear icon). Then select the **Data Collectors** tab.
 
-1. On the **Data collectors** dashboard, select your authorization system type: 
+1. On the **Data Collectors** dashboard, select your authorization system type: 
 
     - **AWS** for Amazon Web Services.
     - **Azure** for Microsoft Azure.
@@ -41,7 +41,7 @@ You can use the **Data collectors** dashboard in CloudKnox Permissions Managemen
 
     1. Select **Apply** to display the results.
 
-        Select **Reset Filter** to discard your changes.
+        Select **Reset Filter** to discard your settings.
 
 1. The following information displays:
 

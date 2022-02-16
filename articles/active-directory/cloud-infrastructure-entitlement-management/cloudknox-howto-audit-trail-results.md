@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -29,7 +29,7 @@ This article describes how you can generate an on-demand report from a query in 
 1. In the CloudKnox home page, select the **Audit** tab.
 
     CloudKnox displays the query options available to you.
-1. In the **Audit** tab, load the query you want.
+1. In the **Audit** dashboard, select **Search** to run the query.
 1. Select **Export**.
 
     CloudKnox generates the report and exports it in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.

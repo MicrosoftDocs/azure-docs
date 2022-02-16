@@ -21,7 +21,7 @@
         href: cloudknox-onboard-gcp.md
       - name: Enable or disable the controller after onboarding is complete
         href: cloudknox-onboard-enable-controller-after-onboarding.md
-      - name: Add an account/subscription/project after onboarding is complete
+      - name: Add an account/ subscription/ project after onboarding is complete
         href: cloudknox-onboard-add-account-after-onboarding.md
     - name: View risk metrics in your authorization system
       expanded: false

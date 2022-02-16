@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -56,7 +56,7 @@ The **Identities** table displays the results of your query.
 - The **Permission creep index (PCI)**: Provides the following information:
     - **Index**: A numeric value assigned to the PCI.
     - **Since**: How many days the PCI value has been at the displayed level.
-- **Tasks** Displays the number of **Granted** and **Executed** tasks.
+- **Tasks**: Displays the number of **Granted** and **Executed** tasks.
 - **Resources**: The number of resources used.
 - **User groups**: The number of users who accessed the group.
 - **Last activity on**: The date the function was last accessed.

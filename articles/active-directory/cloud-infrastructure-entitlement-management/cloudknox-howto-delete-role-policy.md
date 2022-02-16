@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -35,7 +35,7 @@ This article describes how you can use the **Remediation** dashboard in CloudKno
 
     You can't delete system roles/policies.
 
-1. On the **Preview** screen, review the role/policy information to make sure you want to delete it, and then select **Submit**.
+1. On the **Preview** page, review the role/policy information to make sure you want to delete it, and then select **Submit**.
 
 ## Next steps
 

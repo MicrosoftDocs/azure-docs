@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/12/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -18,16 +18,19 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to onboard a Microsoft Azure subscription or subscriptions on CloudKnox Permissions Management (CloudKnox). Doing this creates a new authorization system representing the Azure subscription in CloudKnox. 
+> [!Note]
+> Sign up for the CloudKnox Permissions Management public preview by filling [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR9AT7gfYe2NPtdIbYxQQX45UNEpIVjY4WUJNSUhMVjcyNzdYOFY2NFhISi4u).
+
+This article describes how to onboard a Microsoft Azure subscription or subscriptions on CloudKnox Permissions Management (CloudKnox). Onboarding a subscription creates a new authorization system to represent the Azure subscription in CloudKnox. 
 
 > [!NOTE] 
-> A Global Administrator or a Super Admin (Admin for all authorization system types) can perform the tasks in this article after the Global Administrator has initially completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
+> A *global administrator* or *super admin* (an admin for all authorization system types) can perform the tasks in this article after the global administrator has initially completed the steps provided in [Enable CloudKnox on your Azure Active Directory tenant](cloudknox-onboard-enable-tenant.md).
 
 ## Prerequisites
 
 To add CloudKnox to your Azure AD tenant:
-- You must have an Azure AD user account, Azure CLI on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
-- You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform the tasks in Step 3. If not, you can ask someone who has this permission to perform these tasks for you.
+- You must have an Azure AD user account and an Azure command-line interface (Azure CLI) on your system, or an Azure subscription. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
+- You must have **Microsoft.Authorization/roleAssignments/write** permission at the subscription or management group scope to perform these tasks. If you don't have this permission, you can ask someone who has this permission to perform these tasks for you.
 
 ## Onboard an Azure subscription
 
@@ -53,7 +56,7 @@ To add CloudKnox to your Azure AD tenant:
 
 1. To give this role assignment to the service principal, copy the script to a file on your system where Azure CLI is installed and execute it. 
 
-    You can execute it once for each subscription, or once for the whole management group.
+    You can execute the script once for each subscription, or once for all the subscriptions in the management group.
 
 1. From the **Enable Controller** dropdown, select:
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -96,7 +96,7 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 1. From the **Search for** dropdown, select **Group**, **User**, or **APP**, and then select **Apply**.
 1. Make a selection from the results list.
 
-1. To remove a role, select **Remove tasks**.
+1. To remove a task, select **Remove tasks**.
 1. In the **Remove tasks** page, from the **Available tasks** list, select the plus sign **(+)** to move the task to the **Selected tasks** list. 
 1. When you have finished selecting tasks, select **Submit**.
 1. When the following message displays: **Are you sure you want to change permissions?**, select: 

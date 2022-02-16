@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -36,7 +36,7 @@ Use the **Users** tab to display the following information about users:
 - **User name** and **Email address**: The user's name and email address.
 - **Joined on**: The date the user registered on the system.
 - **Recent activity**: The date the user last used their permissions to access the system.
-- The ellipses **(...)** (**View Permissions**) menu - Select the ellipses to open the **View user permission** box.
+- The ellipses **(...)**  menu: Select the ellipses, and then select **View Permissions** to open the **View user permission** box.
 
     - To view details about the user's permissions, select one of the following options:
         - **Admin for all authorization system types** provides **View**, **Control**, and **Approve** permissions for all authorization system types.
@@ -59,9 +59,9 @@ Use the **Groups** tab to display the following information about groups:
 - **Modified by**: The email address of the user who modified the group.
 - **Modified on**: The date the user last modified the group.
 
-- The ellipses **(...)** menu - Select the ellipses to:
+- The ellipses **(...)** menu: Select the ellipses to:
 
-    - **View permissions**:  To view details about the group's permissions, select one of the following options:
+    - **View permissions**:  Select this option to view details about the group's permissions, and then select one of the following options:
         - **Admin for all authorization system types** provides **View**, **Control**, and **Approve** permissions for all authorization system types.
         - **Admin for selected authorization system types** provides **View**, **Control**, and **Approve** permissions for selected authorization system types.
         - **Custom** provides **View**, **Control**, and **Approve** permissions for specific authorization system types that you select.
