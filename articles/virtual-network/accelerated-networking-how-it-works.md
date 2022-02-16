@@ -1,5 +1,5 @@
 ---
-title: How Accelerated Networking Works in Linux and FreeBSD VMs
+title: How Accelerated Networking works in Linux and FreeBSD VMs
 description: How Accelerated Networking Works in Linux and FreeBSD VMs
 services: virtual-network
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/01/2022
+ms.date: 02/15/2022
 ms.author: steveesp
 ---
 
-# How Accelerated Networking Works in Linux and FreeBSD VMs
+# How Accelerated Networking works in Linux and FreeBSD VMs
 
 When a VM is created in Azure, a synthetic network interface is created for each virtual NIC in its configuration. The synthetic interface is a VMbus device and uses the “netvsc” driver. Network packets that use this synthetic interface flow through the virtual switch in the Azure host and onto the datacenter physical network.
 
