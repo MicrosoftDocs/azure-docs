@@ -1,21 +1,21 @@
 ---
-title: Private Link for Azure Healthcare APIs
-description: This article describes how to set up a private endpoint for Azure Healthcare APIs
+title: Private Link for Azure Health Data Services
+description: This article describes how to set up a private endpoint for Azure Health Data Services
 services: healthcare-apis
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/01/2022
+ms.date: 02/16/2022
 ms.author: zxue
 ---
 
-# Configure Private Link for Azure Healthcare APIs
+# Configure Private Link for Azure Health Data Services
 
-Private Link enables you to access Azure Healthcare APIs over a private endpoint. Private Link is a network interface that connects you privately and securely using a private IP address from your virtual network. With Private Link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your Private Endpoint for Healthcare APIs.
+Private Link enables you to access Azure Health Data Services over a private endpoint. Private Link is a network interface that connects you privately and securely using a private IP address from your virtual network. With Private Link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your Private Endpoint for Azure Health Data Services.
 
 >[!Note]
->Neither Private Link nor Healthcare APIs can be moved from one resource group or subscription to another once Private Link is enabled. To make a move, delete the Private Link first, and then move Healthcare APIs. Create a new Private Link after the move is complete. Next, assess potential security ramifications before deleting the Private Link.
+>Neither Private Link norAzure Health Data Services can be moved from one resource group or subscription to another once Private Link is enabled. To make a move, delete the Private Link first, and then move Azure Health Data Services. Create a new Private Link after the move is complete. Next, assess potential security ramifications before deleting the Private Link.
 >
 >If you're exporting audit logs and metrics that are enabled, update the export setting through **Diagnostic Settings** from the portal.
 
@@ -24,7 +24,7 @@ Private Link enables you to access Azure Healthcare APIs over a private endpoint
 Before creating a Private Endpoint, the following Azure resources need to be created first:
 
 - **Resource Group** – The Azure resource group that will contain the virtual network and Private Endpoint.
-- **Healthcare APIs** – The resource that you want to put behind a Private Endpoint.
+- **Azure Health Data Services** – The resource that you want to put behind a Private Endpoint.
 - **Virtual Network** – The VNet to which your client services and Private Endpoint will be connected.
 
 For more information, see [Private Link Documentation](./../private-link/index.yml).
@@ -36,7 +36,7 @@ To create a Private Endpoint, a developer with Role-based access control (RBAC) 
 There are two ways to create a Private Endpoint. Auto approval flow allows a user that has RBAC permissions on the Azure resource to create a private endpoint without a need for approval. Manual approval flow allows a user without permissions on the resource to request a Private Endpoint to be approved by owners of the Azure resource.
 
 > [!NOTE]
-> When an approved Private Endpoint is created for Healthcare APIs, public traffic to it is automatically disabled. 
+> When an approved Private Endpoint is created for Azure Health Data Services, public traffic to it is automatically disabled. 
 
 ### Auto approval
 
@@ -93,7 +93,7 @@ Private endpoints can only be deleted from the Azure portal from the **Overview*
 
 ## Next steps
 
-In this article, you learned how to create, test, and manage your Private Endpoint for Azure Healthcare APIs. For more information about Healthcare APIs, see
+In this article, you learned how to create, test, and manage your Private Endpoint for Azure Health Data Services. For more information about Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
->[Overview of Healthcare APIs](healthcare-apis-overview.md)
+>[Overview of Azure Health Data Services](healthcare-apis-overview.md)
