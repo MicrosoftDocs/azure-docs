@@ -15,7 +15,7 @@ Azure Stream Analytics offers a SQL-like query language for performing transform
 
 ## Regions
 
-The .NET user-defined-function feature is enable for cloud jobs that run on [Stream Analytics clusters](./cluster-overview.md) and on the following public regions:
+The .NET user-defined-function feature is enable for cloud jobs that run on [Stream Analytics clusters](./cluster-overview.md). Jobs that run on the Standard multi-tenant SKU can leverage this feature in the following public regions:
 * West Central US
 * North Europe
 * East US
