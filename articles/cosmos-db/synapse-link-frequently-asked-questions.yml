@@ -136,6 +136,16 @@ sections:
           Can I customize or override the way transactional data is transformed into columnar format in the analytical store?
         answer: |
           Currently you can’t transform the data items when they are automatically propagated from the transactional store to analytical store. If you have scenarios blocked by this limitation, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
+      
+      - question: |
+          Can I access analytical store with Azure Cosmos DB SDKs?
+        answer: |
+          No, you can't access analytical store with the Azure Cosmos DB SDKs. You need to use Azure Synapse analitics, Spark or SQL serverless pools.
+      
+      - question: |
+          Can I access analytical store with Azure Cosmos DB REAS APIs?
+        answer: |
+          No, you can't access analytical store with the Azure Cosmos DB REST APIs. You need to use Azure Synapse analitics, Spark or SQL serverless pools.       
           
       - question: |
           Is analytical store supported by Terraform?

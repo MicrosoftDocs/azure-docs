@@ -629,7 +629,7 @@ items:
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
     - name: Notifications and actions
       items:
-      - name: Alert Processing Rules (Preview)
+      - name: Alert processing rules
         href: alerts/alerts-action-rules.md
         displayName: Azure CLI, az monitor action rule
       - name: Create action group
@@ -834,9 +834,6 @@ items:
           href: app/azure-web-apps-java.md
         - name: Node.js 
           href: app/azure-web-apps-nodejs.md
-      - name: Azure Cloud Services
-        displayName: cloud, cloud services, PaaS
-        href: app/cloudservices.md
       - name: Azure Functions
         displayName: functions, monitor functions, automation
         href: app/monitor-functions.md
@@ -901,6 +898,8 @@ items:
       href: app/create-workspace-resource.md
     - name: Migrate to a workspace-based resource
       href: app/convert-classic-resource.md
+    - name: Migrate to connection strings
+      href: app/migrate-from-instrumentation-keys-to-connection-strings.md
     - name: Application dashboard
       displayName: dashboard, Application Insights dashboard
       href: app/overview-dashboard.md

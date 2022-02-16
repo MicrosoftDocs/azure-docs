@@ -17,7 +17,7 @@ ms.date: 01/19/2022
 
 Configure a [search indexer](search-indexer-overview.md) to extract content from Azure File Storage and make it searchable in Azure Cognitive Search. 
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing files in Azure Storage.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing files in Azure Storage. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ The Azure Files indexer can extract text from the following document formats:
 
 ## Define the data source
 
-The data source definition specifies the data source type, content path, and how to connect.
+The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
 1. [Create or update a data source](/rest/api/searchservice/preview-api/create-or-update-data-source) to set its definition, using a preview API version 2020-06-30-Preview or 2021-04-30-Preview for "type": `"azurefile"`.
 
