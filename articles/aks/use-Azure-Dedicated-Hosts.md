@@ -25,7 +25,7 @@ Using Azure Dedicated Hosts for nodes with your AKS cluster has the following be
 
 ### Install the `aks-preview` Azure CLI
 
-You also need the *aks-preview* Azure CLI extension version 0.5.53 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+You also need the *aks-preview* Azure CLI extension version 0.5.54 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
