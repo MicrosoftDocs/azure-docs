@@ -67,7 +67,6 @@ A Reader can view all the resources in an Automation account but can't make any 
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
 
-[Learn more](#best-practices-to-configure-azure-automation-role-based-access-control) on the best practices in configuring Azure automation role based access control.
 
 ### Automation Contributor
 
