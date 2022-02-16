@@ -34,6 +34,7 @@ Adding a GCP account to an Azure subscription connects Defender for Cloud with G
 |Aspect|Details|
 |----|:----|
 |Required/Preferred Environmental Requirements:| Have workloads in GCP, and are looking for CSPM solution (can be either replacement or new deployment)|
+|Pricing:|The **CSPM plan** is free.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.|
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 |||
@@ -77,7 +78,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Select the **Next: Select Plans** button. 
 
-1. Toggle the plans you want to connect to **On**. Learn how to [configure each plan.](#configure-selected-plans) 
+1. Toggle the plans you want to connect to **On**. Learn how to [configure each plan](#optional-configure-selected-plans). 
 
 1. Select the **Next: Configure access** button.
 
@@ -105,7 +106,41 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Ensure the information presented is correct.
 
-1. Select the **Create** button. 
+1. Select the **Create** button.
+
+## (Optional) Configure selected plans
+
+By default, all plans are toggled to `On`, on the plans select screen. To get the full security value out of Defender for Containers, and to fully protect GCP clusters all plans should be left toggled to `On`.
+
+:::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on.":::
+
+**To configure the Servers plan**:
+
+1. Follow the steps to [Connect your GCP account](#connect-your-gcp-account).
+
+1. On the Select plans screen select **View configuration**.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/view-configuration.png" alt-text="Screenshot showing where to click to configure the Servers plan.":::
+
+1. On the Auto provisioning screen, toggle the switches on, or off depending on your need.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/auto-provision-screen.png" alt-text="Screenshot showing the toggle switches for the Servers plan.":::
+
+1. Select **Save**.
+
+**To configure the Containers plan**:
+
+1. Follow the steps to [Connect your GCP account](#connect-your-gcp-account).
+
+1. On the Select plans screen select **Configure**.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/containers-configure.png" alt-text="Screenshot showing where to click to configure the Servers plan.":::
+
+1. On the Auto provisioning screen, toggle the switches on, or off depending on your need.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/containers-configuration.png" alt-text="Screenshot showing the toggle switches for the Containers plan.":::
+
+1. Select **Save**.
 
 ::: zone-end
 
@@ -208,12 +243,6 @@ When the connector is successfully created and GCP Security Command Center has b
     :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="GCP resources and recommendations in Defender for Cloud's recommendations page":::
 
 ::: zone-end
-
-## Configure selected plans
-
-
-
-
 
 ## Monitoring your GCP resources
 
