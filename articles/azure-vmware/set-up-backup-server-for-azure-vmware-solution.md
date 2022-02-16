@@ -63,17 +63,9 @@ Ensure that you [configure networking for your VMware private cloud in Azure](tu
 
 ### Determine the size of the VM
 
+Use the [MABS Capacity Planner](https://www.microsoft.com/download/details.aspx) to determine the required size of the VM. Based on your inputs, the capacity planner will provide you with required memory size and core count. You can determine the Azure VM size which provides recommended memory and CPU cores. The capacity planner also provides total disk size required for the VM along with the required disk IOPS. We recommend t ouse standard SDD disk for the VM, and by pooling more than one SDDs you can achieve the required IOPS.
+
 Follow the instructions in the [Create your first Windows VM in the Azure portal](../virtual-machines/windows/quick-create-portal.md) tutorial.  You'll create the VM in the virtual network, which you created in the previous step. Start with a gallery image of Windows Server 2019 Datacenter to run the Azure Backup Server. 
-
-The table summarizes the maximum number of protected workloads for each Azure Backup Server VM size. The information is based on internal performance and scale tests with canonical values for the workload size and churn. The actual workload size can be larger but should be accommodated by the disks attached to the Azure Backup Server VM.
-
-| Maximum protected workloads | Average workload size | Average workload churn (daily) | Minimum storage IOPS | Recommended disk type/size      | Recommended VM size |
-|-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
-| 20                      | 100 GB                | Net 5% churn                   | 2,000             | Standard HDD (8 TB or above size per disk)  | A4V2       |
-| 40                      | 150 GB                | Net 10% churn                  | 4,500             | Premium SSD* (1 TB or above size per disk) | DS3_V2     |
-| 60                      | 200 GB                | Net 10% churn                  | 10,500            | Premium SSD* (8 TB or above size per disk) | DS3_V2     |
-
-*To get the required IOPs, use minimum recommended- or higher-size disks. Smaller-size disks offer lower IOPs.
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You can't install Azure Backup Server on a computer that:
