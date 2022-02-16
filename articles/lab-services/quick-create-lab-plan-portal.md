@@ -8,7 +8,7 @@ ms.custom: template-quickstart
 
 # Quickstart: Create a lab plan using the Azure portal
 
-A lab plan for Azure Lab Services can be created through the Azure portal.  This quickstart shows you, as the admin, how to use the Azure portal to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an instructor can create labs based on the lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
+A lab plan for Azure Lab Services can be created through the Azure portal.  This quickstart shows you, as the admin, how to use the Azure portal to create a lab plan.  Lab plans are used when creating labs for Azure Lab Services.  You'll also add a role assignment so an educator can create labs based on the lab plan.  For detailed overview of Azure Lab Services, see [An introduction to Azure Lab Services](lab-services-overview.md).
 
 ## Prerequisites
 

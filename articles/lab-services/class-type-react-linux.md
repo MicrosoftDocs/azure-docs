@@ -94,7 +94,7 @@ sudo iptables -I INPUT -p tcp -m tcp --dport 3000 -j ACCEPT
 ```
 
 >[!IMPORTANT]
->Instructors must use the template VM or another lab VM to access a student's website.
+>Educators must use the template VM or another lab VM to access a student's website.
 
 ## Cost
 

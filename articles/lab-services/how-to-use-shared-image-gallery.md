@@ -22,7 +22,7 @@ This article shows how educators/lab admins can create and save a custom image f
 Here are the couple of scenarios supported by this feature:
 
 - A lab plan admin attaches a compute gallery to the lab plan, and uploads an image to the compute gallery outside the context of a lab. Then, lab creators can use that image from the compute gallery to create labs.
-- A lab plan admin attaches a compute gallery to the lab plan. A lab creator (instructor) saves the customized image of his/her lab to the compute gallery. Then, other lab creators can select this image from the compute gallery to create a template for their labs.
+- A lab plan admin attaches a compute gallery to the lab plan. A lab creator (educator) saves the customized image of his/her lab to the compute gallery. Then, other lab creators can select this image from the compute gallery to create a template for their labs.
 
 ## Prerequisites
 

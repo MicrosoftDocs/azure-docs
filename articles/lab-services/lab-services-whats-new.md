@@ -13,7 +13,7 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **[Lab plans replace lab accounts](#lab-plans-replace-lab-accounts).** The lab account concept is being replaced with a new concept called a lab plan. Although similar in functionality, there are some fundamental differences between the two concepts. The lab plan serves as a collection of configurations and settings that apply to the labs created from it. Also, labs are now an Azure resource in their own right and a sibling resource to lab plans.
 
-**[Canvas Integration](how-to-get-started-create-lab-within-canvas.md)**. Now, instructors don’t have to leave Canvas to create their labs. Students can connect to a virtual machine from inside their course.
+**[Canvas Integration](how-to-get-started-create-lab-within-canvas.md)**. Now, educators don’t have to leave Canvas to create their labs. Students can connect to a virtual machine from inside their course.
 
 **[Per customer assigned capacity](capacity-limits.md#per-customer-assigned-capacity)**. No more sharing capacity with others. If your organization has requested more quota, Azure Lab Services will save it just for you.
 
@@ -59,7 +59,7 @@ Lab accounts and labs have a parental relationship.  By moving to a sibling rela
 |Selecting regions|By default, labs were created in the same geography as the lab account.  A geography typically aligns with a country and contains one or more Azure regions. Lab owners weren't able to manage exactly which Azure region the labs resided in.|In the lab plan, administrators now can manage the exact Azure regions allowed for lab creation. By default, labs will be created in the same Azure region as the lab plan. </br> Note, when a lab plan has advanced networking enabled, labs are created in the same Azure region as virtual network.|
 |Deletion experience|When a lab account is deleted, all labs within it are also deleted.|When deleting a lab plan, labs *aren't* deleted. After a lab plan is deleted, labs will keep references to their virtual network even if advanced networking is enabled. However, if a lab plan was connected to an Azure Compute Gallery, the labs can no longer export an image that Azure Compute Gallery.|
 |Connecting to a virtual network|The lab account provided an option to peer to a virtual network. If you already had labs in the lab account before you peered to a virtual network, the virtual network connection didn't apply to existing labs. Admins couldn't tell which labs in the lab account were peered to the virtual network.|In a lab plan, admins set up the advanced networking only at the time of lab plan creation. Once a lab plan is created, you'll see a read-only connection to the virtual network. If you need to use another virtual network, create a new lab plan configured with the new virtual network.|
-|Labs portal experience|Labs are lab listed under lab accounts in [https://labs.azure.com](https://labs.azure.com).|Labs are listed under resource group name in [https://labs.azure.com](https://labs.azure.com). If there are multiple lab plans in the same resource group, instructors can choose which lab plan to use when creating the lab.|
+|Labs portal experience|Labs are lab listed under lab accounts in [https://labs.azure.com](https://labs.azure.com).|Labs are listed under resource group name in [https://labs.azure.com](https://labs.azure.com). If there are multiple lab plans in the same resource group, educators can choose which lab plan to use when creating the lab.|
 |Permissions needed to manage labs|To create a lab, someone must be assigned:</br>- **Lab Contributor** role on the lab account.</br>To modify an existing lab, someone must be assigned:</br>- **Reader** role on the lab account.</br>- **Owner** or **Contributor** role on the lab. (Lab creators are assigned the **Owner** role to any labs they create.)|To create a lab, someone must be assigned:</br>- **Owner** or **Contributor** role on the resource group that contains the lab plan.</br>- **Lab Creator** role on the lab plan.</br>To modify an existing lab, someone must be assigned:</br>- **Owner** or **Contributor** role on the lab. (Lab creators are assigned the **Owner** role to any labs they create.)|
 
 ### Migrate from lab account to lab plan
@@ -87,7 +87,7 @@ Configuration that applies at to all labs:
 
 Remember, changes made to the lab settings from the lab plan will apply only to new labs created after the settings change is saved.
 
-Don't forget to assign user permissions on the lab plan and the lab plan’s resource group.  Permission assignments for new labs may also be required if labs are created for instructors instead of by them.
+Don't forget to assign user permissions on the lab plan and the lab plan’s resource group.  Permission assignments for new labs may also be required if labs are created for educators instead of by them.
 
 ## Next steps
 

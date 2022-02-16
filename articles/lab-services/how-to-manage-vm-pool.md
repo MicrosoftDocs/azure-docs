@@ -7,7 +7,7 @@ ms.date: 01/21/2022
 
 # Manage a VM pool in Lab Services
 
-The **Virtual machine pool** page of a lab allows instructors to set how many VMs are available for use and manage the state of those VMs.
+The **Virtual machine pool** page of a lab allows educators to set how many VMs are available for use and manage the state of those VMs.
 
 - Start and stop all the VMs at once.
 - Start and stop specific VMs.
@@ -62,7 +62,7 @@ Both lab owners and lab users can redeploy a VM.
 
 ## Connect to VMs
 
-Instructors can connect to a student VM as long as it's turned on. Verify the student *isn't* connected to the VM first. By connecting to the VM, you can access local files on the VM and help students troubleshoot issues.
+Educators can connect to a student VM as long as it's turned on. Verify the student *isn't* connected to the VM first. By connecting to the VM, you can access local files on the VM and help students troubleshoot issues.
 
 To connect to the student VM, hover the mouse on the VM in the list and select the **Connect** button.  For further instructions based on the operating system you're using, see [Connect to a lab VM](connect-virtual-machine.md).
 

@@ -23,7 +23,7 @@ Educators can access student VMs directly from the **Virtual machine pool** tab.
 
 As part of the publish process, Canvas educators are assigned their own lab VMs. The VM can be accessed by clicking on the **My Virtual Machines** button (top/right corner of the screen).
 
-:::image type="content" source="./media/how-to-manage-vm-pool-within-canvas/my-vms.png" alt-text="Screenshot of My Virtual Machines for instructor.":::
+:::image type="content" source="./media/how-to-manage-vm-pool-within-canvas/my-vms.png" alt-text="Screenshot of My Virtual Machines for educator.":::
 
 ## Next steps
 

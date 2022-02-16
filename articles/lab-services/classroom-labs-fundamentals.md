@@ -21,7 +21,7 @@ Below is the basic architecture of a lab.  The lab account or lab plan is hosted
 
 ## Hosted Resources
 
-The resources required to run a lab are hosted in one of the Microsoft-managed Azure subscriptions.  Resources include a template virtual machine for the instructor, virtual machine for each student, and network-related items such as a load balancer, virtual network, and network security group.  These subscriptions are monitored for suspicious activity.  It is important to note that this monitoring is done externally to the virtual machines through VM extension or network pattern monitoring.  If [shutdown on disconnect](how-to-enable-shutdown-disconnect.md) is enabled, a diagnostic extension is enabled on the virtual machine. The extension allows Lab Services to be informed of the remote desktop protocol (RDP) session disconnect event.
+The resources required to run a lab are hosted in one of the Microsoft-managed Azure subscriptions.  Resources include a template virtual machine for the educator, virtual machine for each student, and network-related items such as a load balancer, virtual network, and network security group.  These subscriptions are monitored for suspicious activity.  It is important to note that this monitoring is done externally to the virtual machines through VM extension or network pattern monitoring.  If [shutdown on disconnect](how-to-enable-shutdown-disconnect.md) is enabled, a diagnostic extension is enabled on the virtual machine. The extension allows Lab Services to be informed of the remote desktop protocol (RDP) session disconnect event.
 
 ## Virtual Network
 

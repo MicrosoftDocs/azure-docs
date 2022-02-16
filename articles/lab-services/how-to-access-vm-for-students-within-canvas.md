@@ -13,7 +13,7 @@ When a lab is created within [Canvas](https://www.instructure.com/canvas), stude
 
 Students must access their VMs through Canvas.  Their Canvas credentials will be used to log into Azure Lab Services.  For further instructions about connecting to your VM, see [Tutorial: Access a lab in Azure Lab Services](tutorial-connect-lab-virtual-machine.md)
 
-Azure Lab Services supports test users in Canvas and the ability for the instructor to act as another user.
+Azure Lab Services supports test users in Canvas and the ability for the educator to act as another user.
 
 ## Lab unavailable
 

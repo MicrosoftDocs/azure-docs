@@ -76,7 +76,7 @@ For instructions to create a lab, see [Create a lab](quick-create-lab-portal.md)
 > [!IMPORTANT]
 > Labs must be created using the Azure Lab Services app in Canvas.  Labs created from the Azure Lab Services portal aren't visible from Canvas.
 
-The student list for the course is automatically synced with the course roster.  For more information, see [Manage Lab Services user lists from Canvas](how-to-manage-user-lists-within-canvas.md).  A lab VM will also be created for the course instructor.
+The student list for the course is automatically synced with the course roster.  For more information, see [Manage Lab Services user lists from Canvas](how-to-manage-user-lists-within-canvas.md).  A lab VM will also be created for the course educator.
 
 ## Troubleshooting
 
@@ -84,13 +84,13 @@ This section outlines common error messages that you may see, along with the ste
 
 - Student sees warning that the lab is not available yet.
 
-  In Canvas, you will see the following message if the instructor has not published the lab yet.  Instructors must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
+  In Canvas, you will see the following message if the educator has not published the lab yet.  Educators must [publish the lab](tutorial-setup-lab.md#publish-a-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
 
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
 
 - Insufficient permissions to create lab.
 
-  In Canvas, an instructor will see a message indicating that they do not have sufficient permission. Instructors should contact their Azure admin so they can be [added as a **Lab Creator**](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
+  In Canvas, an educator will see a message indicating that they do not have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
 
 - Message that there is not enough capacity to create lab VMs.
 

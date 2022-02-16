@@ -7,7 +7,7 @@ ms.date: 01/04/2022
 
 # Enable graphical remote desktop for Linux virtual machines in Azure Lab Services
 
-When a lab is created from a **Linux** image, **SSH** (Secure Shell) access is automatically configured so that the instructor can connect to the template VM from the command line.  When the template VM is published, students can also connect to their VMs using SSH.
+When a lab is created from a **Linux** image, **SSH** (Secure Shell) access is automatically configured so that the educator can connect to the template VM from the command line.  When the template VM is published, students can also connect to their VMs using SSH.
 
 You can also connect to a Linux VM using a **GUI** (graphical user interface). This article shows the steps to set up GUI connections using **Remote Desktop Protocol (RDP)** and **X2Go** .  
 
@@ -24,7 +24,7 @@ In some cases, such as with Ubuntu LTS 18.04, X2Go provides better performance. 
 
 ## X2Go Setup
 
-To use X2Go, the instructor must:
+To use X2Go, the educator must:
 
 - Install the X2Go remote desktop server.
 - Install a Linux graphical desktop environment.
@@ -44,11 +44,11 @@ To manually install X2Go Server, see [X2Go Server Installation](https://wiki.x2g
 
 ## Connect using X2Go client
 
-Instructors and students use X2Go client is used to connect to a VM that has X2Go configured.  Using the VM's SSH connection information, follow the steps in the how-to article [Connect to a VM using X2Go](connect-virtual-machine-linux-x2go.md).
+Educators and students use X2Go client is used to connect to a VM that has X2Go configured.  Using the VM's SSH connection information, follow the steps in the how-to article [Connect to a VM using X2Go](connect-virtual-machine-linux-x2go.md).
 
 ## RDP Setup
 
-To use RDP, the instructor must:
+To use RDP, the educator must:
 
 - Enable remote desktop connection in Azure Lab Services
 - Install the RDP remote desktop server.
@@ -58,7 +58,7 @@ To use RDP, the instructor must:
 
 This step is needed so Azure Lab Services opens port 3389 for RDP to the Linux VMs.  By default, Linux VMs only have the SSH port opened.
 
-1. During lab creation, the instructor can **Enable Remote Desktop Connection**.  The instructor must **enable** this option to open the port on the Linux VM that is needed for an RDP remote desktop session.  Otherwise, if this option is left **disabled**, only the port for SSH is opened.
+1. During lab creation, the educator can **Enable Remote Desktop Connection**.  The educator must **enable** this option to open the port on the Linux VM that is needed for an RDP remote desktop session.  Otherwise, if this option is left **disabled**, only the port for SSH is opened.
   
     :::image type="content" source="./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png" alt-text="Screenshot that shows the New lab window with the Enable Remote Desktop Connection option.":::
 1. On the **Enabling Remote Desktop Connection** message box, select **Continue with Remote Desktop**.

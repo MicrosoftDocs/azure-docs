@@ -28,7 +28,7 @@ Typically, the [Remote Desktop client](/windows-server/remote/remote-desktop-ser
 
 The RDP client includes various settings that can be adjusted to optimize the user's connection experience.  Typically, these settings don't need to be changed.  By default, the settings are already configured to choose the right experience based on your network connection.  For more information on these settings, see [RDP client's **Experience** settings](/windows-server/administration/performance-tuning/role/remote-desktop/session-hosts#client-experience-settings).
 
-If your instructor has configured the GNOME graphical desktop on a Linux VM with the RDP client, we recommend the following settings to optimize performance:
+If your educator has configured the GNOME graphical desktop on a Linux VM with the RDP client, we recommend the following settings to optimize performance:
 
 - Under the **Display** tab, set the color depth to **High Color (15 bit)**.
 

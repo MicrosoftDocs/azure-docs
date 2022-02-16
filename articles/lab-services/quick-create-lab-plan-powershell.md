@@ -34,7 +34,7 @@ $plan = New-AzLabServicesLabPlan -Name "ContosoLabPlan" `
 
 ## Add a user to the Lab Creator role
 
-To create or edit up a lab in the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)), the instructor must be assigned the **Lab Creator** role.  Assigning **Lab Creator** role on the lab plan's resource group will allow an instructor to use all lab plans in that resource group.
+To create or edit up a lab in the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)), the educator must be assigned the **Lab Creator** role.  Assigning **Lab Creator** role on the lab plan's resource group will allow an educator to use all lab plans in that resource group.
 
 ```powershell
 New-AzRoleAssignment -SignInName <emailOrUserprincipalname> `

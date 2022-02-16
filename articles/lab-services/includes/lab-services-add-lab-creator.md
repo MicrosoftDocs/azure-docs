@@ -6,7 +6,7 @@ ms.topic: include
 ms.service: lab-services
 ---
 
-To create or edit up a lab in the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)), the instructor must be assigned the **Lab Creator** role on the lab plan.  Assigning **Lab Creator** role on the lab plan's resource group will allow an instructor to use all lab plans in that resource group.
+To create or edit up a lab in the Lab Services web portal ([https://labs.azure.com](https://labs.azure.com)), the educator must be assigned the **Lab Creator** role on the lab plan.  Assigning **Lab Creator** role on the lab plan's resource group will allow an educator to use all lab plans in that resource group.
 
 > [!NOTE]
 > Owners of a lab plan can automatically create labs and do not need to be assigned the **Lab Creator** role.
@@ -27,4 +27,4 @@ To create or edit up a lab in the Lab Services web portal ([https://labs.azure.c
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 > [!NOTE]
-> Instructors are given **Owner** permissions of labs they create.  If the instructor is assigned the **Lab Creator** role on the lab plan, they may notice a short delay in accessing their newly created lab as the **Owner** permissions for the lab propagate. To avoid this issue, assign a role that allows the instructor to view labs (like **Lab Creator**) on the lab plan's resource group.
+> Educators are given **Owner** permissions of labs they create.  If the educator is assigned the **Lab Creator** role on the lab plan, they may notice a short delay in accessing their newly created lab as the **Owner** permissions for the lab propagate. To avoid this issue, assign a role that allows the educator to view labs (like **Lab Creator**) on the lab plan's resource group.
