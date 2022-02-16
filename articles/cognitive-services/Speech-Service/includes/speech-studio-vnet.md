@@ -21,11 +21,11 @@ Access to the Speech resource endpoint is *not* equal to access to Speech Studio
 
 ### Working with Speech Studio projects
 
-This section describes working with the different kind of Speech Studio projects for the different network security options of the Speech resource. It's expected that the web browser connection to Speech Studio is established.
+This section describes working with the different kind of Speech Studio projects for the different network security options of the Speech resource. It's expected that the web browser connection to Speech Studio is established. Speech resource network security settings are set in Azure portal, using **Networking** property, that is in **Resource Management** group of the Speech resource properties.
 
 #### Custom Speech
 
-The following table describes the Custom Speech project accessibility in different scenarios. Speech resource network security settings are set in Azure portal, using **Networking** property, that is in **Resource Management** group of the Speech resource properties. See also the additional note, that follows the table.
+The following table describes the Custom Speech project accessibility in different scenarios. See also the additional note, that follows the table.
 
 | Speech resource network security setting | Speech Studio project accessibility |
 |--|--|
@@ -44,7 +44,7 @@ Alternatively, you may create two Speech resources: Production and Development. 
 
 #### Custom Voice. Audio Content Creation
 
-Custom Voice and Audio Content Creation allow the access to the related Speech Studio project only when the correspondent Speech resource network security setting is *All networks*. Network security settings are set in Azure portal, using **Networking** property, that is in **Resource Management** group of the Speech resource properties. 
+Custom Voice and Audio Content Creation allow the access to the related Speech Studio project only when the correspondent Speech resource network security setting is *All networks*.  
 
 If you need to enable IP-filtering, private, or Virtual Network service endpoint access for your Speech resource and at the same time use Custom Voice models and work on them with the help of the Speech Studio, the following workaround can be used.
 
