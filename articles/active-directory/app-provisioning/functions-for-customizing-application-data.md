@@ -906,16 +906,27 @@ Replaces values within a string in a case-sensitive manner. The function behaves
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
 #### Replace characters using a regular expression
-Example: You need to find characters that match a regular expression value and remove them.
+Example 1: Using **oldValue** and **replacementValue**
 
-**Expression:** 
+Use this pattern when you want to replace the entire source string with another string. 
+Let’s say your HR system has an attribute `BusinessTitle`. As part of recent job title changes, your company wants to update anyone with the business title “Product Developer” to “Software Engineer”. 
+Then in this case, you can use the following expression in your attribute mapping. 
 
-Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+* **source**: \[BusinessTitle\]
+* **oldValue**: “Product Developer”
+* **replacementValue**: “Software Engineer”
+* **Expression output**: Software Engineer
 
-**Sample input/output:**
+`Replace([BusinessTitle],"Product Developer", , , "Software Engineer", , )`
 
-* **INPUT** (mailNickname: "john_doe72"
-* **OUTPUT**: "72"
+Example 5: You need to find characters that match a regular expression value and remove them.
+
+* **source** \[mailNickname\]
+* **oldValue**: "john_doe72"
+* **replaceValue**: ""
+* **Expression output**: 72
+
+`Replace([mailNickname], , "[a-zA-Z_]*", , "", , )`
 
 
 ---
