@@ -7,6 +7,7 @@ ms.assetid:
 ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
+ms.devlang: csharp, java, javascript, python
 ms.custom: 
 ---
 
@@ -148,9 +149,8 @@ Here's the binding data in the *function.json* file:
 Here's JavaScript code:
 
 ```javascript
-module.exports = function (context, input) {
-    context.bindings.myQueueItem = input.body;
-    context.done();
+module.exports = async function (context, input) {
+    context.bindings.outputMessage = input.body;
 };
 ```
 

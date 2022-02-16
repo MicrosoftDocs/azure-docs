@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/01/2021
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
@@ -170,10 +171,8 @@ Here's the binding data in the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-    module.exports = function (context, documents) {
+    module.exports = async function (context, documents) {
       context.log('First document Id modified : ', documents[0].id);
-
-      context.done();
     }
 ```
 

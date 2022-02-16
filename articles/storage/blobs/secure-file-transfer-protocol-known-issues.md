@@ -1,17 +1,17 @@
 ---
 title: Known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
-description: Learn about limitations and known issues of Secure File Transfer Protocol (SFTP) support in Azure Blob Storage.
+description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support in Azure Blob Storage.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 02/03/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# Known issues with Secure File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)
+# Known issues with SSH File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)
 
 This article describes limitations and known issues of SFTP support in Azure Blob Storage.
 
@@ -20,11 +20,11 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> To enroll in the preview, see [this form](https://forms.office.com/r/gZguN0j65Y).
+> To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
 
 ## Data redundancy options
 
-- Geo-redundant storage (GRS), and Geo-zone-redundant storage (GZRS) are not supported in accounts that have SFTP enabled.
+- Geo-redundant storage (GRS), Geo-zone-redundant storage (GZRS), Read-access geo-redundant storage (RA-GRS), and Read-access geo-zone-redundant storage (RA-GZRS) are not supported in accounts that have SFTP enabled.
 
 ## Authorization
 
@@ -46,16 +46,6 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 - To access the storage account using SFTP, your network must allow traffic on port 22.
 
 - When a firewall is configured, connections from non-allowed IPs are not rejected as expected. However, if there is a successful connection for an authenticated user then all data plane operations will be rejected.
-
-## Supported algorithms
-
-| Host key | Key exchange | Ciphers/encryption | Integrity/MAC | Public key |
-|----------|--------------|--------------------|---------------|------------|
-| rsa-sha2-256 | ecdh-sha2-nistp384 | aes128-gcm@openssh.com | hmac-sha2-256 | ssh-rsa |
-| rsa-sha2-512 | ecdh-sha2-nistp256 | aes256-gcm@openssh.com | hmac-sha2-512 | ecdsa-sha2-nistp256 |
-| ecdsa-sha2-nistp256 | diffie-hellman-group14-sha256 | aes128-cbc| | ecdsa-sha2-nistp384 |
-| ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
-||| aes192-cbc ||
 
 ## Security
 
@@ -93,18 +83,43 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - Maximum file size upload is limited by client message size. A few examples below: 
 
-  - 32k message (OpenSSH default) * 50k blocks = 1.52GB 
+  - 32KB message (OpenSSH default) * 50k blocks = 1.52GB 
 
-  - 100k message (OpenSSH Windows max) * 50k blocks = 4.77GB 
+  - 100KB message (OpenSSH Windows max) * 50k blocks = 4.77GB 
 
-  - 256k message (OpenSSH Linux max) * 50k blocks = 12.20GB 
+  - 256KB message (OpenSSH Linux max) * 50k blocks = 12.20GB 
 
 ## Other
 
 - Symbolic links are not supported.
 
-- PowerShell and Azure CLI and not supported. You can leverage Portal and ARM templates for Public Preview.
+- PowerShell and Azure CLI are not supported. You can leverage Portal and ARM templates for Public Preview.
+
+- `ssh-keyscan` is not supported.
+
+- SSH commands, that are not SFTP, are not supported.
+
+## Troubleshooting
+
+- To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
+
+  - The account needs to be a GPv2 or Block Blob Storage account.
+  
+  - The account needs to have LRS or ZRS replication setup.
+  
+  - The account needs to have hierarchical namespace enabled on it.
+  
+  - The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
+  
+  - Customer's subscription needs to be signed up for the preview. To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) *and* request to join via 'Preview features' in the Azure portal.
+
+- To resolve the `Home Directory not accessible error.` error, check that:
+  
+  - The user has been assigned appropriate permissions to the container.
+  
+  -	The container name is specified in the connection string if you have not configured (set home directory) and provisioned (create the directory inside the container) a home directory for the user.
 
 ## See also
 
-- [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md)

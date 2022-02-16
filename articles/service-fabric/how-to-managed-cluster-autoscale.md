@@ -16,6 +16,10 @@ ms.date: 10/25/2021
 * After enabling autoscale for a node type, configure `vmInstanceCount` property to `-1` when redeploying the resource.
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
+>[!NOTE] 
+> If using an OS Image "-with-containers” memory metrics from Azure Monitor will not be available. 
+
+
 A common scenario where autoscaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
 * If all instances of my gateway are using more than 70% on average, then scale the gateway service out by adding two more instance. Do this every 30 minutes, but never have more than twenty instances in total.
 * If all instances of my gateway are using less than 40% cores on average, then scale the service in by removing one instance. Do this every 30 minutes, but never have fewer than three instances in total.
@@ -213,7 +217,7 @@ Some things to consider:
    Suppose you set a rule to scale out when average CPU is greater than 50% over five minutes, and to scale in when average CPU is less than 50%. This setting would cause a "flapping" problem when CPU usage is close to the threshold, with scale actions constantly increasing and decreasing the size of the set. Because of this setting, the autoscale service tries to prevent "flapping", which can manifest as not scaling. Therefore, be sure your scale-out and scale-in thresholds are sufficiently different to allow some space in between scaling.
 
 * Can you scale in or out a node type?
-   Adjust the count of nodes at the node type level and make sure it completes successfully. [How to scale a node type on a managed cluster](./how-to-managed-cluster-modify-node-type.md#scale-a-node-type-manually-with-a-template)
+   Adjust the count of nodes at the node type level and make sure it completes successfully. [How to scale a node type on a managed cluster](how-to-managed-cluster-modify-node-type.md#scale-a-node-type)
 
 * Check your Microsoft.ServiceFabric/managedclusters/nodetypes, and Microsoft.Insights resources in the Azure Resource Explorer
 

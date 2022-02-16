@@ -7,7 +7,8 @@ ms.service: azure-redhat-openshift
 keywords: encryption, byok, aro, deploy, openshift, red hat
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Encrypt OS disks with a customer-managed key (CMK) on Azure Red Hat OpenShift (ARO) (preview)
@@ -29,7 +30,8 @@ It is the responsibility of the customers to maintain the Key Vault and Disk Enc
 * Register the resource providers if you have multiple Azure subscriptions. For registration details, see [Register the resource providers](tutorial-create-cluster.md#register-the-resource-providers).
 
 ## Install the preview Azure CLI extension
-Install and use the Azure Command-Line Interface (CLI) to create a Key Vault. The Azure CLI allows the execution of commands through a terminal using interactive command-line prompts or a script.
+Install and use the Azure CLI to create a Key Vault. The Azure CLI allows the execution of commands through a terminal using interactive command-line prompts or a script.
+
 > [!NOTE]
 > The CLI extension is required for the preview feature only.
 

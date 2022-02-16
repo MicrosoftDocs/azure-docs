@@ -5,13 +5,12 @@ description: Learn how to send an SMS message using Azure Communication Services
 author: probableprime
 manager: chpalm
 services: azure-communication-services
-
 ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.custom: tracking-python, devx-track-js
+ms.custom: tracking-python, devx-track-js, mode-other
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
@@ -20,7 +19,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 > [!IMPORTANT]
 > SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
-> For more information, see **[Phone number types](../../concepts/telephony-sms/plan-solution.md)**.
+> For more information, see **[Phone number types](../../concepts/telephony/plan-solution.md)**.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET SDK](./includes/send-sms-net.md)]
@@ -54,7 +53,7 @@ In this quickstart, you learned how to send SMS messages using Azure Communicati
 > [Receive SMS and Delivery Report Events](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
-> [Phone number types](../../concepts/telephony-sms/plan-solution.md)
+> [Phone number types](../../concepts/telephony/plan-solution.md)
 
 > [!div class="nextstepaction"]
-> [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
+> [Learn more about SMS](../../concepts/sms/concepts.md)

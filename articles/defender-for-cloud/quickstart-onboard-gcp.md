@@ -1,12 +1,9 @@
 ---
 title: Connect your GCP account to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
-author: memildin
-ms.author: memildin
-ms.date: 11/09/2021
 ms.topic: quickstart
-ms.service: defender-for-cloud
-manager: rkarlin
+ms.date: 11/09/2021
+ms.custom: mode-other
 ---
 
 #  Connect your GCP accounts to Microsoft Defender for Cloud

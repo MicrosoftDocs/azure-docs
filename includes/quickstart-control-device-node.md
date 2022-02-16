@@ -3,7 +3,7 @@ author: philmea
 ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: nodejs
+ms.devlang: nodejs, azurecli
 ms.topic: include
 ms.custom: [mvc, seo-javascript-september2019, seo-javascript-october2019, mqtt, 'Role: Cloud Development', devx-track-js, devx-track-azurecli]
 ms.date: 06/21/2019
@@ -15,7 +15,7 @@ This quickstart uses two Node.js applications: a simulated device application th
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Node.js 10+](https://nodejs.org).
+* [Node.js 12+](https://nodejs.org).
 
     You can verify the current version of Node.js on your development machine using the following command:
 

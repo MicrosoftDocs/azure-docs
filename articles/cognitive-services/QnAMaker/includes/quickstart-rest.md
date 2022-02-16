@@ -2,13 +2,14 @@
 title: "Quickstart: Use cURL & REST to manage knowledge base - QnA Maker"
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
 ms.date: 1/22/2021
-ms.topic: quickstart
+ms.topic: include
 ms.custom: ignite-fall-2021
 ---
 
-[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
 ## Prerequisites
+
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the REST API with the latest release consult the [question answering REST API quickstart](../../language-service/question-answering/quickstart/sdk.md?pivots=rest)
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
 * You must have a [QnA Maker resource](../how-to/set-up-qnamaker-service-azure.md?tabs=v1#create-a-new-qna-maker-service), to use the key and resource name. You entered the resource **Name** during resource creation, then the key was created for you. The resource name is used as the subdomain for your endpoint. To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:

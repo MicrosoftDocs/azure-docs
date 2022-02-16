@@ -27,6 +27,10 @@ The Key Vault VM extension supports below versions of Windows:
 
 The Key Vault VM extension is also supported on custom local VM that is uploaded and converted into a specialized image for use in Azure using Windows Server 2019 core install.
 
+> [!NOTE]
+> The Key Vault VM extension downloads all the certificates in the windows certificate store or to the location provided by "certificateStoreLocation" property in the VM extension settings. Currently, the KV VM extension grants access to the private key of the certificate only to the local system admin account. Additionally, it is currently not possible to define certificate store location per certificate. The VM extension team is working on a solution to close this feature gap.
+
+
 ### Supported certificate content types
 
 - PKCS #12
@@ -102,6 +106,8 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > The 'authenticationSettings' property is **required** only for VMs with **user assigned identities**.
 > It specifies identity to use for authentication to Key Vault.
 
+> [!IMPORTANT]
+> If you specify the 'msiClientId', then the 'msiEndpoint' property is **required**. Usually the value should be set to `http://169.254.169.254/metadata/identity/oauth2/token`.
 
 ### Property values
 

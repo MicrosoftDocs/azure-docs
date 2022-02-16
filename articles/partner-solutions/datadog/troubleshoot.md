@@ -1,11 +1,8 @@
 ---
 title: Troubleshooting for Datadog - Azure partner solutions
 description: This article provides information about troubleshooting for Datadog on Azure.
-ms.service: partner-services
 ms.topic: conceptual
 ms.date: 05/28/2021
-author: tfitzmac
-ms.author: tomfitz
 ---
 
 # Fix common errors for Datadog on Azure
@@ -40,7 +37,7 @@ The reply URL must be `https://us3.datadoghq.com/account/saml/assertion`.
 
 The following image shows the correct values.
   
-:::image type="content" source="media/troubleshoot/troubleshooting.png" alt-text="Check SAML settings for the Datadog application in AAD." border="true":::
+:::image type="content" source="media/troubleshoot/troubleshooting.png" alt-text="Check SAML settings for the Datadog application in Azure A D." border="true":::
 
 **Guest users invited to the tenant are unable to access Single sign-on** - Some users have two email addresses in Azure portal. Typically, one email is the user principal name (UPN) and the other email is an alternative email.
 

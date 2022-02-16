@@ -34,7 +34,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 * *Premium_ZRS* - premium zone redundant storage (ZRS)
 
 > [!NOTE]
-> Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher, minimum premium file share is 100GB
+> minimum premium file share is 100GB
 
 For more information on Kubernetes storage classes for Azure Files, see [Kubernetes Storage Classes][kubernetes-storage-classes].
 
@@ -45,7 +45,7 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: my-azurefile
-provisioner: kubernetes.io/azure-file
+provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is less than 1.21
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
@@ -171,7 +171,7 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: my-azurefile
-provisioner: kubernetes.io/azure-file
+provisioner: file.csi.azure.com # replace with "kubernetes.io/azure-file" if aks version is less than 1.21
 mountOptions:
   - dir_mode=0777
   - file_mode=0777
@@ -183,6 +183,10 @@ mountOptions:
 parameters:
   skuName: Standard_LRS
 ```
+
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
 
 ## Next steps
 
@@ -226,3 +230,4 @@ Learn more about Kubernetes persistent volumes using Azure Files.
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[use-tags]: use-tags.md

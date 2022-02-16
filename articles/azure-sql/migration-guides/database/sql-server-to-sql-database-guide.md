@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: cawrites
+ms.reviewer: mathoma, kendralittle
 ms.date: 03/19/2021
 ---
 # Migration guide: SQL Server to Azure SQL Database

@@ -205,10 +205,6 @@ sections:
   - name: Restore
     questions:
       - question: |
-          Manage
-        answer: |
-
-      - question: |
           Can I recover if I forgot my passphrase?
         answer: |
           The Azure Backup agent requires a passphrase (that you provided during registration) to decrypt the backed-up data during restore. Review the scenarios below to understand your options for handling a lost passphrase:

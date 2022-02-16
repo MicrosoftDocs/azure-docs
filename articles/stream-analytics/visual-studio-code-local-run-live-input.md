@@ -1,6 +1,6 @@
 ---
 title: Test Azure Stream Analytics queries locally against live stream input by using Visual Studio Code
-description: This article describes how to test queries locally against live stream input by using Azure Stream Analytics Tools for Visual Studio Code.
+description: How to test queries locally against live stream input by using Azure Stream Analytics Tools for Visual Studio Code.
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
@@ -10,6 +10,8 @@ ms.topic: how-to
 # Test Stream Analytics queries locally against live stream input by using Visual Studio Code
 
 You can use Azure Stream Analytics Tools for Visual Studio Code to test your Stream Analytics jobs locally against live stream input. The input can come from a source like Azure Event Hubs or Azure IoT Hub. The output results are sent as JSON files to a folder in your project called **LocalRunOutputs**.
+
+For more information, see [Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools](visual-studio-code-local-run-all.md).
 
 ## Prerequisites
 
@@ -57,7 +59,7 @@ Return to your query editor, and select **Run locally**. Then select **Use Live 
 
 ![Select "Use Live Input"](./media/vscode-local-run-live-input/run-locally-use-live-input.png)
 
-The result is shown in the right window and refreshed every 3 seconds. You can select **Run** to test again. You can also select **Open in folder** to see the result files in File Explorer and open them with Visual Studio Code or a tool like Excel. Note that the result files are available only in JSON format.
+The result is shown in the right window and refreshed every 3 seconds. You can select **Run** to test again. You can also select **Open in folder** to see the result files in File Explorer and open them with Visual Studio Code or a tool like Excel. The result files are available only in JSON format.
 
 The default time for the job to start creating output is set to **Now**. You can customize the time by selecting the **Output start time** button in the result window.
 
@@ -65,6 +67,7 @@ The default time for the job to start creating output is set to **Now**. You can
 
 ## Next steps
 
+* [Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools](visual-studio-code-local-run-all.md)
+* [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
 * [Explore Azure Stream Analytics jobs with Visual Studio Code (preview)](visual-studio-code-explore-jobs.md)
-
-* [Set up CI/CD pipelines by using the npm package](./cicd-overview.md)
+* [Set up CI/CD pipelines and unit testing by using the npm package](./cicd-overview.md)

@@ -3,24 +3,25 @@ title: Monitor Azure app services performance Java | Microsoft Docs
 description: Application performance monitoring for Azure app services using Java. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/05/2021
+ms.devlang: java
 ms.custom: "devx-track-java"
 ---
 
 # Application Monitoring for Azure App Service and Java
 
-Monitoring of your Java-based web applications running on [Azure App Services](../../app-service/index.yml) does not require any modifications to the code. This article will walk you through enabling Azure Monitor application insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
+Monitoring of your Java web applications running on [Azure App Services](../../app-service/index.yml) does not require any modifications to the code. This article will walk you through enabling Azure Monitor Application Insights monitoring as well as provide preliminary guidance for automating the process for large-scale deployments.
 
 ## Enable Application Insights
 
-The recommended way to enable application monitoring for Java application running on Azure App Services is through Azure portal. Turning on application monitoring in Azure portal will automatically instrument your application with application insights.  
+The recommended way to enable application monitoring for Java applications running on Azure App Services is through Azure portal.
+Turning on application monitoring in Azure portal will automatically instrument your application with Application Insights, and doesn't require any code changes.
+You can apply additional configurations, and then based on your specific scenario you [add your own custom telemetry](./java-in-process-agent.md#modify-telemetry) if needed.
 
 ### Auto-instrumentation through Azure portal
 
-This method requires no code change or advanced configurations, making it the easiest way to get started with monitoring for Azure App Services. You can apply additional configurations, and then based on your specific scenario you can evaluate whether more advanced monitoring through [manual instrumentation](./java-2x-get-started.md?tabs=maven) is needed.
-
-### Enable backend monitoring
-
-You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required. Application Insights for Java is integrated with App Service on Linux - both code-based and custom containers, and with App Service on Windows - code-based apps. It is important to know how your application will be monitored. The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
+You can turn on monitoring for your Java apps running in Azure App Service just with one click, no code change required.
+Application Insights for Java is integrated with Azure App Service on Linux - both code-based and custom containers, and with App Service on Windows for code-based apps.
+The integration adds [Application Insights Java 3.x](./java-in-process-agent.md) and you will get the telemetry auto-collected.
 
 1. **Select Application Insights** in the Azure control panel for your app service, then select **Enable**.
 
@@ -31,9 +32,9 @@ You can turn on monitoring for your Java apps running in Azure App Service just 
     > [!NOTE]
     > When you select **OK** to create the new resource you will be prompted to **Apply monitoring settings**. Selecting **Continue** will link your new Application Insights resource to your app service, doing so will also **trigger a restart of your app service**. 
 
-     :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot of Change your resource dropdown."::: 
+    :::image type="content"source="./media/azure-web-apps/change-resource.png" alt-text="Screenshot of Change your resource dropdown.":::
 
-3. This step is not required. After specifying which resource to use, you can configure the Java agent. If you do not configure the Java agent, default configurations will apply. 
+3. This last step is optional. After specifying which resource to use, you can configure the Java agent. If you do not configure the Java agent, default configurations will apply.
 
     The full [set of configurations](./java-standalone-config.md) is available, you just need to paste a valid [json file](./java-standalone-config.md#an-example). **Exclude the connection string and any configurations that are in preview** - you will be able to add the items that are currently in preview as they become generally available.
 
@@ -48,17 +49,16 @@ To enable client-side monitoring for your Java application, you need to [manuall
 
 ## Automate monitoring
 
-### Application settings
-
 In order to enable telemetry collection with Application Insights, only the following Application settings need to be set:
 
-|App setting name |  Definition | Value |
-|-----------------|:------------|-------------:|
-|ApplicationInsightsAgent_EXTENSION_VERSION | Controls runtime monitoring | `~2` for Windows or `~3` for Linux |
-|XDT_MicrosoftApplicationInsights_Java |  Flag to control that Java agent is included | 0 or 1 only applicable in Windows
-|APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_LEVEL | Only use it if you need to debug the integration of Application Insights with App Service | debug
+:::image type="content"source="./media/azure-web-apps-java/application-settings-java.png" alt-text="Screenshot of App Service Application Settings with available Application Insights settings.":::
 
-:::image type="content"source="./media/azure-web-apps-java/application-settings-java.png" alt-text=" Screenshot of App Service Application Settings with available Application Insights settings."::: 
+### Application settings definitions
+
+| App setting name | Definition | Value |
+|------------------|------------|------:|
+| ApplicationInsightsAgent_EXTENSION_VERSION | Main extension, which controls runtime monitoring. | `~2` in Windows or `~3` in Linux. |
+| XDT_MicrosoftApplicationInsights_Java | Flag to control if Java agent is included. | 0 or 1 (only applicable in Windows). |
 
 > [!NOTE]
 > Profiler and snapshot debugger are not available for Java applications

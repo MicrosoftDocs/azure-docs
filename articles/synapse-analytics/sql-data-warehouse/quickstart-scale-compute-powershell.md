@@ -2,8 +2,8 @@
 title: 'Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) (Azure PowerShell)'
 description: You can scale compute for dedicated SQL pool (formerly SQL DW) using Azure PowerShell.
 services: synapse-analytics
-author: Antvgski
-ms.author: anvang
+author: jasonwhowell
+ms.author: jasonh
 manager: craigg
 ms.reviewer: igorstan
 ms.date: 04/17/2018

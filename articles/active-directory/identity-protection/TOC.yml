@@ -15,6 +15,8 @@
     href: concept-identity-protection-policies.md
   - name: What is the sign-in experience?
     href: concept-identity-protection-user-experience.md
+  - name: Securing workload identities
+    href: concept-workload-identity-risk.md
   - name: Identity Protection and B2B users
     href: concept-identity-protection-b2b.md
 - name: How-to guides
@@ -49,11 +51,11 @@
   - name: Graph APIs
     items: 
     - name: riskDetection API
-      href: /graph/api/resources/riskdetection?view=graph-rest-1.0
+      href: /graph/api/resources/riskdetection
     - name: riskyUsers API
-      href: /graph/api/resources/riskyuser?view=graph-rest-1.0
+      href: /graph/api/resources/riskyuser
     - name: signIn API
-      href: /graph/api/resources/signin?view=graph-rest-1.0
+      href: /graph/api/resources/signin
   - name: Glossary
     href: reference-identity-protection-glossary.md
 - name: Resources

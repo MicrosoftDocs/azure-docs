@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 02/11/2022
 
 ms.author: justinha
 author: mjsantani
-manager: daveba
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 
@@ -24,11 +24,11 @@ In addition to choosing who can be nudged, you can define how many days a user c
 
 ## Prerequisites 
 
-- Your organization must have enabled Azure MFA. 
+- Your organization must have enabled Azure MFA. Every edition of Azure AD includes Azure MFA. No additional license is needed for a registration campaign.
 - User must not have already set up Microsoft Authenticator for push notifications on their account. 
 - Admins need to enable users for Microsoft Authenticator using one of these policies:  
   - MFA Registration Policy: Users will need to be enabled for **Notification through mobile app**.  
-  - Authentication Methods Policy: Users will need to be enabled for the Microsoft Authenticator and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user will not be eligible for the nudge. 
+  - Authentication Methods Policy: Users will need to be enabled for the Microsoft Authenticator and the Authentication mode set to **Any** or **Push**. If the policy is set to **Passwordless**, the user will not be eligible for the nudge. For more information about how to set the Authentication mode, see [Enable passwordless sign-in with the Microsoft Authenticator app](howto-authentication-passwordless-phone.md). 
 
 ## User experience
 
@@ -78,7 +78,7 @@ To enable a registration campaign in the Azure AD portal, complete the following
 
 ## Enable the registration campaign policy using Graph Explorer
 
-To enable the the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
+In addition to using the Azure portal, you can also enable the registration campaign policy using Graph Explorer. To enable the the registration campaign policy, you must use the Authentication Methods Policy using Graph APIs. **Global administrators** and **Authentication Method Policy administrators** can update the policy. 
 
 To configure the policy using Graph Explorer:
 

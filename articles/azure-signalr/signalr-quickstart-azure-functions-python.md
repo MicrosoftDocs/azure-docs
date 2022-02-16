@@ -1,8 +1,8 @@
 ---
 title: Azure SignalR Service serverless quickstart - Python
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Python.
-author: anthonychu
-ms.author: antchu
+author: vicancy
+ms.author: lianwei
 ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
@@ -97,7 +97,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     2. Create a `negotiate` function for clients to get access token.
     
         ```bash
-        func new -n negotiate -t SignalRNegotiateHTTPTrigger
+        func new -n negotiate -t HttpTrigger
         ```
         
         Open `negotiate/function.json` and copy the following json codes:

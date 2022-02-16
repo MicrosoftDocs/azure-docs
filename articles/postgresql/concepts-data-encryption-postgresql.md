@@ -23,10 +23,12 @@ Key Vault is a cloud-based, external key management system. It's highly availabl
 
 Data encryption with customer-managed keys for Azure Database for PostgreSQL Single server provides the following benefits:
 
-* Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible 
-*    Full control over the key-lifecycle, including rotation of the key to align with corporate policies
-*    Central management and organization of keys in Azure Key Vault
-*    Ability to implement separation of duties between security officers, and DBA and system administrators
+* Data-access is fully controlled by you by the ability to remove the key and making the database inaccessible.
+*    Full control over the key-lifecycle, including rotation of the key to align with corporate policies.
+*    Central management and organization of keys in Azure Key Vault.
+*    Enabling encryption does not have any additional performance impact with or without customers managed key (CMK) as PostgreSQL relies on Azure storage layer for data encryption in both the scenarios ,the only difference is when CMK is used **Azure Storage Encryption Key**  which performs actual data encryption is encrypted using CMK.
+*    Ability to implement separation of duties between security officers, and DBA and system administrators.
+
 
 ## Terminology and description
 
@@ -65,7 +67,7 @@ The following are requirements for configuring the customer-managed key:
 * The customer-managed key to be used for encrypting the DEK can be only asymmetric, RSA 2048.
 * The key activation date (if set) must be a date and time in the past. The expiration date (if set) must be a future date and time.
 * The key must be in the *Enabled* state.
-* If you're [importing an existing key](/rest/api/keyvault/ImportKey/ImportKey) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
+* If you're [importing an existing key](/rest/api/keyvault/keys/import-key/import-key) into the key vault, make sure to provide it in the supported file formats (`.pfx`, `.byok`, `.backup`).
 
 ## Recommendations
 

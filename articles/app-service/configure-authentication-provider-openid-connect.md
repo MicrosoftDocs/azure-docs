@@ -1,12 +1,12 @@
 ---
-title: Configure an OpenID Connect provider (Preview)
+title: Configure an OpenID Connect provider
 description: Learn how to configure an OpenID Connect provider as an identity provider for your App Service or Azure Functions app.
 ms.topic: article
 ms.date: 10/20/2021
 ms.reviewer: mahender
 ---
 
-# Configure your App Service or Azure Functions app to login using an OpenID Connect provider (Preview)
+# Configure your App Service or Azure Functions app to login using an OpenID Connect provider
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 

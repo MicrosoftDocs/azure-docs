@@ -16,6 +16,8 @@ ms.custom: devx-track-azurecli, devplatv2
 
 # Install and set up the CLI (v2)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced interface for Azure Machine Learning. It enables you to train and deploy models from the command line, with features that accelerate scaling data science up and out while tracking the model lifecycle.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
@@ -105,3 +107,4 @@ You can show your current defaults using `--list-defaults/-l`:
 - [Train models using CLI (v2)](how-to-train-cli.md)
 - [Set up the Visual Studio Code Azure Machine Learning extension](how-to-setup-vs-code.md)
 - [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)
+- [Explore Azure Machine Learning with examples](samples-notebooks.md)

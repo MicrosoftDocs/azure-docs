@@ -6,17 +6,19 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/18/2021
 ms.author: karler
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Quickstart: Deploy your first application to Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 ::: zone pivot="programming-language-csharp"
 This quickstart explains how to deploy a small application to run on Azure Spring Cloud.
 
 >[!NOTE]
-> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services aren't meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 By following this quickstart, you'll learn how to:
 > [!div class="checklist"]
@@ -189,7 +191,7 @@ In Visual Studio, create an ASP.NET Core Web application named as "hello-world" 
 
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
-1. Open the [Azure portal](https://ms.portal.azure.com/).
+1. Open the [Azure portal](https://portal.azure.com/).
 
 1. From the top search box, search for *Azure Spring Cloud*.
 
@@ -335,10 +337,10 @@ To complete this quickstart:
 
 ## Generate a Spring Cloud project
 
-Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. This link uses the following URL to provide default settings for you. 
+Start with [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client) to generate a sample project with recommended dependencies for Azure Spring Cloud. This link uses the following URL to provide default settings for you. 
 
 ```url
-https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.5&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.7&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client
 ```
 The following image shows the recommended Initializr set up for this sample project. 
 
@@ -370,7 +372,7 @@ This example uses Java version 8.  If you want to use Java version 11, change th
 
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
-1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/).
+1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
 2. From the top search box, search for **Azure Spring Cloud**.
 

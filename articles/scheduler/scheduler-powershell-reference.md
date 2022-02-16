@@ -1,35 +1,26 @@
 ﻿---
 title: PowerShell cmdlets reference
-description: Learn about PowerShell cmdlets for Azure Scheduler
+description: Learn about PowerShell cmdlets for Azure Scheduler.
 services: scheduler
 ms.service: scheduler
-author: derek1ee
-ms.author: deli
-ms.reviewer: klam, estfan
-ms.topic: article
-ms.date: 08/18/2016
+ms.suite: infrastructure-services
+author: ecfan
+ms.author: estfan
+ms.reviewer: deli, azla
+ms.topic: reference
+ms.date: 02/15/2022
 ---
 
 # PowerShell cmdlets reference for Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
-> [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
-> To continue working with the jobs that you set up in Scheduler, please 
-> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
->
-> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
-> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
-> at this time so that you can manage your jobs and job collections.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) has replaced Azure Scheduler, which is fully deprecated 
+> since January 31, 2022. Please migrate your Azure Scheduler jobs by recreating them as workflows in Azure Logic Apps 
+> following the steps in [Migrate Azure Scheduler jobs to Azure Logic Apps](migrate-from-scheduler-to-logic-apps.md). 
+> Azure Scheduler is longer available in the Azure portal. The [Azure Scheduler REST API](/rest/api/scheduler) and 
+> [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) no longer work.
 
-To author scripts for creating and 
-managing Scheduler jobs and job collections, 
-you can use PowerShell cmdlets. This article lists 
-the major PowerShell cmdlets for Azure Scheduler 
-with links to their reference articles. 
-To install Azure PowerShell for your Azure subscription, 
-see [How to install and configure Azure PowerShell](/powershell/azure/). 
-For more information about [Azure Resource Manager cmdlets](/powershell/azure/), 
+To author scripts for creating and managing Scheduler jobs and job collections, you can use PowerShell cmdlets. This article lists the major PowerShell cmdlets for Azure Scheduler with links to their reference articles. To install Azure PowerShell for your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azure/). For more information about [Azure Resource Manager cmdlets](/powershell/azure/), 
 see [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

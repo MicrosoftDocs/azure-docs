@@ -53,6 +53,8 @@ This extension version is available by installing the [NuGet package], version 5
 }
 ```
 
+[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
+
 To learn more, see [Update your extensions].
 
 [core tools]: ./functions-run-local.md
@@ -137,7 +139,8 @@ The example host.json file below contains only the settings for version 5.0.0 an
             "maxConcurrentCalls": 16,
             "maxConcurrentSessions": 8,
             "maxMessages": 1000,
-            "sessionIdleTimeout": "00:01:00"
+            "sessionIdleTimeout": "00:01:00",
+            "enableCrossEntityTransactions": false
         }
     }
 }
@@ -149,11 +152,12 @@ When using service bus extension version 5.x and higher, the following global co
 |---------|---------|---------|
 |prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
 |autoCompleteMessages|true|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
-|maxAutoLockRenewalDuration|00:05:00|This should be used in place of `maxAutoRenewDuration`|
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
-|maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance.|
-|maxMessages|1000|The maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
-|sessionIdleTimeout|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session.|
+|maxAutoLockRenewalDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
+|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the should be initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting only applies for functions that receive a single message at a time.|
+|maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance. This setting only applies for functions that receive a single message at a time.|
+|maxMessages|1000|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
+|sessionIdleTimeout|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session. This setting only applies for functions that receive a single message at a time.|
+|enableCrossEntityTransactions|false|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
 
 ### Retry settings
 
