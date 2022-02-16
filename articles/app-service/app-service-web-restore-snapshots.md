@@ -68,7 +68,7 @@ The following content and configuration are *not included*. You must configure t
 - [TLS/SSL](configure-ssl-bindings.md)
 - [Scale out](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json)
 - [Diagnostics with Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
-- [Alerts and Metrics](alerts-classic-portal.md)
+- [Alerts and Metrics](../azure-monitor/alerts/alerts-classic-portal.md)
 - [Backup](manage-backup.md)
 - Associated [deployment slots](deploy-staging-slots.md)
 - Any connected database that [standard backup](manage-backup.md#what-gets-backed-up) supports
