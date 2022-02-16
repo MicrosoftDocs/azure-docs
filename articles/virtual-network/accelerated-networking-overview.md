@@ -1,5 +1,5 @@
 ---
-title: Accelerated Networking Overview
+title: Accelerated Networking overview
 description: Accelerated Networking to improves networking performance of Azure VMs.
 services: virtual-network
 documentationcenter: ''
