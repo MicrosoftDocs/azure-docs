@@ -93,7 +93,7 @@ To make access reviews easier and faster for you, we also provide recommendation
 
     ![Open access review listing showing the Accept recommendations button](./media/perform-access-review/accept-recommendations-preview.png)
 
-1. Or to accept recommendations for all users, make sure that no users are selected and click on the **Accept recommendations** button on the top bar.
+1. Or to accept recommendations for all unreviewed users, make sure that no users are selected and click on the **Accept recommendations** button on the top bar.
 
 1. Click **Submit** to accept the recommendations.
 
@@ -117,7 +117,7 @@ Approve or deny access as outlined in [Review access for one or more users](#rev
 > The next stage of the review won't become active until the duration specified during the access review setup has passed. If the administrator believes a stage is done but the review duration for this stage has not expired yet, they can use the **Stop current stage** button in the overview of the access review in the Azure AD portal. This will close the active stage and start the next stage. 
 
 ## If no action is taken on access review
-When the access review is setup, the administrator has the option to use advanced settings to determine what'll
+When the access review is setup, the administrator has the option to use advanced settings to determine what will
 happen in the event a reviewer doesn't respond to an access review request. 
 
 - If the administrator set **If reviewers don't respond** to **Remove access**, then the user's access will be removed if you don't take action on the access review request.

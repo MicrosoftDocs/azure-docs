@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/20/2021
+ms.date: 02/18/2022
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -156,6 +156,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 ## Create a multi-stage access review (preview)
 
+A multi-stage review allows the administrator to define two or three sets of reviewers to complete a review one after another. In a single-stage review, all reviewers make a decision within the same period and the last reviewer to make a decision "wins". In a multi-stage review, two or three independent sets of reviewers make a decision within their own stage, and the next stage doesn't happen until a decision is made in the previous stage. Multi-stage reviews can be used to reduce the burden on later-stage reviewers, allow for escalation of reviewers, or have independent groups of reviewers agree on decisions.
+
 1. After you have selected the resource and scope of your review, move on to the **Reviews** tab. 
 
 1. Click the checkbox next to **(Preview) Multi-stage review**.
@@ -180,23 +182,20 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
     ![Screenshot that shows duration and show previous stages setting enabled for multi-stage review.](./media/create-access-review/reveal-multi-stage-results-and-duration.png)
 
-1. The duration will be set to the sum of the duration day(s) you specified in each stage.
+1. The duration of each recurrence will be set to the sum of the duration day(s) you specified in each stage.
 
-1. Specify the **Review recurrence**, the **Start date**, and **End date** for the review. 
+1. Specify the **Review recurrence**, the **Start date**, and **End date** for the review. The recurrence type must be at least as long as the total duration of the recurrence (i.e., the max duration for a weekly review recurrence is 7 days).
 
-1. To specify which reviewees will continue from stage to stage, select one of the following options next to **Specify reviewees to go to next stage** :
+1. To specify which reviewees will continue from stage to stage, select one or multiple of the following options next to **Specify reviewees to go to next stage** :
      ![Screenshot that shows specify reviewees setting and options for multi-stage review.](./media/create-access-review/next-stage-reviewees-setting.png)
 
     1. **Approved reviewees** - Only reviewees that were approved move on to the next stage(s).
     1. **Denied reviewees** - Only reviewees that were denied move on to the next stage(s).
     1. **Not reviewed reviewees** - Only reviewees that haven't been reviewed will move on to the next stage(s).
     1. **Reviewees marked as "Don't Know"** - Only reviewees marked as "Don't know" move on to the next stage(s).
-    1.  **All**: everyone moves on to the next stage if you’d like all stages of reviewers to make a decision. 
-    
-    This setting allows you to limit reviewees continuing to the next stage to reduce the burden on reviewers in the later stages. Or, this setting allows for escalation scenarios that a user may have been denied by a reviewer. 
+    1.  **All**: everyone moves on to the next stage if you’d like all stages of reviewers to make a decision.  
 
 1. Continue on to the **settings tab** and finish the rest of the settings and create the review. Follow the instructions in [Next: Settings](#next-settings).
-
 
 ## Allow group owners to create and manage access reviews of their groups (preview)
 
