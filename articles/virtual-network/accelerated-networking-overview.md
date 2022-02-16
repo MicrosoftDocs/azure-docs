@@ -86,8 +86,8 @@ A supported VM size without accelerated networking enabled can only have the fea
 Virtual machines (classic) can't be deployed with accelerated networking.
 
 ## Next steps
-* Learn [how Accelerated Networking works](../accelerated-networking-how-it-works.md)
-* Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
-* Learn how to [create a VM with Accerelated Networking using Azure CLI](../virtual-network/create-vm-accelerated-networking-cli.md)
+* Learn [how Accelerated Networking works](./accelerated-networking-how-it-works.md)
+* Learn how to [create a VM with Accelerated Networking in PowerShell](./create-vm-accelerated-networking-powershell.md)
+* Learn how to [create a VM with Accerelated Networking using Azure CLI](./create-vm-accelerated-networking-cli.md)
 * Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md)
 * 
