@@ -1005,6 +1005,8 @@ Jump to a resource provider namespace:
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
 > | availabilitySets | Yes |
+> | capacityReservationGroups | Yes |
+> | capacityReservationGroups / capacityReservations | Yes |
 > | cloudServices | Yes |
 > | cloudServices / networkInterfaces | No |
 > | cloudServices / publicIPAddresses | No |
@@ -1025,6 +1027,7 @@ Jump to a resource provider namespace:
 > | proximityPlacementGroups | Yes |
 > | restorePointCollections | Yes |
 > | restorePointCollections / restorePoints | No |
+> | restorePointCollections / restorePoints / diskRestorePoints | No |
 > | sharedVMExtensions | Yes |
 > | sharedVMExtensions / versions | No |
 > | sharedVMImages | Yes |
@@ -1040,6 +1043,7 @@ Jump to a resource provider namespace:
 > | virtualMachineScaleSets / networkInterfaces | No |
 > | virtualMachineScaleSets / publicIPAddresses | No |
 > | virtualMachineScaleSets / virtualMachines | No |
+> | virtualMachineScaleSets / virtualMachines / extensions | No |
 > | virtualMachineScaleSets / virtualMachines / networkInterfaces | No |
 
 ## Microsoft.Commerce
@@ -1871,13 +1875,21 @@ Jump to a resource provider namespace:
 > | alertrules | Yes |
 > | autoscalesettings | Yes |
 > | components | Yes |
+> | components / analyticsItems | No |
+> | components / favorites | No |
 > | components / linkedStorageAccounts | No |
+> | components / myAnalyticsItems | No |
+> | components / pricingPlans | No |
 > | components / ProactiveDetectionConfigs | No |
+> | dataCollectionEndpoints | No |
+> | dataCollectionRuleAssociations | No |
+> | dataCollectionRules | Yes |
 > | diagnosticSettings | No |
 > | guestDiagnosticSettings | Yes |
 > | guestDiagnosticSettingsAssociation | Yes |
 > | logprofiles | Yes |
 > | metricAlerts | Yes |
+> | myWorkbooks | No |
 > | privateLinkScopes | Yes |
 > | privateLinkScopes / privateEndpointConnections | No |
 > | privateLinkScopes / scopedResources | No |
@@ -2278,6 +2290,7 @@ Jump to a resource provider namespace:
 > | bastionHosts | Yes |
 > | bgpServiceCommunities | No |
 > | connections | Yes |
+> | customIpPrefixes | Yes |
 > | ddosCustomPolicies | Yes |
 > | ddosProtectionPlans | Yes |
 > | dnsOperationStatuses | No |
@@ -2294,6 +2307,7 @@ Jump to a resource provider namespace:
 > | dnszones / SOA | No |
 > | dnszones / SRV | No |
 > | dnszones / TXT | No |
+> | dscpConfigurations | Yes |
 > | expressRouteCircuits | Yes |
 > | expressRouteCrossConnections | Yes |
 > | expressRouteGateways | Yes |
@@ -2305,14 +2319,17 @@ Jump to a resource provider namespace:
 > | frontdoorWebApplicationFirewallPolicies | Yes |
 > | getDnsResourceReference | No |
 > | internalNotify | No |
+> | ipAllocations | Yes |
 > | ipGroups | Yes |
 > | loadBalancers | Yes |
 > | localNetworkGateways | Yes |
 > | natGateways | Yes |
 > | networkIntentPolicies | Yes |
 > | networkInterfaces | Yes |
+> | networkManagers | Yes |
 > | networkProfiles | Yes |
 > | networkSecurityGroups | Yes |
+> | networkVirtualAppliances | Yes |
 > | networkWatchers | Yes |
 > | networkWatchers / connectionMonitors | Yes |
 > | networkWatchers / flowLogs | Yes |
@@ -2337,6 +2354,7 @@ Jump to a resource provider namespace:
 > | publicIPPrefixes | Yes |
 > | routeFilters | Yes |
 > | routeTables | Yes |
+> | securityPartnerProviders | Yes |
 > | serviceEndpointPolicies | Yes |
 > | trafficManagerGeographicHierarchies | No |
 > | trafficmanagerprofiles | Yes |
@@ -2349,6 +2367,7 @@ Jump to a resource provider namespace:
 > | virtualNetworkTaps | Yes |
 > | virtualWans | Yes |
 > | vpnGateways | Yes |
+> | vpnServerConfigurations | Yes |
 > | vpnSites | Yes |
 > | webApplicationFirewallPolicies | Yes |
 
@@ -2902,8 +2921,11 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | instancePools | Yes |
 > | managedInstances | Yes |
+> | managedInstances / administrators | No |
 > | managedInstances / databases | Yes |
+> | managedInstances / databases / backupLongTermRetentionPolicies | No |
 > | managedInstances / databases / backupShortTermRetentionPolicies | No |
 > | managedInstances / databases / schemas / tables / columns / sensitivityLabels | No |
 > | managedInstances / databases / vulnerabilityAssessments | No |
@@ -2911,17 +2933,38 @@ Jump to a resource provider namespace:
 > | managedInstances / encryptionProtector | No |
 > | managedInstances / keys | No |
 > | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | No |
+> | managedInstances / sqlAgent | No |
 > | managedInstances / vulnerabilityAssessments | No |
 > | servers | Yes |
 > | servers / administrators | No |
+> | servers / advisors | No |
+> | servers / auditingSettings | No |
 > | servers / communicationLinks | No |
 > | servers / databases | Yes |
+> | servers / databases / advisors | No |
+> | servers / databases / auditingSettings | No |
+> | servers / databases / backupLongTermRetentionPolicies | No |
+> | servers / databases / backupShortTermRetentionPolicies | No |
+> | servers / databases / dataMaskingPolicies | No |
+> | servers / databases / extensions | No |
+> | servers / databases / securityAlertPolicies | No |
+> | servers / databases / syncGroups | No |
+> | servers / databases / syncGroups / syncMembers | No |
+> | servers / databases / transparentDataEncryption | No |
+> | servers / databases / workloadGroups | No |
+> | servers / elasticpools | Yes |
 > | servers / encryptionProtector | No |
+> | servers / failoverGroups | No |
 > | servers / firewallRules | No |
+> | servers / jobAgents | Yes |
+> | servers / jobAgents / jobs | No |
+> | servers / jobAgents / jobs / steps | No |
+> | servers / jobAgents / jobs / executions | No |
 > | servers / keys | No |
 > | servers / restorableDroppedDatabases | No |
 > | servers / serviceobjectives | No |
 > | servers / tdeCertificates | No |
+> | servers / virtualNetworkRules | No |
 > | virtualClusters | No |
 
 ## Microsoft.SqlVirtualMachine

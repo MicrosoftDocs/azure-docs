@@ -20,6 +20,16 @@ ms.author: phjensen
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
 
+## Feb-2022
+
+### AzAcSnap v5.1 Preview (Build: 20220203.77807)
+
+AzAcSnap v5.1 Preview (Build: 20220203.77807) has been released with the following fixes and improvements:
+
+- Minor update to resolve STDOUT buffer limitations.  Now the list of Oracle table files put into archive-mode is sent to an external file rather than output in the main AzAcSnap log file.  The external file is in the same location and basename as the log file, but with a ".protected-tables" extension (output filename detailed in the AzAcSnap log file).  It is overwritten each time `azacsnap` runs.
+
+For details on the preview features and how to use them go to [AzAcSnap Preview](azacsnap-preview.md).
+
 ## Jan-2022
 
 ### AzAcSnap v5.1 Preview (Build: 20220125.85030)

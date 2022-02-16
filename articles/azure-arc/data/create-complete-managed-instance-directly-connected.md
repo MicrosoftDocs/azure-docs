@@ -48,7 +48,7 @@ After installing the client tools, you need access to a Kubernetes cluster. You 
 
 To quickly create a Kubernetes cluster, use Azure Kubernetes Services (AKS).
 
-1. Log in to [Azure portal](https://ms.portal.azure.com).
+1. Log in to [Azure portal](https://portal.azure.com).
 1. In the search resources field at the top of the portal, type **Kubernetes**, and select **Kubernetes services**.
    Azure takes you to Kubernetes services.
 1. Select **Create** > **Create Kubernetes cluster**.

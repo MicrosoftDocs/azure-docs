@@ -10,7 +10,8 @@ ms.subservice: mlops
 ms.reviewer: nibaccam
 ms.date: 12/16/2021
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow
+ms.custom: devx-track-python, mlflow, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Track ML experiments and models with MLflow or the Azure Machine Learning CLI (v2) (preview)
@@ -53,7 +54,7 @@ To track a local run, you need to point your local machine to the Azure Machine 
 
 # [MLflow SDK](#tab/mlflow)
 
-The following code uses `mlflow` and the [`subprocess`](https://docs.python.org/3/library/subprocess.html) classes in Python to run the Azure Machine Learning CLI (v2) command to retrieve the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
+The following code uses `mlflow` and your Azure Machine Learning workspace details to construct the unique MLFLow tracking URI associated with your workspace. Then the method [`set_tracking_uri()`](https://mlflow.org/docs/latest/python_api/mlflow.html#mlflow.set_tracking_uri) points the MLflow tracking URI to that URI.
 
 ```Python
 import mlflow

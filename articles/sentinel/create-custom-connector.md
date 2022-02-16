@@ -191,7 +191,7 @@ For examples of this method, see:
 
 ## Parse your custom connector data
 
-To take advantage of the data collected with your custom connector, [develop Advanced SIM Information Model (SIEM) parsers](normalization-develop-parsers.md) to work with your connector. Using [ASIM](normalization.md) enables Microsoft Sentinel's built-in content to use your custom data and makes it easier for analysts to query the data.
+To take advantage of the data collected with your custom connector, [develop Advanced Security Information Model (ASIM) parsers](normalization-develop-parsers.md) to work with your connector. Using [ASIM](normalization.md) enables Microsoft Sentinel's built-in content to use your custom data and makes it easier for analysts to query the data.
 
 If your connector method allows for it, you can implement part of the parsing as part of the connector to improve query time parsing performance:
 - **If you've used Logstash**, use the [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) filter plugin to parse your data.

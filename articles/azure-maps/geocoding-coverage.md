@@ -56,7 +56,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Greenland                                           |                 |                |              |      ✓     |          ✓         |
 | Grenada                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Guadeloupe                                          |        ✓        |        ✓      |       ✓      |      ✓     |          ✓         |
-| Guam                                                |        ✓        |        ✓      |       ✓      |      ✓     |           ✓        |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Guyana                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
@@ -104,6 +103,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Cook Islands                                        |                 |                |              |      ✓     |       ✓        |
 | Fiji                                                |                 |                |      ✓       |      ✓     |       ✓        |
 | French Polynesia                                    |                 |                |       ✓      |      ✓     |       ✓        |
+| Guam                                                |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | Heard Island & McDonald Islands                     |                 |                |              |      ✓     |       ✓        |
 | Hong Kong SAR                                       |        ✓        |        ✓      |       ✓      |      ✓     |       ✓        |
 | India                                               |        ✓        |                |       ✓     |      ✓     |       ✓        |

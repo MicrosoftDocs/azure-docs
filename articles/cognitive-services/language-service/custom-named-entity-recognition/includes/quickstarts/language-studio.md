@@ -23,7 +23,7 @@ Before you can use custom NER, you’ll need to create an Azure Language resourc
 >
 > If you have a pre-existing resource you'd like to use, you will need to configure it and a storage account separately. See [create project](../../how-to/create-project.md#using-a-pre-existing-azure-resource)  for information.
 
-1. Go to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
+1. Go to the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) to create a new Azure Language resource. If you're asked to select additional features, select **Custom text classification & custom NER**. When you create your resource, ensure it has the following parameters.
 
     |Azure resource requirement  |Required value  |
     |---------|---------|
@@ -50,7 +50,7 @@ Once your resource and storage container are configured, create a new conversati
 
 [!INCLUDE [Create custom NER project](../create-project.md)]
 
-Be sure to select the container where you’ve uploaded your data. For this quickstart, we’ll use the existing tags file available in the container. Then click **Next**. Review the data you entered and select **Create Project**.
+Select the container where you’ve uploaded your data. When asked if your files are already tagged with classes, select **Yes** and choose the available file. Then click **Next**. Review the data you entered and select **Create Project**.
 
 ## Train your model
 
@@ -73,7 +73,7 @@ After your model is deployed, you can start using it for entity extraction. Use 
 
 2. Select the model you want to test.
 
-3. Add your text to the textbox, you can also upload a `.txt` file. 
+3. Using one of the files you downloaded earlier, add the file's text to the textbox. You can also upload a `.txt` file. 
 
 4. Click on **Run the test**.
 

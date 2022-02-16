@@ -144,7 +144,7 @@ You must be an **Owner** or have [Microsoft.Authorization/roleAssignments/write]
 
 Role assignments in the portal are service-wide. If you want to [grant permissions to a single index](#rbac-single-index), use PowerShell or the Azure CLI instead.
 
-1. Open the [Azure portal](https://ms.portal.azure.com).
+1. Open the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your search service.
 
@@ -203,7 +203,7 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
 ### [**Azure portal**](#tab/test-portal)
 
-1. Open the [Azure portal](https://ms.portal.azure.com).
+1. Open the [Azure portal](https://portal.azure.com).
 
 1. Navigate to your search service.
 

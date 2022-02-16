@@ -8,7 +8,7 @@ ms.date: 12/18/2020
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
-ms.devlang: java
+ms.devlang: java, azurecli
 ---
 
 # Quickstart: Azure Key Vault Certificate client library for Java (Certificates)

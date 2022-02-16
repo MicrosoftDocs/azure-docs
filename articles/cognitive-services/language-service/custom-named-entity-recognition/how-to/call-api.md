@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 02/04/2022
+ms.topic: how-to
+ms.date: 02/16/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -87,7 +87,7 @@ If you deploy your model through the Language Studio, your `deployment-name` is 
 
 First you will need to get your resource key and endpoint
 
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
@@ -146,7 +146,7 @@ First you will need to get your resource key and endpoint
 
 ## Use the client libraries
 
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home)
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
