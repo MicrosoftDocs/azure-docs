@@ -6,6 +6,8 @@ ms.topic: overview
 ms.date: 01/26/2022
 ms.author: madsd
 ms.custom: references_regions
+---
+
 # App Service Environment overview
 
 An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale.
