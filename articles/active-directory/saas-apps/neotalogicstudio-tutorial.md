@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Neota Logic Studio | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Neota Logic Studio.
+title: 'Tutorial: Azure Active Directory integration with Neota Studio | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Neota Studio.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Neota Logic Studio
+# Tutorial: Azure Active Directory integration with Neota Studio
 
-In this tutorial, you learn how to integrate Neota Logic Studio with Azure Active Directory (Azure AD).
-Integrating Neota Logic Studio with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate Neota Studio with Azure Active Directory (Azure AD).
+Integrating Neota Studio with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Neota Logic Studio.
-* You can enable your users to be automatically signed-in to Neota Logic Studio (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to Neota Studio.
+* You can enable your users to be automatically signed-in to Neota Studio (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
@@ -26,22 +26,22 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Neota Logic Studio, you need the following items:
+To configure Azure AD integration with Neota Studio, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Neota Logic Studio single sign-on enabled subscription
+* Neota Studio single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Neota Logic Studio supports **SP** initiated SSO
+* Neota Studio supports **SP** initiated SSO
 
-## Adding Neota Logic Studio from the gallery
+## Adding Neota Studio from the gallery
 
-To configure the integration of Neota Logic Studio into Azure AD, you need to add Neota Logic Studio from the gallery to your list of managed SaaS apps.
+To configure the integration of Neota Studio into Azure AD, you need to add Neota Studio from the gallery to your list of managed SaaS apps.
 
-**To add Neota Logic Studio from the gallery, perform the following steps:**
+**To add Neota Studio from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -55,31 +55,31 @@ To configure the integration of Neota Logic Studio into Azure AD, you need to ad
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Neota Logic Studio**, select **Neota Logic Studio** from result panel then click **Add** button to add the application.
+4. In the search box, type **Neota Studio**, select **Neota Studio** from result panel then click **Add** button to add the application.
 
-	 ![Neota Logic Studio in the results list](common/search-new-app.png)
+	 ![Neota Studio in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Neota Logic Studio based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Neota Logic Studio needs to be established.
+In this section, you configure and test Azure AD single sign-on with Neota Studio based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Neota Studio needs to be established.
 
-To configure and test Azure AD single sign-on with Neota Logic Studio, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Neota Studio, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Neota Logic Studio Single Sign-On](#configure-neota-logic-studio-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure Neota Studio Single Sign-On](#configure-neota-logic-studio-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Neota Logic Studio test user](#create-neota-logic-studio-test-user)** - to have a counterpart of Britta Simon in Neota Logic Studio that is linked to the Azure AD representation of user.
+5. **[Create Neota Studio test user](#create-neota-logic-studio-test-user)** - to have a counterpart of Britta Simon in Neota Studio that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Neota Logic Studio, perform the following steps:
+To configure Azure AD single sign-on with Neota Studio, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Neota Logic Studio** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Neota Studio** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with Neota Logic Studio, perform the follow
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![Neota Logic Studio Domain and URLs single sign-on information](common/sp-identifier.png)
+    ![Neota Studio Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<sub domain>.neotalogic.com/a/<sub application>`
@@ -102,13 +102,13 @@ To configure Azure AD single sign-on with Neota Logic Studio, perform the follow
     `https://<sub domain>.neotalogic.com/wb`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Neota Logic Studio Client support team](https://www.neotalogic.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Neota Studio Client support team](https://www.neotalogic.com/contact-us/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Neota Logic Studio** section, copy the appropriate URL(s) as per your requirement.
+6. On the **Set up Neota Studio** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -118,9 +118,9 @@ To configure Azure AD single sign-on with Neota Logic Studio, perform the follow
 
 	c. Logout URL
 
-### Configure Neota Logic Studio Single Sign-On
+### Configure Neota Studio Single Sign-On
 
-To configure single sign-on on **Neota Logic Studio** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Neota Logic Studio support team](https://www.neotalogic.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Neota Studio** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Neota Studio support team](https://www.neotalogic.com/contact-us/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -149,15 +149,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Neota Logic Studio.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Neota Studio.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Neota Logic Studio**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Neota Studio**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Neota Logic Studio**.
+2. In the applications list, select **Neota Studio**.
 
-	![The Neota Logic Studio link in the Applications list](common/all-applications.png)
+	![The Neota Studio link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -173,15 +173,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create Neota Logic Studio test user
+### Create Neota Studio test user
 
-In this section, you create a user called Britta Simon in Neota Logic Studio. Work with [Neota Logic Studio support team](https://www.neotalogic.com/contact-us/) to add the users in the Neota Logic Studio platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Neota Studio. Work with [Neota Studio support team](https://www.neotalogic.com/contact-us/) to add the users in the Neota Studio platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Neota Logic Studio tile in the Access Panel, you should be automatically signed in to the Neota Logic Studio for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
+When you click the Neota Studio tile in the Access Panel, you should be automatically signed in to the Neota Studio for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 
