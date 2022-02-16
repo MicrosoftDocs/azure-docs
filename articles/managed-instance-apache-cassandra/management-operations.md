@@ -13,6 +13,11 @@ ms.custom: ignite-fall-2021
 
 Azure Managed Instance for Apache Cassandra provides automated deployment and scaling operations for managed open-source Apache Cassandra data centers. This article defines the management operations and features provided by the service. It also explains the separation of responsibilities between the Azure support team and customers when maintaining standalone and [hybrid](configure-hybrid-cluster.md) clusters.
 
+## Compaction
+* The system currently does not perform a major compaction. There are plans to do so after a topology change though but in the meantime customers are encouraged to do so after a change through the DBA command facility.
+* Repair (see below) performs a Merkle tree compaction, which is a special kind of compaction.
+* Deoending on the compaction startegy on the keyspace Cassandra will automaticlaly compact when the keyspace reaches a certain size. We recommend to carefully select a compaction strategy for your workload and not perform any manual compactions outside.
+
 ## Patching
 
 * Operating System-level patches are done automatically at approximately 2-week cadence.
@@ -53,7 +58,7 @@ Azure Managed Instance for Apache Cassandra provides an [SLA](https://azure.micr
 
 ## Backup and restore
 
-Snapshot backups are enabled by default, and taken every 4 hours. Backups are stored in an internal Azure blob storage account, and are retained for up to 2 days (48 hours). This is no cost for backups. To restore from a backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+Snapshot backups are enabled by default, and taken every 4 hours with [Medusa](https://github.com/thelastpickle/cassandra-medusa). Backups are stored in an internal Azure blob storage account, and are retained for up to 2 days (48 hours). This is no cost for backups. To restore from a backup, file a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 
 > [!WARNING]
 > Backups are restored to new clusters only. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our quick start for multi-region deployments [here](create-multi-region-cluster.md). 
