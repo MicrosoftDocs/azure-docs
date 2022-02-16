@@ -13,6 +13,8 @@ ms.author: robb
 > [!NOTE]
 > This list is largely auto-generated. Any modification made to this list via GitHub might be written over without warning. Contact the author of this article for details on how to make permanent updates.
 
+Date list was last updated: 2021-10-05.
+
 Azure Monitor provides several ways to interact with metrics, including charting them in the Azure portal, accessing them through the REST API, or querying them by using PowerShell or the Azure CLI. 
 
 This article is a complete list of all platform (that is, automatically collected) metrics currently available with the consolidated metric pipeline in Azure Monitor. Metrics changed or added after the date at the top of this article might not yet appear in the list. To query for and access the list of metrics programmatically, use the [2018-01-01 api-version](/rest/api/monitor/metricdefinitions). Other metrics not in this list might be available in the portal or through legacy APIs.
@@ -53,12 +55,6 @@ The Azure Monitor agent replaces the Azure Diagnostics extension and Log Analyti
 ## Table formatting
 
 This latest update adds a new column and reorders the metrics to be alphabetical. The additional information means that the tables might have a horizontal scroll bar at the bottom, depending on the width of your browser window. If you seem to be missing information, use the scroll bar to see the entirety of the table.
-
-## microsoft.aadiam/azureADMetrics
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|ThrottledRequests|No|ThrottledRequests|Count|Average|azureADMetrics type metric|No Dimensions|
 
 
 ## Microsoft.AnalysisServices/servers
@@ -2518,7 +2514,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PEBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes Out|No Dimensions|
+|PEBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes In|No Dimensions|
 |PEBytesOut|Yes|Bytes Out|Count|Total|Total number of Bytes Out|No Dimensions|
 
 
@@ -2526,7 +2522,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|PLSBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes Out|PrivateLinkServiceId|
+|PLSBytesIn|Yes|Bytes In|Count|Total|Total number of Bytes In|PrivateLinkServiceId|
 |PLSBytesOut|Yes|Bytes Out|Count|Total|Total number of Bytes Out|PrivateLinkServiceId|
 |PLSNatPortsUsage|Yes|Nat Ports Usage|Percent|Average|Nat Ports Usage|PrivateLinkServiceId, PrivateLinkServiceIPAddress|
 
@@ -2987,7 +2983,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |OutboundTraffic|Yes|Outbound Traffic|Bytes|Total|The outbound traffic of service|No Dimensions|
 |SystemErrors|Yes|System Errors|Percent|Maximum|The percentage of system errors|No Dimensions|
 |UserErrors|Yes|User Errors|Percent|Maximum|The percentage of user errors|No Dimensions|
-
+|ConnectionQuotaUtilization|Yes|Connection Quota Utilization (Platform)|Percent|Average|The percentage of connection connected relative to connection quota|No Dimensions|
 
 ## Microsoft.SignalRService/WebPubSub
 

@@ -7,8 +7,8 @@ ms.author: damendo
 ms.date: 01/07/2021
 ms.topic: quickstart
 ms.service: network-watcher
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-other
-# Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+#Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
 ---
 
 # Quickstart: Configure network security group flow logs by using an ARM template
@@ -140,7 +140,7 @@ New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatc
 You have two options to see whether your deployment succeeded:
 
 - Your PowerShell console shows `ProvisioningState` as `Succeeded`.
-- Go to the [NSG flow logs portal page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) to confirm your changes.
+- Go to the [NSG flow logs portal page](https://portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) to confirm your changes.
 
 If there were issues with the deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md).
 

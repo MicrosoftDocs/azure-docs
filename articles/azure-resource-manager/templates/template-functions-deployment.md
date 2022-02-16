@@ -2,7 +2,7 @@
 title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 02/11/2022
 ---
 
 # Deployment functions for ARM templates
@@ -15,6 +15,9 @@ Resource Manager provides the following functions for getting values related to 
 * [variables](#variables)
 
 To get values from resources, resource groups, or subscriptions, see [Resource functions](template-functions-resource.md).
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
 
 ## deployment
 
@@ -236,7 +239,7 @@ The preceding example returns the following object when deployed to global Azure
   "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
   "resourceManager": "https://management.azure.com/",
   "authentication": {
-    "loginEndpoint": "https://login.windows.net/",
+    "loginEndpoint": "https://login.microsoftonline.com/",
     "audiences": [
       "https://management.core.windows.net/",
       "https://management.azure.com/"

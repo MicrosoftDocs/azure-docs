@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: High availability and disaster recovery
 titleSuffix: Azure Digital Twins
-description: Describes the Azure and Azure Digital Twins features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
+description: Learn about Azure high availability and disaster recovery features as they pertain to Azure Digital Twins, which will help you build highly available Azure IoT solutions with disaster recovery capabilities.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/16/2021
+ms.date: 12/09/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Azure Digital Twins high availability and disaster recovery
 
-A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for **High Availability (HA)** and **Disaster Recovery (DR)** can help you define and achieve appropriate uptime goals for your solution.
+This article discusses the **High Availability (HA)** and **Disaster Recovery (DR)** features offered specifically by the Azure Digital Twins service. The article covers intra-region HA, cross region DR, monitoring service health, and best practices on HA/DR.
 
-This article discusses the HA and DR features offered specifically by the Azure Digital Twins service.
+A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for HA and DR can help you define and achieve appropriate uptime goals for your solution.
 
 Azure Digital Twins supports these feature options:
 * *Intra-region HA* – Built-in redundancy to deliver on uptime of the service

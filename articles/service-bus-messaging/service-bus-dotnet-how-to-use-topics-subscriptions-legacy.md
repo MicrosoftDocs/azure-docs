@@ -4,6 +4,7 @@ description: Write a C# .NET Core console application that uses Service Bus mess
 ms.topic: how-to
 ms.tgt_pltfrm: dotnet
 ms.date: 07/27/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

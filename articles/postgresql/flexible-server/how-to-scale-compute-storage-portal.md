@@ -22,8 +22,7 @@ This article provides steps to perform scaling operations for compute and storag
 To complete this how-to guide, you need:
 
 -   You must have an Azure Database for PostgreSQL - Flexible Server. The same procedure is also applicable for flexible server configured with zone redundancy.
-> [!IMPORTANT]
-> When configured with high availability, you cannot chose burstable SKU. During scaling operation, the standby is first scaled to the desired size, the primary server is failed over, and the primary is scaled. 
+
 
 ## Scaling the compute tier and size
 

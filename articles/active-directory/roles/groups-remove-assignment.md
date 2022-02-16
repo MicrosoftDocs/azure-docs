@@ -3,12 +3,12 @@ title: Remove role assignments from a group in Azure Active Directory
 description: Remove role assignments from a group in Azure Active Directory using the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -71,42 +71,52 @@ Remove-AzureAdMSRoleAssignment -Id $roleAssignment.Id
 
 ### Create a group that can be assigned an Azure AD role
 
+Use the [Create group](/graph/api/group-post-groups) API to create a group.
+
 ```http
-POST https://graph.microsoft.com/beta/groups
+POST https://graph.microsoft.com/v1.0/groups
+
 {
-"description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD",
-"displayName": "Contoso_Helpdesk_Administrators",
-"groupTypes": [
-"Unified"
-],
-"mailEnabled": true,
-"securityEnabled": true
-"mailNickname": "contosohelpdeskadministrators",
-"isAssignableToRole": true,
+    "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD",
+    "displayName": "Contoso_Helpdesk_Administrators",
+    "groupTypes": [
+        "Unified"
+    ],
+    "isAssignableToRole": true,
+    "mailEnabled": true,
+    "mailNickname": "contosohelpdeskadministrators",
+    "securityEnabled": true
 }
 ```
 
 ### Get the role definition
 
+Use the [List unifiedRoleDefinitions](/graph/api/rbacapplication-list-roledefinitions) API to get a role definition.
+
 ```http
-GET https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions?$filter=displayName+eq+'Helpdesk Administrator'
+GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions?$filter=displayName+eq+'Helpdesk Administrator'
 ```
 
 ### Create the role assignment
 
+Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the role.
+
 ```http
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 {
-"principalId":"{object-id-of-group}",
-"roleDefinitionId":"{role-definition-id}",
-"directoryScopeId":"/"
+    "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
+    "principalId": "{object-id-of-group}",
+    "roleDefinitionId": "{role-definition-id}",
+    "directoryScopeId": "/"
 }
 ```
 
 ### Delete role assignment
 
+Use the [Delete unifiedRoleAssignment](/graph/api/unifiedroleassignment-delete) API to delete the role assignment.
+
 ```http
-DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/{role-assignment-id}
+DELETE https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments/{role-assignment-id}
 ```
 
 ## Next steps

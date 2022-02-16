@@ -101,8 +101,8 @@
 - name: Reference
   expanded: true
   items:
-  - name: Basic info identifiers in the sign-in log
-    href: reference-basic-info-identifiers.md
+  - name: Basic info in the sign-in logs
+    href: reference-basic-info-sign-in-logs.md
   - name: Azure AD PowerShell cmdlets for reporting
     href: reference-powershell-reporting.md
   - name: Audit logs API reference
@@ -123,5 +123,7 @@
     items:
     - name: Conditional access gap analyzer
       href: workbook-conditional-access-gap-analyzer.md
+    - name: Cross-tenant access activity 
+      href: workbook-cross-tenant-access-activity.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md

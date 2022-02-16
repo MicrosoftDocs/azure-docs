@@ -3,13 +3,11 @@ title: How to back up and recover speech customer resources
 titleSuffix: Azure Cognitive Services
 description: Learn how to prepare for service outages with Custom Speech and Custom Voice.
 services: cognitive-services
-author: masaki-itagaki
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/28/2021
-ms.author: mitagaki
 ms.custom: ignite-fall-2021
 ---
 
@@ -103,7 +101,7 @@ Custom Voice does not support automatic failover. Handle real-time synthesis fai
 
 When custom voice real-time synthesis fails, fail over to a public voice (client sample code: [GitHub: custom voice failover to public voice](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_samples.cs#L899)).
 
-Check the [public voices available](./language-support.md#neural-voices). You can also change the sample code above if you would like to fail over to a different voice or in a different region.
+Check the [public voices available](./language-support.md#prebuilt-neural-voices). You can also change the sample code above if you would like to fail over to a different voice or in a different region.
 
 **Option 2: Fail over to custom voice on another region.**
 

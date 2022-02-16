@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Percept Vision and vision modules
 description: Get troubleshooting tips for some of the more common issues found in the vision AI prototyping experiences.
-author: NabilaBabar
-ms.author: amiyouss
+author: nkhuyent
+ms.author: nbabar
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/29/2021
@@ -82,7 +82,7 @@ Using the azureeyemodule module twin, it's possible change the interval rate for
 
 Follow these steps to update the message interval:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home), and open **All resources**.
+1. Sign in to the [Azure portal](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod#home), and open **All resources**.
 
 1. On the **All resources** page, select the name of the IoT hub that was provisioned to your development kit during setup.
 

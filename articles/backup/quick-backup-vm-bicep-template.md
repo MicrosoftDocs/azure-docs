@@ -24,13 +24,13 @@ Resource types, API versions, and properties that are valid in an ARM template, 
 To set up your environment for Bicep development, see [Install Bicep tools](../azure-resource-manager/bicep/install.md).
 
 >[!Note]
->Install the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az?view=azps-6.6.0) and the Bicep CLI as detailed in article.
+>Install the latest [Azure PowerShell module](/powershell/azure/new-azureps-module-az) and the Bicep CLI as detailed in article.
 
 ## Review the template
 
 The template used below is from [Azure quickstart templates](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/). This template allows you to deploy simple Windows VM and Recovery Services vault configured with _DefaultPolicy_ for _Protection_.
 
-```json
+```bicep
 @description('Specifies a name for generating resource names.')
 @maxLength(8)
 param projectName string
@@ -283,7 +283,7 @@ To monitor the backup job, see [Monitor the backup job](quick-backup-vm-powershe
 
 - If you no longer need to back up the VM, you can clean it up.
 - To try out restoring the VM, skip the clean-up process.
-- If you’ve used an existing VM, you can skip the final [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to keep the resource group and VM.
+- If you've used an existing VM, you can skip the final [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to keep the resource group and VM.
 
 Follow these steps:
 

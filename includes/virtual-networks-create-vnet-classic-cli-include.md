@@ -7,14 +7,14 @@
  ms.topic: include
  ms.date: 04/13/2018
  ms.author: genli
- ms.custom: include file
-
+ ms.custom: include file, devx-track-azurecli 
+ ms.devlang: azurecli
 ---
 
 ## How to create a classic VNet using Azure CLI
-You can use the Azure CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or OSX.
+You can use the Azure classic CLI to manage your Azure resources from the command prompt from any computer running Windows, Linux, or macOS.
 
-1. If you have never used Azure CLI, see [Install and Configure the Azure CLI](/cli/azure/install-classic-cli) and follow the instructions up to the point where you select your Azure account and subscription.
+1. If you have never used the Azure classic CLI, review [Install and configure the Azure classic CLI](/cli/azure/install-classic-cli) and follow the instructions up to the point where you select your Azure account and subscription.
 
 2. To create a VNet and a subnet, run the **azure network vnet create** command:
    

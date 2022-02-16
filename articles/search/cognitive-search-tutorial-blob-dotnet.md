@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/23/2021
+ms.date: 12/10/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -20,8 +20,8 @@ If you have unstructured text or images in Azure Blob Storage, an [AI enrichment
 In this C# tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Set up a development environment
-> * Define a pipeline that uses OCR, language detection, and entity and key phrase recognition.
+> * Set up a development environment.
+> * Define a pipeline that uses OCR, language detection, entity recognition, and key phrase extraction.
 > * Execute the pipeline to invoke transformations, and to create and load a search index.
 > * Explore results using full text search and a rich query syntax.
 
@@ -41,6 +41,7 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 * [Azure.Search.Documents 11.x NuGet package](https://www.nuget.org/packages/Azure.Search.Documents) 
 * [Azure Storage](https://azure.microsoft.com/services/storage/)
 * [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
+* [Sample data](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media)
 
 > [!Note]
 > You can use the free search service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
@@ -49,11 +50,9 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 
 The sample data consists of 14 files of mixed content type that you will upload to Azure Blob Storage in a later step.
 
-1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
+1. Get the files from [azure-search-sample-data/ai-enrichment-mixed-media/](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) and copy them to your local computer. 
 
-1. Right-click the zip file and select **Extract All**. There are 14 files of various types. You'll use 7 for this exercise.
-
-You can also download the source code for this tutorial. Source code is in the **tutorial-ai-enrichment/v11** folder in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository.
+1. Next, get the source code for this tutorial. Source code is in the **tutorial-ai-enrichment/v11** folder in the [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) repository.
 
 ## 1 - Create services
 
@@ -71,49 +70,51 @@ If possible, create both in the same region and resource group for proximity and
 
 1. In the Basics tab, the following items are required. Accept the defaults for everything else.
 
-   * **Resource group**. Select an existing one or create a new one, but use the same group for all services so that you can manage them collectively.
+   + **Resource group**. Select an existing one or create a new one, but use the same group for all services so that you can manage them collectively.
 
-   * **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
+   + **Storage account name**. If you think you might have multiple resources of the same type, use the name to disambiguate by type and region, for example *blobstoragewestus*. 
 
-   * **Location**. If possible, choose the same location used for Azure Cognitive Search and Cognitive Services. A single location voids bandwidth charges.
+   + **Location**. If possible, choose the same location used for Azure Cognitive Search and Cognitive Services. A single location voids bandwidth charges.
 
-   * **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
+   + **Account Kind**. Choose the default, *StorageV2 (general purpose v2)*.
 
-1. Click **Review + Create** to create the service.
+1. Select **Review + Create** to create the service.
 
-1. Once it's created, click **Go to the resource** to open the Overview page.
+1. Once it's created, select **Go to the resource** to open the Overview page.
 
-1. Click **Blobs** service.
+1. Select **Blobs** service.
 
-1. Click **+ Container** to create a container and name it *cog-search-demo*.
+1. Select **+ Container** to create a container and name it *cog-search-demo*.
 
-1. Select *cog-search-demo* and then click **Upload** to open the folder where you saved the download files. Select all fourteen files and click **OK** to upload.
+1. Select *cog-search-demo* and then select **Upload** to open the folder where you saved the download files. Select all of the files. Select **Upload**.
 
-   ![Upload sample files](media/cognitive-search-quickstart-blob/sample-data.png "Upload sample files")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/sample-files.png" alt-text="Screenshot of the files in File Explorer." border="true":::
 
 1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
 
-   1. Browse back to the Overview page of your storage account (we used *blobstoragewestus* as an example). 
+   1. Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example). 
 
    1. In the left navigation pane, select **Access keys** and copy one of the connection strings. 
 
    The connection string is a URL similar to the following example:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=blobstoragewestus;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 1. Save the connection string to Notepad. You'll need it later when setting up the data source connection.
 
+<!-- The next section says that a key isn't required, but the code won't run without it. Is there a way to make the key declaration work as null? It would be nice to keep the appsetting so that people know how to set it up, but at the same time, the other versions of this sample don't require a key, so this one shouldn't either. -->
+
 ### Cognitive Services
 
-AI enrichment is backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+AI enrichment is backed by Cognitive Services, including Language service and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
 For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. Since this tutorial uses 14 transactions, the free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
 ### Azure Cognitive Search
 
-The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
+The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
 
 You can use the Free tier to complete this walkthrough. 
 
@@ -123,11 +124,12 @@ To interact with your Azure Cognitive Search service you will need the service U
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
-1. In **Settings** > **Keys**, copy an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+1. In **Settings** > **Keys**, get an admin key for full rights on the service. You can copy either the primary or secondary key.
 
-   Get the query key as well. It's a best practice to issue query requests with read-only access.
+<!-- This code sample doesn't include a query so the following sentence should be deleted.
+  Get the query key as well. It's a best practice to issue query requests with read-only access. -->
 
-   ![Get the service name and admin and query keys](media/search-get-started-javascript/service-name-and-keys.png)
+   ![Get the service name and admin key](media/search-get-started-javascript/service-name-and-keys.png)
 
 Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -288,13 +290,13 @@ In this section, you define a set of enrichment steps that you want to apply to 
 
 * [Optical Character Recognition](cognitive-search-skill-ocr.md) to recognize printed and handwritten text in image files.
 
-* [Text Merger](cognitive-search-skill-textmerger.md) to consolidate text from a collection of fields into a single field.
+* [Text Merger](cognitive-search-skill-textmerger.md) to consolidate text from a collection of fields into a single "merged content" field.
 
 * [Language Detection](cognitive-search-skill-language-detection.md) to identify the content's language.
 
-* [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the entity recognition skill. Key phrase extraction and entity recognition accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
-
 * [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) for extracting the names of organizations from content in the blob container.
+
+* [Text Split](cognitive-search-skill-textsplit.md) to break large content into smaller chunks before calling the key phrase extraction skill and the entity recognition skill. Key phrase extraction and entity recognition accept inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit.
 
 * [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) to pull out the top key phrases.
 

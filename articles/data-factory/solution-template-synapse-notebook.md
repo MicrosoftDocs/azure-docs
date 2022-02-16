@@ -6,7 +6,6 @@ author: chugugrace
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: 
 ms.date: 11/23/2021
 ---
 
@@ -24,9 +23,9 @@ In this tutorial, you create an end-to-end pipeline that contains the **Web**, *
 
 ## Prerequisites
 
-- You have a [Synapse pipeline with a notebook activity](https://docs.microsoft.com/azure/synapse-analytics/synapse-notebook-activity).
+- You have a [Synapse pipeline with a notebook activity](../synapse-analytics/synapse-notebook-activity.md).
 - Use role-based access control(RBAC) to grant permissions for Data Factory to call Synapse workspace endpoint, details refer to [Managed Identity](control-flow-web-activity.md#managed-identity).
-- Grant permissions for Data Factory to execute/run Synapse pipeline, details refer to [Synapse RBAC roles](https://docs.microsoft.com/azure/synapse-analytics/security/synapse-workspace-understand-what-role-you-need#tasks-and-required-roles).
+- Grant permissions for Data Factory to execute/run Synapse pipeline, details refer to [Synapse RBAC roles](../synapse-analytics/security/synapse-workspace-understand-what-role-you-need.md#tasks-and-required-roles).
 
 ## How to use this template
 
@@ -50,14 +49,14 @@ Review the configurations of your pipeline and make any necessary changes.
 
 1. A **Web** activity to call Synapse pipeline.
 
-    - *URL*: `@Concat(pipeline().parameters.SynapseEndpoint,'/pipelines/',pipeline().parameters.PLName,'/createRun?api-version=2020-12-01')`. Refer to [Create pipeline run via Synapse REST API](https://docs.microsoft.com/rest/api/synapse/data-plane/pipeline/create-pipeline-run).
+    - *URL*: `@Concat(pipeline().parameters.SynapseEndpoint,'/pipelines/',pipeline().parameters.PLName,'/createRun?api-version=2020-12-01')`. Refer to [Create pipeline run via Synapse REST API](/rest/api/synapse/data-plane/pipeline/create-pipeline-run).
     - *Authentication*: **Managed Identity** is used for authentication. Refer to [Prerequisites](#prerequisites) to grant necessary permissions.
     - *Resource* : `https://dev.azuresynapse.net/`.
     
         :::image type="content" source="media/solution-template-synapse-notebook/web-call-synapse-pipeline-setting.png" alt-text="Call Synapse pipeline":::
 
 1. Do **Web** activity to get Synapse pipeline status, **Until** web activity returns status of *Succeeded*, *Failed*, or *Canceled*.
-    - **Web** *URL*: `@concat(pipeline().parameters.SynapseEndpoint,'/pipelineruns/',activity('Call Synapse Pipeline with Notebook').output.runId,'?api-version=2020-12-01')`. Refer to [Synapse Get Pipeline Run REST API](https://docs.microsoft.com/rest/api/synapse/data-plane/pipeline-run/get-pipeline-run).
+    - **Web** *URL*: `@concat(pipeline().parameters.SynapseEndpoint,'/pipelineruns/',activity('Call Synapse Pipeline with Notebook').output.runId,'?api-version=2020-12-01')`. Refer to [Synapse Get Pipeline Run REST API](/rest/api/synapse/data-plane/pipeline-run/get-pipeline-run).
     
         :::image type="content" source="media/solution-template-synapse-notebook/get-pipeline-status.png" alt-text="Get pipeline status":::
     

@@ -5,13 +5,12 @@ services: azure-government
 cloud: gov
 documentationcenter: ''
 ms.service: azure-government
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 03/09/2021
+ms.custom: mode-ui
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government using portal so I can start creating apps and developing against Azure Government's secure isolated datacenters.
-ms.custom: mode-other
 ---
 
 # Quickstart: Connect to Azure Government using portal

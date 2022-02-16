@@ -99,19 +99,7 @@ With service endpoints, you can configure your app with application gateways or 
 
    :::image type="content" source="media/app-service-ip-restrictions/access-restrictions-service-tag-add.png?v2" alt-text="Screenshot of the 'Add Restriction' pane with the Service Tag type selected.":::
 
-Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags].
-
-All available service tags are supported in access restriction rules. For simplicity, only a list of the most common tags are available through the Azure portal. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules. These are the tags available through Azure portal:
-
-* ActionGroup
-* ApplicationInsightsAvailability
-* AzureCloud
-* AzureCognitiveSearch
-* AzureEventGrid
-* AzureFrontDoor.Backend
-* AzureMachineLearning
-* AzureTrafficManager
-* LogicApps
+All available service tags are supported in access restriction rules. Each service tag represents a list of IP ranges from Azure services. A list of these services and links to the specific ranges can be found in the [service tag documentation][servicetags]. Use Azure Resource Manager templates or scripting to configure more advanced rules like regional scoped rules.
 
 ### Edit a rule
 

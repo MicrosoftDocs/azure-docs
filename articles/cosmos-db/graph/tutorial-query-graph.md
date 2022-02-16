@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-graph
 ms.topic: tutorial
 ms.date: 11/08/2021
 ms.reviewer: sngun
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

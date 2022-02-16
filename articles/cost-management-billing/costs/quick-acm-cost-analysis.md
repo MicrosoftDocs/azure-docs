@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy22q1, mode-other
+ms.custom: contperf-fy22q2, mode-other
 ---
 # Quickstart: Explore and analyze costs with cost analysis
 
@@ -34,7 +34,7 @@ If you have a new subscription, you can't immediately use Cost Management featur
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal.
+- Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis).
 
 ## Get started in Cost analysis
 
