@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 02/09/2022
 ms.author: caoling
+ms.custom: references_regions
 ---
 
 # Deploy and use your voice model
