@@ -57,7 +57,7 @@ $azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azur
 $subscription = Get-AzSubscription -SubscriptionId $subscriptionId
 
 $clientId = $azureAdApplication.ApplicationId.Guid
-$tenantId = $subscription.TenantId
+$tenantId = $subscription.TenantIdgit
 $authUrl = "https://login.microsoftonline.com/${tenantId}"
 
 $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
