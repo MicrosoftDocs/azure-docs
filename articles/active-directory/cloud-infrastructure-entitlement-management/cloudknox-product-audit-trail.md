@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/15/2022
 ms.author: v-ydequadros
 ---
 
@@ -47,8 +47,8 @@ There are several different query parameters you can configure individually or i
 - To create a new query, select **New query**.
 - To view an existing query, select **View** (the eye icon).
 - To edit an existing query, select **Edit** (the pencil icon).
-- To delete a function line in a query, select **Delete**.
-- To create multiple queries at one time, select **Add new tab** (the plus sign **+** icon) to the right of the **Query** tabs that are displayed. 
+- To delete a function line in a query, select **Delete** (the minus sign **-** icon).
+- To create multiple queries at one time, select **Add new tab** to the right of the **Query** tabs that are displayed. 
 
   You can open a maximum number of six query tab pages at the same time. A message will appear when you've reached the maximum.
 
@@ -56,7 +56,7 @@ There are several different query parameters you can configure individually or i
 
 ### Create a query with a date
 
-1. In the **New query** section, the default parameter displayed is **DATE IN "Last day"**.
+1. In the **New query** section, the default parameter displayed is **Date In "Last day"**.
 
     The first-line parameter always defaults to **Date** and can't be deleted.
 
@@ -69,7 +69,7 @@ There are several different query parameters you can configure individually or i
     - **Is**: Select this option to choose a specific date from the calendar.
     - **Custom**: Select this option to set a date range from the **From** and **To** calendars.
 
-1. To search on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**. 
 
 1. To save your query, select **Save**.
 
@@ -97,9 +97,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*.
 
-1. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-1. To search on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**. 
 
 1. To clear the recent selections, select **Reset**.
 
@@ -117,9 +117,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. Select the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*. 
 
-1. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-1. To search on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**. 
 
 1. To clear the recent selections, select **Reset**.
 
@@ -137,9 +137,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. Select the plus (**+**) sign, select **Or** with **Is**, and then enter or select  `ec2::instance`. 
 
-1. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-1. To search on the current selection, select **Search**.
+1. To run the query on the current selection, select **Search**.
 
 1. To clear the recent selections, select **Reset**.
 
@@ -158,9 +158,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. Select **Add**, select **Or**  with **Is**, and then enter or select `ec2:TerminateInstance`. 
 
-1. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-1. To search on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**. 
 
 1. To clear the recent selections, select **Reset**.
 
@@ -180,9 +180,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 1. Select the **Add** icon, select **Or** with **Is**, and then select **Success**. 
 
-1. To remove a row of criteria, select **Remove**.
+1. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-1. To search on the current selection, select **Search**. 
+1. To run the query on the current selection, select **Search**. 
 
 1. To clear the recent selections, select **Reset**.
 
@@ -200,9 +200,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *CloudKnox*. 
 
-7. To remove a row of criteria, select **Remove**.
+7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-8. To search on the current selection, select **Search**. 
+8. To run the query on the current selection, select **Search**. 
 
 9. To clear the recent selections, select **Reset**.
 
@@ -220,9 +220,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 6. Select the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *CloudKnox*. 
 
-7. To remove a row of criteria, select **Remove**.
+7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-8. To search on the current selection, select **Search**. 
+8. To run the query on the current selection, select **Search**. 
 
 9. To clear the recent selections, select **Reset**.
 
@@ -240,9 +240,9 @@ The **Operator** menu displays the following options depending on the identity y
 
 6. Select the **Add** icon, select **Or** with **Not** **Contains**, and then enter `AKIAVP2T3XG7JUZRM7WU`. 
 
-7. To remove a row of criteria, select **Remove**.
+7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-8. To search on the current selection, select **Search**. 
+8. To run the query on the current selection, select **Search**.
 
 9. To clear the recent selections, select **Reset**.
 
@@ -254,15 +254,15 @@ The **Operator** menu displays the following options depending on the identity y
 
 3. From the **Operator** menu, select the required option.
 
-4. To add criteria to this section, select **Add**. 
+4. To add criteria to this section, select **Add**.
 
 5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
 
 6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *CloudKnox*. 
 
-7. To remove a row of criteria, select **Remove**.
+7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-8. To search on the current selection, select **Search**. 
+8. To run the query on the current selection, select **Search**. 
 
 9. To clear the recent selections, select **Reset**.
 
@@ -274,15 +274,15 @@ The **Operator** menu displays the following options depending on the identity y
 
 3. From the **Operator** menu, select the required option.
 
-4. To add criteria to this section, select **Add**. 
+4. To add criteria to this section, select **Add**.
 
 5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
 
 6. Select the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *CloudKnox*. 
 
-7. To remove a row of criteria, select **Remove**.
+7. To remove a row of criteria, select **Remove** (the minus sign **-** icon).
 
-8. To search on the current selection, select **Search**. 
+8. To run the query on the current selection, select **Search**. 
 
 9. To clear the recent selections, select **Reset**.
 
