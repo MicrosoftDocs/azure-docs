@@ -38,7 +38,7 @@ To use the log analytics views, you need:
 ## Install the log analytics views
 
 1. Navigate to your Log Analytics workspace. To do this, first navigate to the [Azure portal](https://portal.azure.com) and select **All services**. Type **Log Analytics** in the text box, and select **Log Analytics workspaces**. Select the workspace you routed the activity logs to, as part of the prerequisites.
-2. Select **View Designer**, select **Import** and then select **Choose File** to import the views from your local computer.
+2. Select **Workbooks**, select **Import** and then select **Choose File** to import the views from your local computer.
 3. Select the views you downloaded from the prerequisites and select **Save** to save the import. Do this for the **Azure AD Account Provisioning Events** view and the **Sign-ins Events** view.
 
 ## Use the views
