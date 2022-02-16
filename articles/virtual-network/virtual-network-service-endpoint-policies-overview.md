@@ -103,7 +103,7 @@ No centralized logging is available for service endpoint policies. For service r
   - Validate whether Azure Storage is configured to allow access from the virtual network over endpoints, or whether the default policy for the resource is set to *Allow All*.
   - Ensure the accounts are not **classic storage accounts** with service endpoint policies on the subnet.
 - A managed Azure Service stopped working after applying a Service Endpoint Policy over the subnet
-  - Managed services other than Azure SQL Managed Instance are not supported with service endpoint policies at this time. *Watch this space for updates*.
+  - Managed services other than Azure SQL Managed Instance are not currently supported with service endpoints. 
 - Access to Managed Storage Accounts stopped working after applying a Service Endpoint Policy over the subnet
   - Managed Storage Accounts are not supported with service endpoint policies. If configured, policies will deny access to all Managed Storage Accounts, by default. If your application needs access to Managed Storage Accounts, endpoint policies should not be used for this traffic.
 
