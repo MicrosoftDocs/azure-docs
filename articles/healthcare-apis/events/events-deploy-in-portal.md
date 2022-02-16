@@ -1,27 +1,27 @@
 ---
-title: Deploy Events in the Azure portal - Azure Healthcare APIs
+title: Deploy Events in the Azure portal - Azure Health Data Services
 description: This article describes how to deploy the Events feature in the Azure portal.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/08/2022
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 
 # Deploy Events in the Azure portal
 
-In this quickstart, you’ll learn how to deploy the Azure Healthcare APIs Events feature in the Azure portal to send Fast Hospital Interoperability Resources (FHIR®) event messages.
+In this quickstart, you’ll learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send Fast Hospital Interoperability Resources (FHIR®) event messages.
 
 ## Prerequisites
 
-It's important that you have the following prerequisites completed before you begin the steps of deploying the Events feature in Azure Healthcare APIs.
+It's important that you have the following prerequisites completed before you begin the steps of deploying the Events feature in Azure Health Data Services.
 
 * [An active Azure account](https://azure.microsoft.com/free/search/?OCID=AID2100131_SEM_c4b0772dc7df1f075552174a854fd4bc:G:s&ef_id=c4b0772dc7df1f075552174a854fd4bc:G:s&msclkid=c4b0772dc7df1f075552174a854fd4bc)
 * [Event Hubs namespace and Event Hubs deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
-* [Workspace deployed in Azure Healthcare APIs](../healthcare-apis-quickstart.md)  
-* [FHIR service deployed in Azure Healthcare APIs](../fhir/fhir-portal-quickstart.md)
+* [Workspace deployed in Azure Health Data Services](../healthcare-apis-quickstart.md)  
+* [FHIR service deployed in Azure Health Data Services](../fhir/fhir-portal-quickstart.md)
 
 > [!NOTE]
 > For the purposes of this quickstart, we'll be using a basic set up and an event hub as the endpoint for Events messages.

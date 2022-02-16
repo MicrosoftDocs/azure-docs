@@ -1,18 +1,18 @@
 ---
-title: What are Events? - Azure Healthcare APIs
+title: What are Events? - Azure Health Data Services
 description: In this article, you'll learn about Events, its features, integrations, and next steps.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/15/2022
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 
 # What are Events?
 
-The Events feature enables you to receive event notification messages from Azure Healthcare APIs. When data resources change and get committed to the Fast Healthcare Interoperability Resources (FHIR&#174;) service, the Events feature sends notification messages. These event notification occurrences can be used to trigger downstream automated workflows. The Events feature integrates with the Azure Event Grid service and creates a system topic for the Azure Healthcare APIs Workspace.
+The Events feature enables you to receive event notification messages from Azure Health Data Services. When data resources change and get committed to the Fast Healthcare Interoperability Resources (FHIR&#174;) service, the Events feature sends notification messages. These event notification occurrences can be used to trigger downstream automated workflows. The Events feature integrates with the Azure Event Grid service and creates a system topic for the Azure Health Data Services Workspace.
 
 > [!IMPORTANT]
 >
@@ -34,7 +34,7 @@ The Events feature enables you to receive event notification messages from Azure
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 > 
-> For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Healthcare APIs FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+> For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 
 ## Flexible

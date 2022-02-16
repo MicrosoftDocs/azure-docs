@@ -1,12 +1,12 @@
 ---
-title: Configure Events Diagnostic settings for diagnostic logs and metrics export - Azure Healthcare APIs
+title: Configure Events Diagnostic settings for diagnostic logs and metrics export - Azure Health Data Services
 description: This article provides resources on how to configure Events Diagnostic settings for diagnostic logs and metrics exporting.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/08/2022
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 

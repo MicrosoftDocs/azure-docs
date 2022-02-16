@@ -1,12 +1,12 @@
 ---
-title: Events troubleshooting guides - Azure Healthcare APIs
+title: Events troubleshooting guides - Azure Health Data Services
 description: This article helps Events users troubleshoot error messages, conditions, and provides fixes.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: troubleshooting
-ms.date: 02/15/2022
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 # Troubleshoot Events
@@ -26,7 +26,7 @@ This article provides guides and resources to troubleshoot Events.
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 > 
-> For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Healthcare APIs FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+> For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 ### Events message structure
 

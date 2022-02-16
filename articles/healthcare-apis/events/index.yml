@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Events
-summary: Events documentation page for Azure Healthcare APIs . 
+summary: Events documentation page for Azure Health Data Services . 
 
 metadata:
-  title: Azure Healthcare APIs IoT connector
-  description: Events documentation section for Azure Healthcare APIs
+  title: Azure Health Data Services IoT connector
+  description: Events documentation section for Azure Health Data Services
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: data-transformation
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 02/01/2022
+  ms.date: 02/16/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

@@ -1,12 +1,12 @@
 ---
-title: FAQs about Events in Azure Healthcare APIs
+title: FAQs about Events in Azure Health Data Services
 description: This document provides answers to the frequently asked questions about Events.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 
@@ -14,9 +14,9 @@ ms.author: jasteppe
 
 The following are some of the frequently asked questions about Events.
 
-### Can I use Events with a different FHIR service other than the Azure Healthcare APIs FHIR service?
+### Can I use Events with a different FHIR service other than the Azure Health Data Services FHIR service?
 
-No. The Azure Healthcare APIs Events feature only currently supports the Azure Healthcare APIs FHIR service.
+No. The Azure Health Data Services Events feature only currently supports the Azure Health Data Services FHIR service.
 
 ### What FHIR resource events does Events support?
 
@@ -28,7 +28,7 @@ Events are generated from the following FHIR service types:
 
 - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 
-For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Healthcare APIs FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 ### What is the payload of an Events message? 
 
@@ -40,7 +40,7 @@ The throughput of FHIR events is governed by the throughput of the FHIR service 
 
 ### How am I charged for using Events?
 
-There are no extra charges for using Azure Healthcare APIs Events. However, applicable charges for the [Event Grid](https://azure.microsoft.com/pricing/details/event-grid/) might be assessed against your Azure subscription.
+There are no extra charges for using Azure Health Data Services Events. However, applicable charges for the [Event Grid](https://azure.microsoft.com/pricing/details/event-grid/) might be assessed against your Azure subscription.
 
 
 ### How do I subscribe to multiple FHIR services in the same workspace separately?
@@ -71,12 +71,12 @@ Yes. The Event Grid guarantees at least one Events message delivery with its pus
 Generally, we recommend that developers ensure idempotency for the event subscriber. The event ID or the combination of all fields in the ```data``` property of the message content are unique per each event. The developer can rely on them to de-duplicate. 
    
 ## More frequently asked questions
-[FAQs about the Azure Healthcare APIs](../healthcare-apis-faqs.md)
+[FAQs about the Azure Health Data Services](../healthcare-apis-faqs.md)
 
-[FAQs about Azure Healthcare APIs FHIR service](../fhir/fhir-faq.md)
+[FAQs about Azure Health Data Services FHIR service](../fhir/fhir-faq.md)
 
-[FAQs about Azure Healthcare APIs DICOM service](../dicom/dicom-services-faqs.yml)
+[FAQs about Azure Health Data Services DICOM service](../dicom/dicom-services-faqs.yml)
 
-[FAQs about Azure Healthcare APIs IoT connector](../iot/iot-connector-faqs.md)
+[FAQs about Azure Health Data Services MedTech service](../iot/iot-connector-faqs.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

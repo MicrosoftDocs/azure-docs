@@ -1,12 +1,12 @@
 ---
-title: Events message structure - Azure Healthcare APIs
+title: Events message structure - Azure Health Data Services
 description: In this article, you'll learn about Events message structure and required values.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 
@@ -23,7 +23,7 @@ In this article, you'll learn about the Events message structure, required and n
 >
 > - **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 >
-> For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Healthcare APIs FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
+> For more information about the FHIR service delete types, see [FHIR Rest API capabilities for Azure Health Data Services FHIR service](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md)
 
 
 ## Events message structure
