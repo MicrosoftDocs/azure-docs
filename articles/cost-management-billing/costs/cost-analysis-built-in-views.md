@@ -21,12 +21,12 @@ When you're in classic Cost analysis, you can access the preview views at the to
 
 :::image type="content" source="./media/cost-analysis-built-in-views/access-preview-classic.png" alt-text="Screenshot showing the Cost by resource list." lightbox="./media/cost-analysis-built-in-views/access-preview-classic.png" :::
 
-## Analyze your resource costs with resource views
+## Analyze resource costs
 
 Cost Management offers two views to analyze your resource costs:
 
-- Cost by resource
-- Resources (preview)
+- **Cost by resource**
+- **Resources (preview)**
 
 Both views are only available when you have a subscription or resource group scope selected.
 
@@ -55,7 +55,7 @@ Use either view to:
 
 :::image type="content" source="./media/cost-analysis-built-in-views/resources.png" alt-text="Screenshot showing an example of the Resources view." lightbox="./media/cost-analysis-built-in-views/resources.png" :::
 
-## Analyze your resource group costs with the Resource groups view
+## Analyze resource group costs
 
 The **Resource groups** view separates each resource group in your subscription, management group, or billing account showing nested resources.
 
@@ -69,7 +69,7 @@ Use this view to:
 
 :::image type="content" source="./media/cost-analysis-built-in-views/resource-groups.png" alt-text="Screenshot showing an example of the the Resource groups view." lightbox="./media/cost-analysis-built-in-views/resource-groups.png" :::
 
-## Analyze your subscription costs with the Subscriptions view
+## Analyze your subscription costs
 
 The **Subscriptions** view is only available when you have a billing account or management group scope selected. The view separates costs by subscription and resource group.
 
@@ -83,11 +83,11 @@ Use this view to:
 
 :::image type="content" source="./media/cost-analysis-built-in-views/subscriptions.png" alt-text="Screenshot showing an example of the Subscriptions view." lightbox="./media/cost-analysis-built-in-views/subscriptions.png" :::
 
-## Review resource utilization for reservations with the Reservations view
+## Review reservation resource utilization
 
 The **Reservations** view provides a breakdown of amortized reservation costs, allowing you to see which resources are consuming each reservation.
 
-The Reservations view shows amortized cost for the last 30 days with a breakdown of the resources that utilized each reservation during that time. Any unused portion of the reservation is also available when viewing cost for billing accounts and billing profiles.
+The view shows amortized cost for the last 30 days with a breakdown of the resources that utilized each reservation during that time. Any unused portion of the reservation is also available when viewing cost for billing accounts and billing profiles.
 
 Use this view to:
 
@@ -103,7 +103,7 @@ Because of the change in how costs are represented, it's important to note that 
 
 :::image type="content" source="./media/cost-analysis-built-in-views/reservations.png" alt-text="Screenshot showing an example of the Reservations view" lightbox="./media/cost-analysis-built-in-views/reservations.png" :::
 
-## Break down the products and services you use with the Services view
+## Break down product and service costs
 
 The **Services view** shows a list of your services and products. This view is like the Invoice details view in classic cost analysis. The main difference is that rows are grouped by service, making it simpler to see your total cost at a service level. It also separates individual products you're using in each service.
 
@@ -114,25 +114,25 @@ Use this view to:
 
 :::image type="content" source="./media/cost-analysis-built-in-views/services.png" alt-text="Screenshot showing an example of the Services view." lightbox="./media/cost-analysis-built-in-views/services.png" :::
 
-## Review current trends with the Accumulated costs view
+## Review current cost trends
 
-Use this view to:
+Use the **Accumulated costs** view to:
 
 - Determine whether your current month's costs are on track with your expectations. For example, forecast, budget, and credit.
 
 :::image type="content" source="./media/cost-analysis-built-in-views/accumulated-costs.png" alt-text="Screenshot showing an example of the Accumulated Costs view." lightbox="./media/cost-analysis-built-in-views/accumulated-costs.png" :::
 
-## Compare monthly run rate with the Cost by service view
+## Compare monthly service run rate costs
 
-Use this view to:
+Use the **Cost by service** view to:
 
 - Review month-over-month changes in cost.
 
 :::image type="content" source="./media/cost-analysis-built-in-views/cost-by-service.png" alt-text="Screenshot showing an example of the Cost by service view." lightbox="./media/cost-analysis-built-in-views/cost-by-service.png" :::
 
-## Reconcile usage charges with the Invoice details view
+## Reconcile invoiced usage charges
 
-Use this view to:
+Use the **Invoice details** view to:
 
 - Review and reconcile billed charges.
 

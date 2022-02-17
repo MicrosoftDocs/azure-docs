@@ -49,7 +49,7 @@
       - name: Get started with reporting
         href: costs/reporting-get-started.md
       - name: Use built-in views in Cost analysis
-        href: costs/cost-analysis-built-in-view.md
+        href: costs/cost-analysis-built-in-views.md
       - name: Group and filter options
         href: costs/group-filter.md
     - name: Plan to manage costs
