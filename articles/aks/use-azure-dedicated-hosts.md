@@ -14,7 +14,7 @@ Azure Dedicated Host is a service that provides physical servers - able to host 
 Using Azure Dedicated Hosts for nodes with your AKS cluster has the following benefits:
 
 * Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
-* Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
+* Control over maintenance events initiated by the Azure platform. While most maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -59,20 +59,23 @@ az provider register --namespace Microsoft.ContainerService
 ## Limitations
 
 The following limitations apply when you integrate Azure Dedicated Host with Azure Kubernetes Service:
-* An existing agentpool cannot be converted from non-ADH to ADH or ADH to non-ADH.
-* It is not supported to update agentpool from host group A to host group B.
+
+* An existing agent pool can't be converted from non-ADH to ADH or ADH to non-ADH.
+* It is not supported to update agent pool from host group A to host group B.
 
 ## Add a Dedicated Host Group to an AKS cluster
 
 A host group is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following options with your dedicated hosts:
 
-Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
-Span across multiple fault domains which are mapped to physical racks.
+* Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
+* Span across multiple fault domains, which are mapped to physical racks.
+
 In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
 
 You can also decide to use both availability zones and fault domains.
 
 Not all host SKUs are available in all regions, and availability zones. You can list host availability, and any offer restrictions before you start provisioning dedicated hosts.
+
 ```azurecli-interactive
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 ```
@@ -96,20 +99,22 @@ az vm host group create \
 ```
 
 ## Create an AKS cluster using the Host Group
+
 Create an AKS cluster, and add the Host Group you just configured.
 
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --location westus2 --kubernetes-version 1.20.13 --nodepool-name agentpool1 --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3 --enable-managed-identity --assign-identity <id>
 ```
 
-## Add a Dedicated Host Nodepool to an existing AKS cluster
+## Add a Dedicated Host Node Pool to an existing AKS cluster
+
 Add a Host Group to an already existing AKS cluster.
 
 ```azurecli-interactive
 az aks nodepool add --cluster-name MyManagedCluster --name agentpool3 --resource-group MyResourceGroup --node-count 1 --host-group-id <id> --node-vm-size Standard_D2s_v3
 ```
 
-## Remove a Dedicated Host Nodepool from an AKS cluster
+## Remove a Dedicated Host Node Pool from an AKS cluster
 
 ```azurecli-interactive
 az aks nodepool delete --cluster-name MyManagedCluster --name agentpool3 --resource-group MyResourceGroup
