@@ -88,7 +88,7 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 - By default, object detection and instance segmentation models don't support batch inferencing
 
-- In case of batch inference, use the following procedure to generate an ONNX model for the required batch size (models generated for a specific batch size don't work for other batch sizes)
+In case of batch inference, use the following procedure to generate an ONNX model for the required batch size. Models generated for a specific batch size don't work for other batch sizes.
 
 - While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
 
