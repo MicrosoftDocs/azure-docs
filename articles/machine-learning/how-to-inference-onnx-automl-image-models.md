@@ -1306,7 +1306,7 @@ plt.show()
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-Visualize an input image with boxes and Labels
+Visualize an input image with boxes and labels
 
 ```python
 import matplotlib.image as mpimg
