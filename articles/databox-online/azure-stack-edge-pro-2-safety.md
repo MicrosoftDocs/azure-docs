@@ -7,7 +7,7 @@ author:   sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 02/07/2022
 ms.author: sipastak
 ---
 
@@ -20,7 +20,7 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 
 [!INCLUDE [azure-stack-edge-gateway-safety-icon-conventions](../../includes/azure-stack-edge-gateway-safety-icon-conventions.md)]
 
-### Handling precautions
+### Installation and handling precautions
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)**DANGER:**
 * Before you begin to unpack the equipment, to prevent hazardous situations resulting in death, serious injury and/or property damage, read, and follow all warnings and instructions.
@@ -38,7 +38,7 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 * When installed into an equipment rack, don’t extend more than one equipment (for example, storage or server) from the rack at one time to prevent the equipment rack from becoming dangerously unstable.
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Overload tip hazard 2](./media/azure-stack-edge-pro-2-safety/icon-overload-tip-hazard.jpg)![Tip hazard 4](./media/azure-stack-edge-pro-2-safety/icon-safety-tip-hazard.png) **WARNING:**
-* When installed into an equipment rack, don’t extend more than one equipment (for example, storage or server) from the rack at one time to prevent the equipment rack from becoming dangerously unstable. 
+* This equipment is not to be used as shelves or work spaces. Do not place objects on top of the equipment. Adding any type of load to a rack or wall mounted equipment can create a potential tip or crush hazard which could lead to injury, death, or product damage. 
 
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)![Electric shock hazard icon](./media/azure-stack-edge-pro-2-safety/icon-safety-electric-shock.png)![Do not access](./media/azure-stack-edge-pro-2-safety/icon-safety-do-not-access.png)**CAUTION:**
 * Parts enclosed within panels containing this symbol ![Do not access 2](./media/azure-stack-edge-pro-2-safety/icon-safety-do-not-access-tiny.png) contain no user-serviceable parts. Hazardous voltage, current, and energy levels are present inside. Don’t open. Return to manufacturer for servicing. </br>Open a ticket with [Microsoft Support](https://aka.ms/CONTACT-ASE-SUPPORT). 
@@ -61,8 +61,6 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 * To reduce the risk of fire or electric shock, install the equipment/system in a temperature-controlled indoor area free of conductive contaminants. Don’t place the equipment near liquids or in an excessively humid environment.
 * Don’t allow any liquid or any foreign object to enter the device. Don’t place beverages or any other liquid containers on or near the device.
 
-![Safety notice](./media/azure-stack-edge-pro-2-safety/icon-safety-notice.png)**NOTICE:**
-* Leave all replacement components inside their static-proof packaging until you’re ready to use them.
 
 ### Rack mounting precautions
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)**CAUTION:**
@@ -110,6 +108,9 @@ Servicing should only be performed by qualified trained technicians.
 * Wear a grounded wrist strap. If none are available, discharge any personal static electricity by touching the bare metal chassis of the server, or the bare metal body of any other grounded device.
 * Humid environments tend to have less static electricity than dry environments. A grounding strap is warranted whenever danger of static electricity exists.
 
+![Safety notice](./media/azure-stack-edge-pro-2-safety/icon-safety-notice.png)**NOTICE:**
+* Leave all replacement components inside their static-proof packaging until you’re ready to use them.
+
 
 ## Regulatory information
 
@@ -123,7 +124,7 @@ This equipment is designed to operate in the following environment:
     * Storage: –40°C–70°C (–40°F–149°F)
     * Operating: 10°C–45°C (50°F–113°F)
 * Relative humidity specifications
-    * Storage: 5% to 95%
+    * Storage: 5% to 95% relative humidity
     * Operating: 5% to 85% relative humidity
 * Maximum altitude specifications
     * Operating: 3,050 meters (10,000 feet)
@@ -154,7 +155,7 @@ United States: (800) 426-9400
 Canada: (800) 933-4750
 
 
-For model: DB040-W only
+**For model: DB040-W only**
 
 Operation in the band 5150–5250 MHz is only for indoor use to reduce the potential for harmful interference to co-channel mobile satellite systems. Users are advised that high-power radars are allocated as primary users (priority users) of the bands 5250–5350 MHz and 5650–5850 MHz and these radars could cause interference and/or damage to LE-LAN devices.
 
@@ -184,12 +185,12 @@ This device may operate in all member states of the EU. Observe national and loc
 In accordance with Article 10.8(a) and 10.8(b) of the Radio Equipment Directive (RED), the following table provides information on the frequency bands used and the maximum RF transmit power of the product for sale in the EU: 
 
 
-|Frequency band (MHz) |Frequency band (MHz)  |
+|Frequency band (MHz) |Maximum EIRP (dBm)  |
 |---------|---------|
-|2400 - 2483.5     |         |
-|R5150 - 5350   |         |
-|5470 - 5725   |         |
-|5725 - 5875    |         |
+|2400 - 2483.5     |19.74        |
+|R5150 - 5350   |22.56        |
+|5470 - 5725   | 19.68      |
+|5725 - 5875    |13.83       |
 
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-notice.png" border="false":::Notice: This device is a receiver category 1 device under EN 300 440 
 
@@ -198,25 +199,7 @@ In accordance with Article 10.8(a) and 10.8(b) of the Radio Equipment Directive 
 ### Japan
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-japan.png" alt-text="Japan.":::
 
-### China
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-china-declaration-of-compliance.png" alt-text="China declaration of compliance.":::
-
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-china-hazardous-substances-table.png" alt-text="China Hazardous Substances Table.":::
-
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-china-instructions.png" alt-text="China instructions.":::
-
-### South Korea
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-south-korea.png" alt-text="Additional instructions for South Korea.":::
-
-### Taiwan
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan.png" alt-text="Additional instructions for Taiwan 1.":::
-
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-1.png" alt-text="Additional instructions for Taiwan 2.":::
-
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-taiwan-table-2.png" alt-text="Additional instructions for Taiwan 3.":::
-
-:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-commodity-inspection-mark.png" alt-text="Commodity Inspection Mark.":::
 
 ## Next steps
 
-* [Prepare to deploy Azure Stack Edge Pro 2 device](azure-stack-edge-placeholder.md)
+* [Prepare to deploy Azure Stack Edge Pro 2 device](azure-stack-edge-pro-2-deploy-prep.md)
