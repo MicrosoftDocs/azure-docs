@@ -9,7 +9,7 @@
 
 1. In the browser, navigate to your deploy app at `<app-name>.azurewebsites.net` and try out the language detector with strings in various languages.
 
-    ![Screenshot that shows deployed language detector app in App Service.](./media/tutorial-connect-msi-key-vault/deployed-app.png)
+    ![Screenshot that shows deployed language detector app in App Service.](../../media/tutorial-connect-msi-key-vault/deployed-app.png)
 
     If you look at the application code, you may notice the debug output for the detection results in the same font color as the background. You can see it by trying to highlight the white space directly below the result.
 
@@ -26,7 +26,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     az keyvault create --resource-group $groupName --name $vaultName --location $region --sku standard --enable-rbac-authorization
     ```
 
-    The `--enable-rbac-authorization` parameter [sets Azure role-based access control (RBAC) as the permission model](../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault). This setting by default invalidates all access policies permissions.
+    The `--enable-rbac-authorization` parameter [sets Azure role-based access control (RBAC) as the permission model](../../../key-vault/general/rbac-guide.md#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault). This setting by default invalidates all access policies permissions.
 
 1. Give yourself the *Key Vault Secrets Officer* RBAC role for the vault.
     
@@ -49,7 +49,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     csKeyKVUri=$(az keyvault secret set --vault-name $vaultName --name cskey --value $csKey1 --query id --output tsv)
     ```
 
-1. Previously, you set the secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY` in your app. Now, set them as [key vault references](app-service-key-vault-references.md) instead.
+1. Previously, you set the secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY` in your app. Now, set them as [key vault references](../../app-service-key-vault-references.md) instead.
 
     ```azurecli-interactive
     az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="@Microsoft.KeyVault(SecretUri=$csResourceKVUri)" CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)"
@@ -71,6 +71,6 @@ This command may take a minute to run.
 
 ## Next steps
 
-- [Tutorial: Isolate back-end communication with Virtual Network integration](tutorial-networking-isolate-vnet.md)
-- [Integrate your app with an Azure virtual network](overview-vnet-integration.md)
-- [App Service networking features](networking-features.md)
+- [Tutorial: Isolate back-end communication with Virtual Network integration](../tutorial-networking-isolate-vnet.md)
+- [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
+- [App Service networking features](../../networking-features.md)
