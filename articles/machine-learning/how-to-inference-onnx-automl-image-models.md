@@ -1183,7 +1183,7 @@ print(json.dumps(bounding_boxes_batch, indent=1))
 
 # [Multi-class image classification](#tab/multi-class)
 
-Visualize an input image with Labels
+Visualize an input image with labels
 
 ```python
 import matplotlib.image as mpimg
