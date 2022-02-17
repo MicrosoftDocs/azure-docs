@@ -8,7 +8,7 @@ ms.date: 01/17/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mbullwin
 ---
-git 
+
 # Connection strings
 
 ## Overview
