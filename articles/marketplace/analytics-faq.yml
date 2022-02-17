@@ -252,12 +252,12 @@ sections:
       - question: |
           The retention widget looks like it's showing me 45 days of data. What day is it counting from?
         answer: |
-          Read **Retained customers** in the [Customer retention dashboard](/customer-retention-dashboard#retained-customers). The data shown here is a normalized view of 18 months of customer data, and so is not “to” or “from” a specific date.
+          Read **Retained customers** in the [Customer retention dashboard](customer-retention-dashboard.md#retained-customers). The data shown here is a normalized view of 18 months of customer data, and so is not “to” or “from” a specific date.
 
       - question: |
           Can I filter the graphs to show a specific date range?
         answer: |
-          No. As the documentation indicates, it is a normalized view of 18 months of data. The retention [heat map](/customer-retention-dashboard#retention-heat-map) shows monthly views, but you cannot filter to specific dates.
+          No. As the documentation indicates, it is a normalized view of 18 months of data. The retention [heat map](customer-retention-dashboard.md#retention-heat-map) shows monthly views, but you cannot filter to specific dates.
 
       - question: |
           What is the difference between Total offers and Offer count?
@@ -272,7 +272,7 @@ sections:
       - question: |
           How do I know which customers are retaining and which are churning?
         answer: |
-          [Customers](/customer-retention-dashboard#customers) shows this information.
+          [Customers]/customer-retention-dashboard.md#customers) shows this information.
 
       - question: |
           What does dormant mean?
