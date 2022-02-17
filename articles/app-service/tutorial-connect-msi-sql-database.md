@@ -2,7 +2,7 @@
 title: 'Tutorial: Access data with managed identity'
 description: Secure database connectivity with managed identity from .NET web app, and also how to apply it to other Azure services.
 
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/16/2022
 ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
