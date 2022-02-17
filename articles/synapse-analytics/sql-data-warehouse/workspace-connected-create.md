@@ -1,7 +1,6 @@
 ---
 title: Enabling Synapse workspace features
 description: This document describes how a user can enable the Synapse workspace features on an existing dedicated SQL pool (formerly SQL DW).  
-services: synapse-analytics
 author: jasonwhowell
 manager: 
 ms.service: synapse-analytics

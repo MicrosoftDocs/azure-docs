@@ -1,7 +1,6 @@
 ---
 title: Enable Synapse Workspace feature region availability 
 description: This document details the regions where the Synapse workspace feature is not available.   
-services: synapse-analytics
 author: jasonwhowell
 manager: igorstan
 ms.service: synapse-analytics
