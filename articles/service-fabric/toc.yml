@@ -118,6 +118,8 @@
     href: service-fabric-best-practices-monitoring.md
   - name: Application design
     href: service-fabric-best-practices-applications.md
+  - name: Replica set size configuration
+    href: service-fabric-best-practices-replica-set-size-configuration.md
   - name: Production readiness checklist
     href: service-fabric-production-readiness-checklist.md  
 - name: Samples
