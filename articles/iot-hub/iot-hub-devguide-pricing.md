@@ -31,11 +31,11 @@ ms.custom: [amqp, mqtt]
 
 | Direct methods | Successful method requests are charged in 4-KB chunks, and responses are charged in 4-KB chunks as additional messages. Requests to disconnected devices are charged as messages in 4-KB chunks. For example, a method with a 4-KB body that results in a response with no body from the device is charged as two messages. A method with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the request plus another message for the response. <br/><br/> [Device - Invoke Method](/rest/api/iothub/service/devices/invoke-method), *Device Direct Invoke Method*, <br/> [Module - Invoke Method](/rest/api/iothub/service/modules/invoke-method), *Module Direct Invoke Method* |
 
-| Device and module twin reads | Twin reads from the device or module and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 8-KB twin is charged as 2 messages.   <br/><br/> [Get Twin](rest/api/iothub/service/devices/get-twin), *Get Twin*  <br/> [Get Module Twin](/rest/api/iothub/service/modules/get-twin), *Get Module Twin*  |
+| Device and module twin reads | Twin reads from the device or module and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 8-KB twin is charged as 2 messages.   <br/><br/> [Get Twin](/rest/api/iothub/service/devices/get-twin), *Get Twin*  <br/> [Get Module Twin](/rest/api/iothub/service/modules/get-twin), *Get Module Twin*  |
 
 | Device and module twin updates (tags and properties) | Twin updates from the device or module and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 12-KB twin is charged as 3 messages.  <br/><br/> [Update Twin](/rest/api/iothub/service/devices/update-twin), *Update Twin* <br/> [Update Module Twin](/rest/api/iothub/service/modules/update-twin), *Update Module Twin* <br/> [Replace Twin](/rest/api/iothub/service/devices/replace-twin), *Replace Twin* <br/> [Replace Module Twin](/rest/api/iothub/service/modules/replace-twin), *Replace Module Twin* |
 
-| Device and module twin queries | Queries are charged as messages depending on the result size in 4-KB chunks. <br/><br/> [Get Twins](/rest/api/iothub/service/query/get-twins), *Query Devices*  |
+| Device and module twin queries | Queries are charged as messages depending on the result size in 4-KB chunks. <br/><br/> [Get Twins](/rest/api/iothub/service/query/get-twins)  (Query against **devices** or **devices.modules** collections), *Query Devices*  |
 
 | Digital twin reads | Digital twin reads from the device and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 8-KB twin is charged as 2 messages. <br/><br/> [Get Digital Twin](/rest/api/iothub/service/digital-twin/get-digital-twin), *Get Digital Twin* |
 
@@ -45,9 +45,9 @@ ms.custom: [amqp, mqtt]
 
 | Jobs operations <br/> (create, update, list, delete) | CHARGING DETAILS NEEDED. <br/><br/> [Cancel Import Export Job](/rest/api/iothub/service/jobs/cancel-import-export-job) <br/> [Cancel Scheduled Job](/rest/api/iothub/service/jobs/cancel-scheduled-job), *Cancel Job* <br/> [Create Import Export Job](/rest/api/iothub/service/jobs/create-import-export-job) <br/> [Create Scheduled Job](/rest/api/iothub/service/jobs/create-scheduled-job), *Create Job* <br/> [Get Import Export Job](/rest/api/iothub/service/jobs/get-import-export-job) <br/> [Get Scheduled Job](/rest/api/iothub/service/jobs/get-scheduled-job), *Get Job* |
 
-| Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. <br/><br/> *Update Twin Device Job* <br/> *Invoke Method Device Job* <br/> *Query Device Jobs* |
+| Jobs per-device operations | Jobs operations (such as twin updates, and methods) are charged as normal. For example, a job resulting in 1000 method calls with 1-KB requests and empty-body responses is charged 1000 messages. <br/><br/> *Update Twin Device Job* <br/> *Invoke Method Device Job* |
 
-| Jobs queries | Queries are charged as messages depending on the result size in 4-KB chunks. <br/><br/> [Query Scheduled Jobs](/rest/api/iothub/service/configuration/query-scheduled-jobs), *Query Jobs*  |
+| Jobs queries | Queries are charged as messages depending on the result size in 4-KB chunks. <br/><br/> [Query Scheduled Jobs](/rest/api/iothub/service/configuration/query-scheduled-jobs), *Query Jobs* <br/> [Get Twins](/rest/api/iothub/service/query/get-twins) (Query against **jobs** collection), *Query Device Jobs*  |
 
 | Configuration operations <br/> (create, update, list, delete, test query) | Not charged. <br/><br/> [Create or update](/rest/api/iothub/service/configuration/create-or-update), <br/> [Delete](/rest/api/iothub/service/configuration/delete) <br/> [Get](/rest/api/iothub/service/configuration/get) <br/> [Get Configurations](/rest/api/iothub/service/configuration/get-configurations) <br/> [Test Queries](/rest/api/iothub/service/configuration/test-queries) |
 
