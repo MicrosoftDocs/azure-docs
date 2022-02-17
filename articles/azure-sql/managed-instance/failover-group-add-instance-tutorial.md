@@ -25,7 +25,7 @@ Add managed instances of Azure SQL Managed Instance to a failover group. In this
 
  There are multiple ways to establish connectivity between managed instances in different virtual networks, including:
  * [Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)
- * [Global VNet peering](../../virtual-network/virtual-network-peering-overview.md)
+ * [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
  * VPN gateways
 
 This tutorial provides steps for creating and connecting VPN gateways. If you prefer to use ExpressRoute or VNet peering, replace the gateway steps accordingly, or 
@@ -34,7 +34,7 @@ skip ahead to [Step 7](#create-a-failover-group) if you already have ExpressRout
 
   > [!NOTE]
   > - When going through this tutorial, ensure you are configuring your resources with the [prerequisites for setting up failover groups for SQL Managed Instance](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
-  > - Creating a Managed Instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [SQL Managed Instance management operations](sql-managed-instance-paas-overview.md#management-operations). 
+  > - Creating a managed instance can take a significant amount of time. As a result, this tutorial may take several hours to complete. For more information on provisioning times, see [SQL Managed Instance management operations](sql-managed-instance-paas-overview.md#management-operations). 
 
 ## Prerequisites
 
