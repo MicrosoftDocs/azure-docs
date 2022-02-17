@@ -11,7 +11,7 @@ ms.date: 02/16/2022
 ms.author: vikurpad
 ---
 
-# Build the training data set for the custom model
+# Build a training data set for a custom model
 
 Form Recognizer models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 
@@ -36,28 +36,28 @@ When you've put together the set of forms or documents that you'll use for train
 
 ## Create a project in the Form Recognizer Studio
 
-The Form Recognizer Studio provides orchestrates all the API calls required to create the files required to complete your dataset and to train your model.
+The Form Recognizer Studio provides and orchestrates all the API calls required to create the files required to complete your dataset and train your model.
 
 1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). If this is your first time using the Studio, you'll need to [initialize it for use](../quickstarts/try-v3-form-recognizer-studio.md). Follow the [additional prerequisite for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
-
-1. In the Studio select the `Custom models` tile, on the custom models page select on the `Create a project` button.
-:::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Form Recognizer Studio.":::
-
-1. On the create project dialog, provide a name for your project, optionally a description and hit continue.  
-
-1. On the next step in the workflow, select or create a Form Recognizer resource before you hit continue. 
+1. In the Studio select the **Custom models** tile, on the custom models page and select the **Create a project** button.
+    
+    :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Form Recognizer Studio.":::
+    
+    1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
+    
+    1. On the next step in the workflow, choose or create a Form Recognizer resource before you select continue.
 
 > [!IMPORTANT]
-> Custom neural models (custom document) models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these regions](https://aka.ms/fr-neural#l#supported-regions).
+> Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](https://aka.ms/fr-neural#l#supported-regions).
 
 :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
 
-1. Next select the storage account where you uploaded the dataset you wish to use to train the custom model. The `Folder path` should be empty if your training documents are in the root of the container. If your documents are in a sub folder, enter the relative path from the container root in the `Folder path`. Once your storage account is configured, hit continue.
+1. Next select the storage account where you uploaded the dataset you wish to use to train your custom model. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a sub-folder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
 
 :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot: Select the storage account.":::
 
-1. Finally review your project settings and hit `Create Project` to create a new project. You should now be in the labeling experience with the files in your dataset listed.
+1. Finally, review your project settings and select **Create Project** to create a new project. You should now be in the labeling window and see the files in your dataset listed.
 
 ## Label your data
 
@@ -65,11 +65,11 @@ In your project, your first task is to label your dataset with the fields you wi
 
 You'll see the files you uploaded to storage on the left of your screen, with the first file ready to be labeled.
 
-1. To start labeling your dataset, create your first field by clicking the `+` button on the top right of your screen to select a field type. 
+1. To start labeling your dataset, create your first field by selecting the plus (➕) button on the top-right of the screen to select a field type. 
 
 :::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot: Create a label.":::
 
-1. Enter a name for the field
+1. Enter a name for the field.
 
 1. To assign a value to the field, simply choose a word or words in the document and select the field in either the dropdown or the field list on the right navigation bar. You'll see the labeled value below the field name in the list of fields.
 
@@ -91,7 +91,7 @@ With your dataset labeled, you're now ready to train your model. Select the trai
 
 1. Select **Train** to initiate the training process.
 
-1. Template (custom form) models train in a few minutes, neural (custom document) models can take upto 30 minutes to train.
+1. Template models train in a few minutes. Neural models can take up to 30 minutes to train.
 
 1. Navigate to the *Models* menu to view the status of the train operation.
 
