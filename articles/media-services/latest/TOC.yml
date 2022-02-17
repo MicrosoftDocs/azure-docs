@@ -57,6 +57,8 @@
         displayName: samples, SDK, tutorial, GitHub, .NET, Python, Nodejs, Node, Node.JS Java, TypeScript, TS, JavaScript, JS
   - name: Try Media Services in the portal
     items:
+    - name: Simple Video On Demand (VOD) app
+      href: vod-simple-portal-quickstart.md
     - name: Live event with portal and Wirecast
       href: live-event-wirecast-quickstart.md
       displayName: Wirecast, live streaming, live, software, encoder
