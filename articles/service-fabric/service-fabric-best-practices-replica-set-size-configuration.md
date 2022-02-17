@@ -9,7 +9,6 @@ ms.author: jelenav
 
 # Stateful service replica set size configuration
 
-## Replica set size
 Replica set size for stateful services is configured using two parameters.
 
 * TargetReplicaSetSize - number of replicas that the system creates and maintains for each replica set of a service
@@ -29,7 +28,7 @@ Service Fabric uses the majority quorum of the number of replicas maintained in 
 ### TargetReplicaSetSize = 3; MinReplicaSetSize = 2
 This kind of configuration will often go into [quorum loss](service-fabric-disaster-recovery.md#stateful-services) (whenever planned and unplanned failover happens at the same time). To recover from quorum loss, it's not enough for only one replica to come back up – it's required for the exact replica which was part of replica set to come back up.
 
-![image1]
+![Image shows nodes in the cluster during each failover phase during below sequence](media/service-fabric-best-practices/service-fabric-best-practices-target-3-minimum-2-replica-set-size.png)
 1.	Partition has three replicas: A, B, C
 2.	Replica A goes down, Service Fabric downshifts replica set to 2 (B, C)
 3.	Unplanned failover happens, replica B also goes down - partition is now in quorum loss state
@@ -40,7 +39,7 @@ This kind of configuration will often go into [quorum loss](service-fabric-disas
 > [!WARNING]
 >This kind of configuration is still not optimal, it is only slightly better than TagetReplicaSetSize =3, MinReplicaSetSize = 2.
 
-![image2]
+![Image shows nodes in the cluster during each failover phase during below sequence](media/service-fabric-best-practices/service-fabric-best-practices-target-3-minimum-3-replica-set-size.png)
 1.	Partition has three replicas: A, B, C
 2.	Replica A goes down, replica set remains the same (A, B, C)
 3.	Unplanned failover happens, replica B also goes down - partition is now in quorum loss state
