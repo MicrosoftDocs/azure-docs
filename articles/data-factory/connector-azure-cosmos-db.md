@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/28/2021
+ms.date: 02/09/2022
 ---
 
 # Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory
@@ -458,6 +458,9 @@ To copy data from Azure Cosmos DB to tabular sink or reversed, refer to [schema 
 
 When transforming data in mapping data flow, you can read and write to collections in Cosmos DB. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
 
+> [!Note]
+> The Azure Cosmos DB serverless is not supported in mapping data flow.
+
 ### Source transformation
 
 Settings specific to Azure Cosmos DB are available in the **Source Options** tab of the source transformation. 
@@ -473,18 +476,6 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 **Change feed (Preview):** If true, you will get data from [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, do not set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feed (preview)](#azure-cosmos-db-change-feed-preview).
 
 **Start from beginning (Preview):** If true, you will get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more details, see [Azure Cosmos DB change feed (preview)](#azure-cosmos-db-change-feed-preview).
-
-#### JSON Settings
-
-**Single document:** Select this option if the service is to treat the entire file as a single JSON doc.
-
-**Unquoted column names:** Select this option if column names in the JSON as not quoted.
-
-**Has comments:** Use this selection if your JSON documents have comments in the data.
-
-**Single quoted:** This should be selected if the columns and values in your document are quoted with single quotes.
-
-**Backslash escaped:** If using backslashes to escape characters in your JSON, choose this option.
 
 ### Sink transformation
 

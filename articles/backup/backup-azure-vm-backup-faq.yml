@@ -186,7 +186,7 @@ sections:
           Yes, you can access the VM once restored due to a VM having a broken relationship with the domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps).
 
       - question: Can I cancel an in-progress restore job?
-        answer: No, you cannot cancel a restore job that is in-progress.
+        answer: Yes, you can cancel the restore job till the data transfer phase. Once it enters VM creation phase, you can't cancel the restore job.
 
       - question: Why is my restore operation taking long time to complete?
         answer: The total restore time depends on the input/output operations per second (IOPS) speed and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve the speed of restore operation, select a storage account that isn't loaded with other application data.

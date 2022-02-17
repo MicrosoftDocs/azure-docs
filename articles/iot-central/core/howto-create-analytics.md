@@ -15,7 +15,7 @@ services: iot-central
 
 Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate telemetry from your devices. To get started, select **Analytics** on the left pane.
 
-## Understand the analytics UI
+## Understand the data explorer UI
 
 The analytics user interface has three main components:
 

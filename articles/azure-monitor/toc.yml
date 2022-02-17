@@ -416,7 +416,7 @@ items:
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: ./faq.yml
+      href: /azure/azure-monitor/faq#agents
     - name: Azure Monitor Agent
       items:
       - name: Overview
@@ -428,12 +428,12 @@ items:
       - name: Data collection
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
-      - name: Migrate from legacy agents
+      - name: Migrate from Log Analytics agent
         displayName: Migrate to Azure Monitor agent
         href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayName: Azure Monitor agent FAQ
-        href: ./faq.yml
+        href: /azure/azure-monitor/faq#azure-monitor-agent
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -515,6 +515,8 @@ items:
       href: autoscale/autoscale-get-started.md
     - name: Configuration settings
       href: autoscale/autoscale-understanding-settings.md
+    - name: Predictive autoscale
+      href: autoscale/autoscale-predictive.md
     - name: Best practices
       href: autoscale/autoscale-best-practices.md
     - name: Common metrics
@@ -579,7 +581,7 @@ items:
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
     - name: Notifications and actions
       items:
-      - name: Alert Processing Rules (Preview)
+      - name: Alert processing rules
         href: alerts/alerts-action-rules.md
         displayName: Azure CLI, az monitor action rule
       - name: Create action group
@@ -690,7 +692,7 @@ items:
       href: app/app-insights-overview.md
     - name: FAQ
 
-      href: ./faq.yml
+      href: /azure/azure-monitor/faq#application-insights
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -784,9 +786,6 @@ items:
           href: app/azure-web-apps-java.md
         - name: Node.js 
           href: app/azure-web-apps-nodejs.md
-      - name: Azure Cloud Services
-        displayName: cloud, cloud services, PaaS
-        href: app/cloudservices.md
       - name: Azure Functions
         displayName: functions, monitor functions, automation
         href: app/monitor-functions.md
@@ -844,13 +843,15 @@ items:
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
-        href: ./faq.yml
+        href: /azure/azure-monitor/faq#open-telemetry
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
       href: app/create-workspace-resource.md
     - name: Migrate to a workspace-based resource
       href: app/convert-classic-resource.md
+    - name: Migrate to connection strings
+      href: app/migrate-from-instrumentation-keys-to-connection-strings.md
     - name: Application dashboard
       displayName: dashboard, Application Insights dashboard
       href: app/overview-dashboard.md
@@ -1086,7 +1087,7 @@ items:
     - name: General Availability FAQ
       href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
-      href: ./faq.yml
+      href: /azure/azure-monitor/faq#vm-insights
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1138,7 +1139,7 @@ items:
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: ./faq.yml
+      href: /azure/azure-monitor/faq#container-insights
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1224,8 +1225,6 @@ items:
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
       href: insights/data-explorer.md
-    - name: Azure Service Bus
-      href: insights/service-bus-insights.md
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
@@ -1237,7 +1236,7 @@ items:
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: ./faq.yml
+        href: /azure/azure-monitor/faq#sql-insights-(preview)
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts

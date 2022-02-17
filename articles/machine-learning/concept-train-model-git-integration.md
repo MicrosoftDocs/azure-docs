@@ -184,6 +184,7 @@ run.properties['azureml.git.commit']
 ```
 
 ### Azure CLI
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 The `az ml run` CLI command can be used to retrieve the properties from a run. For example, the following command returns the properties for the last run in the experiment named `train-on-amlcompute`:
 

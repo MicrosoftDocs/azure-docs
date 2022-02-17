@@ -104,7 +104,7 @@ Click on the Device templates tab, and you'll see the gateway capability model. 
 
 **Digital Distribution Gateway** - This interface represents all the telemetry coming from camera, cloud defined device twin properties and gateway info.
 
-:::image type="content" source="media/tutorial-iot-central-ddc/ddc-devicetemplate1.png" alt-text="Screenshot showing the digital distribution gateway interface in the digital distribution gateway device template.":::
+:::image type="content" source="media/tutorial-iot-central-ddc/ddc-devicetemplate2.png" alt-text="Screenshot showing the digital distribution gateway interface in the digital distribution gateway device template.":::
 
 ### Gateway Commands
 
@@ -124,13 +124,13 @@ Select the rules tab to see two different rules that exist in this application t
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
+If you're not going to continue to use this application, delete the application template by visiting **Application** > **Management** and click **Delete**.
 
 :::image type="content" source="media/tutorial-iot-central-ddc/ddc-cleanup.png" alt-text="Screenshot showing how to delete the application when you're done with it.":::
 
 ## Next steps
 
-Learn more about digital distribution center solution architecture:
+Learn more about :
 
 > [!div class="nextstepaction"]
-> [digital distribution center concept](./architecture-digital-distribution-center.md)
+> [IoT Central data integration](../core/overview-iot-central-solution-builder.md)
