@@ -27,6 +27,34 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## February 2022
+
+### Data transformation at ingestion time
+
+Microsoft Sentinel supports the ingestion-time data transformation features provided by Log Analytics. Ingestion-time data transformation can save storage space and enhance performance, enrich or tag your data, or hide personal information in your data even before it's stored in your workspace.
+
+Use Log Analytics Data Collection Rules (DCRs) to configure your data transformation for the following types of built-in data connectors:
+
+- AMA-based data connectors
+- MMA-based data connectors,
+- Data connectors that use Diagnostic settings
+- Service-to-service data connectors
+
+Custom data connectors are currently supported only for direct API-based and Logstash-based data connectors.
+
+For more information, see:
+
+**Before you start**:
+
+- [Data collection rule transformations in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-transformations)
+- [Ingestion-time Transformation in Azure Monitor Logs](/azure/azure-monitor/logs/custom-logs-v2-ingestion-time-transform-tut)
+
+**In Microsoft Sentinel**:
+
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+- [Data transformation in Microsoft Sentinel](data-transformation.md)
+- [Configure ingestion-time data transformation for Microsoft Sentinel](configure-data-transformation.md).
+
 ## January 2022
 
 - [Support for MITRE ATT&CK techniques (Public preview)](#support-for-mitre-attck-techniques-public-preview)
