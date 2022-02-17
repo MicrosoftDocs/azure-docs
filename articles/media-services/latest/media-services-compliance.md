@@ -1,22 +1,15 @@
 ---
-title: Azure Media Services v3 overview
+title: Azure Media Service Compliance, privacy and security
 : Azure Media Services
-description: A high-level overview of Azure Media Services v3 with links to quickstarts, tutorials, and code samples.
+description: As an important reminder, you must comply with all applicable laws in your use of Azure Media Services, and you may not use Media Services or any Azure service in a manner that violates the rights of others, or that may be harmful to others.
 services: media-services
 documentationcenter: na
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
-tags: ''
-keywords: azure media services, stream, broadcast, live, offline
-
 ms.service: media-services
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: media
 ms.date: 2/17/2022
 ms.author: inhenkel
-ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
 ---
 
