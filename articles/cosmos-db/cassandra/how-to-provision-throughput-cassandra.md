@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.custom: devx-track-azurecli
 ---
 
