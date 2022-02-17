@@ -360,3 +360,9 @@ You can write a script to set the pricing tier by using Azure Resource Managemen
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
+
+## Troubleshooting
+
+### Unexpected usage or estimated cost
+
+Lower your bill with updated versions of the ASP.NET Core SDK and Worker Service SDK, which [do not collect counters by default](https://docs.microsoft.com/en-us/azure/azure-monitor/app/eventcounters#default-counters-collected).
