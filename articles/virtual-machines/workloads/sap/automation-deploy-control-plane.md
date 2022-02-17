@@ -42,8 +42,13 @@ az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
 ## Prepare the webapp
 This step is optional. If you would like a browser-based UX to assist in the configuration of SAP workload zones and systems, run the following commands before deploying the control plane.
+
+# [Linux](#tab/linux)
+
 ```bash
 echo '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]' >> manifest.json
+
+region_code=WEEU
 
 export TF_VAR_app_registration_app_id=$(az ad app create \
     --display-name ${region_code}-webapp-registration    \
@@ -57,7 +62,33 @@ export TF_VAR_webapp_client_secret=$(az ad app credential reset \
 
 export TF_VAR_use_webapp=true
 rm manifest.json
+
 ```
+# [Windows](#tab/windows)
+
+```powershell
+
+Add-Content -Path manifest.json -Value '[{"resourceAppId":"00000003-0000-0000-c000-000000000000","resourceAccess":[{"id":"e1fe6dd8-ba31-4d61-89e7-88639da4683d","type":"Scope"}]}]'
+
+$region_code="WEEU"
+
+$env:TF_VAR_app_registration_app_id = (az ad app create `
+    --display-name $region_code-webapp-registration     `
+    --available-to-other-tenants false                  `
+    --required-resource-access ./manifest.json           `
+    --query "appId").Replace('"',"")
+
+$env:TF_VAR_webapp_client_secret=(az ad app credential reset `
+    --id $env:TF_VAR_app_registration_app_id --append            `
+    --query "password").Replace('"',"")
+
+$env:TF_VAR_use_webapp="true"
+
+rm ./manifest.json
+
+```
+---
+
 ## Deploy the control plane
    
 The sample Deployer configuration file `MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE` folder.
@@ -151,6 +182,19 @@ az ad app update \
     --reply-urls ${webapp_url}/ ${webapp_url}/.auth/login/aad/callback
 
 ```
+# [Windows](#tab/windows)
+
+```powershell
+
+$webapp_url="<webapp_url>"
+az ad app update `
+    --id $TF_VAR_app_registration_app_id `
+    --homepage $webapp_url `
+    --reply-urls $webapp_url/ $webapp_url/.auth/login/aad/callback
+
+```
+---
+
 > [!TIP]
 > Perform the following task from the deployer.
 ```bash
@@ -174,42 +218,6 @@ az webapp config appsettings set -g <group-name> -n <app-name> --settings \
 AZURE_CLIENT_ID=$appId \
 AZURE_TENANT_ID=$tenant_id \
 AZURE_CLIENT_SECRET=$spn_secret \
-IS_PIPELINE_DEPLOYMENT=false
-
-```
-
-# [Windows](#tab/windows)
-
-```powershell
-
-$webapp_url="<webapp_url>"
-az ad app update `
-    --id $TF_VAR_app_registration_app_id `
-    --homepage $webapp_url `
-    --reply-urls $webapp_url/ $webapp_url/.auth/login/aad/callback
-
-```
-> [!TIP]
-> Perform the following task from the deployer.
-> 
-```powershell
-
-dotnet build
-dotnet publish --configuration Release
-
-cd bin/Release/netcoreapp3.1/publish/
-
-Compress-Archive -LiteralPath '.' -DestinationPath 'deploymentfile.zip'
-
-az webapp deploy --resource-group <group-name> --name <app-name> --src-path deploymentfile.zip
-
-```
-```powershell
-
-az webapp config appsettings set -g '<group-name>' -n '<app-name>' --settings `
-AZURE_CLIENT_ID=$appId `
-AZURE_TENANT_ID=$tenant_id `
-AZURE_CLIENT_SECRET=$spn_secret `
 IS_PIPELINE_DEPLOYMENT=false
 
 ```
