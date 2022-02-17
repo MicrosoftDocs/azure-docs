@@ -411,7 +411,7 @@ The sample distribution zip file contains the following sub-folders that you wil
 |`sample_azure_iot_embedded_sdk` |{*Sample project to connect to Azure loT Hub using Azure loT Middleware for Azure RTOS*}|
 |`sample_azure_iot_embedded_sdk_pnp` |{*Sample project to connect to Azure loT Hub using Azure loT Middleware for Azure RTOS via loT Plug and Play*}|
 
-* Download the STMicroelectronics B-L4S5I-IOT01A IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+Download the STMicroelectronics B-L4S5I-IOT01A IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
@@ -426,9 +426,7 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/import-projects.png" alt-text="Import projects from distribution Zip file":::
 
-1. Select the sample project that you want to build and run. For example, ***sample_azure_iot_embedded_sdk.***
-
-    :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/select_the_sample_project.png" alt-text="Select the sample_azure_iot_embedded_sdk project.":::
+1. Select the sample project that you want to build and run. For example, ***sample_azure_iot_embedded_sdk_pnp.***
 
 1. Expand the ***command_hardware_code*** folder to open ***board_setup.c*** to configure the values for your WiFi to be used.
 
@@ -449,23 +447,11 @@ To connect the device to Azure, you'll modify a configuration file for Azure IoT
      > [!NOTE]
     > The `ENDPOINT`, `DEVICE_ID`, `ID_SCOPE`, and `DEVICE_SYMMETRIC_KEY` values are set in a `#ifndef ENABLE_DPS_SAMPLE` statement. Make sure you set the values in the `#else` statement, which will be used when the `ENABLE_DPS_SAMPLE` value is defined.
 
-1. Save the file.
-
-1. Select the **sample_azure_iot_embedded_sdk_pnp**, right-click on it on in the left **Workspace** pane, and select **Set as active**.
-1. Right-click on the active project, select **Options > C/C++ Compiler > Preprocessor**. Replace the values for your WiFi to be used.
-
-    |Symbol name|Value|
-    |-----------|-----|
-    |`WIFI_SSID` |{*Use your Wi-Fi SSID*}|
-    |`WIFI_PASSWORD` |{*Use your Wi-Fi password*}|
-
-     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/options-for-node-sample.png" alt-text="Options for node sample":::
-
 ### Build the project
 
 In STM32CubeIDE, select ***Project > Build All*** to build sample projects and its dependent libraries. You will observe compilation and linking of the sample project.
 
-*** Download and run the project
+Download and run the project
 
 1. On the STM DevKit MCU, locate the **Reset** button (1), the Micro USB port (2), which is labeled **USB STLink**, and the board part number (3). You will refer to these items in the next steps. All of them are highlighted in the following picture:
 
@@ -517,18 +503,20 @@ Mask: 255.255.255.0
 Gateway: 10.0.0.1
 DNS Server address: 75.75.75.75
 SNTP Time Sync...0.pool.ntp.org
+SNTP Time Sync...1.pool.ntp.org
 SNTP Time Sync successfully.
 [INFO] Azure IoT Security Module has been enabled, status=0
 Start Provisioning Client...
 Registered Device Successfully.
 IoTHub Host Name: iotc-ad97cfe1-91b4-4476-bee8-dcdb0aa2cc0a.azure-devices.net; Device ID: 51pf4yld0g.
 Connected to IoTHub.
-Telemetry message send: {"Message ID":0}.
+Sent properties request.
+Telemetry message send: {"temperature":22}.
 [INFO] Azure IoT Security Module message is empty
-Receive twin properties :{"desired":{"$version":1},"reported":{"$version":1}}
-Telemetry message send: {"Message ID":1}.
-Telemetry message send: {"Message ID":2}.
-Telemetry message send: {"Message ID":3}.s
+Received all properties
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
+Telemetry message send: {"temperature":22}.
 ```
 
 Keep the terminal open to monitor device output in the following steps.
@@ -538,7 +526,7 @@ Keep the terminal open to monitor device output in the following steps.
 To view the device status in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to **Provisioned**.
-1. Confirm that the **Device template** is updated to **Unassigned**.
+1. Confirm that the **Device template** is updated to **Thermostat**.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-view-status-iar.png" alt-text="Screenshot of device status in IoT Central":::
 
@@ -568,6 +556,8 @@ To call a method in IoT Central portal:
 1. In the **Since** field, use the date picker and time selectors to set a time, then select **Run**.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-invoke-method-iar.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
+
+1. You can see the command invocation in the terminal. In this case, because the sample thermostat application prints a simulated temperature value, there won't be minimum or maximum values during the time range.
 
 ## View device information
 
