@@ -208,7 +208,7 @@ Now that you've added all the planned artifacts to the blueprint, it's time to p
 
 ## Assign a blueprint
 
-After you publish a blueprint, you can assigned it to a subscription. Assign the blueprint
+After you publish a blueprint, you can assign it to a subscription. Assign the blueprint
 that you created to one of the subscriptions under your management group hierarchy. If the blueprint is saved to a subscription, it can only be assigned to that subscription.
 
 1. Select **Blueprint definitions** from the page on the left.
