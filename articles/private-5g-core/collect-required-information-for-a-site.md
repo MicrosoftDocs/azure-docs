@@ -48,7 +48,6 @@ Collect all the values in the following table to define the packet core instance
    |<p>The IP address for the packet core instance N3 interface.</p><p>You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.</p>                |**N3 address**|
    |<p>The network address of the access subnet in Classless Inter-Domain Routing (CIDR) notation.</p><p>You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.</p>          |**N2 subnet** and **N3 subnet**|
    |<p>The access subnet default gateway.</p><p>You identified this in [Allocate subnets and IP addresses](complete-private-mobile-network-prerequisites.md#allocate-subnets-and-ip-addresses) and it must match the value you used when deploying the AKS-HCI cluster.</p>                        |**N2 gateway** and **N3 gateway**|
-   |The Tracking Area Codes the packet core instance must support, given as a comma-separated list. For example, *0001,0002*.    |**Tracking area codes**|
 
 ## Collect data network values
 
