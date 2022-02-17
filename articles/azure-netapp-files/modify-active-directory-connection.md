@@ -29,7 +29,7 @@ You can modify Active Directory connections in Azure NetApp Files. When modifyin
 ## Options for Active Directory connections
 
 | Field Name | What it is | Can it be modified? | Considerations | Effect | Impact on existing volumes |
-|:----:|:-----------|:--:|:-----------|:-------------|:------------|
+|:---:|:----------|:--:|:----------|:------------|:-----------|
 | Primary DNS | Primary DNS server IP addresses for the Active Directory domain | Yes | None | New DNS IP will be used for DNS resolution | None |
 | Secondary DNS | Secondary DNS server IP addresses for the Active Directory domain | Yes | None | New DNS IP will be used for DNS resolution in case primary DNS fails | None |
 | AD DNS Domain Name | The domain name of your Active Directory Domain Services that you want to join | No | None | N/A | N/A |
@@ -41,7 +41,6 @@ You can modify Active Directory connections in Azure NetApp Files. When modifyin
 | Allow local NFS users with LDAP | If enabled, this option will manage access for local users and LDAP users. | Yes | None | If enabled, this option will allow access to local users and LDAP users. If access is needed for only LDAP users, this option must be disabled. | This option will allow access to local users. It is not recommended and, if enabled, should only be used for a limited time and later disabled. |
 | LDAP over TLS | If enabled, LDAP over TLS will be configured to support secure LDAP communication to active directory. | Yes | None | If LDAP over TLS is enabled and if the server root CA certificate is already present in the database, then LDAP traffic is secured using the CA certificate. If a new certificate is passed in, that certificate will be installed. | None |
 | Server root CA Certificate | When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64-encoded Active Directory Certificate Service's self-signed root CA certificate. | Yes | None | LDAP traffic secured with new certificate only if ldapOverTLS is enabled | None |
-| LDAP search scope |
 | Backup policy users | You can include additional accounts that require elevated privileges to the computer account created for use with Azure NetApp Files. The specified accounts will be allowed to change the NTFS permissions at the file or directory level. For example, you can specify a non-privileged service account used for migrating data to an SMB file share. | Yes | None | The specified accounts will be allowed to change the NTFS permissions at the file or folder level | None |
 | Administrators | Specify users or groups that will be given administrator privileges on the volume | Yes | None | User account will receive administrator privileges | None |
 | Username | Username of the Active Directory domain administrator | Yes | None | Credential change to contact DC | None |
