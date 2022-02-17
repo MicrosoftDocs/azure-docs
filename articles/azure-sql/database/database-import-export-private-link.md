@@ -10,7 +10,7 @@ ms.topic: how-to
 author: SudhirRaparla
 ms.author: nvraparl
 ms.reviewer: 
-ms.date: 16/02/2022
+ms.date: 2/16/2022
 ---
 # Import or export an Azure SQL Database using Private Link without allowing Azure services to access the server
 
@@ -37,13 +37,13 @@ Import-Export Private Link can be configured via Azure Portal, PowerShell or usi
 
 ### Configure Import-Export Private link using Azure Portal
 
-#### Create Import Private Link <<TODO>>
+#### Create Import Private Link
 1.  Go to server into which you would like to import database. select Import database from toolbar in Overview blade.
 2.  In Import Database page select Use Private Link option
 ![Import Private Link](./media/database-import-export-private-link/import-database-private-link.png)
 3.  Enter the storage account, server login credentials, Database details and click on Ok
 
-#### Create Export Private Link <<TODO>>
+#### Create Export Private Link 
 1. Go to the database which you would like to export. Select Export database from toolbar in Overview blade
 2. In Export Database page select Use Private Link option
 ![Export Private Link](./media/database-import-export-private-link/export-database-private-link.png)
@@ -115,5 +115,5 @@ $importRequest = New-AzSqlDatabaseExport -ResourceGroupName "<resourceGroupName>
 
 ---
 
-### Create Import-Export Private link using REST API <<TODO>>
+### Create Import-Export Private link using REST API
 Existing APIs to perform Import and Export jobs have been enhanced to support Private Link. Please refer to [Import Database API](/rest/api/sql/2021-08-01-preview/servers/import-database.md)
