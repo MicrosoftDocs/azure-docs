@@ -32,11 +32,12 @@ The following architecture diagram shows the implementation.
 
 |Step | Description |
 |:-----| :-----------|
-| 1. | User arrives at a login page. Users select sign-in/sign-up and enter username into the page.
-| 2. | The application sends the user attributes to Azure AD B2C for identity verification.
-| 3. | Azure AD B2C collects the user attributes and sends the attributes to BindID to authenticate the user through OpenID Connect (OIDC) request.
-| 4. | BindID sends a push notification to the registered user mobile device for a FIDO2 certified authentication. It can be a user finger print, biometric or decentralized pin.  | 5. | After user acknowledges the push notification through a decentralized authentication response, the OIDC response is passed on to Azure AD B2C.
-| 6.| User is either granted or denied access to the customer application based on the verification results.
+| 1. | User arrives at a login page. Users select sign-in/sign-up and enter username into the page.|
+| 2. | The application sends the user attributes to Azure AD B2C for identity verification.|
+| 3. | Azure AD B2C collects the user attributes and sends the attributes to BindID to authenticate the user through OpenID Connect (OIDC) request.|
+| 4. | BindID sends a push notification to the registered user mobile device for a FIDO2 certified authentication. It can be a user finger print, biometric or decentralized pin.|
+ 5. | After user acknowledges the push notification through a decentralized authentication response, the OIDC response is passed on to Azure AD B2C.|
+| 6.| User is either granted or denied access to the customer application based on the verification results.|
 
 ## Onboard with BindID
 
@@ -56,6 +57,8 @@ To get started, you'll need:
 - A BindID tenant. You can [sign up for free.](https://www.transmitsecurity.com/developer?utm_signup=dev_hub#try)
 
 - If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
+
+::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
 
