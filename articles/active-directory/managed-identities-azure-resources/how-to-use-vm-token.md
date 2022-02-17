@@ -103,6 +103,26 @@ Content-Type: application/json
 | `resource` | The resource the access token was requested for, which matches the `resource` query string parameter of the request. |
 | `token_type` | The type of token, which is a "Bearer" access token, which means the resource can give access to the bearer of this token. |
 
+## Get a token using Azure.Identity library from the Azure SDK
+
+This is the reccomended method and library for using Azure Managed identities. All Azure SDKs are integrated with the Azure.Identity library that provides support for DefaultAzureCredential. This class makes it easy to use Managed Identities with Azure SDKs.[Learn more](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
+
+1. Add references to the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) and other required Azure SDK libraries, such as [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
+2. Use the sample code below. Note that you need not worry about getting tokens. You can directly use the Azure SDK clients. The code is for demonstrating how to get the token, if you need to.
+
+    ```csharp
+    using Azure.Identity;
+    string userAssignedClientId = "<your managed identity client Id>";
+    var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
+    var accessToken = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://vault.azure.net" }));
+    // To print the token, you can convert it to string 
+    String accessTokenString = accessToken.Token.ToString();
+    
+    //You can use the credential object directly with Key Vault client.     
+     var client = new SecretClient(new Uri("https://myvault.vault.azure.net/"), credential);   
+    
+    ```
+
 ## Get a token using the Microsoft.Azure.Services.AppAuthentication library for .NET
 
 For .NET applications and functions, the simplest way to work with managed identities for Azure resources is through the Microsoft.Azure.Services.AppAuthentication package. This library will also allow you to test your code locally on your development machine, using your user account from Visual Studio, the [Azure CLI](/cli/azure), or Active Directory Integrated Authentication. For more on local development options with this library, see the [Microsoft.Azure.Services.AppAuthentication reference](/dotnet/api/overview/azure/service-to-service-authentication). This section shows you how to get started with the library in your code.
