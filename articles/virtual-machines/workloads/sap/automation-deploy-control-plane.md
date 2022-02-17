@@ -132,6 +132,92 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRAS
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
 > Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
 
+## Deploy the web app
+   
+If you would like to use the web app, follow the steps below. If not, ignore this section.
+
+The web app can be found in the deployer resource group. In the Azure portal, select sesource groups in your subscription. The deployer resource group will be named something like MGMT-[region]-DEP00-INFRASTRUCTURE. Inside the deployer resource group, locate the app service, named something like mgmt-[region]-dep00-sapdeployment123. Open the app service and copy the URL listed. This will be the value for webapp_url.
+
+The commands below will configure the application urls, generate a zip file of the web app code, deploy the software to the app service, and configure the application settings.
+
+# [Linux](#tab/linux)
+
+```bash
+
+webapp_url=<webapp_url>
+az ad app update \
+    --id $TF_VAR_app_registration_app_id \
+    --homepage ${webapp_url} \
+    --reply-urls ${webapp_url}/ ${webapp_url}/.auth/login/aad/callback
+
+```
+> [!TIP]
+> Perform the following task from the deployer.
+```bash
+
+cd ~/Azure_SAP_Automated_Deployment/sap-automation/Webapp/AutomationForm
+
+dotnet build
+dotnet publish --configuration Release
+
+cd bin/Release/netcoreapp3.1/publish/
+
+sudo apt install zip
+zip -r deploymentfile.zip .
+
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path deploymentfile.zip
+
+```
+```bash
+
+az webapp config appsettings set -g <group-name> -n <app-name> --settings \
+AZURE_CLIENT_ID=$appId \
+AZURE_TENANT_ID=$tenant_id \
+AZURE_CLIENT_SECRET=$spn_secret \
+IS_PIPELINE_DEPLOYMENT=false
+
+```
+
+# [Windows](#tab/windows)
+
+```powershell
+
+$webapp_url="<webapp_url>"
+az ad app update `
+    --id $TF_VAR_app_registration_app_id `
+    --homepage $webapp_url `
+    --reply-urls $webapp_url/ $webapp_url/.auth/login/aad/callback
+
+```
+> [!TIP]
+> Perform the following task from the deployer.
+> 
+```powershell
+
+dotnet build
+dotnet publish --configuration Release
+
+cd bin/Release/netcoreapp3.1/publish/
+
+Compress-Archive -LiteralPath '.' -DestinationPath 'deploymentfile.zip'
+
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path deploymentfile.zip
+
+```
+```powershell
+
+az webapp config appsettings set -g '<group-name>' -n '<app-name>' --settings `
+AZURE_CLIENT_ID=$appId `
+AZURE_TENANT_ID=$tenant_id `
+AZURE_CLIENT_SECRET=$spn_secret `
+IS_PIPELINE_DEPLOYMENT=false
+
+```
+---
+## Accessing the web app
+
+By default there will be no public internet access to the website. To change the access restrictions, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions).
+
 ## Next step
 
 > [!div class="nextstepaction"]
