@@ -149,7 +149,7 @@ Create conditions based on unique values associated with the category selected. 
 
     - (==) Equal to 
     
-    - (==) Not equal to 
+    - (!=) Not equal to 
     
     - (>) Greater than
     

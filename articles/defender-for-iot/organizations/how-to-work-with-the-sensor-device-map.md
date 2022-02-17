@@ -154,7 +154,7 @@ Each subnet is presented as a single entity on the Device map. Options are avail
 
 3. Select the subnet(s) that you want to collapse or select **Collapse All**. The selected subnet appears collapsed on the map.
 
-The collapse icon is updated with the updated number of expanded IT subnets.
+The collapse icon is updated with the updated number of collapsed IT subnets.
 
 **To disable the option to collapse and expand IT subnets:**
 1. Select the **Disable Display IT Network Groups**. 

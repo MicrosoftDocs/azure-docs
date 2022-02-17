@@ -163,6 +163,9 @@
     - name: Forward alert information
       href: how-to-forward-alert-information-to-partners.md
       displayName: integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response
+  - name: Manage cloud alerts
+    href: how-to-manage-cloud-alerts.md
+    displayName: MITRE ATT&CK, remediation, severity, status, alert exclusion, learn, important, mute, new, active, close
   - name: Gain insight into global, regional, and local threats
     href: how-to-gain-insight-into-global-regional-and-local-threats.md
     displayName: site, business unit, region, map
