@@ -20,7 +20,7 @@ There are currently two types of data collection rule in Azure Monitor:
 ## Structure of a data collection rule
 Data collection rules are formatted in JSON. While you may not need to interact with them directly, there are scenarios where you may need to directly edit a data collection rule. See [Data collection rule structure](data-collection-rule-structure.md) for a description of this structure and different elements.
 
-## Permissions required to create data collection rules and associations
+## Permissions 
 When using programmatic methods to create data collection rules and associations (i.e. methods other than Azure portal), you require the following permissions:  
 
 | Built-in Role | Scope(s) | Reason |  

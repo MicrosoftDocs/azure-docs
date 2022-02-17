@@ -21,6 +21,13 @@ Ingestion-time transformation is applied to any workflow that doesn't currently 
 - [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)
 - [Custom logs](../logs/custom-logs-overview.md)
 
+## When to use ingestion-time transformations
+Use ingestion-time transformation for the following scenarios:
+
+**Reduce data ingestion cost.** You can create a transformation to filter data that you don't require from a particular workflow. You may also remove data that you don't require from specific columns, resulting in a lower amount of the data that you need to ingest and store. For example, you might have a diagnostic setting to collect resource logs from a particular resource but note require all of the log entries that it generates. Create a transformation that only collects records that match a certain criteria. 
+
+**Simplify query requirements.** You may have a table with valuable data buried in a particular column or data that needs some type of conversion each time it's queried. Create a transformation that parses this data into a custom column so that queries don't need to parse it. Remove data from the column that isn't required to decrease ingestion and retention costs.
+
 ## Tables supporting ingestion-time transformation
 See [Supported tables for ingestion-time transformations](ingestion-time-transformations-supported-tables.md) for a complete list of tables that support ingestion-time transformations.
 

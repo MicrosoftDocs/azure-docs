@@ -3,8 +3,6 @@ title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs using 
 description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using resource manager templates.
 ms.subservice: logs
 ms.topic: tutorial
-author: bwren
-ms.author: bwren
 ms.date: 01/19/2022
 ---
 
@@ -27,18 +25,12 @@ In this tutorial, you learn to:
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
-- Log Analytics workspace where you have at least contributor rights. 
-- Permissions to create Data Collection Rule objects in the workspace.
+- Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
+- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace. 
 
 
 ## Overview of tutorial
-In this tutorial, you'll add a column to the `LAQueryLogs` table and reduce its storage requirement by filtering out certain records and removing the contents of a column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. You can use this same basic process to create a transformation for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
-
-This tutorial will use the Azure portal which provides a wizard to walk you through the process of creating an ingestion-time transformation. The following actions are performed for you when you complete this wizard:
-
-- Updates the table schema with any additional columns from the query.
-- Creates a `WorkspaceTransforms` data collection rule (DCR) and links it to the workspace if a default DCR isn't already linked to the workspace.
-- Creates an ingestion-time transformation and adds it to the DCR.
+In this tutorial, you'll reduce the storage requirement for the `LAQueryLogs` table by filtering out certain records. You'll also remove the contents of a column while parsing the column data to store a piece of data in a custom column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. You can use this same basic process to create a transformation for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
 
 
 ## Enable query audit logs
@@ -65,13 +57,13 @@ Before you can create the transformation, the following two changes must be made
 Use the **Tables - Update** API to configure the table with the PowerShell code below. Calling the API enables the table for ingestion-time transformations, whether or not custom columns are defined. In this case, it includes a custom column called *Resources_CF* that will be populated with the transformation query. 
 
 > [!IMPORTANT]
-> A custom column in a built-in table must use a suffix of *_CF*. A column in a custom table does not require this suffix.
+> Any custom columns added to a built-in table must end in *_CF*. Columns added to a custom table (a table with a name that ends in *_CL*) does not need to have this suffix.
 
 Click the **Cloud Shell** button in the Azure portal and ensure the environment is set to **PowerShell**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
 
-Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. Paste it into the cloud shell prompt to run it.
+Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. 
 
 ```PowerShell
 $tableParams = @'
@@ -96,17 +88,16 @@ $tableParams = @'
 Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}/tables/LAQueryLogs?api-version=2021-12-01-preview" -Method PUT -payload $tableParams
 ```
 
+Paste the code into the cloud shell prompt to run it.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" alt-text="Screenshot of script in cloud shell":::
 
 
 
 ## Define transformation query
-The first step is to write the query that you'll us in the transformation. You can use Log Analytics to test this query before adding it to the data collection rule.
+Use Log Analytics to test the transformation  query before adding it to the data collection rule. Open your workspace in the **Log Analytics workspaces** menu in the Azure portal and select **Logs** to open Log Analytics. Run the following query to view the contents of the `LAQueryLogs` table. Notice the contents of the `RequestContext` column. The transformation will retrieve the workspace name from this column and remove the rest of the data in it. 
 
-Open your workspace in the **Log Analytics workspaces** menu in the Azure portal and select **Logs** to open Log Analytics. Run the following query to view the contents of the `LAQueryLogs` table. Notice the contents of the `RequestContext` column. The transformation will retrieve the workspace name from this column and remove the rest of the data in it. 
-
-``kusto
+```kusto
 LAQueryLogs
 | take 10
 ```
@@ -143,7 +134,7 @@ source |where QueryText !contains 'LAQueryLogs' | extend Context = parse_json(Re
 > While the ingestion-time transformation KQL can contain any query parsable by the KQL subset supported, the output of the KQL must contain a column called `TimeGenerated` of type `datetime`.
 
 ## Create data collection rule (DCR)
-The data collection rule contains the transformation. The first step is to create the data collection rule with the transformation. You'll then link that DCR to the workspace in a later step.
+The data collection rule contains the transformation and will be associated with the workspace. 
 
 In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
@@ -153,7 +144,7 @@ Click **Build your own template in the editor**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor":::
 
-Paste the resource manager template below into the editor and then click **Save**.
+Paste the resource manager template below into the editor and then click **Save**. This template defines the DCR and contains the transformation query.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template":::
 
@@ -242,14 +233,14 @@ Copy the **Resource ID** for the data collection rule. You'll use this in the ne
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
 
 ## Link workspace to DCR
-The final step to enable the transformation is to link the data collection rule to the workspace.
+The final step to enable the transformation is to link the DCR to the workspace.
 
 > [!IMPORTANT]
 > A workspace can only be connected to a single DCR, and the linked DCR must contain this workspace as a destination.
 
 Use the **Workspaces - Update** API to configure the table with the PowerShell code below. 
 
-Click the **Cloud shell** button to open cloud shell again. Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. Paste it into the cloud shell prompt to run it.
+Click the **Cloud shell** button to open cloud shell again. Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. 
 
 ```PowerShell
 $defaultDcrParams = @'
@@ -263,7 +254,14 @@ $defaultDcrParams = @'
 Invoke-AzRestMethod -Path "/subscriptions/{subscription}/resourcegroups/{resourcegroup}/providers/microsoft.operationalinsights/workspaces/{workspace}?api-version=2021-12-01-preview" -Method PATCH -payload $defaultDcrParams
 ```
 
+Paste the code into the cloud shell prompt to run it.
+
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script-link-workspace.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script-link-workspace.png" alt-text="Screenshot of script to link workspace to DCR":::
+
+## Test transformation
+Allow about 30 minutes for the transformation to take effect, and you can then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 
+
+For this tutorial, run some sample queries to send data to the `LAQueryLogs` table. Include some queries against `LAQueryLogs` so you can verify that the transformation filters these records. Notice that the output has the new `Workspace_CF` column, and there are no records for `LAQueryLogs`.
 
 ## Next steps
 

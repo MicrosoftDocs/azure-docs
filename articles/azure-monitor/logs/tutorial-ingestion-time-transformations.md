@@ -6,7 +6,7 @@ ms.topic: tutorial
 ms.date: 01/19/2022
 ---
 
-# Tutorial: Add ingestion-time transformation to Azure Monitor Logs using the Azure portal (preview)
+# Add ingestion-time transformation to Azure Monitor Logs using the Azure portal (preview)
 [Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks through configuration of an ingestion time transformation using the Azure portal.
 
 > [!NOTE]
@@ -22,12 +22,12 @@ In this tutorial, you learn to:
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
-- Log Analytics workspace where you have at least contributor rights. 
-- Permissions to create Data Collection Rule objects in the workspace.
+- Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
+- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace. 
 
 
 ## Overview of tutorial
-In this tutorial, you'll add a column to the `LAQueryLogs` table and reduce its storage requirement by filtering out certain records and removing the contents of a column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. You can use this same basic process to create a transformation for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
+In this tutorial, you'll reduce the storage requirement for the `LAQueryLogs` table by filtering out certain records. You'll also remove the contents of a column while parsing the column data to store a piece of data in a custom column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. You can use this same basic process to create a transformation for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
 
 This tutorial will use the Azure portal which provides a wizard to walk you through the process of creating an ingestion-time transformation. The following actions are performed for you when you complete this wizard:
 
@@ -47,12 +47,12 @@ Provide a name for the diagnostic setting and select the workspace so that the a
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" lightbox="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" alt-text="Screenshot of new diagnostic setting":::
 
-Select **Logs** and then run some queries to populate `LAQuery Logs` with some data. These queries don't need to return data to be added to the audit log.
+Select **Logs** and then run some queries to populate `LAQueryLogs` with some data. These queries don't need to return data to be added to the audit log.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/sample-queries.png" lightbox="media/tutorial-ingestion-time-transformations/sample-queries.png" alt-text="Screenshot of sample log queries":::
 
 ## Add ingestion-time transformation to the table
-The '`LAQueryLogs` table should now exist in your workspace, so you can create a transformation for it. Select **Tables (preview)** and then locate the `LAQueryLogs` table and select **Create transformation**.
+From the **Log Analytics workspaces** menu in the Azure portal, select **Tables (preview)** and then locate the `LAQueryLogs` table and select **Create transformation**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/create-transformation.png" lightbox="media/tutorial-ingestion-time-transformations/create-transformation.png" alt-text="Screenshot of creating a new transformation":::
 
@@ -83,8 +83,10 @@ source
 | project-away RequestContext, Context
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > The output of the transformation will initiate changes to the table schema. Columns will be added to match the transformation output if they don't already exist. Make sure that your output doesn't contain any additional columns that you don't want added to the table. If the output does not include columns that are already in the table, those columns will not be removed, but data will not be added.
+> 
+> Any custom columns added to a built-in table must end in *_CF*. Columns added to a custom table (a table with a name that ends in *_CL*) does not need to have this suffix.
 
 Copy the query into the transformation editor and click **Run** to view results from the sample data. You can verify that the new `Workspace_CF` column is in the query.
 
@@ -97,6 +99,6 @@ Click **Apply** to save the transformation and then **Next** to review the confi
 ## Test transformation
 Allow about 30 minutes for the transformation to take effect, and you can then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 
 
-Run some sample queries to send data to the `LAQueryLogs` table. These can't include queries for `LAQueryLogs` itself since the transformation is filtering these records.
+For this tutorial, run some sample queries to send data to the `LAQueryLogs` table. Include some queries against `LAQueryLogs` so you can verify that the transformation filters these records. Notice that the output has the new `Workspace_CF` column, and there are no records for `LAQueryLogs`.
 
-Notice that the output has the new `Workspace_CF` column, and there are no records for `LAQueryLogs`.
+## Next steps
