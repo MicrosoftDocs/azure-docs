@@ -14,7 +14,7 @@ Azure Dedicated Host is a service that provides physical servers - able to host 
 Using Azure Dedicated Hosts for nodes with your AKS cluster has the following benefits:
 
 * Hardware isolation at the physical server level. No other VMs will be placed on your hosts. Dedicated hosts are deployed in the same data centers and share the same network and underlying storage infrastructure as other, non-isolated hosts.
-* Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt-in to a maintenance window to reduce the impact to your service.
+* Control over maintenance events initiated by the Azure platform. While the majority of maintenance events have little to no impact on your virtual machines, there are some sensitive workloads where each second of pause can have an impact. With dedicated hosts, you can opt in to a maintenance window to reduce the impact to your service.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -58,7 +58,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Limitations
 
-The following limitations apply when you create integrate Azure Dedicated Host with Azure Kubernetes Service:
+The following limitations apply when you integrate Azure Dedicated Host with Azure Kubernetes Service:
 * An existing agentpool cannot be converted from non-ADH to ADH or ADH to non-ADH.
 * It is not supported to update agentpool from host group A to host group B.
 
@@ -117,7 +117,7 @@ az aks nodepool delete --cluster-name MyManagedCluster --name agentpool3 --resou
 
 ## Next steps
 
-In this article, you learned how to create an AKS cluster with a Dedicated host, and to add a dedicated host to an existing cluster. For more information about Dedicated Hosts, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
+In this article, you learned how to create an AKS cluster with a Dedicated host, and to add a dedicated host to an existing cluster. For more information about Dedicated Hosts, see [dedicated-hosts].
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
