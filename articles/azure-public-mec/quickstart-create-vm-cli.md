@@ -17,7 +17,7 @@ In this quickstart, you deploy a virtual machine (VM) in Azure public multi-acce
 
 - An Azure account with an allowlisted subscription, which allows you to deploy resources in Azure public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 > [!NOTE]
 > Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.
@@ -43,7 +43,7 @@ In this quickstart, you deploy a virtual machine (VM) in Azure public multi-acce
     ```
 
     > [!NOTE]
-    > Each Azure public MEC site is associated with an Azure region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate region value for the ``--location`` parameter. The mapping can be obtained [here](tbd.md).
+    > Each Azure public MEC site is associated with an Azure region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate region value for the `--location` parameter. For more information, see [Regions and availability zones](/azure/availability-zones/az-overview).
 
 1. Create a VM with the [az vm create](/cli/azure/vm#az-vm-create) command. The following example creates a VM named myVMEdge and adds a user account named azureuser at Azure public MEC.
 
