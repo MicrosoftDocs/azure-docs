@@ -629,6 +629,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |cachemisses|Yes|Cache Misses|Count|Total||InstanceId|
 |cacheRead|Yes|Cache Read|BytesPerSecond|Maximum||InstanceId|
 |cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum||InstanceId|
+|CharactersTrained|Yes|Characters Trained (Deprecated)|Count|Total|Total number of characters trained.|ApiName, OperationName, Region|
+|CharactersTranslated|Yes|Characters Translated (Deprecated)|Count|Total|Total number of characters in incoming text request.|ApiName, OperationName, Region|
 |connectedclients|Yes|Connected Clients|Count|Maximum||InstanceId|
 |errors|Yes|Errors|Count|Maximum||InstanceId, ErrorType|
 |evictedkeys|Yes|Evicted Keys|Count|Total||No Dimensions|
