@@ -169,7 +169,7 @@ The following table list the known limitations to the use of private endpoints:
 >
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Public preview limitations
+## Limitations of the preview version
 
 ### Network security groups
 
