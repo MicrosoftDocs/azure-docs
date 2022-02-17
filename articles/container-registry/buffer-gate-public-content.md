@@ -3,8 +3,8 @@ title: Manage public content in private container registry
 description: Practices and workflows in Azure Container Registry to manage dependencies on public images from Docker Hub and other public content
 author: dlepow
 ms.topic: article
-ms.author: danlep
-ms.date: 06/17/2021
+ms.author: tejaswikolli
+ms.date: 02/01/2022
 ---
 
 # Manage public content with Azure Container Registry
@@ -67,6 +67,9 @@ As a recommended one-time step, [import](container-registry-import-images.md) ba
 
 `az acr import` doesn't require a local Docker installation. You can run it with a local installation of the Azure CLI or directly in Azure Cloud Shell. It supports images of any OS type, multi-architecture images, or OCI artifacts such as Helm charts.
 
+Depending on your organization's needs, you can import to a dedicated registry or a repository in a shared registry.
+
+# [Azure CLI](#tab/azure-cli) 
 Example:
 
 ```azurecli-interactive
@@ -78,7 +81,18 @@ az acr import \
   --password <Docker Hub token>
 ```
 
-Depending on your organization's needs, you can import to a dedicated registry or a repository in a shared registry.
+# [PowerShell](#tab/azure-powershell)
+Example:
+
+```azurepowershell-interactive
+Import-AzContainerRegistryImage 
+      -SourceImage library/busybox:latest 
+      -ResourceGroupName $resourceGroupName 
+      -RegistryName $RegistryName 
+      -SourceRegistryUri docker.io 
+      -TargetTag busybox:latest
+```
+ Credentials are required if the source registry is not available publicly or the admin user is disabled.
 
 ## Update image references
 

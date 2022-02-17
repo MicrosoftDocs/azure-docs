@@ -230,7 +230,7 @@ Following section is not valid because package.json folder is not valid.
 ```
 It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
 
-### Git Repository or Purview Connection Disconnected
+### Git Repository or Azure Purview Connection Disconnected
 
 #### Issue
 When deploying a service instance, the git repository or purview connection is disconnected.
@@ -328,6 +328,17 @@ The ARM template deployment is attempting to change the type of an existing inte
 ##### Resolution
 If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, refer to [Continuous integration and delivery - Azure Data Factory](./continuous-integration-delivery.md#best-practices-for-cicd)
 
+### GIT publish may fail because of PartialTempTemplates files
+
+#### Issue
+When you have 1000s of old temporary ARM json files in PartialTemplates folder, publish may fail.
+
+#### Cause
+On publish, ADF fetches every file inside each folder in the collaboration branch. In the past, publishing generated two folders in the publish branch: PartialArmTemplates and LinkedTemplates. PartialArmTemplates files are no longer generated. However, because there can be many old files (thousands) in the PartialArmTemplates folder, this may result in many requests being made to GitHub on publish and the rate limit being hit. 
+
+#### Resolution
+Delete the PartialTemplates folder and republish. You can delete the temporary files in that folder as well.
+ 
 ## Next steps
 
 For more help with troubleshooting, try the following resources:

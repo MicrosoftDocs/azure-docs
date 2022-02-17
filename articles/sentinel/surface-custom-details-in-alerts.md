@@ -1,15 +1,8 @@
 ---
 title: Surface custom details in Microsoft Sentinel alerts | Microsoft Docs
 description: Extract and surface custom event details in alerts in Microsoft Sentinel analytics rules, for better and more complete incident information
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -67,4 +60,4 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 ## Next steps
 In this document, you learned how to surface custom details in alerts using Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
-- Learn more about [entities in Microsoft Sentinel](entities-in-azure-sentinel.md).
+- Learn more about [entities in Microsoft Sentinel](entities.md).

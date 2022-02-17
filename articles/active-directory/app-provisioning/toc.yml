@@ -1,3 +1,4 @@
+items:  
   - name: Application and HR provisioning documentation
     href: index.yml
   - name: Overview
@@ -5,6 +6,8 @@
     items:
      - name: What is application provisioning?
        href: user-provisioning.md
+     - name: What is HR-driven provisioning?
+       href: what-is-hr-driven-provisioning.md
      - name: What's new in docs?
        href: whats-new-docs.md
   - name: Tutorials
@@ -17,9 +20,15 @@
     - name: Customize attribute mappings
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
-      href: /azure/active-directory/saas-apps
-    - name: Provisioning to SQL based apps
-      href: tutorial-ecma-sql-connector.md
+      href: ../saas-apps/tutorial-list.md
+    - name: On-prem app provisioning tutorials
+      items:
+      - name: Provisioning to On-premises SCIM-enabled apps
+        href: on-premises-scim-provisioning.md
+      - name: Provisioning to SQL based apps
+        href: on-premises-sql-connector-configure.md
+      - name: Provisioning to LDAP based apps
+        href: on-premises-ldap-connector-configure.md
   - name: Concepts
     expanded: true
     items: 
@@ -62,10 +71,6 @@
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Automate configuration using MS Graph
-      href: application-provisioning-configuration-api.md
-    - name: Enable accidental deletions prevention
-      href: accidental-deletions.md
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues
@@ -82,16 +87,6 @@
         href: on-premises-ecma-troubleshoot.md
       - name: Provisioning logs
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: On-premises app provisioning
-      items:
-      - name: Provisioning to SQL based apps
-        href: on-premises-sql-connector-configure.md
-      - name: Generic LDAP Connector configuration
-        href: on-premises-ldap-connector-configure.md
-      - name: On-premises application provisioning to SCIM-enabled apps
-        href: on-premises-scim-provisioning.md
-      - name: Migrate connector from MIM Sync
-        href: on-premises-migrate-microsoft-identity-manager.md
     - name: Troubleshoot HR provisioning
       items:
       - name: Attribute retrieval issues
@@ -104,14 +99,18 @@
         href: hr-manager-update-issues.md
       - name: HR writeback issues
         href: hr-writeback-issues.md
+    - name: Enable accidental deletions prevention
+      href: accidental-deletions.md
+    - name: Automate configuration using MS Graph
+      href: application-provisioning-configuration-api.md
   - name: Reference
     items:
+    - name: Function reference for writing expressions for attribute mappings
+      href: functions-for-customizing-application-data.md
     - name: SCIM 2.0 protocol compliance
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: SCIM and Graph scenarios
       href: scim-graph-scenarios.md
-    - name: Function reference for writing expressions for attribute mappings
-      href: functions-for-customizing-application-data.md
     - name: Cloud HR provisioning
       items:
       - name: SuccessFactors attribute reference
@@ -120,6 +119,8 @@
         href: workday-attribute-reference.md
       - name: Provisioning Agent version history
         href: provisioning-agent-release-version-history.md
+      - name: Migrate connector from MIM Sync
+        href: on-premises-migrate-microsoft-identity-manager.md
   - name: Resources
     items:
     - name: Support and help options for developers
@@ -129,7 +130,7 @@
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-active-directory.html
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/active-directory
+      href: https://azure.microsoft.com/pricing/details/active-directory/
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory
     - name: Stack Overflow

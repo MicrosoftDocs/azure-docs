@@ -3,6 +3,8 @@ title: Durable Functions publishing to Azure Event Grid
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 ms.topic: conceptual
 ms.date: 05/11/2020
+ms.devlang: csharp, javascript
+ms.custom: devx-track-azurecli
 ---
 
 # Durable Functions publishing to Azure Event Grid

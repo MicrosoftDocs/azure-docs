@@ -1,19 +1,10 @@
 ---
 title: Handle ingestion delay in Microsoft Sentinel | Microsoft Docs
 description:  Handle ingestion delay in Microsoft Sentinel scheduled analytics rules.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-
 ---
 
 # Handle ingestion delay in scheduled analytics rules
@@ -41,6 +32,11 @@ Now, assume there's some delay for your data source. For this example, let's say
 The event is generated within the first look-back period, but isn't ingested in your Microsoft Sentinel workspace on the first run. The next time the scheduled query runs, it ingests the event, but the time-generated filter removes the event because it happened more than five minutes ago. In this case, **the rule does not fire an alert**.
 
 ## How to handle delay
+
+> [!NOTE]
+>
+> You can either solve the issue using the process described below, or implement Microsoft Sentinel's near-real-time detection (NRT) rules. For more information, see [Detect threats quickly with near-real-time (NRT) analytics rules in Microsoft Sentinel](near-real-time-rules.md).
+> 
 
 To solve the issue, you need to know the delay for your data type. For this example, you already know the delay is two minutes. 
 
@@ -101,3 +97,5 @@ For more information, see:
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Customize alert details in Azure Sentinel](customize-alert-details.md)
 - [Manage template versions for your scheduled analytics rules in Azure Sentinel](manage-analytics-rule-templates.md)
+- [Use the health monitoring workbook](monitor-data-connector-health.md)
+- [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md)

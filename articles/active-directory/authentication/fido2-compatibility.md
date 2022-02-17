@@ -34,7 +34,7 @@ This table shows support for authenticating Azure Active Directory (Azure AD) an
 
 ## Unsupported browsers
 
-The following operating system and browser combinations are not supported, but future support and testing is being investigated. If you would like to see other operating system and browser support, please leave feedback using the product feedback tool at the bottom of the page.
+The following operating system and browser combinations are not supported, but future support and testing is being investigated. If you would like to see other operating system and browser support, please leave feedback on our [product feedback site](https://feedback.azure.com/d365community/).
 
 | Operating system | Browser |
 | ---- | ---- |

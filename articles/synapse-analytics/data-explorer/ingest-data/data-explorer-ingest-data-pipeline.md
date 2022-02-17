@@ -9,6 +9,7 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
+ms.custom: mode-other
 ---
 
 # Quickstart: Ingest data using Azure Synapse Pipelines (Preview)

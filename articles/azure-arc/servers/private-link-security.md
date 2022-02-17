@@ -165,7 +165,7 @@ Once your Azure Arc Private Link Scope (preview) is created, you need to connect
 
 1. On the **Configuration** page,
 
-   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure Monitor resources. 
+   a. Choose the **virtual network** and **subnet** that you want to connect to your Azure-Arc enabled server. 
 
    b. Choose **Yes** for **Integrate with private DNS zone**, and let it automatically create a new Private DNS Zone. The actual DNS zones may be different from what is shown in the screenshot below.
 
@@ -292,8 +292,10 @@ It may take up to 15 minutes for the Private Link Scope to accept connections fr
 
 1. Check your on-premises DNS server(s) to verify it is either forwarding to Azure DNS or is configured with appropriate A records in your private link zone. These lookup commands should return private IP addresses in your Azure virtual network. If they resolve public IP addresses, double check your machine or server and network’s DNS configuration.
 
+    ```
     nslookup gbl.his.arc.azure.com
     nslookup agentserviceapi.guestconfiguration.azure.com
+    ```
 
 1. If you are having trouble onboarding a machine or server, confirm that you’ve added the Azure Active Directory and Azure Resource Manager service tags to your local network firewall. The agent needs to communicate with these services over the internet until private endpoints are available for these services.
 

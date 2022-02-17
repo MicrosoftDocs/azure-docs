@@ -8,14 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/23/2021
 ms.author: davidmu
 ms.reviewer: phsignor
 
 ms.collection: M365-identity-device-management
 
-#customer intent: As an admin I want to review permissions granted to applications so that I can restrict suspicious or over privileged applications.
+#customer intent: As an admin, I want to review permissions granted to applications so that I can restrict suspicious or over privileged applications.
 
 ---
 

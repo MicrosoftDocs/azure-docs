@@ -77,7 +77,7 @@ try {
         $FileExists = Test-Path -Path $filePath -PathType Leaf
 
         if ($FileExists) {
-            $policycontent = Get-Content $filePath
+            $policycontent = Get-Content $filePath -Encoding UTF8
 
             # Optional: Change the content of the policy. For example, replace the tenant-name with your tenant name.
             # $policycontent = $policycontent.Replace("your-tenant.onmicrosoft.com", "contoso.onmicrosoft.com")     

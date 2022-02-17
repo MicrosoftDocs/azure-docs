@@ -12,6 +12,8 @@ ms.custom: devx-track-java, subject-rbac-steps
 
 # Access Config Server and Service Registry
 
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
+
 This article explains how to access the Spring Cloud Config Server and Spring Cloud Service Registry managed by Azure Spring Cloud using Azure Active Directory (Azure AD) role-based access control (RBAC).
 
 > [!NOTE]

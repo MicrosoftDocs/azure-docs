@@ -212,7 +212,7 @@ sections:
           For more information, see:
           
           - [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2)
-          - [Video: HTTP/2 in Windows 10: Browser, Apps and Web Server](https://channel9.msdn.com/Events/Build/2015/3-88)
+          - Video: HTTP/2 in Windows 10: Browser, Apps and Web Server
                    
           
           These steps could be automated via a startup task, so that whenever a new PaaS instance gets created, it can do the changes above in the system registry. For more information, see [How to configure and run startup tasks for a Cloud Service](cloud-services-startup-tasks.md).

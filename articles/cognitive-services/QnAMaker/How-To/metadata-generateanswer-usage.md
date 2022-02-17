@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
@@ -22,6 +22,9 @@ To get the predicted answer to a user's question, use the GenerateAnswer API. Wh
 ## Get answer predictions with the GenerateAnswer API
 
 You use the [GenerateAnswer API](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) in your bot or application to query your knowledge base with a user question, to get the best match from the question and answer pairs.
+
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the latest question answering APIs consult the [question answering quickstart guide](../../language-service/question-answering/quickstart/sdk.md).
 
 <a name="generateanswer-endpoint"></a>
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Deploy container app to container instance
+title: Tutorial - Deploy container application to container instance
 description: Azure Container Instances tutorial part 3 of 3 - Deploy container application to Azure Container Instances
 ms.topic: tutorial
 ms.date: 03/21/2018
@@ -107,8 +107,7 @@ In this tutorial, you completed the process of deploying your container to Azure
 
 Now that you have the basics down, move on to learning more about Azure Container Instances, such as how container groups work:
 
-> [!div class="nextstepaction"]
-> [Container groups in Azure Container Instances](container-instances-container-groups.md)
+[Container groups in Azure Container Instances](container-instances-container-groups.md)
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

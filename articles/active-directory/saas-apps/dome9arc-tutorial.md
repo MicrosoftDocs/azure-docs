@@ -167,8 +167,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To enable Azure AD users to sign in to Check Point CloudGuard Posture Management, they must be provisioned into application. Check Point CloudGuard Posture Management supports just-in-time provisioning but for that to work properly, user have to select particular **Role** and assign the same to the user.
 
-> [!Note]
-> For **Role** creation and other details contact [Check Point CloudGuard Posture Management Client support team](mailto:Dome9@checkpoint.com).
+> [!NOTE]
+> To learn how to create a **Role** and for other information, see the [CloudGuard Admin Guide](https://sc1.checkpoint.com/documents/CloudGuard_Dome9/Documentation/Integrations/Single-Sign-On/SSO-ADFS.htm).
+> 
+> For 24/7 assistance, contact [Check Point Support](https://www.checkpoint.com/support-services/contact-support/).  
+>  
 
 **To provision a user account manually, perform the following steps:**
 

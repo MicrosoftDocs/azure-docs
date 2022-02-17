@@ -1,9 +1,6 @@
 ---
 title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to lookup or correlate data in an Azure Stream Analytics job's query design.
-author: jseb225
-ms.author: jeanb
-
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/25/2021
@@ -63,6 +60,8 @@ Azure Stream Analytics automatically scans for refreshed reference data blobs at
 > Likewise if `sample/2015-04-16/17-30/products.csv` is only produced at 10:03 PM April 16th, 2015 but no blob with an earlier date is present in the container, the job will use this file starting at 10:03 PM April 16th, 2015 and use the previous reference data until then.
 > 
 > An exception to this is when the job needs to re-process data back in time or when the job is first started. At start time the job is looking for the most recent blob produced before the job start time specified. This is done to ensure that there is a **non-empty** reference data set when the job starts. If one cannot be found, the job displays the following diagnostic: `Initializing input without a valid reference data blob for UTC time <start time>`.
+
+When a reference data set is refreshed, a diagnostic log will be generated: `Loaded new reference data from <blob path>`. Multiple reasons may require a job to reload a previous (past) reference data set, most often to reprocess past data. That same diagnostic log will be generated then. This doesn't imply that current stream data will use past reference data.
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) can be used to orchestrate the task of creating the updated blobs required by Stream Analytics to update reference data definitions. Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. Data Factory supports [connecting to a large number of cloud based and on-premises data stores](../data-factory/copy-activity-overview.md) and moving data easily on a regular schedule that you specify. For more information and step by step guidance on how to set up a Data Factory pipeline to generate reference data for Stream Analytics which refreshes on a pre-defined schedule, check out this [GitHub sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 

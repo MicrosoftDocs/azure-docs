@@ -3,7 +3,7 @@ title: Configure QnA Maker service - QnA Maker
 description: This document outlines advanced configurations for your QnA Maker resources.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/25/2021
 ms.custom: ignite-fall-2021
 ---
@@ -95,7 +95,7 @@ The primary objective of the business continuity plan is to create a resilient k
 
 The high-level idea as represented above is as follows:
 
-1. Set up two parallel [QnA Maker services](set-up-qnamaker-service-azure.md) in [Azure paired regions](../../../best-practices-availability-paired-regions.md).
+1. Set up two parallel [QnA Maker services](set-up-qnamaker-service-azure.md) in [Azure paired regions](../../../availability-zones/cross-region-replication-azure.md).
 
 1. [Backup](../../../app-service/manage-backup.md) your primary QnA Maker App service and [restore](../../../app-service/web-sites-restore.md) it in the secondary setup. This will ensure that both setups work with the same hostname and keys.
 

@@ -1,13 +1,13 @@
 ---
 title: Overview of Azure IoT Hub message enrichments
 description: This article shows message enrichments, which give the IoT Hub the ability to stamp messages with additional information before the messages are sent to the designated endpoint. 
-author: eross-msft
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.author: lizross
+ms.author: kgremban
 #Customer intent: As a developer, I want to be able to add information to messages sent from a device to my IoT Hub, based on the destination endpoint.   
 ---
 # Message enrichments for device-to-cloud IoT Hub messages
@@ -35,7 +35,7 @@ The **value** can be any of the following examples:
 * Information from the device twin, such as its path. Examples would be *$twin.tags.field* and *$twin.tags.latitude*.
 
    > [!NOTE]
-   > At this time, only $iothubname, $twin.tags, $twin.properties.desired, and $twin.properties.reported are supported variables for message enrichment.
+   > At this time, only $iothubname, $twin.tags, $twin.properties.desired, and $twin.properties.reported are supported variables for message enrichment.  Additionally, only primitive types are supported for enrichments. Messages cannot be enriched with object types.
 
 Message Enrichments are added as application properties to messages sent to chosen endpoint(s).  
 
@@ -49,7 +49,7 @@ The messages can come from any data source supported by [IoT Hub message routing
 
 You can add enrichments to messages that are going to the built-in endpoint of an IoT Hub, or messages that are being routed to custom endpoints such as Azure Blob storage, a Service Bus queue, or a Service Bus topic.
 
-You can add enrichments to messages that are being published to Event Grid by selecting the endpoint as Event Grid. We create a default route in IoT Hub to device telemetry, based on your Event Grid subscription. This single route can handle all of your Event Grid subscriptions. You can configure enrichments for the event grid endpoint after you have created the event grid subscription to device telemetry. For more information, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
+You can also add enrichments to messages that are being published to Event Grid by first creating an event grid subscription with the device telemetry message type. Based on this subscription, we will create a default route in Azure IoT Hub for the telemetry. This single route can handle all of your Event Grid subscriptions. You can then configure enrichments for the endpoint by using the **Enrich messages** tab of the IoT Hub **Message routing** section. For information about reacting to events by using Event Grid, see [Iot Hub and Event Grid](iot-hub-event-grid.md).
 
 Enrichments are applied per endpoint. If you specify five enrichments to be stamped for a specific endpoint, all messages going to that endpoint are stamped with the same five enrichments.
 
@@ -82,6 +82,8 @@ To try out message enrichments, see the [message enrichments tutorial](tutorial-
 * The total message size, including the enrichments, can't exceed 256 KB. If a message size exceeds 256 KB, the IoT Hub will drop the message. You can use [IoT Hub metrics](monitor-iot-hub-reference.md#metrics) to identify and debug errors when messages are dropped. For example, you can monitor the *telemetry messages incompatible* (*d2c.telemetry.egress.invalid*) metric in the [routing metrics](monitor-iot-hub-reference.md#routing-metrics). To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 * Message enrichments don't apply to digital twin change events.
+
+* Modules do not inherit twin tags from their corresponding devices. Enrichments for messages originating from device modules (for example from IoT Edge modules) must use the twin tags that are set on the module twin.
 
 ## Pricing
 

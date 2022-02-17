@@ -4,21 +4,17 @@ description: Learn how to store and restore automated backups on separate Azure 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
-ms.custom: devx-track-azurepowershell
-ms.devlang: 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: how-to
-author: SQLSourabh
-ms.author: sourabha
+author: SudhirRaparla 
+ms.author: nvraparl 
 ms.reviewer: mathoma
 ms.date: 09/12/2021
 ---
 # Manage Azure SQL Managed Instance long-term backup retention
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-In Azure SQL Managed Instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md) policy (LTR) as a public preview feature. This allows you to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with the Azure portal and PowerShell.
-
-   > [!IMPORTANT]
-   > LTR for managed instances is currently available in public preview in Azure Public regions. 
+In Azure SQL Managed Instance, you can configure a [long-term backup retention](../database/long-term-retention-overview.md) policy (LTR). This allows you to automatically retain database backups in separate Azure Blob storage containers for up to 10 years. You can then recover a database using these backups with the Azure portal and PowerShell.
 
 The following sections show you how to use the Azure portal, PowerShell, and Azure CLI to configure the long-term backup retention, view backups in Azure SQL storage, and restore from a backup in Azure SQL storage.
 
@@ -267,7 +263,7 @@ This example shows how to list the LTR policies within an instance for a single 
 
 ```powershell
 # gets the current version of LTR policy for a database
-$LTRPolicies = @{
+$LTRPolicy = @{
     InstanceName = $instanceName 
     DatabaseName = $dbName 
     ResourceGroupName = $resourceGroup

@@ -4,8 +4,8 @@ description: Quickstart that shows the conversion steps for a custom model.
 author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
-ms.topic: quickstart 
-ms.custom: devx-track-azurepowershell
+ms.topic: quickstart
+ms.custom: devx-track-azurepowershell, mode-other
 ---
 
 # Quickstart: Convert a model for rendering
@@ -46,7 +46,7 @@ You need:
 
 If you do not have an account yet, go to [https://azure.microsoft.com/get-started/](https://azure.microsoft.com/get-started/), click on the free account option, and follow the instructions.
 
-Once you have an Azure account, go to [https://ms.portal.azure.com/#home](https://ms.portal.azure.com/#home).
+Once you have an Azure account, go to [https://portal.azure.com/#home](https://portal.azure.com/#home).
 
 ### Storage account creation
 

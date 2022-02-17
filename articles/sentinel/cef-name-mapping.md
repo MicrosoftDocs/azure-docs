@@ -1,7 +1,6 @@
 ---
 title: Common Event Format (CEF) key and CommonSecurityLog field mapping
 description: This article maps CEF keys to the corresponding field names in the CommonSecurityLog in Microsoft Sentinel.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: reference

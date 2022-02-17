@@ -41,7 +41,10 @@ No. You don't need to install an agent or any software on your browser or your A
 
 ### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
 
-At this time, only text copy/paste is supported. Features, such as file copy, are not supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
+At this time, only text copy/paste is supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
+
+### Does Azure Bastion support file transfer?
+Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. Note that file transfer is supported using the native client only. At this time, you cannot upload or download files using PowerShell or via the Azure portal. To learn more, see [Upload and download files using the native client](vm-upload-download-native.md).
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
@@ -96,6 +99,10 @@ To establish the correct key mappings for your target language, you must set eit
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
 Azure Bastion currently does not support timezone redirection and is not timezone configurable.
+
+### <a name="subnet"></a>Can I have an Azure Bastion subnet of size /27 or smaller (/28, /29, etc.)?
+
+For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work, but we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
 
 ### <a name="udr"></a>Is user-defined routing (UDR) supported on an Azure Bastion subnet?
 

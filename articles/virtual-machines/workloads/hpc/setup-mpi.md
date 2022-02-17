@@ -1,14 +1,13 @@
 ---
 title: Set up Message Passing Interface (MPI) for HPC - Azure Virtual Machines | Microsoft Docs
 description: Learn how to set up MPI for HPC on Azure. 
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 04/16/2021
-ms.author: amverma
+ms.date: 01/10/2022
 ms.reviewer: cynthn
-
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # Set up Message Passing Interface for HPC
@@ -49,7 +48,7 @@ make -j 8 && make install
 ```
 
 > [!NOTE]
-> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. For more information, see [Troubleshooting known issues with HPC and GPU VMs](hb-hc-known-issues.md#accelerated-networking-on-hb-hc-hbv2-and-ndv2) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
+> Recent builds of UCX have fixed an [issue](https://github.com/openucx/ucx/pull/5965) whereby the right InfiniBand interface is chosen in the presence of multiple NIC interfaces. For more information, see [Troubleshooting known issues with HPC and GPU VMs](hb-hc-known-issues.md#accelerated-networking-on-hb-hc-hbv2-hbv3-and-ndv2) on running MPI over InfiniBand when Accelerated Networking is enabled on the VM.
 
 ## HPC-X
 

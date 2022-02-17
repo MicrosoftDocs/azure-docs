@@ -7,7 +7,7 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/22/2021
+ms.date: 11/23/2021
 ---
 
 # Source control in Azure Data Factory
@@ -78,7 +78,7 @@ When creating a new data factory in the Azure portal, you can configure Git repo
 
 ## Author with Azure Repos Git integration
 
-Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization-msa-or-work-student) to create your resources.
+Visual authoring with Azure Repos Git integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with an Azure Repos Git organization repository for source control, collaboration, versioning, and so on. A single Azure Repos Git organization can have multiple repositories, but an Azure Repos Git repository can be associated with only one data factory. If you don't have an Azure Repos organization or repository, follow [these instructions](/azure/devops/organizations/accounts/create-organization?view=azure-devops&preserve-view=true) to create your resources.
 
 > [!NOTE]
 > You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A data factory pipeline doesn't automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage.
@@ -192,9 +192,6 @@ Once you follow these steps, your factory will be able to connect to both public
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
 
-
-- A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
-
 ## Version control
 
 Version control systems (also known as _source control_) let developers collaborate on code and track changes that are made to the code base. Source control is an essential tool for multi-developer projects.
@@ -288,7 +285,7 @@ It imports the code from live mode into collaboration branch. It considers the c
 <u>*Code flow:*</u> ***Live mode -> Collaboration branch***  
 
 1. Remove your current Git repository
-1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
+1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **Collaboration branch (same branch)**
 1. Create a pull request to merge the changes to the collaboration branch 
 
 Choose either method appropriately as needed. 

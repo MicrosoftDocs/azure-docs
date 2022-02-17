@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.custom: sqldbrb=1
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 ---
 # Multi-shard querying using elastic database tools

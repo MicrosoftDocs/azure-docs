@@ -2,7 +2,7 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 02/11/2022
 ---
 
 # Object functions for ARM templates
@@ -17,6 +17,9 @@ Resource Manager provides several functions for working with objects in your Azu
 * [length](#length)
 * [null](#null)
 * [union](#union)
+
+> [!TIP]
+> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [object](../bicep/bicep-functions-object.md) functions.
 
 ## contains
 
@@ -258,7 +261,7 @@ The output from the preceding example is:
 
 `union(arg1, arg2, arg3, ...)`
 
-Returns a single array or object with all elements from the parameters. Duplicate values or keys are only included once.
+Returns a single array or object with all elements from the parameters. For arrays, duplicate values are included once. For objects, duplicate property names are only included once.
 
 ### Parameters
 
@@ -271,6 +274,14 @@ Returns a single array or object with all elements from the parameters. Duplicat
 ### Return value
 
 An array or object.
+
+### Remarks
+
+The union function uses the sequence of the parameters to determine the order and values of the result.
+
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, it's earlier placement in the array is preserved.
+
+For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
 ### Example
 

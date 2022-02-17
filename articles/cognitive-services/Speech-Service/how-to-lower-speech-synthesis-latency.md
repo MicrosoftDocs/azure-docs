@@ -330,8 +330,7 @@ See [How to configure OpenSSL for Linux](how-to-configure-openssl-linux.md#certi
 
 ### Use latest Speech SDK
 
-We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application.
-For example, we fixed a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#speech-sdk-1160-2021-march-release), which reduced extra one route trip time.
+We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application. 
 
 ## Load test guideline
 

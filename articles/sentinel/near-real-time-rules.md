@@ -1,14 +1,7 @@
 ---
 title: Detect threats quickly with near-real-time (NRT) analytics rules in Microsoft Sentinel | Microsoft Docs
 description: This article explains how the new near-real-time (NRT) analytics rules can help you detect threats quickly in Microsoft Sentinel.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -53,7 +46,7 @@ The following limitations currently govern the use of NRT rules:
 
     1. Queries can run only within a single workspace. There is no cross-workspace capability.
 
-    1. There is no event grouping. NRT rules produce a single alert that groups all the applicable events.
+    1. Event grouping is not configurable. NRT rules produce a single alert that groups all the applicable events.
 
 ## Next steps
 

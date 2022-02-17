@@ -1,12 +1,13 @@
 ---
 title: Azure Service Bus messaging overview | Microsoft Docs
-description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration message broker. 
+description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration message broker. It also explains concepts such as namespaces, queues, and topics in Service Bus. 
 ms.topic: overview
-ms.date: 11/11/2021
+ms.date: 01/24/2022
+ms.custom: contperf-fy22q2
 ---
 
 # What is Azure Service Bus?
-Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other, providing the following benefits:
+Azure Service Bus is a fully managed enterprise message broker with message queues and publish-subscribe topics (in a namespace). Service Bus is used to decouple applications and services from each other, providing the following benefits:
 
 - Load-balancing work across competing workers
 - Safely routing and transferring data and control across service and application boundaries
@@ -101,10 +102,6 @@ You can submit messages to a queue or topic [for delayed processing](message-seq
 ### Message deferral
 
 When a queue or subscription client receives a message that it's willing to process, but for which processing isn't currently possible because of special circumstances within the application, the entity can [defer retrieval of the message](message-deferral.md) to a later point. The message remains in the queue or subscription, but it's set aside.
-
-### Batching
-
-[Client-side batching](service-bus-performance-improvements.md#client-side-batching) enables a queue or topic client to delay sending a message for a certain period of time. If the client sends more messages during this time period, it transmits the messages in a single batch. 
 
 ### Transactions
 

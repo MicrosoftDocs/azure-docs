@@ -40,7 +40,7 @@ The **Tuning insights** display consists of several panes that you can scroll or
 
     This insight is the result of a Log Analytics query. Selecting **Average alerts per incident** will take you to the query in Log Analytics that produced the insight. Selecting **Open incidents** will take you to the **Incidents** blade.
 
-1. The second insight pane recommends for you a list of [entities](entities-in-azure-sentinel.md) to be excluded. These entities are highly correlated with incidents that you closed and classified as **false positive**. Select the plus-sign next to each listed entity to exclude it from the query in future executions of this rule. 
+1. The second insight pane recommends for you a list of [entities](entities.md) to be excluded. These entities are highly correlated with incidents that you closed and classified as **false positive**. Select the plus-sign next to each listed entity to exclude it from the query in future executions of this rule. 
 
     :::image type="content" source="media/detection-tuning/entity-exclusion.png" alt-text="Screenshot of entity exclusion recommendation.":::
 

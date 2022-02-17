@@ -67,7 +67,7 @@ Some organizations use the mail-contact object to show users in the GAL. This ap
 A better approach to achieve this goal is to:
 * Invite guest users
 * Unhide them from the GAL
-* Disable them by [blocking them from sign in](/powershell/module/azuread/set-azureaduser&preserve-view=true).
+* Disable them by [blocking them from sign in](/powershell/module/azuread/set-azureaduser).
 
 A mail-contact object cannot be converted to a user object. Therefore, any properties associated with a mail-contact object cannot be transferred. For example, group memberships and other resource access aren't transferred.  
 
@@ -103,7 +103,7 @@ Additionally, while the following CA conditions can be used, be aware of the pos
 ## Other access control considerations
 
 Some additional considerations when configuring access control.
-* Define [access control policies](../external-identities/conditional-access.md) to control access to resources.
+* Define [access control policies](../external-identities/authentication-conditional-access.md) to control access to resources.
 * Design CA policies with guest users in mind. 
 * Create policies specifically for guest users. 
 * If your organization is using the [All Users] condition in your existing CA policy, this policy will affect guest users because [Guest] users are in scope of [All Users].

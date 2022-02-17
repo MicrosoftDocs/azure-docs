@@ -1,13 +1,8 @@
 ---
 title: Manage user data in Microsoft Defender for Cloud | Microsoft Docs
 description: Learn how to manage the user data in Microsoft Defender for Cloud. Managing user data includes the ability to access, delete, or export data.
-services: security-center
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 
 # Manage user data in Microsoft Defender for Cloud

@@ -2,7 +2,7 @@
 title: Microsoft Sentinel SAP solution - Available logs reference | Microsoft Docs
 description: Learn about the SAP logs available from the Microsoft Sentinel SAP solution.
 author: batamig
-ms.author: bagold
+ms.author: bagol
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
@@ -556,8 +556,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ## HANA DB Audit Trail
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
-
+To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](connect-syslog.md) to gather Syslog data from the machine running HANA DB.
 
 - **Name in Microsoft Sentinel**: `Syslog`
 
@@ -624,6 +623,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 | TimeZone         | Timezone             |
 | User             | User                 |
 | | |
+
 
 ## Next steps
 

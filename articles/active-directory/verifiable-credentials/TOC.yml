@@ -5,6 +5,8 @@
   items:
   - name: Introduction to Azure Active Directory Verifiable Credentials
     href: decentralized-identifier-overview.md
+  - name: What's new
+    href: whats-new.md
 - name: Tutorials
   expanded: true
   items:
@@ -52,8 +54,6 @@
 - name: Reference
   expanded: true
   items:
-  - name: What's new
-    href: whats-new.md
   - name: Issuance API specification
     href: issuance-request-api.md
   - name: Presentation API specification
@@ -68,9 +68,9 @@
   - name: Industry working group for all things Decentralized ID (DID)
     href: https://identity.foundation
   - name: Microsoft DID whitepaper
-    href: http://aka.ms/didwhitepaper
+    href: https://aka.ms/didwhitepaper
   - name: DID marketing Overview
-    href: http://aka.ms/didexplained
+    href: https://aka.ms/didexplained
   - name: Decentralized identity blog
     href: https://techcommunity.microsoft.com/t5/tag/decentralized%20identity/tg-p
   - name: Video overview of decentralized identities

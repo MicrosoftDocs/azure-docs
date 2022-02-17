@@ -11,9 +11,9 @@ ms.date: 05/13/2019
 ms.author: allensu
 ---
 
-# Create, change, or delete a public IP address prefix
+# Manage a public IP address prefix
 
-Learn about a public IP address prefix. A public IP address prefix is a contiguous range of standard SKU public IP addresses.  When you create a public IP address resource, you can assign a static public IP from the prefix and associate the address to Azure resources. For more information, see [Public IP address prefix overview](public-ip-address-prefix.md).
+A public IP address prefix is a contiguous range of standard SKU public IP addresses.  When you create a public IP address resource, you can assign a static public IP from the prefix and associate the address to Azure resources. For more information, see [Public IP address prefix overview](public-ip-address-prefix.md).  This article explains how to create, modify, or delete public IP address prefixes, as well as creating public IPs from an existing prefix.
 
 ## Create a public IP address prefix
 

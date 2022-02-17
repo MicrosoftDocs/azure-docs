@@ -43,23 +43,26 @@ ms.custom: "include file"
 | Maximum size for a single post | 30 MB | Split larger volumes into multiple posts. |
 | Maximum size for field values  | 32 KB | Fields longer than 32 KB are truncated. |
 
+<a name="la-query-api"></a>
+
 **Query API**
 
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned in a single query | 500,000 | |
 | Maximum size of data returned | ~104 MB (~100 MiB)| |
-| Maximum query running time | 10 minutes | See [Timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) for details.  |
-| Maximum request rate | 200 requests per 30 seconds per Azure AD user or client IP address | See [Rate limits](https://dev.loganalytics.io/documentation/Using-the-API/Limits) for details. |
+| Maximum query running time | 10 minutes | See [Timeouts](../articles/azure-monitor/logs/api/timeouts.md) for details.|
+| Maximum request rate | 200 requests per 30 seconds per Azure AD user or client IP address | See [Log queries and language](../articles/azure-monitor/service-limits.md#log-queries-and-language).|
 
 **Azure Monitor Logs connector**
 
 | Category | Limit | Comments |
 |:---|:---|:---|
-| Max size of data | ~16.7 MB (~16 MiB) | Connector infrastructure dictates that limit is set lower than query API limit |
+| Max size of data | ~16.7 MB (~16 MiB) | The connector infrastructure dictates that limit is set lower than query API limit |
 | Max number of records | 500,000 | |
-| Max query timeout | 110 second | |
-| Charts | | Visualization in Logs page and the connector are using different charting libraries and some functionality isn't available in the connector currently. |
+| Max connector timeout | 110 second | |
+| Max query timeout | 100 second | |
+| Charts | | Visualization in Logs page and the connector are using different charting libraries and some functionality isn't available in the connector currently |
 
 **General workspace limits**
 

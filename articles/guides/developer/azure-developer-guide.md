@@ -231,7 +231,7 @@ Azure provides a rich set of experiences for you to create and manage your Azure
 
 Azure provides two ways to manage your applications and services from the command line. You can use tools like Bash, Terminal, the command prompt, or your command-line tool of choice. Usually, you can do the same tasks from the command line as in the Azure portal—such as creating and configuring virtual machines, virtual networks, web apps, and other services.
 
-* [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli): Lets you connect to an Azure subscription and program various tasks against Azure resources from the command line.
+* [Azure CLI](/cli/azure/install-azure-cli): Lets you connect to an Azure subscription and program various tasks against Azure resources from the command line.
 
 * [Azure PowerShell](/powershell/azure/): Provides a set of modules with cmdlets that enable you to manage Azure resources by using Windows PowerShell.
 

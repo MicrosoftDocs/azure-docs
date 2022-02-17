@@ -4,11 +4,10 @@ description: Get started creating an Azure custom role using Azure CLI and Azure
 services: active-directory
 documentationCenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.service: role-based-access-control
-ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity

@@ -3,7 +3,7 @@ title: Introduction to Azure Active Directory Verifiable Credentials (preview)
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
-manager: karenh444
+manager: karenhoran
 editor:
 ms.service: active-directory
 ms.subservice: verifiable-credentials
@@ -30,7 +30,7 @@ Today we use our digital identity at work, at home, and across every app, servic
 
 Generally, users grant consent to several apps and devices. This approach requires a high degree of vigilance on the user's part to track who has access to what information. On the enterprise front, collaboration with consumers and partners requires high-touch orchestration to securely exchange data in a way that maintains privacy and security for all involved.
 
-We believe a standards-based Decentralized Identity system can unlock a new set of experiences that give users and organizations to have greater control over their data—and deliver a higher degree of trust and security for apps, devices, and service providers.
+We believe a standards-based Decentralized Identity system can unlock a new set of experiences that give users and organizations greater control over their data—and deliver a higher degree of trust and security for apps, devices, and service providers.
 
 ## Lead with open standards
 
@@ -58,7 +58,7 @@ Microsoft’s verifiable credential solution uses decentralized credentials (DID
 
 We use IDs in our daily lives. We have drivers licenses that we use as evidence of our ability to operate a car. Universities issue diplomas that prove we attained a level of education. We use passports to prove who we are to authorities as we arrive to other countries. The data model describes how we could handle these types of scenarios when working over the internet but in a secure manner that respects users' privacy. You can get additional information in The [Verifiable Credentials Data Model 1.0](https://www.w3.org/TR/vc-data-model/).
 
-In short, verifiable credentials are data objects consisting of claims made by the issuer attesting information about a subject. These claims are identified by schema and include the DID the issuer and subject. The issuer's DID creates a digital signature as proof that they attest to this information.
+In short, verifiable credentials are data objects consisting of claims made by the issuer attesting information about a subject. These claims are identified by schema and include the DID issuer and subject. The issuer's DID creates a digital signature as proof that they attest to this information.
 
 
 ## How does Decentralized Identity work?

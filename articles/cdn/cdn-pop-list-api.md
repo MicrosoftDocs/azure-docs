@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2021
 ms.author: duau
@@ -32,7 +31,7 @@ To lock down your application to accept traffic only from Azure CDN from Microso
 
 Configure IP ACLing for your backends to accept traffic from Azure CDN from Microsoft's backend IP address space and Azure's infrastructure services only. 
 
-Use Azure Front Door [service tags](../virtual-network/service-tags-overview.md) with Azure CDN from Microsoft to configure Microsoft's backend IP ranges. For a complete list, see [IP Ranges and Service tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Microsoft services.
+Use the AzureFrontDoor.Backend [service tag](../virtual-network/service-tags-overview.md) with Azure CDN from Microsoft to configure Microsoft's backend IP ranges. For a complete list, see [IP Ranges and Service tags](https://www.microsoft.com/en-us/download/details.aspx?id=56519) for Microsoft services.
 
 ## Typical use case
 

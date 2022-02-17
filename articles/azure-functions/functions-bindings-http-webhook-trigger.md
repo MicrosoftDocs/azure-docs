@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
@@ -350,7 +351,7 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function(context, req) {
+module.exports = async function(context, req) {
     context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', req.originalUrl);
 
     if (req.query.name || (req.body && req.body.name)) {
@@ -365,7 +366,6 @@ module.exports = function(context, req) {
             body: "Please pass a name on the query string or in the request body"
         };
     }
-    context.done();
 };
 ```
 
@@ -664,7 +664,7 @@ In Node, the Functions runtime provides the request body from the `context` obje
 The following example shows how to read route parameters from `context.bindingData`.
 
 ```javascript
-module.exports = function (context, req) {
+module.exports = async function (context, req) {
 
     var category = context.bindingData.category;
     var id = context.bindingData.id;
@@ -673,8 +673,6 @@ module.exports = function (context, req) {
     context.res = {
         body: message;
     }
-
-    context.done();
 }
 ```
 

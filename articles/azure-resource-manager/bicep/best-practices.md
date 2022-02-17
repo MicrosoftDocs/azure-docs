@@ -12,7 +12,7 @@ This article recommends practices to follow when developing your Bicep files. Th
 
 ### Microsoft Learn
 
-To learn more about Bicep best practices, and for hands-on guidance, see [Structure your Bicep code for collaboration](/learn/modules/structure-bicep-code-collaboration/) on **Microsoft Learn**.
+If you would rather learn about Bicep best practices through step-by-step guidance, see [Structure your Bicep code for collaboration](/learn/modules/structure-bicep-code-collaboration/) on **Microsoft Learn**.
 
 ## Parameters
 
@@ -20,7 +20,7 @@ To learn more about Bicep best practices, and for hands-on guidance, see [Struct
 
 * Think carefully about the parameters your template uses. Try to use parameters for settings that change between deployments. Variables and hard-coded values can be used for settings that don't change between deployments.
 
-* Be mindful of the default values you use. Make sure the default values are safe for anyone to deploy. For example, consider using low cost pricing tiers and SKUs so that someone deploying the template to a test environment doesn't incur a large cost unnecessarily.
+* Be mindful of the default values you use. Make sure the default values are safe for anyone to deploy. For example, consider using low-cost pricing tiers and SKUs so that someone deploying the template to a test environment doesn't incur a large cost unnecessarily.
 
 * Use the `@allowed` decorator sparingly. If you use this decorator too broadly, you might block valid deployments. As Azure services add SKUs and sizes, your allowed list might not be up to date. For example, allowing only Premium v3 SKUs might make sense in production, but it prevents you from using the same template in non-production environments.
 
@@ -54,13 +54,13 @@ For more information about Bicep variables, see [Variables in Bicep](variables.m
 
 * It's often a good idea to use template expressions to create resource names. Many Azure resource types have rules about the allowed characters and length of their names. Embedding the creation of resource names in the template means that anyone who uses the template doesn't have to remember to follow these rules themselves.
 
-* Avoid using `name` in a symbolic name. The symbolic name represents the resource, not the resource's name. For example, instead of this:
+* Avoid using `name` in a symbolic name. The symbolic name represents the resource, not the resource's name. For example, instead of the following syntax:
 
   ```bicep
   resource cosmosDBAccountName 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
   ```
 
-  use this:
+  Use:
 
   ```bicep
   resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
@@ -78,7 +78,7 @@ For more information about Bicep variables, see [Variables in Bicep](variables.m
 
 * When possible, avoid using the [reference](./bicep-functions-resource.md#reference) and [resourceId](./bicep-functions-resource.md#resourceid) functions in your Bicep file. You can access any resource in Bicep by using the symbolic name. For example, if you define a storage account with the symbolic name toyDesignDocumentsStorageAccount, you can access its resource ID by using the expression `toyDesignDocumentsStorageAccount.id`. By using the symbolic name, you create an implicit dependency between resources.
 
-* Prefer using implicit dependencies over explicit dependencies. Although the `dependsOn` resource property enables you to declare an explicit dependency between resources, it's usually possible to use the other resource's properties by using its symbolic name. This creates an implicit dependency between the two resources, and enables Bicep to manage the relationship itself.
+* Prefer using implicit dependencies over explicit dependencies. Although the `dependsOn` resource property enables you to declare an explicit dependency between resources, it's usually possible to use the other resource's properties by using its symbolic name. This approach creates an implicit dependency between the two resources, and enables Bicep to manage the relationship itself.
 
 * If the resource isn't deployed in the Bicep file, you can still get a symbolic reference to the resource using the `existing` keyword.
 
@@ -92,7 +92,7 @@ For more information about Bicep variables, see [Variables in Bicep](variables.m
 
 * Make sure you don't create outputs for sensitive data. Output values can be accessed by anyone who has access to the deployment history. They're not appropriate for handling secrets.
 
-* Instead of passing property values around through outputs, use the [existing keyword](resource-declaration.md#existing-resources) to look up properties of resources that already exist. It's a best practice to look up keys from other resources in this way instead of passing them around through outputs. You'll always get the most up-to-date data.
+* Instead of passing property values around through outputs, use the [existing keyword](existing-resource.md) to look up properties of resources that already exist. It's a best practice to look up keys from other resources in this way instead of passing them around through outputs. You'll always get the most up-to-date data.
 
 For more information about Bicep outputs, see [Outputs in Bicep](outputs.md).
 

@@ -5,7 +5,7 @@ description: Download user records in bulk in the Azure admin center in Azure Ac
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.date: 10/26/2021
 ms.topic: how-to
 ms.service: active-directory

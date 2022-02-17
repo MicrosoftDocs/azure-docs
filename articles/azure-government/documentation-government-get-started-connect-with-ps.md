@@ -4,8 +4,8 @@ description: Information on connecting to your subscription in Azure Government 
 ms.service: azure-government
 ms.topic: quickstart
 ms.workload: azure-government
-ms.custom: devx-track-azurepowershell
-ms.date: 10/01/2021
+ms.custom: devx-track-azurepowershell, mode-api
+ms.date: 12/07/2021
 ---
 
 # Quickstart: Connect to Azure Government with PowerShell
@@ -27,18 +27,21 @@ This quickstart shows how to use PowerShell to access and start managing resourc
 
 ## Install PowerShell
 
-Install PowerShell on your local machine. For more information, check out the [Introduction to Azure PowerShell](/powershell/azure/).
+Install PowerShell on your local machine. For more information, including how to check your PowerShell version, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 
 ## Specifying Azure Government as the *environment* to connect to
 
-When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter. The parameter ensures that PowerShell is connecting to the correct endpoints. The collection of endpoints is determined when you connect log in to your account.  Different APIs require different versions of the environment switch:
+When you start PowerShell, you have to tell Azure PowerShell to connect to Azure Government by specifying an environment parameter. The parameter ensures that PowerShell is connecting to the correct endpoints. The collection of endpoints is determined when you log in to your account. Different APIs require different versions of the environment switch.
 
-| Connection type | Command |
-| --- | --- |
-| [Azure](/powershell/module/az.accounts/Connect-AzAccount) commands |`Connect-AzAccount -EnvironmentName AzureUSGovernment` |
-| [Azure Active Directory](/powershell/module/azuread/connect-azuread) commands |`Connect-AzureAD -AzureEnvironmentName AzureUSGovernment` |
-| [Azure (Classic deployment model)](/powershell/module/servicemanagement/azure.service/add-azureaccount) commands |`Add-AzureAccount -Environment AzureUSGovernment` |
-| [Azure Active Directory (Classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment UsGovernment` |
+```powershell
+Connect-AzAccount -EnvironmentName AzureUSGovernment
+```
+
+</br>
+
+When you get prompted to sign in, enter your email address for the Azure Government environment.
+
+<br>
 
 ![Connect to Azure Government](./media/connect-with-powershell/connect-with-powershell.png)
 
