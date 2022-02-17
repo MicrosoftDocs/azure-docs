@@ -199,7 +199,7 @@ You can set the connection string in the `applicationinsights.json` configuratio
 }
 ```
 
-See [connection string configuration](./java-standalone-config.md#connection-string) for more details.
+For more information, [connection string configuration](./java-standalone-config.md#connection-string).
 
 For Application Insights Java 2.x, you can set the connection string in the `ApplicationInsights.xml` configuration file:
 
