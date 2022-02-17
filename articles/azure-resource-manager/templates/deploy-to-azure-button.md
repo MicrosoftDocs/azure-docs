@@ -7,7 +7,7 @@ ms.date: 02/15/2022
 
 # Use a deployment button to deploy remote templates
 
-This article describes how to use the **Deploy to Azure** button to deploy remote ARM JSON templates from a GitHub repository or an Azure storage account. You can add the button directly to the _README.md_ file in your GitHub repository. Or, you can add the button to a web page that references the repository. This method doesn't support [Bicep files](../bicep/overview.md).
+This article describes how to use the **Deploy to Azure** button to deploy remote ARM JSON templates from a GitHub repository or an Azure storage account. You can add the button directly to the _README.md_ file in your GitHub repository. Or, you can add the button to a web page that references the repository. This method doesn't support deploying remote [Bicep files](../bicep/overview.md).
 
 The deployment scope is determined by the template schema. For more information, see:
 
@@ -80,7 +80,7 @@ https://demostorage0215.blob.core.windows.net/privatecontainer/azuredeploy.json?
 
 ## Format the URL
 
-Once you have an URL, you need to convert the URL to a URL-encoded value. You can use an online encoder or run a command. The following PowerShell example shows how to URL encode a value.
+Once you have the URL, you need to convert the URL to a URL-encoded value. You can use an online encoder or run a command. The following PowerShell example shows how to URL encode a value.
 
 ```powershell
 $url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json"
