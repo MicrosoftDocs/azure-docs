@@ -116,7 +116,7 @@ best_child_run = automl_image_run.get_best_child()
 
 Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models.md#supported-model-algorithms).
 # [Multi-class image classification ](#tab/multi-class)
-For multi-class image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-ONNX-model-files) section. 
+For multi-class image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-onnx-model-files) section. 
 
 # [Multi-label image classification ](#tab/multi-label)
 For multi-label image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-ONNX-model-files) section. 
