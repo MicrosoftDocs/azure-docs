@@ -1,111 +1,105 @@
 ---
-
-title: Deploy a VM at an Azure public MEC using Azure CLI
-description: Learn how to deploy a VM in Azure public MEC using Azure CLI.
+title: 'Quickstart: Deploy a VM at an Azure public MEC using Azure CLI'
+description: In this quickstart, learn how to deploy a virtual machine in Azure public multi-access edge compute by using the Azure CLI.
 author: reemas-new
 ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: quickstart
-ms.date: 02/14/2022
-
+ms.date: 02/17/2022
+ms.custom: devx-track-azurecli
 ---
 
 # QuickStart: Deploy a VM in Azure public MEC using Azure CLI
 
-In this quickstart, you'll deploy a Virtual Machine in Azure public multi-access edge compute. Azure CLI can be leveraged to deploy other resource types in Azure public MEC as well.
+In this quickstart, you deploy a virtual machine (VM) in Azure public multi-access edge compute (Azure public MEC). You can also use Azure CLI to deploy other resource types in Azure public MEC.
 
 ## Prerequisites
 
-- [Azure CLI overview](/cli/azure/what-is-azure-cli?).
-
-- [Install Azure CLI ](/cli/azure/install-azure-cli?)
-
 - An Azure account with an allowlisted subscription, which allows you to deploy resources in Azure public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec).
 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header)]
+
 > [!NOTE]
-> Starting version 2.26.0 Edgezone deployment are supported via CLI.
+> Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.
 
 ## Create a linux VM on Azure public MEC
 
-1. Sign in to Azure using the az login command.
+1. Sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
 
     ```azurecli-interactive
     az login
     ```
 
-1. Set the right subscription in case you have multiple subscriptions using
-the [az account set](/cli/azure/account?) command.
+1. Set your Azure subscription with the [az account set](/cli/azure/account#az-account-set) command.
 
     ```azurecli-interactive
-    az account set -s \<subscription name\>
+    az account set --subscription <subscription name>
     ```
 
-1. Create a resource group with the [az group create](/cli/azure/group?) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named myResourceGroup.
+1. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named myResourceGroup.
 
     ```azurecli-interactive
-    az group create \--name myResourceGroup \--location \<location\>
+    az group create \--name myResourceGroup \--location <location>
     ```
 
     > [!NOTE]
-    > Each Azure public MEC site is associated to an Azure Region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate region value for the location field in above command. The mapping can be obtained here.
+    > Each Azure public MEC site is associated with an Azure region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate region value for the ``--location`` parameter. The mapping can be obtained [here](tbd.md).
 
-1. Create a VM with the [az vm create](/cli/azure/vm?) command. The following example creates a VM named myVMEdge and adds a user account named azureuser at Azure public MEC.
+1. Create a VM with the [az vm create](/cli/azure/vm#az-vm-create) command. The following example creates a VM named myVMEdge and adds a user account named azureuser at Azure public MEC.
 
-    `edge-zone` parameter determines the Azure public MEC location where the VM and its associated resources will be created. Specifying `\--public-ip-sku` Standard is necessary as Azure public MEC only supports standard SKU for public IP.
+    The `--edge-zone` parameter determines the Azure public MEC location where the VM and its associated resources are created. Specifying `--public-ip-sku Standard` is necessary as Azure public MEC supports only standard SKU for public IP.
 
     ```azurecli-interactive
     az vm create \--resource-group myResourceGroup \--name myVMEdge \--image
-    UbuntuLTS \--admin-username azureuser \--admin-password \<password\>
-    \--edge-zone \<edgezone id\> \--public-ip-sku Standard
+    UbuntuLTS \--admin-username azureuser \--admin-password <password>
+    \--edge-zone <edgezone id> \--public-ip-sku Standard
     ```
 
     It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
-    
-    Note your own publicIpAddress in the output from your myVMEdge VM. This address is used to access the VM in the next steps.
 
-1. Create Jump server in the associated region. To SSH into the Virtual Machine in Azure public MEC, we recommend deploying a jump box in an Azure region where your resource group is deployed in step 3.
+    Note your own publicIpAddress in the output from your myVMEdge VM. Use this address to access the VM in the next steps.
 
-    Create a VNet using the [az network > vnet](/cli/azure/network/vnet?) command and VM with the [az vm create](/cli/azure/vm?) command to be deployed in the region. The following example creates a VNet named MyVnetRegion and a VM named myVMRegion at the region.
+1. Create a jump server in the associated region. To SSH into the Virtual Machine in Azure public MEC, deploy a jump box in an Azure region where your resource group is deployed in step 3.
+
+    Create a VNet by using the [az network vnet](/cli/azure/network/vnet) command and create a VM with the [az vm create](/cli/azure/vm#az-vm-create) command to be deployed in the region. The following example creates a VNet named MyVnetRegion and a VM named myVMRegion at the region.
 
     ```azurecli-interactive
     az network vnet create --resource-group myResourceGroup --name MyVnetRegion --address-prefix 10.1.0.0/16 --subnet-name MySubnetRegion --subnet-prefix 10.1.0.0/24
     ```
-    
+
     ```azurecli-interactive
     az vm create --resource-group myResourceGroup --name myVMRegion --image UbuntuLTS --admin-username azureuser --admin-password <password> --vnet-name MyVnetRegion --subnet MySubnetRegion --public-ip-sku Standard
     ```
-    
-    > [!NOTE]
-    > Your own publicIpAddress in the output from your myVMregion VM. This address is used to access the VM in the next steps.
 
-1. Accessing the VMs. SSH to the Jump box Virtual Machine deployed in the region using the IP address noted in step 5.
-
-    ```
-    ssh azureuser@\<regionVM\_publicIP\>
-    ```
-    
-    From the jump box you can then SSH to the Virtual Machine created in the Azure public MEC using the IP address noted in step 4.
-    
-    ```
-    ssh azureuser@\<edgeVM\_publicIP\>
-    ```
-    
     > [!NOTE]
-    > Please make sure NSG are open to allow port 22 access to respective VM's.
+    > Use your own publicIpAddress in the output from your myVMregion VM. This address is used to access the VM in the next steps.
+
+1. Accessing the VMs. SSH to the jump box VM deployed in the region using the IP address noted in step 5.
+
+    ```ssh
+    ssh azureuser@<regionVM\_publicIP>
+    ```
+
+    From the jump box, SSH to the VM created in the Azure public MEC by using the IP address noted in step 4.
+
+    ```ssh
+    ssh azureuser@<edgeVM\_publicIP>
+    ```
+
+    > [!NOTE]
+    > Ensure Azure network security groups allow port 22 access to the VMs.
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group?) command to remove the resource group, VM, and all related resources.
+In the preceding steps, you deployed a VM in Azure public MEC by using the Azure CLI. If you don't expect to need these resources in the future, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, VM, and all related resources. Using the `--yes` parameter deletes the resources without a confirmation prompt.
 
 ```azurecli-interactive
-az group delete \--name myResourceGroup
-
+az group delete \--name myResourceGroup \--yes
 ```
 
 ## References
 
-Azure CLI reference: [az \| Microsoft
-Docs](/cli/azure/reference-index?).
+Azure CLI reference: [az reference](/cli/azure/reference-index)
 
 ## Next steps
 

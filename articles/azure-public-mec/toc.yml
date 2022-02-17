@@ -1,0 +1,59 @@
+- name: Azure public multi-access edge compute documentation
+  href: index.yml
+  items:
+  - name: Overview
+    expanded: true
+    items:
+    - name: What is the Azure public MEC?
+      href: quickstart-create-vm-arm-template.md
+    - name: Azure Public MEC partner solutions
+      href: quickstart-create-vm-arm-template.md   
+  - name: Edge connectivity using Metaswitch 5G Fusion Core
+    items:
+  - name: Quickstarts
+    expanded: true
+      items:
+      - name: Create VM using ARM template
+        href: quickstart-create-vm-arm-template.md
+      - name: Create VM using Azure CLI
+        href: quickstart-create-vm-cli.md      
+  - name: Tutorials
+      items:
+      - name: ARM
+        href: quickstart-create-vm-arm-template.md
+      - name: CLI
+        href:  quickstart-create-vm-arm-template.md
+  - name: Concepts
+      items:
+      - name: Considerations and pre-requisites
+        href: quickstart-create-vm-arm-template.md
+      - name: Comparisons
+        href:  quickstart-create-vm-arm-template.md
+  - name: Resources
+    items:
+    - name: Azure private MEC product page
+      href: https://go.microsoft.com/fwlink/?linkid=2165610
+    - name: Azure Marketplace
+      href: https://azuremarketplace.microsoft.com/marketplace/
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/roadmap/?category=networking
+    - name: Blog
+      href: https://azure.microsoft.com/blog/topics/networking
+- name: Reference
+  items:
+    - name: Azure VMs
+      href: https://docs.microsoft.com/en-us/azure/virtual-machines/
+    - name: Azure CLI
+      href: https://docs.microsoft.com/en-us/cli/azure/
+    - name: Azure AKS
+      href: https://docs.microsoft.com/en-us/azure/aks/
+    - name: Powershell
+      href: https://docs.microsoft.com/en-us/powershell/module/
+    - name: Storage
+      href: https://docs.microsoft.com/en-us/azure/?product=storage
+    - name: Resource Manager Template
+      href: https://docs.microsoft.com/en-us/azure/templates/
+
+    
+
+   

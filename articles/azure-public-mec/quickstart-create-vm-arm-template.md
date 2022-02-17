@@ -1,52 +1,42 @@
 ---
-
-title: Deploy a VM at an Azure public MEC using an ARM template
-description: Learn how to deploy a VM in Azure public MEC using an ARM template
+title: 'Quickstart: Deploy a VM at an Azure public MEC using an ARM template'
+description: In this quickstart, learn how to deploy a virtual machine in Azure public multi-access edge compute by using an Azure Resource Manager template.
 author: reemas-new
 ms.author: reemas
-ms.topic: quickstart
 ms.service: public-multi-access-edge-compute-mec
-ms.date: 02/14/2022
-
+ms.topic: quickstart
+ms.date: 02/17/2022
+ms.custom: devx-track-azurecli
 ---
 
 # QuickStart: Deploy a VM in Azure public MEC using an ARM template
 
-In this quickstart, you'll learn how to use an Azure Resource Manager template (ARM template) to deploy an Ubuntu Linux virtual machine (VM) in Azure Public MEC.
+In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to deploy an Ubuntu Linux virtual machine (VM) in Azure public multi-access edge compute (Azure public MEC).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-An [ARM
-template](../azure-resource-manager/templates/overview.md)
-is a JavaScript Object Notation (JSON) file that defines the
-infrastructure and configuration for your project. The template uses
-declarative syntax. In declarative syntax, you describe your intended
-deployment without writing the sequence of programming commands to
-create the deployment.
+An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
 ## Prerequisites
 
-1. An Azure account with an allowlisted subscription, which allows you to deploy resources in the Azure Public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec) to help with it.
-2. [Install Azure CLI](/cli/azure/install-azure-cli?).
+- An Azure account with an allowlisted subscription, which allows you to deploy resources in Azure public MEC. If you don't have an active allowed subscription, contact the [Azure public MEC product team](https://aka.ms/azurepublicmec).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header)]
 
 > [!NOTE]
-> Azure public MEC deployments are supported in Azure CLI v2.26 onwards.
+> Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.
 
 ## Review the template
 
-All the resources deployed in Azure public MEC have an extra attribute
-called "extendedLocation" that is added to the Resource Provider. The
-ARM Template below provides an example by deploying the following
-resources:
+All the resources you deploy in Azure public MEC have an extra attribute called `extendedLocation`, which Azure adds to the resource provider. The following example ARM template deploys these resources:
 
-1. Virtual Network
-2. Public IP address
-3. Network Interface
-4. Network Security Group
-5. Virtual Machine
+- Virtual network
+- Public IP address
+- Network interface
+- Network security group
+- Virtual machine
 
-Notice that the Edge Zone ID used in the template below is different from
-the display name of the Azure Public MEC.
+Notice that the Azure Edge Zone ID in the following example ARM template is different from the display name of the Azure public MEC.
 
 ```json
 {
@@ -318,46 +308,47 @@ the display name of the Azure Public MEC.
         }
     }
 }
-
 ```
 
 > [!NOTE]
-> The Network Security Group has an inbound rule that allow SSH and HTTPS access from everywhere.
+> The Azure network security group has an inbound rule that allow SSH and HTTPS access from everywhere.
 
 ## Deploy using the Azure CLI
 
-1. Save the above contents in a file named "edgeZonesDeploy.json"
+1. Save the sample ARM template from the previous section in a file named edgeZonesDeploy.json.
 
-1. Sign in to Azure and set Azure Subscription.
+1. Sign in to Azure with [az login](/cli/azure/reference-index#az-login) and set the Azure subscription with [az account set](/cli/azure/account#az-account-set).
 
-    ```azurecli
+    ```azurecli-interactive
     az login                                
-    az account set -s \<subscription name\>
+    az account set --subscription <subscription name>
     ```
 
-1. Create a resource group.
+1. Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named myResourceGroup.
+
+    ```azurecli-interactive
+    az group create \--name myResourceGroup \--location <location>
+    ```
 
     > [!NOTE]
-    > Each Azure public MEC site is associated to an Azure Region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate value for the location field in the below command. The mapping can be obtained[here](tbd.md).
+    > Each Azure public MEC site is associated with an Azure region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate region value for the ``--location`` parameter. The mapping can be obtained [here](tbd.md).
 
-    ```azurecli
-      az group create \--name myResourceGroup \--location \<location\>
+1. Deploy the ARM template in the resource group with the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command.
+
+    ```azurecli-interactive
+    az deployment group create --resource-group myResourceGroup --template-file edgeZonesDeploy.json
     ```
 
-1. Deploy the ARM template in the Resource Group.
-
-    ```azurecli
-    az deployment group create -g myResourceGroup --template-file edgeZonesDeploy.json
+    ```output
     Please provide string value for 'adminUsername' (? for help): <username>
     Please provide securestring value for 'adminPassword' (? for help): <password>
     Please provide string value for 'dnsLabelPrefix' (? for help): <uniqueDnsLabel>
     Please provide string value for 'EdgeZone' (? for help): <edge zone ID>
     ```
 
-1. The deployment will take a few minutes to run and you should be able
-    to see the resources in the "myResourceGroup" Resource Group. Here's a sample output after the command execution is complete:
+    The deployment takes a few minutes to run. After the command execution is complete, you can see the new resources in the myResourceGroup resource group. Here's a sample output:
 
-    ```
+    ```output
     { 
     "id": "/subscriptions/xxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Resources/deployments/edgeZonesDeploy",
       "location": null,
@@ -396,32 +387,31 @@ the display name of the Azure Public MEC.
 
 ## Access the virtual machine
 
-To SSH into the virtual machine in the Azure public MEC, we recommend
-deploying a jump box in an Azure parent region. You can follow the steps
-to [create a virtual machine in a
-region,](../virtual-machines/linux/quick-create-template.md)
-and SSH to the Jump box virtual machine deployed in the region. From the
-jump box you can then SSH to the virtual machine created in the Azure
-public MEC.
+To use SSH to connect to the virtual machine in the Azure public MEC, the best method is to deploy a jump box in an Azure parent region as follows:
 
-```azurecli
-ssh  <username>@<regionVM_publicIP>
-    
-//One logged into the VM in the region, SSH into the VM in the Azure public MEC
-    
-ssh <username>@<edgezoneVM_publicIP>
-```
+1. [Create a virtual machine in a region](../virtual-machines/linux/quick-create-template.md).
+
+1. Use SSH to connect to the jump box virtual machine deployed in the region.
+
+   ```ssh
+   ssh  <username>@<regionVM_publicIP>
+   ```
+
+1. From the jump box, use SSH to connect to the virtual machine created in the Azure public MEC.
+
+   ```ssh
+   ssh <username>@<edgezoneVM_publicIP>
+   ```
 
 ## Clean up resources
 
-When no longer needed, you can use [az group
-delete](/cli/azure/group?) to remove the resource group, scale set, and all related resources as follows. The `\--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+In the preceding steps, you deployed an ARM template in Azure public MEC by using the Azure CLI. If you don't expect to need these resources in the future, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, scale set, and all related resources. Using the `--yes` parameter deletes the resources without a confirmation prompt.
 
-```azurecli
+```azurecli-interactive
 az group delete \--name myResourceGroup \--yes
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a VM using CLI](quickstart-create-vm-cli.md)
+> [QuickStart: Deploy a VM in Azure public MEC using Azure CLI](quickstart-create-vm-cli.md)
