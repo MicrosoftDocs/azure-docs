@@ -4,7 +4,7 @@ description: Learn how to troubleshoot problems in Application Change Analysis.
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
-ms.date: 01/07/2022 
+ms.date: 02/17/2022 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -68,9 +68,11 @@ This general unauthorized error message occurs when the current user does not ha
 
 ## Cannot see in-guest changes for newly enabled Web App.
 
-You may not immediately see web app in-guest file changes and configuration changes. While we work on providing the option to restart the app in the Azure portal, the current procedure is:
+You may not immediately see web app in-guest file changes and configuration changes. Restart the web app and wait for at least 4 hours before checking on in-guest changes. 
 
-1. User adds the hidden tracking tag, notifying the scheduled worker.
+The current enablement process is:
+
+1. Enablement adds the hidden tracking tag, notifying the scheduled worker.
 2. Scheduled worker scans the web app within a few hours.
 3. While scanning, scheduled worker creates a handshake file via AST.
 4. The Web App team checks that handshake file when it restarts.
