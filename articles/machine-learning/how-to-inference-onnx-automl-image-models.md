@@ -341,7 +341,7 @@ The input is a preprocessed image, with the shape `(1, 3, 640, 640)` for a batch
 | Input | `(batch_size, num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with the shape `(1, 3, 640, 640)` for a batch size of 1, and a height of 640 and width of 640.|
         
 ### Output format
-ONNX model prediction contains multiple outputs and we need the first output to perform non-max suppression to get detections. For better understanding, we display the output format after the NMS postprocessing step. The output after NMS is a list of boxes, labels, and scores for each sample in the batch. 
+ONNX model predictions contain multiple outputs. The first output is needed to perform non-max suppression for  detections. For ease of use, automated ML displays the output format after the NMS postprocessing step. The output after NMS is a list of boxes, labels, and scores for each sample in the batch. 
 
 
 | Output name       | Output shape  | Output type | Description |
