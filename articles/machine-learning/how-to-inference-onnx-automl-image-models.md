@@ -368,7 +368,7 @@ The input is a preprocessed image. The ONNX model for Mask R-CNN has been export
     
 ### Output format
 
-The output is a tuple of output_names and predictions. Here, output_names and predictions are lists with length 4*batch_size each. 
+The output is a tuple of `output_names` and predictions. Here, `output_names` and predictions are lists with length 4*`batch_size` each. 
   
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
