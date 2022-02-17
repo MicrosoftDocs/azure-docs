@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 02/17/2022
 ms.author: surmb
 ---
 
@@ -73,9 +73,6 @@ This setting lets you configure an optional custom forwarding path to use when t
   | /pathrule/home/secondhome/ | /pathrule/home* | /override/            | /override/secondhome/        |
   | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
-## Use for app service
-
-This is a UI only shortcut that selects the two required settings for the Azure App Service back end. It enables **pick host name from back-end address**, and it creates a new custom probe if you don't have one already. (For more information, see the [Pick host name from back-end address](#pick-host-name-from-back-end-address) setting section of this article.) A new probe is created, and the probe header is picked from the back-end member's address.
 
 ## Use custom probe
 
@@ -83,6 +80,18 @@ This setting associates a [custom probe](application-gateway-probe-overview.md#c
 
 > [!NOTE]
 > The custom probe doesn't monitor the health of the back-end pool unless the corresponding HTTP setting is explicitly associated with a listener.
+
+## Configuring the host name
+
+Application Gateway allows for the connection to the backend to be established using a *different* hostname than the one used by the client to connect to Application Gateway.  Changing the hostname used towards the backend into a value that is different from the hostname that is used to connect to Application Gateway should however be done with care.  
+
+In a typical production-grade configuration, one will typically want to keep the host name used by the client towards Application Gateway the same as the hostname as used by Application Gateway towards the backend.  This avoid potential issues with absolute URLs, redirect URLs and host-bound cookies.
+
+Before setting up Application Gateway that deviates from this, please review the implications of such configuration as discussed in more detail in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation)
+
+There are two aspects of an HTTP setting that influence the [`Host`](https://datatracker.ietf.org/doc/html/rfc2616#section-14.23) HTTP header that is used by Application Gateway to connect to the backend:
+- "Pick host name from backend-address"
+- "Host name override"
 
 ## Pick host name from back-end address
 
@@ -92,9 +101,9 @@ This feature helps when the domain name of the back end is different from the DN
 
 An example case is multi-tenant services as the back end. An app service is a multi-tenant service that uses a shared space with a single IP address. So, an app service can only be accessed through the hostnames that are configured in the custom domain settings.
 
-By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway's FQDN, you override the hostname in the original request to the app service's hostname. To do this, enable the **pick host name from backend address** setting.
+By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway's FQDN, you can override the hostname in the original request to the app service's hostname. To do this, enable the **pick host name from backend address** setting.
 
-For a custom domain whose existing custom DNS name is mapped to the app service, you don't have to enable this setting.
+For a custom domain whose existing custom DNS name is mapped to the app service, you don't have to enable this setting.  As described earlier, this is usually the preferred way of working.
 
 > [!NOTE]
 > This setting is not required for App Service Environment, which is a dedicated deployment.
