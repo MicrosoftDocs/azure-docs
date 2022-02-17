@@ -52,7 +52,7 @@ If your Azure resources are behind a firewall, you'll need to create rules that 
 
 ### Internal traffic
 
-Internal requests are secured and managed by Microsoft. Internal traffic consists of service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, data encryption, private endpoint connections, and requests made to Cognitive Services for built-in skills.
+Internal requests are secured and managed by Microsoft. Internal traffic consists of service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, private endpoint connections, and requests made to Cognitive Services for built-in skills.
 
 <a name="service-access-and-authentication"></a>
 
@@ -175,13 +175,13 @@ Customer-managed keys require an additional billable service, Azure Key Vault, w
 
 In Azure Cognitive Search, double encryption is an extension of CMK. It's understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long-term storage that is written to a data disk, and short-term  storage written to temporary disks. Double encryption is implemented in services created after specific dates. For more information, see [Double encryption](search-security-manage-encryption-keys.md#double-encryption).
 
-## Security management
+## Security administration
 
-### API keys
+### Manage API keys
 
 Reliance on API key-based authentication means that you should have a plan for regenerating the admin key at regular intervals, per Azure security best practices. There are a maximum of two admin keys per search service. For more information about securing and managing API keys, see [Create and manage api-keys](search-security-api-keys.md).
 
-#### Activity and diagnostic logs
+### Activity and diagnostic logs
 
 Cognitive Search does not log user identities so you can't refer to logs for information about a specific user. However, the service does log create-read-update-delete operations, which you might be able to correlate with other logs to understand the agency of specific actions.
 
