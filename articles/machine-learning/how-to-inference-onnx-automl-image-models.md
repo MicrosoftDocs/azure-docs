@@ -1346,7 +1346,7 @@ plt.show()
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-Visualize a sample Input Image with Masks and Labels
+Visualize a sample input image with masks and labels
 
 ```python
 import matplotlib.patches as patches
