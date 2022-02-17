@@ -3,7 +3,7 @@ title: Microsoft Defender for Cloud - an introduction
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multi-cloud resources and workloads.
 ms.topic: overview
 ms.custom: mvc
-ms.date: 12/12/2021
+ms.date: 02/17/2022
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -38,7 +38,7 @@ The central feature in Defender for Cloud that enables you to achieve those goal
 
 When you open Defender for Cloud for the first time, it will meet the visibility and strengthening goals as follows:
 
-1. **Generate a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Azure Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements.
+1. **Generate a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Azure Security Benchmark](/security/benchmark/azure/overview). the Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements. You can also leverage recommendations, and score based on the AWS Foundational Security Best practices standards.
 
 1. **Provide hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multi-cloud resources.
 
