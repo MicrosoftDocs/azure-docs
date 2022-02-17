@@ -28,7 +28,7 @@ With custom text classification, you can train a model in one language and test 
 
 Custom text classification supports `.txt` files in the following languages:
 
-| Language | Locale |  
+<!-- | Language | Locale |  
 |--|--|
 | English (United States) |`en-US` |
 | French (France) |`fr-FR` |
@@ -36,7 +36,26 @@ Custom text classification supports `.txt` files in the following languages:
 | Italian |`it-IT` |
 | Spanish (Spain) |`es-ES` |
 | Portuguese (Portugal) | `pt-PT` |
-| Portuguese (Brazil) | `pt-BR` |
+| Portuguese (Brazil) | `pt-BR` | -->
+
+| **Language** | **Language Code** |
+| --- | --- |
+| Brazilian Portuguese | `pt-br` |
+| Chinese | `zh-cn` |
+| Dutch | `nl-nl` |
+| English | `en-us` |
+| French | `fr-fr` |
+| German | `de-de` |
+| Gujarati | `gu-in` |
+| Hindi | `hi-in` |
+| Italian | `it-it` |
+| Japanese | `ja-jp` |
+| Korean | `ko-kr` |
+| Marathi | `mr-in` |
+| Spanish | `es-es` |
+| Tamil | `ta-in` |
+| Telugu | `te-in` |
+| Turkish | `tr-tr` |
 
 ## Next steps
 
