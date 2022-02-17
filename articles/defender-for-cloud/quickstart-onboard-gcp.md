@@ -78,7 +78,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Select the **Next: Select Plans** button. 
 
-1. Toggle the plans you want to connect to **On**. Learn how to [configure each plan](#optional-configure-selected-plans). 
+1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans). 
 
 1. Select the **Next: Configure access** button.
 
@@ -94,7 +94,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Ensure that the following resources were created:
     
-    | GCP| Defender for Containers|
+    | CSPM | Defender for Containers|
     |--|--|
     | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool | Microsoft Defender Containers’ service account role, <br> Microsoft Defender Data Collector service account role <br> microsoft defender for cloud identity pool <br> Identity federation providers <br>  - containers <br> - containers-datapipeline |
 
