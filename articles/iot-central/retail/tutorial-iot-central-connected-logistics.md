@@ -149,4 +149,4 @@ If you're not going to continue to use this application, delete the application 
 Learn more about :
 
 > [!div class="nextstepaction"]
-> [Connected logistics concepts](./architecture-connected-logistics.md)
+> [IoT Central data integration](../core/overview-iot-central-solution-builder.md)
