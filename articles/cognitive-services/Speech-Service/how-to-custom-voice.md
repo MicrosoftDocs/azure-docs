@@ -17,7 +17,11 @@ ms.author: eur
 [Custom Neural Voice](https://aka.ms/customvoice) is a set of online tools that you use to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. See if Custom Neural Voice supports your [language](language-support.md#custom-neural-voice) and [region](regions.md#custom-neural-voices).
 
 > [!NOTE]
-> Microsoft is committed to designing responsible AI. For that reason, we have limited the use of Custom Neural Voice. You can gain access to the technology only after your applications are reviewed and you have committed to using it in alignment with our responsible AI principles. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and [apply here](https://aka.ms/customneural). 
+> Microsoft is committed to designing responsible AI. For that reason, we've limited the use of Custom Neural Voice.  
+> 
+> With the Custom Neural Voice Lite feature (public preview), customers can record their own voice and create a model for demonstration and evaluation purpose, before applying for the full access to Custom Neural Voice. The recording samples and testing samples of Custom Neural Voice Lite are restricted by Microsoft selected scripts. All customers must apply the full access in order to use any of their models including Lite models for business purpose. 
+> 
+> Customers can gain the access to the Custom Neural Voice Pro to create higher-quality models that are indistinguishable from human recordings only after their applications are reviewed and customers have committed to using it in alignment with our responsible AI principles.  Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and [apply here](https://aka.ms/customneural).
  
 ## Set up your Azure account
 
@@ -31,7 +35,7 @@ Once you've created an Azure account and a Speech service subscription, you'll n
 1. If you want to switch to another Speech subscription, select the **cog** icon at the top.
 
 > [!NOTE]
-> You must have an F0 or S0 Speech service key created in Azure before you can use the service. Custom Neural Voice only supports the S0 tier. 
+> Custom Neural Voice training is currently only available in East US, Southeast Asia, UK South, with the S0 tier. Make sure you select the right Speech resource if you would like to create a neural voice.
 
 ## Create a project
 
@@ -40,11 +44,14 @@ Content like data, models, tests, and endpoints are organized into projects in S
 To create a custom voice project:
 
 1. Sign in to [Speech Studio](https://speech.microsoft.com).
-1. Select **Text-to-Speech** > **Custom Voice** > **Create project**. 
-1. Follow the instructions provided by the wizard to create your project. 
-1. After you've created a project, you see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. See [Prepare data for Custom Neural Voice](how-to-custom-voice-prepare-data.md) to set up the voice talent, and proceed to training data.
+1. Select **Text-to-Speech** > **Custom Voice** > **Create project**.
 
-## Tips for creating a custom neural voice
+   You can create a Lite project if you would like to record online and test the custom neural voice capability quickly. The Custom Neural Voice Lite feature is available to all users for demo and evaluation purposes. You can create a Lite voice model with just 20 recorded utterances. 
+
+   If you would like to create a higher-quality voice for production use, it's recommended that you create a Pro project. You must gain the full access in order to train a professional custom neural voice model. At least 300 utterances recorded in professional studios are required to train a Pro voice.  
+1. After you've created a Pro project, you'll see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. See [Prepare data for Custom Neural Voice](how-to-custom-voice-prepare-data.md) to set up the voice talent, and proceed to training data.
+
+## Tips for creating a professional custom neural voice
 
 Creating a great custom neural voice requires careful quality control in each step, from voice design and data preparation, to the deployment of the voice model to your system. The following sections discuss some key steps to take when you're creating a custom neural voice for your organization. 
 
@@ -54,7 +61,7 @@ First, design a persona of the voice that represents your brand by using a perso
 
 ### Script selection
  
-Carefully select the recording script to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you are creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
+Carefully select the recording script to represent the user scenarios for your voice. For example, you can use the phrases from bot conversations as your recording script if you're creating a customer service bot. Include different sentence types in your scripts, including statements, questions, and exclamations.
 
 ### Preparing training data
 
@@ -64,7 +71,7 @@ After the recordings are ready, follow [Prepare training data](how-to-custom-voi
 
 ### Training
 
-After you have prepared the training data, go to [Speech Studio](https://aka.ms/custom-voice) to create your custom neural voice. Select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix any errors and submit again.
+After you've prepared the training data, go to [Speech Studio](https://aka.ms/custom-voice) to create your custom neural voice. Select at least 300 utterances to create a custom neural voice. A series of data quality checks are automatically performed when you upload them. To build high-quality voice models, you should fix any errors and submit again.
 
 ### Testing
 
