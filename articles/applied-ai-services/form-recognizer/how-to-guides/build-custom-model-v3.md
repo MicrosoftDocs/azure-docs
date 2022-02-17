@@ -85,7 +85,7 @@ You now have all the documents in your dataset labeled and if you look at the st
 
 With your dataset labeled, you're now ready to train your model. Select on the train button in the upper right.
 
-1. On the train model dialog, provide a unique model id and optionally a description
+1. On the train model dialog, provide a unique model ID and, optionally, a description.
 
 1. For the build mode, select the type of model you want to train. Learn more about the [model types and capabilities](../concept-custom.md).
 
