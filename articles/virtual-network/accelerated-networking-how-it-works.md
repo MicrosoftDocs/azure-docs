@@ -37,7 +37,7 @@ Both interfaces are visible via the “ifconfig” or “ip addr” command in L
 
 ```output
 U1804:~$ ifconfig 
-enP53091s1np0: flags=6211<UP,BROADCAST,RUNNING,SLA\/E,MULTICAST>  mtu 1500 
+enP53091s1np0: flags=6211<UP,BROADCAST,RUNNING,SLAVE,MULTICAST>  mtu 1500 
 ether 00:0d:3a:f5:76:bd  txqueuelen 1000  (Ethernet) 
 RX packets 365849  bytes 413711297 (413.7 MB) 
 RX errors 0  dropped 0  overruns 0  frame 0 
@@ -232,7 +232,7 @@ Accelerated Networking can be toggled on a virtual NIC in a running VM with Azur
 $ az network nic update --name u1804895 --resource-group testrg --accelerated-network false 
 ```
 
-Disabling Accelerated Networking that is enabled in the guest VM produces a “dmesg” output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same “dmesg” output as when the VF interface is readded after Azure host servicing. These Azure CLI commands can be used to simulate Azure host servicing, which can help test applications in your VM don't have to directly interact with the VF interface.
+Disabling Accelerated Networking that is enabled in the guest VM produces a “dmesg” output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same “dmesg” output as when the VF interface is readded after Azure host servicing. These Azure CLI commands can be used to simulate Azure host servicing. With them you can verify that your applications do not incorrectly depend on direct interaction with the VF interface.
 
 ## Next steps
 * Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md)
