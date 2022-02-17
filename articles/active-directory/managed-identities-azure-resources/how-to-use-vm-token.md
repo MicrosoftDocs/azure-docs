@@ -103,24 +103,25 @@ Content-Type: application/json
 | `resource` | The resource the access token was requested for, which matches the `resource` query string parameter of the request. |
 | `token_type` | The type of token, which is a "Bearer" access token, which means the resource can give access to the bearer of this token. |
 
-## Get a token using Azure.Identity library from the Azure SDK
+## Get a token using the Azure Identity client library
 
 This is the reccomended method and library for using Azure Managed identities. All Azure SDKs are integrated with the Azure.Identity library that provides support for DefaultAzureCredential. This class makes it easy to use Managed Identities with Azure SDKs.[Learn more](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
 
-1. Add references to the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) and other required Azure SDK libraries, such as [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
+1. Install the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) package and other required [Azure SDK library packages](https://aka.ms/azsdk), such as [Azure.Security.KeyVault.Secrets](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/).
 2. Use the sample code below. Note that you need not worry about getting tokens. You can directly use the Azure SDK clients. The code is for demonstrating how to get the token, if you need to.
 
     ```csharp
+    using Azure.Core;
     using Azure.Identity;
+    
     string userAssignedClientId = "<your managed identity client Id>";
     var credential = new DefaultAzureCredential(new DefaultAzureCredentialOptions { ManagedIdentityClientId = userAssignedClientId });
-    var accessToken = credential.GetToken(new Azure.Core.TokenRequestContext(new[] { "https://vault.azure.net" }));
+    var accessToken = credential.GetToken(new TokenRequestContext(new[] { "https://vault.azure.net" }));
     // To print the token, you can convert it to string 
     String accessTokenString = accessToken.Token.ToString();
     
     //You can use the credential object directly with Key Vault client.     
-     var client = new SecretClient(new Uri("https://myvault.vault.azure.net/"), credential);   
-    
+    var client = new SecretClient(new Uri("https://myvault.vault.azure.net/"), credential);
     ```
 
 ## Get a token using the Microsoft.Azure.Services.AppAuthentication library for .NET
