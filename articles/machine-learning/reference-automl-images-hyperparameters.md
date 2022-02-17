@@ -36,7 +36,7 @@ This table summarizes hyperparameters specific to the `maskrcnn_*` for instance 
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|----|
-| `mask_pixel_score_threshold` | Score cutoff for considering a pixel as in object when converting a mask to polygon points. | 0.5 |
+| `mask_pixel_score_threshold` | Score cutoff for considering a pixel as part of the mask of an object. | 0.5 |
 | `max_number_of_polygon_points` | Maximum number of (x, y) coordinate pairs in polygon after converting from a mask. | 100 |
 | `export_as_image` | Export masks as images. | False |
 | `image_type` | Type of image to export mask as (options are jpg, png, bmp).  | JPG |
