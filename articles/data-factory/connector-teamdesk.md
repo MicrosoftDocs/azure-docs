@@ -11,7 +11,7 @@ ms.custom: synapse
 ms.date: 02/17/2022
 ---
 
-#  Transform data to in TeamDesk using Azure Data Factory or Synapse Analytics
+#  Transform data in TeamDesk using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
