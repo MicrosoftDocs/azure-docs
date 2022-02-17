@@ -180,8 +180,8 @@ The Azure services that support each encryption model:
 | Site Recovery                    | Yes                | Yes                | -                  |
 | **Databases**                    |                    |                    |                    |
 | SQL Server on Virtual Machines   | Yes                | Yes                | Yes                |
-| Azure SQL Database               | Yes                | Yes, RSA 3072-bit, , including Managed HSM | Yes                |
-| Azure SQL Database Managed Instance | Yes                | Yes, RSA 3072-bit, , including Managed HSM | Yes                |
+| Azure SQL Database               | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
+| Azure SQL Database Managed Instance | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
 | Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
