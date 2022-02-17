@@ -6,16 +6,24 @@ ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
 ms.date: 11/26/2021
-
-ms.reviewer: lagayhar
+ms.reviewer: aaronmax
 ---
 
 # Manage usage and costs for Application Insights
 
 > [!NOTE]
-> This article describes how to understand and control your costs for Application Insights.  A related article, [Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features using [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill). All prices and costs in this article are for example purposes only. 
+> This article describes how to understand and control your costs for Application Insights. A related article, [Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features using [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill). All prices and costs in this article are for example purposes only. 
 
-Application Insights is designed to get everything you need to monitor the availability, performance, and usage of your web applications, whether they're hosted on Azure or on-premises. Application Insights supports popular languages and frameworks, such as .NET, Java, and Node.js, and integrates with DevOps processes and tools like Azure DevOps, Jira, and PagerDuty. It's important to understand what determines the costs of monitoring your applications. In this article, we review what drives your application monitoring costs and how you can proactively monitor and control them.
+Application Insights is designed to get everything you need to monitor your Azure and on-premises web applications.
+
+> [!div class="checklist"]
+> * Availability
+> * Performance
+> * Usage
+
+Application Insights supports [popular languages and frameworks](platforms.md#supported-languages) and integrates with DevOps tools. It's important to understand what determines the costs of monitoring your applications. In this article, we review what drives your application monitoring costs and how you can proactively monitor and control them.
+
+<!--- Integration with specific tools like Azure DevOps, Jira, and PagerDuty should be documented elsewhere. -->
 
 If you have questions about how pricing works for Application Insights, you can post a question in our [Microsoft Q&A question page](/answers/topics/azure-monitor.html).
 
@@ -366,3 +374,7 @@ You can write a script to set the pricing tier by using Azure Resource Managemen
 ### Unexpected usage or estimated cost
 
 Lower your bill with updated versions of the ASP.NET Core SDK and Worker Service SDK, which [do not collect counters by default](https://docs.microsoft.com/en-us/azure/azure-monitor/app/eventcounters#default-counters-collected).
+
+### Microsoft Q&A question page
+
+If you have questions about how pricing works for Application Insights, you can post a question in our [Microsoft Q&A question page](/answers/topics/azure-monitor.html).
