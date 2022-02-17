@@ -29,9 +29,8 @@ In this tutorial, you learn to:
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
-- Log Analytics workspace where you have at least contributor rights. 
-- Permissions to create Data Collection Rule objects.
-
+- Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
+- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace. 
 
 ## Overview of tutorial
 We'll use a PowerShell script to send sample data over HTTP to the API endpoint.
@@ -42,7 +41,7 @@ The Data Collection Endpoint uses standard Azure Resource Manager (ARM) authenti
 For this tutorial, a new table called "MyTable_CL" will be created. Note that any completely custom table name must end in "_CL". Also note that it is possible to ingest data directly into most system tables - simply skip this step and reference the required system table in steps 4 and 7 instead of this custom one. 
 
 ## Configure application
-You need to start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but we'll follow the [Client Credential Grant Flow scheme](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) for this tutorial.
+Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
 
 From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
@@ -64,14 +63,13 @@ Click **Add** to save the secret and then note the **Value**. Ensure that you re
 
 :::image type="content" source="media/tutorial-custom-logs/new-app-secret-value.png" lightbox="media/tutorial-custom-logs/new-app-secret-value.png" alt-text="Screenshot for new app secret value":::
 
-
 ## Collect workspace information
 Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure Portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
 
 :::image type="content" source="media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot for workspace resource ID":::
 
 ## Create new table in Log Analytics workspace
-The custom table must be created before you can send data to it. The table for this tutorial will include three columns, as described in the resource manager template below. The  `name`, `type`, and `description` properties are mandatory for each column. ; The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
+The custom table must be created before you can send data to it. The table for this tutorial will include three columns, as described in the resource manager template below. The  `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
 
 Use the **Tables - Update** API to create the table with the PowerShell code below. 
 

@@ -417,9 +417,9 @@ items:
       items: 
       - name: Overview 
         href: logs/custom-logs-overview.md
-      - name: Tutorial (portal) 
+      - name: Walkthrough (portal) 
         href: logs/tutorial-custom-logs.md
-      - name: Tutorial (API)
+      - name: Walkthrough (API)
         href: logs/tutorial-custom-logs-api.md
       - name: Data collector API 
         items:
