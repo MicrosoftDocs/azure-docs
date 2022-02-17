@@ -13,7 +13,7 @@ ms.reviewer: aaronmax
 
 This article describes how to proactively monitor and control Application Insights costs.
 
-A related article, [Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features using [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill).
+A related article, [Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure Monitor features using [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill).
 
 > [!NOTE]
 > All prices and costs in this article are for example purposes only.
@@ -28,7 +28,7 @@ The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model
 
 [Multi-step web tests](./availability-multistep.md) incur additional charges. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
-The Application Insights option to [Enable alerting on custom metric dimensions](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can also generate in additional costs because this can result in the creation of additional pre-aggregation metrics. [Learn more](./pre-aggregated-metrics-log-metrics.md) about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
+The Application Insights option to [Enable alerting on custom metric dimensions](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can also increase costs because this can result in the creation of additional pre-aggregation metrics. [Learn more](./pre-aggregated-metrics-log-metrics.md) about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
 
 ### Workspace-based Application Insights
 
@@ -215,7 +215,7 @@ The volume of data you send can be managed using the following techniques:
 
 ## Manage your maximum daily data volume
 
-You can use the daily volume cap to limit the data collected. However, if the cap is met, a loss of all telemetry sent from your application for the remainder of the day occurs. It is *not advisable* to have your application hit the daily cap. You can't track the health and performance of your application after it reaches the daily cap.
+You can use the daily volume cap to limit the data collected. However, if the cap is met, a loss of all telemetry sent from your application for the remainder of the day occurs. It *isn't advisable* to have your application hit the daily cap. You can't track the health and performance of your application after it reaches the daily cap.
 
 > [!WARNING]
 > If you have a workspace-based Application Insights resource, we recommend using the [workspace's daily cap](../logs/manage-cost-storage.md#manage-your-maximum-daily-data-volume) to limit ingestion and costs. The daily cap in Application Insights may not limit ingestion in all cases to the selected level. (If your Application Insights resource is ingesting a lot of data, the Application Insights daily cap might need to be raised.)
