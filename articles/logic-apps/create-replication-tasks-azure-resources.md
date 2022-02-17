@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/29/2022
+ms.date: 02/17/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -108,6 +108,8 @@ When a task replicates from Service Bus to Event Hubs, the task maps only the `U
 For Event Hubs, replication between the same number of [partitions](../event-hubs/event-hubs-features.md#partitions) creates 1:1 clones with no changes in the events, but can also include duplicates. However, replication between different numbers of partitions, only the relative order of events is preserved based on partition key, but can also include duplicates. For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
 
 For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
+
+Replication tasks don't have the capability to track which messages were processed or not when the source experiences disruption or unavailability. To avoid duplicate message processing, you have to set up a way to track processed messages and unprocessed messages so that processing resumes with the correct message.
 
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 
