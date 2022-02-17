@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 12/07/2021
+ms.date: 02/17/2022
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -118,6 +118,9 @@ You can activate the feature by the Azure portal in the ASE configuration pane, 
 az appservice ase update --name myasename --allow-new-private-endpoint-connections true
 ```
 
+## Specific requirements
+
+If the Virtual Network is in a different subscription than the app, you must ensure that the subscription with the Virtual Network is registered for the Microsoft.Web resource provider. You can explicitly register the provider [by following this documentation][registerprovider], but it will also automatically be registered when creating the first web app in a subscription.
 
 ## Pricing
 
@@ -161,3 +164,4 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 [howtoguide5]: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection
 [howtoguide6]: ../scripts/terraform-secure-backend-frontend.md
 [TiP]: ../deploy-staging-slots.md#route-traffic
+[registerprovider]: ../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider
