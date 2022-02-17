@@ -206,10 +206,11 @@ After you restore the database, you can perform the following tasks to get your 
     
     - Zone-redundant storage, in regions where multiple zones are supported.
     - Locally redundant storage, in regions that don't support multiple zones yet. 
+    - The paired region, if you've configured geo-redundant backup.
     
     These backup files can't be exported. 
     
-    You can use backups to restore your server to a point in time only. The default backup retention period is 7 days. You can optionally configure the backup retention up to 35 days. If you configure with geo-redundant backup, the backup is also copied to the paired region.
+    You can use backups to restore your server to a point in time only. The default backup retention period is 7 days. You can optionally configure the backup retention up to 35 days. 
 
 * **With geo-redundant backup, how often is the backup copied to the paired region?**  
 
