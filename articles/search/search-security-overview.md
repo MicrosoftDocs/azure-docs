@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 02/16/2022
 ms.custom: references_regions
 ---
 
@@ -18,7 +18,7 @@ This article describes the security features in Azure Cognitive Search that prot
 
 ## Data flow (network traffic patterns)
 
-A search service is hosted on Azure and is typically accessed by client applications using public network connections. Understanding the search service's points of entry and network traffic patterns is useful background for setting up development and production environments.
+A search service is hosted on Azure and is typically accessed by client applications using public network connections. While that pattern is predominant, it's not the only traffic pattern that you need to care about. Understanding all points of entry and outbound traffic is necessary background for protecting your development and production environments.
 
 Cognitive Search has three basic network traffic patterns:
 
@@ -28,49 +28,49 @@ Cognitive Search has three basic network traffic patterns:
 
 ### Inbound traffic
 
-Inbound requests that target a search service endpoint consist of creating objects, processing data, and querying an index. 
+Inbound requests that target a search service endpoint consist of:
 
-For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with API keys on the request. You can also use Azure Active Directory and role-based access control for data plane operations (currently in preview). You can then supplement with [network security features](#service-access-and-authentication), either inbound rules in an IP firewall, or private endpoints that fully shield your service from the public internet. 
++ Creating and managing objects
++ Sending requests for indexing, running indexer jobs, executing skills, and querying an index
+
+For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with an authenticated request. Key-based authentication is the default, and each request directed to the service must include an API key. Alternatively, you can use Azure Active Directory and role-based access control for data plane operations (currently in preview). 
+
+You can then supplement authentication and authorization with [network security features](#service-access-and-authentication), either inbound rules in an IP firewall, or private endpoints that fully shield your search service from the public internet. 
 
 ### Outbound traffic
 
-Outbound requests from a search service to other applications are typically made by indexers. Outbound requests include both read and write operations:
+Outbound requests from a search service to other applications are typically made by indexers for text-based indexing and some aspects of AI enrichment. Outbound requests include both read and write operations:
 
-+ Indexers connect to external data sources to read data for indexing.
++ Indexers connect to external data sources to pull in data for indexing.
 + Indexers can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions.
 + A custom skill runs external code that's hosted off-service. An indexer sends the request for external processing during skillset execution.
++ Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
-Indexer connections can be made under a managed identity if you're using Azure Active Directory, or a connection string that includes shared access keys or a database login.
+Outbound connections can be made using a full access connection string that includes a shared access key or a database login, or a managed identity if you're using Azure Active Directory. If your Azure resources are behind a firewall, you'll need to create rules that admit indexer requests. For resources protected by Azure Private Link, you can create a shared private link that an indexer uses to make its connection.
 
 ### Internal traffic
 
-Internal requests are secured and managed by Microsoft. Internal traffic consists of service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, encryption, private endpoint connections, and requests made to Cognitive Services for built-in skills. 
+Internal requests are secured and managed by Microsoft. Internal traffic consists of service-to-service calls for tasks like authentication and authorization through Azure Active Directory, diagnostic logging in Azure Monitor, data encryption, private endpoint connections, and requests made to Cognitive Services for built-in skills.
 
 <a name="service-access-and-authentication"></a>
 
 ## Network security
 
-Inbound security features protect the search service endpoint through increasing levels of security and complexity. Cognitive Search uses [key-based authentication](search-security-api-keys.md), where all requests require an API key for authenticated access.
-
-Optionally, you can implement additional layers of control by setting firewall rules that limit access to specific IP addresses. For advanced protection, you can enable Azure Private Link to shield your service endpoint from all internet traffic.
-
-### Inbound connection over the public internet
-
-By default, a search service endpoint is accessed through the public cloud, using key-based authentication for admin or query access to the search service endpoint. Keys are required. Submission of a valid key is considered proof the request originates from a trusted entity. Key-based authentication is covered in the next section. Without API keys, you'll get 401 and 404 responses on the request.
+[Network security](../security/fundamentals/network-overview.md) protects resources from unauthorized access or attack by applying controls to network traffic. Azure Cognitive Search supports networking features that can be your first line of defense against unauthorized access.
 
 ### Inbound connection through IP firewalls
 
-To further control access to your search service, you can create inbound firewall rules that allow access to specific IP address or a range of IP addresses. All client connections must be made through an allowed IP address, or the connection is denied.
+A search service is provisioned with a public endpoint that allows access using a public IP address. To restrict which traffic comes through the public endpoint, create an inbound firewall rules that admits requests from a specific IP address or a range of IP addresses. All client connections must be made through an allowed IP address, or the connection is denied.
 
 :::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="sample architecture diagram for ip restricted access":::
 
-You can use the portal to [configure inbound access](service-configure-firewall.md).
+You can use the portal to [configure firewall access](service-configure-firewall.md).
 
 Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/2020-08-01/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
 ### Inbound connection to a private endpoint (network isolation, no Internet traffic)
 
-You can establish a [private endpoint](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allows a client on a [virtual network](../virtual-network/virtual-networks-overview.md) to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md).
+For more stringent security, you can establish a [private endpoint](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allows a client on a [virtual network](../virtual-network/virtual-networks-overview.md) to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md).
 
 The private endpoint uses an IP address from the virtual network address space for connections to your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. A VNET allows for secure communication among resources, with your on-premises network as well as the Internet.
 
@@ -78,19 +78,11 @@ The private endpoint uses an IP address from the virtual network address space f
 
 While this solution is the most secure, using additional services is an added cost so be sure you have a clear understanding of the benefits before diving in. For more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/). For more information about how these components work together, [watch this video](#watch-this-video). Coverage of the private endpoint option starts at 5:48 into the video. For instructions on how to set up the endpoint, see [Create a Private Endpoint for Azure Cognitive Search](service-create-private-endpoint.md).
 
-### Outbound connections to external services
-
-Indexers and skillsets are both objects that can make external connections. You'll provide connection information as part of the object definition, using one of these mechanisms.
-
-+ Credentials in the connection string
-
-+ Managed identity in the connection string
-
-  You can [set up a managed identity](search-howto-managed-identities-data-sources.md) to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for credentials or access keys on the connection.
-
 ## Authentication
 
-For inbound requests to the search service, authentication is on the request (not the calling app or user) through an [API key](search-security-api-keys.md), where the key is a string composed of randomly generated numbers and letters)that proves the request is from a trustworthy source. 
+Once a request is admitted, it must still undergo authentication and authorization that determines whether the request is permitted.
+
+For inbound requests to the search service, authentication is on the request (not the calling app or user) through an [API key](search-security-api-keys.md), where the key is a string composed of randomly generated numbers and letters) that proves the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
 Alternatively, there is new support for Azure Active Directory authentication and role-based authorization, [currently in preview](search-security-rbac.md), that establishes the caller (and not the request) as the authenticated identity.
 
