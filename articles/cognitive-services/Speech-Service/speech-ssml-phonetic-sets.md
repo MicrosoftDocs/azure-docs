@@ -36,11 +36,11 @@ Select a tab to view the phonemes that are specific to each locale.
 ## de-DE
 [!INCLUDE [de-DE](./text-to-speech-phonetic-set/de-DE.md)]
 
-## en-US
-[!INCLUDE [en-US](./text-to-speech-phonetic-set/en-US.md)]
-
 ## en-GB
 [!INCLUDE [en-GB](./text-to-speech-phonetic-set/en-GB.md)]
+
+## en-US
+[!INCLUDE [en-US](./text-to-speech-phonetic-set/en-US.md)]
 
 ## es-ES
 [!INCLUDE [es-ES](./text-to-speech-phonetic-set/es-ES.md)]

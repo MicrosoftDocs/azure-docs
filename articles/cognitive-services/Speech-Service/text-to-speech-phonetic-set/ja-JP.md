@@ -1,11 +1,10 @@
 The Speech service phone set for `ja-JP` is based on the native phone [Kana](https://en.wikipedia.org/wiki/Kana) set.
 
-#### Stress
+#### Phones
 
-| `sapi` | `ipa`          |
-|--------|----------------|
-| `ˈ`    | `ˈ` mainstress |
-| `+`    | `ˌ` substress  |
+| Character | `sapi`  | `ipa`  | Character | `sapi`  | `ipa`  | `sapi`  | `ipa`  | `sapi`  | `ipa`  |
+|------|------|------|------|------|------|------|------|------|------|
+| 合        | 1   | 合  |  1 | 合  |  1 | 合  |  1 | 合  |  1 | 
 
 #### Examples
 
