@@ -18,13 +18,15 @@ ms.date: 10/05/2021
 
 Use the Azure SQL Migration extension in Azure Data Studio to migrate the databases from a SQL Server instance (SQL Server 2016 and above) to a [SQL Server on Azure Virtual Machine](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) with minimal downtime. For methods that may require some manual effort, see the article [SQL Server instance migration to SQL Server on Azure Virtual Machine](../azure-sql/migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md).
 
-In this tutorial, you migrate the **Adventureworks** database from an on-premises instance of SQL Server to a SQL Server on Azure Virtual Machine with the offline migration method by using Azure Data Studio with Azure Database Migration Service.
+In this tutorial, you migrate the **AdventureWorks** database from an on-premises instance of SQL Server to a SQL Server on Azure Virtual Machine with the offline migration method by using Azure Data Studio with Azure Database Migration Service.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 >
 > * Launch the Migrate to Azure SQL wizard in Azure Data Studio.
 > * Run an assessment of your source SQL Server database(s)
+> * Collect performance data from your source SQL Server
+> * Get a recommendation of the Azure SQL Managed Instance SKU best suited for your workload
 > * Specify details of your source SQL Server, backup location and your target SQL Server on Azure Virtual Machine
 > * Create a new Azure Database Migration Service and install the self-hosted integration runtime to access source server and backups.
 > * Start and monitor the progress for your migration through to completion
