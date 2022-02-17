@@ -15,12 +15,11 @@ This article contains information about creating, listing, and deleting MySQL da
 ## Prerequisites
 Before completing the tasks, you must have
 - Created an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md).
-- Login to [Azure portal](https://portal.azure.com).
+- Sign in to [Azure portal](https://portal.azure.com).
 
 
 ## List your databases
 To list all your databases on MySQL flexible server:
-- Login to [Azure portal](https://portal.azure.com).
 - Open the **Overview** page of your MySQL flexible server.
 - Select **Databases** from the settings on left navigation menu. 
 
