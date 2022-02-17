@@ -41,7 +41,7 @@
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
       - name: Create and Manage databases
-        href: how-to-create-manage-databases.md
+        href: flexible-server/how-to-create-manage-databases.md
       - name: Connect and query
         items:
           - name: Azure CLI
