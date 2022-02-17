@@ -85,12 +85,9 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 ### Model generation for batch scoring
 
+By default, AutoML for Images supports batch scoring for classification.But object detection and instance segmentation models don't support batch inferencing. In case of batch inference for object detection and instance segmentation, use the following procedure to generate an ONNX model for the required batch size. Models generated for a specific batch size don't work for other batch sizes.
 
-- By default, object detection and instance segmentation models don't support batch inferencing
-
-In case of batch inference, use the following procedure to generate an ONNX model for the required batch size. Models generated for a specific batch size don't work for other batch sizes.
-
-- While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models. For making inference using generated ONNX model, input images have to be scaled to height and width values used to generate the ONNX model.
+While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models.
 
 
 
@@ -124,13 +121,6 @@ For multi-class image classification, the generated ONNX model for the best chil
 # [Multi-label image classification ](#tab/multi-label)
 For multi-label image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-ONNX-model-files) section. 
 
-# [Multi-class image classification ](#tab/multi-class)
-
-- By default,  generated ONNX model for the best child-run support batch scoring. Proceed to the next section.
-
-# [Multi-label image classification](#tab/multi-label)
-
-- By default,  generated ONNX model for the best child-run support batch scoring. Proceed to the next section.
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 ```python
 arguments = ['--model_name', 'fasterrcnn_resnet34_fpn',  # enter the faster rcnn or retinanet model name
@@ -194,7 +184,7 @@ arguments = ['--model_name', 'maskrcnn_resnet50_fpn',  # enter the maskrcnn mode
 
 ---
 
-Download and keep the `ONNX_batch_model_generator_automl_for_images.py` file in the current directory and submit the script. Use [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available in the [azureml-examples Github repository](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. In the following code, the trained model environment is used to submit this script to generate and save the ONNX model to the outputs directory. 
+Download and keep the `ONNX_batch_model_generator_automl_for_images.py` file in the current directory and submit the script. Use [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available in the [azureml-examples GitHub repository](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. In the following code, the trained model environment is used to submit this script to generate and save the ONNX model to the outputs directory. 
 ```python
 script_run_config = ScriptRunConfig(source_directory='.',
                                     script='ONNX_batch_model_generator_automl_for_images.py',
@@ -307,7 +297,7 @@ The output is an array of logits for all the classes/labels.
 | output1 | `(batch_size, num_classes)` | ndarray(float) | Model returns logits (without `sigmoid`). For instance, for batch size 1 and 4 classes, it returns `(1, 4)`. |
 
 
-# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
 This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
@@ -322,12 +312,13 @@ Input is a preprocessed image.
     
 ### Output format
 
-The output is a tuple of `output_names` and predictions. Here, `output_names` and `predictions` are lists with length 3*`batch_size` each. 
+The output is a tuple of `output_names` and predictions. Here, `output_names` and `predictions` are lists with length 3*`batch_size` each. For Faster R-CNN order of outputs are boxes, labels and scores, whereas for RetinaNet outputs are boxes, scores, labels. 
   
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
 | `output_names` | `(3*batch_size)` | List of keys | For a batch size of 2, `output_names` will be `['boxes_0', 'labels_0', 'scores_0', 'boxes_1', 'labels_1', 'scores_1']` |
 | `predictions` | `(3*batch_size)` | List of ndarray(float) | For a batch size of 2, `predictions` will take the shape of `[(n1_boxes, 4), (n1_boxes), (n1_boxes), (n2_boxes, 4), (n2_boxes), (n2_boxes)]`. Here, values at each index correspond to same index in `output_names`. |
+
 
 The following table describes boxes, labels and scores returned for each sample in the batch of images.
 
@@ -1080,7 +1071,7 @@ For multi-class and multi-label classification, you can follow the same steps me
 
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
-For object detection, predictions are automatically on the scale of `height_onnx`, `width_onnx`. To transform the predicted box coordinates to the original dimensions you can implement the following calculations. 
+For object detection, predictions are automatically on the scale of `height_onnx`, `width_onnx`. To transform the predicted box coordinates to the original dimensions, you can implement the following calculations. 
 
 - Xmin * original_width/width_onnx
 - Ymin * original_height/height_onnx
@@ -1272,7 +1263,7 @@ for index, score in enumerate(sample_image_scores):
 plt.show()
 ```
 
-# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 
 Visualize an input image with boxes and labels
 
