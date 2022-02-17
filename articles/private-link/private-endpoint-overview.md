@@ -6,7 +6,7 @@ author: asudbring
 # Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 02/17/2022
 ms.author: allensu
 ---
 # What is a private endpoint?
@@ -177,26 +177,27 @@ The following table list the known limitations to the use of private endpoints:
 | ---------- | ----------- | ---------- |
 | Obtaining effective routes and security rules isn't available on a private-endpoint network interface. | You can't navigate to the network interface to view relevant information about the effective routes and security rules. | Q4CY2021 |
 | NSG flow logs aren't supported. | NSG flow logs don't work for inbound traffic that's destined for a private endpoint. | No mitigation information is available at this time. |
-| Intermittent drops with zone-redundant storage (ZRS) storage accounts. | Customers that use ZRS storage accounts might see periodic intermittent drops, even with *allow NSG* applied on a storage private-endpoint subnet. | September |
-| Intermittent drops with Azure Key Vault. | Customers that use Azure Key Vault might see periodic intermittent drops, even with *allow NSG* applied on a Key Vault private-endpoint subnet. | September |
-| The number of address prefixes per NSG is limited. | Having more than 500 address prefixes in an NSG in a single rule isn't supported. | September |
-| AllowVirtualNetworkAccess flag | Customers that set virtual network peering on their virtual network (virtual network A) with the *AllowVirtualNetworkAccess* flag set to *false* on the peering link to another virtual network (virtual network B) can't use the *VirtualNetwork* tag to deny traffic from virtual network B accessing private endpoint resources. The customers need to explicitly place a block for virtual network B’s address prefix to deny traffic to the private endpoint. | September |
-| Dual port NSG rules are unsupported. | If multiple port ranges are used with NSG rules, only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to *deny all* instead of to denying specific ports. </br><br>For more information, see the [UDR rule example](#udr). | September |
-
+| Intermittent drops with zone-redundant storage (ZRS) storage accounts. | Customers that use ZRS storage accounts might see periodic intermittent drops, even with *allow NSG* applied on a storage private-endpoint subnet. | No mitigation information is available at this time. |
+| Intermittent drops with Azure Key Vault. | Customers that use Azure Key Vault might see periodic intermittent drops, even with *allow NSG* applied on a Key Vault private-endpoint subnet. | No mitigation information is available at this time. |
+| The number of address prefixes per NSG is limited. | Having more than 500 address prefixes in an NSG in a single rule isn't supported. | No mitigation information is available at this time. |
+| AllowVirtualNetworkAccess flag | Customers that set virtual network peering on their virtual network (virtual network A) with the *AllowVirtualNetworkAccess* flag set to *false* on the peering link to another virtual network (virtual network B) can't use the *VirtualNetwork* tag to deny traffic from virtual network B accessing private endpoint resources. The customers need to explicitly place a block for virtual network B’s address prefix to deny traffic to the private endpoint. | No mitigation information is available at this time. |
+| Dual port NSG rules are unsupported. | If multiple port ranges are used with NSG rules, only the first port range is honored for allow rules and deny rules. Rules with multiple port ranges are defaulted to *deny all* instead of to denying specific ports. </br><br>For more information, see the UDR rule example in the next table. | No mitigation information is available at this time. |
+| | |
+  
+The following table shows an example of a dual port NSG rule:
+  
 | Priority | Source&nbsp;port&nbsp; | Destination&nbsp;port | Action | Effective&nbsp;action |
 | -------- | ----------- | ---------------- | ------ | ---------------- |
 | 10 | 10-12 | 10-12 | Allow/Deny | Single port range in source/destination ports will work as expected. |
 | 10 | 10-12, 13-14 | 14-15, 16-17 | Allow | Only source ports 10-12 and destination ports 14-15 will be allowed. |
 | 10 | 10-12, 13-14 | 120-130, 140-150 | Deny | Traffic from all source ports will be denied to all destination ports, because there are multiple source and destination port ranges. |
 | 10 | 10-12, 13-14 | 120-130 | Deny | Traffic from all source ports will be denied to destination ports 120-130 only. There are multiple source port ranges and a single destination port range. |
-
-**Table: Example dual port rule.**
-
-### UDR
+| | |
 
 | Limitation | Description | Mitigation |
 | ---------- | ----------- | ---------- |
 | Source Network Address Translation (SNAT) is recommended always. | Because of the variable nature of the private-endpoint data plane, we recommend using SNAT traffic that's destined to a private endpoint, which ensures that return traffic is honored. | No mitigation information is available at this time. |
+| | |
  
 ## Next steps
 
