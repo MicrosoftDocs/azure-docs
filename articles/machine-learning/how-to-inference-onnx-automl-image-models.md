@@ -1264,7 +1264,7 @@ plt.show()
 
 # [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
-Visualize an input image with boxes and Labels
+Visualize an input image with boxes and labels
 
 ```python
 import matplotlib.image as mpimg
