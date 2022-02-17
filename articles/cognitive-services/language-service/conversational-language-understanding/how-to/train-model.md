@@ -21,7 +21,7 @@ You can create and train multiple models within the same project. However, if yo
 
 The training times can be anywhere from a few seconds when dealing with orchestration workflow projects, up to a couple of hours when you reach the [maximum limit](../service-limits.md) of utterances. Before training, you will have the option to enable evaluation, which lets you view how your model performs. 
 
-## Train model
+## Train model 
 
 Select **Train model** on the left of the screen. Select **Start a training job** from the top menu.
 
