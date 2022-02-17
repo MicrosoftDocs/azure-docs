@@ -98,14 +98,11 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 
 ### Linux and MAC
 
-On Linux, MSAL.NET will open the default OS browser using the xdg-open tool. To troubleshoot, run the tool from a terminal, for example, `xdg-open "https://www.bing.com"`. On Mac, the browser is opened by invoking `open <url>`.
+On Linux, MSAL.NET will open the default OS browser using the a tool such as `xdg-open`. Opening the browser as `sudo` does is not supported, and MSAL will throw an exception. On Mac, the browser is opened by invoking `open <url>`.
 
 ### Customizing the experience
 
-> [!NOTE]
-> Customization is available in MSAL.NET 4.1.0 or later.
-
-MSAL.NET is able to respond with an HTTP message when a token is received or in case of error. You can display an HTML message or redirect to an URL of your choice:
+MSAL.NET is able to respond with an HTTP message or with an HTTP redirect when a token is received or in case of error. 
 
 ```csharp
 var options = new SystemWebViewOptions() 
