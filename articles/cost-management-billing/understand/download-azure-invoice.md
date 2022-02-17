@@ -18,7 +18,7 @@ You can download your invoice in the [Azure portal](https://portal.azure.com/) o
 
 ## When invoices are generated
 
-An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), Microsoft Partner Agreement (MPA), and Azure Government billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
+An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA). Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](../manage/view-all-accounts.md).
 
@@ -125,7 +125,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 
 ## Share subscription and support plan invoice
 
-You may want to share the invoice for your subscription and support plan every month with your accounting team or send them to one of your other email addresses. Azure Government billing account owners can't allow other users to receive invoices by email.
+You may want to share the invoice for your subscription and support plan every month with your accounting team or send them to one of your other email addresses. 
 
 1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-mosp-subscription-invoice-in-email) and select **Configure recipients**.  
     [![Screenshot that shows a user selecting configure recipients](./media/download-azure-invoice/invoice-article-step03.png)](./media/download-azure-invoice/invoice-article-step03-zoomed.png#lightbox)
@@ -199,6 +199,14 @@ You may want to share your invoice every month with your accounting team or send
 1.  In the additional recipients section, add the email addresses to receive invoices.
     [![Screenshot that shows additional recipients for the invoice email](./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients.png)](./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients-zoomed.png#lightbox)
 1.  Select **Save**.
+
+## Azure Government support for invoices
+
+Azure Government users use the same agreement types as other Azure users.
+
+Azure Government billing billing owners can opt in to receive invoices by email. However, they can't allow others to get invoices by email.
+
+To download your invoice, follow the steps above at [Download your MOSP Azure subscription invoice](#download-your-mosp-azure-subscription-invoice).
 
 ##  Why you might not see an invoice
 
