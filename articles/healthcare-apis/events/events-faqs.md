@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 02/17/2022
 ms.author: jasteppe
 ---
 
@@ -52,11 +52,11 @@ You can use the Event Grid filtering feature. There are unique identifiers in th
 
 ### Can I use the same subscriber for multiple workspaces or multiple FHIR accounts?
 
-Yes, you can. However, we recommend that you use different subscribers for each individual FHIR account to process in isolated scopes.
+Yes. We recommend that you use different subscribers for each individual FHIR accounts to process in isolated scopes.
 
-### Is Event Grid HIPAA and HITRUST compliant? 
+### Can Event Grid be used as part of HIPAA and HITRUST compliance?
 
-Yes, Event Grid is Health Insurance Portability and Accountability Act (HIPAA) and Health Information Trust Alliance (HITRUST) compliant. For more information, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
+Yes. Event Grid can be used as part of your overall Health Insurance Portability and Accountability Act (HIPAA) and Health Information Trust Alliance (HITRUST) compliance. For more information, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
 
  ### What is the expected time to receive an Events message?

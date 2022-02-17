@@ -6,13 +6,13 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/16/2022
+ms.date: 02/17/2022
 ms.author: jasteppe
 ---
 
 # What are Events?
 
-The Events feature sends notification messages to Event subscribers. Event notifications can be configured with templates and schemas to help better support FHIR observations and resource changes. When data resources change and get committed to the Fast Healthcare Interoperability Resources (FHIR&#174;) service, the Events feature sends notification messages. The notification message can be sent to multiple end points ranging from email to text messages. These event notification occurrences can trigger workflows that support the changes occurring from the IoMT health data it originated from. The Events feature integrates with the Azure Event Grid service and creates a system topic for the Azure Health Data Services Workspace.
+Events are a notification and subscription feature in the Azure Health Data Services. Events enable customers to utilize and enhance the analysis and workflows of structured and unstructured data like vitals and clinical or progress notes, operations data, and Internet of Medical Things (IoMT) health data. When Fast Healthcare Interoperability Resources (FHIR&#174;) resource changes are successfully written to the Azure Health Data Services FHIR service, the Events feature sends notification messages to Events subscribers. These event notification occurrences can be sent to multiple endpoints to trigger automation ranging from starting workflows to sending email and text messages to support the changes occurring from the health data it originated from. The Events feature integrates with the [Azure Event Grid service](../../event-grid/overview.md) and creates a system topic for the Azure Health Data Services Workspace.
 
 > [!IMPORTANT]
 >
@@ -38,15 +38,24 @@ The Events feature sends notification messages to Event subscribers. Event notif
 
 ## Scalable
 
-Events are designed to support growth and change in healthcare by using autoscaling features and the Azure Event Grid service. 
+Events are designed to support growth and changes in healthcare technology needs by using the [Azure Event Grid service](../../event-grid/overview.md) and creating a system topic for the Azure Health Data Services Workspace.
+
+## Configurable
+
+Choose the FHIR resources that you want to receive messages about. Use the advanced features like filters, dead-lettering, and retry policies to tune Events message delivery options. 
+
+> [!NOTE]
+> The advanced features come as part of the Event Grid service. 
 
 ## Extensible
 
-Use Events to send messages to other services like Azure Functions, Azure Event Hubs to trigger downstream automated workflows. Events support other end points to enhance items such as operational data, data analysis, and visibility to the incoming data capturing near real time.
+Use Events to send FHIR resource change messages to services like [Azure Event Hubs](../../event-hubs/event-hubs-about.md) or [Azure Functions](../../azure-functions/functions-overview.md) to trigger downstream automated workflows to enhance items such as operational data, data analysis, and visibility to the incoming data capturing near real time.
  
 ## Secure
 
-Built on a platform that supports PHI and PII data compliance with privacy, safety, and security Events feature does not transmit sensitive data such as personal identifiable information and protected health information as part of the message payload.
+Built on a platform that supports protected health information (PHI) and personal identifiable information (PII) data compliance with privacy, safety, and security in mind, the Events messages do not transmit sensitive data as part of the message payload.
+
+Use [Azure Managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to provide secure access from your Event Grid system topic to the Events message receiving endpoints of your choice. 
 
 ## Next steps
 

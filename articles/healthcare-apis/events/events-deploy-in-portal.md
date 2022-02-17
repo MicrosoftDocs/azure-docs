@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/16/2022
+ms.date: 02/17/2022
 ms.author: jasteppe
 ---
 
@@ -55,12 +55,12 @@ It's important that you have the following prerequisites completed before you be
 
 6. After the subscription is deployed, it will be ready to begin sending Events messages to the selected endpoint.
 
-   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-created.png" alt-text="Screenshot of a successfully deployed Events subscription"  lightbox="media/events-deploy-in-portal/events-new-subscription-created.png":::
-    
 >[!Important]
->The Event Subscription will still require access to whichever endpoint you chose to send Events messages to. For more information, see [Event delivery with a managed identity](../../event-grid/managed-service-identity.md).
+>For more information about providing access using an Azure Managed identity, see
+> - [Assign a system-managed identity to an Event Grid system topic](../../event-grid/enable-identity-system-topics.md)
+> - [Event delivery with a managed identity](../../event-grid/managed-service-identity.md) 
 
- 
+   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-created.png" alt-text="Screenshot of a successfully deployed Events subscription"  lightbox="media/events-deploy-in-portal/events-new-subscription-created.png":::    
 
 >[!TIP]
 >For more information about managed identities, see [What are managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
