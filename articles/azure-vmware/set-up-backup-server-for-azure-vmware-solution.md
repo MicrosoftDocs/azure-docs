@@ -63,7 +63,7 @@ Ensure that you [configure networking for your VMware private cloud in Azure](tu
 
 ### Determine the size of the VM
 
-Use the [MABS Capacity Planner](https://www.microsoft.com/download/details.aspx) to determine the required size of the VM. Based on your inputs, the capacity planner will provide you with the required memory size and core count. You can determine the Azure VM size that provides recommended memory and CPU cores. The capacity planner also provides total disk size required for the VM along with the required disk IOPS. We recommend using a standard SDD disk for the VM. By pooling more than one SDD, you can achieve the required IOPS.
+Use the [MABS Capacity Planner](https://www.microsoft.com/download/details.aspx) to determine the correct VM size. Based on your inputs, the capacity planner will give you the required memory size and CPU core count. Use this information to choose the appropriate Azure VM size. The capacity planner also provides total disk size required for the VM along with the required disk IOPS. We recommend using a standard SSD disk for the VM. By pooling more than one SSD, you can achieve the required IOPS.
 
 Follow the instructions in the [Create your first Windows VM in the Azure portal](../virtual-machines/windows/quick-create-portal.md) tutorial.  You'll create the VM in the virtual network that you created in the previous step. Start with a gallery image of Windows Server 2019 Datacenter to run the Azure Backup Server. 
 
