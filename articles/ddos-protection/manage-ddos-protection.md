@@ -12,6 +12,7 @@ ms.service: ddos-protection
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
+ms.custom: mode-ui
 ms.date: 05/17/2019
 ms.author: yitoh
 
