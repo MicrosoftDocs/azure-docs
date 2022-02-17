@@ -86,7 +86,7 @@ Use the client-side metrics, such as requests per second or response time, on th
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-client-side-requests-filter.png" alt-text="Screenshot of the client-side 'requests' filter, which allows you to filter specific application requests.":::
 
-## Identify the performance issue root cause
+## Identify the root cause
 
 When there's a performance issue, you can use the server-side metrics to analyze what the root cause of the problem is. Azure Load Testing can [capture server-side resource metrics](./how-to-update-rerun-test.md) for Azure-hosted applications.
 
@@ -96,7 +96,11 @@ When there's a performance issue, you can use the server-side metrics to analyze
 
     :::image type="content" source="media/how-to-compare-multiple-test-runs/compare-server-side-metrics.png" alt-text="Screenshot of the server-side metrics, highlighting the difference in database resource consumption and provisioning throughput.":::
 
-1. Optionally, use the **Resource** filter to hide or show specific Azure application component metric graphs.
+1. Optionally, select **Configure metrics** to add or remove server-side metrics.
+
+    You can add more server-side metrics for the selected Azure app components to further investigate performance problems. The dashboard immediately shows the additional metrics data, and you don't have to rerun the load test.
+
+1. Optionally, use the **Resource** filter to hide or show all metric graphs for an Azure component.
 
 ## Next steps
 
