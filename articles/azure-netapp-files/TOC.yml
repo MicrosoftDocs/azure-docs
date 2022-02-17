@@ -151,6 +151,8 @@
     items:
     - name: Create and manage Active Directory connections
       href: create-active-directory-connections.md
+    - name: Modify Active Directory connections
+      href: modify-active-directory-connection.md
     - name: Configure ADDS LDAP over TLS
       href: configure-ldap-over-tls.md
   - name: Manage capacity pools
