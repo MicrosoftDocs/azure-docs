@@ -13,6 +13,9 @@
   - name: Compliance and regulatory
     href: compliance-concept.md
     displayName: compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR
+  - name: Media Service compliance, privacy and security
+    href: media-services-compliance.md
+    displayName: compliance, security, privacy
   - name: FAQs
     items:
       - name: Frequently asked questions
