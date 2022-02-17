@@ -26255,8 +26255,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md",
+      "redirect_url": "/azure/storage/blobs/quickstart-blobs-javascript-browser",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-legacy.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
+      "redirect_document_id": false
+    },        
+    {
       "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-v10.md",
-      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
       "redirect_document_id": false
     },
     {
