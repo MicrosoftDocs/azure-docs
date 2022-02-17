@@ -12,7 +12,11 @@ ms.devlang: csharp azurecli
 ms.custom: azureday1
 ---
 
-## Delete the resource group
+## Clean up resources
+
+If you're finished with this tutorial and no longer need the web app or associated resources, clean up the resources you created.
+
+### Delete the resource group
 
 In the [Azure portal](https://portal.azure.com), select **Resource groups** from the portal menu and select the resource group that contains your app service and app service plan.
 
@@ -22,7 +26,7 @@ Select **Delete resource group** to delete the resource group and all the resour
 
 This command might take several minutes to run.
 
-## Delete the app registration
+### Delete the app registration
 
 From the portal menu, select **Azure Active Directory** > **App registrations**. Then select the application you created.
 :::image type="content" alt-text="Screenshot that shows selecting app registration." source="../media/scenario-secure-app-clean-up-resources/select-app-registration.png":::
