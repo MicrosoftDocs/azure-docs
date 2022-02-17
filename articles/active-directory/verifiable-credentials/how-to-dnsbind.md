@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/16/2022
+ms.date: 02/17/2022
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -29,7 +29,7 @@ To link your DID to your domain, you need to have completed the following.
 
 ## Why do we need to link our DID to our domain?
 
-A DID starts out as an identifier that is not anchored to existing systems. A DID is useful because a user or organization can own it and control it. If an entity interacting with the organization does not know 'who' the DID belongs to, then the DID is not as useful.
+A DID starts out as an identifier that isn't anchored to existing systems. A DID is useful because a user or organization can own it and control it. If an entity interacting with the organization doesn't know 'who' the DID belongs to, then the DID isn't as useful.
 
 Linking a DID to a domain solves the initial trust problem by allowing any entity to cryptographically verify the relationship between a DID and a Domain.
 
@@ -39,7 +39,7 @@ Linking a DID to a domain solves the initial trust problem by allowing any entit
 
 ## How do we link DIDs and domains?
 
-We make a link between a domain and a DID by implementing an open standard written by the Decentralized Identity Foundation called [Well-Known DID configuration](https://identity.foundation/.well-known/resources/did-configuration/). The verifiable credentials service in Azure Active Directory (Azure AD) helps your organization make the link between the DID and domain by including the domain information that you provided in your DID, and generating the well-known config file:
+We follow the [Well-Known DID configuration](https://identity.foundation/.well-known/resources/did-configuration/) specification when creating the link. The verifiable credentials service links your DID and domain. The service includes the domain information that you provided in your DID, and generates the well-known config file:
 
 1. Azure AD uses the domain information you provide during organization setup to write a Service Endpoint within the DID Document. All parties who interact with your DID can see the domain your DID proclaims to be associated with.  
   
@@ -69,25 +69,25 @@ We make a link between a domain and a DID by implementing an open standard writt
     }
     ```
 
-After you have the well-known configuration file, you need to make the file available using the domain name you specified when enabling your AAD for verifiable credentials.
+After you have the well-known configuration file, you need to make the file available using the domain name you specified when you enabled your Azure AD for verifiable credentials.
 
-* Host the well-known DID configuration file at the root of the domain.
-* Do not use redirects.
-* Use https to distribute the configuration file.
+- Host the well-known DID configuration file at the root of the domain.
+- Don't use redirects.
+- Use https to distribute the configuration file.
 
 >[!IMPORTANT]
 >Microsoft Authenticator does not honor redirects, the URL specified must be the final destination URL.
 
 ## User experience
 
-When a user is going through an issuance flow or presenting a verifiable credential, they should know something about organization and its DID. If the domain our verifiable credential wallet, Microsoft Authenticator, validates a DID's relationship with the domain in the DID document and presents users with two different experiences depending on the outcome.
+When a user is going through an issuance flow or presenting a verifiable credential, they should know something about organization and its DID. Microsoft Authenticator, validates a DID's relationship with the domain in the DID document and presents users with two different experiences depending on the outcome.
 
 ## Verified domain
 
 Before Microsoft Authenticator displays a **Verified** icon, a few things need to be true:
 
 * The DID signing the self-issued open ID (SIOP) request must have a Service endpoint for Linked Domain.
-* The root domain does not use a redirect and uses https.
+* The root domain doesn't use a redirect and uses https.
 * The domain listed in the DID Document has a resolvable well-known resource.
 * The well-known resource's verifiable credential is signed with the same DID that was used to sign the SIOP that Microsoft Authenticator used to kick start the flow.
 
@@ -97,19 +97,21 @@ If all of the previously mentioned are true, then Microsoft Authenticator displa
 
 ## Unverified domain
 
-If any of the above are not true, the Microsoft Authenticator will display a full page warning to the user that the domain is unverified, the user is in the middle of a risky transaction and they should proceed with caution. We have chosen to take this route because:
+If any of the above aren't true, the Microsoft Authenticator will display a full page warning to the user that the domain is unverified, the user is in the middle of a risky transaction and they should proceed with caution. We have chosen to take this route because:
 
 * The DID is either not anchored to a domain.
-* The configuration was not set up properly.
-* The DID the user is interacting with is malicious and actually can't prove they own a domain (since they actually don't). Due to this last point, it is imperative that you link your DID to the domain the user is familiar with, to avoid propagating the warning message.
+* The configuration wasn't set up properly.
+* The DID the user is interacting with is malicious and actually can't prove they own a domain (since they actually don't). 
+
+It is of high importance that you link your DID to a domain recognizable to the user.
 
 ![unverified domain warning in the add credential screen](media/how-to-dnsbind/add-credential-not-verified-authenticated.png)
 
 ## How do you change a linked domain?
 
 1. Navigate to the Verifiable Credentials | Getting Started page.  
-1. One the left side of the page select **Domaain**.
-1. In the **Domain** box enter your new domain name.
+1. One the left side of the page select **Domain**.
+1. In the Domain box, enter your new domain name.
 1. Choose **Publish**.
 
 :::image type="content" source="media/how-to-dnsbind/publish-update-domain.png" alt-text="Choose the publish button so your changes become":::
@@ -126,7 +128,10 @@ Yes. You need to wait until the config.json file gets updated before you publish
 
 ### How do I know when the linked domain update has successfully completed?
 
-Today, we can’t explicitly predict when your domain link change will complete. The process has a two hour upper limit so check the Azure portal for updates in two hours.  
+Today, we're unable to tel you exactly when your domain link change will complete. We know that the publishing process may take up to two hours. 
+
+>[!IMPORTANT]
+> No changes to your domain are possible while publishing is in progress.
 
 ## Distribute well-known config
 
