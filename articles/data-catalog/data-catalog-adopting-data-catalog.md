@@ -42,7 +42,7 @@ Here are some tips to define an **Azure Data Catalog** adoption plan.
 
 The first step to define an **Azure Data Catalog** adoption plan is to write an aspirational description of what you are trying to accomplish. It's best to keep the vision statement fairly broad, yet concise enough to define specific short-term, and long-term goals.
 
-Here are some tips to help you define you vision:
+Here are some tips to help you define your vision:
 
 * **Identify the key deployment driver** - Think about the specific data source management needs from the business that can be addressed with Data Catalog. It helps you state the top advantages of using Data Catalog. For example, there may be common data sources that all new employees need to learn about and use, or important and complex data sources that only a few key people deeply understand. **Azure Data Catalog** can help make these data sources easy to discover and understand, so that these well-known pain points can be addressed directly and early in the adoption of the service.
 * **Be crisp and clear** - A clear understanding of the vision gets everyone on the same page about the value Data Catalog brings to the organization, and how the vision supports organizational goals.
