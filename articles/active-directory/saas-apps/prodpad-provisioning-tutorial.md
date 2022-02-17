@@ -58,7 +58,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add ProdPad from the Azure AD application gallery
 
-Add ProdPad from the Azure AD application gallery to start managing provisioning to ProdPad. If you have previously setup ProdPad for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add ProdPad from the Azure AD application gallery to start managing provisioning to ProdPad. If you have previously setup [ProdPad for SSO]((prodpad-tutorial.md), you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -135,6 +135,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).
+
+## Troubleshooting Tips
+Reach out to [ProdPad support team](mailto:help@prodpad.com) in case of any issues.
+
 ## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
