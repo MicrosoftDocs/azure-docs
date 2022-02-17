@@ -27,7 +27,10 @@ Select **Train model** on the left of the screen. Select **Start a training job*
 
 Enter a new model name or select an existing model from the **Model Name** dropdown. 
 
-Select whether you want to evaluate your model by changing the **Run evaluation with training** toggle. If enabled, your tagged utterances will be spilt into 2 parts; 80% for training, 20% for testing. Afterwards, you'll be able to see the model's evaluation results.
+Select whether you want to evaluate your model by changing the **Run evaluation with training** toggle. If enabled, you will have two training split options:
+* Random data split: The data will be randomly split for each class between training and testing sets, according to the percentages you choose. The default value is 80% for training and 20% for testing. To change these values, choose which set you want to change and write the new value.
+* User defined: Assign each document to either the training or testing set, this required first adding and [tagging utterances](../how-to/tag-utterances#tag-utterances) in the test dataset.
+
 
 :::image type="content" source="../media/train-model.png" alt-text="A screenshot showing the Train model page for Conversational Language Understanding projects." lightbox="../media/train-model.png":::
 
