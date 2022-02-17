@@ -121,7 +121,7 @@ best_child_run = automl_image_run.get_best_child()
 
 Use the following model specific arguments to submit the script. For more details on arguments refer to model specific [hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models.md#supported-model-algorithms).
 
-# [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn-args)
+# [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 ```python
 arguments = ['--model_name', 'fasterrcnn_resnet34_fpn',  # enter the faster rcnn or retinanet model name
              '--batch_size', 5,  # enter the batch size of your choice
