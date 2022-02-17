@@ -81,7 +81,7 @@ You'll see the files you uploaded to storage on the left of your screen, with th
 
 You now have all the documents in your dataset labeled and if you look at the storage account, you'll find a *.labels.json* and *.ocr.json* files that correspond to each document in your training dataset. With an additional fields.json file. This is the training dataset that will be submitted to train the model.
 
-## Train the model
+## Train your model
 
 With your dataset labeled, you're now ready to train your model. Select the train button in the upper-right corner.
 
