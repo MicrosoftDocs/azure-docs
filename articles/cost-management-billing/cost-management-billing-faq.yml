@@ -161,7 +161,6 @@ sections:
           answer: |
             No the Usage Details APIs are free. Make sure to abide by the rate-limiting policies, however. For more information, see [Data latency and rate limits](costs/manage-automation#data-latency-and-rate-limits).
 
-
   - name: Azure Reservations questions
     questions:
       - question: How do I view reservation charges?
