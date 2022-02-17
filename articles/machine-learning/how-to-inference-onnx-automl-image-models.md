@@ -141,7 +141,7 @@ arguments = ['--model_name', 'fasterrcnn_resnet34_fpn',  # enter the faster rcnn
              ]
 ```
 
-# [Object detection with YOLO](#tab/object-detect-yolo-args)
+# [Object detection with YOLO](#tab/object-detect-yolo)
 
 ```python
 arguments = ['--model_name', 'yolov5',  # enter the yolo model name
