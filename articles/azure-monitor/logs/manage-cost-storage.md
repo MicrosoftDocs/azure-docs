@@ -747,6 +747,9 @@ This query isn't an exact replication of how usage is calculated, but it provide
 
 To view data allocation benefits from sources such as [Microsoft Defender for Servers](https://azure.microsoft.com/pricing/details/defender-for-cloud/), [Microsoft Sentinel benefit for Microsoft 365 E5, A5, F5 and G5 customers](https://azure.microsoft.com/offers/sentinel-microsoft-365-offer/), or the [Sentinel Free Trial](https://azure.microsoft.com/pricing/details/microsoft-sentinel/), you need to [export your usage details](#viewing-log-analytics-usage-on-your-azure-bill). Open the exported usage spreadsheet and filter the "Instance ID" column to your workspace. (To select all of your workspaces in the spreadsheet, filter the Instance ID column to "contains /workspaces/".) Next, filter the ResourceRate column to show only rows where this is equal to zero. Now you will see the data allocations from these various sources. 
 
+> [!NOTE]
+> Data allocations from Defender for Servers 500 MB/server/day will appear in rows with the meter name "Data Included per Node" and the meter category to "Insight and Analytics" (the name of a legacy offer still used with this meter.)  If the workspace is in the legacy Per Node Log Analytics pricing tier, this meter will also include the data allocations from this Log Analytics pricing tier.
+
 ## Late-arriving data
 
 Situations can arise where data is ingested with old timestamps. For example, if an agent can't communicate to Log Analytics because of a connectivity issue or when a host has an incorrect time date/time. This can manifest itself by an apparent discrepancy between the ingested data reported by the **Usage** data type and a query summing **_BilledSize** over the raw data for a particular day specified by **TimeGenerated**, the timestamp when the event was generated.
