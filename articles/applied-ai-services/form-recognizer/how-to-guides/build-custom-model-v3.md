@@ -87,7 +87,7 @@ With your dataset labeled, you're now ready to train your model. Select on the t
 
 1. On the train model dialog, provide a unique model id and optionally a description
 
-1. For the build mode, select the type of model you want to train. There's a link on the page to learn more about the [model types and capabilities](../concept-custom.md).
+1. For the build mode, select the type of model you want to train. Learn more about the [model types and capabilities](../concept-custom.md).
 
 :::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot: Train model dialog":::
 
