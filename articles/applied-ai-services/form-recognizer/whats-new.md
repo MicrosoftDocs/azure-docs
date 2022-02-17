@@ -25,7 +25,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 * [🆕 **Custom neural model**](concept-custom-neural.md) or custom document model is a new custom model to extract text and selection marks from structured forms, semi-strutured and **unstructured documents**.
 * [🆕 **W-2 prebuilt model**](concept-w2.md) is a new prebuilt model to extract fields from W-2 forms for tax reporting and income verification scenarios.
-* [🆕 **Read**](concept-read.md) API extracts text lines, words, their locations, detected languages, and handwritten style if detected.  
+* [🆕 **Read**](concept-read.md) API extracts printed text lines, words, text locations, detected languages, and handwritten text, if detected.  
 * [**General document**](concept-general-document.md) pre-trained model now updated to support selection marks in addition to API  text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Invoice API**](language-support.md#invoice-model) Invoice prebuilt model expands support to Spanish invoices.
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) adds new demos for Read, W2, Hotel receipt samples, and support for training the new custom neural models.
