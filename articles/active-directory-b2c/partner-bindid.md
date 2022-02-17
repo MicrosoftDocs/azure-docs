@@ -12,14 +12,16 @@ ms.date: 02/17/2022
 ms.author: gasinh
 ms.subservice: B2C
 ---
-# Configure BindID with Azure Active Directory B2C for passwordless authentication
+
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-custom-policy"
 
 ::: zone-end
 
-In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BindID](https://www.transmitsecurity.com/bindid). BindID is a passwordless authentication service that uses strong FIDO2 biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth login experience for all customers across every device and channel eliminating fraud, phishing, and credential reuse.
+# Configure BindID with Azure Active Directory B2C for passwordless authentication
+In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BindID](https://www.transmitsecurity.com/bindid). BindID is a passwordless authentication service that uses strong Fast Identity Online (FIDO2) biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth login experience for all customers across every device and channel eliminating fraud, phishing, and credential reuse.
 
 ## Scenario description
 
@@ -30,10 +32,9 @@ The following architecture diagram shows the implementation.
 |Step | Description |
 |:-----| :-----------|
 | 1. | User arrives at a login page. Users select sign-in/sign-up and enter username into the page.
-| 2. | The application sends the user attributes to Azure AD B2C for identify verification.
+| 2. | The application sends the user attributes to Azure AD B2C for identity verification.
 | 3. | Azure AD B2C collects the user attributes and sends the attributes to BindID to authenticate the user through OpenID Connect (OIDC) request.
-| 4. | BindID sends a push notification to the registered user mobile device for a Fast Identity Online (FIDO2) certified authentication. It can be a user finger print, biometric or decentralized pin.  
-| 5. | After user acknowledges the push notification through a decentralized authentication response, the OIDC response is passed on to Azure AD B2C.
+| 4. | BindID sends a push notification to the registered user mobile device for a FIDO2 certified authentication. It can be a user finger print, biometric or decentralized pin.  | 5. | After user acknowledges the push notification through a decentralized authentication response, the OIDC response is passed on to Azure AD B2C.
 | 6.| User is either granted or denied access to the customer application based on the verification results.
 
 ## Onboard with BindID
@@ -59,7 +60,7 @@ To get started, you'll need:
 
 ::: zone-end
 
-### Part 1 - Create an application registration in BindID
+### Step 1 - Create an application registration in BindID
 
 To configure your tenant application in BindID, the following information is needed
 
@@ -70,14 +71,11 @@ To configure your tenant application in BindID, the following information is nee
 | Redirect URIs| https://jwt.ms |
 | Redirect URLs | https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp<br>For Example: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br>If you use a custom domain, enter https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp.<br>Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.|
 
-BindID will provide a Client ID and a Client Secret once the application has been configured.
-
->[!NOTE]
->You'll need Client ID and Client secret later to configure the Identity provider in Azure AD B2C.
+BindID will provide a Client ID and a Client Secret once the application has been configured. Store the Client ID and Client secret, you'll need it later to configure the Identity provider in Azure AD B2C. 
 
 ::: zone pivot="b2c-user-flow"
 
-### Part 2 - Add a new Identity provider in Azure AD B2C
+### Step 2 - Add a new Identity provider in Azure AD B2C
 
 1. Sign-in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -87,7 +85,7 @@ BindID will provide a Client ID and a Client Secret once the application has bee
 1. Select **New OpenID Connect Provider**.
 1. Select **Add**.
 
-### Part 3 - Configure an Identity provider
+### Step 3 - Configure an Identity provider
 
 1. Select **Identity provider type > OpenID Connect**
 
@@ -97,8 +95,8 @@ BindID will provide a Client ID and a Client Secret once the application has bee
 |:---------|:---------|
 |Name     |Enter BindID – Passwordless or a name of your choice|
 |Metadata URL| `https://signin.bindid-sandbox.io/.well-known/openid-configuration` |
-|Client ID|The application ID from the BindID admin UI captured in **Part 1**|
-|Client Secret|The application Secret from the BindID admin UI captured in **Part 1**|
+|Client ID|The application ID from the BindID admin UI captured in **Step 1**|
+|Client Secret|The application Secret from the BindID admin UI captured in **Step 1**|
 |Scope|OpenID email|
 |Response type|Code|
 |Response mode|form_post|
@@ -111,7 +109,7 @@ BindID will provide a Client ID and a Client Secret once the application has bee
 
 3. Select **Save** to complete the setup for your new OIDC Identity provider.  
 
-### Part 4 - Create a user flow policy
+### Step 4 - Create a user flow policy
 
 You should now see BlokSec as a new OIDC Identity provider listed within your B2C identity providers.  
 
@@ -144,7 +142,7 @@ You should now see BlokSec as a new OIDC Identity provider listed within your B2
 
 ::: zone pivot="b2c-custom-policy"
 
-### Part 2 - Create a BindID policy key
+### Step 2 - Create a BindID policy key
 
 Store the client secret that you previously recorded in your Azure AD B2C tenant.
 
@@ -173,7 +171,7 @@ Store the client secret that you previously recorded in your Azure AD B2C tenant
 >[!NOTE]
 >In Azure Active Directory B2C, [**custom policies**](./user-flow-overview.md) are designed primarily to address complex scenarios. For most scenarios, we recommend that you use built-in [**user flows**](./user-flow-overview.md).
 
-### Part 3- Configure BindID as an Identity provider
+### Step 3- Configure BindID as an Identity provider
 
 To enable users to sign in using BindID, you need to define BindID as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using digital identity available on their device, proving the user’s identity.
 
@@ -230,7 +228,7 @@ You can define BindID as a claims provider by adding it to the **ClaimsProvider*
 
 5. Save the file.
 
-### Part 4 - Add a user journey
+### Step 4 - Add a user journey
 
 At this point, the identity provider has been set up, but it's not yet available in any of the sign-in pages. If you don't have your own custom user journey, create a duplicate of an existing template user journey, otherwise continue to the next step.
 
@@ -244,7 +242,7 @@ At this point, the identity provider has been set up, but it's not yet available
 
 5. Rename the ID of the user journey. For example, `ID=CustomSignUpSignIn`
 
-### Part 5 - Add the identity provider to a user journey
+### Step 5 - Add the identity provider to a user journey
 
 Now that you have a user journey, add the new identity provider to the user journey.
 
@@ -272,7 +270,7 @@ The following XML demonstrates orchestration steps of a user journey with the id
 </OrchestrationStep>
 ```
 
-### Part 6 - Configure the relying party policy
+### Step 6 - Configure the relying party policy
 
 The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/SocialAccounts/SignUpOrSignin.xml), specifies the user journey which Azure AD B2C will execute. You can also control what claims are passed to your application by adjusting the **OutputClaims** element of the **PolicyProfile** TechnicalProfile element.  In this sample, the application will receive the user attributes such as display name, given name, surname, email, objectId, identity provider, and tenantId.  
 
@@ -296,7 +294,7 @@ The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azur
   </RelyingParty>
 ```
 
-### Part 7 - Upload the custom policy
+### Step 7 - Upload the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -306,7 +304,7 @@ The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azur
 Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
 
 
-### Part 8 - Test your custom policy
+### Step 8 - Test your custom policy
 
 1. Open the Azure AD B2C tenant and under Policies select **Identity Experience Framework**.
 
