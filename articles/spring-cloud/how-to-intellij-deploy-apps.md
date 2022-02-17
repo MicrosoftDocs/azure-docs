@@ -12,8 +12,9 @@ ms.custom: devx-track-java
 
 # Deploy Spring Boot applications using IntelliJ
 
+**This article applies to:** ✔️ Java ❌ C#
 
-**This article applies to:** ✔️ Java
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 The IntelliJ plug-in for Azure Spring Cloud supports application deployment from IntelliJ IDEA.
 

@@ -22,10 +22,14 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### Chrome M98 - regression 
+
+Chrome version 98 introduced a regression with anormal generation of video keyframes that impacts resolution of a sent video stream negatively for majority (70%+) of users.
+- This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=1295815)
+
 ### Some Android devices failing to join calls and meetings.
 
-A number of specific Android devices fail to join calls and meetings. The devices that run into this issue, wont recover and will fail on every attemp. These are mostly Samsung phones with biggest contributors A326U, A125U and A215U models.
-
+A number of specific Android devices fail to start, join or accept calls and meetings. The devices that run into this issue, won't recover and will fail on every attempt. These are mostly Samsung moodel A devices, particularly models A326U, A125U and A215U.
 - This is a known regression introduced on [Chromium](https://bugs.chromium.org/p/webrtc/issues/detail?id=13223).
 
 ### iOS 15.1 users joining group calls or Microsoft Teams meetings.

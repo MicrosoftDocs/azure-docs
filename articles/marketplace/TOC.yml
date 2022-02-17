@@ -55,7 +55,7 @@
     href: partner-center-portal/commercial-marketplace-get-customer-leads.md
   - name: Private offers
     items:
-      - name: For Cloud Resellers
+      - name: For CSP partners
         href: isv-csp-reseller.md
       - name: FAQs
         href: isv-csp-faq.yml
@@ -461,6 +461,8 @@
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: ratings-reviews.md
+  - name: Customer retention dashboard
+    href: customer-retention-dashboard.md
   - name: Programmatic access to analytics
     items:
     - name: Get started

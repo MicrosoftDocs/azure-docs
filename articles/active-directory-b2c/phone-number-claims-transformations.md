@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/17/2022
+ms.date: 02/16/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -22,7 +22,7 @@ This article provides reference and examples for using the phone number claims t
 
 ## ConvertPhoneNumberClaimToString
 
-Converts a `phoneNumber` data type into a `string` data type.
+Converts a `phoneNumber` data type into a `string` data type. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/phoneNumber#convertphonenumberclaimtostring) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -52,7 +52,7 @@ In this example, the cellPhoneNumber claim with a value type of `phoneNumber` is
 
 ## ConvertStringToPhoneNumberClaim
 
-Validates the format of a phone number. If valid, change it to a standard format used by Azure AD B2C. If the provided phone number is not in a valid format, an error message is returned.
+Validates the format of a phone number. If valid, change it to a standard format used by Azure AD B2C. If the provided phone number isn't in a valid format, an error message is returned. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/phoneNumber#convertstringtophonenumberclaim) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
@@ -88,6 +88,8 @@ The following example checks that the **phoneString** claim is indeed a valid ph
 
 ### Example of ConvertStringToPhoneNumberClaim without country code claim
 
+Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/phoneNumber#convertstringtophonenumberclaim-without-country-code-claim) of this mode of the claims transformation.
+
 - Input claims:
   - **phoneNumberString**: +1 (123) 456-7890
 - Output claims:
@@ -98,7 +100,7 @@ The following example checks that the **phoneString** claim is indeed a valid ph
 The self-asserted technical profile that calls the validation technical profile that contains this claims transformation can define the error message.
 
 ```xml
-<TechnicalProfile Id="SelfAsserted-LocalAccountSignup-Phone">
+<TechnicalProfile Id="SelfAsserted-LocalAccountSignUp-Phone">
   <Metadata>
     <Item Key="UserMessageIfClaimsTransformationInvalidPhoneNumber">Custom error message if the phone number is not valid.</Item>
   </Metadata>
@@ -108,12 +110,12 @@ The self-asserted technical profile that calls the validation technical profile 
 
 ## GetNationalNumberAndCountryCodeFromPhoneNumberString
 
-Extracts the country/region code and the national number from the input claim, and optionally throws an exception if the supplied phone number is not valid.
+Extracts the country/region code and the national number from the input claim, and optionally throws an exception if the supplied phone number isn't valid. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/phoneNumber#getnationalnumberandcountrycodefromphonenumberstring) of this claims transformation.
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | phoneNumber | string | The string claim of the phone number. The phone number has to be in international format, complete with a leading "+" and country/region code. |
-| InputParameter | throwExceptionOnFailure | boolean | [Optional] A parameter indicating whether an exception is thrown when the phone number is not valid. Default value is false. |
+| InputParameter | throwExceptionOnFailure | boolean | [Optional] A parameter indicating whether an exception is thrown when the phone number isn't valid. Default value is false. |
 | InputParameter | countryCodeType | string | [Optional] A parameter indicating the type of country/region code in the output claim. Available values are **CallingCode** (the international calling code for a country/region, for example +1) or **ISO3166** (the two-letter ISO-3166 country/region code). |
 | OutputClaim | nationalNumber | string | The string claim for the national number of the phone number. |
 | OutputClaim | countryCode | string | The string claim for the country/region code of the phone number. |
@@ -123,11 +125,11 @@ If the **GetNationalNumberAndCountryCodeFromPhoneNumberString** claims transform
 
 ![Diagram of error message execution path](./media/phone-authentication/assert-execution.png)
 
-You can use this claims transformation to split a full phone number into the country/region code and the national number. If the phone number provided is not valid, you can choose to throw an error message.
+You can use this claims transformation to split a full phone number into the country/region code and the national number. If the phone number provided isn't valid, you can choose to throw an error message.
 
 ### Example of GetNationalNumberAndCountryCodeFromPhoneNumberString
 
-The following example tries to split the phone number into national number and country/region code. If the phone number is valid, the phone number will be overridden by the national number. If the phone number is not valid, an exception will not be thrown and the phone number still has its original value.
+The following example tries to split the phone number into national number and country/region code. If the phone number is valid, the phone number will be overridden by the national number. If the phone number isn't valid, an exception won't be thrown and the phone number still has its original value.
 
 ```xml
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">
@@ -198,4 +200,4 @@ The self-asserted technical profile that calls the validation technical profile 
 
 ## Next steps
 
-- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation) on the Azure AD B2C community GitHub repo
+- Find more [claims transformation samples](https://github.com/azure-ad-b2c/unit-tests/tree/main/claims-transformation/phoneNumber) on the Azure AD B2C community GitHub repo
