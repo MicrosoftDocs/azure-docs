@@ -13,9 +13,19 @@ ms.date: 02/14/2022
 ms.custom: references_regions
 ---
 
-# Migrate databases with Azure SQL Migration extension for Azure Data Studio (Preview)
+The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) provides a unified experience to assess, get right-sized Azure recommendations and migrate your SQL Server database(s) to Azure.
 
-The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to use the new SQL Server assessment and migration capability in Azure Data Studio.
+Before migrating your SQL Server databases to Azure, it is important to assess them to identify any migration issues (if any) so you can remediate them and confidently migrate them to Azure. Moreover, it is equally important to identify the right-sized configuration in Azure to ensure your database workload performance requirements are met with a least cost option.
+
+The Azure SQL Migration extension for Azure Data Studio provides both the assessment and SKU recommendation (right-sized Azure recommended configuration) capabilities when you are trying to select the best option to migrate your SQL Server database(s) to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. The extension provides a user friendly interface to run the assessment and generate recommendations within a short timeframe. 
+
+> [!NOTE]
+> Assessment and Azure recommendation feature in the Azure SQL Migration extension for Azure Data Studio also supports source SQL Server running on Linux.
+
+
+The SKU recommendations feature allows you to both collect performance data from your source SQL Server instances hosting your databases and recommend minimum Azure SQL Database, Azure SQL Managed Instance, or SQL Server on Azure VM SKU based on the data collected. The feature provides recommendations related to pricing tier, compute level, and data size. This functionality is currently available only via the Command Line Interface (CLI).
+
+## Performance data collection and SKU recommendation
 
 ## Architecture of Azure SQL Migration extension for Azure Data Studio
 
@@ -25,7 +35,7 @@ DMS uses Azure Data Factory's self-hosted integration runtime to access and uplo
 
 The workflow of the migration process is illustrated below.
 
-:::image type="content" source="media/migration-using-azure-data-studio/architecture-ads-sql-migration.png" alt-text="Diagram of architecture for database migration using Azure Data Studio with DMS":::
+:::image type="content" source="media/ads-sku-recommend/ads-sql-sku-recommend.png" alt-text="Diagram of SKU recommendation process":::
 
 1. **Source SQL Server**: SQL Server instance on-premises, private cloud, or any public cloud virtual machine. All editions of SQL Server 2016 and above are supported.
 1. **Target Azure SQL**: Supported Azure SQL targets are Azure SQL Managed Instance or SQL Server on Azure Virtual Machines (registered with SQL IaaS Agent extension in [Full management mode](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md#management-modes))
@@ -84,7 +94,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
 * When using self-hosted integration runtime, make sure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to allow access to the network file share.
 * If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](./quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
-### Recommendations for using self-hosted integration runtime for database migrations
+### Collect performance data
 - Use a single self-hosted integration runtime for multiple source SQL Server databases.
 - Install only one instance of self-hosted integration runtime on any single machine.
 - Associate only one self-hosted integration runtime with one DMS.
@@ -93,7 +103,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
 - We recommend up to 10 concurrent database migrations per self-hosted integration runtime on a single machine. To increase the number of concurrent database migrations, scale out self-hosted runtime up to four nodes or create separate self-hosted integration runtime on different machines.
 - Configure self-hosted integration runtime to auto-update to automatically apply any new features, bug fixes, and enhancements that are released. To learn more, see [Self-hosted Integration Runtime Auto-update](../data-factory/self-hosted-integration-runtime-auto-update.md).
 
-## Known issues and limitations
+### Import performance data
 - Overwriting existing databases using DMS in your target Azure SQL Managed Instance or SQL Server on Azure Virtual Machine isn't supported.
 - Configuring high availability and disaster recovery on your target to match source topology is not supported by DMS.
 - The following server objects aren't supported:
