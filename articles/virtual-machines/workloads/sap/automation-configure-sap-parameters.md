@@ -31,7 +31,7 @@ The table below contains the parameters stored in the sap-parameters.yaml file, 
 > | ------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | 
 > | `bom_base_name`           | The name of the SAP Application Bill of Materials file                                                           | Required   |
 > | `sap_sid`                 | The SID of the SAP application                                                                                   | Required   |
-> | `scs_high_availability`   | Defines if the Central Services are deployed highly available                                                    | Required   |
+> | `scs_high_availability`   | Defines if the Central Services is deployed highly available                                                     | Required   |
 > | `scs_instance_number`     | Defines the instance number for ASCS                                                                             | Required   |
 > | `scs_lb_ip`               | IP address of ASCS instance                                                                                      | Required   |
 > | `ers_instance_number`     | Defines the instance number for ERS                                                                              | Required   |
