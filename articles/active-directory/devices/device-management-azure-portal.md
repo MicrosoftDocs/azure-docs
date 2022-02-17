@@ -166,7 +166,7 @@ This option is a premium edition capability available through products like Azur
    > - We recommend that you use the [Register or join devices user](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) action in Conditional Access to enforce multifactor authentication for joining or registering a device. 
    > - You must configure this setting to **No** if you're using Conditional Access policy to require multifactor authentication. 
 
-- **Maximum number of devices**: This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If users reach this limit, they can't add more devices until one or more of the existing devices are removed. The default value is **50**. You can increase the value up to 100. If you enter a value above 100, Azure AD will set it to 100. You can also use **Unlimited** to enforce no limit other than existing quota limits.
+- **Maximum number of devices**: This setting enables you to select the maximum number of Azure AD joined or Azure AD registered devices that a user can have in Azure AD. If users reach this limit, they can't add more devices until one or more of the existing devices are removed. The default value is **50**, but the recommended is **20**. You can increase the value up to 100. If you enter a value above 100, Azure AD will set it to 100. You can also use **Unlimited** to enforce no limit other than existing quota limits.
 
    > [!NOTE]
    > The **Maximum number of devices** setting applies to devices that are either Azure AD joined or Azure AD registered. This setting doesn't apply to hybrid Azure AD joined devices.
