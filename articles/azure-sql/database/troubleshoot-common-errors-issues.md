@@ -439,17 +439,6 @@ Msg 3906, Level 16, State 2, Line 1
 Failed to update database "%d" because the database is read-only.
 ```
 
-#### The database may be set to read-only
-
-If you're using Azure SQL Database, the database itself may have been set to read-only. You can verify the database's status with the following query:
-
-```sql
-SELECT name, is_read_only
-FROM sys.databases;
-```
-
-You can modify the read-only status for a database in Azure SQL Database using the  [ALTER DATABASE Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true). You can’t currently set a database in a managed instance to read-only.
-
 #### You may be connected to a read-only replica
 
 For both Azure SQL Database and Azure SQL Managed Instance, you may be connected to a database on a read-only replica. In this case, the following query using the [DATABASEPROPERTYEX() function](/sql/t-sql/functions/databasepropertyex-transact-sql) will return `READ_ONLY`:
@@ -463,6 +452,17 @@ If you're connecting using SQL Server Management Studio, verify if you have spec
 
 If the connection is from an application or a client using a connection string, validate if the connection string has specified `ApplicationIntent=ReadOnly`. Learn more in [Connect to a read-only replica](read-scale-out.md#connect-to-a-read-only-replica).
 
+#### The database may be set to read-only
+
+If you're using Azure SQL Database, the database itself may have been set to read-only. You can verify the database's status with the following query:
+
+```sql
+SELECT name, is_read_only
+FROM sys.databases
+WHERE database_id = DB_ID();
+```
+
+You can modify the read-only status for a database in Azure SQL Database using the  [ALTER DATABASE Transact-SQL](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true). You can’t currently set a database in a managed instance to read-only.
 
 ## Confirm whether an error is caused by a connectivity issue
 
