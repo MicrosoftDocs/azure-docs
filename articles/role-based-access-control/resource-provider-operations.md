@@ -10823,10 +10823,10 @@ Azure service: [Automation](../automation/index.yml)
 > | Microsoft.Automation/automationAccounts/jobSchedules/delete | Deletes an Azure Automation job schedule |
 > | Microsoft.Automation/automationAccounts/linkedWorkspace/read | Gets the workspace linked to the automation account |
 > | Microsoft.Automation/automationAccounts/logDefinitions/read | Gets the available logs for the automation account |
-> | Microsoft.Automation/automationAccounts/modules/read | Gets an Azure Automation Powershell module |
-> | Microsoft.Automation/automationAccounts/modules/getCount/action | Gets the count of Powershell modules within the Automation Account |
-> | Microsoft.Automation/automationAccounts/modules/write | Creates or updates an Azure Automation Powershell module |
-> | Microsoft.Automation/automationAccounts/modules/delete | Deletes an Azure Automation Powershell module |
+> | Microsoft.Automation/automationAccounts/modules/read | Gets an Azure Automation PowerShell module |
+> | Microsoft.Automation/automationAccounts/modules/getCount/action | Gets the count of PowerShell modules within the Automation Account |
+> | Microsoft.Automation/automationAccounts/modules/write | Creates or updates an Azure Automation PowerShell module |
+> | Microsoft.Automation/automationAccounts/modules/delete | Deletes an Azure Automation PowerShell module |
 > | Microsoft.Automation/automationAccounts/modules/activities/read | Gets Azure Automation Activities |
 > | Microsoft.Automation/automationAccounts/nodeConfigurations/rawContent/action | Reads an Azure Automation DSC's node configuration content |
 > | Microsoft.Automation/automationAccounts/nodeConfigurations/read | Reads an Azure Automation DSC's node configuration |
