@@ -29,10 +29,10 @@ In this tutorial, you will learn how to:
 
 For this tutorial, you will need :
 *   Python 3.6+
-*   An active Azure Subscription 
-*   An Azure Active Directory tenant associated with you subscription
-*   An Azure Storage account
-*   An Azure Purview account
+*   An active Azure Subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+*   An Azure Active Directory tenant associated with you subscription.
+*   An Azure Storage account. If you don't already have one, you can [follow our quickstart guide to create one](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
+*   An Azure Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
 
 
 ## Give Purview access to the Storage account
@@ -55,19 +55,23 @@ You can then select **Review + Assign**. Azure Purview now has the required read
 
 
 ## Grant your application the access to your Azure Purview account
-1. First, you need a [service principal with a secret](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
+1. First, you need a [service principal with a secret with an App Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
 Get the following information from your service principal and secret, they will be needed later:
     *    Client ID (or Application ID)
     *    Tenant ID (or Directory ID)
     *    Client secret 
+
+    To find these information, select your **Azure Active Directory**. From **App registrations** select your application and locate the required information:
+    :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Screenshot that shows how to find the info to authenticate to the service principal"::: 
     
 2. You now need to give the relevant Azure Purview roles to your service principal. To do so, access the Azure Purview instance. Select **Open Purview Studio** or open [Azure Purview's home page](https://web.purview.azure.com/) and choose the instance that you deployed.
 
     Inside Purview Studio, go to the collections:
     :::image type="content" source="media/tutorial-using-python-sdk/purview-collections.png" alt-text="Screenshot that shows how to access Azure Purview collections"::: 
 
-    Select the collection you want to work with, and go on the **Role assignments** tab. Add the service principal (using its name) in the following roles: Collection admins, Data source admins, Data curators, Data readers.
+    Select the collection you want to work with, and go on the **Role assignments** tab. Add the service principal in the following roles: Collection admins, Data source admins, Data curators, Data readers. For to each role, select the **Add** button and add the service principal by searching its name as shown below:  
 
+    :::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="Screenshot that shows how to access Azure Purview collections"::: 
 ## Install the Python packages
 1.	Open a new command prompt or terminal
 1.	Install the Azure identity package for authentication:
