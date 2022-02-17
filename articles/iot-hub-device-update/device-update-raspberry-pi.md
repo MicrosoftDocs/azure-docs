@@ -164,7 +164,7 @@ Here are two examples for the `du-config.json` and the `du-diagnostics-config.js
   
    1. After you finish your changes, select **Ctrl+X** to exit the editor. Then enter **y** to save the changes.
   
-   1. Now you need to create the `du-diagnostics-config.jso` file by using similar commands. Start by creating or opening the `du-diagnostics-config.json` file for editing by using:
+   1. Now you need to create the `du-diagnostics-config.json` file by using similar commands. Start by creating or opening the `du-diagnostics-config.json` file for editing by using:
    
 	   ```bash
 	      nano /adu/du-diagnostics-config.json

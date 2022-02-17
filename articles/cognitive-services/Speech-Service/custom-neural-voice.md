@@ -41,7 +41,7 @@ The following articles help you start using this feature:
 
 * To get started with Custom Neural Voice and create a project, see [Get started with Custom Neural Voice](how-to-custom-voice.md).
 * To prepare and upload your audio data, see [Prepare training data](how-to-custom-voice-prepare-data.md).
-* To train and deploy your models, see [Create and use your voice model](how-to-custom-voice-create-voice.md).
+* To train and deploy your models, see [Train your voice model](how-to-custom-voice-create-voice.md) and [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md).
 
 ## Terms and definitions
 
