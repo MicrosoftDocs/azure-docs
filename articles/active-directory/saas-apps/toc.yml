@@ -2624,7 +2624,7 @@
       - name: Global Relay Identity Sync
         href: global-relay-identity-sync-provisioning-tutorial.md
       - name: Gong
-        href: gong-provisioning-tutorial
+        href: gong-provisioning-tutorial.md
       - name: GoLinks
         href: golinks-provisioning-tutorial.md
       - name: Grammarly
