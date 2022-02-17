@@ -375,11 +375,11 @@ Perform the following steps to create the Azure Automation custom role with Powe
 
 ## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
 
-You can create custom Azure Automation Roles and grant the following permissions to Hybrid Worker Groups and Hybrid Workers. [Learn more](/azure/role-based-access-control/custom-roles) on how to create Azure custom roles.
+You can create [Azure custom roles](/azure/role-based-access-control/custom-roles) in Automation and grant the following permissions to Hybrid Worker Groups and Hybrid Workers:
 
-- [Learn more](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups) on the permissions applicable for extension-based Hybrid Runbook Worker.
-- [Learn more](/azure/automation/automation-windows-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) on the permissions applicable for agent-based Windows Hybrid Runbook Worker.</br>
- - [Learn more](/azure/automation/automation-linux-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) on the permissions applicable for agent-based Linux Hybrid Runbook Worker. 
+- [Extension-based Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups)
+- [Agent-based Windows Hybrid Runbook Worker](/azure/automation/automation-windows-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
+ - [Agent-based Linux Hybrid Runbook Worker](/azure/automation/automation-linux-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) 
 
 
 ## Update Management permissions
