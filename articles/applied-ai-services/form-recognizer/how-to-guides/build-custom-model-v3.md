@@ -34,7 +34,7 @@ Follow these other tips to further optimize your data set for training.
 
 ## Upload your training data
 
-When you've put together the set of forms or documents that you'll use for training, you need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). Use the standard performance tier.
+When you've put together the set of forms or documents that you'll use for training, you'll need to upload it to an Azure blob storage container. If you don't know how to create an Azure storage account with a container, following the [Azure Storage quickstart for Azure portal](../../../storage/blobs/storage-quickstart-blobs-portal.md). You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Create a project in the Form Recognizer Studio
 
