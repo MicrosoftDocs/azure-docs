@@ -1,16 +1,14 @@
 ---
-title: "Train a custom Form Recognizer model in the Studio"
+title: "Train a custom model in the Form Recognizer Studio"
 titleSuffix: Azure Applied AI Services
-description: Learn how to setup, label and train a custom model in the Form Recognizer Studio.
-author: vkurpad
+description: Learn how to build, label, and train a custom model in the Form Recognizer Studio.
+author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.topic: conceptual
-ms.date: 01/30/2022
+ms.topic: how-to
+ms.date: 02/16/2022
 ms.author: vikurpad
-#Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
-ms.custom: ignite-fall-2021
 ---
 
 # Build the training data set for the custom model
