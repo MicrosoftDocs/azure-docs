@@ -62,7 +62,7 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
     
-    :::image type="content" source="media/run-packages-execution-command-status.png" alt-text="Screenshot showing how to check the run commands notification or status." lightbox="media/run-packages-execution-command-status.png":::
+    :::image type="content" source="media/run-command/run-packages-execution-command-status.png" alt-text="Screenshot showing how to check the run commands notification or status." lightbox="media/run-command/run-packages-execution-command-status.png":::
 
 ## Add Active Directory over LDAP with SSL
 
