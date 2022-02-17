@@ -58,7 +58,7 @@
   - name: Try Media Services in the portal
     items:
     - name: Basic Video On Demand (VOD) app
-      href: vod-simple-portal-quickstart.md
+      href: video-on-demand-simple-portal-quickstart.md
     - name: Live event with portal and Wirecast
       href: live-event-wirecast-quickstart.md
       displayName: Wirecast, live streaming, live, software, encoder
