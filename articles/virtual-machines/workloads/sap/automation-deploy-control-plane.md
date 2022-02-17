@@ -218,7 +218,7 @@ IS_PIPELINE_DEPLOYMENT=false
 
 By default there will be no public internet access to the website. To change the access restrictions, navigate to the Azure portal. In the deployer resource group, find the web app. Then under settings on the left hand side, click on networking. From here, click Access restriction. Add any allow or deny rules you would like. For more information on configuring access restrictions, see [Set up Azure App Service access restrictions](https://docs.microsoft.com/en-us/azure/app-service/app-service-ip-restrictions).
 
-You can login and visit the web app by following the URL in the app service from earlier. Using the web app, you are able to configure SAP workload zones and systems. Click to download to obtain a parameter file of the workload zone or system you specified, for use in the later deployment steps. 
+You can login and visit the web app by following the URL from earlier or clicking browse inside the app service resource. Using the web app, you are able to configure SAP workload zones and systems. Click download to obtain a parameter file of the workload zone or system you specified, for use in the later deployment steps. 
 
 ## Next step
 
