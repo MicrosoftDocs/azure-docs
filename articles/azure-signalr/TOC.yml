@@ -113,6 +113,8 @@
       href: signalr-howto-authorize-application.md
     - name: Authorize from Managed Identity
       href: signalr-howto-authorize-managed-identity.md
+    - name: Custom domain
+      href: howto-custom-domain.md
   - name: Integrate
     items:
     - name: Azure Functions bindings

@@ -51,7 +51,7 @@ az managed-cassandra datacenter update \
     --resource-group $resourceGroupName \
 	--cluster-name $clusterName \
 	--data-center-name $dataCenterName \
-	--base64-encoded-cassandra-yaml-fragment "$ENCODED_FRAGMENT"
+	--base64-encoded-cassandra-yaml-fragment $ENCODED_FRAGMENT
 ```
 
 ## Next steps

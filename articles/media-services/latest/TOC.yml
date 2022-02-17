@@ -235,6 +235,9 @@
     - name: Overview
       href: stream-live-streaming-concept.md
       displayName: basic pass-through, standard pass-through, pass through, pass, pass-through, cloud encoding, cloud transcoding, cloud encoding, encoding channel, 4K, 1080P, 720P, streaming, live, live event, low latency, RTMP, Smooth, RTMPS, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP
+    - name: Live streaming best practices guide 
+      href: live-event-streaming-best-practices-guide.md 
+      displayName: ingest, static, hostname, rtmp, ingest, streaming, live, live event, low latency, RTMP,RTMPS, stream key, hostname, Smooth, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP, live output, outputs, DVR Window, time shift
     - name: Live events and live outputs 
       href: live-event-outputs-concept.md 
       displayName: ingest, static, hostname, rtmp, ingest, streaming, live, live event, low latency, RTMP,RTMPS, stream key, hostname, Smooth, HLS, LL-HLS, low latency HLS, low latency DASH, interactivity, timed metadata, translation, live speech, DVR, DASH, LL-DASH, live streaming, broadcast, channel, SRT, WebRTC, RTSP, live output, outputs, DVR Window, time shift   
