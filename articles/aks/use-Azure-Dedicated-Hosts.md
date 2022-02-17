@@ -85,7 +85,7 @@ For more information about the host SKUs and pricing, see [Azure Dedicated Host 
 
 Use az vm host create to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
 
-In this example, we will use [az vm host group create](~/cli/azure/vm/host/group?view=azure-cli-latest#az_vm_host_group_create&preserve-view=true) to create a host group using both availability zones and fault domains.
+In this example, we will use [az vm host group create](/cli/azure/vm/host/group?view=azure-cli-latest#az_vm_host_group_create&preserve-view=true) to create a host group using both availability zones and fault domains.
 
 ```azurecli-interactive
 az vm host group create \
