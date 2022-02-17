@@ -56,7 +56,7 @@ The following properties are supported for the TeamDesk linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **TeamDesk**. |Yes |
-| url | The service URL of your TeamDesk, the same one you access from browser. An example is `https://www.teamdesk.net/secure/db/xxxxx`. | Yes |
+| url | The URL of your TeamDesk database. An example is `https://www.teamdesk.net/secure/db/xxxxx`. | Yes |
 | authenticationType | Type of authentication used to connect to the TeamDesk service. Allowed values are **Basic** and **Token**. Refer to corresponding sections below on more properties and examples respectively.|Yes |
 
 ### Basic authentication
