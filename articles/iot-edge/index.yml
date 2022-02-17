@@ -66,6 +66,10 @@ landingContent:
             url: https://github.com/Azure/iotedge/issues
           - text: Latest releases and changelogs
             url: https://github.com/Azure/azure-iotedge/releases
+          - text: IoT Edge for Linux on Windows repository
+            url: https://github.com/Azure/iotedge-eflow
+          - text: IoT Edge for Linux on Windows GitHub issues
+            url: https://github.com/Azure/iotedge-eflow/issues
   - title: Use IoT Edge devices as gateways
     linkLists: 
       - linkListType: concept
