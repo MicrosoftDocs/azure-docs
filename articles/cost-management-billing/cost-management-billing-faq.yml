@@ -156,10 +156,10 @@ sections:
           If you’re an EA customer, we don’t currently support showing pay-as-you-go prices directly in the usage details data. To see the pricing, use the [Retail Prices](/rest/api/cost-management/retail-prices/azure-retail-prices) API.
       - question: Does Usage Details have Reservation charges?
         answer: |
-          Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost) or you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs](costs/manage-automation#get-amortized-cost-details).
+          Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost) or you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs](costs/manage-automation.md#get-amortized-cost-details).
       - question: Am I charged for using the Usage Details APIs?
         answer: |
-          No the Usage Details APIs are free. Make sure to abide by the rate-limiting policies, however. For more information, see [Data latency and rate limits](costs/manage-automation#data-latency-and-rate-limits).
+          No the Usage Details APIs are free. Make sure to abide by the rate-limiting policies, however. For more information, see [Data latency and rate limits](costs/manage-automation.md#data-latency-and-rate-limits).
 
   - name: Azure Reservations questions
     questions:
