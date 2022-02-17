@@ -7,7 +7,6 @@ manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: azurecli
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/20/2022

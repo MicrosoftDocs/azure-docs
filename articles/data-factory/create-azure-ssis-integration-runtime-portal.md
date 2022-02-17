@@ -16,6 +16,9 @@ ms.custom: devx-track-azurepowershell
 
 This article shows you how to create an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines via Azure portal.
 
+> [!NOTE] 
+> Azure-SSIS IR in Azure Synapse Analytics is in public preview, please check [limitations](https://aka.ms/AAfq9i3) for preview.
+
 ## Provision an Azure-SSIS integration runtime
 
 # [Azure Data Factory](#tab/data-factory)
@@ -34,14 +37,14 @@ On the home page, select the **Configure SSIS** tile to open the **Integration r
 
 1. On the home page of the Azure Synapse UI, select the Manage tab from the leftmost pane.
 
-   :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="The home page Manage button":::
+   :::image type="content" source="media/doc-common-process/get-started-page-manage-button-synapse.png" alt-text="Screenshot of the home page Manage button.":::
 
 1. Select **Integration runtimes** on the left pane, and then select **+New**.
 
-   :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Create an integration runtime":::
+   :::image type="content" source="media/doc-common-process/manage-new-integration-runtime-synapse.png" alt-text="Screenshot of create an integration runtime.":::
 
 1. On the following page, select **Azure-SSIS** to create an SSIS IR, and then select **Continue**.
-   :::image type="content" source="media/tutorial-create-azure-ssis-runtime-portal/new-sssis-integration-runtime-synapse.png" alt-text="Create an SSIS IR":::
+   :::image type="content" source="media/tutorial-create-azure-ssis-runtime-portal/new-sssis-integration-runtime-synapse.png" alt-text="Screenshot of create an SSIS IR.":::
 
 ---
 

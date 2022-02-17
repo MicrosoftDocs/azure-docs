@@ -3,7 +3,7 @@ title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 02/15/2022
+ms.date: 02/16/2022
 ms.topic: article
 description: "Troubleshooting common issues with Azure Arc-enabled Kubernetes clusters and GitOps."
 keywords: "Kubernetes, Arc, Azure, containers, GitOps, Flux"
@@ -150,7 +150,7 @@ To recover from this issue, follow these steps:
 
 ## GitOps management
 
-### General
+### Flux v1 - General
 
 To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these az commands with `--debug` parameter specified:
 
@@ -166,7 +166,7 @@ az provider show -n Microsoft.KubernetesConfiguration --debug
 az k8s-configuration flux create <parameters> --debug
 ```
 
-### Create configurations
+### Flux v1 - Create configurations
 
 Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
 
@@ -214,7 +214,7 @@ metadata:
   selfLink: ""
 ```
 
-### Installing the `microsoft.flux` extension (Flux v2)
+### Flux v2 - Error installing the `microsoft.flux` extension
 
 The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. If the extension is not already installed in a cluster and you create a GitOps configuration resource for that cluster, the extension will be installed automatically.
 
@@ -284,6 +284,35 @@ Some other aspects to consider:
 * Assure that the cluster does not have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
 
 With these actions accomplished you can either [re-create a flux configuration](./tutorial-use-gitops-flux2.md) which will install the flux extension automatically or you can re-install the flux extension manually.
+
+### Flux v2 - Installing the `microsoft.flux` extension in a cluster with AAD Pod Identity enabled
+
+If you attempt to install the Flux extension in a cluster that has AAD Pod Identity enabled, an error may occur in the extension-agent pod.
+
+```console
+{"Message":"2021/12/02 10:24:56 Error: in getting auth header : error {adal: Refresh request failed. Status Code = '404'. Response body: no azure identity found for request clientID <REDACTED>\n}","LogType":"ConfigAgentTrace","LogLevel":"Information","Environment":"prod","Role":"ClusterConfigAgent","Location":"westeurope","ArmId":"/subscriptions/<REDACTED>/resourceGroups/<REDACTED>/providers/Microsoft.Kubernetes/managedclusters/<REDACTED>","CorrelationId":"","AgentName":"FluxConfigAgent","AgentVersion":"0.4.2","AgentTimestamp":"2021/12/02 10:24:56"}
+```
+
+The extension status also returns as "Failed".
+
+```console
+"{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceOperationFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"ExtensionCreationFailed\",\"message\":\" error: Unable to get the status from the local CRD with the error : {Error : Retry for given duration didn't get any results with err {status not populated}}\"}]}}",
+```
+
+The issue is that the extension-agent pod is trying to get its token from IMDS on the cluster in order to talk to the extension service in Azure; however, this token request is being intercepted by pod identity ([details here](../../aks/use-azure-ad-pod-identity.md)). 
+
+The workaround is to create an `AzurePodIdentityException` that will tell AAD Pod Identity to ignore the token requests from flux-extension pods.
+
+```console
+apiVersion: aadpodidentity.k8s.io/v1
+kind: AzurePodIdentityException
+metadata:
+  name: flux-extension-exception
+  namespace: flux-system
+spec:
+  podLabels:
+    app.kubernetes.io/name: flux-extension
+```
 
 ## Monitoring
 

@@ -2,7 +2,7 @@
 title: Configure PHP apps
 description: Learn how to configure a PHP app in the native Windows instances, or in a pre-built PHP container, in Azure App Service. This article shows the most common configuration tasks. 
 
-ms.devlang: php, azurecli
+ms.devlang: php
 ms.topic: article
 ms.date: 06/02/2020 
 ms.custom: devx-track-azurecli
