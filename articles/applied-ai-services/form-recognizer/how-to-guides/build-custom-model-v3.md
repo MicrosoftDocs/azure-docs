@@ -28,7 +28,7 @@ First, make sure your training data set follows the input requirements for Form 
 Follow these other tips to further optimize your data set for training.
 
 * If possible, use text-based PDF documents instead of image-based documents. Scanned PDFs are handled as images.
-* For filled-in forms, use examples that have all of their fields filled in.
+* For forms with input fields, use examples that have all of the fields completed.
 * Use forms with different values in each field.
 * If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
