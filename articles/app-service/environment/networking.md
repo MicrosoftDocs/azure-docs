@@ -78,11 +78,11 @@ You can set route tables without restriction. You can tunnel all of the outbound
 
 You can put your web application firewall devices, such as Azure Application Gateway, in front of inbound traffic. Doing so exposes specific apps on that App Service Environment. If you want to customize the outbound address of your applications on an App Service Environment, you can add a NAT gateway to your subnet.
 
-## Private Endpoint
+## Private endpoint
 
-In order to enable Private Endpoints for Web Applications hosted in your App Service Environment, you must first enable this feature at the ASE level.
+In order to enable Private Endpoints for apps hosted in your App Service Environment, you must first enable this feature at the App Service Environment level.
 
-You can activate it through the Azure portal: in the ASE configuration pane turn **on** the setting `Allow new private endpoints`.
+You can activate it through the Azure portal: in the App Service Environment configuration pane turn **on** the setting `Allow new private endpoints`.
 Alternatively the following CLI can enable it:
 
 ```azurecli-interactive
