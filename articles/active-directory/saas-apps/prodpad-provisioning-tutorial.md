@@ -58,7 +58,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 3. Add ProdPad from the Azure AD application gallery
 
-Add ProdPad from the Azure AD application gallery to start managing provisioning to ProdPad. If you have previously setup [ProdPad for SSO]((prodpad-tutorial.md), you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add ProdPad from the Azure AD application gallery to start managing provisioning to ProdPad. If you have previously setup [ProdPad for SSO](prodpad-tutorial.md), you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
