@@ -117,7 +117,7 @@ az aks nodepool delete --cluster-name MyManagedCluster --name agentpool3 --resou
 
 ## Next steps
 
-In this article, you learned how to create an AKS cluster with a Dedicated host, and to add a dedicated host to an existing cluster. For more information about Dedicated Hosts, see [dedicated-hosts](/azure/virtual-machines/dedicated-hosts.md).
+In this article, you learned how to create an AKS cluster with a Dedicated host, and to add a dedicated host to an existing cluster. For more information about Dedicated Hosts, see [dedicated-hosts](https://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts).
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
