@@ -104,33 +104,32 @@ Assuming that you created a Static Web App, you'll now change the HTML in the in
 1. Select the edit pencil icon to edit the file.
 1. Replace the code that is in the html file with the following code:
 
-```html
-<html lang="en-US">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Basic Video on Demand Static Web App</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    ```html
+    <html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Basic Video on Demand Static Web App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--*****START OF Azure Media Player Scripts*****-->
-        <!--Note: DO NOT USE the "latest" folder in production. Replace "latest" with a version number like "1.0.0"-->
-        <!--EX:<script src="//amp.azure.net/libs/amp/1.0.0/azuremediaplayer.min.js"></script>-->
-        <!--Azure Media Player versions can be queried from //aka.ms/ampchangelog-->
-    <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
-    <script src="//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
-    <!--*****END OF Azure Media Player Scripts*****-->
-
-</head>
-<body>
-    <h1>Clear Streaming Only</h1>
-    <video id="azuremediaplayer" class="azuremediaplayer amp-default-skin amp-big-play-centered" controls autoplay width="640" height="400" poster="" data-setup='{}' tabindex="0">
-        <source src="put streaming url here" type="application/vnd.ms-sstr+xml" />
-        <p class="amp-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
-    </video>
-</body>
-</html>
-```
+        <!--*****START OF Azure Media Player Scripts*****-->
+            <!--Note: DO NOT USE the "latest" folder in production. Replace "latest" with a version number like "1.0.0"-->
+            <!--EX:<script src="//amp.azure.net/libs/amp/1.0.0/azuremediaplayer.min.js"></script>-->
+            <!--Azure Media Player versions can be queried from //aka.ms/ampchangelog-->
+        <link href="//amp.azure.net/libs/amp/latest/skins/amp-default/azuremediaplayer.min.css" rel="stylesheet">
+        <script src="//amp.azure.net/libs/amp/latest/azuremediaplayer.min.js"></script>
+        <!--*****END OF Azure Media Player Scripts*****-->
+    </head>
+    <body>
+        <h1>Clear Streaming Only</h1>
+        <video id="azuremediaplayer" class="azuremediaplayer amp-default-skin amp-big-play-centered" controls autoplay width="640" height="400" poster="" data-setup='{}' tabindex="0">
+            <source src="put streaming url here" type="application/vnd.ms-sstr+xml" />
+            <p class="amp-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
+        </video>
+    </body>
+    </html>
+    ```
 
 1. Return to the Azure portal, Streaming locator browser tab where the streaming URLs are located.
 1. Copy the URL that ends with `(format=m3u8-cmaf)` under HLS.
