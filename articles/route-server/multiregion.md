@@ -11,7 +11,7 @@ ms.author: jomore
 
 # Multi-region networking with Azure Route Server
 
-Applications that have high availability or disaster recovery requirements often need to be deployed in more than one Azure region, where spoke VNets in multiple regions need to communicate between each other. A possibility to achieve this communication pattern is peering to each other all spokes that need to communicate, but those flows would bypass any central NVAs in the hubs, such as firewalls. Another possibility is using User Defined Routes (UDRs) in the subnets where the hub NVAs are deployed, but that can be difficult to maintain. Azure Route Server offers an alternative which is very dynamic and adapts to topology changes without manual intervention.
+Applications that have demanding requirements around high availability or disaster recovery often need to be deployed in more than one Azure region, where spoke VNets in multiple regions need to communicate between each other. A possibility to achieve this communication pattern is peering to each other all spokes that need to communicate, but those flows would bypass any central NVAs in the hubs, such as firewalls. Another possibility is using User Defined Routes (UDRs) in the subnets where the hub NVAs are deployed, but that can be difficult to maintain. Azure Route Server offers an alternative which is very dynamic and adapts to topology changes without manual intervention.
 
 ## Topology
 
