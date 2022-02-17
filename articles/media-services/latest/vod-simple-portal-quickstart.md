@@ -42,7 +42,8 @@ You should have a media services account, a storage account, and a default strea
 
 ## Create a transform
 
-> [!IMPORTANT] You must encode your files with a transform in order to stream them, even if they have been encoded locally.  The Media Services encoding process creates the manifest files needed for streaming.
+> [!IMPORTANT] 
+> You must encode your files with a transform in order to stream them, even if they have been encoded locally.  The Media Services encoding process creates the manifest files needed for streaming.
 
 You'll now create a transform that uses a Built-in preset, which is like a recipe for encoding.
 
@@ -72,7 +73,7 @@ Next, you will create a job which is for telling Media Services which transform 
 1. Select the job listed under **Name** in the table of jobs. The job detail screen will open.
 1. Select the output asset from the **Outputs** list. The asset screen will open.
 1. Select the link for the asset next to Storage container.  A new browser tab will open and You will see the results of the job that used the transform.  There should be several files in the output asset including:
-    1. Encoded video files with .mpi and mp4 extensions.
+    1. Encoded video files with .mpi and .mp4 extensions.
     1. A *XXXX_metadata.json* file.
     1. A *XXXX_manifest.json* file.
     1. A *XXXX_.ism* file.
@@ -124,7 +125,7 @@ Assuming that you created a Static Web App, you will now change the HTML in the 
 <body>
     <h1>Clear Streaming Only</h1>
     <video id="azuremediaplayer" class="azuremediaplayer amp-default-skin amp-big-play-centered" controls autoplay width="640" height="400" poster="" data-setup='{}' tabindex="0">
-        <source src="//amssamples.streaming.mediaservices.windows.net/3b970ae0-39d5-44bd-b3a3-3136143d6435/AzureMediaServicesPromo.ism/manifest" type="application/vnd.ms-sstr+xml" />
+        <source src="put streaming url here" type="application/vnd.ms-sstr+xml" />
         <p class="amp-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video</p>
     </video>
 </body>
@@ -137,7 +138,7 @@ Assuming that you created a Static Web App, you will now change the HTML in the 
 1. Paste the URL into the `src` value in the source object in the HTML.
 1. Select **Commit changes** to commit the change. It may take a minute for the changes to be live.
 1. Back in the Azure portal, Static web app tab, select the link next to **URL** to open the index page in another tab of your browser. The player should appear on the page.
-1. Select the video play button. The video should begin playing. If it is not playing, check that your streaming endpoint is running.
+1. Select the **video play** button. The video should begin playing. If it is not playing, check that your streaming endpoint is running.
 
 ## Clean up resources
 
