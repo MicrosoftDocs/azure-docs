@@ -11,27 +11,22 @@ ms.reviewer: aaronmax
 
 # Manage usage and costs for Application Insights
 
+This article describes how to proactively monitor and control Application Insights costs.
+
+A related article, [Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features using [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill).
+
 > [!NOTE]
-> This article describes how to understand and control your costs for Application Insights. A related article, [Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features using [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill). All prices and costs in this article are for example purposes only. 
+> All prices and costs in this article are for example purposes only.
 
-Application Insights is designed to get everything you need to monitor your Azure and on-premises web applications.
-
-> [!div class="checklist"]
-> * Availability
-> * Performance
-> * Usage
-
-Application Insights supports [popular languages and frameworks](platforms.md#supported-languages) and integrates with DevOps tools. It's important to understand what determines the costs of monitoring your applications. In this article, we review what drives your application monitoring costs and how you can proactively monitor and control them.
-
-<!--- Integration with specific tools like Azure DevOps, Jira, and PagerDuty should be documented elsewhere. -->
+<!--- App Insights monitoring features (availability, performance, usage, etc. ) Supported languages, integration with specific tools (Azure DevOps, Jira, and PagerDuty, etc.) should be documented elsewhere. (e.g. platforms.md) -->
 
 If you have questions about how pricing works for Application Insights, you can post a question in our [Microsoft Q&A question page](/answers/topics/azure-monitor.html).
 
 ## Pricing model
 
-The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. Data volume is measured in GB (10^9 bytes). There is no data volume charge for using the [Live Metrics Stream](./live-stream.md). On your Azure bill or in [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill), your data ingestion and data retention for a classic Application Insights resource will be reported with a meter category of **Log Analytics**.  
+The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. Data volume is measured in GB (10^9 bytes). There's no data volume charge for using the [Live Metrics Stream](./live-stream.md). On your Azure bill or in [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill), your data ingestion and data retention for a classic Application Insights resource will be reported with a meter category of **Log Analytics**.  
 
-[Multi-step web tests](./availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
+[Multi-step web tests](./availability-multistep.md) incur additional charges. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
 The Application Insights option to [Enable alerting on custom metric dimensions](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can also generate in additional costs because this can result in the creation of additional pre-aggregation metrics. [Learn more](./pre-aggregated-metrics-log-metrics.md) about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
 
@@ -48,25 +43,25 @@ If you're not yet using Application Insights, you can use the [Azure Monitor pri
 
 ### Learn from what similar applications collect
 
-In the Azure Monitoring Pricing calculator for Application Insights, click to enable the **Estimate data volume based on application activity**. Here you can provide inputs about your application (requests per month and page views per month, in case you will collect client-side telemetry), and then the calculator will tell you the median and 90th percentile amount of data collected by similar applications. These applications span the range of Application Insights configuration (e.g some have default [sampling](./sampling.md), some have no sampling etc.), so you still have the control to reduce the volume of data you ingest far below the median level using sampling. 
+In the Azure Monitoring Pricing calculator for Application Insights, click to enable the **Estimate data volume based on application activity**. Here you can provide inputs about your application (requests per month and page views per month, in case you'll collect client-side telemetry), and then the calculator will tell you the median and 90th percentile amount of data collected by similar applications. These applications span the range of Application Insights configuration (e.g some have default [sampling](./sampling.md), some have no sampling etc.), so you still have the control to reduce the volume of data you ingest far below the median level using sampling. 
 
 ### Data collection when using sampling
 
-With the ASP.NET SDK's [adaptive sampling](sampling.md#adaptive-sampling), the data volume is adjusted automatically to keep within a specified maximum rate of traffic for default Application Insights monitoring. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below the configured events per second level. For a high volume application, with the default threshold of five events per second, adaptive sampling will limit the number of daily events to 432,000. Using a typical average event size of 1 KB, this corresponds to 13.4 GB of telemetry per 31-day month per node hosting your application since the sampling is done local to each node.
+With the ASP.NET SDK's [adaptive sampling](sampling.md#adaptive-sampling), the data volume is adjusted automatically to keep within a specified maximum rate of traffic for default Application Insights monitoring. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below the configured events per second level. For a high volume application, with the default threshold of five events per second, adaptive sampling will limit the number of daily events to 432,000. Considering a typical average event size of 1 KB, this corresponds to 13.4 GB of telemetry per 31-day month per node hosting your application since the sampling is done local to each node.
 
 For SDKs that don't support adaptive sampling, you can employ [ingestion sampling](./sampling.md#ingestion-sampling), which samples when the data is received by Application Insights based on a percentage of data to retain, or [fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites](sampling.md#fixed-rate-sampling) to reduce the traffic sent from your web server and web browsers
 
 ## Viewing Application Insights usage on your Azure bill
 
-The easiest way to see the billed usage for a single Application Insights resource which is not a workspace-baed resource is to go to the resource's Overview page and click **View Cost** in the upper right corner. You might need additional access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md)).
+The easiest way to see the billed usage for a single Application Insights resource, which isn't a workspace-baed resource is to go to the resource's Overview page and click **View Cost** in the upper right corner. You might need additional access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md)).
 
-To learn more, Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  Note that Application Insights billed usage for data ingestion and data retention will show up as **Log Analytics** for the Meter category since Log Analytics backend for all Azure Monitor logs. 
+To learn more, Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  Application Insights billed usage for data ingestion and data retention will show up as **Log Analytics** for the Meter category since Log Analytics backend for all Azure Monitor logs. 
 
 > [!NOTE]
 > Application Insights billing for data ingestion and data retention is reported as coming from the **Log Analytics** service (Meter category in Azure Cost Management + Billing). 
 
 Even more understanding of your usage can be gained by [downloading your usage from the Azure portal](../../cost-management-billing/understand/download-azure-daily-usage.md).
-In the downloaded spreadsheet, you can see usage per Azure resource per day. In this Excel spreadsheet, usage from your Application Insights resources can be found by first filtering on the "Meter Category" column to show "Application Insights" and "Log Analytics", and then adding a filter on the "Instance ID" column which is "contains microsoft.insights/components".  Most Application Insights usage is reported on meters with the Meter Category of Log Analytics, since there is a single logs backend for all Azure Monitor components.  Only Application Insights resources on legacy pricing tiers and multi-step web tests are reported with a Meter Category of Application Insights.  The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](../../cost-management-billing/understand/review-individual-bill.md).
+In the downloaded spreadsheet, you can see usage per Azure resource per day. In this Excel spreadsheet, usage from your Application Insights resources can be found by first filtering on the "Meter Category" column to show "Application Insights" and "Log Analytics", and then adding a filter on the "Instance ID" column, which is "contains microsoft.insights/components".  Most Application Insights usage is reported on meters with the Meter Category of Log Analytics, since there's a single logs backend for all Azure Monitor components.  Only Application Insights resources on legacy pricing tiers and multi-step web tests are reported with a Meter Category of Application Insights.  The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## Understand your usage and optimizing your costs
 <a name="understand-your-usage-and-estimate-costs"></a>
@@ -81,7 +76,7 @@ C. View data volume trends for the past month.
 D. Enable data ingestion [sampling](./sampling.md).
 E. Set the daily data volume cap.  
 
-(Note that all prices displayed in screenshots in this article are for example purposes only. For current prices in your currency and region, see [Application Insights pricing][pricing].)
+(All prices displayed in screenshots in this article are for example purposes only. For current prices in your currency and region, see [Application Insights pricing][pricing].)
 
 To investigate your Application Insights usage more deeply, open the **Metrics** page, add the metric named "Data point volume", and then select the *Apply splitting* option to split the data by "Telemetry item type".
 
@@ -98,7 +93,7 @@ To learn more about your data volumes, selecting **Metrics** for your Applicatio
 
 ### Queries to understand data volume details
 
-There are two approaches to investigating data volumes for Application Insights. The first uses aggregated information in the `systemEvents` table, and the second uses the `_BilledSize` property, which is available on each ingested event. `systemEvents` will not have data size information for [workspace-based-application-insights](#data-volume-for-workspace-based-application-insights-resources).
+There are two approaches to investigating data volumes for Application Insights. The first uses aggregated information in the `systemEvents` table, and the second uses the `_BilledSize` property, which is available on each ingested event. `systemEvents` won't have data size information for [workspace-based-application-insights](#data-volume-for-workspace-based-application-insights-resources).
 
 #### Using aggregated data volume information
 
@@ -124,7 +119,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
 ```
 
-Note that this query can be used in an [Azure Log Alert](../alerts/alerts-unified-log.md) to set up alerting on data volumes.  
+This query can be used in an [Azure Log Alert](../alerts/alerts-unified-log.md) to set up alerting on data volumes.  
 
 To learn more about your telemetry data changes, we can get the count of events by type using the query:
 
@@ -197,7 +192,7 @@ The volume of data you send can be managed using the following techniques:
 
 * **Sampling**: You can use sampling to reduce the amount of telemetry that's sent from your server and client apps, with minimal distortion of metrics. Sampling is the primary tool you can use to tune the amount of data you send. Learn more about [sampling features](./sampling.md).
 
-* **Limit Ajax calls**: You can [limit the number of Ajax calls that can be reported](./javascript.md#configuration) in every page view, or switch off Ajax reporting. Note that disabling Ajax calls will disable [JavaScript correlation](./javascript.md#enable-correlation).
+* **Limit Ajax calls**: You can [limit the number of Ajax calls that can be reported](./javascript.md#configuration) in every page view, or switch off Ajax reporting. Disabling Ajax calls will disable [JavaScript correlation](./javascript.md#enable-correlation).
 
 * **Disable unneeded modules**: [Edit ApplicationInsights.config](./configuration-with-applicationinsights-config.md) to turn off collection modules that you don't need. For example, you might decide that performance counters or dependency data are inessential.
 
@@ -216,7 +211,7 @@ The volume of data you send can be managed using the following techniques:
     
     We've removed the restriction on some subscription types that have credit that couldn't be used for Application Insights. Previously, if the subscription has a spending limit, the daily cap dialog has instructions to remove the spending limit and enable the daily cap to be raised beyond 32.3 MB/day.
     
-* **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key. The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend it. It spreads out a surge over several minutes. If your app consistently sends data at more than the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend data this way; other SDKs might simply drop throttled data.) If throttling occurs, a notification warning alerts you that this has occurred.
+* **Throttling**: Throttling limits the data rate to 32,000 events per second, averaged over 1 minute per instrumentation key. The volume of data that your app sends is assessed every minute. If it exceeds the per-second rate averaged over the minute, the server refuses some requests. The SDK buffers the data and then tries to resend it. It spreads out a surge over several minutes. If your app consistently sends data at more than the throttling rate, some data will be dropped. (The ASP.NET, Java, and JavaScript SDKs try to resend data this way; other SDKs might drop throttled data.) If throttling occurs, a notification warning alerts you that this has occurred.
 
 ## Manage your maximum daily data volume
 
@@ -283,7 +278,7 @@ To change the retention, from your Application Insights resource, go to the **Us
 
 ![Screenshot that shows where to change the data retention period.](./media/pricing/pricing-005.png)
 
-When the retention is lowered, there is a several day grace period before the oldest data is removed.
+A several-day grace period begins when the retention is lowered before the oldest data is removed.
 
 The retention can also be [set programatically using PowerShell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. If you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
 
@@ -305,13 +300,13 @@ For early adopters of Azure Application Insights, there are still two possible p
 
 These legacy pricing tiers have been renamed. The Enterprise pricing tier is now called **Per Node** and the Basic pricing tier is now called **Per GB**. These new names are used below and in the Azure portal.  
 
-The Per Node (formerly Enterprise) tier has a per-node charge, and each node receives a daily data allowance. In the Per Node pricing tier, you are charged for data ingested above the included allowance. If you are using Operations Management Suite, you should choose the Per Node tier. In April 2018, we [introduced](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) a new pricing model for Azure monitoring. This model adopts a simple "pay-as-you-go" model across the complete portfolio of monitoring services. Learn more about the [new pricing model](..//usage-estimated-costs.md).
+The Per Node (formerly Enterprise) tier has a per-node charge, and each node receives a daily data allowance. In the Per Node pricing tier, you're charged for data ingested above the included allowance. If you're using Operations Management Suite, you should choose the Per Node tier. In April 2018, we [introduced](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) a new pricing model for Azure monitoring. This model adopts a simple "pay-as-you-go" model across the complete portfolio of monitoring services. Learn more about the [new pricing model](..//usage-estimated-costs.md).
 
 For current prices in your currency and region, see [Application Insights pricing](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ### Understanding billed usage on the legacy Enterprise (Per Node) tier 
 
-As described below in more detail, the legacy Enterprise (Per Node) tier combines usage from across all Application Insights resources in a subscription to calculate the number of nodes and the data overage. Due to this combination process, **usage for all Application Insights resources in a subscription are reported against just one of the resources**.  This makes reconciling your [billed usage](#viewing-application-insights-usage-on-your-azure-bill) with the usage you observe for each Application Insights resources very complicated. 
+As described below in more detail, the legacy Enterprise (Per Node) tier combines usage from across all Application Insights resources in a subscription to calculate the number of nodes and the data overage. Due to this combination process, **usage for all Application Insights resources in a subscription are reported against just one of the resources**.  This makes reconciling your [billed usage](#viewing-application-insights-usage-on-your-azure-bill) with the usage you observe for each Application Insights resource complicated.
 
 > [!WARNING]
 > Because of the complexity of tracking and understanding usage of Application Insights resources in the legacy Enterprise (Per Node) tier we strongly recommend using the current Pay-As-You-Go pricing tier. 
@@ -330,7 +325,7 @@ Because this tier is applicable only to customers with an Operations Management 
 
 * You pay for each node that sends telemetry for any apps in the Per Node tier.
   * A *node* is a physical or virtual server machine or a platform-as-a-service role instance that hosts your app.
-  * Development machines, client browsers, and mobile devices do not count as nodes.
+  * Development machines, client browsers, and mobile devices don't count as nodes.
   * If your app has several components that send telemetry, such as a web service and a back-end worker, the components are counted separately.
   * [Live Metrics Stream](./live-stream.md) data isn't counted for pricing purposes. In a subscription, your charges are per node, not per app. If you have five nodes that send telemetry for 12 apps, the charge is for five nodes.
 * Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app. The hourly charge is the quoted monthly charge divided by 744 (the number of hours in a 31-day month).
@@ -373,7 +368,7 @@ You can write a script to set the pricing tier by using Azure Resource Managemen
 
 ### Unexpected usage or estimated cost
 
-Lower your bill with updated versions of the ASP.NET Core SDK and Worker Service SDK, which [do not collect counters by default](https://docs.microsoft.com/en-us/azure/azure-monitor/app/eventcounters#default-counters-collected).
+Lower your bill with updated versions of the ASP.NET Core SDK and Worker Service SDK, which [don't collect counters by default](https://docs.microsoft.com/en-us/azure/azure-monitor/app/eventcounters#default-counters-collected).
 
 ### Microsoft Q&A question page
 
