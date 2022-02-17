@@ -1072,7 +1072,6 @@ For multi-class and multi-label classification, you can follow the same steps me
 
 For object detection, predictions are automatically on the scale of `height_onnx`, `width_onnx`. To transform the predicted box coordinates to the original dimensions you can implement the following calculations. 
 
-- In order to transform the predicted box coordinates to original image dimensions 
     - Either use <br>
                Xmin * original_width/width_onnx, <br>
                Ymin * original_height/height_onnx, <br>
