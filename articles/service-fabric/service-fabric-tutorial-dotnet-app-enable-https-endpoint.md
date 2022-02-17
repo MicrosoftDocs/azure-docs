@@ -361,7 +361,7 @@ First, export the certificate to a PFX file. Open the certlm.msc application and
 
 In the export wizard, choose **Yes, export the private key** and choose the Personal Information Exchange (PFX) format.  Export the file to *C:\Users\sfuser\votingappcert.pfx*.
 
-Next, install the certificate on the remote cluster using [these provided Powershell scripts](./scripts/service-fabric-powershell-add-application-certificate.md).
+Next, install the certificate on the remote cluster using [these provided PowerShell scripts](./scripts/service-fabric-powershell-add-application-certificate.md).
 
 > [!Warning]
 > A self-signed certificate is sufficient for development and testing applications. For production applications, use a certificate from a [certificate authority (CA)](https://wikipedia.org/wiki/Certificate_authority) instead of a self-signed certificate.
