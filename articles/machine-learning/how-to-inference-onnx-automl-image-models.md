@@ -319,7 +319,7 @@ The output is a tuple of `output_names` and predictions. Here, `output_names` an
 | output_names | `(3*batch_size)` | List of keys | For a batch size of 2, `output_names` will be `['boxes_0', 'labels_0', 'scores_0', 'boxes_1', 'labels_1', 'scores_1']` |
 | predictions | `(3*batch_size)` | List of ndarray(float) | For a batch size of 2, predictions will take the shape of `[(n1_boxes, 4), (n1_boxes), (n1_boxes), (n2_boxes, 4), (n2_boxes), (n2_boxes)]`. Here, values at each index correspond to same index in `output_names`. |
 
-Following table describes boxes, labels and scores returned for each sample in the batch of images.
+The following table describes boxes, labels and scores returned for each sample in the batch of images.
 
 | Name       | Shape  | Type | Description |
 | -------- |----------|-----|------|
