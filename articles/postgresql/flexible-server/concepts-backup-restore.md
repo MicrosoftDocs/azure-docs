@@ -30,13 +30,13 @@ Transaction log backups happen at varied frequencies, depending on the workload 
 
 ## Backup redundancy options
 
-Azure Database for PostgreSQL stores multiple copies of your backups to help protect your data from planned and unplanned events. These events can include transient hardware failures, network or power outages, and natural disasters. Backup redundancy helps ensure that your database meets its availability and durability targets, even if failures happen. 
+Flexible Server stores multiple copies of your backups to help protect your data from planned and unplanned events. These events can include transient hardware failures, network or power outages, and natural disasters. Backup redundancy helps ensure that your database meets its availability and durability targets, even if failures happen. 
 
-Azure Database for PostgreSQL offers three options: 
+Flexible Server offers three options: 
 
 - **Zone-redundant backup storage**: This option is automatically chosen for regions that support availability zones. When the backups are stored in zone-redundant backup storage, multiple copies are not only stored within the availability zone in which your server is hosted, but also replicated to another availability zone in the same region. 
 
-  You can use this option for scenarios that require high availability or for restricting replication of data to within a country/region to meet data residency requirements. This option provides at least 99.9999999999 percent (12 nines) durability of backup objects over a year.  
+  This option provides backup data availability across availability zones and restricts replication of data to within a country/region to meet data residency requirements. This option provides at least 99.9999999999 percent (12 nines) durability of backup objects over a year.  
 
 - **Locally redundant backup storage**: This option is automatically chosen for regions that don't support availability zones yet. When the backups are stored in locally redundant backup storage, multiple copies of backups are stored in the same datacenter. 
 
@@ -74,8 +74,6 @@ You can use the [Backup Storage Used](../concepts-monitoring.md) metric in the
 
 >[!Note]
 > Irrespective of the database size, heavy transactional activity on the server generates more WAL files. The increase in files in turn increases the backup storage.
-
-The best way to control the backup storage cost is by setting the right backup retention period and backup redundancy options to meet your desired recovery goals.
 
 ## Point-in-time recovery
 
@@ -174,7 +172,7 @@ After you restore the database, you can perform the following tasks to get your 
 
 * **Can I configure automated backups to retain data for the long term?**
   
-    No. Currently, Azure Database for PostgreSQL supports a maximum of 35 days of retention. You can use manual backups for a long-term retention requirement.
+    No. Currently, Flexible Server supports a maximum of 35 days of retention. You can use manual backups for a long-term retention requirement.
 
 * **How do I manually back up my Postgres servers?**
   
