@@ -24,8 +24,9 @@ ms.collection: M365-identity-device-management
 This article describes how to set up federation with any organization whose identity provider (IdP) supports the SAML 2.0 or WS-Fed protocol. When you set up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account.
 
 > [!IMPORTANT]
+> -   Issure URL in the SAML request sent by AAD for external federations will be a tenanted endpoint. We recommend all our partners to set the audience of the SAML or WS-Fed based IdP for any new federations to a tenanted endpoint. Refer to the [SAML 2.0](#required-saml-20-attributes-and-claims) and [WS-Fed](#required-ws-fed-attributes-and-claims) required attributes and claims sections below. Any existing federations set with the global endpoint will continue to work but new federations will stop working if your external IdP is expecting a global issuer url in the SAML request. 
 > - We've removed the limitation that required the authentication URL domain to match the target domain or be from an allowed IdP. For details, see [Step 1: Determine if the partner needs to update their DNS text records](#step-1-determine-if-the-partner-needs-to-update-their-dns-text-records).
->-  We now recommend that the partner set the audience of the SAML or WS-Fed based IdP to a tenanted audience. Refer to the [SAML 2.0](#required-saml-20-attributes-and-claims) and [WS-Fed](#required-ws-fed-attributes-and-claims) required attributes and claims sections below.
+
 
 ## When is a guest user authenticated with SAML/WS-Fed IdP federation?
 
@@ -128,12 +129,15 @@ Azure AD B2B can be configured to federate with IdPs that use the SAML protocol 
 #### Required SAML 2.0 attributes and claims
 The following tables show requirements for specific attributes and claims that must be configured at the third-party IdP. To set up federation, the following attributes must be received in the SAML 2.0 response from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually.
 
+> [!NOTE]
+> Ensure the value below match the cloud you are setting up the external federation for. 
+ 
 Required attributes for the SAML 2.0 response from the IdP:
 
 |Attribute  |Value  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`https://login.microsoftonline.com/<tenant ID>/` (Recommended tenanted audience.) Replace `<tenant ID>` with the tenant ID of the Azure AD tenant you're setting up federation with.<br><br>`urn:federation:MicrosoftOnline` (This value will be deprecated.)          |
+|Audience     |`https://login.microsoftonline.com/<tenant ID>/` (Recommended) Replace `<tenant ID>` with the tenant ID of the Azure AD tenant you're setting up federation with. Issuer URL of the SAML request sent by AAD for external federations will be a tenanted endpoint i.e. `https://login.microsoftonline.com/<tenant ID>/`. We recommend all our partners to set the audience of the SAML or WS-Fed based IdP for any new federations to a tenanted endpoint. Any existing federations set with the global endpoint i.e. `urn:federation:MicrosoftOnline` will continue to work but new federations will stop working if your external IdP is expecting a global issuer url in the SAML request sent by AAD.<br>|
 |Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
@@ -155,12 +159,15 @@ Azure AD B2B can be configured to federate with IdPs that use the WS-Fed protoco
 
 The following tables show requirements for specific attributes and claims that must be configured at the third-party WS-Fed IdP. To set up federation, the following attributes must be received in the WS-Fed message from the IdP. These attributes can be configured by linking to the online security token service XML file or by entering them manually.
 
+> [!NOTE]
+> Ensure the value below match the cloud you are setting up the external federation for. 
+ 
 Required attributes in the WS-Fed message from the IdP:
  
 |Attribute  |Value  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|Audience     |`https://login.microsoftonline.com/<tenant ID>/` (Recommended tenanted audience.) Replace `<tenant ID>` with the tenant ID of the Azure AD tenant you're federating with.<br><br>`urn:federation:MicrosoftOnline` (This value will be deprecated.)          |
+|Audience     |`https://login.microsoftonline.com/<tenant ID>/` (Recommended) Replace `<tenant ID>` with the tenant ID of the Azure AD tenant you're setting up federation with. Issuer URL of the SAML request sent by AAD for external federations will be a tenanted endpoint i.e. `https://login.microsoftonline.com/<tenant ID>/`. We recommend all our partners to set the audience of the SAML or WS-Fed based IdP for any new federations to a tenanted endpoint. Any existing federations set with the global endpoint i.e. `urn:federation:MicrosoftOnline` will continue to work but new federations will stop working if your external IdP is expecting a global issuer url in the SAML request sent by AAD.<br> |
 |Issuer     |The issuer URI of the partner IdP, for example `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 Required claims for the WS-Fed token issued by the IdP:
