@@ -1,6 +1,6 @@
 ---
-title: Windows 10 roaming settings reference - Azure Active Directory
-description: Settings that will be roamed or backed up in Windows 10 with ESR
+title: Windows roaming settings reference - Azure Active Directory
+description: Settings that will be roamed or backed up in Windows with ESR
 
 services: active-directory
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: guovivian
 
 ms.collection: M365-identity-device-management
 ---
-# Windows 10 roaming settings reference
+# Windows roaming settings reference
 
 The following is a list of the settings that will be roamed or backed up in Windows 10 or newer. 
 
@@ -29,8 +29,6 @@ The following settings groups are available for end users to enable/disable sett
 - Microsoft Edge browser setting
 - Other Windows Settings
 - Passwords
-
-![Sync your settings](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 > [!NOTE]
 > This article applies to the Microsoft Edge Legacy HTML-based browser launched with Windows 10 in July 2015. The article does not apply to the new Microsoft Edge Chromium-based browser released on January 15, 2020. For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).

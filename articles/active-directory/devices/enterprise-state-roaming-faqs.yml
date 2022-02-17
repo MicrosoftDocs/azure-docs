@@ -22,24 +22,6 @@ sections:
   - name: Ignored
     questions:
       - question: |
-          What data roams?
-        answer: |
-          **Windows settings**:
-          the PC settings that are built into the Windows operating system. Generally, these are settings that personalize your PC, and they include the following broad categories:
-          
-          - Ease of Access
-          - Internet Explorer Settings
-          - Language Preferences
-          - Microsoft Edge browser setting
-          - Other Windows Settings
-          - Passwords
-          
-          > [!NOTE]
-          > This article applies to the Microsoft Edge Legacy HTML-based browser launched with Windows 10 in July 2015. The article doesn't apply to the new Microsoft Edge Chromium-based browser released on January 15, 2020. For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
-          
-          **Application data**: Universal Windows apps can write settings data to a roaming folder, and any data written to this folder will automatically be synced. It’s up to the individual app developer to design an app to take advantage of this capability. For more information about how to develop a Universal Windows app that uses roaming, see the [app data storage API](/windows/uwp/design/app-settings/store-and-retrieve-app-data) and the [Windows 8 app data roaming developer blog](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
-          
-      - question: |
           What account is used for settings sync?
         answer: |
           In Windows 8.1, settings sync always used consumer Microsoft accounts. Enterprise users had the ability to connect a Microsoft account to their Active Directory domain account to gain access to settings sync. In Windows 10, this connected Microsoft account functionality is being replaced with a primary/secondary account framework.
