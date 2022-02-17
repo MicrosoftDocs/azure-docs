@@ -57,8 +57,6 @@ To get started, you'll need:
 
 - A BindID tenant. You can [sign up for free.](https://www.transmitsecurity.com/developer?utm_signup=dev_hub#try)
 
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
-
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -73,15 +71,13 @@ To get started, you'll need:
 
 - A BindID tenant. You can [sign up for free.](https://www.transmitsecurity.com/developer?utm_signup=dev_hub#try)
 
-- If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
-
-- Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+- Complete the steps in the article [get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 
 ### Step 1 - Create an application registration in BindID
 
-To configure your tenant application in BindID, the following information is needed
+[Register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).To configure your tenant application in BindID, the following information is needed
 
 | Property | Description |
 |:---------|:---------------------|
@@ -97,12 +93,18 @@ BindID will provide a Client ID and a Client Secret once the application has bee
 ### Step 2 - Add a new Identity provider in Azure AD B2C
 
 1. Sign-in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. Choose **All services** in the top-left corner of the Azure portal, then search for and select **Azure AD B2C**.
-1. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
-1. Select **New OpenID Connect Provider**.
-1. Select **Add**.
+
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+
+3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+
+4. Choose **All services** in the top-left corner of the Azure portal, then search for and select **Azure AD B2C**.
+
+5. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
+
+6. Select **New OpenID Connect Provider**.
+
+7. Select **Add**.
 
 ### Step 3 - Configure an Identity provider
 
@@ -110,21 +112,21 @@ BindID will provide a Client ID and a Client Secret once the application has bee
 
 2. Fill out the form to set up the Identity provider:
 
-|Property  |Value  |
-|:---------|:---------|
-|Name     |Enter BindID – Passwordless or a name of your choice|
-|Metadata URL| `https://signin.bindid-sandbox.io/.well-known/openid-configuration` |
-|Client ID|The application ID from the BindID admin UI captured in **Step 1**|
-|Client Secret|The application Secret from the BindID admin UI captured in **Step 1**|
-|Scope|OpenID email|
-|Response type|Code|
-|Response mode|form_post|
-|**Identity provider claims mapping**|
-|User ID|sub|
-|Display name|name|
-|Given name|given_name|
-|Surname|family_name|
-|Email|email|
+   |Property  |Value  |
+   |:---------|:---------|
+   |Name     |Enter BindID – Passwordless or a name of your choice|
+   |Metadata URL| `https://signin.bindid-sandbox.io/.well-known/openid-configuration` |
+   |Client ID|The application ID from the BindID admin UI captured in **Step 1**|
+   |Client Secret|The application Secret from the BindID admin UI captured in **Step 1**|
+   |Scope|OpenID email|
+   |Response type|Code|
+   |Response mode|form_post|
+   |**Identity provider claims mapping**|
+   |User ID|sub|
+   |Display name|name|
+   |Given name|given_name|
+   |Surname|family_name|
+   |Email|email|
 
 3. Select **Save** to complete the setup for your new OIDC Identity provider.  
 
