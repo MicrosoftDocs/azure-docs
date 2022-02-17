@@ -312,7 +312,7 @@ Input is a preprocessed image.
     
 ### Output format
 
-The output is a tuple of output_names and predictions. Here, output_names and predictions are lists with length 3*batch_size each. 
+The output is a tuple of `output_names` and predictions. Here, `output_names` and predictions are lists with length 3*batch_size each. 
   
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
