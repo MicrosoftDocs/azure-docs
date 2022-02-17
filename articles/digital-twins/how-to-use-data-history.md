@@ -99,7 +99,9 @@ Remember the name you give to your instance so you can use it later.
 
 ## Create an Event Hubs namespace and event hub
 
-The next step is to create an Event Hubs namespace and an event hub. This hub will receive digital twin property update notifications from the Azure Digital Twins instance and then forward the messages to the target Azure Data Explorer cluster. The Azure Digital Twins instance also needs to be granted the **Azure Event Hubs Data Owner** role on the event hub resource in order to set up the data history connection later.
+The next step is to create an Event Hubs namespace and an event hub. This hub will receive digital twin property update notifications from the Azure Digital Twins instance and then forward the messages to the target Azure Data Explorer cluster. 
+
+As part of the [data history connection setup](#set-up-data-history-connection) later, you'll grant the Azure Digital Twins instance the **Azure Event Hubs Data Owner** role on the event hub resource.
 
 For more information about Event Hubs and their capabilities, see the [Event Hubs documentation](../event-hubs/event-hubs-about.md).
 
@@ -129,7 +131,9 @@ Remember the names you give to these resources so you can use them later.
 
 ## Create a Kusto (Azure Data Explorer) cluster and database
 
-Next, create a Kusto (Azure Data Explorer) cluster and database to receive the data from Azure Digital Twins. The Azure Digital Twins instance also needs to be granted the **Contributor** role on the cluster or database, and the **Admin** role on the database, in order to set up the data history connection later.
+Next, create a Kusto (Azure Data Explorer) cluster and database to receive the data from Azure Digital Twins. 
+
+As part of the [data history connection setup](#set-up-data-history-connection) later, you'll grant the Azure Digital Twins instance the **Contributor** role on at least the database (it can also be scoped to the cluster), and the **Admin** role on the database.
 
 # [CLI](#tab/cli) 
 
@@ -176,7 +180,7 @@ az dt data-history connection create adx --cn $connectionname --dt-name $dtname 
 
 When executing the above command, you'll be given the option of assigning the necessary permissions required for setting up your data history connection on your behalf (if you've already assigned the necessary permissions, you can skip these prompts). These permissions are granted to the managed identity of your Azure Digital Twins instance. The minimum required roles are:
 * Azure Event Hubs Data Owner on the event hub
-* Contributor scoped at least to the specified database
+* Contributor scoped at least to the specified database (it can also be scoped to the cluster)
 * Database principal assignment with role Admin (for table creation / management) scoped to the specified database
 
 For regular data plane operation, these roles can be reduced to a single Azure Event Hubs Data Sender role, if desired.
