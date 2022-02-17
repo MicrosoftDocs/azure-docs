@@ -4,7 +4,6 @@ description: Learn about creating and configuring managed instances of Azure SQL
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: development
-ms.devlang: azurecli
 ms.topic: reference
 author: urosmil
 ms.author: urmilano
