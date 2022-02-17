@@ -39,7 +39,7 @@ The amount of resources available to the pool is controlled by your budget. All 
 
 You can use pools to seamlessly grow your service from a lean startup to a mature business at ever-increasing scale.
 
-Within the pool, individual databases are given the flexibility to auto-scale within set parameters. Under heavy load, a database can consume more resources to meet demand. Databases under light loads consume less, and databases under no load consume no resources. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus, you have a predictable budget for the pool.
+Within the pool, individual databases are given the flexibility to use resources within set parameters. Under heavy load, a database can consume more resources to meet demand. Databases under light loads consume less, and databases under no load consume no resources. Provisioning resources for the entire pool rather than for single databases simplifies your management tasks. Plus, you have a predictable budget for the pool.
 
  More resources can be added to an existing pool with minimum downtime. If extra resources are no longer needed, they can be removed from an existing pool at any time. You can also add or remove databases from the pool. If a database is predictably underutilizing resources, you can move it out.
 
