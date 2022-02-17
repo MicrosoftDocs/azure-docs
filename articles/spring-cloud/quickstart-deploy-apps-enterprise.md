@@ -108,4 +108,4 @@ Access the `api gateway` and `customers service` applications from the browser u
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Set up Service Registry](quickstart-setup-service-registry-enterprise.md)
+> [Quickstart: Set up Tanzu Service Registry](quickstart-setup-service-registry-enterprise.md)

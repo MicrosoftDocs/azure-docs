@@ -102,12 +102,12 @@ See [Create a search service with a system assigned managed identity (Azure CLI)
 
 ## Create a user managed identity (preview)
 
-If you don't already have a user-assigned managed identity, you'll need to create one. A user-assigned managed identity is a resource on Azure.
+A user-assigned managed identity is a resource on Azure. It's useful if you need more granularity in role assignments. 
 
-A user-assigned managed identity is useful if you need more precision in role assignments. You can create separate identifies for different applications and scenarios that are related to indexer-based indexing.
+Currently in Azure Cognitive Search, user managed identities are supported only for indexer data connections. You can create separate identities for different applications and scenarios that are related to indexer-based indexing.
 
 > [!IMPORTANT]
->This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchcreateorupdateservicewithidentity) provides this feature.
+>This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ### [**Azure portal**](#tab/portal-user)
 
