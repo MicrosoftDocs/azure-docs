@@ -102,12 +102,12 @@ The following is an example ARM template used to deploy a container app.
     "variables": {},
     "resources": [
         {
-            "apiVersion": "2021-03-01",
+            "apiVersion": "2022-01-01-preview",
             "type": "Microsoft.App/containerApps",
             "name": "[parameters('containerappName')]",
             "location": "[parameters('location')]",
             "properties": {
-                "kubeEnvironmentId": "[resourceId('Microsoft.App/kubeEnvironments', parameters('environment_name'))]",
+                "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
                 "configuration": {
                     "secrets": [
                         {
@@ -171,7 +171,7 @@ type: Microsoft.App/containerApps
 tags:
     tagname: value
 properties:
-    kubeEnvironmentId: /subscriptions/mysubscription/resourceGroups/myresourcegroup/providers/Microsoft.App/kubeEnvironments/myenvironment
+    managedEnvironmentId: /subscriptions/mysubscription/resourceGroups/myresourcegroup/providers/Microsoft.App/managedEnvironments/myenvironment
     configuration:
         activeRevisionsMode: Multiple
         secrets:

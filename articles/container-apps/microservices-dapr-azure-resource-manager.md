@@ -359,11 +359,11 @@ Save the following file as *serviceapp.json*:
         {
             "name": "nodeapp",
             "type": "Microsoft.App/containerApps",
-            "apiVersion": "2021-03-01",
+            "apiVersion": "2022-01-01-preview",
             "kind": "containerapp",
             "location": "[parameters('location')]",
             "properties": {
-                "kubeEnvironmentId": "[resourceId('Microsoft.App/kubeEnvironments', parameters('environment_name'))]",
+                "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
                 "configuration": {
                     "ingress": {
                         "external": true,
@@ -450,7 +450,7 @@ resource nodeapp 'Microsoft.App/containerapps@2021-03-01' = {
   kind: 'containerapp'
   location: location
   properties: {
-    kubeEnvironmentId: resourceId('Microsoft.App/kubeEnvironments', environment_name)
+    managedEnvironmentId: resourceId('Microsoft.App/managedEnvironments', environment_name)
     configuration: {
       ingress: {
         external: true
@@ -539,11 +539,11 @@ Save the following file as *clientapp.json*:
         {
             "name": "pythonapp",
             "type": "Microsoft.App/containerApps",
-            "apiVersion": "2021-03-01",
+            "apiVersion": "2022-01-01-preview",
             "kind": "containerapp",
             "location": "[parameters('location')]",
             "properties": {
-                "kubeEnvironmentId": "[resourceId('Microsoft.App/kubeEnvironments', parameters('environment_name'))]",
+                "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
                 "configuration": {},
                 "template": {
                     "containers": [
@@ -586,7 +586,7 @@ resource pythonapp 'Microsoft.App/containerApps@2021-03-01' = {
   kind: 'containerapp'
   location: location
   properties: {
-    kubeEnvironmentId: resourceId('Microsoft.App/kubeEnvironments', environment_name)
+    managedEnvironmentId: resourceId('Microsoft.App/managedEnvironments', environment_name)
     configuration: {}
     template: {
       containers: [

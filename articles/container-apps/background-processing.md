@@ -180,11 +180,11 @@ Create a file named *queue.json* and paste the following configuration code into
     {
         "name": "queuereader",
         "type": "Microsoft.App/containerApps",
-        "apiVersion": "2021-03-01",
+        "apiVersion": "2022-01-01-preview",
         "kind": "containerapp",
         "location": "[parameters('location')]",
         "properties": {
-            "kubeEnvironmentId": "[resourceId('Microsoft.App/kubeEnvironments', parameters('environment_name'))]",
+            "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
             "configuration": {
                 "activeRevisionsMode": "single",
                 "secrets": [

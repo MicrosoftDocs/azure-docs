@@ -17,11 +17,11 @@
     {
         "name": "queuereader",
         "type": "Microsoft.App/containerApps",
-        "apiVersion": "2021-03-01",
+        "apiVersion": "2022-01-01-preview",
         "kind": "containerapp",
         "location": "[parameters('location')]",
         "properties": {
-            "kubeEnvironmentId": "[parameters('environment_id')]",
+            "managedEnvironmentId": "[parameters('environment_id')]",
             "configuration": {
                 "activeRevisionsMode": "single",
                 "secrets": [
