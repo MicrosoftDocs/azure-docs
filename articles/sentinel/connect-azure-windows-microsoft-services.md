@@ -252,6 +252,10 @@ See this [complete description of data collection rules](../azure-monitor/agents
 
 # [Log Analytics Agent (Legacy)](#tab/LAA)
 
+> [!IMPORTANT]
+> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+>
+
 ### Prerequisites
 
 - You must have read and write permissions on the Log Analytics workspace, and any workspace that contains machines you want to collect logs from.

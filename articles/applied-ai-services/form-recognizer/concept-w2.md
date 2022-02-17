@@ -1,5 +1,5 @@
 ---
-title: Form Recognizer Form W-2 prebuilt-tax model
+title: Form Recognizer W-2 form prebuilt model
 titleSuffix: Azure Applied AI Services
 description: Data extraction and analysis extraction using the prebuilt-tax Form W-2 model
 author: laujan
@@ -24,7 +24,7 @@ The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with
 
 ## Development options
 
-The prebuilt-tax, Form W-2, model is supported by Form Recognizer v3.0 with the following tools:
+The prebuilt W-2 form, model is supported by Form Recognizer v3.0 with the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
