@@ -25,7 +25,10 @@ If the VM is configured with Accelerated Networking, a second network interface 
 
 Different Azure hosts use different models of Mellanox physical NIC, so Linux automatically determines whether to use the “mlx4” or “mlx5” driver. Placement of the VM on an Azure host is controlled by the Azure infrastructure. With no customer option to specify which physical NIC that a VM deployment uses, the VMs must include both drivers. If a VM is stopped/deallocated and then restarted, it might be redeployed on hardware with a different model of Mellanox physical NIC. Therefore, it might use the other Mellanox driver. 
 
-FreeBSD provides the same support for Accelerated Networking as Linux when running in Azure. The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD. 
+FreeBSD provides the same support for Accelerated Networking as Linux when running in Azure. The remainder of this article describes Linux and uses Linux examples, but the same functionality is available in FreeBSD.
+
+> [!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When this term is removed from the software, we'll remove it from this article.
 
 ## Bonding
 
