@@ -38,7 +38,7 @@ The image appears as:
 
 This section shows how to get the URLs for the templates stored in GitHub and Azure storage account, and how to format the URLs.
 
-### Template stored in Github
+### Template stored in GitHub
 
 To create the URL for your template, start with the raw URL to the template in your GitHub repo. To see the raw URL, select **Raw**.
 
