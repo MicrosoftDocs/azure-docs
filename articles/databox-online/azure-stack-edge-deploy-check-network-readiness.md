@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 02/17/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
@@ -72,7 +72,7 @@ Before you begin, complete the following tasks:
 
 To install the Azure Stack Network Readiness Checker (NRC) on the client computer, do these steps:
 
-1. Open PowerShell on the client computer. If you need to install PowerShell, see [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2).
+1. Open PowerShell on the client computer. If you need to install PowerShell, see [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true).
 
 1. In a browser, go to [Microsoft.AzureStack.ReadinessChecker](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.2100.1780.756) in the PowerShell Gallery. Version 1.2100.1780.756 of the Microsoft.AzureStack.ReadinessChecker module is displayed.
 
@@ -118,7 +118,7 @@ To run a network readiness check, do these steps:
    |`-DeviceFqdn`|Fully qualified domain name (FQDN) that you plan to use for the Azure Stack Edge device.|
    |`-TimeServer`|FQDN of one or more Network Time Protocol (NTP) servers. (Recommended)|
    |`-Proxy`|URI for the proxy server, if you're using a proxy server. (Optional)|
-   |`-ProxyCredential`|[PSCredential object](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/get-credential) containing the username and password used on the proxy server. (Required if proxy server requires user authentication)|
+   |`-ProxyCredential`|[PSCredential object](/powershell/module/microsoft.powershell.security/get-credential) containing the username and password used on the proxy server. (Required if proxy server requires user authentication)|
    |`-WindowsUpdateServer`|URIs for one or more Windows Server Update Services (WSUS) servers. (Optional)|
    |`-ComputeIPs`|The Compute IP range to be used by Kubernetes. Specify the Start IP and End IP separated by a hyphen.|
    |`-CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
