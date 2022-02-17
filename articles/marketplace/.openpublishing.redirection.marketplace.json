@@ -1,17 +1,17 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/azure/marketplace/reference-architecture-diagram.md",
+            "source_path_from_root": "/articles/marketplace/reference-architecture-diagram.md",
             "redirect_url": "/partner-center/reference-architecture-diagram",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-states.md",
+            "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell-states.md",
             "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure/marketplace/commercial-marketplace-co-sell-countries.md",
+            "source_path_from_root": "/articles/marketplace/commercial-marketplace-co-sell-countries.md",
             "redirect_url": "/partner-center/commercial-marketplace-co-sell-location-codes",
             "redirect_document_id": false
         },
@@ -26,7 +26,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/azure/marketplace/third-party-license.md",
+            "source_path_from_root": "/articles/marketplace/third-party-license.md",
             "redirect_url": "/azure/marketplace/isv-app-license",
             "redirect_document_id": false
         },
