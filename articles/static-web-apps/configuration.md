@@ -192,7 +192,7 @@ The following example configuration blocks anonymous access and redirects all un
 ```
 
 > [!NOTE]
-> By default, all managed identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.md#block-an-authentication-provider).
+> By default, all pre-configured identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.md#block-an-authentication-provider).
 
 ## Fallback routes
 
