@@ -27,18 +27,5 @@ ms.custom: devx-track-azurecli
     az webapp up --sku F1 --resource-group $groupName --name $appName --plan $appName --location $region
     ```
 
-    ```azurecli-interactive
-    # Clone and prepare sample application
-    git clone https://github.com/Azure-Samples/app-service-language-detector.git
-    cd app-service-language-detector/php
-    zip default.zip index.php
-    
-    # Save app name as variable for convenience
-    appName=<app-name>
-
-    az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region
-    az webapp create --resource-group $groupName --plan $appName --name $appName
-    az webapp deployment source config-zip --resource-group $groupName --name $appName --src ./default.zip
-    ```
 
 [!INCLUDE [tutorial-content-below-code](./includes/tutorial-connect-msi-key-vault/cleanup.md)]

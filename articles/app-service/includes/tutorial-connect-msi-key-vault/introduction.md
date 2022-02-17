@@ -38,3 +38,14 @@ Prepare your environment for the Azure CLI.
     az group create --name $groupName --location $region
     ```
 
+1. Create a Cognitive Services resource. Replace *\<cs-resource-name>* with a unique name of your choice.
+
+    ```azurecli-interactive
+    # Save resource name as variable for convenience. 
+    csResourceName=<cs-resource-name>
+
+    az cognitiveservices account create --resource-group $groupName --name $csResourceName --location $region --kind TextAnalytics --sku F0 --custom-domain $csResourceName
+    ```
+
+    > [!NOTE]
+    > `--sku F0` creates a free tier Cognitive Services resource. Each subscription is limited to a quota of one free-tier `TextAnalytics` resource. If you're already over the quota, use `--sku S` instead.
