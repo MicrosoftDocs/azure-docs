@@ -6,37 +6,32 @@ services: application-gateway
 author: xstof
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 17/02/2022
+ms.date: 02/17/2022
 ms.author: christoc
-zone_pivot_groups: app-service-domainconfig
 ---
-<!-- https://docs.microsoft.com/en-us/azure/application-gateway/configure-web-app-portal -->
 
 # Configure App Service with Application Gateway
 
-Application gateway allows you to have an App Service app or other multi-tenant service as a back-end pool member. In this article, you learn to configure an App Service app with Application Gateway.  The configuration for Application Gateway will differ depending on how App Service will be accessed.
+Application gateway allows you to have an App Service app or other multi-tenant service as a back-end pool member. In this article, you learn to configure an App Service app with Application Gateway.  The configuration for Application Gateway will differ depending on how App Service will be accessed:
+- The first option makes use of a **custom domain** on both Application Gateway and the App Service in the backend.  
+- The second option is to have Application Gateway access App Service using it's **default domain**, suffixed as ".azurewebsites.net".
 
-The first option is to have Application Gateway access App Service using it's default domain, suffixed as ".azurewebsites.net".  This configuration is the easiest as it does not require a custom domain.  As such it allows for a quick convenient setup.  Note however that this configuration comes with limitations. We recommend to review the implications of using different host names between the client and Application Gateway and between Application and App Service in the backend.  For more information, please review the article in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation)
+## [Custom Domain (recommended)](#tab/customdomain)
 
-The second option makes use of a custom domain on both Application Gateway and the App Service in the backend.  This is the configuration which is commonly recommended for production-grade scenarios and meets the practice of not changing the host name in the request flow.  It does require that you have a custom domain (and associated certificate) available so to avoid having to rely on the default ".azurewebsites" domain.
+This is the configuration which is commonly recommended for production-grade scenarios and meets the practice of not changing the host name in the request flow.  It does require that you have a custom domain (and associated certificate) available so to avoid having to rely on the default ".azurewebsites" domain.
+
+By associating both Application Gateway and App Service in the backend pool to the same domain name, the request flow does not need to override host name and the backend web application will see the original host as was used by the client.
 
 
-<!-- see example: https://github.dev/MicrosoftDocs/azure-docs/blob/main/articles/app-service/quickstart-dotnetcore.md -->
-<!-- markdownlint-disable MD044 -->
-:::zone target="docs" pivot="app-service-domainconfig-defaultdomain"
-<!-- markdownlint-enable MD044 -->
+## [Default Domain](#tab/defaultdomain)
+
+This configuration is the easiest as it does not require a custom domain.  As such it allows for a quick convenient setup.  Note however that this configuration comes with limitations. We recommend to review the implications of using different host names between the client and Application Gateway and between Application and App Service in the backend.  For more information, please review the article in Architecture Center: [Preserve the original HTTP host name between a reverse proxy and its backend web application](/azure/architecture/best-practices/host-name-preservation)
 
 When App Service does not have a custom domain associated with it, the host header on the incoming request on the web application will need to be set to the default domain, suffixed with ".azurewebsites.net" or else the platform will not be able to properly route the request.
 
 This means that the host header in the original request received by the Application Gateway will be different from the host name of the backend App Service.
 
-:::zone-end
-
-:::zone target="docs" pivot="app-service-domainconfig-customdomain"
-
-By associating both Application Gateway and App Service in the backend pool to the same domain name, the request flow does not need to override host name and the backend web application will see the original host as was used by the client.
-
-:::zone-end
+---
 
 In this article you'll learn how to:
 - Add App Service as backend pool to the Application Gateway
@@ -44,15 +39,7 @@ In this article you'll learn how to:
 
 ## Prerequisites
 
-:::zone target="docs" pivot="app-service-domainconfig-defaultdomain"
-
-- Application gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
-
-- App service: If you don't have an existing App service, see [App service documentation](../app-service/index.yml).
-
-:::zone-end
-
-:::zone target="docs" pivot="app-service-domainconfig-customdomain"
+### [Custom Domain (recommended)](#tab/customdomain)
 
 - Application Gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
@@ -60,13 +47,21 @@ In this article you'll learn how to:
 
 - A custom domain name and associated certificate, stored in Key Vault.  For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md)
 
-:::zone-end
+---
+
+### [Default Domain](#tab/defaultdomain)
+
+- Application gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
+
+- App service: If you don't have an existing App service, see [App service documentation](../app-service/index.yml).
+
+---
 
 ## Add App service as backend pool
 
-### [Azure Portal](#tab/azp)
+### [Azure Portal](#tab/azure-portal)
 
-1. In the Azure portal, select your application gateway.
+1. In the Azure portal, select your Application Gateway.
 
 2. Under **Backend pools**, select the backend pool.
 
@@ -81,32 +76,28 @@ In this article you'll learn how to:
 
 5. Select **Save**.
 
-:::zone target="docs" pivot="app-service-domainconfig-customdomain"
+### [Powershell](#tab/azure-powershell)
 
-TEST - custom text for custom domain
+TODO - ADD APP SVC TO BACKEND USING POWERSHELL 
 
-:::zone-end
+---
 
-:::zone target="docs" pivot="app-service-domainconfig-defaultdomain"
+## [Edit HTTP settings for App Service](#tab/azure-portal/customdomain)
 
-TEST - custom text for default domain
-
-:::zone-end
-
-### [Powershell](#tab/powershell)
-
-TODO
-
-
-## Edit HTTP settings for App Service
+TODO: for custom domain
 
 1. Under **HTTP Settings**, select the existing HTTP setting.
-
 2. Under **Override with new host name**, select **Yes**.
 3. Under **Host name override**, select **Pick host name from backend target**.
 4. Select **Save**.
 
    :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Pick host name from backend http settings":::
+
+## [Edit HTTP settings for App Service](#tab/azure-portal/defaultdomain)
+
+TODO: for default domain
+
+---
 
 ## Additional configuration in case of redirection to app service's relative path
 

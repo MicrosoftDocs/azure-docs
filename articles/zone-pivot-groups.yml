@@ -966,15 +966,6 @@ groups:
     title: C#
   - id: programming-language-python
     title: Python
-# Owner: christoc
-- id: app-service-domainconfig
-  title: Custom domain configuration
-  prompt: Choose your domain name configuration
-  pivots:
-  - id: app-service-domainconfig-defaultdomain
-    title: Default domain
-  - id: app-service-domainconfig-customdomain
-    title: Custom domain
 # Owner: jordanselig
 - id: app-service-cli-portal
   title: Experience
