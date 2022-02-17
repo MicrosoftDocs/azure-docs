@@ -95,7 +95,7 @@ With your dataset labeled, you're now ready to train your model. Select on the t
 
 1. Template (custom form) models train in a few minutes, neural (custom document) models can take upto 30 minutes to train.
 
-1. Navigate to the `Models` menu to view the status of the train operation.
+1. Navigate to the *Models* menu to view the status of the train operation.
 
 ## Test the model
 
