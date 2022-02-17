@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/16/2022
+ms.date: 02/17/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
@@ -37,7 +37,7 @@ You can create a MedTech service from the [Azure portal](deploy-iot-connector-in
 
 Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [DICOM service](../dicom/deploy-dicom-services-in-azure.md) in the workspace.
 
-## Assign roles to allow MedTech serviceto access Event Hub
+## Assign roles to allow MedTech service to access Event Hub
 
 By design, the MedTech service retrieves data from the specified Event Hub using the system-managed identity. For more information on how to assign the role to the MedTech service from [Event Hub](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-medtech-service-access).
 

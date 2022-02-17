@@ -14,7 +14,7 @@ items:
       href: ./fhir/index.yml
     - name: DICOM service
       href: ./dicom/index.yml
-    - name: IoT connector
+    - name: MedTech service
       href: ./iot/index.yml
 - name: Quickstarts
   expanded: true
