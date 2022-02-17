@@ -20,7 +20,7 @@ Before completing the tasks, you must have
 
 ## List your databases
 To list all your databases on MySQL flexible server:
-- Login to Azure portal](https://portal.azure.com).
+- Login to [Azure portal](https://portal.azure.com).
 - Open the **Overview** page of your MySQL flexible server.
 - Select **Databases** from the settings on left navigation menu. 
 
