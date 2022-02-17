@@ -18,7 +18,7 @@ You can download your invoice in the [Azure portal](https://portal.azure.com/) o
 
 ## When invoices are generated
 
-An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA). Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
+An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](../manage/view-all-accounts.md).
 
