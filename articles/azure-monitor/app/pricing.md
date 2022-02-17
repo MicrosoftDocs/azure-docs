@@ -13,7 +13,7 @@ ms.reviewer: aaronmax
 
 This article describes how to proactively monitor and control Application Insights costs.
 
-A related article, [Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure Monitor features using [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill).
+[Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes usage and estimated costs across Azure Monitor features using [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill).
 
 > [!NOTE]
 > All prices and costs in this article are for example purposes only.
@@ -26,9 +26,9 @@ If you have questions about how pricing works for Application Insights, you can 
 
 The pricing for [Azure Application Insights][start] is a **Pay-As-You-Go** model based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription. Data volume is measured as the size of the uncompressed JSON data package that's received by Application Insights from your application. Data volume is measured in GB (10^9 bytes). There's no data volume charge for using the [Live Metrics Stream](./live-stream.md). On your Azure bill or in [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill), your data ingestion and data retention for a classic Application Insights resource will be reported with a meter category of **Log Analytics**.  
 
-[Multi-step web tests](./availability-multistep.md) incur additional charges. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
+[Multi-step web tests](./availability-multistep.md) incur extra charges. Multi-step web tests are web tests that perform a sequence of actions. There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
-The Application Insights option to [Enable alerting on custom metric dimensions](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can also increase costs because this can result in the creation of additional pre-aggregation metrics. [Learn more](./pre-aggregated-metrics-log-metrics.md) about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
+The Application Insights option to [Enable alerting on custom metric dimensions](./pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation) can also increase costs because this can result in the creation of more pre-aggregation metrics. [Learn more](./pre-aggregated-metrics-log-metrics.md) about log-based and pre-aggregated metrics in Application Insights and about [pricing](https://azure.microsoft.com/pricing/details/monitor/) for Azure Monitor custom metrics.
 
 ### Workspace-based Application Insights
 
@@ -53,7 +53,7 @@ For SDKs that don't support adaptive sampling, you can employ [ingestion samplin
 
 ## Viewing Application Insights usage on your Azure bill
 
-The easiest way to see the billed usage for a single Application Insights resource, which isn't a workspace-baed resource is to go to the resource's Overview page and click **View Cost** in the upper right corner. You might need additional access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md)).
+The easiest way to see the billed usage for a single Application Insights resource, which isn't a workspace-baed resource is to go to the resource's Overview page and click **View Cost** in the upper right corner. You might need elevated access to Cost Management data ([learn more](../../cost-management-billing/costs/assign-access-acm-data.md)).
 
 To learn more, Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  Application Insights billed usage for data ingestion and data retention will show up as **Log Analytics** for the Meter category since Log Analytics backend for all Azure Monitor logs. 
 
@@ -296,7 +296,7 @@ To disable the daily volume cap e-mails, under the **Configure** section of your
 
 ## Legacy Enterprise (Per Node) pricing tier
 
-For early adopters of Azure Application Insights, there are still two possible pricing tiers: Basic and Enterprise. The Basic pricing tier is the same as described above and is the default tier. It includes all Enterprise tier features, at no additional cost. The Basic tier bills primarily on the volume of data that's ingested.
+For early adopters of Azure Application Insights, there are still two possible pricing tiers: Basic and Enterprise. The Basic pricing tier is the same as described above and is the default tier. It includes all Enterprise tier features, at no extra cost. The Basic tier bills primarily on the volume of data that's ingested.
 
 These legacy pricing tiers have been renamed. The Enterprise pricing tier is now called **Per Node** and the Basic pricing tier is now called **Per GB**. These new names are used below and in the Azure portal.  
 
@@ -313,7 +313,7 @@ As described below in more detail, the legacy Enterprise (Per Node) tier combine
 
 ### Per Node tier and Operations Management Suite subscription entitlements
 
-Customers who purchase Operations Management Suite E1 and E2 can get Application Insights Per Node as an additional component at no additional cost as [previously announced](/archive/blogs/msoms/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription). Specifically, each unit of Operations Management Suite E1 and E2 includes an entitlement to one node of the Application Insights Per Node tier. Each Application Insights node includes up to 200 MB of data ingested per day (separate from Log Analytics data ingestion), with 90-day data retention at no additional cost. The tier is described in more detailed later in the article.
+Customers who purchase Operations Management Suite E1 and E2 can get Application Insights Per Node as an supplemental component at no extra cost as [previously announced](/archive/blogs/msoms/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription). Specifically, each unit of Operations Management Suite E1 and E2 includes an entitlement to one node of the Application Insights Per Node tier. Each Application Insights node includes up to 200 MB of data ingested per day (separate from Log Analytics data ingestion), with 90-day data retention at no extra cost. The tier is described in more detailed later in the article.
 
 Because this tier is applicable only to customers with an Operations Management Suite subscription, customers who don't have an Operations Management Suite subscription don't see an option to select this tier.
 
@@ -368,7 +368,7 @@ You can write a script to set the pricing tier by using Azure Resource Managemen
 
 ### Unexpected usage or estimated cost
 
-Lower your bill with updated versions of the ASP.NET Core SDK and Worker Service SDK, which [don't collect counters by default](https://docs.microsoft.com/en-us/azure/azure-monitor/app/eventcounters#default-counters-collected).
+Lower your bill with updated versions of the ASP.NET Core SDK and Worker Service SDK, which [don't collect counters by default](eventcounters.md#default-counters-collected).
 
 ### Microsoft Q&A question page
 
