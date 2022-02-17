@@ -7,11 +7,11 @@ manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.subservice: msi
-ms.devlang: 
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/20/2022
-ms.author: barclayn
+ms.author: barclayn 
+ms.custom: devx-track-azurecli
 zone_pivot_groups: identity-mi-methods
 ---
 

@@ -4,7 +4,8 @@ description: Learn how to configure a PHP app in the native Windows instances, o
 
 ms.devlang: php
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 06/02/2020 
+ms.custom: devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 
 ---

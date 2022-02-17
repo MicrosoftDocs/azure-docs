@@ -35,10 +35,10 @@ In this article, learn how to securely integrate with Azure Machine Learning fro
 
     A quick and easy way to build this configuration is to use a [Microsoft Bicep or HashiCorp Terraform template](tutorial-create-secure-workspace-template.md).
 
-* An Azure Synapse workspace in a __managed__ virtual network, using a __managed__ private endpoint. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
+* An Azure Synapse workspace in a __managed__ virtual network, using a __managed__ private endpoint. For more information, see [Azure Synapse Analytics Managed Virtual Network](../synapse-analytics/security/synapse-workspace-managed-vnet.md).
 
     > [!WARNING]
-    > The Azure Machine Learning integration is not currently supported in Synapse Workspaces with data exfiltration protection. When configuring your Azure Synapse workspace, do __not__ enable data exfiltration protection. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
+    > The Azure Machine Learning integration is not currently supported in Synapse Workspaces with data exfiltration protection. When configuring your Azure Synapse workspace, do __not__ enable data exfiltration protection. For more information, see [Azure Synapse Analytics Managed Virtual Network](../synapse-analytics/security/synapse-workspace-managed-vnet.md).
 
     > [!NOTE]
     > The steps in this article make the following assumptions:
@@ -60,16 +60,16 @@ When adding data sources, you can also secure those behind the virtual network. 
 
 For more information, see the following articles:
 
-* [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet)
+* [Azure Synapse Analytics Managed Virtual Network](../synapse-analytics/security/synapse-workspace-managed-vnet.md)
 * [Secure Azure Machine Learning workspace resources using virtual networks](how-to-network-security-overview.md).
-* [Connect to a secure Azure storage account from your Synapse workspace](/azure/synapse-analytics/security/connect-to-a-secure-storage-account).
+* [Connect to a secure Azure storage account from your Synapse workspace](../synapse-analytics/security/connect-to-a-secure-storage-account.md).
 
 ## Configure Azure Synapse
 
 > [!IMPORTANT]
-> Before following these steps, you need an Azure Synapse workspace that is configured to use a managed virtual network. For more information, see [Azure Synapse Analytics Managed Virtual Network](/azure/synapse-analytics/security/synapse-workspace-managed-vnet).
+> Before following these steps, you need an Azure Synapse workspace that is configured to use a managed virtual network. For more information, see [Azure Synapse Analytics Managed Virtual Network](../synapse-analytics/security/synapse-workspace-managed-vnet.md).
 
-1. From Azure Synapse Studio, [Create a new Azure Machine Learning linked service](/azure/synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning).
+1. From Azure Synapse Studio, [Create a new Azure Machine Learning linked service](../synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning.md).
 1. After creating and publishing the linked service, select __Manage__,  __Managed private endpoints__, and then __+ New__ in Azure Synapse Studio.
 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/add-managed-private-endpoint.png" alt-text="Screenshot of the managed private endpoints dialog.":::
@@ -85,13 +85,13 @@ For more information, see the following articles:
 1. The endpoint will be listed as __Provisioning__ until it has been created. Once created, the __Approval__ column will list a status of __Pending__. You'll approve the endpoint in the [Configure Azure Machine Learning](#configure-azure-machine-learning) section.
 
     > [!NOTE]
-    > In the following screenshot, a managed private endpoint has been created for the Azure Data Lake Storage Gen 2 associated with this Synapse workspace. For information on how to create an Azure Data Lake Storage Gen 2 and enable a private endpoint for it, see [Provision and secure a linked service with Managed VNet](/azure/synapse-analytics/data-integration/linked-service).
+    > In the following screenshot, a managed private endpoint has been created for the Azure Data Lake Storage Gen 2 associated with this Synapse workspace. For information on how to create an Azure Data Lake Storage Gen 2 and enable a private endpoint for it, see [Provision and secure a linked service with Managed VNet](../synapse-analytics/data-integration/linked-service.md).
 
     :::image type="content" source="./media/how-to-private-endpoint-integration-synapse/managed-private-endpoint-connections.png" alt-text="Screenshot of the managed private endpoints list.":::
 
 ### Create a Spark pool
 
-To verify that the integration between Azure Synapse and Azure Machine Learning is working, you'll use an Apache Spark pool. For information on creating one, see [Create a Spark pool](/azure/synapse-analytics/quickstart-create-apache-spark-pool-portal).
+To verify that the integration between Azure Synapse and Azure Machine Learning is working, you'll use an Apache Spark pool. For information on creating one, see [Create a Spark pool](../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 
 ## Configure Azure Machine Learning
 
@@ -139,6 +139,5 @@ To verify that the integration between Azure Synapse and Azure Machine Learning 
 
 ## Next steps
 
-* [Quickstart: Create a new Azure Machine Learning linked service in Synapse](/azure/synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning).
+* [Quickstart: Create a new Azure Machine Learning linked service in Synapse](../synapse-analytics/machine-learning/quickstart-integrate-azure-machine-learning.md).
 * [Link Azure Synapse Analytics and Azure Machine Learning workspaces](how-to-link-synapse-ml-workspaces.md).
-

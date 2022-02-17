@@ -159,6 +159,8 @@ model = f"This is a dummy model with id: {str(uuid4())} generated at: {curtime}\
 
 ### Create a component using CLI (v2)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 After you define your component specification and Python script files, and [install CLI (v2) successfully](how-to-configure-cli.md) successfully, you can create the component in your workspaces using:
 
 ```azurecli

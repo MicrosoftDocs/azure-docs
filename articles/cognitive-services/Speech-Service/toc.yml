@@ -126,8 +126,10 @@ items:
                   href: how-to-custom-voice.md
                 - name: Prepare data for training
                   href: how-to-custom-voice-prepare-data.md
-                - name: Create and use your voice model
+                - name: Train your voice model
                   href: how-to-custom-voice-create-voice.md
+                - name: Deploy and use your voice model
+                  href: how-to-deploy-and-use-endpoint.md
                 - name: How to record voice samples
                   href: record-custom-voice-samples.md
             - name: Audio Content Creation
