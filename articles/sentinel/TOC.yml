@@ -162,6 +162,8 @@
       items:
       - name: Azure, Windows, and Microsoft connectors
         href: connect-azure-windows-microsoft-services.md
+      - name: AMA migration for Microsoft Sentinel
+        href: ama-migrate.md
       - name: CEF over Syslog sources
         href: connect-common-event-format.md
       - name: Syslog (raw) sources

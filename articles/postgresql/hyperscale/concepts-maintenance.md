@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 04/07/2021
+ms.date: 02/14/2022
 ---
 
 # Scheduled maintenance in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -59,8 +59,7 @@ subscription.
 
 You can update scheduling settings at any time. If there's maintenance
 scheduled for your Hyperscale (Citus) server group and you update the schedule,
-existing events will continue as originally scheduled. The settings change will
-take effect after successful completion of existing events.
+the pre-existing events will be rescheduled.
 
 If maintenance fails or gets canceled, the system will create a notification.
 It will try maintenance again according to current scheduling settings, and

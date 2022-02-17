@@ -119,7 +119,8 @@ When your virtual machine uses managed disks and you select the **Create virtual
 While you restore disks for a Managed VM from a Vault-Standard recovery point, it restores the Managed disk and Azure Resource Manager (ARM) templates, along with the VHD files of the disks in staging location. If you restore disks from an Instant recovery point, it restores the Managed disks and ARM templates only.
 
 >[!Note]
->For restoring disk from a Vault-Standard recovery point that is/was greater than 4 TB, Azure Backup doesn't restore the VHD files.
+>- For restoring disk from a Vault-Standard recovery point that is/was greater than 4 TB, Azure Backup doesn't restore the VHD files.
+>- For information on managed/premium disk performance after restored via Azure Backup, see the [Latency](../virtual-machines/premium-storage-performance.md#latency) section.
 
 ### Use templates to customize a restored VM
 

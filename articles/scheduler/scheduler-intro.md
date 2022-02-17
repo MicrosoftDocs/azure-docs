@@ -1,27 +1,24 @@
 ---
 title: What is Azure Scheduler?
-description: Create schedule, and run automated jobs that call services inside or outside Azure
+description: Create schedule, and run automated jobs that call services inside or outside Azure.
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
-author: derek1ee
-ms.author: deli
-ms.reviewer: klam, estfan
+author: ecfan
+ms.author: estfan
+ms.reviewer: deli, azla
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 02/15/2022
 ---
 
 # What is Azure Scheduler?
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
-> [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
-> To continue working with the jobs that you set up in Scheduler, please 
-> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible. 
->
-> Scheduler is no longer available in the Azure portal, but the [REST API](/rest/api/scheduler) 
-> and [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) remain available 
-> at this time so that you can manage your jobs and job collections.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) has replaced Azure Scheduler, which is fully retired 
+> since January 31, 2022. Please migrate your Azure Scheduler jobs by recreating them as workflows in Azure Logic Apps 
+> following the steps in [Migrate Azure Scheduler jobs to Azure Logic Apps](migrate-from-scheduler-to-logic-apps.md). 
+> Azure Scheduler is longer available in the Azure portal. The [Azure Scheduler REST API](/rest/api/scheduler) and 
+> [Azure Scheduler PowerShell cmdlets](scheduler-powershell-reference.md) no longer work.
 
 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) helps you create [jobs](../scheduler/scheduler-concepts-terms.md) that run in the cloud by declaratively describing actions. The service then automatically schedules and runs those actions. For example, you can call services inside and outside Azure, such as calling HTTP or HTTPS endpoints, and also post messages to Azure Storage queues and Azure Service Bus queues or topics. You can run jobs immediately or at a later time. Scheduler easily supports [complex schedules and advanced recurrence](../scheduler/scheduler-advanced-complexity.md). Scheduler specifies when to run jobs, keeps a history of job results that you can review, and then predictably and reliably schedules workloads to run.
 
