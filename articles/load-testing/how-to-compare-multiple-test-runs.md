@@ -18,7 +18,7 @@ In this article, you'll learn how you can identify performance regressions by co
 You can compare load test runs for the following scenarios:
 
 - [Identify performance regressions](#identify-performance-regressions) between application builds or configurations. You could run a load test at each development sprint to ensure that the previous sprint didn't introduce performance issues.
-- [Identify which application component is responsible](#identify-the-performance-issue-root-cause) for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
+- [Identify which application component is responsible](#identify-the-root-cause) for a performance problem (root cause analysis). For example, an application redesign might result in slower application response times. Comparing load test runs might reveal that the root cause was a lack of database resources.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
