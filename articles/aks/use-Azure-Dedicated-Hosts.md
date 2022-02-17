@@ -81,11 +81,11 @@ az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 
 Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
 
-For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/dedicated-host/).
+For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/).
 
 Use az vm host create to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
 
-In this example, we will use [az vm host group create](https://docs.microsoft.com/en-us/cli/azure/vm/host/group?view=azure-cli-latest#az_vm_host_group_create) to create a host group using both availability zones and fault domains.
+In this example, we will use [az vm host group create](https://docs.microsoft.com/cli/azure/vm/host/group?view=azure-cli-latest#az_vm_host_group_create) to create a host group using both availability zones and fault domains.
 
 ```azurecli-interactive
 az vm host group create \
