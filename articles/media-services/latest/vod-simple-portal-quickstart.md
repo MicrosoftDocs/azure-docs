@@ -44,7 +44,7 @@ You should have a media services account, a storage account, and a default strea
 
 > [!IMPORTANT] You must encode your files with a transform in order to stream them, even if they have been encoded locally.  The Media Services encoding process creates the manifest files needed for streaming.
 
-You will now create a transform that uses a Built-in preset, which is like a recipe for encoding.
+You'll now create a transform that uses a Built-in preset, which is like a recipe for encoding.
 
 1. Select **Transforms + jobs**.
 1. Select **Add transform**. The Add transform screen will appear.
