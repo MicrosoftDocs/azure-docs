@@ -191,7 +191,7 @@ arguments = ['--model_name', 'maskrcnn_resnet50_fpn',  # enter the maskrcnn mode
 
 ---
 
-Download and keep the `ONNX_batch_model_generator_automl_for_images.py` file in the current directory and submit the script.
+Download and keep the `ONNX_batch_model_generator_automl_for_images.py` file in the current directory and submit the script. Use [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) to submit the script `ONNX_batch_model_generator_automl_for_images.py` available in the [azureml-examples Github repository](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml), to generate an ONNX model of a specific batch size. In the following code, the trained model environment is used to submit this script to generate and save the ONNX model to the outputs directory. 
 ```python
 script_run_config = ScriptRunConfig(source_directory='.',
                                     script='ONNX_batch_model_generator_automl_for_images.py',
