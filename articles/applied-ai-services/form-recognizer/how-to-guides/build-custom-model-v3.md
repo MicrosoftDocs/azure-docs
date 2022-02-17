@@ -91,7 +91,7 @@ With your dataset labeled, you're now ready to train your model. Select on the t
 
 :::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot: Train model dialog":::
 
-1. Select train to initiate the training process.
+1. Select **Train** to initiate the training process.
 
 1. Template (custom form) models train in a few minutes, neural (custom document) models can take upto 30 minutes to train.
 
