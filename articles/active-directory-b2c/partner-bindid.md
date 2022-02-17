@@ -11,6 +11,7 @@ ms.topic: how-to
 ms.date: 02/17/2022
 ms.author: gasinh
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 
