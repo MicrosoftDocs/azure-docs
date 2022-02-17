@@ -1222,7 +1222,7 @@ plt.show()
 
 # [Multi-label image classification](#tab/multi-label)
 
-Visualize an input image with Labels
+Visualize an input image with labels
 
 ```python
 import matplotlib.image as mpimg
