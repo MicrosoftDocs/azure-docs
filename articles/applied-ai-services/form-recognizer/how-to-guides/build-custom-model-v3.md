@@ -77,7 +77,7 @@ You'll see the files you uploaded to storage on the left of your screen, with th
 
 1. Repeat this process for all the fields you wish to label for your dataset
 
-1. Label the remaining documents in your dataset by clicking into each document in the document list and selecting the text to be labeled
+1. Label the remaining documents in your dataset by selecting each document in the document list and selecting the text to be labeled
 
 You now have all the documents in your dataset labeled. If you look at the storage account, you'll find a *.labels.json* and *.ocr.json* files that correspond to each document in your training dataset and an additional fields.json file. This is the training dataset that will be submitted to train the model.
 
