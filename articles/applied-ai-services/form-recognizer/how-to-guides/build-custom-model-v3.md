@@ -99,7 +99,7 @@ With your dataset labeled, you're now ready to train your model. Select the trai
 
 ## Test the model
 
-Once the model training is complete, you can test your model by selecting the model on models list page.
+Once the model training is complete, you can test your model by selecting the model on the models list page.
 
 1. Select the model and select on the `Test` button
 
