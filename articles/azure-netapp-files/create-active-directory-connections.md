@@ -354,6 +354,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
  
 ## Next steps  
 
+* [Modify Active Directory connections](modify-active-directory-connections.md)
 * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
