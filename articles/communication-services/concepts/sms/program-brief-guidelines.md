@@ -83,7 +83,7 @@ Your terms of service must contain ALL of the following:
 ##### Example:
 **Terms of Service** 
 
-:::image type="content" source= "../media/short-code-terms.png" alt-text="Screenshot showing terms of service mock up.":::
+:::image type="content" source= "../media/short-code-terms.png" alt-text="Screenshot showing the terms of service mock up.":::
 
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com.
@@ -117,7 +117,7 @@ Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Cont
 
 **Web opt-in**
 
-:::image type="content" source= "../media/short-code-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
+:::image type="content" source= "../media/short-code-web-optin.png" alt-text="Screenshot showing the web opt-in mock up.":::
 
 **Point of sale (hardcopy leaflet)**
 
