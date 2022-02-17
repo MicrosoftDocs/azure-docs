@@ -19,7 +19,7 @@ The Form Recognizer v3.0 preview includes the new Read API. Read extracts text l
 
 **Data extraction features**
 
-| **Read model**   | **Text Extraction**   | **Language detection** |
+| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-by-read)** |
 | --- | --- | --- | 
 | Read  | ✓  |✓  |
 
@@ -81,7 +81,7 @@ Read API extracts text from documents and images with multiple text angles and c
 
 ### Language detection (v3.0 preview)
 
-Read API in v3.0 preview 2 adds language detection as a new feature for text lines. Read will try to detect the languages at the text line level and output the language code with the highest confidence score for one or more text lines.
+Read API in v3.0 preview 2 adds [language detection](language-support.md#detected-languages-by-read) as a new feature for text lines. Read will perdict the language at the text line level along with the confidence score.
 
 ### Handwritten classification for text lines (Latin only)
 
