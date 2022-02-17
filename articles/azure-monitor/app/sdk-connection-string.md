@@ -98,22 +98,6 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 ## Connection string examples
 
 
-### Minimal valid connection string
-
-`InstrumentationKey=00000000-0000-0000-0000-000000000000;`
-
-In this example, only the Instrumentation Key has been set.
-
-- Authorization scheme defaults to "ikey" 
-- Instrumentation Key: 00000000-0000-0000-0000-000000000000
-- The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs) and will connect to the public global Azure:
-   - Ingestion: `https://dc.services.visualstudio.com/`
-   - Live metrics: `https://rt.services.visualstudio.com/`
-   - Profiler: `https://profiler.monitor.azure.com/`
-   - Debugger: `https://snapshot.monitor.azure.com/`
-
-
-
 ### Connection string with endpoint suffix
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
