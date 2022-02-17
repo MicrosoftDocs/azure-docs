@@ -33,9 +33,9 @@ Inbound requests that target a search service endpoint consist of:
 + Creating and managing objects
 + Sending requests for indexing, running indexer jobs, executing skills, and querying an index
 
-For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with an authenticated request. Key-based authentication is the default, and each request directed to the service must include an API key. Alternatively, you can use Azure Active Directory and role-based access control for data plane operations (currently in preview). 
+For inbound access to data and operations on your search service, you can implement a progression of security measures, starting with [network security features](#service-access-and-authentication). You can create either inbound rules in an IP firewall, or private endpoints that fully shield your search service from the public internet. 
 
-You can then supplement authentication and authorization with [network security features](#service-access-and-authentication), either inbound rules in an IP firewall, or private endpoints that fully shield your search service from the public internet. 
+Independent of network security, all inbound requests must be authenticated. Key-based authentication is the default. Alternatively, you can use Azure Active Directory and role-based access control for data plane operations (currently in preview). 
 
 ### Outbound traffic
 
@@ -46,7 +46,9 @@ Outbound requests from a search service to other applications are typically made
 + A custom skill runs external code that's hosted off-service. An indexer sends the request for external processing during skillset execution.
 + Search connects to Azure Key Vault for a customer-managed key used to encrypt and decrypt sensitive data.
 
-Outbound connections can be made using a full access connection string that includes a shared access key or a database login, or a managed identity if you're using Azure Active Directory. If your Azure resources are behind a firewall, you'll need to create rules that admit indexer requests. For resources protected by Azure Private Link, you can create a shared private link that an indexer uses to make its connection.
+Outbound connections can be made using a full access connection string that includes a shared access key or a database login, or a managed identity if you're using Azure Active Directory. 
+
+If your Azure resources are behind a firewall, you'll need to create rules that admit indexer or service requests. For resources protected by Azure Private Link, you can create a shared private link that an indexer uses to make its connection.
 
 ### Internal traffic
 
@@ -60,7 +62,7 @@ Internal requests are secured and managed by Microsoft. Internal traffic consist
 
 ### Inbound connection through IP firewalls
 
-A search service is provisioned with a public endpoint that allows access using a public IP address. To restrict which traffic comes through the public endpoint, create an inbound firewall rules that admits requests from a specific IP address or a range of IP addresses. All client connections must be made through an allowed IP address, or the connection is denied.
+A search service is provisioned with a public endpoint that allows access using a public IP address. To restrict which traffic comes through the public endpoint, create an inbound firewall rule that admits requests from a specific IP address or a range of IP addresses. All client connections must be made through an allowed IP address, or the connection is denied.
 
 :::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="sample architecture diagram for ip restricted access":::
 
@@ -84,7 +86,7 @@ Once a request is admitted, it must still undergo authentication and authorizati
 
 For inbound requests to the search service, authentication is on the request (not the calling app or user) through an [API key](search-security-api-keys.md), where the key is a string composed of randomly generated numbers and letters) that proves the request is from a trustworthy source. Keys are required on every request. Submission of a valid key is considered proof the request originates from a trusted entity. 
 
-Alternatively, there is new support for Azure Active Directory authentication and role-based authorization, [currently in preview](search-security-rbac.md), that establishes the caller (and not the request) as the authenticated identity.
+Alternatively, there's new support for Azure Active Directory authentication and role-based authorization, [currently in preview](search-security-rbac.md), that establishes the caller (and not the request) as the authenticated identity.
 
 Outbound requests made by an indexer are subject to the authentication protocols supported by the external service. The indexer subservice in Cognitive Search can be made a trusted service on Azure, connecting to other services using a managed identity. For more information, see [Set up an indexer connection to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
@@ -147,7 +149,7 @@ At the storage layer, data encryption is built in for all service-managed conten
 
 ### Data in transit
 
-In Azure Cognitive Search, encryption starts with connections and transmissions, and extends to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
+In Azure Cognitive Search, encryption starts with connections and transmissions, and extends to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) aren't supported.
 
 ### Data at rest
 
@@ -161,7 +163,7 @@ For data handled internally by the search service, the following table describes
 
 #### Service-managed keys
 
-Service-managed encryption is a Microsoft-internal operation, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that are not fully encrypted (created before January 2018).
+Service-managed encryption is a Microsoft-internal operation, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that aren't fully encrypted (created before January 2018).
 
 #### Customer-managed keys (CMK)
 
@@ -171,7 +173,7 @@ Customer-managed keys require an additional billable service, Azure Key Vault, w
 
 #### Double encryption
 
-In Azure Cognitive Search, double encryption is an extension of CMK. It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long-term storage that is written to a data disk, and short-term  storage written to temporary disks. Double encryption is implemented in services created after specific dates. For more information, see [Double encryption](search-security-manage-encryption-keys.md#double-encryption).
+In Azure Cognitive Search, double encryption is an extension of CMK. It's understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long-term storage that is written to a data disk, and short-term  storage written to temporary disks. Double encryption is implemented in services created after specific dates. For more information, see [Double encryption](search-security-manage-encryption-keys.md#double-encryption).
 
 ## Security management
 
@@ -181,7 +183,7 @@ Reliance on API key-based authentication means that you should have a plan for r
 
 #### Activity and diagnostic logs
 
-Cognitive Search does not log user identities so you cannot refer to logs for information about a specific user. However, the service does log create-read-update-delete operations, which you might be able to correlate with other logs to understand the agency of specific actions.
+Cognitive Search does not log user identities so you can't refer to logs for information about a specific user. However, the service does log create-read-update-delete operations, which you might be able to correlate with other logs to understand the agency of specific actions.
 
 Using alerts and the logging infrastructure in Azure, you can pick up on query volume spikes or other actions that deviate from expected workloads. For more information about setting up logs, see [Collect and analyze log data](monitor-azure-cognitive-search.md) and [Monitor query requests](search-monitor-queries.md).
 
@@ -193,7 +195,7 @@ For compliance, you can use [Azure Policy](../governance/policy/overview.md) to 
 
 Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Azure Security Benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria as well as an actionable response that addresses non-compliance.
 
-For Azure Cognitive Search, there is currently one built-in definition. It is for diagnostic logging. With this built-in, you can assign a policy that identifies any search service that is missing diagnostic logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
+For Azure Cognitive Search, there's currently one built-in definition. It's for diagnostic logging. With this built-in, you can assign a policy that identifies any search service that is missing diagnostic logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
 
 ## Watch this video
 
