@@ -109,7 +109,10 @@ For Event Hubs, replication between the same number of [partitions](../event-hub
 
 For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
 
-Replication tasks don't track which messages have already been processed when the source experiences a disruptive event. To prevent reprocessing already processed messages, you have to set up a way to track the already processed messages so that processing resumes only with the unprocessed messages.
+> [!IMPORTANT]
+> Replication tasks don't track which messages have already been processed when the source experiences  
+> a disruptive event. To prevent reprocessing already processed messages, you have to set up a way to 
+> track the already processed messages so that processing resumes only with the unprocessed messages.
 
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 
