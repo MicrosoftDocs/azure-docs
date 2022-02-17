@@ -1,6 +1,6 @@
 ---
-title: How to create databases for Azure Database for MySQL
-description: This article describes how to create and manage databases on Azure Database for MySQL server.
+title: How to create databases for Azure Database for MySQL Flexible Server
+description: This article describes how to create and manage databases on Azure Database for MySQL Flexible server.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 02/17/2022
 ---
 
-# Create and manage databases for Azure Database for MySQL
+# Create and manage databases for Azure Database for MySQL Flexible Server
 
 This article contains information about creating, listing, and deleting MySQL databases on Azure Database for Flexible Server. 
 
 ## Prerequisites
 Before completing the tasks, you must have
-- Created an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you do not have one.
+- Created an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md).
 - Login to Azure portal](https://portal.azure.com).
 
 
