@@ -50,7 +50,7 @@ Run the install commands.
 Install-Package Microsoft.Identity.Web.MicrosoftGraph
 ```
 
-### Example
+### .NET Example
 
 ```csharp
 using System;

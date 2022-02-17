@@ -24,7 +24,7 @@ The `DefaultAzureCredential` class from [@azure/identity](https://github.com/Azu
 
 To see this code as part of a sample application, see *StorageHelper.js* in the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
 
-### Example
+### JavaScript Example
 
 ```nodejs
 const { DefaultAzureCredential } = require("@azure/identity");
