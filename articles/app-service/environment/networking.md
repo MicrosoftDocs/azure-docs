@@ -89,7 +89,7 @@ Alternatively the following CLI can enable it:
 az appservice ase update --name myasename --allow-new-private-endpoint-connections true
 ```
 
-For more information about Private Endpoint and Web App see [Azure Web App Private endpoint][privateendpoint] 
+For more information about Private Endpoint and Web App, see [Azure Web App Private Endpoint][privateendpoint] 
 
 
 ## DNS
