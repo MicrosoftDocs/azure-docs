@@ -1076,7 +1076,7 @@ For object detection, predictions are automatically on the scale of `height_onnx
                Ymin * original_height/height_onnx, <br>
                Xmax * original_width/width_onnx, <br>
                Ymax * original_height/height_onnx <br>
-    - Or use the following method to scale the box dimensions to be in the range of [0, 1], so that these box coordinates can be multiplied with original images height and width with respective coordinates (as described in [visualization section](#visualize_section)) to get boxes in original image dimensions
+  Another option is to use the following code to scale the box dimensions to be in the range of [0, 1]. Doing so allows the box coordinates to be multiplied with original images height and width with respective coordinates (as described in [visualize predictions section](#visualize-predictions)) to get boxes in original image dimensions.
 
 ```python
 def _get_box_dims(image_shape, box):
