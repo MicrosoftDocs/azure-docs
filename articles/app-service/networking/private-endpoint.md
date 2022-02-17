@@ -109,10 +109,10 @@ For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted
 | mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
 
 
-## ASEv3 special consideration
+## App Service Environment v3 special consideration
 
-In order to enable Private Endpoint for Web App hosted in an IsolatedV2 plan (ASEv3), you have to enable the Private Endpoint support at the ASE level.
-You can activate the feature by the Azure portal in the ASE configuration pane, or through the following CLI:
+In order to enable Private Endpoint for apps hosted in an IsolatedV2 plan (App Service Environment v3), you have to enable the Private Endpoint support at the App Service Environment level.
+You can activate the feature by the Azure portal in the App Service Environment configuration pane, or through the following CLI:
 
 ```azurecli-interactive
 az appservice ase update --name myasename --allow-new-private-endpoint-connections true
