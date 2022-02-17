@@ -635,6 +635,9 @@ For debugging the application, see [Debugging with Visual Studio Code](https://g
 :::zone pivot="iot-toolset-iar-ewarm"
 For help with debugging the application, see the selections under **Help** in **IAR EW for ARM**.  
 :::zone-end
+:::zone pivot="iot-toolset-stm32cube"
+For help with debugging the application, see the selections under **Help**.  
+:::zone-end
 
 ## Clean up resources
 
