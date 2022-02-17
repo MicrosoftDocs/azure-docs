@@ -55,6 +55,8 @@
       href: o365-external-user.md
     - name: B2B collaboration for hybrid organizations
       href: hybrid-organizations.md
+  - name: B2B direct connect
+    href: b2b-direct-connect-overview.md
   - name: Self-service sign-up
     expanded: false
     items:
@@ -83,6 +85,8 @@
       href: external-collaboration-settings-configure.md
     - name: Allow or block domains
       href: allow-deny-list.md
+  - Configure B2B direct connect 
+    href: cross-tenant-access-settings-b2b-direct-connect.md
   - name: Select identity providers
     items:
     - name: Azure Active Directory
