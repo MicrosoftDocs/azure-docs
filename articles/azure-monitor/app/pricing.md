@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 11/26/2021
+ms.date: 02/17/2021
 ms.reviewer: aaronmax
 ---
 
@@ -356,7 +356,7 @@ You can write a script to set the pricing tier by using Azure Resource Managemen
 
 ## Next steps
 
-* [sampling](./sampling.md)
+[Sampling](./sampling.md) in Application Insights is the recommended way to reduce telemetry traffic, data costs, and storage costs.
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
