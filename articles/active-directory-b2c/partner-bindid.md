@@ -14,13 +14,14 @@ ms.subservice: B2C
 ---
 
 
+# Configure BindID with Azure Active Directory B2C for passwordless authentication
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-custom-policy"
 
 ::: zone-end
 
-# Configure BindID with Azure Active Directory B2C for passwordless authentication
 In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with [BindID](https://www.transmitsecurity.com/bindid). BindID is a passwordless authentication service that uses strong Fast Identity Online (FIDO2) biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth login experience for all customers across every device and channel eliminating fraud, phishing, and credential reuse.
 
 ## Scenario description
