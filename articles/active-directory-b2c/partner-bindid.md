@@ -43,6 +43,8 @@ The following architecture diagram shows the implementation.
 To integrate BindID with your Azure AD B2C instance, you'll need to configure an application in the [BindID Admin
 Portal](https://admin.bindid-sandbox.io/console/). For more information, see [Getting started guide](https://developer.bindid.io/docs/guides/admin_portal/topics/getStarted/get_started_admin_portal). You can either create a new application or use one that you already created.
 
+::: zone pivot="b2c-user-flow"
+
 ## Prerequisites
 
 To get started, you'll need:
