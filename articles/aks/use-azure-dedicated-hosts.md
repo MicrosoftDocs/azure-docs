@@ -7,7 +7,7 @@ ms.date: 02/11/2021
 
 ---
 
-# Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster
+# Add Azure Dedicated Host to an Azure Kubernetes Service (AKS) cluster (Preview)
 
 Azure Dedicated Host is a service that provides physical servers - able to host one or more virtual machines - dedicated to one Azure subscription. Dedicated hosts are the same physical servers used in our data centers, provided as a resource. You can provision dedicated hosts within a region, availability zone, and fault domain. Then, you can place VMs directly into your provisioned hosts, in whatever configuration best meets your needs.
 
@@ -85,7 +85,7 @@ For more information about the host SKUs and pricing, see [Azure Dedicated Host 
 
 Use az vm host create to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
 
-In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create?view=azure-cli-latest&preserve-view=true) to create a host group using both availability zones and fault domains.
+In this example, we will use [az vm host group create][az-vm-host-group-create] to create a host group using both availability zones and fault domains.
 
 ```azurecli-interactive
 az vm host group create \
@@ -127,3 +127,4 @@ In this article, you learned how to create an AKS cluster with a Dedicated host,
 [aks-faq]: faq.md
 [azure-cli-install]: /cli/azure/install-azure-cli
 [dedicated-hosts]: /azure/virtual-machines/dedicated-hosts.md
+[az-vm-host-group-create]: /cli/azure/vm/host/group#az_vm_host_group_create
