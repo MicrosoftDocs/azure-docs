@@ -12,7 +12,7 @@ ms.topic: conceptual
 This article details the best practices to securely execute the automation jobs.
 [Azure Automation](/azure/automation/overview) provides you the platform to orchestrate frequent, time consuming, error-prone infrastructure management and operational tasks, as well as mission-critical operations. This service allows you to execute scripts, known as automation runbooks seamlessly across cloud and hybrid environments. 
 
-The platform components of Azure Automation Service are actively secured and hardened. The service goes through robust security and compliance checks. [Azure security benchmark](/security/benchmark/azure/overview) details the best practices and recommendations to help improve the security of workloads, data, and services on Azure. Also see [Azure security baseline for Azure Automation](/security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json)
+The platform components of Azure Automation Service are actively secured and hardened. The service goes through robust security and compliance checks. [Azure security benchmark](/security/benchmark/azure/overview) details the best practices and recommendations to help improve the security of workloads, data, and services on Azure. Also see [Azure security baseline for Azure Automation](/security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json).
 
 ## Secure configuration of Automation account
 
@@ -22,7 +22,7 @@ This section guides you in configuring your Automation account securely.
 
 1. Follow the principle of least privilege to get the work done when granting access to Automation resources. Implement [Automation granular RBAC roles](/azure/automation/automation-role-based-access-control) and avoid assigning broader roles or scopes such as subscription level. When creating the custom roles, only include the permissions users need. By limiting roles and scopes, you limit the resources that are at risk if the security principal is ever compromised. For detailed information on role-based access control concepts, see [Azure role-based access control best practices](/azure/role-based-access-control/best-practices).
 
-1. Avoid roles that include Actions having a wildcard (_*_) as it implies full access to the Automation resource or a sub-resource, example _automationaccounts/*/read_. Instead, use specific actions only for the required permission.
+1. Avoid roles that include Actions having a wildcard (_*_) as it implies full access to the Automation resource or a sub-resource, for example _automationaccounts/*/read_. Instead, use specific actions only for the required permission.
 
 1. Configure [Role based access at a runbook level](/azure/automation/automation-role-based-access-control) if the user doesn't require access to all the runbooks in the Automation account.
 
@@ -32,21 +32,21 @@ This section guides you in configuring your Automation account securely.
 
 ### Securing Hybrid Runbook worker role
 
-1. Install Hybrid workers using the [Hybrid Runbook Worker VM extension](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows), that doesn't have any dependency on the Log Analytics agent. We recommend this platform as it leverages Azure AD based authentication.</br> 
-[Hybrid Runbook Worker](/azure/automation/automation-hrw-run-runbooks) feature of Azure Automation allows you to execute runbooks directly on the machine hosting the role in Azure or non-Azure machine to execute Automation jobs in the local environment. 
+1. Install Hybrid workers using the [Hybrid Runbook Worker VM extension](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows), that doesn't have any dependency on the Log Analytics agent. We recommend this platform as it leverages Azure AD based authentication. 
+   [Hybrid Runbook Worker](/azure/automation/automation-hrw-run-runbooks) feature of Azure Automation allows you to execute runbooks directly on the machine hosting the role in Azure or non-Azure machine to execute Automation jobs in the local environment. 
     - Use only high privilege users or [Hybrid worker custom roles](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups) for users responsible for managing operations such as registering or unregistering Hybrid workers and hybrid groups and executing runbooks against Hybrid runbook worker groups. 
-    - The same user would also require VM contributor access on the machine hosting Hybrid worker role. Since the VM contributor is a high privilege role, ensure only a limited right set of users have access to manage Hybrid works, thereby reducing the potential for breach by a compromised owner. </br>
+    - The same user would also require VM contributor access on the machine hosting Hybrid worker role. Since the VM contributor is a high privilege role, ensure only a limited right set of users have access to manage Hybrid works, thereby reducing the potential for breach by a compromised owner.
 
    Follow the [Azure RBAC best practices](/azure/role-based-access-control/best-practices).
 
-1. Follow the principle of least privilege and grant only the required permissions to users for runbook execution against a Hybrid worker. Don't provide unrestricted permissions to the machine hosting the hybrid runbook worker role. In case of unrestricted access, a user with VM Contributor rights or having permissions to run commands against the hybrid worker machine can use the Automation Account Run As certificate from the hybrid worker machine and could potentially allow a malicious user access as a subscription contributor. This could jeopardize the security of your Azure environment.</br>
-Use [Hybrid worker custom roles](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups) for users responsible to manage Automation runbooks against Hybrid runbook workers and Hybrid runbook worker groups.
+1. Follow the principle of least privilege and grant only the required permissions to users for runbook execution against a Hybrid worker. Don't provide unrestricted permissions to the machine hosting the hybrid runbook worker role. In case of unrestricted access, a user with VM Contributor rights or having permissions to run commands against the hybrid worker machine can use the Automation Account Run As certificate from the hybrid worker machine and could potentially allow a malicious user access as a subscription contributor. This could jeopardize the security of your Azure environment.
+   Use [Hybrid worker custom roles](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups) for users responsible to manage Automation runbooks against Hybrid runbook workers and Hybrid runbook worker groups.
 
 1. [Unregister](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#delete-a-hybrid-runbook-worker) any unused or non-responsive hybrid workers.
 
 ### Authentication certificate and identities
 
-1. For runbook authentication, we recommend that you Use [Managed identities](/azure/automation/automation-security-overview#managed-identities) instead of Run As accounts. The Run As accounts are an administrative overhead and we plan to deprecate them soon. A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information about managed identities in Azure Automation, see [Managed identities for Azure Automation](/azure/automation/automation-security-overview#managed-identities)
+1. For runbook authentication, we recommend that you use [Managed identities](/azure/automation/automation-security-overview#managed-identities) instead of Run As accounts. The Run As accounts are an administrative overhead and we plan to deprecate them. A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information about managed identities in Azure Automation, see [Managed identities for Azure Automation](/azure/automation/automation-security-overview#managed-identities)
 
    You can authenticate an Automation account using two types of managed identities:
    - **System-assigned identity** is tied to your application and is deleted if your app is deleted. An app can only have one system-assigned identity.
@@ -62,7 +62,7 @@ Use [Hybrid worker custom roles](/azure/automation/extension-based-hybrid-runboo
 
 1. Rotate the [Azure Automation keys](/azure/automation/automation-create-standalone-account?tabs=azureportal#manage-automation-account-keys) periodically. The key regeneration prevents future DSC or hybrid worker node registrations from using previous keys. We recommend to use the [Extension based hybrid workers](/azure/automation/automation-hybrid-runbook-worker) that use Azure AD authentication instead of Automation keys. Azure AD centralizes the control and management of identities and resource credentials.
 
-### Data Security
+### Data security
 1. Secure the assets in Azure Automation including credentials, certificates, connections and encrypted variables. These assets are protected in Azure Automation using multiple levels of encryption. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys to use for encryption of Automation assets. These keys must be present in Azure Key Vault for Automation service to be able to access the keys. See [Encryption of secure assets using customer-managed keys](/azure/automation/automation-secure-asset-encryption).
 
 1. Don't print any credentials or certificate details in the job output. An Automation job operator who is the low privilege user can view the sensitive information.
@@ -81,6 +81,6 @@ Review the Azure Policy recommendations for Azure Automation and act as appropri
  
 ## Next steps
 
-* To learn on how to use Azure role-based access control (Azure RBAC), see [Manage role permissions and security in Azure Automation](/automation/automation-role-based-access-control).
+* To learn how to use Azure role-based access control (Azure RBAC), see [Manage role permissions and security in Azure Automation](/automation/automation-role-based-access-control).
 * For information on how Azure protects your privacy and secures your data, see [Azure Automation data security](/azure/automation/automation-managing-data).
 * To learn about configuring the Automation account to use encryption, see [Encryption of secure assets in Azure Automation](/automation/automation-secure-asset-encryption).
