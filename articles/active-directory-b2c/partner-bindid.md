@@ -37,7 +37,7 @@ The following architecture diagram shows the implementation.
 | 2. | The application sends the user attributes to Azure AD B2C for identity verification.|
 | 3. | Azure AD B2C collects the user attributes and sends the attributes to BindID to authenticate the user through OpenID Connect (OIDC) request.|
 | 4. | BindID sends a push notification to the registered user mobile device for a FIDO2 certified authentication. It can be a user finger print, biometric or decentralized pin.|
- 5. | After user acknowledges the push notification through a decentralized authentication response, the OIDC response is passed on to Azure AD B2C.|
+| 5. | After user acknowledges the push notification through a decentralized authentication response, the OIDC response is passed on to Azure AD B2C.|
 | 6.| User is either granted or denied access to the customer application based on the verification results.|
 
 ## Onboard with BindID
@@ -62,6 +62,18 @@ To get started, you'll need:
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
+## Prerequisites
+
+To get started, you'll need:
+
+- An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
+
+- A BindID tenant. You can [sign up for free.](https://www.transmitsecurity.com/developer?utm_signup=dev_hub#try)
+
+- If you haven't already done so, [register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).
 
 - Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
