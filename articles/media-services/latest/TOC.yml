@@ -65,8 +65,6 @@
     - name: Live event with portal and OBS
       href: live-event-obs-quickstart.md
       displayName: OBS, Open Broadcast, OBS Studio, live streaming, live, software, encoder
-    - name: Use portal to upload, encode, and stream content 
-      href: asset-create-asset-upload-portal-quickstart.md
     - name: Use portal to encrypt content
       href: drm-encrypt-content-how-to.md
   - name: Deploy using an ARM template
