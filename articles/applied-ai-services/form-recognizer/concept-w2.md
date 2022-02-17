@@ -1,5 +1,5 @@
 ---
-title: Form Recognizer Form W-2 prebuilt-tax model
+title: Form Recognizer W-2 form prebuilt model
 titleSuffix: Azure Applied AI Services
 description: Data extraction and analysis extraction using the prebuilt-tax Form W-2 model
 author: laujan
@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# Form Recognizer Form W-2 prebuilt-tax model | Preview
+# Form Recognizer W-2 Form prebuilt model | Preview
 
 The Form W-2, Wage and Tax Statement, is a US Internal Revenue Service (IRS) tax form completed by employers to report employees' salary, wages, compensation, and taxes withheld. Employers send a W-2 form to each employee on or before January 31 each year and employees use the form to prepare their tax returns.
 
@@ -33,7 +33,7 @@ Each W-2 Form consists of more than 14 boxes, both numbered and lettered, that d
 
 ## Development options
 
-The prebuilt-tax, Form W-2, model is supported by Form Recognizer v3.0 with the following tools:
+The prebuilt W-2 form, model is supported by Form Recognizer v3.0 with the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
