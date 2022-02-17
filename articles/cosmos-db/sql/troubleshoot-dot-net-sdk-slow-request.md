@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix slow requests when using Azure Cosmos
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 02/15/2022
+ms.date: 02/17/2022
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -31,7 +31,7 @@ Consider the following when developing your application:
 
 ## Metadata operations
 
-Avoid performing metadata operations on the same flow as your data plane operations. Metadata operations are considered any operation not performed on items, such as calling `CreateIfNotExist` or `Read` on a database or a container. Unless it is expected that databases and/or containers are deleted during the application's lifecycle, these metadata operations not only will generate extra end-to-end latency, but they have no SLA, and can incur into [system throttling](https://aka.ms/CosmosDB/sql/errors/metadata-429).
+Do not verify a Database and/or Container exists by calling `Create...IfNotExistsAsync` and/or `Read...Async` in the hot path and/or before doing an item operation. The validation should only be done on application startup when it is necessary, if you expect them to be deleted (otherwise it's not needed). These metadata operations will generate extra end-to-end latency, have no SLA, and their own separate [limitations](https://aka.ms/CosmosDB/sql/errors/metadata-429) that do not scale like data operations.
 
 ## <a name="capture-diagnostics"></a>Capture the diagnostics
 
