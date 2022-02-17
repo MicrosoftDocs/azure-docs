@@ -34,6 +34,14 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "<resource group name>" -We
     > [!div class="mx-imgBorder"]
     > [ ![Screenshot of access restriction rule with the addition of public IP address]( ../media/network-isolation/public-address.png) ](  ../media/network-isolation/public-address.png#lightbox)
 
+### Outbound access from App Service
+
+The QnA Maker App Service requires outbound access to the below endpoints. Please make sure they’re added to the allow list if there are any restrictions on the outbound traffic.
+- https://qnamakerstore.blob.core.windows.net
+- https://qnamaker-data.trafficmanager.net
+- https://qnamakerconfigprovider.trafficmanager.net
+
+
 ### Configure App Service Environment to host QnA Maker App Service
 
 The App Service Environment (ASE) can be used to host the QnA Maker App Service instance. Follow the steps below:
