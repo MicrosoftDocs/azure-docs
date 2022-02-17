@@ -1,10 +1,10 @@
 ---
-title: 'Quickstart: Create a blueprint with Azure CLI'
+title: 'Quickstart: Create a blueprint with the Azure CLI'
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts by using the Azure CLI.
 ms.date: 08/17/2021
 ms.topic: quickstart
 ---
-# Quickstart: Define and assign an Azure blueprint with Azure CLI
+# Quickstart: Define and assign an Azure blueprint with the Azure CLI
 
 In this tutorial, you learn to use Azure Blueprints to do some of the common tasks related to creating, publishing, and assigning a blueprint within your organization. This skill helps you define common patterns to develop reusable and rapidly deployable configurations, based on Azure Resource Manager (ARM) templates, policy, and security.
 
@@ -19,7 +19,7 @@ In this tutorial, you learn to use Azure Blueprints to do some of the common tas
 
 ## Add the blueprint extension
 
-To enable Azure CLI to manage blueprint definitions and assignments, you must add the extension. This extension works wherever you can use the Azure CLI. This includes [bash on Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (both the standalone version and the one inside the portal), the [Azure CLI Docker image](https://hub.docker.com/_/microsoft-azure-cli), or an extension that's locally installed.
+To enable the Azure CLI to manage blueprint definitions and assignments, you must add the extension. This extension works wherever you can use the Azure CLI. This includes [bash on Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (both the standalone version and the one inside the portal), the [Azure CLI Docker image](https://hub.docker.com/_/microsoft-azure-cli), or an extension that's locally installed.
 
 1. Check that the latest Azure CLI is installed (at least **2.0.76**). If it isn't yet installed, follow [these instructions](/cli/azure/install-azure-cli-windows).
 
