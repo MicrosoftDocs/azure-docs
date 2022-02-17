@@ -918,7 +918,7 @@ The response schema is shown below:
 
 :::image type="content" source="media/connector-rest/pagination-example-9-response-schema.png" alt-text="Screenshot showing the response schema of Example 9."::: 
 
-The pagination rules should be set as below:
+The pagination rule sytax is the same as in Example 8 and should be set as below in this example:
 
 :::image type="content" source="media/connector-rest/pagination-example-9-pagination-rule.png" alt-text="Screenshot showing setting the pagination rule for Example 9."::: 
 
