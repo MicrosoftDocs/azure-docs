@@ -4,8 +4,8 @@ description: Create a transactionally consistent copy of an existing database in
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: sqldbrb=1, devx-track-azurepowershell
-ms.devlang: 
+ms.custom: sqldbrb=1, devx-track-azurepowershell, devx-track-azurecli
+ms.devlang: azurecli
 ms.topic: how-to
 author: LitKnd
 ms.author: kendralittle

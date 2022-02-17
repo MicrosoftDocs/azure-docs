@@ -573,7 +573,7 @@ After creating your [JSON configuration file](#create-a-connector-json-configura
 
     1. In Microsoft Sentinel, go to the **Data connectors** page, search for your new connector. Configure it to start ingesting data.
 
-    For more information, see [Deploy a local template](/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-powershell) in the Azure Resource Manager documentation.
+    For more information, see [Deploy a local template](../azure-resource-manager/templates/deployment-tutorial-local-template.md?tabs=azure-powershell) in the Azure Resource Manager documentation.
 
     # [Deploy via API](#tab/deploy-via-api)
 
