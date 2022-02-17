@@ -2,7 +2,7 @@
 title: Intelligent Cache for Apache Spark 3.x in Azure Synapse Analytics 
 description: This article provides an overview of the intelligent cache feature in Azure Synapse Analytics.
 services: synapse-analytics
-author: avinandac
+author: avinandaMS
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 2/17/2022
@@ -22,7 +22,7 @@ The Synapse Intelligent cache simplifies this process by automatically caching e
 The Synapse cache is a single cache per node. If you're using a medium size node and run with two small executors on a single medium size node, these two executors would share the same cache. 
 
 > [!Note]
-    >  Intelligent Cache is currently in Public Preview.
+> Intelligent Cache is currently in Public Preview.
 
 ## Enable/Disable the cache for your Apache Spark pool 
 
@@ -33,7 +33,7 @@ The cache size can be adjusted based on the percent of total disk size available
 
 When creating a new Spark pool, browse under the additional settings tab to find the Intelligent cache slider you can move to your preferred size to enable the feature. 
 
-![Spark: a unified framework](./media/apache-spark-intelligent-cache-concept/inteligent-cache-creation-config.png)
+![How to enable intelligent cache during new Spark pools creation](./media/apache-spark-intelligent-cache-concept/inteligent-cache-creation-config.png)
 
 
 
@@ -41,14 +41,14 @@ When creating a new Spark pool, browse under the additional settings tab to find
 
 For existing Spark pools, browse to the Scale settings of your Apache Spark pool of choice to enable, by moving the slider to a value more then 0, or disable it, by moving slider to 0.
 
-![Spark: a unified framework](./media/apache-spark-intelligent-cache-concept/inteligent-cache-setting-config.png)
+![How to enable or disable intelligent cache for existing Spark pools](./media/apache-spark-intelligent-cache-concept/inteligent-cache-setting-config.png)
 
 
 ### Changing cache size for existing Spark pools
 
 To change the Intelligent Cache size of a pool, you must force a restart if the pool has active sessions. If the Spark pool has an active session, then it will show “Force new settings”.  Click on the check box and select “Apply” to automatically restart the session. 
 
-![Spark: a unified framework](./media/apache-spark-intelligent-cache-concept/inteligent-cache-change-size.png)
+![Force restarting a session after changing intelligent cache setting](./media/apache-spark-intelligent-cache-concept/inteligent-cache-change-size.png)
 
 
 
