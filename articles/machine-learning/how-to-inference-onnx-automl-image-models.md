@@ -119,7 +119,7 @@ Use the following model specific arguments to submit the script. For more detail
 For multi-class image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-onnx-model-files) section. 
 
 # [Multi-label image classification ](#tab/multi-label)
-For multi-label image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-ONNX-model-files) section. 
+For multi-label image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-onnx-model-files) section. 
 
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 ```python
