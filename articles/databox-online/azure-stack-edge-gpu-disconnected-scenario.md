@@ -19,7 +19,7 @@ This article helps you identify things to consider when you need to use Azure St
 
 Some environments require that your Azure Stack Edge device not be connected to the internet. As a result, Azure Stack Edge becomes a standalone deployment that is disconnected from and doesn't communicate with Azure and other Azure services.
 
-You can use your device disconnected after initial activation for K8s, virtual machines (VMs), and IoT Edge use cases. However, you won't have access to the Azure portal to manage those workloads. As a result, <!--your--> management <!--experience--> will be limited to local <!--control plane - not needed?--> operations.
+You can use your device disconnected after initial activation for K8s, virtual machines (VMs), and IoT Edge use cases. However, you won't have access to the Azure portal to manage those workloads. As a result, <!--your--> management <!--experience--> will be limited to local <!--control plane - not needed?--> operations.<!--That global statement is not true. For example, direct access to a Kubernetes cluster is available through native apps such as kubekettl.-->
 
 ## Scenarios for disconnected use
 
