@@ -201,7 +201,7 @@ In the Azure portal, navigate to your Service Bus namespace, switch to **Topics*
 
 :::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/topic-page-portal.png" alt-text="Incoming and outgoing messages":::
 
-If you run the only the send app next time, on the **Service Bus Topic** page, you see 20 incoming messages (10 new) but 10 outgoing messages. 
+If you run only the send app next time, on the **Service Bus Topic** page, you see 20 incoming messages (10 new) but 10 outgoing messages. 
 
 :::image type="content" source="./media/service-bus-nodejs-how-to-use-topics-subscriptions/updated-topic-page.png" alt-text="Updated topic page":::
 
