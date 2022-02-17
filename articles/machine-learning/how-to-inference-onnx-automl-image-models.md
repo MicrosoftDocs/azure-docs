@@ -121,6 +121,13 @@ best_child_run = automl_image_run.get_best_child()
 
 Use the following model specific arguments to submit the script. For more details on arguments refer to model specific [hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models.md#supported-model-algorithms).
 
+# [Multi-class image classification ](#tab/multi-class)
+
+- By default,  generated ONNX model for the best child-run support batch scoring. Proceed to the next section.
+
+# [Multi-label image classification](#tab/multi-label)
+
+- By default,  generated ONNX model for the best child-run support batch scoring. Proceed to the next section.
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 ```python
 arguments = ['--model_name', 'fasterrcnn_resnet34_fpn',  # enter the faster rcnn or retinanet model name
@@ -161,7 +168,7 @@ arguments = ['--model_name', 'yolov5',  # enter the yolo model name
              ]
 ```
 
-# [Instance segmentation](#tab/instance-segmentation-args)
+# [Instance segmentation](#tab/instance-segmentation)
 
 ```python
 arguments = ['--model_name', 'maskrcnn_resnet50_fpn',  # enter the maskrcnn model name
@@ -1072,11 +1079,12 @@ For multi-class and multi-label classification, you can follow the same steps me
 
 For object detection, predictions are automatically on the scale of `height_onnx`, `width_onnx`. To transform the predicted box coordinates to the original dimensions you can implement the following calculations. 
 
-               Xmin * original_width/width_onnx, <br>
-               Ymin * original_height/height_onnx, <br>
-               Xmax * original_width/width_onnx, <br>
-               Ymax * original_height/height_onnx <br>
-  Another option is to use the following code to scale the box dimensions to be in the range of [0, 1]. Doing so allows the box coordinates to be multiplied with original images height and width with respective coordinates (as described in [visualize predictions section](#visualize-predictions)) to get boxes in original image dimensions.
+- Xmin * original_width/width_onnx
+- Ymin * original_height/height_onnx
+- Xmax * original_width/width_onnx
+- Ymax * original_height/height_onnx
+  
+Another option is to use the following code to scale the box dimensions to be in the range of [0, 1]. Doing so allows the box coordinates to be multiplied with original images height and width with respective coordinates (as described in [visualize predictions section](#visualize-predictions)) to get boxes in original image dimensions.
 
 ```python
 def _get_box_dims(image_shape, box):
