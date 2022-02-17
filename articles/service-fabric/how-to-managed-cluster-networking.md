@@ -587,7 +587,7 @@ To configure bring your own load balancer:
 
 <a id="accelnet"></a>
 ## Enable Accelerated Networking (preview)
-Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) for additional considerations. 
+Accelerated networking enables single root I/O virtualization (SR-IOV) to a virtual machine scale set VM that is the underlying resource for node types. This high-performance path bypasses the host from the data path, which reduces latency, jitter, and CPU utilization for the most demanding network workloads. Service Fabric managed cluster node types can be provisioned with Accelerated Networking on [supported VM SKUs](../virtual-machines/sizes.md). Reference this [limitations and constraints](../virtual-network/accelerated-networking-overview.md#limitations-and-constraints) for additional considerations. 
 
 * Note that Accelerated Networking is supported on most general purpose and compute-optimized instance sizes with 2 or more vCPUs. On instances that support hyperthreading, Accelerated Networking is supported on VM instances with 4 or more vCPUs.
 
