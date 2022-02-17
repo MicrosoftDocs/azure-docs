@@ -32,27 +32,27 @@ Install the [Blob Storage NuGet package](https://www.nuget.org/packages/Azure.St
 
 #### .NET Core command-line
 
-Open a command line, and switch to the directory that contains your project file.
+1. Open a command line, and switch to the directory that contains your project file.
 
-Run the install commands.
+1. Run the install commands.
 
-```dotnetcli
-dotnet add package Azure.Storage.Blobs
-
-dotnet add package Azure.Identity
-```
+    ```dotnetcli
+    dotnet add package Azure.Storage.Blobs
+    
+    dotnet add package Azure.Identity
+    ```
 
 #### Package Manager Console
-Open the project or solution in Visual Studio, and open the console by using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command.
+1. Open the project or solution in Visual Studio, and open the console by using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command.
 
-Run the install commands.
-```powershell
-Install-Package Azure.Storage.Blobs
+1. Run the install commands.
+    ```powershell
+    Install-Package Azure.Storage.Blobs
+    
+    Install-Package Azure.Identity
+    ```
 
-Install-Package Azure.Identity
-```
-
-### .NET Example
+## .NET example
 
 ```csharp
 using System;

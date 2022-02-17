@@ -22,9 +22,10 @@ ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-r
 ## Access Blob Storage
 The `DefaultAzureCredential` class from [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package is used to get a token credential for your code to authorize requests to Azure Storage. The `BlobServiceClient` class from [@azure/storage-blob](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) package is used to upload a new blob to storage. Create an instance of the `DefaultAzureCredential` class, which uses the managed identity to fetch tokens and attach them to the blob service client. The following code example gets the authenticated token credential and uses it to create a service client object, which uploads a new blob.
 
-To see this code as part of a sample application, see *StorageHelper.js* in the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
+To see this code as part of a sample application, see *StorageHelper.js* in the:
+* [Sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
 
-### JavaScript Example
+## JavaScript example
 
 ```nodejs
 const { DefaultAzureCredential } = require("@azure/identity");
