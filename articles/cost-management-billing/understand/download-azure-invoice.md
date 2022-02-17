@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/17/2021
+ms.date: 02/17/2022
 ms.author: banders
 ---
 
@@ -18,7 +18,7 @@ You can download your invoice in the [Azure portal](https://portal.azure.com/) o
 
 ## When invoices are generated
 
-An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), and Microsoft Partner Agreement (MPA) billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
+An invoice is generated based on your billing account type. Invoices are created for Microsoft Online Service Program (MOSP), Microsoft Customer Agreement (MCA), Microsoft Partner Agreement (MPA), and Azure Government billing accounts. Invoices are also generated for Enterprise Agreement (EA) billing accounts. However, invoices for EA billing accounts aren't shown in the Azure portal.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](../manage/view-all-accounts.md).
 
@@ -125,7 +125,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 
 ## Share subscription and support plan invoice
 
-You may want to share the invoice for your subscription and support plan every month with your accounting team or send them to one of your other email addresses.
+You may want to share the invoice for your subscription and support plan every month with your accounting team or send them to one of your other email addresses. Azure Government billing account owners can't allow other users to receive invoices by email.
 
 1. Follow the steps in [Get your subscription's and support plan's invoices in email](#get-mosp-subscription-invoice-in-email) and select **Configure recipients**.  
     [![Screenshot that shows a user selecting configure recipients](./media/download-azure-invoice/invoice-article-step03.png)](./media/download-azure-invoice/invoice-article-step03-zoomed.png#lightbox)
