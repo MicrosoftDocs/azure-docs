@@ -139,7 +139,7 @@
       items: 
         - name: Azure portal
           href: virtual-wan-point-to-site-portal.md
-        - name: Azure portal
+        - name: Azure PowerShell
           href: virtual-wan-point-to-site-powershell.md
     - name: Create User VPN - Azure AD authentication
       href: virtual-wan-point-to-site-azure-ad.md
