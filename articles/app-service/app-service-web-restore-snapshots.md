@@ -35,14 +35,16 @@ Snapshots are incremental shadow copies and offer several advantages over [stand
 
 The following table shows which content is restored when you restore a snapshot:
 
-|Restored| Not restored|
+|Settings| Restored?|
 |-|-|
-|- **Windows apps**: All app content under `%HOME%` directory<br/>- **Linux apps**: All app content under `/home` directory<br/>- **Custom containers (Windows and Linux)**: Content in [persistent storage](configure-custom-container.md?pivots=container-linux#use-persistent-shared-storage)|- Content of the [run-from-ZIP package](deploy-run-package.md)<br/>Content from any [custom mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows)|
+| **Windows apps**: All app content under `%HOME%` directory<br/>**Linux apps**: All app content under `/home` directory<br/>**Custom containers (Windows and Linux)**: Content in [persistent storage](configure-custom-container.md?pivots=container-linux#use-persistent-shared-storage)| Yes |
+| Content of the [run-from-ZIP package](deploy-run-package.md)| No |
+| Content from any [custom mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows)| No |
 
 > [!NOTE]
 > Maximum supported size for snapshot restore is 30GB. Snapshot restore fails if your storage size is greater than 30GB. To reduce your storage size, consider moving files like logs, images, audios, and videos to [Azure Storage](../storage/index.yml), for example.
 
-The following table shows which app configuration are restored:
+The following table shows which app configuration is restored:
 
 |Settings| Restored?|
 |-|-|
@@ -53,7 +55,8 @@ The following table shows which app configuration are restored:
 |[Authentication](overview-authentication-authorization.md)| No|
 |[Managed identities](overview-managed-identity.md)| No |
 |[Custom domains](app-service-web-tutorial-custom-domain.md)| No |
-|[TLS/SSL](configure-ssl-bindings.md)| No ||[Scale out](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json)| No |
+|[TLS/SSL](configure-ssl-bindings.md)| No |
+|[Scale out](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json)| No |
 |[Diagnostics with Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)| No |
 |[Alerts and Metrics](../azure-monitor/alerts/alerts-classic-portal.md)| No |
 |[Backup](manage-backup.md)| No |
