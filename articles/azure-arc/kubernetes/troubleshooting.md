@@ -235,7 +235,6 @@ One example:
 
 ```azurecli
 az k8s-extension show -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <connectedClusters or managedClusters>
-flux
 ```
 
 ```output
@@ -281,8 +280,11 @@ Reason: Bad Request'}]}
 
 For all these cases, possible remediation actions are to force delete the extension, uninstall the Helm release, and delete the `flux-system` namespace from the cluster.
 
-```console
+```azurecli
 az k8s-extension delete --force -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <managedClusters OR connectedClusters>
+```
+
+```console
 helm uninstall flux -n flux-system
 kubectl delete namespaces flux-system
 ```
@@ -293,7 +295,7 @@ Some other aspects to consider:
 
      ```azurecli
      az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
-    ```
+     ```
 
 * Assure that the cluster does not have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
 
