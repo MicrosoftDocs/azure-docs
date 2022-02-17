@@ -37,11 +37,11 @@ Azure SignalR Service uses Managed Identity to access your Key Vault. In order t
 1. In the menu pane, select **Access configuration**. Click **Go to access policies**.
 1. Click **Create**. Select **Secret Get** permission and **Certificate Get** permission. Click **Next**.
 
-   :::image type="content" alt-text="Screenshot of permissions selection in Key Vault." source="media\howto-custom-domain\portal-keyvault-permissions.png" :::
+   :::image type="content" alt-text="Screenshot of permissions selection in Key Vault." source="media\howto-custom-domain\portal-key-vault-permissions.png" :::
 
-1. Search for the Azure SignalR Service resource name or the user assigned identity name. Select. Click **Next**.
+1. Search for the Azure SignalR Service resource name or the user assigned identity name. Click **Next**.
 
-   :::image type="content" alt-text="Screenshot of principal selection in Key Vault." source="media\howto-custom-domain\portal-keyvault-principal.png" :::
+   :::image type="content" alt-text="Screenshot of principal selection in Key Vault." source="media\howto-custom-domain\portal-key-vault-principal.png" :::
 
 1. Skip **Application (optional)**. Click **Next**.
 1. In **Review + create**, click **Create**.
@@ -84,8 +84,6 @@ If you're using other DNS providers, follow provider's guide to create a CNAME r
 ## Add a custom domain
 
 A custom domain is another sub resource of your Azure SignalR Service. It contains all configurations for a custom domain.
-
-### Step 1: Create a custom domain
 
 1. In the Azure portal, go to your Azure SignalR Service resource.
 1. In the menu pane, select **Custom domain**.
