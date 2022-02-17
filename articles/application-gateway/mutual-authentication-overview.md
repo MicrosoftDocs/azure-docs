@@ -66,7 +66,7 @@ For more information on how to extract trusted client CA certificate chains, see
 
 ## Server variables 
 
-With mutual authentication, there are additional server variables that you can use to pass information about the client certificate to the backend servers behind the Application Gateway. For more information about which server variables are available and how to use them, check out [server variables](./rewrite-http-headers-url.md#mutual-authentication-server-variables-preview).
+With mutual authentication, there are additional server variables that you can use to pass information about the client certificate to the backend servers behind the Application Gateway. For more information about which server variables are available and how to use them, check out [server variables](./rewrite-http-headers-url.md#mutual-authentication-server-variables).
 
 ## Next steps
 
