@@ -4,6 +4,7 @@ description: 'Tutorial: Azure Event Grid can trigger on blob uploads in Azure St
 ms.topic: tutorial
 ms.date: 09/28/2021
 ms.devlang: csharp, javascript
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Automate resizing uploaded images using Event Grid
