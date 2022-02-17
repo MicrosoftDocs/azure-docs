@@ -94,4 +94,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 
 ## Compliance, privacy and security
 
-[!IMPORTANT] Read the [Compliance, privacy and security document]() before using Azure Media Services to deliver your media content.
+[!IMPORTANT] Read the [Compliance, privacy and security document](media-services-compliance.md) before using Azure Media Services to deliver your media content.
