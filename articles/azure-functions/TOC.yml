@@ -80,7 +80,7 @@
     - name: Functions with Logic Apps
       href: functions-twitter-email.md
     - name: Develop Python functions with VS Code
-      href: /azure/azure-functions/create-first-function-vs-code-python
+      href: ./create-first-function-vs-code-python.md
     - name: Create serverless APIs using Visual Studio
       href: openapi-apim-integrate-visual-studio.md
       displayName: OpenAPI, Swagger
@@ -99,6 +99,8 @@
           href: functions-identity-based-connections-tutorial.md
         - name: Use identity for triggers and bindings
           href: functions-identity-based-connections-tutorial-2.md
+        - name: Access Azure SQL with managed identity
+          href: functions-identity-access-azure-sql-with-managed-identity.md
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Create a serverless web app

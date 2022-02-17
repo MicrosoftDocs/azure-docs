@@ -10,7 +10,6 @@ editor: TomSh
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -109,7 +108,7 @@ By providing notifications and recommended remediation, Identity Protection help
 Learn more:
 
 * [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
-* [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* Channel 9: Azure AD and Identity Show: Identity Protection Preview
 
 ## Defender for Cloud
 

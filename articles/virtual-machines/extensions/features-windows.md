@@ -353,6 +353,8 @@ The following troubleshooting actions apply to all VM extensions:
 
 - Look at the system logs. Check for other operations that might have interfered with the extension, such as a long-running installation of another application that required exclusive access to the package manager.
 
+- In a VM, if there is an existing extension with a failed provisioning state, any other new extension fails to install.
+
 ### Common reasons for extension failures
 
 - Extensions have 20 minutes to run. (Exceptions are Custom Script, Chef, and DSC, which have 90 minutes.) If your deployment exceeds this time, it's marked as a timeout. The cause of this can be low-resource VMs, or other VM configurations or startup tasks are consuming large amounts of resources while the extension is trying to provision.

@@ -134,6 +134,8 @@ The example host.json file below contains only the settings for version 5.0.0 an
                 "maxRetries": 3
             },
             "prefetchCount": 0,
+            "transportType": "amqpWebSockets",
+            "webProxy": "https://proxyserver:8080",
             "autoCompleteMessages": true,
             "maxAutoLockRenewalDuration": "00:05:00",
             "maxConcurrentCalls": 16,
@@ -151,12 +153,14 @@ When using service bus extension version 5.x and higher, the following global co
 |Property  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
+| transportType| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
+| webProxy| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
 |autoCompleteMessages|true|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
-|maxAutoLockRenewalDuration|00:05:00|This should be used in place of `maxAutoRenewDuration`|
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
-|maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance.|
-|maxMessages|1000|The maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
-|sessionIdleTimeout|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session.|
+|maxAutoLockRenewalDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
+|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the should be initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting only applies for functions that receive a single message at a time.|
+|maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance. This setting only applies for functions that receive a single message at a time.|
+|maxMessages|1000|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
+|sessionIdleTimeout|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session. This setting only applies for functions that receive a single message at a time.|
 |enableCrossEntityTransactions|false|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
 
 ### Retry settings

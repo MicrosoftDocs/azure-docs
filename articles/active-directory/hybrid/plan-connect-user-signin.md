@@ -11,7 +11,6 @@ ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.subservice: hybrid

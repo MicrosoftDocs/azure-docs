@@ -3,7 +3,7 @@ title: Connect Syslog data to Microsoft Sentinel | Microsoft Docs
 description: Connect any machine or appliance that supports Syslog to Microsoft Sentinel by using an agent on a Linux machine between the appliance and Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/05/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -73,7 +73,7 @@ Having already set up [data collection from your CEF sources](connect-common-eve
 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Microsoft Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.
 
     ```c
-    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable
+    sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'
     ```
 
 ## Configure your device's logging settings
@@ -82,6 +82,11 @@ Many device types have their own data connectors appearing in the **Data connect
 
 All connectors listed in the gallery will display any specific instructions on their respective connector pages in the portal, as well as in their sections of the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
+If the instructions on your data connector's page in Microsoft Sentinel indicate that the Kusto functions are deployed as [Advanced Security Information Model (ASIM)](normalization.md) parsers, make sure that you have the ASIM parsers deployed to your workspace.
+
+Use the link in the data connector page to deploy your parsers, or follow the instructions from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/ASIM).
+
+For more information, see [Advanced Security Information Model (ASIM) parsers](normalization-about-parsers.md).
 
 ## Configure the Log Analytics agent
 

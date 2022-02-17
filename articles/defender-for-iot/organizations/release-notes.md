@@ -19,7 +19,14 @@ Listed below are the support, breaking change policies for Microsoft Defender fo
 
 ### Servicing information and timelines
 
-Microsoft plans to release updates for Defender for IoT no less than once per quarter. Each general availability (GA) version of the Defender for IoT sensor, and on-premises management console is supported for nine months after release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+Microsoft plans to release updates for Defender for IoT no less than once a quarter. Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console is supported for nine months after release. Fixes and new functionality will be applied to the current GA version that is currently supported and will not be applied to older GA versions.
+ 
+The Defender for IoT sensor and on-premises management console update packages include new functionality and security patches. Urgent, high-risk security updates will be applied to minor releases occurring during the quarter. 
+
+*Making changes to packages manually might have detrimental effects on the sensor and on-premises management console. Microsoft will be unable to provide support for your deployment if this happen.*
+
+
+
 
 ### Versions and support dates
 
@@ -41,7 +48,7 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 
 The new **IoT OT Threat Monitoring with Defender for IoT solution** is available and provides enhanced capabilities for Microsoft Defender for IoT integration with Microsoft Sentinel. The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS). 
 
-For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for Iot and Sentinel](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended)
+For information on integrating with Microsoft Sentinel, see [Tutorial: Integrate Defender for Iot and Sentinel](../../sentinel/iot-solution.md?tabs=use-out-of-the-box-analytics-rules-recommended)
 
 ### Apache Log4j vulnerability
 

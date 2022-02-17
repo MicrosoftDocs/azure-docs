@@ -6,7 +6,6 @@ documentationcenter: ''
 author: curtand
 manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity

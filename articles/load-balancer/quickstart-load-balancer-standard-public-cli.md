@@ -8,7 +8,6 @@ author: asudbring
 manager: KumudD
 tags: azure-resource-manager
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

@@ -11,9 +11,8 @@ ms.assetid: 5847c33f-aaa2-48f9-abe6-78c4a87a3b7c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 07/13/2017
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017

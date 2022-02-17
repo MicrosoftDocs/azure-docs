@@ -8,7 +8,6 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 09/15/2020
 ms.subservice: hybrid

@@ -75,6 +75,8 @@ Extension bundles usage is enabled in the host.json file at the root of the proj
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
+Now, you can add the storage output binding to your project.
+
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
@@ -82,8 +84,6 @@ Extension bundles usage is enabled in the host.json file at the root of the proj
 [!INCLUDE [functions-register-storage-binding-extension-csharp](../../includes/functions-register-storage-binding-extension-csharp.md)]
 
 ::: zone-end
-
-Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 

@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: FrancescaLazzeri
-ms.author: lazzeri
+author: lgayhardt
+ms.author: lagayhar
 ms.reviewer: cgronlun
 ms.date: 10/21/2021
 ---

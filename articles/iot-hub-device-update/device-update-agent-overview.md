@@ -20,13 +20,13 @@ allowing for messaging to flow between the Device Update Agent and Device Update
 
 ## The Interface Layer
 
-The Interface layer is made up of the [ADU Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
+The Interface layer is made up of the [Device Update Core Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/adu_core_interface) and the [Device Information Interface](https://github.com/Azure/iot-hub-device-update/tree/main/src/agent/device_info_interface).
 
 These interfaces rely on a configuration file for the device specific values that need to be reported to the Device Update services. [Learn More](device-update-configuration-file.md) about the configuration file.
 
-### ADU Core Interface
+### Device Update Core Interface
 
-The 'ADU Core' interface is the primary communication channel between Device Update Agent and Services. [Learn More](device-update-plug-and-play.md#adu-core-interface) about this interface.
+The 'DeviceUpdate Core' interface is the primary communication channel between Device Update Agent and Services. [Learn More](device-update-plug-and-play.md#device-update-core-interface) about this interface.
 
 ### Device Information Interface
 
@@ -47,16 +47,15 @@ installers. For instance, the `SWUpdate` update handler, 'Apt' update handler, a
 
 ## Update Handlers
 
-Update Handlers are components that handle content or installer-specific parts
-of the update. You can either use [existing Device Update handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or implement a custom Content Handler that invokes any installer needed for your use case.
+Update Handlers used to invoke installers or commands to do an over-the-air update. You can either use [existing update content handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or [implement a custom Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) which can invoke any installer and execute the over-the-air update needed for your use case.
 
-## Self-upgrade Device update agent
+## Updating to latest Device update agent
 
-We have added many new capabilities to the Device Update agent in the latest Public Preview Refresh agent (version 0.8.0). 
+We have added many new capabilities to the Device Update agent in the latest Public Preview Refresh agent (version 0.8.0). See [list of new capabilities](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/whats-new.md) for details.
 
-If you are using the Device Update agent versions 0.6.0 or 0.7.0 please upgrade to the latest agent version 0.8.0.
+If you are using the Device Update agent versions 0.6.0 or 0.7.0 please migrate to the latest agent version 0.8.0. See [Public Preview Refresh agent for changes and how to upgrade](migration-pp-to-ppr.md)
 
-You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
+You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under Device Update Core Interface](device-update-plug-and-play.md#device-properties).
 
 ## Next Steps
 [Understand Device Update agent configuration file](device-update-configuration-file.md)

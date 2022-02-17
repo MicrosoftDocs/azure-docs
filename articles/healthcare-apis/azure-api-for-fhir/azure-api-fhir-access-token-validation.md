@@ -12,7 +12,7 @@ ms.author: cavoeg
 ---
 # Azure API for FHIR access token validation
 
-How Azure API for FHIR validates the access token will depend on implementation and configuration. In this article, we will walk through the validation steps, which can be helpful when troubleshooting access issues.
+How Azure API for FHIR validates the access token will depend on implementation and configuration. In this article, we'll walk through the validation steps, which can be helpful when troubleshooting access issues.
 
 ## Validate token has no issues with identity provider
 
@@ -24,7 +24,7 @@ GET https://login.microsoftonline.com/<TENANT-ID>/.well-known/openid-configurati
 
 where `<TENANT-ID>` is the specific Azure AD tenant (either a tenant ID or a domain name).
 
-Azure AD will return a document like the one below to the FHIR server.
+Azure AD will return a document like this one to the FHIR server.
 
 ```json
 {
@@ -90,7 +90,7 @@ Azure AD will return a document like the one below to the FHIR server.
     "rbac_url": "https://pas.windows.net"
 }
 ``` 
-The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate that it is receiving an authentic token.
+The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate that it's receiving an authentic token.
 
 ## Validate claims of the token
 
@@ -110,7 +110,7 @@ When using the OSS Microsoft FHIR server for Azure, the server will validate:
 
 Consult details on how to [define roles on the FHIR server](https://github.com/microsoft/fhir-server/blob/master/docs/Roles.md).
 
-A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, the Azure API for FHIR and the FHIR server for Azure do not validate token scopes.
+A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, the Azure API for FHIR and the FHIR server for Azure don't validate token scopes.
 
 ## Next steps
 Now that you know how to walk through token validation, you can complete the tutorial to create a JavaScript application and read FHIR data.

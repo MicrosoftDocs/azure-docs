@@ -409,7 +409,7 @@ Report data issues using the [Azure Maps data feedback tool](https://feedback.az
 
 **How do I report a bug in a service or API?**
 
-Report issues on Azure's [Help + support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) page by selecting the **Create a support request** button.
+Report issues on Azure's [Help + support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) page by selecting the **Create a support request** button.
 
 **Where do I get technical help for Azure Maps?**
 

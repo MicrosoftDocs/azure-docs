@@ -10,9 +10,8 @@ ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 08/29/2017
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 

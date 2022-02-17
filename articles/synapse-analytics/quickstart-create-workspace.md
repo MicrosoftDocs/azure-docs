@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: subject-rbac-steps, mode-other
 ---
 
@@ -51,7 +51,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
     | Setting | Value |
     | --- | --- |
     | Role | Owner and Storage Blob Data Owner |
-    | Assign access to | [USER |
+    | Assign access to | USER |
     | Members | your user name |
 
     ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)

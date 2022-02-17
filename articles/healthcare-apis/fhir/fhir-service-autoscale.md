@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 2/2/2022
 ms.author: zxue
 ---
 
@@ -19,11 +19,9 @@ The autoscale feature for the FHIR service is designed to provide optimized serv
 
 ## How does FHIR service autoscale work?  
 
-When transaction workloads are high, the autoscale feature increases computing resources automatically. When transaction workloads are low, it decreases computing resources accordingly.  
+The autoscale feature adjusts computing resources automatically to optimize the overall service scalability. It requires no action from customers. 
 
-The autoscale feature adjusts computing resources automatically to optimize the overall service scalability. Whether you are performing read requests that include simple queries like getting patient information using a patient ID, and advanced queries like getting all `DiagnosticReport` resources for patients whose name is "Sarah", or you're creating or updating FHIR resources, the autoscale feature manages the dynamics and complexity of resource allocation to ensure high scalability.
-
-The autoscale feature is part of the managed service and requires no action from customers. However, customers are encouraged to share their feedback to help improve the feature. Customers can also raise a support ticket to address any scalability issue they may have experienced.  
+When transaction workloads are high, the autoscale feature increases computing resources automatically. When transaction workloads are low, it decreases computing resources accordingly. Whether you are performing read requests that include simple queries like getting patient information using a patient ID, and advanced queries like getting all DiagnosticReport resources for patients whose name is "Sarah", or you're creating or updating FHIR resources, the autoscale feature manages the dynamics and complexity of resource allocation to ensure high scalability.
 
 ### What is the cost of the FHIR service autoscale?  
 
