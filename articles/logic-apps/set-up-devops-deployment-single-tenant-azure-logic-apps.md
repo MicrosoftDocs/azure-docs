@@ -1,24 +1,24 @@
 ---
-title: Set up DevOps for single-tenant Azure Logic Apps
-description: How to set up DevOps deployment for workflows in single-tenant Azure Logic Apps.
+title: Set up DevOps for Standard logic apps
+description: How to set up DevOps deployment for Standard logic app workflows in single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/31/2022
+ms.date: 02/14/2022
 
 # As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
 
-# Set up DevOps deployment for single-tenant Azure Logic Apps
+# Set up DevOps deployment for Standard logic app workflows in single-tenant Azure Logic Apps
 
-This article shows how to deploy a single-tenant based logic app project from Visual Studio Code to your infrastructure by using DevOps tools and processes. Based on whether you prefer GitHub or Azure DevOps for deployment, choose the path and tools that work best for your scenario. You can use the included samples that contain example logic app projects plus examples for Azure deployment using either GitHub or Azure DevOps. For more information about DevOps for single-tenant, review [DevOps deployment overview for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md).
+This article shows how to deploy a Standard logic app project to single-tenant Azure Logic Apps from Visual Studio Code to your infrastructure by using DevOps tools and processes. Based on whether you prefer GitHub or Azure DevOps for deployment, choose the path and tools that work best for your scenario. You can use the included samples that contain example logic app projects plus examples for Azure deployment using either GitHub or Azure DevOps. For more information about DevOps for single-tenant, review [DevOps deployment overview for single-tenant Azure Logic Apps](devops-deployment-single-tenant-azure-logic-apps.md).
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A single-tenant based logic app project created with [Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- A Standard logic app project created with [Visual Studio Code and the Azure Logic Apps (Standard) extension](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
   If you haven't already set up your logic app project or infrastructure, you can use the included sample projects to deploy an example app and infrastructure, based on the source and deployment options you prefer to use. For more information about these sample projects and the resources included to run the example logic app, review [Deploy your infrastructure](#deploy-infrastructure).
 
@@ -60,70 +60,77 @@ The following diagram shows the dependencies between your logic app project and 
 
 ![Conceptual diagram showing infrastructure dependencies for a logic app project in the single-tenant Azure Logic Apps model.](./media/set-up-devops-deployment-single-tenant-azure-logic-apps/infrastructure-dependencies.png)
 
+<a name="deploy-logic-app-resources"></a>  
 
 ## Deploy logic app resources (zip deploy)
 
-After you push your logic app project to your source repository, you can set up build and release pipelines that deploy logic apps to infrastructure inside or outside Azure.
+After you push your logic app project to your source repository, you can set up build and release pipelines that deploy logic apps to infrastructure either inside or outside Azure.
 
 ### Build your project
 
-To set up a build pipeline based on your logic app project type, complete the corresponding actions listed in the following table:
+To set up a build pipeline based on your logic app project type, complete the corresponding actions in the following table:
 
 | Project type | Description and steps |
 |--------------|-----------------------|
-| Nuget-based | The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild) documentation. |
-| Bundle-based | The extension bundle-based project isn't language-specific and doesn't require any language-specific build steps. You can use any method to zip your project files. <p><p>**Important**: Make sure that your .zip file contains the actual build artifacts, including all workflow folders, configuration files such as host.json, connections.json, and any other related files. |
+| Nuget-based | The NuGet-based project structure is based on the .NET Framework. To build these projects, make sure to follow the build steps for .NET Standard. For more information, review the documentation for [Create a NuGet package using MSBuild](/nuget/create-packages/creating-a-package-msbuild). |
+| Bundle-based | The extension bundle-based project isn't language-specific and doesn't require any language-specific build steps. You can use any method to zip your project files. <br><br>**Important**: Make sure that your .zip file contains the actual build artifacts, including all workflow folders, configuration files such as host.json, connections.json, and any other related files. |
 |||
 
 ### Before release to Azure
 
-You need to update the Visual Studio artifacts before they can be released to Azure. Specifically the managed API connections inside the Visual Studio connections.json file are created for Visual Studio Code local use. You must update them so that they are in the correct format to be used in Azure. The difference is in authentication methods.
+The managed API connections inside your logic app project's **connections.json** file are created specifically for local use in Visual Studio Code. Before you can release your project artiffacts from Visual Studio Code to Azure, you have to update these artifacts. To use the managed API connections in Azure, you have to update their authentication methods so that they're in the correct format to use in Azure.
 
 #### Update authentication type
 
-You must update the *authentication" field from this Visual Studio Code local format (the first code snippet) to this portal format (the second code snippet).
+For each managed API connection that uses authentication, you have to update the **authentication** object from the local format in Visual Studio Code to the Azure portal format, as shown by the first and second code examples, respectively:
+
+**Visual Studio Code format**
 
 ```json
 {
-  "managedApiConnections": {
-    "sql": {
-      "api": {
-        "id": "/subscriptions/88881207-2135-4f08-9999-6577a6d47777/providers/Microsoft.Web/locations/westus/managedApis/sql"
+   "managedApiConnections": {
+      "sql": {
+         "api": {
+            "id": "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Web/locations/westus/managedApis/sql"
       },
       "connection": {
-        "id": "/subscriptions/524c1207-2135-4f08-81f3-6577a6d41405/resourceGroups/ase/providers/Microsoft.Web/connections/sql-8"
+         "id": "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/ase/providers/Microsoft.Web/connections/sql-8"
       },
-      "connectionRuntimeUrl": "https://b6724f3007777777.01.common.logic-westus.azure-apihub.net/apim/sql/53d7c5ba145b4fafac92adb0c7777777/",
+      "connectionRuntimeUrl": "https://xxxxxxxxxxxxxx.01.common.logic-westus.azure-apihub.net/apim/sql/xxxxxxxxxxxxxxxxxxxxxxxxx/",
       "authentication": {
-        "type": "Raw",
-        "scheme": "Key",
-        "parameter": "@appsetting('sql-connectionKey')"
+         "type": "Raw",
+         "scheme": "Key",
+         "parameter": "@appsetting('sql-connectionKey')"
       }
-    }
-  }
+   }
+}
 ```
 
+**Azure portal format**
+
 ```json
 {
-  "managedApiConnections": {
-    "sql": {
-      "api": {
-        "id": "/subscriptions/88881207-2135-4f08-9999-6577a6d47777/providers/Microsoft.Web/locations/westus/managedApis/sql"
+   "managedApiConnections": {
+      "sql": {
+         "api": {
+            "id": "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Web/locations/westus/managedApis/sql"
       },
       "connection": {
-        "id": "/subscriptions/524c1207-2135-4f08-81f3-6577a6d41405/resourceGroups/ase/providers/Microsoft.Web/connections/sql-8"
+         "id": "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/resourceGroups/ase/providers/Microsoft.Web/connections/sql-8"
       },
-      "connectionRuntimeUrl": "https://b6724f3007777777.01.common.logic-westus.azure-apihub.net/apim/sql/53d7c5ba145b4fafac92adb0c7777777/",
+      "connectionRuntimeUrl": "https://xxxxxxxxxxxxxx.01.common.logic-westus.azure-apihub.net/apim/sql/xxxxxxxxxxxxxxxxxxxxxxxxx/",
       "authentication": {
-        "type": "ManagedServiceIdentity",
+         "type": "ManagedServiceIdentity",
       }
-    }
-  }
+   }
+}
 ```
 
 #### Create API connections as needed
 
-If you are deploying the workflow to a different region or subscription from the local development, you also must make sure to create these managed API connections before the deployment. The easiest way to create managed API connections is to use ARM deployment. Here is an example of ARM template to create a SQL managed API connection.
+If you're deploying your logic app workflow to an Azure region or subscription different from your local development environment, you must also make sure to create these managed API connections before deployment. Azure Resource Manager template (ARM template) deployment is the easiest way to create managed API connections.
+  
+The following example shows a SQL managed API connection resource definition in an ARM template:
 
 ```json
 {
@@ -134,7 +141,7 @@ If you are deploying the workflow to a different region or subscription from the
    "properties": {
       "displayName": "sqltestconnector",
       "api": {
-         "id": "/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/sql"
+         "id": "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Web/locations/{Azure-region-location}/managedApis/sql"
       },
       "parameterValues": {
          "authType": "windows", 
@@ -147,12 +154,11 @@ If you are deploying the workflow to a different region or subscription from the
 }
 ```
 
+To find the values that you need to use in the **properties** object for completing the connection resource definition, you can use the following API for a specific connector:
 
-To find the values that you need to use in the `properties` object for completing the connection resource definition, you can use the following API for a specific connector:
+`GET https://management.azure.com/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region-location}/managedApis/{connector-name}?api-version=2016-06-01`
 
-`GET https://management.azure.com/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/{connector-name}?api-version=2016-06-01`
-
-In the response, find the `connectionParameters` object, which contains all the information necessary for you to complete resource definition for that specific connector. The following example shows an example resource definition for a SQL managed connection:
+In the response, find the **connectionParameters** object, which contains all the information necessary for you to complete resource definition for that specific connector. The following example shows an example resource definition for a SQL managed connection:
 
 ```json
 {
@@ -163,10 +169,10 @@ In the response, find the `connectionParameters` object, which contains all the 
    "properties": {
       "displayName": "sqltestconnector",
       "api": {
-         "id": "/subscriptions/{subscription-ID}/providers/Microsoft.Web/locations/{location}/managedApis/sql"
+         "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region-location}/managedApis/sql"
       },
       "parameterValues": {
-         "authType": "windows", 
+         "authType": "windows",
          "database": "TestDB",
          "password": "TestPassword",
          "server": "TestServer",
@@ -176,11 +182,11 @@ In the response, find the `connectionParameters` object, which contains all the 
 }
 ```
 
-As an alternative, you can review the network trace for when you create a connection in the Logic Apps designer. Find the `PUT` call to the managed API for the connector as previously described, and review the request body for all the information you need.
+As an alternative, you can capture and review the network trace for when you create a connection using the workflow designer in Azure Logic Apps. Find the `PUT` call that's sent to the connector's managed API as previously described, and review the request body for all the necessary information.
 
 ### Release to Azure
 
-To set up a release pipeline that deploys to Azure, choose the associated option for GitHub, Azure DevOps, or Azure CLI.
+To set up a release pipeline that deploys to Azure, follow the associated steps for GitHub, Azure DevOps, or Azure CLI.
 
 > [!NOTE]
 > Azure Logic Apps currently doesn't support Azure deployment slots.
@@ -350,9 +356,7 @@ az logicapp deployment source config-zip --name MyLogicAppName
 
 ### After release to Azure
 
-Each API connection has access policies. After the zip deployment, you must open the logic app in portal and create access policies for each API connection to give permission for the current logic app.
-
-The zip deployment does not create app settings for you. So after the deployment, you must create these app settings based on the local.settings.json file in your local Visual Studio Code project.
+Each API connection has access policies. After the zip deployment completes, you must open your logic app resource in the Azure portal, and create access policies for each API connection to set up permissions for the deployed logic app. The zip deployment doesn't create app settings for you. So, after deployment, you must create these app settings based on the **local.settings.json** file in your local Visual Studio Code project.
 
 ## Next steps
 
