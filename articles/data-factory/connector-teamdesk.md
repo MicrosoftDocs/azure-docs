@@ -95,8 +95,6 @@ Set the authenticationType property to **Token**. In addition to the generic pro
 
 **Example:**
 
-You can also store service principal key in Azure Key Vault.
-
 ```json
 {
     "name": "TeamDeskLinkedService",
