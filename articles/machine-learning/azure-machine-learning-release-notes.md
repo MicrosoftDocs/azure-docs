@@ -28,7 +28,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     +  It will throw an error for the customer's run if the unique number of classes in the input training dataset is fewer than 2. It is meaningless to run classification on fewer than two classes.
   + **azureml-automl-dnn-nlp**
     +  Updating AutoML dependencies to support python 3.8. This change will break compatibility with models trained with SDK 1.37 or below due to newer Pandas interfaces being saved in the model.
-    +  Adding min-label-classes check for both classification tasks (multi-class and multi-label).
+    +  Adding min-label-classes check for both classification tasks.
     +  It will throw an error for the customer's run if the unique number of classes in the input training dataset is fewer than 2. It is meaningless to run classification on fewer than two classes.
   + **azureml-automl-runtime**
     +  Fix automl reset index logic for ensemble models in automl_setup_model_explanations API
