@@ -199,13 +199,13 @@ The examples in this section use 800 as the default value for the prefetch count
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The source and target resources or entities, which should exist in different Azure regions so that you can test for the geo-disaster recovery fail over scenario. These entities can vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
+- The source and target resources or entities, which should exist in different Azure regions so that you can test for the geo-disaster recovery failover scenario. These entities can vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
 
 - A **Logic App (Standard)** resource that you can reuse when you create the replication task. That way, you can customize this resource specifically for your replication task, for example, by [choosing the hosting plan and pricing tier](#pricing) based on your replication scenario's needs, such as capacity, throughput, and scaling. Although you can create this resource when you create the replication task, you can't change the region, hosting plan, and pricing tier. The following list provides other reasons and best practices for a previously created logic app resource:
 
   - You can create this logic app resource in a region that differs from the source and target entities in your replication task.
 
-    Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a replication task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a fail over scenario, the task also can't start reading data from the new source, formerly the target entity, which is what the [active-passive replication pattern](../service-bus-messaging/service-bus-federation-overview.md#active-passive-replication) tries to achieve.
+    Currently, this guidance is provided due to the replication task's native integration within Azure resources. When you create a replication task between entities and choose to create a new logic app resource rather than use an existing one, the *new logic app is created in the same region as the source entity*. If the source region becomes unavailable, the replication task also can't work. In a failover scenario, the task also can't start reading data from the new source, formerly the target entity, which is what the [active-passive replication pattern](../service-bus-messaging/service-bus-federation-overview.md#active-passive-replication) tries to achieve.
 
   - You can customize this logic app resource ahead of time by choosing the hosting plan and pricing tier, rather than using the default attributes. That way, your replication task can process more events or messages per second for faster replication. If you create this resource when you create the replication task, these default attributes are fixed.
 
@@ -305,7 +305,7 @@ This example shows how to create a replication task for Service Bus queues.
       > [!NOTE]
       > If you create a new logic app resource during replication task creation, the logic app is created in the 
       > *same region as the source entity*, which is problematic if the source region becomes unavailable and won't 
-      > work in a fail over scenario. The best practice is to create a **Logic App (Standard)** resource in a different 
+      > work in a failover scenario. The best practice is to create a **Logic App (Standard)** resource in a different 
       > region than your source. When you create the replication task, select the existing logic app instead and 
       > add the underlying stateless workflow to the existing logic app. For more information, review the [Prerequisites](#prerequisites).
 
@@ -487,9 +487,9 @@ You can edit the underlying workflow behind a replication task, which changes th
 
 <a name="failover"></a>
 
-## Set up fail over for Azure Event Hubs
+## Set up failover for Azure Event Hubs
 
-For Azure Event Hubs replication between the same entity types, geo-disaster recovery requires performing a fail over from the source entity to the target entity and then telling any affected event consumers and producers to use the endpoint for the target entity, which becomes the new source. So, if a disaster happens, and the source entity fails over, consumers and producers, including your replication task, are redirected to the new source. The storage account that was created by your replication task contains checkpoint information and the position or offset in the stream where the source entity stops if the source region is disrupted or becomes unavailable.
+For Azure Event Hubs replication between the same entity types, geo-disaster recovery requires performing a failover from the source entity to the target entity and then telling any affected event consumers and producers to use the endpoint for the target entity, which becomes the new source. So, if a disaster happens, and the source entity fails over, consumers and producers, including your replication task, are redirected to the new source. The storage account that was created by your replication task contains checkpoint information and the position or offset in the stream where the source entity stops if the source region is disrupted or becomes unavailable.
 
 To make sure that the storage account doesn't contain any legacy information from the original source and that your replication task begins reading and replicating events from the start of the new source stream, you have to manually clean up any legacy information from the original source and reconfigure the replication task.
 
