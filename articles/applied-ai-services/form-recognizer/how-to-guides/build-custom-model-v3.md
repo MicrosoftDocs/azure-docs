@@ -41,21 +41,21 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
 1. Start by navigating to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio). If this is your first time using the Studio, you'll need to [initialize it for use](../quickstarts/try-v3-form-recognizer-studio.md). Follow the [additional prerequisite for custom projects](../quickstarts/try-v3-form-recognizer-studio.md#additional-prerequisites-for-custom-projects) to configure the Studio to access your training dataset.
 
 1. In the Studio select the **Custom models** tile, on the custom models page and select the **Create a project** button.
-    
+
     :::image type="content" source="../media/how-to/studio-create-project.png" alt-text="Screenshot: Create a project in the Form Recognizer Studio.":::
-    
+
     1. On the create project dialog, provide a name for your project, optionally a description, and select continue.
-    
+
     1. On the next step in the workflow, choose or create a Form Recognizer resource before you select continue.
 
-> [!IMPORTANT]
-> Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](https://aka.ms/fr-neural#l#supported-regions).
+    > [!IMPORTANT]
+    > Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](https://aka.ms/fr-neural#l#supported-regions).
 
-:::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
+    :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
 
 1. Next select the storage account where you uploaded the dataset you wish to use to train your custom model. The **Folder path** should be empty if your training documents are in the root of the container. If your documents are in a sub-folder, enter the relative path from the container root in the **Folder path** field. Once your storage account is configured, select continue.
 
-:::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot: Select the storage account.":::
+    :::image type="content" source="../media/how-to/studio-select-storage.png" alt-text="Screenshot: Select the storage account.":::
 
 1. Finally, review your project settings and select **Create Project** to create a new project. You should now be in the labeling window and see the files in your dataset listed.
 
@@ -67,7 +67,7 @@ You'll see the files you uploaded to storage on the left of your screen, with th
 
 1. To start labeling your dataset, create your first field by selecting the plus (➕) button on the top-right of the screen to select a field type. 
 
-:::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot: Create a label.":::
+    :::image type="content" source="../media/how-to/studio-create-label.png" alt-text="Screenshot: Create a label.":::
 
 1. Enter a name for the field.
 
@@ -87,7 +87,7 @@ With your dataset labeled, you're now ready to train your model. Select the trai
 
 1. For the build mode, select the type of model you want to train. Learn more about the [model types and capabilities](../concept-custom.md).
 
-:::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot: Train model dialog":::
+    :::image type="content" source="../media/how-to/studio-train-model.png" alt-text="Screenshot: Train model dialog":::
 
 1. Select **Train** to initiate the training process.
 
