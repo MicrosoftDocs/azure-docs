@@ -33,7 +33,8 @@ LUIS has one portal you can use regardless of region, [www.luis.ai](https://www.
 
 ## Publishing regions and Azure resources
 
-Publishing regions are the regions where the application will be used in runtime. To use the application in a publishing region, you must create a resource in this region and assign your application to it. For example, for an app created with an authoring region in **westus**, if you publish your applicaiton to **eastus** and **brazilsouth** regions, the app will be published to these regions.
+Publishing regions are the regions where the application will be used in runtime. To use the application in a publishing region, you must create a resource in this region and assign your application to it. For example, if you create an app with the *westus* authoring region and publish it to the *eastus* and *brazilsouth* regions, the app will run in those two regions.
+
 
 ## Public apps
 A public app is published in all regions so that a user with a supported predection resource can access the app in all regions.
