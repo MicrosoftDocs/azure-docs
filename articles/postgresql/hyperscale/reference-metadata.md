@@ -237,11 +237,11 @@ colocationid                |
 ### Colocation group table
 
 The pg\_dist\_colocation table contains information about which tables\' shards
-should be placed together, or [colocated](concepts-colocation.md).
-When two tables are in the same colocation group, Hyperscale (Citus) ensures
-shards with the same partition values will be placed on the same worker nodes.
-Colocation enables join optimizations, certain distributed rollups, and foreign key
-support. Shard colocation is inferred when the shard counts, replication
+should be placed together, or [colocated](concepts-colocation.md).  When two
+tables are in the same colocation group, Hyperscale (Citus) ensures shards with
+the same distribution column values will be placed on the same worker nodes.
+Colocation enables join optimizations, certain distributed rollups, and foreign
+key support. Shard colocation is inferred when the shard counts, replication
 factors, and partition column types all match between two tables; however, a
 custom colocation group may be specified when creating a distributed table, if
 so desired.

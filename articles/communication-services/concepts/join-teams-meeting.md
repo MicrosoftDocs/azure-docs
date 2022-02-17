@@ -40,7 +40,7 @@ During a meeting, Communication Services users will be able to use core audio, v
 Additional information on required dataflows for joining Teams meetings is available at the [client and server architecture page](client-and-server-architecture.md). The [Group Calling Hero Sample](../samples/calling-hero-sample.md) provides example code for joining a Teams meeting from a web application.
 
 ## Diagnostics and call analytics
-After a Teams meeting ends, diagnostic information about the meeting is available using the [Communication Services logging and diagnostics](/azure/communication-services/concepts/logging-and-diagnostics) and using the [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality) in the Teams admin center. Communication Services users will appear as "Anonymous" in Call Analytics screens. Communication Services users aren't included in the [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality).
+After a Teams meeting ends, diagnostic information about the meeting is available using the [Communication Services logging and diagnostics](./logging-and-diagnostics.md) and using the [Teams Call Analytics](/MicrosoftTeams/use-call-analytics-to-troubleshoot-poor-call-quality) in the Teams admin center. Communication Services users will appear as "Anonymous" in Call Analytics screens. Communication Services users aren't included in the [Teams real-time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality).
 
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
@@ -55,7 +55,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 - PowerPoint presentations aren't rendered for Communication Services users.
 - Teams meetings support up to 1000 participants, but the Azure Communication Services Calling SDK currently only supports 350 participants and Chat SDK supports 250 participants. 
 - With [Cloud Video Interop for Microsoft Teams](/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
-- [Communication Services voice and video calling events](/azure/event-grid/communication-services-voice-video-events) aren't raised for Teams meeting.
+- [Communication Services voice and video calling events](../../event-grid/communication-services-voice-video-events.md) aren't raised for Teams meeting.
 - Features such as reactions, raised hand, together mode, and breakout rooms are only available for Teams users.
 - Communication Services users can't interact with poll or Q&A apps in meetings.
 - Communication Services won't have access to all chat features supported by Teams. They can send and receive text messages, use typing indicators, read receipts and other features supported by Chat SDK. However features like file sharing, reply or react to a message aren't supported for Communication Services users.   

@@ -461,6 +461,8 @@
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: ratings-reviews.md
+  - name: Customer retention dashboard
+    href: customer-retention-dashboard.md
   - name: Programmatic access to analytics
     items:
     - name: Get started
