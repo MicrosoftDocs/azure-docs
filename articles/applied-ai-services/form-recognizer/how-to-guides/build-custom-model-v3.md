@@ -83,7 +83,7 @@ You now have all the documents in your dataset labeled and if you look at the st
 
 ## Train the model
 
-With your dataset labeled, you're now ready to train your model. Select on the train button in the upper right.
+With your dataset labeled, you're now ready to train your model. Select the train button in the upper-right corner.
 
 1. On the train model dialog, provide a unique model ID and, optionally, a description.
 
