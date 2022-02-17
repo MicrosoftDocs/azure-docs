@@ -538,7 +538,7 @@ Keep the terminal open to monitor device output in the following steps.
 To view the device status in IoT Central portal:
 1. From the application dashboard, select **Devices** on the side navigation menu.
 1. Confirm that the **Device status** is updated to **Provisioned**.
-1. Confirm that the **Device template** is updated to **Thermostat**.
+1. Confirm that the **Device template** is updated to **Unassigned**.
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-device-view-status-iar.png" alt-text="Screenshot of device status in IoT Central":::
 
