@@ -41,6 +41,8 @@ For more information on how to set up mutual authentication, see [configure mutu
 > [!IMPORTANT]
 > Make sure you upload the entire trusted client CA certificate chain to the Application Gateway when using mutual authentication. 
 
+Each SSL profile can support up to 5 trusted client CA certificate chains. 
+
 ## Additional client authentication validation
 
 ### Verify client certificate DN
