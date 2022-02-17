@@ -253,18 +253,32 @@ The set of supported protocols can be extended programmatically (Refer to Data C
 
 ### Custom data source protocol specification
 
-|Type  |Properties |Data type|Comments|
-|----------|-----------|------------|------------|
-|DataSourceProtocol|namespace|string|The namespace of the protocol. Namespace must be from 1 to 255 characters long, contain one or more non-empty parts separated by dot (.). Each part must be from 1 to 255 characters long, start with a letter and contain only letters and numbers. |
-||name|string|The name of the protocol. Name must be from 1 to 255 characters long, start with a letter and contain only letters, numbers, and the dash (-) character.|
-||identityProperties|DataSourceProtocolIdentityProperty[]|List of identity properties, must contain at least one, but no more than 20 properties. For example: "server", "database", "schema", "object" are identity properties of the "tds" protocol.|
-||identitySets|DataSourceProtocolIdentitySet[]|List of identity sets. Defines sets of identity properties, which represent valid asset's identity. Must contain at least one, but no more than 20 sets. For example: {"server", "database", "schema" and "object"} is an identity set for the TDS protocol, which defines identity of SQL Server Table asset.|
-|DataSourceProtocolDataSourceProtocolIdentityProperty|name|string|The name of the property. Name must be from 1 to 100 characters long, start with a letter and can contain only letters and numbers.|
-||type|string|The type of the property. Supported values: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"|
-||ignoreCase|bool|Indicates whether case should be ignored when using property's value. Can only be specified for properties with "string" type. Default value is false.|
-||urlPathSegmentsIgnoreCase|bool[]|Indicates whether case should be ignored for each segment of the url's path. Can only be specified for properties with "url" type. Default value is [false].|
-|DataSourceProtocolIdentitySet|name|string|The name of the identity set.|
-||properties|string[]|The list of identity properties included into this identity set. It can’t contain duplicates. Each property referenced by identity set must be defined in the list of "identityProperties" of the protocol.|
+There are three different types of data source protocol specificiations. Listed below are the types, followed by a table of their properties.
+
+#### DataSourceProtocol
+
+|Properties |Data type|Comments|
+|-----------|------------|------------|
+|namespace|string|The namespace of the protocol. Namespace must be from 1 to 255 characters long, contain one or more non-empty parts separated by dot (.). Each part must be from 1 to 255 characters long, start with a letter and contain only letters and numbers. |
+|name|string|The name of the protocol. Name must be from 1 to 255 characters long, start with a letter and contain only letters, numbers, and the dash (-) character.|
+|identityProperties|DataSourceProtocolIdentityProperty[]|List of identity properties, must contain at least one, but no more than 20 properties. For example: "server", "database", "schema", "object" are identity properties of the "tds" protocol.|
+|identitySets|DataSourceProtocolIdentitySet[]|List of identity sets. Defines sets of identity properties, which represent valid asset's identity. Must contain at least one, but no more than 20 sets. For example: {"server", "database", "schema" and "object"} is an identity set for the TDS protocol, which defines identity of SQL Server Table asset.|
+
+#### DataSourceProtocolIdentityProperty
+
+|Properties |Data type|Comments|
+|-----------|------------|------------|
+|name|string|The name of the property. Name must be from 1 to 100 characters long, start with a letter and can contain only letters and numbers.|
+|type|string|The type of the property. Supported values: "bool", boolean", "byte", "guid", "int", "integer", "long", "string", "url"|
+|ignoreCase|bool|Indicates whether case should be ignored when using property's value. Can only be specified for properties with "string" type. Default value is false.|
+|urlPathSegmentsIgnoreCase|bool[]|Indicates whether case should be ignored for each segment of the url's path. Can only be specified for properties with "url" type. Default value is [false].|
+
+#### DataSourceProtocolIdentitySet
+
+|Properties |Data type|Comments|
+|-----------|------------|------------|
+|name|string|The name of the identity set.|
+|properties|string[]|The list of identity properties included into this identity set. It can’t contain duplicates. Each property referenced by identity set must be defined in the list of "identityProperties" of the protocol.|
 
 ## Roles and authorization
 
