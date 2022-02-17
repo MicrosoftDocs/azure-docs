@@ -32,7 +32,7 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 [!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-aks.md)]
 ::: zone-end
 
-::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-gke"
+::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
 [!INCLUDE [Prerequisites](./includes/defender-for-container-prerequisites-arc-eks.md)]
 ::: zone-end
 
@@ -71,6 +71,6 @@ A full list of supported alerts is available in the [reference table of all Defe
 [!INCLUDE [Remove the profile](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
 
-::: zone pivot="defender-for-container-aks,defender-for-gke"
+::: zone pivot="defender-for-container-aks,defender-for-container-gke"
 [!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-profile.md)]
 ::: zone-end
