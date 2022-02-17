@@ -422,204 +422,203 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|allcachehits|Yes|Cache Hits (Instance Based)|Count|Total||ShardId, Port, Primary|
-|allcachemisses|Yes|Cache Misses (Instance Based)|Count|Total||ShardId, Port, Primary|
-|allcacheRead|Yes|Cache Read (Instance Based)|BytesPerSecond|Maximum||ShardId, Port, Primary|
-|allcacheWrite|Yes|Cache Write (Instance Based)|BytesPerSecond|Maximum||ShardId, Port, Primary|
-|allconnectedclients|Yes|Connected Clients (Instance Based)|Count|Maximum||ShardId, Port, Primary|
-|allevictedkeys|Yes|Evicted Keys (Instance Based)|Count|Total||ShardId, Port, Primary|
-|allexpiredkeys|Yes|Expired Keys (Instance Based)|Count|Total||ShardId, Port, Primary|
-|allgetcommands|Yes|Gets (Instance Based)|Count|Total||ShardId, Port, Primary|
-|alloperationsPerSecond|Yes|Operations Per Second (Instance Based)|Count|Maximum||ShardId, Port, Primary|
-|allpercentprocessortime|Yes|CPU (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
-|allserverLoad|Yes|Server Load (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
-|allsetcommands|Yes|Sets (Instance Based)|Count|Total||ShardId, Port, Primary|
-|alltotalcommandsprocessed|Yes|Total Operations  (Instance Based)|Count|Total||ShardId, Port, Primary|
-|alltotalkeys|Yes|Total Keys (Instance Based)|Count|Maximum||ShardId, Port, Primary|
-|allusedmemory|Yes|Used Memory (Instance Based)|Bytes|Maximum||ShardId, Port, Primary|
-|allusedmemorypercentage|Yes|Used Memory Percentage (Instance Based)|Percent|Maximum||ShardId, Port, Primary|
-|allusedmemoryRss|Yes|Used Memory RSS (Instance Based)|Bytes|Maximum||ShardId, Port, Primary|
-|cachehits|Yes|Cache Hits|Count|Total||ShardId|
-|cachehits0|Yes|Cache Hits (Shard 0)|Count|Total||No Dimensions|
-|cachehits1|Yes|Cache Hits (Shard 1)|Count|Total||No Dimensions|
-|cachehits2|Yes|Cache Hits (Shard 2)|Count|Total||No Dimensions|
-|cachehits3|Yes|Cache Hits (Shard 3)|Count|Total||No Dimensions|
-|cachehits4|Yes|Cache Hits (Shard 4)|Count|Total||No Dimensions|
-|cachehits5|Yes|Cache Hits (Shard 5)|Count|Total||No Dimensions|
-|cachehits6|Yes|Cache Hits (Shard 6)|Count|Total||No Dimensions|
-|cachehits7|Yes|Cache Hits (Shard 7)|Count|Total||No Dimensions|
-|cachehits8|Yes|Cache Hits (Shard 8)|Count|Total||No Dimensions|
-|cachehits9|Yes|Cache Hits (Shard 9)|Count|Total||No Dimensions|
-|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average||ShardId|
-|cachemisses|Yes|Cache Misses|Count|Total||ShardId|
-|cachemisses0|Yes|Cache Misses (Shard 0)|Count|Total||No Dimensions|
-|cachemisses1|Yes|Cache Misses (Shard 1)|Count|Total||No Dimensions|
-|cachemisses2|Yes|Cache Misses (Shard 2)|Count|Total||No Dimensions|
-|cachemisses3|Yes|Cache Misses (Shard 3)|Count|Total||No Dimensions|
-|cachemisses4|Yes|Cache Misses (Shard 4)|Count|Total||No Dimensions|
-|cachemisses5|Yes|Cache Misses (Shard 5)|Count|Total||No Dimensions|
-|cachemisses6|Yes|Cache Misses (Shard 6)|Count|Total||No Dimensions|
-|cachemisses7|Yes|Cache Misses (Shard 7)|Count|Total||No Dimensions|
-|cachemisses8|Yes|Cache Misses (Shard 8)|Count|Total||No Dimensions|
-|cachemisses9|Yes|Cache Misses (Shard 9)|Count|Total||No Dimensions|
-|cachemissrate|Yes|Cache Miss Rate|Percent|cachemissrate||ShardId|
-|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum||ShardId|
-|cacheRead0|Yes|Cache Read (Shard 0)|BytesPerSecond|Maximum||No Dimensions|
-|cacheRead1|Yes|Cache Read (Shard 1)|BytesPerSecond|Maximum||No Dimensions|
-|cacheRead2|Yes|Cache Read (Shard 2)|BytesPerSecond|Maximum||No Dimensions|
-|cacheRead3|Yes|Cache Read (Shard 3)|BytesPerSecond|Maximum||No Dimensions|
-|cacheRead4|Yes|Cache Read (Shard 4)|BytesPerSecond|Maximum||No Dimensions|
-|cacheRead5|Yes|Cache Read (Shard 5)|BytesPerSecond|Maximum||No Dimensions|
-|cacheRead6|Yes|Cache Read (Shard 6)|BytesPerSecond|Maximum||No Dimensions|
-|cacheRead7|Yes|Cache Read (Shard 7)|BytesPerSecond|Maximum||No Dimensions|
-|cacheRead8|Yes|Cache Read (Shard 8)|BytesPerSecond|Maximum||No Dimensions|
-|cacheRead9|Yes|Cache Read (Shard 9)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum||ShardId|
-|cacheWrite0|Yes|Cache Write (Shard 0)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite1|Yes|Cache Write (Shard 1)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite2|Yes|Cache Write (Shard 2)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite3|Yes|Cache Write (Shard 3)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite4|Yes|Cache Write (Shard 4)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite5|Yes|Cache Write (Shard 5)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite6|Yes|Cache Write (Shard 6)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite7|Yes|Cache Write (Shard 7)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite8|Yes|Cache Write (Shard 8)|BytesPerSecond|Maximum||No Dimensions|
-|cacheWrite9|Yes|Cache Write (Shard 9)|BytesPerSecond|Maximum||No Dimensions|
-|connectedclients|Yes|Connected Clients|Count|Maximum||ShardId|
-|connectedclients0|Yes|Connected Clients (Shard 0)|Count|Maximum||No Dimensions|
-|connectedclients1|Yes|Connected Clients (Shard 1)|Count|Maximum||No Dimensions|
-|connectedclients2|Yes|Connected Clients (Shard 2)|Count|Maximum||No Dimensions|
-|connectedclients3|Yes|Connected Clients (Shard 3)|Count|Maximum||No Dimensions|
-|connectedclients4|Yes|Connected Clients (Shard 4)|Count|Maximum||No Dimensions|
-|connectedclients5|Yes|Connected Clients (Shard 5)|Count|Maximum||No Dimensions|
-|connectedclients6|Yes|Connected Clients (Shard 6)|Count|Maximum||No Dimensions|
-|connectedclients7|Yes|Connected Clients (Shard 7)|Count|Maximum||No Dimensions|
-|connectedclients8|Yes|Connected Clients (Shard 8)|Count|Maximum||No Dimensions|
-|connectedclients9|Yes|Connected Clients (Shard 9)|Count|Maximum||No Dimensions|
-|errors|Yes|Errors|Count|Maximum||ShardId, ErrorType|
-|evictedkeys|Yes|Evicted Keys|Count|Total||ShardId|
-|evictedkeys0|Yes|Evicted Keys (Shard 0)|Count|Total||No Dimensions|
-|evictedkeys1|Yes|Evicted Keys (Shard 1)|Count|Total||No Dimensions|
-|evictedkeys2|Yes|Evicted Keys (Shard 2)|Count|Total||No Dimensions|
-|evictedkeys3|Yes|Evicted Keys (Shard 3)|Count|Total||No Dimensions|
-|evictedkeys4|Yes|Evicted Keys (Shard 4)|Count|Total||No Dimensions|
-|evictedkeys5|Yes|Evicted Keys (Shard 5)|Count|Total||No Dimensions|
-|evictedkeys6|Yes|Evicted Keys (Shard 6)|Count|Total||No Dimensions|
-|evictedkeys7|Yes|Evicted Keys (Shard 7)|Count|Total||No Dimensions|
-|evictedkeys8|Yes|Evicted Keys (Shard 8)|Count|Total||No Dimensions|
-|evictedkeys9|Yes|Evicted Keys (Shard 9)|Count|Total||No Dimensions|
-|expiredkeys|Yes|Expired Keys|Count|Total||ShardId|
-|expiredkeys0|Yes|Expired Keys (Shard 0)|Count|Total||No Dimensions|
-|expiredkeys1|Yes|Expired Keys (Shard 1)|Count|Total||No Dimensions|
-|expiredkeys2|Yes|Expired Keys (Shard 2)|Count|Total||No Dimensions|
-|expiredkeys3|Yes|Expired Keys (Shard 3)|Count|Total||No Dimensions|
-|expiredkeys4|Yes|Expired Keys (Shard 4)|Count|Total||No Dimensions|
-|expiredkeys5|Yes|Expired Keys (Shard 5)|Count|Total||No Dimensions|
-|expiredkeys6|Yes|Expired Keys (Shard 6)|Count|Total||No Dimensions|
-|expiredkeys7|Yes|Expired Keys (Shard 7)|Count|Total||No Dimensions|
-|expiredkeys8|Yes|Expired Keys (Shard 8)|Count|Total||No Dimensions|
-|expiredkeys9|Yes|Expired Keys (Shard 9)|Count|Total||No Dimensions|
-|getcommands|Yes|Gets|Count|Total||ShardId|
-|getcommands0|Yes|Gets (Shard 0)|Count|Total||No Dimensions|
-|getcommands1|Yes|Gets (Shard 1)|Count|Total||No Dimensions|
-|getcommands2|Yes|Gets (Shard 2)|Count|Total||No Dimensions|
-|getcommands3|Yes|Gets (Shard 3)|Count|Total||No Dimensions|
-|getcommands4|Yes|Gets (Shard 4)|Count|Total||No Dimensions|
-|getcommands5|Yes|Gets (Shard 5)|Count|Total||No Dimensions|
-|getcommands6|Yes|Gets (Shard 6)|Count|Total||No Dimensions|
-|getcommands7|Yes|Gets (Shard 7)|Count|Total||No Dimensions|
-|getcommands8|Yes|Gets (Shard 8)|Count|Total||No Dimensions|
-|getcommands9|Yes|Gets (Shard 9)|Count|Total||No Dimensions|
-|operationsPerSecond|Yes|Operations Per Second|Count|Maximum||ShardId|
-|operationsPerSecond0|Yes|Operations Per Second (Shard 0)|Count|Maximum||No Dimensions|
-|operationsPerSecond1|Yes|Operations Per Second (Shard 1)|Count|Maximum||No Dimensions|
-|operationsPerSecond2|Yes|Operations Per Second (Shard 2)|Count|Maximum||No Dimensions|
-|operationsPerSecond3|Yes|Operations Per Second (Shard 3)|Count|Maximum||No Dimensions|
-|operationsPerSecond4|Yes|Operations Per Second (Shard 4)|Count|Maximum||No Dimensions|
-|operationsPerSecond5|Yes|Operations Per Second (Shard 5)|Count|Maximum||No Dimensions|
-|operationsPerSecond6|Yes|Operations Per Second (Shard 6)|Count|Maximum||No Dimensions|
-|operationsPerSecond7|Yes|Operations Per Second (Shard 7)|Count|Maximum||No Dimensions|
-|operationsPerSecond8|Yes|Operations Per Second (Shard 8)|Count|Maximum||No Dimensions|
-|operationsPerSecond9|Yes|Operations Per Second (Shard 9)|Count|Maximum||No Dimensions|
-|percentProcessorTime|Yes|CPU|Percent|Maximum||ShardId|
-|percentProcessorTime0|Yes|CPU (Shard 0)|Percent|Maximum||No Dimensions|
-|percentProcessorTime1|Yes|CPU (Shard 1)|Percent|Maximum||No Dimensions|
-|percentProcessorTime2|Yes|CPU (Shard 2)|Percent|Maximum||No Dimensions|
-|percentProcessorTime3|Yes|CPU (Shard 3)|Percent|Maximum||No Dimensions|
-|percentProcessorTime4|Yes|CPU (Shard 4)|Percent|Maximum||No Dimensions|
-|percentProcessorTime5|Yes|CPU (Shard 5)|Percent|Maximum||No Dimensions|
-|percentProcessorTime6|Yes|CPU (Shard 6)|Percent|Maximum||No Dimensions|
-|percentProcessorTime7|Yes|CPU (Shard 7)|Percent|Maximum||No Dimensions|
-|percentProcessorTime8|Yes|CPU (Shard 8)|Percent|Maximum||No Dimensions|
-|percentProcessorTime9|Yes|CPU (Shard 9)|Percent|Maximum||No Dimensions|
-|serverLoad|Yes|Server Load|Percent|Maximum||ShardId|
-|serverLoad0|Yes|Server Load (Shard 0)|Percent|Maximum||No Dimensions|
-|serverLoad1|Yes|Server Load (Shard 1)|Percent|Maximum||No Dimensions|
-|serverLoad2|Yes|Server Load (Shard 2)|Percent|Maximum||No Dimensions|
-|serverLoad3|Yes|Server Load (Shard 3)|Percent|Maximum||No Dimensions|
-|serverLoad4|Yes|Server Load (Shard 4)|Percent|Maximum||No Dimensions|
-|serverLoad5|Yes|Server Load (Shard 5)|Percent|Maximum||No Dimensions|
-|serverLoad6|Yes|Server Load (Shard 6)|Percent|Maximum||No Dimensions|
-|serverLoad7|Yes|Server Load (Shard 7)|Percent|Maximum||No Dimensions|
-|serverLoad8|Yes|Server Load (Shard 8)|Percent|Maximum||No Dimensions|
-|serverLoad9|Yes|Server Load (Shard 9)|Percent|Maximum||No Dimensions|
-|setcommands|Yes|Sets|Count|Total||ShardId|
-|setcommands0|Yes|Sets (Shard 0)|Count|Total||No Dimensions|
-|setcommands1|Yes|Sets (Shard 1)|Count|Total||No Dimensions|
-|setcommands2|Yes|Sets (Shard 2)|Count|Total||No Dimensions|
-|setcommands3|Yes|Sets (Shard 3)|Count|Total||No Dimensions|
-|setcommands4|Yes|Sets (Shard 4)|Count|Total||No Dimensions|
-|setcommands5|Yes|Sets (Shard 5)|Count|Total||No Dimensions|
-|setcommands6|Yes|Sets (Shard 6)|Count|Total||No Dimensions|
-|setcommands7|Yes|Sets (Shard 7)|Count|Total||No Dimensions|
-|setcommands8|Yes|Sets (Shard 8)|Count|Total||No Dimensions|
-|setcommands9|Yes|Sets (Shard 9)|Count|Total||No Dimensions|
-|totalcommandsprocessed|Yes|Total Operations|Count|Total||ShardId|
-|totalcommandsprocessed0|Yes|Total Operations (Shard 0)|Count|Total||No Dimensions|
-|totalcommandsprocessed1|Yes|Total Operations (Shard 1)|Count|Total||No Dimensions|
-|totalcommandsprocessed2|Yes|Total Operations (Shard 2)|Count|Total||No Dimensions|
-|totalcommandsprocessed3|Yes|Total Operations (Shard 3)|Count|Total||No Dimensions|
-|totalcommandsprocessed4|Yes|Total Operations (Shard 4)|Count|Total||No Dimensions|
-|totalcommandsprocessed5|Yes|Total Operations (Shard 5)|Count|Total||No Dimensions|
-|totalcommandsprocessed6|Yes|Total Operations (Shard 6)|Count|Total||No Dimensions|
-|totalcommandsprocessed7|Yes|Total Operations (Shard 7)|Count|Total||No Dimensions|
-|totalcommandsprocessed8|Yes|Total Operations (Shard 8)|Count|Total||No Dimensions|
-|totalcommandsprocessed9|Yes|Total Operations (Shard 9)|Count|Total||No Dimensions|
-|totalkeys|Yes|Total Keys|Count|Maximum||ShardId|
-|totalkeys0|Yes|Total Keys (Shard 0)|Count|Maximum||No Dimensions|
-|totalkeys1|Yes|Total Keys (Shard 1)|Count|Maximum||No Dimensions|
-|totalkeys2|Yes|Total Keys (Shard 2)|Count|Maximum||No Dimensions|
-|totalkeys3|Yes|Total Keys (Shard 3)|Count|Maximum||No Dimensions|
-|totalkeys4|Yes|Total Keys (Shard 4)|Count|Maximum||No Dimensions|
-|totalkeys5|Yes|Total Keys (Shard 5)|Count|Maximum||No Dimensions|
-|totalkeys6|Yes|Total Keys (Shard 6)|Count|Maximum||No Dimensions|
-|totalkeys7|Yes|Total Keys (Shard 7)|Count|Maximum||No Dimensions|
-|totalkeys8|Yes|Total Keys (Shard 8)|Count|Maximum||No Dimensions|
-|totalkeys9|Yes|Total Keys (Shard 9)|Count|Maximum||No Dimensions|
-|usedmemory|Yes|Used Memory|Bytes|Maximum||ShardId|
-|usedmemory0|Yes|Used Memory (Shard 0)|Bytes|Maximum||No Dimensions|
-|usedmemory1|Yes|Used Memory (Shard 1)|Bytes|Maximum||No Dimensions|
-|usedmemory2|Yes|Used Memory (Shard 2)|Bytes|Maximum||No Dimensions|
-|usedmemory3|Yes|Used Memory (Shard 3)|Bytes|Maximum||No Dimensions|
-|usedmemory4|Yes|Used Memory (Shard 4)|Bytes|Maximum||No Dimensions|
-|usedmemory5|Yes|Used Memory (Shard 5)|Bytes|Maximum||No Dimensions|
-|usedmemory6|Yes|Used Memory (Shard 6)|Bytes|Maximum||No Dimensions|
-|usedmemory7|Yes|Used Memory (Shard 7)|Bytes|Maximum||No Dimensions|
-|usedmemory8|Yes|Used Memory (Shard 8)|Bytes|Maximum||No Dimensions|
-|usedmemory9|Yes|Used Memory (Shard 9)|Bytes|Maximum||No Dimensions|
-|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum||ShardId|
-|usedmemoryRss|Yes|Used Memory RSS|Bytes|Maximum||ShardId|
-|usedmemoryRss0|Yes|Used Memory RSS (Shard 0)|Bytes|Maximum||No Dimensions|
-|usedmemoryRss1|Yes|Used Memory RSS (Shard 1)|Bytes|Maximum||No Dimensions|
-|usedmemoryRss2|Yes|Used Memory RSS (Shard 2)|Bytes|Maximum||No Dimensions|
-|usedmemoryRss3|Yes|Used Memory RSS (Shard 3)|Bytes|Maximum||No Dimensions|
-|usedmemoryRss4|Yes|Used Memory RSS (Shard 4)|Bytes|Maximum||No Dimensions|
-|usedmemoryRss5|Yes|Used Memory RSS (Shard 5)|Bytes|Maximum||No Dimensions|
-|usedmemoryRss6|Yes|Used Memory RSS (Shard 6)|Bytes|Maximum||No Dimensions|
-|usedmemoryRss7|Yes|Used Memory RSS (Shard 7)|Bytes|Maximum||No Dimensions|
-|usedmemoryRss8|Yes|Used Memory RSS (Shard 8)|Bytes|Maximum||No Dimensions|
-|usedmemoryRss9|Yes|Used Memory RSS (Shard 9)|Bytes|Maximum||No Dimensions|
-
+|allcachehits|Yes|Cache Hits (Instance Based)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allcachemisses|Yes|Cache Misses (Instance Based)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allcacheRead|Yes|Cache Read (Instance Based)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allcacheWrite|Yes|Cache Write (Instance Based)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allconnectedclients|Yes|Connected Clients (Instance Based)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allevictedkeys|Yes|Evicted Keys (Instance Based)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allexpiredkeys|Yes|Expired Keys (Instance Based)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allgetcommands|Yes|Gets (Instance Based)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|alloperationsPerSecond|Yes|Operations Per Second (Instance Based)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allpercentprocessortime|Yes|CPU (Instance Based)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allserverLoad|Yes|Server Load (Instance Based)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allsetcommands|Yes|Sets (Instance Based)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|alltotalcommandsprocessed|Yes|Total Operations  (Instance Based)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|alltotalkeys|Yes|Total Keys (Instance Based)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allusedmemory|Yes|Used Memory (Instance Based)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allusedmemorypercentage|Yes|Used Memory Percentage (Instance Based)|Percent|Maximum|The percentage of cache memory used for key/value pairs. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|allusedmemoryRss|Yes|Used Memory RSS (Instance Based)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|ShardId, Port, Primary|
+|cachehits|Yes|Cache Hits|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|cachehits0|Yes|Cache Hits (Shard 0)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachehits1|Yes|Cache Hits (Shard 1)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachehits2|Yes|Cache Hits (Shard 2)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachehits3|Yes|Cache Hits (Shard 3)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachehits4|Yes|Cache Hits (Shard 4)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachehits5|Yes|Cache Hits (Shard 5)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachehits6|Yes|Cache Hits (Shard 6)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachehits7|Yes|Cache Hits (Shard 7)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachehits8|Yes|Cache Hits (Shard 8)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachehits9|Yes|Cache Hits (Shard 9)|Count|Total|The number of successful key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheLatency|Yes|Cache Latency Microseconds (Preview)|Count|Average|The latency to the cache in microseconds. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|cachemisses|Yes|Cache Misses|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|cachemisses0|Yes|Cache Misses (Shard 0)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemisses1|Yes|Cache Misses (Shard 1)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemisses2|Yes|Cache Misses (Shard 2)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemisses3|Yes|Cache Misses (Shard 3)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemisses4|Yes|Cache Misses (Shard 4)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemisses5|Yes|Cache Misses (Shard 5)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemisses6|Yes|Cache Misses (Shard 6)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemisses7|Yes|Cache Misses (Shard 7)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemisses8|Yes|Cache Misses (Shard 8)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemisses9|Yes|Cache Misses (Shard 9)|Count|Total|The number of failed key lookups. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cachemissrate|Yes|Cache Miss Rate|Percent|Total|The % of get requests that miss. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|cacheRead|Yes|Cache Read|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId|
+|cacheRead0|Yes|Cache Read (Shard 0)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheRead1|Yes|Cache Read (Shard 1)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheRead2|Yes|Cache Read (Shard 2)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheRead3|Yes|Cache Read (Shard 3)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheRead4|Yes|Cache Read (Shard 4)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheRead5|Yes|Cache Read (Shard 5)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheRead6|Yes|Cache Read (Shard 6)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheRead7|Yes|Cache Read (Shard 7)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheRead8|Yes|Cache Read (Shard 8)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheRead9|Yes|Cache Read (Shard 9)|BytesPerSecond|Maximum|The amount of data read from the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite|Yes|Cache Write|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|ShardId|
+|cacheWrite0|Yes|Cache Write (Shard 0)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite1|Yes|Cache Write (Shard 1)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite2|Yes|Cache Write (Shard 2)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite3|Yes|Cache Write (Shard 3)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite4|Yes|Cache Write (Shard 4)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite5|Yes|Cache Write (Shard 5)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite6|Yes|Cache Write (Shard 6)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite7|Yes|Cache Write (Shard 7)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite8|Yes|Cache Write (Shard 8)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|cacheWrite9|Yes|Cache Write (Shard 9)|BytesPerSecond|Maximum|The amount of data written to the cache in Megabytes per second (MB/s). For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients|Yes|Connected Clients|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|connectedclients0|Yes|Connected Clients (Shard 0)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients1|Yes|Connected Clients (Shard 1)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients2|Yes|Connected Clients (Shard 2)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients3|Yes|Connected Clients (Shard 3)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients4|Yes|Connected Clients (Shard 4)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients5|Yes|Connected Clients (Shard 5)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients6|Yes|Connected Clients (Shard 6)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients7|Yes|Connected Clients (Shard 7)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients8|Yes|Connected Clients (Shard 8)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|connectedclients9|Yes|Connected Clients (Shard 9)|Count|Maximum|The number of client connections to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|errors|Yes|Errors|Count|Maximum|The number errors that occured on the cache. For more details, see https://aka.ms/redis/metrics.|ShardId, ErrorType|
+|evictedkeys|Yes|Evicted Keys|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|evictedkeys0|Yes|Evicted Keys (Shard 0)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|evictedkeys1|Yes|Evicted Keys (Shard 1)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|evictedkeys2|Yes|Evicted Keys (Shard 2)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|evictedkeys3|Yes|Evicted Keys (Shard 3)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|evictedkeys4|Yes|Evicted Keys (Shard 4)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|evictedkeys5|Yes|Evicted Keys (Shard 5)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|evictedkeys6|Yes|Evicted Keys (Shard 6)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|evictedkeys7|Yes|Evicted Keys (Shard 7)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|evictedkeys8|Yes|Evicted Keys (Shard 8)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|evictedkeys9|Yes|Evicted Keys (Shard 9)|Count|Total|The number of items evicted from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys|Yes|Expired Keys|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|expiredkeys0|Yes|Expired Keys (Shard 0)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys1|Yes|Expired Keys (Shard 1)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys2|Yes|Expired Keys (Shard 2)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys3|Yes|Expired Keys (Shard 3)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys4|Yes|Expired Keys (Shard 4)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys5|Yes|Expired Keys (Shard 5)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys6|Yes|Expired Keys (Shard 6)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys7|Yes|Expired Keys (Shard 7)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys8|Yes|Expired Keys (Shard 8)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|expiredkeys9|Yes|Expired Keys (Shard 9)|Count|Total|The number of items expired from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands|Yes|Gets|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|getcommands0|Yes|Gets (Shard 0)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands1|Yes|Gets (Shard 1)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands2|Yes|Gets (Shard 2)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands3|Yes|Gets (Shard 3)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands4|Yes|Gets (Shard 4)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands5|Yes|Gets (Shard 5)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands6|Yes|Gets (Shard 6)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands7|Yes|Gets (Shard 7)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands8|Yes|Gets (Shard 8)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|getcommands9|Yes|Gets (Shard 9)|Count|Total|The number of get operations from the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond|Yes|Operations Per Second|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|operationsPerSecond0|Yes|Operations Per Second (Shard 0)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond1|Yes|Operations Per Second (Shard 1)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond2|Yes|Operations Per Second (Shard 2)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond3|Yes|Operations Per Second (Shard 3)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond4|Yes|Operations Per Second (Shard 4)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond5|Yes|Operations Per Second (Shard 5)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond6|Yes|Operations Per Second (Shard 6)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond7|Yes|Operations Per Second (Shard 7)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond8|Yes|Operations Per Second (Shard 8)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|operationsPerSecond9|Yes|Operations Per Second (Shard 9)|Count|Maximum|The number of instantaneous operations per second executed on the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime|Yes|CPU|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|percentProcessorTime0|Yes|CPU (Shard 0)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime1|Yes|CPU (Shard 1)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime2|Yes|CPU (Shard 2)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime3|Yes|CPU (Shard 3)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime4|Yes|CPU (Shard 4)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime5|Yes|CPU (Shard 5)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime6|Yes|CPU (Shard 6)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime7|Yes|CPU (Shard 7)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime8|Yes|CPU (Shard 8)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|percentProcessorTime9|Yes|CPU (Shard 9)|Percent|Maximum|The CPU utilization of the Azure Redis Cache server as a percentage. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad|Yes|Server Load|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|serverLoad0|Yes|Server Load (Shard 0)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad1|Yes|Server Load (Shard 1)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad2|Yes|Server Load (Shard 2)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad3|Yes|Server Load (Shard 3)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad4|Yes|Server Load (Shard 4)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad5|Yes|Server Load (Shard 5)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad6|Yes|Server Load (Shard 6)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad7|Yes|Server Load (Shard 7)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad8|Yes|Server Load (Shard 8)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|serverLoad9|Yes|Server Load (Shard 9)|Percent|Maximum|The percentage of cycles in which the Redis server is busy processing and not waiting idle for messages. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands|Yes|Sets|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|setcommands0|Yes|Sets (Shard 0)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands1|Yes|Sets (Shard 1)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands2|Yes|Sets (Shard 2)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands3|Yes|Sets (Shard 3)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands4|Yes|Sets (Shard 4)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands5|Yes|Sets (Shard 5)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands6|Yes|Sets (Shard 6)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands7|Yes|Sets (Shard 7)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands8|Yes|Sets (Shard 8)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|setcommands9|Yes|Sets (Shard 9)|Count|Total|The number of set operations to the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed|Yes|Total Operations|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|totalcommandsprocessed0|Yes|Total Operations (Shard 0)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed1|Yes|Total Operations (Shard 1)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed2|Yes|Total Operations (Shard 2)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed3|Yes|Total Operations (Shard 3)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed4|Yes|Total Operations (Shard 4)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed5|Yes|Total Operations (Shard 5)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed6|Yes|Total Operations (Shard 6)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed7|Yes|Total Operations (Shard 7)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed8|Yes|Total Operations (Shard 8)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalcommandsprocessed9|Yes|Total Operations (Shard 9)|Count|Total|The total number of commands processed by the cache server. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys|Yes|Total Keys|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|totalkeys0|Yes|Total Keys (Shard 0)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys1|Yes|Total Keys (Shard 1)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys2|Yes|Total Keys (Shard 2)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys3|Yes|Total Keys (Shard 3)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys4|Yes|Total Keys (Shard 4)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys5|Yes|Total Keys (Shard 5)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys6|Yes|Total Keys (Shard 6)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys7|Yes|Total Keys (Shard 7)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys8|Yes|Total Keys (Shard 8)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|totalkeys9|Yes|Total Keys (Shard 9)|Count|Maximum|The total number of items in the cache. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory|Yes|Used Memory|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|usedmemory0|Yes|Used Memory (Shard 0)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory1|Yes|Used Memory (Shard 1)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory2|Yes|Used Memory (Shard 2)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory3|Yes|Used Memory (Shard 3)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory4|Yes|Used Memory (Shard 4)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory5|Yes|Used Memory (Shard 5)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory6|Yes|Used Memory (Shard 6)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory7|Yes|Used Memory (Shard 7)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory8|Yes|Used Memory (Shard 8)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemory9|Yes|Used Memory (Shard 9)|Bytes|Maximum|The amount of cache memory used for key/value pairs in the cache in MB. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemorypercentage|Yes|Used Memory Percentage|Percent|Maximum|The percentage of cache memory used for key/value pairs. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|usedmemoryRss|Yes|Used Memory RSS|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|ShardId|
+|usedmemoryRss0|Yes|Used Memory RSS (Shard 0)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemoryRss1|Yes|Used Memory RSS (Shard 1)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemoryRss2|Yes|Used Memory RSS (Shard 2)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemoryRss3|Yes|Used Memory RSS (Shard 3)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemoryRss4|Yes|Used Memory RSS (Shard 4)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemoryRss5|Yes|Used Memory RSS (Shard 5)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemoryRss6|Yes|Used Memory RSS (Shard 6)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemoryRss7|Yes|Used Memory RSS (Shard 7)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemoryRss8|Yes|Used Memory RSS (Shard 8)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
+|usedmemoryRss9|Yes|Used Memory RSS (Shard 9)|Bytes|Maximum|The amount of cache memory used in MB, including fragmentation and metadata. For more details, see https://aka.ms/redis/metrics.|No Dimensions|
 
 ## Microsoft.Cache/redisEnterprise
 
@@ -819,8 +818,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |BlockedCalls|Yes|Blocked Calls|Count|Total|Number of calls that exceeded rate or quota limit.|ApiName, OperationName, Region|
-|CharactersTrained|Yes|Characters Trained|Count|Total|Total number of characters trained.|ApiName, OperationName, Region|
-|CharactersTranslated|Yes|Characters Translated|Count|Total|Total number of characters in incoming text request.|ApiName, OperationName, Region|
+|CharactersTrained|Yes|Characters Trained (Deprecated)|Count|Total|Total number of characters trained.|ApiName, OperationName, Region|
+|CharactersTranslated|Yes|Characters Translated (Deprecated)|Count|Total|Total number of characters in incoming text request.|ApiName, OperationName, Region|
 |ClientErrors|Yes|Client Errors|Count|Total|Number of calls with client side error (HTTP response code 4xx).|ApiName, OperationName, Region|
 |DataIn|Yes|Data In|Bytes|Total|Size of incoming data in bytes.|ApiName, OperationName, Region|
 |DataOut|Yes|Data Out|Bytes|Total|Size of outgoing data in bytes.|ApiName, OperationName, Region|
@@ -1551,52 +1550,56 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |---|---|---|---|---|---|---|
 |AddRegion|Yes|Region Added|Count|Count|Region Added|Region|
 |AutoscaleMaxThroughput|No|Autoscale Max Throughput|Count|Maximum|Autoscale Max Throughput|DatabaseName, CollectionName|
-|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage" will be removed from Azure Monitor at the end of September 2023. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, please check [this doc](/azure/cosmos-db/concepts-limits). After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
-|CassandraConnectionClosures|No|Cassandra Connection Closures|Count|Total|Number of Cassandra connections that were closed, reported at a 1 minute granularity|Region, ClosureReason|
+|AvailableStorage|No|(deprecated) Available Storage|Bytes|Total|"Available Storage"will be removed from Azure Monitor at the end of September 2023. Cosmos DB collection storage size is now unlimited. The only restriction is that the storage size for each logical partition key is 20GB. You can enable PartitionKeyStatistics in Diagnostic Log to know the storage consumption for top partition keys. For more info about Cosmos DB storage quota, please check this doc [https://docs.microsoft.com/azure/cosmos-db/concepts-limits](../../cosmos-db/concepts-limits.md). After deprecation, the remaining alert rules still defined on the deprecated metric will be automatically disabled post the deprecation date.|CollectionName, DatabaseName, Region|
+|CassandraConnectionClosures|No|Cassandra Connection Closures|Count|Total|Number of Cassandra connections that were closed, reported at a 1 minute granularity|APIType, Region, ClosureReason|
 |CassandraConnectorAvgReplicationLatency|No|Cassandra Connector Average ReplicationLatency|MilliSeconds|Average|Cassandra Connector Average ReplicationLatency|No Dimensions|
 |CassandraConnectorReplicationHealthStatus|No|Cassandra Connector Replication Health Status|Count|Count|Cassandra Connector Replication Health Status|NotStarted, ReplicationInProgress, Error|
-|CassandraKeyspaceCreate|No|Cassandra Keyspace Created|Count|Count|Cassandra Keyspace Created|ResourceName, |
-|CassandraKeyspaceDelete|No|Cassandra Keyspace Deleted|Count|Count|Cassandra Keyspace Deleted|ResourceName, |
-|CassandraKeyspaceThroughputUpdate|No|Cassandra Keyspace Throughput Updated|Count|Count|Cassandra Keyspace Throughput Updated|ResourceName, |
-|CassandraKeyspaceUpdate|No|Cassandra Keyspace Updated|Count|Count|Cassandra Keyspace Updated|ResourceName, |
-|CassandraRequestCharges|No|Cassandra Request Charges|Count|Total|RUs consumed for Cassandra requests made|DatabaseName, CollectionName, Region, OperationType, ResourceType|
-|CassandraRequests|No|Cassandra Requests|Count|Count|Number of Cassandra requests made|DatabaseName, CollectionName, Region, OperationType, ResourceType, ErrorCode|
-|CassandraTableCreate|No|Cassandra Table Created|Count|Count|Cassandra Table Created|ResourceName, ChildResourceName, |
-|CassandraTableDelete|No|Cassandra Table Deleted|Count|Count|Cassandra Table Deleted|ResourceName, ChildResourceName, |
-|CassandraTableThroughputUpdate|No|Cassandra Table Throughput Updated|Count|Count|Cassandra Table Throughput Updated|ResourceName, ChildResourceName, |
-|CassandraTableUpdate|No|Cassandra Table Updated|Count|Count|Cassandra Table Updated|ResourceName, ChildResourceName, |
+|CassandraKeyspaceCreate|No|Cassandra Keyspace Created|Count|Count|Cassandra Keyspace Created|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|CassandraKeyspaceDelete|No|Cassandra Keyspace Deleted|Count|Count|Cassandra Keyspace Deleted|ResourceName, ApiKind, ApiKindResourceType, OperationType|
+|CassandraKeyspaceThroughputUpdate|No|Cassandra Keyspace Throughput Updated|Count|Count|Cassandra Keyspace Throughput Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
+|CassandraKeyspaceUpdate|No|Cassandra Keyspace Updated|Count|Count|Cassandra Keyspace Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|CassandraRequestCharges|No|Cassandra Request Charges|Count|Total|RUs consumed for Cassandra requests made|APIType, DatabaseName, CollectionName, Region, OperationType, ResourceType|
+|CassandraRequests|No|Cassandra Requests|Count|Count|Number of Cassandra requests made|APIType, DatabaseName, CollectionName, Region, OperationType, ResourceType, ErrorCode|
+|CassandraTableCreate|No|Cassandra Table Created|Count|Count|Cassandra Table Created|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|CassandraTableDelete|No|Cassandra Table Deleted|Count|Count|Cassandra Table Deleted|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
+|CassandraTableThroughputUpdate|No|Cassandra Table Throughput Updated|Count|Count|Cassandra Table Throughput Updated|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
+|CassandraTableUpdate|No|Cassandra Table Updated|Count|Count|Cassandra Table Updated|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
 |CreateAccount|Yes|Account Created|Count|Count|Account Created|No Dimensions|
 |DataUsage|No|Data Usage|Bytes|Total|Total data usage reported at 5 minutes granularity|CollectionName, DatabaseName, Region|
-|DedicatedGatewayAverageCPUUsage|No|DedicatedGatewayAverageCPUUsage|Percent|Average|Average CPU usage across dedicated gateway instances|Region, |
+|DedicatedGatewayAverageCPUUsage|No|DedicatedGatewayAverageCPUUsage|Percent|Average|Average CPU usage across dedicated gateway instances|Region, MetricType|
 |DedicatedGatewayAverageMemoryUsage|No|DedicatedGatewayAverageMemoryUsage|Bytes|Average|Average memory usage across dedicated gateway instances, which is used for both routing requests and caching data|Region|
-|DedicatedGatewayMaximumCPUUsage|No|DedicatedGatewayMaximumCPUUsage|Percent|Average|Average Maximum CPU usage across dedicated gateway instances|Region, |
+|DedicatedGatewayMaximumCPUUsage|No|DedicatedGatewayMaximumCPUUsage|Percent|Average|Average Maximum CPU usage across dedicated gateway instances|Region, MetricType|
 |DedicatedGatewayRequests|Yes|DedicatedGatewayRequests|Count|Count|Requests at the dedicated gateway|DatabaseName, CollectionName, CacheExercised, OperationName, Region|
 |DeleteAccount|Yes|Account Deleted|Count|Count|Account Deleted|No Dimensions|
-|DocumentCount|No|Document Count|Count|Total|Total document count reported at 5 minutes granularity|CollectionName, DatabaseName, Region|
+|DocumentCount|No|Document Count|Count|Total|Total document count reported at 5 minutes, 1 hour and 1 day granularity|CollectionName, DatabaseName, Region|
 |DocumentQuota|No|Document Quota|Bytes|Total|Total storage quota reported at 5 minutes granularity|CollectionName, DatabaseName, Region|
-|GremlinDatabaseCreate|No|Gremlin Database Created|Count|Count|Gremlin Database Created|ResourceName, |
-|GremlinDatabaseDelete|No|Gremlin Database Deleted|Count|Count|Gremlin Database Deleted|ResourceName, |
-|GremlinDatabaseThroughputUpdate|No|Gremlin Database Throughput Updated|Count|Count|Gremlin Database Throughput Updated|ResourceName, |
-|GremlinDatabaseUpdate|No|Gremlin Database Updated|Count|Count|Gremlin Database Updated|ResourceName, |
-|GremlinGraphCreate|No|Gremlin Graph Created|Count|Count|Gremlin Graph Created|ResourceName, ChildResourceName, |
-|GremlinGraphDelete|No|Gremlin Graph Deleted|Count|Count|Gremlin Graph Deleted|ResourceName, ChildResourceName, |
-|GremlinGraphThroughputUpdate|No|Gremlin Graph Throughput Updated|Count|Count|Gremlin Graph Throughput Updated|ResourceName, ChildResourceName, |
-|GremlinGraphUpdate|No|Gremlin Graph Updated|Count|Count|Gremlin Graph Updated|ResourceName, ChildResourceName, |
+|GremlinDatabaseCreate|No|Gremlin Database Created|Count|Count|Gremlin Database Created|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|GremlinDatabaseDelete|No|Gremlin Database Deleted|Count|Count|Gremlin Database Deleted|ResourceName, ApiKind, ApiKindResourceType, OperationType|
+|GremlinDatabaseThroughputUpdate|No|Gremlin Database Throughput Updated|Count|Count|Gremlin Database Throughput Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
+|GremlinDatabaseUpdate|No|Gremlin Database Updated|Count|Count|Gremlin Database Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|GremlinGraphCreate|No|Gremlin Graph Created|Count|Count|Gremlin Graph Created|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|GremlinGraphDelete|No|Gremlin Graph Deleted|Count|Count|Gremlin Graph Deleted|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
+|GremlinGraphThroughputUpdate|No|Gremlin Graph Throughput Updated|Count|Count|Gremlin Graph Throughput Updated|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
+|GremlinGraphUpdate|No|Gremlin Graph Updated|Count|Count|Gremlin Graph Updated|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
 |IndexUsage|No|Index Usage|Bytes|Total|Total index usage reported at 5 minutes granularity|CollectionName, DatabaseName, Region|
 |IntegratedCacheEvictedEntriesSize|No|IntegratedCacheEvictedEntriesSize|Bytes|Average|Size of the entries evicted from the integrated cache|Region|
-|IntegratedCacheItemExpirationCount|No|IntegratedCacheItemExpirationCount|Count|Average|Number of items evicted from the integrated cache due to TTL expiration|Region, |
-|IntegratedCacheItemHitRate|No|IntegratedCacheItemHitRate|Percent|Average|Number of point reads that used the integrated cache divided by number of point reads routed through the dedicated gateway with eventual consistency|Region, |
-|IntegratedCacheQueryExpirationCount|No|IntegratedCacheQueryExpirationCount|Count|Average|Number of queries evicted from the integrated cache due to TTL expiration|Region, |
-|IntegratedCacheQueryHitRate|No|IntegratedCacheQueryHitRate|Percent|Average|Number of queries that used the integrated cache divided by number of queries routed through the dedicated gateway with eventual consistency|Region, |
-|MetadataRequests|No|Metadata Requests|Count|Count|Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.|DatabaseName, CollectionName, Region, StatusCode, |
-|MongoCollectionCreate|No|Mongo Collection Created|Count|Count|Mongo Collection Created|ResourceName, ChildResourceName, |
-|MongoCollectionDelete|No|Mongo Collection Deleted|Count|Count|Mongo Collection Deleted|ResourceName, ChildResourceName, |
-|MongoCollectionThroughputUpdate|No|Mongo Collection Throughput Updated|Count|Count|Mongo Collection Throughput Updated|ResourceName, ChildResourceName, |
-|MongoCollectionUpdate|No|Mongo Collection Updated|Count|Count|Mongo Collection Updated|ResourceName, ChildResourceName, |
-|MongoDatabaseDelete|No|Mongo Database Deleted|Count|Count|Mongo Database Deleted|ResourceName, |
-|MongoDatabaseThroughputUpdate|No|Mongo Database Throughput Updated|Count|Count|Mongo Database Throughput Updated|ResourceName, |
-|MongoDBDatabaseCreate|No|Mongo Database Created|Count|Count|Mongo Database Created|ResourceName, |
-|MongoDBDatabaseUpdate|No|Mongo Database Updated|Count|Count|Mongo Database Updated|ResourceName, |
+|IntegratedCacheItemExpirationCount|No|IntegratedCacheItemExpirationCount|Count|Average|Number of items evicted from the integrated cache due to TTL expiration|Region, CacheEntryType|
+|IntegratedCacheItemHitRate|No|IntegratedCacheItemHitRate|Percent|Average|Number of point reads that used the integrated cache divided by number of point reads routed through the dedicated gateway with eventual consistency|Region, CacheEntryType|
+|IntegratedCacheQueryExpirationCount|No|IntegratedCacheQueryExpirationCount|Count|Average|Number of queries evicted from the integrated cache due to TTL expiration|Region, CacheEntryType|
+|IntegratedCacheQueryHitRate|No|IntegratedCacheQueryHitRate|Percent|Average|Number of queries that used the integrated cache divided by number of queries routed through the dedicated gateway with eventual consistency|Region, CacheEntryType|
+|MaterializedViewCatchupGapInMinutes|No|Materialized View Catchup Gap In Minutes|Count|Maximum|Maximum time difference in minutes between data in source container and data propagated to materialized view|Region, TargetContainerName, BuildType|
+|MaterializedViewsBuilderAverageCPUUsage|No|Materialized Views Builder Average CPU Usage|Percent|Average|Average CPU usage across materialized view builder instances, which are used for populating data in materialized views|Region, MetricType|
+|MaterializedViewsBuilderAverageMemoryUsage|No|Materialized Views Builder Average Memory Usage|Bytes|Average|Average memory usage across materialized view builder instances, which are used for populating data in materialized views|Region|
+|MaterializedViewsBuilderMaximumCPUUsage|No|Materialized Views Builder Maximum CPU Usage|Percent|Average|Average Maximum CPU usage across materialized view builder instances, which are used for populating data in materialized views|Region, MetricType|
+|MetadataRequests|No|Metadata Requests|Count|Count|Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.|DatabaseName, CollectionName, Region, StatusCode, Role|
+|MongoCollectionCreate|No|Mongo Collection Created|Count|Count|Mongo Collection Created|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|MongoCollectionDelete|No|Mongo Collection Deleted|Count|Count|Mongo Collection Deleted|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
+|MongoCollectionThroughputUpdate|No|Mongo Collection Throughput Updated|Count|Count|Mongo Collection Throughput Updated|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
+|MongoCollectionUpdate|No|Mongo Collection Updated|Count|Count|Mongo Collection Updated|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|MongoDatabaseDelete|No|Mongo Database Deleted|Count|Count|Mongo Database Deleted|ResourceName, ApiKind, ApiKindResourceType, OperationType|
+|MongoDatabaseThroughputUpdate|No|Mongo Database Throughput Updated|Count|Count|Mongo Database Throughput Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
+|MongoDBDatabaseCreate|No|Mongo Database Created|Count|Count|Mongo Database Created|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|MongoDBDatabaseUpdate|No|Mongo Database Updated|Count|Count|Mongo Database Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
 |MongoRequestCharge|Yes|Mongo Request Charge|Count|Total|Mongo Request Units Consumed|DatabaseName, CollectionName, Region, CommandName, ErrorCode, Status|
 |MongoRequests|Yes|Mongo Requests|Count|Count|Number of Mongo Requests Made|DatabaseName, CollectionName, Region, CommandName, ErrorCode, Status|
 |MongoRequestsCount|No|(deprecated) Mongo Request Rate|CountPerSecond|Average|Mongo request Count per second|DatabaseName, CollectionName, Region, ErrorCode|
@@ -1611,18 +1614,18 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ReplicationLatency|Yes|P99 Replication Latency|MilliSeconds|Average|P99 Replication Latency across source and target regions for geo-enabled account|SourceRegion, TargetRegion|
 |ServerSideLatency|No|Server Side Latency|MilliSeconds|Average|Server Side Latency|DatabaseName, CollectionName, Region, ConnectionMode, OperationType, PublicAPIType|
 |ServiceAvailability|No|Service Availability|Percent|Average|Account requests availability at one hour, day or month granularity|No Dimensions|
-|SqlContainerCreate|No|Sql Container Created|Count|Count|Sql Container Created|ResourceName, ChildResourceName, |
-|SqlContainerDelete|No|Sql Container Deleted|Count|Count|Sql Container Deleted|ResourceName, ChildResourceName, |
-|SqlContainerThroughputUpdate|No|Sql Container Throughput Updated|Count|Count|Sql Container Throughput Updated|ResourceName, ChildResourceName, |
-|SqlContainerUpdate|No|Sql Container Updated|Count|Count|Sql Container Updated|ResourceName, ChildResourceName, |
-|SqlDatabaseCreate|No|Sql Database Created|Count|Count|Sql Database Created|ResourceName, |
-|SqlDatabaseDelete|No|Sql Database Deleted|Count|Count|Sql Database Deleted|ResourceName, |
-|SqlDatabaseThroughputUpdate|No|Sql Database Throughput Updated|Count|Count|Sql Database Throughput Updated|ResourceName, |
-|SqlDatabaseUpdate|No|Sql Database Updated|Count|Count|Sql Database Updated|ResourceName, |
-|TableTableCreate|No|AzureTable Table Created|Count|Count|AzureTable Table Created|ResourceName, |
-|TableTableDelete|No|AzureTable Table Deleted|Count|Count|AzureTable Table Deleted|ResourceName, |
-|TableTableThroughputUpdate|No|AzureTable Table Throughput Updated|Count|Count|AzureTable Table Throughput Updated|ResourceName, |
-|TableTableUpdate|No|AzureTable Table Updated|Count|Count|AzureTable Table Updated|ResourceName, |
+|SqlContainerCreate|No|Sql Container Created|Count|Count|Sql Container Created|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|SqlContainerDelete|No|Sql Container Deleted|Count|Count|Sql Container Deleted|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
+|SqlContainerThroughputUpdate|No|Sql Container Throughput Updated|Count|Count|Sql Container Throughput Updated|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
+|SqlContainerUpdate|No|Sql Container Updated|Count|Count|Sql Container Updated|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|SqlDatabaseCreate|No|Sql Database Created|Count|Count|Sql Database Created|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|SqlDatabaseDelete|No|Sql Database Deleted|Count|Count|Sql Database Deleted|ResourceName, ApiKind, ApiKindResourceType, OperationType|
+|SqlDatabaseThroughputUpdate|No|Sql Database Throughput Updated|Count|Count|Sql Database Throughput Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
+|SqlDatabaseUpdate|No|Sql Database Updated|Count|Count|Sql Database Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|TableTableCreate|No|AzureTable Table Created|Count|Count|AzureTable Table Created|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
+|TableTableDelete|No|AzureTable Table Deleted|Count|Count|AzureTable Table Deleted|ResourceName, ApiKind, ApiKindResourceType, OperationType|
+|TableTableThroughputUpdate|No|AzureTable Table Throughput Updated|Count|Count|AzureTable Table Throughput Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
+|TableTableUpdate|No|AzureTable Table Updated|Count|Count|AzureTable Table Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
 |TotalRequests|Yes|Total Requests|Count|Count|Number of requests made|DatabaseName, CollectionName, Region, StatusCode, OperationType, Status|
 |TotalRequestUnits|Yes|Total Request Units|Count|Total|Request Units consumed|DatabaseName, CollectionName, Region, StatusCode, OperationType, Status|
 |UpdateAccountKeys|Yes|Account Keys Updated|Count|Count|Account Keys Updated|KeyType|
