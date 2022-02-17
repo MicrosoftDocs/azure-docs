@@ -102,7 +102,7 @@ Learn more about the [authoring and prediction endpoints](developer-reference-re
 
 ## Failover regions
 
-Each region has a secondary region to fail over to. We ensure failover to happen in the same geographical region.
+Each region has a secondary region to fail over to. Failover will only happen in the same geographical region.
 
 Authoring regions have [paired fail-over regions](../../availability-zones/cross-region-replication-azure.md).
 
