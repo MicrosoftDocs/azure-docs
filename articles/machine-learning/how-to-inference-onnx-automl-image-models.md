@@ -1173,7 +1173,7 @@ print(json.dumps(bounding_boxes_batch, indent=1))
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-- Either use the steps mentioned for Faster R-CNN (in case of Mask R-CNN, each sample has four elements boxes, labels, scores, masks) or refer to visualization section for *instance segmentation*.
+ You can either use the steps mentioned for Faster R-CNN (in case of Mask R-CNN, each sample has four elements boxes, labels, scores, masks) or refer to the [visualize predictions](#visualize-predictions) section for instance segmentation.
 
 ---
 
