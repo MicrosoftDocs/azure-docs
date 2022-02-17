@@ -140,7 +140,6 @@ Mapping data flows are available in the following regions in ADF:
 | Germany West Central (Public) | ✓ |
 | Japan East | ✓ |
 | Japan West | ✓	|
-| Jio India West | ✓ |
 | Korea Central	| ✓ |
 | Korea South | |
 | North Central US	| ✓ |
@@ -166,7 +165,7 @@ Mapping data flows are available in the following regions in ADF:
 | US Gov Virginia | ✓ |
 | West Central US |		|
 | West Europe	| ✓ |
-| West India | |
+| West India | ✓ |
 | West US	| ✓ |
 | West US 2	| ✓ |
 | West US 3	| ✓ |
