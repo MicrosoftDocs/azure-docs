@@ -137,7 +137,7 @@ Mapping data flows are available in the following regions in ADF:
 | Germany Non-Regional (Sovereign) | |
 | Germany North (Public) | |
 | Germany Northeast (Sovereign) | |
-| Germany West Central (Public) |  |
+| Germany West Central (Public) | ✓ |
 | Japan East | ✓ |
 | Japan West |	|
 | Korea Central	| ✓ |
@@ -149,7 +149,7 @@ Mapping data flows are available in the following regions in ADF:
 | South Africa North	| ✓ |
 | South Africa West	|  |
 | South Central US	| |
-| South India | |
+| South India | ✓ |
 | Southeast Asia	| ✓ |
 | Switzerland North	| ✓ |
 | Switzerland West | |
