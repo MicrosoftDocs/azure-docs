@@ -60,6 +60,8 @@ The database server name is used to connect applications to the primary server. 
  
 Automatic backups, both snapshots and log backups, are performed on locally redundant storage from the primary database server.
 
+* GTID mode should be turned on as the HA solution uses GTID. Check whether your workload has [restrictions or limitations on replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html) and refer [GTID] (https://docs.microsoft.com/en-us/azure/mysql/flexible-server/concepts-read-replicas#global-transaction-identifier-gtid) 
+
 >[!Note]
 >For both zone-redundant and same-zone HA:
 >* If there's a failure, the time needed for the standby replica to take over the role of primary depends on the binary log application on the standby. So we recommend that you use primary keys on all tables to reduce failover time. Failover times are typically between 60 and 120 seconds. 
@@ -101,7 +103,7 @@ Here are some considerations to keep in mind when you use high availability:
 * Restarting the primary database server to pick up static parameter changes also restarts the standby replica.
 * Read replicas aren't supported for HA servers.
 * Data-in Replication isn't supported for HA servers.
-* GTID mode will be turned on as the HA solution uses GTID. Check whether your workload has [restrictions or limitations on replication with GTIDs](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids-restrictions.html).  
+
  
 ## Frequently asked questions (FAQ)
 
