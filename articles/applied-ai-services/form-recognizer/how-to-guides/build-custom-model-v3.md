@@ -73,7 +73,7 @@ You'll see the files you uploaded to storage on the left of your screen, with th
 
 1. Enter a name for the field
 
-1. To assign a value to the field, simply click on a word or words in the document and select on the field in either the dropdown or the field list on the right nav. You'll see the labeled value below the field name in the list of fields.
+1. To assign a value to the field, simply choose a word or words in the document and select the field in either the dropdown or the field list on the right navigation bar. You'll see the labeled value below the field name in the list of fields.
 
 1. Repeat this process for all the fields you wish to label for your dataset
 
