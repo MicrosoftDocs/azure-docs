@@ -85,7 +85,6 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 ### Model generation for batch scoring
 
-- For classification, by default, generated ONNX model for the best child-run support batch scoring. Proceed to the next section
 
 - By default, object detection and instance segmentation models don't support batch inferencing
 
