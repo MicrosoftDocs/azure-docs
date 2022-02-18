@@ -116,7 +116,7 @@ There are several predefined roles. If a predefined role doesn't fit your needs,
 Key Vault access policies grant permissions separately to keys, secrets, or certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are managed at the vault level.
 
 > [!IMPORTANT]
-> Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key vault.
+> Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key vault. For more granular control, please refer to our [Azure RBAC for key vault](../key-vault/general/rbac-guide.md) documentation.
 
 You can set access policies for a key vault use the [Azure portal](assign-access-policy-portal.md), the [Azure CLI](assign-access-policy-cli.md), [Azure PowerShell](assign-access-policy-powershell.md), or the [Key Vault Management REST APIs](/rest/api/keyvault/).
 
