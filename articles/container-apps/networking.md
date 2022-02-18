@@ -9,13 +9,33 @@ ms.date: 2/18/2022
 ms.author: cshoe
 ---
 
-# TODO
+# Networking architecture in Azure Container Apps
+
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options
+
+https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-virtual-network-integration/ba-p/3096932
 
 ## Environments
 
-with and without bring you own VNet
+deploy to a virtual network, 
+
+by default .....
+
+
+
+
+we create VNET for you, but you are not able to access it
+inaccessible Azure-based VNET in the MS tenant
+
+if you bring you own, you can do whatever you want with it
+
+virtual network boundary (environment) all container apps in the network can communicate with one another
+
+https://docs.microsoft.com/en-us/azure/app-service/environment/intro#virtual-network-support
 
 ## Use cases
+
+
 
 ## Default networking behavior
 
@@ -29,6 +49,8 @@ Outbound
 ### ingress configuration
 
 ## Scenarios
+
+
 
 ## Ports
 
