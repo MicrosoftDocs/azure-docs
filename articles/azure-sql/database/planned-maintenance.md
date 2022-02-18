@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: kendralittle, mathoma
-ms.date: 03/02/2022
+ms.date: 03/07/2022
 ---
 
 # Plan for Azure maintenance events in Azure SQL Database and Azure SQL Managed Instance

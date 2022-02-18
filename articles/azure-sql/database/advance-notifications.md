@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: how-to
 author: scott-kim-sql
 ms.author: scottkim
-ms.reviewer: kendralittle, mathoma, wiassaf
-ms.date: 03/02/2022
+ms.reviewer: kendralittle, mathoma, wiassaf, urosmil
+ms.date: 03/07/2022
 ---
 # Advance notifications for planned maintenance events (Preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -22,7 +22,7 @@ Notifications can be configured so you can get texts, emails, Azure push notific
 Advance notifications cannot be configured for the **System default** maintenance window option. Choose a maintenance window other than the **System default** to configure and enable Advance notifications.
 
 > [!NOTE]
-> Maintenance windows and advance notifications for maintenance windows are generally available for Azure SQL Database. For Azure SQL Managed Instance, maintenance windows are generally available but advance notifications are in public preview.
+> While [maintenance windows](maintenance-window.md) are generally available, advance notifications for maintenance windows are in public preview for Azure SQL Database and Azure SQL Managed Instance.
 
 ## Create an advance notification
 
@@ -45,8 +45,6 @@ Complete the following steps to enable a notification.
 1. On the **Notifications** tab, select the **Notification type**. The **Email/SMS message/Push/Voice** option offers the most flexibility and is the recommended option. Select the pen to configure the notification.  
 
     :::image type="content" source="media/advance-notifications/notifications.png" alt-text="configure notifications":::
-
-
 
    1. Complete the *Add or edit notification* form that opens and select **OK**: 
 
@@ -79,6 +77,34 @@ The following table shows additional notifications that may be sent while mainte
 |**Canceled**| Maintenance for database *xyz* is canceled and will be rescheduled later. |
 |**Blocked**|There was a problem during maintenance for database *xyz*. We'll notify you when we resume.| 
 |**Resumed**|The problem has been resolved and maintenance will continue at the next maintenance window.|
+
+## Permissions
+
+While Advance Notifications can be sent to any email address, Azure subscription RBAC (role-based access control) policy determines who can access the links in the email. Querying resource graph is covered by [Azure RBAC](../../role-based-access-control/overview.md) access management.  TODO Add memberships.
+
+## Retrieve the list of impacted resources
+
+[Azure Resource Graph](../../articles/governance/resource-graph/overview.md) is an Azure service designed to extend Azure Resource Management. The Azure Resource Graph Explorer provides efficient and performant resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+
+You can use the Azure Resource Graph Explorer to query for maintenance events. For an introduction on how to run these queries, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
+
+When the advanced notification for planned maintenance is received, you will get a link that opens Azure Resource Graph and executes the query for the exact event, similar to the following. Note that the `notificationId` value is unique per maintenance event.  
+
+```kusto
+resources
+| project resource = tolower(id)
+| join kind=inner (
+    maintenanceresources
+    | where type == "microsoft.maintenance/updates"
+    | extend p = parse_json(properties)
+    | mvexpand d = p.value
+    | where d has 'notificationId' and d.notificationId == 'LNPN-R9Z'
+    | project resource = tolower(name), status = d.status
+) on resource
+|project resource, status
+```
+
+For the full reference of the sample queries and how to use them across tools like PowerShell or Azure CLI, visit [Azure Resource Graph sample queries for Azure Service Health](../../service-health/resource-graph-samples.md).
 
 
 ## Next steps
