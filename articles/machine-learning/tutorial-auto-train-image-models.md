@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: AutoML- train object detection model'
 titleSuffix: Azure Machine Learning
-description: Train an  object detection model to identify whether the image contains certain objects with the Azure Machine Learning Python SDK using Azure Machine Learning automated ML.
+description: Train an object detection model to identify if an image contains certain objects with automated ML and the Azure Machine Learning Python SDK  automated ML.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
