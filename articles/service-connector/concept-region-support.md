@@ -46,5 +46,5 @@ Your compute service instance might be created in a region where Service Connect
 
 ## Regions not supported in the public preview
 
-In regions Service Connector doesn't support, you will still find Service Connector CLI commands and the portal node. However, you won't be able to create or manage service connections in these regions. The product team is working actively to enable more regions.
+In regions where Service Connector isn't supported, you will still find Service Connector CLI commands and the portal node, but you won't be able to create or manage service connections. The product team is working actively to enable more regions.
 
