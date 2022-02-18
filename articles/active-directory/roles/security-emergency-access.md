@@ -5,13 +5,13 @@ services: active-directory
 author: markwahl-msft
 manager: karenhoran
 ms.author: rolyon
-ms.date: 11/05/2020
+ms.date: 02/18/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: markwahl-msft
+ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
@@ -32,7 +32,11 @@ An organization might need to use an emergency access account in the following s
 - The person with the most recent Global Administrator access has left the organization. Azure AD prevents the last Global Administrator account from being deleted, but it does not prevent the account from being deleted or disabled on-premises. Either situation might make the organization unable to recover the account.
 - Unforeseen circumstances such as a natural disaster emergency, during which a mobile phone or other networks might be unavailable. 
 
-## How to create an emergency access account
+## Create emergency access accounts
+
+Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the \*.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment.
+
+### How to create an emergency access account
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as an existing Global Administrator.
 
@@ -61,10 +65,6 @@ An organization might need to use an emergency access account in the following s
 1. [Monitor sign-in and audit logs](#monitor-sign-in-and-audit-logs).
 
 1. [Validate accounts regularly](#validate-accounts-regularly).
-
-## Create emergency access accounts
-
-Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the \*.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment.
 
 When configuring these accounts, the following requirements must be met:
 
