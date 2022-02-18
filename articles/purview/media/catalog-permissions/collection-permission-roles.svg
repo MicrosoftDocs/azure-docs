@@ -16,6 +16,12 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs229">
+    <rect
+       x="12904.564"
+       y="631.59156"
+       width="301.44143"
+       height="272.73272"
+       id="rect2736" />
     <clipPath
        clipPathUnits="userSpaceOnUse"
        id="clipPath259">
@@ -39,7 +45,7 @@
      showgrid="false"
      inkscape:zoom="0.13933055"
      inkscape:cx="6864.9697"
-     inkscape:cy="3362.5074"
+     inkscape:cy="3376.8617"
      inkscape:window-width="2560"
      inkscape:window-height="1351"
      inkscape:window-x="1431"
@@ -39228,5 +39234,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM4NsnQ/isbd3hcAAAAASUVORK5CYII=
 "
        id="image233"
        clip-path="url(#clipPath259)" />
+    <text
+       xml:space="preserve"
+       transform="translate(287.08707,387.56754)"
+       id="text2734"
+       style="font-style:normal;font-weight:normal;font-size:192px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect2736);fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="12904.564"
+         y="806.75922"
+         id="tspan10846"><tspan
+           style="font-weight:bold;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Bold'"
+           id="tspan10844">*</tspan></tspan></text>
   </g>
 </svg>
