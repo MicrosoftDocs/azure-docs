@@ -9,7 +9,7 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: ddos-protection
-ms.topic: how-to
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.custom: mode-ui
