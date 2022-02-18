@@ -1,6 +1,6 @@
 ---
-title: Secure an app in Azure Container Apps Preview
-description: Learn to secure applications in Azure Container Apps.
+title: Manage secrets in Azure Container Apps Preview
+description: Learn to store and consume sensitive configuration values in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
-# Secure an app in Azure Container Apps Preview
+# Manage secrets in Azure Container Apps Preview
 
 Azure Container Apps allows your application to securely store sensitive configuration values. Once defined at the application level, secured values are available to containers, inside scale rules, and via Dapr.
 
