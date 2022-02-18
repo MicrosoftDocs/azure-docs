@@ -207,7 +207,7 @@ following these steps to run your first Resource Graph query:
 1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**.
 
 1. In the **Query 1** portion of the window, enter the query
-   `resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceID, properties.targetResourceTypes | limit 5` and select **Run query**.
+   `resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5` and select **Run query**.
 
    > [!NOTE]
    > As this query example doesn't provide a sort modifier such as `order by`, running this query
