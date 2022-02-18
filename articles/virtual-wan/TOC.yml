@@ -91,6 +91,8 @@
       href: point-to-site-ipsec.md
     - name: About P2S client address pools
       href: about-client-address-pools.md
+    - name: About P2S global and hub-based profiles
+      href: global-hub-profile.md
   - name: Security
     items:
     - name: Security baseline
