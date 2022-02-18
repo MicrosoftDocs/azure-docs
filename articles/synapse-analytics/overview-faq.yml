@@ -2,7 +2,6 @@
 metadata:
   title: FAQ - Azure Synapse Analytics
   description: FAQ for Azure Synapse Analytics
-  services: synapse-analytics
   author: saveenr
   ms.service: synapse-analytics
   ms.topic: overview

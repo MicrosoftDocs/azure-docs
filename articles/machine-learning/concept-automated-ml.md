@@ -305,6 +305,8 @@ How-to articles provide additional detail into what functionality automated ML o
 +  Learn how to [train forecasting models with time series data](how-to-auto-train-forecast.md).
 
 +  Learn how to [train computer vision models with Python](how-to-auto-train-image-models.md).
+
++  Learn how to [view the generated code from your automated ML models](how-to-generate-automl-training-code.md).
    
 ### Jupyter notebook samples 
 
