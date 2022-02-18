@@ -1,7 +1,7 @@
 ---
 title: Get resource changes
 description: Understand how to find when a resource was changed and query the list of resource configuration changes at scale
-ms.date: 01/27/2022
+ms.date: 02/18/2022
 ms.topic: how-to
 ---
 # Get resource changes
@@ -101,11 +101,11 @@ Each change resource has the following properties:
 
 ## Resource Graph Query samples
 
-With Resource Graph, you can query the **ResourceChanges** table to filter or sort by any of the change resource properties:
+With Resource Graph, you can query the **resourcechanges** table to filter or sort by any of the change resource properties:
 
 ### All changes in the past one day
 ```kusto
-ResourceChanges
+resourcechanges
 | extend changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId),
 changeType = tostring(properties.changeType), correlationId = properties.changeAttributes.correlationId, 
 changedProperties = properties.changes, changeCount = properties.changeAttributes.changesCount
@@ -116,7 +116,7 @@ changedProperties = properties.changes, changeCount = properties.changeAttr
 
 ### Resources deleted in a specific resource group
 ```kusto
-ResourceChanges
+resourcechanges
 | where resourceGroup == "myResourceGroup"
 | extend changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId),
 changeType = tostring(properties.changeType), correlationId = properties.changeAttributes.correlationId
@@ -127,7 +127,7 @@ changeType = tostring(properties.changeType), correlationId = properties.ch
 
 ### Changes to a specific property value
 ```kusto
-ResourceChanges
+resourcechanges
 | extend provisioningStateChange = properties.changes["properties.provisioningState"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType)
 | where isnotempty(provisioningStateChange)and provisioningStateChange.newValue == "Succeeded"
 | order by changeTime desc
@@ -136,7 +136,7 @@ ResourceChanges
 
 ### Query the latest resource configuration for resources created in the last seven days
 ```kusto
-ResourceChanges
+resourcechanges
 | extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp)
 | where changeTime > ago(7d) and changeType == "Create"
 | project  targetResourceId, changeType, changeTime
