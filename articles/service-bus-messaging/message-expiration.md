@@ -46,7 +46,7 @@ Automatic cleanup is useful in development and test scenarios in which entities 
 The feature is enabled using the **auto delete on idle** property on the namespace. This property is set to the duration for which an entity must be idle (unused) before it's automatically deleted. The minimum value for this property is 5 minutes.
 
 > [!IMPORTANT] 
-> Setting the Azure Resource Manager lock-level to [`CanNotDelete`](../azure-resource-manager/management/lock-resources.md), on the namespace or at a higher level doesn't prevent entities with AutoDeleteOnIdle from being deleted. If you don't want the entity to be deleted, set the AutoDeleteOnIdle property to DataTime.MaxValue
+> Setting the Azure Resource Manager lock-level to [`CanNotDelete`](../azure-resource-manager/management/lock-resources.md), on the namespace or at a higher level doesn't prevent entities with `AutoDeleteOnIdle` from being deleted. If you don't want the entity to be deleted, set the `AutoDeleteOnIdle` property to `DataTime.MaxValue`.
 
  
 ## Idleness
