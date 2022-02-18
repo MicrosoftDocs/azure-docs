@@ -62,7 +62,7 @@ This is a special type of resize recommendation, where Advisor analyzes workload
   - If the P95 of CPU is less than two times the burstable SKUs' baseline performance
   - If the current SKU does not have accelerated networking enabled (burstable SKUs don’t support accelerated networking yet)
   - If we determine that the Burstable SKU credits are sufficient to support the average CPU utilization over 7 days
-- The result is a recommendation suggesting that the user resize their current VM to a burstable SKU (with the same number of cores) to take advantage of the low costs and the fact that the workload has low average utilization but high spikes in cases, which is perfect for the B-series SKU. 
+- The result is a recommendation suggesting that the user resize their current VM to a burstable SKU (with the same number of cores) to take advantage of the low costs and the fact that the workload has low average utilization but high spikes in cases, which can be best served by the B-series SKU. 
  
 Advisor shows the estimated cost savings for either recommended action: resize or shut down. For resize, Advisor provides current and target SKU information.
 To be more selective about the actioning on underutilized virtual machines, you can adjust the CPU utilization rule on a per-subscription basis.
