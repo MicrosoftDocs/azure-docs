@@ -22630,6 +22630,41 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/scheduler/scheduler-advanced-complexity.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-concepts-terms.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-powershell-reference.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-plans-billing.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-limits-defaults-errors.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-high-availability-reliability.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-outbound-authentication.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
@@ -26255,8 +26290,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md",
+      "redirect_url": "/azure/storage/blobs/quickstart-blobs-javascript-browser",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-legacy.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
+      "redirect_document_id": false
+    },        
+    {
       "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-v10.md",
-      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
       "redirect_document_id": false
     },
     {

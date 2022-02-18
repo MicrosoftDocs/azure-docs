@@ -41,6 +41,8 @@ For more information on how to set up mutual authentication, see [configure mutu
 > [!IMPORTANT]
 > Make sure you upload the entire trusted client CA certificate chain to the Application Gateway when using mutual authentication. 
 
+Each SSL profile can support up to 5 trusted client CA certificate chains. 
+
 ## Additional client authentication validation
 
 ### Verify client certificate DN
@@ -67,6 +69,10 @@ For more information on how to extract trusted client CA certificate chains, see
 ## Server variables 
 
 With mutual authentication, there are additional server variables that you can use to pass information about the client certificate to the backend servers behind the Application Gateway. For more information about which server variables are available and how to use them, check out [server variables](./rewrite-http-headers-url.md#mutual-authentication-server-variables-preview).
+
+## Certificate Revocation
+
+Client certificate revocation with OCSP (Online Certificate Status Protocol) will be supported shortly. 
 
 ## Next steps
 

@@ -456,7 +456,7 @@ items:
         href: agents/data-collection-rule-azure-monitor-agent.md
       - name: Use data collection endpoints
         href: agents/azure-monitor-agent-dce.md
-      - name: Migrate from legacy agents
+      - name: Migrate from Log Analytics agent
         displayName: Migrate to Azure Monitor agent
         href: agents/azure-monitor-agent-migration.md
       - name: FAQ
@@ -567,6 +567,8 @@ items:
       href: autoscale/autoscale-get-started.md
     - name: Configuration settings
       href: autoscale/autoscale-understanding-settings.md
+    - name: Predictive autoscale
+      href: autoscale/autoscale-predictive.md
     - name: Best practices
       href: autoscale/autoscale-best-practices.md
     - name: Common metrics
