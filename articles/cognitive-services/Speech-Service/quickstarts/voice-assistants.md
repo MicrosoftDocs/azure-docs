@@ -19,6 +19,9 @@ zone_pivot_groups: programming-languages-voice-assistants
 
 [!INCLUDE [Header](../includes/quickstarts/voice-assistants/header.md)]
 
+> [!NOTE]
+> The Speech SDK for C++, JavaScript, Objective-C, Python, and Swift support custom voice assistants, but we haven't yet included a guide here. 
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/voice-assistants/csharp/header.md)]
 [!INCLUDE [csharp](../includes/quickstarts/voice-assistants/csharp/csharp.md)]

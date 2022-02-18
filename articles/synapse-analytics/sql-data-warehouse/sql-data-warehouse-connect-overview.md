@@ -1,7 +1,6 @@
 ---
 title: Connect to a SQL pool in Azure Synapse 
 description: Get connected to SQL pool.
-services: synapse-analytics
 author: joannapea 
 manager: craigg
 ms.service: synapse-analytics
