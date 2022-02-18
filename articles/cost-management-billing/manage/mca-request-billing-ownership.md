@@ -130,28 +130,28 @@ As the user that approved the transfer:
 
 You can request billing ownership of the subscription types listed below.
 
-- [Action pack](https://azure.microsoft.com/offers/ms-azr-0025p/)\*
-- [Azure in Open Licensing](https://azure.microsoft.com/offers/ms-azr-0111p/)\*
-- [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)\*
+- [Action pack](https://azure.microsoft.com/offers/ms-azr-0025p/)<sup>1</sup>
+- [Azure in Open Licensing](https://azure.microsoft.com/offers/ms-azr-0111p/)<sup>1</sup>
+- [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)<sup>1</sup>
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
-- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)\*
+- [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/)<sup>1</sup>
 - [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
-- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
-- [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)\*
+- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)<sup>2</sup>
+- [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)<sup>1</sup>
 - [Microsoft Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)
-- [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)\*
-- [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)\*
-- [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)\*
-- [Visual Studio Enterprise (MPN) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)\*
-- [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)\*
-- [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)\*
-- [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)\*
+- [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)<sup>1</sup>
+- [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)<sup>1</sup>
+- [Visual Studio Enterprise (BizSpark) subscribers](https://azure.microsoft.com/offers/ms-azr-0064p/)<sup>1</sup>
+- [Visual Studio Enterprise (MPN) subscribers](https://azure.microsoft.com/offers/ms-azr-0029p/)<sup>1</sup>
+- [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)<sup>1</sup>
+- [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)<sup>1</sup>
+- [Visual Studio Test Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0060p/)<sup>1</sup>
 
-\* Any credit available on the subscription won't be available in the new account after the transfer.
+<sup>1</sup> Any credit available on the subscription won't be available in the new account after the transfer.
 
-\*\* Only supported for subscriptions in accounts that are created during sign-up on the Azure website.
+<sup>2</sup> Only supported for subscriptions in accounts that are created during sign-up on the Azure website.
 
 ## Additional information
 
