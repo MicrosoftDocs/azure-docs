@@ -25,6 +25,8 @@ In this tutorial, you learn how to:
 >
 > * Launch the Migrate to Azure SQL wizard in Azure Data Studio.
 > * Run an assessment of your source SQL Server database(s)
+> * Collect performance data from your source SQL Server
+> * Get a recommendation of the Azure SQL Managed Instance SKU best suited for your workload
 > * Specify details of your source SQL Server, backup location and your target SQL Server on Azure Virtual Machine
 > * Create a new Azure Database Migration Service and install the self-hosted integration runtime to access source server and backups.
 > * Start and monitor the progress for your migration.
