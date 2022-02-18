@@ -48,9 +48,9 @@ You'll use the bastion host to connect securely to the VM for testing the privat
 
 1. Create a virtual network and bastion host with:
 
-* [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
-* [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
-* [New-AzBastion](/powershell/module/az.network/new-azbastion)
+   * [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)
+   * [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
+   * [New-AzBastion](/powershell/module/az.network/new-azbastion)
 
 1. Configure the back-end subnet.
 
