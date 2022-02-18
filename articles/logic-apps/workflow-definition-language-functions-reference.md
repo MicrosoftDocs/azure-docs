@@ -3449,7 +3449,7 @@ parseDateTime('<timestamp>', '<locale>', '<format>'?)
 
 | Return value | Type | Description |
 |--------------|------|-------------|
-| <*parsed-timestamp*> | The parsed timestamp in ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK) format, which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
+| <*parsed-timestamp*> | String | The parsed timestamp in ["o"](/dotnet/standard/base-types/standard-date-and-time-format-strings) (yyyy-MM-ddTHH:mm:ss.fffffffK) format, which complies with [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) and preserves time zone information. |
 ||||
 
 *Examples*
