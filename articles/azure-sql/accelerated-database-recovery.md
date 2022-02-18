@@ -124,7 +124,7 @@ The four key components of ADR are:
 
   The cleaner is the asynchronous process that wakes up periodically and cleans page versions that are not needed.
 
-## Accelerated Database Recovery patterns
+## Accelerated Database Recovery (ADR) patterns
 
 The following types of workloads benefit most from ADR:
 
