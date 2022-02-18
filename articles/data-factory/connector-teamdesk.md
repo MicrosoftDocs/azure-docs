@@ -61,12 +61,12 @@ The following properties are supported for the TeamDesk linked service:
 
 ### Basic authentication
 
-Set the **authenticationType** property to **Basic**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+Set the **authenticationType** property to **basic**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user name used to log in to TeamDesk. |Yes  |
-| password | The password for the user (the userName value). |Yes  |
+| password | Specify a password for the user account you specified for the user name. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes  |
 
 **Example:**
 
@@ -79,7 +79,10 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
             "url": "https://www.teamdesk.net/secure/db/xxxxx",
             "authenticationType": "basic",
             "userName": "<user name>",
-            "password": "<password>"
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         }
     }
 }
@@ -87,11 +90,11 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
 
 ### Token authentication
 
-Set the **authenticationType** property to **Token**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+Set the **authenticationType** property to **token**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| apiToken | The REST API authorization token in your TeamDesk. |Yes |
+| apiToken | Specify an API token for the TeamDesk. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 
 **Example:**
 
@@ -103,7 +106,10 @@ Set the **authenticationType** property to **Token**. In addition to the generic
         "typeProperties": {
             "url": "https://www.teamdesk.net/secure/db/xxxxx",
             "authenticationType": "token",
-            "apiToken": "<API token>"
+            "apiToken": {
+                "type": "SecureString",
+                "value": "<API token>"
+            }
         }
     }
 }
