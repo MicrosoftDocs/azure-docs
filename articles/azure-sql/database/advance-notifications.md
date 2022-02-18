@@ -84,7 +84,7 @@ While Advance Notifications can be sent to any email address, Azure subscription
 
 ## Retrieve the list of impacted resources
 
-[Azure Resource Graph](../../articles/governance/resource-graph/overview.md) is an Azure service designed to extend Azure Resource Management. The Azure Resource Graph Explorer provides efficient and performant resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
+[Azure Resource Graph](../../governance/resource-graph/overview.md) is an Azure service designed to extend Azure Resource Management. The Azure Resource Graph Explorer provides efficient and performant resource exploration with the ability to query at scale across a given set of subscriptions so that you can effectively govern your environment. 
 
 You can use the Azure Resource Graph Explorer to query for maintenance events. For an introduction on how to run these queries, see [Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md).
 
