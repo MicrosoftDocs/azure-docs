@@ -130,7 +130,9 @@ Reverse migration is available under the following conditions:
 
 Unlike regular service level objective change operations in Hyperscale, migrating to Hyperscale and reverse migration to General Purpose are size-of-data operations.
 
-The duration of a reverse migration depends mainly on the size of the database and concurrent write activities happening during the migration. The number of vCores you assign to the target General Purpose database will also impact the duration of the reverse migration. During reverse migration, the source Hyperscale database may experience performance degradation if under substantial load. Specifically, transaction log rate may be reduced (throttled) to ensure that reverse migration is making progress.
+The duration of a reverse migration depends mainly on the size of the database and concurrent write activities happening during the migration. The number of vCores you assign to the target General Purpose database will also impact the duration of the reverse migration. We recommend that the target General Purpose database be provisioned with a number of vCores greater than or equal to the number of vCores assigned to the source Hyperscale database to sustain similar workloads.
+
+During reverse migration, the source Hyperscale database may experience performance degradation if under substantial load. Specifically, transaction log rate may be reduced (throttled) to ensure that reverse migration is making progress.
 
 You will only experience a short period of downtime, generally a few minutes, during the final cutover to the new target General Purpose database.
 
@@ -143,11 +145,13 @@ Before you initiate a reverse migration from Hyperscale to the General Purpose s
 - Your database (allocated size) is small enough to fit into the target service tier.
 - If you specify max database size for the target General Purpose database, ensure the allocated size of the database is small enough to fit into that maximum size.
 
+Prerequisite checks will occur before a reverse migration starts. If prerequisites are not met, the reverse migration will fail immediately.
+
 ### Backup policies
 
 You will be [billed using the regular pricing](automated-backups-overview.md?tabs=single-database#backup-storage-costs) for all existing database backups within the [configured retention period](automated-backups-overview.md#backup-retention). You will be billed for the Hyperscale backup storage snapshots and for size-of-data storage blobs that must be retained to be able to restore the backup: although the database has been moved to a different tier, the Hyperscale database is treated as deleted for backup billing and retention purposes.
 
-You can migrate a database to Hyperscale and reverse migrate back to General Purpose multiple times. Only backups from the current and once-previous tier of your database will be available for restore. If you have moved from the General Purpose service tier to Hyperscale and back to General Purpose, the only backups available are the ones from the current General Purpose database and the immediately previous Hyperscale database. Any previous tiers tried won't have backups available.
+You can migrate a database to Hyperscale and reverse migrate back to General Purpose multiple times. Only backups from the current and once-previous tier of your database will be available for restore. If you have moved from the General Purpose service tier to Hyperscale and back to General Purpose, the only backups available are the ones from the current General Purpose database and the immediately previous Hyperscale database. Any previous tiers tried won't have backups available and will not be billed.
 
 For example, you could migrate between Hyperscale and non-Hyperscale service tiers:
 
