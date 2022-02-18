@@ -1,7 +1,7 @@
 ---
-title: How to Use Build Service in Azure Spring Cloud Enterprise Tier
+title: How to Use Tanzu Build Service in Azure Spring Cloud Enterprise Tier
 titleSuffix: Azure Spring Cloud Enterprise Tier
-description: How to Use Build Service in Azure Spring Cloud Enterprise Tier
+description: How to Use Tanzu Build Service in Azure Spring Cloud Enterprise Tier
 author: karlerickson
 ms.author: fenzho
 ms.service: spring-cloud
@@ -10,17 +10,17 @@ ms.date: 02/09/2022
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Use Build Service
+# Use Tanzu Build Service
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This article describes the extra configuration and functionality included in Build Service with Azure Spring Cloud Enterprise Tier.
+This article describes the extra configuration and functionality included in VMware Tanzu® Build Service™ with Azure Spring Cloud Enterprise Tier.
 
 In Azure Spring Cloud, the existing Standard tier already supports compiling user source code into [OCI images](https://opencontainers.org/) through [Kpack](https://github.com/pivotal/kpack). Kpack is a Kubernetes (K8s) implementation of [Cloud Native Buildpacks (CNB)](https://buildpacks.io/) provided by VMware. This article provides details about the extra configurations and functionality exposed in the Azure Spring Cloud Enterprise tier.
 
 ## Build Agent Pool
 
-Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during or after creating a new service instance of Azure Spring Cloud using the **VMware Tanzu settings**.
+Tanzu Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during or after creating a new service instance of Azure Spring Cloud using the **VMware Tanzu settings**.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Create page with 'VMWare Tanzu settings' highlighted and 'Allocated Resources' dropdown showing.":::
 
@@ -34,13 +34,13 @@ The Build Agent Pool scale set sizes available are:
 | S4        | 5 vCPU, 10 Gi |
 | S5        | 6 vCPU, 12 Gi |
 
-The following image shows the resources given to the Build Service Agent Pool after you've successfully provisioned the service instance.
+The following image shows the resources given to the Tanzu Build Service Agent Pool after you've successfully provisioned the service instance.
 
 :::image type="content" source="media/enterprise/how-to-enterprise-build-service/agent-pool-size.png" alt-text="Azure portal screenshot showing Azure Spring Cloud Build Service page with 'General info' highlighted.":::
 
 ## Default Builder and Tanzu Buildpacks
 
-In the Enterprise Tier, a default builder is provided within Build Service with a list of commercial Tanzu Buildpacks.
+In the Enterprise Tier, a default builder is provided within Tanzu Build Service with a list of commercial VMware Tanzu® Buildpacks.
 
 Tanzu Buildpacks make it easier to integrate with other software like New Relic. They're configured as optional and will only run with proper configuration. For more information, see the [Buildpack bindings](#buildpack-bindings) section.
 
@@ -52,7 +52,7 @@ The following list shows the Tanzu Buildpacks available in Azure Spring Cloud En
 - tanzu-buildpacks/nodejs
 - tanzu-buildpacks/python
 
-For details about buildpacks, see [Using the Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html).
+For details about Tanzu Buildpacks, see [Using the Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html).
 
 ## Create a Customized Builder to build apps
 

@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 02/04/2022
 author: alexwolfmsft
 ms.author: alexwolf
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli"
 ---
 
@@ -111,7 +111,7 @@ Replace the *server-name* placeholder with a unique SQL Database name. This name
 az sql server create 
     --location eastus
     --resource-group msdocs-core-sql
-    --server <server-name>
+    --name <server-name>
     --admin-user <db-username>
     --admin-password <db-password>
 ```
