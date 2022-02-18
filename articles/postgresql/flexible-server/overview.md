@@ -98,7 +98,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East Asia | :heavy_check_mark: | :x: | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| East US 2 | :heavy_check_mark: | :x: (*) | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -110,7 +110,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Norway East | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :x: (*)  | :x: |
+| Southeast Asia | :heavy_check_mark: | :x: $  | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
 | Switzerland North | :heavy_check_mark: | :x: | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
@@ -121,7 +121,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | West US 3 | :heavy_check_mark: | :x: | :x: |
 
-(*) New Zone-redundant high availability deployment is temporarily blocked in this region. Already provisioned HA servers are fully supported. 
+$ New Zone-redundant high availability deployments are temporarily blocked in this region. Already provisioned HA servers are fully supported. 
 
 <!-- We continue to add more regions for flexible server. -->
 > [!NOTE]
