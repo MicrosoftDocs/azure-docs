@@ -79,6 +79,5 @@ The Microsoft identity platform app registration portal is the primary entry poi
 
 ## Next steps
 
-- Zero Trust [Guidance Center](/security/zero-trust/)
-- Zero Trust for the Microsoft identity platform developer [whitepaper](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) (downloadable PDF).
+- Zero Trust [Guidance Center](/security/zero-trust/)  
 - Microsoft identity platform [best practices and recommendations](./identity-platform-integration-checklist.md).
