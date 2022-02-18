@@ -32,19 +32,23 @@ Schedules are sub-resources of scaling plans that specify the start time, capaci
 
 ## Ramp up
 
-The ramp-up phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is usually at the beginning of the work day, when users start to sign in and start their sessions. In this phase, the number of [active user sessions](#active-user-session) usually increases at a rapid pace, but not reach the maximum number of active sessions for the day yet.
+The ramp-up phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is usually at the beginning of the work day, when users start to sign in and start their sessions. In this phase, the number of [active user sessions](#active-user-session) usually increases at a rapid pace without reaching the maximum number of active sessions for the day yet.
 
 ## Peak
 
-The phase of the schedule where your host pool reaches the maximum number of [active user sessions](#active-user-session) for the day. In this phase, the number of active sessions usually hold steady until the peak ends. New active user sessions can be established during this phase, but at a slower rate than the ramp-up phase.
+The phase of the schedule where your host pool reaches the maximum number of [active user sessions](#active-user-session) for the day. In this phase, the number of active sessions usually holds steady until the peak ends. New active user sessions can be established during this phase, but usually at a slower rate than the ramp-up phase.
 
 ## Ramp down
 
-The ramp-down phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is at the end of the work day, when users start to sign out and end their sessions for the evening. In this phase, the number of [active user sessions](#active-user-session) usually decreases rapidly.
+The ramp-down phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is usually at the end of the work day, when users start to sign out and end their sessions for the evening. In this phase, the number of [active user sessions](#active-user-session) usually decreases rapidly.
 
 ## Off-peak
 
-The off-peak phase of the [scaling plan](#scaling-plan) [schedule](#schedule) is when the deployment usually reaches the minimum number of [active user sessions](#active-user-session) for the day. During this phase, there aren't usually many active users, but you can keep a small amount of resources on to accommodate users who work after the peak and ramp-down phases.
+The off-peak phase of the [scaling plan](#scaling-plan) [schedule](#schedule) is when the host pool usually reaches the minimum number of [active user sessions](#active-user-session) for the day. During this phase, there aren't usually many active users, but you can keep a small amount of resources on to accommodate users who work after the peak and ramp-down phases.
+
+## Available session host
+
+Available session hosts are session hosts that are turned on and therefore available for users to start their sessions in.
 
 ## Capacity threshold
 
@@ -52,12 +56,12 @@ The capacity threshold is the percentage of a [host pool's capacity](#host-pool-
 
 For example:
 
-- If the [used host pool capacity](#used-host-pool-capacity) is below the threshold and the autoscale feature can turn off virtual machines (VMs) without going over the capacity threshold, then the feature will turn the VMs off.
-- If the [host pool capacity](#host-pool-capacity) goes over the capacity threshold, then the autoscale feature will keep the VMs on until the host pool goes below the capacity threshold.
+- If the [used host pool capacity](#used-host-pool-capacity) is below the capacity threshold and the autoscale feature can turn off virtual machines (VMs) without going over the capacity threshold, then the feature will turn the VMs off.
+- If the [host pool capacity](#host-pool-capacity) goes over the capacity threshold, then the autoscale feature will turn more VMs on until the host pool capacity goes below the capacity threshold.
 
 ## Host pool capacity
 
-Host pool capacity is how many [active sessions](#active-user-session) a host pool can host based on the number of active session hosts. The host pool capacity is the host pool's maximum session limit multiplied by the number of available session hosts in the host pool.
+Host pool capacity is how many [active sessions](#active-user-session) a host pool can host based on the number of active session hosts. The host pool capacity is the host pool's maximum session limit multiplied by the number of [available session hosts](#available-session-host) in the host pool.
 
 In other words:
 
@@ -65,11 +69,11 @@ Host pool maximum session limit × number of available session hosts = host pool
 
 ## Used host pool capacity
 
-The used host pool capacity is the amount of [maximum host pool capacity](#host-pool-capacity) that's currently taken up by active, inactive, and disconnected user sessions.
+The used host pool capacity is the amount of [host pool capacity](#host-pool-capacity) that's currently taken up by active and disconnected user sessions.
 
 In other words:
 
-The number of [active](#active-user-session) and [disconnected or inactive user sessions](#disconnected-user-session) ÷ [the host pool capacity](#host-pool-capacity) = used host pool capacity.
+The number of [active](#active-user-session) and [disconnected user sessions](#disconnected-user-session) ÷ [the host pool capacity](#host-pool-capacity) = used host pool capacity.
 
 ## Scaling action
 
@@ -89,11 +93,11 @@ A disconnected user session is an inactive session that the user hasn't signed o
 
 ## Force sign-out ("logoff")
 
-A forced sign-out (sometimes called a "logoff" in certain code text) is when the service ends an [active user session](#active-user-session) or a [disconnected user session](#disconnected-user-session) without the user's consent.
+A forced sign-out (sometimes called a "logoff" in the user interface) is when the service ends an [active user session](#active-user-session) or a [disconnected user session](#disconnected-user-session) without the user's consent.
 
 ## Exclusion tag
 
-An exclusion tag is the name of a tag in the scaling plan you can apply to VMs to exclude them from [scaling actions](#scaling-action). [The autoscale feature](#autoscale) only performs scaling actions on VMs without tag names that match the exclusion tag.
+An exclusion tag is a propterty of a scaling plan that's a tag name you can apply to VMs to exclude them from [scaling actions](#scaling-action). [The autoscale feature](#autoscale) only performs scaling actions on VMs without tag names that match the exclusion tag.
 
 ## Next steps
 
