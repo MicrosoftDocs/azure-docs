@@ -36,7 +36,7 @@ Service Connector supports the following compute services:
 
 #### Secret/ConnectionString
 
-> [!div class="mx-tdCol3BreakAll"]
+> [!div class="mx-tdBreakAll"]
 > |Default environment variable name | Description | Sample value |
 > | ----------------------------------- | ----------- | ------------ |
 > | AZURE_EVENTHUB_CONNECTIONSTRING | Event Hubs connection string | `Endpoint=sb://{EventHubNamespace}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={****}` |
@@ -67,7 +67,7 @@ Service Connector supports the following compute services:
 
 #### Spring Boot Secret/ConnectionString
 
-> [!div class="mx-tdCol3BreakAll"]
+> [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > |-----------------------------------| ----------- | ------------ |
 > | spring.cloud.azure.storage.connection-string | Event Hubs connection string | `Endpoint=sb://servicelinkertesteventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=****` |
