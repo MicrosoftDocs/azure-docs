@@ -85,11 +85,10 @@ The replication appliance needs access to these URLs in the Azure public cloud.
 \*.blob.core.windows.net | Used to access storage account that stores replicated data
 \*.hypervrecoverymanager.windowsazure.com | Used for replication management operations and coordination
 https:\//management.azure.com | Used for replication management operations and coordination
-*.services.visualstudio.com | Used for logging purposes (It is optional)
+*.services.visualstudio.com | Used for logging purposes. (It is optional)
 time.windows.com | Used to check time synchronization between system and global time.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Appliance setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Appliance setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
 https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
-
 
 ## Azure Government URL access
 
@@ -113,6 +112,22 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 > - *.blob.core.windows.com - To access storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
 > - https:\//management.azure.com for replication management operations and coordination. 
 >- https:\//login.microsoftonline.com <br/>https:\//login.windows.net <br/> https:\//www.live.com _and_ <br/> https:\//www.microsoft.com for access control and identity management by Azure Active Directory
+
+## Azure China URL access
+
+The replication appliance needs access to these URLs in the Azure public cloud.
+
+**URL** | **Details**
+--- | ---
+\*.backup.windowsazure.cn | Used for replicated data transfer and coordination.
+\*.store.core.chinacloudapi.cn | Used for replicated data transfer and coordination.
+\*.blob.core.chinacloudapi.cn | Used to access storage account that stores replicated data.
+\*.hypervrecoverymanager.windowsazure.cn | Used for replication management operations and coordination.
+https://management.chinacloudapi.cn | Used for replication management operations and coordination.
+*.services.visualstudio.com | Used for logging purposes (It is optional).
+time.windows.cn | Used to check time synchronization between system and global time.
+https://login.microsoftonline.cn <br/> https://secure.aadcdn.microsoftonline-p.cn <br/> https://login.live.com <br/> https://graph.chinacloudapi.cn <br/> https://login.chinacloudapi.cn <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
+https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
 
 ## Port access
 

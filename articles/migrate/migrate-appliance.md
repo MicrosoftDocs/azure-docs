@@ -110,8 +110,8 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 --- | --- |
 *.portal.azure.us  | Navigate to the Azure portal.
 graph.windows.net | Sign in to your Azure subscription.
-login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory
-management.usgovcloudapi.net |  Used for resource deployments and management operations
+login.microsoftonline.us  | Used for access control and identity management by Azure Active Directory.
+management.usgovcloudapi.net |  Used for resource deployments and management operations.
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.usgovcloudapi.net | Manage secrets in the Azure Key Vault.
 aka.ms/* | Allow access to these links; used to download and install the latest updates for appliance services.
@@ -121,6 +121,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.hypervrecoverymanager.windowsazure.us | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
 *.blob.core.usgovcloudapi.net  |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration.
 *.applicationinsights.us | Upload appliance logs used for internal monitoring.  
+
 
 ### Public cloud URLs for private link connectivity
 
@@ -137,6 +138,24 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.servicebus.windows.net | **Used for VMware agentless migration**<br/><br/> Communication between the appliance and the Azure Migrate service.
 *.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
 *.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration. <br/>This is optional and is not required if the storage accounts (both cache storage account and gateway storage account) have a private endpoint attached.
+
+### Azure China URLs
+
+**URL** | **Details**  
+--- | --- |
+*.portal.azure.cn  | Navigate to the Azure portal.
+graph.chinacloudapi.cn | Sign in to your Azure subscription.
+login.microsoftonline.cn  | Used for access control and identity management by Azure Active Directory.
+management.chinacloudapi.cn |  Used for resource deployments and management operations
+*.services.visualstudio.com | Upload appliance logs used for internal monitoring.
+*.vault.chinacloudapi.cn | Manage secrets in the Azure Key Vault.
+aka.ms/* | Allow access to these links; used to download and install the latest updates for appliance services.
+download.microsoft.com/download | Allow downloads from Microsoft download center.
+*.servicebus.chinacloudapi.cn  | Communication between the appliance and the Azure Migrate service.
+*.discoverysrv.cn2.windowsazure.cn <br/> *.cn2.prod.migration.windowsazure.cn | Connect to Azure Migrate service URLs.
+*.cn2.hypervrecoverymanager.windowsazure.cn | **Used for VMware agentless migration.**<br/><br/> Connect to Azure Migrate service URLs.
+*.blob.core.chinacloudapi.cn  |  **Used for VMware agentless migration.**<br/><br/>Upload data to storage for migration.
+*.applicationinsights.azure.cn | Upload appliance logs used for internal monitoring.
 
 ## Collected data - VMware
 
