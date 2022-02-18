@@ -12,7 +12,7 @@ ms.author: jasteppe
 
 # Deploy Events in the Azure portal
 
-In this quickstart, you’ll learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send Fast Hospital Interoperability Resources (FHIR®) event messages.
+In this quickstart, you’ll learn how to deploy the Azure Health Data Services Events feature in the Azure portal to send Fast Healthcare Interoperability Resources (FHIR®) event messages.
 
 ## Prerequisites
 
