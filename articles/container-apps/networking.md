@@ -11,7 +11,28 @@ ms.author: cshoe
 
 # TODO
 
-todo
+## Environments
+
+with and without bring you own VNet
+
+## Use cases
+
+## Default networking behavior
+
+Outbound
+
+## Access restrictions
+
+<!-- Verify with Ahmed -->
+### Envoy behavior
+
+### ingress configuration
+
+## Scenarios
+
+## Ports
+
+## Bring your own VNET
 
 As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
 
