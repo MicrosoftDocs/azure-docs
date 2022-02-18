@@ -88,7 +88,7 @@ To complete this tutorial, you need to:
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
 1. In the first step of the migration wizard, link your existing or new Azure account to Azure Data Studio.
 
-## Run database assessment, collect performance data and select target
+## Run database assessment, collect performance data and get Azure recommendation
 
 1. Select the database(s) to run assessment and select **Next**.
 1. Select SQL Server on Azure Virtual Machine as the target.
@@ -99,17 +99,18 @@ To complete this tutorial, you need to:
 3. Azure Data Studio will now collect performance data until you either stop the collection, press the **Next** button in the wizard or close Azure Data Studio.
 4. After 10 minutes you will see a recommended configuration for your Azure SQL Managed Instance. You can also press the **Refresh recommendation** link to get the recommendation sooner.
 5. In the above **SQL Server on Azure Virtual Machine** box click the **View details** button for more information about your recommendation. 
-6. Close the view details box and press the **Next** button and specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and then select **Next**.
+6. Close the view details box and press the **Next** button. 
 
 ## Configure migration settings
 
-1. In step 4, select **Online migration** as the migration mode.
+1. Specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and then select **Next**.
+2. Select **Online migration** as the migration mode.
     > [!NOTE]
     > In the online migration mode, the source SQL Server database is available for read and write activity while database backups are continuously restored on the target SQL Server on Azure Virtual Machine. Application downtime is limited to duration for the cutover at the end of migration.
-1. In step 5, select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
+3. In step 5, select the location of your database backups. Your database backups can either be located on an on-premises network share or in an Azure storage blob container.
     > [!NOTE]
     > If your database backups are provided in an on-premises network share, DMS will require you to setup self-hosted integration runtime in the next step of the wizard. Self-hosted integration runtime is required to access your source database backups, check the validity of the backup set and upload them to Azure storage account.<br/> If your database backups are already on an Azure storage blob container, you do not need to setup self-hosted integration runtime.
-1. After selecting the backup location, provide details of your source SQL Server and source backup location.
+4. After selecting the backup location, provide details of your source SQL Server and source backup location.
 
     |Field    |Description  |
     |---------|-------------|
@@ -120,8 +121,8 @@ To complete this tutorial, you need to:
     |**Password**     |The Windows credential (password) that has read access to the network share to retrieve the backup files.         |
     |**Target database name** |The target database name can be modified if you wish to change the database name on the target during the migration process.            |
 
-1. Specify the **Azure storage account** by selecting the **Subscription**, **Location**, and **Resource Group** from the corresponding drop-down lists. This Azure storage account will be used by DMS to upload the database backups from network share. You don't need to create a container as DMS will automatically create a blob container in the specified storage account during the upload process.
-1. Select **Next** to continue.
+5. Specify the **Azure storage account** by selecting the **Subscription**, **Location**, and **Resource Group** from the corresponding drop-down lists. This Azure storage account will be used by DMS to upload the database backups from network share. You don't need to create a container as DMS will automatically create a blob container in the specified storage account during the upload process.
+6. Select **Next** to continue.
     > [!IMPORTANT]
     > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)
 
