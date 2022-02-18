@@ -5,7 +5,7 @@ author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 02/18/2022
 ms.author: jawilley
 ms.devlang: csharp
 ms.custom: devx-track-dotnet, contperf-fy21q2
