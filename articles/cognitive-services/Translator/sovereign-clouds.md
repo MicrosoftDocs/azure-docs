@@ -12,7 +12,7 @@ ms.date: 02/15/2022
 ms.author: lajanuar
 ---
 
-# Using Translator in sovereign clouds
+# Use Translator in sovereign clouds
 
 Most Azure customers are familiar with the Azure global cloud including the public portal and Azure APIs. However, not everyone is familiar with Azure *sovereign clouds*. Azure sovereign clouds are independent, consistent, and in-country isolated platforms with their own authentication, storage, and compliance requirements. Sovereign clouds ase often used within geographical boundaries there is a strict data residency requirement. Sovereign cloud customers have access to the same underlying technologies offered on the Azure global cloud platform. The Azure Active Directory (Azure AD) is currently deployed in the following sovereign clouds:
 
@@ -37,19 +37,21 @@ The following table lists the base URLs for the Azure AD endpoints used to regis
 | Azure portal for US Government          | `https://portal.azure.us`  |
 | Azure portal China operated by 21Vianet | `https://portal.azure.cn`  |
 
-## Translator services in sovereign clouds
+## Translator service in sovereign clouds
 
 ### [Azure US Government](#tab/us)
 
 | Azure US Government | Availability |
 |--|--|
-|Azure portal | [https://portal.azure.us/](https://portal.azure.us/) |
-| Regions | <ul><li>US Gov Virginia</li><li>US Gov Arizona</li></ul>
+|Azure portal | <ul><li>[https://portal.azure.us/](https://portal.azure.us/)</li></ul>|
+| Regions</br></br>The region-identifier is a required header when using Translator for the government cloud. | <ul><li>`usgovarizona` </li><li> `usgovvirginia`</li></ul>|
+|Available pricing tiers|<ul><li>Free (F0) and Standard (S0). See [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)</li></ul>|
+|Supported Features | <ul><li>Text Translation</li><li>Document Translation</li><li>Custom Translation</li></ul>|
+|Supported Languages| See [Translator language support](language-support.md)|
+
+### Endpoints
 
 
-The region-identifier is a required header when using Translator for the government cloud. For more information, view the example API translation request below.
-
-### Endpoints:
 **Authorization Token Endpoint** 
 
 ```HTTP
