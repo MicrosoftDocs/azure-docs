@@ -71,7 +71,7 @@
 - name: Resources
   items:
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/container-apps/
+      href: pricing.md
     - name: Quotas
       href: quotas.md
     - name: Frequently asked questions
