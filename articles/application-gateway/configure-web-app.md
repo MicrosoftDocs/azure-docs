@@ -37,7 +37,7 @@ In this article you'll learn how to:
 - Add App Service as backend pool to the Application Gateway
 - Configure the HTTP Settings for the connection to App Service
 
-## Prerequisites (#tab/customdomain)
+## [Prerequisites](#tab/customdomain)
 
 - Application Gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
@@ -45,7 +45,7 @@ In this article you'll learn how to:
 
 - A custom domain name and associated certificate, stored in Key Vault.  For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md)
 
-## Prerequisites (#tab/defaultdomain)
+## [Prerequisites](#tab/defaultdomain)
 
 - Application gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
