@@ -34,12 +34,13 @@ This means that the host header in the original request received by the Applicat
 ---
 
 In this article you'll learn how to:
+- Configure DNS
 - Add App Service as backend pool to the Application Gateway
 - Configure the HTTP Settings for the connection to App Service
 
 ## Prerequisites
 
-## [Custom Domain (recommended)](#tab/customdomain)
+### [Custom Domain (recommended)](#tab/customdomain)
 
 - Application Gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
@@ -47,11 +48,31 @@ In this article you'll learn how to:
 
 - A custom domain name and associated certificate, stored in Key Vault.  For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md)
 
-## [Default Domain](#tab/defaultdomain)
+### [Default Domain](#tab/defaultdomain)
 
 - Application gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
 - App service: If you don't have an existing App service, see [App service documentation](../app-service/index.yml).
+
+---
+
+## Configuring DNS
+
+In the context of this scenario, DNS is relevant in two places:
+1. the DNS name which the user or client is using towards Application Gateway and what is shown in a browser
+2. the DNS name which Application Gateway is internally using to access the App Service in the backend
+
+### [Custom Domain (recommended)](#tab/customdomain)
+
+For the user or client to get routed to Application Gateway using the custom domain, DNS needs to be set up with a CNAME alias pointing to the DNS address of the Application Gateway.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.  Alternatively, an A record can be created, pointing to the IP address directly.  (Note that for Application Gateway V1 the VIP can change if you stop and start the service which makes this option undesired.)
+
+For Application Gateway to connect to App Service using the same custom domain, App Service should be configured so it accepts traffic using the custom domain name as the incoming host.  For more information on how to map a custom domain to the App Service, see [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)  Note that to verify the domain, App Service only requires adding a TXT record and no change is required on CNAME or A-records.  The DNS configuration for the custom domain will remain directed towards Application Gateway.
+
+### [Default Domain](#tab/defaultdomain)
+
+When no custom domain is available, the user or client can access Application Gateway using either the IP address of the gateway or its DNS address.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.
+
+To connect to App Service, Application Gateway can use the default domain as provided by App Service (suffixed "azurewebsites.net").
 
 ---
 
@@ -67,7 +88,7 @@ In this article you'll learn how to:
 
 4. Under **Target** select your App Service.
 
-   :::image type="content" source="./media/configure-web-app-portal/backend-pool.png" alt-text="App service backend":::
+   :::image type="content" source="./media/configure-web-app/backend-pool.png" alt-text="App service backend":::
    
    > [!NOTE]
    > The dropdown only populates those app services which are in the same subscription as your Application Gateway. If you want to use an app service which is in a different subscription than the one in which the Application Gateway is, then instead of choosing **App Services** in the **Targets** dropdown, choose **IP address or hostname** option and enter the hostname (example.azurewebsites.net) of the app service.
@@ -102,6 +123,10 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ### [Azure Portal](#tab/azure-portal/customdomain)
 
 TODO: azure portal instructions for custom domain
+
+An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the custom domain name.
+
+
 
 1. Under **HTTP Settings**, select the existing HTTP setting.
 2. Under **Override with new host name**, select **Yes**.
