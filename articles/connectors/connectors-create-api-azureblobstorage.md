@@ -13,7 +13,7 @@ tags: connectors
 
 From your workflow in Azure Logic Apps, you can access and manage files stored as blobs in your Azure storage account by using the [Azure Blob Storage connector](/connectors/azureblobconnector/). This connector provides triggers and actions that your workflow can use for blob operations. You can then automate tasks to manage files in your storage account. For example, [connector actions](/connectors/azureblobconnector/#actions) include checking, deleting, reading, and uploading blobs. The [available trigger](/connectors/azureblobconnector/#triggers) fires when a blob is added or modified.
 
-You can connect to Blob Storage from both **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE). With **Logic App (Standard)**, Blob Storage provides built-in operations *and* managed connector operations.
+You can connect to Blob Storage from both **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, and the integration service environment (ISE). With **Logic App (Standard)**, you can use either the *built-in* **Blob Storage** operations or the **Azure Blob Storage** managed connector operations.
 
 > [!IMPORTANT]
 > A logic app workflow can't directly access a storage account behind a firewall if they're both in the same region. 
@@ -47,7 +47,15 @@ For more technical details about this connector, such as triggers, actions, and 
 
 In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met.
 
-This connector has one available trigger, called either [**When a blob is Added or Modified in Azure Storage** or **When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)). The trigger fires when a blob's properties are added or updated in your storage container. Each time, the Azure Logic Apps engine creates a logic app instance and starts running your workflow.
+This connector has one available trigger  with either the following name:
+
+| Logic app type | Trigger name | Description |
+|----------------|--------------|-------------|
+| Consumption | Managed connector only: **When a blob is added or modified (properties only)** | The trigger fires when a blob's properties are added or updated in your storage container's root folder. |
+| Standard | - Built-in: **When a blob is Added or Modified in Azure Storage** <br><br>- Managed connector: **When a blob is added or modified (properties only)** | - Built-in: The trigger fires when a blob is added or updated in your storage container. The trigger also fires for any nested folders in your storage container, not just the root folder. <br><br>- Managed connector: The trigger fires when a blob's properties are added or updated in your storage container's root folder. |
+||||
+
+When the trigger fires each time, Azure Logic Apps creates a logic app instance and starts running the workflow.
 
 ### [Consumption](#tab/consumption)
 
@@ -55,7 +63,7 @@ To add an Azure Blob Storage trigger to a logic app workflow in multi-tenant Azu
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. In the designer search box, enter `Azure blob` as your filter. From the triggers list, select the trigger named **When a blob is added or modified (properties only)**.
+1. In the designer search box, enter **Azure blob**. From the **Triggers** list, select the trigger named **When a blob is added or modified (properties only)**.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-add.png" alt-text="Screenshot showing Azure portal and workflow designer with a Consumption logic app and the trigger named 'When a blob is added or modified (properties only)' selected.":::
 
@@ -75,13 +83,19 @@ To add an Azure Blob Storage trigger to a logic app workflow in multi-tenant Azu
 
 ### [Standard](#tab/standard)
 
-To add an Azure Blob trigger to a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
+To add an Azure Blob Storage trigger to a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. On the designer, select **Choose an operation**. In the **Add a trigger** pane that opens, under the **Choose an operation** search box, select either **Built-in** to find the **Azure Blob** *built-in* trigger, or select **Azure** to find the **Azure Blob Storage** *managed connector* trigger.
+1. On the designer, select **Choose an operation**.
 
-1. In the search box, enter `Azure blob`. From the triggers list, select the trigger named **When a blob is Added or Modified in Azure Storage**.
+1. In the **Add a trigger** pane that opens, under the **Choose an operation** search box, select either **Built-in** to find the **Azure Blob** *built-in* trigger, or select **Azure** to find the **Azure Blob Storage** *managed connector* trigger.
+
+   This example continues by selecting the built-in **Azure Blob** trigger.
+
+1. In the search box, enter **Azure blob**. Under the search box, select **Built-in**.
+
+1. From the **Triggers** list, select the built-in trigger named **When a blob is Added or Modified in Azure Storage**.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-add.png" alt-text="Screenshot showing Azure portal, workflow designer, Standard logic app workflow and Azure Blob trigger selected.":::
 
@@ -95,9 +109,27 @@ To add an Azure Blob trigger to a logic app workflow in single-tenant Azure Logi
 
    1. Select your blob container. Find the name for the folder that you want to monitor.
 
-   1. Return to the workflow designer. In the trigger's **Blob Path** property, enter the folder name, for example:
+   1. Return to the workflow designer. In the trigger's **Blob Path** property, enter the path for the container, folder, or blob, based on whether you're checking for new blobs or changes to an existing blob. The syntax varies based on the check that you want to run and any filtering that you want to use:
 
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-configure.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow with a Blob Storage trigger and parameters configuration.":::
+      | Task | Path syntax |
+      |------|-------------|
+      | Check the root folder for a newly added blob. | **<*container-name*>** |
+      | Check the root folder for changes to a specific blob. | **<*container-name*>/<*blob-name*>.<*blob-extension*>** |
+      | Check the root folder for changes to any blobs with the same extension, for example, **.txt**. | **<*container-name*>/{name}.txt** <br><br>**Important**: Make sure that you use **{name}** as a literal. |
+      | Check the root folder for changes to any blobs with names starting with a specific string, for example, **Sample-**. | **<*container-name*>/Sample-{name}** <br><br>**Important**: Make sure that you use **{name}** as a literal. |
+      | Check a sub-folder for a newly added blob. | <*container-name*>/<*sub-folder*> |
+      | Check a sub-folder for changes to a specific blob. | <*container-name*>/<*sub-folder*>/<*blob-name*>.<*blob-extension*> |
+      |||
+
+      For more syntax and filtering options, review [Azure Blob storage trigger for Azure Functions](../azure-functions/functions-bindings-storage-blob-trigger.md#blob-name-patterns).
+
+      The following example shows a trigger set up to check the root folder for a newly added blob:
+
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-root-folder.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow with an Azure Blob trigger set up for the root folder.":::
+
+      The following example shows a trigger set up to check a sub-folder for changes to an existing blob:
+
+      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-sub-folder-existing-blob.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow with an Azure Blob trigger set up for a sub-folder and specific blob.":::
 
 1. Continue creating your workflow by adding one or more actions.
 
