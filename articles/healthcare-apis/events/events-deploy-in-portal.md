@@ -28,7 +28,7 @@ It's important that you have the following prerequisites completed before you be
 
 ## Deploy Events 
 
-1. Browse to the Workspace that contains the FHIR service you want to send event messages from and select the **Events** button.
+1. Browse to the Workspace that contains the FHIR service you want to send event messages from and select the **Events** blade.
  
    :::image type="content" source="media/events-deploy-in-portal/events-workspace-select.png" alt-text="Screenshot of Workspace. Select Events button" lightbox="media/events-deploy-in-portal/events-workspace-select.png":::
 
@@ -39,11 +39,11 @@ It's important that you have the following prerequisites completed before you be
 3. In the **Create Event Subscription** box, enter the following subscription information.
 
     * **Name**: Provide a name for your Events subscription.
-    * **Event**: Type of FHIR events to send messages for (for example: create, updated, and deleted).
+    * **Event types**: Type of FHIR events to send messages for (for example: create, updated, and deleted).
     * **Endpoint Details**: Endpoint to send Events messages to (for example: an Event Hubs).
 
->[!NOTE]
-> For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings as their defaults.
+   >[!NOTE]
+   > For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings as their defaults.
 
 4. After the form is completed, select **Create** to begin the subscription creation. 
 
@@ -55,17 +55,17 @@ It's important that you have the following prerequisites completed before you be
 
 6. After the subscription is deployed, it will require access to your message delivery endpoint.
 
->[!Important]
->For more information about providing access using an Azure Managed identity, see
-> - [Assign a system-managed identity to an Event Grid system topic](../../event-grid/enable-identity-system-topics.md)
-> - [Event delivery with a managed identity](../../event-grid/managed-service-identity.md) 
+   >[!Important]
+   >For more information about providing access using an Azure Managed identity, see
+   > - [Assign a system-managed identity to an Event Grid system topic](../../event-grid/enable-identity-system-topics.md)
+   > - [Event delivery with a managed identity](../../event-grid/managed-service-identity.md) 
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-created.png" alt-text="Screenshot of a successfully deployed Events subscription"  lightbox="media/events-deploy-in-portal/events-new-subscription-created.png":::    
 
->[!TIP]
->For more information about managed identities, see [What are managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
->
->For more information about Azure role-based access control (Azure RBAC), see [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). 
+   >[!TIP]
+   >For more information about managed identities, see [What are managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+   >
+   >For more information about Azure role-based access control (Azure RBAC), see [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). 
 
 ## Next steps
 
