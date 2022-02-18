@@ -1,5 +1,5 @@
 ---
-title: Get right-sized Azure recommendation for your on-premises SQL Server database
+title: Get right-sized Azure recommendation for your on-premises SQL Server database(s)
 description: Learn how to use the Azure SQL Migration extension in Azure Data Studio to get SKU recommendation to migrate SQL Server database(s) to the right-sized Azure SQL Managed Instance or SQL Server on Azure Virtual Machines.
 services: database-migration
 author: mokabiru
@@ -12,6 +12,8 @@ ms.topic: conceptual
 ms.date: 02/22/2022
 ms.custom: references_regions
 ---
+
+# Get right-sized Azure recommendation for your on-premises SQL Server database(s)
 
 The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) provides a unified experience to assess, get right-sized Azure recommendations and migrate your SQL Server database(s) to Azure.
 
@@ -43,7 +45,7 @@ The workflow for data collection and SKU recommendation is illustrated below.
 1. **Analyze and recommend SKU**: The SKU recommender analyzes the captured common and performance data to recommend the minimum configuration with the least cost that will meet your database's performance requirements. You can also view details about the reason behind the recommendation and source properties that were analyzed. *For SQL Server on Azure Virtual Machines, the SKU recommender also recommends the desired storage configuration for data files, log files and tempdb.*</br> The SKU recommender provides optional parameters that can be modified to refine recommendations based on your inputs about the production workload.
     - **Scale factor**: Scale ('comfort') factor used to inflate or deflate SKU recommendation based on your understanding of the production workload. For example, if it is determined that there is a 4 vCore CPU requirement with a scale factor of 150%, then the true CPU requirement will be 6 vCores. (Default value: 100)
     - **Percentage utilization**: Percentile of data points to be used during aggregation of the performance data. (Default: 95th Percentile)
-    - **Enable preview features**: Enabling this option will include the latest hardware generations that have significantly improved performance and scalability. These SKUs are currently in Preview and may not yet be available in all regions.
+    - **Enable preview features**: Enabling this option will include the latest hardware generations that have significantly improved performance and scalability. These SKUs are currently in Preview and may not yet be available in all regions. (Default value: Yes)
 
 
     > [!IMPORTANT]
