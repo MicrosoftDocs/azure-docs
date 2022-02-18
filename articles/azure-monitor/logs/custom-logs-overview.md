@@ -57,7 +57,7 @@ The call can use the following headers:
 The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be be a JSON array with a structure that matches the format expected by the stream in the DCR.
 
 ## Limits and restrictions
-For limits related to custom logs, see [Azure Monitor service limits](../service-limits#custom-logs).
+For limits related to custom logs, see [Azure Monitor service limits](../service-limits.md#custom-logs).
 
 ### Table limits
 

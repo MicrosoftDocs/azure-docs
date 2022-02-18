@@ -1,6 +1,6 @@
 ---
-title: Data collection endpoints in Azure Monitor (preview)
-description: Overview of data collection endpoints (DCEs) in Azure Monitor including their contents and structure and how you can create and work with them.
+title: Using data collection endpoints with Azure Monitor agent (preview)
+description: Use data collection endpoints to uniquely configure ingestion settings for your machines.
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
@@ -9,14 +9,14 @@ ms.custom: references_region
 
 ---
 
-# Uaing data collection endpoints with Azure Monitor agent (preview)
+# Using data collection endpoints with Azure Monitor agent (preview)
 [Data Collection Endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md) allow you to uniquely configure ingestion settings for your machines, giving you greater control over your networking requirements. 
 
 ## Create endpoint association in Azure portal
 Use **Data collection rules** in the portal to associate endpoints with a resource (e.g. a virtual machine) or a set of resources.  
 Create a new rule or open an existing rule. In the **Resources** tab, click on the **Data collection endpoint** drop-down to associate an existing endpoint for your resource in the same region (or select multiple resources in the same region to bulk-assign an endpoint for them). Doing this creates an association per resource which links the endpoint to the resource. The Azure Monitor agent running on these resources will now start using the endpoint instead for uploading data to Azure Monitor.
 
-[![Data Collection Rule virtual machines](../agents/media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](../agents/media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox) 
+[![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](../agents/media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox) 
 
 
 > [!NOTE]
@@ -77,7 +77,7 @@ You can use data collection endpoints to enable the Azure Monitor agent to commu
 3. For your data collection endpoint(s), ensure **Accept access from public networks not connected through a Private Link Scope** option is set to **No** under the 'Network Isolation' tab of your endpoint resource in Azure portal, as shown below. This ensures that public internet access is disabled, and network communication only happen via private links.
 4. Associate the data collection endpoints to the target resources, using the data collection rules experience in Azure portal. This results in the agent using the configured the data collection endpoint(s) for network communications. See [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md).
 
-	![Data collection endpoint network isolation](media/data-collection-endpoint-overview/data-collection-endpoint-network-isolation.png)
+	![Data collection endpoint network isolation](media/azure-monitor-agent-dce/data-collection-endpoint-network-isolation.png)
 
 ## Next steps
 - [Associate endpoint to machines](../agents/data-collection-rule-azure-monitor-agent.md#create-rule-and-association-in-azure-portal)
