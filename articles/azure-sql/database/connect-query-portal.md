@@ -169,28 +169,28 @@ These errors occur because the query editor uses port 443 and 1443 to communicat
 
 #### Steps for Windows
 
-1. Open **Windows Defender Firewall**
-2. On the left-side menu, select **Advanced settings**
+1. Open **Windows Defender Firewall**.
+2. On the left-side menu, select **Advanced settings**.
 3. In **Windows Defender Firewall with Advanced Security**, select **Outbound rules** on the left-side menu.
-4. Select **New Rule...** on the right-side menu
+4. Select **New Rule...** on the right-side menu.
 
 In the **New outbound rule wizard** follow these steps:
 
-1. Select **port** as the type of rule you want to create. Select **Next**
-2. Select **TCP**
-3. Select **Specific remote ports** and enter "443, 1443". Then select **Next**
-4. Select "Allow the connection if it is secure"
-5. Select **Next** then select **Next** again
-5. Keep "Domain", "Private", and "Public" all selected
-6. Give the rule a name, for example "Access Azure SQL query editor" and optionally a description. Then select **Finish**
+1. Select **port** as the type of rule you want to create. Select **Next**.
+2. Select **TCP**.
+3. Select **Specific remote ports** and enter "443, 1443". Then select **Next**.
+4. Select "Allow the connection if it is secure".
+5. Select **Next** then select **Next** again.
+5. Keep "Domain", "Private", and "Public" all selected.
+6. Give the rule a name, for example "Access Azure SQL query editor" and optionally a description. Then select **Finish**.
 
 #### Steps for Mac
 1. Open **System Preferences** (Apple menu > System Preferences).
 2. Select **Security & Privacy**.
 3. Select **Firewall**.
-4. If Firewall is off, select **Click the lock to make changes** at the bottom and select **Turn on Firewall**
+4. If Firewall is off, select **Click the lock to make changes** at the bottom and select **Turn on Firewall**.
 4. Select **Firewall Options**.
-5. In the **Security & Privacy** window select this option: "Automatically allow signed software to receive incoming connections."
+5. In the **Security & Privacy** window select this option: 'Automatically allow signed software to receive incoming connections'.
 
 #### Steps for Linux
 Run these commands to update iptables
