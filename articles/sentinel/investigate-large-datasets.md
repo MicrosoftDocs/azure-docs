@@ -11,7 +11,7 @@ ms.author: cwatson
 
 One of the primary activities of a security team is to search logs for specific events. For example, you might search logs for the activities of a specific user within a given time-frame.
 
-In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search archived logs. If need to do a full investigation on archived data, you can restore that data into the hot cache to run high performing queries and analytics.
+In Microsoft Sentinel, you can search across long time periods in extremely large datasets by using a search job.  While you can run a search job on any type of log, search jobs are ideally suited to search archived logs. If you need to do a full investigation on archived data, you can restore that data into the hot cache to run high performing queries and analytics.
 
 > [!IMPORTANT]
 > The search job and restore features are currently in **PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -69,7 +69,7 @@ Before you start to restore an archived log table, be aware of the following lim
 
 - Restore data for a minimum of two days.
 - Restore data more than 14 days old.
-- Restore up to 60TB.
+- Restore up to 60 TB.
 - Restore is limited to one active restore per table.
 - Restore up to four archived tables per workspace per week.
 - Limited to two concurrent restore jobs per workspace.
@@ -78,7 +78,7 @@ To learn more, see [Restore logs in Azure Monitor](../azure-monitor/logs/restore
 
 ## Bookmark search results or restored data rows
 
-Similar to the [threat hunting dashboard](hunting.md#use-the-hunting-dashboard), you bookmark rows that contain information you find interesting so you can attach them to an incident or refer to them later. To learn more, see [Create bookmarks](hunting.md#create-bookmarks).
+Similar to the [threat hunting dashboard](hunting.md#use-the-hunting-dashboard), bookmark rows that contain information you find interesting so you can attach them to an incident or refer to them later. For more information, see [Create bookmarks](hunting.md#create-bookmarks).
 
 ## Next steps
 
