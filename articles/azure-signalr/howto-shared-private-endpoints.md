@@ -15,7 +15,7 @@ ms.author: lianwei
 If you're using [serverless mode](concept-service-mode.md#serverless-mode) in Azure SignalR Service, you might have outbound traffic to upstream. Upstream such as
 Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach these endpoints.
 
-   :::image type="content" alt-text="Overview graph of shared private endpoint." source="media\howto-shared-private-endpoints\shared-private-endpoint-overview.png" :::
+   :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-shared-private-endpoints\shared-private-endpoint-overview.png" :::
 
 This outbound method is subject to the following requirements:
 
@@ -44,7 +44,7 @@ The rest of the examples show how the *contoso-signalr* service can be configure
 1. In the menu pane, select **Networking**. Switch to **Private access** tab.
 1. Click **Add shared private endpoint**.
 
-   :::image type="content" alt-text="Screenshot of shared private endpoints management." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-management.png" :::
+   :::image type="content" alt-text="Screenshot of shared private endpoints management." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-management.png" lightbox="media\howto-shared-private-endpoints\portal-shared-private-endpoints-management.png" :::
 
 1. Fill in a name for the shared private endpoint.
 1. Select the target linked resource either by selecting from your owned resources or by filling a resource ID.
@@ -54,7 +54,7 @@ The rest of the examples show how the *contoso-signalr* service can be configure
 
 1. The shared private endpoint resource will be in **Succeeded** provisioning state. The connection state is **Pending** approval at target resource side.
 
-   :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-added.png" :::
+   :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-added.png" lightbox="media\howto-shared-private-endpoints\portal-shared-private-endpoints-added.png" :::
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -153,7 +153,7 @@ It takes minutes for the approval to be propagated to Azure SignalR Service. You
 
 #### [Azure portal](#tab/azure-portal)
 
-   :::image type="content" alt-text="Screenshot of an approved shared private endpoint." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-approved.png" :::
+   :::image type="content" alt-text="Screenshot of an approved shared private endpoint." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-approved.png" lightbox="media\howto-shared-private-endpoints\portal-shared-private-endpoints-approved.png" :::
 
 #### [Azure CLI](#tab/azure-cli)
 
