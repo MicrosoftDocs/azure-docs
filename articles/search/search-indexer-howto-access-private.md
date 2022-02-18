@@ -13,7 +13,7 @@ ms.date: 02/17/2022
 
 # Make outbound connections through a private endpoint
 
-Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
+Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) in Azure Cognitive Search to reach the data in another resource.
 
 ## Prerequisites
 
@@ -23,15 +23,15 @@ Many Azure resources, such as Azure storage accounts, can be configured to accep
 
 ## Shared private link resources management APIs
 
-Private endpoints of secured resources that are created through Azure Cognitive Search APIs are referred to as *shared private link resources* or *managed outbound private endpoints*. This is because you're "sharing" access to a resource, such as a storage account, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). The shared private link is the mechanism by which Azure Cognitive Search makes the connection on behalf of an indexer to a resource in a private network.
+Private endpoints created through Azure Cognitive Search APIs are referred to as *shared private links* or *managed outbound private endpoints*. The concept of a shared private link is "sharing" access to a resource, such as a storage account, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). 
 
 To create a shared private link, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API.
 
-If you're setting up a shared private link to Azure Database for MySQL or Azure Functions, both of which are currently in preview, use a preview version of the Manage REST API (2020-08-01-preview or 2021-04-01-preview) to create the private link.
+If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to created the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
 
 The following table lists Azure resources for which you can create outbound private endpoints from Azure Cognitive Search. 
 
-To create a shared private link resource, enter the **Group ID** values exactly as they're written in the API. The values are case-sensitive. For several resources and features, you'll need to set two IDs.
+To create a shared private link resource, set the **Group ID** values exactly as they're written in the API. The values are case-sensitive. For several resources and features, you'll need to set two IDs.
 
 | Azure resource | Group ID |
 | --- | --- |
@@ -46,9 +46,8 @@ To create a shared private link resource, enter the **Group ID** values exactly 
 | [Enrichment cache](cognitive-search-incremental-indexing-conceptual.md) | `blob` and `table`|
 | [Knowledge store](knowledge-store-concept-intro.md) (object, file, table projections) | `blob` and `table`|
 
-You can also query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
-
-In the remainder of this article, a mix of Azure portal (or the [Azure CLI](/cli/azure/) if you prefer) and [Postman](https://www.postman.com/) (or any other HTTP client like [curl](https://curl.se/) if you prefer) is used to demonstrate the REST API calls.
+> [!TIP]
+> Query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
 ## 1 - Create a shared private link
 
@@ -77,13 +76,15 @@ The following section describes how to create a shared private link resource eit
 
 ### [**Azure CLI**](#tab/cli-create)
 
-Alternatively, you can make the following API call with the [Azure CLI](/cli/azure/). Use the preview or generally available API version (*2020-08-01* or later) if you're using a **Group ID** that is in preview. For example, **Group ID**s *sites* and *mysqlServer* and in preview and require you to use the preview API.
+You can use the Management REST API with Azure PowerShell, or the [Azure CLI](/cli/azure/) as shown in this example. 
+
+Remember to use the preview API version, either 2020-08-01-preview or 2021-04-01-preview, if you're using a **Group ID** that's in preview. For example, *sites* and *mysqlServer* are in preview and require you to use the preview API.
 
 ```dotnetcli
 az rest --method put --uri https://management.azure.com/subscriptions/<search service subscription ID>/resourceGroups/<search service resource group name>/providers/Microsoft.Search/searchServices/<search service name>/sharedPrivateLinkResources/<shared private endpoint name>?api-version=2020-08-01 --body @create-pe.json
 ```
 
-The following is an example of the contents of the *create-pe.json* file:
+The definition of a shared private link is provided in a JSON file. The following is an example of what a *create-pe.json* file might contain:
 
 ```json
 {
@@ -108,14 +109,14 @@ Be sure to specify the correct **Group ID** for the type of resource for which y
 
 ## 2 - Check the status of the private endpoint creation
 
-In this step you'll confirm that the provisioning state of the resource changes to "Succeeded".
+In this step, you'll confirm that the provisioning state of the resource changes to "Succeeded".
 
 ### [**Azure portal**](#tab/portal-status)
 
 > [!NOTE]
 > The "Provisioning State" will be visible in the Azure portal for **Group ID** that are both generally available and Preview.
 
-The portal will show you the state of the shared private endpoint. In the following example the status is "Updating".
+The portal will show you the state of the shared private endpoint. In the following example, the status is "Updating".
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the resource creation in progress. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-progress.png)
 
@@ -189,7 +190,7 @@ If the "Provisioning State" (`properties.provisioningState`) of the resource is 
 
 ## 5 - Secure your Azure resource
 
-The steps for restricting access varies by resource. The following scenarios show three of the more common types of resources.
+The steps for restricting access vary by resource. The following scenarios show three of the more common types of resources.
 
 - Scenario 1: Azure Storage
 
@@ -205,7 +206,7 @@ The steps for restricting access varies by resource. The following scenarios sho
     
 - Scenario 3: Azure Functions
 
-    No network setting changes are needed for Azure Functions firewalls. Later in the following steps, when you create the shared private endpoint, the Function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
+    No network setting changes are needed for Azure Functions firewalls. Later in the following steps, when you create the shared private endpoint, the function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
 
 ## 6 - Configure the indexer to run in the private environment
 
@@ -243,7 +244,7 @@ After the indexer is created successfully, it should connect to the Azure resour
 
 ## Troubleshooting
 
-+ If your indexer creation fails with "Data source credentials are invalid," it's possible that the status of the private endpoint connection is not yet *Approved* or the connection is not functional. Follow these steps to address the problem: 
++ If your indexer creation fails with "Data source credentials are invalid," check the approval status of the shared private link before debugging the connection:
 
   1. Obtain the status of the shared private link resource by using the [GET API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get). 
   1. If the status is *Approved*, check the `properties.provisioningState` property. If it's `Incomplete`, some of the underlying dependencies for the resource failed to be set up. 
