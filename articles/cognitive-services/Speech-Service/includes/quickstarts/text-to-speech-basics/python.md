@@ -124,7 +124,7 @@ In this example, you specify the high-fidelity RIFF format `Riff24Khz16BitMonoPc
 
 
 ```python
-speech_config.set_speech_synthesis_output_format(SpeechSynthesisOutputFormat["Riff24Khz16BitMonoPcm"])
+speech_config.set_speech_synthesis_output_format(speechsdk.SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm)
 synthesizer = speechsdk.SpeechSynthesizer(speech_config=speech_config, audio_config=None)
 
 result = synthesizer.speak_text_async("Customizing audio output format.").get()

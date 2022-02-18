@@ -1,7 +1,6 @@
 ---
 title: SQL Authentication
 description: Learn about SQL authentication in Azure Synapse Analytics.
-services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.subservice: sql
