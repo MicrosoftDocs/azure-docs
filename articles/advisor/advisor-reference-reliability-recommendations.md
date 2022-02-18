@@ -55,7 +55,7 @@ Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on yo
 
 ### Upgrade the standard disks attached to your premium-capable VM to premium disks
 
-We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. When making your upgrade decision, there are two factors to consider. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
+We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
 
 Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgrade the standard disks attached to your premium-capable VM to premium disks)](https://aka.ms/aa_storagestandardtopremium_learnmore).
 
@@ -374,13 +374,13 @@ Learn more about [Recovery Services vault - Enable CRR (Enable Cross Region Rest
 
 ### You are close to exceeding storage quota of 2GB. Create a Standard search service.
 
-You are close to exceeding storage quota of 2GB. Create a Standard search service. After exceeding storage quota, indexing operations will stop working.
+You are close to exceeding storage quota of 2GB. Create a Standard search service. Indexing operations will stop working when storage quota is exceeded.
 
 Learn more about [Search service - BasicServiceStorageQuota90percent (You are close to exceeding storage quota of 2GB. Create a Standard search service.)](https://aka.ms/azs/search-limits-quotas-capacity).
 
 ### You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.
 
-You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service. After exceeding storage quota, indexing operations will stop working.
+You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service. Indexing operations will stop working when storage quota is exceeded.
 
 Learn more about [Search service - FreeServiceStorageQuota90percent (You are close to exceeding storage quota of 50MB. Create a Basic or Standard search service.)](https://aka.ms/azs/search-limits-quotas-capacity).
 
