@@ -158,7 +158,7 @@ The following recommendations for using shared access signatures can help mitiga
 
 - **Have a revocation plan in place for a SAS.** Make sure you are prepared to respond if a SAS is compromised.
 
-- **Configure a SAS expiration policy for the storage account.** A SAS expiration policy specifies a recommended interval over which the SAS is valid for every SAS created on the account or one of its resources. When a user generates a SAS with a validity interval that is larger than the recommended interval, they'll see a warning. If Azure Storage logging with Azure Monitor is enabled, then an entry is written to the Azure Storage logs. To learn more, see [Create an expiration policy for shared access signatures](sas-expiration-policy.md).
+- **Configure a SAS expiration policy for the storage account.** A SAS expiration policy specifies a recommended interval over which the SAS is valid. SAS expiration policies apply to a service SAS or an account SAS. When a user generates service SAS or an account SAS with a validity interval that is larger than the recommended interval, they'll see a warning. If Azure Storage logging with Azure Monitor is enabled, then an entry is written to the Azure Storage logs. To learn more, see [Create an expiration policy for shared access signatures](sas-expiration-policy.md).
 
 - **Define a stored access policy for a service SAS.** Stored access policies give you the option to revoke permissions for a service SAS without having to regenerate the storage account keys. Set the expiration on these very far in the future (or infinite) and make sure it's regularly updated to move it farther into the future.
 
