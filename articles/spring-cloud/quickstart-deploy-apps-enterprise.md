@@ -41,6 +41,40 @@ To create apps on Azure Spring Cloud, follow these steps:
    az spring-cloud app create --name customers-service --instance-count 1 --memory 2Gi
    ```
 
+## Bind apps to Application Configuration Service and Service Registry
+
+To bind apps to Application Configuration Service and Service Registry, follow these steps.
+
+### [Portal](#tab/azure-portal)
+1. Select **Application Configuration Service**.
+1. Select **App binding**, then select **Bind app**.
+1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service for Tanzu.
+
+   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
+
+A list under **App name** shows the apps bound with Application Configuration Service for Tanzu, as shown in the following screenshot:
+
+   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
+
+1. In the Azure portal, select **Service Registry**.
+1. Select **App binding**, then select **Bind app**.
+1. Choose one app in the dropdown, and then select **Apply** to bind the application to Tanzu Service Registry.
+
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind-dropdown.png" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'Bind app' dialog showing.":::
+
+A list under **App name** shows the apps bound with Tanzu Service Registry, as shown in the following screenshot:
+
+   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
+
+### [Azure CLI](#tab/azure-cli)
+
+   ```azurecli
+   az spring-cloud application-configuration-service bind --app api-gateway
+   az spring-cloud application-configuration-service bind --app customers-service
+   az spring-cloud service-registry bind --app api-gateway
+   az spring-cloud service-registry bind --app customers-service
+   ```
+
 ## Build and deploy applications
 
 The following sections show how to build and deploy applications.
@@ -106,6 +140,3 @@ Access the `api gateway` and `customers service` applications from the browser u
    ```
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Quickstart: Set up Tanzu Service Registry](quickstart-setup-service-registry-enterprise.md)

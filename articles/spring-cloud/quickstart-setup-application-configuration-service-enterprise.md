@@ -48,15 +48,6 @@ To use Application Configuration Service, follow these steps.
 
    ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and Settings section showing.](./media/enterprise/getting-started-enterprise/config-service-settings.png)
 
-1. Select **App binding**, then select **Bind app**.
-1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service for Tanzu.
-
-   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with 'Bind app' dialog showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind-dropdown.png)
-
-A list under **App name** shows the apps bound with Application Configuration Service for Tanzu, as shown in the following screenshot:
-
-![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
-
 ### [Azure CLI](#tab/azure-cli)
 
 1. To set the default repository, use the following command:
@@ -68,13 +59,6 @@ A list under **App name** shows the apps bound with Application Configuration Se
        --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
        --label master
    ```
-
-1. To use Application Configuration Service for Tanzu with applications, use the following command:
-
-   ```azurecli
-   az spring-cloud application-configuration-service bind --app <app-name>
-   ```
-
 ---
 
 ## Next steps
