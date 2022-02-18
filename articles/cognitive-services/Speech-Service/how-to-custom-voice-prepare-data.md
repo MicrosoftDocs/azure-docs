@@ -86,7 +86,7 @@ The transcription file is a plain text file. Use these guidelines to prepare you
 | Property | Value |
 | -------- | ----- |
 | File format | Plain text (.txt) |
-| Encoding format | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. For zh-CN, ANSI/ASCII encoding isn't supported. |
+| Encoding format | ANSI, ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. For zh-CN, ANSI and ASCII encoding aren't supported. |
 | # of utterances per line | **One** - Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t). |
 | Maximum file size | 2048 MB |
 
