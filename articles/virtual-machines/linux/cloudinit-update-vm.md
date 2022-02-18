@@ -46,7 +46,7 @@ Now, create a VM with [az vm create](/cli/azure/vm) and specify the cloud-init f
 ```azurecli-interactive 
 az vm create \
   --resource-group myCentOSGroup \
-  --name centos74 \
+  --name centos83 \
   --image OpenLogic:CentOS:8_3:latest \
   --custom-data cloud_init_upgrade.txt \
   --admin-username azureuser \
