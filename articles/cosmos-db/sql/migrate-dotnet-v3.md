@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 02/18/2022
 ms.devlang: csharp
 ---
 
@@ -195,6 +195,8 @@ Some settings in `ConnectionPolicy` have been renamed or replaced:
 |`EnableEndpointRediscovery`|`LimitToEndpoint` - The value is now inverted, if `EnableEndpointRediscovery` was being set to `true`, `LimitToEndpoint` should be set to `false`. Before using this setting, you need to understand [how it affects the client](troubleshoot-sdk-availability.md).|
 |`ConnectionProtocol`|Removed. Protocol is tied to the Mode, either it's Gateway (HTTPS) or Direct (TCP). Direct mode with HTTPS protocol is no longer supported on V3 SDK and the recommendation is to use TCP protocol. |
 |`MediaRequestTimeout`|Removed. Attachments are no longer supported.|
+|`SetCurrentLocation`|`CosmosClientOptions.ApplicationRegion` can be used to achieve the same effect.|
+|`PreferredLocations`|`CosmosClientOptions.ApplicationPreferredRegions` can be used to achieve the same effect.|
 
 ### Indexing policy
 
