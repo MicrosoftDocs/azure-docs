@@ -58,7 +58,7 @@
         {
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
             "redirect_url": "/partner-center/create-user-accounts-and-set-permissions",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-azure-certification.md",
