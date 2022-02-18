@@ -11,7 +11,7 @@ ms.date: 02/20/2022
 ---
 # Move Azure Stream Analytics cluster using Azure PowerShell
 
-Learn how to use Azure Az PowerShell module with [Azure Resource Manager](overview.md) to move your Azure Stream Analytics cluster to another region.
+Learn how to use Azure Az PowerShell module to move your Azure Stream Analytics cluster to another region.
 You can move a Stream Analytics cluster by exporting the cluster’s ARM template using Azure portal and from there deploy another cluster with the same ARM template to your alternate region.
 
 ## Move Azure Stream Analytics cluster to another region
