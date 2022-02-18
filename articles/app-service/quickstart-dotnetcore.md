@@ -391,7 +391,7 @@ Follow these steps to create your App Service resources and publish your project
     1. Select **Create a new App Service plan**, provide a name, and select the **F1 Free** [pricing tier][app-service-pricing-tier].
     1. Select **Skip for now** for the Application Insights resource.
 
-1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes**, so that Visual Studio Code deploys to the same App Service app each time, when you're in the same workspace.
+1. In the popup **Always deploy the workspace "MyFirstAzureWebApp" to \<app-name>"**, select **Yes** so that Visual Studio Code deploys to the same App Service app every time  you're in the that workspace.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
     ### [.NET 6.0](#tab/net60)
