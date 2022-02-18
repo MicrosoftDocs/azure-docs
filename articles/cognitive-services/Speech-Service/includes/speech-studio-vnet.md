@@ -14,7 +14,7 @@ ms.author: alexeyo
 
 ### Reaching Speech Studio web portal from a Virtual network
 
-If you want to use Speech Studio web portal (that is to reach Speech Studio web site with a browser) from a virtual machine within an Azure Virtual network, be sure you allow outgoing connections to the required set of [Service tags](../../../virtual-network/service-tags-overview.md) for this virtual network. See details [here](../../cognitive-services-virtual-networks.md#supported-regions-and-service-offerings). 
+To use Speech Studio from a virtual machine within an Azure Virtual network, you must allow outgoing connections to the required set of [service tags](../../../virtual-network/service-tags-overview.md) for this virtual network. See details [here](../../cognitive-services-virtual-networks.md#supported-regions-and-service-offerings). 
 
 Access to the Speech resource endpoint is *not* equal to access to Speech Studio web portal. Access to Speech Studio web portal via private or Virtual Network service endpoints is not supported.
 
