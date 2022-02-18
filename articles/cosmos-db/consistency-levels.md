@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 02/17/2022
 ---
 # Consistency levels in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -14,11 +14,13 @@ Distributed databases that rely on replication for high availability, low latenc
 
 Most commercially available distributed NoSQL databases available in the market today provide only strong and eventual consistency. Azure Cosmos DB offers five well-defined levels. From strongest to weakest, the levels are:
 
-- *Strong*
-- *Bounded staleness*
-- *Session*
-- *Consistent prefix*
-- *Eventual*
+- [*Strong*](#strong-consistency)
+- [*Bounded staleness*](#bounded-staleness-consistency)
+- [*Session*](#session-consistency)
+- [*Consistent prefix*](#consistent-prefix-consistency)
+- [*Eventual*](#eventual-consistency)
+
+For more information on the default consistency level, see [configuring the default consistency level](how-to-manage-consistency.md#configure-the-default-consistency-level) or [override the default consistency level](how-to-manage-consistency.md#override-the-default-consistency-level).
 
 Each level provides availability and performance tradeoffs. The following image shows the different consistency levels as a spectrum.
 
@@ -71,10 +73,10 @@ Bounded staleness offers total global order outside of the "staleness window." W
 
 Inside the staleness window, Bounded Staleness provides the following consistency guarantees:
 
-- Consistency for clients in the same region for an account with single write region = Strong
-- Consistency for clients in different regions for an account with single write region = Consistent Prefix
-- Consistency for clients writing to a single region for an account with multiple write regions = Consistent Prefix
-- Consistency for clients writing to different regions for an account with multiple write regions = Eventual
+- Consistency for clients in the same region for an account with single write region = [Strong](#strong-consistency)
+- Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
+- Consistency for clients writing to a single region for an account with multiple write regions = [Consistent Prefix](#consistent-prefix-consistency)
+- Consistency for clients writing to different regions for an account with multiple write regions = [Eventual](#eventual-consistency)
 
   Bounded staleness is frequently chosen by globally distributed applications that expect low write latencies but require total global order guarantee. Bounded staleness is great for applications featuring group collaboration and sharing, stock ticker, publish-subscribe/queueing etc. The following graphic illustrates the bounded staleness consistency with musical notes. After the data is written to the "West US 2" region, the "East US 2" and "Australia East" regions read the written value based on the configured maximum lag time or the maximum operations:
 
@@ -86,11 +88,11 @@ In session consistency, within a single client session reads are guaranteed to h
 
 Clients outside of the session performing writes will see the following guarantees:
 
-- Consistency for clients in same region for an account with single write region = Consistent Prefix
-- Consistency for clients in different regions for an account with single write region = Consistent Prefix
-- Consistency for clients writing to a single region for an account with multiple write regions = Consistent Prefix
-- Consistency for clients writing to multiple regions for an account with multiple write regions = Eventual
-- Consistency for clients using the [Azure Cosmos DB integrated cache](integrated-cache.md) = Eventual
+- Consistency for clients in same region for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
+- Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
+- (#consistent-prefix-consistency)Consistency for clients writing to a single region for an account with multiple write regions = [Consistent Prefix](#consistent-prefix-consistency)
+- Consistency for clients writing to multiple regions for an account with multiple write regions = [Eventual](#eventual-consistency)
+- Consistency for clients using the [Azure Cosmos DB integrated cache](integrated-cache.md) = [Eventual](#eventual-consistency)
 
   Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2 writer" and the "West US 2 reader" are using the same session (Session A) so they both read the same data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
 
@@ -104,10 +106,10 @@ If writes were performed in the order `A, B, C`, then a client sees either `A`, 
 
 Below are the consistency guarantees for Consistent Prefix:
 
-- Consistency for clients in same region for an account with single write region = Consistent Prefix
-- Consistency for clients in different regions for an account with single write region = Consistent Prefix
-- Consistency for clients writing to a single region for an account with multiple write region = Consistent Prefix
-- Consistency for clients writing to multiple regions for an account with multiple write region = Eventual
+- Consistency for clients in same region for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
+- Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
+- Consistency for clients writing to a single region for an account with multiple write region = [Consistent Prefix](#consistent-prefix-consistency)
+- Consistency for clients writing to multiple regions for an account with multiple write region = [Eventual](#eventual-consistency)
 
 The following graphic illustrates the consistency prefix consistency with musical notes. In all the regions, the reads never see out of order writes:
 
