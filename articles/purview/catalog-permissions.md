@@ -28,6 +28,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
 - **Data source administrators** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
 - **Policy author (Preview)** - a role that allows a user to view, update, and delete Azure Purview policies through the policy management app within Azure Purview.
+
 > [!NOTE] 
 > At this time, Azure Purview Policy author role is not sufficient to create policies. The Azure Purview Data source admin role is also required.
 
