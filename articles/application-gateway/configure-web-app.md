@@ -44,15 +44,15 @@ In this article you'll learn how to:
 
 - Application Gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
-- App Service: If you don't have an existing App service, see [App service documentation](../app-service/index.yml).
+- App Service: If you don't have an existing App Service, see [App Service documentation](../app-service/index.yml).
 
-- A custom domain name and associated certificate, stored in Key Vault.  For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md)
+- A custom domain name and associated certificate (signed by a well known authority), stored in Key Vault.  For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md)
 
 ### [Default Domain](#tab/defaultdomain)
 
-- Application gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
+- Application Gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
-- App service: If you don't have an existing App service, see [App service documentation](../app-service/index.yml).
+- App Service: If you don't have an existing App Service, see [App Service documentation](../app-service/index.yml).
 
 ---
 
@@ -67,6 +67,8 @@ In the context of this scenario, DNS is relevant in two places:
 For the user or client to get routed to Application Gateway using the custom domain, DNS needs to be set up with a CNAME alias pointing to the DNS address of the Application Gateway.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.  Alternatively, an A record can be created, pointing to the IP address directly.  (Note that for Application Gateway V1 the VIP can change if you stop and start the service which makes this option undesired.)
 
 For Application Gateway to connect to App Service using the same custom domain, App Service should be configured so it accepts traffic using the custom domain name as the incoming host.  For more information on how to map a custom domain to the App Service, see [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)  Note that to verify the domain, App Service only requires adding a TXT record and no change is required on CNAME or A-records.  The DNS configuration for the custom domain will remain directed towards Application Gateway.
+
+To accept connections to App Service over HTTPS, configure its TLS binding.  For this, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md)
 
 ### [Default Domain](#tab/defaultdomain)
 
@@ -122,33 +124,54 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### [Azure Portal](#tab/azure-portal/customdomain)
 
-TODO: azure portal instructions for custom domain
+An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **custom domain name**.  The HTTP Setting will by default use the [default health probe](./application-gateway-probe-overview.md#default-health-probe) which relies on the hostname as is configured in the Backend Pool (suffixed "azurewebsites.net").  For this reason, it is good to first configure a [custom health probe](./application-gateway-probe-overview.md#custom-health-probe) that is configured with the correct custom domain name as its host name.
 
-An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the custom domain name.
+We will connect to the backend using HTTPS.
 
+1. Under **HTTP Settings**, select an existing HTTP setting or add a new one.
+2. In case of a new HTTP Setting, give it a name
+3. Select HTTPS as the desired backend protocol using port 443
+4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of back-end servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers)
+5. Make sure to set "Override with new host name" to "No"
+6. Select the custom HTTPS health probe in the dropdown for "Custom probe".  (Note: it will work with the default probe but for correctness we recommend using a custom probe with the correct domain name.)
 
-
-1. Under **HTTP Settings**, select the existing HTTP setting.
-2. Under **Override with new host name**, select **Yes**.
-3. Under **Host name override**, select **Pick host name from backend target**.
-4. Select **Save**.
-
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Pick host name from backend http settings":::
+:::image type="content" source="./media/configure-web-app/http-settings-custom-domain.png" alt-text="Configure HTTP Settings to use custom domain towards App Service backend using No Override":::
 
 ### [Azure Portal](#tab/azure-portal/defaultdomain)
 
-TODO: azure portal instructions for default domain
+An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **default ("azurewebsites.net") domain name**.  To do so, the HTTP Setting will explicitly override the host name.
+
+1. Under **HTTP Settings**, select an existing HTTP setting or add a new one.
+2. In case of a new HTTP Setting, give it a name
+3. Select HTTPS as the desired backend protocol using port 443
+4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of back-end servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers)
+5. Make sure to set "Override with new host name" to "Yes"
+6. Under "Host name override", select "Pick host name from backend target". This will cause the request towards App Service to use the "azurewebsites.net" host name, as is configured in the Backend Pool.
+
+:::image type="content" source="media/configure-web-app/http-settings-default-domain.png" alt-text="Configure HTTP Settings to use default domain towards App Service backend by setting Pick host name from backend target":::
 
 ### [Powershell](#tab/azure-powershell/customdomain)
 
-TODO: powershell for custom domain
+```powershell
+$rgName = "<name of resource group for App Gateway>"
+$appGwName = "<name of the App Gateway>"
+$customProbeName = "<name for custom health probe>"
+$customDomainName = "<FQDN for custom domain associated with App Service>"
+$httpSettingsName = "<name for http settings to be created>"
 
-1. Under **HTTP Settings**, select the existing HTTP setting.
-2. Under **Override with new host name**, select **Yes**.
-3. Under **Host name override**, select **Pick host name from backend target**.
-4. Select **Save**.
+# Get existing Application Gateway:
+$gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Pick host name from backend http settings":::
+# Add custom health probe using custom domain name:
+Add-AzApplicationGatewayProbeConfig -Name $customProbeName -ApplicationGateway $gw -Protocol Https -HostName $customDomainName -Path "/" -Interval 30 -Timeout 120 -UnhealthyThreshold 3
+$probe = Get-AzApplicationGatewayProbeConfig -Name $customProbeName -ApplicationGateway $gw
+
+# Add HTTP Settings to use towards App Service:
+Add-AzApplicationGatewayBackendHttpSettings -Name $httpSettingsName -ApplicationGateway $gw -Protocol Https -Port 443 -Probe $probe -CookieBasedAffinity Disabled -RequestTimeout 30
+
+# Update Application Gateway with the new added HTTP settings and probe:
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
 
 ### [Powershell](#tab/azure-powershell/defaultdomain)
 
