@@ -50,10 +50,10 @@ The following procedure has you navigate to **Transfer requests** by selecting a
 1. On the billing scopes page, select **Billing scopes** and then select the billing account, which would be used to pay for Azure usage in your subscriptions. Select the billing account labeled **Microsoft Customer Agreement**.  
     :::image type="content" source="./media/mca-request-billing-ownership/billing-scopes.png" alt-text="Screenshot that shows search in portal for Cost Management + Billing." lightbox="./media/mca-request-billing-ownership/billing-scopes.png" :::  
         The Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-for-access). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
-1. Select **Billing profiles** from the left-hand side and then select a **Billing profile** from the list. Once you take over the ownership of the subscriptions, their usage  will be billed to this billing profile.
-    >[!NOTE]
-    > If you don't see Billing profiles, you are not in the right billing scope. You need to select a billing account for a Microsoft Customer Agreement and then select Billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).  
-    :::image type="content" source="./media/mca-request-billing-ownership/billing-profile.png" alt-text="Screenshot that shows selecting billing profiles." lightbox="./media/mca-request-billing-ownership/billing-profile.png" :::
+1. Select **Billing profiles** from the left-hand side and then select a **Billing profile** from the list. Once you take over the ownership of the subscriptions, their usage  will be billed to this billing profile.  
+    :::image type="content" source="./media/mca-request-billing-ownership/billing-profile.png" alt-text="Screenshot that shows selecting billing profiles." lightbox="./media/mca-request-billing-ownership/billing-profile.png" :::  
+        > [!NOTE]
+        > If you don't see Billing profiles, you are not in the right billing scope. You need to select a billing account for a Microsoft Customer Agreement and then select Billing profiles. To learn how to change scopes, see [Switch billing scopes in the Azure portal](view-all-accounts.md#switch-billing-scope-in-the-azure-portal).
 1. Select **Invoice sections** from the left-hand side and then select an invoice section from the list. Each billing profile contains on invoice section by default. Select the invoice where you want to move your Azure subscription billing - that's where the Azure subscription consumption is transferred to.  
     :::image type="content" source="./media/mca-request-billing-ownership/invoice-section.png" alt-text="Screenshot that shows selecting invoice sections." lightbox="./media/mca-request-billing-ownership/invoice-section.png" :::  
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**. Enter the email address of the user you're requesting billing ownership from. The user must have an account administrator role for the old subscriptions.  
@@ -104,13 +104,13 @@ The transfer request can have one of the following statuses:
 
 |Status|Definition|
 |---------|---------|
-|In progress|The user hasn't accepted the transfer request|
-|Processing|The user approved the transfer request. Billing for subscriptions that the user selected is getting transferred to your invoice section|
-|Completed| The billing for subscriptions that the user selected is transferred to your invoice section|
-|Finished with errors|The request completed but billing for some subscriptions that the user selected couldn't be transferred|
-|Expired|The user didn't accept the request on time and it expired|
-|Canceled|Someone with access to the transfer request canceled the request|
-|Declined|The user declined the transfer request|
+|In progress|The user hasn't accepted the transfer request.|
+|Processing|The user approved the transfer request. Billing for subscriptions that the user selected is getting transferred to your invoice section.|
+|Completed| The billing for subscriptions that the user selected is transferred to your invoice section.|
+|Finished with errors|The request completed but billing for some subscriptions that the user selected couldn't be transferred.|
+|Expired|The user didn't accept the request on time and it expired.|
+|Canceled|Someone with access to the transfer request canceled the request.|
+|Declined|The user declined the transfer request.|
 
 As the user that approved the transfer:
 
@@ -119,11 +119,10 @@ As the user that approved the transfer:
 
 |Column  |Definition|
 |---------|---------|
-|Transfer request ID|The unique ID for your transfer request. If you submit a support request, share the ID with Azure support to speed up your support request. |
+|Transfer ID|The unique ID for your transfer request. If you submit a support request, share the ID with Azure support to speed up your support request. |
 |Transfer requested date|The date when the transfer request was sent. |
 |Transfer requested by|The email address of the user who sent the transfer request. |
 |Transfer request expires date| Only appears while the transfer status is `Pending`. The date when the transfer request expires. |
-|Recipient's email address|The email address of the user that you sent the request to transfer billing ownership|
 |Transfer link sent to recipient| Only appears while the transfer status is `Pending`. The URL that was sent to the user to review the transfer request. |
 |Transfer completed date|Only appears when the transfer status is `Completed`. The date and time that the transfer was completed. |
 
