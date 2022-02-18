@@ -186,7 +186,7 @@ The **Run Detail** screen opens to the **Details** tab. This screen shows you a 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
-![Run detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
+![Run detail](./media/how-to-use-automated-ml-for-ml-models/explorfasde-models.gif)
 
 ### View training run details
 
@@ -277,6 +277,18 @@ To get explanations for a particular model,
 
     ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
+## Edit and submit runs (preview)
+
+>[!IMPORTANT]
+> The ability to copy, edit and submit a new experiment based on an existing experiment is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+
+In scenarios where you would like to create a new experiment based on the settings of an existing experiment, automated ML provides the option to do so with the **Edit and submit** button in the studio UI.  
+
+This functionality is limited to experiments initiated from the studio UI and requires the data schema for the new experiment to match that of the original experiment. 
+
+The **Edit and submit** button opens the **Create a new Automated ML run** wizard with the data, compute and experiment settings pre-populated. You can go through each form and edit selections as needed for your new experiment. 
+
+ 
 ## Deploy your model
 
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
