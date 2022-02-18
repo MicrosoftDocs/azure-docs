@@ -111,7 +111,7 @@ Replace the *server-name* placeholder with a unique SQL Database name. This name
 az sql server create 
     --location eastus
     --resource-group msdocs-core-sql
-    --server <server-name>
+    --name <server-name>
     --admin-user <db-username>
     --admin-password <db-password>
 ```
