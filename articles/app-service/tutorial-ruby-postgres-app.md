@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Linux Ruby app with Postgres' 
 description: Learn how to get a Linux Ruby app working in Azure App Service, with connection to a PostgreSQL database in Azure. Rails is used in the tutorial.
-ms.devlang: ruby, azurecli
+ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
