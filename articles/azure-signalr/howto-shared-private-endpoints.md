@@ -27,7 +27,7 @@ This outbound method is subject to the following requirements:
 
 ## Shared Private Link Resources Management
 
-Private endpoints of secured resources that are created through Azure SignalR Service APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as an Azure Function, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside Azure SignalR Service execution environment and are not directly visible to you.
+Private endpoints of secured resources that are created through Azure SignalR Service APIs are referred to as *shared private link resources*. This is because you're "sharing" access to a resource, such as an Azure Function, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside Azure SignalR Service execution environment and aren't directly visible to you.
 
 > [!NOTE]
 > The examples in this article are based on the following assumptions:
@@ -38,9 +38,9 @@ The rest of the examples show how the *contoso-signalr* service can be configure
 
 ### Step 1: Create a shared private link resource to the function
 
-#### [Azure Portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
-1. In the Azure Portal, go to your Azure SignalR Service resource.
+1. In the Azure portal, go to your Azure SignalR Service resource.
 1. In the menu pane, select **Networking**. Switch to **Private access** tab.
 1. Click **Add shared private endpoint**.
 
@@ -85,9 +85,9 @@ The process of creating an outbound private endpoint is a long-running (asynchro
 
 You can poll this URI periodically to obtain the status of the operation.
 
-If you are using the CLI, you can poll for the status by manually querying the `Azure-AsyncOperationHeader` value,
+If you're using the CLI, you can poll for the status by manually querying the `Azure-AsyncOperationHeader` value,
 
-```donetcli
+```dotnetcli
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/signalr/contoso-signalr/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2021-06-01-preview
 ```
 
@@ -100,7 +100,7 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 > [!IMPORTANT]
 > After you approved the private endpoint connection, the Function is no longer accessible from public network. You may need to create other private endpoints in your own virtual network to access the Function endpoint.
 
-#### [Azure Portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
 1. In the Azure portal, select the **Networking** tab of your Function App and navigate to **Private endpoint connections**. Click **Configure your private endpoint connections**. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
 
@@ -114,16 +114,14 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
 
 #### [Azure CLI](#tab/azure-cli)
 
-Alternatively you can use Azure CLI to approve the private endpoint.
-
 1. List private endpoint connections.
 
-    ```donetcli
+    ```dotnetcli
     az network private-endpoint-connection list -n <function-resource-name>  -g <function-resource-group-name> --type 'Microsoft.Web/sites'
     ```
-    
-    There should be a pending private endpoint connection. Note down its id.
-    
+
+    There should be a pending private endpoint connection. Note down its ID.
+
     ```json
     [
         {
@@ -135,7 +133,7 @@ Alternatively you can use Azure CLI to approve the private endpoint.
                     "actionRequired": "None",
                     "description": "Please approve",
                     "status": "Pending"
-               }    
+               }
             }
         }
     ]
@@ -143,17 +141,17 @@ Alternatively you can use Azure CLI to approve the private endpoint.
 
 1. Approve the private endpoint connection.
 
-    ```donetcli
+    ```dotnetcli
     az network private-endpoint-connection approve --id <private-endpoint-connection-id>
     ```
-    
+
 -----
 
 ### Step 2b: Query the status of the shared private link resource
 
-It takes minutes for the approval to be propagated to Azure SignalR Service. You can check the state using either Azure Portal or Azure CLI.
+It takes minutes for the approval to be propagated to Azure SignalR Service. You can check the state using either Azure portal or Azure CLI.
 
-#### [Azure Portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal)
 
    :::image type="content" alt-text="Screenshot of an approved shared private endpoint." source="media\howto-shared-private-endpoints\portal-shared-private-endpoints-approved.png" :::
 
