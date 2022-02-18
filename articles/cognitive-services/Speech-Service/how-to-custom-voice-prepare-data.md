@@ -50,6 +50,8 @@ Files should be grouped by type into a dataset and uploaded as a zip file. Each 
 
 > [!NOTE]
 > The maximum number of datasets allowed to be imported per subscription is 500 for standard subscription (S0) users.
+>
+> For the two beta options, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
 ## Individual utterances + matching transcript
 
@@ -70,14 +72,14 @@ Follow these guidelines when preparing audio.
 | -------- | ----- |
 | File format | RIFF (.wav), grouped into a .zip file |
 | File name | Numeric, with .wav extension. No duplicate file names allowed. |
-| Sampling rate	| At least 16,000 Hz |
+| Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
 | Sample format | PCM, 16-bit |
 | Audio length | Shorter than 15 seconds |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
 
 > [!NOTE]
-> .wav files with a sampling rate lower than 16,000 Hz will be rejected. If a .zip file contains .wav files with different sample rates, only those equal to or higher than 16,000 Hz will be imported. The default sampling rate for a custom neural voice is 24,000 Hz. Your .wav files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
+> The default sampling rate for a custom neural voice is 24,000 Hz. Audio files with a sampling rate lower than 16,000 Hz will be rejected. If a .zip file contains .wav files with different sample rates, only those equal to or higher than 16,000 Hz will be imported. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
 ### Transcripts
 
@@ -114,13 +116,13 @@ Follow these guidelines when preparing audio for segmentation.
 | -------- | ----- |
 | File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
 | File name	| ASCII and Unicode characters supported. No duplicate names allowed. |
-| Sampling rate	| At least 16,000 Hz |
+| Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
 
 > [!NOTE]
-> The default sampling rate for a custom neural voice is 24,000 Hz.  Your .wav files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice.  It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
+> The default sampling rate for a custom neural voice is 24,000 Hz. Audio files with a sampling rate lower than 16,000 Hz will be rejected. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
 All audio files should be grouped into a zip file. It’s OK to put .wav files and .mp3 files into one audio zip. For example, you can upload a zip file containing an audio file named ‘kingstory.wav’, 45-second-long, and another audio named ‘queenstory.mp3’, 200-second-long. All .mp3 files will be transformed into the .wav format after processing.
 
@@ -153,13 +155,13 @@ Follow these guidelines when preparing audio.
 | -------- | ----- |
 | File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
 | File name | ASCII and Unicode characters supported. No duplicate name allowed. |
-| Sampling rate	| At least 16,000 Hz |
+| Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
 | Audio length | No limit |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
 
 > [!NOTE]
-> The default sampling rate for a custom neural voice is 24,000 Hz.  Your .wav files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice.  It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
+> The default sampling rate for a custom neural voice is 24,000 Hz. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
 All audio files should be grouped into a zip file. Once your dataset is successfully uploaded, we'll help you segment the audio file into utterances based on our speech batch transcription service. Unique IDs will be assigned to the segmented utterances automatically. Matching transcripts will be generated through speech recognition. All .mp3 files will be transformed into the .wav format after processing. You can check the segmented utterances and the matching transcripts by downloading the dataset.
 
