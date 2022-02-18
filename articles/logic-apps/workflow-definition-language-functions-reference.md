@@ -3915,7 +3915,7 @@ And returns this array with the remaining items: `[1,2,3]`
 Return a substring by specifying the starting and ending position or value.
 
 ```
-slice('<*text>', <startIndex>, <endIndex>)
+slice('<text>', <startIndex>, <endIndex>)
 ```
 
 | Parameter | Required | Type | Description |
