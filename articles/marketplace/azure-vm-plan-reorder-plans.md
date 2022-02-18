@@ -6,10 +6,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 02/10/2022
+ms.date: 02/18/2022
 ---
 
-# Reorder plans (optional)
+# Reorder plans
 
 For VM offers with more than one plan, you can change the order that your plans are shown to customers. The first plan listed will become the default plan that customers will see.
 
