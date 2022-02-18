@@ -19,9 +19,9 @@ This option lets you use the same technical configuration settings across plans 
 
 Some common reasons for reusing the technical configuration settings from another plan include:
 
-1. The same images are available for both *Pay as you go* and *BYOL*.
-2. To reuse the same technical configuration from a public plan for a private plan with a different price. 
-3. Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
+- The same images are available for both *Pay as you go* and *BYOL*.
+- To reuse the same technical configuration from a public plan for a private plan with a different price. 
+- Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
 
 Leverage [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
 
