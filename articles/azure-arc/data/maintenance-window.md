@@ -83,13 +83,13 @@ kubectl describe datacontroller -n <namespace>
 Output:
 
 ```text
-spec:
-  settings:
-    maintenance:
-      duration: "3:00"
-      recurrence: Monthly First Saturday
-      start: "2022-01-01T23:00"
-      timeZone: "US/Pacific"
+Spec:  
+  Settings:
+    Maintenance:
+      Duration:    3:00
+      Recurrence:  Monthly First Saturday
+      Start:       2022-01-01T23:00
+      Time Zone:   US/Pacific
 ```
 
 ## Failed upgrades
