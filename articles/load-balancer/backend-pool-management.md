@@ -111,14 +111,14 @@ $vmc = @{
 
 $vmos = @{
     ComputerName = 'myVM1'
-    Credential $cred
+    Credential = $cred
 }
 
 $vmi = @{
     PublisherName = 'MicrosoftWindowsServer'
     Offer = 'WindowsServer'
     Skus = '2019-Datacenter'
-    Version 'latest'
+    Version = 'latest'
 }
 $vmConfig = 
 New-AzVMConfig @vmc | Set-AzVMOperatingSystem -Windows @vmos | Set-AzVMSourceImage @vmi | Add-AzVMNetworkInterface -Id $nic.Id
@@ -127,7 +127,7 @@ New-AzVMConfig @vmc | Set-AzVMOperatingSystem -Windows @vmos | Set-AzVMSourceIma
 # Create a virtual machine using the configuration
 $vm = @{
     ResourceGroupName = 'myResourceGroup'
-    Zone '1'
+    Zone = '1'
     Location = 'eastus'
     VM = $vmConfig
 
