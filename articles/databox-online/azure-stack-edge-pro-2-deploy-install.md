@@ -169,7 +169,7 @@ On your Azure Stack Edge Pro 2 device:
     - There are six disk slots in the front of your device.
     - Slot 0 – Slot 3 contain data disks. Slots 4 and 5 are empty.
 
-    ![Disks and power button on the front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
+    ![Disks and power button on the front plane of a device](./media/azure-stack-edge-pro-2-deploy-install/front-plane-labeled-1.png)
 
 - The back plane has four network interfaces:
 
