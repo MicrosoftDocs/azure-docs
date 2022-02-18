@@ -4,13 +4,12 @@ metadata:
   description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
   ms.service: data-factory
   ms.subservice: integration-services
-  ms.topic: conceptual
+  ms.topic: faq
   ms.author: sawinark
   author: swinarko
   ms.reviewer: sawinark
   ms.custom: seo-lt-2019
   ms.date: 10/22/2021
-    
 title: Troubleshoot package execution in the SSIS integration runtime
 summary: |
   [!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
