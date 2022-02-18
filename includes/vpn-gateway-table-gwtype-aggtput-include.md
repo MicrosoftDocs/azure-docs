@@ -41,7 +41,7 @@
 
 * On a single tunnel a maximum of 1 Gbps throughput can be achieved. Aggregate Throughput Benchmark in the above table is based on measurements of multiple site-to-site tunnels aggregated through a single gateway. The Aggregate Throughput Benchmark for a VPN Gateway is S2S + P2S combined. **If you have a lot of P2S connections, it can negatively impact a S2S connection due to throughput limitations.** The Aggregate Throughput Benchmark is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
 
-* The throughput limit for P2S is based on a VPN gateway with many P2S connections. A single P2S connection will likely achieve a much lower throughput. 
+* The throughput limit benchmark for P2S is based on a VPN gateway with many P2S connections. A single P2S connection will likely achieve a much lower throughput. 
 
 * Throughput benchmarks are based on site-to-site tunnels. A single point-to-site connections 
 
