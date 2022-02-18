@@ -1,7 +1,6 @@
 ---
 title: Data integration partners 
 description: Lists of third-party partners with data integration solutions that support Azure Synapse Analytics.
-services: synapse-analytics
 author: gillharmeet
 manager: craigg
 ms.service: synapse-analytics

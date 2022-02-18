@@ -2,6 +2,7 @@
 metadata:
   title: Virtual Network NAT frequently asked questions
   description: Answers to common questions about using Azure Virtual Network NAT.
+  ms.topic: faq
 
 title: Frequently asked questions for Azure Virtual Network NAT
 summary: |

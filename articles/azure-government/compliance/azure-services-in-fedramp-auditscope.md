@@ -135,7 +135,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/) | &#x2705; | &#x2705; |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; |
-| [Azure Scheduler](../../scheduler/scheduler-intro.md) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; |
+| [Azure Scheduler](../../scheduler/index.yml) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; |
 | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; |
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; |
@@ -325,7 +325,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Azure Scheduler](../../scheduler/scheduler-intro.md) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Scheduler](../../scheduler/index.yml) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
