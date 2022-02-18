@@ -94,17 +94,17 @@ Now that we have the chart repository configured, we can deploy the OpenTelemetr
       enabled: false
     standaloneCollector:
       enabled: true
-    configOverride:
+    config:
       exporters:
         prometheus:
           endpoint: "0.0.0.0:8889"
           namespace: azure_apim
           send_timestamps: true
-        service:
-          pipelines:
-            metrics:
-              exporters:
-              - prometheus
+      service:
+        pipelines:
+          metrics:
+            exporters:
+            - prometheus
     service:
       type: LoadBalancer
     ports:
