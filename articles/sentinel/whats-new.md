@@ -27,37 +27,6 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
-## February 2022
-
-[Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
-
-### Search across long time spans in large datasets (public preview)
-
-Use a search job when you start an investigation to find specific events in logs within a given time frame. You can search all your logs, filter through them, and look for events that match your criteria.
-
-Search jobs are asynchronous queries that fetch records. The results are returned to a search table that's created in your Log Analytics workspace after you start the search job. The search job uses parallel processing to run the search across long time spans, in extremely large datasets. So search jobs don't impact the workspace's performance or availability.
-
-Use search to find events in any of the following log types:
-
-- [Analytics logs](../azure-monitor/logs/data-platform-logs.md)
-- [Basic logs (preview)](../azure-monitor/logs/azure-monitor-basic-logs.md)
-
-You can also search analytics or basic log data stored in [archived logs (preview)](../azure-monitor/logs/azure-monitor-archived-logs.md).
-
-For more information, see:
-
-- [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md)
-- [Search across long time spans in large datasets (preview)](search-jobs.md)
-
-
-### Restore archived logs from search (public preview)
-
-When you need to do a full investigation on data stored in archived logs, restore a table from the **Search** page in Microsoft Sentinel. Specify a target table and time range for the data you want to restore. Within a few minutes, the log data is restored and available within the Log Analytics workspace. Then you can use the data in high-performance queries that support full KQL.
-
-For more information, see:
-
-- [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md)
-- [Restore archived logs from search (preview)](restore.md)
 
 ## January 2022
 
