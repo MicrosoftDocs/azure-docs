@@ -34,7 +34,7 @@ Organizations can choose to store data for longer periods by changing diagnostic
 
 Log Analytics allows organizations to query data using built in queries or custom created Kusto queries, for more information, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
 
-Once enabled you'll find access to Log Analytics in the **Azure portal** > **Azure AD** > **Log Analytics**. The tables of most interest to Identity Protection administrators are **AADRiskyUsers** and **AADUserRiskEvents**.
+Once enabled you'll find access to Log Analytics in the **Azure portal** > **Azure AD** > **Log Analytics**. The following tables are of most interest to Identity Protection administrators:
 
 - AADRiskyUsers - Provides data like the **Risky users** report in Identity Protection.
 - AADUserRiskEvents - Provides data like the **Risk detections** report in Identity Protection.
