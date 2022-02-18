@@ -66,7 +66,7 @@ Set the authenticationType property to **Basic**. In addition to the generic pro
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user name used to log in to TeamDesk. |Yes  |
-| password | The password for the user (the userName value). Mark this field as a SecureString type to store it securely in Data Factory. |Yes  |
+| password | The password for the user (the userName value). |Yes  |
 
 **Example:**
 
@@ -79,10 +79,7 @@ Set the authenticationType property to **Basic**. In addition to the generic pro
             "url": "https://www.teamdesk.net/secure/db/xxxxx",
             "authenticationType": "basic",
             "userName": "<user name>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
+            "password": "<password>"
         }
     }
 }
