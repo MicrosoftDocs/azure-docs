@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: create a Synapse workspace'
 description: Create an  Synapse workspace by following the steps in this guide.
-services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart
