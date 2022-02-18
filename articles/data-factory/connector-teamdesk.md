@@ -1,7 +1,7 @@
 ---
-title: Transform data in TeamDesk
+title: Transform data in TeamDesk (Preview)
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to transform data in TeamDesk by using Data Factory or Azure Synapse Analytics.
+description: Learn how to transform data in TeamDesk (Preview) by using Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
@@ -11,11 +11,11 @@ ms.custom: synapse
 ms.date: 02/17/2022
 ---
 
-#  Transform data in TeamDesk using Azure Data Factory or Synapse Analytics
+#  Transform data in TeamDesk (Preview) using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use Data Flow to transform data in TeamDesk. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+This article outlines how to use Data Flow to transform data in TeamDesk (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 
@@ -37,9 +37,9 @@ Use the following steps to create a TeamDesk linked service in the Azure portal 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
-2. Search for TeamDesk and select the TeamDesk connector.
+2. Search for TeamDesk (Preview) and select the TeamDesk (Preview) connector.
 
-    :::image type="content" source="media/connector-teamdesk/select-teamdesk-connector.png" alt-text="Screenshot showing selecting TeamDesk connector.":::    
+    :::image type="content" source="media/connector-teamdesk/teamdesk-connector.png" alt-text="Screenshot showing selecting TeamDesk connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
@@ -66,7 +66,7 @@ Set the authenticationType property to **Basic**. In addition to the generic pro
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user name used to log in to TeamDesk. |Yes  |
-| encryptedCredential | The password for the userName you specified. |Yes  |
+| password | The password for the user (the userName value). Mark this field as a SecureString type to store it securely in Data Factory. |Yes  |
 
 **Example:**
 
@@ -79,7 +79,10 @@ Set the authenticationType property to **Basic**. In addition to the generic pro
             "url": "https://www.teamdesk.net/secure/db/xxxxx",
             "authenticationType": "basic",
             "userName": "<user name>",
-            "encryptedCredential": "<password>"
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
         }
     }
 }
@@ -91,7 +94,7 @@ Set the authenticationType property to **Token**. In addition to the generic pro
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| encryptedCredential | The value of your REST API authorization token in your TeamDesk. |Yes |
+| apiToken | The REST API authorization token in your TeamDesk. |Yes |
 
 **Example:**
 
@@ -103,7 +106,7 @@ Set the authenticationType property to **Token**. In addition to the generic pro
         "typeProperties": {
             "url": "https://www.teamdesk.net/secure/db/xxxxx",
             "authenticationType": "token",
-            "encryptedCredential": "<token value>"
+            "apiToken": "<API token>"
         }
     }
 }
