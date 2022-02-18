@@ -46,9 +46,9 @@ The following procedure has you navigate to **Transfer requests** by selecting a
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an invoice section owner or contributor for a billing account for Microsoft Customer Agreement. Use the same credentials that you used to accept your Microsoft Customer Agreement.
 1. Search for **Cost Management + Billing**.  
-    :::image type="content" source="./media/mca-request-billing-ownership/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search for Cost Management + Billing" lightbox="./media/mca-request-billing-ownership/billing-search-cost-management-billing.png" :::
+    :::image type="content" source="./media/mca-request-billing-ownership/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search for Cost Management + Billing." lightbox="./media/mca-request-billing-ownership/billing-search-cost-management-billing.png" :::
 1. On the billing scopes page, select **Billing scopes** and then select the billing account, which would be used to pay for Azure usage in your subscriptions. Select the billing account labeled **Microsoft Customer Agreement**.  
-    :::image type="content" source="./media/mca-request-billing-ownership/billing-scopes.png" alt-text="Screenshot that shows search in portal for Cost Management + Billing" lightbox="./media/mca-request-billing-ownership/billing-scopes.png" :::  
+    :::image type="content" source="./media/mca-request-billing-ownership/billing-scopes.png" alt-text="Screenshot that shows search in portal for Cost Management + Billing." lightbox="./media/mca-request-billing-ownership/billing-scopes.png" :::  
         The Azure portal remembers the last billing scope that you access and displays the scope the next time you come to Cost Management + Billing page. You won't see the billing scopes page if you have visited Cost Management + Billing earlier. If so, check that you are in the [right scope](#check-for-access). If not, [switch the scope](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) to select the billing account for a Microsoft Customer Agreement.
 1. Select **Billing profiles** from the left-hand side and then select a **Billing profile** from the list. Once you take over the ownership of the subscriptions, their usage  will be billed to this billing profile.
     >[!NOTE]
@@ -73,7 +73,7 @@ The following procedure has you navigate to **Transfer requests** by selecting a
 1. Select the **Review request** tab and verify the information about the subscriptions and reservations to transfer. Then select **Transfer**.   
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-complete.png" alt-text="Screenshot showing the Review request tab where you review your transfer selections." lightbox="./media/mca-request-billing-ownership/review-transfer-request-complete.png" :::
 1. You'll briefly see a `Transfer is in progress` message. When the transfer is completed successfully, you'll see the Transfer details page with the `Transfer completed successfully` message.  
-    :::image type="content" source="./media/mca-request-billing-ownership/transfer-completed-successfully.png" alt-text="ALTTEXT" lightbox="./media/mca-request-billing-ownership/transfer-completed-successfully.png" :::
+    :::image type="content" source="./media/mca-request-billing-ownership/transfer-completed-successfully.png" alt-text="Screenshot showing the Transfer completed successfully page." lightbox="./media/mca-request-billing-ownership/transfer-completed-successfully.png" :::
 
 On the Transfer details page, the following status messages might be displayed.
 
@@ -89,7 +89,7 @@ As the user that requested the transfer:
 1. Search for **Cost Management + Billing**.
 1. In the billing scopes page, select the billing account where the transfer request was started and then in the left menu, select **Transfer requests**.
 1. Select the billing profile and invoice section where the transfer request was started and review the status.  
-    :::image type="content" source="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" alt-text="ALTTEXT" lightbox="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" :::
+    :::image type="content" source="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" alt-text="Screenshot that shows the list of transfers with their status. " lightbox="./media/mca-request-billing-ownership/transfer-requests-status-completed.png" :::
 
 The Transfer requests page displays the following information:
 
@@ -115,7 +115,7 @@ The transfer request can have one of the following statuses:
 As the user that approved the transfer:
 
 1. Select a transfer request to view details. The transfer details page displays the following information:  
-  :::image type="content" source="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" alt-text="ALTTEXT" lightbox="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" :::
+  :::image type="content" source="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" alt-text="Screenshot that shows the Transfer status page with example status." lightbox="./media/mca-request-billing-ownership/transfer-status-success-approver-view.png" :::
 
 |Column  |Definition|
 |---------|---------|
