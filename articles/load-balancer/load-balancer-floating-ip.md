@@ -5,7 +5,7 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 ms.service: load-balancer
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/2/2021
