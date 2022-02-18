@@ -2,7 +2,7 @@ The Speech service phone set for `ja-JP` is based on the native phone [Kana](htt
 
 :::row:::
    :::column span="1":::
-   ||
+   |Kana,viseme|
    |----|
    ||
    |ア行|
@@ -45,13 +45,6 @@ The Speech service phone set for `ja-JP` is based on the native phone [Kana](htt
    :::column-end:::
 :::row-end:::
 
-
-|----|----|----|----|----|----|----|----|----|----|----|
-||Kana|Viseme|Kana|Viseme|Kana|Viseme|Kana|Viseme|Kana|Viseme|
-|ア行|ア|19,2|カ|20,2|サ|15,2|タ|19,2|ナ|19,2|
-|ア行|ア|19,2|カ|20,2|サ|15,2|タ|19,2|ナ|19,2|
-|ア行|ア|19,2|カ|20,2|サ|15,2|タ|19,2|ナ|19,2|
-|ア行|ア|19,2|カ|20,2|サ|15,2|タ|19,2|ナ|19,2|
 
 
 #### Examples
