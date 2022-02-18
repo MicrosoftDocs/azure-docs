@@ -3260,7 +3260,7 @@ nthIndexOf('<text>', '<searchText>', <occurrence>)
 |-----------|----------|------|-------------|
 | <*text*> | Yes | String | The string that contains the substring to find |
 | <*searchText*> | Yes | String | The substring to find |
-| <*ocurrence*> | Yes | Integer | A positive number that specifies the *n*th occurrence of the substring to find. If this value is unspecified, the default value is `1` and matches the current behavior. |
+| <*ocurrence*> | Yes | Integer | A positive number that specifies the *n*th occurrence of the substring to find.|
 |||||
 
 | Return value | Type | Description |
