@@ -105,14 +105,8 @@ This document provides guidance to get your service running inside a Windows con
    </Policies>
    ```
 
-> [!NOTE] 
-> By default, Service Fabric applications have access to the Service Fabric runtime, in the form of an endpoint accepting application-specific requests. Consider disabling this access when the application hosts untrusted code. For more information, please see [security best practices in Service Fabric](service-fabric-best-practices-security.md#isolate-the-cluster-and-its-trusted-applications-from-untrusted-applications). To disable access to the Service Fabric runtime, add the following setting in the Policies section of the application manifest corresponding to the imported service manifest, as follows:
->
-```xml
-  <Policies>
-      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
-  </Policies>
-```
+> [!NOTE]
+> By design, the applications hosted in a Service Fabric cluster are considered **trusted** and the entire Service Fabric cluster is treated as the trust and security boundary. As such, by default, Service Fabric applications are granted access to the Service Fabric runtime. Service Fabric runtime access is also **required** to run Service Fabric reliable services inside containers. If you are considering hosting **untrusted container applications**, consider deploying them as [guest containers](service-fabric-containers-overview.md#service-fabric-support-for-containers) with their [access to Service Fabric runtime](service-fabric-service-model-schema-complex-types.md#servicefabricruntimeaccesspolicytype-complextype) disabled by specifying [**RemoveServiceFabricRuntimeAccess** as **true**](service-fabric-best-practices-security.md#removeservicefabricruntimeaccess) in the Policies section of the ApplicationManifest.xml. Additional steps must also be considered to [isolate the cluster and its trusted applications from untrusted applications](service-fabric-best-practices-security.md#isolate-the-cluster-and-its-trusted-applications-from-untrusted-applications).
 >
 
 10. To test this application, you need to deploy it to a cluster that is running version 5.7 or higher. For runtime versions 6.1 or lower, you need to edit and update the cluster settings to enable this preview feature. Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.
