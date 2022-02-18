@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: kendralittle, mathoma, urmilano
-ms.date: 02/02/2022
+ms.date: 02/18/2022
 ---
 # Business Critical tier - Azure SQL Database and Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -80,8 +80,8 @@ The following table shows resource limits for both Azure SQL Database and Azure 
 | **Log write throughput** | Single databases: [12 MB/s per vCore (max 96 MB/s)](resource-limits-vcore-single-databases.md) <br> Elastic pools: [15 MB/s per vCore (max 120 MB/s)](resource-limits-vcore-elastic-pools.md) | [4 MB/s per vCore (max 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Availability** | [Default SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-database/)  | [Default SLA](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance/)|
 | **Backups** | RA-GRS, 1-35 days (7 days by default) | RA-GRS, 1-35 days (7 days by default)| 
-| **Read-only replicas** |1 built-in, included in price <br> 0 - 4 using [geo-replication](active-geo-replication-overview.md) |1 built-in, included in price <br> 0 - 1 using [auto-failover groups](auto-failover-group-overview.md#best-practices-for-sql-managed-instance)  | 
-| **Pricing/Billing** |[vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged. |[vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.  | 
+| [**Read-only replicas**](read-scale-out.md) |1 built-in high availability replica is readable <br> 0 - 4 [geo-replicas](active-geo-replication-overview.md) |1 built-in high availability replica is readable <br> 0 - 1 geo-replicas using [auto-failover groups](auto-failover-group-overview.md#best-practices-for-sql-managed-instance)  | 
+| **Pricing/Billing** |[vCore, reserved storage, backup storage, and geo-replicas](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/> High availability replicas are not charged. <br/>IOPS is not charged. |[vCore, reserved storage, backup storage, and geo-replicas](https://azure.microsoft.com/pricing/details/sql-database/managed/) are charged. <br/> High availability replicas are not charged. <br/>IOPS is not charged.  | 
 | **Discount models** |[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions | 
 | | |
 
