@@ -61,7 +61,7 @@ The following properties are supported for the TeamDesk linked service:
 
 ### Basic authentication
 
-Set the authenticationType property to **Basic**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+Set the **authenticationType** property to **Basic**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -87,7 +87,7 @@ Set the authenticationType property to **Basic**. In addition to the generic pro
 
 ### Token authentication
 
-Set the authenticationType property to **Token**. In addition to the generic properties that are described in the preceding section, specify the following properties:
+Set the **authenticationType** property to **Token**. In addition to the generic properties that are described in the preceding section, specify the following properties:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
