@@ -186,7 +186,7 @@ To learn more, see [Update your extensions].
 
 |Property  |Default |Description |
 |----------|--------|------------|
-|**connectioMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+|**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
 
 ---
 
