@@ -29,7 +29,7 @@ The azcmagent tool is used to configure the Azure Connected Machine agent during
 
 * **-h or --help** - Shows available command-line parameters
 
-    For example, to see detailed help for the **Connect** parameter, type `azcmagent connect -h`. 
+    For example, to see detailed help for the **Connect** parameter, type `azcmagent connect -h`.
 
 * **-v or --verbose** - Enable verbose logging
 
@@ -220,7 +220,7 @@ Actions of the [apt](https://help.ubuntu.com/lts/serverguide/apt.html) command, 
     sudo yum update azcmagent
     ```
 
-Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command, such as installation and removal of packages, are logged in the `/var/log/yum.log` log file. 
+Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command, such as installation and removal of packages, are logged in the `/var/log/yum.log` log file.
 
 #### Upgrade the agent on SUSE Linux Enterprise
 
@@ -238,7 +238,7 @@ Actions of the [yum](https://access.redhat.com/articles/yum-cheat-sheet) command
 
 Actions of the [zypper](https://en.opensuse.org/Portal:Zypper) command, such as installation and removal of packages, are logged in the `/var/log/zypper.log` log file.
 
-## Renaming an Azure Arc-enabled sever resource
+## Renaming an Azure Arc-enabled server resource
 
 When you change the name of the Linux or Windows machine connected to Azure Arc-enabled servers, the new name is not recognized automatically because the resource name in Azure is immutable. As with other Azure resources, you have to delete the resource and re-create it in order to use the new name.
 
@@ -319,19 +319,19 @@ To uninstall the agent manually from the Command Prompt or to use an automated m
 
 To uninstall the Linux agent, the command to use depends on the Linux operating system.
 
-- For Ubuntu, run the following command:
+* For Ubuntu, run the following command:
 
     ```bash
     sudo apt purge azcmagent
     ```
 
-- For RHEL, CentOS, Oracle Linux, and Amazon Linux, run the following command:
+* For RHEL, CentOS, Oracle Linux, and Amazon Linux, run the following command:
 
     ```bash
     sudo yum remove azcmagent
     ```
 
-- For SLES, run the following command:
+* For SLES, run the following command:
 
     ```bash
     sudo zypper remove azcmagent
