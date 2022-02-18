@@ -658,7 +658,7 @@ Implement the OnMessageReceivedAsync() method in SampleChatHub.
     }
     ```
 
-    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware will deliver the exception message to service and service will drop current client connection.
+    This event handler uses `WebPubSubServiceClient.SendToAllAsync()` to broadcast the received message to all clients. You can see in the end we returned `UserEventResponse`, which contains a message directly to the caller and make the WebHook request success. If you have extra logic to validate and would like to break this call, you can throw an exception here. The middleware will deliver the exception message to service and service will drop current client connection. Do not forget to include the `using Microsoft.Azure.WebPubSub.Common;` statement at the begining of the `Program.cs` file.
 
 2.  Update `index.html` to add the logic to send message from user to server and display received messages in the page.
 
