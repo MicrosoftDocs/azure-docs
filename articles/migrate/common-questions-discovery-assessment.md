@@ -20,7 +20,7 @@ This article answers common questions about discovery, assessment, and dependenc
 
 ## What geographies are supported for discovery and assessment with Azure Migrate?
 
-Review the supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+Review the supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
 ## How many servers can I discover with an appliance?
 

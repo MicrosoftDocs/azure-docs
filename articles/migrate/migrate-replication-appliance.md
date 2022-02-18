@@ -70,7 +70,7 @@ MySQL must be installed on the replication appliance machine. It can be installe
 
 **Method** | **Details**
 --- | ---
-Download and install manually | Download MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br/> When you set up the appliance MySQL will show as already installed.
+Download and install manually | Download MySQL application & place it in the folder C:\Temp\ASRSetup, then install manually.<br/> When you set up the appliance, MySQL will show as already installed.
 Without online download | Place the MySQL installer application in the folder C:\Temp\ASRSetup. When you install the appliance and select download and install MySQL, setup will use the installer you added.
 Download and install in Azure Migrate | When you install the appliance and are prompted for MySQL, select **Download and install**.
 
@@ -108,7 +108,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 
 >[!Note]
 >
-> If you Migrate project has private endpoint connectivity, you will need access to following URLs over and above private link access:   
+> If your Migrate project has private endpoint connectivity, you will need access to following URLs over and above private link access:   
 > - *.blob.core.windows.com - To access storage account that stores replicated data. This is optional and is not required if the storage account has a private endpoint attached. 
 > - https:\//management.azure.com for replication management operations and coordination. 
 >- https:\//login.microsoftonline.com <br/>https:\//login.windows.net <br/> https:\//www.live.com _and_ <br/> https:\//www.microsoft.com for access control and identity management by Azure Active Directory
