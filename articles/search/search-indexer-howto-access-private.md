@@ -27,7 +27,7 @@ Private endpoints created through Azure Cognitive Search APIs are referred to as
 
 To create a shared private link, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API.
 
-If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to created the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
+If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to create the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
 
 The following table lists Azure resources for which you can create outbound private endpoints from Azure Cognitive Search. 
 
@@ -66,13 +66,13 @@ The following section describes how to create a shared private link resource eit
 
 1. On the blade that opens on the right, select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID or alias**.
 
-   If you select the first option (recommended), the blade helps you pick the appropriate Azure resource and fills in other properties, such as the **Group ID** of the resource and the resource type.
+1. If you select the first option (recommended), the blade helps you pick the appropriate Azure resource and fills in other properties, such as the **Group ID** of the resource and the resource type.
 
-   ![Screenshot of the "Add Shared Private Access" pane, showing a guided experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource.png)
+  ![Screenshot of the "Add Shared Private Access" pane, showing a guided experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource.png)
 
-  If you select the second option, enter the Azure resource ID manually and choose the appropriate **Group ID** from the list at the beginning of this article.
+1. If you select the second option, enter the Azure resource ID manually and choose the appropriate **Group ID** from the list at the beginning of this article.
 
-    ![Screenshot of the "Add Shared Private Access" pane, showing the manual experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-manual.png)
+  ![Screenshot of the "Add Shared Private Access" pane, showing the manual experience for creating a shared private link resource.](media\search-indexer-howto-secure-access\new-shared-private-link-resource-manual.png)
 
 ### [**Azure CLI**](#tab/cli-create)
 
@@ -109,7 +109,7 @@ Be sure to specify the correct **Group ID** for the type of resource for which y
 
 ## 2 - Check the status of the private endpoint creation
 
-In this step, you'll confirm that the provisioning state of the resource changes to "Succeeded".
+In this step, confirm that the provisioning state of the resource changes to "Succeeded".
 
 ### [**Azure portal**](#tab/portal-status)
 
@@ -120,7 +120,7 @@ The portal will show you the state of the shared private endpoint. In the follow
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the resource creation in progress. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-progress.png)
 
-Once the resource is successfully created, you will receive a portal notification and the provisioning state of the resource will change to "Succeeded".
+Once the resource is successfully created, you'll receive a portal notification and the provisioning state of the resource will change to "Succeeded".
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the resource creation completed. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-success.png)
 
@@ -140,12 +140,13 @@ az rest --method get --uri https://management.azure.com/subscriptions/00000000-0
 
 ## 3 - Approve the private endpoint connection
 
-> [!NOTE]
-> In this section, you use the Azure portal for the approval flow of a private endpoint to the Azure resource you're connecting to. Alternatively, you could use the **[REST API](/rest/api/storagerp/privateendpointconnections)** that's available via the Storage resource provider.
->
-> Other providers, such as Azure Cosmos DB or Azure SQL Server, offer similar resource provider REST APIs for managing private endpoint connections.
+In this section, you use the Azure portal for the approval flow of a private endpoint to the Azure resource you're connecting to. Alternatively, you could use the **[REST API](/rest/api/storagerp/privateendpointconnections)** that's available via the Storage resource provider.
 
-1. In the Azure portal, navigate to the Azure resource that you're connecting to and select the **Networking** tab. Then navigate to the section that lists the private endpoint connections. Following is an example for a storage account. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
+Other providers, such as Azure Cosmos DB or Azure SQL Server, offer similar resource provider REST APIs for managing private endpoint connections.
+
+1. In the Azure portal, navigate to the Azure resource that you're connecting to and select the **Networking** tab. 
+
+1. Navigate to the section that lists the private endpoint connections. Following is an example for a storage account. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
 
    ![Screenshot of the Azure portal, showing the "Private endpoint connections" pane.](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
@@ -194,19 +195,19 @@ The steps for restricting access vary by resource. The following scenarios show 
 
 - Scenario 1: Azure Storage
 
-    The following is an example of how to configure an Azure storage account firewall. If you select this option and leave the page empty, it means that no traffic from virtual networks is allowed.
+  The following is an example of how to configure an Azure storage account firewall. If you select this option and leave the page empty, it means that no traffic from virtual networks is allowed.
 
-    ![Screenshot of the "Firewalls and virtual networks" pane for Azure storage, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
+  ![Screenshot of the "Firewalls and virtual networks" pane for Azure storage, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\storage-firewall-noaccess.png)
 
 - Scenario 2: Azure Key Vault
 
-    The following is an example of how to configure Azure Key Vault firewall.
+  The following is an example of how to configure Azure Key Vault firewall.
  
-    ![Screenshot of the "Firewalls and virtual networks" pane for Azure Key Vault, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
+  ![Screenshot of the "Firewalls and virtual networks" pane for Azure Key Vault, showing the option to allow access to selected networks.](media\search-indexer-howto-secure-access\key-vault-firewall-noaccess.png)
     
 - Scenario 3: Azure Functions
 
-    No network setting changes are needed for Azure Functions firewalls. Later in the following steps, when you create the shared private endpoint, the function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
+  No network setting changes are needed for Azure Functions firewalls. The function will automatically only allow access through private link after the creation of a shared private endpoint to the Function.
 
 ## 6 - Configure the indexer to run in the private environment
 
@@ -247,14 +248,16 @@ After the indexer is created successfully, it should connect to the Azure resour
 + If your indexer creation fails with "Data source credentials are invalid," check the approval status of the shared private link before debugging the connection:
 
   1. Obtain the status of the shared private link resource by using the [GET API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get). 
-  1. If the status is *Approved*, check the `properties.provisioningState` property. If it's `Incomplete`, some of the underlying dependencies for the resource failed to be set up. 
-  1. Reissue the `PUT` request to re-create the shared private link. A reapproval might also be necessary. Re-check the status of the resource to verify that the issue is fixed.
+  1. If the status is `Approved`, check the `properties.provisioningState` property. 
+  1. If it's `Incomplete`, there might be a problem with underlying dependencies. 
+  1. In this case, reissue the `PUT` request to re-create the shared private link. You might also need to repeat the approval step.
+  1. Check the status of the resource to verify whether the issue is fixed.
 
-+ If indexers fail consistently or intermittently, check the [`executionEnvironment` property](/rest/api/searchservice/update-indexer) on the indexer. The value should be set to "private". If you didn't set this property, and the indexer runs succeeded in the past, it's because the search service invoked a private environment of its own accord. A search service will do this if the system is under load.
++ If indexers fail consistently or intermittently, check the [`executionEnvironment` property](/rest/api/searchservice/update-indexer) on the indexer. The value should be set to `private`. If you didn't set this property, and indexer runs succeeded in the past, it's because the search service used a private environment of its own accord. A search service will move processing out of the standard environment if the system is under load.
 
 + In the portal, it's expected to get a "No Access" error when viewing the search private endpoint on your data source's **Networking** page. If you want to manage the shared private link for search in the portal, use the **Networking** page of your search service. 
 
-+ If you get an error when creating a shared private link, check the [search service limits](search-limits-quotas-capacity.md) to verify that you're under the quota for your search service tier.
++ If you get an error when creating a shared private link, check [service limits](search-limits-quotas-capacity.md) to verify that you're under the quota for your tier.
 
 ## Next steps
 
