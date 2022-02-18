@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/17/2022
+ms.date: 02/18/2022
 ms.author: jasteppe
 ---
 
@@ -53,7 +53,7 @@ It's important that you have the following prerequisites completed before you be
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-creating.png" alt-text="Screenshot of an Events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-creating.png":::
 
-6. After the subscription is deployed, it will be ready to begin sending Events messages to the selected endpoint.
+6. After the subscription is deployed, it will require access to your message delivery endpoint.
 
 >[!Important]
 >For more information about providing access using an Azure Managed identity, see
