@@ -99,7 +99,7 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
     :::image type="content" source="media/provision-sims-azure-portal/new-sim-resource.png" alt-text="Screenshot of the Azure portal showing the configuration a new SIM resource." lightbox="media/provision-sims-azure-portal/new-sim-resource.png":::
 
 1. Repeat this entire step for any other SIMs that you want to provision.
-1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Optionally, assign a SIM policy](#optionally-assign-a-sim-policy). Otherwise, you've finished your provisioning.
+1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Assign a SIM policy](#assign-a-sim-policy). Otherwise, you've finished your provisioning.
 
 ## Provision SIMs using a JSON file
 
