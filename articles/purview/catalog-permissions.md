@@ -43,11 +43,11 @@ Azure Purview uses a set of predefined roles to control who can access what with
 |I need to set up scans via the Azure Purview Studio|Data curator on the collection **or** data curator **and** data source administrator where the source is registered.|
 |I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data source administrator|
 |I need to put users into roles in Azure Purview | Collection administrator |
-|I need to create and publish access policies | Data source admin and policy author |
+|I need to create and publish access policies | Data source administrator and policy author |
 
-:::image type="content" source="./media/catalog-permissions/collection-permission-roles.png" alt-text="Chart showing Azure Purview roles" lightbox="./media/catalog-permissions/collection-permission-roles.png":::
+:::image type="content" source="./media/catalog-permissions/collection-permission-roles.svg" alt-text="Chart showing Azure Purview roles" lightbox="./media/catalog-permissions/collection-permission-roles.svg":::
 >[!NOTE]
-> **\*Data source admin permissions on Policies** - Data source administrators are also able to publish data policies.
+> **\*Data source administrator permissions on Policies** - Data source administrators are also able to publish data policies.
 
 ## Understand how to use Azure Purview's roles and collections
 
