@@ -178,7 +178,8 @@ To learn more, see [Update your extensions].
     "version": "2.0",
     "extensions": {
         "cosmosDB": {
-            "connectionMode": "Gateway"
+            "connectionMode": "Gateway",
+            "userAgentSuffix": "MyDesiredUserAgentStamp"
         }
     }
 }
@@ -187,6 +188,7 @@ To learn more, see [Update your extensions].
 |Property  |Default |Description |
 |----------|--------|------------|
 |**connectionMode**|`Gateway`|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
+|**userAgentSuffix**| n/a | Adds the specified string value to all requests made by the trigger or binding to the service. This makes it easier for you to track the activity in Azure Monitor, based on a specific function app and filtering by `User Agent`.
 
 ---
 
