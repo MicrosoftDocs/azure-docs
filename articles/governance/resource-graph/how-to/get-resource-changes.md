@@ -107,7 +107,7 @@ To enable Azure PowerShell to query Azure Resource Graph, the [module must be ad
 
 #### Run your Resource Graph PowerShell query
 With the Azure PowerShell module added to your environment of choice, it's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by
-[management group](../management-groups/overview.md) or subscription, use the `-ManagementGroup`
+[management group](../../management-groups/overview.md) or subscription, use the `-ManagementGroup`
 or `-Subscription` parameters.
 
 1. Run your first Azure Resource Graph query using the `Search-AzGraph` cmdlet:
@@ -233,8 +233,8 @@ the results returned are consistent and ordered by the **properties.changeAttrib
 top five results.
 
 Resource Graph Explorer also provides a clean interface for converting the results of some queries into a chart that can be pinned to an Azure dashboard.
-- [Create a chart from the Resource Graph query](../first-query-portal#create-a-chart-from-the-resource-graph-query)
-- [Pin the query visualization to a dashboard](../first-query-portal#pin-the-query-visualization-to-a-dashboard)
+- [Create a chart from the Resource Graph query](../first-query-portal.md#create-a-chart-from-the-resource-graph-query)
+- [Pin the query visualization to a dashboard](../first-query-portal.md#pin-the-query-visualization-to-a-dashboard)
 
 ## Resource Graph Query samples
 
