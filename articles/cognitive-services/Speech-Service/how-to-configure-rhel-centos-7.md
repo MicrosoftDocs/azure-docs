@@ -68,8 +68,11 @@ export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 #   (note, use the actual path to extracted files!)
 export PATH=/usr/local/bin:$PATH
 hash -r # reset cached paths in the current shell session just in case
-export LD_LIBRARY_PATH=/path/to/extracted/SpeechSDK-Linux-<version>/lib/x64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/path/to/extracted/SpeechSDK-Linux-<version>/lib/centos7-x64:$LD_LIBRARY_PATH
 ```
+
+> [!NOTE]
+> Starting with the Speech SDK 1.19.0 release, the Linux .tar package contains specific libraries for RHEL/CentOS 7. These are in `lib/centos7-x64` as shown in the environment setting example for `LD_LIBRARY_PATH` above. Speech SDK libraries in `lib/x64` are for all the other supported Linux x64 distributions (including RHEL/CentOS 8) and don't work on RHEL/CentOS 7.
 
 ## Next steps
 
