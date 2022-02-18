@@ -49,11 +49,11 @@ The DCR contains three main sections: `streamDeclarations`, `destinations`, and 
     * the `transformKql`, a [KQL](data-collection-rule-transformations.md#supported-kql-features) snippet that always starts with "source" as the table on which to operate, and is followed by a free-form KQL query describing how to transform the data that was sent in the input shape described in the `streamDeclarations` section to the shape of the table that was created in step 3. Not the full set of KQL commands is available. In brief, only commands that apply to one row at a time are applicable. For example, `where`, `extend`, and `project` are valid, while `summarize` is not  
     * the `outputStream` section, which describes which table in the Workspace specified under the `destination` property the data will be ingested into. The value of the outputStream will have the `Microsoft-[tableName]` shape when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom-created table (as we created in step 3 in this tutorial)  
 
+## Limits
 
+- Only one destination is allowed per stream except data coming from Azure Monitor agent (AMA). Dta collected by AMA can have multiple destinations for multi-homing scenario.
 
 
 ## Next steps
 
 - [Overview of data collection rules including methods for creating them.](data-collection-rule-overview.md)
-- [Sample of DCR for Azure Monitor agent](../agents/dcr-sample-agent.md)
-- [Sample of DCR ]

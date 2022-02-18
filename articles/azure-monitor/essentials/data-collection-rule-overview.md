@@ -21,19 +21,19 @@ There are currently two types of data collection rule in Azure Monitor:
 Data collection rules are formatted in JSON. While you may not need to interact with them directly, there are scenarios where you may need to directly edit a data collection rule. See [Data collection rule structure](data-collection-rule-structure.md) for a description of this structure and different elements.
 
 ## Permissions 
-When using programmatic methods to create data collection rules and associations (i.e. methods other than Azure portal), you require the following permissions:  
+When using programmatic methods to create data collection rules and associations, you require the following permissions:  
 
 | Built-in Role | Scope(s) | Reason |  
 |:---|:---|:---|  
-| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | To create or edit data collection rules |
-| [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)<br>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Arc-enabled servers</li></ul> | To deploy associations (i.e. to assign rules to the machine) |
-| Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | To deploy ARM templates |
+| [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | Create or edit data collection rules |
+| [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)<br>[Azure Connected Machine Resource Administrator](../../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)</li></ul> | <ul><li>Virtual machines, virtual machine scale sets</li><li>Arc-enabled servers</li></ul> | Deploy associations (i.e. to assign rules to the machine) |
+| Any role that includes the action *Microsoft.Resources/deployments/** | <ul><li>Subscription and/or</li><li>Resource group and/or </li><li>An existing data collection rule</li></ul> | Deploy ARM templates |
 
 ## Limits
 For limits that apply to each data collection rule, see [Azure Monitor service limits](../service-limits.md#data-collection-rules).
 
 ## Creating a data collection rule
-There are a variety of scenarios where you may create a data collection rule. In some cases, the data collection rule may be created for you, while in others you may need to create and edit it yourself. The following articles 
+The following articles describe different scenarios for creating data collection rules. In some cases, the data collection rule may be created for you, while in others you may need to create and edit it yourself. 
 
 | Workflow | Resources |
 |:---|:---|
@@ -43,7 +43,7 @@ There are a variety of scenarios where you may create a data collection rule. In
 
 
 ## Programmatically work with DCRs
-See the following resources for programmatically working with DCRs including creating and modifying them.
+See the following resources for programmatically working with DCRs.
 
 - Directly edit the data collection rule in JSON and [submit using the REST API](/rest/api/monitor/datacollectionrules).
 - Create DCR and associations with [Azure CLI](https://github.com/Azure/azure-cli-extensions/blob/master/src/monitor-control-service/README.md).
@@ -59,9 +59,6 @@ See the following resources for programmatically working with DCRs including cre
 
 
 
-
-
-
 ## Data resiliency and high availability
 Data collection rules are stored regionally, and are available in all public regions where Log Analytics is supported. Government regions and clouds are not currently supported. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same geography. The service is deployed to all three [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region, making it a **zone-redundant service** which further adds to high availability.
 
@@ -69,6 +66,18 @@ Data collection rules are stored regionally, and are available in all public reg
 This is a preview feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. Single region residency is enabled by default in these regions.
 
 
+## DCR and transformation definition limits
+
+ 
+* Stream names in the `StreamDeclarations` section of the DCR for data sent through the API must have a `Custom-` prefix.  
+* Only the following built-in tables support ingesting custom data into them: `CommonSecurityLog`, `SecurityEvents`, `Syslog`, `WindowsEvents`.  
+* Built-in tables can only be routed to themselves post-transformation (eg, data originally for Table A after a transformation can only flow back into Table A).  
+* The `columns` section supports the following data types: `string`, `int`, `long`, `real`, `boolean`, `datetime`.  
+* The transformations can only use a [subset](../essentials/data-collection-rule-transformations.md#supported-kql-features) of KQL.   
+* Only one destination is allowed per stream, _except_ data originating through the [Azure Monitoring agent (AMA)](../agents/azure-monitor-agent-overview.md). Data collected by AMA can have multiple destinations for the multi-homing scenario.  
+
+
 ## Next steps
 
-- [Create a data collection rule](../agents/data-collection-rule-azure-monitor-agent.md) and an association to it from a virtual machine using the Azure Monitor agent.
+- [Read about the detailed structure of a data collection rule.](data-collection-rule-structure.md)
+- [Get details on transformations in a data collection rule.](data-collection-rule-transformations.md)

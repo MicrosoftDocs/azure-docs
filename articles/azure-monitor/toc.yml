@@ -454,6 +454,8 @@ items:
       - name: Configure data collection
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
+      - name: Use data collection endpoints
+        href: agents/azure-monitor-agent-dce.md
       - name: Migrate from legacy agents
         displayName: Migrate to Azure Monitor agent
         href: agents/azure-monitor-agent-migration.md

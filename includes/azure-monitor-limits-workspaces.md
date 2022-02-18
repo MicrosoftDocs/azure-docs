@@ -69,7 +69,9 @@ ms.custom: "include file"
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum columns in a table         | 500 | |
-| Maximum characters for column name | 500 | |
+| Maximum characters for column name | 45 | |
+| 
+
 
 **<a name="data-ingestion-volume-rate">Data ingestion volume rate</a>**
 

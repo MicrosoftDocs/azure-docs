@@ -3,13 +3,11 @@ title: Tutorial - Send custom logs to Azure Monitor Logs using resource manager 
 description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using resource manager templates.
 ms.subservice: logs
 ms.topic: tutorial
-author: bwren
-ms.author: bwren
 ms.date: 01/19/2022
 ---
 
 # Tutorial: Send custom logs to Azure Monitor Logs using resource manager templates (preview)
-[Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send custom data to any table in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using resource manager templates.
+[Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send custom data to tables in a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor using resource manager templates.
 
 > [!NOTE]
 > This tutorial uses resource manager templates and REST API to configure custom logs. See [Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)](tutorial-custom-logs.md) for a similar tutorial using the Azure portal.
@@ -30,15 +28,7 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
-- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace. 
-
-## Overview of tutorial
-We'll use a PowerShell script to send sample data over HTTP to the API endpoint.
-
-The Data Collection Endpoint uses standard Azure Resource Manager (ARM) authentication. 
-
-
-For this tutorial, a new table called "MyTable_CL" will be created. Note that any completely custom table name must end in "_CL". Also note that it is possible to ingest data directly into most system tables - simply skip this step and reference the required system table in steps 4 and 7 instead of this custom one. 
+- [Permissions to create Data Collection Rule objects](/essentials/data-collection-rule-overview.md#permissions) in the workspace.
 
 ## Configure application
 Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
@@ -69,7 +59,7 @@ Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure
 :::image type="content" source="media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot for workspace resource ID":::
 
 ## Create new table in Log Analytics workspace
-The custom table must be created before you can send data to it. The table for this tutorial will include three columns, as described in the resource manager template below. The  `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
+The custom table must be created before you can send data to it. The table for this tutorial will include three columns, as described in the schema below. The  `name`, `type`, and `description` properties are mandatory for each column. The properties `isHidden` and `isDefaultDisplay` both default to `false` if not explicitly specified. Possible data types are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, and `dynamic`.
 
 Use the **Tables - Update** API to create the table with the PowerShell code below. 
 
@@ -80,7 +70,7 @@ Click the **Cloud Shell** button in the Azure portal and ensure the environment 
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
 
-Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. Paste it into the cloud shell prompt to run it.
+Copy the following PowerShell code and replace the **Path** parameter with the appropriate values for your workspace in the `Invoke-AzRestMethod` command. Paste it into the cloud shell prompt to run it.
 
 ```PowerShell
 $tableParams = @'
@@ -125,7 +115,7 @@ Click **Build your own template in the editor**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor":::
 
-Paste the resource manager template below into the editor and then click **Save**.
+Paste the resource manager template below into the editor and then click **Save**. You don't need to modify this template since you will provide values for its parameters.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template":::
 
@@ -186,13 +176,13 @@ Once the DCE is created, select it so you can view its properties. Note the **Lo
 
 :::image type="content" source="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" alt-text="Screenshot for data collection endpoint uri":::
 
-Click **JSON View** to view other details for the data collection endpoint. Copy the **Resource ID**.
+Click **JSON View** to view other details for the DCE. Copy the **Resource ID**.
 
 :::image type="content" source="media/tutorial-custom-logs-api/data-collection-endpoint-json.png" lightbox="media/tutorial-custom-logs-api/data-collection-endpoint-json.png" alt-text="Screenshot for data collection endpoint resource ID":::
 
 
 ## Create data collection rule
-The data collection rule is the component of Azure Monitor that configures ingestion collection. In this case, the schema of data that being sent to the HTTP endpoint, the transformation that will be applied to it, and the destination workspace and table the transformed data will be sent to.
+The data collection rule (DCR) defines the schema of data that being sent to the HTTP endpoint, the transformation that will be applied to it, and the destination workspace and table the transformed data will be sent to.
 
 In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
@@ -205,6 +195,13 @@ Click **Build your own template in the editor**.
 Paste the resource manager template below into the editor and then click **Save**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template":::
+
+Notice the following details in the DCR defined in this template:
+
+- `dataCollectionEndpointId`: Resource ID of the data collection endpoint.
+- `streamDeclarations`: Defines the columns of the incoming data.
+- `destinations`: Specifies the destination workspace.
+- `dataFlows`: Matches the stream with the destination workspace and specifies the transformation query and the destination table.
 
 ```json
 {
@@ -315,9 +312,9 @@ Copy the **Resource ID** for the data collection rule. You'll use this in the ne
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
 
 ## Assign permissions to data collection rule
-Now that the data collection rule has been created, the application needs to be given permission to it. This will allow any application using the correct application ID and application key to send data to the new data collection endpoint, have that data processed with the nee data collection rule, and then stored in the Log Analytics workspace.
+Once the data collection rule has been created, the application needs to be given permission to it. This will allow any application using the correct application ID and application key to send data to the new DCE and DCR.
 
-From the data collection rule in the Azure portal, select **Access Control (IAM)** amd then **Add role assignment**. 
+From the DCR in the Azure portal, select **Access Control (IAM)** amd then **Add role assignment**. 
 
 :::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR":::
 
@@ -334,53 +331,25 @@ Click **Review + assign** and verify the details before saving your role assignm
 
 :::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment":::
 
-## Test custom log ingestion
-Ingestion is a straightforward POST call to the Data Collection Endpoint via HTTP. Details are as follows:
 
-#### Endpoint URI
-The endpoint URI follows the shape below, where both the `Data Collection Endpoint` and `DCR Immutable ID` are ones we noted earlier:
-```
-{Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2021-11-01-preview
-```
-
-#### Headers
-Two headers are required at a minimum:  
-```
-Authorization:  Bearer {Bearer token obtained through the Client Credentials Flow} 
-Content-Type:   application/json
-```
-
-Optionally, for performance optimization, the GZip compression scheme is supported. To use it, you can specify a `Content-Encoding: gzip` header after GZip-encoding your body. Also optionally, but very useful, you can include a `x-ms-client-request-id` header set to a string-formatted GUID; this request ID can then be looked up by Microsoft for any troubleshooting purposes.  
-
-#### Body
- The custom data be sent will be in the body of a POST call to the Data Collection we noted earlier. The shape of the data that we send will be a JSON array with the following three fields - the ones matching the _columns_ section in the DCR we provisioned:  
-
-| Field name | Type |
-| --- | --- |
-| Time | DateTime |
-| Computer | String |
-| AdditionalContext | String |  
-
-A sample set of data is shown in the staticData variable in the code below.
-
-#### Sample code
-The following PowerShell code demonstrates how to send data to the endpoint using HTTP REST fundamentals. Simply replace the parameters in the "step 0" section with those you noted earlier, and if desired, replacing the sample data in the "step 2" section with your own.  
+## Send data to the DCE
+The following PowerShell code sends data to the endpoint using HTTP REST fundamentals. Replace the parameters in the *step 0* section with values from the resources that you just created. You may also want to replace the sample data in the *step 2* section with your own.  
 
 ```powershell
 ##################
 ### Step 0: set parameters required for the rest of the script
 ##################
 #information needed to authenticate to AAD and obtain a bearer token
-$tenantId = "19caa212-0847-..."; #the tenant ID in which the Data Collection Endpoint resides
-$appId = "b7f0e67a-..."; #the app ID created and granted permissions
-$appSecret = "74dJ..."; #the secret created for the above app
+$tenantId = "00000000-0000-0000-0000-000000000000"; #Tenant ID the data collection endpoint resides in
+$appId = "00000000-0000-0000-0000-000000000000"; #Application ID created and granted permissions
+$appSecret = "00000000000000000000000"; #Secret created for the application
 
 #information needed to send data to the DCR endpoint
 $dcrImmutableId = "dcr-10f6..."; #the immutableId property of the DCR object
 $dceEndpoint = "https://[...].westus2-1.ingest.monitor.azure.com"; #the endpoint property of the Data Collection Endpoint object
 
 ##################
-### Step 1: obtain a bearer token that we'll later use to authenticate against the DCR endpoint
+### Step 1: obtain a bearer token used later to authenticate against the DCE
 ##################
 $scope= [System.Web.HttpUtility]::UrlEncode("https://monitor.azure.com//.default")   
 $body = "client_id=$appId&scope=$scope&client_secret=$appSecret&grant_type=client_credentials";
@@ -392,7 +361,7 @@ $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers 
 # Add-Type -AssemblyName System.Web
 
 ##################
-### Step 2: load up some data... in this case, generate some static data to send
+### Step 2: Load up some sample data. 
 ##################
 $currentTime = Get-Date ([datetime]::UtcNow) -Format O
 $staticData = @"
@@ -423,7 +392,7 @@ $staticData = @"
 "@;
 
 ##################
-### Step 3: send the data to Log Analytics via the DCR!
+### Step 3: send the data to Log Analytics via the DCE.
 ##################
 $body = $staticData;
 $headers = @{"Authorization"="Bearer $bearerToken";"Content-Type"="application/json"};
@@ -431,9 +400,12 @@ $uri = "$dceEndpoint/dataCollectionRules/$dcrImmutableId/streams/Custom-MyTableR
 
 $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers -TransferEncoding "GZip"
 ```
-
-If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and execute it directly. Executing it uncommented as part of the script will not resolve the issue - the command must be executed separately.   
+> [!NOTE]
+> If you receive an `Unable to find type [System.Web.HttpUtility].` error, run the last line in section 1 of the script for a fix and execute it directly. Executing it uncommented as part of the script will not resolve the issue - the command must be executed separately.   
 
 After executing this script, you should see a `HTTP - 200 OK` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
 
 ## Next steps
+
+- [Complete a similar tutorial using the Azure portal](tutorial-custom-logs.md)
+- [Read about custom logs](custom-logs-overview.md)

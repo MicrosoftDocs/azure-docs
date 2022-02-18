@@ -2,24 +2,22 @@
 title: Data collection rule transformations
 description: Use transformations in a data collection rule in Azure Monitor to filter and modify incoming data.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
 ms.date: 01/19/2021
 
 ---
 
-# Data collection rule transformations in Azure Monitor
-[Data collection rules (DCR)](data-collection-rule-overview.md) provide flexible means of shaping and filtering data before it's stored in Log Analytics Workspace. This article describes how to build transformations in a DCR, including details and limitations of the Kusto Query Language (KQL) used for the transform statement.
+# Data collection rule transformations in Azure Monitor (preview)
+Transformations in a [data collection rule (DCR)](data-collection-rule-overview.md) allow you to filter or modify incoming data before it's stored in a Log Analytics workspace. This article describes how to build transformations in a DCR, including details and limitations of the Kusto Query Language (KQL) used for the transform statement.
 
 ## Basic concepts
-Data transformations are defined using Kusto Query Language (KQL). They may filter out records from the source, manipulate data in existing columns, or add new columns and populate them with data. The transformation specifies a KQL statement that is applied individually to each entry in the data source. It creates output in the structure of the target table. 
+Data transformations are defined using a Kusto Query Language (KQL) statement that is applied individually to each entry in the data source. It must understand the format of the incoming data and create output in the structure of the target table. 
 
 ## Transformation structure
 The input stream is represented by a virtual table named `source` with columns matching the input data stream definition. Following is a typical example of a transformation. This example includes the following functionality:
 
 - Filters the incoming data with a [where](/azure/data-explorer/kusto/query/whereoperator) statement
 - Adds a new column using the [extend](/azure/data-explorer/kusto/query/extendoperator) operator
-- Formats the output to match the target table using the [project](/azure/data-explorer/kusto/query/projectoperator) operator
+- Formats the output to match the columns of the target table using the [project](/azure/data-explorer/kusto/query/projectoperator) operator
 
 ```kusto
 source  
@@ -35,10 +33,10 @@ source
 
 
 ## KQL limitations
-Since the transformation is applied to each record individually, it can't use any KQL operators that act on multiple records. Only operators that take a single row as input and returns no more than one row are supported. For example, [summarize](/azure/data-explorer/kusto/query/summarizeoperator) isn't supported since it summarizes multiple records. See [Supported KQL features](#supported-kql-features) for a complete list of supported features.
+Since the transformation is applied to each record individually, it can't use any KQL operators that act on multiple records. Only operators that take a single row as input and return no more than one row are supported. For example, [summarize](/azure/data-explorer/kusto/query/summarizeoperator) isn't supported since it summarizes multiple records. See [Supported KQL features](#supported-kql-features) for a complete list of supported features.
 
 ### Inline reference table
-The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator isn't supported in the subset of KQL available to use in transformations. This would normally be used in KQL to define an inline query-time table Instead, use dynamic literals to work around this limitation.
+The [datatable](/azure/data-explorer/kusto/query/datatableoperator?pivots=azuremonitor) operator isn't supported in the subset of KQL available to use in transformations. This would normally be used in KQL to define an inline query-time table. Use dynamic literals instead to work around this limitation.
 
 For example, the following isn't supported in a transformation:
 
@@ -48,7 +46,7 @@ source
 | join kind=inner (galaxy) on $left.Location == $right.country
 | extend Galaxy_CF = ['entity']
 ```
-But you can use the following statement which is supported and performs the same functionality:
+You can instead use the following statement which is supported and performs the same functionality:
 
 ```kusto
 let galaxyDictionary = parsejson('{"ES": "Spain","US": "United States"}');
@@ -104,6 +102,21 @@ source
 | extend DeviceId = tostring(parsedAdditionalContext.DeviceID)
 ```
 
+### Dynamic literals
+[Dynamic literals](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals) aren't supported, but you can use the [parse_json function](/azure/data-explorer/kusto/query/parsejsonfunction) as a workaround.
+
+For example, the following query isn't supported:
+
+```kql
+print d=dynamic({"a":123, "b":"hello", "c":[1,2,3], "d":{}})
+    ```
+
+The following query is supported and provides the same functionality:
+
+```kql
+print d=parse_json('{"a":123, "b":"hello", "c":[1,2,3], "d":{}}')
+```
+
 ## Supported KQL features
 
 ### Supported statements
@@ -114,7 +127,7 @@ The right-hand side of [let](/data-explorer/kusto/query/letstatement) can be a s
 #### tabular expression statements
 The only supported data sources for the KQL statement are as follows:
 
-–	**source**, which represents the source data. For example:
+- **source**, which represents the source data. For example:
 
 ```kql     
 source
@@ -122,7 +135,7 @@ source
 | project PreciseTimeStamp, Message
 ```
 
-–	print](/azure/data-explorer/kusto/query/printoperator) operator, which always produces a single row. For example:
+- [print](/azure/data-explorer/kusto/query/printoperator) operator, which always produces a single row. For example:
  	
 ```kusto
 print x = 2 + 2, y = 5 | extend z = exp2(x) + exp2(y)
@@ -150,36 +163,36 @@ All [Datetime and Timespan arithmetic operators](/azure/data-explorer/kusto/quer
 #### String operators
 The following [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators) are supported.
 
-– /=/=
-– /!/=
-– /=/~
-– /!/~
-– contains
-– /!contains
-– contains_cs
-– /!contains_cs
-– startswith
-– /!startswith
-– startswith_cs
-– /!startswith_cs
-– endswith
-– /!endswith
-– endswith_cs
-– /!endswith_cs
-– matches regex
-– in
-– /!in
+- ==
+- !=
+- =~
+- !~
+- contains
+- !contains
+- contains_cs
+- !contains_cs
+- startswith
+- !startswith
+- startswith_cs
+- !startswith_cs
+- endswith
+- !endswith
+- endswith_cs
+- !endswith_cs
+- matches regex
+- in
+- !in
 
 #### Bitwise operators
 
 The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators) are supported.
 
-– binary_and()
-– binary_or()
-– binary_xor()
-– binary_not()
-– binary_shift_left()
-– binary_shift_right()
+- binary_and()
+- binary_or()
+- binary_xor()
+- binary_not()
+- binary_shift_left()
+- binary_shift_right()
 
 ### Scalar functions
 
@@ -294,20 +307,7 @@ The following [Bitwise operators](/azure/data-explorer/kusto/query/binoperators)
 ### Identifier quoting
 Use [Identifier quoting](/azure/data-explorer/kusto/query/schema-entities/entity-names?q=identifier#identifier-quoting) as required.
 
-### Dynamic literals
-[Dynamic literals](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals) aren't supported, but you can use the [parse_json function](/azure/data-explorer/kusto/query/parsejsonfunction) as a workaround.
 
-For example, the following query isn't supported:
-
-```kql
-print d=dynamic({"a":123, "b":"hello", "c":[1,2,3], "d":{}})
-    ```
-
-The following query is supported and provides the same functionality:
-
-```kql
-print d=parse_json('{"a":123, "b":"hello", "c":[1,2,3], "d":{}}')
-```
 
 
 ## Next steps
