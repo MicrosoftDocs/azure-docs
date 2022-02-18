@@ -557,7 +557,7 @@ To call a method in IoT Central portal:
 
     :::image type="content" source="media/quickstart-devkit-stm-b-l4s5i/iot-central-invoke-method-iar.png" alt-text="Screenshot of calling a direct method on a device in IoT Central":::
 
-1. You can see the command invocation in the terminal. In this case, because the sample thermostat application prints a simulated temperature value, there won't be minimum or maximum values during the time range.
+1. You can see the command invocation in the terminal. In this case, because the sample thermostat application displays a simulated temperature value, there won't be minimum or maximum values during the time range.
 
 ## View device information
 
