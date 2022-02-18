@@ -22630,6 +22630,41 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/scheduler/scheduler-advanced-complexity.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-concepts-terms.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-powershell-reference.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-plans-billing.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-limits-defaults-errors.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-high-availability-reliability.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/scheduler/scheduler-outbound-authentication.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
@@ -26255,8 +26290,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-javascript-client-libraries-legacy.md",
+      "redirect_url": "/azure/storage/blobs/quickstart-blobs-javascript-browser",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-legacy.md",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
+      "redirect_document_id": false
+    },        
+    {
       "source_path_from_root": "/articles/storage/blobs/storage-quickstart-blobs-nodejs-v10.md",
-      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs-legacy",
+      "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-nodejs",
       "redirect_document_id": false
     },
     {
@@ -44155,6 +44200,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/managed-identity-byos.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/managed-identities",
+      "redirect_document_id": false
+    },
+    {
     "source_path_from_root": "/articles/azure/virtual-desktop/azure-advisor.md",
     "redirect_url": "/azure/advisor/advisor-overview",
     "redirect_document_id": false
@@ -44178,6 +44228,25 @@
         "source_path_from_root": "/articles/governance/policy/how-to/guest-configuration-create-group-policy.md",
         "redirect_url": "/azure/governance/policy/how-to/guest-configuration-create",
         "redirect_document_id": false
+      },
+      {   "source_path_from_root": "/articles/azure/marketplace/co-sell-requirements.md",
+          "redirect_url": "/partner-center/co-sell-requirements",
+          "redirect_document_id": false
+      },        
+      {
+        "source_path_from_root": "/articles/azure/marketplace/co-sell-status.md",
+        "redirect_url": "/partner-center/co-sell-status",
+        "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/azure/marketplace/co-sell-configure.md",
+          "redirect_url": "/partner-center/co-sell-configure",
+          "redirect_document_id": false
+      },
+      {
+          "source_path_from_root": "/articles/azure/marketplace/co-sell-overview.md",
+          "redirect_url": "/partner-center/co-sell-overview",
+          "redirect_document_id": false
       }
   ]
 }
