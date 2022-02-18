@@ -431,6 +431,93 @@ shard intervals when determining how to partition the results is too great.
 Repartitioning can be disabled manually by setting
 `citus.enable_repartitioned_insert_select` to false.
 
+##### citus.enable_binary_protocol (boolean)
+
+Setting this parameter to true instructs the coordinator node to use
+PostgreSQL’s binary serialization format (when applicable) to transfer data
+with workers. Some column types do not support binary serialization.
+
+Enabling this parameter is mostly useful when the workers must return large
+amounts of data. Examples are when a lot of rows are requested, the rows have
+many columns, or they use big types such as `hll` from the postgresql-hll
+extension.
+
+The default value is true for Postgres versions 14 and higher. For Postgres
+versions 13 and lower the default is false, which means all results are encoded
+and transferred in text format.
+
+##### citus.max_adaptive_executor_pool_size (integer)
+
+Whereas citus.max_shared_pool_size limits worker connections across all
+sessions, max_adaptive_executor_pool_size limits worker connections from just
+the current session. This GUC is useful for:
+
+* Preventing a single backend from getting all the worker resources
+* Providing priority management: designate low priority sessions with low
+  max_adaptive_executor_pool_size, and high priority sessions with higher
+  values
+
+The default value is 16.
+
+##### citus.executor_slow_start_interval (integer)
+
+Time to wait in milliseconds between opening connections to the same worker
+node.
+
+When the individual tasks of a multi-shard query take very little time, they
+can often be finished over a single (often already cached) connection. To avoid
+redundantly opening additional connections, the executor waits between
+connection attempts for the configured number of milliseconds. At the end of
+the interval, it increases the number of connections it is allowed to open next
+time.
+
+For long queries (those taking >500ms), slow start might add latency, but for
+short queries it’s faster. The default value is 10ms.
+
+##### citus.max_cached_conns_per_worker (integer)
+
+Each backend opens connections to the workers to query the shards. At the end
+of the transaction, the configured number of connections is kept open to speed
+up subsequent commands. Increasing this value will reduce the latency of
+multi-shard queries, but will also increase overhead on the workers.
+
+The default value is 1. A larger value such as 2 might be helpful for clusters
+that use a small number of concurrent sessions, but it’s not wise to go much
+further (e.g. 16 would be too high).
+
+##### citus.force_max_query_parallelization (boolean)
+
+Simulates the deprecated and now nonexistent real-time executor. This is used
+to open as many connections as possible to maximize query parallelization.
+
+When this GUC is enabled, Citus will force the adaptive executor to use as many
+connections as possible while executing a parallel distributed query. If not
+enabled, the executor might choose to use fewer connections to optimize overall
+query execution throughput. Internally, setting this true will end up using one
+connection per task.
+
+One place where this is useful is in a transaction whose first query is
+lightweight and requires few connections, while a subsequent query would
+benefit from more connections. Citus decides how many connections to use in a
+transaction based on the first statement, which can throttle other queries
+unless we use the GUC to provide a hint.
+
+```postgresql
+BEGIN;
+-- add this hint
+SET citus.force_max_query_parallelization TO ON;
+
+-- a lightweight query that doesn't require many connections
+SELECT count(*) FROM table WHERE filter = x;
+
+-- a query that benefits from more connections, and can obtain
+-- them since we forced max parallelization above
+SELECT ... very .. complex .. SQL;
+COMMIT;
+```
+
+The default value is false.
+
 #### Task tracker executor configuration
 
 ##### citus.task\_tracker\_delay (integer)

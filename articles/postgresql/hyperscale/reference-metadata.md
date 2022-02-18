@@ -95,6 +95,38 @@ and their representation is below.
 | COLUMNAR     | 'c'                | Indicates that shard stores columnar data. (Used by distributed cstore_fdw tables) |
 | FOREIGN      | 'f'                | Indicates that shard stores foreign data. (Used by distributed file_fdw tables)    |
 
+
+### Shard information view
+
+In addition to the low-level shard metadata table described above, Hyperscale
+(Citus) provides a `citus_shards` view to easily check:
+
+* Where each shard is (node, and port),
+* What kind of table it belongs to, and
+* Its size
+
+This view helps you inspect shards to find, among other things, any size
+imbalances across nodes.
+
+```postgresql
+SELECT * FROM citus_shards;
+.
+ table_name | shardid | shard_name   | citus_table_type | colocation_id | nodename  | nodeport | shard_size
+------------+---------+--------------+------------------+---------------+-----------+----------+------------
+ dist       |  102170 | dist_102170  | distributed      |            34 | localhost |     9701 |   90677248
+ dist       |  102171 | dist_102171  | distributed      |            34 | localhost |     9702 |   90619904
+ dist       |  102172 | dist_102172  | distributed      |            34 | localhost |     9701 |   90701824
+ dist       |  102173 | dist_102173  | distributed      |            34 | localhost |     9702 |   90693632
+ ref        |  102174 | ref_102174   | reference        |             2 | localhost |     9701 |       8192
+ ref        |  102174 | ref_102174   | reference        |             2 | localhost |     9702 |       8192
+ dist2      |  102175 | dist2_102175 | distributed      |            34 | localhost |     9701 |     933888
+ dist2      |  102176 | dist2_102176 | distributed      |            34 | localhost |     9702 |     950272
+ dist2      |  102177 | dist2_102177 | distributed      |            34 | localhost |     9701 |     942080
+ dist2      |  102178 | dist2_102178 | distributed      |            34 | localhost |     9702 |     933888
+```
+
+The colocation_id refers to the colocation group.
+
 ### Shard placement table
 
 The pg\_dist\_placement table tracks the location of shard replicas on
@@ -232,6 +264,34 @@ object_names                |
 object_args                 |
 distribution_argument_index |
 colocationid                |
+```
+
+### Time partitions view
+
+Hyperscale (Citus) provides UDFs to manage partitions for the Timeseries Data
+use case. It also maintains a `time_partitions` view to inspect the partitions
+it manages.
+
+Columns:
+
+* **parent_table** the table which is partitioned
+* **partition_column** the column on which the parent table is partitioned
+* **partition** the name of a partition table
+* **from_value** lower bound in time for rows in this partition
+* **to_value** upper bound in time for rows in this partition
+* **access_method** heap for row-based storage, and columnar for columnar
+  storage
+
+```postgresql
+SELECT * FROM time_partitions;
+┌────────────────────────┬──────────────────┬─────────────────────────────────────────┬─────────────────────┬─────────────────────┬───────────────┐
+│      parent_table      │ partition_column │                partition                │     from_value      │      to_value       │ access_method │
+├────────────────────────┼──────────────────┼─────────────────────────────────────────┼─────────────────────┼─────────────────────┼───────────────┤
+│ github_columnar_events │ created_at       │ github_columnar_events_p2015_01_01_0000 │ 2015-01-01 00:00:00 │ 2015-01-01 02:00:00 │ columnar      │
+│ github_columnar_events │ created_at       │ github_columnar_events_p2015_01_01_0200 │ 2015-01-01 02:00:00 │ 2015-01-01 04:00:00 │ columnar      │
+│ github_columnar_events │ created_at       │ github_columnar_events_p2015_01_01_0400 │ 2015-01-01 04:00:00 │ 2015-01-01 06:00:00 │ columnar      │
+│ github_columnar_events │ created_at       │ github_columnar_events_p2015_01_01_0600 │ 2015-01-01 06:00:00 │ 2015-01-01 08:00:00 │ heap          │
+└────────────────────────┴──────────────────┴─────────────────────────────────────────┴─────────────────────┴─────────────────────┴───────────────┘
 ```
 
 ### Colocation group table

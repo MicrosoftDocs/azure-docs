@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 02/18/2022
 ---
 
 # The Hyperscale (Citus) SQL API
@@ -103,17 +103,17 @@ Foo bar baz
 
 | Name | Description |
 |------|-------------|
-| citus.executor_slow_start_interval | time to wait in milliseconds between opening connections to the same worker node |
-| citus.force_max_query_parallelization | open as many connections as possible |
-| citus.max_adaptive_executor_pool_size | max worker connections per session |
-| citus.max_cached_conns_per_worker | number of connections kept open to speed up subsequent commands |
+| [citus.executor_slow_start_interval](reference-parameters.md#citusexecutor_slow_start_interval-integer) | time to wait in milliseconds between opening connections to the same worker node |
+| [citus.force_max_query_parallelization](reference-parameters.md#citusforce_max_query_parallelization-boolean) | open as many connections as possible |
+| [citus.max_adaptive_executor_pool_size](reference-parameters.md#citusmax_adaptive_executor_pool_size-integer) | max worker connections per session |
+| [citus.max_cached_conns_per_worker](reference-parameters.md#citusmax_cached_conns_per_worker-integer) | number of connections kept open to speed up subsequent commands |
 | [citus.node_connection_timeout](reference-parameters.md#citusnode_connection_timeout-integer) | max duration (in milliseconds) to wait for connection establishment |
 
 ### Data transfer
 
 | Name | Description |
 |------|-------------|
-| enable_binary_protocol | use PostgreSQL’s binary serialization format (when applicable) to transfer data with workers |
+| [citus.enable_binary_protocol](reference-parameters.md#citusenable_binary_protocol-boolean) | use PostgreSQL’s binary serialization format (when applicable) to transfer data with workers |
 | [citus.max_intermediate_result_size](reference-parameters.md#citusmax_intermediate_result_size-integer) | size in KB of intermediate results for CTEs and subqueries that are unable to be pushed down |
 
 ### Deadlock
@@ -132,7 +132,7 @@ help you see data properties and query activity across the server group.
 |------|-------------|
 | [citus_dist_stat_activity](reference-metadata.md#distributed-query-activity) | distributed queries that are executing on all nodes |
 | [citus_lock_waits](reference-metadata.md#distributed-query-activity) | queries blocked throughout the server group |
-| citus_shards | the location of each shard, the type of table it belongs to, and its size |
+| [citus_shards](reference-parameters.md#shard-information-view) | the location of each shard, the type of table it belongs to, and its size |
 | [citus_stat_statements](reference-metadata.md#query-statistics-table) | stats about how queries are being executed, and for whom |
 | citus_tables | a summary of all distributed and reference tables |
 | [citus_worker_stat_activity](reference-metadata.md#distributed-query-activity) | queries on workers, including tasks on individual shards |
@@ -142,7 +142,7 @@ help you see data properties and query activity across the server group.
 | [pg_dist_placement](reference-metadata.md#shard-placement-table) | the location of shard replicas on worker nodes |
 | [pg_dist_rebalance_strategy](reference-metadata.md#rebalancer-strategy-table) |  strategies that `rebalance_table_shards` can use to determine where to move shards |
 | [pg_dist_shard](reference-metadata.md#shard-table) | the table, distribution column, and value ranges for every shard |
-| time_partitions | information about each partition managed by such functions as `create_time_partitions` and `drop_old_time_partitions` |
+| [time_partitions](reference-parameters.md#time-partitions-view) | information about each partition managed by such functions as `create_time_partitions` and `drop_old_time_partitions` |
 
 
 ## Next steps
