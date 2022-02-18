@@ -604,7 +604,7 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-  - name: Healthcare APIs
+  - name: Azure Health Data Services
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/
     items:
@@ -617,7 +617,7 @@
     - name: Data Transformation
       tocHref: /azure/healthcare-apis/data-transformation/
       topicHref: /azure/healthcare-apis/fhir/convert-data
-    - name: IoT connector
+    - name: MedTech service
       tocHref: /azure/healthcare-apis/iot/
       topicHref: /azure/healthcare-apis/iot/index
   - name: Azure API for FHIR
