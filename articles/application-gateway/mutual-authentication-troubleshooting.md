@@ -9,7 +9,7 @@ ms.date: 02/18/2022
 ms.author: caya
 ---
 
-# Troubleshooting mutual authentication errors in Application Gateway (Preview)
+# Troubleshooting mutual authentication errors in Application Gateway
 
 Learn how to troubleshoot problems with mutual authentication when using Application Gateway. 
 
