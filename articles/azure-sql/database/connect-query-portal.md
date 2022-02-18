@@ -11,7 +11,7 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: kendralittle, mathoma
-ms.date: 03/01/2021
+ms.date: 02/18/2022
 ---
 # Quickstart: Use the Azure portal's query editor (preview) to query an Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -229,5 +229,5 @@ You can query a database in Azure SQL Database with a variety of clients, includ
 Learn more about Azure SQL Database in the following articles:
 
 - [Learn more about the Transact-SQL (T-SQL) supported in Azure SQL Database](transact-sql-tsql-differences-sql-server.md).
-- [Azure SQL glossary of terms](../glossary-terms.md)
+- [Azure SQL glossary of terms](../glossary-terms.md).
 - [What is Azure SQL?](../azure-sql-iaas-vs-paas-what-is-overview.md)
