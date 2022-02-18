@@ -276,7 +276,7 @@ You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devop
 
    :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
 
-1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_, and _Read & write_ is selected for _Code_. For use with the web app, ensure that _Read & execute_ is selected for _Build_. Write down the created token value.
+1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_ and _Read & write_ is selected for _Code_. For use with the web app, ensure that _Read & execute_ is selected for _Build_. Write down the created token value.
 
    :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 
@@ -301,7 +301,7 @@ The agent will now be configured and started.
 
 Newly created pipelines might not be visible in the default view. Select on recent tab and go back to All tab to view the new pipelines.
 
-Select the _Control plane deployment_ pipeline and choose "Run" to deploy the control plane. Optionally, be sure to check the "deploy the web app infrastructure" if you would like to set up the web app.
+Select the _Control plane deployment_ pipeline and choose "Run" to deploy the control plane. Optionally, be sure to check the "deploy the web app infrastructure" parameter if you would like to set up the web app.
 
 ## Deploying the web app
 
