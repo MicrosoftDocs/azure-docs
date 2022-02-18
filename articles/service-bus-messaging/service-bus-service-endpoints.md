@@ -94,7 +94,8 @@ The following sample Resource Manager template adds a virtual network rule to an
 The ID is a fully qualified Resource Manager path for the virtual network subnet. For example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
 
 > [!NOTE]
-> The default value of the `defaultAction` is `Deny`. When adding virtual network or firewalls rules, make sure you set the `defaultAction` to `Deny`.
+> The default value of the `defaultAction` is `Allow`. When adding virtual network or firewalls rules, make sure you set the `defaultAction` to `Deny`.
+
 
 Template:
 
