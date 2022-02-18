@@ -5,10 +5,9 @@ metadata:
   services: firewall
   author: vhorne
   ms.service: firewall
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 11/10/2021
   ms.author: victorh
-    
 title: Azure Firewall FAQ
 summary: |
 

@@ -6,14 +6,13 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: devices
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.date: 02/15/2022
   ms.author: joflore
   author: MicrosoftGuyJFlo
   manager: karenhoran
   ms.reviewer: na
   ms.collection: M365-identity-device-management
-    
 title: Settings and data roaming FAQ
 summary: This article answers some questions IT administrators might have about settings and app data sync.
 

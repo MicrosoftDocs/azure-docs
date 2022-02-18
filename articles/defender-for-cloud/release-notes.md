@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 01/20/2022
+ms.date: 02/17/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -17,6 +17,17 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## February 2022
+
+Updates in February include:
+
+- [Kubernetes workload protection for Arc enabled K8s clusters](#kubernetes-workload-protection-for-arc-enabled-k8s-clusters)
+
+### Kubernetes workload protection for Arc enabled K8s clusters 
+
+Defender for Containers for Kubernetes workloads previously only protected AKS. We have now extended the protective coverage to include Azure Arc enabled Kubernetes clusters.
+
+Learn how to [set up your Kubernetes workload protection](kubernetes-workload-protections.md#set-up-your-workload-protection) for AKS and Azure Arc enabled Kubernetes clusters.
 
 ## January 2022
 
