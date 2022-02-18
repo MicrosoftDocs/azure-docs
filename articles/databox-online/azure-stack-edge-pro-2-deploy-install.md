@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 02/17/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -78,18 +78,23 @@ If you didn't receive all of the items listed here, [Contact Microsoft Support](
 
 ## Rack mount the device
 
-The device must be installed on a standard 19-inch rack. Use the following procedure to rack mount your device on a standard 19-inch rack using the 4-post rackmount accessory. 
+The device can be mounted using one of the following mounting accessory: 
 
-> [!IMPORTANT]
-> Azure Stack Edge Pro 2 devices must be rack-mounted or wall-mounted for proper operation.
+- A 4-post rackmount.
+- A 2-post rackmount. 
+- A wallmount.
+
+If you have received  4-post rackmount, use the following procedure to rack mount your device. For other mounting accessories, see [Racking using a 2-post rackmount](azure-stack-edge-pro-2-two-post-rack-mounting.md) or [Mounting the device on the wall](azure-stack-edge-pro-2-wall-mount.md).
+
+
 
 ### Prerequisites
 
 - Before you begin, make sure to read the [Safety instructions](azure-stack-edge-pro-2-safety.md) for your device.
 - Begin installing the rails in the allotted space that is closest to the bottom of the rack enclosure.
 - For the rail mounting configuration:
-    -  You need to supply 10L M5 screws.
-    -  You need a flat-tipped screwdriver.
+    -  You need to use 10L M5 screws. Make sure that these are included in your rail kit.
+    -  You need a Phillips Tip screwdriver.
 
 ### Identify the rail kit contents
 
@@ -169,7 +174,7 @@ On your Azure Stack Edge Pro 2 device:
     - There are six disk slots in the front of your device.
     - Slot 0 – Slot 3 contain data disks. Slots 4 and 5 are empty.
 
-    ![Disks and power button on the front plane of a device](./media/azure-stack-edge-gpu-deploy-install/ase-gpu-device-front-plane-labeled.png)
+    ![Disks and power button on the front plane of a device](./media/azure-stack-edge-pro-2-deploy-install/front-plane-labeled-1.png)
 
 - The back plane has four network interfaces:
 
