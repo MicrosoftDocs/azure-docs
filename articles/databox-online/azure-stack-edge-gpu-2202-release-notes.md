@@ -23,18 +23,29 @@ This article applies to the **Azure Stack Edge 2202** release, which maps to sof
 
 ## What's new
 
-The 2202 release introduces clustering for Azure Stack Edge. You can now deploy a two-node device cluster in addition to a single node device. The clustering feature is in preview and is available only for the Azure Stack Edge Pro GPU devices.
+The 2202 release has the following features and enhancements:
 
-For more information, see [What is clustering on Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md).
+- **Clustering support** - This release introduces clustering support for Azure Stack Edge. You can now deploy a two-node device cluster in addition to a single node device. The clustering feature is in preview and is available only for the Azure Stack Edge Pro GPU devices.
+
+    For more information, see [What is clustering on Azure Stack Edge?](azure-stack-edge-gpu-clustering-overview.md).
+
+- **Password reset extension** - Starting this release, password reset extension for both Windows and Linux virtual machines (VMs) are enabled.
+- **VM improvements** - A new VM size F12 was added in this release.
+- **Multi-Access Edge Computing (MEC) and Virtual Network Functions (VNF) improvements**:
+    - In this release, VM create and delete for VNF create and delete were parallelized. This has significantly reduced the creation time for VNFs that contain multiple VMs. 
+    - The VHD ingestion job resource clean up was moved out of VNF create and delete. This reduced the VNF creation and deletion times.
+- **Updates for Azure Arc and Edge container registry** - Azure Arc and Edge container registry versions were updated. For more information, see [About updates](azure-stack-edge-gpu-install-update.md#about-latest-update).
+- **Security fixes** - Starting this release, a pod security policy is set up on the Kubernetes cluster on your Azure Stack Edge device. If you are using root privileges in your containerized solution, you may experience some change in the behavior. No action is required on your part.
 
 
-<!--## Issues fixed in 2202 release
+
+## Issues fixed in 2202 release
 
 The following table lists the issues that were release noted in previous releases and fixed in the current release.
 
 | No. | Feature | Issue | 
 | --- | --- | --- |
-|**1.**|Multi-Access Edge Compute | In  previous releases, the Azure Stack Edge device did not send VNF operation results back to the Azure Network Function Manager, owing to the MEC Operation Manager (a component of MEC agent) being reset.  |-->
+|**1.**|Azure Arc | In the previous releases, there was a bug in the proxy implementation that resulted in Azure Arc not functioning properly. In this version, a web proxy bypass  list was added to the Azure Arc *no_proxy* list.   |
 
 
 ## Known issues in 2202 release

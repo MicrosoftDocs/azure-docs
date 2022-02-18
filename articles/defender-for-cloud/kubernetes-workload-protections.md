@@ -2,7 +2,7 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 02/16/2022
 ---
 
 # Protect your Kubernetes workloads
@@ -89,11 +89,11 @@ If you disabled any of the default protections when you enabled Microsoft Defend
 
 ## Deploy the add-on to specified clusters
 
-You can manually configure the Kubernetes workload add-on, or extension protection through the Recommendations page. This can be accomplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters` recommendation. 
+You can manually configure the Kubernetes workload add-on, or extension protection through the Recommendations page. This can be accomplished by remediating the `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters` recommendation, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters`. 
 
 **To Deploy the add-on to specified clusters**:
 
-1. From the recommendations page, search for the recommendation `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`. 
+1. From the recommendations page, search for the recommendation `Azure Policy add-on for Kubernetes should be installed and enabled on your clusters`, or `Azure policy extension for Kubernetes should be installed and enabled on your clusters`. 
 
     :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes.png" alt-text="Recommendation **Azure Policy add-on for Kubernetes should be installed and enabled on your clusters**.":::
 
