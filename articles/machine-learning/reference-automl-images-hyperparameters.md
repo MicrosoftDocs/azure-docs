@@ -32,6 +32,15 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 | `box_score_thresh` | During inference, only return proposals with a score greater than `box_score_thresh`. The score is the multiplication of the objectness score and classification probability. <br> Must be a float in the range [0, 1]. | 0.1 |
 | `nms_iou_thresh` | IOU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
 
+This table summarizes hyperparameters specific to the `maskrcnn_*` for instance segmentation during inference.
+
+| Parameter name       | Description           | Default  |
+| ------------- |-------------|----|
+| `mask_pixel_score_threshold` | Score cutoff for considering a pixel as part of the mask of an object. | 0.5 |
+| `max_number_of_polygon_points` | Maximum number of (x, y) coordinate pairs in polygon after converting from a mask. | 100 |
+| `export_as_image` | Export masks as images. | False |
+| `image_type` | Type of image to export mask as (options are jpg, png, bmp).  | JPG |
+
 ## Model agnostic hyperparameters
 
 The following table describes the hyperparameters that are model agnostic.
