@@ -2856,7 +2856,7 @@ And returns these results:
 
 Return the starting position or index value for the last occurrence of a substring. This function isn't case-sensitive, and indexes start with the number 0.
 
-```json
+```
 lastIndexOf('<text>', '<searchText>')
 ```
 
@@ -2883,13 +2883,13 @@ If the string or substring value is empty, the following behavior occurs:
 
 This example finds the starting index value for the last occurrence of the substring `world` substring in the string `hello world hello world`. The returned result is `18`:
 
-```json
+```
 lastIndexOf('hello world hello world', 'world')
 ```
 
 This example is missing the substring parameter, and returns a value of `22` because the value of the input string (`23`) minus 1 is greater than 0.
 
-```json
+```
 lastIndexOf('hello world hello world', '')
 ```
 
@@ -3204,7 +3204,7 @@ Check whether an expression is false.
 Return true when the expression is false,
 or return false when true.
 
-```json
+```
 not(<expression>)
 ```
 
@@ -3222,7 +3222,7 @@ not(<expression>)
 
 These examples check whether the specified expressions are false:
 
-```json
+```
 not(false)
 not(true)
 ```
@@ -3236,7 +3236,7 @@ And return these results:
 
 These examples check whether the specified expressions are false:
 
-```json
+```
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -3303,7 +3303,7 @@ or(<expression1>, <expression2>, ...)
 
 These examples check whether at least one expression is true:
 
-```json
+```
 or(true, false)
 or(false, false)
 ```
