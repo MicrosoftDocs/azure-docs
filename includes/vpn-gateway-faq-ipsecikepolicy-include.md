@@ -130,8 +130,8 @@ No. The Basic SKU does not support this.
 
 No. Once the connection is created, IKEv1/IKEv2 protocols cannot be changed. You must delete and recreate a new connection with the desired protocol type.
 
-### Why is my IKEv1 connection frequently disconnecting?
-If your IKEv1 connection is disconnecting at routine intervals, it is likely due to VPN gateways not supporting in-place rekeys. When Main mode is getting rekeyed, your IKEv1 tunnels will likely disconnect and reconnect. Your Main mode negotiation time out value will determine the frequency of these rekeys and disconnects. To prevent these disconnects, you can switch to using IKEv2, which supports in-place rekeys.
+### Why is my IKEv1 connection frequently reconnecting?
+If your static routing or route based IKEv1 connection is disconnecting at routine intervals, it is likely due to VPN gateways not supporting in-place rekeys. When Main mode is getting rekeyed, your IKEv1 tunnels will disconnect and take up to 5 seconds to reconnect. Your Main mode negotiation time out value will determine the frequency of rekeys. To prevent these reconnects, you can switch to using IKEv2, which supports in-place rekeys.
 
 If your connection is reconnecting at random times, follow our [troubleshooting guide](../articles/vpn-gateway/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md). 
 
