@@ -32,12 +32,12 @@
         },
         {
             "source_path_from_root": "/articles/cloud-partner-portal/cloud-partner-portal-manage-publisher-profile.md",
-            "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
+            "redirect_url": "/azure/partner-center/create-user-accounts-and-set-permissions",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cloud-partner-portal/cloud-partner-portal-manage-users.md",
-            "redirect_url": "/azure/marketplace/partner-center-portal/manage-account",
+            "redirect_url": "/azure/marketplace/manage-account",
             "redirect_document_id": false
         },
         {
@@ -57,12 +57,12 @@
         },
         {
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md",
-            "redirect_url": "/azure/marketplace/create-account",
+            "redirect_url": "/partner-center/create-user-accounts-and-set-permissions",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/marketplace-publishing/marketplace-publishing-azure-certification.md",
-            "redirect_url": "/azure/marketplace/become-publisher",
+            "redirect_url": "/azure/marketplace/create-account",
             "redirect_document_id": false
         },
         {
