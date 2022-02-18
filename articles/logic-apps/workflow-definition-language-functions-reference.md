@@ -3922,7 +3922,7 @@ slice('<text>', <startIndex>, <endIndex>)
 |-----------|----------|------|-------------|
 | <*text*> | Yes | String | The string that contains the substring to find |
 | <*startIndex*> | Yes | Integer | The zero-based starting position or value for where to begin searching for the substring <br><br>- If *startIndex* is greater than the string length, return an empty string. <br><br>- If *startIndex* is negative, start searching at the index value that's the sum of the string length and *startIndex*. |
-| <*endIndex*> | No | Integer | The zero-based ending position or value for where to end searching for the substring. The character located at the ending index value isn't included in the search. <br><br>- If *endIndex* isn't specified or greater than the string length, search up to the end of the string. <br><br>- If *endIndex* is negative, end searching at the index value that the sum of the string length and *endIndex*.
+| <*endIndex*> | No | Integer | The zero-based ending position or value for where to end searching for the substring. The character located at the ending index value isn't included in the search. <br><br>- If *endIndex* isn't specified or greater than the string length, search up to the end of the string. <br><br>- If *endIndex* is negative, end searching at the index value that the sum of the string length and *endIndex*. |
 |||||
 
 | Return value | Type | Description |
