@@ -11,7 +11,7 @@ ms.date: 02/16/2022
 ms.author: vikurpad
 ---
 
-# Build your training data set for a custom model
+# Build your training dataset for a custom model
 
 Form Recognizer models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 

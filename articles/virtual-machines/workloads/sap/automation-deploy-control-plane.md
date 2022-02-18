@@ -115,11 +115,12 @@ az logout
 az login
 
 export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
-export subscriptionID=<subscriptionID>
-export spn_id=<appID>
-export spn_secret=<password>
-export tenant_id=<tenant>
-export region_code=WEEU
+export  ARM_SUBSCRIPTION_ID=<subscriptionID>
+export       subscriptionID=<subscriptionID>
+export               spn_id=<appID>
+export           spn_secret=<password>
+export            tenant_id=<tenant>
+export          region_code=WEEU
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                            \
         --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars \
