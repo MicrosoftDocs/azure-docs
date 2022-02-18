@@ -1128,6 +1128,7 @@
           "articles/mysql/**/*.md",
           "articles/postgresql/**/*.md",
           "articles/site-recovery/**/*.md",
+          "articles/virtual-network/accelerated-networking-how-it-works.md",
           "articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",
           "articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md",
