@@ -106,7 +106,7 @@ Each change resource has the following properties:
 To enable Azure PowerShell to query Azure Resource Graph, the [module must be added](../first-query-powershell.md#add-the-resource-graph-module).
 
 #### Run your Resource Graph PowerShell query
-With the Azure PowerShell module added to your environment of choice, it's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resoruce changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by
+With the Azure PowerShell module added to your environment of choice, it's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by
 [management group](../management-groups/overview.md) or subscription, use the `-ManagementGroup`
 or `-Subscription` parameters.
 
@@ -161,7 +161,7 @@ top five results.
 To enable Azure CLI to query Azure Resource Graph, the [extension must be added](../first-query-azurecli.md#add-the-resource-graph-extension).
 
 #### Run your Resource Graph Azure CLI query
-With the Azure CLI extension added to your environment of choice, it's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resoruce changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by management group or subscription, use the --managementgroups or --subscriptions arguments.
+With the Azure CLI extension added to your environment of choice, it's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by management group or subscription, use the --managementgroups or --subscriptions arguments.
 
 1. Run your first Azure Resource Graph query using the `graph` extension and `query` command:
 
