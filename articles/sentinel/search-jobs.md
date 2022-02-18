@@ -65,4 +65,4 @@ To learn more, see the following topics.
 
 - [Hunt with bookmarks](bookmarks.md)
 - [Restore archived logs](restore.md)
-- [Archived logs in Azure Monitor](../azure-monitor/logs/azure-monitor-archived-logs.md)
+- [Configure data retention and archive policies in Azure Monitor Logs (Preview)](../azure-monitor/logs/data-retention-archive.md)

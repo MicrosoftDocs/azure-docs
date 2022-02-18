@@ -34,9 +34,9 @@ The following image shows example search criteria for a search job.
 Use search to find events in any of the following log types:
 
 - [Analytics logs](../azure-monitor/logs/data-platform-logs.md)
-- [Basic logs (preview)](../azure-monitor/logs/azure-monitor-basic-logs.md)
+- [Basic logs (preview)](../azure-monitor/logs/basic-logs-configure.md)
 
-You can also search analytics or basic log data stored in [archived logs (preview)](../azure-monitor/logs/azure-monitor-archived-logs.md).
+You can also search analytics or basic log data stored in [archived logs (preview)](../azure-monitor/logs/data-retention-archive.md).
 
 ### Limitations of a search job
 
