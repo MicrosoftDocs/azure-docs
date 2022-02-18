@@ -50,6 +50,7 @@ For more information, see:
 - [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md)
 - [Search across long time spans in large datasets (preview)](search-jobs.md)
 
+For information about billing for basic logs or log data stored in archived logs, see [Plan costs for Microsoft Sentinel](billing.md#understand-the-full-billing-model-for-microsoft-sentinel).
 
 ### Restore archived logs from search (public preview)
 
