@@ -8,7 +8,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 02/11/2021
 ms.topic: conceptual
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ---
 
 # Understanding the AnchorLocateCriteria class

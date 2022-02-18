@@ -9,7 +9,8 @@ ms.custom: devx-track-java
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ---
 # How to create and locate anchors using coarse relocalization in Java
 

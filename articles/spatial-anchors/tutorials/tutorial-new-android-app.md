@@ -8,7 +8,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ---
 
 # Tutorial: Step-by-step instructions to create a new Android app using Azure Spatial Anchors

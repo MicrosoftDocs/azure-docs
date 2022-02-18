@@ -7,7 +7,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: conceptual
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 #Customer intent: Guidance for creating and locating Azure Spatial Anchors. This guidance targets mixed-reality developers.
 ---
 

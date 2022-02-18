@@ -6,7 +6,8 @@ services: azure-spatial-anchors
 ms.date: 08/05/2021
 ms.topic: include
 ms.author: pamistel
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ---
 
 ```java

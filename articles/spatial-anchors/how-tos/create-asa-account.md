@@ -8,7 +8,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/22/2021
 ms.topic: how-to
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ---
 
 # Create an Azure Spatial Anchors account

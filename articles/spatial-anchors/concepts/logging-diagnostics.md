@@ -8,7 +8,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: conceptual
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ms.custom: devx-track-csharp
 ---
 # Logging and diagnostics in Azure Spatial Anchors

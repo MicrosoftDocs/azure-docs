@@ -8,7 +8,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/12/2021
 ms.topic: how-to
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ---
 
 # Configuring Azure Spatial Anchors in a Unity project

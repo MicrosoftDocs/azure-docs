@@ -8,7 +8,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 01/28/2021
 ms.topic: conceptual
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ms.custom: devx-track-csharp
 ---
 

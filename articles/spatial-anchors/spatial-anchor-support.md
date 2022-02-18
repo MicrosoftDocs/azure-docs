@@ -6,7 +6,8 @@ manager: MehranAzimi-msft
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: troubleshooting
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 #Customer intent: Address how to open a support ticket with the Azure Spatial Anchors support team.
 ---
 

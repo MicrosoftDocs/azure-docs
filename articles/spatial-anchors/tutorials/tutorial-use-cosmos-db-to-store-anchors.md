@@ -8,7 +8,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ---
 # Tutorial: Sharing Azure Spatial Anchors across sessions and devices with an Azure Cosmos DB back end
 

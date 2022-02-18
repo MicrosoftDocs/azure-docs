@@ -7,7 +7,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 03/18/2021
 ms.topic: quickstart
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 ---

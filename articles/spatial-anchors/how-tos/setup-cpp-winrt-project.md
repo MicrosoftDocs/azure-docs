@@ -8,7 +8,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: how-to
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ---
 
 # Configuring Azure Spatial Anchors in a C++/WinRT HoloLens project

@@ -7,7 +7,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: quickstart
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ms.custom: has-adal-ref, devx-track-azurecli, mode-other
 ---
 # Quickstart: Create an iOS app with Azure Spatial Anchors, in either Swift or Objective-C

@@ -8,7 +8,8 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 2/3/2021
 ms.topic: tutorial
-ms.service: azure-spatial-anchors
+ms.service: spatial-anchors
+
 ---
 <!-- 
    
