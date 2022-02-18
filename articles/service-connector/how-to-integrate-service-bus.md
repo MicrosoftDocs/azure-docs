@@ -14,8 +14,6 @@ This page shows the supported authentication types and client types of Azure Ser
 
 ## Supported compute services
 
-Service Connector supports the following compute services:
-
 - Azure App Service
 - Azure Spring Cloud
 
