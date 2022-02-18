@@ -7,13 +7,13 @@ ms.author: eur
 ms.custom: devx-track-js
 ---
 
-[!INCLUDE [Header](../common/javascript.md)]
+[!INCLUDE [Header](../../common/javascript.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 
