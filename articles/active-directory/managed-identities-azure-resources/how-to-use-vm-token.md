@@ -72,7 +72,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `http://169.254.169.254/metadata/identity/oauth2/token` | The managed identities for Azure resources endpoint for the Instance Metadata Service. |
 | `api-version`  | A query string parameter, indicating the API version for the IMDS endpoint. Use API version `2018-02-01` or greater. |
 | `resource` | A query string parameter, indicating the App ID URI of the target resource. It also appears in the `aud` (audience) claim of the issued token. This example requests a token to access Azure Resource Manager, which has an App ID URI of `https://management.azure.com/`. |
-| `Metadata` | An HTTP request header field. This field is required by managed identities as a mitigation against server side request forgery (SSRF) attacks. This value must be set to "true", in all lower case. |
+| `Metadata` | An HTTP request header field required by managed identities. This information is used as a mitigation against server side request forgery (SSRF) attacks. This value must be set to "true", in all lower case. |
 | `object_id` | (Optional) A query string parameter, indicating the object_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
 | `client_id` | (Optional) A query string parameter, indicating the client_id of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities.|
 | `mi_res_id` | (Optional) A query string parameter, indicating the mi_res_id (Azure Resource ID) of the managed identity you would like the token for. Required, if your VM has multiple user-assigned managed identities. |
@@ -105,7 +105,7 @@ Content-Type: application/json
 
 ## Get a token using the Azure identity client library
 
-Using the Azure identity client library is the recommended way to use managed identities. All Azure SDKs are integrated with the ```Azure.Identity``` library that provides support for DefaultAzureCredential. This class makes it easy to use Managed Identities with Azure SDKs.[Learn more](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
+Using the Azure identity client library is the recommended way to use managed identities. All Azure SDKs are integrated with the ```Azure.Identity``` library that provides support for DefaultAzureCredential. This class makes it easy to use Managed Identities with Azure SDKs.[Learn more](/dotnet/api/overview/azure/identity-readme)
 
 1. Install the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) package and other required [Azure SDK library packages](https://aka.ms/azsdk), such as [Azure.Security.KeyVault.Secrets](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/).
 2. Use the sample code below. You don't need to worry about getting tokens. You can directly use the Azure SDK clients. The code is for demonstrating how to get the token, if you need to.
@@ -376,7 +376,7 @@ This section documents the possible error responses. A "200 OK" status is a succ
 
 | Status code | Error | Error Description | Solution |
 | ----------- | ----- | ----------------- | -------- |
-| 400 Bad Request | invalid_resource | AADSTS50001: The application named *\<URI\>* wasn't found in the tenant named *\<TENANT-ID\>*. This message shows if the application hasn't been installed by the tenant administrator or consented to by any user in the tenant. You might have sent your authentication request to the wrong tenant.\ | (Linux only) |
+| 400 Bad Request | invalid_resource | AADSTS50001: The application named *\<URI\>* wasn't found in the tenant named *\<TENANT-ID\>*. This message shows if the tenant administrator hasn't installed the application or no tenant user consented to it. You might have sent your authentication request to the wrong tenant.\ | (Linux only) |
 | 400 Bad Request | bad_request_102 | Required metadata header not specified | Either the `Metadata` request header field is missing from your request, or is formatted incorrectly. The value must be specified as `true`, in all lower case. See the "Sample request" in the preceding REST section for an example.|
 | 401 Unauthorized | unknown_source | Unknown Source *\<URI\>* | Verify that your HTTP GET request URI is formatted correctly. The `scheme:host/resource-path` portion must be specified as `http://localhost:50342/oauth2/token`. See the "Sample request" in the preceding REST section for an example.|
 |           | invalid_request | The request is missing a required parameter, includes an invalid parameter value, includes a parameter more than once, or is otherwise malformed. |  |
