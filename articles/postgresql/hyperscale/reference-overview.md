@@ -135,7 +135,7 @@ help you see data properties and query activity across the server group.
 | [citus_lock_waits](reference-metadata.md#distributed-query-activity) | queries blocked throughout the server group |
 | [citus_shards](reference-metadata.md#shard-information-view) | the location of each shard, the type of table it belongs to, and its size |
 | [citus_stat_statements](reference-metadata.md#query-statistics-table) | stats about how queries are being executed, and for whom |
-| [citus_tables](reference-metadata.md@distributed-tables-view) | a summary of all distributed and reference tables |
+| [citus_tables](reference-metadata.md#distributed-tables-view) | a summary of all distributed and reference tables |
 | [citus_worker_stat_activity](reference-metadata.md#distributed-query-activity) | queries on workers, including tasks on individual shards |
 | [pg_dist_colocation](reference-metadata.md#colocation-group-table) | which tables' shards should be placed together |
 | [pg_dist_node](reference-metadata.md#worker-node-table) | information about worker nodes in the server group |
