@@ -84,7 +84,7 @@ Foo bar baz
 | [citus.enable_repartition_joins](reference-parameters.md#citusenable_repartition_joins-boolean) | allow JOINs made on non-distribution columns |
 | [citus.enable_repartitioned_insert_select](reference-parameters.md#citusenable_repartition_joins-boolean) | allow repartitioning rows from the SELECT statement and transfering them between workers for insertion |
 | [citus.limit_clause_row_fetch_count](reference-parameters.md#cituslimit_clause_row_fetch_count-integer) | the number of rows to fetch per task for limit clause optimization |
-| [citus.local_table_join_policy](reference-parameters.md@cituslocal_table_join_policy-enum) | where data moves when doing a join between local and distributed tables |
+| [citus.local_table_join_policy](reference-parameters.md#cituslocal_table_join_policy-enum) | where data moves when doing a join between local and distributed tables |
 | [citus.multi_shard_commit_protocol](reference-parameters.md#citusmulti_shard_commit_protocol-enum) | the commit protocol to use when performing COPY on a hash distributed table |
 | [citus.propagate_set_commands](reference-parameters.md#cituspropagate_set_commands-enum) | which SET commands are propagated from the coordinator to workers |
 
@@ -132,7 +132,7 @@ help you see data properties and query activity across the server group.
 |------|-------------|
 | [citus_dist_stat_activity](reference-metadata.md#distributed-query-activity) | distributed queries that are executing on all nodes |
 | [citus_lock_waits](reference-metadata.md#distributed-query-activity) | queries blocked throughout the server group |
-| [citus_shards](reference-parameters.md#shard-information-view) | the location of each shard, the type of table it belongs to, and its size |
+| [citus_shards](reference-metadata.md#shard-information-view) | the location of each shard, the type of table it belongs to, and its size |
 | [citus_stat_statements](reference-metadata.md#query-statistics-table) | stats about how queries are being executed, and for whom |
 | citus_tables | a summary of all distributed and reference tables |
 | [citus_worker_stat_activity](reference-metadata.md#distributed-query-activity) | queries on workers, including tasks on individual shards |
@@ -142,7 +142,7 @@ help you see data properties and query activity across the server group.
 | [pg_dist_placement](reference-metadata.md#shard-placement-table) | the location of shard replicas on worker nodes |
 | [pg_dist_rebalance_strategy](reference-metadata.md#rebalancer-strategy-table) |  strategies that `rebalance_table_shards` can use to determine where to move shards |
 | [pg_dist_shard](reference-metadata.md#shard-table) | the table, distribution column, and value ranges for every shard |
-| [time_partitions](reference-parameters.md#time-partitions-view) | information about each partition managed by such functions as `create_time_partitions` and `drop_old_time_partitions` |
+| [time_partitions](reference-metadata.md#time-partitions-view) | information about each partition managed by such functions as `create_time_partitions` and `drop_old_time_partitions` |
 
 
 ## Next steps
