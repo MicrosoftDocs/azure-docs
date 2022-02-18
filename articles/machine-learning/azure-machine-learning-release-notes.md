@@ -21,7 +21,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2022-02-21
 
 ### Azure Machine Learning SDK for Python v1.39.0
-  + **azureml-automl-core**  
   + **azureml-automl-dnn-nlp**
     +  Updating AutoML dependencies to support python 3.8. This change will break compatibility with models trained with SDK 1.37 or below due to newer Pandas interfaces being saved in the model.
     +  Adding min-label-classes check for both classification tasks.
