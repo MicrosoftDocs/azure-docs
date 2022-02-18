@@ -132,7 +132,7 @@ Transcripts must be prepared to the specifications listed in this table. Each au
 | -------- | ----- |
 | File format | Plain text (.txt), grouped into a .zip |
 | File name | Use the same name as the matching audio file |
-| Encoding format |ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. For zh-CN, ANSI/ASCII encoding isn't supported. |
+| Encoding format |ANSI, ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. For zh-CN, ANSI and ASCII encoding aren't supported. |
 | # of utterances per line | No limit |
 | Maximum file size | 2048 MB |
 
