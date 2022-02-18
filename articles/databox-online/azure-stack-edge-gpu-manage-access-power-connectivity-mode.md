@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/14/2022
+ms.date: 02/18/2022
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell
 ---
@@ -113,13 +113,16 @@ You can now connect to the PowerShell interface of the device over HTTP. For det
 
 ## Enable device access from outside network
 
-If any of your users need to connect to the appliance from an outside network, you'll need this network configuration:
+If you need to be able to connect to the Azure Stack Edge appliance from an outside network, you'll need this network configuration:
 
-- For in-bound traffic from the customer laptop network (network A) to the appliance's network (network B), network A should have a clear route to network B, possibly through defined gateways.<!--Is this a correct interpretation of "possibly through the right gateways defined" - configure a specific route vs. automatic routing to the best available network?-->
+- **In-bound traffic:** For in-bound traffic from the network for the customer's laptop (network B) to the appliance's network (network A), network B should have a clear route to network A, possibly through defined gateways.<!--Is this a correct interpretation of "possibly through the right gateways defined" - configure a specific route vs. automatic routing to the best available network?-->
 
-- For outbound traffic (network B to network A), configure the correct gateways on the appliance so that traffic can reach network A. If you configure multiple gateways on the appliance, ensure that network A can be reached on all gateways.
+- **Outbound traffic:** For outbound traffic (network A to network B):
 
-  An appliance ideally tries to use the network interface card (NIC) with the lowest route metric. However, there's no clear way for an Azure Stack Edge appliance to identify the NIC with the lowest metric. So it's best to make network A reachable on all configured gateways.
+  - Configure the correct gateways on the appliance so that traffic can reach network A. 
+  - If you configure multiple gateways on the appliance, ensure that network A can be reached on all gateways.
+
+    An appliance ideally tries to use the network interface card (NIC) with the lowest route metric. However, there's no clear way for an Azure Stack Edge appliance to identify the NIC with the lowest metric. So it's best to make network A reachable on all configured gateways.
 
   Diagnostic tests for Azure Stack Edge return a warning if all gateways don't have internet connectivity. For diagnostics information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics). <!--Terminology creep: This is the first reference to internet connectivity.-->
 
