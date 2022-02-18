@@ -29,7 +29,8 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## February 2022
 
-[Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
+- [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
+- [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
 
 ### Search across long time spans in large datasets (public preview)
 
