@@ -3,9 +3,8 @@ metadata:
   title: Back up Azure Files FAQ
   description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
   ms.date: 12/10/2021
-  ms.topic: article
+  ms.topic: faq
   ms.service: backup
-    
 title: Questions about backing up Azure Files
 summary: |
   This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [Microsoft Q&A question page for discussion](/answers/topics/azure-backup.html).
