@@ -23,3 +23,6 @@ Improvements include:
 ![vm-right-sizing-recommendation](media/advisor-overview/advisor-vm-right-sizing.png)
 
 Read the [How-to guide](advisor-cost-recommendations.md#optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances) to learn more.
+
+New recomemndations are now available:
+
