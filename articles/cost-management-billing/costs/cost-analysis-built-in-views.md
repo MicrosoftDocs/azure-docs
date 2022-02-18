@@ -4,7 +4,7 @@ titleSuffix: Azure Cost Management + Billing
 description:  This article helps you understand when to use which view, how each one provides unique insights about your costs and recommended next steps to investigate further.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/17/2021
+ms.date: 02/17/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -67,7 +67,7 @@ Use this view to:
 - Identify significant month-over-month changes.
 - Identify and tag untagged resources using resource group tags.
 
-:::image type="content" source="./media/cost-analysis-built-in-views/resource-groups.png" alt-text="Screenshot showing an example of the the Resource groups view." lightbox="./media/cost-analysis-built-in-views/resource-groups.png" :::
+:::image type="content" source="./media/cost-analysis-built-in-views/resource-groups.png" alt-text="Screenshot showing an example of the Resource groups view." lightbox="./media/cost-analysis-built-in-views/resource-groups.png" :::
 
 ## Analyze your subscription costs
 
@@ -101,7 +101,7 @@ Amortized cost breaks down reservation purchases into daily chunks and spreads t
 
 Because of the change in how costs are represented, it's important to note that actual cost and amortized cost views will show different total numbers. In general, the total cost of months with a reservation purchase will decrease when viewing amortized costs, and months following a reservation purchase will increase. Amortization is available only for reservation purchases and doesn't apply to any other purchases.
 
-:::image type="content" source="./media/cost-analysis-built-in-views/reservations.png" alt-text="Screenshot showing an example of the Reservations view" lightbox="./media/cost-analysis-built-in-views/reservations.png" :::
+:::image type="content" source="./media/cost-analysis-built-in-views/reservations.png" alt-text="Screenshot showing an example of the Reservations view." lightbox="./media/cost-analysis-built-in-views/reservations.png" :::
 
 ## Break down product and service costs
 
