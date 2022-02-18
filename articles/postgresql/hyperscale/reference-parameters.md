@@ -89,6 +89,31 @@ ALTER DATABASE foo
 SET citus.node_connection_timeout = 30000;
 ```
 
+#### citus.log_remote_commands (boolean)
+
+Log all commands that the coordinator sends to worker nodes. For instance:
+
+```postgresql
+-- reveal the per-shard queries behind the scenes
+SET citus.log_remote_commands TO on;
+
+-- run a query on distributed table "github_users"
+SELECT count(*) FROM github_users;
+```
+
+This reveals several queries running on workers because of the single
+`count(*)` query on the coordinator.
+
+```
+NOTICE:  issuing SELECT count(*) AS count FROM public.github_events_102040 github_events WHERE true
+DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connectionId: 1
+NOTICE:  issuing SELECT count(*) AS count FROM public.github_events_102041 github_events WHERE true
+DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connectionId: 1
+NOTICE:  issuing SELECT count(*) AS count FROM public.github_events_102042 github_events WHERE true
+DETAIL:  on server citus@private-c.demo.postgres.database.azure.com:5432 connectionId: 1
+... etc, one for each of the 32 shards
+```
+
 ### Query Statistics
 
 #### citus.stat\_statements\_purge\_interval (integer)

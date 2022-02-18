@@ -94,6 +94,7 @@ Foo bar baz
 |------|-------------|
 | [citus.explain_all_tasks](reference-parameters.md#citusexplain_all_tasks-boolean) | make EXPLAIN output show all tasks |
 | [citus.explain_analyze_sort_method](reference-parameters.md#citusexplain_analyze_sort_method-enum) | sort method of the tasks in the output of EXPLAIN ANALYZE |
+| [citus.log_remote_commands](reference-parameters.md#cituslog_remote_commands-boolean) | log queries the coordinator sends to worker nodes |
 | [citus.multi_task_query_log_level](reference-parameters.md#citusmulti_task_query_log_level-enum-multi_task_logging) | log-level for any query that generates more than one task |
 | [citus.stat_statements_max](reference-parameters.md#citusstat_statements_max-integer) | max number of rows to store in `citus_stat_statements` |
 | [citus.stat_statements_purge_interval](reference-parameters.md#citusstat_statements_purge_interval-integer) | frequency at which the maintenance daemon removes records from `citus_stat_statements` that are unmatched in `pg_stat_statements` |
