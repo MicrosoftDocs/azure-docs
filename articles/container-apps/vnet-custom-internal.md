@@ -1,6 +1,6 @@
 ---
-title: Provide an external virtual network to an Azure Container Apps Preview environment
-description: Learn how to provide an external VNET to an Azure Container Apps environment.
+title: Provide an internal virtual network to an Azure Container Apps Preview environment
+description: Learn how to provide an internal VNET to an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Provide an external virtual network to an Azure Container Apps (Preview) environment
+# Provide an internal virtual network to an Azure Container Apps (Preview) environment
 
 The following example shows you how to create a Container Apps environment in an existing virtual network.
 
@@ -41,7 +41,7 @@ The following example shows you how to create a Container Apps environment in an
     | Virtual Network Address Block | Keep the default values. |
     | Subnet Address Block | Keep the default values. |
 
-15. Under *Virtual IP*, select **External**.
+15. Under *Virtual IP*, select **Internal**.
 16. Select **Create**.
 
 <!-- Deploy -->
@@ -166,7 +166,7 @@ $APP_SUBNET=(az network vnet subnet show --resource-group $RESOURCE_GROUP --vnet
 
 ---
 
-Finally, create the Container Apps environment with the VNET and subnets.
+Finally, create the Container Apps environment with the internal VNET and subnets.
 
 # [Bash](#tab/bash)
 
@@ -178,7 +178,8 @@ az containerapp env create \
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "$LOCATION" \
   --app-subnet-resource-id $APP_SUBNET \
-  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
+  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET \
+  --internal-only
 ```
 
 # [PowerShell](#tab/powershell)
@@ -191,7 +192,8 @@ az containerapp env create `
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location "$LOCATION" `
   --app-subnet-resource-id $APP_SUBNET `
-  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
+  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET `
+  --internal-only
 ```
 
 ---

@@ -38,6 +38,16 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
+    - name: Networking
+      items: 
+      - name: Architecture overview
+        href: networking.md
+      - name: Deploy with an external VNET
+        href: vnet-custom.md
+      - name: Deploy with an internal VNET
+        href: vnet-custom-internal.md
+      - name: Firewall integration
+        href: firewall-integration.md
 - name: How-to guides
   items:
     - name: Scale an app
@@ -54,8 +64,6 @@
       href: connect-apps.md
     - name: Publish revisions with GitHub Actions
       href: github-actions-cli.md
-    - name: Use a custom VNET
-      href: vnet-custom.md
 - name: Tutorials
   items:
     - name: Microservices with Dapr using the CLI
