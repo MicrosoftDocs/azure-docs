@@ -194,6 +194,12 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ---
 
+## Configure Request Routing Rule
+
+Provided with the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from the listener and route it to the Backend Pool using the HTTP Settings.
+
+TODO
+
 ## Additional configuration in case of redirection to app service's relative path
 
 When the app service sends a redirection response to the client to redirect to its relative path (For example, a redirect from `contoso.azurewebsites.net/path1` to `contoso.azurewebsites.net/path2`), it uses the same hostname in the location header of its response as the one in the request it received from the application gateway. So the client will make the request directly to `contoso.azurewebsites.net/path2` instead of going through the application gateway (`contoso.com/path2`). Bypassing the application gateway isn't desirable.
