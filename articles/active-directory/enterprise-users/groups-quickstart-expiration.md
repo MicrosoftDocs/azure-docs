@@ -42,7 +42,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 2. Select **Groups**, and then select **General**.
   
-   ![Self-service group settings page](./media/groups-quickstart-expiration/self-service-settings.png)
+    ![image](https://user-images.githubusercontent.com/96041973/154680216-96b382f4-b849-410a-8479-a13f15c3a2c3.png)
+
 
 3. Set  **Users can create Microsoft 365 groups** to **Yes**.
 
@@ -52,7 +53,8 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com), select **Azure Active Directory** > **Groups** > **Expiration** to open the expiration settings.
   
-   ![Expiration settings page for group](./media/groups-quickstart-expiration/expiration-settings.png)
+   ![image](https://user-images.githubusercontent.com/96041973/154682246-bae88b01-7c53-4964-8a97-b4b14adbec64.png)
+
 
 2. Set the expiration interval. Select a preset value or enter a custom value over 31 days. 
 
