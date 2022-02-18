@@ -47,3 +47,4 @@ The table below summarizes all the observability capabilities supported by API M
 ## Next Steps
 
 * [Follow the tutorials to learn more about API Management](import-and-publish.md)
+- To learn more about the self-hosted gateway, see [Self-hosted gateway overview](self-hosted-gateway-overview.md).
