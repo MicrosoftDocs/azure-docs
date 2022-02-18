@@ -76,7 +76,24 @@ In this article you'll learn how to:
 
 ### [Powershell](#tab/azure-powershell)
 
-TODO - ADD APP SVC TO BACKEND USING POWERSHELL 
+```powershell
+# Fully qualified default domain name of the web app:
+$webAppFQDN = "<nameofwebapp>.azurewebsite.net"
+
+# For Application Gateway: both name, resource group and name for the backend pool to create:
+$rgName = "<name of resource group for App Gateway>"
+$appGwName = "<name of the App Gateway>"
+$appGwBackendPoolNameForAppSvc = "<name for backend pool to be added>"
+
+# Get existing Application Gateway:
+$gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
+
+# Add a new Backend Pool with App Service in there:
+Add-AzApplicationGatewayBackendAddressPool -Name $appGwBackendPoolNameForAppSvc -ApplicationGateway $gw -BackendFqdns $webAppFQDN
+
+# Update Application Gateway with the new added Backend Pool:
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
 
 ---
 
