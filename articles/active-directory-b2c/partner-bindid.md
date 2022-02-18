@@ -77,7 +77,7 @@ To get started, you'll need:
 
 ### Step 1 - Create an application registration in BindID
 
-[Register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant).To configure your tenant application in BindID, the following information is needed
+[Register](./tutorial-register-applications.md) a web application, [and enable ID token implicit grant](./tutorial-register-applications.md#enable-id-token-implicit-grant). To configure your tenant application in BindID, the following information is needed
 
 | Property | Description |
 |:---------|:---------------------|
