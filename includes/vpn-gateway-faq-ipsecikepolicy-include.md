@@ -130,6 +130,11 @@ No. The Basic SKU does not support this.
 
 No. Once the connection is created, IKEv1/IKEv2 protocols cannot be changed. You must delete and recreate a new connection with the desired protocol type.
 
+### Why is my IKEv1 connection frequently disconnecting?
+VPN gateways do not support in-place rekey. This means that your IKEv1 tunnels will likely disconnect and re-connect when Main mode is getting re-keyed. Your Main mode negotiation time out value will determine the frequency of these rekeys and disconnects.
+
+To prevent these disconnects, you can switch to using IKEv2, which supports in-place rekeys.
+
 ### Where can I find more configuration information for IPsec?
 
 See [Configure IPsec/IKE policy for S2S or VNet-to-VNet connections](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md).
