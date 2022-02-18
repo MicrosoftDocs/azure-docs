@@ -215,6 +215,8 @@ items:
           items:
             - name: Automatic upgrade
               href: upgrade-sql-managed-instance-auto.md
+            - name: Maintenance windows
+              href: maintenance-window.md
             - name: Direct connectivity mode
               items:
                 - name: SQL Managed Instance direct - CLI
