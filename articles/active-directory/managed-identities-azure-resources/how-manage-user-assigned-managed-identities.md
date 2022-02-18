@@ -82,11 +82,7 @@ To assign a role to a user-assigned managed identity, your account needs the [Us
 1. Sign in to the [Azure portal](https://portal.azure.com) by using an account associated with the Azure subscription to list the user-assigned managed identities.
 1. In the search box, enter **Managed Identities**. Under **Services**, select **Managed Identities**.
 1. A list of the user-assigned managed identities for your subscription is returned. Select the user-assigned managed identity that you want to assign a role.
-1. Select **Access control (IAM)**, and then select **Add role assignment**.
-
-   :::image type="content" source="media/how-manage-user-assigned-managed-identities/assign-role.png" alt-text="Screenshot that shows the user-assigned managed identity start.":::
-
-
+1. Select **Azure role assignments**, and then select **Add role assignment**.
 1. In the **Add role assignment** pane, configure the following values, and then select **Save**:
    - **Role**: The role to assign.
    - **Assign access to**: The resource to assign the user-assigned managed identity.
