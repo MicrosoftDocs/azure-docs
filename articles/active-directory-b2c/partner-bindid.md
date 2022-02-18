@@ -123,9 +123,6 @@ BindID will provide a Client ID and a Client Secret once the application has bee
    |Response mode|form_post|
    |**Identity provider claims mapping**|
    |User ID|sub|
-   |Display name|name|
-   |Given name|given_name|
-   |Surname|family_name|
    |Email|email|
 
 3. Select **Save** to complete the setup for your new OIDC Identity provider.  
