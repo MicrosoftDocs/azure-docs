@@ -288,8 +288,6 @@ This functionality is limited to experiments initiated from the studio UI and re
 
 The **Edit and submit** button opens the **Create a new Automated ML run** wizard with the data, compute and experiment settings pre-populated. You can go through each form and edit selections as needed for your new experiment. 
 
- ![Edit and submit existing automated ML experiment ](media/how-to-use-automated-ml-for-ml-models/edit-submit-button.png)
-
 ## Deploy your model
 
 Once you have the best model at hand, it is time to deploy it as a web service to predict on new data.
