@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 * **Create an application in Azure Active Directory** following [this instruction](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal). Make note of the following values that you use in later steps: **application ID**, **clientSecrets**, and **tenant ID**. Assign application to "**Contributor**" role at either subscription or resource group level.
 >[!NOTE]
 >	For Sovereign clouds, you must use the appropriate cloud-specific endpoints for ActiveDirectoryAuthority and ResourceManagerUrl (BaseUri). 
->	 You can use Powershell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.  
+>	 You can use PowerShell to easily get the endpoint Urls for various clouds by executing “Get-AzEnvironment | Format-List”, which will return a list of endpoints for each cloud environment.  
 >	 
 ## Set global variables
 
