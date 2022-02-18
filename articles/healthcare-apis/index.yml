@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Health Data Services documentation
-summary: Documentation for all of Azure Health Data Services capabilities, including features from FHIR, DICOM, and IoT connector.
+summary: Documentation for all of Azure Health Data Services capabilities, including features from FHIR, DICOM, and MedTech service.
 
 metadata:
   title: Azure Health Data Services documentation
-  description: documentation for all of Azure Health Data Services products and services, including FHIR, DICOM, and IoT connector
+  description: documentation for all of Azure Health Data Services products and services, including FHIR, DICOM, and MedTech service
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.topic: landing-page 
@@ -31,7 +31,7 @@ landingContent:
           - text: Getting started with Azure Health Data Services
             url: healthcare-apis-quickstart.md
   
-  - title: Using HAzure Health Data Services
+  - title: Using Azure Health Data Services
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -76,15 +76,15 @@ landingContent:
           - text: DICOM change feed
             url: ./dicom/pull-dicom-changes-from-change-feed.md
   
-  - title: IoT connector
+  - title: MedTech service
     linkLists:
       - linkListType: get-started
         links:
-          - text: About IoT connector
+          - text: About MedTech service
             url: ./iot/iot-connector-overview.md
       - linkListType: deploy
         links:
-          - text: Deploy IoT connector using portal
+          - text: Deploy MedTech service using portal
             url: ./iot/deploy-iot-connector-in-azure.md
       - linkListType: tutorial
         links:
