@@ -32,7 +32,7 @@
         },
         {
             "source_path_from_root": "/articles/cloud-partner-portal/cloud-partner-portal-manage-publisher-profile.md",
-            "redirect_url": "/azure/partner-center/create-user-accounts-and-set-permissions",
+            "redirect_url": "/partner-center/create-user-accounts-and-set-permissions",
             "redirect_document_id": false
         },
         {
