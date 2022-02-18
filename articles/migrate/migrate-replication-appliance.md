@@ -115,7 +115,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 
 ## Azure China URL access
 
-The replication appliance needs access to these URLs in the Azure public cloud.
+The replication appliance needs access to these URLs.
 
 **URL** | **Details**
 --- | ---
