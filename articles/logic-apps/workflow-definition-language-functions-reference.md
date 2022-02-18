@@ -669,7 +669,7 @@ This example adds 10 hours to the specified timestamp:
 addHours('2018-03-15T00:00:00Z', 10)
 ```
 
-And returns this result: `"2018-03-15T10:00:00.0000000Z"
+And returns this result: `"2018-03-15T10:00:00.0000000Z"`
 
 *Example 2*
 
