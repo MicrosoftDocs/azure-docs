@@ -152,6 +152,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Supported |Supported | Cape Town, Johannesburg |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Supported | Supported | Kuala Lumpur |
 | **[Tokai Communications](https://www.tokai-com.co.jp/en/)** | Supported | Supported | Osaka, Tokyo2 |
+| **TPG Telecom**| Supported | Supported | Melbourne, Sydney |
 | **[Transtelco](https://transtelco.net/enterprise-services/)** |Supported |Supported | Dallas, Queretaro(Mexico)|
 | **[T-Mobile](https://www.t-mobile.com/business/solutions/networking/cloud-networking )** |Supported |Supported |Chicago, Silicon Valley, Washington DC |
 | **[T-Systems](https://geschaeftskunden.telekom.de/vernetzung-digitalisierung/produkt/intraselect)** |Supported |Supported | Frankfurt |
