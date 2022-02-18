@@ -10,11 +10,11 @@ ms.subservice: msi
 ms.devlang: 
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/10/2021
+ms.date: 02/17/2022
 ms.author: vakarand
 ---
 # Cross tenant Customer Managed Keys with Managed identity
-Private Preview Documentation | Version 2.2 | Last updated on February 9, 2022
+Private Preview Documentation | Version 2.3 | Last updated on February 17, 2022
 
 ```
 Microsoft Confidential | Contact: crosstenantcmkvteam@service.microsoft.com
@@ -138,7 +138,7 @@ echo "Multi-tenant AAD Application has appId = $appId and ObjectId = $appObjectI
 ```azurecli-interactive
 subscriptionId="<replace-with-your-subscriptionId"
 rgName="XTCMKDemo"
-location="eastus2euap" # This is the Azure canary.
+location="eastus"
 az group create --location $location --resource-group $rgName --subscription $subscriptionId
 echo "Created a new resource group with name = $rgName, location = $location in subscriptionid = $subscriptionId"
 uamiName="xtcmkFIC"
@@ -200,6 +200,7 @@ appObjectId=$(az ad sp show --id $appId --query objectId --out tsv)
 #Role assignments to manageresourcesandkeyvaultsintheresourcegroup.
 rgName='CMKKeys'
 subscriptionId='<replace-your-subscriptionId'
+location = 'eastus'
 
 az group create --location $location --name $rgName
 currentUserObjectId=$(az ad signed-in-user show --query objectId --out tsv)
@@ -242,7 +243,7 @@ Create a file for an ARM template called `XTCMK-storage.json` with the following
     "contentVersion": "1.0.0.0",
     "parameters": {
       "storagename": {
-        "defaultValue": "20210802templatetest",
+        "defaultValue": "20220101xtcmktest",
         "type": "String"
       },
       "userassignedmicmk": {
@@ -269,7 +270,7 @@ Create a file for an ARM template called `XTCMK-storage.json` with the following
         "type": "Microsoft.Storage/storageAccounts",
         "apiVersion": "2021-05-01",
         "name": "[parameters('storagename')]",
-        "location": "eastus2euap",
+        "location": "eastus",
         "sku": {
           "name": "Standard_LRS",
           "tier": "Standard"
