@@ -275,31 +275,6 @@ SELECT create_distributed_table('github_events', 'repo_id');
 SELECT undistribute_table('github_events');
 ```
 
-### upgrade\_to\_reference\_table
-
-The upgrade\_to\_reference\_table() function takes an existing distributed
-table that has a shard count of one, and upgrades it to be a recognized
-reference table. After calling this function, the table will be as if it had
-been created with [create_reference_table](#create_reference_table).
-
-#### Arguments
-
-**table\_name:** Name of the distributed table (having shard count = 1)
-which will be distributed as a reference table.
-
-#### Return Value
-
-N/A
-
-#### Example
-
-This example informs the database that the nation table should be
-defined as a reference table
-
-```postgresql
-SELECT upgrade_to_reference_table('nation');
-```
-
 ### mark\_tables\_colocated
 
 The mark\_tables\_colocated() function takes a distributed table (the
@@ -582,56 +557,6 @@ CALL alter_old_partitions_set_access_method(
 ```
 
 ## Metadata / Configuration Information
-
-### master\_get\_table\_metadata
-
-The master\_get\_table\_metadata() function can be used to return
-distribution-related metadata for a distributed table. This metadata includes
-the relation ID, storage type, distribution method, distribution column,
-replication count, maximum shard size, and shard placement policy for the
-table. Behind the covers, this function queries Hyperscale (Citus) metadata
-tables to get the required information and concatenates it into a tuple before
-returning it to the user.
-
-#### Arguments
-
-**table\_name:** Name of the distributed table for which you want to
-fetch metadata.
-
-#### Return Value
-
-A tuple containing the following information:
-
-**logical\_relid:** Oid of the distributed table. It references
-the relfilenode column in the pg\_class system catalog table.
-
-**part\_storage\_type:** Type of storage used for the table. May be
-'t' (standard table), 'f' (foreign table) or 'c' (columnar table).
-
-**part\_method:** Distribution method used for the table. May be 'a'
-(append), or 'h' (hash).
-
-**part\_key:** Distribution column for the table.
-
-**part\_replica\_count:** Current shard replication count.
-
-**part\_max\_size:** Current maximum shard size in bytes.
-
-**part\_placement\_policy:** Shard placement policy used for placing the
-table's shards. May be 1 (local-node-first) or 2 (round-robin).
-
-#### Example
-
-The example below fetches and displays the table metadata for the
-github\_events table.
-
-```postgresql
-SELECT * from master_get_table_metadata('github_events');
- logical_relid | part_storage_type | part_method | part_key | part_replica_count | part_max_size | part_placement_policy 
----------------+-------------------+-------------+----------+--------------------+---------------+-----------------------
-         24180 | t                 | h           | repo_id  |                  2 |    1073741824 |                     2
-(1 row)
-```
 
 ### get\_shard\_id\_for\_distribution\_column
 

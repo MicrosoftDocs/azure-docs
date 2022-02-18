@@ -160,22 +160,6 @@ on the size of the cluster and rate of node failure.  For example, you may want
 to increase this replication factor if you run large clusters and observe node
 failures on a more frequent basis.
 
-#### citus.shard\_count (integer)
-
-Sets the shard count for hash-distributed tables and defaults to 32.  This
-value is used by the
-[create_distributed_table](reference-functions.md#create_distributed_table) UDF
-when creating hash-distributed tables. This parameter can be set at run-time
-and is effective on the coordinator.
-
-#### citus.shard\_max\_size (integer)
-
-Sets the maximum size to which a shard will grow before it gets split
-and defaults to 1 GB. When the source file\'s size (which is used for
-staging) for one shard exceeds this configuration value, the database
-ensures that a new shard gets created. This parameter can be set at
-run-time and is effective on the coordinator.
-
 ### Planner Configuration
 
 #### citus.local_table_join_policy (enum)
@@ -285,26 +269,6 @@ coordinator.
 
 ### Intermediate Data Transfer
 
-#### citus.binary\_worker\_copy\_format (boolean)
-
-Use the binary copy format to transfer intermediate data between workers.
-During large table joins, Hyperscale (Citus) may have to dynamically
-repartition and shuffle data between different workers. By default, this data
-is transferred in text format. Enabling this parameter instructs the database
-to use PostgreSQL's binary serialization format to transfer this data. This
-parameter is effective on the workers and needs to be changed in the
-postgresql.conf file. After editing the config file, users can send a SIGHUP
-signal or restart the server for this change to take effect.
-
-#### citus.binary\_master\_copy\_format (boolean)
-
-Use the binary copy format to transfer data between coordinator and the
-workers. When running distributed queries, the workers transfer their
-intermediate results to the coordinator for final aggregation. By default, this
-data is transferred in text format. Enabling this parameter instructs the
-database to use PostgreSQL's binary serialization format to transfer this data.
-This parameter can be set at runtime and is effective on the coordinator.
-
 #### citus.max\_intermediate\_result\_size (integer)
 
 The maximum size in KB of intermediate results for CTEs that are unable
@@ -312,17 +276,6 @@ to be pushed down to worker nodes for execution, and for complex
 subqueries. The default is 1 GB, and a value of -1 means no limit.
 Queries exceeding the limit will be canceled and produce an error
 message.
-
-### DDL
-
-#### citus.enable\_ddl\_propagation (boolean)
-
-Specifies whether to automatically propagate DDL changes from the coordinator
-to all workers. The default value is true. Because some schema changes require
-an access exclusive lock on tables, and because the automatic propagation
-applies to all workers sequentially, it can make a Hyperscale (Citus) cluster
-temporarily less responsive. You may choose to disable this setting and
-propagate changes manually.
 
 ### Executor Configuration
 
@@ -448,9 +401,8 @@ and transferred in text format.
 
 ##### citus.max_adaptive_executor_pool_size (integer)
 
-Whereas citus.max_shared_pool_size limits worker connections across all
-sessions, max_adaptive_executor_pool_size limits worker connections from just
-the current session. This GUC is useful for:
+Max_adaptive_executor_pool_size limits worker connections from the current
+session. This GUC is useful for:
 
 * Preventing a single backend from getting all the worker resources
 * Providing priority management: designate low priority sessions with low
