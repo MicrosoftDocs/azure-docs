@@ -30,12 +30,12 @@ Only one maintenance window can be set per data controller.
 ## Configure a maintenance window
 
 The maintenance window has these settings:
-- Duration - the length of time the window will run, expressed in hours and minutes (HH:MM).
+- Duration - the length of time the window will run, expressed in hours and minutes (HH:mm).
 - Recurrence - how often the window will occur. All words are case sensitive and must be capitalized. You can set weekly or monthly windows.
     - Weekly
         - [Week | Weekly][day of week]
         - Examples:
-            - --recurrence  "Week Thursday"
+            - --recurrence "Week Thursday"
             - --recurrence "Weekly Saturday"
 	- Monthly
 		- [Month | Monthly] [First | Second | Third | Fourth | Last] [day of week]
@@ -45,7 +45,7 @@ The maintenance window has these settings:
 	- If recurrence is not specified, it will be a one-time maintenance window.
 - Start - the date and time the first window will occur, in the format YYYY-MM-ddTHH:mm (24-hour format).
 	- Example:
-		- --start "2022-02-01T12:35"
+		- --start "2022-02-01T23:00"
 - Time Zone - the [time zone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) associated with the maintenance window.
 
 #### CLI
@@ -70,7 +70,7 @@ During the maintenance window, you can view the status of upgrades.
 kubectl -n <namespace> get sqlmi -o yaml 
 ```
 
-The ```status.runningVersion``` and ```status.lastUpdateTime``` fields will show the latest version and upgrade time.
+The ```status.runningVersion``` and ```status.lastUpdateTime``` fields will show the latest version and when the status changed.
 
 ## View existing maintenance window
 
@@ -82,7 +82,7 @@ kubectl describe datacontroller -n <namespace>
 
 Output:
 
-```yaml
+```text
 spec:
   settings:
     maintenance:
@@ -94,13 +94,13 @@ spec:
 
 ## Failed upgrades
 
-There is no automatic rollback for failed upgrades. If an instance failed to upgrade automatically, manual intervention will be needed to pin the instance to its current running version, using ```az sql mi-arc update```. 
+There is no automatic rollback for failed upgrades. If an instance failed to upgrade automatically, manual intervention will be needed to pin the instance to its current running version, using ```az sql mi-arc update```. After the issue is resolved, the version can be set back to "auto".
 
 ```cli
-az sql mi-arc update --name <instance name> --desired-version <version> 
+az sql mi-arc upgrade --name <instance name> --desired-version <version> 
 ```
 
 Example:
 ```cli
-az sql mi-arc update --name sql01 --desired-version v1.2.0_2021-12-15
+az sql mi-arc upgrade --name sql01 --desired-version v1.2.0_2021-12-15
 ```
