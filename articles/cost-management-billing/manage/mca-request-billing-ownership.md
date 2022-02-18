@@ -70,15 +70,15 @@ The following procedure has you navigate to **Transfer requests** by selecting a
     > Disabled subscriptions can't be transferred.
 1. If there are reservations available to transfer, select the **Reservations** tab. Then select them. 
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" alt-text="Screenshot showing the Reservations tab." lightbox="./media/mca-request-billing-ownership/review-transfer-request-reservations-select.png" :::
-1. Select the **Review request** tab and verify the information about the subscriptions and reservations to transfer. If there are warnings, see the following information. When you're ready to continue, select **Transfer**.   
+1. Select the **Review request** tab and verify the information about the subscriptions and reservations to transfer. If there is Warnings or Failed status messages, see the following information. When you're ready to continue, select **Transfer**.   
     :::image type="content" source="./media/mca-request-billing-ownership/review-transfer-request-complete.png" alt-text="Screenshot showing the Review request tab where you review your transfer selections." lightbox="./media/mca-request-billing-ownership/review-transfer-request-complete.png" :::
 1. You'll briefly see a `Transfer is in progress` message. When the transfer is completed successfully, you'll see the Transfer details page with the `Transfer completed successfully` message.  
     :::image type="content" source="./media/mca-request-billing-ownership/transfer-completed-successfully.png" alt-text="Screenshot showing the Transfer completed successfully page." lightbox="./media/mca-request-billing-ownership/transfer-completed-successfully.png" :::
 
-On the Review transfer request page, the following status messages might be displayed.
+On the Review request tab, the following status messages might be displayed.
 
-* **Passed** - Validation for this Azure product has passed and can be transferred.
-* **Warnings** - There's a warning for the selected Azure product. While the product can still be transferred, doing so will have some consequence that the user should be aware of in case they want to take mitigating actions. For example, the Azure subscription being transferred is benefitting from an RI. After transfer, the subscription will no longer receive that benefit. To maximize savings, ensure that the RI is associated to another subscription that can use its benefits. Instead, the user can also choose to go back to the selection page and unselect this Azure subscription.
+* **Ready to transfer** - Validation for this Azure product has passed and can be transferred.
+* **Warnings** - There's a warning for the selected Azure product. While the product can still be transferred, doing so will have some consequence that the user should be aware of in case they want to take mitigating actions. For example, the Azure subscription being transferred is benefitting from an RI. After transfer, the subscription will no longer receive that benefit. To maximize savings, ensure that the RI is associated to another subscription that can use its benefits. Instead, the user can also choose to go back to the selection page and unselect this Azure subscription. Select **Check details** for more information.
 * **Failed** - The selected Azure product can't be transferred because of an error. User will need to go back to the selection page and unselect this product to transfer the other selected Azure products.  
 
 ## Check the transfer request status
