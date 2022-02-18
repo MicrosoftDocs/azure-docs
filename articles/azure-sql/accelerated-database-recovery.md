@@ -9,18 +9,18 @@ ms.devlang:
 ms.topic: conceptual
 author: kfarlee
 ms.author: kfarlee
-ms.reviewer: mathoma, kendralittle, nvraparl
-ms.date: 05/19/2020
+ms.reviewer: mathoma, kendralittle, nvraparl, wiassaf
+ms.date: 02/18/2022
 ---
 # Accelerated Database Recovery in Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
 **Accelerated Database Recovery (ADR)** is a SQL Server database engine feature that greatly improves database availability, especially in the presence of long running transactions, by redesigning the SQL Server database engine recovery process. 
 
-ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, databases in Azure Synapse Analytics, and SQL Server on Azure VMs starting with SQL Server 2019. For more information on ADR in SQL Server, see [Manage accelerated database recovery](/sql/relational-databases/accelerated-database-recovery-management).
+ADR is currently available for Azure SQL Database, Azure SQL Managed Instance, databases in Azure Synapse Analytics, and SQL Server on Azure VMs starting with SQL Server 2019. For information on ADR in SQL Server, see [Manage accelerated database recovery](/sql/relational-databases/accelerated-database-recovery-management).
 
 > [!NOTE] 
-> ADR is enabled by default in Azure SQL Database and Azure SQL Managed Instance and disabling ADR for either product is not supported. 
+> ADR is enabled by default in Azure SQL Database and Azure SQL Managed Instance. Disabling ADR in Azure SQL Database and Azure SQL Managed Instance is not supported. 
 
 ## Overview
 
@@ -145,8 +145,12 @@ The following types of workloads benefit most from ADR:
 - Prevent or reduce unnecessary aborted situations. A high abort rate will put pressure on the PVS cleaner and lower ADR performance. The aborts may come from a high rate of deadlocks, duplicate keys, or other constraint violations.  
 
     - The `sys.dm_tran_aborted_transactions` DMV shows all aborted transactions on the SQL Server instance. The `nested_abort` column indicates that the transaction committed but there are portions that aborted (savepoints or nested transactions) which can block the PVS cleanup process. For more information, see [sys.dm_tran_aborted_transactions (Transact-SQL)](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-aborted-transactions). 
+    
+    - To activate the PVS cleanup process manually between workloads or during maintenance windows, use `sys.sp_persistent_version_cleanup`. For more information, see [sys.sp_persistent_version_cleanup](/sql/relational-databases/system-stored-procedures/sys-sp-persistent-version-cleanup-transact-sql). 
 
-## See also
+- If you observe issues either with storage usage, high abort transaction and other factors, see [Troubleshooting Accelerated Database Recovery (ADR) on SQL Server](/sql/relational-databases/accelerated-database-recovery-troubleshooting).
+
+## Next steps
 
 - [Accelerated database recovery](/sql/relational-databases/accelerated-database-recovery-concepts)
-- [Troubleshooting Accelerated Database Recovery (ADR)](/sql/relational-databases/accelerated-database-recovery-troubleshooting)
+- [Troubleshooting Accelerated Database Recovery (ADR) on SQL Server](/sql/relational-databases/accelerated-database-recovery-troubleshooting).
