@@ -93,7 +93,8 @@ The following sample Resource Manager template adds a virtual network rule to an
 
 The ID is a fully qualified Resource Manager path for the virtual network subnet. For example, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` for the default subnet of a virtual network.
 
-When adding virtual network or firewalls rules, set the value of `defaultAction` to `Deny`.
+> [!NOTE]
+> The default value of the `defaultAction` is `Deny`. When adding virtual network or firewalls rules, make sure you set the `defaultAction` to `Deny`.
 
 Template:
 
@@ -177,6 +178,8 @@ Template:
           "[concat('Microsoft.ServiceBus/namespaces/', parameters('servicebusNamespaceName'))]"
         ],
         "properties": {
+          "publicNetworkAccess": "Enabled",
+          "defaultAction": "Deny",
           "virtualNetworkRules": 
           [
             {
@@ -186,9 +189,8 @@ Template:
               "ignoreMissingVnetServiceEndpoint": false
             }
           ],
-          "ipRules":[<YOUR EXISTING IP RULES>],
-          "trustedServiceAccessEnabled": false,          
-          "defaultAction": "Deny"
+          "ipRules":[],
+          "trustedServiceAccessEnabled": false
         }
       }
     ],
@@ -200,6 +202,20 @@ To deploy the template, follow the instructions for [Azure Resource Manager][lnk
 
 > [!IMPORTANT]
 > If there are no IP and virtual network rules, all the traffic flows into the namespace even if you set the `defaultAction` to `deny`.  The namespace can be accessed over the public internet (using the access key). Specify at least one IP rule or virtual network rule for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network.  
+
+## default action and public network access 
+
+### REST API
+
+The default value of the `defaultAction` property was `Deny` for API version **2021-01-01-preview and earlier**. However, the deny rule isn't enforced unless you set IP filters or virtual network rules. That is, if you didn't have any IP filters or virtual network rules, it was treated as `Allow`. 
+
+From API version **2021-06-01-preview onwards**, the default value of the `defaultAction` property is `Allow` to accurately reflect the service-side enforcement. If the default action is set to `Deny`, IP filters and virtual network rules are enforced. If the default action is set to `Allow`, IP filters and VNet rules aren't enforced. The service remembers the rules when you turn them off and then back on again. 
+
+The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operators are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/preview/private-endpoint-connections/create-or-update).
+
+> [!NOTE]
+> None of the above settings bypass validation of claims via SaS or Azure AD authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings
+
 
 ## Next steps
 
