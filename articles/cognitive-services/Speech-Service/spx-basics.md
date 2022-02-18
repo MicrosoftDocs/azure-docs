@@ -21,9 +21,10 @@ This article assumes that you have working knowledge of the Command Prompt windo
 
 > [!NOTE]
 > In PowerShell, the [stop-parsing token](/powershell/module/microsoft.powershell.core/about/about_special_characters#stop-parsing-token---) (`--%`) should follow `spx`. For example, run `spx --% config @region` to view the current region config value.
+ 
+## Download and install
 
 [!INCLUDE [](includes/spx-setup.md)]
-
 
 ## Create a subscription configuration
 

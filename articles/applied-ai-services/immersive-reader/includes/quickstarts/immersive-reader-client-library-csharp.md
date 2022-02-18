@@ -72,7 +72,7 @@ Now, we'll configure the controller to obtain the Azure AD values from _secrets.
 private readonly string TenantId;     // Azure subscription TenantId
 private readonly string ClientId;     // Azure AD ApplicationId
 private readonly string ClientSecret; // Azure AD Application Service Principal password
-private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI PowerShell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
 
 public HomeController(Microsoft.Extensions.Configuration.IConfiguration configuration)
 {
