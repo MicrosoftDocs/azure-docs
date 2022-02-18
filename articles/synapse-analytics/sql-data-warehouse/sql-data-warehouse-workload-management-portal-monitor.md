@@ -1,7 +1,6 @@
 ---
 title: Workload management portal monitoring
 description: Guidance for workload management portal monitoring in Azure Synapse Analytics.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics

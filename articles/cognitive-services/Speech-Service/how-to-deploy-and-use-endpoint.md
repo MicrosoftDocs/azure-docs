@@ -105,7 +105,6 @@ The application settings that you use as REST API [request parameters](#request-
 * The **Endpoint key** shows the subscription key the endpoint is associated with. Use the endpoint key as the value of your `Ocp-Apim-Subscription-Key` request header. 
 * The **Endpoint URL** shows your service region. Use the value that precedes `voice.speech.microsoft.com` as your service region request parameter. For example, use `eastus` if the endpoint URL is `https://eastus.voice.speech.microsoft.com/cognitiveservices/v1`.
 * The **Endpoint URL** shows your endpoint ID. Use the value appended to the `?deploymentId=` query parameter as the value of your endpoint ID request parameter.
-* The Azure region the endpoint is associated with.
 
 #### Get endpoint
 
