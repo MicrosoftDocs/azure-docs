@@ -42,11 +42,11 @@ A Service SAS grants limited access to objects in a storage account without expo
 
 ## Create a storage account 
 
-If you don't already have one, you will now create a storage account.  You can also skip this step and grant your VM system-assigned managed identity access to the keys of an existing storage account. 
+If you don't already have one, you'll now create a storage account.  You can also skip this step and grant your VM system-assigned managed identity access to the keys of an existing storage account. 
 
 1. Select the **+/Create new service** button found on the upper left-hand corner of the Azure portal.
 2. Select **Storage**, then **Storage Account**, and a new "Create storage account" panel will display.
-3. Enter a **Name** for the storage account, which you will use later.  
+3. Enter a **Name** for the storage account, which you'll use later.  
 4. **Deployment model** and **Account kind** should be set to "Resource Manager" and "General purpose", respectively. 
 5. Ensure the **Subscription** and **Resource Group** match the ones you specified when you created your VM in the previous step.
 6. Select **Create**.
@@ -76,7 +76,7 @@ For detailed steps, see [Assign Azure roles using the Azure portal](../../role-b
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager
 
-For the remainder of the tutorial, we will work from the VM we created earlier.
+For the remainder of the tutorial, we'll work from the VM we created earlier.
 
 You need an SSH client to complete these steps. If you're using Windows, you can use the SSH client in the [Windows Subsystem for Linux](/windows/wsl/install-win10). If you need assistance configuring your SSH client's keys, see:
 
@@ -87,7 +87,7 @@ Now that you have your SSH client continue to the steps below:
 
 1. In the Azure portal, navigate to **Virtual Machines**, go to your Linux virtual machine, then from the **Overview** page select **Connect** at the top. Copy the string to connect to your VM. 
 2. Connect to your VM using your SSH client.  
-3. Next, you will be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
+3. Next, you'll be prompted to enter in your **Password** you added when creating the **Linux VM**. You should then be successfully signed in.  
 4. Use CURL to get an access token for Azure Resource Manager.  
 
     The CURL request and response for the access token is below:
