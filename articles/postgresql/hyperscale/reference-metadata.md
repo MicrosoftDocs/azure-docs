@@ -266,6 +266,34 @@ distribution_argument_index |
 colocationid                |
 ```
 
+### Distributed tables view
+
+The `citus_tables` view shows a summary of all tables managed by Hyperscale
+(Citus) (distributed and reference tables). The view combines information from
+Hyperscale (Citus) metadata tables for an easy, human-readable overview of
+these table properties:
+
+* Table type
+* Distribution column
+* Colocation group id
+* Human-readable size
+* Shard count
+* Owner (database user)
+* Access method (heap or columnar)
+
+Here’s an example:
+
+```postgresql
+SELECT * FROM citus_tables;
+┌────────────┬──────────────────┬─────────────────────┬───────────────┬────────────┬─────────────┬─────────────┬───────────────┐
+│ table_name │ citus_table_type │ distribution_column │ colocation_id │ table_size │ shard_count │ table_owner │ access_method │
+├────────────┼──────────────────┼─────────────────────┼───────────────┼────────────┼─────────────┼─────────────┼───────────────┤
+│ foo.test   │ distributed      │ test_column         │             1 │ 0 bytes    │          32 │ citus       │ heap          │
+│ ref        │ reference        │ <none>              │             2 │ 24 GB      │           1 │ citus       │ heap          │
+│ test       │ distributed      │ id                  │             1 │ 248 TB     │          32 │ citus       │ heap          │
+└────────────┴──────────────────┴─────────────────────┴───────────────┴────────────┴─────────────┴─────────────┴───────────────┘
+```
+
 ### Time partitions view
 
 Hyperscale (Citus) provides UDFs to manage partitions for the Timeseries Data
