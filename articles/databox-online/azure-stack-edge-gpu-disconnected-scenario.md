@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 02/18/2022
 ms.author: alkohli
 ---
 
@@ -17,19 +17,20 @@ ms.author: alkohli
 
 This article helps you identify things to consider when you need to use Azure Stack Edge disconnected from the internet.
 
-Some environments require that your Azure Stack Edge device not be connected to the internet. As a result, Azure Stack Edge becomes a standalone deployment that is disconnected from and doesn't communicate with Azure and other Azure services.
+Typically, Azure Stack Edge is deployed in a connected scenario with access to the Azure portal, services, and resources in the cloud. However, security or other restrictions sometime require that you deploy your Azure Stack Edge device in an environment with no internet connection. As a result, Azure Stack Edge becomes a standalone deployment that is disconnected from and doesn't communicate with Azure and other Azure services.
 
-You can use your device disconnected after initial activation for K8s, virtual machines (VMs), and IoT Edge use cases. However, you won't have access to the Azure portal to manage those workloads. As a result, <!--your--> management <!--experience--> will be limited to local <!--control plane - not needed?--> operations.<!--That global statement is not true. For example, direct access to a Kubernetes cluster is available through native apps such as kubekettl.-->
+To prepare for disconnected use, you'll activate your device via the Azure portal and deploy containerized and non-containerized workloads such as Kerberos, virtual machines (VMs), and IoT Edge use cases while you have an internet connection. During offline use, you won't have access to the Azure portal to manage workloads; all management will be performed via operations local control plane operations.
 
+<!--ONE SCENARIO LEFT. INCORPORATED IN INTRO.
 ## Scenarios for disconnected use
 
 Choose this option if:  
 
 - Security or other restrictions require that you deploy your Azure Stack Edge device in an environment with no internet connection.
 
-<!-- - You want to block data, including usage data, from being sent to Azure. (Matthew Dickson)-->
+- You want to block data, including usage data, from being sent to Azure. (REMOVE: Matthew Dickson's request.)
 
-- You want to use Azure Stack Edge as a standalone edge solution that's deployed to your corporate intranet.<!--Revert from this to original wording - "You want to deploy your device at the edge in your corporate intranet."-->
+- You want to use Azure Stack Edge as a standalone edge solution that's deployed to your corporate intranet. REVERTED FROM: "You want to deploy your device at the edge in your corporate intranet."-->
 
 ## Prepare for disconnected use
 
@@ -54,7 +55,7 @@ The following table describes the behavior of features and components when the d
 | Azure Stack Edge feature/component | Impact/behavior when disconnected |
 |------------------------------------|-----------------------------------|
 | Local UI and Windows PowerShell interface | Local access via the local web UI or the Windows PowerShell interface is available by connecting a client computer directly to the device. |
-| Kubernetes | Kubernetes deployments on a disconnected device have these differences:<ul><li>You can use local `kubectl` access to manage deployments via native `kubeconfig`. For more information, see [Create and Manage a Kubernetes cluster on an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-kubernetes-cluster.md).</li><li>Azure Stack Edge has a local container registry - the Edge container registry - to host container images. While your device is disconnected, you'll manage the deployment of these images, pushing them to and deleting them from the Edge container registry over your local network. You won't have direct access to the Azure Container Registry in the cloud. For more information, see [Enable an Edge container registry on an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-edge-container-registry.md).</li><li>You can't monitor the Kubernetes cluster using Azure Monitor. Instead, use the local Kubernetes dashboard, available on the compute network. For more information, see [Monitor your Azure Stack Edge Pro device via the Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).</li></ul> |
+| Kubernetes | Kubernetes deployments on a disconnected device have these differences:<ul><li>After you create your Kubernetes cluster, you can connect to and manage the cluster locally from your device using a native tool such as `kubectl`. With `kubectl`, a `kubeconfig` file allows the Kubernetes client to talk directly to the Kubernetes cluster without connecting to PowerShell interface of your device. Once you have the config file, you can direct the cluster using `kubectl` commands, without physical access to the cluster. For more information, see [Create and Manage a Kubernetes cluster on an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-create-kubernetes-cluster.md).</li><li>Azure Stack Edge has a local container registry - the Edge container registry - to host container images. While your device is disconnected, you'll manage the deployment of these images, pushing them to and deleting them from the Edge container registry over your local network. You won't have direct access to the Azure Container Registry in the cloud. For more information, see [Enable an Edge container registry on an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-edge-container-registry.md).</li><li>You can't monitor the Kubernetes cluster using Azure Monitor. Instead, use the local Kubernetes dashboard, available on the compute network. For more information, see [Monitor your Azure Stack Edge Pro device via the Kubernetes dashboard](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).</li></ul> |
 | Azure Arc for Kubernetes | An Azure Arc-enabled Kubernetes deployment can't be used in a disconnected deployment. |
 | IoT Edge | IoT Edge modules need to be deployed and updated while connected to Azure. If disconnected from Azure, they continue to run.<!--REPLACES: IoT Edge modules that are deployed on the device continue to run while the device is disconnected, but you can't update the IoT Edge deployment manifest. For example, you can't manage images or update configuration options. You can make these updates when the device can communicate with Azure again. OPEN ISSUE (Charles Wong): "Do we know if there is any local way of deploying IoT modules?" --> |
 | Azure Arc-enabled data services | After the container images are deployed on the device, Azure Arc-enabled data services continue to run in a disconnected deployment. You'll deploy and manage those images over your local network. You'll push images to and delete them from the Edge container registry. For more information, see [Manage container registry images](azure-stack-edge-gpu-edge-container-registry.md#manage-container-registry-images). |
