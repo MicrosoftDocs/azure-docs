@@ -106,7 +106,7 @@ This document provides guidance to get your service running inside a Windows con
    ```
 
 > [!NOTE] 
-> By default, Service Fabric applications have access to the Service Fabric runtime, in the form of an endpoint accepting application-specific requests. Consider disabling this access when the application hosts untrusted code. For more information, please see [security best practices in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). To disable access to the Service Fabric runtime, add the following setting in the Policies section of the application manifest corresponding to the imported service manifest, as follows:
+> By default, Service Fabric applications have access to the Service Fabric runtime, in the form of an endpoint accepting application-specific requests. Consider disabling this access when the application hosts untrusted code. For more information, please see [security best practices in Service Fabric](service-fabric-best-practices-security.md#isolate-the-cluster-and-its-trusted-applications-from-untrusted-applications). To disable access to the Service Fabric runtime, add the following setting in the Policies section of the application manifest corresponding to the imported service manifest, as follows:
 >
 ```xml
   <Policies>

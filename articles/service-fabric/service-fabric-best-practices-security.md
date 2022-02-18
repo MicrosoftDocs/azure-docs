@@ -259,10 +259,11 @@ By design, the applications hosted in a Service Fabric cluster are considered **
 
 If you are considering hosting **untrusted applications**, additional steps must be taken to isolate the cluster and its trusted applications from untrusted applications. These include, but are not limited to:
 * A thorough security review of the untrusted applications' interactions with other applications, the cluster itself, and the underlying compute infrastructure.
-* Use of the strongest sandboxing technology applicable (e.g., appropriate [isolation modes](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container) for container workloads).
+* Use of the strongest sandboxing technology applicable (e.g., appropriate [isolation modes](/virtualization/windowscontainers/manage-containers/hyperv-container.md) for container workloads).
 * Risk assessment of the untrusted applications escaping the sandboxing technology, as the next trust boundary is the cluster itself.
-* Removal of the untrusted applications' [access to Service Fabric runtime](service-fabric-service-model-schema-complex-types.md#ServiceFabricRuntimeAccessPolicyType-complexType).
+* Removal of the untrusted applications' [access to Service Fabric runtime](service-fabric-service-model-schema-complex-types.md#servicefabricruntimeaccesspolicytype-complextype).
 
+### RemoveServiceFabricRuntimeAccess
 Access to Service Fabric runtime can be removed by using the following declaration in the Policies section of the application manifest: 
 
 ```xml

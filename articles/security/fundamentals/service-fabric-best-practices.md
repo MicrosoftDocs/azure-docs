@@ -9,6 +9,8 @@ ms.topic: article
 ms.date: 01/16/2019
 ---
 # Azure Service Fabric security best practices
+In addition to this article, please also review [Service Fabric security checklist](../../service-fabric/service-fabric-best-practices-security.md) for more information.
+
 Deploying an application on Azure is fast, easy, and cost-effective. Before you deploy your cloud application into production, review our list of essential and recommended best practices for implementing secure clusters in your application.
 
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable.
@@ -174,7 +176,7 @@ After you've created the applications to represent your cluster, assign your use
 Azure Service Fabric supports two access control types for clients that are connected to a [Service Fabric cluster](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administrator and user. The cluster administrator can use access control to limit access to certain cluster operations for different groups of users. Access control makes the cluster more secure.
 
 ## Isolate the cluster and its trusted applications from untrusted applications
-By design, the applications hosted in a Service Fabric cluster are considered **trusted** and the entire Service Fabric cluster is treated as the trust and security boundary. If you are considering hosting **untrusted applications**, additional steps must taken to [isolate the cluster and its trusted applications from untrusted applications](../../service-fabric/service-fabric-best-practices-security.md#Isolate-the-cluster-and-its-trusted-applications-from-untrusted-applications).
+By design, the applications hosted in a Service Fabric cluster are considered **trusted** and the entire Service Fabric cluster is treated as the trust and security boundary. If you are considering hosting **untrusted applications**, additional steps must taken to [isolate the cluster and its trusted applications from untrusted applications](../../service-fabric/service-fabric-best-practices-security.md#isolate-the-cluster-and-its-trusted-applications-from-untrusted-applications).
 
 ## Next steps
 
