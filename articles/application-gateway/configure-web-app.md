@@ -37,7 +37,9 @@ In this article you'll learn how to:
 - Add App Service as backend pool to the Application Gateway
 - Configure the HTTP Settings for the connection to App Service
 
-## [Prerequisites](#tab/customdomain)
+## Prerequisites
+
+## [Custom Domain (recommended)](#tab/customdomain)
 
 - Application Gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
@@ -45,7 +47,7 @@ In this article you'll learn how to:
 
 - A custom domain name and associated certificate, stored in Key Vault.  For more information on how to store certificates in Key Vault, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md)
 
-## [Prerequisites](#tab/defaultdomain)
+## [Default Domain](#tab/defaultdomain)
 
 - Application gateway: Create an application gateway without a backend pool target. For more information, see [Quickstart: Direct web traffic with Azure Application Gateway - Azure portal](quick-create-portal.md)
 
@@ -78,7 +80,9 @@ TODO - ADD APP SVC TO BACKEND USING POWERSHELL
 
 ---
 
-## [Edit HTTP settings for App Service](#tab/azure-portal/customdomain)
+## Edit HTTP settings for App Service
+
+## [Edit HTTP settings for App Service](#tab/customdomain/azure-portal)
 
 TODO: for custom domain
 
@@ -89,7 +93,7 @@ TODO: for custom domain
 
    :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Pick host name from backend http settings":::
 
-## [Edit HTTP settings for App Service](#tab/azure-portal/defaultdomain)
+## [Edit HTTP settings for App Service](#tab/defaultdomain/azure-portal)
 
 TODO: for default domain
 
