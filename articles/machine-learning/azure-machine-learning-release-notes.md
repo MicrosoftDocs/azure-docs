@@ -25,7 +25,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-automl-dnn-nlp**
     +  Updating AutoML dependencies to support python 3.8. This change will break compatibility with models trained with SDK 1.37 or below due to newer Pandas interfaces being saved in the model.
     +  Adding min-label-classes check for both classification tasks.
-    +  "Added checks to avoid a classification task to be started with a dataset having less than 2 classes"
+    +  Added checks to avoid a classification task to be started with a dataset having less than 2 classes
   + **azureml-automl-runtime** 
   + **azureml-contrib-automl-dnn-forecasting**
     +  Fixed a bug in the TCNForecaster model where not all training data would be used when cross-validation settings were provided.
