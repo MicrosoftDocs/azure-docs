@@ -153,6 +153,7 @@ An HTTP Setting is required that instructs Application Gateway to access the App
 ### [Powershell](#tab/azure-powershell/customdomain)
 
 ```powershell
+# Configure Application Gateway to connect to App Service using the incoming hostname
 $rgName = "<name of resource group for App Gateway>"
 $appGwName = "<name of the App Gateway>"
 $customProbeName = "<name for custom health probe>"
@@ -175,7 +176,21 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ### [Powershell](#tab/azure-powershell/defaultdomain)
 
-TODO: powershell for default domain
+```powershell
+# Configure Application Gateway to connect to backend using default App Service hostname
+$rgName = "<name of resource group for App Gateway>"
+$appGwName = "<name of the App Gateway>"
+$httpSettingsName = "<name for http settings to be created>"
+
+# Get existing Application Gateway:
+$gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
+
+# Add HTTP Settings to use towards App Service:
+Add-AzApplicationGatewayBackendHttpSettings -Name $httpSettingsName -ApplicationGateway $gw -Protocol Https -Port 443 -PickHostNameFromBackendAddress -CookieBasedAffinity Disabled -RequestTimeout 30
+
+# Update Application Gateway with the new added HTTP settings and probe:
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
 
 ---
 
