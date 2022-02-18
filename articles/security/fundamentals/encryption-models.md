@@ -151,7 +151,7 @@ The Azure services that support each encryption model:
 | Translator Text                  | Yes                | Yes                | -                  |
 | Power BI                         | Yes                | Yes, RSA 4096-bit  | -                  |
 | **Analytics**                    |                    |                    |                    |
-| Azure Stream Analytics           | Yes                | Yes\*\*            | -                  |
+| Azure Stream Analytics           | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Event Hubs                       | Yes                | Yes                | -                  |
 | Functions                        | Yes                | Yes                | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
@@ -170,18 +170,18 @@ The Azure services that support each encryption model:
 | Virtual Machines                 | Yes                | Yes, including Managed HSM | -                  |
 | Virtual Machine Scale Set        | Yes                | Yes, including Managed HSM | -                  |
 | SAP HANA                         | Yes                | Yes                | -                  |
-| App Service                      | Yes                | Yes\*\*            | -                  |
-| Automation                       | Yes                | Yes\*\*            | -                  |
-| Azure Functions                  | Yes                | Yes\*\*            | -                  |
-| Azure portal                     | Yes                | Yes\*\*            | -                  |
+| App Service                      | Yes                | Yes\*\*, including Managed HSM | -                  |
+| Automation                       | Yes                | Yes                | -                  |
+| Azure Functions                  | Yes                | Yes\*\*, including Managed HSM | -                  |
+| Azure portal                     | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Logic Apps                       | Yes                | Yes                | -                  |
-| Azure-managed applications       | Yes                | Yes\*\*            | -                  |
+| Azure-managed applications       | Yes                | Yes\*\*, including Managed HSM | -                  |
 | Service Bus                      | Yes                | Yes                | -                  |
 | Site Recovery                    | Yes                | Yes                | -                  |
 | **Databases**                    |                    |                    |                    |
 | SQL Server on Virtual Machines   | Yes                | Yes                | Yes                |
 | Azure SQL Database               | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
-| Azure SQL Database Managed Instance | Yes                | Yes, RSA 3072-bit, including Managed HSM | Yes                |
+| Azure SQL Database Managed Instance | Yes             | Yes, RSA 3072-bit, including Managed HSM | Yes                |
 | Azure SQL Database for MariaDB   | Yes                | -                  | -                  |
 | Azure SQL Database for MySQL     | Yes                | Yes                | -                  |
 | Azure SQL Database for PostgreSQL | Yes               | Yes                | -                  |
