@@ -165,7 +165,7 @@ In this section, we will deploy the self-hosted gateway to our cluster with Helm
                 --set observability.opentelemetry.enabled=true \
                 --set observability.opentelemetry.collector.uri=http://opentelemetry-collector:4317 \
                 --set service.type=LoadBalancer \
-                azure-apim-gateway/azure-api-management-gateway
+                azure-apim-gateway/azure-api-management-gateway:2.0.0-preview-5
    ```
 
 > [!NOTE]
