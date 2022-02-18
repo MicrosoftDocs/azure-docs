@@ -22,7 +22,9 @@
 - name: Concepts
   items:
   - name: Migration using Azure Data Studio
-    href: migration-using-azure-data-studio.md  
+    href: migration-using-azure-data-studio.md
+  - name: Get Azure recommendation for migration using Azure Data Studio
+    href: ads-sku-recommend.md  
   - name: Prerequisites
     href: pre-reqs.md  
   - name: Database migration scenario status
