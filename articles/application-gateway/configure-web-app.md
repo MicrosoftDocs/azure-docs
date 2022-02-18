@@ -82,7 +82,7 @@ TODO - ADD APP SVC TO BACKEND USING POWERSHELL
 
 ## Edit HTTP settings for App Service
 
-### [Azure Portal](#tab/customdomain/azure-portal)
+### [Azure Portal](#tab/azure-portal/customdomain)
 
 TODO: azure portal instructions for custom domain
 
@@ -93,11 +93,11 @@ TODO: azure portal instructions for custom domain
 
    :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Pick host name from backend http settings":::
 
-### [Azure Portal](#tab/defaultdomain/azure-portal)
+### [Azure Portal](#tab/azure-portal/defaultdomain)
 
 TODO: azure portal instructions for default domain
 
-### [Powershell](#tab/customdomain/azure-powershell)
+### [Powershell](#tab/azure-powershell/customdomain)
 
 TODO: powershell for custom domain
 
@@ -108,7 +108,7 @@ TODO: powershell for custom domain
 
    :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Pick host name from backend http settings":::
 
-### [Powershell](#tab/defaultdomain/azure-powershell)
+### [Powershell](#tab/azure-powershell/defaultdomain)
 
 TODO: powershell for default domain
 
