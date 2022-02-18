@@ -19,7 +19,7 @@ During setup, a duration, recurrence, and start date and time are specified. Aft
 
 ## Prerequisites
 
-An Azure Arc-enabled SQL Managed Instance with the ["desiredVersion" property set to auto](https://docs.microsoft.com/en-us/azure/azure-arc/data/upgrade-sql-managed-instance-auto).
+An Azure Arc-enabled SQL Managed Instance with the [`desiredVersion` property set to `auto`](upgrade-sql-managed-instance-auto.md).
 
 ## Limitations
 
