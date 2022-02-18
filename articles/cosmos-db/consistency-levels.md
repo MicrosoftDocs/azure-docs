@@ -90,7 +90,7 @@ Clients outside of the session performing writes will see the following guarante
 
 - Consistency for clients in same region for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
 - Consistency for clients in different regions for an account with single write region = [Consistent Prefix](#consistent-prefix-consistency)
-- (#consistent-prefix-consistency)Consistency for clients writing to a single region for an account with multiple write regions = [Consistent Prefix](#consistent-prefix-consistency)
+- Consistency for clients writing to a single region for an account with multiple write regions = [Consistent Prefix](#consistent-prefix-consistency)
 - Consistency for clients writing to multiple regions for an account with multiple write regions = [Eventual](#eventual-consistency)
 - Consistency for clients using the [Azure Cosmos DB integrated cache](integrated-cache.md) = [Eventual](#eventual-consistency)
 
@@ -118,6 +118,7 @@ The following graphic illustrates the consistency prefix consistency with musica
 ### Eventual consistency
 
 In eventual consistency, there's no ordering guarantee for reads. In the absence of any further writes, the replicas eventually converge.  
+
 Eventual consistency is the weakest form of consistency because a client may read the values that are older than the ones it had read before. Eventual consistency is ideal where the application does not require any ordering guarantees. Examples include count of Retweets, Likes, or non-threaded comments. The following graphic illustrates the eventual consistency with musical notes.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="viIllustration of eventual consistency":::
