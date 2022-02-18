@@ -45,9 +45,9 @@ It's important that you have the following prerequisites completed before you be
    >[!NOTE]
    > For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings as their defaults.
 
-4. After the form is completed, select **Create** to begin the subscription creation. 
-
    :::image type="content" source="media/events-deploy-in-portal/events-create-new-subscription.png" alt-text="Screenshot of Create Event Subscription box"  lightbox="media/events-deploy-in-portal/events-create-new-subscription.png":::
+
+4. After the form is completed, select **Create** to begin the subscription creation. 
 
 5. While the system topic is being created, it's unavailable for use until the deployment has successfully completed.
 
