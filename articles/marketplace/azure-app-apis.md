@@ -62,9 +62,9 @@ For the *tenant_id* value in the `POST URI` and the *client_id* and *client_secr
 
 ### Step 3: Use the Microsoft Store submission API
 
-After you have an Azure AD access token, you can call methods in the Partner Center submission API. To create or update submissions, you typically call multiple methods in the Partner Center submission API in a specific order. For information about each scenario and the syntax of each method, see the Ingestion API swagger.
+After you have an Azure AD access token, you can call methods in the Partner Center submission API. To create or update submissions, you typically call multiple methods in the Partner Center submission API in a specific order. For information about each scenario and the syntax of each method, see the [Ingestion API Swagger](https://ingestionapi-swagger.azureedge.net/#/).
 
-https://apidocs.microsoft.com/services/partneringestion/
+https://ingestionapi-swagger.azureedge.net/#/
 
 ## Next steps
 

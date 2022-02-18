@@ -15,7 +15,7 @@ ms.author: eur
 [!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites)
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 ## Recognize speech from a file
 
@@ -47,7 +47,7 @@ You should receive a response similar to what is shown here. The `DisplayText` s
 For more information, see [speech-to-text REST API for short audio](../../../rest-speech-to-text.md).
 
 > [!div class="nextstepaction"]
-> [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-file)
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
 
 ## Clean up resources
