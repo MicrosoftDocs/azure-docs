@@ -24,7 +24,7 @@ This section describes working with the different kind of Speech Studio projects
 
 #### Custom Speech
 
-The following table describes the Custom Speech project accessibility in different scenarios. See also the additional note, that follows the table.
+The following table describes Custom Speech project accessibility per Speech resource network security setting.
 
 | Speech resource network security setting | Speech Studio project accessibility |
 |--|--|
