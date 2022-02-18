@@ -24,7 +24,7 @@ We have identified API calls from outdated Attestation API for resources under t
 
 Learn more about [Attestation provider - UpgradeAttestationAPI (Update Attestation API Version)](/rest/api/attestation).
 
-## AVS
+## Azure VMware Solution
 
 ### vSAN capacity utilization has crossed critical threshold
 
@@ -32,7 +32,7 @@ Your vSAN capacity utilization has reached 75%. The cluster utilization is requi
 
 Learn more about [AVS Private cloud - vSANCapacity (vSAN capacity utilization has crossed critical threshold)](/azure/azure-vmware/concepts-private-clouds-clusters).
 
-## Redis Cache Server
+## Azure Cache for Redis
 
 ### Improve your Cache and application performance when running with high network bandwidth
 
@@ -84,7 +84,7 @@ Upgrade to the latest SDK version to get the best results in terms of model qual
 
 Learn more about [Cognitive Service - UpgradeToLatestSDKLanguage (Upgrade to the latest Cognitive Service Language SDK version)](https://aka.ms/language-api).
 
-## Communication service
+## Communication services
 
 ### Use recommended version of Chat SDK
 
