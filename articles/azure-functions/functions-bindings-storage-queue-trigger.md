@@ -522,7 +522,7 @@ The queue trigger automatically prevents a function from processing a queue mess
 
 ## host.json properties
 
-The [host.json](functions-host-json.md#queues) file contains settings that control queue trigger behavior. See the host.json settings](functions-bindings-storage-queue.md#host-json) section for details regarding available settings.
+The host.json file contains settings that control queue trigger behavior. See the [host.json settings](functions-bindings-storage-queue.md#host-json) section for details regarding available settings.
 
 ## Next steps
 
