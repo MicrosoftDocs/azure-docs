@@ -186,7 +186,7 @@ The **Run Detail** screen opens to the **Details** tab. This screen shows you a 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
-![Run detail](./media/how-to-use-automated-ml-for-ml-models/explorfasde-models.gif)
+![Run detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
 ### View training run details
 
