@@ -43,7 +43,7 @@ Alternatively, you may create two Speech resources: Production and Development. 
 
 #### Custom Voice and Audio Content Creation
 
-Custom Voice and Audio Content Creation allow the access to the related Speech Studio project only when the correspondent Speech resource network security setting is *All networks*.  
+You can use Custom Voice and Audio Content Creation Speech Studio projects only when the correspondent Speech resource network security setting is *All networks*.  
 
 If you need to enable IP-filtering, private, or Virtual Network service endpoint access for your Speech resource and at the same time use Custom Voice models and work on them with the help of the Speech Studio, the following workaround can be used.
 
