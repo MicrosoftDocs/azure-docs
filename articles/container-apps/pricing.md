@@ -17,6 +17,7 @@ Pricing is calculated using variety of criteria. The following guide explains bi
 * Usage is charged based on the total amount of vCPU and memory allocated to all containers in a pod.​
 * Each external HTTP request is billed a request charge.
 * Each calendar month, the following items are included for free, per subscription:
+
     | Metric | Quantity |
     |--|--|
     | Requests | ?? |
