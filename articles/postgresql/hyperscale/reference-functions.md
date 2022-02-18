@@ -82,6 +82,38 @@ SELECT create_distributed_table('github_events', 'repo_id',
                                 colocate_with => 'github_repo');
 ```
 
+### truncate\_local\_data\_after\_distributing\_table
+
+Truncate all local rows after distributing a table, and prevent constraints
+from failing due to outdated local records. The truncation cascades to tables
+having a foreign key to the designated table. If the referring tables are not
+themselves distributed then truncation is forbidden until they are, to protect
+referential integrity:
+
+```
+ERROR:  cannot truncate a table referenced in a foreign key constraint by a local table
+```
+
+Truncating local coordinator node table data is safe for distributed tables
+because their rows, if they have any, are copied to worker nodes during
+distribution.
+
+#### Arguments
+
+**table_name:** Name of the distributed table whose local counterpart on the
+coordinator node should be truncated.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+-- requires that argument is a distributed table
+SELECT truncate_local_data_after_distributing_table('public.github_events');
+```
+
 ### create\_reference\_table
 
 The create\_reference\_table() function is used to define a small
@@ -146,6 +178,64 @@ SELECT alter_distributed_table('github_events', shard_count:=6, cascade_to_coloc
 
 -- change colocation
 SELECT alter_distributed_table('github_events', colocate_with:='another_table');
+```
+
+### update_distributed_table_colocation
+
+The update_distributed_table_colocation() function is used to update colocation
+of a distributed table. This function can also be used to break colocation of a
+distributed table. Citus will implicitly colocate two tables if the
+distribution column is the same type, this can be useful if the tables are
+related and will do some joins. If table A and B are colocated, and table A
+gets rebalanced, table B will also be rebalanced. If table B does not have a
+replica identity, the rebalance will fail. Therefore, this function can be
+useful breaking the implicit colocation in that case.
+
+Note that this function does not move any data around physically.
+
+#### Arguments
+
+**table_name:** Name of the table colocation of which will be updated.
+
+**colocate_with:** The table to which the table should be colocated with.
+
+If you want to break the colocation of a table, you should specify
+`colocate_with => 'none'`.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+This example shows that colocation of table A is updated as colocation of table
+B.
+
+```postgresql
+SELECT update_distributed_table_colocation('A', colocate_with => 'B');
+```
+
+Assume that table A and table B are colocated( possibily implicitly), if you
+want to break the colocation:
+
+```postgresql
+SELECT update_distributed_table_colocation('A', colocate_with => 'none');
+```
+
+Now, assume that table A, table B, table C and table D are colocated and you
+want to colocate table A and table B together, and table C and table D
+together:
+
+```postgresql
+SELECT update_distributed_table_colocation('C', colocate_with => 'none');
+SELECT update_distributed_table_colocation('D', colocate_with => 'C');
+```
+
+If you have a hash distributed table named none and you want to update its
+colocation, you can do:
+
+```postgresql
+SELECT update_distributed_table_colocation('"none"', colocate_with => 'some_other_hash_distributed_table');
 ```
 
 ### undistribute\_table
@@ -376,6 +466,121 @@ SELECT alter_columnar_table_set(
   stripe_row_count => 10000);
 ```
 
+### alter_table_set_access_method
+
+The alter_table_set_access_method() function changes access method of a table
+(e.g. heap or columnar).
+
+#### Arguments
+
+**table_name:** Name of the table whose access method will change.
+
+**access_method:** Name of the new access method.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+SELECT alter_table_set_access_method('github_events', 'columnar');
+```
+
+### create_time_partitions
+
+The create_time_partitions() function creates partitions of a given interval to
+cover a given range of time.
+
+#### Arguments
+
+**table_name:** (regclass) table for which to create new partitions. The table
+must be partitioned on one column, of type date, timestamp, or timestamptz.
+
+**partition_interval:** an interval of time, such as `'2 hours'`, or `'1
+month'`, to use when setting ranges on new partitions.
+
+**end_at:** (timestamptz) create partitions up to this time. The last partition
+will contain the point end_at, and no later partitions will be created.
+
+**start_from:** (timestamptz, optional) pick the first partition so that it
+contains the point start_from. The default value is `now()`.
+
+#### Return Value
+
+True if it needed to create new partitions, false if they all existed already.
+
+#### Example
+
+```postgresql
+-- create a year's worth of monthly partitions
+-- in table foo, starting from the current time
+
+SELECT create_time_partitions(
+  table_name         := 'foo',
+  partition_interval := '1 month',
+  end_at             := now() + '12 months'
+);
+```
+
+### drop_old_time_partitions
+
+The drop_old_time_partitions() function removes all partitions whose intervals
+fall before a given timestamp. In addition to using this function, you might
+consider
+[alter_old_partitions_set_access_method](#alter_old_partitions_set_access_method)
+to compress the old partitions with columnar storage.
+
+#### Arguments
+
+**table_name:** (regclass) table for which to remove partitions. The table must
+be partitioned on one column, of type date, timestamp, or timestamptz.
+
+**older_than:** (timestamptz) drop partitions whose upper range is less than or
+equal to older_than.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+-- drop partitions that are over a year old
+
+CALL drop_old_time_partitions('foo', now() - interval '12 months');
+```
+
+### alter_old_partitions_set_access_method
+
+In a timeseries use case, tables are often partitioned by time, and old
+partitions are compressed into read-only columnar storage.
+
+#### Arguments
+
+**parent_table_name:** (regclass) table for which to change partitions. The
+table must be partitioned on one column, of type date, timestamp, or
+timestamptz.
+
+**older_than:** (timestamptz) change partitions whose upper range is less than
+or equal to older_than.
+
+**new_access_method:** (name) either ‘heap’ for row-based storage, or
+‘columnar’ for columnar storage.
+
+#### Return Value
+
+N/A
+
+#### Example
+
+```postgresql
+CALL alter_old_partitions_set_access_method(
+  'foo', now() - interval '6 months',
+  'columnar'
+);
+```
+
 ## Metadata / Configuration Information
 
 ### master\_get\_table\_metadata
@@ -591,6 +796,37 @@ N/A
 #### Return Value
 
 None
+
+### citus_get_active_worker_nodes
+
+The citus_get_active_worker_nodes() function returns a list of active worker
+host names and port numbers.
+
+#### Arguments
+
+N/A
+
+#### Return Value
+
+List of tuples where each tuple contains the following information:
+
+**node_name:** DNS name of the worker node
+
+**node_port:** Port on the worker node on which the database server is
+listening
+
+#### Example
+
+```postgresql
+SELECT * from citus_get_active_worker_nodes();
+ node_name | node_port
+-----------+-----------
+ localhost |      9700
+ localhost |      9702
+ localhost |      9701
+
+(3 rows)
+```
 
 ## Server group management and repair
 

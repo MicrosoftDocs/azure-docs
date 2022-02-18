@@ -106,6 +106,25 @@ SET citus.stat_statements_purge_interval TO 5;
 This parameter is effective on the coordinator and can be changed at
 runtime.
 
+#### citus.stat_statements_max (integer)
+
+The maximum number of rows to store in `citus_stat_statements`. Defaults to
+50000, and may be changed to any value in the range 1000 - 10000000. Note that
+each row requires 140 bytes of storage, so setting `stat_statements_max` to its
+maximum value of 10M would consume 1.4GB of memory.
+
+Changing this GUC will not take effect until PostgreSQL is restarted.
+
+#### citus.stat_statements_track (enum)
+
+Recording statistics for `citus_stat_statements` requires extra CPU resources.
+When the database is experiencing load, the administrator may wish to disable
+statement tracking. The `citus.stat_statements_track` GUC can turn tracking on
+and off.
+
+* **all:** (default) Track all statements.
+* **none:** Disable tracking.
+
 ### Data Loading
 
 #### citus.multi\_shard\_commit\_protocol (enum)
@@ -158,6 +177,61 @@ ensures that a new shard gets created. This parameter can be set at
 run-time and is effective on the coordinator.
 
 ### Planner Configuration
+
+#### citus.local_table_join_policy (enum)
+
+This GUC determines how Hyperscale (Citus) moves data when doing a join between
+local and distributed tables. Customizing the join policy can help reduce the
+amount of data sent between worker nodes.
+
+Hyperscale (Citus) will send either the local or distributed tables to nodes as
+necessary to support the join. Copying table data is referred to as a
+“conversion.” If a local table is converted, then it will be sent to any
+workers that need its data to perform the join. If a distributed table is
+converted, then it will be collected in the coordinator to support the join.
+The citus planner will send only the necessary rows doing a conversion.
+
+There are four modes available to express conversion preference:
+
+* **auto:** (Default) Citus will convert either all local or all distributed
+  tables to support local and distributed table joins. Citus decides which to
+  convert using a heuristic. It will convert distributed tables if they are
+  joined using a constant filter on a unique index (such as a primary key). This
+  ensures less data gets moved between workers.
+* **never:** Citus will not allow joins between local and distributed tables.
+* **prefer-local:** Citus will prefer converting local tables to support local
+  and distributed table joins.
+* **prefer-distributed:** Citus will prefer converting distributed tables to
+  support local and distributed table joins. If the distributed tables are
+  huge, using this option might result in moving lots of data between workers.
+
+For example, assume `citus_table` is a distributed table distributed by the
+column `x`, and that `postgres_table` is a local table:
+
+```postgresql
+CREATE TABLE citus_table(x int primary key, y int);
+SELECT create_distributed_table('citus_table', 'x');
+
+CREATE TABLE postgres_table(x int, y int);
+
+-- even though the join is on primary key, there isn't a constant filter
+-- hence postgres_table will be sent to worker nodes to support the join
+SELECT * FROM citus_table JOIN postgres_table USING (x);
+
+-- there is a constant filter on a primary key, hence the filtered row
+-- from the distributed table will be pulled to coordinator to support the join
+SELECT * FROM citus_table JOIN postgres_table USING (x) WHERE citus_table.x = 10;
+
+SET citus.local_table_join_policy to 'prefer-distributed';
+-- since we prefer distributed tables, citus_table will be pulled to coordinator
+-- to support the join. Note that citus_table can be huge.
+SELECT * FROM citus_table JOIN postgres_table USING (x);
+
+SET citus.local_table_join_policy to 'prefer-local';
+-- even though there is a constant filter on primary key for citus_table
+-- postgres_table will be sent to necessary workers because we are using 'prefer-local'.
+SELECT * FROM citus_table JOIN postgres_table USING (x) WHERE citus_table.x = 10;
+```
 
 #### citus.limit\_clause\_row\_fetch\_count (integer)
 
@@ -329,6 +403,16 @@ HINT:  Queries are split to multiple tasks if they have to be split into several
 STATEMENT:  select * from foo;
 ```
 
+##### citus.propagate_set_commands (enum)
+
+Determines which SET commands are propagated from the coordinator to workers.
+The default value for this parameter is ‘none’.
+
+The supported values are:
+
+* **none:** no SET commands are propagated.
+* **local:** only SET LOCAL commands are propagated.
+
 ##### citus.enable\_repartition\_joins (boolean)
 
 Ordinarily, attempting to perform repartition joins with the adaptive executor
@@ -336,6 +420,16 @@ will fail with an error message.  However setting
 `citus.enable_repartition_joins` to true allows Hyperscale (Citus) to
 temporarily switch into the task-tracker executor to perform the join.  The
 default value is false.
+
+##### citus.enable_repartitioned_insert_select (boolean)
+
+By default, an INSERT INTO … SELECT statement that cannot be pushed down will
+attempt to repartition rows from the SELECT statement and transfer them between
+workers for insertion. However, if the target table has too many shards then
+repartitioning will probably not perform well. The overhead of processing the
+shard intervals when determining how to partition the results is too great.
+Repartitioning can be disabled manually by setting
+`citus.enable_repartitioned_insert_select` to false.
 
 #### Task tracker executor configuration
 
@@ -395,6 +489,16 @@ tasks. Occasionally, some of the tasks will be planned differently or have much
 higher execution times. In those cases, it can be useful to enable this
 parameter, after which the EXPLAIN output will include all tasks. Explaining
 all tasks may cause the EXPLAIN to take longer.
+
+##### citus.explain_analyze_sort_method (enum)
+
+Determines the sort method of the tasks in the output of EXPLAIN ANALYZE. The
+default value of `citus.explain_analyze_sort_method` is `execution-time`.
+
+The supported values are:
+
+* **execution-time:** sort by execution time.
+* **taskId:** sort by task id.
 
 ## PostgreSQL parameters
 
