@@ -3,9 +3,9 @@ title: Reference guide for expression functions
 description: Reference guide to workflow expression functions for Azure Logic Apps and Power Automate.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewer: estfan, niding, azla
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 02/18/2022
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
