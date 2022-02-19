@@ -51,5 +51,5 @@ The keyword spotter that triggers the application to start has achieved low powe
 ## Next steps
 
 - Review the [design guidelines](windows-voice-assistants-best-practices.md) to provide the best experiences for voice activation.
-- See the voice assistants on Windows [getting started](how-to-windows-voice-assistants-get-started.md) page. 
+- See the voice assistants on Windows [get started](how-to-windows-voice-assistants-get-started.md) page. 
 - See the [UWP Voice Assistant Sample](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample) page and follow the steps to get the sample client running.
