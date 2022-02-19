@@ -75,9 +75,9 @@ To add a Blob trigger to a logic app workflow in multi-tenant Azure Logic Apps, 
 
    1. For the **Container** property value, select the folder icon to browse for your blob storage container. Or, enter the path manually.
 
-   1. Configure other trigger settings as needed.
-
       :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-configure.png" alt-text="Screenshot showing Azure Blob trigger with parameters configuration.":::
+
+   1. Configure other trigger settings as needed.
 
 1. Add one or more actions to your workflow.
 
