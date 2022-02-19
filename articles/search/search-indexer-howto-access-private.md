@@ -107,6 +107,8 @@ Be sure to specify the correct **Group ID** for the type of resource for which y
 
 ---
 
+<a name="check-endpoint-status"></a>
+
 ## 2 - Check the status of the private endpoint creation
 
 In this step, confirm that the provisioning state of the resource changes to "Succeeded".
