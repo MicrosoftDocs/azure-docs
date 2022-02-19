@@ -4,7 +4,7 @@ description: Using Managed identity in Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
-ms.topic: quickstart
+ms.topic: concept
 ms.date: 02/08/2022
 ms.author: v-bcatherine
 
