@@ -43,6 +43,8 @@ You can connect to Blob Storage from both **Logic App (Consumption)** and **Logi
 
 For more technical details about this connector, such as triggers, actions, and limits, review the [connector's reference page](/connectors/azureblobconnector/). If you don't want to use the Blob operations, you can use the [use HTTP trigger or action along with a a managed identity for blob operations instead](#access-blob-storage-with-managed-identities).
 
+<a name="add-trigger"></a>
+
 ## Add a Blob trigger
 
 In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met.
