@@ -37,22 +37,12 @@
     href: best-practices-distributive-collaborative-development-environment.md
   - name: Integration with Azure DevOps
     href: devtest-lab-dev-ops.md
-  - name: Scenarios
-    items:
-    - name: Popular scenarios
-      href: devtest-lab-guidance-get-started.md
-    - name: Labs for developers
-      href: devtest-lab-developer-lab.md
-    - name: Labs for test environments
-      href: devtest-lab-test-env.md
-    - name: Labs for training
-      href: devtest-lab-training-lab.md
-    - name: Claimable VMs
-      href: devtest-lab-use-claim-capabilities.md
-  - name: Security
-    items:
-    - name: Security baseline
-      href: /security/benchmark/azure/baselines/devtest-labs-security-baseline?toc=/azure/devtest-labs/TOC.json
+  - name: Popular scenarios
+    href: devtest-lab-guidance-get-started.md
+  - name: Claimable VMs
+    href: devtest-lab-use-claim-capabilities.md
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/devtest-labs-security-baseline?toc=/azure/devtest-labs/TOC.json
 - name: How-to guides
   items:
   - name: Configure a lab

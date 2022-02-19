@@ -130,7 +130,7 @@ If you're not going to continue to use this application, delete the application 
 
 ## Next steps
 
-Learn more about digital distribution center solution architecture:
+Learn more about :
 
 > [!div class="nextstepaction"]
-> [digital distribution center concept](./architecture-digital-distribution-center.md)
+> [IoT Central data integration](../core/overview-iot-central-solution-builder.md)
