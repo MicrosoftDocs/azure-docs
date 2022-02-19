@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 # Use Translator in sovereign (national) clouds
 
- Azure sovereign clouds are independent, consistent, and in-country isolated platforms with their own authentication, storage, and compliance requirements. Sovereign clouds are often used within geographical boundaries where there's a strict data residency requirement. The Azure Active Directory (Azure AD) is currently deployed in the following sovereign clouds:
+ Azure sovereign clouds are isolated in-country platforms with independent authentication, storage, and compliance requirements. Sovereign clouds are often used within geographical boundaries where there's a strict data residency requirement. Azure Active Directory (Azure AD) is currently deployed in the following sovereign clouds:
 
 |Cloud | Region identifier |
 |---|--|
@@ -26,7 +26,7 @@ ms.author: lajanuar
 
 ## Sovereign cloud instances
 
-Individual sovereign clouds and the global Azure cloud are cloud instances. Each cloud instance is separate from the others and has its own environment and endpoints. Cloud-specific endpoints include OAuth 2.0 access token and OpenID Connect ID token request endpoints, and URLs for app management and deployment. Use the endpoints for the cloud instance where you'll deploy the application.
+Individual sovereign clouds are cloud instances. Each cloud instance is separate from the others and has its own environment and endpoints. Cloud-specific endpoints include OAuth 2.0 access token and OpenID Connect ID token request endpoints, and URLs for app management and deployment. Use the endpoints for the cloud instance where you'll deploy your application.
 
 ## Sovereign cloud endpoints
 
@@ -35,7 +35,7 @@ The following table lists the base URLs for the Azure AD endpoints used to regis
 | Sovereign cloud                          | Azure portal endpoint      |
 | --------------------------------------- | -------------------------- |
 | Azure portal for US Government          | `https://portal.azure.us`  |
-| Azure portal China operated by 21Vianet | `https://portal.azure.cn`  |
+| Azure portal China operated by 21 Vianet | `https://portal.azure.cn`  |
 
 ## Translator service in sovereign clouds
 
@@ -49,33 +49,39 @@ The following table lists the base URLs for the Azure AD endpoints used to regis
 | Available regions</br></br>The region-identifier is a required header when using Translator for the government cloud. | <ul><li>`usgovarizona` </li><li> `usgovvirginia`</li></ul>|
 |Available pricing tiers|<ul><li>Free (F0) and Standard (S0). See [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)</li></ul>|
 |Supported Features | <ul><li>Text Translation</li><li>Document Translation</li><li>Custom Translation</li></ul>|
-|Supported Languages| See [Translator language support](language-support.md)|
+|Supported Languages| _See_ [Translator language support](language-support.md).|
 
 <!-- markdownlint-disable MD036 -->
 
 ### Endpoints
 
+**Azure portal**
+
+```http
+https://portal.azure.us
+```
+
 **Authorization token**
 
-```HTTP
+```http
 https://<region-identifier>.api.cognitive.microsoft.us/sts/v1.0/issueToken
 ```
 
 **Text translation**
 
-```HTTP
+```http
 https://api.cognitive.microsofttranslator.us/
 ```
 
 **Document Translation custom endpoint**
 
-```HTTP
+```http
 https://<your-custom-domain>.cognitiveservices.azure.us/
 ```
 
 **Custom Translator portal**
 
-```HTTP
+```http
 https://portal.customtranslator.azure.us/
 ```
 
@@ -111,14 +117,20 @@ The Azure China cloud is a physical and logical network-isolated instance of clo
 |Azure China 21 Vianet | Availability
 |---|---|
 |Azure portal |<ul><li>[Azure China 21 Vianet Portal](https://portal.azure.us/)</li></ul>|
-|Regions <br></br>The region-identifier is a required header when a multi-service resource. | <ul><li>`chinanorth` </li><li> `chinaeast2`</li></ul>|
+|Regions <br></br>The region-identifier is a required header when using a multi-service resource. | <ul><li>`chinanorth` </li><li> `chinaeast2`</li></ul>|
 |Supported Feature|[Text Translation](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)|
-|Supported Languages| See [Translator language support](https://docs.azure.cn/cognitive-services/translator/language-support)|
+|Supported Languages| _See_ [Translator language support.](https://docs.azure.cn/cognitive-services/translator/language-support)|
 
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD024 -->
 
 ### Endpoints
+
+**Azure portal**
+
+```http
+https://portal.azure.cn
+```
 
 **Authorization token**
 
@@ -162,4 +174,4 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Learn more about sovereign clouds](/azure/active-directory/develop/authentication-sovereign-cloud)
+> [Learn more about Translator](index.yml)
