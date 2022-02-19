@@ -7,9 +7,11 @@ ms.date: 02/15/2022
 
 # Create a custom image from a VM
 
+In this article, you learn how to create a custom image from a provisioned Azure DevTest Labs virtual machine (VM).
+
 [!INCLUDE [devtest-lab-custom-image-definition](../../includes/devtest-lab-custom-image-definition.md)]
 
-This article describes how to create a custom image from a provisioned Azure DevTest Labs virtual machine (VM). The custom image includes the OS disk and all the data disks attached to the VM. Lab users can use the custom image to create identical provisioned lab VMs.
+The custom image includes the OS disk and all the data disks attached to the VM. Lab users can use the custom image to create identical provisioned lab VMs.
 
 ## Step-by-step instructions
 

@@ -1,5 +1,5 @@
 ---
-title: Add and configure a virtual network for a lab
+title: Configure a virtual network
 description: Learn how to configure an existing virtual network and subnet to use for creating virtual machines in Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 02/15/2022
@@ -7,7 +7,9 @@ ms.date: 02/15/2022
 
 # Add a virtual network in Azure DevTest Labs
 
-Azure DevTest Labs creates a new virtual network for each lab. If you have another virtual network, such as one configured with Azure ExpressRoute or site-to-site virtual private network (VPN), you can add it to your lab. You can then create lab virtual machines (VMs) in that virtual network. This article explains how to add a virtual network to a lab and configure it for creating lab VMs.
+In this article, you learn how to add a virtual network to a lab, and configure it for creating lab virtual machines (VMs).
+
+Azure DevTest Labs creates a new virtual network for each lab. If you have another virtual network, such as one configured with Azure ExpressRoute or site-to-site virtual private network (VPN), you can add it to your lab. You can then create lab VMs in that virtual network.
 
 ## Add a virtual network to a lab
 
@@ -53,7 +55,7 @@ To add a configured virtual network and subnet to a lab, take the following step
 
 1. On the **Virtual network** page, select **Save** again.
 
-## Create VMs in the added virtual network
+## Create VMs in a virtual network
 
 If you allowed VM creation in one of the subnets, you can now create lab VMs in the added virtual network.
 

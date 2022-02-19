@@ -1,5 +1,5 @@
 ---
-title: Manage lab policies
+title: Control costs with lab policies
 description: Learn how to define lab policies such as VM sizes, maximum VMs per user, and shutdown automation.
 ms.topic: how-to
 ms.date: 02/14/2022
