@@ -307,7 +307,7 @@ The following section shows example queries.
 
 ### Additional IKE diagnostics details
 
-:::image type="content" source="./media/monitor-point-to-site-connections/additional-ike.png" alt-text="Screenshot shows query for IKE Diagnostic details." lightbox="./media/monitor-point-to-site-connections/additional-ike.png":::
+:::image type="content" source="./media/monitor-point-to-site-connections/additional-ikes.png" alt-text="Screenshot shows query for IKE Diagnostic details." lightbox="./media/monitor-point-to-site-connections/additional-ikes.png":::
 
 ### P2S VPN statistics
 
