@@ -7,14 +7,14 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/11/2020
 ms.author: eur
 ---
 
 # What is Direct Line Speech?
 
-**Direct Line Speech** is a robust, end-to-end solution for creating a flexible, extensible voice assistant. It is powered by the Bot Framework and its Direct Line Speech channel, that is optimized for voice-in, voice-out interaction with bots.
+Direct Line Speech is a robust, end-to-end solution for creating a flexible, extensible voice assistant. It is powered by the Bot Framework and its Direct Line Speech channel, that is optimized for voice-in, voice-out interaction with bots.
 
 [Voice assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech-to-text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text-to-speech](text-to-speech.md).
 
@@ -59,7 +59,6 @@ Direct Line Speech and its associated functionality for voice assistants are an 
 
 ## Next steps
 
-* [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 * [Get the Speech SDK](speech-sdk.md)
 * [Create and deploy a basic bot](/azure/bot-service/bot-builder-tutorial-basic-deploy)
 * [Get the Virtual Assistant Solution and Enterprise Template](https://github.com/Microsoft/AI)

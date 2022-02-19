@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-speech-services
 keywords: text to speech
 ---
 
-# Quickstart: Recognize and convert text to speech
+# Quickstart: Convert text to speech
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# include](includes/quickstarts/text-to-speech-basics/csharp.md)]
