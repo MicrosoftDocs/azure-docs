@@ -34,6 +34,9 @@ Azure Automation also has the ability to communicate with SQL servers directly, 
 
 The runbook and module galleries for [Azure Automation](../../automation/automation-runbook-gallery.md) offer a variety of runbooks from Microsoft and the community that you can import into Azure Automation. To use one, download a runbook from the gallery, or you can directly import runbooks from the gallery, or from your Automation account in the Azure portal.
 
+>[!NOTE]
+> The Automation runbooks will execute as a cloud job from random IP addresses in an Azure data centre. 
+
 ## Next steps
 
 Now that you've learned the basics of Azure Automation and how it can be used to manage Azure SQL Database, follow these links to learn more about Azure Automation.
