@@ -103,7 +103,10 @@ Azure AD supports external identity providers like Facebook, Microsoft accounts,
 
 ## Integrate with SharePoint and OneDrive
 
-You can [enable integration with SharePoint and OneDrive](/sharepoint/sharepoint-azureb2b-integration.md) to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management. These recipients will typically be added to your directory as guests. Then permissions and groups work the same for these guests as they do for internal users.
+You can [enable integration with SharePoint and OneDrive](/sharepoint/sharepoint-azureb2b-integration) to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management. These users will typically be added to your directory as guests. Then permissions and groups work the same for these guests as they do for internal users. When enabling integration with SharePoint and OneDrive, you'll also enable the [email one-time passcode](one-time-passcode.md) feature in Azure AD B2B to serve as a fallback authentication method. 
+
+![Screenshot of the email one-time-passcode setting.](media/what-is-b2b/enable-email-otp-options.png)
+
 
 ## Next steps
 
