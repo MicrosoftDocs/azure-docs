@@ -100,15 +100,12 @@ Each change resource has the following properties:
   - **newResourceSnapshotId** - Contains the ID of the resource snapshot that was used as the new state of the resource.
 
 ## How to query changes using Resource Graph
-#### Prerequisites
+### Prerequisites
 - To enable Azure PowerShell to query Azure Resource Graph, the [module must be added](../first-query-powershell.md#add-the-resource-graph-module).
 - To enable Azure CLI to query Azure Resource Graph, the [extension must be added](../first-query-azurecli.md#add-the-resource-graph-extension).
 
 ### Run your Resource Graph query
-
-
-#### Run your Resource Graph PowerShell query
-With the Azure PowerShell module added to your environment of choice, it's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by
+It's time to try out a tenant-based Resource Graph query of the **resourcechanges** table. The query returns the first five most recent Azure resource changes with the change time, change type, target resource ID, target resource type, and change details of each change record. To query by
 [management group](../../management-groups/overview.md) or subscription, use the `-ManagementGroup`
 or `-Subscription` parameters.
 
