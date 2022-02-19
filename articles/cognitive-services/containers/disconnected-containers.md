@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 01/14/2022
+ms.date: 01/20/2022
 ms.author: aahi
 ---
 
@@ -81,12 +81,12 @@ docker pull mcr.microsoft.com/azure-cognitive-services/form-recognizer/invoice:l
 
 ## Configure the container to be run in a disconnected environment
 
-Now that you've downloaded your container, you will need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container.
+Now that you've downloaded your container, you will need to run the container with the `DownloadLicense=True` parameter in your `docker run` command. This parameter will download a license file that will enable your Docker container to run when it isn't connected to the internet. It also contains an expiration date, after which the license file will be invalid to run the container. You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
 
 > [!IMPORTANT]
-> * When you run the container with `DownloadLicense=True`, your environment must be connected to the internet, and you must provide a valid key and endpoint. Once your container has been configured, it can be run disconnected from the internet, and without your key and endpoint. 
-> * You can only use a license file with the appropriate container that you've been approved for. For example, you cannot use a license file for a speech-to-text container with a form recognizer container. 
-> * If your container requires additional encrypted models, they should be downloaded by running the container with the `DownloadModel=True` flag.
+> * [**Translator container only**](../translator/containers/translator-how-to-install-container.md): 
+>    * You must include a parameter to download model files for the [languages](../translator/language-support.md) you want to translate. For example: `-e Languages=en,es`
+>    * The container will generate a `docker run` template that you can use to run the container, containing parameters you will need for the downloaded models and configuration file. Make sure you save this template.
 
 The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 
@@ -111,12 +111,8 @@ After you have configured the container, use the next section to run the contain
 
 ## Run the container in a disconnected environment
 
-> [!NOTE]
-> If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), you will need to add parameters for the downloaded translation models. For example:
-> ```bash
-> -e MODELS= /path/to/model1/, /path/to/model2/
-> -e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
-> ```
+> [!IMPORTANT]
+> If you're using the Translator or Speech-to-text containers, read the **Additional parameters** section below for information on commands or additional parameters you will need to use.
 
 Once the license file has been downloaded, you can run the container in a disconnected environment. The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values. 
 
@@ -139,6 +135,27 @@ Mounts:License={LICENSE_MOUNT}
 Mounts:Output={OUTPUT_PATH}
 ```
 
+### Additional parameters and commands
+
+See the following sections for additional parameters and commands you may need to run the container.
+
+#### Translator container 
+
+If you're using the [Translator container](../translator/containers/translator-how-to-install-container.md), you will need to add parameters for the downloaded translation models and container configuration. These values are generated and displayed in the container output when you [configure the container](#configure-the-container-to-be-run-in-a-disconnected-environment) as described above. For example:
+```bash
+-e MODELS= /path/to/model1/, /path/to/model2/
+-e TRANSLATORSYSTEMCONFIG=/path/to/model/config/translatorsystemconfig.json
+```
+
+#### Speech-to-text container
+
+The [speech-to-text container](../speech-service/speech-container-howto.md?tabs=stt) provides two default directories, `license` and `output`, by default for writing the license file and billing log at runtime. When you're mounting these directories to the container with the `docker run -v` command, make sure the local machine directory is set ownership to `user:group nonroot:nonroot` before running the container. 
+ 
+Below is a sample command to set file/directory ownership.
+
+```bash
+sudo chown -R nonroot:nonroot <YOUR_LOCAL_MACHINE_PATH_1> <YOUR_LOCAL_MACHINE_PATH_2> ...
+```
 
 ## Usage records
 

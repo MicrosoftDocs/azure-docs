@@ -8,7 +8,8 @@ ms.author: parkerra
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 # Quickstart: Create a Unity Android app with Azure Spatial Anchors
 
@@ -40,9 +41,15 @@ To complete this quickstart, make sure you have:
 
 ## Download and open the Unity sample project
 
+### Clone Samples Repository
+
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
+### Import ASA SDK
+
 Follow the instructions [here](../how-tos/setup-unity-project.md#download-asa-packages) to download and import the ASA SDK packages required for the Android platform.
+
+### Configure Unity
 
 [!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
