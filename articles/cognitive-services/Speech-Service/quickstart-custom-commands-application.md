@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a voice assistant using Custom Commands' - Speech service
+title: 'Quickstart: Create a voice assistant using Custom Commands - Speech service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you create and test a basic Custom Commands application in Speech Studio. 
 services: cognitive-services
@@ -64,10 +64,6 @@ At this time, Custom Commands supports speech subscriptions created in these reg
     > ![Create a project](media/custom-commands/import-project.png)
 
 1.  In the **LUIS authoring resource** list, select an authoring resource. If there are no valid authoring resources,    create one by selecting  **Create new LUIS authoring resource**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Create a resource](media/custom-commands/create-new-luis-resource.png)
-    
     
     1. In the **Resource Name** box, enter the name of the resource.
     1. In the **Resource Group** list, select a resource group.
