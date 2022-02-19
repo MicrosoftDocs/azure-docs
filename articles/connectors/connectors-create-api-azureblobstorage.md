@@ -229,7 +229,7 @@ To add an Azure Blob action to a logic app workflow in single-tenant Azure Logic
 
 ### [Consumption](#tab/consumption)
 
-Before you can configure your [Azure Blob Storage trigger](#add-blob-storage-trigger) or [Azure Blob Storage action](#add-blob-storage-action), you need to connect to your Azure Storage account.
+Before you can configure your [Azure Blob Storage trigger](#add-trigger) or [Azure Blob Storage action](#add-action), you need to connect to your Azure Storage account.
 
 Based on the [authentication type that your storage account requires](../storage/common/authorize-data-access.md), you have to provide a connection name and select the authentication type at a minimum.
 
@@ -255,7 +255,7 @@ If you have problems connecting to your storage account, review [how to access s
 
 ### [Standard](#tab/standard)
 
-Before you can configure your [Azure Blob trigger](#add-blob-storage-trigger) or [Azure Blob action](#add-blob-storage-action), you need to connect to your Azure Storage account. A connection requires the following properties:
+Before you can configure your [Azure Blob trigger](#add-trigger) or [Azure Blob action](#add-action), you need to connect to your Azure Storage account. A connection requires the following properties:
 
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
