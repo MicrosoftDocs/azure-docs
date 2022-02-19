@@ -44,7 +44,7 @@ To be able to run this sample, you will need to:
 - Register a Client and Server (Web API) applications in Azure Active Directory as part of [On Behalf Of workflow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Follow instructions on [registrations set up guideline](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp/blob/main/docs/deployment-guides/set-up-app-registrations.md)
 - Create an Azure Communication Services resource through [Azure Portal](../quickstarts/create-communication-resource.md?tabs=linux&pivots=platform-azp). Follow [Quickstart: Create and manage Communication Services resources](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp) to create an ACS resource using Azure Portal.
 - Update the Server (Web API) application with information from the app registrations.
-
+ 
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [NodeJS Auth Hero](./includes/node-auth-hero.md)]
 ::: zone-end
