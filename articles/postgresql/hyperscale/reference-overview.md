@@ -11,7 +11,14 @@ ms.date: 02/18/2022
 
 # The Hyperscale (Citus) SQL API
 
-Foo bar baz
+Azure Database for PostgreSQL - Hyperscale (Citus) includes features beyond
+standard PostgreSQL. Below is a categorized reference of functions and
+configuration options for:
+
+* managing sharded data between multiple servers
+* compressing data with columnar storage
+* automating timeseries partitioning
+* parallelizing query execution across shards
 
 ## SQL Functions
 
@@ -148,6 +155,7 @@ help you see data properties and query activity across the server group.
 
 ## Next steps
 
-* A
-* B
-* C
+* Learn some [useful diagnostic queries](howto-useful-diagnostic-queries.md)
+* Review the list of [configuration
+  parameters](reference-parameters.md#postgresql-parameters) in the underlying
+  PostgreSQL database.
