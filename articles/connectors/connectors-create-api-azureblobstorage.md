@@ -207,7 +207,7 @@ To add an Azure Blob action to a logic app workflow in single-tenant Azure Logic
 
 1. If you're prompted for connection details, [create a connection to your Azure Storage account](#connect-blob-storage-account).
 
-1. Provide the necessary information for the action, which are the following values for the **Read Blob Content from Azure Storage** action:
+1. For the action, provide the necessary information, which includes the following values for the **Read Blob Content from Azure Storage** action:
 
    | Property | Required | Description |
    |----------|----------|-------------|
