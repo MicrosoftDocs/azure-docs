@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 02/18/2022
 ms.author: eur
 ---
 
