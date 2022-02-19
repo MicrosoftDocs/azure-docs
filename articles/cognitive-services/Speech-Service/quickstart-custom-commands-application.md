@@ -1,21 +1,19 @@
 ---
-title: 'Quickstart: Create a voice assistant using Custom Commands'
+title: 'Quickstart: Create a voice assistant using Custom Commands' - Speech service
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you create and test a basic Custom Commands application using Speech Studio. 
+description: In this quickstart, you create and test a basic Custom Commands application in Speech Studio. 
 services: cognitive-services
-author: singhsaumya
-manager: yetian
+author: eric-urban
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 06/18/2020
-ms.author: sausin
+ms.topic: quickstart
+ms.date: 02/19/2022
+ms.author: eur
 ms.custom: references_regions
 ---
 
-
-
-# Create a voice assistant using Custom Commands
+# Quickstart: Create a voice assistant with Custom Commands
 
 In this quickstart, you create and test a basic Custom Commands application using Speech Studio. You will also be able to access this application from a Windows client app.
 

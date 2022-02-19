@@ -191,7 +191,7 @@ items:
   items:
     - name: Keyword recognition overview
       href: keyword-recognition-overview.md
-    - name: Custom Keyword quickstart
+    - name: Custom keyword quickstart
       href: custom-keyword-basics.md
     - name: Recommendations and guidelines
       href: keyword-recognition-guidelines.md
@@ -235,7 +235,7 @@ items:
           items:
             - name: What is Custom Commands?
               href: custom-commands.md
-            - name: Create a Custom Commands app
+            - name: Custom commands quickstart
               href: quickstart-custom-commands-application.md
             - name: How-to guides
               items:
@@ -271,7 +271,7 @@ items:
           items:
             - name: What is Direct Line Speech?
               href: direct-line-speech.md
-            - name: 'Create a custom voice assistant'
+            - name: Custom voice assistant quickstart
               href: quickstarts/voice-assistants.md
             - name: Voice enable your bot
               href: tutorial-voice-enable-your-bot-speech-sdk.md
