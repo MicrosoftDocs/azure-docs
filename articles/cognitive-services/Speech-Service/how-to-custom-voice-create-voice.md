@@ -18,7 +18,7 @@ ms.custom: references_regions
 In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice, and the different format requirements. After you've prepared your data and the voice talent verbal statement, you can start to upload them to [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a custom neural voice through the Speech Studio portal.
 
 > [!NOTE]
-> With the Custom Neural Voice Lite feature (public preview), customers can record their own voice and create a model easily for demonstration and evaluation purpose with just 20-50 utterances. This article focuses on the creation of a professional Custom Neural Voice using the Pro feature.
+> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.
 
 ## Prerequisites
 
