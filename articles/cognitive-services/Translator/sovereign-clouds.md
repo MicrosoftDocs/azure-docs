@@ -22,7 +22,7 @@ Most Azure customers are familiar with the Azure global cloud including the publ
 | [Azure China 21Vianet](/azure/china/overview-operations) |<ul><li>`chinaeast2` (East China 2)</li><li>`chinanorth` (China North)</li></ul>|
 
 >[!NOTE]
-> Azure Germany [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Learn more about [Azure Germany migration](#azure-germany-microsoft-cloud-deutschland).
+> Azure Germany [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Learn more about [Azure Germany migration](/azure/active-directory/develop/authentication-national-cloud#azure-germany-microsoft-cloud-deutschland).
 
 ## Sovereign cloud instances
 
@@ -159,5 +159,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 
 ---
 
+## Next step
+
 > [!div class="nextstepaction"]
-> [Learn more about national clouds](active-directory/develop/authentication-national-cloud)
+> [Learn more about national clouds](/azure/active-directory/develop/authentication-national-cloud)
