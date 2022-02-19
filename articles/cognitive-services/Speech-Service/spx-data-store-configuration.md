@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: how-to
+ms.topic: reference
 ms.date: 01/13/2021
 ms.author: eur
 ms.custom: mode-api
