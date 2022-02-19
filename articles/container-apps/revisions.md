@@ -68,4 +68,4 @@ New revisions remain active until you deactivate them, or you set your container
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage secrets](manage-secrets.md)
+> [Application lifecycle management](application-lifecycle-management.md)
