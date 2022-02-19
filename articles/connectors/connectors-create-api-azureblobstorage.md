@@ -227,23 +227,23 @@ To add an Azure Blob action to a logic app workflow in single-tenant Azure Logic
 
 ### [Consumption](#tab/consumption)
 
-Before you can configure your [Azure Blob Storage trigger](#add-blob-storage-trigger) or [Azure Blob Storage action](#add-blob-storage-action), you need to connect to your Azure Storage account. A connection requires the following properties:
+Before you can configure your [Azure Blob Storage trigger](#add-blob-storage-trigger) or [Azure Blob Storage action](#add-blob-storage-action), you need to connect to your Azure Storage account.
+
+Based on the [authentication type that your storage account requires](../storage/common/authorize-data-access.md), you have minimally provide a connection name and select the authentication type.
+
+For example, if your storage account requires *access key* authorization, you have to provide the following information:
 
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
 | **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
-| **Storage Account** | Yes | <*storage-account*> | Select your storage account from the list, or provide a string. <p>**Note**: To find the connection string, go to the storage account's page. In the navigation menu, under **Security + networking**, select **Access keys** > **Show keys**. Copy one of the available connection string values. |
+| **Authentication type** | Yes | - **Access Key** <br><br>- **Azure AD Integrated** <br><br>- **Logic Apps Managed Identity (Preview)** | The authentication type to use for your connection. For more information, review [Authentication types for triggers and actions that support authentication - Secure access and data](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication). |
+| **Azure Storage Account name** | Yes, <br>but only for access key authentication | <*storage-account-name*> | The name for the Azure storage account where your blob container exists. <p>**Note**: To find the storage account name, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys**. Under **Storage account name**, copy and save the name. |
+| **Azure Storage Account Access Key** | Yes, <br>but only for access key authentication | <*storage-account-access-key*> | The access key for your Azure storage account. <p>**Note**: To find the access key, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **Show keys**. Copy and save one of the key values. |
 |||||
 
-To create an Azure Blob Storage connection from a logic app workflow in multi-tenant Azure Logic Apps, follow these steps:
+The following example shows how a connection using access key authentication might appear:
 
-1. For **Connection name**, provide a name for your connection.
-
-1. For **Storage Account**, select the storage account where your blob container exists. Or, select **Manually enter connection information** to provide the path yourself.
-
-1. Select **Create** to establish your connection.
-
-   :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-connection-create.png" alt-text="Screenshot showing the workflow designer with a Consumption logic app workflow and a prompt to add a new connection for the Azure Blob Storage step.":::
+:::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-connection-create.png" alt-text="Screenshot showing the workflow designer with a Consumption logic app workflow and a prompt to add a new connection for the Azure Blob Storage step.":::
 
 > [!NOTE]
 > After you create your connection, if you have a different existing Azure Blob storage connection 
@@ -267,7 +267,7 @@ To create an Azure Blob Storage connection from a logic app workflow in single-t
 
 1. For **Azure Blob Storage Connection String**, enter the connection string for the storage account that you want to use.
 
-1. Select **Create** to establish your connection.
+1. Select **Create** to finish creating your connection.
 
    :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-connection-create.png" alt-text="Screenshot that shows the workflow designer with a Standard logic app workflow and a prompt to add a new connection for the Azure Blob Storage step.":::
 
