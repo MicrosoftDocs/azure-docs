@@ -21,7 +21,7 @@ zone_pivot_groups: acs-js-csharp
 
 ## Overview
 
-In order to properly implement a secure Azure Communication Services solutions, developers must start by putting in place the correct infrastructure to properly generate user and access token credentials for Azure Communication Services. Azure Communication Services is identity-agnostic, to learn more check out our [conceptual documentation](../../concepts/identity-model).
+In order to properly implement a secure Azure Communication Services solutions, developers must start by putting in place the correct infrastructure to properly generate user and access token credentials for Azure Communication Services. Azure Communication Services is identity-agnostic, to learn more check out our [conceptual documentation](../concepts/identity-model).
 
 This repository provides a sample of a server implementation of an authentication service for Azure Communication Services. It uses best practices to build a trusted backend service that issues Azure Communication Services credentials and maps them to Azure Active Directory identities. 
 
@@ -30,7 +30,7 @@ This sample can help you in the following scenarios:
 2. As a developer, you need to enable an authentication flow for Custom Teams Endpoint which is done by using an M365 Azure Active Directory identity of a Teams' user to fetch an Azure Communication Services token to be able to join Teams calling/chat.
 
 > [!NOTE]
->If you are looking to get started with Azure Communication Services, but are still in learning / prototyping phases, check out our [quickstarts for getting started with Azure communication services users and access tokens](../../quickstarts/access-tokens?pivots=programming-language-csharp).
+>If you are looking to get started with Azure Communication Services, but are still in learning / prototyping phases, check out our [quickstarts for getting started with Azure communication services users and access tokens](../quickstarts/access-tokens?pivots=programming-language-csharp).
 
 ![Azure Communication Services Authentication Server Sample Overview Flow](./media/auth/ACS-Authentication-Server-Sample_Overview-Flow.png)
 
@@ -42,7 +42,7 @@ Since this sample only focuses on the server APIs, the client application is not
 To be able to run this sample, you will need to:
 
 - Register a Client and Server (Web API) applications in Azure Active Directory as part of [On Behalf Of workflow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Follow instructions on [registrations set up guideline](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp/blob/main/docs/deployment-guides/set-up-app-registrations.md)
-- Create an Azure Communication Services resource through [Azure Portal](../../quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp). Follow [Quickstart: Create and manage Communication Services resources](../../quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp) to create an ACS resource using Azure Portal.
+- Create an Azure Communication Services resource through [Azure Portal](../quickstarts/create-communication-resource?tabs=linux&pivots=platform-azp). Follow [Quickstart: Create and manage Communication Services resources](../quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp) to create an ACS resource using Azure Portal.
 - Update the Server (Web API) application with information from the app registrations.
 
 ::: zone pivot="programming-language-javascript"
