@@ -1,12 +1,14 @@
 ---
 title: Using Azure Blockchain Workbench REST APIs
 description: Scenarios for how to use the Azure Blockchain Workbench Preview REST API
-ms.date: 03/05/2020
+ms.date: 02/18/2022
 ms.topic: how-to
 ms.reviewer: brendal
 #Customer intent: As a developer, I want to understand the  Azure Blockchain Workbench REST API to so that I can integrate apps with Blockchain Workbench.
 ---
 # Using the Azure Blockchain Workbench Preview REST API
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azure Blockchain Workbench Preview REST API provides developers and information workers a way to build rich integrations to blockchain applications. This article highlights several scenarios of how to use the Workbench REST API. For example, suppose you want to create a custom blockchain client that allows signed in users to view and interact with their assigned blockchain applications. The client can use the Blockchain Workbench API to view contract instances and take actions on smart contracts.
 
