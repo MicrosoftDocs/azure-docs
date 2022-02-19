@@ -73,7 +73,7 @@ To add a Blob trigger to a logic app workflow in multi-tenant Azure Logic Apps, 
 
 1. Provide the necessary information for the trigger.
 
-   1. For the **Container** property value, select the folder icon to browse for your blob storage container. Or, enter the path manually.
+   1. For the **Container** property value, select the folder icon to browse for your blob storage container. Or, enter the path manually using the syntax **/<*container-name*>**, for example:
 
       :::image type="content" source="./media/connectors-create-api-azureblobstorage/consumption-trigger-configure.png" alt-text="Screenshot showing Azure Blob trigger with parameters configuration.":::
 
@@ -171,8 +171,8 @@ To add a Blob action to a logic app workflow in multi-tenant Azure Logic Apps, f
 
    | Task | Blob path syntax |
    |------|------------------|
-   | Get the content from a specific blob in the root folder. | **<*container-name*>/<*blob-name*>** |
-   | Get the content from a specific blob in a subfolder. | **<*container-name*>/<*subfolder*>/<*blob-name*>** |
+   | Get the content from a specific blob in the root folder. | **/<*container-name*>/<*blob-name*>** |
+   | Get the content from a specific blob in a subfolder. | **/<*container-name*>/<*subfolder*>/<*blob-name*>** |
    |||
 
    The following example shows the action setup that gets the content from a blob in the root folder:
@@ -207,15 +207,23 @@ To add an Azure Blob action to a logic app workflow in single-tenant Azure Logic
 
 1. If you're prompted for connection details, [create a connection to your Azure Storage account](#connect-blob-storage-account).
 
-1. Provide the necessary information for the action.
+1. Provide the necessary information for the action, which are the following values for the **Read Blob Content from Azure Storage** action:
 
-    1. For **Container Name**, enter the path for the storage container that you want to use.
+   | Property | Required | Description |
+   |----------|----------|-------------|
+   | **Container Name** | Yes | The name for the storage container that you want to use |
+   | **Blob name** | Yes | The name or path for the blob that you want to use |
+   ||||
 
-    1. For the **Blob name** property value, enter the path for the blob that you want to use.
+   The following example shows the information for a specific blob in the root folder:
 
-       :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-action-root-folder.png" alt-text="Screenshot showing Standard logic app in designer with Blob Storage action configuration.":::
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-action-root-folder.png" alt-text="Screenshot showing Standard logic app in designer with Blob action setup for root folder.":::
 
-    1. Configure other action settings as needed.
+   The following example shows the information for a specific blob in a subfolder:
+
+   :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-action-subfolder.png" alt-text="Screenshot showing Standard logic app in designer with Blob action setup for subfolder.":::
+
+1. Configure any other action settings as needed.
 
 1. On the designer toolbar, select **Save**.
 
@@ -241,8 +249,8 @@ For example, if your storage account requires *access key* authorization, you ha
 |----------|----------|-------|-------------|
 | **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
 | **Authentication type** | Yes | - **Access Key** <br><br>- **Azure AD Integrated** <br><br>- **Logic Apps Managed Identity (Preview)** | The authentication type to use for your connection. For more information, review [Authentication types for triggers and actions that support authentication - Secure access and data](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-triggers-and-actions-that-support-authentication). |
-| **Azure Storage Account name** | Yes, <br>but only for access key authentication | <*storage-account-name*> | The name for the Azure storage account where your blob container exists. <p>**Note**: To find the storage account name, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys**. Under **Storage account name**, copy and save the name. |
-| **Azure Storage Account Access Key** | Yes, <br>but only for access key authentication | <*storage-account-access-key*> | The access key for your Azure storage account. <p>**Note**: To find the access key, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **Show keys**. Copy and save one of the key values. |
+| **Azure Storage Account name** | Yes, <br>but only for access key authentication | <*storage-account-name*> | The name for the Azure storage account where your blob container exists. <br><br><br><br>**Note**: To find the storage account name, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys**. Under **Storage account name**, copy and save the name. |
+| **Azure Storage Account Access Key** | Yes, <br>but only for access key authentication | <*storage-account-access-key*> | The access key for your Azure storage account. <br><br><br><br>**Note**: To find the access key, open your storage account resource in the Azure portal. In the resource menu, under **Security + networking**, select **Access keys** > **Show keys**. Copy and save one of the key values. |
 |||||
 
 The following example shows how a connection using access key authentication might appear:
@@ -262,7 +270,7 @@ Before you can configure your [Azure Blob trigger](#add-trigger) or [Azure Blob 
 | Property | Required | Value | Description |
 |----------|----------|-------|-------------|
 | **Connection name** | Yes | <*connection-name*> | The name to use for your connection. |
-| **Azure Blob Storage Connection String** | Yes | <*storage-account*> | Select your storage account from the list, or provide a string. <p>**Note**: To find the connection string, go to the storage account's page. In the navigation menu, under **Security + networking**, select **Access keys** > **Show keys**. Copy one of the available connection string values. |
+| **Azure Blob Storage Connection String** | Yes | <*storage-account*> | Select your storage account from the list, or provide a string. <br><br><br><br>**Note**: To find the connection string, go to the storage account's page. In the navigation menu, under **Security + networking**, select **Access keys** > **Show keys**. Copy one of the available connection string values. |
 |||||
 
 To create an Azure Blob Storage connection from a logic app workflow in single-tenant Azure Logic Apps, follow these steps:
