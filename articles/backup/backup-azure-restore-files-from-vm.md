@@ -54,7 +54,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
 
 ## Step 2: Ensure the machine meets the requirements before executing the script
 
-After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine preferably from the same region that meets the requirements**.  
+After the script is successfully downloaded, make sure you have the right machine to execute this script. The VM where you are planning to execute the script, should not have any of the following unsupported configurations. **If it does, then choose an alternate machine that meets the requirements**.  
 
 ### Dynamic disks
 
@@ -106,11 +106,6 @@ In Linux, the OS of the computer used to restore files must support the file sys
 | Oracle Linux | 6.4 and above |
 | SLES | 12 and above |
 | openSUSE | 42.2 and above |
-
-> [!NOTE]
-> We've found some issues in running the file recovery script on machines with SLES 12 SP4 OS and we're investigating with the SLES team.
-> Currently, running the file recovery script is working on machines with SLES 12 SP2 and SP3 OS versions.
->
 
 The script also requires Python and bash components to execute and connect securely to the recovery point.
 
@@ -184,10 +179,10 @@ If the file recovery process hangs after you run the file-restore script (for ex
     ![Registry key changes](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
 
 ```registry
-- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200 secs.
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 2400 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 2400 secs.
 - HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
-- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200 secs.
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 2400 secs.
 ```
 
 ### For Linux

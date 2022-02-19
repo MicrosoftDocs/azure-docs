@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 10/11/2021
 ms.author: ryanwi
-ms.reviewer: hirsin
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 

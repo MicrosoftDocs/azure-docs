@@ -7,13 +7,13 @@ ms.custom: devx-track-java
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/java.md)]
+[!INCLUDE [Header](../../common/java.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 
