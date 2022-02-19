@@ -1,13 +1,15 @@
 ---
 title: Deploy Azure Blockchain Workbench Preview
 description: How to deploy Azure Blockchain Workbench Preview
-ms.date: 09/15/2021
+ms.date: 02/18/2022
 ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: references_regions
 #Customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
 ---
 # Deploy Azure Blockchain Workbench Preview
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Azure Blockchain Workbench Preview is deployed using a solution template in the Azure Marketplace. The template simplifies the deployment of components needed to create blockchain applications. Once deployed, Blockchain Workbench provides access to client apps to create and manage users and blockchain applications.
 
