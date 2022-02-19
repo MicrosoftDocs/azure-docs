@@ -24,7 +24,7 @@ When a secret is updated or deleted, you can respond to changes in one of two wa
  1. Deploy a new revision.
  2. Restart an existing revision.
 
-An updated or removed secret does not automatically re-start a revision.
+An updated or removed secret does not automatically restart a revision.
 
 - Before you delete a secret, deploy a new revision that no longer references the old secret.
 - If you change a secret value, you need to restart the revision to consume the new value.
