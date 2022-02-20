@@ -6,7 +6,6 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ms.devlang: csharp, golang, java, javascript, python
