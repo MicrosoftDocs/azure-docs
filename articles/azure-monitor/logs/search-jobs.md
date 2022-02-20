@@ -30,6 +30,15 @@ A search job sends its results to a new table in the same workspace as the sourc
 
 The search job results table is a [Log Analytics](log-analytics-workspace-overview.md#log-data-plans-preview) table that is available for log queries or any other features of Azure Monitor that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this retention once the table is created.
 
+The search results table schema is based on the source table schema and the specified query. The following additional columns help you track the source records:
+
+| Column | Value |
+|:---|:---|
+| _OriginalType          | *Type* value from source table. |
+| _OriginalItemId        | *_ItemID* value from source table. |
+| _OriginalTimeGenerated | *TimeGenerated* value from source table. |
+| TimeGenerated          | Time at which the search job retrieved the record from the original table. |
+
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
 ## Create a search job
@@ -143,17 +152,6 @@ To delete a table, call the **Tables - Delete** API:
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
-
-## Search results table schema
-
-The search results table schema is based on the source table schema and the specified query. The following additional columns help you track the source records:
-
-| Column | Value |
-|:---|:---|
-| _OriginalType          | *Type* value from source table. |
-| _OriginalItemId        | *_ItemID* value from source table. |
-| _OriginalTimeGenerated | *TimeGenerated* value from source table. |
-| TimeGenerated          | Time at which the search job retrieved the record from the original table. |
 
 ## Limitations
 Search jobs are subject to the following limitations:
