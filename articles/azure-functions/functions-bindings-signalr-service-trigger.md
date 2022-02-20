@@ -22,19 +22,16 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Example
 
-The following example shows a function that receives a message using the trigger binding and logs the message.
-
 ::: zone pivot="programming-language-csharp"
 
-<!--Optional intro text goes here, followed by the C# modes include.-->
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-# [C#](#tab/csharp)
+# [In-process](#tab/in-process)
 
 SignalR Service trigger binding for C# has two programming models. Class based model and traditional model. Class based model provides a consistent SignalR server-side programming experience. Traditional model provides more flexibility and is similar to other function bindings.
 
-### With Class based model
+### With class-based model
 
 See [Class based model](../azure-signalr/signalr-concept-serverless-development-config.md#class-based-model) for details.
 
@@ -49,7 +46,7 @@ public class SignalRTestHub : ServerlessHub
 }
 ```
 
-### With Traditional model
+### With a traditional model
 
 Traditional model obeys the convention of Azure Function developed by C#. If you're not familiar with it, you can learn from [documents](./functions-dotnet-class-library.md).
 
@@ -61,9 +58,7 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 }
 ```
 
-#### Use attribute `[SignalRParameter]` to simplify `ParameterNames`
-
-As it's a bit cumbersome to use `ParameterNames`, the `SignalRParameter` attribute achieves the same purpose.
+Because it can be hard to use `ParameterNames` in the trigger, the following example shows you how to use the `SignalRParameter` attribute to define the `message` attribute.
 
 ```cs
 [FunctionName("SignalRTest")]
@@ -73,22 +68,20 @@ public static async Task Run([SignalRTrigger("SignalRTest", "messages", "SendMes
 }
 ```
 
-# [In-process](#tab/in-process)
-
-<!--Content and samples from the C# tab in ##Examples go here.-->
 
 # [Isolated process](#tab/isolated-process)
 
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example:
+The following example shows a SignalR trigger that reads a message string from one hub using a SignalR trigger and writes it to a second hub using an output binding. The data required to connect to the output binding is obtained as a `MyConnectionInfo` object from an input binding defined using a `SignalRConnectionInfo` attribute. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
--->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="12-31":::
+
+The `MyConnectionInfo` and `MyMessage` classes are defined as follows:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="34-46":::
 
 # [C# Script](#tab/csharp-script)
 
-Here's binding data in the *function.json* file:
-
-Example function.json:
+Here's example binding data in the *function.json* file:
 
 ```json
 {
@@ -104,7 +97,7 @@ Example function.json:
 }
 ```
 
-Here's the C# Script code:
+And, here's the code:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -123,12 +116,10 @@ public static void Run(InvocationContext invocation, string message, ILogger log
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-
+SignalR trigger isn't currently supported for Java. 
 ::: zone-end 
  
-::: zone pivot="programming-language-javascript"  
-
-# [JavaScript](#tab/javascript)
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
 Here's binding data in the *function.json* file:
 
@@ -147,6 +138,9 @@ Example function.json:
     "direction": "in"
 }
 ```
+
+::: zone-end
+::: zone pivot="programming-language-javascript"
 
 Here's the JavaScript code:
 
@@ -156,36 +150,12 @@ module.exports = function (context, invocation) {
     context.done();
 };
 ```
-
 ::: zone-end  
-
-::: zone pivot="programming-language-powershell"  
-
-<!--Content and samples from the PowerShell tab in ##Examples go here.-->
-
-::: zone-end 
+::: zone pivot="programming-language-powershell" 
  
+Complete PowerShell examples are pending.
+::: zone-end 
 ::: zone pivot="programming-language-python"  
-
-# [Python](#tab/python)
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-    "type": "signalRTrigger",
-    "name": "invocation",
-    "hubName": "SignalRTest",
-    "category": "messages",
-    "event": "SendMessage",
-    "parameterNames": [
-        "message"
-    ],
-    "direction": "in"
-}
-```
 
 Here's the Python code:
 
@@ -198,38 +168,37 @@ def main(invocation) -> None:
     invocation_json = json.loads(invocation)
     logging.info("Receive {0} from {1}".format(invocation_json['Arguments'][0], invocation_json['ConnectionId']))
 ```
-
----
-
 ::: zone-end 
  
 ::: zone pivot="programming-language-csharp"
 
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
-
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**Parameter1** |Description 1|
-|**Parameter2** | Description 2|
-
--->
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `SignalRTrigger` attribute to define the function. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
-<!--C# attribute information for the trigger from ## Attributes and annotations goes here, with intro sentence.-->
+The following table explains the properties of the `SignalRTrigger` attribute.
+
+| Attribute property |Description|
+|---------|----------------------|
+|**HubName**| This value must be set to the name of the SignalR hub for the function to be triggered.|
+|**Category**| This value must be set as the category of messages for the function to be triggered. The category can be one of the following values: <ul><li>**connections**: Including *connected* and *disconnected* events</li><li>**messages**: Including all other events except those in *connections* category</li></ul> |
+|**Event**| This value must be set as the event of messages for the function to be triggered. For *messages* category, event is the *target* in [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) that clients send. For *connections* category, only *connected* and *disconnected* is used. |
+|**ParameterNames**| (Optional) A list of names that binds to the parameters. |
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 # [Isolated process](#tab/isolated-process)
 
-<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
+The following table explains the properties of the `SignalRTrigger` attribute.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16":::
--->
+| Attribute property |Description|
+|---------|----------------------|
+|**HubName**| This value must be set to the name of the SignalR hub for the function to be triggered.|
+|**Category**| This value must be set as the category of messages for the function to be triggered. The category can be one of the following values: <ul><li>**connections**: Including *connected* and *disconnected* events</li><li>**messages**: Including all other events except those in *connections* category</li></ul> |
+|**Event**| This value must be set as the event of messages for the function to be triggered. For *messages* category, event is the *target* in [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) that clients send. For *connections* category, only *connected* and *disconnected* is used. |
+|**ParameterNames**| (Optional) A list of names that binds to the parameters. |
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 # [C# script](#tab/csharp-script)
 
@@ -237,102 +206,58 @@ C# script uses a function.json file for configuration instead of attributes.
 
 The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
 
-<!-- Use the parts of the existing table in ## Configuration that apply to C# script, which might look like the following:
-
-|function.json property |Description|
-|---------|---------|
-| **type** | Required - must be set to `eventGridTrigger`. |
-| **direction** | Required - must be set to `in`. |
-| **name** | Required - the variable name used in function code for the parameter that receives the event data. |
-| **parameter1** |See the **Parameter1** attribute above.|
-| **parameter2** |See the **Parameter2** attribute above.|
--->
+|function.json property | |Description|
+|---------|-----------------------|
+|**type**|  Must be set to `SignalRTrigger`.|
+|**direction**|  Must be set to `in`.|
+|**name**|  Variable name used in function code for trigger invocation context object. |
+|**hubName**| This value must be set to the name of the SignalR hub for the function to be triggered.|
+|**category**| This value must be set as the category of messages for the function to be triggered. The category can be one of the following values: <ul><li>**connections**: Including *connected* and *disconnected* events</li><li>**messages**: Including all other events except those in *connections* category</li></ul> |
+|**event**| This value must be set as the event of messages for the function to be triggered. For *messages* category, event is the *target* in [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) that clients send. For *connections* category, only *connected* and *disconnected* is used. |
+|**parameterNames**| (Optional) A list of names that binds to the parameters. |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 ---
 
 ::: zone-end 
- 
 ::: zone pivot="programming-language-java" 
  
 ## Annotations
 
-<!-- Content from the Java tab under ## Attributes and annotations. -->
+There isn't currently a supported Java annotation for a SignalR trigger.  
 ::: zone-end  
-
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python" 
  
 ## Configuration
 
-### SignalRTrigger
+The following table explains the binding configuration properties that you set in the *function.json* file.
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `SignalRTrigger` attribute.
-
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type**| n/a | Must be set to `SignalRTrigger`.|
-|**direction**| n/a | Must be set to `in`.|
-|**name**| n/a | Variable name used in function code for trigger invocation context object. |
-|**hubName**|**HubName**| This value must be set to the name of the SignalR hub for the function to be triggered.|
-|**category**|**Category**| This value must be set as the category of messages for the function to be triggered. The category can be one of the following values: <ul><li>**connections**: Including *connected* and *disconnected* events</li><li>**messages**: Including all other events except those in *connections* category</li></ul> |
-|**event**|**Event**| This value must be set as the event of messages for the function to be triggered. For *messages* category, event is the *target* in [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) that clients send. For *connections* category, only *connected* and *disconnected* is used. |
-|**parameterNames**|**ParameterNames**| (Optional) A list of names that binds to the parameters. |
-|**connectionStringSetting**|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string (defaults to "AzureSignalRConnectionString") |
+|function.json property | |Description|
+|---------|-----------------------|
+|**type**|  Must be set to `SignalRTrigger`.|
+|**direction**|  Must be set to `in`.|
+|**name**|  Variable name used in function code for trigger invocation context object. |
+|**hubName**| This value must be set to the name of the SignalR hub for the function to be triggered.|
+|**category**| This value must be set as the category of messages for the function to be triggered. The category can be one of the following values: <ul><li>**connections**: Including *connected* and *disconnected* events</li><li>**messages**: Including all other events except those in *connections* category</li></ul> |
+|**event**| This value must be set as the event of messages for the function to be triggered. For *messages* category, event is the *target* in [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding) that clients send. For *connections* category, only *connected* and *disconnected* is used. |
+|**parameterNames**| (Optional) A list of names that binds to the parameters. |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 ::: zone-end  
 
 See the [Example section](#example) for complete examples.
 
-## Usage
+## Usage 
 
-::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
-
-# [In-process](#tab/in-process)
-
-<!--Any usage information from the C# tab in ## Usage. -->
-
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-# [C# script](#tab/csharp-script)
-
-<!--Any usage information from the C# script tab in ## Usage. This might also be shared with C# in-process-->
-
----
-
-::: zone-end  
-<!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot="programming-language-java"
-<!--Any usage information from the Java tab in ## Usage. -->
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
-<!--Any usage information from the JavaScript tab in ## Usage. -->
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
-<!--Any usage information from the PowerShell tab in ## Usage. -->
-::: zone-end  
-::: zone pivot="programming-language-typescript"  
-<!--Any usage information from the TypeScript tab in ## Usage. -->
-::: zone-end  
-::: zone pivot="programming-language-python"  
-<!--Any usage information from the Python tab in ## Usage. -->
-::: zone-end  
-
-<!---## Extra sections
-
-Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. 
--->
-
-## Payload
+### Payloads
 
 The trigger input type is declared as either `InvocationContext` or a custom type. If you choose `InvocationContext` you get full access to the request content. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
 
 ### InvocationContext
 
-InvocationContext contains all the content in the message send from SignalR Service.
+`InvocationContext` contains all the content in the message send from aa SignalR service, which includes the following properties:
 
-|Property in InvocationContext | Description|
+|Property | Description|
 |------------------------------|------------|
 |Arguments| Available for *messages* category. Contains *arguments* in [invocation message](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding)|
 |Error| Available for *disconnected* event. It can be Empty if the connection closed with no error, or it contains the error messages.|
@@ -345,7 +270,7 @@ InvocationContext contains all the content in the message send from SignalR Serv
 |Query| The query of the request when clients connect to the service.|
 |Claims| The claims of the client.|
 
-## Using `ParameterNames`
+### Using `ParameterNames`
 
 The property `ParameterNames` in `SignalRTrigger` lets you bind arguments of invocation messages to the parameters of functions. You can use the name you defined as part of [binding expressions](../azure-functions/functions-bindings-expressions-patterns.md) in other binding or as parameters in your code. That gives you a more convenient way to access arguments of `InvocationContext`.
 
@@ -363,13 +288,13 @@ After you set `parameterNames`, the name you defined, respectively, corresponds 
 
 Then, the `arg1` will contain the content of `message1`, and `arg2` will contain the content of `message2`.
 
-### Remarks
+### `ParameterNames` considerations
 
 For the parameter binding, the order matters. If you're using `ParameterNames`, the order in `ParameterNames` matches the order of the arguments you invoke in the client. If you're using attribute `[SignalRParameter]` in C#, the order of arguments in Azure Function methods matches the order of arguments in clients.
 
 `ParameterNames` and attribute `[SignalRParameter]` **cannot** be used at the same time, or you will get an exception.
 
-## SignalR Service integration
+### SignalR Service integration
 
 SignalR Service needs a URL to access Function App when you're using SignalR Service trigger binding. The URL should be configured in **Upstream Settings** on the SignalR Service side. 
 
@@ -386,7 +311,7 @@ The `Function_App_URL` can be found on Function App's Overview page and The `API
 
 If you want to use more than one Function App together with one SignalR Service, upstream can also support complex routing rules. Find more details at [Upstream settings](../azure-signalr/concept-upstream.md).
 
-## Step by step sample
+### Step by step sample
 
 You can follow the sample in GitHub to deploy a chat room on Function App with SignalR Service trigger binding and upstream feature: [Bidirectional chat room sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BidirectionChat)
 
