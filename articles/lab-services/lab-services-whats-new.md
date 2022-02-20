@@ -27,15 +27,12 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **[Updates to lab owner experience](how-to-manage-labs.md)**. Now you can choose to skip the template creation process when creating a new lab if you already have an image ready to use. We’ve also added the ability to add a non-admin user to lab VMs.
 
-**[Updates to student experience](how-to-manage-vm-pool.md#redeploy-vms)**. Student can now redeploy their VM without losing data. We also updated the registration experience for some scenarios.  A lab VM is assigned to students *automatically* if the lab is set up to use Azure AD group sync, Teams, or Canvas.
+**[Updates to student experience](how-to-manage-vm-pool.md#redeploy-vms)**. Students can now redeploy their VM without losing data. We also updated the registration experience for some scenarios.  A lab VM is assigned to students *automatically* if the lab is set up to use Azure AD group sync, Teams, or Canvas.
 
-**SDKs**. The Azure Lab Services PowerShell will now be integrated with the Az PowerShell module and will release with the February 2022 monthly update of the Az module. Also, check out the C# SDK.
-
-[Give it a try!](tutorial-setup-lab-plan.md)
+**SDKs**. The Azure Lab Services PowerShell is now integrated with the [Az PowerShell module](/powershell/azure/release-notes-azureps?view=azps-7.2.0). Also, check out the C# SDK.
 
 In this release, there are a few known issues:
 
-- Az.LabServices cmdlets will be included in the February 2022 [monthly release](/powershell/azure/release-notes-azureps) for the [Azure PowerShell module](/powershell/azure/new-azureps-module-az).
 - When using virtual network injection, use caution in making changes to the virtual network and subnet.  Changes may cause the lab VMs to stop working. For example, deleting your virtual network will cause all the lab VMs to stop working. We plan to improve this experience in the future, but for now make sure to delete labs before deleting networks.
 - Moving lab plan and lab resources from one Azure region to another isn't supported.
 - Azure Compute [resource provider must be registered](/azure/azure-resource-manager/management/resource-providers-and-types) before Azure Lab Services can [create and attach an Azure Compute Gallery resource](how-to-attach-detach-shared-image-gallery.md#create-and-attach-a-compute-gallery).
@@ -57,9 +54,9 @@ Lab accounts and labs have a parental relationship.  By moving to a sibling rela
 |Resource Management|Lab account was the only resource tracked in the Azure portal. All other resources were child resources of the lab account and tracked in Lab Services directly.|Lab plans and labs are now sibling resources in Azure. Administrators can use existing tools in the Azure portal to manage labs. Virtual machines will continue to be a child resource of labs.|
 |Cost tracking|In Azure Cost Management, admins could only track and analyze cost at the service level and at the lab account level.| Cost entries in Azure Cost Management are now for lab virtual machines. Automatic tags on each entry specify the lab plan ID and the lab name. You can analyze cost by lab plan, lab, or virtual machine from within the Azure portal. Custom tags on the lab will also show in the cost data.|  
 |Selecting regions|By default, labs were created in the same geography as the lab account.  A geography typically aligns with a country and contains one or more Azure regions. Lab owners weren't able to manage exactly which Azure region the labs resided in.|In the lab plan, administrators now can manage the exact Azure regions allowed for lab creation. By default, labs will be created in the same Azure region as the lab plan. </br> Note, when a lab plan has advanced networking enabled, labs are created in the same Azure region as virtual network.|
-|Deletion experience|When a lab account is deleted, all labs within it are also deleted.|When deleting a lab plan, labs *aren't* deleted. After a lab plan is deleted, labs will keep references to their virtual network even if advanced networking is enabled. However, if a lab plan was connected to an Azure Compute Gallery, the labs can no longer export an image that Azure Compute Gallery.|
+|Deletion experience|When a lab account is deleted, all labs within it are also deleted.|When deleting a lab plan, labs *aren't* deleted. After a lab plan is deleted, labs will keep references to their virtual network even if advanced networking is enabled. However, if a lab plan was connected to an Azure Compute Gallery, the labs can no longer export an image to that Azure Compute Gallery.|
 |Connecting to a virtual network|The lab account provided an option to peer to a virtual network. If you already had labs in the lab account before you peered to a virtual network, the virtual network connection didn't apply to existing labs. Admins couldn't tell which labs in the lab account were peered to the virtual network.|In a lab plan, admins set up the advanced networking only at the time of lab plan creation. Once a lab plan is created, you'll see a read-only connection to the virtual network. If you need to use another virtual network, create a new lab plan configured with the new virtual network.|
-|Labs portal experience|Labs are lab listed under lab accounts in [https://labs.azure.com](https://labs.azure.com).|Labs are listed under resource group name in [https://labs.azure.com](https://labs.azure.com). If there are multiple lab plans in the same resource group, educators can choose which lab plan to use when creating the lab.|
+|Labs portal experience|Labs are listed under lab accounts in [https://labs.azure.com](https://labs.azure.com).|Labs are listed under resource group name in [https://labs.azure.com](https://labs.azure.com). If there are multiple lab plans in the same resource group, educators can choose which lab plan to use when creating the lab.|
 |Permissions needed to manage labs|To create a lab, someone must be assigned:</br>- **Lab Contributor** role on the lab account.</br>To modify an existing lab, someone must be assigned:</br>- **Reader** role on the lab account.</br>- **Owner** or **Contributor** role on the lab. (Lab creators are assigned the **Owner** role to any labs they create.)|To create a lab, someone must be assigned:</br>- **Owner** or **Contributor** role on the resource group that contains the lab plan.</br>- **Lab Creator** role on the lab plan.</br>To modify an existing lab, someone must be assigned:</br>- **Owner** or **Contributor** role on the lab. (Lab creators are assigned the **Owner** role to any labs they create.)|
 
 ### Migrate from lab account to lab plan
@@ -81,7 +78,7 @@ Most lab plan configurations apply at the time of lab creation.
 - Linked Azure Compute Gallery to export custom VM images to.
 - Give access to educators to create and manage labs.
 
-Configuration that applies at to all labs:
+Configuration that applies to all labs:
 
 - Internal support information for your organization when using Azure Lab Services.
 
@@ -91,6 +88,7 @@ Don't forget to assign user permissions on the lab plan and the lab plan’s res
 
 ## Next steps
 
-- [Create a lab plan](tutorial-setup-lab-plan.md).
-- [Manage your lab plan](how-to-manage-lab-plans.md).
-- [Create a lab](tutorial-setup-lab.md)
+- As an admin, [create a lab plan](tutorial-setup-lab-plan.md).
+- As an admin, [manage your lab plan](how-to-manage-lab-plans.md).
+- As an educator, [create a lab](tutorial-setup-lab.md).
+- As a student, [access a lab](how-to-use-lab.md).
