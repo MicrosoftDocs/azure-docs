@@ -2,11 +2,10 @@
 metadata:
   title: Microsoft Azure VMware Solution FAQ
   description: "Get answers to common questions about Azure VMware Solution."
-  ms.topic: article
+  ms.topic: faq
   ms.service: azure-vmware
   ms.custom: contperf-fy21q4
   ms.date:  09/29/2021
-    
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 

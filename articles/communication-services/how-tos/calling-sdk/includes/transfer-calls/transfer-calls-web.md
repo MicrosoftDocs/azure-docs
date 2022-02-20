@@ -10,7 +10,13 @@ ms.author: rifox
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
-Call transfer is an extended feature of the core `Call` API. You first need to get the transfer feature API object:
+Call transfer is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
+
+```js
+import { Features} from "@azure/communication-calling";
+```
+
+Then you can get the transfer feature API object from the call instance:
 
 ```js
 const callTransferApi = call.feature(Features.Transfer);

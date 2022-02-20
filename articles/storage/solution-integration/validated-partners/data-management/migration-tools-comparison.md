@@ -4,7 +4,7 @@ description: Basic functionality and comparison between tools used for migration
 author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 02/18/2022
 ms.service: storage
 ms.subservice: partner
 ---
@@ -18,6 +18,7 @@ The following comparison matrix shows basic functionality of different tools tha
 |    | [Microsoft](https://www.microsoft.com/) | [Datadobi](https://www.datadobi.com) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) |
 |--- |-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
 |  **Solution name**  | [Azure File Sync](../../../file-sync/file-sync-deployment-guide.md) | [DobiMigrate](https://azuremarketplace.microsoft.com/marketplace/apps/datadobi1602192408529.datadobi-dobimigrate?tab=Overview)              | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Intelligent Data Management](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    |
+| **Support provided by**                 | Microsoft | [Datadobi](https://support.datadobi.com/s/)<sub>1</sub> | [Data Dynamics](https://www.datdynsupport.com/)<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> |
 | **Azure Files support (all tiers)** | Yes                          | Yes                      | Yes            | Yes                            |
 | **Azure NetApp Files support**      | No                           | Yes                      | Yes            | Yes                            |
 | **Azure Blob Hot / Cool support**   | No                           | Yes (via NFS preview)    | Yes            | Yes                            |
@@ -140,6 +141,7 @@ The following comparison matrix shows basic functionality of different tools tha
 
 *List was last verified on March, 31st 2021.*
 
+<sub>1</sub> Support provided by ISV, not Microsoft
 ## See also
 
 - [Storage migration overview](../../../common/storage-migration-overview.md)

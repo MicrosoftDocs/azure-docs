@@ -7,11 +7,12 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/29/2021
+ms.date: 02/16/2022
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Configure anonymous public read access for containers and blobs
