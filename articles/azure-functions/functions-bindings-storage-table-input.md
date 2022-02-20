@@ -20,7 +20,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone pivot="programming-language-csharp"
 
-The usage of the binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
+The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
 
 # [In-process](#tab/in-process)
 
@@ -595,10 +595,9 @@ The [configuration](#configuration) section explains these properties.
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, myQueueItem) {
+module.exports = async function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
     context.log('Person entity name: ' + context.bindings.personEntity.Name);
-    context.done();
 };
 ```
 

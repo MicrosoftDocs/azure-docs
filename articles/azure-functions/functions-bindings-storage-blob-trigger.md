@@ -143,9 +143,8 @@ For more information about *function.json* file properties, see the [Configurati
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function(context) {
+module.exports = async function(context) {
     context.log('Node.js Blob trigger function processed', context.bindings.myBlob);
-    context.done();
 };
 ```
 
@@ -329,9 +328,8 @@ The blob trigger provides several metadata properties. These properties can be u
 Metadata can be obtained from the `bindingData` property of the supplied `context` object, as shown in the following example, which logs the path to the triggering blob (`blobTrigger`), including the container:
 
 ```javascript
-module.exports = function (context, myBlob) {
+module.exports = async function (context, myBlob) {
     context.log("Full blob path:", context.bindingData.blobTrigger);
-    context.done();
 };
 ```
 

@@ -243,7 +243,7 @@ This setting is a child of [logging](#logging). It controls the console logging 
 
 ## cosmosDb
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#hostjson-settings).
 
 ## customHandler
 

@@ -13,7 +13,8 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Azure Event Grid trigger for Azure Functions
 
-Use the function trigger to respond to an event sent to an event grid topic. To learn how to work with the Event 
+Use the function trigger to respond to an event sent to an event grid topic. To learn how to work with the Event Grid trigger.
+
 
 For information on setup and configuration details, see the [overview](./functions-bindings-event-grid.md).
 
@@ -250,12 +251,11 @@ Here's the binding data in the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, eventGridEvent) {
+module.exports = async function (context, eventGridEvent) {
     context.log("JavaScript Event Grid function processed a request.");
     context.log("Subject: " + eventGridEvent.subject);
     context.log("Time: " + eventGridEvent.eventTime);
     context.log("Data: " + JSON.stringify(eventGridEvent.data));
-    context.done();
 };
 ```
 ::: zone-end  

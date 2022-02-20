@@ -1,7 +1,6 @@
 ---
 title: Business Intelligence partners 
 description: Lists of third-party business intelligence partners with solutions that support Azure Synapse Analytics.
-services: synapse-analytics
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
