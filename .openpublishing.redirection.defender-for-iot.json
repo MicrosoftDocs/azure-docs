@@ -569,6 +569,11 @@
             "source_path_from_root": "/articles/defender-for-iot/how-to-configure-with-sentinel.md",
             "redirect_url": "/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-security-agent-authentication.md",
+            "redirect_url": "/azure/defender-for-iot/device-builders/tutorial-standalone-agent-binary-installation",
+            "redirect_document_id": false
         }
     ]
 }

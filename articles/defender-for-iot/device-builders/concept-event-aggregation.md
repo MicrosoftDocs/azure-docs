@@ -9,19 +9,13 @@ ms.topic: conceptual
 
 Defender for IoT security agents collects data, and system events from your local device, and sends the data to the Azure cloud for processing, and analytics. The Defender for IoT micro agent collects many types of device events including new processes, and all new connection events. Both the new process, and new connection events may occur frequently on a device. This capability is important for comprehensive security, however, the number of messages the security agents send may quickly meet, or exceed your IoT Hub quota, and cost limits. These messages, and events contain highly valuable security information that is crucial to protecting your device.
 
-To reduce the number of messages, and costs while maintaining your device's security, Defender for IoT agents aggregates the following types of events:
+To reduce the number of messages, and costs while maintaining your device's security, Defender for IoT agents aggregate the following types of events:
 
 - ProcessCreate (Linux only)
 
-- Login activity (Linux only)
-
 - Network ConnectionCreate
 
-- System information
-
-- Baseline
-
-Event-based collectors are collectors that are triggered based on corresponding activity from within the device. For example, ``a process was started in the device``.  
+Event-based collectors are collectors that are triggered based on corresponding activity from within the device. For example, ``a process was started in the device``.
 
 Triggered based collectors are collectors that are triggered in a scheduled manner based on the customer's configurations.
 
@@ -134,6 +128,20 @@ The data collected for each event is:
 | **Description** | The description of the check from CIS. |
 | **Remediation** | The recommendation for remediation from CIS. |
 | **Severity** | The severity level. |
+
+## SBoM (trigger based)
+
+The SBoM (Software Bill of Materials) collector collects the packages installed on the device periodically.
+
+The data collected on each package includes:
+
+|Parameter  |Description  |
+|---------|---------|
+|**Name**     |   The package name      |
+|**Version**     |  The package version       |
+|**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages     |
+|     |         |
+
 
 ## Next steps
 
