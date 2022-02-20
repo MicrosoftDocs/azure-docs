@@ -25,6 +25,12 @@ During the interactive retention period, data is available for monitoring, troub
 > [!NOTE]
 > The archive feature is currently in public preview and can only be set at the table level, not at the workspace level.
 
+## Cost
+
+The charge for data retention is by day. The cost of retaining data for part of a day is the same as a full day.
+
+For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
 ## Configure the default workspace retention policy
 You can set the workspace default retention policy in the Azure portal to 30, 31, 60, 90, 120, 180, 270, 365, 550, and 730 days. To set a different policy, use the Resource Manager configuration method described below. If you're on the *free* tier, you need to upgrade to the paid tier to change the data retention period.
 
@@ -54,7 +60,7 @@ Note that the table name is case-sensitive.
 
 ### Get retention and archive policy by table
 
-Call the **Tables - Get** API to get the retention policy of a particular table (in this example, `SecurityEvent`):
+To get the retention policy of a particular table (in this example, `SecurityEvent`), Call the **Tables - Get** API:
 
 ```JSON
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview

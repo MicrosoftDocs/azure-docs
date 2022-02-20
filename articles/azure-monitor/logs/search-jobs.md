@@ -35,9 +35,9 @@ The search job results table is a [Log Analytics](log-analytics-workspace-overvi
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
 ## Cost
-The charge for a search job is based on the amount of data within the search job time span. 
+The charge for a search job is based on the amount of data within the search job time span and the number of days the data is available. The cost of retaining data for part of a day is the same as for a full day. 
 
-For example, if your table holds 500 GB per day, for a query on three days, you will be charged for 1500 GB of ingested data. 
+For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of ingested data each day you keep the search results. For this reason, we recommend deleting the search job table when you're done querying the data. 
 
 > [!NOTE]
 > There is no charge for search jobs during the public preview. However, you will be charged for data ingestion.

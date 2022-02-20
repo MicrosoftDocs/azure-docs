@@ -13,10 +13,10 @@ ms.date: 01/13/2022
 [Basic Logs](log-analytics-workspace-overview.md#log-data-plans-preview) in Azure Monitor reduce the cost of high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts. This article describes how to configure Basic Logs for a particular table in your Log Analytics workspace.
 
 > [!IMPORTANT]
-> Switching between plans is limited to once a week.
+> You can switch plans once a week.
 
 ## Which tables support Basic Logs?
-All tables in your Log Analytics are Analytics tables, by default. You can configure particular tables to use Basic Logs. You cannot configure a table for Basic Logs if Azure Monitor relies on that table for specific features.
+All tables in your Log Analytics are Analytics tables, by default. You can configure particular tables to use Basic Logs. You can't configure a table for Basic Logs if Azure Monitor relies on that table for specific features.
 
 You can currently configure the following tables for Basic Logs:
 
@@ -26,20 +26,15 @@ You can currently configure the following tables for Basic Logs:
 
 > [!NOTE]
 > Tables created with the [Data Collector API](data-collector-api.md) do not support Basic Logs.
-## Data retention and archiving of Basic Logs
-
-Analytics tables retain data based on a [retention and archive policy](data-retention-archive.md) you set.
-
-Basic Logs tables retain data for eight days. When you change the configuration of an existing table from Analytics to Basic Logs, Azure archives data that is more than eight days old but still within the original retention period you set.
 
 ## Set table configuration
-Call the **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#configure-basic-logs-and-analytics-tables) to configure a table for Basic Logs or Analytics Logs:
+To configure a table for Basic Logs or Analytics Logs, call the **Tables - Update** API:
 
 ```http
 PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/tables/<tableName>?api-version=2021-12-01-preview
 ```
 > [!IMPORTANT]
-> You need to use the Bearer token for authentication. [Read More](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx)
+> Use the Bearer token for authentication. Read more about [using Bearer tokens](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx).
 
 ### Request Body
 |Name | Type | Description |
@@ -96,7 +91,9 @@ Status code: 200
 
 
 ## Check table configuration
-You can check the configuration of a particular table in the Azure portal: 
+# [Portal](#tab/portal-1)
+
+To check the configuration of a table in the Azure portal: 
 
 1. From the **Azure Monitor** menu, select **Logs** and select your workspace for the [scope](scope.md). See [Log Analytics tutorial](log-analytics-tutorial.md#view-table-information) for a walkthrough.
 1. Open the **Tables** tab, which lists all tables in the workspace. 
@@ -108,14 +105,17 @@ You can check the configuration of a particular table in the Azure portal:
     You can also hover over a table name for the table information view. This will specify that the table is configured as Basic Logs:
     
     ![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png)
-    
-You can also call the **Tables - Get** API to check whether the table is configured as _Basic Logs_ or _Analytics Logs_.
+
+# [API](#tab/api-2)
+
+To check the configuration of a table, call the **Tables - Get** API:
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
 ```
 
-### Response Body
+**Response Body**
+
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.plan | string  | The table plan. Either "Analytics" or "Basic". |
@@ -124,13 +124,15 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 |properties.archiveRetentionInDays|integer|The table's archive period (read-only, calculated).|
 |properties.lastPlanModifiedDate|String|Last time when plan was set for this table. Null if no change was ever done from the default settings (read-only) 
 
-### Sample Request
+**Sample Request**
+
 ```http
 GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
 ```
 
 
-### Sample Response 
+**Sample Response**
+ 
 Status code: 200
 ```http
 {
@@ -147,6 +149,13 @@ Status code: 200
     "name": "ContainerLog"
 }
 ```
+
+## Retention and archiving of Basic Logs
+
+Analytics tables retain data based on a [retention and archive policy](data-retention-archive.md) you set.
+
+Basic Logs tables retain data for eight days. When you change the configuration of an existing table from Analytics to Basic Logs, Azure archives data that is more than eight days old but still within the original retention period you set.
+
 
 ## Next steps
 

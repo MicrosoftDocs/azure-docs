@@ -25,9 +25,9 @@ The restore operation creates the restore table and allocates additional compute
 The destination table provides a view of the underlying source data, but does not affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
 
 ## Cost
-The charge for the restore operation is based on the volume of the data you restore and the amount of time the data is available. 
+The charge for the restore operation is based on the volume of data you restore and the number of days the data is available. The cost of retaining data for part of a day is the same as for a full day.
 
-For example, if your table holds 500 GB a day and you restore 10 days days of data, you will be charged for 5000 GB a day until you dismiss the restored data.
+For example, if your table holds 500 GB a day and you restore 10 days days of data, you'll be charged for 5000 GB a day until you dismiss the restored data. 
 
 > [!NOTE]
 > There is no charge for restored data during the preview period.
