@@ -18,12 +18,10 @@ Use a search job when the log query timeout of 10 minutes is not enough time to 
 
 Search jobs also let you retrieve records from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) tables into a new log table you can use for queries. In this way, running a search job can be an alternative to:
 
-- [Restoring data from Archived Logs](restore.md) for a specific time range. 
-
+- [Restoring data from Archived Logs](restore.md) for a specific time range.<br/>
     Use restore when you have a temporary need to run many queries on a large volume of data. 
 
-- Querying Basic Logs directly and paying for each query. 
-
+- Querying Basic Logs directly and paying for each query.<br/>
     To decide which alternative is more cost-effective, compare the cost of querying Basic Logs with the cost of performing a search job and storing the resulting data based on your needs.
 
 ## What does a search job do?
