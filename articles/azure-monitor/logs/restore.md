@@ -24,30 +24,8 @@ The restore operation creates the restore table and allocates additional compute
 
 The destination table provides a view of the underlying source data, but does not affect it in any way. The table has no retention setting, and you must explicitly [dismiss the restored data](#dismiss-restored-data) when you no longer need it. 
 
-## Cost
-The charge for the restore operation is based on the volume of the data you restore and the amount of time the data is available. 
-
-For example, if your table holds 500 GB a day and you restore 10 days days of data, you will be charged for 5000 GB a day until you dismiss the restored data.
-
-> [!NOTE]
-> There is no charge for restored data during the preview period.
-
-For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
-## Limitations
-Restore is subject to the following limitations. 
-
-You can: 
-
-- Restore data for a minimum of two days.
-- Restore data more than 14 days old.
-- Restore up to 60TB.
-- Perform up to four restores per workspace per week. 
-- Run up to two restore processes in a workspace concurrently.
-- Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore will fail. 
-
 ## Restore data using API
-Call the **Tables - Create** or **Tables - Update** API to restore data from a table:
+Call the **Tables - Create or Update** API to restore data from a table:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
@@ -94,18 +72,38 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 ## Dismiss restored data
 
-To save costs, dismiss restored data when you longer need it by deleting the restored table.
+To save costs, dismiss restored data when you no longer need it by deleting the restored table.
 
+To delete a restore table, call the **Tables - Delete** API:
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
+```
 Deleting the restored table does not delete the data in the source table.
 
 > [!NOTE]
 > Restored data is available as long as the underlying source data is available. When you delete the source table from the workspace or when the source table's retention period ends, the data is dismissed from the restored table. However, the empty table will remain if you do not delete it explicitly.   
 
-Call the **Tables - Delete** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#delete-a-table) to delete a (logical) restore table.
+## Limitations
+Restore is subject to the following limitations. 
 
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
-```
+You can: 
+
+- Restore data for a minimum of two days.
+- Restore up to 60TB.
+- Perform up to four restores per workspace per week. 
+- Run up to two restore processes in a workspace concurrently.
+- Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore will fail. 
+
+## Pricing
+The charge for the restore operation is based on the volume of data you restore and the number of days the data is available. The cost of retaining data for part of a day is the same as for a full day.
+
+For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you dismiss the restored data. 
+
+> [!NOTE]
+> There is no charge for restored data during the preview period.
+
+For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Next steps
 

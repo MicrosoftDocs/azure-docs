@@ -54,14 +54,11 @@ Note that the table name is case-sensitive.
 
 ### Get retention and archive policy by table
 
-Call the **Tables - Get** API to get the retention policy of a particular table (in this example, `SecurityEvent`):
+To get the retention policy of a particular table (in this example, `SecurityEvent`), Call the **Tables - Get** API:
 
 ```JSON
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview
 ```
-
-> [!NOTE]
-> This call only returns the retention policy if you set the policy at the table level. If you haven't set a table-level retention policy, this call won't return anything for the table. 
 
 To get all table-level retention policies in your workspace, don't set a table name; for example:
 
@@ -70,11 +67,15 @@ GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResource
 ```
 ### Set the retention and archive policy for a table
 
-Use the **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#set-the-data-retention-time-for-a-table) to set the retention and archive duration for a table. You don't actually specify the archive duration. Instead, set the total retention, which specifies the retention plus the archive duration.
+To set the retention and archive duration for a table, call the **Tables - Update** API: 
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
 ```
+
+> [!NOTE]
+> You don't explicitly specify the archive duration in the API call. Instead, you set the total retention, which specifies the retention plus the archive duration.
+
 
 You can use either PUT or PATCH, with the following difference: 
 
@@ -87,7 +88,7 @@ The request body includes the values in the following table.
 
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value 8 is always. | 
+|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value is always 8. | 
 |properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Set this property to null if you don't want to archive data.  | 
 
 #### Example
@@ -151,6 +152,12 @@ Tables related to Application Insights resources also keep data for 90 days at n
 - `AppRequests`
 - `AppSystemEvents`
 - `AppTraces`
+
+## Pricing
+
+You'll be charged for each day you retain data. The cost of retaining data for part of a day is the same as for a full day.
+
+For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Next steps
 - [Learn more about Log Analytics workspaces and data retention and archive.](log-analytics-workspace-overview.md)
