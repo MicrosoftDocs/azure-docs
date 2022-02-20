@@ -96,7 +96,7 @@ Follow the steps below to create your GCP cloud connector.
     
     | CSPM | Defender for Containers|
     |--|--|
-    | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool | Microsoft Defender Containers’ service account role, <br> Microsoft Defender Data Collector service account role <br> microsoft defender for cloud identity pool <br> Identity federation providers <br>  - containers <br> - containers-datapipeline |
+    | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool | Microsoft Defender Containers’ service account role, <br> Microsoft Defender Data Collector service account role <br> microsoft defender for cloud identity pool |
 
 1. Navigate back to the Microsoft Defender for Cloud portal.
 
@@ -110,9 +110,11 @@ Follow the steps below to create your GCP cloud connector.
 
 ## (Optional) Configure selected plans
 
-By default, all plans are toggled to `On`, on the plans select screen. To get the full security value out of Defender for Containers, and to fully protect GCP clusters all plans should be left toggled to `On`.
+By default, all plans are toggled to `On`, on the plans select screen.
 
 :::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on.":::
+
+### Configure the Servers plan
 
 **To configure the Servers plan**:
 
@@ -127,6 +129,10 @@ By default, all plans are toggled to `On`, on the plans select screen. To get th
     :::image type="content" source="media/quickstart-onboard-gcp/auto-provision-screen.png" alt-text="Screenshot showing the toggle switches for the Servers plan.":::
 
 1. Select **Save**.
+
+### Configure the Containers plan
+
+To get the full security value out of Defender for Containers, and to fully protect GCP clusters all plans should be left toggled to `On`.
 
 **To configure the Containers plan**:
 
