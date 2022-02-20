@@ -107,6 +107,28 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Select the **Create** button. 
 
+## (Optional) Configure selected plans
+
+By default, all plans are toggled to `On`, on the plans select screen.
+
+:::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on.":::
+
+### Configure the Servers plan
+
+**To configure the Servers plan**:
+
+1. Follow the steps to [Connect your GCP project](#connect-your-gcp-account).
+
+1. On the Select plans screen select **View configuration**.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/view-configuration.png" alt-text="Screenshot showing where to click to configure the Servers plan.":::
+
+1. On the Auto provisioning screen, toggle the switches on, or off depending on your need.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/auto-provision-screen.png" alt-text="Screenshot showing the toggle switches for the Servers plan.":::
+
+1. Select **Save**.
+
 ::: zone-end
 
 ::: zone pivot="classic-connector"
