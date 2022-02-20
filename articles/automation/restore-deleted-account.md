@@ -20,7 +20,7 @@ To recover a storage account, ensure that the following conditions are met:
 > [!NOTE]
 > You can't recover your Automation account if the resource group is deleted.
 
-## Recover a deleted Automation from the Azure portal
+## Recover a deleted Automation account from Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to your Automation account.
