@@ -1,17 +1,17 @@
 ---
 title: Ingestion-time data transformation in Microsoft Sentinel
 description: Learn about how Azure Monitor's ingestion-time data transformation features can help you stream custom data into Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: yelevin
+ms.author: yelevin
 ms.topic: conceptual
-ms.date: 02/01/2022
+ms.date: 02/17/2022
 ---
 
 # Data transformation in Microsoft Sentinel
 
-Azure Monitor's Log Analytics serves as the platform behind the Microsoft Sentinel workspace. All logs streamed into Microsoft Sentinel are stored in Log Analytics by default. From Microsoft Sentinel, you can access the ingested logs and run Kusto Query Language (KQL) queries to investigate threats and monitor your network activity.
+Azure Monitor's Log Analytics serves as the platform behind the Microsoft Sentinel workspace. All logs ingested into Microsoft Sentinel are stored in Log Analytics by default. From Microsoft Sentinel, you can access the stored logs and run Kusto Query Language (KQL) queries to detect threats and monitor your network activity.
 
-Log Analytics supports ingestion-time data transformation, which provides customers with more control over the ingested data. Ingestion-time transformation provides the ability to filter and enrich standard tables even before data is stored in your workspace. Data collection rules (DCRs) provide extra support for creating customized output tables, including specific column names and types.
+Log Analytics supports ingestion-time data transformation, which provides customers with more control over the ingestion of data. Ingestion-time transformation provides the ability to filter and enrich standard log formats even before the data is stored in tables in your workspace. Data collection rules (DCRs) provide extra support for creating customized output tables, including specifying column names and types.
 
 ## Use cases and sample scenarios
 
@@ -19,7 +19,7 @@ Log Analytics supports ingestion-time data transformation, which provides custom
 
 Ingestion-time transformation provides you with the ability to filter out irrelevant data before it's even stored in your workspace.
 
-You can filter at the record level, or the column level, by removing the content for specific fields. Filtering out irrelevant data can:
+You can filter at the record (row) level, by specifying criteria for which records to return, or at the field (column) level, by removing the content for specific fields. Filtering out irrelevant data can:
 
 - Help to reduce costs, as you reduce storage requirements
 - Improve analytics and enrich your data with extra information, standardized according to your SOC teams' needs
@@ -64,14 +64,14 @@ Microsoft Sentinel's support for ingestion-time transformation depends on the ty
 
 The following table describes DCR support for Microsoft Sentinel data connector types:
 
-|Data connector type    |DCR support  |
-|------------------|------------------|
-|**AMA standard logs**, such as: <br> - [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)<br>- [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview)<br>- [CEF data](connect-common-event-format.md) <br>- [Syslog data](connect-syslog.md)             |  Standard DCRs       |
-|**MMA standard logs**, such as <br>- [Syslog data](connect-syslog.md) <br>- [CommonSecurityLog](connect-azure-windows-microsoft-services.md)            |   Default DCRs      |
-|[**Diagnostic settings-based connections**](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)       |  Default DCRs, based on the specific data connector's output tables       |
-|**Built-in, service-to-service data connectors**, such as [Amazon S3](connect-aws.md)            |Default DCRs, based on the specific data connector's output tables        |
-|**Custom, [direct API](connect-rest-api-template.md) or [Logstash](connect-logstash.md)-based data connectors**    |  Standard DCRs      |         |
-|**Built-in, API-based data connectors**, such as: <br>- [Codeless data connectors](create-codeless-connector.md)<br>- [Azure Functions-based data connectors](connect-azure-functions-template.md)           | Not currently supported        |
+| Data connector type | DCR support |
+| ------------------- | ----------- |
+| [**AMA standard logs**](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections), such as: <br>- [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)<br>- [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview)<br>- [CEF data](connect-common-event-format.md) <br>- [Syslog data](connect-syslog.md)   | Standard DCRs |
+| [**MMA standard logs**](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections), such as <br>- [Syslog data](connect-syslog.md) <br>- [CommonSecurityLog](connect-azure-windows-microsoft-services.md) | Default DCRs |
+| [**Diagnostic settings-based connections**](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)               | Default DCRs, based on the specific data connector's output tables   |
+| **Built-in, service-to-service data connectors**, <br>- such as [Amazon S3](connect-aws.md)                                                  | Default DCRs, based on the specific data connector's output tables   |
+| **Custom, [direct API](connect-rest-api-template.md) or [Logstash](connect-logstash.md)-based data connectors**                              | Standard DCRs                                                        |
+| **Built-in, API-based data connectors**, such as: <br>- [Codeless data connectors](create-codeless-connector.md)<br>- [Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported        |
 |            |         |
 
 ## Data transformation support for custom data connectors

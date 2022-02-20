@@ -31,12 +31,12 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### Data transformation at ingestion time
 
-Microsoft Sentinel supports the ingestion-time data transformation features provided by Log Analytics. Ingestion-time data transformation can save storage space and enhance performance, enrich or tag your data, or hide personal information in your data even before it's stored in your workspace.
+Microsoft Sentinel supports the ingestion-time data transformation features provided by Log Analytics. Ingestion-time data transformation acts on your data even before it's stored in your workspace. Use it to filter out irrelevant data, saving you storage space, reducing costs, and enhancing performance. You can also use it to enrich or tag your data, or to hide sensitive or personal information.
 
-Use Log Analytics Data Collection Rules (DCRs) to configure your data transformation for the following types of built-in data connectors:
+Use Log Analytics Data Collection Rules (DCRs) to configure data transformation for the following types of built-in data connectors:
 
-- AMA-based data connectors
-- MMA-based data connectors,
+- AMA-based data connectors (based on the new Azure Monitor Agent)
+- MMA-based data connectors (based on the legacy Log Analytics Agent)
 - Data connectors that use Diagnostic settings
 - Service-to-service data connectors
 
