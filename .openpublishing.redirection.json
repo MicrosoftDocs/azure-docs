@@ -22645,6 +22645,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/scheduler/scheduler-intro.md",
+      "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
+      "redirect_document_id": ""
+    },
+    {
       "source_path_from_root": "/articles/scheduler/scheduler-advanced-complexity.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
