@@ -119,10 +119,7 @@ The following example shows several approaches used to provide a list of blobs. 
 storageAccount="<storage-account>"
 containerName="demo-container"
 blobPrefix="img-louis"
-
-$maxCount = 1000
-$total     = 0
-$token     = $Null
+numResults=5
 
 #Approach 1: List all blobs in a named container
 az storage blob list \
@@ -135,7 +132,7 @@ az storage blob list \
 containerList=$( \
     az storage container list \
         --query "[].name" \
-        --num-results 5 \
+        --num-results $numResults \
         --account-name $storageAccount \
         --auth-mode login \
         --output tsv 
@@ -145,15 +142,35 @@ do
     tmpName=$(echo $row | sed -e 's/\r//g')
     echo $tmpName
     az storage blob list \
-    --prefix $blobPrefix \
-    --container $tmpName \
-    --account-name $storageAccount \
-    --auth-mode login
+        --prefix $blobPrefix \
+        --container $tmpName \
+        --account-name $storageAccount \
+        --auth-mode login
 done
 
 #Approach 3: List batches of blobs using --num-results and --marker parameters
 
+containerList=$( \
+    az storage blob list \
+        --container $containerName \
+        --num-results $numResults \
+        --show-next-marker \
+        --output json \
+        --account-name $storageAccount \
+        --auth-mode login
+)
 
+while []
+do
+    echo 
+
+for row in $(echo "${containerList}" | jq -c '.[]' )
+do
+    tmpName=$(echo $row | jq -r '.name')
+    echo $tmpName
+    echo $row
+    echo ""
+done
 ```
 
 ## Download a blob
@@ -260,7 +277,7 @@ metadata=("$metadata Recorded=1958")
 metadata=("$metadata Lyricist=\"Lorenz Hart\"")
 metadata=("$metadata Composer=\"Richard Rogers\"")
 metadata=("$metadata Artist=\"Tony Bennett\"")
-metadata="'$metadata'"
+metadata='"$metadata"'
 
 #Update metadata
 az storage blob metadata update \
@@ -311,8 +328,6 @@ az storage blob copy start \
     --auth-mode login
 ```
 
-
-
 ### Copy a snapshot to a destination blob with a different name
 
 The resulting destination blob is a writeable blob and not a snapshot.
@@ -341,23 +356,46 @@ The following sample code retrieves a blob from a storage container and creates 
 #!/bin/bash
 storageAccount="<storage-account>"
 containerName="demo-container"
+blobName="demo-file.txt"
+
+az storage blob snapshot \
+    --container-name $containerName \
+    --name Blue-Moon.mp3 \
+    --account-name $storageAccount \
+    --auth-mode login
 
 ```
 
 ## Set blob tier
 
-When you change a blob's tier, you move the blob and all of its data to the target tier. To do this, retrieve a blob with the `Get-AzStorageBlob` cmdlet, and call the `BlobClient.SetAccessTier` method. This can be used to change the tier between **Hot**, **Cool**, and **Archive**.  
+When you change a blob's tier, you move the blob and all of its data to the target tier. You can change the tier between **Hot**, **Cool**, and **Archive** with the `az storage blob set-tier` command.
 
-Changing tiers from **Cool** or **Hot** to **Archive** take place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+Depending on your requirements, you may also utilize the *Copy Blob* operation to copy a blob from one tier to another. The *Copy Blob* operation will create a new blob in the desired tier while leaving the source blob remains in the original tier.
 
-The following sample code sets the tier to **Hot** for all blobs within the `archive` container.
+Changing tiers from **Cool** or **Hot** to **Archive** takes place almost immediately. After a blob is moved to the **Archive** tier, it's considered to be offline and can't be read or modified. Before you can read or modify an archived blob's data, you'll need to rehydrate it to an online tier. Read more about [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+
+The following sample code sets the tier to **Hot** for a single, named blob within the `archive` container.
 
 ```azurecli-interactive
 #!/bin/bash
 storageAccount="<storage-account>"
 containerName="demo-container"
 
+az storage blob set-tier 
+    --container-name $containerName \
+    --name Blue-Moon.mp3 \
+    --tier Hot \
+    --account-name $storageAccount \
+    --auth-mode login
 
+az storage blob copy start \
+    --source-container <source-container> \
+    --source-blob <source-blob> \
+    --destination-container <dest-container> \
+    --destination-blob <dest-blob> \
+    --account-name <storage-account> \
+    --tier hot \
+    --auth-mode login
 ```
 
 ## Operations using blob tags
@@ -398,66 +436,161 @@ $data.Venue.Files.ChildNodes | ForEach-Object {
     #set apply the blob tags
     Set-AzStorageBlobTag -Container $location[0] -Blob $location[1] -Tag $tags -Context $ctx
  }
+
+
+for row in $(cat /mnt/c/temp/bloblist.xml); 
+do 
+	echo "${row}";
+done
+
+while read line
+do
+ #echo $line
+ 
+ if echo "$line" | grep -q "<Venue";then
+    echo $line
+    echo "$line" | grep -oPI '(?<=name).*?(?=)'
+
+ fi
+done < /mnt/c/temp/bloblist.xml
+
+
 ```
 
 ## Delete blobs
 
-You can delete either a single blob or series of blobs with the `az storage blob delete` cmdlet. When deleting multiple blobs, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
+You can delete either a single blob or series of blobs with the `az storage blob delete` and `az storage blob delete-batch` commands. When deleting multiple blobs, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
+
+The following sample code provides an example of both single and multiple download approaches. The first example deletes a single, named blob. The second example illustrates the use of logical operations in Bash to delete multiple blobs. The third example uses the `delete-batch` command to delete all blobs with the format *bennett-x* except *bennett-2*.
 
 ```azurecli-interactive
-#Create variables
-$containerName  = "demo-container"
-$blobName       = "demo-file.txt"
-$prefixName     = "file"
+#!/bin/bash
+storageAccount="<storage-account>"
+containerName="demo-container"
+
+blobName="demo-file.txt"
+blobPrefix="sinatra-"
 
 #Delete a single, named blob
-Remove-AzStorageBlob -Blob $blobName -Container $containerName -Context $ctx
+az storage blob delete \
+    --container-name $containerName \
+    --name $blobName \
+    --account-name $storageAccount \
+    --auth-mode login
 
-#Iterate a loop, deleting blobs
-for ($i = 1; $i -le 3; $i++) { 
-    Remove-AzStorageBlob -Blob (-join($prefixName, $i, ".txt")) -Container $containerName -Context $ctx
-} 
+#Iterate a blob list, deleting blobs whose names end with even numbers
 
-#Retrieve blob list, delete using a pipeline
-Get-AzStorageBlob -Prefix $prefixName -Container $containerName -Context $ctx | Remove-AzStorageBlob
+## Get list of containers
+blobList=$(az storage blob list \
+    --query "[].name" \
+    --prefix $blobPrefix \
+    --container-name $containerName \
+    --account-name $storageAccount \
+    --auth-mode login \
+    --output tsv)
+
+## Delete all blobs with the format *bennett-x* except *bennett-2.*
+for row in $blobList
+do
+    #Get the blob's number
+    tmpBlob=$(echo $row | sed -e 's/\r//g') 
+    tmpName=$(echo ${row%.*} | sed -e 's/\r//g')
+
+    if [ `expr ${tmpName: ${#blobPrefix}} % 2` == 0 ]
+    then
+        
+        echo "Deleting $tmpBlob"
+        az storage blob delete \
+            --container-name $containerName \
+            --name $tmpBlob \
+            --account-name $storageAccount \
+            --auth-mode login
+
+  fi
+done
+
+#Delete multiple blobs using delete-batch
+az storage blob delete-batch \
+    --source $containerName \
+    --pattern bennett-[!2].* \
+    --account-name $storageAccount \
+    --auth-mode login
 ```
 
-In some cases, it's possible to retrieve blobs that have been deleted. If your storage account's soft delete data protection option is enabled, the `-IncludeDeleted` parameter will return blobs deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
+In some cases, it's possible to retrieve blobs that have been deleted. If your storage account's soft delete data protection option is enabled, the `--include` parameter will return blobs deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
 
 Use the following example to retrieve a list of blobs deleted within container's associated retention period. The result displays a list of recently deleted blobs.
 
 ```azurecli-interactive
-#Retrieve a list of blobs including those recently deleted
-Get-AzStorageBlob -Prefix $prefixName -IncludeDeleted -Context $ctx
+#!/bin/bash
+storageAccount="<storage-account>"
+containerName="demo-container"
 
-AccountName: demostorageaccount, ContainerName: demo-container
+blobPrefix="sinatra-"
 
-Name       BlobType   Length  ContentType                LastModified          AccessTier    IsDeleted                     
-----       --------   ------  -----------                ------------          ----------    ---------
-file.txt   BlockBlob  22      application/octet-stream   2021-12-16 20:59:41Z  Cool          True
-file2.txt  BlockBlob  22      application/octet-stream   2021-12-17 00:14:24Z  Cool          True
-file3.txt  BlockBlob  22      application/octet-stream   2021-12-17 00:14:24Z  Cool          True
-file4.txt  BlockBlob  22      application/octet-stream   2021-12-17 00:14:25Z  Cool          True
+#Retrieve a list of all deleted blobs
+az storage blob list \
+    --container-name $containerName \
+    --include d \
+    --output table \
+    --account-name $storageAccount \
+    --auth-mode login \
+    --query "[?deleted].{name:name,deleted:properties.deletedTime}"
+
+#Retrieve a list of all blobs matching specific prefix
+az storage blob list \
+    --container-name $containerName \
+    --prefix $blobPrefix \
+    --output table \
+    --include d \
+    --account-name $storageAccount \
+    --auth-mode login \
+    --query "[].{name:name,deleted:deleted}"
 ```
 
 ## Restore a soft-deleted blob
 As mentioned in the [List blobs](#list-blobs) section, you can configure the soft delete data protection option on your storage account. When enabled, it's possible to restore containers deleted within the associated retention period.
 
-The following example explains how to restore a soft-deleted blob with the `az storage blob restore` method. Before you can follow this example, you'll need to enable soft delete and configure it on at least one of your storage accounts.
+The following examples restore soft-deleted blobs with the `az storage blob undelete` method. The first example uses the `--name` parameter to restore a single named blob. The second example uses a loop to restore the remainder of the deleted blobs. Before you can follow this example, you'll need to enable soft delete on at least one of your storage accounts.
 
 To learn more about the soft delete data protection option, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
 
 ```azurecli-interactive
-#Create variables
-$container = "demo-container"
-$prefix    = "file"
+#!/bin/bash
+storageAccount="<storage-account>"
+containerName="demo-container"
+
+blobName="demo-file.txt"
+
+#Restore a single, named blob
+az storage blob undelete \
+    --container-name $containerName \
+    --name $blobName \
+    --account-name $storageAccount \
+    --auth-mode login
  
-#Retrieve all blobs, filter deleted resources, restore deleted
-$blobs = Get-AzStorageBlob -Container "demo-container" -Prefix "file" -Context $ctx -IncludeDeleted
-Foreach($blob in $blobs)
-{
-    if($blob.IsDeleted) { $blob.BlobBaseClient.Undelete() }
-}
+#Retrieve all deleted blobs
+blobList=$( \
+    az storage blob list \
+        --container-name $containerName \
+        --include d \
+        --output tsv \
+        --account-name $storageAccount \
+        --auth-mode login \
+        --query "[?deleted].[name]" \
+)
+
+#Iterate list of deleted blobs and restore
+for row in $blobList
+do
+    tmpName=$(echo $row | sed -e 's/\r//g')
+    echo "Restoring $tmpName"
+    az storage blob undelete \
+        --container-name $containerName \
+        --name $tmpName \
+        --account-name $storageAccount \
+        --auth-mode login
+done
 ```
 
 ## Next steps
