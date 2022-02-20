@@ -60,7 +60,7 @@ Search jobs are subject to the following limitations:
 
 When you reach the record limit, Azure aborts the job with a status of *partial success*, and the table will contain only records ingested up to that point. 
 
-## KQL language limitations
+### KQL language limitations
 Log queries in a search job are intended to scan very large sets of data. To support distribution and segmentation, the queries use a subset of KQL, including the operators: 
 
 - [where](/azure/data-explorer/kusto/query/whereoperator)
