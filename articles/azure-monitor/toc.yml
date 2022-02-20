@@ -282,7 +282,7 @@ items:
         href: logs/data-retention-archive.md
       - name: Run a search job
         href: logs/search-jobs.md
-      - name: Restore archived data
+      - name: Restore logs
         href: logs/restore.md
     - name: Log Analytics
       items:
