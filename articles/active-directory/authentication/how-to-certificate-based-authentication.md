@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/18/2022
 
 ms.author: justinha
 author: justinha
@@ -251,7 +251,7 @@ Let's walk through a scenario where we will validate strong authentication by cr
 1. Because policy OID rule takes precedence over issuer rule, the certificate will satisfy multifactor authentication.
 1. The conditional access policy for the user requires MFA and the certificate satisfies multifactor, so the user will be authenticated into the application.
 
-### Enable Azure AD CBA using Microsoft Graph API
+## Enable Azure AD CBA using Microsoft Graph API
 
 To enable the certificate-based authentication and configure username bindings using Graph API, complete the following steps.
 
@@ -260,7 +260,7 @@ To enable the certificate-based authentication and configure username bindings u
 
 1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
 1. Click **Sign into Graph Explorer** and sign in to your tenant.
-1. Follow the steps to [consent to the _Policy.ReadWrite.AuthenticationMethod_ delegated permission](/graph/graph-explorer/graph-explorer-features.md#consent-to-permissions).
+1. Follow the steps to [consent to the _Policy.ReadWrite.AuthenticationMethod_ delegated permission](/graph/graph-explorer/graph-explorer-features#consent-to-permissions).
 1. GET all authentication methods:
 
    ```http
@@ -270,7 +270,7 @@ To enable the certificate-based authentication and configure username bindings u
 1. GET the configuration for the x509Certificate authentication method:
 
    ```http
-   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate
+   GET https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMethodConfigurations/X509Certificate
    ```
 
 1. By default, the x509Certificate authentication method is disabled. To allow users to sign in with a certificate, you must enable the authentication method and configure the authentication and username binding policies through an update operation. To update policy, run a PATCH request.

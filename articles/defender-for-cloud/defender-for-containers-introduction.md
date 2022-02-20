@@ -147,7 +147,7 @@ When reviewing the outstanding recommendations for your container-related resour
 
 
 
-### Workload protection best-practices using Kubernetes admission control
+### Environment hardening
 
 For a bundle of recommendations to protect the workloads of your Kubernetes containers, install the **Azure Policy for Kubernetes**. You can also auto deploy this component as explained in [enable auto provisioning of agents and extensions](enable-data-collection.md#auto-provision-mma). By default, auto provisioning is enabled when you enable Defender for Containers. 
 
