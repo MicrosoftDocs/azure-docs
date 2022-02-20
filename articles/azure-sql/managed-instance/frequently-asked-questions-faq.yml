@@ -8,12 +8,11 @@ metadata:
   ms.subservice: service-overview
   ms.custom: sqldbrb=1
   ms.devlang: 
-  ms.topic: conceptual
+  ms.topic: faq
   author: MashaMSFT
   ms.author: mathoma
   ms.reviewer: urmilano, danil, nnikolic
   ms.date: 09/21/2020
-    
 title: Azure SQL Managed Instance frequently asked questions (FAQ)
 summary: |
   [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -335,7 +334,7 @@ sections:
           
           ### What if there are not enough IP addresses for performing instance update operation?
           
-          In case there are not enough [IP addresses](connectivity-architecture-overview.md#network-requirements) in the subnet where your managed instance is provisioned, you will have to create a new subnet and a new managed instance inside it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. After the new instance is provisioned, you can manually back up and restore data between the old and new instances or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell).
+          In case there are not enough [IP addresses](connectivity-architecture-overview.md#network-requirements) in the subnet where your managed instance is provisioned, you will have to create a new subnet and move the managed instance to it. We also suggest that the new subnet is created with more IP addresses allocated so future update operations will avoid similar situations. Learn how to [move Azure SQL Managed Instance across subnets](./vnet-subnet-move-instance.md).
           
           ### Do I need an empty subnet to create a Managed Instance?
           

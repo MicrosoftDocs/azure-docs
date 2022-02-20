@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 02/16/2022
 
 ms.author: justinha
 author: justinha
@@ -31,7 +31,7 @@ This article outlines what combined security registration is. To get started wit
 
 Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to prepare your users for the new experience and help to ensure a successful rollout.
 
-Azure AD combined security information registration is available for Azure US Government but not Azure Germany or Azure China 21Vianet.
+Azure AD combined security information registration is available for Azure US Government but not Azure China 21Vianet.
 
 > [!IMPORTANT]
 > Users that are enabled for both the original preview and the enhanced combined registration experience see the new behavior. Users that are enabled for both experiences see only the My Account experience. The *My Account* aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Account by going to [https://myaccount.microsoft.com](https://myaccount.microsoft.com).

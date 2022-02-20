@@ -2,7 +2,7 @@
 title: Set up Azure Backup Server for Azure VMware Solution
 description: Set up your Azure VMware Solution environment to back up virtual machines using Azure Backup Server.
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 02/16/2022
 ---
 
 # Set up Azure Backup Server for Azure VMware Solution
@@ -26,7 +26,7 @@ This article helps you prepare your Azure VMware Solution environment to back up
 
 ## Supported VMware features
 
-- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter or ESXi server to back up the VM. Instead, provide the IP address or fully qualified domain name (FQDN) and the sign-in credentials used to authenticate the VMware server with Azure Backup Server.
+- **Agentless backup:** Azure Backup Server doesn't require an agent to be installed on the vCenter or ESXi server to back up the VM. Instead, provide the IP address or fully qualified domain name (FQDN) and the sign in credentials used to authenticate the VMware server with Azure Backup Server.
 - **Cloud-integrated backup:** Azure Backup Server protects workloads to disk and the cloud. The backup and recovery workflow of Azure Backup Server helps you manage long-term retention and offsite backup.
 - **Detect and protect VMs managed by vCenter:** Azure Backup Server detects and protects VMs deployed on a vCenter or ESXi server. Azure Backup Server also detects VMs managed by vCenter so that you can protect large deployments.
 - **Folder-level auto protection:** vCenter lets you organize your VMs in VM folders. Azure Backup Server detects these folders. You can use it to protect VMs at the folder level, including all subfolders. When protecting folders, Azure Backup Server protects the VMs in that folder and protects VMs added later. Azure Backup Server detects new VMs daily, protecting them automatically. As you organize your VMs in recursive folders, Azure Backup Server automatically detects and protects the new VMs deployed in the recursive folders.
@@ -63,17 +63,9 @@ Ensure that you [configure networking for your VMware private cloud in Azure](tu
 
 ### Determine the size of the VM
 
-Follow the instructions in the [Create your first Windows VM in the Azure portal](../virtual-machines/windows/quick-create-portal.md) tutorial.  You'll create the VM in the virtual network, which you created in the previous step. Start with a gallery image of Windows Server 2019 Datacenter to run the Azure Backup Server. 
+Use the [MABS Capacity Planner](https://www.microsoft.com/download/details.aspx) to determine the correct VM size. Based on your inputs, the capacity planner will give you the required memory size and CPU core count. Use this information to choose the appropriate Azure VM size. The capacity planner also provides total disk size required for the VM along with the required disk IOPS. We recommend using a standard SSD disk for the VM. By pooling more than one SSD, you can achieve the required IOPS.
 
-The table summarizes the maximum number of protected workloads for each Azure Backup Server VM size. The information is based on internal performance and scale tests with canonical values for the workload size and churn. The actual workload size can be larger but should be accommodated by the disks attached to the Azure Backup Server VM.
-
-| Maximum protected workloads | Average workload size | Average workload churn (daily) | Minimum storage IOPS | Recommended disk type/size      | Recommended VM size |
-|-------------------------|-----------------------|--------------------------------|------------------|-----------------------------------|---------------------|
-| 20                      | 100 GB                | Net 5% churn                   | 2,000             | Standard HDD (8 TB or above size per disk)  | A4V2       |
-| 40                      | 150 GB                | Net 10% churn                  | 4,500             | Premium SSD* (1 TB or above size per disk) | DS3_V2     |
-| 60                      | 200 GB                | Net 10% churn                  | 10,500            | Premium SSD* (8 TB or above size per disk) | DS3_V2     |
-
-*To get the required IOPs, use minimum recommended- or higher-size disks. Smaller-size disks offer lower IOPs.
+Follow the instructions in the [Create your first Windows VM in the Azure portal](../virtual-machines/windows/quick-create-portal.md) tutorial.  You'll create the VM in the virtual network that you created in the previous step. Start with a gallery image of Windows Server 2019 Datacenter to run the Azure Backup Server. 
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You can't install Azure Backup Server on a computer that:
@@ -255,7 +247,7 @@ If you downloaded the software package to a different server, copy the files to 
 
    **Manual configuration**
 
-   When you use your own SQL Server instance, make sure you add builtin\Administrators to the sysadmin role to the master database's sysadmin role.
+   When you use your own SQL Server instance, make sure you add builtin\Administrators to the sysadmin role to the main database sysadmin role.
 
    **Configure reporting services with SQL Server 2017**
 
@@ -353,7 +345,7 @@ Azure Backup Server v3 only accepts storage volumes. When you add a volume, Azur
 
 ## Next steps
 
-Now that you've covered how to set up Azure Backup Server for Azure VMware Solution, you may want to learn about:
+Now that you've covered how to set up Azure Backup Server for Azure VMware Solution, you can use the following resources to learn more.
 
 - [Configuring backups for your Azure VMware Solution VMs](backup-azure-vmware-solution-virtual-machines.md).
 - [Protecting your Azure VMware Solution VMs with Microsoft Defender for Cloud integration](azure-security-integration.md).
