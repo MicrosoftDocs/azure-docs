@@ -1843,7 +1843,7 @@ Array of JSON objects that represent devices.
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
 | **Name** | String | No |  |
-| **Addresses** | JSON array | Yes | Master, or numeric values |
+| **Addresses** | JSON array | Yes | `Master`, or numeric values |
 
 #### Firmware fields
 
@@ -2125,7 +2125,7 @@ Array of JSON objects that represent devices.
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
 | Name | String | No | - |
-| Addresses | JSON array | Yes | Master, or numeric values |
+| Addresses | JSON array | Yes | `Master`, or numeric values |
 
 #### Firmware fields
 
@@ -2724,7 +2724,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
     - “**timestamp**” – the time from which updates are required, only later updates will be returned.
 
 - Query parameters:
-    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The Id should be taken from the results of the Sensors API.
+    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The ID should be taken from the results of the Sensors API.
     - “**notificationType**” - should be a number, from the following mapping:
         - 0 – both updated and new devices (default).
         - 1 – only new devices.
@@ -2757,8 +2757,8 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Structure: 
     - “**u_count**” - amount of object in the full result sets, including all pages.
     - “**u_connections**” - array of
-        - “**u_src_device_id**” - the Id of the source device.
-        - “**u_dest_device_id**” - the Id of the destination device.
+        - “**u_src_device_id**” - the ID of the source device.
+        - “**u_dest_device_id**” - the ID of the destination device.
         - “**u_connection_type**” - one of the following:
             - “**One Way**”
             - “**Two Way**”
@@ -2771,7 +2771,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Path: “/device/{deviceId}”
 - Method type: GET
 - Path parameters:
-    - “**deviceId**” – the Id of the requested device.
+    - “**deviceId**” – the ID of the requested device.
 
 #### Response
 

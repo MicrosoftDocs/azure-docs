@@ -986,7 +986,7 @@ The following procedure describes how to configure the Nuvo 5006LP BIOS. Make su
 
 1. Navigate to **Power** and change Power On after Power Failure to S0-Power On.
 
-    :::image type="content" source="media/tutorial-install-components/nuvo-power-on.png" alt-text="Change you Nuvo 5006 to power on after a power failure..":::
+    :::image type="content" source="media/tutorial-install-components/nuvo-power-on.png" alt-text="Change your Nuvo 5006 to power on after a power failure.":::
 
 1. Navigate to **Boot** and ensure that **PXE Boot to LAN** is set to **Disabled**.
 

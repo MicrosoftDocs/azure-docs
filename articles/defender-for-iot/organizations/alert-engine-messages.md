@@ -9,9 +9,6 @@ ms.topic: how-to
 
 This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to help map alerts into playbooks, define Forwarding rules, Exclusion rules, and custom alerts and define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event.
 
-> [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, it will be removed from this article.
-
  ### Alert news
 
 New alerts may be added and existing alerts may be updated or disabled. Certain disabled alerts can be re-enabled from the Support page of the sensor console. Alerts tht can be re-enabled are marked with an asterisk (*) in the tables below.

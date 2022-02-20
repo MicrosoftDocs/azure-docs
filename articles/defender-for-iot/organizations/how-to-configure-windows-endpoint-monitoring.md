@@ -24,7 +24,7 @@ Before you begin scanning, create a firewall rule that allows outgoing traffic f
 
 1. In Defender for Cloud select **System Settings**.
 1. Under **Network monitoring**, select **Windows Endpoint Monitoring (WMI)**
-1. In the **Windows Endpoing Monitoring (WMI) dialog, select **Add ranges**. You can also import and export ranges.
+1. In the **Windows Endpoint Monitoring (WMI) dialog, select **Add ranges**. You can also import and export ranges.
 1. Specify the IP address range you want to scan. You can add multiple ranges.
 1. Add your user name and password, and ensure that **Enable** is toggled on.
 1. In **Scan will run**, specify when you want the automatic scan to run. You can set an hourly interval between scans, or a specific scan time.

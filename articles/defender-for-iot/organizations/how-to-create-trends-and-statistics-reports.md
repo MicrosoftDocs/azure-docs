@@ -7,67 +7,39 @@ ms.topic: how-to
 
 # Create trends and statistics dashboards
 
-You can create dashboards to get insight into network trends and statistics.
-
-## Dashboards
-
-Dashboard | Details
---- | ---
-Channels Bandwidth |
-Traffic by Port
-Top Traffic by Port
-Total Bandwidth
-New devices
-Modbus Traffic by Function
-SRTP Traffic by Service Code
-SRTP Erros By Day
-DNP3 Traffic By Function
-Busy Devices
-S7 Traffic by Control Function
-S7 Traffic by Sub-Function
-OPC-UA Traffic By Service
-Active TCP Connections
-Incidents By Type
-MMS Traffic By Service
-IEC-60870 Traffic By ASDU
-Devices By Vendor
-Devices By OT Protocols
-EtherNet/IP Traffic By CIP Service
-EtherNet/IP Traffic By CIP Class
-EtherNet/IP Traffic By Command
-Disconnected Devices
-Devices By Operating System
-Database Tables Access
-
-
+This article describes how to create dashboards on your sensor console to get insight into network trends and statistics.
 
 
 ## Before you start
 
 You need Administrator or Security Analyst permissions to create dashboards.
 
-T
-
-> [!NOTE]
->  The time in the widgets is set according to the sensor time.
-
 ## Create dashboards
 
-You can create many different types of dashboard. Based on traffic, device state, alerts, connectivity, and protocol. 
+You can create many different types of dashboard. Based on traffic, device state, alerts, connectivity, and protocol.
 
-1. In Defender for IoT, select **Trends & Statistics**.
-1. Select **Create Dashboard**.
-1. In the **Create Dashboard** dialog, type in a dashboard name, and in the **Dashboard widget type** dropdown menu, select a dashboard type. Each dashboard type has a description, and indicates whether it focuses on operations, security, or traffic.
-1. After selecting a dashboard type, by results are displayed for detections over the last seven days. You can use filter tools change this range. 
+1. On your Defender for IoT sensor console, select **Trends & Statistics** > **Create Dashboard**.
 
-Each dashboard widget you create contains specific information about traffic, device state, alert information, connectivity status, or protocols. A message indicates if there's no data available for a widget. After setting you a dashboard, you can edit the dashboard name if needed, and add/remove types from the dashboard.
+1. In the **Create Dashboard** pane that appears  on the right:
 
+    - In the **Dashboard name** field, enter a meaningful name for your dashboard.
+    - (Optional) Filter the widgets displayed by selecting a category or protocol from the **Dashboard widget type** menu.
+    - Scroll down as needed and select the widget you want to add. Each widget has a short description and indicates whether it focuses on operations, security, or traffic.
+    - Select **Save** to start your new dashboard.
 
-## Examples
+1. Your widget is added to the new dashboard. Use the toolbar at the top of page to continue modifying your dashboard.
 
-This table summarizes examples of use cases for some common widgets.
+By default, results are displayed for detections for over the last seven days. Select the **Filter** button at the top left of each widget to change this range.
 
-Widget | Details
+> [!NOTE]
+> The time shown in the widget is set according to the sensor machine's time.
+>
+
+## Sample widgets
+
+The following table summarizes common use cases for dashboard widgets.
+
+Widget name | Sample use case
 --- | ---
 Busy devices | Lists the five busiest devices. In **Edit** mode, you can filter by known protocols.
 Total bandwidth | Tracks the bandwidth in Mbps (megabits per second). The bandwidth is indicated on the y-axis, with the date appearing on the x-axis. **Edit** mode allows you to filter results.

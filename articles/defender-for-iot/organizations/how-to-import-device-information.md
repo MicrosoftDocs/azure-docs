@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Sensors monitor and analyze device traffic. In some cases, because of network policies, some information might not be transmitted. In this case, you can import data and add it to device information that's already detected. You have two options for import:
 
-- **Import from the device map*: Import device names, type, group, or Purdue layer to the device map.
+- **Import from the device map**: Import device names, type, group, or Purdue layer to the device map.
 - **Import from import settings**: Import device IP address, operating system, patch level, or authorization status to the device map.
 
 ## Import from the device map
@@ -41,7 +41,7 @@ Import data as follows:
 ### Import authorization status:**
 
 1. Download the [Authorization file](https://download.microsoft.com/download/8/2/3/823c55c4-7659-4236-bfda-cc2427be2cee/CSS/authorized_devices%20-%20example.csv)  and save as a CSV file.
-1. IIn the authorized_devices sheet, specify the device IP address.
+1. In the authorized_devices sheet, specify the device IP address.
 1. Specify the authorized device name. Make sure that names are accurate. Names given to the devices in the imported list overwrite names shown in the device map.
 1. In **System settings**, under **Import settings**, select **Authorized devices** to import. Select **Add** and upload the CSV file that you prepared.
 
