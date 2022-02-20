@@ -26,7 +26,7 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 
 AzAcSnap v5.1 Preview (Build: 20220220.55340) has been released with the following fixes and improvements:
 
-- Resolved failure in matching `--dbsid` command line option with `sid` entry in the JSON configuration file for Oracle databases.
+- Resolved failure in matching `--dbsid` command line option with `sid` entry in the JSON configuration file for Oracle databases when using the `-c restore` command.
 
 Download the [latest release of the Preview installer](https://aka.ms/azacsnap-preview-installer) and read about the new features and how to use the [AzAcSnap Preview](azacsnap-preview.md).
 
