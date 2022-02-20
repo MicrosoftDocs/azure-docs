@@ -116,7 +116,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 {
     {
     "properties": {
-        "retentionInDays": 30
+        "retentionInDays": 30,
         "totalRetentionInDays": 30,
         "archiveRetentionInDays": 0,
         "plan": "Analytics",
