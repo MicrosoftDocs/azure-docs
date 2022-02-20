@@ -118,7 +118,7 @@ By default, all plans are toggled to `On`, on the plans select screen.
 
 **To configure the Servers plan**:
 
-1. Follow the steps to [Connect your GCP project](#connect-your-gcp-account).
+1. Follow the steps to [Connect your GCP project](#connect-your-gcp-project).
 
 1. On the Select plans screen select **View configuration**.
 
