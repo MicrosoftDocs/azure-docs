@@ -150,6 +150,8 @@ Status code: 200
 }
 ```
 
+---
+
 ## Retention and archiving of Basic Logs
 
 Analytics tables retain data based on a [retention and archive policy](data-retention-archive.md) you set.
