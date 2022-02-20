@@ -1,13 +1,13 @@
 ---
-title: Connect your GCP account to Microsoft Defender for Cloud
+title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 02/16/2022
+ms.date: 02/20/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
 
-#  Connect your GCP accounts to Microsoft Defender for Cloud
+#  Connect your GCP projects to Microsoft Defender for Cloud
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -15,7 +15,7 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Adding a GCP account to an Azure subscription connects Defender for Cloud with GCP Security Command. Defender for Cloud can then protect your resources across both of these cloud environments and provide:
+Adding a GCP project to an Azure subscription connects Defender for Cloud with GCP Security Command. Defender for Cloud can then protect your resources across both of these cloud environments and provide:
 
 - Detection of security misconfigurations
 - A single view showing Defender for Cloud recommendations and GCP Security Command Center findings
@@ -23,7 +23,7 @@ Adding a GCP account to an Azure subscription connects Defender for Cloud with G
 - Integration of GCP Security Command Center recommendations based on the CIS standard into the Defender for Cloud's regulatory compliance dashboard
 
 > [!IMPORTANT]
-> At Ignite Fall 2021, we announced an updated way of connecting your accounts from other cloud providers. This uses the new **Environment settings** page. GCP accounts aren't supported from that page. To connect a GCP account to your Azure subscription, you'll need to use the classic cloud connectors experience as described below.
+> At Ignite Fall 2021, we announced an updated way of connecting your accounts from other cloud providers. This uses the new **Environment settings** page. GCP projects aren't supported from that page. To connect a GCP project to your Azure subscription, you'll need to use the classic cloud connectors experience as described below.
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
@@ -39,18 +39,18 @@ Adding a GCP account to an Azure subscription connects Defender for Cloud with G
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 |||
 
-## Connect your GCP account
+## Connect your GCP project
 
-When connecting your GCP accounts to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
+When connecting your GCP projects to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
 
-- You can connect your GCP accounts to Defender for Cloud in the *organization* level
+- You can connect your GCP projects to Defender for Cloud in the *project* level
 - You can connect multiple organizations to one Azure subscription
 - You can connect multiple organizations to multiple Azure subscriptions
 - When you connect an organization, all *projects* within that organization are added to Defender for Cloud
 
 Follow the steps below to create your GCP cloud connector. 
 
-**To connect your GCP account**:
+**To connect your GCP project**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -116,7 +116,7 @@ By default, all plans are toggled to `On`, on the plans select screen. To get th
 
 **To configure the Servers plan**:
 
-1. Follow the steps to [Connect your GCP account](#connect-your-gcp-account).
+1. Follow the steps to [Connect your GCP project](#connect-your-gcp-account).
 
 1. On the Select plans screen select **View configuration**.
 
@@ -130,7 +130,7 @@ By default, all plans are toggled to `On`, on the plans select screen. To get th
 
 **To configure the Containers plan**:
 
-1. Follow the steps to [Connect your GCP account](#connect-your-gcp-account).
+1. Follow the steps to [Connect your GCP project](#connect-your-gcp-project).
 
 1. On the Select plans screen select **Configure**.
 
@@ -156,13 +156,13 @@ By default, all plans are toggled to `On`, on the plans select screen. To get th
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
 
-## Connect your GCP account
+## Connect your GCP project
 
 Create a connector for every organization you want to monitor from Defender for Cloud.
 
-When connecting your GCP accounts to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
+When connecting your GCP projects to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
 
-- You can connect your GCP accounts to Defender for Cloud in the *organization* level
+- You can connect your GCP projects to Defender for Cloud in the *organization* level
 - You can connect multiple organizations to one Azure subscription
 - You can connect multiple organizations to multiple Azure subscriptions
 - When you connect an organization, all *projects* within that organization are added to Defender for Cloud
@@ -226,7 +226,7 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 
     :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
 
-1. Select add GCP account.
+1. Select add GCP project.
 1. In the onboarding page, do the following and then select **Next**.
     1. Validate the chosen subscription.
     1. In the **Display name** field, enter a display name for the connector.
@@ -253,7 +253,7 @@ To view all the active recommendations for your resources by resource type, use 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Asset inventory page's resource type filter showing the GCP options"::: 
 
 
-## FAQ - Connecting GCP accounts to Microsoft Defender for Cloud
+## FAQ - Connecting GCP projects to Microsoft Defender for Cloud
 
 ### Can I connect multiple GCP organizations to Defender for Cloud?
 Yes. Defender for Cloud's GCP connector connects your Google Cloud resources at the *organization* level. 
@@ -268,7 +268,7 @@ Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST 
 
 ## Next steps
 
-Connecting your GCP account is part of the multi-cloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
+Connecting your GCP project is part of the multi-cloud experience available in Microsoft Defender for Cloud. For related information, see the following page:
 
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 - [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)--Learn about the Google Cloud resource hierarchy in Google's online docs
