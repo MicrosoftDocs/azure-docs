@@ -13,15 +13,15 @@ ms.date: 02/18/2022
 
 Configure the listing details of the plan. This pane displays specific information, which can differ from other plans in the same offer.
 
-### Plan name
+## Plan name
 
 This field is automatically filled with the name that you gave your plan when you created it. This name appears on Azure Marketplace as the title of this plan. It is limited to 100 characters.
 
-### Plan summary
+## Plan summary
 
 Provide a short summary of your plan, not the offer. This summary is limited to 100 characters.
 
-### Plan description
+## Plan description
 
 Describe what makes this software plan unique, and describe any differences between plans within your offer. Describe the plan only, not the offer. The plan description can contain up to 2,000 characters.
 
