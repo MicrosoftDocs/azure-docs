@@ -1493,7 +1493,7 @@ items:
   - name: Logs
     items:
     - name: Supported tables for transformations
-      href: logs/ingestion-time-transformations-supported-tables.md
+      href: logs/tables-feature-support.md
   - name: Platform logs
     items:
     - name: Supported resource log categories

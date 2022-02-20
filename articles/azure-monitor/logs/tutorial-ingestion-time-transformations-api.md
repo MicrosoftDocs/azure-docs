@@ -30,7 +30,7 @@ To complete this tutorial, you need the following:
 
 
 ## Overview of tutorial
-In this tutorial, you'll reduce the storage requirement for the `LAQueryLogs` table by filtering out certain records. You'll also remove the contents of a column while parsing the column data to store a piece of data in a custom column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace, but this is only used as a sample for the tutorial. You can use this same basic process to create a transformation for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
+In this tutorial, you'll reduce the storage requirement for the `LAQueryLogs` table by filtering out certain records. You'll also remove the contents of a column while parsing the column data to store a piece of data in a custom column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace, but this is only used as a sample for the tutorial. You can use this same basic process to create a transformation for any [supported table](tables-feature-support.md) in a Log Analytics workspace.  
 
 
 ## Enable query audit logs
@@ -128,7 +128,7 @@ LAQueryLogs
 To use this query in the transformation, it requires the following changes:
 
 - Instead of specifying a table name (`LAQueryLogs` in this case) as the source of data for this query, use the `source` keyword. This is a virtual table that always represents the incoming data in a transformation query.
-- Remove any operators that aren't supported by transform queries. See [Supported tables for ingestion-time transformations](ingestion-time-transformations-supported-tables.md) for a detail list of operators that are supported.
+- Remove any operators that aren't supported by transform queries. See [Supported tables for ingestion-time transformations](tables-feature-support.md) for a detail list of operators that are supported.
 - Flatten the query to a single line so that it can fit into the DCR JSON.
 
 Following is the query that you will use in the transformation after  these modifications:
@@ -138,7 +138,7 @@ source | where QueryText !contains 'LAQueryLogs' | extend Context = parse_json(R
 ```
 
 ## Create data collection rule (DCR)
-The data collection rule contains the transformation and will be associated with the workspace. 
+Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules). If you create transformations for other tables in the same workspace, they will be stored in this same DCR.
 
 In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
@@ -270,5 +270,5 @@ For this tutorial, run some sample queries to send data to the `LAQueryLogs` tab
 ## Next steps
 
 - [Read more about ingestion-time transformations](ingestion-time-transformations.md)
-- [See which tables support ingestion-time transformations](ingestion-time-transformations-supported-tables.md)
+- [See which tables support ingestion-time transformations](tables-feature-support.md)
 - [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)

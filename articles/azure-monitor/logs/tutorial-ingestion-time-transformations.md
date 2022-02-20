@@ -27,7 +27,7 @@ To complete this tutorial, you need the following:
 
 
 ## Overview of tutorial
-In this tutorial, you'll reduce the storage requirement for the `LAQueryLogs` table by filtering out certain records. You'll also remove the contents of a column while parsing the column data to store a piece of data in a custom column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. You can use this same basic process to create a transformation for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
+In this tutorial, you'll reduce the storage requirement for the `LAQueryLogs` table by filtering out certain records. You'll also remove the contents of a column while parsing the column data to store a piece of data in a custom column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. You can use this same basic process to create a transformation for any [supported table](tables-feature-support.md) in a Log Analytics workspace.  
 
 This tutorial will use the Azure portal which provides a wizard to walk you through the process of creating an ingestion-time transformation. The following actions are performed for you when you complete this wizard:
 
@@ -57,7 +57,7 @@ From the **Log Analytics workspaces** menu in the Azure portal, select **Tables 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/create-transformation.png" lightbox="media/tutorial-ingestion-time-transformations/create-transformation.png" alt-text="Screenshot of creating a new transformation":::
 
 
-Since this is the first transformation in the workspace, you need to add a new data collection rule (DCR). If you create transformations for other tables in the same workspace, they will be stored in this same DCR. Click **Create a new data collection rule**. The **Subscription** and **Resource group** will already be populated for the workspace. Provide a name for the DCR and click **Done**.
+Since this is the first transformation in the workspace, you need to create a [workspace transformation DCR](../essentials/data-collection-rule-overview.md#types-of-data-collection-rules). If you create transformations for other tables in the same workspace, they will be stored in this same DCR. Click **Create a new data collection rule**. The **Subscription** and **Resource group** will already be populated for the workspace. Provide a name for the DCR and click **Done**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/new-data-collection-rule.png" lightbox="media/tutorial-ingestion-time-transformations/new-data-collection-rule.png" alt-text="Screenshot of creating a new data collection rule":::
 
@@ -101,8 +101,17 @@ Allow about 30 minutes for the transformation to take effect and then test it by
 
 For this tutorial, run some sample queries to send data to the `LAQueryLogs` table. Include some queries against `LAQueryLogs` so you can verify that the transformation filters these records. Notice that the output has the new `Workspace_CF` column, and there are no records for `LAQueryLogs`.
 
+## Troubleshooting
+This section describes different error conditions you may receive and how to correct them.
+
+### IntelliSense in Log Analytics not recognizing new columns in the table
+The cache that drives IntelliSense may take up to 24 hours to update.
+
+### Transformation on a dynamic column isn't working
+There is currently a known issue affecting dynamic columns. A temporary workaround is to explicitly parse dynamic column data using `parse_json()` prior to performing any operations against them.
+
 ## Next steps
 
 - [Read more about ingestion-time transformations](ingestion-time-transformations.md)
-- [See which tables support ingestion-time transformations](ingestion-time-transformations-supported-tables.md)
+- [See which tables support ingestion-time transformations](tables-feature-support.md)
 - [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)

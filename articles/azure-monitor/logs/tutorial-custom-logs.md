@@ -315,6 +315,28 @@ Run the following command providing the values that you collected for your data 
 
 From Log Analytics, query your newly created table to verify that data arrived and if it is transformed properly.
 
+## Troubleshooting
+This section describes different error conditions you may receive and how to correct them.
+
+### Script returns error code 403
+Ensure that you have the correct permissions for your application to the DCR. You may also need to wait up to 30 minutes for permissions to propagate.
+
+### Script returns error code 413 or warning of `TimeoutExpired` with the message `ReadyBody_ClientConnectionAbort` in the response
+The message is too large. The maximum message size is currently 1MB per call.
+
+### Script returns error code 429
+API limits have been exceeded. The limits are currently set to 500MB of data/minute for both compressed and uncompressed data, as well as 300,000 requests/minute. Retry after the duration listed in the `Retry-After` header in the response.
+### Script returns error code 503
+Ensure that you have the correct permissions for your application to the DCR. You may also need to wait up to 30 minutes for permissions to propagate.
+
+### Script returns error `Unable to find type [System.Web.HttpUtility]`
+Run the last line in section 1 of the script for a fix and execute it directly. Executing it uncommented as part of the script will not resolve the issue. The command must be executed separately.
+
+### You don't receive an error, but data doesn't appear in the workspace
+The data may take some time to be ingested, especially if this is the first time data is being sent to a particular table. It shouldn't take longer than 15 minutes.
+
+### IntelliSense in Log Analytics not recognizing new table
+The cache that drives IntelliSense may take up to 24 hours to update.
 
 ## Sample data
 Following is sample data that you can use for the tutorial. Alternatively, you can use your own data if you have your own Apache access logs.
@@ -824,3 +846,7 @@ Following is sample data that you can use for the tutorial. Alternatively, you c
 
 
 ## Next steps
+
+- [Complete a similar tutorial using the Azure portal.](tutorial-custom-logs-api.md)
+- [Read more about custom logs.](custom-logs-overview.md)
+- [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)

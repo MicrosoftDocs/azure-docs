@@ -176,13 +176,13 @@ Once the DCE is created, select it so you can view its properties. Note the **Lo
 
 :::image type="content" source="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" lightbox="media/tutorial-custom-logs-api/data-collection-endpoint-overview.png" alt-text="Screenshot for data collection endpoint uri":::
 
-Click **JSON View** to view other details for the DCE. Copy the **Resource ID**.
+Click **JSON View** to view other details for the DCE. Copy the **Resource ID** since you'll need this in a later step.
 
 :::image type="content" source="media/tutorial-custom-logs-api/data-collection-endpoint-json.png" lightbox="media/tutorial-custom-logs-api/data-collection-endpoint-json.png" alt-text="Screenshot for data collection endpoint resource ID":::
 
 
 ## Create data collection rule
-The data collection rule (DCR) defines the schema of data that being sent to the HTTP endpoint, the transformation that will be applied to it, and the destination workspace and table the transformed data will be sent to.
+The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md) defines the schema of data that being sent to the HTTP endpoint, the transformation that will be applied to it, and the destination workspace and table the transformed data will be sent to.
 
 In the Azure portal's search box, type in *template* and then select **Deploy a custom template**.
 
@@ -311,6 +311,10 @@ Copy the **Resource ID** for the data collection rule. You'll use this in the ne
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
 
+> [!NOTE]
+> All of the properties of the DCR, such as the transformation, may not be displayed in the Azure portal even though the DCR was successfully created with those properties.
+
+
 ## Assign permissions to data collection rule
 Once the data collection rule has been created, the application needs to be given permission to it. This will allow any application using the correct application ID and application key to send data to the new DCE and DCR.
 
@@ -332,7 +336,7 @@ Click **Review + assign** and verify the details before saving your role assignm
 :::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment":::
 
 
-## Send data to the DCE
+## Send sample data
 The following PowerShell code sends data to the endpoint using HTTP REST fundamentals. Replace the parameters in the *step 0* section with values from the resources that you just created. You may also want to replace the sample data in the *step 2* section with your own.  
 
 ```powershell
@@ -345,8 +349,8 @@ $appId = "00000000-0000-0000-0000-000000000000"; #Application ID created and gra
 $appSecret = "00000000000000000000000"; #Secret created for the application
 
 #information needed to send data to the DCR endpoint
-$dcrImmutableId = "dcr-10f6..."; #the immutableId property of the DCR object
-$dceEndpoint = "https://[...].westus2-1.ingest.monitor.azure.com"; #the endpoint property of the Data Collection Endpoint object
+$dcrImmutableId = "dcr-000000000000000"; #the immutableId property of the DCR object
+$dceEndpoint = "https://my-dcr-name.westus2-1.ingest.monitor.azure.com"; #the endpoint property of the Data Collection Endpoint object
 
 ##################
 ### Step 1: obtain a bearer token used later to authenticate against the DCE
@@ -405,7 +409,30 @@ $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Header
 
 After executing this script, you should see a `HTTP - 200 OK` response, and in just a few minutes, the data arrive to your Log Analytics workspace.
 
+## Troubleshooting
+This section describes different error conditions you may receive and how to correct them.
+
+### Script returns error code 403
+Ensure that you have the correct permissions for your application to the DCR. You may also need to wait up to 30 minutes for permissions to propagate.
+
+### Script returns error code 413 or warning of `TimeoutExpired` with the message `ReadyBody_ClientConnectionAbort` in the response
+The message is too large. The maximum message size is currently 1MB per call.
+
+### Script returns error code 429
+API limits have been exceeded. The limits are currently set to 500MB of data/minute for both compressed and uncompressed data, as well as 300,000 requests/minute. Retry after the duration listed in the `Retry-After` header in the response.
+### Script returns error code 503
+Ensure that you have the correct permissions for your application to the DCR. You may also need to wait up to 30 minutes for permissions to propagate.
+
+### Script returns error `Unable to find type [System.Web.HttpUtility]`
+Run the last line in section 1 of the script for a fix and execute it directly. Executing it uncommented as part of the script will not resolve the issue. The command must be executed separately.
+
+### You don't receive an error, but data doesn't appear in the workspace
+The data may take some time to be ingested, especially if this is the first time data is being sent to a particular table. It shouldn't take longer than 15 minutes.
+
+### IntelliSense in Log Analytics not recognizing new table
+The cache that drives IntelliSense may take up to 24 hours to update.
 ## Next steps
 
-- [Complete a similar tutorial using the Azure portal](tutorial-custom-logs.md)
-- [Read about custom logs](custom-logs-overview.md)
+- [Complete a similar tutorial using the Azure portal.](tutorial-custom-logs.md)
+- [Read more about custom logs.](custom-logs-overview.md)
+- [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)
