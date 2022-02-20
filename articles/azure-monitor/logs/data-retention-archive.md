@@ -73,11 +73,15 @@ GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResource
 ```
 ### Set the retention and archive policy for a table
 
-Use the **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#set-the-data-retention-time-for-a-table) to set the retention and archive duration for a table. You don't actually specify the archive duration. Instead, set the total retention, which specifies the retention plus the archive duration.
+To set the retention and archive duration for a table, call the **Tables - Update** API: 
 
 ```http
 PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{tableName}?api-version=2021-12-01-preview
 ```
+
+> [!NOTE]
+> You don't explicitly specify the archive duration in the API call. Instead, you set the total retention, which specifies the retention plus the archive duration.
+
 
 You can use either PUT or PATCH, with the following difference: 
 
