@@ -2,10 +2,10 @@
 title: What's new in Microsoft Defender for IoT for device builders
 description: Learn about the latest updates for Defender for IoT device builders.
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 02/20/2022
 ---
 
-# What's new  
+# What's new
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -16,6 +16,12 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 ## Versioning and support
 
 Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
+
+## February 2022
+
+**Version <x>**:
+
+
 
 ## November 2021
 
