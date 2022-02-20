@@ -31,7 +31,9 @@ There is no direct cost for creating or maintaining a workspace. You're charged 
 See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for detailed pricing and [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) for guidance on reducing your costs. If you are using your Log Analytics workspace with services other than Azure Monitor, then see the documentation for those services for pricing information.
 
 ## Log data plans (preview)
-By default, all tables in a workspace are **Analytics** tables, which are available to all features of Azure Monitor and any other services that use the workspace. You can configure certain tables as **Basic Logs (preview)** which reduces the cost for high-volume verbose logs that don’t require analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. The following table gives a brief summary of the two plans. See [Configure Basic Logs in Azure Monitor (Preview)](basic-logs-configure.md) for more details on Basic Logs and how to configure them.
+By default, all tables in a workspace are **Analytics** tables, which are available to all features of Azure Monitor and any other services that use the workspace. You can configure certain tables as **Basic Logs (preview)** to reduce the cost of storing high-volume verbose logs you use for debugging, troubleshooting and auditing, but not for analytics and alerts. Tables configured for Basic Logs have a lower ingestion cost in exchange for reduced features. 
+
+The following table gives a brief summary of the two plans. See [Configure Basic Logs in Azure Monitor (Preview)](basic-logs-configure.md) for more details on Basic Logs and how to configure them.
 
 > [!NOTE]
 > Basic Logs are currently in public preview.
@@ -44,6 +46,8 @@ The following table summarizes the differences between the plans.
 | Log queries | No additional cost. Full query language. | Additional cost. Subset of query language. |
 | Retention |  Configure retention from 30 days to 750 days. | Retention fixed at 8 days. |
 | Alerts | Supported. | Not supported. |
+| Integration into automated workflows | Supported. | Not supported. |
+| Data visualization | Supported. | Not supported. |
 
 ## Ingestion-time transformations
 [Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all workflows don't yet support DCRs, each workspace can define ingestion-time transformations. This allows you filter or transform data before its stored. 
