@@ -1,7 +1,6 @@
 ---
 title: What is Azure Synapse Analytics?
 description: An Overview of Azure Synapse Analytics
-services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: overview

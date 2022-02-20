@@ -5,11 +5,10 @@ metadata:
   author: alkohli
   services: storage
   ms.service: storage
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 10/04/2021
   ms.author: alkohli
   ms.subservice: common
-    
 title: 'Azure Import/Export service: frequently asked questions'
 summary: |
   The following are questions and answers that you may have when you use your Azure Import/Export service to transfer data into Azure storage.

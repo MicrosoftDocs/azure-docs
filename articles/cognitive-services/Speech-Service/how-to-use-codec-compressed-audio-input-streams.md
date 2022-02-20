@@ -8,7 +8,7 @@ ms.author: eur
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/13/2022
 ms.devlang: cpp, csharp, golang, java, python
 ms.custom: devx-track-csharp
