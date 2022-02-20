@@ -124,7 +124,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
         "schema": {
             "name": "Syslog_SRCH",
             "tableType": "SearchResults",
-            "description": "This table was created using a Search Job with the following query: 'Syslog | where * has 'suspected.exe'.",
+            "description": "This table was created using a Search Job with the following query: 'Syslog | where * has 'suspected.exe'.'",
             "columns": [...],
             "standardColumns": [...],
             "solutions": [
