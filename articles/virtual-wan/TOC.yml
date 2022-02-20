@@ -47,8 +47,6 @@
     items: 
     - name: Migrate to Virtual WAN
       href: migrate-from-hub-spoke-topology.md
-    - name: Disaster recovery design
-      href: disaster-recovery-design.md
     - name: Global transit network architecture
       href: virtual-wan-global-transit-network-architecture.md
     - name: SD-WAN connectivity architecture
@@ -93,6 +91,8 @@
       href: point-to-site-ipsec.md
     - name: About P2S client address pools
       href: about-client-address-pools.md
+    - name: About P2S global and hub-based profiles
+      href: global-hub-profile.md
   - name: Security
     items:
     - name: Security baseline
@@ -138,7 +138,11 @@
   - name: User VPN (point-to-site)
     items:
     - name: Create User VPN
-      href: virtual-wan-point-to-site-portal.md
+      items: 
+        - name: Azure portal
+          href: virtual-wan-point-to-site-portal.md
+        - name: Azure PowerShell
+          href: virtual-wan-point-to-site-powershell.md
     - name: Create User VPN - Azure AD authentication
       href: virtual-wan-point-to-site-azure-ad.md
     - name: Generate certificates
@@ -215,6 +219,8 @@
         href: packet-capture-site-to-site-portal.md
       - name: PowerShell
         href: packet-capture-site-to-site-powershell.md
+    - name: Advanced Monitoring for P2S VPN
+      href: monitor-point-to-site-connections.md
 - name: Reference
   items:
   - name: Azure PowerShell
