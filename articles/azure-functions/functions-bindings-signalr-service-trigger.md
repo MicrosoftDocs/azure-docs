@@ -7,7 +7,7 @@ ms.devlang: csharp, javascript, python
 ms.custom: devx-track-csharp
 ms.date: 11/29/2021
 ms.author: chenyl
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # SignalR Service trigger binding for Azure Functions
