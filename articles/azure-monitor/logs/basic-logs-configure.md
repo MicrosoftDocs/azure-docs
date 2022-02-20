@@ -46,7 +46,7 @@ This example configures the `ContainerLog` table for Basic Logs.
 #### Sample Request
 
 ```http
-PUT https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
+PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
 ```
 
 Use this request body to change to Basic Logs:
@@ -84,7 +84,7 @@ Status code: 200
         "lastPlanModifiedDate": "2022-01-01T14:34:04.37",
         "schema": {...}        
     },
-    "id": "subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/ContainerLog",
+    "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
     "name": "ContainerLog"
 }
 ```
@@ -145,7 +145,7 @@ Status code: 200
         "schema": {...},
         "provisioningState": "Succeeded"        
     },
-    "id": "subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/testRG/providers/Microsoft.OperationalInsights/workspaces/testWS/tables/ContainerLog",
+    "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
     "name": "ContainerLog"
 }
 ```
@@ -154,8 +154,7 @@ Status code: 200
 
 Analytics tables retain data based on a [retention and archive policy](data-retention-archive.md) you set.
 
-Basic Logs tables retain data for eight days. When you change the configuration of an existing table from Analytics to Basic Logs, Azure archives data that is more than eight days old but still within the original retention period you set.
-
+Basic Logs tables retain data for eight days. When you change an existing table's plan to Basic Logs, Azure archives data that is more than eight days old but still within the table's original retention period.
 
 ## Next steps
 

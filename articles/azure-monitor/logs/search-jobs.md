@@ -16,7 +16,7 @@ Search jobs are asynchronous queries that fetch records into a new search table 
 
 Use a search job when the log query timeout of 10 minutes is not enough time to search through large volumes of data or when you are running a slow query.
 
-Search jobs also let you retrieve records from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) tables, into a temporary Custom Log table you can use for log queries. In this way, running a search job can be an alternative to:
+Search jobs also let you retrieve records from [Archived Logs](data-retention-archive.md) and [Basic Logs](basic-logs-configure.md) tables into a new log table you can use for queries. In this way, running a search job can be an alternative to:
 
 - [Restoring data from Archived Logs](restore.md) for a specific time range. 
 
@@ -28,16 +28,20 @@ Search jobs also let you retrieve records from [Archived Logs](data-retention-ar
 
 ## What does a search job do?
 
-A search job sends its results to a custom log table created in the same workspace as the source data. The results table is created as soon as the search job begins, but it may take time for results to begin to appear. 
+A search job sends its results to a new table in the same workspace as the source data. The results table is available as soon as the search job begins, but it may take time for results to begin to appear. 
 
 The search job results table is a [Log Analytics](log-analytics-workspace-overview.md#log-data-plans-preview) table that is available for log queries or any other features of Azure Monitor that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this retention once the table is created.
 
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
 
 ## Cost
-The charge for a search job is based on the amount of data within the search job time span and the number of days the data is available. The cost of retaining data for part of a day is the same as for a full day. 
+The charge for a search job is based on: 
 
-For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of ingested data each day you keep the search results. For this reason, we recommend deleting the search job table when you're done querying the data. 
+- The amount of data the search job needs to scan.
+- The amount of data the job ingests.
+- The number of days the search job results are available. The cost of retaining data for part of a day is the same as for a full day. 
+
+For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of scanned data. If the job ingests 700 GB and you delete the the search results table after three days, you'll be charged for 2100 GB for retaining the data. 
 
 > [!NOTE]
 > There is no charge for search jobs during the public preview. However, you will be charged for data ingestion.
@@ -56,7 +60,7 @@ Search jobs are subject to the following limitations:
 
 When you reach the record limit, Azure aborts the job with a status of *partial success*, and the table will contain only records ingested up to that point. 
 
-## KQL language limits
+## KQL language limitations
 Log queries in a search job are intended to scan very large sets of data. To support distribution and segmentation, the queries use a subset of KQL, including the operators: 
 
 - [where](/azure/data-explorer/kusto/query/whereoperator)
@@ -83,7 +87,7 @@ The search job table schema is based on the source table schema and the specifie
 | TimeGenerated          | Time at which the search job retrieved the record from the original table. |
 
 ## Create a search job
-Call the **Tables - Create** or **Tables - Update** API or use the [Azure CLI](azure-cli-log-analytics-workspace-sample.md#run-a-search-job) to run a search job. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
+To run a search job, call the **Tables - Create or Update** API. The call includes the name of the results table to be created. The name of the results table must end with *_SRCH*.
  
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
@@ -96,8 +100,8 @@ Include the following values in the body of the request:
 | --- | --- | --- |
 |properties.searchResults.query | string  | Log query written in KQL to retrieve data. |
 |properties.searchResults.limit | integer  | Maximum number of records in the result set, up to one million records. (Optional)|
-|properties.searchResults.startSearchTime | string  |Start of the time range to restore. |
-|properties.searchResults.endSearchTime | string  | End of the time range to restore. |
+|properties.searchResults.startSearchTime | string  |Start of the time range to search. |
+|properties.searchResults.endSearchTime | string  | End of the time range to search. |
 
 
 ### Sample Request
@@ -189,7 +193,7 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 ## Delete search job table
 We recommend deleting the search job table when you're done querying the table. This reduces workspace clutter and additional charges for data retention. 
 
-To delete a table, call the **Tables - Delete** API. If the table provisioning status is *InProgress*, the Tables - Delete API call terminates the search job execution.
+To delete a table, call the **Tables - Delete** API: 
 
 ```http
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview

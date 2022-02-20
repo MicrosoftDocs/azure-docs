@@ -66,9 +66,6 @@ To get the retention policy of a particular table (in this example, `SecurityEve
 GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2021-12-01-preview
 ```
 
-> [!NOTE]
-> This call only returns the retention policy if you set the policy at the table level. If you haven't set a table-level retention policy, this call won't return anything for the table. 
-
 To get all table-level retention policies in your workspace, don't set a table name; for example:
 
 ```JSON
@@ -93,7 +90,7 @@ The request body includes the values in the following table.
 
 |Name | Type | Description |
 | --- | --- | --- |
-|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value 8 is always. | 
+|properties.retentionInDays | integer  | The table's data retention in days. This value can be between 4 and 730; or 1095, 1460, 1826, 2191, or 2556. <br/>Setting this property to null will default to the workspace retention. For a Basic Logs table, the value is always 8. | 
 |properties.totalRetentionInDays | integer  | The table's total data retention including archive period. Set this property to null if you don't want to archive data.  | 
 
 #### Example

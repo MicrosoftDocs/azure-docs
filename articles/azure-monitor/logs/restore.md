@@ -27,7 +27,7 @@ The destination table provides a view of the underlying source data, but does no
 ## Cost
 The charge for the restore operation is based on the volume of data you restore and the number of days the data is available. The cost of retaining data for part of a day is the same as for a full day.
 
-For example, if your table holds 500 GB a day and you restore 10 days days of data, you'll be charged for 5000 GB a day until you dismiss the restored data. 
+For example, if your table holds 500 GB a day and you restore 10 days of data, you'll be charged for 5000 GB a day until you dismiss the restored data. 
 
 > [!NOTE]
 > There is no charge for restored data during the preview period.
@@ -40,14 +40,13 @@ Restore is subject to the following limitations.
 You can: 
 
 - Restore data for a minimum of two days.
-- Restore data more than 14 days old.
 - Restore up to 60TB.
 - Perform up to four restores per workspace per week. 
 - Run up to two restore processes in a workspace concurrently.
 - Run only one active restore on a specific table at a given time. Executing a second restore on a table that already has an active restore will fail. 
 
 ## Restore data using API
-Call the **Tables - Create** or **Tables - Update** API to restore data from a table:
+Call the **Tables - Create or Update** API to restore data from a table:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/{user defined name}_RST?api-version=2021-12-01-preview
@@ -94,7 +93,7 @@ PUT https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 ## Dismiss restored data
 
-To save costs, dismiss restored data when you longer need it by deleting the restored table.
+To save costs, dismiss restored data when you no longer need it by deleting the restored table.
 
 Deleting the restored table does not delete the data in the source table.
 
