@@ -103,7 +103,7 @@ To complete this tutorial, you need to:
 3. Azure Data Studio will now collect performance data until you either stop the collection, press the **Next** button in the wizard or close Azure Data Studio.
 4. After 10 minutes you will see a recommended configuration for your Azure SQL Managed Instance. You can also press the **Refresh recommendation** link to get the recommendation sooner.
 5. In the above **Azure SQL Managed Instance** box click the **View details** button for more information about your recommendation. 
-6. Close the view details box and press the **Next** buttonl 
+6. Close the view details box and press the **Next** button.
 
 ## Configure migration settings
 
