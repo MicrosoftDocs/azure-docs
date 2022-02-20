@@ -7,7 +7,7 @@ ms.date: 01/19/2022
 ---
 
 # Tutorial: Add ingestion-time transformation to Azure Monitor Logs using resource manager templates (preview)
-[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks through configuration of an ingestion time transformation using resource manager templates.
+[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks you through configuration of a sample ingestion time transformation using resource manager templates.
 
 > [!NOTE]
 > This tutorial uses resource manager templates and REST API to configure an ingestion-time transformation. See [Tutorial: Add ingestion-time transformation to Azure Monitor Logs using the Azure portal (preview)](tutorial-ingestion-time-transformations.md) for the same tutorial using the Azure portal.
@@ -30,11 +30,11 @@ To complete this tutorial, you need the following:
 
 
 ## Overview of tutorial
-In this tutorial, you'll reduce the storage requirement for the `LAQueryLogs` table by filtering out certain records. You'll also remove the contents of a column while parsing the column data to store a piece of data in a custom column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace. You can use this same basic process to create a transformation for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
+In this tutorial, you'll reduce the storage requirement for the `LAQueryLogs` table by filtering out certain records. You'll also remove the contents of a column while parsing the column data to store a piece of data in a custom column. The [LAQueryLogs table](query-audit.md#audit-data) is created when you enable [log query auditing](query-audit.md) in a workspace, but this is only used as a sample for the tutorial. You can use this same basic process to create a transformation for any [supported table](ingestion-time-transformations-supported-tables.md) in a Log Analytics workspace.  
 
 
 ## Enable query audit logs
-You need to enable [query auditing](query-audit.md) for your workspace to create the `LAQueryLogs` table that you'll be working with. This is not required for all ingestion time transformations. It's just to generate the sample data that we'll be working with. 
+You need to enable [query auditing](query-audit.md) for your workspace to create the `LAQueryLogs` table that you'll be working with. This is not required for all ingestion time transformations. It's just to generate the sample data that this sample  transformation will use.
 
 From the **Log Analytics workspaces** menu in the Azure portal, select **Diagnostic settings** and then **Add diagnostic setting**.
 
@@ -44,17 +44,17 @@ Provide a name for the diagnostic setting and select the workspace so that the a
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" lightbox="media/tutorial-ingestion-time-transformations/new-diagnostic-setting.png" alt-text="Screenshot of new diagnostic setting":::
 
-Select **Logs** and then run some queries to populate `LAQueryLogs` with some data. These queries don't need to return data to be added to the audit log.
+Select **Logs** and then run some queries to populate `LAQueryLogs` with some data. These queries don't need to actually return any data. 
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/sample-queries.png" lightbox="media/tutorial-ingestion-time-transformations/sample-queries.png" alt-text="Screenshot of sample log queries":::
 
-## Update table schema
+## Update table schema and enable for transformations
 Before you can create the transformation, the following two changes must be made to the table:
 
 - The table must be enabled for ingestion-time transformation. This is required for any table that will have a transformation, even if the transformation doesn't modify the table's schema.
 - Any additional columns populated by the transformation must be added to the table.
 
-Use the **Tables - Update** API to configure the table with the PowerShell code below. Calling the API enables the table for ingestion-time transformations, whether or not custom columns are defined. In this case, it includes a custom column called *Resources_CF* that will be populated with the transformation query. 
+Use the **Tables - Update** API to configure the table with the PowerShell code below. Calling the API enables the table for ingestion-time transformations, whether or not custom columns are defined. In this sample, it includes a custom column called *Resources_CF* that will be populated with the transformation query. 
 
 > [!IMPORTANT]
 > Any custom columns added to a built-in table must end in *_CF*. Columns added to a custom table (a table with a name that ends in *_CL*) does not need to have this suffix.
@@ -63,7 +63,7 @@ Click the **Cloud Shell** button in the Azure portal and ensure the environment 
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" lightbox="media/tutorial-ingestion-time-transformations-api/open-cloud-shell.png" alt-text="Screenshot of opening cloud shell":::
 
-Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. 
+Copy the following PowerShell code and replace the **Path** parameter with the details for your workspace. 
 
 ```PowerShell
 $tableParams = @'
@@ -92,15 +92,19 @@ Paste the code into the cloud shell prompt to run it.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" lightbox="media/tutorial-ingestion-time-transformations-api/cloud-shell-script.png" alt-text="Screenshot of script in cloud shell":::
 
+You can verify that the column was added by going to the **Log Analytics workspace** menu in the Azure portal. Select **Logs** to open Log Analytics and then expand the `LAQueryLogs` table to view its columns.
 
+:::image type="content" source="media/tutorial-ingestion-time-transformations/verify-table.png" lightbox="media/tutorial-ingestion-time-transformations/verify-table.png" alt-text="Screenshot of Log Analytics with new column":::
 
 ## Define transformation query
-Use Log Analytics to test the transformation  query before adding it to the data collection rule. Open your workspace in the **Log Analytics workspaces** menu in the Azure portal and select **Logs** to open Log Analytics. Run the following query to view the contents of the `LAQueryLogs` table. Notice the contents of the `RequestContext` column. The transformation will retrieve the workspace name from this column and remove the rest of the data in it. 
+Use Log Analytics to test the transformation query before adding it to a data collection rule. Open your workspace in the **Log Analytics workspaces** menu in the Azure portal and select **Logs** to open Log Analytics. Run the following query to view the contents of the `LAQueryLogs` table. Notice the contents of the `RequestContext` column. The transformation will retrieve the workspace name from this column and remove the rest of the data in it. 
 
 ```kusto
 LAQueryLogs
 | take 10
 ```
+
+:::image type="content" source="media/tutorial-ingestion-time-transformations/initial-query.png" lightbox="media/tutorial-ingestion-time-transformations/initial-query.png" alt-text="Screenshot of initial query in Log Analytics":::
 
 You're going to modify this query to perform the following:
 
@@ -118,20 +122,20 @@ LAQueryLogs
 | project-away RequestContext, Context
 ```
 
+:::image type="content" source="media/tutorial-ingestion-time-transformations/modified-query.png" lightbox="media/tutorial-ingestion-time-transformations/modified-query.png" alt-text="Screenshot of modified query in Log Analytics":::
+
+
 To use this query in the transformation, it requires the following changes:
 
 - Instead of specifying a table name (`LAQueryLogs` in this case) as the source of data for this query, use the `source` keyword. This is a virtual table that always represents the incoming data in a transformation query.
 - Remove any operators that aren't supported by transform queries. See [Supported tables for ingestion-time transformations](ingestion-time-transformations-supported-tables.md) for a detail list of operators that are supported.
-- The query needs to be flattened to a single line.
+- Flatten the query to a single line so that it can fit into the DCR JSON.
 
 Following is the query that you will use in the transformation after  these modifications:
 
 ```kusto
-source |where QueryText !contains 'LAQueryLogs' | extend Context = parse_json(RequestContext) | extend Resources_CF = tostring(Context['workspaces']) |extend RequestContext = ''
+source | where QueryText !contains 'LAQueryLogs' | extend Context = parse_json(RequestContext) | extend Resources_CF = tostring(Context['workspaces']) |extend RequestContext = ''
 ```
-
-> [!IMPORTANT]
-> While the ingestion-time transformation KQL can contain any query parsable by the KQL subset supported, the output of the KQL must contain a column called `TimeGenerated` of type `datetime`.
 
 ## Create data collection rule (DCR)
 The data collection rule contains the transformation and will be associated with the workspace. 
@@ -144,7 +148,7 @@ Click **Build your own template in the editor**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/build-custom-template.png" alt-text="Screenshot to build template in the editor":::
 
-Paste the resource manager template below into the editor and then click **Save**. This template defines the DCR and contains the transformation query.
+Paste the resource manager template below into the editor and then click **Save**. This template defines the DCR and contains the transformation query. You don't need to modify this template since it will collect values for its parameters.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/edit-template.png" lightbox="media/tutorial-ingestion-time-transformations-api/edit-template.png" alt-text="Screenshot to edit resource manager template":::
 
@@ -232,7 +236,7 @@ Copy the **Resource ID** for the data collection rule. You'll use this in the ne
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
 
-## Link workspace to DCR
+## Link workspace to data collection rule
 The final step to enable the transformation is to link the DCR to the workspace.
 
 > [!IMPORTANT]
@@ -240,7 +244,7 @@ The final step to enable the transformation is to link the DCR to the workspace.
 
 Use the **Workspaces - Update** API to configure the table with the PowerShell code below. 
 
-Click the **Cloud shell** button to open cloud shell again. Copy the following PowerShell code and replace the **Path** parameter with the **Resource ID** of your workspace. 
+Click the **Cloud shell** button to open cloud shell again. Copy the following PowerShell code and replace the parameters with values for your workspace and DCR. 
 
 ```PowerShell
 $defaultDcrParams = @'
@@ -265,3 +269,6 @@ For this tutorial, run some sample queries to send data to the `LAQueryLogs` tab
 
 ## Next steps
 
+- [Read more about ingestion-time transformations](ingestion-time-transformations.md)
+- [See which tables support ingestion-time transformations](ingestion-time-transformations-supported-tables.md)
+- [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)

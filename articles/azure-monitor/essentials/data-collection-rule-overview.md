@@ -8,7 +8,7 @@ ms.custom: references_region
 ---
 
 # Data collection rules in Azure Monitor
-[Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md) provide an [ETL pipeline](/azure/architecture/data-guide/relational-data/etl) in Azure Monitor, allowing you to define the way that data coming into Azure Monitor should be handled. Depending on the type of workflow, DCRs may specify where data should be sent and may filter or transform data before it's stored in Azure Monitor Logs. Some data collection rules will be created and managed by Azure Monitor, while you may create others to customize data collection for your particular requirements. This article describes DCRs including their contents and structure and how you can create and work with them.
+[Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md) provide an [ETL](/azure/architecture/data-guide/relational-data/etl)-like pipeline in Azure Monitor, allowing you to define the way that data coming into Azure Monitor should be handled. Depending on the type of workflow, DCRs may specify where data should be sent and may filter or transform data before it's stored in Azure Monitor Logs. Some data collection rules will be created and managed by Azure Monitor, while you may create others to customize data collection for your particular requirements. This article describes DCRs including their contents and structure and how you can create and work with them.
 
 ## Types of data collection rules
 There are currently two types of data collection rule in Azure Monitor:
@@ -67,9 +67,7 @@ This is a preview feature to enable storing customer data in a single region is 
 
 
 ## DCR and transformation definition limits
-
  
-* Stream names in the `StreamDeclarations` section of the DCR for data sent through the API must have a `Custom-` prefix.  
 * Only the following built-in tables support ingesting custom data into them: `CommonSecurityLog`, `SecurityEvents`, `Syslog`, `WindowsEvents`.  
 * Built-in tables can only be routed to themselves post-transformation (eg, data originally for Table A after a transformation can only flow back into Table A).  
 * The `columns` section supports the following data types: `string`, `int`, `long`, `real`, `boolean`, `datetime`.  

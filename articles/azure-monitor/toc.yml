@@ -47,6 +47,22 @@ items:
       href: app/tutorial-app-dashboards.md
     - name: Monitor mobile application
       href: app/mobile-center-quickstart.md
+  - name: Custom logs
+    items:
+    - name: Azure portal
+      displayName: Custom logs
+      href: logs/tutorial-custom-logs.md
+    - name: Resource manager templates
+      displayName: Custom logs
+      href: logs/tutorial-custom-logs.md
+  - name: Ingestion-time transformations
+    items:
+    - name: Azure portal
+      displayName: Ingestion-time transformations
+      href: logs/tutorial-ingestion-time-transformations.md
+    - name: Resource manager templates
+      displayName: Ingestion-time transformations
+      href: logs/tutorial-ingestion-time-transformations-api.md
 - name: Samples
   items:
   - name: Resource Manager templates
@@ -417,9 +433,9 @@ items:
       items: 
       - name: Overview 
         href: logs/custom-logs-overview.md
-      - name: Walkthrough (portal) 
+      - name: Tutorial (portal) 
         href: logs/tutorial-custom-logs.md
-      - name: Walkthrough (API)
+      - name: Tutorial (API)
         href: logs/tutorial-custom-logs-api.md
       - name: Data collector API 
         items:

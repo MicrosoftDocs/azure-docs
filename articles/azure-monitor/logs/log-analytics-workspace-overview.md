@@ -3,13 +3,11 @@ title: Log Analytics workspace overview
 description: Overview of Log Analytics workspace which store data for Azure Monitor Logs.
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-author: bwren
-ms.author: bwren
-ms.date: 01/27/2022
+ms.date: 02/18/2022
 ---
 
 # Log Analytics workspace overview
-A Log Analytics workspace is a unique environment for log data from Azure Monitor and other Azure services such as Microsoft Sentinel. Each workspace has its own data repository and configuration. Data sources and solutions are configured to store their data in a particular workspace. This article provides an overview of concepts related to Log Analytics workspaces and provides links to other documentation for more details on each.
+A Log Analytics workspace is a unique environment for log data from Azure Monitor and other Azure services such as Microsoft Sentinel and Microsoft Defender for Cloud. Each workspace has its own data repository and configuration but may combine data from multiple services. This article provides an overview of concepts related to Log Analytics workspaces and provides links to other documentation for more details on each.
 
 > [!IMPORTANT]
 > You may see the term *Microsoft Sentinel workspace* used in [Microsoft Sentinel](../../sentinel/overview.md) documentation. This is the same Log Analytics workspace described in this article but enabled for Microsoft Sentinel. This subjects all data in the workspace to Sentinel pricing as described in [Cost](#cost) below.
@@ -20,7 +18,7 @@ To create a new workspace, see [Create a Log Analytics workspace in the Azure po
 
 
 ## Data structure
-Log queries retrieve their data from a Log Analytics workspace. Each workspace contains multiple tables that are organized into separate columns with multiple rows of data. Each table is defined by a unique set of columns. Rows of data provided by the data source share those columns. 
+Each workspace contains multiple tables that are organized into separate columns with multiple rows of data. Each table is defined by a unique set of columns. Rows of data provided by the data source share those columns. Log queries define columns of data to retrieve and provide output to different features of Azure Monitor and other services that use workspaces.
 
 [![Diagram that shows the Azure Monitor Logs structure.](media/data-platform-logs/logs-structure.png)](media/data-platform-logs/logs-structure.png#lightbox)
 
@@ -48,9 +46,9 @@ The following table summarizes the differences between the plans.
 ## Ingestion-time transformations
 [Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all workflows don't yet support DCRs, each workspace can define ingestion-time transformations. This allows you filter or transform data before its stored. 
 
-Ingestion-time transformations are defined for each table in a workspace and apply to all data sent to that table, even if sent from multiple sources. Ingestion-time transformations though only apply to workflows that don't already use a data collection rule. For example, [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) uses a data collection rule to define data collected from virtual machines. This data will not be subject to any ingestion-time transformations defined in the workspace. 
+[Ingestion-time transformations](ingestion-time-transformations.md) are defined for each table in a workspace and apply to all data sent to that table, even if sent from multiple sources. Ingestion-time transformations though only apply to workflows that don't already use a data collection rule. For example, [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) uses a data collection rule to define data collected from virtual machines. This data will not be subject to any ingestion-time transformations defined in the workspace. 
 
-For example, you might have [diagnostic settings](../essentials/diagnostic-settings.md) that send [resource logs](../essentials/resource-logs.md) for different Azure resources to your workspace. You can create a transform for the table that collects the resource logs that filters this data for only records that you want, saving you the ingestion cost for records you don't need. You may also want to extract important data from certain columns and store it in additional columns in the workspace to support simpler queries.
+For example, you might have [diagnostic settings](../essentials/diagnostic-settings.md) that send [resource logs](../essentials/resource-logs.md) for different Azure resources to your workspace. You can create a transformation for the table that collects the resource logs that filters this data for only records that you want, saving you the ingestion cost for records you don't need. You may also want to extract important data from certain columns and store it in additional columns in the workspace to support simpler queries.
 
 
 ## Data retention and archive

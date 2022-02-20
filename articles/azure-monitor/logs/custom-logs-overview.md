@@ -10,9 +10,6 @@ ms.date: 01/06/2022
 With the DCR based custom logs API in Azure Monitor, you can send data to a Log Analytics workspace from any REST API client. This allows you to send data from virtually any source to either built-in tables or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
 
 > [!NOTE]
-> Custom logs API replaces the [data collector API](data-collector-api.md).
-
-> [!NOTE]
 > The custom logs API should not be confused with [custom logs](../agents/data-sources-custom-logs.md) data source with the legacy Log Analytics agent.
 ## Basic operation
 Your application sends data to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) which is a unique connection point for your subscription. The payload of your API call includes the source data formatted in JSON. The call specifies a [data collection rule](../essentials/data-collection-rule-overview.md) that understands the format of the source data, potentially filters and transforms it for the target table, and then directs it to a specific table in a specific workspace. You can modify the target table and workspace by modifying the data collection rule without any change to the REST API call or source data.
@@ -23,7 +20,7 @@ Your application sends data to a [data collection endpoint](../essentials/data-c
 Authentication for the custom logs API is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-custom-logs.md).
 
 ## Tables
-Custom logs can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it. 
+Custom logs can send data to any custom table that you create and to [certain built-in tables](ingestion-time-transformations-supported-tables.md) in your Log Analytics workspace. The target table must exist before you can send data to it. 
 
 ## Source data
 The source data sent by your application is formatted in JSON and must match the structure expected by the data collection rule. It doesn't necessarily need to match the structure of the target table since the DCR can include a transformation to convert the data to match the table's structure.
@@ -37,7 +34,7 @@ The DCR must understand the structure of the input data and the structure of the
 Ingestion is a POST call to the data collection endpoint over HTTP. Details of the call are as follows:
 
 ### Endpoint URI
-The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. `Stream Name` refers to the [stream](data-collection-rule-overview.md#streamdeclarations) in the DCR that should handle the custom data.
+The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. `Stream Name` refers to the [stream](../essentials/data-collection-rule-overview.md#streamdeclarations) in the DCR that should handle the custom data.
 
 ```
 {Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2021-11-01-preview
@@ -54,7 +51,7 @@ The call can use the following headers:
 | x-ms-client-request-id | No | String-formatted GUID |  Request ID that can be used by Microsoft for any troubleshooting purposes.  |
 
 ### Body
-The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be be a JSON array with a structure that matches the format expected by the stream in the DCR.
+The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be be a JSON object or array with a structure that matches the format expected by the stream in the DCR.
 
 ## Limits and restrictions
 For limits related to custom logs, see [Azure Monitor service limits](../service-limits.md#custom-logs).

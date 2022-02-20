@@ -7,7 +7,7 @@ ms.date: 01/19/2022
 ---
 
 # Add ingestion-time transformation to Azure Monitor Logs using the Azure portal (preview)
-[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks through configuration of an ingestion time transformation using the Azure portal.
+[Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks you through configuration of a sample ingestion time transformation using the Azure portal.
 
 > [!NOTE]
 > This tutorial uses the Azure portal to configure an ingestion-time transformation. See [Tutorial: Add ingestion-time transformation to Azure Monitor Logs using resource manager templates (preview)](tutorial-ingestion-time-transformations-api.md) for the same tutorial using resource manager templates and REST API.
@@ -52,12 +52,12 @@ Select **Logs** and then run some queries to populate `LAQueryLogs` with some da
 :::image type="content" source="media/tutorial-ingestion-time-transformations/sample-queries.png" lightbox="media/tutorial-ingestion-time-transformations/sample-queries.png" alt-text="Screenshot of sample log queries":::
 
 ## Add ingestion-time transformation to the table
-From the **Log Analytics workspaces** menu in the Azure portal, select **Tables (preview)** and then locate the `LAQueryLogs` table and select **Create transformation**.
+From the **Log Analytics workspaces** menu in the Azure portal, select **Tables (preview)**. Locate the `LAQueryLogs` table and select **Create transformation**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/create-transformation.png" lightbox="media/tutorial-ingestion-time-transformations/create-transformation.png" alt-text="Screenshot of creating a new transformation":::
 
 
-Since this is the first transformation in the workspace, you need to add a new data collection rule (DCR). If you create other transformations, you can store them in this same DCR. Click **Create a new data collection rule**. The **Subscription** and **Resource group** will already be populated for the workspace. Provide a name for the DCR and click **Done**.
+Since this is the first transformation in the workspace, you need to add a new data collection rule (DCR). If you create transformations for other tables in the same workspace, they will be stored in this same DCR. Click **Create a new data collection rule**. The **Subscription** and **Resource group** will already be populated for the workspace. Provide a name for the DCR and click **Done**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/new-data-collection-rule.png" lightbox="media/tutorial-ingestion-time-transformations/new-data-collection-rule.png" alt-text="Screenshot of creating a new data collection rule":::
 
@@ -65,7 +65,7 @@ Click **Next** to view sample data from the table. As you define the transformat
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/sample-data.png" lightbox="media/tutorial-ingestion-time-transformations/sample-data.png" alt-text="Screenshot of sample data from the log table":::
 
-In the transformation editor, you can see the transformation that will be applied to the data prior to its ingestion into the table. The incoming data is represented by a virtual table named `source`, which has the same set of columns as the destination table itself. The transformation initially contains a simple query returning the `source` table with no changes. The transformation just passes through the data from the input stream to the destination table.
+In the transformation editor, you can see the transformation that will be applied to the data prior to its ingestion into the table. The incoming data is represented by a virtual table named `source`, which has the same set of columns as the destination table itself. The transformation initially contains a simple query returning the `source` table with no changes.
 
 You're going to modify this transformation to perform the following:
 
@@ -83,22 +83,26 @@ source
 | project-away RequestContext, Context
 ```
 
-> [!IMPORTANT]
-> The output of the transformation will initiate changes to the table schema. Columns will be added to match the transformation output if they don't already exist. Make sure that your output doesn't contain any additional columns that you don't want added to the table. If the output does not include columns that are already in the table, those columns will not be removed, but data will not be added.
+> [!Note]
+> Using the Azure portal, the output of the transformation will initiate changes to the table schema if required. Columns will be added to match the transformation output if they don't already exist. Make sure that your output doesn't contain any additional columns that you don't want added to the table. If the output does not include columns that are already in the table, those columns will not be removed, but data will not be added.
 > 
 > Any custom columns added to a built-in table must end in *_CF*. Columns added to a custom table (a table with a name that ends in *_CL*) does not need to have this suffix.
 
 Copy the query into the transformation editor and click **Run** to view results from the sample data. You can verify that the new `Workspace_CF` column is in the query.
 
-:::image type="content" source="media/tutorial-ingestion-time-transformations/sample-data.png" lightbox="media/tutorial-ingestion-time-transformations/sample-data.png" alt-text="Screenshot of transformation editor":::
+:::image type="content" source="media/tutorial-ingestion-time-transformations/transformation-editor.png" lightbox="media/tutorial-ingestion-time-transformations/transformation-editor.png" alt-text="Screenshot of transformation editor":::
 
 Click **Apply** to save the transformation and then **Next** to review the configuration. Click **Create** to update the data collection rule with the new transformation.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/save-transformation.png" lightbox="media/tutorial-ingestion-time-transformations/save-transformation.png" alt-text="Screenshot of saving transformation":::
 
 ## Test transformation
-Allow about 30 minutes for the transformation to take effect, and you can then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 
+Allow about 30 minutes for the transformation to take effect and then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 
 
 For this tutorial, run some sample queries to send data to the `LAQueryLogs` table. Include some queries against `LAQueryLogs` so you can verify that the transformation filters these records. Notice that the output has the new `Workspace_CF` column, and there are no records for `LAQueryLogs`.
 
 ## Next steps
+
+- [Read more about ingestion-time transformations](ingestion-time-transformations.md)
+- [See which tables support ingestion-time transformations](ingestion-time-transformations-supported-tables.md)
+- [Learn more about writing transformation queries](../essentials/data-collection-rule-transformations.md)

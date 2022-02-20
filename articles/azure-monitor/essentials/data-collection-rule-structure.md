@@ -55,6 +55,7 @@ The DCR contains three main sections: `streamDeclarations`, `destinations`, and 
 ## Limits
 
 - Only one destination is allowed per stream except data coming from Azure Monitor agent (AMA). Dta collected by AMA can have multiple destinations for multi-homing scenario.
+* Stream names in the `StreamDeclarations` section of the DCR for data sent through the API must have a `Custom-` prefix.  
 
 
 ## Next steps
