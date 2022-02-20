@@ -31,48 +31,6 @@ A search job sends its results to a new table in the same workspace as the sourc
 The search job results table is a [Log Analytics](log-analytics-workspace-overview.md#log-data-plans-preview) table that is available for log queries or any other features of Azure Monitor that use tables in a workspace. The table uses the [retention value](data-retention-archive.md) set for the workspace, but you can modify this retention once the table is created.
 
 Queries on the results table appear in [log query auditing](query-audit.md) but not the initial search job.
-
-## Cost
-The charge for a search job is based on: 
-
-- The amount of data the search job needs to scan.
-- The amount of data the job ingests.
-- The number of days the search job results are available. The cost of retaining data for part of a day is the same as for a full day. 
-
-For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of scanned data. If the job ingests 700 GB and you delete the the search results table after three days, you'll be charged for 2100 GB for retaining the data. 
-
-> [!NOTE]
-> There is no charge for search jobs during the public preview. However, you will be charged for data ingestion.
-
-For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-## Limitations
-Search jobs are subject to the following limitations:
-
-- Optimized to query one table at a time.
-- Search date range is up to one year.
-- Supports long running searches up to a 24-hour time-out.
-- Results are limited to one million records in the record set.
-- Concurrent execution is limited to five search jobs per workspace.
-- Limited to 100 search results tables per workspace.
-- Limited to 100 search job executions per day per workspace. 
-
-When you reach the record limit, Azure aborts the job with a status of *partial success*, and the table will contain only records ingested up to that point. 
-
-### KQL query limitations
-Log queries in a search job are intended to scan very large sets of data. To support distribution and segmentation, the queries use a subset of KQL, including the operators: 
-
-- [where](/azure/data-explorer/kusto/query/whereoperator)
-- [extend](/azure/data-explorer/kusto/query/extendoperator)
-- [project](/azure/data-explorer/kusto/query/projectoperator)
-- [project-away](/azure/data-explorer/kusto/query/projectawayoperator)
-- [project-keep](/azure/data-explorer/kusto/query/projectkeepoperator)
-- [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
-- [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
-- [parse](/azure/data-explorer/kusto/query/whereoperator)
-- [parse-where](/azure/data-explorer/kusto/query/whereoperator)
-
-You can use all functions and binary operators within these operators.
-
 ## Search job table schema
 
 The search job table schema is based on the source table schema and the specified query. We add the following columns to enable tracking the source records:
@@ -166,14 +124,14 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
         "schema": {
             "name": "Syslog_SRCH",
             "tableType": "SearchResults",
-            "description": "This table was created using a Search Job with the following query: 'Syslog | where * has "suspected.exe'.",
+            "description": "This table was created using a Search Job with the following query: 'Syslog | where * has 'suspected.exe'.",
             "columns": [...],
             "standardColumns": [...],
             "solutions": [
                 "LogManagement"
             ],
             "searchResults": {
-                "query": "Syslog | where * has "suspected.exe",
+                "query": "Syslog | where * has 'suspected.exe'",
                 "limit": 1000,
                 "startSearchTime": "Wed, 01 Jan 2020 00:00:00 GMT",
                 "endSearchTime": "Fri, 31 Jan 2020 00:00:00 GMT",
@@ -197,6 +155,46 @@ To delete a table, call the **Tables - Delete** API:
 DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
+## Limitations
+Search jobs are subject to the following limitations:
+
+- Optimized to query one table at a time.
+- Search date range is up to one year.
+- Supports long running searches up to a 24-hour time-out.
+- Results are limited to one million records in the record set.
+- Concurrent execution is limited to five search jobs per workspace.
+- Limited to 100 search results tables per workspace.
+- Limited to 100 search job executions per day per workspace. 
+
+When you reach the record limit, Azure aborts the job with a status of *partial success*, and the table will contain only records ingested up to that point. 
+
+### KQL query limitations
+Log queries in a search job are intended to scan very large sets of data. To support distribution and segmentation, the queries use a subset of KQL, including the operators: 
+
+- [where](/azure/data-explorer/kusto/query/whereoperator)
+- [extend](/azure/data-explorer/kusto/query/extendoperator)
+- [project](/azure/data-explorer/kusto/query/projectoperator)
+- [project-away](/azure/data-explorer/kusto/query/projectawayoperator)
+- [project-keep](/azure/data-explorer/kusto/query/projectkeepoperator)
+- [project-rename](/azure/data-explorer/kusto/query/projectrenameoperator)
+- [project-reorder](/azure/data-explorer/kusto/query/projectreorderoperator)
+- [parse](/azure/data-explorer/kusto/query/whereoperator)
+- [parse-where](/azure/data-explorer/kusto/query/whereoperator)
+
+You can use all functions and binary operators within these operators.
+
+## Pricing
+The charge for a search job is based on: 
+
+- The amount of data the search job needs to scan.
+- The amount of data ingested in the results table.
+
+For example, if your table holds 500 GB per day, for a query on three days, you'll be charged for 1500 GB of scanned data. If the job returns 1000 records, you'll be charged for ingesting these 1000 records into the results table. 
+
+> [!NOTE]
+> There is no charge for search jobs during the public preview. You will be charged only for the ingestion of the results set.
+
+For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Next steps
 
