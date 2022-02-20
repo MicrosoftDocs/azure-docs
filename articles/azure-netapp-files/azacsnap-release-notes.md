@@ -24,7 +24,7 @@ This page lists major changes made to AzAcSnap to provide new functionality or r
 
 ### AzAcSnap v5.1 Preview (Build: 20220220.55340)
 
-AzAcSnap v5.1 Preview (Build: 20220220.55340) has been released with the following fixes and improvements (_replaces AzAcSnap v5.1 Preview (Build: 20220203.77807)_):
+AzAcSnap v5.1 Preview (Build: 20220220.55340) has been released with the following fixes and improvements:
 
 - Resolved failure in matching `--dbsid` command line option with `sid` entry in the JSON configuration file for Oracle databases.
 
@@ -32,7 +32,7 @@ Download the [latest release of the Preview installer](https://aka.ms/azacsnap-p
 
 ### AzAcSnap v5.1 Preview (Build: 20220203.77807)
 
-AzAcSnap v5.1 Preview (Build: 20220203.77807) has been released with the following fixes and improvements (_replaces AzAcSnap v5.1 Preview (Build: 20220125.85030)_):
+AzAcSnap v5.1 Preview (Build: 20220203.77807) has been released with the following fixes and improvements:
 
 - Minor update to resolve STDOUT buffer limitations.  Now the list of Oracle table files put into archive-mode is sent to an external file rather than output in the main AzAcSnap log file.  The external file is in the same location and basename as the log file, but with a ".protected-tables" extension (output filename detailed in the AzAcSnap log file).  It is overwritten each time `azacsnap` runs.
 
