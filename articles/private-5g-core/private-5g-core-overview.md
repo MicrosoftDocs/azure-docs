@@ -17,7 +17,7 @@ Azure Private 5G Core provides:
 
 - **Complete 5G core network functions** 
 
-  Azure Private 5G Core instantiates a single enterprise private mobile network distributed across one or more sites around the world. Each site contains *packet core instance*, which is a complete set of 5G network functions. These network functions include the subscriber database, policy control, control plane and user plane. These are all deployed on a multi-access edge compute platform.
+  Azure Private 5G Core instantiates a single enterprise private mobile network distributed across one or more sites around the world. Each site contains a *packet core instance*, which is a complete set of 5G network functions. These network functions include the subscriber database, policy control, control plane, and user plane. These are all deployed on a multi-access edge compute platform.
 
   You can also configure packet core instances to operate in 4G mode to support Private Long-Term Evolution (LTE) use cases.
 
