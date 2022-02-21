@@ -157,7 +157,7 @@ After first-time activation, the Microsoft Defender for IoT sensor console opens
 
 After your sign in, the Microsoft Defender for IoT sensor console opens.
 
-  :::image type="icon" source="media/how-to-activate-and-set-up-your-sensor/initial-dashboard.png" border="false":::
+  :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/initial-dashboard.png" alt-text="Screenshot that shows the Defender for IoT initial dashboard." lightbox="media/how-to-activate-and-set-up-your-sensor/initial-dashboard.png":::
 
 ## Initial setup and learning (for administrators)
 
@@ -209,7 +209,7 @@ You can access console tools from the side menu.  Tools help you:
 - Set up your sensor for maximum performance
 - Create and manage users 
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-sensor/main-page-side-bar.png" alt-text="The main menu of the sensor console on the left side of the screen":::
+   :::image type="content" source="media/how-to-activate-and-set-up-your-sensor/main-page-side-bar.png" alt-text="The main menu of the sensor console on the left side of the screen":::
 
 ### Discover
 

@@ -27,7 +27,7 @@ You can do the following from the **Alerts** page in the management console:
 
 If your deployment was set up to work with cloud-connected sensors, Alert detections shown on all enterprise sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal.
 
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-page-in-cloud.png" alt-text="Alerts page in the Azure cloud":::
+:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-page-in-cloud.png" alt-text="Alerts page in the Azure cloud" lightbox="media/how-to-work-with-alerts-on-premises-management-console/alerts-page-in-cloud.png":::
 
 Viewing and managing alerts in the portal provides significant advantages. For example, it lets you:
 

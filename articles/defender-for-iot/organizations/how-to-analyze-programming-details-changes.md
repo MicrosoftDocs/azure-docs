@@ -30,7 +30,7 @@ You may need to review programming activity:
 
   - When a process or machine is not working correctly (to see who carried out the last update and when)
 
-:::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Programming Change Log":::
+   :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Programming Change Log":::
 
 Other options let you:
 
@@ -75,7 +75,7 @@ This section describes how to view programming files and compare versions. Searc
 
   - File type
 
-:::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="programming timeline window":::
+   :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="programming timeline window":::
 
 |Programming timeline type | Description |
 |--|--|
@@ -98,7 +98,7 @@ This section describes how to choose a file to review.
 
 2. Select a file from the File pane. The file appears in the Current pane.
 
-:::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Select the file to work with.":::
+   :::image type="content" source="media/how-to-work-with-maps/choose-file.png" alt-text="Select the file to work with.":::
 
 ### Compare files
 
@@ -122,7 +122,7 @@ This section describes how to compare programming files.
 
    The number is calculated by adjacent lines of changed text. For example, if eight consecutive lines of code were changed (deleted, updated, or added) this will be calculated as one difference.
 
-   :::image type="content" source="media/how-to-work-with-maps/program-timeline.png" alt-text="Your programming timeline view.":::
+   :::image type="content" source="media/how-to-work-with-maps/program-timeline.png" alt-text="Your programming timeline view." lightbox="media/how-to-work-with-maps/program-timeline.png":::
 
 4. Select a date. The file detected on the selected date appears in the window.
 
@@ -134,5 +134,5 @@ In addition to reviewing details in the Programming Timeline, you can access pro
 
 | Device type | Description |
 |--|--|
-| Device properties | The device properties window provides information on the last programming event detected on the device. <br> :::image type="content" source="media/how-to-work-with-maps/information-from-device-v2.png" alt-text="Your device's properties"::: |
+| Device properties | The device properties window provides information on the last programming event detected on the device. |
 | The device inventory | The device inventory indicates if the device is a programming device. <br> :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="The inventory of devices"::: |

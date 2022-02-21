@@ -112,7 +112,6 @@ You can also use alert rule actions to instruct Defender for IoT to:
 - Assign an alert severity.
 - Generate an event rather than alert. The detected information will appear in the event timeline.
 
-    :::image type="content" source="media/how-to-work-with-alerts-sensor/user-defined-rule.png" alt-text="Screenshot that shows a user-defined rule.":::
 
 The alert message indicates that a user-defined rule triggered the alert.
 
@@ -192,7 +191,7 @@ The following actions can be defined for the rule:
 
 The rule is added to the **Customized Alerts Rules** page.
 
-:::image type="content" source="media/how-to-work-with-alerts-sensor/custom-alerts-page.png" alt-text="Custom alerts main page":::
+:::image type="content" source="media/how-to-work-with-alerts-sensor/custom-alerts-page.png" alt-text="Custom alerts main page" lightbox="media/how-to-work-with-alerts-sensor/custom-alerts-page.png":::
 
 ### Managing customer alert rules
 
