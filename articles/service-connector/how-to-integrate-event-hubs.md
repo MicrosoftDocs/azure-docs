@@ -19,7 +19,7 @@ This page shows the supported authentication types and client types of Azure Eve
 
 ## Supported authentication types and client types
 
-| Client Type        | System-assigned Managed Identity     | User-assigned Managed Identity       | Secret/ConnectionString              | Service Principal                    |
+| Client type        | System-assigned managed identity     | User-assigned managed identity       | Secret/connection string              | Service principal                    |
 | ------------------ | :----------------------------------: | :-----------------------------------:| :-----------------------------------:| :-----------------------------------:|
 | .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 | Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
