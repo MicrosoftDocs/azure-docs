@@ -220,7 +220,33 @@
         - name: PowerShell
           href: sql/powershell-samples.md
         - name: Azure CLI
-          href: sql/cli-samples.md
+          items:
+          - name: Overview
+            href: sql/cli-samples.md
+          - name: Common API samples
+            items:
+            - name: Add or failover regions
+              href: scripts/cli/common/regions.md
+            - name: Account keys and connection strings
+              href: scripts/cli/common/keys.md
+            - name: Secure with IP firewall
+              href: scripts/cli/common/ipfirewall.md
+            - name: Secure new account with service endpoints
+              href: scripts/cli/common/service-endpoints.md
+            - name: Secure existing account with service endpoints
+              href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+          - name: SQL API samples
+            items:
+            - name: Create account, keyspace, and table
+              href: scripts/cli/sql/create.md
+            - name: Create serverless
+              href: scripts/cli/sql/create.md
+            - name: Create with autoscale
+              href: ./scripts/cli/sql/autoscale.md
+            - name: Throughput operations
+              href: scripts/cli/sql/throughput.md
+            - name: Lock resources from deletion
+              href: scripts/cli/sql/lock.md
         - name: Azure Resource Manager
           href: sql/templates-samples-sql.md
         - name: Bicep
@@ -1195,6 +1221,34 @@
           href: mongodb/tutorial-query-mongodb.md
         - name: 3 - Distribute data globally
           href: mongodb/tutorial-global-distribution-mongodb.md
+    - name: Samples
+      items:
+        - name: Overview
+          href: mongodb/cli-samples.md
+        - name: Common API samples
+          items:
+          - name: Add or failover regions
+            href: scripts/cli/common/regions.md
+          - name: Account keys and connection strings
+            href: scripts/cli/common/keys.md
+          - name: Secure with IP firewall
+            href: scripts/cli/common/ipfirewall.md
+          - name: Secure new account with service endpoints
+            href: scripts/cli/common/service-endpoints.md
+          - name: Secure existing account with service endpoints
+            href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+        - name: MongoDB API samples
+          items:
+          - name: Create account, keyspace, and table
+            href: scripts/cli/mongodb/create.md
+          - name: Create serverless
+            href: scripts/cli/mongodb/create.md
+          - name: Create with autoscale
+            href: ./scripts/cli/mongodb/autoscale.md
+          - name: Throughput operations
+            href: scripts/cli/mongodb/throughput.md
+          - name: Lock resources from deletion
+            href: scripts/cli/mongodb/lock.md
     - name: Concepts
       items:
         - name: API version 4.0
@@ -1321,7 +1375,7 @@
     - name: Samples
       items:
         - name: Overview
-          href: gremlin/cli-samples.md
+          href: graph/cli-samples.md
         - name: Common API samples
           items:
           - name: Add or failover regions
@@ -1334,11 +1388,18 @@
             href: scripts/cli/common/service-endpoints.md
           - name: Secure existing account with service endpoints
             href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
-        - name: Cassandra API samples
+        - name: Gremlin API samples
           items:
           - name: Create account, keyspace, and table
-            href: scripts/cli/cassandra/create.md
-
+            href: scripts/cli/graph/create.md
+          - name: Create serverless
+            href: scripts/cli/graph/create.md
+          - name: Create with autoscale
+            href: ./scripts/cli/graph/autoscale.md
+          - name: Throughput operations
+            href: scripts/cli/graph/throughput.md
+          - name: Lock resources from deletion
+            href: scripts/cli/graph/lock.md
     - name: Concepts
       items:
         - name: FAQ
@@ -1448,6 +1509,34 @@
         - name: F#
           href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
           maintainContext: true
+        - name: Azure CLI
+          items:
+          - name: Overview
+            href: table/cli-samples.md
+          - name: Common API samples
+            items:
+            - name: Add or failover regions
+              href: scripts/cli/common/regions.md
+            - name: Account keys and connection strings
+              href: scripts/cli/common/keys.md
+            - name: Secure with IP firewall
+              href: scripts/cli/common/ipfirewall.md
+            - name: Secure new account with service endpoints
+              href: scripts/cli/common/service-endpoints.md
+            - name: Secure existing account with service endpoints
+              href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+          - name: SQL API samples
+            items:
+            - name: Create account, keyspace, and table
+              href: scripts/cli/table/create.md
+            - name: Create serverless
+              href: scripts/cli/table/create.md
+            - name: Create with autoscale
+              href: ./scripts/cli/table/autoscale.md
+            - name: Throughput operations
+              href: scripts/cli/table/throughput.md
+            - name: Lock resources from deletion
+              href: scripts/cli/table/lock.md
     - name: Concepts
       items:
         - name: FAQ
