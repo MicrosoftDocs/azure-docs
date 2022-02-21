@@ -53,7 +53,7 @@ For example, the report provides:
 
 - Detailed DNS response properties that the DNS server returned for each test
 
-- Detailed HTTP response for each test of a URL
+- Detailed HTTPS response for each test of a URL<!--Verify: This, also, would be HTTPS?-->
 
 - Network route trace for each test
 
@@ -124,7 +124,7 @@ To run a network readiness check, do these steps:
    |`-CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
    |`-AzureEnvironment`|Indicates the Azure environment. Required if the device is deployed to an environment other than the Azure public cloud (Azure Cloud).|
    |`-SkipTests`|Can be used to exclude tests. (Optional)<br>Separate test names with a comma.|
-   |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\<br>Each run of the Network Readiness Checker overwrites the existing report.|
+   |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`<br>Each run of the Network Readiness Checker overwrites the existing report.|
  
 ## Sample output
 
@@ -238,8 +238,8 @@ Invoke-AzsNetworkValidation Completed
 
 For more information, you can review the log and report. By default, both files are saved in the following location:
 
-- **Log:** C:\Users&lt;username&gt;\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessChecker.log
-- **Report:** C:\Users&lt;username&gt;\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessCheckerReport.json
+- **Log:** C:\Users\&lt;username&gt;\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessChecker.log
+- **Report:** C:\Users\&lt;username&gt;\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessCheckerReport.json
 
 ## Next steps
 
