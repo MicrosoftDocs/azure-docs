@@ -17,16 +17,9 @@ Azure Private 5G Core provides:
 
 - **Complete 5G core network functions** 
 
-  Azure Private 5G Core instantiates a single private mobile network distributed across one or more enterprise sites across the world. Each site contains a *packet core instance*, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). A packet core instance authenticates end devices and aggregates their data traffic over 5G Standalone wireless and access technologies. Each packet core instance includes the following components:
+  Azure Private 5G Core instantiates a single enterprise private mobile network distributed across one or more sites around the world. Each site contains a complete set of 5G network functions, known as a *packet core instance*. These network functions include the subscriber database, policy control, control plane and user plane. These are all deployed on a multi-access edge compute platform.
 
-  - A high performance and highly programmable 5G User Plane Function (UPF).
-  - Core control plane functions including policy and subscriber management.
-  - A portfolio of service-based architecture elements.
-  - Management components for network monitoring.
-
-  You can also deploy packet core instances in 4G mode to support Private Long-Term Evolution (LTE) use cases. For example, you can use the 4G Citizens Broadband Radio Service (CBRS) spectrum. 4G mode uses the same cloud-native components as 5G mode (such as the UPF). This is in contrast to other solutions that need to revert to a legacy 4G stack.
-
-  Each packet core instance is connected to the local RAN network to provide coverage for cellular wireless devices. You can choose to limit these devices to local connectivity. Alternatively, you can provide multiple routes to the cloud, internet, or other enterprise data centers running IoT and automation applications.
+  Packet core instances can also operate in 4G mode to support Private Long-Term Evolution (LTE) use cases.
 
 - **Azure service management** 
   
@@ -56,7 +49,7 @@ Azure Private 5G Core also relies on the following, though they are not included
 The following diagram shows the key components of Azure Private 5G Core.
 
 :::image type="complex" source="media/azure-private-5g-core/azure-private-5g-core-components.png" alt-text="Diagram showing the components of Azure Private 5G Core.":::
-   Diagram showing the components of Azure Private 5G Core. They're split between cloud components and components provided on premises. The cloud components include Azure portal, ARM APIs, Azure Monitor, SIM Manager, Service Manager, and RAN Monitor. The on-premises components include Subscribers and Policy, 4G Interworking Function, 5G Core Control Plane, 5G User Plane, Arc-enabled Kubernetes, and Azure Stack Edge.
+   Diagram showing the components of Azure Private 5G Core. They're split between cloud components and components provided on premises. The cloud components include Azure portal, ARM APIs, Azure Monitor, SIM Manager, Service Manager, and RAN Monitor. The on-premises components include Subscriber Database and Policy Control, 4G Interworking Function, 5G Core Control Plane, 5G User Plane, Arc-enabled Kubernetes, and Azure Stack Edge.
 :::image-end:::
 
 ## Key benefits and use cases
@@ -75,7 +68,26 @@ Azure Private 5G Core is able to leverage this low latency with the security and
 - **Defense** - Connected command posts and battlefield with real-time analytics.
 - **Smart farms** - Connected equipment for farm operation.
 
-## Support for 5GC features
+## Packet core architecture
+
+Azure Private 5G Core instantiates a single private mobile network distributed across one or more enterprise sites across the world. Each site contains a *packet core instance*, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). A packet core instance authenticates end devices and aggregates their data traffic over 5G Standalone wireless and access technologies. Each packet core instance includes the following components:
+
+- A high performance and highly programmable 5G User Plane Function (UPF).
+- Core control plane functions including policy and subscriber management.
+- A portfolio of service-based architecture elements.
+- Management components for network monitoring.
+
+You can also deploy packet core instances in 4G mode to support Private Long-Term Evolution (LTE) use cases. For example, you can use the 4G Citizens Broadband Radio Service (CBRS) spectrum. 4G mode uses the same cloud-native components as 5G mode (such as the UPF). This is in contrast to other solutions that need to revert to a legacy 4G stack.
+
+The following diagram shows the network functions supported by a packet core instance. It also shows the interfaces these network functions use to interoperate with third-party components.
+
+:::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Packet core architecture diagram displaying each of the supported network functions and their interfaces.":::
+   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M, and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. Several network functions use the N A F interface to communicate with the Application Function, which is provided by a service provider or enterprise. When operating in 4G mode, the packet core includes S 11 I W F and M M E network functions. The S 11 I W F communicates with the M M E over the S 11 interface. An E Node B provided by a Microsoft partner communicates with the M M E over the S 1 C interface. 
+:::image-end:::
+
+Each packet core instance is connected to the local RAN network to provide coverage for cellular wireless devices. You can choose to limit these devices to local connectivity. Alternatively, you can provide multiple routes to the cloud, internet, or other enterprise data centers running IoT and automation applications.
+
+### Support for 5GC features
 
 |Feature  |Description  |
 |---------|---------|
@@ -83,14 +95,6 @@ Azure Private 5G Core is able to leverage this low latency with the security and
 |**Supported 5G procedures**| For information on Azure Private 5G Core's support for standards-based 5G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).|
 |**User equipment (UE) authentication and security context management**|<p>Azure Private 5G Core supports the following authentication methods:</p><ul><li>Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI).</li><li>5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.</li></ul><p>The packet core instance performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.</p><p>Azure Private 5G Core supports the following algorithms for ciphering and integrity protection:</p><ul><li>5GS null encryption algorithm</li><li>128-bit Snow3G</li><li>128-bit Advanced Encryption System (AES) encryption</li></ul>|
 |**Index to RAT/Frequency Selection Priority (RFSP)**|The packet core instance can provide a RAN with an RFSP Index. The RAN can match the RFSP Index to its local configuration to apply specific radio resource management (RRM) policies, such as cell reselection or frequency layer redirection.|
-
-## Packet core architecture
-
-The following diagram shows the network functions supported by a packet core instance. It also shows the interfaces these network functions use to interoperate with third-party components.
-
-:::image type="complex" source="media/azure-private-5g-core/packet-core-architecture.png" alt-text="Packet core architecture diagram displaying each of the supported network functions and their interfaces.":::
-   Diagram displaying the packet core architecture. The packet core includes the following 5G network functions: the A M F, the S M F, the U P F, the U D R, the N R F, the P C F, the U D M, and the A U S F. The A M F communicates with 5G user equipment over the N1 interface. A G Node B provided by a Microsoft partner communicates with the A M F over the N2 interface and the U P F over the N3 interface. The U P F communicates with the data network over the N6 interface. Several network functions use the N A F interface to communicate with the Application Function, which is provided by a service provider or enterprise. When operating in 4G mode, the packet core includes S 11 I W F and M M E network functions. The S 11 I W F communicates with the M M E over the S 11 interface. An E Node B provided by a Microsoft partner communicates with the M M E over the S 1 C interface. 
-:::image-end:::
 
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
