@@ -84,7 +84,14 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
  of the CA in the Certificate Authority Microsoft Management Console (MMC)
 >- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
 
-You can validate the crlDistributionPoint value you provide in the above powershell example are valid for the Certificate Authority being added by downloading the CRL and comparing the CA certificate and the CRL Information
+You can validate the crlDistributionPoint value you provide in the above powershell example are valid for the Certificate Authority being added by downloading the CRL and comparing the CA certificate and the CRL Information. 
+
+The below table and graphic indicate how to map information from the CA Certificate to the attributes of the downloaded CRL
+
+| CA Certificate Info | |Downloaded CRL Info|
+|----|:-:|----|
+|Subject |=|Issuer |
+|Subject Key Identifier |=|Authority Key Identifier (KeyID) |
 
 :::image type="content" border="false" source="./media/how-to-certificate-based-authentication/Cert-CRL-Compare.png" alt-text="Compare CA Certificate with CRL Information.":::
 
