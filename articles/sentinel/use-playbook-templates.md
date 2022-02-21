@@ -134,7 +134,7 @@ You can repeat this process to create multiple playbooks on the same template.
 
 1. Save the playbook. You'll now be able to see it in the **Active Playbooks** tab.
 
-1. To run this playbook,  [set an automated response](automate-responses-with-playbooks.md#set-an-automated-response) or [run manually](automate-responses-with-playbooks.md#run-a-playbook-manually-on-an-alert) (alert trigger only).
+1. To run this playbook,  [set an automated response](automate-responses-with-playbooks.md#set-an-automated-response) or [run manually](automate-responses-with-playbooks.md#run-a-playbook-manually).
 
 1. Most of the templates can be used as is, but we recommend making any adjustments required to fit the new playbook to your SOC needs.
 
