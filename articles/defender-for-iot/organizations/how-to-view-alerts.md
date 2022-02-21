@@ -126,7 +126,7 @@ Remediation steps will help SOC teams better understand OT issues and resolution
 1. Select an alert from the Alerts page.
 1. In the side pane, select **Take action.**
 
-    :::image type="content" source="media/how-to-view-alerts/alert-remediation.png" alt-text="Take action section of alert":::
+    :::image type="content" source="media/how-to-view-alerts/alert-remediation-rename.png" alt-text="Take action section of alert":::
 
 Your administrator may have added guidance to help you complete the remediation or alert handling. If created comments will appear in the Alert Details section.
 
