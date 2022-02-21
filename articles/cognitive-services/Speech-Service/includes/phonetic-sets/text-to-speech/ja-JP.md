@@ -31,7 +31,7 @@ Please see the following tables for kana and corresponding viseme in parentheses
 
 ### Katakana Yōon
 
-|  |  ャ行  | ュ行   | ョ行   |
+|  |  ャ  | ュ   | ョ   |
 |-----|:------:|--------|--------|
 |キ|  キャ(20,6,2)  | キュ(20,6,4)   | キョ(20,6,8)   |
 |シ|  シャ(16,6,2)  | シュ(16,6,4)   | ショ(16,6,8)   |
