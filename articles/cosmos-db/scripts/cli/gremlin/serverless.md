@@ -25,7 +25,7 @@ ms.date: 02/21/2022
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/serverless.sh" range="4-45":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/serverless.sh" range="4-32":::
 
 ## Clean up resources
 

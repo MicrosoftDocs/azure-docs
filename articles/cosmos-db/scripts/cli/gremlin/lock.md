@@ -21,7 +21,7 @@ ms.date: 02/21/2022
 
 > [!IMPORTANT]
 >
-> Resource locks require membership in the owner role to the subscription.
+> To create resource locks, you must have membership in the owner role to the subscription.
 >
 > Resource locks do not work for changes made by users connecting using any Gremlin SDK or the Azure Portal unless the Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
 
@@ -31,7 +31,7 @@ ms.date: 02/21/2022
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/lock.sh" range="4-47":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/gremlin/lock.sh" range="4-46":::
 
 ## Clean up resources
 

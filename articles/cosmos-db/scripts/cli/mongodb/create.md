@@ -6,11 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 02/21/2022
 ---
 
 # Create a database and collection for MongoDB API for Azure Cosmos DB using Azure CLI
+
 [!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -18,17 +21,21 @@ ms.date: 07/29/2020
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/mongodb/create.sh "Create an Azure Cosmos DB MongoDB API account, database, and collection.")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Clean up deployment
+### Run the script
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/mongodb/create.sh" range="4-54":::
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
