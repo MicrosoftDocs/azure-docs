@@ -4,7 +4,7 @@ description: Analyze the usage of your Teams app or add-in after users acquire i
 ms.localizationpriority: medium
 ms.author: mingshen
 ms.reviewer: dannyevers
-ms.date: 2/17/2022
+ms.date: 2/21/2022
 ---
 
 # Teams apps usage report in Partner Center
