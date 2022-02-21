@@ -19,7 +19,7 @@ Service Connector supports the following compute services:
 - Azure App Service
 - Azure Spring Cloud
 
-## Supported Authentication types and client types
+## Supported authentication types and client types
 
 | Client Type        | System-assigned Managed Identity     | User-assigned Managed Identity       | Secret/ConnectionString              | Service Principal                    |
 | ------------------ | :----------------------------------: | :-----------------------------------:| :-----------------------------------:| :-----------------------------------:|
@@ -34,27 +34,27 @@ Service Connector supports the following compute services:
 
 ### .NET, Java, Node.JS, Python
 
-#### Secret/ConnectionString
+#### Secret / connection string
 
 > [!div class="mx-tdBreakAll"]
 > |Default environment variable name | Description | Sample value |
 > | ----------------------------------- | ----------- | ------------ |
 > | AZURE_EVENTHUB_CONNECTIONSTRING | Event Hubs connection string | `Endpoint=sb://{EventHubNamespace}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={****}` |
 
-#### System-assigned Managed Identity
+#### System-assigned managed identity
 
 | Default environment variable name      | Description          | Sample value                                 |
 | -------------------------------------- | -------------------- | -------------------------------------------- |
 | AZURE_EVENTHUB_FULLYQUALIFIEDNAMESPACE | Event Hubs namespace | `{EventHubNamespace}.servicebus.windows.net` |
 
-#### User-assigned Managed Identity
+#### User-assigned managed identity
 
 | Default environment variable name      | Description          | Sample value                                 |
 | -------------------------------------- | -------------------- | -------------------------------------------- |
 | AZURE_EVENTHUB_FULLYQUALIFIEDNAMESPACE | Event Hubs namespace | `{EventHubNamespace}.servicebus.windows.net` |
 | AZURE_EVENTHUB_CLIENTID                | Your client ID       | `28011635-0dea-4326-896c-3b746a2d90a4`       |
 
-#### Service Principal
+#### Service principal
 
 | Default environment variable name      | Description          | Sample value                                          |
 | ---------------------------------------| -------------------- | ----------------------------------------------------- |
@@ -65,20 +65,27 @@ Service Connector supports the following compute services:
 
 ### Java - Spring Boot
 
-#### Spring Boot Secret/ConnectionString
+#### Spring Boot secret/connection string
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > |-----------------------------------| ----------- | ------------ |
 > | spring.cloud.azure.storage.connection-string | Event Hubs connection string | `Endpoint=sb://servicelinkertesteventhub.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=****` |
 
-#### Spring Boot System-assigned Managed Identity
+#### Spring Boot system-assigned managed identity
 
 | Default environment variable name     | Description          | Sample value                                 |
 | ------------------------------------- | -------------------- | -------------------------------------------- |
 | spring.cloud.azure.eventhub.namespace | Event Hubs namespace | `{EventHubNamespace}.servicebus.windows.net` |
 
-#### Spring Boot Service Principal
+#### Spring Boot user-assigned managed identity
+
+| Default environment variable name     | Description          | Sample value                                 |
+| ------------------------------------- | -------------------- | -------------------------------------------- |
+| spring.cloud.azure.eventhub.namespace | Event Hubs namespace | `{EventHubNamespace}.servicebus.windows.net` |
+| spring.cloud.azure.client-id          | Your client ID       | `28011635-0dea-4326-896c-3b746a2d90a4`       |
+
+#### Spring Boot service principal
 
 | Default environment variable name     | Description          | Sample value                                 |
 | ------------------------------------- | -------------------- | -------------------------------------------- |
