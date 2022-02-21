@@ -48,6 +48,9 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 [!INCLUDE [Enable plan for EKS](./includes/defender-for-containers-enable-plan-eks.md)]
 ::: zone-end
 
+::: zone pivot="defender-for-container-gke"
+[!INCLUDE [Enable plan for GKE](./includes/defender-for-containers-enable-plan-gke.md)]
+::: zone-end
 
 ## Simulate security alerts from Microsoft Defender for Containers
 

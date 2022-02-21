@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 02/20/2022
+ms.date: 02/21/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
@@ -107,6 +107,8 @@ Follow the steps below to create your GCP cloud connector.
 1. Ensure the information presented is correct.
 
 1. Select the **Create** button.
+
+After the connector is created, the discovery service will start to scan the GCP environment and generate GKE recommendations. Recommendations will appear in the portal after 6 to 8 hours have passed. 
 
 ## (Optional) Configure selected plans
 
