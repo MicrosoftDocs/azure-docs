@@ -4,7 +4,7 @@ Please see the following tables for kana and corresponding viseme in parentheses
 
 ### Katakana
 
-|| ア        | イ              | ウ              | エ              | オ              |
+||ア        | イ              | ウ              | エ              | オ              |
 |-----|----------|----------------|----------------|----------------|----------------|
 | **ア**   | ア (19,2) | イ (6,6)        | ウ (7,4)        | エ (19,4)       | オ (19,8)       |
 | **カ**   | カ (20,2) | キ (20,6)       | ク (20,4)       | ケ (20,4)       | コ (20,8)       |
@@ -16,7 +16,7 @@ Please see the following tables for kana and corresponding viseme in parentheses
 | **ヤ**   | ヤ (6,2)  | n/a | ユ (6,4)        | n/a | ヨ (6,8)        |
 | **ラ**   | ラ (19,2) | リ (19,6)       | ル (19,4)       | レ (19,4)       | ロ (19,8)       |
 | **ワ**   | ワ (7,2)  | n/a | n/a | n/a | ヲ (19,8)       |
-|    | ン (19)   | n/a | n/a | n/a | n/a |
+||ン (19)   | n/a | n/a | n/a | n/a |
 
 ### Katakana diacritics
 
