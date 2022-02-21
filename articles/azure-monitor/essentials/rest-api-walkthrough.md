@@ -16,6 +16,8 @@ The Azure Monitor API makes it possible to programmatically retrieve the availab
 
 Besides working with various metric data points, the Monitor API also makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](/rest/api/monitor/).
 
+<note><para>The Azure Active Directory is in the process of being depreicated.  We now recommend the use of the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview)
+
 ## Authenticating Azure Monitor requests
 
 The first step is to authenticate the request.
@@ -49,30 +51,86 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the Microsoft Authentication Library](..azure/active-directory/develop/reference-v2-libraries.md) (MSAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-overview) to obtain the authentication token.
 
 ```powershell
-$azureAdApplication = Get-AzADApplication -IdentifierUri "https://localhost/azure-monitor"
-
-$subscription = Get-AzSubscription -SubscriptionId $subscriptionId
-
-$clientId = $azureAdApplication.ApplicationId.Guid
-$tenantId = $subscription.TenantIdgit
-$authUrl = "https://login.microsoftonline.com/${tenantId}"
-
-$AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext]$authUrl
-$cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.ClientCredential -ArgumentList ($clientId, $pwd)
-
-$result = $AuthContext.AcquireTokenAsync("https://management.core.windows.net/", $cred).GetAwaiter().GetResult()
-
-# Build an array of HTTP header values
-$authHeader = @{
-'Content-Type'='application/json'
-'Accept'='application/json'
-'Authorization'=$result.CreateAuthorizationHeader()
+$ClientID           = "{client_id}"
+$loginURL           = "https://login.microsoftonline.com"
+$tenantdomain       = "{tenant_id}"
+$CertPassWord       = "{password_for_cert}"
+$certPath           = "C:\temp\Certs\testCert_01.pfx"
+ 
+[string[]] $Scopes  = "https://graph.microsoft.com/.default"
+ 
+Function Load-MSAL {
+    if ($PSVersionTable.PSVersion.Major -gt 5)
+    { 
+        $core = $true
+        $foldername =  "netcoreapp2.1"
+    }
+    else
+    { 
+        $core = $false
+        $foldername = "net45"
+    }
+ 
+    # Download MSAL.Net module to a local folder if it does not exist there
+    if ( ! (Get-ChildItem $HOME/MSAL/lib/Microsoft.Identity.Client.* -erroraction ignore) ) {
+        install-package -Source nuget.org -ProviderName nuget -SkipDependencies Microsoft.Identity.Client -Destination $HOME/MSAL/lib -force -forcebootstrap | out-null
+    }
+   
+    # Load the MSAL assembly -- needed once per PowerShell session
+    [System.Reflection.Assembly]::LoadFrom((Get-ChildItem $HOME/MSAL/lib/Microsoft.Identity.Client.*/lib/$foldername/Microsoft.Identity.Client.dll).fullname) | out-null
+  }
+  
+Function Get-GraphAccessTokenFromMSAL {
+ 
+    Load-MSAL
+ 
+    $global:app = $null
+ 
+    $x509cert = [System.Security.Cryptography.X509Certificates.X509Certificate2] (GetX509Certificate_FromPfx -CertificatePath $certPath -CertificatePassword $CertPassWord)
+    write-host "Cert = {$x509cert}"
+ 
+    $ClientApplicationBuilder = [Microsoft.Identity.Client.ConfidentialClientApplicationBuilder]::Create($ClientID)
+        [void]$ClientApplicationBuilder.WithAuthority($("$loginURL/$tenantdomain"))
+        [void]$ClientApplicationBuilder.WithCertificate($x509cert)
+    $global:app = $ClientApplicationBuilder.Build()
+ 
+    [Microsoft.Identity.Client.AuthenticationResult] $authResult  = $null
+    $AquireTokenParameters = $global:app.AcquireTokenForClient($Scopes)
+    try {
+        $authResult = $AquireTokenParameters.ExecuteAsync().GetAwaiter().GetResult()
+    }
+    catch {
+        $ErrorMessage = $_.Exception.Message
+        Write-Host $ErrorMessage
+    }
+     
+    return $authResult
 }
  
+function GetX509Certificate_FromPfx($CertificatePath, $CertificatePassword){
+    #write-host "Path: '$CertificatePath'"
+    
+    if(![System.IO.Path]::IsPathRooted($CertificatePath))
+    {
+        $LocalPath = Get-Location
+        $CertificatePath = "$LocalPath\$CertificatePath"
+    }
+ 
+    #Write-Host "Looking for '$CertificatePath'"
+ 
+    $certificate = [System.Security.Cryptography.X509Certificates.X509Certificate2]::new($CertificatePath, $CertificatePassword)
+     
+    Return $certificate
+}
+ 
+$myvar = Get-GraphAccessTokenFromMSAL
+Write-Host "Access Token: " $myvar.AccessToken
+ 
 ```
+Loading the certificate from a .pfx file in PowerShell can make it easier for an admin to manage certificates without having to install the certificate in the certificate store. However, this should not be done on a client machine as the user could potentially discover the file and also the password for it, as well as the method to authenticate. The client credentials flow is only intended to be ran in a back-end service to service type of scenario where only admins have access to the machine.
 
 After authenticating, queries can then be executed against the Azure Monitor REST API. There are two helpful queries:
 
