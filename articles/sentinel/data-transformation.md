@@ -19,7 +19,7 @@ Log Analytics supports ingestion-time data transformation, which provides custom
 
 Ingestion-time transformation provides you with the ability to filter out irrelevant data before it's even stored in your workspace.
 
-You can filter at the record (row) level, by specifying criteria for which records to return, or at the field (column) level, by removing the content for specific fields. Filtering out irrelevant data can:
+You can filter at the record (row) level, by specifying criteria for which records to include, or at the field (column) level, by removing the content for specific fields. Filtering out irrelevant data can:
 
 - Help to reduce costs, as you reduce storage requirements
 - Improve analytics and enrich your data with extra information, standardized according to your SOC teams' needs
@@ -29,13 +29,13 @@ You can also use ingestion-time data transformation when working with multiple w
 
 ### Enrichment and tagging
 
-Ingestion-time transformation also provides the ability to enrich your data with extra columns. Extra columns might include parsed data from other columns, or columns of data taken from static tables, and added to the configured KQL transformation.
+Ingestion-time transformation also provides the ability to enrich your data with extra columns. Extra columns might include parsed or calculated data from other columns, or columns of data taken from static tables, and added to the configured KQL transformation.
 
 For example, add extra information such as owner entities, an expanded event description, or classifications that depend on the user, location, or activity type.
 
 ### Obfuscation
 
-Ingestion-time transformations can also be used to mask or remove personal information.. For example, you might use data transformation to mask the last numbers of a social security number or credit card, or you could replace other types of personal data with nonsense or standard text. Mask your personal information at the ingestion time to increase security across your network.
+Ingestion-time transformations can also be used to mask or remove personal information.. For example, you might use data transformation to mask all but the last numbers of a social security number or credit card, or you could replace other types of personal data with nonsense or standard text. Mask your personal information at ingestion time to increase security across your network.
 
 
 ## Data transformation flow in Microsoft Sentinel
