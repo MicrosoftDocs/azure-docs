@@ -1,7 +1,7 @@
 ---
-title: Create a custom IP address prefix (BYOIP) Preview - Azure CLI
+title: Create a custom IP address prefix - Azure CLI
 titleSuffix: Azure Virtual Network
-description: Learn about how to onboard a custom IP address prefix (BYOIP) using Azure CLI
+description: Learn about how to onboard a custom IP address prefix using Azure CLI
 author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
@@ -11,7 +11,7 @@ ms.author: allensu
 
 ---
 
-# Create a custom IP address prefix (BYOIP) Preview using Azure CLI
+# Create a custom IP address prefix  using Azure CLI
 
 Use of a custom IP address prefix enables you to bring your own IP ranges to Microsoft and associate it to your Azure subscription. The range would continue to be owned by you, though Microsoft would be permitted to advertise it to the Internet. A custom IP address prefix functions as a regional resource that represents a contiguous block of customer owned IP addresses. 
 
@@ -42,7 +42,7 @@ In order to utilize the Azure BYOIP feature, you must perform the following step
 
 * The address range must be owned by you and registered under your name with the [American Registry for Internet Numbers (ARIN)](https://www.arin.net/), the [Réseaux IP Européens Network Coordination Centre (RIPE NCC)](https://www.ripe.net/), or the [Asia Pacific Network Information Centre Regional Internet Registries (APNIC)](https://www.apnic.net/). If the range is registered under the Latin America and Caribbean Network Information Centre (LACNIC) or the African Network Information Centre (AFRINIC), contact the [Microsoft Azure BYOIP team](mailto:byoipazure@microsoft.com).
 
-* The address range must be IPv4 and can be no smaller than a /24 so it will be accepted by Internet Service Providers.
+* If using IPv4, the address range must be no smaller than a /24 so it will be accepted by Internet Service Providers.  If using IPv6, the address range must be exactly /48.
 
 * A Route Origin Authorization (ROA) document that authorizes Microsoft to advertise the address range must be filled out by the customer on the appropriate Routing Internet Registry website. ARIN, RIPE, and APNIC.  
     

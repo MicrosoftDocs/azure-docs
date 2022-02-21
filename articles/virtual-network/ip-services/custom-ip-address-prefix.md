@@ -20,21 +20,37 @@ A custom IP address prefix is a contiguous range of IP addresses owned by an ext
 
 * Customers can retain their IP ranges (BYOIP) to maintain established reputation and continue to pass through externally controlled allowlists.
 
-* Public IP address prefixes and Standard SKU Public IPs from Public IP Prefixes, can be derived from custom IP address prefixes, and utilized in the same way as Azure owned public IPs. 
+* Public IP address prefixes (and Standard SKU public IPs from these public IP prefixes) can be derived from custom IP address prefixes, and utilized in the same way as Azure owned public IPs. 
 
-## Constraints
+## Bringing an IP prefix to Azure
 
-* Only IPv4 prefixes are supported as a custom IP address prefix currently.
+Bringing an IP prefix to Azure is a three phase process -- validation, provisioning, and commissioning.
 
-* Only zone-redundant IP prefixes are supported with a custom IP address prefix currently.
+### Validation
+
+In order to bring a public IP range to use on Azure, it must be owned by you and registered with a Routing Internet Registry such as ARIN or RIPE.  When bringing an IP range to use on Azure, it remains under your ownership, so you must authorize Microsoft to advertise it.  Your ownership of the range and associated with your Azure subscription must also be verified.  Note that some of these steps will be done outside of Azure.
+
+### Provisioning
+
+After the above steps are completed, the public IP range can complete the "provisioning" phase and will be created as a custom IP prefix resource in your subscription.  At this point, public IP prefixes (and public IPs) can be derived from your range and associated to Azure resources.  Note that the IPs will not be advertised at this point and therefore not reachable.
+
+### Commissioning
+
+When you are ready, you can issue the command to have your range advertised from Azure and enter the "commissioning" phase.  The range will be advertised first from the Azure region where the custom IP prefix is located, and subsequently by Microsoft's Wide Area Network (WAN).
+
+## Limitations
+
+* A custom IP address prefix must be associated with a single Azure region.  (The exception is IPv6 as described below.)
+
+* The minimum size of an IPv4 range is /24.  An IPv6 range must be exactly /48, and individual /64s can be allocated per region.  Only the first 2000 IPv6 addresses out of each /64 is usable.
+
+* A custom IP address prefix must be specified as either zone-redundant or assigned to a specific zone.  All IPs from the prefix must have the same zonal properties.
 
 * The number of overall prefixes that can be provisioned is limited to 5 per region.
 
-* There isn't an SLA for provisioning/advertisement of a range during the preview period.
+* The advertisements of IPs from a custom IP prefix over Azure ExpressRoute are not currently supported.
 
-* Currently, the advertisements of IPs from a custom IP prefix aren't supported with Azure ExpressRoute.
-
-* Once provisioned, custom IP address prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription.
+* Once provisioned, custom IP address prefix ranges can't be moved to another subscription. Custom IP address prefix ranges can't be moved within resource groups in a single subscription.  Note that it is possible to derive a public IP prefix from a custom IP prefix in another subscription with the proper permissions.
 
 * Overlapping ranges in the same region currently aren't allowed.
     

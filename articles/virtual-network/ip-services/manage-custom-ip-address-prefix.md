@@ -1,5 +1,5 @@
 ---
-title: Manage a custom IP address prefix (BYOIP) Preview
+title: Manage a custom IP address prefix
 titleSuffix: Azure Virtual Network
 description: Learn about custom IP address prefixes and how to manage and delete them.
 services: virtual-network
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 02/01/2022
 ms.author: allensu
 ---
-# Manage a custom IP address prefix (BYOIP) Preview
+# Manage a custom IP address prefix
 
 A custom IP address prefix is a contiguous range of IP addresses owned by an external customer (not Microsoft) and provisioned to a subscription.  For more information, see [Custom IP address prefix overview](custom-ip-address-prefix.md). 
 
@@ -28,7 +28,7 @@ For information on provisioning a IP address, [Create a custom IP address prefix
 
 ## Create a public IP prefix from a custom IP prefix
 
-When a custom IP prefix is in **Provisioned** or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range. 
+When a custom IP prefix is in **Provisioned**, **Commissioning**, or **Commissioned** state, a linked public IP prefix can be created. Either as a subset of the custom IP prefix range or the entire range. 
 
 Use the following CLI and PowerShell commands to create public IP prefixes with the `--custom-ip-prefix-name` (CLI) and `-CustomIpPrefix` (PowerShell) parameters that point to an existing custom IP prefix. 
 
@@ -89,11 +89,8 @@ In order to fully remove a custom IP prefix, it must be deprovisioned and then d
 
 > [!NOTE]
 > If there is a requirement to migrate an provisioned range from one region to the other, the original custom IP prefix must be fully removed from the fist region before a new custom IP prefix with the same address range can be created in another region.
->
->
-> The current estimated time to fully complete the deprovisioning process in preview is 4-6 weeks.
 
-The following commands can be used in Azure CLI and Azure PowerShell to deprovision and remove the range from Microsoft. The deprovisioning operation is asynchronous. You can use the view commands to retrieve the status. The **CommissionedState** field will initially show the prefix as **Deprovisioning**, followed by **Deprovisioned** as it transitions to the earlier state. When the range is in the **Deprovisioned** state, it can be deleted by using the commands to remove.
+The following commands can be used in Azure CLI and Azure PowerShell to deprovision and remove the range from Microsoft. The deprovisioning operation is asynchronous. You can use the view commands to retrieve the status. The **CommissionedState** field will initially show the prefx as **Deprovisioning**, followed by **Deprovisioned** as it transitions to the earlier state. When the range is in the **Deprovisioned** state, it can be deleted by using the commands to remove.
 
 **Commands**
 
@@ -117,21 +114,17 @@ For permissions to manage public IP address prefixes, your account must be assig
 
 This section provides answers for common questions about custom IP prefix resources and the provisioning and removal processes.
 
-### After you create a new custom IP prefix, the provisioning failed within 24 hours
+### After creating a new custom IP prefix, a "ValidationFailed" error is returned
 
 A quick failure of provisioning is likely due to a prefix validation error. A prefix validation error indicates we're unable to verify your ownership of the range. A validation error can also indicate that we can't verify Microsoft permission to advertise the range, and or the association of the range with the specific subscription. The error message given should indicate the specific problem encountered, so you can fix the required input. For example, the Route Origin Authorization, the signed message on the prefix records, and other aspects of the submission. You should delete the custom IP prefix resource and create a new one.
 
-### My custom IP prefix has been in "Provisioning" status for a long time
-
-Provisioning and deprovisioning a custom IP prefix during the preview period is an asynchronous operation that takes an estimated 4-6 weeks. The provision of a non-Microsoft (BYOIP) range goes through many internal safety checks, which deploys on a region-by-region basis. Contact Microsoft Support if the range has been in Provisioning for longer than this time, or transitions to **ProvisioningFailed** state after 24 hours. The **ProvisioningFailed** state indicates its's no longer a validation error.
-
 ### After updating a custom IP prefix to advertise, it transitions to a "CommissioningFailed" status
 
-During the preview period, if a custom IP prefix is unable to be fully advertised, it moves to a **CommissioningFailed** status. In these instances, it's recommended to execute the command to update the range to commissioned status again and contact Microsoft Support.
+If a custom IP prefix is unable to be fully advertised, it moves to a **CommissioningFailed** status. In these instances, it's recommended to execute the command to update the range to commissioned status again.
 
 ### I’m unable to decommission a custom IP prefix
 
-Before you decommission a custom IP prefix, no public IP prefixes or public IP addresses can be present.
+Before you decommission a custom IP prefix, please ensure it has no public IP prefixes or public IP addresses.
 
 ### How can I migrate a range from one region to another
 
