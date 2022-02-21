@@ -56,3 +56,33 @@ There are 2 dedicated Defender for Cloud recommendation for deploying the extens
 
     :::image type="content" source="../media/defender-for-containers-enable-plan-gke/recommmendation-search.png" alt-text="Screenshot showing the results of searching for either recommendation.":::
 
+1. Select a recommendation whose Resource Health is low.
+
+    > [!Note]
+    > You must select the clusters one at a time. Don't select the clusters by their hyperlinked names, instead select any other area in the relevant row.
+
+1. Select the **Fix** button.
+
+1. Defender for Cloud will generate a script in the language of your choice: 
+    - For Linux, select **Bash**.
+    - For Windows, select **PowerShell**.
+
+1. Select **Download remediation logic**.
+
+    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/fix-recommendation.png" alt-text="Screenshot that shows how to fix, and download the remediation logic." lightbox="../media/defender-for-containers-enable-plan-gke/fix-recommendation-expanded.png":::
+
+1. Run the generated script.
+
+## View your GKE cluster alerts
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Microsoft Defender for Cloud** > **Security alerts**.
+
+1. Select the :::image type="icon" source="../media/defender-for-containers-enable-plan-gke/add-filter.png" border="false"::: button.
+
+1. In the Filter drop-down menu, select **Resource type.**
+
+1. In the Value drop-down menu, select **GCP GKE Cluster**.
+
+1. Select **Ok**.
