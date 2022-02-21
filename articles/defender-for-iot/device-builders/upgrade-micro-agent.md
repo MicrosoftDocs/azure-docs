@@ -5,7 +5,7 @@ ms.date: 02/20/2022
 ms.topic: how-to
 ---
 
-## Upgrade the Microsoft Defender for IoT micro agent
+# Upgrade the Microsoft Defender for IoT micro agent
 
 This article describes how to upgrade a Microsoft Defender for IoT micro agent with the latest software version.
 
