@@ -123,8 +123,6 @@ SignalR trigger isn't currently supported for Java.
 
 Here's binding data in the *function.json* file:
 
-Example function.json:
-
 ```json
 {
     "type": "signalRTrigger",

@@ -291,6 +291,78 @@ public SignalRConnectionInfo negotiate(
 ```
 ::: zone-end
 
+::: zone pivot="programming-language-csharp"
+
+## Attributes
+
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
+
+# [In-process](#tab/in-process)
+
+The following table explains the properties of the `SignalRConnectionInfo` attribute:
+
+| Attribute property |Description|
+|---------|----------------------|
+**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated. |
+|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+# [Isolated process](#tab/isolated-process)
+
+The following table explains the properties of the `SignalRConnectionInfoInput` attribute:
+
+| Attribute property |Description|
+|---------|----------------------|
+**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated. |
+|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+# [C# Script](#tab/csharp-script)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|--------|
+|**type**|  Must be set to `signalRConnectionInfo`.|
+|**direction**|  Must be set to `in`.|
+|**name**|  Variable name used in function code for connection info object. |
+|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**userId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+---
+
+::: zone-end 
+::: zone pivot="programming-language-java" 
+ 
+## Annotations
+
+The following table explains the supported settings for the `SignalRConnectionInfoInput` annotation.
+
+|Setting | Description|
+|---------|--------|
+|**name**|  Variable name used in function code for connection info object. |
+|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**userId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python" 
+## Configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|--------|
+|**type**|  Must be set to `signalRConnectionInfo`.|
+|**direction**|  Must be set to `in`.|
+|**name**|  Variable name used in function code for connection info object. |
+|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**userId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+::: zone-end
+
 ## Next steps
 
 - [Handle messages from SignalR Service  (Trigger binding)](./functions-bindings-signalr-service-trigger.md)
