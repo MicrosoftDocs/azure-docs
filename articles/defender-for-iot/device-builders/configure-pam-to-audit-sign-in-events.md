@@ -13,7 +13,11 @@ For more information, see [Login collector (event-based collector)](concept-even
 
 ## Prerequisites
 
-TBD missing
+Before you get started, make sure that you have the following:
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- You must have a Defender for IoT Micro Agent. For more information, see [Tutorial: Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md).
 
 ## Modify SSSHD and sign-in service configurations
 
@@ -27,9 +31,9 @@ This procedure describes how to configure logging for successful SSH and Telnet 
 1. Append the following lines to the end of each file:
 
     ```bash
-    session [default=ignore] pam_exec.so type=open_session /usr/libexec/defender_iot_micro_agent/pam/pam_audit.sh 0 
+    session [default=ignore] pam_exec.so type=open_session /usr/libexec/defender_iot_micro_agent/pam/pam_audit.sh 0
 
-    session [default=ignore] pam_exec.so type=close_session /usr/libexec/defender_iot_micro_agent/pam/pam_audit.sh 1 
+    session [default=ignore] pam_exec.so type=close_session /usr/libexec/defender_iot_micro_agent/pam/pam_audit.sh 1
     ```
 
 ## Modify common and system authentication configuration
