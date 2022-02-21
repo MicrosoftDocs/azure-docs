@@ -2,10 +2,10 @@
 title: 'Tutorial: Build and run a custom image in Azure App Service'
 description: A step-by-step guide to build a custom Linux or Windows image, push the image to Azure Container Registry, and then deploy that image to Azure App Service. Learn how to migrate custom software to App Service in a custom container.
 ms.topic: tutorial
-ms.date: 08/04/2021
+ms.date: 10/02/2022
 ms.author: msangapu
 keywords: azure app service, web app, linux, windows, docker, container
-ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli"
+ms.custom: "devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli, devdivchpfy22"
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 
@@ -13,9 +13,16 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 ::: zone pivot="container-windows"  
 
-[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on (see [Operating system functionality on Azure App Service](operating-system-functionality.md)). However, using a custom Windows container in App Service lets you make OS changes that your app needs, so it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](../container-registry/index.yml), and then run it in App Service.
+[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows environment locks down the operating system from:
+- administrative access.
+- software installations.
+- changes to the global assembly cache.
 
-![Shows the web app running in a Windows container.](media/tutorial-custom-container/app-running.png)
+See [Operating system functionality on Azure App Service](operating-system-functionality.md).
+
+However, using a custom Windows container in App Service lets you make OS changes that your app needs. So it's easy to migrate on-premises app that requires custom OS and software configuration. This tutorial demonstrates how to migrate to App Service an ASP.NET app that uses custom fonts installed in the Windows font library. You deploy a custom-configured Windows image from Visual Studio to [Azure Container Registry](../container-registry/index.yml), and then run it in App Service.
+
+![Shows the web app running in a Windows container.](media/tutorial-custom-container/app-running-newupdate.png)
 
 ## Prerequisites
 
@@ -24,7 +31,7 @@ To complete this tutorial:
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2022 already:
     - Install the latest updates in Visual Studio by clicking **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
@@ -35,9 +42,9 @@ To complete this tutorial:
 In this step, you set up the local .NET project.
 
 - [Download the sample project](https://github.com/Azure-Samples/custom-font-win-container/archive/master.zip).
-- Extract (unzip) the  *custom-font-win-container.zip* file.
+- Extract (unzip) the  *custom-font-win-container-master.zip* file.
 
-The sample project contains a simple ASP.NET application that uses a custom font that is installed into the Windows font library. It's not necessary to install fonts, but it's an example of an app that is integrated with the underlying OS. To migrate such an app to App Service, you either rearchitect your code to remove the integration, or migrate it as-is in a custom Windows container.
+The sample project contains a simple ASP.NET application that uses a custom font that is installed into the Windows font library. It's not necessary to install fonts. This sample is an example of an app that is integrated with the underlying OS. To migrate such an app to App Service, you either rearchitect your code to remove the integration, or migrate it as-is in a custom Windows container.
 
 ### Install the font
 
@@ -47,7 +54,7 @@ This font is publicly available from [Google Fonts](https://fonts.google.com/spe
 
 ### Run the app
 
-Open the *custom-font-win-container/CustomFontSample.sln* file in Visual Studio. 
+Open the *custom-font-win-container-master/CustomFontSample.sln* file in Visual Studio. 
 
 Type `Ctrl+F5` to run the app without debugging. The app is displayed in your default browser. 
 
@@ -109,12 +116,12 @@ In the **Create a new Azure Container Registry** dialog, select **Add an account
 
 ### Configure the registry
 
-Configure the new container registry based on the suggested values in the following table. When finished, click **Create**.
+Configure the new container registry based on the suggested values in the following table. When finished, select **Create**.
 
 | Setting  | Suggested value | For more information |
 | ----------------- | ------------ | ----|
 |**DNS Prefix**| Keep the generated registry name, or change it to another unique name. |  |
-|**Resource Group**| Click **New**, type **myResourceGroup**, and click **OK**. |  |
+|**Resource Group**| Select **New**, type **myResourceGroup**, and select **OK**. |  |
 |**SKU**| Basic | [Pricing tiers](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Registry Location**| West Europe | |
 
@@ -132,17 +139,17 @@ From the left menu, select **Create a resource** > **Web** > **Web App for Conta
 
 ### Configure app basics
 
-In the **Basics** tab, configure the settings according to the following table, then click **Next: Docker**.
+In the **Basics** tab, configure the settings according to the following table, then select **Next: Docker**.
 
 | Setting  | Suggested value | For more information |
 | ----------------- | ------------ | ----|
 |**Subscription**| Make sure the correct subscription is selected. |  |
-|**Resource Group**| Select **Create new**, type **myResourceGroup**, and click **OK**. |  |
+|**Resource Group**| Select **Create new**, type **myResourceGroup**, and select **OK**. |  |
 |**Name**| Type a unique name. | The URL of the web app is `https://<app-name>.azurewebsites.net`, where `<app-name>` is your app name. |
 |**Publish**| Docker container | |
 |**Operating System**| Windows | |
 |**Region**| West Europe | |
-|**Windows Plan**| Select **Create new**, type **myAppServicePlan**, and click **OK**. | |
+|**Windows Plan**| Select **Create new**, type **myAppServicePlan**, and select **OK**. | |
 
 Your **Basics** tab should look like this:
 
@@ -161,7 +168,7 @@ In the **Docker** tab, configure your custom Windows container as shown in the f
 
 ### Complete app creation
 
-Click **Create** and wait for Azure to create the required resources.
+Select **Create** and wait for Azure to create the required resources.
 
 ## Browse to the web app
 
@@ -169,9 +176,9 @@ When the Azure operation is complete, a notification box is displayed.
 
 ![Shows that the Azure operation is complete.](media/tutorial-custom-container/portal-create-finished.png)
 
-1. Click **Go to resource**.
+1. Select **Go to resource**.
 
-2. In the app page, click the link under **URL**.
+2. In the app page, select the link under **URL**.
 
 A new browser page is opened to the following page:
 
@@ -179,7 +186,7 @@ A new browser page is opened to the following page:
 
 Wait a few minutes and try again, until you get the homepage with the beautiful font you expect:
 
-![Shows the homepage with the font you configured.](media/tutorial-custom-container/app-running.png)
+![Shows the homepage with the font you configured.](media/tutorial-custom-container/app-running-newupdate.png)
 
 **Congratulations!** You've migrated an ASP.NET application to Azure App Service in a Windows container.
 
@@ -206,7 +213,7 @@ The streamed logs look like this:
 
 ::: zone pivot="container-linux"
 
-Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes --linux'](/cli/azure/webapp#az_webapp_list_runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
+Azure App Service uses the Docker container technology to host both built-in images and custom images. To see a list of built-in images, run the Azure CLI command, ['az webapp list-runtimes--linux'](/cli/azure/webapp#az_webapp_list_runtimes). If those images don't satisfy your needs, you can build and deploy a custom image.
 
 In this tutorial, you learn how to:
 
@@ -219,7 +226,7 @@ In this tutorial, you learn how to:
 > * Enable CI/CD from Azure Container Registry to App Service
 > * Connect to the container using SSH
 
-Completing this tutorial incurs a small charge in your Azure account for the container registry and can incur additional costs for hosting the container for longer than a month.
+Completing this tutorial incurs a small charge in your Azure account for the container registry and can incur more costs for hosting the container for longer than a month.
 
 ## Set up your initial environment
 
@@ -326,7 +333,7 @@ ENTRYPOINT ["init.sh"]
 
 ## Create a resource group
 
-In this section and those that follow, you provision resources in Azure to which you push the image and then deploy a container to Azure App Service. You start by creating a resource group in which to collect all these resources.
+In this section and the following sections, you prepare resources in Azure to which you push the image and then deploy a container to Azure App Service. You start by creating a resource group in which to collect all these resources.
 
 Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group:
 
@@ -366,7 +373,7 @@ In this section, you push the image to Azure Container Registry from which App S
 
     You use the same registry name in all the remaining steps of this section.
 
-1. Once the login succeeds, tag your local Docker image for the registry:
+1. Once the log in is successful, tag your local Docker image for the registry:
 
     ```bash
     docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -481,7 +488,7 @@ You can complete these steps once the image is pushed to the container registry 
     Replace `<app-name>` with the name of your web app and replace `<registry-name>` in two places with the name of your registry. 
 
     - When using a registry other than Docker Hub (as this example shows), `--docker-registry-server-url` must be formatted as `https://` followed by the fully qualified domain name of the registry.
-    - The message, "No credential was provided to access Azure Container Registry. Trying to look up..." tells you that Azure is using the app's managed identity to authenticate with the container registry rather than asking for a username and password.
+    - The message, "No credential was provided to access Azure Container Registry. Trying to look up..." indicates that Azure is using the app's managed identity to authenticate with the container registry rather than asking for a username and password.
     - If you encounter the error, "AttributeError: 'NoneType' object has no attribute 'reserved'", make sure your `<app-name>` is correct.
 
     > [!TIP]
@@ -593,7 +600,7 @@ SSH enables secure communication between a container and a client. To enable SSH
 
 ### Configure the container for SSH
 
-The sample app used in this tutorial already has the necessary configuration in the *Dockerfile*, which installs the SSH server and also sets the login credentials. This section is informational only. To connect to the container, skip to the next section
+The sample app used in this tutorial already has the necessary configuration in the *Dockerfile*, which installs the SSH server and also sets the login credentials. This section is informational only. To connect to the container, skip to the next section:
 
 ```Dockerfile
 ENV SSH_PASSWD "root:Docker!"
