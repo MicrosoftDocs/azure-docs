@@ -59,7 +59,7 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
 ## Set up a local cluster
 Service Fabric inside WSL2 VM is recommended to manage from host windows
 
-1. Install Service Fabric SDK (version >= 5.3) in Windows host
+1. Install Service Fabric SDK (version 6.0 or above) in Windows host
 
 2. In Windows, cluster can be managed using ServiceFabricLocalClusterManager tool provided as part of SF SDK
 
