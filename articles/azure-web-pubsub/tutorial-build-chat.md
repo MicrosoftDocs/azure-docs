@@ -185,7 +185,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
           let id = prompt('Please input your user name');
           let res = await fetch(`/negotiate?id=${id}`);
           let url = await res.text();
-          let ws = new WebSocket(url);+
+          let ws = new WebSocket(url);
           ws.onopen = () => console.log('connected');
         })();
       </script>
