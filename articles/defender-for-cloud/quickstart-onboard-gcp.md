@@ -109,7 +109,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. (**Servers only**) When Arc auto-provisioning is enabled, copy the unique ID presented at the end of the PowerShell script.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique id to be copied.":::
+    :::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique id to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
 
 1. Navigate back to the Microsoft Defender for Cloud portal.
 
