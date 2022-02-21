@@ -234,7 +234,7 @@ When you set the `isSessionsEnabled` property or attribute on [the trigger](func
 |**maxMessageCount**|`1000`| The maximum number of messages sent to the function when triggered. |
 |**operationTimeout**|`00:01:00`| A time span value expressed in `hh:mm:ss`. |
 
-# [Functions 1.x](#tab/functions1)
+# [Functions 1.x](#tab/functionsv1)
 
 For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
