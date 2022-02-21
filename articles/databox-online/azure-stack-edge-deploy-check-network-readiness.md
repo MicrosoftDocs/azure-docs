@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/17/2022
+ms.date: 02/21/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
@@ -35,7 +35,7 @@ The Azure Stack Network Readiness Checker can check whether a network meets the 
 
 - The Windows Update server - either the customer-provided Windows Server Update services (WSUS) server or the public Windows Update server - is available and functioning.
 
-- The network path MTU of at least 1500 bytes as required by the Azure Stack Edge service.
+- The network path has a Maximum Transmission Unit (MTU) of at least 1,500 bytes, as required by the Azure Stack Edge service.
 
 - There are no overlapping IP addresses for Edge Compute.
 
@@ -109,7 +109,7 @@ To run a network readiness check, do these steps:
       [-OutputPath <string>]
     ```
    
-   To get meaningful Network Readiness Checker results that find key issues in your network setup, you need to include all of the following parameters that apply to your environment:
+   To get meaningful Network Readiness Checker results that find key issues in your network setup, you need to include all of the following parameters that apply to your environment.
 
 
    |Parameter|Description|
@@ -124,7 +124,7 @@ To run a network readiness check, do these steps:
    |`-CustomUrl`|Lists other URLs that you want to test HTTP access to. (Optional)|
    |`-AzureEnvironment`|Indicates the Azure environment. Required if the device is deployed to an environment other than the Azure public cloud (Azure Cloud).|
    |`-SkipTests`|Can be used to exclude tests. (Optional)<br>Separate test names with a comma.|
-   |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker<br>Each run of the Network Readiness Checker overwrites the existing report.|
+   |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\<br>Each run of the Network Readiness Checker overwrites the existing report.|
  
 
 ## Sample output: Success
@@ -132,8 +132,9 @@ To run a network readiness check, do these steps:
 The following sample is the output from a successful run of the Azure Stack Network Readiness Checker tool, with these parameters:
 
 ```powershell
-Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://proxy.contoso.com:3128/' -SkipTests DuplicateIP -WindowsUpdateServer 'http://ase-prod.contoso.com' -OutputPath C:\ase-network-tests`
+Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://proxy.contoso.com:3128/' -SkipTests DuplicateIP -WindowsUpdateServer 'http://ase-prod.contoso.com' -OutputPath `C:\ase-network-tests`
 ```
+<!--Query: Add beginning single quote to the output path string or remove the final one? No end quote in sample return data.-->
 
 The tool returned this output:
 
@@ -232,9 +233,11 @@ Report location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsRead
 Invoke-AzsNetworkValidation Completed
 ```
 
+
+<!-- Log file and report file are very long and far too detailed to be useful unless a person is troubleshooting a specific error or warning. And network admins will be familiar with the general format of both. Let's remove both samples.
 #### Log file sample
 
-The following sample is taken from the log file, AzsReadinessChecker.log, for this command.
+The following sample is taken from the log file, AzsReadinessChecker.log, for the same command.
 
 ```XML
 [2/14/2022 10:04:16 AM] [Info] [Write-Header] Invoke-AzsNetworkValidation v1.2100.1396.426 started.
@@ -3985,7 +3988,7 @@ The following sample is from the report file, AzsReadinessCheckerReport.json, fo
                         }
 }
 ```
-
+-->
 
 ## Next steps
 
