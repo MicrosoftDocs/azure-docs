@@ -47,7 +47,7 @@ You can install this version of the extension in your function app by registerin
 
 The functionality of the extension varies depending on the extension version:
 
-# [Extension v5.x+](#tab/extensionv5/in-process)
+# [Extension 5.x+](#tab/extensionv5/in-process)
 
 Version 5.x of the Service Bus bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). This extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
