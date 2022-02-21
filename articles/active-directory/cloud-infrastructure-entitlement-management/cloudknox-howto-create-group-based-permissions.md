@@ -22,26 +22,30 @@ This article describes how you can create  and manage group-based permissions in
 
 ## Select administrative permissions settings for a group
 
-1. To display the **User management** dashboard, select **User** (your initials) in the upper right of the screen, and then select **User management.**
-1. Select the **Groups** tab, and then select **Create permission**.
-1. In the **Set group permission** box, enter a name for your group.
+1. To display the **User Management** dashboard, select **User** (your initials) in the upper right of the screen, and then select **User Management**.
+1. Select the **Groups** tab, and then press the **Create Permission** button in the upper right of the table.
+1. In the **Set Group Permission** box, begin typing the name of an **Azure Active Directory Security Group** in your tenant.
 
-    The group name must match the name in the identity provider.
 1. Select the permission setting you want:
-
+2. 
     - **Admin for all authorization system types** provides **View**, **Control**, and **Approve** permissions for all authorization system types.
     - **Admin for selected authorization system types** provides **View**, **Control**, and **Approve** permissions for selected authorization system types.
     - **Custom** allows you to set **View**, **Control**, and **Approve** permissions for the authorization system types that you select.
+1. Select **Next**
 
-1. Select **Next**.
+1. If you selected **Admin for all authorization system types**
+    - Select Identities for each Authorization System that you would like members of this group to Request on.
+
+1. If you selected **Admin for selected authorization system types**
+    - Select **Viewer**, **Controller**, or **Approver** for the **Authorization system types** you want.
+    - Select **Next** and then select Identities for each Authorization System that you would like members of this group to Request on.
 
 1. If you select **Custom**, select the **Authorization system types** you want.
-1. Select **Viewer**, **Controller**, or **Approver** box for each account, and then select **Next**.
-1. Confirm your settings, and then select **Save**.
+    - Select **Viewer**, **Controller**, or **Approver** for the **Authorization Systems** you want.
+    - Select **Next** and then select Identities for each Authorization System that you would like members of this group to Request on.
 
-    The following message appears: **New group has been created successfully.**
-1. To see the group you created in the **Groups** table, refresh your screen.
-
+1. Select **Save**, The following message appears: **New group has been created successfully.**
+1. To see the group you created in the **Groups** table, refresh the page.
 
 ## Next steps
 
