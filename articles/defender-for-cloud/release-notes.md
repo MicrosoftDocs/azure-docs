@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 02/17/2022
+ms.date: 02/21/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -22,12 +22,37 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in February include:
 
 - [Kubernetes workload protection for Arc enabled K8s clusters](#kubernetes-workload-protection-for-arc-enabled-k8s-clusters)
+- [Threat protection for google GKE, and Google Compute Engine VMs](#threat-protection-for-google-gke-and-google-compute-engine-vms)
 
 ### Kubernetes workload protection for Arc enabled K8s clusters 
 
 Defender for Containers for Kubernetes workloads previously only protected AKS. We have now extended the protective coverage to include Azure Arc enabled Kubernetes clusters.
 
 Learn how to [set up your Kubernetes workload protection](kubernetes-workload-protections.md#set-up-your-workload-protection) for AKS and Azure Arc enabled Kubernetes clusters.
+
+### Threat protection for google GKE, and Google Compute Engine VMs
+
+A new easyy process has been added which allows you to onboard Google Cloud environments to Microsoft Defender for Cloud. GCP will offer 3 plans:
+
+- **CSPM**: Through the use of the native Google APIs, security teams will be able to connect their entire organizations, or individual projects to Microsoft Defender for Cloud without the need of agents, or additional Google services.
+
+    To enable workload protection services, Defender for Cloud provides you with the option to deploy container and server solutions at scale, across all VMs and GKE clusters within selected Google Cloud projects.
+
+- **Containers**: With container adoption soaring due to their scalability and portability, containers have become a critical component in any cloud environment.
+
+    Microsoft Defender for Containers provides threat detection capabilities that include Kubernetes behavioral analytics, including anomaly detection for GKE clusters and underlying hosts, as well as security best practices and built-in admission control policies to harden Kubernetes workloads.
+
+- **Servers**: You can protect your servers through the Microsoft Defenders for Cloud's integrated one-click auto-provisioning of Azure Arc and additional security related extensions. The available features include:
+    - Microsoft Defender for Endpoint integration
+    - VA solution (TVM/ Qualys)
+    - OS level recommendations (Missing OS updates, Security baselines, Endpoint protection)
+    - Adaptive Application Controls (AAC)
+    - File integrity Monitoring (FIM)
+    - VM behavioral alerts
+
+    For a full list of available features, see [Supported features for virtual machines and servers <a name="vm-server-features"></a>](supported-machines-endpoint-solutions-clouds.md#supported-features-for-virtual-machines-and-servers-a-namevm-server-featuresa).
+
+Learn more about threat protection for google GKE, and Google Compute Engine VMs.
 
 ## January 2022
 
