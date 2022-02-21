@@ -238,8 +238,8 @@ Invoke-AzsNetworkValidation Completed
 
 For more information, you can review the log and report. By default, both files are saved in the following location:
 
-- **Log:** C:\Users\&lt;username&gt;\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessChecker.log
-- **Report:** C:\Users\&lt;username&gt;\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessCheckerReport.json
+- Log: `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessChecker.log`
+- Report: `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessCheckerReport.json`
 
 ## Next steps
 
