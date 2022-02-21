@@ -240,18 +240,105 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ---
 
-## Additional configuration in case of redirection to app service's relative path
+## Testing
 
-When the app service sends a redirection response to the client to redirect to its relative path (For example, a redirect from `contoso.azurewebsites.net/path1` to `contoso.azurewebsites.net/path2`), it uses the same hostname in the location header of its response as the one in the request it received from the application gateway. So the client will make the request directly to `contoso.azurewebsites.net/path2` instead of going through the application gateway (`contoso.com/path2`). Bypassing the application gateway isn't desirable.
+Before we do so, make sure that the backend health shows as healthy:
 
-If in your use case, there are scenarios where the App service will need to send a redirection response to the client, perform the [additional steps to rewrite the location header](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration).
+### [Azure Portal](#tab/azure-portal/defaultdomain)
+
+Open the "Backend health" section and ensure the "Status" column indicates the combination for HTTP Setting and Backend Pool shows as "Healthy".
+
+:::image type="content" source="media/configure-web-app/check-backend-health.png" alt-text="Check backend health in Azure Portal":::
+
+Now browse to the web application using either the Application Gateway IP Address or the associated DNS name for the IP Address.  These can be found on the Application Gateway "Overview" page as a property under "Essentials".  Alternatively the Public IP Address resource also shows the IP address and associated DNS name.
+
+### [Azure Portal](#tab/azure-portal/customdomain)
+
+Open the "Backend health" section and ensure the "Status" column indicates the combination for HTTP Setting and Backend Pool shows as "Healthy".
+
+:::image type="content" source="media/configure-web-app/check-backend-health.png" alt-text="Check backend health in Azure Portal":::
+
+Now browse to the web application using the custom domain which you associated with both Application Gateway and the App Service in the backend.
+
+Pay attention to the following non-exhaustive list of potential symptoms when testing the application:
+- redirections pointing to ".azurewebsites.net" directly instead of to Application Gateway
+- this includes authentication redirects that try access ".azurewebsites.net" directly
+- domain-bound cookies not being passed on to the backend
+
+The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url).
+
+### [Powershell](#tab/azure-powershell/customdomain)
+
+Check if the backend health for the backend and HTTP Settings shows as "Healthy":
+
+```powershell
+$rgName = "<name of resource group for App Gateway>"
+$appGwName = "<name of the App Gateway>"
+
+# Get existing Application Gateway:
+$gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
+
+# Check health:
+Get-AzApplicationGatewayBackendHealth -ResourceGroupName $rgName -Name $appGwName
+```
+
+To test the configuration, we'll request content from the App Service through Application Gateway using the custom domain:
+
+```powershell
+$customDomainName = "<FQDN for custom domain pointing to Application Gateway>"
+Invoke-WebRequest $customDomainName
+```
+
+### [Powershell](#tab/azure-powershell/defaultdomain)
+
+Check if the backend health for the backend and HTTP Settings shows as "Healthy":
+
+```powershell
+$rgName = "<name of resource group for App Gateway>"
+$appGwName = "<name of the App Gateway>"
+
+# Get existing Application Gateway:
+$gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
+
+# Check health:
+Get-AzApplicationGatewayBackendHealth -ResourceGroupName $rgName -Name $appGwName
+```
+
+To test the configuration, we'll request content from the App Service through Application Gateway using the IP address:
+
+```powershell
+$rgName = "<name of resource group for App Gateway>"
+$appGwName = "<name of the App Gateway>"
+
+# Get existing Application Gateway:
+$gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
+
+# Get ip address:
+$ipAddressResourceId = $gw.FrontendIPConfigurations.PublicIPAddress.Id
+$ipAddressResource = Get-AzResource -ResourceId $ipAddressResourceId
+$publicIp = Get-AzPublicIpAddress -ResourceGroupName $ipAddressResource.ResourceGroupName -Name $ipAddressResource.Name
+Write-Host "Public ip address for Application Gateway is $($publicIp.IpAddress)"
+Invoke-WebRequest "http://$($publicIp.IpAddress)"
+```
+
+Pay attention to the following non-exhaustive list of potential symptoms when testing the application:
+- redirections pointing to ".azurewebsites.net" directly instead of to Application Gateway
+- this includes authentication redirects that try access ".azurewebsites.net" directly
+- domain-bound cookies not being passed on to the backend
+
+The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url).
+
+---
 
 ## Restrict access
 
-The web apps deployed in these examples use public IP addresses that can be  accessed directly from the Internet. This helps with troubleshooting when you are learning about a new feature and trying new things. But if you intend to deploy a feature into production, you'll want to add more restrictions.
+The web apps deployed in these examples use public IP addresses that can be  accessed directly from the Internet. This helps with troubleshooting when you are learning about a new feature and trying new things. But if you intend to deploy a feature into production, you'll want to add more restrictions.  Consider the following options:
 
-One way you can restrict access to your web apps is to use [Azure App Service static IP restrictions](../app-service/app-service-ip-restrictions.md). For example, you can restrict the web app so that it only receives traffic from the application gateway. Use the app service IP restriction feature to list the application gateway VIP as the only address with access.
+1. Configure [Access restriction rules based on service endpoints](../app-service/networking-features.md#access-restriction-rules-based-on-service-endpoints).  This allows you to lock down inbound access to the app making sure the source address is from Application Gateway.
+2. Use [Azure App Service static IP restrictions](../app-service/app-service-ip-restrictions.md). For example, you can restrict the web app so that it only receives traffic from the application gateway. Use the app service IP restriction feature to list the application gateway VIP as the only address with access.
 
 ## Next steps
 
 To learn more about the App service and other multi-tenant support with application gateway, see [multi-tenant service support with application gateway](./application-gateway-web-app-overview.md).
+
+TODO: DO WE STILL NEED THE ABOVE ARTICLE??
