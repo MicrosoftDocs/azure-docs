@@ -4,7 +4,7 @@ description: Basic functionality and comparison between tools used for migration
 author: dukicn
 ms.author: nikoduki
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 02/21/2022
 ms.service: storage
 ms.subservice: partner
 ---
@@ -152,8 +152,8 @@ The following comparison matrix shows basic functionality of different tools tha
 - Petabyte-scale data movements
 - Hash validation
 
-*List was last verified on February, 17th 2022.*
-<sub>1</sub> Support provided by ISV, not Microsoft
+> [!NOTE]
+> List was last verified on February, 21st 2022.
 
 ## See also
 
@@ -163,3 +163,7 @@ The following comparison matrix shows basic functionality of different tools tha
 - [Migrate to Data Lake Storage with WANdisco LiveData Platform for Azure](../../../blobs/migrate-gen2-wandisco-live-data-platform.md)
 - [Copy or move data to Azure Storage with AzCopy](../../../common/storage-use-azcopy-v10.md)
 - [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](/samples/azure/azreplicate/azreplicate/)
+
+> [!IMPORTANT]
+> <sub>1</sub> Support provided by ISV, not Microsoft
+
