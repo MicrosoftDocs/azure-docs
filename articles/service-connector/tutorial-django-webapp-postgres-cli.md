@@ -8,7 +8,7 @@ ms.service: service-connector
 ms.topic: tutorial
 ms.date: 11/30/2021
 zone_pivot_groups: postgres-server-options
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 # Tutorial: Using Service Connector (Preview) to build a Django app with Postgres on Azure App Service
 

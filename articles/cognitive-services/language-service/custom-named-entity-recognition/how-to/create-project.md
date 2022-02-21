@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
@@ -138,7 +138,7 @@ To set proper roles on your storage account:
 
 [!INCLUDE [Storage connection note](../../custom-classification/includes/storage-account-note.md)]
 
-For information on authorizing access to your Azure blob storage account and data, see [Authorize access to data in Azure storage](/azure/storage/common/authorize-data-access?toc=/azure/storage/blobs/toc.json).
+For information on authorizing access to your Azure blob storage account and data, see [Authorize access to data in Azure storage](../../../../storage/common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Prepare training data
 
