@@ -203,7 +203,7 @@ C# script uses a function.json file for configuration instead of attributes.
 
 The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
 
-|function.json property | |Description|
+|function.json property |Description|
 |---------|-----------------------|
 |**type**|  Must be set to `SignalRTrigger`.|
 |**direction**|  Must be set to `in`.|
@@ -229,7 +229,7 @@ There isn't currently a supported Java annotation for a SignalR trigger.
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
-|function.json property | |Description|
+|function.json property |Description|
 |---------|-----------------------|
 |**type**|  Must be set to `SignalRTrigger`.|
 |**direction**|  Must be set to `in`.|

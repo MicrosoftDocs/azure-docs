@@ -79,7 +79,7 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 ```
 
 ---
-
+::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
 The following example shows a SignalR connection info input binding in a *function.json* file and a function that uses the binding to return the connection information.

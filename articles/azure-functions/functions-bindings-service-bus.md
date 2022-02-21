@@ -47,13 +47,13 @@ You can install this version of the extension in your function app by registerin
 
 The functionality of the extension varies depending on the extension version:
 
-# [Extension v5.x](#tab/extensionv5/in-process)
+# [Extension v5.x+](#tab/extensionv5/in-process)
 
 Version 5.x of the Service Bus bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). This extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
 This extension version is available by installing the [NuGet package], version 5.x or later.
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
 Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install NuGet package, versions < 5.x. 
 
@@ -61,11 +61,11 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
-# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 5.x.
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 4.x.
 
@@ -73,7 +73,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 Functions version 1.x doesn't support isolated process.
 
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+# [Extension 5.x+](#tab/extensionv5/csharp-script)
 
 Version 5.x of the Service Bus bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). This extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
@@ -91,7 +91,7 @@ This extension version is available from the extension bundle v3 by adding the f
 
 To learn more, see [Update your extensions].
 
-# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
 
