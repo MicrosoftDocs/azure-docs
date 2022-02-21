@@ -7,7 +7,7 @@ author: pankopon
 manager: jhakulin
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/02/2020
 ms.author: pankopon
 ---

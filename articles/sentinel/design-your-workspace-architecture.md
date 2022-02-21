@@ -144,7 +144,7 @@ However, this recommendation for separate workspaces for non-SOC data comes from
 
   - If the data egress cost is enough of a concern to make maintaining separate workspaces worthwhile, use a separate Microsoft Sentinel workspace for each region where you need reduce the data egress cost.
 
-    <a name="note5"></a>[Decision tree note #5](#decision-tree): We recommend that you have as few workspaces as possible. Use the [Azure pricing calculator](billing.md#estimate-microsoft-sentinel-costs) to estimate the cost and determine which regions you actually need, and combine workspaces for regions with low egress costs. Bandwidth costs may be only a small part of your Azure bill when compared with separate Microsoft Sentinel and Log Analytics ingestion costs.
+    <a name="note5"></a>[Decision tree note #5](#decision-tree): We recommend that you have as few workspaces as possible. Use the [Azure pricing calculator](billing.md#estimate-costs-before-using-microsoft-sentinel) to estimate the cost and determine which regions you actually need, and combine workspaces for regions with low egress costs. Bandwidth costs may be only a small part of your Azure bill when compared with separate Microsoft Sentinel and Log Analytics ingestion costs.
 
     For example, your cost might be estimated as follows:
 

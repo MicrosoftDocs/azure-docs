@@ -82,7 +82,7 @@ If you don't have permissions, you can [restore a disk](#restore-disks), and the
 
 As one of the [restore options](#restore-options), you can create a VM quickly with basic settings from a restore point.
 
-1. In **Restore Virtual Machine** > **Create new** > **Restore Type**, select **Create a virtual machine**.
+1. In **Restore Virtual Machine** > **Create new** > **Restore Type**, select **Create new virtual machine**.
 1. In **Virtual machine name**, specify a VM that doesn't exist in the subscription.
 1. In **Resource group**, select an existing resource group for the new VM, or create a new one with a globally unique name. If you assign a name that already exists, Azure assigns the group the same name as the VM.
 1. In **Virtual network**, select the VNet in which the VM will be placed. All VNets associated with the subscription in the same location as the vault, which is active and not attached with any affinity group, are displayed. Select the subnet.
@@ -106,7 +106,7 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 - [Attach restored disks](../virtual-machines/windows/attach-managed-disk-portal.md) to an existing VM.
 - [Create a new VM](./backup-azure-vms-automation.md#create-a-vm-from-restored-disks) from the restored disks using PowerShell.
 
-1. In **Restore configuration** > **Create new** > **Restore Type**, select **Restore disks**.
+1. In **Restore configuration** > **Create new** > **Restore Type**, select **Create new virtual machine**. 
 1. In **Resource group**, select an existing resource group for the restored disks, or create a new one with a globally unique name.
 1. In **Staging location**, specify the storage account to which to copy the VHDs. [Learn more](#storage-accounts).
 

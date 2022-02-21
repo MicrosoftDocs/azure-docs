@@ -10,10 +10,9 @@ metadata:
   ms.service: active-directory
   ms.subservice: domain-services
   ms.workload: identity
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 02/16/2022
   ms.author: justinha
-    
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
 summary: This page answers frequently asked questions about Azure Active Directory Domain Services.
 

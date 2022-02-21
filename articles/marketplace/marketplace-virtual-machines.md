@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 11/17/2021
+ms.date: 02/18/2022
 ---
 
 # Plan a virtual machine offer
@@ -63,7 +63,7 @@ A preview audience can access your offer prior to it being published live in the
 
 ## Plans, pricing, and trials
 
-VM offers require at least one plan. A plan defines the solution scope and limits, and the associated pricing. You can create multiple plans for your offer to give your customers different technical and licensing options, as well as trial opportunities. See [Plans and pricing for commercial marketplace offers](plans-pricing.md) for general guidance about plans, including pricing models, free trials, and private plans.
+VM offers require at least one plan. A plan defines the solution scope and limits, and the associated pricing. You can create multiple plans for your offer to give your customers different technical and licensing options, as well as trial opportunities. For VM offers with more than one plan, you can change the order that your plans are shown to customers. The first plan listed will become the default plan that customers will see. For info about how to reorder plans, see [Reorder plans](azure-vm-plan-reorder-plans.md). For general guidance about plans, including pricing models, free trials, and private plans, see [Plans and pricing for commercial marketplace offers](plans-pricing.md).
 
 VMs are fully commerce-enabled, using usage-based pay-as-you-go or bring-your-own-license (BYOL) licensing models. Microsoft hosts the commerce transaction and bills your customer on your behalf. You get the benefit of using the preferred payment relationship between your customer and Microsoft, including any Enterprise Agreements. For more information, see [Commercial marketplace transact capabilities](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
