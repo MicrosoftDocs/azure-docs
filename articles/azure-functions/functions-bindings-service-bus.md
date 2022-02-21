@@ -108,7 +108,7 @@ Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJob
 
 The Service Bus binding is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
-# [Bundle v3.x](#tab/extensionv5)
+# [Bundle v3.x](#tab/extensionv3)
 
 Version 3.x of the extension bundle contains version 5.x of the Service Bus bindings extension, which introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
 

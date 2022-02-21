@@ -7,7 +7,7 @@ ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # SignalR Service output binding for Azure Functions
@@ -430,7 +430,7 @@ def main(req: func.HttpRequest, outMessage: func.Out[str]) -> func.HttpResponse:
     }))
 ```
 
-:: zone-end
+::: zone-end
 ::: zone pivot="programming-language-java"
 
 ### Send to a group
