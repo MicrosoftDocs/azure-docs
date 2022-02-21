@@ -504,7 +504,7 @@ public class Function {
 }
 ```
 ::: zone-end  
-::: zone pivot="programming-language-javascript,*Use with caution.*,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
