@@ -87,9 +87,6 @@ best_child_run.download_file(name='train_artifacts/model.onnx', output_file_path
 
 By default, AutoML for Images supports batch scoring for classification.But object detection and instance segmentation models don't support batch inferencing. In case of batch inference for object detection and instance segmentation, use the following procedure to generate an ONNX model for the required batch size. Models generated for a specific batch size don't work for other batch sizes.
 
-While exporting ONNX models, height and width of the images can be set by the user (choose values closer to training images for better predictions) to generate ONNX models.
-
-
 
 ```python
 from azureml.core.script_run_config import ScriptRunConfig
@@ -127,7 +124,7 @@ For multi-label image classification, the generated ONNX model for the best chil
 # [Object detection with Faster R-CNN or RetinaNet](#tab/object-detect-cnn)
 ```python
 arguments = ['--model_name', 'fasterrcnn_resnet34_fpn',  # enter the faster rcnn or retinanet model name
-             '--batch_size', 5,  # enter the batch size of your choice
+             '--batch_size', 8,  # enter the batch size of your choice
              '--height_onnx', 600,  # enter the height of input to ONNX model
              '--width_onnx', 800,  # enter the width of input to ONNX model
              '--experiment_name', experiment_name,
@@ -148,7 +145,7 @@ arguments = ['--model_name', 'fasterrcnn_resnet34_fpn',  # enter the faster rcnn
 
 ```python
 arguments = ['--model_name', 'yolov5',  # enter the yolo model name
-             '--batch_size', 5,  # enter the batch size of your choice
+             '--batch_size', 8,  # enter the batch size of your choice
              '--height_onnx', 640,  # enter the height of input to ONNX model
              '--width_onnx', 640,  # enter the width of input to ONNX model
              '--experiment_name', experiment_name,
@@ -168,7 +165,7 @@ arguments = ['--model_name', 'yolov5',  # enter the yolo model name
 
 ```python
 arguments = ['--model_name', 'maskrcnn_resnet50_fpn',  # enter the maskrcnn model name
-             '--batch_size', 5,  # enter the batch size of your choice
+             '--batch_size', 8,  # enter the batch size of your choice
              '--height_onnx', 600,  # enter the height of input to ONNX model
              '--width_onnx', 800,  # enter the width of input to ONNX model
              '--experiment_name', experiment_name,
@@ -201,7 +198,7 @@ remote_run.wait_for_completion(wait_post_processing=True)
 
 Once the batch model is generated, either download it from **Outputs+logs** > **outputs** manually, or use the following method:
 ```python
-batch_size= 5  # use the batch size used to generate the model
+batch_size= 8  # use the batch size used to generate the model
 onnx_model_path = 'automl_models/model.onnx'  # local path to save the model
 remote_run.download_file(name='outputs/model_'+str(batch_size)+'.onnx', output_file_path=onnx_model_path)
 ```
@@ -458,7 +455,7 @@ def preprocess(image, resize_size, crop_size_onnx):
 
 test_images_path = "automl_models_multi_cls/test_images_dir/*" # replace with path to images
 # Select batch size needed
-batch_size = 5
+batch_size = 8
 # you can modify resize_size based on your trained model
 resize_size = 256
 # height and width will be the same for classification
@@ -517,7 +514,7 @@ def preprocess(image, resize_size, crop_size_onnx):
 
 test_images_path = "automl_models_multi_cls/test_images_dir/*" # replace with path to images
 # Select batch size needed
-batch_size = 5
+batch_size = 8
 # you can modify resize_size based on your trained model
 resize_size = 256
 # height and width will be the same for classification
@@ -607,7 +604,7 @@ def preprocess(image, resize_size, crop_size_onnx):
 
 test_images_path = "automl_models_multi_label/test_images_dir/*" # replace with path to images
 # Select batch size needed
-batch_size = 5
+batch_size = 8
 # you can modify resize_size based on your trained model
 resize_size = 256
 # height and width will be the same for classification
@@ -679,7 +676,7 @@ def preprocess(image, resize_size, crop_size_onnx):
 
 test_images_path = "automl_models_multi_label/test_images_dir/*" # replace with path to images
 # Select batch size needed
-batch_size = 5
+batch_size = 8
 # you can modify resize_size based on your trained model
 resize_size = 256
 # height and width will be the same for classification
