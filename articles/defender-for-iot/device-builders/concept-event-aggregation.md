@@ -78,7 +78,7 @@ The Login collector, collects user sign-ins, sign-outs, and failed sign-in attem
 
 The Login collector supports the following types of collection methods:
 
-- **Syslog**. If syslog is running on the device, the Login collector collects SSH sign-in events by generating a syslog file named **auth.log**.
+- **Syslog**. If syslog is running on the device, the Login collector collects SSH sign-in events via the syslog file named **auth.log**.
 
 - **Pluggable Authentication Modules (PAM)**. Collects SSH, telnet, and local sign-in events. For more information, see [Configure Pluggable Authentication Modules (PAM) to audit sign-in events](configure-pam-to-audit-sign-in-events.md).
 
@@ -91,9 +91,6 @@ The following data is collected:
 | **user_name** | The Linux user. |
 | **executable** | The terminal device. For example, `tty1..6` or `pts/n`. |
 | **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
-
-> [!Note]
-> A sign-in event is captured when a terminal is opened on a device, before the user actually signs in. This event has a TTY process, sign-in event type, and a username. For example, `LOGIN`.
 
 
 ## System information (trigger based collector))

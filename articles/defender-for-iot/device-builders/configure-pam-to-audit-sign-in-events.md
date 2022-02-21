@@ -7,45 +7,47 @@ ms.topic: how-to
 
 # Configure Pluggable Authentication Modules (PAM) to audit sign-in events
 
-This article describes how to configure Pluggable Authentication Modules (PAM) to audit sign-in events. PAM is alternate method for collecting sign-in events when you do not have syslog configured on your device.
+This article provides a sample process for configuring Pluggable Authentication Modules (PAM) to audit sign-in events on an unmodified Ubuntu 20.04 or 18.04 installation.
+
+PAM configurations may vary between devices and Linux distributions. Configuring PAM requires technical knowledge.
 
 For more information, see [Login collector (event-based collector)](concept-event-aggregation.md#login-collector-event-based-collector).
 
 ## Prerequisites
 
-Before you get started, make sure that you have the following:
+Before you get started, make sure that you have a Defender for IoT Micro Agent. 
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+For more information, see [Tutorial: Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md).
 
-- You must have a Defender for IoT Micro Agent. For more information, see [Tutorial: Install the Defender for IoT micro agent (Preview)](tutorial-standalone-agent-binary-installation.md).
+## Modify PAM configuration to report sign-in and sign-out events
 
-## Modify SSSHD and sign-in service configurations
+This procedure provides a sample process for configuring logging for successful SSH and Telnet sign-in events.
 
-This procedure describes how to configure logging for successful SSH and Telnet sign-in events.
+Our example uses on unmodified Ubuntu 20.04 or 18.04 installation, and the steps in this process may differ for your system.
 
-1. Locate the following files:
+This process authenticates via the `pam_unix.so` module. If case of success, the PAM skips one module. In case of failure, the PAM continues to the `pam_deny.so` module, which prevents access.
 
-    - `/etc/pam.d/sshd`
-    - `/etc/pam.d/login`
+1. Locate your PAM configuration files. The names of these files may vary, such as `/etc/pam.d/sshd` or `/etc/pam.d/login`.
 
 1. Append the following lines to the end of each file:
 
     ```bash
+    // report login
+
     session [default=ignore] pam_exec.so type=open_session /usr/libexec/defender_iot_micro_agent/pam/pam_audit.sh 0
+
+    // report logout
 
     session [default=ignore] pam_exec.so type=close_session /usr/libexec/defender_iot_micro_agent/pam/pam_audit.sh 1
     ```
 
-## Modify common and system authentication configuration
+## Modify the PAM configuration to report sign-in failures
 
-This procedure describes how to configure logging for authentication failures.
+This procedure describes a sample process for configuring logging for authentication failures.
 
-1. <a name="files"></a>Locate one of the following files:
+This example in this procedure is based on an unmodified Ubuntu 18.04 or 20.04 installation. The files and commands listed below may differ per configuration or as a result of modifications. Technical knowledge is required.
 
-    - `/etc/pam.d/common-auth`
-    - `/etc/pam.d/system-auth`
-
-1. Look for the following lines:
+1. <a name="files"></a>Locate the `/etc/pam.d/common-auth` file and look for the following lines:
 
     ```bash
     # here are the per-package modules (the "Primary" block)
@@ -69,9 +71,9 @@ This procedure describes how to configure logging for authentication failures.
     auth	requisite			pam_deny.so
     ```
 
-    If the basic authentication `pam_unix` process success, the process skips to the `pam_echo.so` module, which then skips the `pam_deny.so` and successfully authenticates.
+    In this modified section, the PAM skips one module to the `pam_echo.so` module, which then skips to the `pam_deny.so` module and authenticates successfully.
 
-    If the `pam_unix` process fails, the `pam_exec` process reports the sign-in failure to the agent log file, and then jump to the `pam_deny.so` process, which blocks access.
+    In case of failure, PAM continues to report the sign-in failure to the agent log file, and then skips one module to the `pam_deny.so` module, which blocks access.
 
 ## Validate your configuration
 
