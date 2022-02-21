@@ -9,7 +9,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma, wiassaf
 ms.date: 02/14/2022
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Azure AD-only authentication with Azure SQL
