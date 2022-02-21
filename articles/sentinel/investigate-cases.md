@@ -117,7 +117,7 @@ Another important thing that you can do with comments is enrich your incidents a
 
 Comments are simple to use. You access them through the **Comments** tab on the incident details page.
 
-:::image type="content" source="media/comment-on-incidents/comments-screen.png" alt-text="Screenshot of viewing and entering comments.":::
+:::image type="content" source="media/tutorial-investigate-cases/comments-screen.png" alt-text="Screenshot of viewing and entering comments.":::
 
 ### Frequently asked questions
 
