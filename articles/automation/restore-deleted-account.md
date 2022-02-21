@@ -15,8 +15,7 @@ This article details on how you can recover a deleted automation account from Az
 ## Prerequisites
 
 To recover a storage account, ensure that the following conditions are met:
-- You've deleted the Automation account within the past 30 days.
-- You've  created the Automation account with the Azure Resource Manager deployment model.
+- You've created the Automation account with the Azure Resource Manager deployment model and deleted within the past 30 days.
 - Before you attempt to recover a deleted Automation account, ensure that resource group for that account exists.
 
 > [!NOTE]
@@ -34,7 +33,7 @@ To recover a storage account, ensure that the following conditions are met:
    
    :::image type="content" source="media/restore-deleted-account/select-subscription-inline.png" alt-text="Screenshot showing the selection of subscription." lightbox="media/restore-deleted-account/select-subscription-expanded.png":::
 
-   A list of deleted accounts in the selected subscription appears.
+   Deleted accounts list in that subscription is displayed.
 
 1. Select the checkbox for the accounts you want to restore and click **Recover**.
 
