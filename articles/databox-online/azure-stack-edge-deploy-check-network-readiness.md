@@ -126,10 +126,13 @@ To run a network readiness check, do these steps:
    |`-SkipTests`|Can be used to exclude tests. (Optional)<br>Separate test names with a comma.|
    |`-OutputPath`|Tells where to store the log file and report from the tests. (Optional)<br>If you don't use this path, the files are stored in the following path: C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\<br>Each run of the Network Readiness Checker overwrites the existing report.|
  
+## Sample output
 
-## Sample output: Success
+The following samples are the output from successful and unsuccessful runs of the Azure Stack Network Readiness Checker tool.
 
-The following sample is the output from a successful run of the Azure Stack Network Readiness Checker tool, with these parameters:
+### Sample output: Successful test
+
+The following sample is the output from a successful run of the Azure Stack Edge Network Readiness Checker tool, with these parameters:
 
 ```powershell
 Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://proxy.contoso.com:3128/' -SkipTests DuplicateIP -WindowsUpdateServer 'http://ase-prod.contoso.com' -OutputPath `C:\ase-network-tests`
@@ -172,11 +175,9 @@ Report location (contains PII): C:\ase-network-tests\AzsReadinessCheckerReport.j
 Invoke-AzsNetworkValidation Completed
 ```
 
-## Sample output: Failed test
+### Sample output: Failed test
 
-If a test fails, the Network Readiness Checker returns information to help you resolve the issue, as shown in the sample output below. 
-
-#### Command output
+If a test fails, the Network Readiness Checker returns information to help you resolve the issue, as shown in the sample output below.
 
 The following sample is the output from this command:
 
@@ -184,7 +185,7 @@ The following sample is the output from this command:
 Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://fakename.fakeurl.com'`
 ```
 
-The tool returned this output.
+The tool returned this output:
 
 ```powershell
 PS C:\Users\Administrator> Invoke-AzsNetworkValidation -DnsServer '10.50.10.50' -TimeServer 'time.windows.com' -DeviceFqdn aseclient.contoso.com -ComputeIPs 10.10.52.1-10.10.52.20 -CustomUrl 'http://www.nytimes.com','http://fakename.fakeurl.com'
