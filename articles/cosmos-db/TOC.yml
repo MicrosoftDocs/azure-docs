@@ -1020,6 +1020,18 @@
         - name: 4 - Migrate data
           displayName: import
           href: cassandra/migrate-data.md
+    - name: Samples
+      items:
+        - name: Create a keyspace and table
+          href: ../scripts/cli/cassandra/create.md
+        - name:
+          href:
+        - name:
+          href:
+        - name:
+          href:
+        - name:
+          href:
     - name: Concepts
       items:
         - name: FAQ
