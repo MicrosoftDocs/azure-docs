@@ -17,6 +17,7 @@ ms.collection: M365-identity-device-management
 # Multi-tenant user management scenarios
 
 ## End-user initiated scenario
+Barbara - This is a test 
 For the end-user initiated scenario, resource tenant administrators delegate certain abilities to users in the tenant. Administrators enable end users to invite guest users to the tenant, an app, or a resource. Users from the home tenant are invited or sign up individually.
 
 An example use case would be for a global professional services firm who works with subcontractors on a project. Subcontractor users require access to the firm’s applications and documents. Admins at the firm can delegate to firm end users the ability to invite subcontractors or configure self-service for subcontractor resource access.
