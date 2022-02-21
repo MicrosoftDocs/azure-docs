@@ -29,7 +29,7 @@ The script in this article shows how to connect an existing Azure Cosmos account
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/ervice-endpoints-ignore-missing-vnet.sh" range="4-41":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/service-endpoints-ignore-missing-vnet.sh" range="4-41":::
 
 ## Clean up resources
 
