@@ -897,7 +897,7 @@ How to determine whether you're affected:
     
     For more information about trusting certificates on Windows, see [Installing the trusted root certificate](/skype-sdk/sdn/articles/installing-the-trusted-root-certificate).
     
-- **Additional information**
+- **Additional information**  
     We've rolled out a new SSL certificate, which is signed from DigiCert. Check to see whether the DigiCert Global Root G2 is in the trusted root CA.
     
     :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/trusted-root-ca-check.png" alt-text="Screenshot showing the DigiCert Global Root G2 folder in the Trusted Root Certification Authorities directory.":::
