@@ -7,7 +7,7 @@ author: AlexandraKemperMS
 ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 02/21/2022
 ---
 
 # Point-in-time snapshot
@@ -34,7 +34,7 @@ You can use the Azure portal or the Azure CLI to retrieve past key-values.
    The portal displays a table of key-value pairs. The first column includes symbols indicating what will happen if you restore the data for the chosen date and time:
    - The red minus sign (–) means that the key-value pair doesn't exist at that point in time and will be deleted.
    - The green plus sign (+) means that the key-value pair existed then and will be added.
-   - The orange circle bullet sign (•) means that the value was modified since.
+   - The orange bullet sign (•) means that the value was modified since.
 
 1. Check a box on a line to display the difference between the current and compared key-value pairs and select it for restoring.
    :::image type="content" source="media/restore-key-value-compare.png" alt-text="Screenshot of the Azure portal with compared keys-value pairs":::
@@ -58,9 +58,10 @@ You can also access the revision history of a specific key-value pair in the por
 
 1. Select Restore to restore the key and value to this point in time.
 
-   :::image type="content" source="media/explorer-key-day-restore.png" alt-text="Screenshot of the Azure portal selecting key-value history":::
+   :::image type="content" source="media/explorer-key-day-restore.png" alt-text="Screenshot of the Azure portal viewing key-value data for a specific date":::
 
-   [!TIP] This method is convenient if you have no more than a couple of changes to make, as Configuration explorer only lets you make changes key by key. If you need to restore multiple key-value pairs at once, use the **Restore** menu instead.
+   > [!TIP]
+   > This method is convenient if you have no more than a couple of changes to make, as Configuration explorer only lets you make changes key by key. If you need to restore multiple key-value pairs at once, use the **Restore** menu instead.
 
 ### [Azure CLI](#tab/azure-cli)
 
