@@ -1,8 +1,8 @@
 ---
 title: IoT concepts and Azure IoT Hub | Microsoft Docs
 description: This article discusses the basic concepts for new users of Azure IoT Hub
-author: eross-msft
-ms.author: lizross
+author: kgremban
+ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual

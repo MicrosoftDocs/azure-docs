@@ -12,11 +12,11 @@ ms.custom: mvc, contperf-fy21q2, contperf-fy22q1, contperf-fy22q2
 
 # What is Azure IoT Central?
 
-IoT Central is an IoT application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. If you choose to build with IoT Central, you'll have the opportunity to focus time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
+IoT Central is an IoT [application platform as a service (aPaaS)](../../iot-fundamentals/iot-solution-apaas-paas.md) that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. If you choose to build with IoT Central, you'll have the opportunity to focus time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
 
 The web UI lets you quickly connect devices, monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications.
 
-This article provides an overview of IoT Central and describes its core functionality.
+This article provides an overview of the features of Azure IoT Central.
 
 ## Create an IoT Central application
 
@@ -61,7 +61,7 @@ You have several options for creating device templates:
 
 If the telemetry from your devices is too complex, you can [map telemetry on ingress to IoT Central](howto-map-data.md) to simplify or normalize it.
 
-### Customize the UI
+## Customize the UI
 
 Customize the IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations you can make include:
 

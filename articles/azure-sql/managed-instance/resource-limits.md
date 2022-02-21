@@ -71,8 +71,7 @@ Support for the premium-series hardware generations (public preview) is currentl
 | North Europe | Yes | | 
 | South Central US | Yes | Yes | 
 | Southeast Asia | Yes |  | 
-| UK South | Yes |  | 
-| West Europe | Yes | Yes | 
+| West Europe | | Yes | 
 | West US | Yes | Yes |  
 | West US 2 | Yes | Yes | 
 | West US 3 | Yes | Yes | 

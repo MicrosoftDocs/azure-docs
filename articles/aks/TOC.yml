@@ -202,6 +202,8 @@
           items:
             - name: Node pool snapshot
               href: node-pool-snapshot.md
+            - name: Use Dedicated Hosts with AKS (preview)
+              href: use-azure-dedicated-hosts.md
             - name: Use multiple node pools
               href: use-multiple-node-pools.md
             - name: Use spot node pools
@@ -217,6 +219,8 @@
           maintainContext: true
         - name: Azure portal Kubernetes resource view
           href: kubernetes-portal.md
+        - name: Use tags
+          href: use-tags.md
     - name: Security and authentication
       items:
         - name: Overview of Defender for Containers

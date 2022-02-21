@@ -219,13 +219,7 @@
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
-    - name: Defender for Kubernetes (deprecated)
-      displayName: clusters, k8s, aks
-      href: defender-for-kubernetes-introduction.md
-    - name: Defender for container registries (deprecated)
-      displayName: ACR, registry, images
-      href: defender-for-container-registries-introduction.md
-    - name: Scan your registry images for vulnerabilities
+    - name: Vulnerability assessment
       displayName: ACR, registry, images, qualys
       href: defender-for-container-registries-usage.md
     - name: Scan images in your CI/CD workflows
@@ -234,6 +228,12 @@
     - name: Protect your Kubernetes workloads
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
+    - name: Defender for Kubernetes (deprecated)
+      displayName: clusters, k8s, aks
+      href: defender-for-kubernetes-introduction.md
+    - name: Defender for container registries (deprecated)
+      displayName: ACR, registry, images
+      href: defender-for-container-registries-introduction.md
   - name: Protect your Azure App Service web apps and APIs
     displayName: Azure Defender for App Service, defender for app
     href: defender-for-app-service-introduction.md
