@@ -16,7 +16,7 @@ The Azure Monitor API makes it possible to programmatically retrieve the availab
 
 Besides working with various metric data points, the Monitor API also makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](/rest/api/monitor/).
 
-<note><para>The Azure Active Directory is in the process of being depreicated.  We now recommend the use of the [Microsoft Authentication Library (MSAL)](/active-directory/develop/msal-overview)</para></note>
+<note><para>The Azure Active Directory is in the process of being depreicated.  We now recommend the use of the [Microsoft Authentication Library (MSAL)](/active-directory/develop/msal-overview.md)</para></note>
 
 ## Authenticating Azure Monitor requests
 
@@ -51,7 +51,7 @@ New-AzRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview) to obtain the authentication token.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) to obtain the authentication token.
 
 ```powershell
 $ClientID           = "{client_id}"
