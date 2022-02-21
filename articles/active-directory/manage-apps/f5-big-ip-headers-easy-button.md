@@ -35,8 +35,8 @@ Being legacy, the application lacks modern protocols to support a direct integra
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and headers-based SSO, significantly improving the overall security posture of the application.
 
-Note: Organizations can also gain remote access to their applications with [Azure AD Application Proxy](../app-proxy/application-proxy.md)
-
+> [!NOTE] 
+> Organizations can also gain remote access to their applications with [Azure AD Application Proxy](../app-proxy/application-proxy.md)
 
 ## Scenario architecture
 
