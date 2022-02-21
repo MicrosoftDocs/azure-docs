@@ -287,6 +287,8 @@ Yes. If they have been scoped for the nudge using the policy.
 
 **What if the user closes the browser?** It's the same as snoozing.
 
+**Why don’t some users see nudge when there is a conditional access policy for "Register security information"?**
+Nudge will not be displayed if a user’s sign in is in scope of a conditional access policy that blocks access to the "Register security information" page.
 
 ## Next steps
 
