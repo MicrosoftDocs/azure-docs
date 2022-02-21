@@ -6,28 +6,36 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 11/15/2021
+ms.date: 02/21/2022
 ---
 
 # Create an Azure Cosmos Table API serverless account and table using Azure CLI
 
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
+
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
+
+- This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/table/serverless.sh "Create an Azure Cosmos DB Table API serverless account and table.")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Clean up deployment
+### Run the script
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/serverless.sh" range="4-24":::
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
