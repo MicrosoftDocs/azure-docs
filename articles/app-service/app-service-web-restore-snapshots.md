@@ -27,9 +27,9 @@ Restoring from snapshots is available to apps running in one of the **Standard**
 Snapshots are incremental shadow copies and offer several advantages over [standard backups](manage-backup.md):
 
 - No file copy errors due to file locks.
-- Higher maximum snapshot size (30GB).
+- Higher snapshot size (maximum 30 GB).
 - Enabled by default in supported pricing tiers and no configuration required.
-- Restored to a new or existing App Service app or slot in any Azure region.
+- Restore to a new or existing App Service app or slot in any Azure region.
 
 ## What snapshot restore includes
 
