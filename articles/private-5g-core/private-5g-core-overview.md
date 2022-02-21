@@ -35,7 +35,7 @@ You'll also need the following to deploy a private mobile network using Azure Pr
 
   Packet core instances run on a Kubernetes cluster, which is connected to Azure Arc and deployed on an Azure Stack Edge Pro with GPU device. These platforms provide security and manageability for the entire core network stack from Azure. Additionally, Azure Arc allows Microsoft to provide support at the edge.
 
-  For more information, see [Azure Arc overview](../azure-arc/overview.md) and [Azure Kubernetes Service on Azure Stack HCI](https://docs.microsoft.com/azure-stack/aks-hci/).
+  For more information, see [Azure Arc overview](../azure-arc/overview.md) and [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/).
 
 - **RANs and SIMs** 
 
@@ -48,7 +48,7 @@ You'll also need the following to deploy a private mobile network using Azure Pr
 
 The following diagram shows the key components of Azure Private 5G Core.
 
-:::image type="complex" source="media/azure-private-5g-core/azure-private-5g-core-components.png" alt-text="Diagram showing the components of Azure Private 5G Core.":::
+:::image type="complex" source="media/azure-private-5g-core/azure-private-5g-core-components.png" alt-text="Diagram showing the components of Azure Private 5G Core." border="false":::
    Diagram showing the components of Azure Private 5G Core. They're split between cloud components and components provided on premises. The cloud components include Azure portal, ARM APIs, Azure Monitor, SIM Manager, Service Manager, and RAN Monitor. The on-premises components include Subscriber Database and Policy Control, 4G Interworking Function, 5G Core Control Plane, 5G User Plane, Arc-enabled Kubernetes, and Azure Stack Edge.
 :::image-end:::
 
@@ -111,7 +111,7 @@ It also employs a simple, scalable provisioning model to allow you to bring the 
 
 ## Azure centralized service management
 
-:::image type="content" source="media/azure-private-5g-core/centralized-service-management.png" alt-text="Diagram showing a private mobile network distributed across multiple sites can be managed centrally using Azure.":::
+:::image type="content" source="media/azure-private-5g-core/centralized-service-management.png" alt-text="Diagram showing a private mobile network distributed across multiple sites can be managed centrally using Azure." border="false":::
 
 Azure Private 5G Core is available as a native Azure service, offering the same levels of reliability, security, and availability for deployment and management that are key tenets of all Azure services. This allows you to use Azure as a central access point to manage individual instances of private mobile networks across multiple enterprise sites. You can use the Azure portal (accessible from a choice of any Azure region in the world) or Azure Resource Manager (ARM) APIs to do any of the following tasks:
 
