@@ -5,19 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 02/21/2022
 ---
 
 # Add regions, change failover priority, trigger failover for an Azure Cosmos account using Azure CLI
+
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
-
-- This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
-
-## Sample script
-
-This script demonstrates three operations.
+The script in this article demonstrates three operations.
 
 - Add a region to an existing Azure Cosmos account.
 - Change regional failover priority (applies to accounts using automatic failover)
@@ -27,19 +22,31 @@ This script demonstrates three operations.
 > Add and remove region operations on a Cosmos account cannot be done while changing other properties.
 
 > [!NOTE]
-> This sample demonstrates using a SQL (Core) API account but these operations are identical across all database APIs in Cosmos DB.
+> This script demonstrates using a SQL (Core) API account but these operations are identical across all database APIs in Cosmos DB.
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/regions.sh "Regional operations for Cosmos DB.")]
+[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
-## Clean up deployment
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+- This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+## Sample script
+
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/ipfirewall.sh" range="4-32":::
+
+## Clean up resources
+
+[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

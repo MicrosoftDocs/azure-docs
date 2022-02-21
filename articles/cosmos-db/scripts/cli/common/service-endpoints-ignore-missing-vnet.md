@@ -5,11 +5,19 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 07/29/2020
+ms.date: 02/21/2022
 ---
 
 # Connect an existing Azure Cosmos account with virtual network service endpoints using Azure CLI
+
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
+
+The script in this article shows how to connect an existing Azure Cosmos account to an existing new virtual network where the subnet is not yet configured for service endpoints by using the `ignore-missing-vnet-service-endpoint` parameter. This allows the configuration for the Cosmos account to complete without error before the configuration to the virtual network's subnet is completed. Once the subnet configuration is complete, the Cosmos account is accessible through the configured subnet.
+
+> [!NOTE]
+> This script demonstrates using a SQL (Core) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -17,22 +25,21 @@ ms.date: 07/29/2020
 
 ## Sample script
 
-This sample is intended to show how to connect an existing Azure Cosmos account to an existing new virtual network where the subnet is not yet configured for service endpoints by using the `ignore-missing-vnet-service-endpoint` parameter. This allows the configuration for the Cosmos account to complete without error before the configuration to the virtual network's subnet is completed. Once the subnet configuration is complete, the Cosmos account will then be accessible through the configured subnet.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-> [!NOTE]
-> This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
+### Run the script
 
-[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/service-endpoints-ignore-missing-vnet.sh "Create an Azure Cosmos account with service endpoints.")]
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/ervice-endpoints-ignore-missing-vnet.sh" range="4-41":::
 
-## Clean up deployment
+## Clean up resources
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+[!INCLUDE [cli-clean-up-resources.md](../../../../../includes/cli-clean-up-resources.md)]
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+```azurecli
+az group delete --name $resourceGroup
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 
