@@ -271,7 +271,7 @@ Verify the final details and click **Create** to save the custom log.
 
 :::image type="content" source="media/tutorial-custom-logs/custom-log-create.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for custom log create":::
 
-## Collect information from data collection rule
+## Collect information from DCR
 From the **Monitor** menu in the Azure portal, select **Data collection rules** and select the DCR you just created. From **Overview** for the data collection rule, select the **JSON View**.
 
 :::image type="content" source="media/tutorial-custom-logs/data-collection-rule-json-view.png" lightbox="media/tutorial-custom-logs/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
@@ -282,7 +282,7 @@ Copy the **immutableId** value.
 
 
 
-## Assign permissions to data collection rule
+## Assign permissions to DCR
 The final step is to give the application permission to use the DCR. This will allow any application using the correct application ID and application key to send data to the new DCE and DCR.
 
 Select **Access Control (IAM)** for the DCR and then **Add role assignment**. 

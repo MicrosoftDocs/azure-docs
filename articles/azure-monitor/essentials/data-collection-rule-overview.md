@@ -66,15 +66,6 @@ Data collection rules are stored regionally, and are available in all public reg
 This is a preview feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. Single region residency is enabled by default in these regions.
 
 
-## DCR and transformation definition limits
- 
-* Only the following built-in tables support ingesting custom data into them: `CommonSecurityLog`, `SecurityEvents`, `Syslog`, `WindowsEvents`.  
-* Built-in tables can only be routed to themselves post-transformation (eg, data originally for Table A after a transformation can only flow back into Table A).  
-* The `columns` section supports the following data types: `string`, `int`, `long`, `real`, `boolean`, `datetime`.  
-* The transformations can only use a [subset](../essentials/data-collection-rule-transformations.md#supported-kql-features) of KQL.   
-* Only one destination is allowed per stream, _except_ data originating through the [Azure Monitoring agent (AMA)](../agents/azure-monitor-agent-overview.md). Data collected by AMA can have multiple destinations for the multi-homing scenario.  
-
-
 ## Next steps
 
 - [Read about the detailed structure of a data collection rule.](data-collection-rule-structure.md)

@@ -3,7 +3,7 @@ title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs using 
 description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using the Azure portal.
 ms.subservice: logs
 ms.topic: tutorial
-ms.date: 01/19/2022
+ms.date: 02/20/2022
 ---
 
 # Add ingestion-time transformation to Azure Monitor Logs using the Azure portal (preview)
@@ -51,7 +51,7 @@ Select **Logs** and then run some queries to populate `LAQueryLogs` with some da
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/sample-queries.png" lightbox="media/tutorial-ingestion-time-transformations/sample-queries.png" alt-text="Screenshot of sample log queries":::
 
-## Add ingestion-time transformation to the table
+## Add transformation to the table
 From the **Log Analytics workspaces** menu in the Azure portal, select **Tables (preview)**. Locate the `LAQueryLogs` table and select **Create transformation**.
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/create-transformation.png" lightbox="media/tutorial-ingestion-time-transformations/create-transformation.png" alt-text="Screenshot of creating a new transformation":::

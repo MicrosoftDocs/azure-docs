@@ -53,7 +53,7 @@ Click **Add** to save the secret and then note the **Value**. Ensure that you re
 
 :::image type="content" source="media/tutorial-custom-logs/new-app-secret-value.png" lightbox="media/tutorial-custom-logs/new-app-secret-value.png" alt-text="Screenshot for new app secret value":::
 
-## Collect workspace information
+## Collect workspace details
 Navigate to your workspace in the **Log Analytics workspaces** menu in the Azure Portal. From the **Properties** page, copy the **Resource ID** and save it for later use.
 
 :::image type="content" source="media/tutorial-custom-logs-api/workspace-resource-id.png" lightbox="media/tutorial-custom-logs-api/workspace-resource-id.png" alt-text="Screenshot for workspace resource ID":::
@@ -315,7 +315,7 @@ Copy the **Resource ID** for the data collection rule. You'll use this in the ne
 > All of the properties of the DCR, such as the transformation, may not be displayed in the Azure portal even though the DCR was successfully created with those properties.
 
 
-## Assign permissions to data collection rule
+## Assign permissions to DCR
 Once the data collection rule has been created, the application needs to be given permission to it. This will allow any application using the correct application ID and application key to send data to the new DCE and DCR.
 
 From the DCR in the Azure portal, select **Access Control (IAM)** amd then **Add role assignment**. 

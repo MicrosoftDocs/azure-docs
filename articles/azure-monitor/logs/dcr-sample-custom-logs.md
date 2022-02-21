@@ -3,7 +3,6 @@ title: Sample data collection rule - custom logs
 description: Sample data collection rule for custom logs.
 ms.topic: sample
 ms.date: 02/15/2022
-ms.custom: references_region
 
 ---
 
@@ -11,41 +10,52 @@ ms.custom: references_region
 The sample [data collection rule](../essentials/data-collection-rule-overview.md) below is for use with [custom logs](../logs/custom-logs-overview.md). It has the following details:
 
 - Sends data to a table called MyTable_CL in a workspace called my-workspace.
-- Applies a transformation to the incoming data that .
+- Applies a [transformation](../essentials/data-collection-rule-transformations.md) to the incoming data.
 
 
 ```json
 {
     "properties": { 
-        "immutableld": "dcr-00000000000000000000000000000000", 
-        "endpoint": "https://cefingestionsamp1edcr2-0000.westus2-1.ingest.monitor.azure.com",
+        "dataCollectionEndpointId": "https://my-dcr.westus2-1.ingest.monitor.azure.com",
+        "streamDeclarations": {
+            "Custom-MyTableRawData": {
+                "columns": [
+                    {
+                        "name": "Time",
+                        "type": "datetime"
+                    },
+                    {
+                        "name": "Computer",
+                        "type": "string"
+                    },
+                    {
+                        "name": "AdditionalContext",
+                        "type": "string"
+                    }
+                ]
+            }
+        },
         "destinations": {
             "logAnalytics": [
                 {
                     "workspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cefingestion/providers/microsoft.operationalinsights/workspaces/my-workspace",
-                    "workspace Id" : "00000000-0000-0000-0000-000000000000",
-                    "name": "LogAnalyticsDest" 
+                    "name": "LogAnalyticsDest"
                 }
             ]
         },
         "dataFlows": [
             {
                 "streams": [
-                    "Microsoft-CommonSecurityLog-Raw"
+                    "Custom-MyTableRawData"
                 ],
                 "destinations": [
-                    "LogAnalyticsDest" 
-                ]
+                    "LogAnalyticsDest"
+                ],
+                "transformKql": "source | extend jsonContext = parse_json(AdditionalContext) | project TimeGenerated = Time, Computer, AdditionalContext = jsonContext, ExtendedColumn=tostring(jsonContext.CounterName)",
+                "outputStream": "Custom-MyTable_CL"
             }
-        ],
-        "provisioningState": "Succeeded"
-    },
-    "location": "westus2", 
-    "kind": "Direct", 
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/CEFingestion/providers/Microsoft.Insights/dataCollectionRules/CEFIngestionSampleDCR2",
-    "name": "CEFIngestionSampleDCR2",
-    "type": "Microsoft.Insights/dataCollectionRules", 
-    "etag": "\"00000000-0000-0000-0000-000000000000\""
+        ]
+    }
 }
 ```
 

@@ -15,12 +15,6 @@ The transformation is a [KQL query](../essentials/data-collection-rule-transform
 
 :::image type="content" source="media/ingestion-time-transformations/dcr-workspace.png" lightbox="media/ingestion-time-transformations/dcr-workspace.png" alt-text="Overview of workspace transformation DCR":::
 
-## Workflows supporting ingestion-time transformation
-Ingestion-time transformation is applied to any workflow that doesn't currently use a [data collection rule](../essentials/data-collection-rule-overview.md) sending data to a [supported table](tables-feature-support.md). The workflows that currently use data collection rules are as follows. Any transformation on a workspace will ignored for these workloads.
-
-- [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)
-- [Custom logs](../logs/custom-logs-overview.md)
-
 ## When to use ingestion-time transformations
 Use ingestion-time transformation for the following scenarios:
 
@@ -28,7 +22,13 @@ Use ingestion-time transformation for the following scenarios:
 
 **Simplify query requirements.** You may have a table with valuable data buried in a particular column or data that needs some type of conversion each time it's queried. Create a transformation that parses this data into a custom column so that queries don't need to parse it. Remove extra data from the column that isn't required to decrease ingestion and retention costs.
 
-## Tables supporting ingestion-time transformation
+## Supported workflows
+Ingestion-time transformation is applied to any workflow that doesn't currently use a [data collection rule](../essentials/data-collection-rule-overview.md) sending data to a [supported table](tables-feature-support.md). The workflows that currently use data collection rules are as follows. Any transformation on a workspace will ignored for these workloads.
+
+- [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)
+- [Custom logs](../logs/custom-logs-overview.md)
+
+## Supported tables
 See [Supported tables for ingestion-time transformations](tables-feature-support.md) for a complete list of tables that support ingestion-time transformations.
 
 ## Configure ingestion-time transformation
@@ -37,6 +37,10 @@ See the following tutorials for a complete walkthrough of configuring ingestion-
 - [Azure portal](../logs/tutorial-ingestion-time-transformations.md)
 - [Resource manager templates and REST API](../logs/tutorial-ingestion-time-transformations-api.md)
 
+
+## Limits
+
+- Transformation queries use a subset of KQL. See [Supported KSQL features](../essentials/data-collection-rule-transformations.md#supported-kql-features) for details.
 
 ## Next steps
 

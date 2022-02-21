@@ -111,10 +111,6 @@ items:
     items: 
     - name: Agent
       href: agents/dcr-sample-agent.md
-    - name: Custom logs
-      href: logs/dcr-sample-custom-logs.md
-    - name: Workspace transformation
-      href: logs/dcr-sample-workspace.md
   - name: Azure CLI
     href: cli-samples.md
   - name: Monitor Logs in Azure CLI

@@ -3,7 +3,7 @@ title: Tutorial - Add ingestion-time transformation to Azure Monitor Logs using 
 description: This article describes how to add a custom transformation to data flowing through Azure Monitor Logs using resource manager templates.
 ms.subservice: logs
 ms.topic: tutorial
-ms.date: 01/19/2022
+ms.date: 02/20/2022
 ---
 
 # Tutorial: Add ingestion-time transformation to Azure Monitor Logs using resource manager templates (preview)
@@ -48,7 +48,7 @@ Select **Logs** and then run some queries to populate `LAQueryLogs` with some da
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations/sample-queries.png" lightbox="media/tutorial-ingestion-time-transformations/sample-queries.png" alt-text="Screenshot of sample log queries":::
 
-## Update table schema and enable for transformations
+## Update table schema
 Before you can create the transformation, the following two changes must be made to the table:
 
 - The table must be enabled for ingestion-time transformation. This is required for any table that will have a transformation, even if the transformation doesn't modify the table's schema.
@@ -236,7 +236,7 @@ Copy the **Resource ID** for the data collection rule. You'll use this in the ne
 
 :::image type="content" source="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" lightbox="media/tutorial-ingestion-time-transformations-api/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
 
-## Link workspace to data collection rule
+## Link workspace to DCR
 The final step to enable the transformation is to link the DCR to the workspace.
 
 > [!IMPORTANT]
@@ -266,6 +266,16 @@ Paste the code into the cloud shell prompt to run it.
 Allow about 30 minutes for the transformation to take effect, and you can then test it by running a query against the table. Only data sent to the table after the transformation was applied will be affected. 
 
 For this tutorial, run some sample queries to send data to the `LAQueryLogs` table. Include some queries against `LAQueryLogs` so you can verify that the transformation filters these records. Notice that the output has the new `Workspace_CF` column, and there are no records for `LAQueryLogs`.
+
+
+## Troubleshooting
+This section describes different error conditions you may receive and how to correct them.
+
+### IntelliSense in Log Analytics not recognizing new columns in the table
+The cache that drives IntelliSense may take up to 24 hours to update.
+
+### Transformation on a dynamic column isn't working
+There is currently a known issue affecting dynamic columns. A temporary workaround is to explicitly parse dynamic column data using `parse_json()` prior to performing any operations against them.
 
 ## Next steps
 
