@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/23/2021
 ms.topic: how-to
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Configure Kubernetes clusters for machine learning (preview)
