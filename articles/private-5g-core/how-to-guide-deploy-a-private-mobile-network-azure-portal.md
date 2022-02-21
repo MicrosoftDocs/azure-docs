@@ -12,7 +12,7 @@ ms.custom: template-how-to
 
 # Deploy a private mobile network through Azure Private 5G Core Preview - Azure portal
 
-Azure Private 5G Core Preview is an Azure cloud service for deploying and managing *private mobile networks* for enterprises. Private mobile networks provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices on an enterprise's premises. In this how-to guide, you'll use the Azure portal to deploy a private mobile network to match your enterprise's requirements.
+Private mobile networks provide high performance, low latency, and secure connectivity for 5G Internet of Things (IoT) devices. In this how-to guide, you'll use the Azure portal to deploy a private mobile network to match your enterprise's requirements.
 
 You'll create the following resources as part of this how-to guide:
 
