@@ -6,8 +6,8 @@ author: su-jie
 ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
-ms.custom: mvc, mode-other
-#Customer intent: "As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio Code."
+ms.custom: mvc, mode-ui
+#Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio Code.
 ---
 
 # Quickstart: Create an Azure Stream Analytics job in Visual Studio Code

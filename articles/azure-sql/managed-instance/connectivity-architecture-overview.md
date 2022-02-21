@@ -26,9 +26,6 @@ SQL Managed Instance is placed inside the Azure virtual network and the subnet t
 - The ability to connect SQL Managed Instance to a linked server or another on-premises data store.
 - The ability to connect SQL Managed Instance to Azure resources.
 
-> [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
-
 ## Communication overview
 
 The following diagram shows entities that connect to SQL Managed Instance. It also shows the resources that need to communicate with a managed instance. The communication process at the bottom of the diagram represents customer applications and tools that connect to SQL Managed Instance as data sources.  
@@ -110,7 +107,7 @@ Deploy SQL Managed Instance in a dedicated subnet inside the virtual network. Th
 - **Locks on virtual network:** [Locks](../../azure-resource-manager/management/lock-resources.md) on the dedicated subnet's virtual network, its parent resource group, or subscription, may occasionally interfere with SQL Managed Instance's management and maintenance operations. Take special care when you use such locks.
 
 > [!IMPORTANT]
-> When you create a managed instance, a network intent policy is applied on the subnet to prevent noncompliant changes to networking setup. After the last instance is removed from the subnet, the network intent policy is also removed. Rules below are for the informational purposes only, and you should not deploy them using ARM template / PowerShell / CLI. If you want to use the latest official template you could always [retrieve it from the portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+> When you create a managed instance, a network intent policy is applied on the subnet to prevent noncompliant changes to networking setup. This policy is a hidden resource located in the virtual network of the resource group.  After the last instance is removed from the subnet, the network intent policy is also removed. Rules below are for the informational purposes only, and you should not deploy them using ARM template / PowerShell / CLI. If you want to use the latest official template you could always [retrieve it from the portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). Replication traffic for auto-failover groups between two SQL Managed Instances should be direct, and not through a hub network. 
 
 ### Mandatory inbound security rules with service-aided subnet configuration
 These rules are necessary to ensure inbound management traffic flow. See [paragraph above](#high-level-connectivity-architecture) for more information on connectivity architecture and management traffic.

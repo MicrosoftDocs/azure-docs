@@ -5,6 +5,7 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
+ms.devlang: golang
 ---
 
 # Azure Functions custom handlers

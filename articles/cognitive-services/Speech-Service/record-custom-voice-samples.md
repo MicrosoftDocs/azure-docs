@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/13/2020
 ms.author: eur
 ---
@@ -55,7 +55,7 @@ A persona might have, for example, a naturally upbeat personality. So "their" vo
 
 ## Create a script
 
-The starting point of any custom neural voice recording session is the script, which contains the utterances to be spoken by your voice talent. (The term "utterances" encompasses both full sentences and shorter phrases.)
+The starting point of any custom neural voice recording session is the script, which contains the utterances to be spoken by your voice talent. The term "utterances" encompasses both full sentences and shorter phrases. Building a custom neural voice requires at least 300 recorded utterances as training data.
 
 The utterances in your script can come from anywhere: fiction, non-fiction, transcripts of speeches, news reports, and anything else available in printed form. If you want to make sure your voice does well on specific kinds of words (such as medical terminology or programming jargon), you might want to include sentences from scholarly papers or technical documents. For a brief discussion of potential legal issues, see the ["Legalities"](#legalities) section. You can also write your own text.
 
@@ -63,7 +63,7 @@ Your utterances don't need to come from the same source, or the same kind of sou
 
 We recommend the recording scripts include both general sentences and your domain-specific sentences. For example, if you plan to record 2,000 sentences, 1,000 of them could be general sentences, another 1,000 of them could be sentences from your target domain or the use case of your application.  
 
-We provide [sample scripts in the 'General', 'Chat' and 'Customer Service' domains for each language](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) to help you prepare your recording scripts. You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
+We provide [sample scripts in the 'General', 'Chat' and 'Customer Service' domains for each language](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) to help you prepare your recording scripts. You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. 
 
 You can select your domain-specific scripts from the sentences that your custom neural voice will be used to read.
 
@@ -322,7 +322,7 @@ Listen to each file carefully. At this stage, you can edit out small unwanted so
 
 Convert each file to 16 bits and a sample rate of 24 KHz before saving and if you recorded the studio chatter, remove the second channel. Save each file in WAV format, naming the files with the utterance number from your script.
 
-Finally, create the *transcript* that associates each WAV file with a text version of the corresponding utterance. [Create and use your voice model](./how-to-custom-voice-create-voice.md) includes details of the required format. You can copy the text directly from your script. Then create a Zip file of the WAV files and the text transcript.
+Finally, create the *transcript* that associates each WAV file with a text version of the corresponding utterance. [Train your voice model](./how-to-custom-voice-create-voice.md) includes details of the required format. You can copy the text directly from your script. Then create a Zip file of the WAV files and the text transcript.
 
 Archive the original recordings in a safe place in case you need them later. Preserve your script and notes, too.
 
@@ -331,4 +331,4 @@ Archive the original recordings in a safe place in case you need them later. Pre
 You're ready to upload your recordings and create your custom neural voice.
 
 > [!div class="nextstepaction"]
-> [Create and use your voice model](./how-to-custom-voice-create-voice.md)
+> [Train your voice model](./how-to-custom-voice-create-voice.md)

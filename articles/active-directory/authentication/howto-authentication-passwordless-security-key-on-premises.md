@@ -10,14 +10,14 @@ ms.date: 02/22/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign-in to on-premises resources by using Azure AD 
 
-This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys.
+This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust.md)
 
 ## Use SSO to sign in to on-premises resources by using FIDO2 keys
 
@@ -44,15 +44,14 @@ You must also meet the following system requirements:
 
 - Devices must be running Windows 10 version 2004 or later.
 
-- You must be running [Azure AD Connect version 1.4.32.0 or later](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
-  - For more information about the available Azure AD hybrid authentication options, see the following articles:
-    - [Choose the right authentication method for your Azure AD hybrid identity solution](../hybrid/choose-ad-authn.md)
-    - [Select which installation type to use for Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md)
-
 - Your Windows Server domain controllers must have patches installed for the following servers:
     - [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
     - [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
 
+- Have the credentials required to complete the steps in the scenario:
+    - An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest. Referred to as **$domainCred**.
+    - An Azure Active Directory user who is a member of the Global Administrators role. Referred to as **$cloudCred**.
+ 
 ### Supported scenarios
 
 The scenario in this article supports SSO in both of the following instances:
@@ -108,10 +107,10 @@ Run the following steps in each domain and forest in your organization that cont
    $domain = "contoso.corp.com"
 
    # Enter an Azure Active Directory global administrator username and password.
-   $cloudCred = Get-Credential
+   $cloudCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest.'
 
    # Enter a domain administrator username and password.
-   $domainCred = Get-Credential
+   $domainCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group.'
 
    # Create the new Azure AD Kerberos Server object in Active Directory
    # and then publish it to Azure Active Directory.

@@ -51,6 +51,9 @@ Logs are rotated every 24 hours or 7 GB, whichever comes first.
 ## Diagnostic logs
 Azure Database for MySQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MySQL server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/essentials/platform-logs-overview.md).
 
+>[!Note]
+>Premium Storage accounts are not supported if you sending the logs to Azure storage via diagnostics and settings 
+
 The following table describes what's in each log. Depending on the output method, the fields included and the order in which they appear may vary.
 
 | **Property** | **Description** |

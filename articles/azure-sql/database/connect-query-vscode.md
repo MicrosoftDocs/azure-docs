@@ -6,7 +6,7 @@ keywords: connect to sql database
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: sqldbrb=2, mode-other
+ms.custom: sqldbrb=2, mode-ui
 ms.devlang: 
 ms.topic: quickstart
 author: dzsquared

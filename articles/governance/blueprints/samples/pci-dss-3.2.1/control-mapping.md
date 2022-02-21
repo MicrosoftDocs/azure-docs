@@ -27,7 +27,7 @@ v3.2.1:2018** built-in policy initiative.
 > compliance in Azure Policy is only a partial view of your overall compliance status. The
 > associations between controls and Azure Policy definitions for this compliance blueprint sample
 > may change over time. To view the change history, see the
-> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
 
 ## 1.3.2 and 1.3.4 Boundary Protection
 

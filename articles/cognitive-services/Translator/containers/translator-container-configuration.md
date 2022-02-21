@@ -7,7 +7,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/27/2021
 ms.author: lajanuar
 recommendations: false
@@ -15,7 +15,7 @@ recommendations: false
 
 # Configure Translator Docker containers (preview)
 
-Cognitive Services provides each container with a common configuration framework.  You can easily configure your Translator containers and you to build Translator application architecture optimized for robust cloud capabilities and edge locality.
+Cognitive Services provides each container with a common configuration framework.  You can easily configure your Translator containers to build Translator application architecture optimized for robust cloud capabilities and edge locality.
 
 The **Translator** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. The container-specific settings are the billing settings.
 

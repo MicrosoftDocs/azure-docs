@@ -116,6 +116,8 @@
         href: ./samples/irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/iso-27001.md
+      - name: RMIT Malaysia
+        href: ./samples/rmit-malaysia.md
       - name: New Zealand ISM Restricted
         href: ./samples/new-zealand-ism.md
       - name: NIST SP 800-53 Rev. 5
@@ -258,12 +260,12 @@
     - name: Create custom guest configuration definitions
       displayName: powershell, dsc
       href: ./how-to/guest-configuration-create-definition.md
-    - name: Create a guest configuration definition from Group Policy
-      displayName: powershell, dsc, grouppolicy, windows
-      href: ./how-to/guest-configuration-create-group-policy.md
     - name: Azure Automation state configuration to guest configuration migration planning
       displayName: powershell, dsc, automation
       href: ./how-to/guest-configuration-azure-automation-migration.md
+    - name: Planning a change from Desired State Configuration extension for Linux to guest configuration
+      displayname: powershell, dsc, extension
+      href: ./how-to/guest-configuration-desired-state-configuration-extension-migration.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
@@ -363,13 +365,13 @@
   - name: Terraform resources
     items:
     - name: Assignment
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/management_group_policy_assignment
     - name: Definition
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_definition
     - name: Initiative (Set Definition)
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_set_definition
     - name: Remediation
-      href: https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html
+      href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_remediation
 - name: Resources
   items:
   - name: GitHub - Azure Policy samples

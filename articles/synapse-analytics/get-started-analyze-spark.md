@@ -1,11 +1,9 @@
 ---
 title: 'Quickstart: Get started analyzing with Spark' 
 description: In this tutorial, you'll learn to analyze data with Apache Spark.
-services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
@@ -32,16 +30,19 @@ A serverless Spark pool is a way of indicating how a user wants to work with Spa
 ## Analyze NYC Taxi data with a Spark pool
 
 > [!NOTE]
-> Make sure you have [placed the sample data into the primary storage account](get-started-create-workspace.md#place-sample-data-into-the-primary-storage-account)
+> Make sure you have [placed the sample data in the primary storage account](get-started-create-workspace.md#place-sample-data-into-the-primary-storage-account).
 
-1. In Synapse Studio, go to the **Develop** hub
-2. Create a new Notebook
-3. Create a new code cell and paste the following code into that cell.
+1. In Synapse Studio, go to the **Develop** hub.
+1. Create a new notebook.
+1. Create a new code cell and paste the following code in that cell:
+
     ```py
     %%pyspark
     df = spark.read.load('abfss://users@contosolake.dfs.core.windows.net/NYCTripSmall.parquet', format='parquet')
     display(df.limit(10))
     ```
+
+1. Modify the load URI, so it references the sample file in your storage account according to the [abfss URI scheme](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
 1. In the notebook, in the **Attach to** menu, choose the **Spark1** serverless Spark pool that we created earlier.
 1. Select **Run** on the cell. Synapse will start a new Spark session to run this cell if needed. If a new Spark session is needed, initially it will take about two seconds to be created. 
 1. If you just want to see the schema of the dataframe run a cell with the following code:

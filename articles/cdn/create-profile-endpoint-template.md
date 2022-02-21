@@ -7,7 +7,6 @@ author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 05/10/2021

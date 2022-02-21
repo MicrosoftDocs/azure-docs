@@ -1,13 +1,12 @@
 ---
 title: Manage Scala & Java libraries for Apache Spark
 description: Learn how to add and manage Scala and Java libraries in Azure Synapse Analytics.
-services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: midesa
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.subservice: spark
 ---
 

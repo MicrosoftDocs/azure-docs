@@ -374,10 +374,10 @@
       - name: Deploy - REST API
         displayName: deployment
         href: deploy-rest.md
-      - name: Deploy - GitHub
-        href: deploy-to-azure-button.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
+      - name: Deploy-to-Azure button
+        href: deploy-to-azure-button.md
     - name: Scopes
       items:
       - name: Resource group
@@ -410,10 +410,10 @@
       href: key-vault-parameter.md
   - name: Export templates
     items:
-    - name: Azure CLI
-      href: export-template-cli.md
     - name: Portal
       href: export-template-portal.md
+    - name: Azure CLI
+      href: export-template-cli.md
     - name: PowerShell
       href: export-template-powershell.md
   - name: Test templates
@@ -437,8 +437,10 @@
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
+      displayName: continuous,ci,cd, CI/CD
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
+      displayName: continuous,ci,cd,CI/CD
       href: deploy-github-actions.md
   - name: Use authoring tools
     items:

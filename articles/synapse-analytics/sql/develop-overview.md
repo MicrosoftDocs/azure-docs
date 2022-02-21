@@ -1,7 +1,6 @@
 ---
 title: Resources for developing Synapse SQL features
 description: Development concepts, design decisions, recommendations, and coding techniques for Synapse SQL.
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
@@ -9,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Design decisions and coding techniques for Synapse SQL features in Azure Synapse Analytics

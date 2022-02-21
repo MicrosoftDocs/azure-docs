@@ -36,7 +36,7 @@ In this how-to, you learn how to:
 
 - If you use FQDN, enable DNS resolution on your on-premises AD.
 
- - Enable DNS Forwarder from Azure portal Ref: [Configure DNS forwarder for Azure VMware Solution - Azure VMware Solution | Microsoft Docs](/azure/azure-vmware/configure-identity-source-vcenter)
+ - Enable DNS Forwarder from Azure portal Ref: Configure DNS forwarder for Azure VMware Solution - Azure VMware Solution | Microsoft Docs
 
 ## List external identity
 
@@ -61,7 +61,8 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
-
+    
+    :::image type="content" source="media/run-command/run-packages-execution-command-status.png" alt-text="Screenshot showing how to check the run commands notification or status." lightbox="media/run-command/run-packages-execution-command-status.png":::
 
 ## Add Active Directory over LDAP with SSL
 
@@ -95,7 +96,6 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
-
 
 
 ## Add Active Directory over LDAP
@@ -193,4 +193,3 @@ Now that you've learned about how to configure LDAP and LDAPS, you can learn mor
 
 - [Azure VMware Solution identity concepts](concepts-identity.md) - Use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. Access and identity management use the CloudAdmin role for vCenter and restricted administrator rights for NSX-T Manager. 
 
- 

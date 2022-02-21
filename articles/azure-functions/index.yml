@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page # Required
   author: ggailey777 
   ms.author: azfundocs 
-  ms.date: 05/18/2021 
+  ms.date: 12/27/2021 
   ms.custom: contperf-fy21q4
 
 landingContent:
@@ -18,67 +18,55 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Functions?
+          - text: Introduction to Azure Functions
             url: functions-overview.md
       - linkListType: concept
         links:
-          - text: Hosting options
+          - text: Azure Functions hosting options
             url: functions-scale.md
-          - text: Compare serverless options
+          - text: Choose the right integration and automation services in Azure
             url: functions-compare-logic-apps-ms-flow-webjobs.md 
-          - text: Durable Functions
+          - text: What are Durable Functions?
             url: durable/durable-functions-overview.md
-      - linkListType: video
-        links:
-          - text: Where should I host my code?
-            url: https://azure.microsoft.com/resources/videos/build-2019-where-should-i-host-my-code-choosing-between-kubernetes-containers-and-serverless/
   - title: Create your first function
     linkLists:
       - linkListType: get-started
         links:
-          - text: Getting started
+          - text: Getting started with Azure Functions
             url: functions-get-started.md
       - linkListType: quickstart
         links:
-          - text: C#
+          - text: Create a C# function in Azure using Visual Studio Code
             url: create-first-function-vs-code-csharp.md
-          - text: Java (Maven)
+          - text: Create a Java function in Azure from the command line
             url: create-first-function-cli-java.md
-          - text: JavaScript
+          - text: Create a JavaScript function in Azure using Visual Studio Code
             url: create-first-function-vs-code-node.md
-          - text: PowerShell
+          - text: Create a PowerShell function in Azure using Visual Studio Code
             url: create-first-function-vs-code-powershell.md
-          - text: Python
+          - text: Create a function in Azure with Python using Visual Studio Code
             url: create-first-function-vs-code-python.md
-          - text: Rust/Go
+          - text: Create a Go or Rust function in Azure using Visual Studio Code
             url: create-first-function-vs-code-other.md
-          - text: TypeScript
+          - text: Create a function in Azure with TypeScript using Visual Studio Code
             url: create-first-function-vs-code-typescript.md
-      - linkListType: video
-        links:
-          - text: Watch how to get started
-            url: https://azure.microsoft.com/resources/videos/get-started-with-azure-functions/
   - title: Develop functions
     linkLists:
       - linkListType: concept
         links:
-          - text: Developer guide
+          - text: Azure Functions developer guide
             url: functions-reference.md
-          - text: Supported languages
+          - text: Supported languages in Azure Functions
             url: supported-languages.md
-          - text: Connect to services
+          - text: Azure Functions triggers and bindings concepts
             url: functions-triggers-bindings.md
-          - text: Local development
+          - text: Code and test Azure Functions locally
             url: functions-develop-local.md
       - linkListType: sample
         links:
           - text: Azure Functions samples
-            url: /samples/browse/?products=azure-functions
+            url: /samples/browse/?expanded=azure&products=
           - text: Azure Serverless Community Library
             url: https://www.serverlesslibrary.net/
           - text: Azure Resource Manager templates
             url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
-      - linkListType: video
-        links:
-          - text: Develop with Visual Studio Code
-            url: https://azure.microsoft.com/resources/videos/build-nodejs-apis-using-serverless/

@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 01/24/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -27,15 +27,13 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 * First row values are unique
 * First row values are not a date or a number
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWPdqG]
-
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
@@ -45,13 +43,13 @@ This section will enable you to register the Azure Blob storage account and set 
 
 It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
+1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Azure Purview accounts** page and select your _Purview account_
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-purview-acct.png" alt-text="Screenshot that shows the Purview account used to register the data source":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-purview-acct.png" alt-text="Screenshot that shows the Azure Purview account used to register the data source":::
 
-1. **Open Purview Studio** and navigate to the **Data Map --> Sources**
+1. **Open Azure Purview Studio** and navigate to the **Data Map --> Sources**
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-open-purview-studio.png" alt-text="Screenshot that shows the link to open Purview Studio":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-open-purview-studio.png" alt-text="Screenshot that shows the link to open Azure Purview Studio":::
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sources.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
 
@@ -99,7 +97,7 @@ The following options are supported:
 
 #### Using a system or user assigned managed identity for scanning
 
-It is important to give your Purview account the permission to scan the Azure Blob data source. You can add access for the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permission is needed.
+It is important to give your Azure Purview account the permission to scan the Azure Blob data source. You can add access for the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what level scan permission is needed.
 
 > [!NOTE]
 > If you have firewall enabled for the storage account, you must use **managed identity** authentication method when setting up a scan.
@@ -115,9 +113,9 @@ It is important to give your Purview account the permission to scan the Azure Bl
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
-1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ or _[user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your _Azure Purview account name_ or _[user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity)_ under **Select** input box. Then, select **Save** to give this role assignment to your Azure Purview account.
 
-   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Purview account":::
+   :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-assign-permissions.png" alt-text="Screenshot that shows the details to assign permissions for the Azure Purview account":::
 
 1. Go into your Azure Blob storage account in [Azure portal](https://portal.azure.com)
 1. Navigate to **Security + networking > Networking**
@@ -158,7 +156,7 @@ When authentication method selected is **Account Key**, you need to get your acc
 
 1. Select **Create** to complete
 
-1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
+1. If your key vault is not connected to Azure Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan
 
 #### Using Service Principal for scanning
@@ -188,13 +186,13 @@ It is important to give your service principal the permission to scan the Azure 
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-access-control.png" alt-text="Screenshot that shows the access control for the storage account":::
 
-1. Set the **Role** to **Storage Blob Data Reader** and enter your _service principal_ under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
+1. Set the **Role** to **Storage Blob Data Reader** and enter your _service principal_ under **Select** input box. Then, select **Save** to give this role assignment to your Azure Purview account.
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-sp-permission.png" alt-text="Screenshot that shows the details to provide storage account permissions to the service principal":::
 
 ### Creating the scan
 
-1. Open your **Purview account** and select the **Open Purview Studio**
+1. Open your **Azure Purview account** and select the **Open Azure Purview Studio**
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
 1. Select the **New Scan** icon under the **Azure Blob data source** registered earlier
 
@@ -202,7 +200,7 @@ It is important to give your service principal the permission to scan the Azure 
 
 #### If using a system or user assigned managed identity
 
-Provide a **Name** for the scan, select the Purview accounts SAMI or UAMI under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**
+Provide a **Name** for the scan, select the Azure Purview accounts SAMI or UAMI under **Credential**, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-managed-identity.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 
@@ -285,14 +283,25 @@ Scans can be managed or run again on completion
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
 
 ## Access policy
-[!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
-[!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
 
-Follow this configuration guide to [enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
+Access policies allow data owners to manage access to datasets from Azure Purview. Owners can monitor and manage data use from within the Azure Purview Studio, without directly modifying the storage account where the data is housed.
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+To create an access policy for an Azure Storage account, follow the guidelines below.
+
+[!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
+
+### Create an access policy
+
+Now that you’ve prepared your storage account and environment for access policies, you can follow one of these configuration guides to create your policies:
+
+- [Single storage account](./tutorial-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single storage account in your subscription.
+- [All sources in a subscription or resource group](./tutorial-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

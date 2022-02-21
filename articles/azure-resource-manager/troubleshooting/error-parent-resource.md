@@ -1,13 +1,13 @@
 ---
 title: Parent resource errors
-description: Describes how to resolve errors when working with a parent resource in an Azure Resource Manager template (ARM template) or Bicep file.
+description: Describes how to resolve errors when you deploy a resource that's dependent on a parent resource in a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
-ms.date: 12/01/2021
+ms.date: 12/20/2021
 ---
 
 # Resolve errors for parent resources
 
-This article describes the `ParentResourceNotFound` error you might get when deploying a resource that's dependent on a parent resource.
+This article describes the `ParentResourceNotFound` error you might get when deploying a resource that's dependent on a parent resource. The error occurs when you deploy resources with a Bicep file or Azure Resource Manager template (ARM template).
 
 ## Symptom
 
@@ -71,7 +71,7 @@ resource sqlServer 'Microsoft.Sql/servers@2021-05-01-preview' = {
 }
 ```
 
-For more information about dependencies, see [Resource declaration in Bicep](../bicep/resource-declaration.md#dependencies).
+For more information about dependencies, see [Resource declaration in Bicep](../bicep/resource-dependencies.md).
 
 # [JSON](#tab/json)
 
@@ -93,7 +93,7 @@ To resolve this error when the parent resource was deployed in a different templ
 
 # [Bicep](#tab/bicep)
 
-This example uses the [existing](../bicep/resource-declaration.md#existing-resources) keyword to reference a parent that was deployed in a separate file. The child resource uses the `parent` element and the parent resource's symbolic name.
+This example uses the [existing](../bicep/existing-resource.md) keyword to reference a parent that was deployed in a separate file. The child resource uses the `parent` element and the parent resource's symbolic name.
 
 ```bicep
 param location string = resourceGroup().location

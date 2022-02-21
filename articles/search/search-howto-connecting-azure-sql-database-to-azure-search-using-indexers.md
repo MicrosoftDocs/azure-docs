@@ -20,7 +20,7 @@ This article covers the mechanics of using [indexers](search-indexer-overview.md
 
 You can set up an Azure SQL indexer by using any of these clients:
 
-* [Azure portal](https://ms.portal.azure.com)
+* [Azure portal](https://portal.azure.com)
 * Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
 * Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 

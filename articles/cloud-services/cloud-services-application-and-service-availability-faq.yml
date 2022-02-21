@@ -2,14 +2,13 @@
 metadata:
   title: Application and service availability issues FAQ
   description: This article lists the frequently asked questions about application and service availability for Microsoft Azure Cloud Services.
-  ms.topic: article
+  ms.topic: faq
   ms.service: cloud-services
   ms.date: 10/14/2020
   author: hirenshah1
   ms.author: hirshah
   ms.reviewer: mimckitt
   ms.custom: 
-    
 title: 'Application and service availability issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
   [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
@@ -45,4 +44,3 @@ sections:
           If you want to change the default behavior of IIS, you will need to use startup tasks, because if you manually apply changes to the Web Role instances, the changes will eventually be lost.
           
           For more information, see [How to configure and run startup tasks for a cloud service](cloud-services-startup-tasks.md).
-

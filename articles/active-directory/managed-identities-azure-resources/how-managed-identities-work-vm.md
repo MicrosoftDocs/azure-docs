@@ -1,10 +1,10 @@
 ---
-title: How managed identities for Azure resources work with with Azure virtual machines
+title: How managed identities for Azure resources work with Azure virtual machines
 description: Description of managed identities for Azure resources work with Azure virtual machines.
 services: active-directory
 documentationcenter:
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor:
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 06/11/2020
+ms.date: 02/17/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -39,7 +39,7 @@ The following diagram shows how managed service identities work with Azure virtu
 |------|----------------------------------|--------------------------------|
 | Creation |  Created as part of an Azure resource (for example, an Azure virtual machine or Azure App Service). | Created as a stand-alone Azure resource. |
 | Life cycle | Shared life cycle with the Azure resource that the managed identity is created with. <br/> When the parent resource is deleted, the managed identity is deleted as well. | Independent life cycle. <br/> Must be explicitly deleted. |
-| Sharing across Azure resources | Cannot be shared. <br/> It can only be associated with a single Azure resource. | Can be shared. <br/> The same user-assigned managed identity can be associated with more than one Azure resource. |
+| Sharing across Azure resources | Can’t be shared. <br/> It can only be associated with a single Azure resource. | Can be shared. <br/> The same user-assigned managed identity can be associated with more than one Azure resource. |
 | Common use cases | Workloads that are contained within a single Azure resource. <br/> Workloads for which you need independent identities. <br/> For example, an application that runs on a single virtual machine | Workloads that run on multiple resources and which can share a single identity. <br/> Workloads that need pre-authorization to a secure resource as part of a provisioning flow. <br/> Workloads where resources are recycled frequently, but permissions should stay consistent. <br/> For example, a workload where multiple virtual machines need to access the same resource |
 
 ## System-assigned managed identity
@@ -48,7 +48,7 @@ The following diagram shows how managed service identities work with Azure virtu
 
 2. Azure Resource Manager creates a service principal in Azure AD for the identity of the VM. The service principal is created in the Azure AD tenant that's trusted by the subscription.
 
-3. Azure Resource Manager configures the identity on the VM by updating the Azure Instance Metadata Service identity endpoint with the service principal client ID and certificate.
+3. Azure Resource Manager updates the VM identity using the Azure Instance Metadata Service identity endpoint, providing the endpoint with the service principal client ID and certificate.
 
 4. After the VM has an identity, use the service principal information to grant the VM access to Azure resources. To call Azure Resource Manager, use Azure role-based access control (Azure RBAC) to assign the appropriate role to the VM service principal. To call Key Vault, grant your code access to the specific secret or key in Key Vault.
 

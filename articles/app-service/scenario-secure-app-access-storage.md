@@ -10,6 +10,7 @@ ms.workload: identity
 ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
+ms.devlang: csharp, javascript
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
 ---
@@ -90,7 +91,7 @@ To create a Blob Storage container in Azure Storage, follow these steps.
 
 1. Go to your new storage account in the Azure portal.
 
-1. In the left menu for the storage account, scroll to the **Blob service** section, and then select **Containers**.
+1. In the left menu for the storage account, scroll to the **Data storage** section, and then select **Containers**.
 
 1. Select the **+ Container** button.
 

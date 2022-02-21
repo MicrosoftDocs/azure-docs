@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 12/06/2021
+ms.date: 1/25/2022
 ---
 
 # Sample queries for programmatic analytics
@@ -19,6 +19,8 @@ For details about the column names, attributes, and descriptions, refer to the f
 - [Customer details table](customer-dashboard.md#customer-details-table)
 - [Orders details table](orders-dashboard.md#orders-details-table)
 - [Usage details table](usage-dashboard.md#usage-details-table)
+- [Revenue details table](revenue-dashboard.md#data-dictionary-table)
+- [Quality of service table](quality-of-service-dashboard.md#offer-deployment-details)
 
 ## Customers report queries
 
@@ -71,6 +73,15 @@ These sample queries apply to the Revenue report.
 | Show billed revenue of the partner for last 1 month | `SELECT BillingAccountId, OfferName, OfferType, Revenue, EarningAmountCC, EstimatedRevenueUSD, EarningAmountUSD, PayoutStatus, PurchaseRecordId, LineItemId,TransactionAmountCC,TransactionAmountUSD, Quantity,Units FROM ISVRevenue TIMESPAN LAST_MONTH` |
 | List estimated revenue in USD of all transactions with sent status in last 3 months | `SELECT BillingAccountId, OfferName, OfferType, EstimatedRevenueUSD, EarningAmountUSD, PayoutStatus, PurchaseRecordId, LineItemId, TransactionAmountUSD FROM ISVRevenue where PayoutStatus='Sent' TIMESPAN LAST_3_MONTHS` |
 | List of non-trial transactions for subscription-based billing model | `SELECT BillingAccountId, OfferName,OfferType, TrialDeployment EstimatedRevenueUSD, EarningAmountUSD FROM ISVRevenue WHERE TrialDeployment=’False’ and BillingModel=’SubscriptionBased’` |
+|||
+
+## Quality of service report queries
+
+This sample query applies to the Quality of service report.
+
+| **Query Description** | **Sample Query** |
+| ------------ | ------------- |
+| Show deployment status of offers for last 6 months | `SELECT OfferId, Sku, DeploymentStatus, DeploymentCorrelationId, SubscriptionId, CustomerTenantId, CustomerName, TemplateType, StartTime, EndTime, DeploymentDurationInMilliSeconds, DeploymentRegion FROM ISVQualityOfService TIMESPAN LAST_6_MONTHS` |
 |||
 
 ## Next steps

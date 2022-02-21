@@ -4,6 +4,7 @@ description: Provides instructions to quickly set up a mobile app for monitoring
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.custom: mvc
+ms.devlang: java, swift
 ---
 
 # Start analyzing your mobile app with App Center and Application Insights

@@ -33,7 +33,7 @@ You can also allow private access to the database from [virtual networks](../../
 
 See the below video for a high-level explanation of these access controls and what they do:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
+> [!VIDEO https://docs.microsoft.com/shows/Data-Exposed/Data-Exposed--SQL-Database-Connectivity-Explained/player?WT.mc_id=dataexposed-c9-niner]
 
 ## Allow Azure services
 
@@ -108,7 +108,7 @@ Ip based firewall is a feature of the logical SQL server in Azure that prevents 
 In addition to IP rules, the server firewall allows you to define *virtual network rules*.  
 To learn more, see [Virtual network service endpoints and rules for Azure SQL Database](vnet-service-endpoint-rule-overview.md) or watch this video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
+> [!VIDEO https://docs.microsoft.com/shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
 ### Azure Networking terminology
 

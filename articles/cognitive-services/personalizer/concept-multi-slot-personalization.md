@@ -7,7 +7,7 @@ ms.author: jeffme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 05/24/2021
 ms.custom: mode-other
 ---
@@ -38,7 +38,7 @@ Whenever you display products and/or content to users, you may want to show more
 * **Search results or lists**: If your application search functionality, where you provide results as lists or tiles, you can use multi-slot personalization to choose which items to highlight at the top considering more metadata than traditional rankers.
 * **Dynamic channels and playlists**: Multi-slot personalization can help determine a short sequence for a list of videos or songs to play next in a dynamic channel.
 
-Multi-slot personalization allows you to declare the "slots" in the user interface that actions need to be chosen for. It also allows you to provide more information about the slots, that Personalizer can use to improve product placement - such as is this a big box or a small box? does it display a caption or only a feature? is it in a footer or a sidebar?.
+Multi-slot personalization allows you to declare the "slots" in the user interface that actions need to be chosen for. It also allows you to provide more information about the slots so that Personalizer can use to improve product placement - such as is this a big box or a small box? Does it display a caption or only a feature? Is it in a footer or a sidebar?
 
 
 ## How to use Multi-slot personalization 
