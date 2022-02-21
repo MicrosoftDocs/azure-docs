@@ -24,20 +24,20 @@ These samples apply to all Azure Cosmos DB APIs
 
 |Task | Description |
 |---|---|
-| [Add or failover regions](../scripts/cli/common/regions.md?toc=%2fcli%2fazure%2ftoc.json) | Add a region, change failover priority, trigger a manual failover.|
-| [Account keys and connection strings](../scripts/cli/common/keys.md?toc=%2fcli%2fazure%2ftoc.json) | List account keys, read-only keys, regenerate keys and list connection strings.|
-| [Secure with IP firewall](../scripts/cli/common/ipfirewall.md?toc=%2fcli%2fazure%2ftoc.json)| Create a Cosmos account with IP firewall configured.|
-| [Secure new account with service endpoints](../scripts/cli/common/service-endpoints.md?toc=%2fcli%2fazure%2ftoc.json)| Create a Cosmos account and secure with service-endpoints.|
-| [Secure existing account with service endpoints](../scripts/cli/common/service-endpoints-ignore-missing-vnet.md?toc=%2fcli%2fazure%2ftoc.json)| Update a Cosmos account to secure with service-endpoints when the subnet is eventually configured.|
+| [Add or failover regions](../scripts/cli/common/regions.md) | Add a region, change failover priority, trigger a manual failover.|
+| [Account keys and connection strings](../scripts/cli/common/keys.md) | List account keys, read-only keys, regenerate keys and list connection strings.|
+| [Secure with IP firewall](../scripts/cli/common/ipfirewall.md)| Create a Cosmos account with IP firewall configured.|
+| [Secure new account with service endpoints](../scripts/cli/common/service-endpoints.md)| Create a Cosmos account and secure with service-endpoints.|
+| [Secure existing account with service endpoints](../scripts/cli/common/service-endpoints-ignore-missing-vnet.md)| Update a Cosmos account to secure with service-endpoints when the subnet is eventually configured.|
 |||
 
 ## Cassandra API Samples
 
 |Task | Description |
 |---|---|
-| [Create an Azure Cosmos account, keyspace and table](../scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, keyspace, and table for Cassandra API. |
-| [Create a serverless Azure Cosmos account for Cassandra API, keyspace and table](../scripts/cli/cassandra/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates a serverless Azure Cosmos DB account, keyspace, and table for Cassandra API. |
-| [Create an Azure Cosmos account, keyspace and table with autoscale](../scripts/cli/cassandra/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, keyspace, and table with autoscale for Cassandra API. |
-| [Throughput operations](../scripts/cli/cassandra/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a keyspace and table.|
-| [Lock resources from deletion](../scripts/cli/cassandra/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
+| [Create an Azure Cosmos account, keyspace and table](../scripts/cli/cassandra/create.md)| Creates an Azure Cosmos DB account, keyspace, and table for Cassandra API. |
+| [Create a serverless Azure Cosmos account for Cassandra API, keyspace and table](../scripts/cli/cassandra/create.md)| Creates a serverless Azure Cosmos DB account, keyspace, and table for Cassandra API. |
+| [Create an Azure Cosmos account, keyspace and table with autoscale](../scripts/cli/cassandra/autoscale.md)| Creates an Azure Cosmos DB account, keyspace, and table with autoscale for Cassandra API. |
+| [Throughput operations](../scripts/cli/cassandra/throughput.md) | Read, update and migrate between autoscale and standard throughput on a keyspace and table.|
+| [Lock resources from deletion](../scripts/cli/cassandra/lock.md)| Prevent resources from being deleted with  resource locks.|
 |||

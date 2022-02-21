@@ -1022,16 +1022,32 @@
           href: cassandra/migrate-data.md
     - name: Samples
       items:
-        - name: Create a keyspace and table
-          href: ../scripts/cli/cassandra/create.md
-        - name:
-          href:
-        - name:
-          href:
-        - name:
-          href:
-        - name:
-          href:
+        - name: Overview
+          href: cli-samples.md
+        - name: Common API samples
+          items:
+          - name: Add or failover regions
+            href: cassandra/scripts/cli/common/regions.md
+          - name: Account keys and connection strings
+            href: cassandra/scripts/cli/common/keys.md
+          - name: Secure with IP firewall
+            href: cassandra/scripts/cli/common/ipfirewall.md
+          - name: Secure new account with service endpoints
+            href: cassandra/scripts/cli/common/service-endpoints.md
+          - name: Secure existing account with service endpoints
+            href: cassandra/scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+        - name: Cassandra API samples
+          itmes:
+          - name: Create account, keyspace, and table
+            href: cassandra/scripts/cli/cassandra/create.md
+          - name: Create serverless
+            href: cassandra/scripts/cli/cassandra/create.md
+          - name: Create with autoscale
+            href: ./scripts/cli/cassandra/autoscale.md
+          - name: Throughput operations
+            href: cassandra/scripts/cli/cassandra/throughput.md
+          - name: Lock resources from deletion
+            href: cassandra/scripts/cli/cassandra/lock.md
     - name: Concepts
       items:
         - name: FAQ
