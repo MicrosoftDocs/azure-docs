@@ -1023,7 +1023,7 @@
     - name: Samples
       items:
         - name: Overview
-          href: cli-samples.md
+          href: cassandra/cli-samples.md
         - name: Common API samples
           items:
           - name: Add or failover regions
@@ -1321,7 +1321,7 @@
     - name: Samples
       items:
         - name: Overview
-          href: cli-samples.md
+          href: gremlin/cli-samples.md
         - name: Common API samples
           items:
           - name: Add or failover regions
