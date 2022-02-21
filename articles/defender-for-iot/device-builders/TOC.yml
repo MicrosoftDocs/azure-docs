@@ -78,12 +78,14 @@
     href: how-to-investigate-cis-benchmark.md
   - name: Configure a micro agent twin
     href: how-to-configure-micro-agent-twin.md
+  - name: Configure PAM to audit sign-in events
+    href: configure-pam-to-audit-sign-in-events.md
   - name: Create custom alerts
     displayName: security group
     href: quickstart-create-custom-alerts.md
   - name: Defender-IoT-micro-agent for Azure RTOS
     href: iot-security-azure-rtos.md
-    items: 
+    items:
     - name: Work with Defender-IoT-micro-agent for Azure RTOS
       href: how-to-azure-rtos-security-module.md
     - name: Understand the Defender-IoT-micro-agent for Azure RTOS

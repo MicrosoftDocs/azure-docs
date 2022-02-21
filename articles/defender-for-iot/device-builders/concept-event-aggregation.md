@@ -69,25 +69,32 @@ The data collected for each event is:
 | **Transport_protocol** | Can be TCP, UDP, or ICMP. |
 | **Application protocol** | The application protocol associated with the connection. |
 | **Extended properties** | The Additional details of the connection. For example, `host name`. |
+| **DNS hit count** | Total hit count of DNS requests |
+
 
 ## Login collector (event-based collector)
 
-The Login collector, collects user logins, logouts, and failed login attempts.
+The Login collector, collects user sign-ins, sign-outs, and failed sign-in attempts.
 
-Currently SSH, and Telnet are fully supported.  
+The Login collector supports the following types of collection methods:
+
+- **Syslog**. If syslog is running on the device, the Login collector collects SSH sign-in events by generating a syslog file named **auth.log**.
+
+- **Pluggable Authentication Modules (PAM)**. Collects SSH, telnet, and local sign-in events. For more information, see [Configure Pluggable Authentication Modules (PAM) to audit sign-in events](configure-pam-to-audit-sign-in-events.md).
 
 The following data is collected:
 
 | Parameter | Description|
 |--|--|
-| **operation** | The Login, Logout, or LoginFailed. |
+| **operation** | One of the following: `Login`, `Logout`, `LoginFailed` |
 | **process_id** | The Linux PID. |
 | **user_name** | The Linux user. |
-| **executable** | The terminal device. For example, tty1..6, or pts/n. |
-| **remote_address** | The source of connection, either remote IP in IPv6 or IPv4 format, or 127.0.0.1/0.0.0.0 to indicate local connection. |
+| **executable** | The terminal device. For example, `tty1..6` or `pts/n`. |
+| **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
 
 > [!Note]
-> A login event is captured when a terminal is opened on a device, before the user actually logs in. This event has a TTY process, login event type, and a username. For example, `LOGIN`.
+> A sign-in event is captured when a terminal is opened on a device, before the user actually signs in. This event has a TTY process, sign-in event type, and a username. For example, `LOGIN`.
+
 
 ## System information (trigger based collector))
 
