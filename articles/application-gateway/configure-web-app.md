@@ -40,6 +40,7 @@ In this article you'll learn how to:
 - Configure DNS
 - Add App Service as backend pool to the Application Gateway
 - Configure the HTTP Settings for the connection to App Service
+- Configure the Request Routing Rule
 
 ## Prerequisites
 
@@ -71,11 +72,11 @@ For the user or client to get routed to Application Gateway using the custom dom
 
 For Application Gateway to connect to App Service using the same custom domain, App Service should be configured so it accepts traffic using the custom domain name as the incoming host.  For more information on how to map a custom domain to the App Service, see [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)  Note that to verify the domain, App Service only requires adding a TXT record and no change is required on CNAME or A-records.  The DNS configuration for the custom domain will remain directed towards Application Gateway.
 
-To accept connections to App Service over HTTPS, configure its TLS binding.  For this, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md)
+To accept connections to App Service over HTTPS, configure its TLS binding.  For this, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md)  It is recommended to have App Service pull the certificate for the custom domain from Azure Key Vault.
 
 ### [Default Domain](#tab/defaultdomain)
 
-When no custom domain is available, the user or client can access Application Gateway using either the IP address of the gateway or its DNS address.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.
+When no custom domain is available, the user or client can access Application Gateway using either the IP address of the gateway or its DNS address.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.  Note that not having a custom domain available also implies that no publicly signed certificate will be available for Application Gateway to use when serving content. This restricts clients to use HTTP or HTTPS with a self-signed certificate, both of which are undesired.
 
 To connect to App Service, Application Gateway can use the default domain as provided by App Service (suffixed "azurewebsites.net").
 
