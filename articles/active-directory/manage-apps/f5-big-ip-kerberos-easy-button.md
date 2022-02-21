@@ -180,7 +180,7 @@ Consider the **Azure Service Account Details** be the BIG-IP client application 
 
    ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-kerberos-easy-button/azure-configuration-properties.png)
 
-Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
+Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
 
 ### Service Provider
 
