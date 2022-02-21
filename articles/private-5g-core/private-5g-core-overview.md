@@ -87,14 +87,41 @@ The following diagram shows the network functions supported by a packet core ins
 
 Each packet core instance is connected to the local RAN network to provide coverage for cellular wireless devices. You can choose to limit these devices to local connectivity. Alternatively, you can provide multiple routes to the cloud, internet, or other enterprise data centers running IoT and automation applications.
 
-### Support for 5GC features
+## Support for 5GC features
 
-|Feature  |Description  |
-|---------|---------|
-|**Supported 5G network functions**|<ul><li>Access and Mobility Management Function (AMF)</li><li>Session Management Function (SMF)</li><li>User Plane Function (UPF)</li><li >Policy Control Function (PCF)</li><li>Authentication Server Function (AUSF)</li><li>Unified Data Management (UDM)</li><li>Unified Data Repository (UDR)</li><li>Network Repository Function (NRF)</li>|
-|**Supported 5G procedures**| For information on Azure Private 5G Core's support for standards-based 5G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).|
-|**User equipment (UE) authentication and security context management**|<p>Azure Private 5G Core supports the following authentication methods:</p><ul><li>Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI).</li><li>5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.</li></ul><p>The packet core instance performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.</p><p>Azure Private 5G Core supports the following algorithms for ciphering and integrity protection:</p><ul><li>5GS null encryption algorithm</li><li>128-bit Snow3G</li><li>128-bit Advanced Encryption System (AES) encryption</li></ul>|
-|**Index to RAT/Frequency Selection Priority (RFSP)**|The packet core instance can provide a RAN with an RFSP Index. The RAN can match the RFSP Index to its local configuration to apply specific radio resource management (RRM) policies, such as cell reselection or frequency layer redirection.|
+### Supported 5G network functions
+
+- Access and Mobility Management Function (AMF)
+- Session Management Function (SMF)
+- User Plane Function (UPF)
+- Policy Control Function (PCF)
+- Authentication Server Function (AUSF)
+- Unified Data Management (UDM)
+- Unified Data Repository (UDR)
+- Network Repository Function (NRF)
+
+### Supported 5G procedures
+
+For information on Azure Private 5G Core's support for standards-based 5G procedures, see [Statement of compliance - Azure Private 5G Core](statement-of-compliance.md).
+
+### User equipment (UE) authentication and security context management
+
+Azure Private 5G Core supports the following authentication methods:
+
+- Authentication using Subscription Permanent Identifiers (SUPI) and 5G Globally Unique Temporary Identities (5G-GUTI).
+- 5G Authentication and Key Agreement (5G-AKA) for mutual authentication between UEs and the network.
+
+The packet core instance performs ciphering and integrity protection of 5G non-access stratum (NAS). During UE registration, the UE includes its security capabilities for 5G NAS with 128-bit keys.
+
+Azure Private 5G Core supports the following algorithms for ciphering and integrity protection:
+
+- 5GS null encryption algorithm
+- 128-bit Snow3G
+- 128-bit Advanced Encryption System (AES) encryption
+
+### Index to RAT/Frequency Selection Priority (RFSP)
+
+The packet core instance can provide a RAN with an RFSP Index. The RAN can match the RFSP Index to its local configuration to apply specific radio resource management (RRM) policies, such as cell reselection or frequency layer redirection.
 
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
