@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 02/20/2022
+ms.date: 02/21/2022
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -59,7 +59,10 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
             - [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
             - [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
         - To manually install Azure Arc on your existing and future EC2 instances, follow the instructions in the [EC2 instances should be connected to Azure Arc](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/231dee23-84db-44d2-bd9d-c32fbcfb42a3) recommendation. 
-
+    - Additional extensions should be enabled on the Arc-connected machines. These extensions are currently configured in the subscription level. It means that all the multicloud accounts and projects (from both AWS and GCP) under the same subscription will inherit the subscription settings with regards to these components.
+        - Microsoft Defender for Endpoint
+        - VA solution (TVM/ Qualys)
+        - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
 
 > [!Note]
 > Without the Arc agent, you will be unable to take advantage of Defender for server's value. The Arc agent can also be installed manually, and not by the auto-provisioning process.
