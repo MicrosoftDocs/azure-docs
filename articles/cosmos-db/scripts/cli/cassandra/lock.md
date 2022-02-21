@@ -27,7 +27,7 @@ This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cl
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
