@@ -8,7 +8,7 @@ ms.date: 10/21/2021
 ms.author: cshoe
 ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python"
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Event Grid output binding for Azure Functions
@@ -504,7 +504,7 @@ public class Function {
 }
 ```
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-javascript,*Use with caution.*,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
@@ -531,25 +531,77 @@ See the [Example section](#example) for complete examples.
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Grid output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 
 
-# [In-process](#tab/in-process)
+# [Extension v3.x](#tab/extensionv3/in-process)
 
-[!INCLUDE [functions-event-grid-csharp-usage](../../includes/functions-event-grid-csharp-usage.md)]
+In-process C# class library functions supports the following types:
+
++ [Azure.Messaging.CloudEvent][CloudEvent]
++ [Azure.Messaging.EventGrid][EventGridEvent2]
++ [Newtonsoft.Json.Linq.JObject][JObject]
++ [System.String][String]
 
 Send messages by using a method parameter such as `out EventGridEvent paramName`. 
-
 To write multiple messages, you can instead use `ICollector<EventGridEvent>` or `IAsyncCollector<EventGridEvent>`.
 
-# [Isolated process](#tab/isolated-process)
+# [Extension v2.x](#tab/extensionv2/in-process)
+
+In-process C# class library functions supports the following types:
+
++ [Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent]
++ [Newtonsoft.Json.Linq.JObject][JObject]
++ [System.String][String]
+
+Send messages by using a method parameter such as `out EventGridEvent paramName`. 
+To write multiple messages, you can instead use `ICollector<EventGridEvent>` or `IAsyncCollector<EventGridEvent>`.
+
+# [Functions 1.x](#tab/functionsv1/in-process)
+
+In-process C# class library functions supports the following types:
+
++ [Newtonsoft.Json.Linq.JObject][JObject]
++ [System.String][String]
+
+# [Extension v3.x](#tab/extensionv3/isolated-process)
 
 Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
 
-# [C# Script](#tab/csharp-script)
+# [Extension v2.x](#tab/extensionv2/isolated-process)
 
-[!INCLUDE [functions-event-grid-csharp-usage](../../includes/functions-event-grid-csharp-usage.md)]
+Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
+
+# [Functions 1.x](#tab/functionsv1/isolated-process)
+
+Functions version 1.x doesn't support isolated process. 
+
+# [Extension v3.x](#tab/extensionv3/csharp-script)
+
+In-process C# class library functions supports the following types:
+
++ [Azure.Messaging.CloudEvent][CloudEvent]
++ [Azure.Messaging.EventGrid][EventGridEvent2]
++ [Newtonsoft.Json.Linq.JObject][JObject]
++ [System.String][String]
 
 Send messages by using a method parameter such as `out EventGridEvent paramName`. 
-
 To write multiple messages, you can instead use `ICollector<EventGridEvent>` or `IAsyncCollector<EventGridEvent>`.
+
+# [Extension v2.x](#tab/extensionv2/csharp-script)
+
+In-process C# class library functions supports the following types:
+
++ [Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent]
++ [Newtonsoft.Json.Linq.JObject][JObject]
++ [System.String][String]
+
+Send messages by using a method parameter such as `out EventGridEvent paramName`. 
+To write multiple messages, you can instead use `ICollector<EventGridEvent>` or `IAsyncCollector<EventGridEvent>`.
+
+# [Functions 1.x](#tab/functionsv1/csharp-script)
+
+In-process C# class library functions supports the following types:
+
++ [Newtonsoft.Json.Linq.JObject][JObject]
++ [System.String][String]
 
 ---
 

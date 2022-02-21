@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 10/21/2021
 ms.author: cshoe
 ms.custom: fasttrack-edit
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Event Grid bindings for Azure Functions
@@ -99,7 +99,7 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell,programming-language-typescript"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
