@@ -22,6 +22,7 @@ This is the configuration which is commonly recommended for production-grade sce
 
 By associating both Application Gateway and App Service in the backend pool to the same domain name, the request flow does not need to override host name and the backend web application will see the original host as was used by the client.
 
+:::image type="content" source="media/configure-web-app/scenario-appgw-to-appsvc-custom-domain.png" alt-text="Scenario overview for Application Gateway to App Service using the same custom domain for both":::
 
 ## [Default Domain](#tab/defaultdomain)
 
@@ -30,6 +31,8 @@ This configuration is the easiest as it does not require a custom domain.  As su
 When App Service does not have a custom domain associated with it, the host header on the incoming request on the web application will need to be set to the default domain, suffixed with ".azurewebsites.net" or else the platform will not be able to properly route the request.
 
 This means that the host header in the original request received by the Application Gateway will be different from the host name of the backend App Service.
+
+:::image type="content" source="media/configure-web-app/scenario-appgw-to-appsvc-default-domain.png" alt-text="Scenario overview for Application Gateway to App Service using the default App Service domain towards the backend":::
 
 ---
 
