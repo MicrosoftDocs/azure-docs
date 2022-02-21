@@ -19,7 +19,7 @@ ms.author: eur
 > [!NOTE]
 > Custom Neural Voice Pro can be used to create higher-quality models that are indistinguishable from human recordings. For access you must commit to using it in alignment with our responsible AI principles. Learn more about our [policy on the limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply here](https://aka.ms/customneural).
 > 
-> With [Custom Neural Voice Lite](custom-neural-voice.md#custom-neural-voice-project-types) (public preview), you can create a model for demonstration and evaluation purpose. No application is required. Microsoft restricts and selects the recording and testing samples for use with Custom Neural Voice Lite. 
+> With [Custom Neural Voice Lite](custom-neural-voice.md#custom-neural-voice-project-types) (public preview), you can create a model for demonstration and evaluation purpose. No application is required. Microsoft restricts and selects the recording and testing samples for use with Custom Neural Voice Lite. You must apply the full access to Custom Neural Voice in order to deploy and use the Custom Neural Voice Lite model for business purpose. 
  
 ## Set up your Azure account
 
