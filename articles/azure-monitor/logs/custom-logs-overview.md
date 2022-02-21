@@ -34,7 +34,7 @@ The DCR must understand the structure of the input data and the structure of the
 Ingestion is a POST call to the data collection endpoint over HTTP. Details of the call are as follows:
 
 ### Endpoint URI
-The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. `Stream Name` refers to the [stream](../essentials/data-collection-rule-overview.md#custom-logs) in the DCR that should handle the custom data.
+The endpoint URI uses the following format, where the `Data Collection Endpoint` and `DCR Immutable ID` identify the DCE and DCR. `Stream Name` refers to the [stream](../essentials/data-collection-rule-structure.md#custom-logs) in the DCR that should handle the custom data.
 
 ```
 {Data Collection Endpoint URI}/dataCollectionRules/{DCR Immutable ID}/streams/{Stream Name}?api-version=2021-11-01-preview
