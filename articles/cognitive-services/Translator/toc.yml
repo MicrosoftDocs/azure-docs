@@ -67,7 +67,7 @@ items:
         href: containers/translator-container-supported-parameters.md
   - name: Tutorials
     items:
-    - name: Create a Translator workflow with Power Automate
+    - name: Create a Translator workflow
       href: /ai-builder/flow-text-translation?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Translate text with Translator
       href: /learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json

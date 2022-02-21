@@ -110,11 +110,11 @@ To create the private DNS zone entries for the workspace, use the following comm
 # Add privatelink.api.azureml.ms
 az network private-dns zone create \
     -g <resource-group-name> \
-    --name 'privatelink.api.azureml.ms'
+    --name privatelink.api.azureml.ms
 
 az network private-dns link vnet create \
     -g <resource-group-name> \
-    --zone-name 'privatelink.api.azureml.ms' \
+    --zone-name privatelink.api.azureml.ms \
     --name <link-name> \
     --virtual-network <vnet-name> \
     --registration-enabled false
@@ -123,17 +123,17 @@ az network private-endpoint dns-zone-group create \
     -g <resource-group-name> \
     --endpoint-name <private-endpoint-name> \
     --name myzonegroup \
-    --private-dns-zone 'privatelink.api.azureml.ms' \
-    --zone-name 'privatelink.api.azureml.ms'
+    --private-dns-zone privatelink.api.azureml.ms \
+    --zone-name privatelink.api.azureml.ms
 
 # Add privatelink.notebooks.azure.net
 az network private-dns zone create \
     -g <resource-group-name> \
-    --name 'privatelink.notebooks.azure.net'
+    --name privatelink.notebooks.azure.net
 
 az network private-dns link vnet create \
     -g <resource-group-name> \
-    --zone-name 'privatelink.notebooks.azure.net' \
+    --zone-name privatelink.notebooks.azure.net \
     --name <link-name> \
     --virtual-network <vnet-name> \
     --registration-enabled false
@@ -142,8 +142,8 @@ az network private-endpoint dns-zone-group add \
     -g <resource-group-name> \
     --endpoint-name <private-endpoint-name> \
     --name myzonegroup \
-    --private-dns-zone 'privatelink.notebooks.azure.net' \
-    --zone-name 'privatelink.notebooks.azure.net'
+    --private-dns-zone privatelink.notebooks.azure.net \
+    --zone-name privatelink.notebooks.azure.net
 ```
 
 # [Azure CLI extension 1.0](#tab/azurecliextensionv1)

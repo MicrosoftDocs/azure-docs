@@ -1,12 +1,12 @@
 ---
 title: Security endpoints in Microsoft Azure IoT Device Provisioning Service 
 description: Concepts - how to control access to IoT Device Provisioning Service (DPS) for backend apps. Includes information about security tokens.
-author: wesmc7777
+author: kgremban
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
 ms.date: 09/22/2021
-ms.author: wesmc
+ms.author: kgremban
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 

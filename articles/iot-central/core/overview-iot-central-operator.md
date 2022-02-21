@@ -35,6 +35,8 @@ To manage individual devices, use device views to set device and cloud propertie
 
 To manage devices in bulk, create and schedule jobs. Jobs can update properties and run commands on multiple devices. To learn more, see [Create and run a job in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
+To manage IoT Edge devices, you can use the IoT Central UI to[create and edit deployment manifests](concepts-iot-edge.md#iot-edge-deployment-manifests-and-iot-central-device-templates), and then deploy them to your IoT Edge devices. You can also run commands in IoT Edge modules from within IoT Central.  
+
 If your IoT Central application uses *organizations*, an administrator controls which devices you have access to.
 
 ## Troubleshoot and remediate issues

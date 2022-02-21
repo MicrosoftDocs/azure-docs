@@ -25,7 +25,7 @@ The following table refers to the *Other* column and provides a list containing 
 
 ## Americas
 
-| Country/region                           | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region                           | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
 |------------------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Anguilla                                 |            ✓             |                              |                       |   ✓   |
 | Antarctica                               |            ✓             |                              |                       |   ✓   |
@@ -89,7 +89,7 @@ The following table refers to the *Other* column and provides a list containing 
 
 ## Asia Pacific
 
-| Country/region                     | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region                     | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
 ||-----------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Afghanistan                        |            ✓             |                              |                       |   ✓   |
 | American Samoa                     |            ✓             |                              |           ✓           |   ✓   |
@@ -155,7 +155,7 @@ The following table refers to the *Other* column and provides a list containing 
 
 ## Europe
 
-| Country/region          | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region          | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
 |-------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Albania                 |            ✓             |                              |                       |   ✓   |
 | Andorra                 |            ✓             |                              |           ✓           |   ✓   |
@@ -217,7 +217,7 @@ The following table refers to the *Other* column and provides a list containing 
 
 ## Middle East & Africa
 
-| Country/region                         | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
+| Country/Region                         | Infrared Satellite Tiles | Minute Forecast, Radar Tiles | Severe Weather Alerts | Other* |
 |----------------------------------------|:------------------------:|:----------------------------:|:---------------------:|:------:|
 | Algeria                                |            ✓             |                              |                       |   ✓   |
 | Angola                                 |            ✓             |                              |                       |   ✓   |
@@ -227,8 +227,8 @@ The following table refers to the *Other* column and provides a list containing 
 | Bouvet Island                          |            ✓             |                              |                       |   ✓   |
 | Burkina Faso                           |            ✓             |                              |                       |   ✓   |
 | Burundi                                |            ✓             |                              |                       |   ✓   |
-| Cabo Verde                             |            ✓             |                              |                       |   ✓   |
 | Cameroon                               |            ✓             |                              |                       |   ✓   |
+| Cape Verde                             |            ✓             |                              |                       |   ✓   |
 | Central African Republic               |            ✓             |                              |                       |   ✓   |
 | Chad                                   |            ✓             |                              |                       |   ✓   |
 | Comoros                                |            ✓             |                              |                       |   ✓   |

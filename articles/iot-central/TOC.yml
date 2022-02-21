@@ -105,6 +105,8 @@
     - name: FAQ
       href: core/howto-faq.yml
       items:
+      - name: Why should I start with IoT Central?
+        href: core/concepts-faq-start-iot-central.md
       - name: How do I extend IoT Central?
         href: core/concepts-faq-extend.md
       - name: What are IoT Central's scale limits?

@@ -264,12 +264,11 @@ Here's the binding data in the *function.json* file:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, eventGridEvent) {
+module.exports = async function (context, eventGridEvent) {
     context.log("JavaScript Event Grid function processed a request.");
     context.log("Subject: " + eventGridEvent.subject);
     context.log("Time: " + eventGridEvent.eventTime);
     context.log("Data: " + JSON.stringify(eventGridEvent.data));
-    context.done();
 };
 ```
 

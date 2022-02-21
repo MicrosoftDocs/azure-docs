@@ -14,11 +14,11 @@ ms.custom: ignite-fall-2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 * The current version of [cURL](https://curl.haxx.se/).
-* A Language resource. If you don't have one, you can create one using the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics). If you create a new resource, click the link, follow the steps, and wait for it to deploy. Then click **Go to resource**.
+* A Language resource. If you don't have one, you can create one using the [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics). If you create a new resource, click the link, follow the steps, and wait for it to deploy. Then click **Go to resource**.
 
 ## Get your resource keys and endpoint
 
-1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home).
+1. Go to your resource overview page in the [Azure portal](https://portal.azure.com/#home).
 2. From the menu on the left side, select **Keys and Endpoint**. You will use the endpoint and key for the API requests 
 
     :::image type="content" source="../../../media/azure-portal-resource-credentials.png" alt-text="A screenshot showing the key and endpoint page in the Azure portal" lightbox="../../../media/azure-portal-resource-credentials.png":::
