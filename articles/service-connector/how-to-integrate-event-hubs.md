@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 02/21/2022
 ---
 
 # Integrate Event Hubs with Service Connector
