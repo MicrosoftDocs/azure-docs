@@ -43,7 +43,7 @@ Controls for working with the query in the query window.
  Copy button | Copy a link to the query, the query text, or the query results to the clipboard. |
 | New alert rule button | Create a new tab with an empty query. |
 | Export button | Export the results of the query to a CSV file or the query to Power Query Formula Language format for use with Power BI. |
-| Pin to dashboard button | Add the results of the query to an Azure dashboard. |
+| Pin to button | Pin the results of the query to an Azure dashboard or add them to an Azure workbook. |
 | Format query button | Arrange the selected text for readability. |
 | Example queries button | Open the example queries dialog box that is displayed when you first open Log Analytics. |
 | Query Explorer button | Open **Query Explorer** which provides access to saved queries in the workspace. |
