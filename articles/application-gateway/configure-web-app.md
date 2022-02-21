@@ -196,9 +196,45 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ## Configure Request Routing Rule
 
-Provided with the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from the listener and route it to the Backend Pool using the HTTP Settings.
+Provided with the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from a listener and route it to the Backend Pool using the HTTP Settings.  For this, make sure you have a HTTP or HTTPS listener available that is not already bound to an existing routing rule.
 
-TODO
+### [Azure Portal](#tab/azure-portal)
+
+1. Under "Rules" click to add a new "Request routing rule"
+1. Provide the rule with a name
+1. Select an HTTP or HTTPS listener that is not bound yet to an existing routing rule
+1. Under "Backend targets" choose the Backend Pool in which App Service has been configured
+1. Configure the HTTP settings with which Application Gateway should connect to the App Service backend
+1. Select "Add" to save this configuration
+
+:::image type="content" source="media/configure-web-app/add-routing-rule.png" alt-text="Add a new Routing rule from the listener to the App Service Backend Pool using the configured HTTP Settings":::
+
+### [Powershell](#tab/azure-powershell)
+
+```powershell
+$rgName = "<name of resource group for App Gateway>"
+$appGwName = "<name of the App Gateway>"
+$httpListenerName = "<name for existing http listener (without rule) to route traffic from>"
+$httpSettingsName = "<name for http settings to use>"
+$appGwBackendPoolNameForAppSvc = "<name for backend pool to route to>"
+$reqRoutingRuleName = "<name for request routing rule to be added>"
+
+# Get existing Application Gateway:
+$gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
+
+# Get HTTP Settings:
+$httpListener = Get-AzApplicationGatewayHttpListener -Name $httpListenerName -ApplicationGateway $gw
+$httpSettings = Get-AzApplicationGatewayBackendHttpSettings -Name $httpSettingsName -ApplicationGateway $gw
+$backendPool = Get-AzApplicationGatewayBackendAddressPool -Name $appGwBackendPoolNameForAppSvc -ApplicationGateway $gw
+
+# Add routing rule:
+Add-AzApplicationGatewayRequestRoutingRule -Name $reqRoutingRuleName -ApplicationGateway $gw -RuleType Basic -BackendHttpSettings $httpSettings -HttpListener $httpListener -BackendAddressPool $backendPool
+
+# Update Application Gateway with the new routing rule:
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
+
+---
 
 ## Additional configuration in case of redirection to app service's relative path
 
