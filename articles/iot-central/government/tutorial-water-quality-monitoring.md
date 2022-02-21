@@ -15,13 +15,11 @@ manager: abjork
 
 Traditional water quality monitoring relies on manual sampling techniques and field laboratory analysis, which is time consuming and costly. By remotely monitoring water quality in real-time, water quality issues can be managed before citizens are affected. Moreover, with advanced analytics, water utilities, and environmental agencies can act on early warnings on potential water quality issues and plan on water treatment in advance.  
 
-The water quality monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities.
-
-Use the IoT Central *water quality monitoring* application template and the guidance in this article to develop an end-to-end water quality monitoring solution.
+The _water quality monitoring_ application template helps you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities.
 
 ![Water quality monitoring architecture](./media/tutorial-waterqualitymonitoring/concepts-water-quality-monitoring-architecture1.png)
 
-### Devices and connectivity
+### Devices and connectivity (1,2)
 
 Water management solutions use smart water devices such as flow meters, water quality monitors, smart valves, leak detectors.
 
@@ -33,7 +31,7 @@ When you build an IoT solution, Azure IoT Central simplifies the build process a
 
 When you connect your smart water devices to IoT Central, the application provides device command and control, monitoring and alerting, a user interface with built-in RBAC, configurable dashboards, and extensibility options.
 
-### Extensibility and integrations
+### Extensibility and integrations (3,4)
 
 You can extend your IoT application in IoT Central and optionally:
 
@@ -41,14 +39,13 @@ You can extend your IoT application in IoT Central and optionally:
 * Automate workflows in other systems by triggering actions using Power Automate or webhooks from IoT Central application.
 * Programatically access your IoT application in IoT Central through IoT Central APIs.
 
-### Business applications
+### Business applications (5)
 
 You can use IoT data to power various business applications within a water utility. In your [IoT Central water consumption monitoring application](tutorial-water-consumption-monitoring.md) you can configure rules and actions, and set them to create alerts in [Connected Field Service](/dynamics365/field-service/connected-field-service). Configure Power Automate in IoT Central rules to automate workflows across applications and services. Additionally, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central.
 
 In this tutorial, you learn to:
 
 > [!div class="checklist"]
-
 > * Use the **Water quality monitoring** template to create a water quality monitoring application.
 > * Explore and customize an dashboard.
 > * Explore a water quality monitoring device template.
