@@ -8,9 +8,11 @@ ms.date: 06/04/2021
 ms.topic: conceptual 
 ---
 
-# How to restore a deleted Automation account
+# Restore a deleted Automation account
 
 This article details on how you can recover a deleted automation account from Azure portal.
+
+## Prerequisites
 
 To recover a storage account, ensure that the following conditions are met:
 - You've deleted the Automation account within the past 30 days.
@@ -20,15 +22,15 @@ To recover a storage account, ensure that the following conditions are met:
 > [!NOTE]
 > You can't recover your Automation account if the resource group is deleted.
 
-## Recover a deleted Automation account from Azure portal
+## Recover a deleted Automation account
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to your Automation account.
-1. In the **Automation Accounts** page, select **Manage deleted accounts**.
+1. On the **Automation Accounts** page, select **Manage deleted accounts**.
    
    :::image type="content" source="media/restore-deleted-account/automation-accounts-main-page-inline.png" alt-text="Screenshot showing the selection of Manage deleted accounts option." lightbox="media/restore-deleted-account/automation-accounts-main-page-expanded.png":::
 
-1. In the **Manage deleted automation accounts** pane, select the **Subscription** from the drop-down list.
+1. In the **Manage deleted automation accounts** pane, select **Subscription** from the drop-down list.
    
    :::image type="content" source="media/restore-deleted-account/select-subscription-inline.png" alt-text="Screenshot showing the selection of subscription." lightbox="media/restore-deleted-account/select-subscription-expanded.png":::
 
