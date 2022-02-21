@@ -18,7 +18,7 @@ Each private mobile network contains one or more *sites*. A site is a physical e
 
 :::image type="content" source="media/key-components-of-a-private-mobile-network/site-physical-components.png" alt-text="Diagram displaying the main components of a site in a private mobile network":::
 
-- Each site contains an Azure Stack Edge device that hosts a *packet core instance*. The packet core instance is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
+- Each site contains an Azure Stack Edge device that hosts a *packet core instance*, which is deployed using Azure Private 5G Core. The packet core instance is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC).
 
     When you add a site to your private mobile network, you'll create a *Kubernetes cluster* on the Azure Stack Edge device. This serves as the platform for the packet core instance.
 
