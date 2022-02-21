@@ -75,7 +75,7 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 
 **crlDistributionPoint**
 
-You can validate the crlDistributionPoint value you provide in the above powershell example are valid for the Certificate Authority being added by downloading the CRL and comparing the CA certificate and the CRL Information. 
+You can validate the crlDistributionPoint value you provide in the above powershell example are valid for the Certificate Authority being added by downloading the CRL and comparing the CA certificate and the CRL Information.
 
 The below table and graphic indicate how to map information from the CA Certificate to the attributes of the downloaded CRL
 
@@ -93,9 +93,11 @@ The below table and graphic indicate how to map information from the CA Certific
 >
 >If Issuing CA is Windows Server
 >
->- On the [properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
+>- On the [Properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
  of the CA in the Certificate Authority Microsoft Management Console (MMC)
 >- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
+
+For additional details see: [Understanding the certificate revocation process](./concept-certificate-based-authentication-technical-deep-dive.md#understanding-the-certificate-revocation-process)
 
 ### Remove
 
