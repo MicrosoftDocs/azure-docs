@@ -8,7 +8,7 @@ manager: qiliao123
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/18/2022
 ms.author: caoling
 ms.custom: references_regions
 ---
@@ -18,7 +18,7 @@ ms.custom: references_regions
 After you've successfully created and trained your voice model, you deploy it to a custom neural voice endpoint. Use the custom neural voice endpoint instead of the usual text-to-speech endpoint for requests with the REST API. Use the speech studio to create a custom neural voice endpoint. Use the REST API to suspend or resume a custom neural voice endpoint. 
 
 > [!NOTE]
-> With the Custom Neural Voice Lite feature (public preview), customers can record their own voice and create a model easily for demonstration and evaluation purpose with just 20-50 utterances. Full access to Custom Neural Voice is required if you want to deploy the Lite model and use it beyond reading the pre-defined scripts. A verbal statement is also required to be recorded by the voice talent before you can deploy the model for your business use.
+> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.
 
 ## Create a custom neural voice endpoint
 

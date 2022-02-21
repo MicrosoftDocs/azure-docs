@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2022
+ms.date: 02/18/2022
 ms.author: eur
 ---
 
@@ -19,7 +19,7 @@ Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-
 Based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
 > [!NOTE]
-> Custom Neural Voice requires registration, and access to it is limited based on eligibility and use criteria. To use this feature, register your use cases by using the [intake form](https://aka.ms/customneural).
+> Custom Neural Voice access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).
 
 ## The basics of Custom Neural Voice
 
@@ -35,41 +35,41 @@ the recording samples of human voices. For more information, see [this Microsoft
 
 You can adapt the neural text-to-speech engine to fit your needs. To create a custom neural voice, use [Speech Studio](https://speech.microsoft.com/customvoice) to upload the recorded audio and corresponding scripts, train the model, and deploy the voice to a custom endpoint. Custom Neural Voice can use text provided by the user to convert text into speech in real time, or generate audio content offline with text input. You can do this by using the [REST API](./rest-text-to-speech.md), the [Speech SDK](./get-started-text-to-speech.md), or the [web portal](https://speech.microsoft.com/audiocontentcreation).
 
-## The features of Custom Neural Voice
+## Custom Neural Voice project types
 
-Custom Neural Voice provides two project types: Lite and Pro, targeting different use cases. Check below to understand the difference between these two features.
+Speech Studio provides two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite. 
+
+The following table summarizes key differences between the CNV Pro and CNV Lite project types.  
+
+|**Items**|**Lite (Preview)**| **Pro**|
+|---------------|---------------|---------------|
+|Target scenarios |Demonstration or evaluation |Professional scenarios like brand and character voices for chat bots, or audio content reading.|   
+|Training data |Record online using Speech Studio |Bring your own data. Recording in a professional studio is recommended. |   
+|Scripts for recording  |Provided in Speech Studio |Use your own scripts that match the use case scenario. Microsoft provides [example scripts](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) for reference. |   
+|Required data size  |20-50 utterances |300-2000 utterances|
+|Training time  |Less than 1 compute hour| Approximately 20-40 compute hours |
+|Voice quality  |Moderate quality|High quality |
+|Availability  |Anyone can record samples online and train a model for demo and evaluation purpose. Models created in CNV Lite projects cannot be deployed for business use. |Data upload is not restricted, but you can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).|
+|Pricing  |Per unit prices apply equally for both the CNV Lite and CNV Pro projects. Check the [pricing details here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |Per unit prices apply equally for both the CNV Lite and CNV Pro projects. Check the [pricing details here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).  |
 
 ### Custom Neural Voice Lite (preview)
 
-Custom Neural Voice Lite is a new feature in public preview. It enables you to create a neural voice model by recording just 20-50 samples online before you decide to apply the full access to Custom Neural Voice or invest on professional recordings to create a higher-quality voice. This feature works best for demo and evaluation purposes.  
+Custom Neural Voice (CNV) Lite is a new project type in public preview. You can demo and evaluate Custom Neural Voice before investing in professional recordings to create a higher-quality voice. 
 
-With the Lite feature, you can record your voice online by reading pre-defined scripts provided by Microsoft. After you've recorded at least 20 samples, you can start to train a model. Once the model is trained successfully, you can review the model and check out 20 output samples produced with another set of pre-defined scripts.  
+With a CNV Lite project, you record your voice online by reading 20-50 pre-defined scripts provided by Microsoft. After you've recorded at least 20 samples, you can start to train a model. Once the model is trained successfully, you can review the model and check out 20 output samples produced with another set of pre-defined scripts.  
 
-Full access to Custom Neural Voice is required if you want to deploy the Lite model and use it beyond reading the pre-defined scripts. A verbal statement is also required to be recorded by the voice talent before you can deploy the model for your business use. 
+Full access to Custom Neural Voice Pro is required if you want to deploy a CNV Lite model and use it beyond reading the pre-defined scripts. A verbal statement recorded by the voice talent is also required before you can deploy the model for your business use. 
 
 ### Custom Neural Voice Pro 
 
-Custom Neural Voice Pro allows you to upload your training data collected through professional recording studios and create a higher-quality voice that is nearly indistinguishable from its human samples. Training a voice using the Pro feature is fully restricted to those who are approved.   
+Custom Neural Voice (CNV) Pro allows you to upload your training data collected through professional recording studios and create a higher-quality voice that is nearly indistinguishable from its human samples. Training a voice in a CNV Pro project is restricted to those who are approved.   
 
-Check these articles to learn how to use this feature.  
+Review these CNV Pro articles to learn more and get started.  
 
 * To prepare and upload your audio data, see [Prepare training data](how-to-custom-voice-prepare-data.md).
 * To train your model, see [Train your voice model](how-to-custom-voice-create-voice.md). 
 * To deploy your model and use it in your apps, see [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md). 
 * Learn how to prepare for the script and record your voice samples, see [How to record voice samples](record-custom-voice-samples.md). 
-
-The following table summarizes more differences of the two features.  
-
-|**Items**|**Lite (Preview)**| **Pro**|
-|---------------|---------------|---------------|
-|Target scenarios |Demonstration, or evaluation |Professional scenarios like brand and character voices for chat bots, or audio content reading.|   
-|Training data |Record online using Speech Studio |Bring your own data. Recommended recording in professional recording studio settings |   
-|Scripts for recording  |Provided on Speech Studio |Use your own scripts that match the use case scenario; Microsoft provides [scripts as a reference](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script)  |   
-|Required data size  |20-50 utterances |300-2000 utterances|
-|Training time  |less than 1 compute hour| approximately 20-40 compute hours |
-|Voice quality  |Moderate quality|High quality |
-|Access control |All S0 customers can record samples online and train a Lite model for demo and evaluation purpose, full access required for deploying the Lite model for business use.|S0 customers can upload data any time but can only train and deploy a Pro model after they're approved.|
-|Pricing  |Custom Neural Voice Lite voice training is charged at the same unit price as Pro. |Same unit prices are applied for the Lite and Pro features. Check the [pricing details here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).  |
 
 ## Terms and definitions
 

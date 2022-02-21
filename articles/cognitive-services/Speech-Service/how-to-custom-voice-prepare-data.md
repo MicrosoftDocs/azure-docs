@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/18/2022
 ms.author: eur
 ---
 
@@ -17,7 +17,7 @@ ms.author: eur
 When you're ready to create a custom Text-to-Speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
 > [!NOTE]
-> With the Custom Neural Voice Lite feature (public preview), customers can record their own voice and create a model easily for demonstration and evaluation purpose with just 20-50 utterances. This article focuses on the creation of a professional Custom Neural Voice using the Pro feature.
+> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.
 
 ## Voice talent verbal statement
 
