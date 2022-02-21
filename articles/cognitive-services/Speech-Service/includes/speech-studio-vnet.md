@@ -45,9 +45,5 @@ To use custom speech without relaxing network access restrictions on your produc
 
 #### Custom Voice and Audio Content Creation
 
-You can use Custom Voice and Audio Content Creation Speech Studio projects only when the correspondent Speech resource network security setting is *All networks*.  
-
-If you need to enable IP-filtering, private, or Virtual Network service endpoint access for your Speech resource and at the same time use Custom Voice models and work on them with the help of the Speech Studio, the following workaround can be used.
-
-Create two Speech resources: Production and Development. Set network security rules on the Development resource to allow the usage of the Speech Studio and prepare your Custom Voice model. When you are satisfied with the model state, copy it to Production resource using *Copy to project* button, that you will find in *Train model* section of your Custom Voice project. This way you can ensure your Production Speech resource network settings are always set to the required security level.
+You can use Custom Voice and Audio Content Creation Speech Studio projects only when the correspondent Speech resource network security setting is *All networks*.
 
