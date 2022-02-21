@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 02/21/2022
 ---
 
 # Integrate Service Bus with Service Connector
@@ -17,9 +17,9 @@ This page shows the supported authentication types and client types of Azure Ser
 - Azure App Service
 - Azure Spring Cloud
 
-## Supported Authentication types and client types
+## Supported authentication types and client types
 
-| Client Type        | System-assigned Managed Identity     | User-assigned Managed Identity        | Secret/ConnectionString               | Service Principal                     |
+| Client type        | System-assigned managed identity     | User-assigned managed identity        | Secret/connection string               | Service principal                     |
 | ------------------ | :----------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
 | .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)  | ![yes icon](./media/green-check.png)  | ![yes icon](./media/green-check.png)  |
 | Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png)  | ![yes icon](./media/green-check.png)  | ![yes icon](./media/green-check.png)  |
@@ -32,27 +32,27 @@ This page shows the supported authentication types and client types of Azure Ser
 
 ### .NET, Java, Node.JS, Python
 
-#### Secret/ConnectionString
+#### Secret/connection string
 
 > [!div class="mx-tdBreakAll"]
 > |Default environment variable name | Description | Sample value |
 > | ----------------------------------- | ----------- | ------------ |
 > | AZURE_SERVICEBUS_CONNECTIONSTRING | Service Bus connection string | `Endpoint=sb://{ServiceBusNamespace}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey={****}` |
 
-#### System-assigned Managed Identity
+#### System-assigned managed identity
 
 | Default environment variable name      | Description          | Sample value                                 |
 | -------------------------------------- | -------------------- | -------------------------------------------- |
 | AZURE_SERVICEBUS_FULLYQUALIFIEDNAMESPACE | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
 
-#### User-assigned Managed Identity
+#### User-assigned managed identity
 
 | Default environment variable name        | Description           | Sample value                                   |
 | ---------------------------------------- | ----------------------| ---------------------------------------------- |
 | AZURE_SERVICEBUS_FULLYQUALIFIEDNAMESPACE | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
 | AZURE_SERVICEBUS_CLIENTID                | Your client ID        | `28011635-0dea-4326-896c-3b746a2d90a4`         |
 
-#### Service Principal
+#### Service principal
 
 | Default environment variable name        | Description           | Sample value                                    |
 | -----------------------------------------| --------------------- | ----------------------------------------------- |
@@ -63,20 +63,27 @@ This page shows the supported authentication types and client types of Azure Ser
 
 ### Java - Spring Boot
 
-#### Spring Boot Secret/ConnectionString
+#### Spring Boot secret/connection string
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name   | Description | Sample value |
 > | ----------------------------------- | ----------- | ------------ |
 > | spring.cloud.azure.servicebus.connection-string | Service Bus connection string | `Endpoint=sb://{ServiceBusNamespace}.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=***` |
 
-#### Spring Boot System-assigned Managed Identity
+#### Spring Boot system-assigned managed identity
 
 | Default environment variable name       | Description           | Sample value                                   |
 | --------------------------------------- | --------------------- | ---------------------------------------------- |
 | spring.cloud.azure.servicebus.namespace | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
 
-#### Spring Boot Service Principal
+#### Spring Boot user-assigned managed identity
+
+| Default environment variable name       | Description           | Sample value                                   |
+| --------------------------------------- | --------------------- | ---------------------------------------------- |
+| spring.cloud.azure.servicebus.namespace | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
+| spring.cloud.azure.client-id            | Your client ID        | `28011635-0dea-4326-896c-3b746a2d90a4`         |
+
+#### Spring Boot service principal
 
 | Default environment variable name       | Description           | Sample value                                   |
 | --------------------------------------- | --------------------- | ---------------------------------------------- |
