@@ -80,9 +80,9 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 >
 >If Issuing CA is Windows Server
 >
->- On the [properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1.md#to-configure-the-cdp-and-aia-extensions-on-ca1)
+>- On the [properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
  of the CA in the Certificate Authority Microsoft Management Console (MMC)
->- On the CA running [certutil](/windows-server/administration/windows-commands/certutil.md#-cainfo) -cainfo cdp
+>- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
 
 You can validate the crlDistributionPoint value you provide in the above powershell example are valid for the Certificate Authority being added by downloading the CRL and comparing the CA certificate and the CRL Information
 
