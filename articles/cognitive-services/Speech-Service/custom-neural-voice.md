@@ -49,7 +49,7 @@ The following table summarizes key differences between the CNV Pro and CNV Lite 
 |Required data size  |20-50 utterances |300-2000 utterances|
 |Training time  |Less than 1 compute hour| Approximately 20-40 compute hours |
 |Voice quality  |Moderate quality|High quality |
-|Availability  |Anyone can record samples online and train a model for demo and evaluation purpose. Models created in CNV Lite projects cannot be deployed for business use. |Data upload is not restricted, but you can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).|
+|Availability  |Anyone can record samples online and train a model for demo and evaluation purpose. Full access to Custom Neural Voice is required if you want to deploy the CNV Lite model for business use. |Data upload is not restricted, but you can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).|
 |Pricing  |Per unit prices apply equally for both the CNV Lite and CNV Pro projects. Check the [pricing details here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |Per unit prices apply equally for both the CNV Lite and CNV Pro projects. Check the [pricing details here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).  |
 
 ### Custom Neural Voice Lite (preview)
@@ -58,7 +58,7 @@ Custom Neural Voice (CNV) Lite is a new project type in public preview. You can 
 
 With a CNV Lite project, you record your voice online by reading 20-50 pre-defined scripts provided by Microsoft. After you've recorded at least 20 samples, you can start to train a model. Once the model is trained successfully, you can review the model and check out 20 output samples produced with another set of pre-defined scripts.  
 
-Full access to Custom Neural Voice Pro is required if you want to deploy a CNV Lite model and use it beyond reading the pre-defined scripts. A verbal statement recorded by the voice talent is also required before you can deploy the model for your business use. 
+Full access to Custom Neural Voice is required if you want to deploy a CNV Lite model and use it beyond reading the pre-defined scripts. A verbal statement recorded by the voice talent is also required before you can deploy the model for your business use. 
 
 ### Custom Neural Voice Pro 
 
