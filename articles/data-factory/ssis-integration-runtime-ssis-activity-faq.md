@@ -61,7 +61,6 @@ A known issue in older versions of SQL Server Management Studio (SSMS) can cause
 * Potential cause & recommended action:
   * This error may be because of the limitation for Excel source and destination when multiple Excel sources or destinations are executing in parallel in multi-thread. You can work around this limitation by change your Excel components to execute in sequence, or separate them into different packages and trigger through "Execute Package Task" with ExecuteOutOfProcess property set as True.
 
-
 ### Error message: "There isn't enough space on the disk "
 
 This error means the local disk is used up in the SSIS integration runtime node. Check whether your package or custom setup is consuming a lot of disk spaces:
