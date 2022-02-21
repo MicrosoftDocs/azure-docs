@@ -145,7 +145,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "maxFailedItems": null,
         "maxFailedItemsPerBatch": null,
         "base64EncodeKeys": null,
-        "configuration:" {
+        "configuration": {
             "indexedFileNameExtensions" : ".pdf,.docx",
             "excludedFileNameExtensions" : ".png,.jpeg" 
         }
