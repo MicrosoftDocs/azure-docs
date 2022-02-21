@@ -165,7 +165,7 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 ---
 
 ## Private link configuration
-To configure the agent to use private links for network communications with Azure Monitor, you can use [Azure Monitor Private Links Scopes (AMPLS)](../logs/private-link-security.md) and [data collection endpoints](azure-monitor-agent-dce.md) to enable required network isolation. [View steps to configure network isolation for the agent](./../essentials/data-collection-endpoint-overview.md#enable-network-isolation-for-the-azure-monitor-agent)
+To configure the agent to use private links for network communications with Azure Monitor, you can use [Azure Monitor Private Links Scopes (AMPLS)](../logs/private-link-security.md) and [data collection endpoints](azure-monitor-agent-dce.md) to enable required network isolation. 
 
 ## Next steps
 
