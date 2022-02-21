@@ -5,7 +5,7 @@ author: MSFTandrelom
 ms.author: andrelom
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 22/02/2022
+ms.date: 02/22/2022
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
