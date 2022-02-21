@@ -144,7 +144,7 @@ You can now access the Easy Button functionality that provides quick configurati
 
    ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
-5. Review the list of configuration steps and select Next
+5. Review the list of configuration steps and select **Next**
   
    ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
