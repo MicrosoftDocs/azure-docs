@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Create a Unity Android app'
 description: In this quickstart, you learn how to build an Android app with Unity using Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
