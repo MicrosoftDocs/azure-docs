@@ -69,7 +69,7 @@ Prepare the JSON file using the information you collected for your SIMs in [Coll
 You'll now begin the SIM provisioning process through the Azure portal.
 
 1. Sign in to the Azure portal at [https://aka.ms/AP5GCPortal](https://aka.ms/AP5GCPortal).
-1. Search for and select the Mobile Network resource representing the private mobile network for which you want to provision SIMs.
+1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to provision SIMs.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
@@ -99,7 +99,7 @@ In this step, you'll enter provisioning values for your SIMs directly into the A
     :::image type="content" source="media/provision-sims-azure-portal/new-sim-resource.png" alt-text="Screenshot of the Azure portal showing the configuration a new SIM resource." lightbox="media/provision-sims-azure-portal/new-sim-resource.png":::
 
 1. Repeat this entire step for any other SIMs that you want to provision.
-1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Optionally, assign a SIM policy](#optionally-assign-a-sim-policy). Otherwise, you've finished your provisioning.
+1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Assign a SIM policy](#assign-a-sim-policy). Otherwise, you've finished your provisioning.
 
 ## Provision SIMs using a JSON file
 
@@ -117,13 +117,13 @@ In this step, you'll provision SIMs using a JSON file.
 
     :::image type="content" source="media/provision-sims-azure-portal/sims-list.png" alt-text="Screenshot of the Azure portal. It shows a list of currently provisioned SIMs for a private mobile network." lightbox="media/provision-sims-azure-portal/sims-list.png":::
 
-1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Optionally, assign a SIM policy](#optionally-assign-a-sim-policy). Otherwise, you've finished your provisioning.
+1. If you decided in [Prerequisites](#prerequisites) that you wanted to assign a SIM policy to any of your provisioned SIMs, move to [Assign a SIM policy](#assign-a-sim-policy). Otherwise, you've finished your provisioning.
 
-## Optionally, assign a SIM policy
+## Assign a SIM policy
 
-In this step, you'll assign a SIM policy to your SIMs. SIMs need an assigned SIM policy before they can use your private mobile network.
+In this step, you'll assign a SIM policy to your SIMs. SIMs need an assigned SIM policy before they can use your private mobile network. You can skip this step and come back to it later if you don't want the SIMs to be able to access the private mobile network straight away. 
 
-1. Search for and select the Mobile Network resource representing the private mobile network for which you want to provision SIMs.
+1. Search for and select the **Mobile Network** resource representing the private mobile network for which you want to provision SIMs.
 
     :::image type="content" source="media/mobile-network-search.png" alt-text="Screenshot of the Azure portal. It shows the results of a search for a Mobile Network resource.":::
 
@@ -139,7 +139,7 @@ In this step, you'll assign a SIM policy to your SIMs. SIMs need an assigned SIM
 1. The Azure portal will now begin deploying the configuration change. When the deployment is complete, select **Go to resource** (if you have assigned a SIM policy to a single SIM) or **Go to resource group** (if you have assigned a SIM policy to multiple SIMs).
 
     - If you assigned a SIM policy to a single SIM, you'll be taken to that SIM resource. Check the **SIM policy** field in the **Management** section to confirm that the correct SIM policy has been assigned successfully.
-    - If you assigned a SIM policy to multiple SIMs, you'll be taken to the resource group containing your private mobile network. Select the private Mobile Network resource, and then select **SIMs** in the resource menu. Check the **SIM policy** column in the SIMs list to confirm the correct SIM policy has been assigned to your chosen SIMs.
+    - If you assigned a SIM policy to multiple SIMs, you'll be taken to the resource group containing your private mobile network. Select the **Mobile Network** resource, and then select **SIMs** in the resource menu. Check the **SIM policy** column in the SIMs list to confirm the correct SIM policy has been assigned to your chosen SIMs.
 
 1. Repeat this step for any other SIM policies you want to assign to SIMs.
 
