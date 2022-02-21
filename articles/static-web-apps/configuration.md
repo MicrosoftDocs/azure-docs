@@ -350,7 +350,7 @@ For details on how to restrict routes to authenticated users, see [Securing rout
 
 ### Disable cache for authenticated paths
 
-If you have enabled [enterprise-grade edge](enterprise-edge.md), or set up [manual integration with Azure Front Door](front-door-manual.md), you may want to disable caching for your secured routes.
+If you set up [manual integration with Azure Front Door](front-door-manual.md), you may want to disable caching for your secured routes. If you have enabled [enterprise-grade edge](enterprise-edge.md) this is already configured for you.
 
 To disable Azure Front Door caching for secured routes, add `"Cache-Control": "no-store"` to the route header definition.
 

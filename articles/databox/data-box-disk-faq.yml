@@ -7,11 +7,10 @@ metadata:
   
   ms.service: databox
   ms.subservice: disk
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 03/02/2021
   ms.author: alkohli
   ms.custom: references_regions
-    
 title: "Azure Data Box Disk: Frequently Asked Questions"
 summary: |
   The Microsoft Azure Data Box Disk cloud solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way. This FAQ contains questions and answers that you may have when you use Data Box Disks in the Azure portal.

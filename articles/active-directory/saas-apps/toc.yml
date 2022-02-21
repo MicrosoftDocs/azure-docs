@@ -2182,6 +2182,8 @@
         href: topdesk-public-tutorial.md
       - name: TOPdesk - Secure
         href: topdesk-secure-tutorial.md
+      - name: Tracker Software Technologies
+        href: tracker-software-technologies-tutorial.md  
       - name: TrackVia
         href: trackvia-tutorial.md
       - name: Traction Guest
@@ -2619,6 +2621,8 @@
         href: github-ae-provisioning-tutorial.md
       - name: GitHub Enterprise Managed User
         href: github-enterprise-managed-user-provisioning-tutorial.md
+      - name: GitHub Enterprise Managed User (OIDC)
+        href: github-enterprise-managed-user-oidc-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
       - name: Global Relay Identity Sync

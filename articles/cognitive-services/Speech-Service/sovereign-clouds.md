@@ -7,7 +7,7 @@ author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: references_regions
 ms.date: 11/09/2021
 ms.author: alexeyo
@@ -108,8 +108,7 @@ Replace `subscriptionKey` with your Speech resource key. Replace `usGovHost` wit
 
 ## Azure China
 
-Available to organizations with a business presence in China. See more information about Azure China [here.](/azure/china/overview-operations) 
-
+Available to organizations with a business presence in China. See more information about Azure China [here](/azure/china/overview-operations). 
 
 - **Azure portal:**
   - [https://portal.azure.cn/](https://portal.azure.cn/)
