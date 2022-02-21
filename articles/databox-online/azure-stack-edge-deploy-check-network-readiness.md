@@ -233,6 +233,15 @@ Report location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsRead
 Invoke-AzsNetworkValidation Completed
 ```
 
+## Review log and report
+
+For more information, you can review the log and report. By default, both files are saved in the following location:
+
+- **Log:** C:\Users<username>\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessChecker.log
+- **Report:** C:\Users<username>\AppData\Local\Temp\AzsReadinessChecker\AzrReadinessCheckerReport.json
+
 ## Next steps
 
 - Learn how to [Connect to an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-connect.md).
+- [Review a deployment checklist for your device](azure-stack-edge-pro-r-deploy-checklist.md).
+- [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md).
