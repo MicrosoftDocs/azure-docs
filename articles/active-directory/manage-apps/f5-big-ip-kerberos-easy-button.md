@@ -31,11 +31,12 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 For this scenario, we have an application using **Kerberos authentication**, also known as **Integrated Windows Authentication (IWA)**, to gate access to protected content.
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. Modernizing the app would be ideal, but is costly, requires careful planning, and introduces risk of potential downtime.
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. 
 
-One option would be to consider using [Azure AD Application Proxy](../app-proxy/application-proxy.md), as it provides the protocol transitioning required to bridge the legacy application to the modern identity control plane. Or for our scenario, we'll achieve this using F5's BIG-IP Application Delivery Controller (ADC).
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and headers-based SSO, significantly improving the overall security posture of the application.
 
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for remote and local access.
+> [!NOTE] 
+> Organizations can also gain remote access to this type of application with [Azure AD Application Proxy](../app-proxy/application-proxy.md)
 
 ## Scenario architecture
 
@@ -176,7 +177,7 @@ Consider the **Azure Service Account Details** be the BIG-IP client application 
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id, Client ID,** and **Client Secret** you noted down during tenant registration
+3. Enter the **Tenant Id, Client ID,** and **Client Secret** you noted when registering the Easy Button client in your tenant.
 
    ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-kerberos-easy-button/azure-configuration-properties.png)
 
