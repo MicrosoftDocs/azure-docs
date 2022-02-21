@@ -13,7 +13,7 @@ manager: corywink
 
 # Take a tour of the Azure IoT Central UI
 
-This article introduces you to Azure IoT Central UI. You can use the UI to create, manage, and use an IoT Central application and its connected devices.
+This article introduces you to Azure IoT Central UI. You can use the UI to create, administer, and use an IoT Central application and its connected devices.
 
 ## IoT Central homepage
 

@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central application administration guide
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to manage your IoT Central application. Application management includes users, organization, and security.
+description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to administer your IoT Central application. Application administration includes users, organization, and security.
 author: dominicbetts 
 ms.author: dobett 
 ms.date: 01/04/2022
@@ -28,20 +28,19 @@ IoT Central application administration includes the following tasks:
 
 ## Users and roles
 
-IoT Central uses a role-based access control system to manage user permissions within an application. An administrator is responsible for adding users to an application and assigning them to roles. IoT Central has three built-in roles for app administrators, app builders, and app operators. An administrator can create custom roles with specific sets of permissions. 
+IoT Central uses a role-based access control system to manage user permissions within an application. An administrator is responsible for adding users to an application and assigning them to roles. IoT Central has three built-in roles for app administrators, app builders, and app operators. An administrator can create custom roles with specific sets of permissions.
 
 To learn more, see [Manage users and roles in your IoT Central application](howto-manage-users-roles.md).
 
 ## Organizations
 
-To manage which users see which devices in your IoT Central application, use an _organization_ hierarchy. You define an organization in your application which will also provide three new built-in roles for org administrators, org operators and org viewers.
-The user's role in application determines their permissions over the devices they can see.
+To manage which users see which devices in your IoT Central application, use an _organization_ hierarchy. When you define an organization in your application, there are three new built-in roles: _organization administrators_, _organization operators_ and _organization viewers_. The user's role in application determines their permissions over the devices they can see.
 
 To learn more, see [Create an IoT Central organization](howto-create-organizations.md).
 
 ## Application security
 
-Devices that connect to your IoT Central application typically use X.509 certificates or shared access signatures (SAS) as credentials. An administrator manages the group certificates or keys that these device credentials are derived from. To learn more, see: 
+Devices that connect to your IoT Central application typically use X.509 certificates or shared access signatures (SAS) as credentials. An administrator manages the group certificates or keys that these device credentials are derived from. To learn more, see:
 
 - [X.509 group enrollment](concepts-get-connected.md#x509-group-enrollment)
 - [SAS group enrollment](concepts-get-connected.md#sas-group-enrollment)
