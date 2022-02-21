@@ -25,6 +25,17 @@ To use Managed NAT gateway, you must have the following:
 * The `aks-preview` extension version 0.5.31 or later
 * Kubernetes version 1.20.x or above
 
+### Install aks-preview CLI extension
+
+You also need the *aks-preview* Azure CLI extension version 0.5.31 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register the `AKS-NATGatewayPreview` feature flag
 
