@@ -59,6 +59,8 @@ The tables below summarize current availability:
 |:---|:---|:---|:---|:---|:---|
 |Denmark  |Toll-Free   |  |  |Public Preview   |Public Preview*   |
 |Denmark  |Local |   |   |Public Preview   |Public Preview*   |
+|USA (includes PR)   |Toll-Free   |GA   |GA  |Public Preview   |Public Preview*   |
+|USA (includes PR)   |Local |   |   |Public Preview   |Public Preview*   |
 
 ***
 \* Available through Azure Bot Framework and Dynamics only

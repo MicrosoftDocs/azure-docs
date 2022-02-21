@@ -5,9 +5,9 @@ ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
-# Work with alerts on the on-premises management console 
+# Work with alerts on the on-premises management console
 
-You can do the following from the **Alerts** window in the management console:
+You can do the following from the **Alerts** page in the management console:
 
 - Work with alert filters
 
@@ -23,11 +23,26 @@ You can do the following from the **Alerts** window in the management console:
 
 - Accelerate incident workflow with alert groups
 
+## Interaction with Cloud Alerts page
+
+If your deployment was set up to work with cloud-connected sensors, Alert detections shown on all enterprise sensors will also be seen in the Defender for IoT Alerts page, on the Azure portal.
+
+:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-page-in-cloud.png" alt-text="Alerts page in the Azure cloud" lightbox="media/how-to-work-with-alerts-on-premises-management-console/alerts-page-in-cloud.png":::
+
+Viewing and managing alerts in the portal provides significant advantages. For example, it lets you:
+
+- Display an aggregated  view of alert activity in all enterprise sensors.
+- Learn about related MITRE ATT&CK techniques, tactics and stages
+- View alerts based on the sensor site
+- Integrate alerts details with Microsoft Sentinel
+- Change the severity of an alert
+
+    :::image type="content" source="media/how-to-view-alerts/alert-cloud-mitre.png" alt-text="Sample of alert as shown in cloud":::
+
 ## View alerts in the on-premises management console
 
 The on-premises management console aggregates alerts from all connected sensors. This provides an enterprise view of recent threats in your network and helps you better understand how sensor users are handling them.
 
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alerts-with-samples.png" alt-text="Screenshot of the Alerts window.":::
 
 ### Work with alert filters
 
@@ -83,7 +98,6 @@ The alert presents the following information:
 
 **On-premises management console Alert UUID**
 
-:::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/unauthorized-internet-connectivity.png" alt-text="A device is connected but not authorized.":::
 
 **Sensor alert ID**
 
@@ -97,8 +111,6 @@ Working with UUIDs ensures that each alert displayed in the on-premises manageme
 **To view alert information**:
 
 - From the alert list, select an alert.
-
-  :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/alert-information.png" alt-text="Screenshot of alert information.":::
 
 **To view the alert in the sensor**:
 
@@ -232,9 +244,9 @@ In addition to working with exclusion rules, you can suppress alerts by muting t
 
 1. In the **By Device Address** section, define the:
 
-  - Device IP address, MAC address, or subnet address that you want to exclude.
-
-  - Traffic direction for the excluded devices, source, and destination.
+    - Device IP address, MAC address, or subnet address that you want to exclude.
+    
+    - Traffic direction for the excluded devices, source, and destination.
 
 1. Select **ADD**.
 
@@ -284,5 +296,4 @@ Rules that you create by using the API appear in the **Exclusion Rule** window a
 
 ## Next steps
 
-[Work with alerts on your sensor](how-to-work-with-alerts-on-your-sensor.md).
 Review the [Defender for IoT Engine alerts](alert-engine-messages.md).
