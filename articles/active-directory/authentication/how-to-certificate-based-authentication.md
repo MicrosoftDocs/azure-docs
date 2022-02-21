@@ -73,16 +73,7 @@ Only one CRL Distribution Point (CDP) for a trusted CA is supported. The CDP can
 - Use 0 to indicate that this is a Root Certificate Authority
 - Use 1 to indicate that this is a Intermediate or Issuing Certificate Authority
 
->[!TIP]
->The value for crlDistributionPoint in the above is the http location for the CA’s Certificate Revocation List (CRL).This can be found in a few places.
->
->- In the CRL Distribution Point (CDP) attribute of a certificate issued from the CA
->
->If Issuing CA is Windows Server
->
->- On the [properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
- of the CA in the Certificate Authority Microsoft Management Console (MMC)
->- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
+**crlDistributionPoint**
 
 You can validate the crlDistributionPoint value you provide in the above powershell example are valid for the Certificate Authority being added by downloading the CRL and comparing the CA certificate and the CRL Information. 
 
@@ -94,6 +85,17 @@ The below table and graphic indicate how to map information from the CA Certific
 |Subject Key Identifier |=|Authority Key Identifier (KeyID) |
 
 :::image type="content" border="false" source="./media/how-to-certificate-based-authentication/Cert-CRL-Compare.png" alt-text="Compare CA Certificate with CRL Information.":::
+
+>[!TIP]
+>The value for crlDistributionPoint in the above is the http location for the CA’s Certificate Revocation List (CRL).This can be found in a few places.
+>
+>- In the CRL Distribution Point (CDP) attribute of a certificate issued from the CA
+>
+>If Issuing CA is Windows Server
+>
+>- On the [properties](/windows-server/networking/core-network-guide/cncg/server-certs/configure-the-cdp-and-aia-extensions-on-ca1#to-configure-the-cdp-and-aia-extensions-on-ca1)
+ of the CA in the Certificate Authority Microsoft Management Console (MMC)
+>- On the CA running [certutil](/windows-server/administration/windows-commands/certutil#-cainfo) -cainfo cdp
 
 ### Remove
 
