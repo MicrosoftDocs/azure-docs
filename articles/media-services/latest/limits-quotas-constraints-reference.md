@@ -45,7 +45,7 @@ These limit includes the total stored data storage size of the files that you up
 ### Storage account limit
 You can have up to 100 storage accounts. All storage accounts must be in the same Azure subscription.
 
-### File size for encoding limit
+## File size for encoding limit
 An individual file that you upload to be encoded should be no larger than 260 GB.
 
 ## Jobs (encoding & analyzing) limits
