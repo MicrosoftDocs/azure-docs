@@ -4,7 +4,7 @@ description: This tutorial covers how to create and use an Azure file share in t
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/21/2022
+ms.date: 02/22/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: mode-ui
@@ -19,6 +19,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 > [!div class="checklist"]
 > * Create a storage account
+> * Create a virtual network
 > * Create a file share
 > * Deploy a VM
 > * Connect to a VM
@@ -55,11 +56,17 @@ The following image shows the settings on the **Basics** tab for a new storage a
 
 :::image type="content" source="media/storage-files-quick-create-use-linux/account-create-portal.png" alt-text="Screenshot showing how to create a storage account in the Azure portal." lightbox="media/storage-files-quick-create-use-linux/account-create-portal.png":::
 
+### Create a virtual network
+
+The NFS protocol can only be used from a machine inside of a virtual network, so for this tutorial, you'll create a virtual network using the same Azure subscription and region as your storage account.
+
+1. Select **Home** and then **Create a resource**.
+
 ### Create an NFS Azure file share
 
 Next, create an NFS file share.
 
-1. When the Azure storage account deployment is complete, select **Go to resource**.
+1. Select **Home** and then **Storage accounts**.
 1. Select **File shares** from the storage account pane.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
@@ -81,6 +88,14 @@ Next, create an NFS file share.
     :::image type="content" source="media/storage-files-quick-create-use-linux/configure-network-security.png" alt-text="Screenshot showing network-level security configurations." lightbox="media/storage-files-quick-create-use-linux/configure-network-security.png" border="true":::
 
 1. Select **+ Private endpoint**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
+
+1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network. When all the fields are complete, select **Next: Resource**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" border="true":::
+
+1. Confirm that the **Subscription**, **Resource type** and **Resource** are correct, and then select **Next: Virtual Network**.
 
 1. Disable secure transfer.
 
