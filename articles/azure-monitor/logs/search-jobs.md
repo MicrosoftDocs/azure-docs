@@ -181,7 +181,7 @@ Log queries in a search job are intended to scan very large sets of data. To sup
 
 You can use all functions and binary operators within these operators.
 
-## Pricing
+## Pricing model
 The charge for a search job is based on: 
 
 - The amount of data the search job needs to scan.
