@@ -43,8 +43,14 @@
       href: agent-overview.md
     - name: Plan for deployment
       href: plan-at-scale-deployment.md
-    - name: Connect machines using a deployment script
-      href: onboard-portal.md
+    - name: Connect machines interactively
+      items:
+      - name: Connect machines using a deployment script
+        href: onboard-portal.md
+      - name: Connect machines to Azure Arc with PowerShell
+        href: onboard-powershell.md
+      - name: Connect machines to Azure Arc with PowerShell DSC
+        href: onboard-dsc.md
     - name: Connect machines at scale
       items:
        - name: Connect machines using a service principal
@@ -55,12 +61,9 @@
          href: onboard-configuration-manager-custom-task.md 
        - name: Connect machines from Automation Update Management
          href: onboard-update-management-machines.md
-       - name: Connect machines to Azure Arc with PowerShell DSC
-         href: onboard-dsc.md
        - name: Connect machines from Windows Admin Center
          href: onboard-windows-admin-center.md
-       - name: Connect machines to Azure Arc with PowerShell
-         href: onboard-powershell.md
+
   - name: Migrate
     items:
     - name: Migrate machine to Azure

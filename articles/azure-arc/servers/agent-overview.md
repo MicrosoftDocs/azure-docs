@@ -214,13 +214,15 @@ Connecting machines in your hybrid environment directly with Azure can be accomp
 | Method | Description |
 |--------|-------------|
 | Interactively | Manually install the agent on a single or small number of machines by [connecting machines using a deployment script](onboard-portal.md).<br> From the Azure portal, you can generate a script and execute it on the machine to automate the install and configuration steps of the agent.|
+| Interactively or at scale | [Connect machines using PowerShell](onboard-powershell.md) |
+| Interactively or at scale | [Connect machines using Windows PowerShell Desired State Configuration (DSC)](onboard-dsc.md) |
 | At scale | [Connect machines using a service principal](onboard-service-principal.md) to install the agent at scale non-interactively.|
 | At scale | [Connect machines by running PowerShell scripts with Configuration Manager](onboard-configuration-manager-powershell.md)
 | At scale | [Connect machines with a Configuration Manager custom task sequence](onboard-configuration-manager-custom-task.md)
 | At scale | [Connect machines from Automation Update Management](onboard-update-management-machines.md) to create a service principal that installs and configures the agent for multiple machines managed with Azure Automation Update Management to connect machines non-interactively. |
-| At scale | [Connect machines using Windows PowerShell Desired State Configuration (DSC)](onboard-dsc.md) |
+
 | At scale | [Connect machines from Windows Admin Center](onboard-windows-admin-center.md) |
-| At scale | [Connect machines using PowerShell](onboard-powershell.md) |
+
 
 > [!IMPORTANT]
 > The Connected Machine agent cannot be installed on an Azure Windows virtual machine. If you attempt to, the installation detects this and rolls back.
