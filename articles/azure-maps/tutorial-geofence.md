@@ -41,7 +41,7 @@ The Geofence API async event requires the region property of your Azure Maps acc
 
 ### Use an ARM template to create an Azure Maps account with a global region
 
-You will need to [Create your Azure Maps account using an ARM template](how-to-create-template), making sure to set `location` to `global` in the `resources` section of the ARM template.
+You will need to [Create your Azure Maps account using an ARM template](how-to-create-template.md), making sure to set `location` to `global` in the `resources` section of the ARM template.
 
 ### Use PowerShell to create an Azure Maps account with a global region
 

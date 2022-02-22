@@ -68,7 +68,7 @@ The following example shows the schema for GeofenceResult:
 
 Applications that handle Azure Maps geofence events should follow a few recommended practices:
 
-* The Geofence API async event requires the region property of your Azure Maps account be set to ***Global***. When creating an Azure Maps account in the Azure portal, this is not given as an option. See [Create an Azure Maps account with a global region](tutorial-geofence#create-an-azure-maps-account-with-a-global-region) for more information.
+* The Geofence API async event requires the region property of your Azure Maps account be set to ***Global***. When creating an Azure Maps account in the Azure portal, this is not given as an option. See [Create an Azure Maps account with a global region](tutorial-geofence.md#create-an-azure-maps-account-with-a-global-region) for more information.
 * Configure multiple subscriptions to route events to the same event handler. It's important not to assume that events are from a particular source. Always check the message topic to ensure that the message came from the source that you expect.
 * Use the `X-Correlation-id` field in the response header to understand if your information about objects is up to date. Messages can arrive out of order or after a delay.
 * When a GET or a POST request in the Geofence API is called with the mode parameter set to `EnterAndExit`, then an Enter or Exit event is generated for each geometry in the geofence for which the status has changed from the previous Geofence API call.
