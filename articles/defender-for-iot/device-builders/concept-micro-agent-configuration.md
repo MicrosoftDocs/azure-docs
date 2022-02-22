@@ -48,7 +48,7 @@ Define the frequency in which messages are sent for each priority level. The def
 
 | Frequency | Time period (in minutes) |
 |--|--|
-| Low | 1440 (24 hour) |
+| Low | 1440 (24 hours) |
 | Medium | 120 (2 hours) |
 | High | 30 (.5 hours) |
 

@@ -40,7 +40,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 * Read and write permissions on the `Microsoft.ContainerService/managedClusters` resource type.
 * Registration of your subscription with the `AKS-ExtensionManager` feature flag. Use the following command:
 
-  ```console
+  ```azurecli
   az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
   ```
 
@@ -48,14 +48,14 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 * Azure CLI version 2.15 or later. [Install the Azure CLI](/cli/azure/install-azure-cli) or use the following commands to update to the latest version:
 
-  ```console
+  ```azurecli
   az version
   az upgrade
   ```
 
 * Registration of the following Azure service providers. (It's OK to re-register an existing provider.)
 
-  ```console
+  ```azurecli
   az provider register --namespace Microsoft.Kubernetes
   az provider register --namespace Microsoft.ContainerService
   az provider register --namespace Microsoft.KubernetesConfiguration
@@ -63,9 +63,11 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
   Registration is an asynchronous process and should finish within 10 minutes. Use the following code to monitor the registration process:
 
-  ```console
+  ```azurecli
   az provider show -n Microsoft.KubernetesConfiguration -o table
+  ```
 
+  ```output
   Namespace                          RegistrationPolicy    RegistrationState
   ---------------------------------  --------------------  -------------------
   Microsoft.KubernetesConfiguration  RegistrationRequired  Registered
@@ -94,23 +96,25 @@ The GitOps agents require TCP on port 443 (`https://:443`) to function. The agen
 
 Install the latest `k8s-configuration` and `k8s-extension` CLI extension packages:
 
-```console
+```azurecli
 az extension add -n k8s-configuration
 az extension add -n k8s-extension
 ```
 
 To update these packages, use the following commands:
 
-```console
+```azurecli
 az extension update -n k8s-configuration
 az extension update -n k8s-extension
 ```
 
 To see the list of az CLI extensions installed and their versions, use the following command:
 
-```console
+```azurecli
 az extension list -o table
+```
 
+```output
 Experimental   ExtensionType   Name                   Path                                                       Preview   Version
 -------------  --------------  -----------------      -----------------------------------------------------      --------  --------
 False          whl             connectedk8s           C:\Users\somename\.azure\cliextensions\connectedk8s         False     1.2.0
@@ -138,9 +142,11 @@ In the following example:
 
 If the `microsoft.flux` extension isn't already installed in the cluster, it will be installed.
 
-```console
+```azurecli
 az k8s-configuration flux create -g flux-demo-rg -c flux-demo-arc -n gitops-demo --namespace gitops-demo -t connectedClusters --scope cluster -u https://github.com/fluxcd/flux2-kustomize-helm-example --branch main  --kustomization name=infra path=./infrastructure prune=true --kustomization name=apps path=./apps/staging prune=true dependsOn=["infra"]
+```
 
+```output
 Command group 'k8s-configuration flux' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 Warning! https url is being used without https auth params, ensure the repository url provided is not a private repo
 'Microsoft.Flux' extension not found on the cluster, installing it now. This may take a few minutes...
@@ -154,9 +160,11 @@ Creating the flux configuration 'gitops-demo' in the cluster. This may take a fe
 
 Show the configuration after time to finish reconciliations.
 
-```console
+```azurecli
 az k8s-configuration flux show -g flux-demo-rg -c flux-demo-arc -n gitops-demo -t connectedClusters
+```
 
+```output
 Command group 'k8s-configuration flux' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
 {
   "complianceState": "Compliant",
@@ -551,7 +559,7 @@ statefulset.apps/redis-master   1/1     95m
 
 You can delete the Flux configuration by using the following command. This action deletes both the `fluxConfigurations` resource in Azure and the Flux configuration objects in the cluster. Because the Flux configuration was originally created with the `prune=true` parameter for the kustomization, all of the objects created in the cluster based on manifests in the Git repository will be removed when the Flux configuration is removed.
 
-```console
+```azurecli
 az k8s-configuration flux delete -g flux-demo-rg -c flux-demo-arc -n gitops-demo -t connectedClusters --yes
 ```
 
@@ -565,7 +573,7 @@ If the Flux extension was created automatically when the Flux configuration was 
 
 For an Azure Arc-enabled Kubernetes cluster, use this command:
 
-```console
+```azurecli
 az k8s-extension delete -g flux-demo-rg -c flux-demo-arc -n flux -t connectedClusters --yes
 ```
 
@@ -584,7 +592,7 @@ The `source`, `helm`, `kustomize`, and `notification` Flux controllers are insta
 
 Here's an example for including the [Flux image-reflector and image-automation controllers](https://fluxcd.io/docs/components/image/). If the Flux extension was created automatically when a Flux configuration was first created, the extension name will be `flux`.
 
-```console
+```azurecli
 az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connectedClusters or managedClusters> --name flux --extension-type microsoft.flux --config image-automation-controller.enabled=true image-reflector-controller.enabled=true
 ```
 
@@ -594,9 +602,11 @@ For a description of all parameters that Flux supports, see the [official Flux d
 
 You can see the full list of parameters that the `k8s-configuration flux` CLI command supports by using the `-h` parameter:
 
-```console
+```azurecli
 az k8s-configuration flux -h
+```
 
+```output
 Group
     az k8s-configuration flux : Commands to manage Flux v2 Kubernetes configurations.
         This command group is in preview and under development. Reference and support levels:
@@ -617,9 +627,11 @@ Commands:
 
 Here are the parameters for the `k8s-configuration flux create` CLI command:
 
-```console
+```azurecli
 az k8s-configuration flux create -h
+```
 
+```output
 This command is from the following extension: k8s-configuration
 
 Command
@@ -829,7 +841,7 @@ kubectl create secret generic -n flux-config my-custom-secret --from-file=identi
 
 For both cases, when you create the Flux configuration, use `--local-auth-ref my-custom-secret` in place of the other authentication parameters:
 
-```console
+```azurecli
 az k8s-configuration flux create -g <cluster_resource_group> -c <cluster_name> -n <config_name> -t connectedClusters --scope cluster --namespace flux-config -u <git-repo-url> --kustomization name=kustomization1 --local-auth-ref my-custom-secret
 ```
 Learn more about using a local Kubernetes secret with these authentication methods:
@@ -871,9 +883,11 @@ By using `az k8s-configuration flux create`, you can create one or more kustomiz
 
 You can also use `az k8s-configuration flux kustomization` to create, update, list, show, and delete kustomizations in a Flux configuration:
 
-```console
+```azurecli
 az k8s-configuration flux kustomization -h
+```
 
+```output
 Group
     az k8s-configuration flux kustomization : Commands to manage Kustomizations associated with Flux
     v2 Kubernetes configurations.
@@ -890,9 +904,11 @@ Commands:
 
 Here are the kustomization creation options:
 
-```console
+```azurecli
 az k8s-configuration flux kustomization create -h
+```
 
+```output
 This command is from the following extension: k8s-configuration
 
 Command
@@ -1000,7 +1016,7 @@ If you've been using Flux v1 in Azure Arc-enabled Kubernetes or AKS clusters and
 
 Use these az CLI commands to find and then delete existing `sourceControlConfigurations` in a cluster:
 
-```console
+```azurecli
 az k8s-configuration list --cluster-name <Arc or AKS cluster name> --cluster-type <connectedClusters OR managedClusters> --resource-group <resource group name>
 az k8s-configuration delete --name <configuration name> --cluster-name <Arc or AKS cluster name> --cluster-type <connectedClusters OR managedClusters> --resource-group <resource group name>
 ```
