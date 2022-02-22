@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 ms.service: api-management
 ms.topic: article
-ms.date: 01/27/2022
+ms.date: 02/22/2022
 ms.author: danlep
 ---
 
@@ -87,23 +87,24 @@ The following table shows the schema formats and request or response content typ
 
 #### JSON schema validation
 
-In the following example, the JSON payload in requests and responses is validated in detection mode. Messages with payloads larger than 100 KB are blocked. 
+In the following example, API Management interprets requests with an empty content type header or requests with a content type header `application/hal+json` as requests with the content type `application/json`. Then, API Management performs the validation in the detection mode against a schema defined for the `application/json` content type in the API definition. Messages with payloads larger than 100 KB are blocked. 
 
 ```xml
 <validate-content unspecified-content-type-action="prevent" max-size="102400" size-exceeded-action="prevent" errors-variable-name="requestBodyValidation">
+    <content-type-map missing-content-type-value="application/json">
+        <type from="application/hal+json" to="application/json" />
+    </content-type-map>
     <content type="application/json" validate-as="json" action="detect" />
-    <content type="application/hal+json" validate-as="json" action="detect" />
 </validate-content>
 ```
 
 #### SOAP schema validation
 
-The following example validates a SOAP 1.2 API's request or response body in prevention mode. Messages with payloads larger than 100 KB are blocked. 
-
-Content types other than `application/soap+xml`, including messages without the `content-type` header, are blocked. The body of the incoming message is extracted from the SOAP envelope and validated against the XML schema named "myschema". If validation fails, the request or response is blocked. 
+In the following example, API Management interprets any request as a request with the content type `application/soap+xml` (the content type that's used by SOAP 1.2 APIs), regardless of the incoming content type. The request could arrive with an empty content type header, content type header of `text/xml` (used by SOAP 1.1 APIs), or another content type header. Then, API Management extracts the XML payload from the SOAP envelope and performs the validation in prevention mode against the schema named "myschema". Messages with payloads larger than 100 KB are blocked. 
 
 ```xml
-<validate-content unspecified-content-type-action="prevent" max-size="102400" size-exceeded-action="prevent"> 
+<validate-content unspecified-content-type-action="prevent" max-size="102400" size-exceeded-action="prevent" errors-variable-name="requestBodyValidation">
+    <content-type-map any-content-type-value="application/soap+xml" />
     <content type="application/soap+xml" validate-as="soap" schema-id="myschema" action="prevent" /> 
 </validate-content>
 ```
@@ -127,7 +128,7 @@ Content types other than `application/soap+xml`, including messages without the 
 | any-content-type-value | Content type used for validation of the body of a request or response, regardless of the incoming content type.  |   No    | N/A   |
 | missing-content-type-value | Content type used for validation of the body of a request or response, when the incoming content type is missing or empty.  |   No    | N/A   |
 | content-type-map \ type | Add one or more of these elements to map an incoming content type to a content type used for validation of the body of a request or response. Use `from` to specify a known incoming content type, or use `when` with a policy expression to specify any incoming content type that matches a condition. Overrides the mapping in `any-content-type-value` and `missing-content-type-value`, if specified. | No | N/A |   
-| content \ type | Content type to execute body validation for, checked against the `content-type` header or the value mapped in `content-type-mapping`, if specified. If empty, it applies to every content type specified in the API schema.<br/><br/>To validate SOAP requests and responses (`validate-as` attribute set to "soap"), set `type` to `application/soap+xml` for SOAP 1.2 APIs or `text/xml` for SOAP 1.1 APIs. |   No    |  N/A  |
+| content \ type | Content type to execute body validation for, checked against the content type header or the value mapped in `content-type-mapping`, if specified. If empty, it applies to every content type specified in the API schema.<br/><br/>To validate SOAP requests and responses (`validate-as` attribute set to "soap"), set `type` to `application/soap+xml` for SOAP 1.2 APIs or `text/xml` for SOAP 1.1 APIs. |   No    |  N/A  |
 | validate-as | Validation engine to use for validation of the body of a request or response with a matching `type`. Supported values: "json", "xml", "soap".<br/><br/>When "soap" is specified, the XML from the request or response is extracted from the SOAP envelope and validated against an XML schema.  |  Yes     |  N/A  |
 | schema-id | Name of an existing schema that was [added](#schemas-for-content-validation) to the API Management instance for content validation. If not specified, the default schema from the API definition is used. | No | N/A |
 | schema-ref| For a JSON schema specified in `schema-id`, optional reference to a valid local reference path in the JSON document. Example: `#/components/schemas/address`. The attribute should return a JSON object that API Management handles as a valid JSON schema.<br/><br/> For an XML schema, `schema-ref` isn't supported, and any top-level schema element can be used as the root of the XML request or response payload. The validation checks that all elements starting from the XML request or response payload root adhere to the provided XML schema. | No | N/A |
