@@ -284,7 +284,7 @@ With the data collection rule created, you need to collect its ID which is neede
 
     :::image type="content" source="media/tutorial-custom-logs/data-collection-rule-json-view.png" lightbox="media/tutorial-custom-logs/data-collection-rule-json-view.png" alt-text="Screenshot showing data collection rule JSON view.":::
 
-2 Copy the **immutableId** value. 
+2. Copy the **immutableId** value.
 
     :::image type="content" source="media/tutorial-custom-logs/data-collection-rule-immutable-id.png" lightbox="media/tutorial-custom-logs/data-collection-rule-immutable-id.png" alt-text="Screenshot showing collecting immutable ID from JSON view.":::
 
