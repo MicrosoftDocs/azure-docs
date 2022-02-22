@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 02/22/2022
 ms.author: alkohli 
 ms.custom: devx-track-azurepowershell
 ---
@@ -113,7 +113,7 @@ You can now connect to the PowerShell interface of the device over HTTP. For det
 
 ## Enable device access from outside network
 
-If you need to be able to connect to the Azure Stack Edge appliance from an outside network, you'll need this network configuration:
+If a user needs to be able to connect to the Azure Stack Edge appliance from an outside network, you'll need this network configuration:
 
 - **In-bound traffic:** For in-bound traffic from the customer's laptop (in network A) to the appliance (in network B), network A should have a clear route to network B, possibly through defined gateways.
 
