@@ -125,5 +125,7 @@
       href: workbook-authentication-prompts-analysis.md
     - name: Conditional access gap analyzer
       href: workbook-conditional-access-gap-analyzer.md
+    - name: Cross-tenant access activity 
+      href: workbook-cross-tenant-access-activity.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
