@@ -6,7 +6,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
-ms.devlang:
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
