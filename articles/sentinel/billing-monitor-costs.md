@@ -39,9 +39,11 @@ For example, to see charts of your daily costs for a certain time frame:
 1. Select the drop-down caret in the date field and select a date range.
 1. Select the drop-down caret next to **Granularity** and select **Daily**.
 
-The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs.
+   The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs.
 
-![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing-monitor-costs/cost-management.png)
+   :::image type="content" source="media/billing-monitor-costs/cost-management.png" alt-text="Screenshot of a cost management + billing cost analysis screen." lightbox="media/billing-monitor-costs/cost-management.png":::
+
+You could also apply further controls. For example, to view only the costs associated with Microsoft Sentinel, select **Add filter**, select **Service name**, and then select the service names **Sentinel**, **log analytics**, and **azure monitor**.
 
 Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
