@@ -119,13 +119,13 @@ If a user needs to be able to connect to the Azure Stack Edge appliance from an 
 
 - **Outbound traffic:** For outbound traffic from the appliance to the customer's laptop (network B to network A):
 
-  - Configure the <!--correct - CAN THIS GO?--> gateways on the appliance so that traffic can reach network A.
+  - Configure the correct <!--What's meant by "correct"? Clarify, or remove "correct"?--> gateways on the appliance so that traffic can reach network A.
 
   - If you configure multiple gateways on the appliance, ensure that traffic can reach network B on all gateways.
 
     An appliance ideally tries to use the network interface card (NIC) with the lowest route metric. However, there's no clear way for an Azure Stack Edge appliance to identify the NIC with the lowest metric. So it's best to make network A reachable on all configured gateways.
 
-    > [!NOTE]    
+    > [!NOTE]
     > Diagnostic tests for Azure Stack Edge return a warning if all gateways don't have internet connectivity. For diagnostics information, see [Run diagnostics](azure-stack-edge-gpu-troubleshoot.md#run-diagnostics). <!--Terminology creep: This is the first reference to internet connectivity.-->
 
 
