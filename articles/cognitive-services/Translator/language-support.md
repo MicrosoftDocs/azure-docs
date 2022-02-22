@@ -126,6 +126,7 @@ ms.author: lajanuar
 | Turkish | `tr` |✔|✔|✔|✔|✔|
 | Turkmen | `tk` |✔||||
 | Ukrainian | `uk` |✔|✔|✔|✔|✔|
+| 🆕 </br> Upper Sorbian | `hsb` |✔|||||
 | Urdu | `ur` |✔|✔|✔|✔|✔|
 | Uyghur | `ug` |✔||||
 | Uzbek (Latin | `uz` |✔|||✔||
