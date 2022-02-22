@@ -44,8 +44,9 @@ The host header in the original request received by the Application Gateway will
 In this article you'll learn how to:
 - Configure DNS
 - Add App Service as backend pool to the Application Gateway
-- Configure the HTTP Settings for the connection to App Service
-- Configure the Request Routing Rule
+- Configure HTTP Settings for the connection to App Service
+- Configure an HTTP Listener
+- Configure a Request Routing Rule
 
 ## Prerequisites
 
@@ -203,7 +204,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ---
 
-## Configure the Listener
+## Configure an HTTP Listener
 
 To accept traffic we need to configure a Listener.  For more info on this see [Application Gateway listener configuration](configuration-listeners.md).
 
