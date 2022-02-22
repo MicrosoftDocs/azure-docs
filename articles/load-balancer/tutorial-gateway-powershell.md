@@ -279,6 +279,41 @@ $config | Set-AzLoadBalancer
 
 ```
 
+## Chain VM (NIC IP configuration) to Gateway Load Balancer
+
+Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer. 
+
+You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
+
+Use [Set-AzNetworkInterfaceIpConfig](/powershell/module/az.network/set-aznetworkinterfaceipconfig) to chain the gateway load balancer frontend to your existing VM's NIC IP configuration.
+
+```azurepowershell-interactive
+ ## Place the gateway load balancer configuration into a variable. ##
+$par1 = @{
+    ResourceGroupName = 'TutorGwLB-rg'
+    Name = 'myLoadBalancer-gw'
+}
+$gwlb = Get-AzLoadBalancer @par1
+
+## Place the existing NIC into a variable. ##
+$par2 = @{
+    ResourceGroupName = 'MyResourceGroup'
+    Name = 'myNic'
+}
+$nic = Get-AzNetworkInterface @par2
+
+## Chain the gateway load balancer to your existing VM NIC. ##
+$par3 = @{
+    Name = 'myIPconfig'
+    NetworkInterface = $nic
+    GatewayLoadBalancerId = $gwlb.FrontendIpConfigurations.Id
+}
+$config = Set-AzNetworkInterfaceIpConfig @par3
+
+$config | Set-AzNetworkInterface
+
+```
+
 ## Clean up resources
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
