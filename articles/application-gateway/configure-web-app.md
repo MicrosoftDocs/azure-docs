@@ -358,6 +358,7 @@ Pay attention to the following non-exhaustive list of potential symptoms when te
 - redirections pointing to ".azurewebsites.net" directly instead of to Application Gateway
 - this includes authentication redirects that try access ".azurewebsites.net" directly
 - domain-bound cookies not being passed on to the backend
+- this includes the use of the ["ARR affinity" setting](../app-service/configure-common.md#configure-general-settings) in App Service
 
 The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
 
