@@ -524,7 +524,7 @@ az sql db create \
     --backup-storage-redundancy Local
 ```
 
-Carefully consider the configuration option for `--backup-storage-redundancy` when creating a Hyperscale database. Storage redundancy can only be specified during the database creation process for Hyperscale databases. The selected storage redundancy option will be used for the lifetime of the database for both [data storage redundancy](hyperscale-architecture.md#azure-storage) and [backup storage redundancy](automated-backups-overview.md#backup-storage-redundancy). Existing databases can migrate to different storage redundancy using [database copy](database-copy.md) or point in time restore: sample code to copy a Hyperscale database follows in this section.
+Carefully consider the configuration option for `--backup-storage-redundancy` when creating a Hyperscale database. Storage redundancy can only be specified during the database creation process for Hyperscale databases. The selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy. Existing databases can migrate to different storage redundancy using [database copy](database-copy.md) or point in time restore: sample code to copy a Hyperscale database follows in this section.
 
 This example creates a database in the [Hyperscale](service-tier-general-purpose.md) service tier with Zone redundancy:
 
@@ -586,7 +586,7 @@ This example creates a database in the [General Purpose](service-tier-general-pu
 New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Local
 ```
 
-Carefully consider the configuration option for `--backup-storage-redundancy` when creating a Hyperscale database. Storage redundancy can only be specified during the database creation process for Hyperscale databases. The selected storage redundancy option will be used for the lifetime of the database for both [data storage redundancy](hyperscale-architecture.md#azure-storage) and [backup storage redundancy](automated-backups-overview.md#backup-storage-redundancy). Existing databases can migrate to different storage redundancy using [database copy](database-copy.md) or point in time restore: sample code to copy a Hyperscale database follows in this section.
+Carefully consider the configuration option for `--backup-storage-redundancy` when creating a Hyperscale database. Storage redundancy can only be specified during the database creation process for Hyperscale databases. The selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy. Existing databases can migrate to different storage redundancy using [database copy](database-copy.md) or point in time restore: sample code to copy a Hyperscale database follows in this section.
 
 This example creates a database in the [Hyperscale](service-tier-general-purpose.md) service tier with Zone redundancy:
 
