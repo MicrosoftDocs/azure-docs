@@ -5,7 +5,7 @@ ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
 recommendations: false
-ms.date: 01/26/2022
+ms.date: 02/18/2022
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -50,7 +50,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: January 2022*
+*Last updated: February 2022*
 
 ### Terminology used
 
@@ -140,9 +140,11 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
+| [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; |
 | [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) | &#x2705; | &#x2705; |
 | [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | &#x2705; | &#x2705; |
 | [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) | &#x2705; | &#x2705; |
+| [Azure Spring Cloud](https://azure.microsoft.com/services/spring-cloud/) | &#x2705; | &#x2705; |
 | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | &#x2705; | &#x2705; |
 | [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) (formerly Data Box Edge) **&ast;** | &#x2705; | &#x2705; |
 | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | &#x2705; | &#x2705; |
@@ -240,7 +242,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
 ## Azure Government services by audit scope
-*Last updated: January 2022*
+*Last updated: February 2022*
 
 ### Terminology used
 
@@ -270,6 +272,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Advisor](https://azure.microsoft.com/services/advisor/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) | &#x2705; | &#x2705; | | | |
+| [Azure Arc-enabled Servers](../../azure-arc/servers/overview.md) | &#x2705; | &#x2705; | | | |
 | [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Backup](https://azure.microsoft.com/services/backup/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -325,6 +329,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Resource Mover](https://azure.microsoft.com/services/resource-mover/) | &#x2705; | &#x2705; | | | |
+| [Azure Route Server](https://azure.microsoft.com/services/route-server/) | &#x2705; | &#x2705; | | | |
 | [Azure Scheduler](../../scheduler/index.yml) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
