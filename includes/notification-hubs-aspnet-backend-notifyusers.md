@@ -21,7 +21,7 @@ The following sections discuss the creation of a new ASP.NET WebAPI backend. Thi
 Create the new ASP.NET WebAPI backend by doing the following actions:
 
 > [!IMPORTANT]
-> If you are using Visual Studio 2015 or earlier, before starting this tutorial, ensure that you have installed the latest version of NuGet Package Manager for Visual Studio.
+> If you are using Visual Studio 2022 or earlier, before starting this tutorial, ensure that you have installed the latest version of NuGet Package Manager for Visual Studio.
 >
 >To check, start Visual Studio. On the **Tools** menu, select **Extensions and Updates**. Search for **NuGet Package Manager** in your version of Visual Studio, and make sure you have the latest version. If your version is not the latest version, uninstall it, and then reinstall the NuGet Package Manager.
 
