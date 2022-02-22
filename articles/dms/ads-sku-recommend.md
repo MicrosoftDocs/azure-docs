@@ -26,7 +26,7 @@ The Azure SQL Migration extension for Azure Data Studio provides both the assess
 
 ## Performance data collection and SKU recommendation
 
-With the the Azure SQL Migration extension, you can get a right-sized Azure recommendation to migrate your SQL Server databases to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. The extension collects and analyzes performance data from your SQL Server instance to generate a recommended SKU each for Azure SQL Managed Instance and SQL Server on Azure Virtual Machines that meets your database(s)' performance characteristics with the lowest cost.
+With the Azure SQL Migration extension, you can get a right-sized Azure recommendation to migrate your SQL Server databases to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. The extension collects and analyzes performance data from your SQL Server instance to generate a recommended SKU each for Azure SQL Managed Instance and SQL Server on Azure Virtual Machines that meets your database(s)' performance characteristics with the lowest cost.
 
 The workflow for data collection and SKU recommendation is illustrated below.
 
@@ -56,7 +56,7 @@ The workflow for data collection and SKU recommendation is illustrated below.
 
 ### Import existing performance data
 Any existing Performance data that you collected previously using the Azure SQL Migration extension or [using the console application in Data Migration Assistant](/sql/dma/dma-sku-recommend-sql-db) can be imported in the migration wizard to view the recommendation.</br>
-Simply provide the folder location where the performance data files are saved and select **Start** to instantly view the recommendation and its details.
+Simply provide the folder location where the performance data files are saved and select **Start** to instantly view the recommendation and its details.</br>
     :::image type="content" source="media/ads-sku-recommend/import-sku-data.png" alt-text="Import performance data for SKU recommendation":::
 ## Prerequisites
 
