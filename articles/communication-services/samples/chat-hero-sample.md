@@ -38,7 +38,7 @@ When you press the "Start a Chat" button, the web application fetches a user acc
 
 Once your configure your display name and emoji, you can join the chat session. Now you will see the main chat canvas where the core chat experience lives.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Screenshot showing showing the main screen of the sample application.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
 Components of the main chat screen:
 
