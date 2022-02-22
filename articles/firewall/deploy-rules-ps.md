@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Add or modify multiple Azure Firewall rules using Azure PowerShell
 
-When you a new rules to Azure Firewall for Azure Firewall policy, you should use the following steps to reduce the total update time:
+When you add new rules to Azure Firewall or Azure Firewall policy, you should use the following steps to reduce the total update time:
 
 1. Retrieve the Azure Firewall or Azure Firewall Policy object.
 1. Add all new rules to the local object. You can add them to an existing rule collection or create new ones as needed.
@@ -20,7 +20,7 @@ When you a new rules to Azure Firewall for Azure Firewall policy, you should use
 The following example shows how to add multiple new DNAT rules to an existing firewall policy using Azure PowerShell. You should follow these same principles also when:
 
 1. You update Application or Network rules.
-2. You updating a firewall managed with classic rules.
+2. You update a firewall managed with classic rules.
 
 Carefully review the following steps. You should first try it on a test policy to ensure it works as expected for your needs.
 
