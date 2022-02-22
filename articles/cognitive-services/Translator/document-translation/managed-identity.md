@@ -19,9 +19,9 @@ ms.author: lajanuar
 
 ## What are managed identities?
 
-* Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources.
+* Managed identities for Azure resources is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources.
 
-* You can use managed identities **instead of a shared access signature (SAS) tokey** to grant access to any resource that supports Azure AD authentication, including your own applications. To grant access, assign a role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md).
+* You can use managed identities **instead of a shared access signature (SAS) token** to grant access to any resource that supports Azure AD authentication, including your own applications. To grant access, assign a role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 

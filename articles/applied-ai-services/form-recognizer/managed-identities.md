@@ -12,18 +12,15 @@ ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
 
-# Create and use managed identities with Form Recognizer
+# Create and use managed identities
 
-> [!IMPORTANT]
-> Azure RBAC (Azure role-based access control) assignment is currently in preview and not recommended for production workloads. Certain features may not be supported or have constrained capabilities. Azure RBAC assignments are used to grant permissions for managed identity.
+Managed identities for Azure resources is a feature of Azure Active Directory. Manged identities is a service principals that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources.
 
-## What are managed identities?
+* You can use managed identities **instead of a shared access signature (SAS) token** to grant access to any resource that supports Azure AD authentication.
 
-* Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources.
+* To grant access, assign a role to a managed identity using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
-* You can use managed identities **instead of a shared access signature (SAS) token** to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).  
-
-* There's no added cost to use managed identity in Azure.
+* There's no added cost to use managed identities in Azure.
 
 > [!TIP]
 > Managed identities eliminate the need for you to manage credentials, including Shared Access Signature (SAS) tokens. Managed identities are a safer way to grant access to data without having credentials in your code.
@@ -50,7 +47,7 @@ To get started, you'll need:
 
 * A [**Form Recognizer**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) or [**Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource in the Azure portal. For detailed steps, _see_ [Create a Cognitive Services resource using the Azure portal](../../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows).
 
-* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. You'll create containers to store and organize your blob data within your storage account. 
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) in the same region as your Form Recognizer resource. You'll create containers to store and organize your blob data within your storage account.
 
   * If your storage account is behind a firewall, **you must enable the following configuration**: </br></br>
 
