@@ -73,17 +73,17 @@ In the context of this scenario, DNS is relevant in two places:
 
 ### [Custom Domain (recommended)](#tab/customdomain)
 
-To route the user or client to Application Gateway using the custom domain, set up DNS with a CNAME alias pointing to the DNS for Application Gateway.  The Application Gateway DNS address is shown on the overview page of the associated Public IP address.  Alternatively, an A record can be created that points to the IP address directly.  (For Application Gateway V1 the VIP can change if you stop and start the service, which makes this option undesired.)
+Route the user or client to Application Gateway using the custom domain.  Set up DNS using a CNAME alias pointed to the DNS for Application Gateway.  The Application Gateway DNS address is shown on the overview page of the associated Public IP address.  Alternatively create an A record pointing to the IP address directly.  (For Application Gateway V1 the VIP can change if you stop and start the service, which makes this option undesired.)
 
-For Application Gateway to connect to App Service using the same custom domain, App Service should be configured so it accepts traffic using the custom domain name as the incoming host.  For more information on how to map a custom domain to the App Service, see [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md)  To verify the domain, App Service only requires adding a TXT record.  No change is required on CNAME or A-records.  The DNS configuration for the custom domain will remain directed towards Application Gateway.
+App Service should be configured so it accepts traffic from Application Gateway using the custom domain name as the incoming host.  For more information on how to map a custom domain to the App Service, see [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md)  To verify the domain, App Service only requires adding a TXT record.  No change is required on CNAME or A-records.  The DNS configuration for the custom domain will remain directed towards Application Gateway.
 
-To accept connections to App Service over HTTPS, configure its TLS binding.  For this, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md)  Configure App Service to pull the certificate for the custom domain from Azure Key Vault.
+To accept connections to App Service over HTTPS, configure its TLS binding.  For more information, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md)  Configure App Service to pull the certificate for the custom domain from Azure Key Vault.
 
 ### [Default Domain](#tab/defaultdomain)
 
-When no custom domain is available, the user or client can access Application Gateway using either the IP address of the gateway or its DNS address.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.  Note that not having a custom domain available also implies that no publicly signed certificate will be available for Application Gateway to use when serving content. This restricts clients to use HTTP or HTTPS with a self-signed certificate, both of which are undesired.
+When no custom domain is available, the user or client can access Application Gateway using either the IP address of the gateway or its DNS address.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.  Not having a custom domain available implies that no publicly signed certificate will be available for TLS on Application Gateway. Clients are restricted to use HTTP or HTTPS with a self-signed certificate, both of which are undesired.
 
-To connect to App Service, Application Gateway can use the default domain as provided by App Service (suffixed "azurewebsites.net").
+To connect to App Service, Application Gateway uses the default domain as provided by App Service (suffixed "azurewebsites.net").
 
 ---
 
@@ -138,7 +138,7 @@ An HTTP Setting is required that instructs Application Gateway to access the App
 We will connect to the backend using HTTPS.
 
 1. Under **HTTP Settings**, select an existing HTTP setting or add a new one.
-2. In case of a new HTTP Setting, give it a name
+2. When creating a new HTTP Setting, give it a name
 3. Select HTTPS as the desired backend protocol using port 443
 4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of back-end servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers)
 5. Make sure to set "Override with new host name" to "No"
@@ -151,11 +151,11 @@ We will connect to the backend using HTTPS.
 An HTTP Setting is required that instructs Application Gateway to access the App Service backend using the **default ("azurewebsites.net") domain name**.  To do so, the HTTP Setting will explicitly override the host name.
 
 1. Under **HTTP Settings**, select an existing HTTP setting or add a new one.
-2. In case of a new HTTP Setting, give it a name
+2. When creating a new HTTP Setting, give it a name
 3. Select HTTPS as the desired backend protocol using port 443
 4. If the certificate is signed by a well known authority, select "Yes" for "User well known CA certificate".  Alternatively [Add authentication/trusted root certificates of back-end servers](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-back-end-servers)
 5. Make sure to set "Override with new host name" to "Yes"
-6. Under "Host name override", select "Pick host name from backend target". This will cause the request towards App Service to use the "azurewebsites.net" host name, as is configured in the Backend Pool.
+6. Under "Host name override", select "Pick host name from backend target". This setting will cause the request towards App Service to use the "azurewebsites.net" host name, as is configured in the Backend Pool.
 
 :::image type="content" source="media/configure-web-app/http-settings-default-domain.png" alt-text="Configure HTTP Settings to use default domain towards App Service backend by setting Pick host name from backend target":::
 
@@ -209,10 +209,10 @@ Provided with the earlier configured Backend Pool and the HTTP Settings, the req
 
 ### [Azure Portal](#tab/azure-portal)
 
-1. Under "Rules" click to add a new "Request routing rule"
+1. Under "Rules", click to add a new "Request routing rule"
 1. Provide the rule with a name
 1. Select an HTTP or HTTPS listener that is not bound yet to an existing routing rule
-1. Under "Backend targets" choose the Backend Pool in which App Service has been configured
+1. Under "Backend targets", choose the Backend Pool in which App Service has been configured
 1. Configure the HTTP settings with which Application Gateway should connect to the App Service backend
 1. Select "Add" to save this configuration
 
@@ -255,7 +255,7 @@ Open the "Backend health" section and ensure the "Status" column indicates the c
 
 :::image type="content" source="media/configure-web-app/check-backend-health.png" alt-text="Check backend health in Azure Portal":::
 
-Now browse to the web application using either the Application Gateway IP Address or the associated DNS name for the IP Address.  These can be found on the Application Gateway "Overview" page as a property under "Essentials".  Alternatively the Public IP Address resource also shows the IP address and associated DNS name.
+Now browse to the web application using either the Application Gateway IP Address or the associated DNS name for the IP Address.  Both can be found on the Application Gateway "Overview" page as a property under "Essentials".  Alternatively the Public IP Address resource also shows the IP address and associated DNS name.
 
 Pay attention to the following non-exhaustive list of potential symptoms when testing the application:
 - redirections pointing to ".azurewebsites.net" directly instead of to Application Gateway
