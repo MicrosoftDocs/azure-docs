@@ -1,6 +1,6 @@
 ---
-title: Check network readiness before deploying an Azure Stack Edge Pro GPU device
-description: Pre-qualify your network before deploying Azure Stack Edge Pro GPU devices.
+title: Check network readiness for Azure Stack Edge using Azure Stack Network Readiness Checker
+description: Pre-qualify your network before deploying Azure Stack Edge Pro GPU, Pro R, or Mini R device using Azure Stack Network Readiness Checker.
 services: databox
 author: v-dalc
 
@@ -17,7 +17,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article describes how to check your network for the most common deployment issues before you deploy an Azure Stack Edge device.
+This article describes how to check to see how ready your network is for deployment of Azure Stack Edge devices.
 
 You'll use the Azure Stack Network Readiness Checker, a PowerShell tool that runs a series of tests to check mandatory and optional settings on the network where you deploy your Azure Stack Edge devices. The tool returns Pass/Fail status for each test and saves a log file and report file with more detail.
 
@@ -43,19 +43,19 @@ The Azure Stack Network Readiness Checker can check whether a network meets the 
 
 #### Report file
 
-The tool saves a report, AzsReadinessCheckerReport.json, with detailed diagnostics that are collected during each test. This information can be helpful if you need to contact Support.
+The tool saves a report, `AzsReadinessCheckerReport.json`, with detailed diagnostics that are collected during each test. This information can be helpful if you need to [contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md).
 
 For example, the report provides:
 
-- A list of network adapters on the machine used to run the tests, with the driver version, MAC address, and connection state for each network adapter
+- A list of network adapters on the machine used to run the tests, with the driver version, MAC address, and connection state for each network adapter.
 
-- IP configuration of the machine used to run the tests
+- IP configuration of the machine used to run the tests.
 
-- Detailed DNS response properties that the DNS server returned for each test
+- Detailed DNS response properties that the DNS server returned for each test.
 
-- Detailed HTTP response for each test of a URL<!--Verify: Should this also be HTTPS instead of HTTP? Does the tool check connections when a proxy server is in use?-->
+- Detailed HTTP response for each test of a URL.<!--Verify: Should this also be HTTPS instead of HTTP? Does the tool check connections when a proxy server is in use?-->
 
-- Network route trace for each test
+- Network route trace for each test.
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Before you begin, complete the following tasks:
 
 ## Install Network Readiness Checker
 
-To install the Azure Stack Network Readiness Checker (NRC) on the client computer, do these steps:
+To install the Azure Stack Network Readiness Checker on the client computer, do these steps:
 
 1. Open PowerShell on the client computer. If you need to install PowerShell, see [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2&preserve-view=true).
 
@@ -80,9 +80,9 @@ To install the Azure Stack Network Readiness Checker (NRC) on the client compute
 
     ![Screenshot showing the download page for the Azure Stack Edge Network Readiness Checker tool. The Install Module tab and the Copy icon are highlighted.](./media/azure-stack-edge-deploy-check-network-readiness/network-readiness-checker-install-tool.png)
 
-1. Paste in the command at the PowerShell command prompt, and press Enter.
+1. Paste in the command at the PowerShell command prompt, and press **Enter**.
 
-1. Press Y (Yes) or A (Yes to All) at the following prompt to install the module.
+1. Press **Y** (Yes) or **A** (Yes to All) at the following prompt to install the module.
 
    ```powershell
    Untrusted repository
@@ -111,7 +111,6 @@ To run a network readiness check, do these steps:
    
    To get meaningful Network Readiness Checker results that find key issues in your network setup, you need to include all of the following parameters that apply to your environment.
 
-
    |Parameter|Description|
    |---------|-----------|
    |`-DnsServer`|IP addresses of the DNS servers (for example, your primary and secondary DNS servers).|
@@ -132,7 +131,7 @@ The following samples are the output from successful and unsuccessful runs of th
 
 ### Sample output: Successful test
 
-The following sample is the output from a successful run of the Azure Stack Edge Network Readiness Checker tool, with these parameters:
+The following sample is the output from a successful run of the Network Readiness Checker tool with these parameters:
 
 ```powershell
 Invoke-AzsNetworkValidation -DnsServer '10.50.10.50', '10.50.50.50' -DeviceFqdn 'aseclient.contoso.com' -TimeServer 'pool.ntp.org' -Proxy 'http://proxy.contoso.com:3128/' -SkipTests DuplicateIP -WindowsUpdateServer 'http://ase-prod.contoso.com' -OutputPath `C:\ase-network-tests`
@@ -243,6 +242,6 @@ For more information, you can review the log and report. By default, both files 
 
 ## Next steps
 
-- Learn how to [Connect to an Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-connect.md).
-- [Review a deployment checklist for your device](azure-stack-edge-pro-r-deploy-checklist.md).
+- Learn how to connect to your Azure Stack Edge device: [Pro GPU device](azure-stack-edge-gpu-deploy-connect.md), [Pro R device](azure-stack-edge-pro-r-deploy-connect.md), [Mini R device](azure-stack-edge-mini-r-deploy-connect.md).
+- Review a deployment checklist for your device: [Pro GPU checklist](azure-stack-edge-gpu-deploy-checklist.md), [Pro R checklist](azure-stack-edge-pro-r-deploy-checklist.md), [Mini R checklist](azure-stack-edge-mini-r-deploy-checklist.md).
 - [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md).
