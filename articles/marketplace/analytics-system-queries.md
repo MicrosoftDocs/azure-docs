@@ -22,7 +22,7 @@ For more information on the column names, attributes, and descriptions, see thes
 - [Marketplace Insights dashboard](insights-dashboard.md#marketplace-insights-details-table)
 - [Revenue dashboard](revenue-dashboard.md)
 - [Quality of Service dashboard](quality-of-service-dashboard.md)
-- [Customer retention dashboard](customer-retention-dashboard#dictionary-of-data-terms)
+- [Customer retention dashboard](customer-retention-dashboard.md#dictionary-of-data-terms)
 
 The following sections provide various report queries.
 
