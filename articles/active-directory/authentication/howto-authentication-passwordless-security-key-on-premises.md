@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 02/22/2022
 
 ms.author: justinha
 author: justinha
@@ -107,7 +107,7 @@ Run the following steps in each domain and forest in your organization that cont
    $domain = "contoso.corp.com"
 
    # Enter an Azure Active Directory global administrator username and password.
-   $cloudCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest.'
+   $cloudCred = Get-Credential -Message 'An Active Directory user who is a member of the Global Administrators group for Azure AD.'
 
    # Enter a domain administrator username and password.
    $domainCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group.'
