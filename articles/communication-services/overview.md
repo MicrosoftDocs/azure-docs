@@ -76,7 +76,7 @@ Learn more about the Azure Communication Services SDKs with the resources below.
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
 |**[SMS SDK overview](./concepts/sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
-|**[UI Library overview](https://aka.ms/acsstorybook))**| Review the UI Libray for the Communication Services |
+|**[UI Library overview](https://aka.ms/acsstorybook))**| Review the UI Library for the Communication Services |
 
 ## Other Microsoft Communication Services
 
