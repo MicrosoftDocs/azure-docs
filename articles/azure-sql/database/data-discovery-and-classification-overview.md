@@ -8,10 +8,10 @@ ms.custom: sqldbrb=1
 titleSuffix: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
 ms.devlang: 
 ms.topic: conceptual
-author: DavidTrigano
-ms.author: datrigan
+author: Madhumitatripathy
+ms.author: matripathy
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 02/16/2022
+ms.date: 02/22/2022
 tags: azure-synapse
 ---
 # Data Discovery & Classification
