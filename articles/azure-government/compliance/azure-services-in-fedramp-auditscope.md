@@ -272,8 +272,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure AD Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Advisor](https://azure.microsoft.com/services/advisor/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Arc-enabled Kubernetes](../../azure/azure-arc/kubernetes/overview) | &#x2705; | &#x2705; | | | |
-| [Azure Arc-enabled Servers]((../../azure/azure-arc/servers/overview) | &#x2705; | &#x2705; | | | |
+| [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) | &#x2705; | &#x2705; | | | |
+| [Azure Arc-enabled Servers](../../azure-arc/servers/overview.md) | &#x2705; | &#x2705; | | | |
 | [Azure Archive Storage](https://azure.microsoft.com/services/storage/archive/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Backup](https://azure.microsoft.com/services/backup/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Bastion](https://azure.microsoft.com/services/azure-bastion/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
