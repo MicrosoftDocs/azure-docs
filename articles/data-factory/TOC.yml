@@ -241,8 +241,38 @@ items:
         href: concepts-data-flow-expression-builder.md
         displayName: regex, regular expressions
       - name: Expression language
-        href: data-flow-expression-functions.md
+        href: data-transformation-functions.md
         displayName: regex, regular expressions
+        items:
+          - name: Aggregate functions
+            href: data-flow-aggregate-functions.md
+            displayName: approxDistinctCount, avg, avgIf, collect, count, countAll, countDistinct, countAllDistinct, countIf, covariancePopulation, covariancePopulationIf, covarianceSample, covarianceSampleIf, first, isDistinct, kurtosis, kurtosisIf, last, max, maxIf, mean, meanIf, skewness, skewnessIf, stddev, stddevIf, stddevPopulation, stddevPopulationIf, stddevSample, stddevSampleIf, sumDistinctIf, sumIf, variance, varianceIf, variancePopulation, variancePopulationIf, varianceSample, varianceSampleIf
+          - name: Array functions
+            href: data-flow-array-functions.md
+            displayName: array, at, contains, distinct, except, filter, find, flatten, in, intersect, map, mapIf, mapIndex, mapLoop, reduce, size, slice, sort, unfold, union
+          - name: Cached lookup functions
+            href: data-flow-cached-lookup-functions.md
+            displayName: lookup, mlookup, output, outputs
+          - name: Conversion functions
+            href: data-flow-conversion-functions.md
+            displayName: isBitSet, setBitSet, isBoolean, isByte, isDate, isShort, isInteger, isLong, isNan, isFloat, isDouble, isDecimal, isTimestamp, toBase64, toBinary, toBoolean, toByte, toDate, toDecimal, toDouble, toFloat, toInteger, toLong, toShort, toString, toTimestamp, toUTC
+          - name: Date and time functions
+            href: data-flow-date-time-functions.md
+            displayName: add, addDays, addMonths, between, currentDate, currentTimestamp, currentUTC, dayOfMonth, dayOfWeek, dayOfYear, days, fromUTC, hour, hours, isDate, isTimestamp, lastDayOfMonth, millisecond, milliseconds, minus, minute, minutes, month, monthsBetween, second, seconds, subDays, subMonths, toDate, toTimestamp, toUTC, weekOfYear, weeks, year 
+          - name: Expression functions
+            href: data-flow-expression-functions.md
+            displayName: abs, acos, add, and, asin, assertErrorMessages, atan, atan2, between, bitwiseAnd, bitwiseOr, bitwiseXor, blake2b, blake2bBinary, case, cbrt, ceil, coalesce, columnNames, columns, compare, concat, concatWS, cos, cosh, crc32, degrees, divide, dropLeft, dropRight, endsWith, equals, equalsIgnoreCase, escape, expr, factorial, false, floor, fromBase64, greater, greaterOrEqual, greatest, hasColumn, hasError, iif, iifNull, initCap, instr, isDelete, isError, isIgnore, isInsert, isMatch, isNull, isUpdate, isUpsert, jaroWinkler, least, left, length, lesser, lesserOrEqual, levenshtein, like, locate, log, log10, lower, lpad, ltrim, md5, minus, mod, multiply, negate, nextSequence, normalize, not, notEquals, notNull, null, or, pMod, partitionId, power, radians, random, regexExtract, regexMatch, regexReplace, regexSplit, replace, reverse, right, rlike, round, rpad, rtrim, sha1, sha2, sin, sinh, soundex, split, sqrt, startsWith, substring, tan, tanh, translate, trim, true, typeMatch, unescape, upper, uuid, xor   
+          - name: Map functions
+            href: data-flow-map-functions.md
+            displayName: associate, keyValues, mapAssociation, reassociate
+          - name: Metafunctions
+            href: data-flow-metafunctions.md
+            displayName: byItem, byOrigin, byOrigins, byName, byNames, byPath, byPosition, hasPath, originColumns, hex, unhex
+          - name: Window functions
+            href: data-flow-window-functions.md
+            displayName: cumeDist, denseRank, lag, lead, nTile, rank, rowNumber
+          - name: Alphabetical usage details for all functions
+            href: data-flow-expressions-usage.md
     - name: Prepare data with Power Query data wrangling
       items:
       - name: Data wrangling overview
@@ -501,6 +531,8 @@ items:
       href: connector-square.md
     - name: Sybase
       href: connector-sybase.md
+    - name: TeamDesk
+      href: connector-teamdesk.md
     - name: Teradata
       href: connector-teradata.md
     - name: Vertica
@@ -1049,7 +1081,7 @@ items:
       href: ssis-integration-runtime-management-troubleshoot.md
       displayName: timeout
     - name: Package Execution in Azure-SSIS IR
-      href: ssis-integration-runtime-ssis-activity-faq.yml
+      href: ssis-integration-runtime-ssis-activity-faq.md
       displayName: retry, timeout
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md

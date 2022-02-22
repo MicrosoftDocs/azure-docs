@@ -21,10 +21,8 @@ Custom Translator supports more than three dozen languages, and maps directly to
 
 This documentation contains the following article types:
 
-* [**Quickstarts**](quickstart-build-deploy-custom-model.md) are getting-started instructions to guide you through making requests to the service.  
-* [**How-to guides**](how-to-create-project.md) contain instructions for using the feature in more specific or customized ways.  
-* [**Concepts**](workspace-and-project.md) provide in-depth explanations of the feature functionality.  
-
+* [**Quickstarts**](./v2-preview/quickstart.md) are getting-started instructions to guide you through making requests to the service.  
+* [**How-to guides**](./v2-preview/how-to/create-manage-workspace.md) contain instructions for using the feature in more specific or customized ways.  
 
 ## Features
 
@@ -33,10 +31,10 @@ Custom Translator provides different features to build custom translation system
 |Feature  |Description  |
 |---------|---------|
 |[Apply neural machine translation technology](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Improve your translation by applying neural machine translation (NMT) provided by Custom translator.       |
-|[Build systems that knows your business terminology](what-are-parallel-documents.md)     |  Customize and build translation systems using parallel documents, that understand the terminologies used in your own business and industry.       |
-|[Use a dictionary to build your models](what-is-dictionary.md)     |   If you don't have training data set, you can train a model with only dictionary data.       |
-|[Collaborate with others](how-to-manage-settings.md#share-your-workspace)     |   Collaborate with your team by sharing your work with different people.     |
-|[Access your custom translation model](../reference/v3-0-translate.md?tabs=curl)     |  Your custom translation model can be accessed anytime by your existing applications/ programs via Microsoft Translator Text API V3.       |
+|[Build systems that knows your business terminology](./v2-preview/beginners-guide.md)     |  Customize and build translation systems using parallel documents, that understand the terminologies used in your own business and industry.       |
+|[Use a dictionary to build your models](./v2-preview/how-to/train-custom-model.md#when-to-select-dictionary-only-training)     |   If you don't have training data set, you can train a model with only dictionary data.       |
+|[Collaborate with others](./v2-preview/how-to/create-manage-workspace.md#manage-workspace-settings)     |   Collaborate with your team by sharing your work with different people.     |
+|[Access your custom translation model](./v2-preview/how-to/translate-with-custom-model.md)     |  Your custom translation model can be accessed anytime by your existing applications/ programs via Microsoft Translator Text API V3.       |
 
 ## Get better translations
 
@@ -67,4 +65,4 @@ Custom systems can be seamlessly accessed and integrated into any product or bus
 
 - Read about [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/).
 
-- With [Quickstart](quickstart-build-deploy-custom-model.md) learn to build a translation model in Custom Translator.
+- With [Quickstart](./v2-preview/quickstart.md) learn to build a translation model in Custom Translator.

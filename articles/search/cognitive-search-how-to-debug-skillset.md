@@ -36,21 +36,23 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 1. Select **+ New Debug Session**.
 
-1. Provide a name for the session, for example *cog-search-debug-sessions*.
+   :::image type="content" source="media/cognitive-search-debug/new-debug-session.png" alt-text="Screenshot of the debug sessions commands in the portal page." border="true":::
 
-1. Specify a general-purpose storage account that will be used to cache the skill executions. You'll be prompted to select and optionally create a blob container in Blob Storage or Azure Data Lake Storage Gen2. You can reuse the same container for all subsequent debug sessions you create.
+1. In **Debug session name**, provide a name that will help you remember which skillset, indexer, and data source the debug session is about.
 
-1. Select the indexer that drives the skillset you want to debug. Copies of both the indexer and skillset are used to create the session.
+1. In **Storage connection**, find a general-purpose storage account for caching the debug session. You'll be prompted to select and optionally create a blob container in Blob Storage or Azure Data Lake Storage Gen2. You can reuse the same container for all subsequent debug sessions you create. A helpful container name might be "cognitive-search-debug-sessions".
 
-1. Choose a document. The session will default to the first document in the data source, but you can also choose which document to step through by providing its URL.
+1. In **Indexer template**, select the indexer that drives the skillset you want to debug. Copies of both the indexer and skillset are used to initialize the session.
 
-   If your document resides in a blob container in the same storage account used to cache your debug session, you can copy the document URL from the blob property page in the portal.
+1. In **Document to debug**, choose the first document in the index or select a specific document. If you select a specific document, depending on the data source, you'll be asked for a URI or a row ID.
+
+   If your specific document is a blob, you'll be asked for the blob URI. You can find the URL in the blob property page in the portal.
 
    :::image type="content" source="media/cognitive-search-debug/copy-blob-url.png" alt-text="Screenshot of the URI property in blob storage." border="true":::
 
-1. Optionally, specify any indexer execution settings that should be used to create the session. The settings should mimic the settings used by the actual indexer. Any indexer options that you specify in a debug session have no effect on the indexer itself.
+1. Optionally, in **Indexer settings**, specify any indexer execution settings used to create the session. The settings should mimic the settings used by the actual indexer. Any indexer options that you specify in a debug session have no effect on the indexer itself.
 
-1. Select **Save Session** to get started.
+1. Your configuration should look similar to this screenshot. Select **Save Session** to get started.
 
    :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Screenshot of a debug session page." border="true":::
 
@@ -74,7 +76,7 @@ To prove whether a modification resolves an error, follow these steps:
 
 ## View content of enrichment nodes
 
-AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`), plus nodes for any content that is lifted directly from the data source, such as metadata and the document key. Additional nodes are created by skills during skill execution, where each skill output adds a new node to the enrichment tree. 
+AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`), plus nodes for any content that is lifted directly from the data source, such as metadata and the document key. More nodes are created by skills during skill execution, where each skill output adds a new node to the enrichment tree. 
 
 Enriched documents are internal, but a debug session gives you access to the content produced during skill execution. To view the content or output of each skill, follow these steps:
 
@@ -113,11 +115,11 @@ The following steps show you how to get information about a skill.
 
 ## Check field mappings
 
-If skills produce output but the search index is empty, check the field mappings that specify how content moves out of the pipeline and into a search index.
+If skills produce output but the search index is empty, check the field mappings. Field mappings specify how content moves out of the pipeline and into a search index.
 
 1. Start with the default views: **AI enrichment > Skill Graph**, with the graph type set to **Dependency Graph**.
 
-1. Select **Field Mappings** near the top. You should find at least the document key that uniquely identifies and associates each search document in the search index with it's source document in the data source. 
+1. Select **Field Mappings** near the top. You should find at least the document key that uniquely identifies and associates each search document in the search index with its source document in the data source. 
 
    If you're importing raw content straight from the data source, bypassing enrichment, you should find those fields in **Field Mappings**.
 

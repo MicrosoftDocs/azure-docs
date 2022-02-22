@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * Complete the [previous tutorial](./tutorial-use-gitops-flux2.md) to learn how to deploy GitOps for your CI/CD environment.
 * Understand the [benefits and architecture](./conceptual-gitops-flux2.md) of this feature.
 * Verify you have:
-  * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
+  * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
   * A connected Azure Container Registry with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
 * Install the latest versions of these Azure Arc-enabled Kubernetes CLI extensions:
 
@@ -119,7 +119,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly imported **arc-cicd-demo-gitops** repository in Azure Repos.
 
-   ```console
+   ```azurecli
    az k8s-configuration flux create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
@@ -425,7 +425,7 @@ The CI/CD workflow will populate the manifest directory with extra manifests to 
 
 1. [Create a new GitOps connection](./tutorial-use-gitops-flux2.md) to your newly forked **arc-cicd-demo-gitops** repository in GitHub.
 
-   ```console
+   ```azurecli
    az k8s-configuration flux create \
       --name cluster-config \
       --cluster-name arc-cicd-cluster \
@@ -577,7 +577,7 @@ If you're not going to continue to use this application, delete any resources wi
 
 1. Delete the Azure Arc GitOps configuration connection:
 
-   ```console
+   ```azurecli
    az k8s-configuration flux delete \
          --name cluster-config \
          --cluster-name arc-cicd-cluster \

@@ -178,7 +178,9 @@ The following data sources are free with Microsoft Sentinel:
 - Azure Activity Logs.
 - Office 365 Audit Logs, including all SharePoint activity, Exchange admin activity, and Teams.
 - Security alerts, including alerts from Microsoft Defender for Cloud, Microsoft 365 Defender, Microsoft Defender for Office 365, Microsoft Defender for Identity, and Microsoft Defender for Endpoint.
-- Microsoft Defender for Cloud and Microsoft Defender for Cloud Apps alerts. However, raw logs for some Microsoft 365 Defender, Defender for Cloud Apps, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
+- Microsoft Defender for Cloud and Microsoft Defender for Cloud Apps alerts. 
+
+Although alerts are free, the raw logs for some Microsoft 365 Defender, Defender for Cloud Apps, Azure Active Directory (Azure AD), and Azure Information Protection (AIP) data types are paid.
 
 The following table lists the free data sources you can enable in Microsoft Sentinel. Some of the data connectors, such as Microsoft 365 Defender and Defender for Cloud Apps, include both free and paid data types.
 

@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: pafarley
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Install and run the Spatial Analysis container (Preview)
@@ -327,7 +327,7 @@ An Azure Virtual Machine with a GPU can also be used to run Spatial Analysis. Th
 
 #### Create the VM
 
-Open the [Create a Virtual Machine](https://ms.portal.azure.com/#create/Microsoft.VirtualMachine) wizard in the Azure portal.
+Open the [Create a Virtual Machine](https://portal.azure.com/#create/Microsoft.VirtualMachine) wizard in the Azure portal.
 
 Give your VM a name and select the region to be (US) West US 2. 
 

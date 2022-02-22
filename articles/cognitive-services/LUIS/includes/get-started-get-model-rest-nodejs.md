@@ -157,5 +157,4 @@ When you are finished with this quickstart, delete the project folder from the f
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Best practices for an app](../luis-concept-best-practices.md)
+[Best practices for an app](../luis-concept-best-practices.md)

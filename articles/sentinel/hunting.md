@@ -123,7 +123,7 @@ In the example above, start with the table name SecurityEvent and add piped elem
 
 > [!IMPORTANT]
 >
-> We recommend that your query uses an [Advanced SIEM Information model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
+> We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
 >
 
 ## Create bookmarks

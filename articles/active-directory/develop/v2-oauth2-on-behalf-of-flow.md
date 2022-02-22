@@ -3,7 +3,7 @@ title: Microsoft identity platform and OAuth2.0 On-Behalf-Of flow | Azure
 titleSuffix: Microsoft identity platform
 description: This article describes how to use HTTP messages to implement service to service authentication using the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/30/2021
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 
@@ -51,6 +51,8 @@ To request an access token, make an HTTP POST to the tenant-specific Microsoft i
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 ```
+
+[!INCLUDE [remind-not-to-relay-token-nonaud](includes/remind-not-to-relay-token-nonaud.md)]
 
 There are two cases depending on whether the client application chooses to be secured by a shared secret or a certificate.
 

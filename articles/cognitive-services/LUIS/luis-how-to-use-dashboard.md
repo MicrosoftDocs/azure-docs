@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 01/07/2022
 
 ---
 
@@ -69,7 +69,7 @@ Create a new version before making changes to the app. In the new version, make 
 
 ### Fix version by adding or editing example utterances and retraining
 
-The primary method of fixing your app will be to add or edit example utterances and retrain. The new or changed utterances need to follow guidelines for [varied utterances](luis-concept-utterance.md).
+The primary method of fixing your app will be to add or edit example utterances and retrain. The new or changed utterances need to follow guidelines for [varied utterances](concepts/utterances.md).
 
 Adding example utterances should be done by someone who:
 
@@ -79,7 +79,7 @@ Adding example utterances should be done by someone who:
 
 ### Patterns and phrase lists
 
-The analytics page doesn’t indicate when to use [patterns](luis-concept-patterns.md) or [phrase lists](luis-concept-feature.md). If you do add them, it can help with incorrect or unclear predictions but won’t help with data imbalance.
+The analytics page doesn’t indicate when to use [patterns](luis-concept-patterns.md) or [phrase lists](concepts/patterns-features.md). If you do add them, it can help with incorrect or unclear predictions but won’t help with data imbalance.
 
 ### Review data imbalance
 
