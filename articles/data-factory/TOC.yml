@@ -833,6 +833,10 @@ items:
         - name: Diagnostic tool for self-hosted integration runtime
           href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
+        - name: Monitoring self-hosted intgegration runtime in Azure
+          href: monitor-shir-in-azure.md
+        - name: Configuring self-hosted integration runtime for log analytics collection
+          href: how-to-configure-shir-for-log-analytics-collection.md
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
       items:
