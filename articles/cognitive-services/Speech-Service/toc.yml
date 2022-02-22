@@ -25,16 +25,17 @@ items:
     - name: Speech CLI overview
       displayName: What is SPX?, spx, spx overview
       href: spx-overview.md
-    - name: Setup Speech CLI
-      displayName: cli basics, spx basics, spx quickstart, spx get started, speech cli get started
+    - name: Speech CLI quickstart
+      displayName: cli basics, spx basics, spx help, spx quickstart, spx get started, get started, install
       href: spx-basics.md
 - name: Speech SDK
   items:
   - name: Speech SDK overview
     href: speech-sdk.md
+    displayName: get started, install, download
   - name: Setup Speech SDK
     href: quickstarts/setup-platform.md
-    displayName: get started
+    displayName: get started, install, download, get sdk, get the sdk
 - name: Speech-to-text
   items:
     - name: Speech-to-text documentation
@@ -46,6 +47,8 @@ items:
       href: get-started-speech-to-text.md
     - name: How-to guides
       items:
+        - name: How to recognize speech
+          href: how-to-recognize-speech.md
         - name: Change recognition source language
           href: how-to-specify-source-language.md
         - name: How to use the audio input stream
@@ -67,7 +70,7 @@ items:
           href: migrate-v2-to-v3.md
         - name: Customization
           items:
-            - name: What is Custom Speech?
+            - name: Custom Speech overview
               href: custom-speech-overview.md
             - name: Prepare data for Custom Speech
               href: how-to-custom-speech-test-and-train.md
@@ -126,15 +129,17 @@ items:
                   href: how-to-custom-voice.md
                 - name: Prepare data for training
                   href: how-to-custom-voice-prepare-data.md
-                - name: Create and use your voice model
+                - name: Train your voice model
                   href: how-to-custom-voice-create-voice.md
+                - name: Deploy and use your voice model
+                  href: how-to-deploy-and-use-endpoint.md
                 - name: How to record voice samples
                   href: record-custom-voice-samples.md
             - name: Audio Content Creation
               href: how-to-audio-content-creation.md 
         - name: Neural voice migration
           items:
-            - name: Migration overview
+            - name: Migration to neural voice
               href: migration-overview-neural-voice.md
             - name: Migrate to custom neural voice 
               href: how-to-migrate-to-custom-neural-voice.md  
@@ -186,7 +191,7 @@ items:
   items:
     - name: Keyword recognition overview
       href: keyword-recognition-overview.md
-    - name: Custom Keyword quickstart
+    - name: Custom keyword quickstart
       href: custom-keyword-basics.md
     - name: Recommendations and guidelines
       href: keyword-recognition-guidelines.md
@@ -228,9 +233,9 @@ items:
           href: http://aka.ms/speech/va-samples
         - name: Custom Commands
           items:
-            - name: What is Custom Commands?
+            - name: Custom Commands overview
               href: custom-commands.md
-            - name: Create a Custom Commands app
+            - name: Custom commands quickstart
               href: quickstart-custom-commands-application.md
             - name: How-to guides
               items:
@@ -264,15 +269,15 @@ items:
               href: custom-commands-encryption-of-data-at-rest.md
         - name: Direct Line Speech
           items:
-            - name: What is Direct Line Speech?
+            - name: Direct Line Speech overview
               href: direct-line-speech.md
-            - name: 'Create a custom voice assistant'
+            - name: Custom voice assistant quickstart
               href: quickstarts/voice-assistants.md
             - name: Voice enable your bot
               href: tutorial-voice-enable-your-bot-speech-sdk.md
         - name: Voice assistants on Windows
           items:
-            - name: Overview of voice assistants on Windows
+            - name: Voice assistants on Windows overview
               href: windows-voice-assistants-overview.md
             - name: How-to guides
               items:
@@ -359,7 +364,7 @@ items:
         href: resiliency-and-recovery-plan.md
 - name: Devices
   items:
-    - name: Overview
+    - name: Devices overview
       href: speech-devices.md
     - name: Audio processing
       href: audio-processing-overview.md

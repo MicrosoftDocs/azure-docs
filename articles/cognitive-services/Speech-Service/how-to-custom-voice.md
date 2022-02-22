@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/23/2022
 ms.author: eur
 ---
@@ -82,6 +82,7 @@ If you're using the old version of Custom Voice (which is scheduled to be retire
 
 ## Next steps
 
-- [Prepare data for Custom Neural Voice](how-to-custom-voice-prepare-data.md)
-- [Train and deploy a custom neural voice](how-to-custom-voice-create-voice.md)
+- [Prepare data for custom neural voice](how-to-custom-voice-prepare-data.md)
+- [Train your voice model](how-to-custom-voice-create-voice.md)
+- [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
 - [How to record voice samples](record-custom-voice-samples.md)
