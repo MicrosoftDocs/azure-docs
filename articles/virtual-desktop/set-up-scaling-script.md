@@ -19,11 +19,17 @@ The scaling tool provides a low-cost automation option for customers who want to
 
 You can use the scaling tool to:
 
-- Schedule VMs to start and stop based on Peak and Off-Peak business hours.
+- Schedule VMs to start and stop based on peak and off-peak business hours.
 - Scale out VMs based on number of sessions per CPU core.
 - Scale in VMs during Off-Peak hours, leaving the minimum number of session host VMs running.
 
 The scaling tool uses a combination of an Azure Automation account, a PowerShell runbook, a webhook, and the Azure Logic App to function. When the tool runs, Azure Logic App calls a webhook to start the Azure Automation runbook. The runbook then creates a job.
+
+Peak and off-peak hours are defined as:
+
+| Peak  | Off-peak |
+|--|--|
+| The time when **maximum** user session concurrency is expected to be reached. | The time when  **minimum** user session concurrency is expected to be reached. |
 
 During peak usage time, the job checks the current number of sessions and the VM capacity of the current running session host for each host pool. It uses this information to calculate if the running session host VMs can support existing sessions based on the *SessionThresholdPerCPU* parameter defined for the **CreateOrUpdateAzLogicApp.ps1** file. If the session host VMs can't support existing sessions, the job starts additional session host VMs in the host pool.
 
@@ -63,10 +69,10 @@ Before you start setting up the scaling tool, make sure you have the following t
 
 The machine you use to deploy the tool must have:
 
-- Windows PowerShell 5.1 or later
-- The Microsoft Az PowerShell module
+- PowerShell 5.1 or later
+- The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az)
 
-If you have everything ready, then let's get started.
+If you have everything ready, let's get started.
 
 ## Create or update an Azure Automation account
 
@@ -75,7 +81,7 @@ If you have everything ready, then let's get started.
 
 First, you'll need an Azure Automation account to run the PowerShell runbook. The process this section describes is valid even if you have an existing Azure Automation account that you want to use to set up the PowerShell runbook. Here's how to set it up:
 
-1. Open Windows PowerShell.
+1. Open PowerShell.
 
 2. Run the following cmdlet to sign in to your Azure account.
 
@@ -152,7 +158,7 @@ To create a Run As account in your Azure Automation account:
 
 Finally, you'll need to create the Azure Logic App and set up an execution schedule for your new scaling tool. First, download and import the [Desktop Virtualization PowerShell module](powershell-module.md) to use in your PowerShell session if you haven't already.
 
-1. Open Windows PowerShell.
+1. Open PowerShell.
 
 2. Run the following cmdlet to sign in to your Azure account.
 
