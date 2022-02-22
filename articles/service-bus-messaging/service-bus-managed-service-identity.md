@@ -3,7 +3,7 @@ title: Managed identities for Azure resources with Service Bus
 description: This article describes how to use managed identities to access with Azure Service Bus entities (queues, topics, and subscriptions).
 ms.topic: article
 ms.date: 01/06/2022
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
 # Authenticate a managed identity with Azure Active Directory to access Azure Service Bus resources
