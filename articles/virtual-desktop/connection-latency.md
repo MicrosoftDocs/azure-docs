@@ -3,13 +3,15 @@ title: Azure Virtual Desktop user connection latency - Azure
 description: Connection latency for Azure Virtual Desktop users.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 02/22/2022
 ms.author: helohr
 manager: femila
 ---
 # Connection quality in Azure Virtual Desktop
 
 Azure Virtual Desktop helps users host client sessions on their session hosts running on Azure. When a user starts a session, they connect from their end-user device, also known as a "client," over a network to access the session host. It's important that the user experience feels as much like a local session on a physical device as possible. In this article, we'll talk about how you can measure and improve the connection quality of your end-users.
+
+There are three ways you can analyze connection quality in your Azure Virtual Desktop deployment: Azure Log Analytics, the Azure Virtual Desktop Experience Estimator tool, and Azure Front Door. This article will describe how to use each method to optimize latency and improve end-user experience.
 
 >[!NOTE]
 >Azure Virtual Desktop currently only supports network data in commercial clouds.
@@ -60,7 +62,7 @@ The network data you collect for your data tables includes the following informa
 
 - The **Subscription ID**, which is a unique identifier assigned to the Azure subscription associated with the data the diagnostics service collects for this table.
 
-## Sample queries
+## Sample queries for Azure Log Analytics
 
 In this section, we have a list of queries that will help you review connection quality information. You can run queries in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query).
 
@@ -136,19 +138,7 @@ WVDConnectionNetworkData
 | top 10 by AvgBW asc
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-(Old text)
+## Optimize VM latency with the Azure Virtual Desktop Experience Estimator tool
 
 The [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/) can help you determine the best location to optimize the latency of your VMs. We recommend you use the tool every two to three months to make sure the optimal location hasn't changed as Azure Virtual Desktop rolls out to new areas.
 
