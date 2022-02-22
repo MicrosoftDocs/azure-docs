@@ -11,7 +11,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 ms.devlang: azurecli
 ---
 
-# Expose applications to the internet using Application Gateway
+# Exposing applications with end-to-end TLS in a virtual network
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 

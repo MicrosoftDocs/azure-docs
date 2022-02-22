@@ -12,7 +12,9 @@ ms.custom: devx-track-java
 
 # Expose applications to the internet with TLS Termination at Application Gateway
 
-This article explains how to expose applications to the internet using Application Gateway. When an Azure Spring Cloud service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway. The incoming encrypted traffic can be decrypted at the Application Gateway or it can be passed to Azure Spring Cloud encrypted to achieve end to end TLS/SSL. For dev and test purposes, users can start with SSL termination at Application Gateway. This guide covers this scenario. For production we recommend end to end TLS/SSL with private certificate mentioned in [Exposing applications with End to End TLS in a VNET](./expose-apps-gateway-end-to-end-tls.md) guide. 
+This article explains how to expose applications to the internet using Application Gateway.
+
+When an Azure Spring Cloud service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway. The incoming encrypted traffic can be decrypted at the Application Gateway or it can be passed to Azure Spring Cloud encrypted to achieve end to end TLS/SSL. For dev and test purposes, users can start with SSL termination at Application Gateway. This guide covers this scenario. For production we recommend end to end TLS/SSL with private certificate mentioned in [Exposing applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md) guide.
 
 ## Prerequisites
 
@@ -61,6 +63,7 @@ Use the following command to sign in to the Azure CLI and choose your active sub
 az login
 az account set --subscription $SUBSCRIPTION
 ```
+
 ---
 
 ## Configure the public domain name on Azure Spring Cloud
@@ -158,30 +161,39 @@ az network application-gateway create \
     --key-vault-secret-id $KEYVAULT_SECRET_ID_FOR_CERT \
     --identity $APPGW_IDENTITY_NAME
 ```
+
 It can take up to 30 minutes for Azure to create the application gateway.
 
 #### [Azure Portal](#tab/azure-portal)
 
 Create an Application Gateway using the following steps to enable SSL termination at Application Gateway.
-1. Sign in to Azure and create a new resource. 
-1. Fill the necessary parameters for creating the Application Gateway. Leave the default parameters as it is.  
-1. We need to create a separate subnet for Application Gateway in the VNET.
-![Create Application Gateway](media/spring-cloud-access-app-gateway/create-application-gateway-basics.png)
-1. Create a public IP and assign it to Frontend of the Application Gateway. 
-![Create Public IP for Frontend](media/spring-cloud-access-app-gateway/create-frontend-ip.png)
-1. Create a Backend pool for Application Gateway.Select Target as your FQDN of the application deployed in Azure Spring Cloud.
-    
-![Add a backend pool](media/spring-cloud-access-app-gateway/create-backend-pool.png)
 
-1. Create a routing rule with HTTP listener. 
-    1. Select the public IP that we have created earlier. 
-    1. Select **HTTPS** as protocol and **443** as port.
-    1. Chose a certificate from Key Vault.
-        1. Select the managed Identity created earlier. 
-        1. Select the right Key Vault and Certificate which are added to Key Vault earlier.  
-![Create a routing rule](media/spring-cloud-access-app-gateway/create-routingrule-with-http-listener.png)
-    1. Select the **Backend targets** tab
-![Create a routing rule](media/spring-cloud-access-app-gateway/create-backend-http-settings.png)
+1. Sign in to Azure and create a new resource.
+1. Fill in the necessary parameters for creating the Application Gateway. Leave the default values as they are.
+1. Create a separate subnet for Application Gateway in the VNET, as shown in the following screenshot.
+
+   :::image type="content" source="media/spring-cloud-access-app-gateway/create-application-gateway-basics.png" alt-text="Azure portal screenshot of 'Create application gateway' page.":::
+
+1. Create a public IP and assign it to Frontend of the Application Gateway, as shown in the following screenshot.
+
+   :::image type="content" source="media/spring-cloud-access-app-gateway/create-frontend-ip.png" alt-text="Azure portal screenshot showing Frontends tab of 'Create application gateway' page.":::
+
+1. Create a Backend pool for Application Gateway. Select Target as your FQDN of the application deployed in Azure Spring Cloud.
+
+   ![Add a backend pool](media/spring-cloud-access-app-gateway/create-backend-pool.png)
+
+1. Create a routing rule with HTTP listener.
+   1. Select the public IP that we have created earlier.
+   1. Select **HTTPS** as protocol and **443** as port.
+   1. Chose a certificate from Key Vault.
+      1. Select the managed Identity created earlier.
+      1. Select the right Key Vault and Certificate which are added to Key Vault earlier.
+
+         ![Create a routing rule](media/spring-cloud-access-app-gateway/create-routingrule-with-http-listener.png)
+
+   1. Select the **Backend targets** tab
+
+      ![Create a routing rule](media/spring-cloud-access-app-gateway/create-backend-http-settings.png)
 
 Review and Create the Application Gateway. It can take up to 30 minutes for Azure to create the application gateway.
 
@@ -235,7 +247,7 @@ The output indicates the healthy status of backend pool, as shown in the followi
 
 ## Configure DNS and access the application
 
-Now configure the public DNS to point to Application Gateway using a CNAME or A-record. You can find the public address for Application Gateway by using the following command:
+Configure the public DNS to point to Application Gateway using a CNAME or A-record. You can find the public address for Application Gateway by using the following command:
 
 ```azurecli
 az network public-ip show \
@@ -247,8 +259,12 @@ az network public-ip show \
 
 You can now access the application using the public domain name.
 
-## See also
+## Clean up resources
 
-- [Configuring End to End TLS with Azure Spring Cloud in VNET](./expose-apps-gateway-end-to-end-tls.md)
+
+
+## Next steps
+
+- [Exposing applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md)
 - [Troubleshooting Azure Spring Cloud in VNET](./troubleshooting-vnet.md)
 - [Customer Responsibilities for Running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md)
