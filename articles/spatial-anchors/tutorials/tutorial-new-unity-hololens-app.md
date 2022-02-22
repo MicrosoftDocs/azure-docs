@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Create a new HoloLens Unity app'
 description: In this tutorial, you learn how to create a new HoloLens Unity app using Azure Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors

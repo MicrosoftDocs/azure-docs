@@ -7,8 +7,8 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 01/25/2022
+ms.topic: how-to
+ms.date: 02/13/2022
 ms.author: eur
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
@@ -99,12 +99,15 @@ You implement at-start LID or continuous LID by calling methods for [recognize o
 You can choose to prioritize accuracy or latency with language identification. 
 
 > [!NOTE]
-> Low latency is prioritized by default with the Speech SDK. You can choose to prioritize accuracy or latency with the Speech SDKs for C#, C++, and Python.
+> Latency is prioritized by default with the Speech SDK. You can choose to prioritize accuracy or latency with the Speech SDKs for C#, C++, and Python.
 
 Prioritize `Latency` if you need a low-latency result such as during live streaming. Set the priority to `Accuracy` if the audio quality may be poor, and more latency is acceptable. For example, a voicemail could have background noise, or some silence at the beginning. Allowing the engine more time will improve language identification results. 
 
 * **At-start:** With at-start LID in `Latency` mode the result is returned in less than 5 seconds. With at-start LID in `Accuracy` mode the result is returned within 30 seconds. You set the priority for at-start LID with the `SpeechServiceConnection_SingleLanguageIdPriority` property.   
 * **Continuous:** With continuous LID in `Latency` mode the results are returned every 2 seconds for the duration of the audio. With continuous LID in `Accuracy` mode the results are returned within no set time frame for the duration of the audio. You set the priority for continuous LID with the `SpeechServiceConnection_ContinuousLanguageIdPriority` property. 
+
+> [!IMPORTANT]
+> With [speech-to-text](#speech-to-text) and [speech translation](#speech-translation) continuous recognition, do not set `Accuracy`with the SpeechServiceConnection_ContinuousLanguageIdPriority property. The setting will be ignored without error, and the default priority of `Latency` will remain in effect. Only [standalone language identification](#standalone-language-identification) supports continuous LID with `Accuracy` prioritization.  
 
 Speech uses at-start LID with `Latency` prioritization by default. You need to set a priority property for any other LID configuration.  
 
@@ -127,13 +130,17 @@ speech_config.set_property(property_id=speechsdk.PropertyId.SpeechServiceConnect
 ```
 ::: zone-end
 
-For continuous LID using `Latency` as the priority, the Speech service returns one of the candidate languages provided even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either "French" or "English" would be returned. Otherwise the Speech service returns "Unknown" if none of the candidate languages are detected or if the language identification confidence is low. 
+When prioritizing `Latency`, the Speech service returns one of the candidate languages provided even if those languages were not in the audio. For example, if `fr-FR` (French) and `en-US` (English) are provided as candidates, but German is spoken, either `fr-FR` or `en-US` would be returned. When prioritizing `Accuracy`, the Speech service will return the string `Unknown` as the detected language if none of the candidate languages are detected or if the language identification confidence is low.
+
+> [!NOTE]
+> You may see cases where an empty string will be returned instead of `Unknown`, due to Speech service inconsistency.
+> While this note is present, applications should check for both the `Unknown` and empty string case and treat them identically.
 
 ### Recognize once or continuous
 
 Language identification is completed with recognition objects and operations. You will make a request to the Speech service for recognition of audio. 
 
-> [!IMPORTANT]
+> [!NOTE]
 > Don't confuse recognition with identification. Recognition can be used with or without language identification.
 
 Let's map these concepts to the code. You will either call the recognize once method, or the start and stop continuous recognition methods. You choose from:
@@ -289,7 +296,6 @@ using (var recognizer = new SpeechRecognizer(
 ```
 
 ### [Continuous recognition](#tab/continuous)
-
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

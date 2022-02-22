@@ -1,14 +1,15 @@
 ---
 title: 'Quickstart: Create a Unity iOS app'
 description: In this quickstart, you learn how to build an iOS app with Unity using Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create a Unity iOS app with Azure Spatial Anchors

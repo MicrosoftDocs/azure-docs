@@ -1,18 +1,16 @@
 ---
-title: "Azure Arc-enabled Kubernetes frequently asked questions"
+title: "Azure Arc-enabled Kubernetes and GitOps frequently asked questions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/19/2021
+ms.date: 02/15/2022
 ms.topic: conceptual
-author: shashankbarsin
-ms.author: shasb
-description: "This article contains a list of frequently asked questions related to Azure Arc-enabled Kubernetes"
+description: "This article contains a list of frequently asked questions related to Azure Arc-enabled Kubernetes and Azure GitOps"
 keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps, faq"
 ---
 
-# Frequently Asked Questions - Azure Arc-enabled Kubernetes
+# Frequently Asked Questions - Azure Arc-enabled Kubernetes and GitOps
 
-This article addresses frequently asked questions about Azure Arc-enabled Kubernetes.
+This article addresses frequently asked questions about Azure Arc-enabled Kubernetes and GitOps.
 
 ## What is the difference between Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS)?
 
@@ -38,7 +36,7 @@ The system assigned managed identity associated with your Azure Arc-enabled Kube
 
 To check when the certificate is about to expire for any given cluster, run the following command:
 
-```console
+```azurecli
 az connectedk8s show -n <name> -g <resource-group>
 ```
 
@@ -48,22 +46,22 @@ If the value of `managedIdentityCertificateExpirationTime` indicates a timestamp
 
 1. Delete Azure Arc-enabled Kubernetes resource and agents on the cluster. 
 
-    ```console
+    ```azurecli
     az connectedk8s delete -n <name> -g <resource-group>
     ```
 
 1. Recreate the Azure Arc-enabled Kubernetes resource by deploying agents on the cluster.
     
-    ```console
+    ```azurecli
     az connectedk8s connect -n <name> -g <resource-group>
     ```
 
 > [!NOTE]
 > `az connectedk8s delete` will also delete configurations and cluster extensions on top of the cluster. After running `az connectedk8s connect`, recreate the configurations and cluster extensions on the cluster, either manually or using Azure Policy.
 
-## If I am already using CI/CD pipelines, can I still use Azure Arc-enabled Kubernetes and configurations?
+## If I am already using CI/CD pipelines, can I still use Azure Arc-enabled Kubernetes or AKS and GitOps configurations?
 
-Yes, you can still use configurations on a cluster receiving deployments via a CI/CD pipeline. Compared to traditional CI/CD pipelines, configurations feature two extra benefits:
+Yes, you can still use configurations on a cluster receiving deployments via a CI/CD pipeline. Compared to traditional CI/CD pipelines, GitOps configurations feature some extra benefits:
 
 **Drift reconciliation**
 
@@ -73,9 +71,13 @@ The CI/CD pipeline applies changes only once during pipeline run. However, the G
 
 CI/CD pipelines are useful for event-driven deployments to your Kubernetes cluster (for example, a push to a Git repository). However, if you want to deploy the same configuration to all of your Kubernetes clusters, you would need to manually configure each Kubernetes cluster's credentials to the CI/CD pipeline. 
 
-For Azure Arc-enabled Kubernetes, since Azure Resource Manager manages your configurations, you can automate creating the same configuration across all Azure Arc-enabled Kubernetes resources using Azure Policy, within scope of a subscription or a resource group. This capability is even applicable to Azure Arc-enabled Kubernetes resources created after the policy assignment.
+For Azure Arc-enabled Kubernetes, since Azure Resource Manager manages your GitOps configurations, you can automate creating the same configuration across all Azure Arc-enabled Kubernetes and AKS resources using Azure Policy, within scope of a subscription or a resource group. This capability is even applicable to Azure Arc-enabled Kubernetes and AKS resources created after the policy assignment.
 
 This feature applies baseline configurations (like network policies, role bindings, and pod security policies) across the entire Kubernetes cluster inventory to meet compliance and governance requirements.
+
+**Cluster compliance**
+
+The compliance state of each GitOps configuration is reported back to Azure. This lets you keep track of any failed deployments.
 
 ## Does Azure Arc-enabled Kubernetes store any customer data outside of the cluster's region?
 
@@ -84,5 +86,6 @@ The feature to enable storing customer data in a single region is currently only
 ## Next steps
 
 * Walk through our quickstart to [connect a Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md).
-* Already have a Kubernetes cluster connected Azure Arc? [Create configurations on your Azure Arc-enabled Kubernetes cluster](./tutorial-use-gitops-connected-cluster.md).
+* Already have an AKS cluster or an Azure Arc-enabled Kubernetes cluster? [Create GitOps configurations on your Azure Arc-enabled Kubernetes cluster](./tutorial-use-gitops-flux2.md).
+* Learn how to [setup a CI/CD pipeline with GitOps](./tutorial-gitops-flux2-ci-cd.md).
 * Learn how to [use Azure Policy to apply configurations at scale](./use-azure-policy.md).

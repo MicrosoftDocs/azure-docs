@@ -34,6 +34,9 @@ NAT on a gateway device translates the source and/or destination IP addresses, b
 
 * **Dynamic NAT**: For dynamic NAT, an IP address can be translated to different target IP addresses based on availability, or with a different combination of IP address and TCP/UDP port. The latter is also called NAPT, Network Address and Port Translation. Dynamic rules will result in stateful translation mappings depending on the traffic flows at any given time.
 
+> [!NOTE]
+> When Dynamic NAT rules are used, traffic is unidirectional which means communication must be initiated from the site that is represented in the Internal Mapping field of the rule. If traffic is initiated from the External Mapping, the connection will not be established. If you require bidirectional traffic initiation, then use a static NAT rule to define a 1:1 mapping.
+
 Another consideration is the address pool size for translation. If the target address pool size is the same as the original address pool, use static NAT rule to define a 1:1 mapping in a sequential order. If the target address pool is smaller than the original address pool, use dynamic NAT rule to accommodate the differences.
 
 > [!IMPORTANT]
