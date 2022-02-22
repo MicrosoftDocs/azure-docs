@@ -18,7 +18,7 @@ Managed identities for Azure resources are service principals that create an Azu
 
 * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Unlike security keys and authentication tokens, managed identities eliminate the need for developers to manage credentials.
 
-* To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md).
+* To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
