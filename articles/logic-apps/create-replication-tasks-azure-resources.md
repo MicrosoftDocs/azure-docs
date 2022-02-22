@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/17/2022
+ms.date: 02/22/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -113,6 +113,12 @@ For Service Bus, you must enable sessions so that message sequences with the sam
 > Replication tasks don't track which messages have already been processed when the source experiences  
 > a disruptive event. To prevent reprocessing already processed messages, you have to set up a way to 
 > track the already processed messages so that processing resumes only with the unprocessed messages.
+>
+> For example, you can set up a database that stores the proccessing state for each message. 
+> When a message arrives, check the message's state and process only when the message is unprocessed. 
+> That way, no processing happens for an already processed message. 
+>
+> This pattern demonstrates *idempotency* where repeating an action on an input doesn't change that input's value or always produces the same result. 
 
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 
