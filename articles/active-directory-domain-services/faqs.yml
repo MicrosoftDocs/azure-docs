@@ -86,9 +86,9 @@ sections:
           No. A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. 
 
       - question: |
-          Why can't I see the **Trusts** menu?
+          Why can't I see the Trusts menu?
         answer: |
-          If you don't see the **Trusts** menu option, check under **Properties** for the *Forest type*. Only *Resource* forests can create trusts. If the forest type is *User*, you can't create trusts. There's currently no way to change the forest type of a managed domain. You need to delete and recreate the managed domain as a resource forest. 
+          If you don't see the **Trusts** menu option, check under **Properties** for the **Forest type**. Only **Resource** forests can create trusts. If the forest type is **User**, you can't create trusts. There's currently no way to change the forest type of a managed domain. You need to delete and recreate the managed domain as a resource forest. 
 
       - question: |
           Can I move a managed domain?
