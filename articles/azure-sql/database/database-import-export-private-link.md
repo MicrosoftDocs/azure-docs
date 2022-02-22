@@ -31,7 +31,7 @@ This article explains how to import or export an Azure SQL Database using [Priva
 > Import Export using Private Link for Azure SQL Database is currently in preview
 
 > [!IMPORTANT]
-> Import or Export of a database using Private Link from [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) or from a database in the [Hyperscale service tier](service-tier-hyperscale.md) using PowerShell isn't currently supported.
+> Import or Export of a database from [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) or from a database in the [Hyperscale service tier](service-tier-hyperscale.md) using PowerShell isn't currently supported.
 
 ---
 
