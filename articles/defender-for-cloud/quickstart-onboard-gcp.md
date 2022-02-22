@@ -22,7 +22,7 @@ To protect your GCP-based resources, you can connect an account in two different
 - **Environment settings page** (Recommended) - This page provides the onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your GCP resources:
 
     - **Defender for Cloud's CSPM features** extends to your GCP resources. This agentless plan assesses your GCP resources according to GCP-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to GCP. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your GCP resources alongside your Azure resources.
-    - **Microsoft Defender for servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [Supported features for virtual machines and servers table](supported-machines-endpoint-solutions-clouds.md)
+    - **Microsoft Defender for servers** brings threat detection and advanced defenses to your GCP VM instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [Supported features for virtual machines and servers table](supported-machines-endpoint-solutions-clouds.md)
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
@@ -56,7 +56,7 @@ If you have any existing connectors created with the classic cloud connectors ex
 
 When connecting your GCP projects to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
 
-- You can connect your GCP projects to Defender in the project level.
+- You can connect your GCP projects to Microsoft Defender for Cloud on the project level.
 - You can connect multiple projects to one Azure subscription.
 - You can connect multiple projects to multiple Azure subscriptions.
 
@@ -78,17 +78,17 @@ Follow the steps below to create your GCP cloud connector.
 
     :::image type="content" source="media/quickstart-onboard-gcp/create-connector.png" alt-text="Screenshot of the Create GCP connector page where you need to enter all relevant information.":::
 
-1. Select the **Next: Select Plans** button.
+1. Select the **Next: Select Plans**.
 
 1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans).
 
-1. Select the **Next: Configure access** button.
+1. Select the **Next: Configure access**.
 
-1. Select the copy button.
+1. Select **Copy**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot showing the location of the copy button.":::
 
-1. Select the **GCP Cloud Shell >** button.
+1. Select the **GCP Cloud Shell >**.
 
 1. The GCP Cloud Shell will open.
 
@@ -99,10 +99,14 @@ Follow the steps below to create your GCP cloud connector.
     - CSPM service account reader role
     - MDFC identity federation
     - CSPM identity pool
+    - *Microsoft Defender for Servers* service account (when the servers plan is enabled)
+    - *Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled)
 
-1. (**Servers only**) When Arc auto-provisioning is enabled, copy the unique ID presented at the end of the PowerShell script.
+1. (**Servers only**) When Arc auto-provisioning is enabled, copy the unique numeric ID presented at the end of the Cloud Shell script.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique id to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
+    :::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique numeric id to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
+
+    To locate the unique numeric ID in the GCP portal, Navigate to **IAM & Admin** > **Service Accounts**, in the Name column, locate `Azure-Arc for servers onboarding` and copy the unique numeric ID number (OAuth 2 Client ID).
 
 1. Navigate back to the Microsoft Defender for Cloud portal.
 
@@ -112,15 +116,15 @@ Follow the steps below to create your GCP cloud connector.
 
     :::image type="content" source="media/quickstart-onboard-gcp/unique-numeric-id.png" alt-text="Screenshot showing the Azure-Arc for servers onboarding section of the screen.":::
 
-    Enter the service account unique ID, which is generated automatically after running the GCP PowerShell. 
+    Enter the service account unique ID, which is generated automatically after running the GCP Cloud Shell. 
 
-1. Select the **Next: Review and generate >** button.
+1. Select the **Next: Review and generate >**.
 
 1. Ensure the information presented is correct.
 
-1. Select the **Create** button. 
+1. Select the **Create**. 
 
-After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender after up to 6 hours. If you enabled agent auto-provisioning, Arc agent installation will happen automatically with each new resource detected.
+After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled agent auto-provisioning, Arc agent installation will occur automatically for each new resource detected.
 
 ## (Optional) Configure selected plans
 
@@ -132,23 +136,21 @@ By default, all plans are toggled to `On`, on the plans select screen.
 
 Connect your GCP VM instances to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content.
 
-#### Prerequisites
+Microsoft Defender for servers brings threat detection and advanced defenses to your GCP VMs instances.
+To have full visibility to Microsoft Defender for Servers security content, ensure you have the following requirements configured:
 
-- Access to an GCP account.
+- Microsoft Defender for servers enabled on your subscription. Learn how to enable plans in the [Enable enhanced security features](enable-enhanced-security.md) article.
 
-- **To enable the Defender for Servers plan**, you'll need:
-    - An active GCP account, with VM instances.
-    - Microsoft Defender for servers enabled on your subscription. Learn how to enable plans in the [Enable enhanced security features](enable-enhanced-security.md) article.
-    - Azure Arc for servers installed on your VM instances. 
-        - **(Recommended) Auto-provisioning** - Auto-provisioning is enabled by default in the onboarding process, and requires owner permissions on the subscription. Additional pre-requisite for Arc auto-provisioning can be found in the [OS config agent on the GCP machines](https://cloud.google.com/compute/docs/images/os-details#vm-manager) article.
-        - **Manual installation** - You can manually enable Arc for servers through Arc for servers in the Azure portal, or through the Recommendations page in Microsoft Defender for Cloud. GCP VMs that do not have Arc installed will have a recommendation to install Arc.
-    - Additional extensions should be enabled on the Arc-connected machines. These extensions are currently configured on the subscription level. All GCP projects under this subscription will inherit the subscription settings for the following components:
-        - Microsoft Defender for Endpoint
-        - VA solution (TVM/ Qualys)
-        - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
+- Azure Arc for servers installed on your VM instances.
+    - **(Recommended) Auto-provisioning** - Auto-provisioning is enabled by default in the onboarding process and requires owner permissions on the subscription. Arc auto-provisioning process is using the OS config agent on GCP end. Additional information on Arc auto-provisioning can be found in the [OS config agent on the GCP machines](https://cloud.google.com/compute/docs/images/os-details#vm-manager) article.
+    - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
 
-> [!Note]
-> Without the Arc agent, you will be unable to take advantage of Defender for server's value.
+- The following extensions should be enabled on the Arc-connected machines according to your needs:
+    - Microsoft Defender for Endpoint
+    - VA solution (TVM/ Qualys)
+    - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
+
+    These extensions are currently configured as auto-provisioning settings on the subscription level. All GCP projects and AWS accounts under this subscription will inherit the subscription settings. Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
 
 **To configure the Servers plan**:
 
@@ -161,6 +163,9 @@ Connect your GCP VM instances to Azure Arc in order to have full visibility to M
 1. On the Auto provisioning screen, toggle the switches on, or off depending on your need.
 
     :::image type="content" source="media/quickstart-onboard-gcp/auto-provision-screen.png" alt-text="Screenshot showing the toggle switches for the Servers plan.":::
+
+    > [!Note]
+    > If Azure Arc is toggled **Off**, you will need to follow the manual installation process mentioned above. 
 
 1. Select **Save**.
 
