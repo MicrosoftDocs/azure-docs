@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 01/27/2022
+ms.date: 02/24/2022
 ms.topic: conceptual
 ms.custom: references_regions
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -17,9 +17,34 @@ ms.custom: references_regions
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## February 2022
+
+This release is published February 24, 2022.
+
+### Image tag
+
+`v1.3.0_2022-02-2x`
+
+For complete release version information, see [Version log](version-log.md).
+
+### Azure Data Studio improvements
+
+- Azure Arc and Azure CLI extensions now generally available. 
+- Changed edit commands for SQL Managed Instance for Azure Arc dashboard to use `update`, reflecting Azure CLI changes. This works in indirect or direct mode. 
+- Data controller deployment wizard step for connectivity mode is now earlier in the process.
+- SQL MI deployment wizard now reflects the exact wording of the experience in Azure portal,
+- SQL MI deployment wizard now has fields in the same order as Azure portal.
+- Removed an extra backups field in SQL MI deployment wizard.
+
 ## January 2022
 
 This release is published January 27, 2022.
+
+### Image tag
+
+`v1.3.0_2022-01-27`
+
+For complete release version information, see [Version log](version-log.md).
 
 ### Data controller
 
