@@ -3,7 +3,7 @@ title: Microsoft 365 Store step-by-step submission guide
 description:  Use this step-by-step submission guide to submit your app to the Microsoft stores. 
 ms.localizationpriority: medium
 ms.author: mingshen
-ms.date: 1/10/2022
+ms.date: 1/15/2022
 ---
 
 # Store step-by-step submission guide
@@ -32,6 +32,11 @@ This article is a step-by-step guide that will detail how to submit your app to 
 1. In the dialog box that appears, enter a name for your app.
 
 1. Select **Check availability** to verify that the name you chose is available.
+
+1. Associate the new offer with a publisher. A publisher represents an account for your organization. The publisher you’re signed in with is selected, by default. You can select a different publisher from the list, if available.
+
+    > [!NOTE]
+    > The publisher you select can’t be modified after you select **Create**.
 
 1. Select **Create**.
 
