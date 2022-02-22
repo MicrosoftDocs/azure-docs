@@ -5,7 +5,7 @@ ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
-# Activate and set up your on-premises management console 
+# Activate and set up your on-premises management console
 
 Activation and setup of the on-premises management console ensures that:
 
@@ -23,7 +23,7 @@ Activation and setup of the on-premises management console ensures that:
 
 1. Navigate to the IP address you received for the on-premises management console during the system installation.
 
-1. Enter the username and password you received for the on-premises management console during the system installation. 
+1. Enter the username and password you received for the on-premises management console during the system installation.
 
 If you forgot your password, select the **Recover Password**  option, and see [Password recovery](how-to-manage-the-on-premises-management-console.md#password-recovery) for instructions on how to recover your password.
 
@@ -47,7 +47,7 @@ After you sign in for the first time, you will need to activate the on-premises 
 
    The on-premises management console can be associated to one, or more subscriptions. The activation file will be associated with all of the selected subscriptions, and the number of committed devices at the time of download.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="You can select multiple subscriptions to onboard your on-premises management console to.":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png" alt-text="You can select multiple subscriptions to onboard your on-premises management console to." lightbox="media/how-to-manage-sensors-from-the-on-premises-management-console/multiple-subscriptions.png":::
 
    If you have not already onboarded a subscription, then [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
@@ -279,7 +279,7 @@ Zones are logical entities that enable you to divide devices within a site into 
 
 You configure zones as a part of the site configuration process.
 
-:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/site-management-zones-screen-v2.png" alt-text="Screenshot of the Site Management Zones view.":::
+:::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/site-management-zones-screen-v2.png" alt-text="Screenshot of the Site Management Zones view." lightbox="media/how-to-activate-and-set-up-your-on-premises-management-console/site-management-zones-screen-v2.png":::
 
 The following table describes the parameters in the **Site Management** window.
 
