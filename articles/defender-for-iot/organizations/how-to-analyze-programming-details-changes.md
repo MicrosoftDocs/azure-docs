@@ -48,7 +48,7 @@ The Programming Analysis window displays both authorized and unauthorized progra
 
 Access the Programming Analysis window from the:
 
-- [Event Timeline](#event-timeline)
+- [Event Timeline](how-to-track-sensor-activity.md)
 
 - [Unauthorized Programming Alerts](#unauthorized-programming-alerts)
 
