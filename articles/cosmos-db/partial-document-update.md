@@ -53,7 +53,8 @@ The resulting JSON document:
 
 The table below summarizes the operations supported by this feature.
 
-> [!NOTE] > _target path_ refers to a location within the JSON document
+> [!NOTE] 
+> _target path_ refers to a location within the JSON document
 
 | **Operation type** | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -89,7 +90,8 @@ Partial document update feature supports the following modes of operation. Refer
 
 `Set` operation adds a property if it doesn't already exist (except if there was an `Array`). `Replace` operation will fail if the property does not exist (applies to `Array` data type as well).
 
-> [!NOTE] > `Replace` is a good candidate where the user expects some of the properties to be always present and allows you to assert/enforce that.
+> [!NOTE] 
+> `Replace` is a good candidate where the user expects some of the properties to be always present and allows you to assert/enforce that.
 
 ## REST API reference for Partial document update
 
