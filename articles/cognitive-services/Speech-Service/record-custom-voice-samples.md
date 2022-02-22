@@ -212,7 +212,7 @@ You can refer to below specification to prepare for the audio samples as best pr
 For high-quality training results, avoiding audio errors is highly recommended. The errors of audio normally involve the following categories:
 
 - Audio file name doesn't match the script ID.
-- War file has an invalid format and can't be read.
+- WAR file has an invalid format and can't be read.
 - Audio sampling rate is lower than 16 KHz. Also, it's recommended that wav file sampling rate should be equal or higher than 24 KHz for high-quality neural voice.
 - Volume peak isn't within the range of -3 dB (70% of max volume) to -6 dB (50%).  
 - Waveform overflow. That is, the waveform at its peak value is cut and thus not complete.
