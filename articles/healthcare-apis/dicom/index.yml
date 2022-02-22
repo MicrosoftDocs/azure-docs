@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: DICOM service documentation
-summary: DICOM service documentation for Azure Health Data Services. DICOM service is an open source DICOMweb&trade; server that is easily deployed on Azure. It allows standards-based communication with any DICOMweb&trade;  enabled systems for data exchange and introduces integration between DICOM and FHIR.  The server identifies and extracts DICOM metadata and injects it into a FHIR endpoint (such as the Azure API for FHIR or FHIR Server for Azure) to create a holistic view of patient data.
+summary: DICOM service documentation for Azure Health Data Services. DICOM service is an open source DICOMweb server that is easily deployed on Azure. It allows standards-based communication with any DICOMweb enabled systems for data exchange and introduces integration between DICOM and FHIR. The server identifies and extracts DICOM metadata and injects it into a FHIR endpoint (such as the Azure API for FHIR or FHIR Server for Azure) to create a holistic view of patient data.
 
 metadata:
   title: Azure Health Data Services DICOM service 
