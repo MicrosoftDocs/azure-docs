@@ -104,7 +104,7 @@ In this article you learn how to secure the following training compute resources
     > [!IMPORTANT]
     > These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If the virtual network resource group is locked then deletion of compute cluster/instance will fail. Load balancer cannot be deleted until the compute cluster/instance is deleted. Also please ensure there is no Azure Policy assignment which prohibits creation of network security groups.
 
-* If you create a compute instance and plan to use the no public IP address configuration, your Azure Machine Learning workspace's managed identity must be assigned the __Owner__ role for the virtual network that contains the workspace. For more information on assigning roles, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
+* If you create a compute instance and plan to use the no public IP address configuration, your Azure Machine Learning workspace's managed identity must be assigned the __Reader__ role for the virtual network that contains the workspace. For more information on assigning roles, see [Steps to assign an Azure role](/azure/role-based-access-control/role-assignments-steps).
 
 * If the Azure Storage Accounts for the workspace are also in the virtual network, use the following guidance on subnet limitations:
 
