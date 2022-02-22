@@ -32,7 +32,7 @@ This sample can help you in the following scenarios:
 > [!NOTE]
 >If you are looking to get started with Azure Communication Services, but are still in learning / prototyping phases, check out our [quickstarts for getting started with Azure communication services users and access tokens](../quickstarts/access-tokens.md?pivots=programming-language-csharp).
 
-![Azure Communication Services Authentication Server Sample Overview Flow](./media/auth/ACS-Authentication-Server-Sample_Overview-Flow.png)
+![Screenshot of the Azure Communication Services Authentication Server Sample Architecture](./media/auth/ACS-Authentication-Server-Sample_Overview-Flow.png)
 
 Since this sample only focuses on the server APIs, the client application is not part of it. If you want to add the client application to login user using Azure Active Directory, then please follow the MSAL samples [here](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
