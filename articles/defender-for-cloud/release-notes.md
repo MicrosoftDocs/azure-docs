@@ -22,7 +22,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in February include:
 
 - [Kubernetes workload protection for Arc enabled K8s clusters](#kubernetes-workload-protection-for-arc-enabled-k8s-clusters)
-- [Native CSPM for GCP and threat protection for GCP Compute instances and Google Kubernetes Engine (GKE) clusters](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances-and-google-kubernetes-engine-gke-clusters)
+- [Native CSPM for GCP and threat protection for GCP compute instances and Google Kubernetes Engine (GKE) clusters](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances-and-google-kubernetes-engine-gke-clusters)
 
 ### Kubernetes workload protection for Arc enabled K8s clusters 
 
@@ -30,17 +30,15 @@ Defender for Containers for Kubernetes workloads previously only protected AKS. 
 
 Learn how to [set up your Kubernetes workload protection](kubernetes-workload-protections.md#set-up-your-workload-protection) for AKS and Azure Arc enabled Kubernetes clusters.
 
-### Native CSPM for GCP and threat protection for GCP Compute instances and Google Kubernetes Engine (GKE) clusters
+### Native CSPM for GCP and threat protection for GCP compute instances and Google Kubernetes Engine (GKE) clusters
 
-The new automated onboarding of GCP environments allows you to quickly and easily protect GCP workloads with Microsoft Defender. Defender for Cloud protects your resources with the following plans:
+The new automated onboarding of GCP environments allows you to protect GCP workloads with Microsoft Defender for Cloud. Defender for Cloud protects your resources with the following plans:
 
-- **Defender for Cloud's CSPM** features extend to your GCP resources. This agentless plan assesses your GCP resources according to the GCP-specific security recommendations which are provided out of the box with Defender. GCP recommendations are included in your secure score, and the resources will be assessed for compliance with built-in GCP CIS standard. Defender for Cloud's asset inventory page is a multi-cloud enabled feature helping you manage your resources across Azure, AWS and GCP.
+- **Defender for Cloud's CSPM** features extend to your GCP resources. This agentless plan assesses your GCP resources according to the GCP-specific security recommendations which are provided with Defender for Cloud. GCP recommendations are included in your secure score, and the resources will be assessed for compliance with the built-in GCP CIS standard. Defender for Cloud's asset inventory page is a multi-cloud enabled feature helping you manage your resources across Azure, AWS, and GCP.
 
-- **Microsoft Defender for Servers** brings threat detection and advanced defenses to your GCP compute instances. This plan includes the integrated license for Microsoft Defender for Endpoint, vulnerability assessment scanning, and more.
+- **Microsoft Defender for servers** brings threat detection and advanced defenses to your GCP compute instances. This plan includes the integrated license for Microsoft Defender for Endpoint, vulnerability assessment scanning, and more.
 
     For a full list of available features, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds.md). Automatic onboarding capabilities will allow you to easily connect any existing, and new compute instances discovered in your environment.
-
-- **Microsoft Defender for Containers (coming soon)** extends its Kubernetes threat protection, behavioral analytics, and built-in admission control policies to Google Kubernetes Engine (GKE) Standard clusters. Automatic onboarding capabilities allow you to easily onboard any existing, or new GKE Standard clusters discovered to your environment. This offering will be released by the end of February 2022.
 
 Learn how to protect, and [connect your GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
 
