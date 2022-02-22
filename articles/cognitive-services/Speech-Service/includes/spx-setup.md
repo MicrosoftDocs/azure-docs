@@ -8,8 +8,6 @@ ms.author: eric-urban
 ms.custom: ignite-fall-2021
 ---
 
-## Download and install
-
 #### [Windows installation](#tab/windowsinstall)
 
 Follow these steps to install the Speech CLI on Windows:

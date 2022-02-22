@@ -5,9 +5,8 @@ metadata:
   author: flang-msft
   ms.author: franlanglois
   ms.service: cache
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 04/29/2019
-    
 title: Azure Cache for Redis FAQ
 summary: |
   Learn the answers to common questions, patterns, and best practices for Azure Cache for Redis.

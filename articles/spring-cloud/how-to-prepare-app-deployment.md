@@ -297,18 +297,18 @@ To enable distributed configuration, include the following `spring-cloud-config-
 
 #### [Enterprise tier](#tab/enterprise-tier)
 
-To enable distributed configuration in Enterprise tier, use [Application Configuration Service (ACS)](https://docs.pivotal.io/tcs-k8s/0-1/), which is one of the proprietary VMware Tanzu components. ACS is Kubernetes-native, and totally different from Spring Cloud Config Server. ACS enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+To enable distributed configuration in Enterprise tier, use [Application Configuration Service for VMware Tanzu®](https://docs.pivotal.io/tcs-k8s/0-1/), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and totally different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
-In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service to manage centralized configurations. For more information, see [Use Application Configuration Service](how-to-enterprise-application-configuration-service.md)
+In Enterprise tier, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
 
-To use Application Configuration Service, do the following steps for each of your apps:
+To use Application Configuration Service for Tanzu, do the following steps for each of your apps:
 
-1. Add an explicit app binding to declare that your app needs to use Application Configuration Service.
+1. Add an explicit app binding to declare that your app needs to use Application Configuration Service for Tanzu.
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to make the change take effect.
 
-1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](how-to-enterprise-application-configuration-service.md#pattern) section of [Use Application Configuration Service](how-to-enterprise-application-configuration-service.md).
+1. Set config file patterns. Config file patterns enable you to choose which application and profile the app will use. For more information, see the [Pattern](how-to-enterprise-application-configuration-service.md#pattern) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
 
    Another option is to set the config file patterns at the same time as your app deployment, as shown in the following example:
 
