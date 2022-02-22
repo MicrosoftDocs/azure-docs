@@ -70,12 +70,7 @@ This general unauthorized error message occurs when the current user does not ha
 
 You may not immediately see web app in-guest file changes and configuration changes. Restart the web app and wait for at least 4 hours before checking on in-guest changes. 
 
-The current enablement process is:
-
-1. Enablement adds the hidden tracking tag, notifying the scheduled worker.
-2. Scheduled worker scans the web app within a few hours.
-3. While scanning, scheduled worker creates a handshake file via AST.
-4. The Web App team checks that handshake file when it restarts.
+Please restart your web app. Changes should show up within 30 minutes. If not, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
 
 ## Diagnose and solve problems tool for virtual machines
 
