@@ -71,7 +71,7 @@ If you're assessing servers by using a CSV file, you don't need an appliance. In
 
 ## What data does the appliance collect?
 
-If you're using the Azure Migrate appliance for assessment, learn about the metadata and performance data that's collected for [VMware](discovered-metadata.md##collected-metadata-for-vmware-servers) and [Hyper-V](discovered-metadata.md#collected-metadata-for-hyper-v-servers).
+If you're using the Azure Migrate appliance for assessment, learn about the metadata and performance data that's collected for [VMware](discovered-metadata.md#collected-metadata-for-vmware-servers) and [Hyper-V](discovered-metadata.md#collected-metadata-for-hyper-v-servers).
 
 ## How does the appliance calculate performance data?
 
