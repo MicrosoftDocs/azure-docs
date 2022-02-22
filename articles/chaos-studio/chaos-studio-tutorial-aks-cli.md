@@ -6,7 +6,8 @@ ms.topic: how-to
 ms.date: 11/11/2021
 ms.author: johnkem
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create a chaos experiment that uses a Chaos Mesh fault with the Azure CLI

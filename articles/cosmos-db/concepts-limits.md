@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB service quotas
 description: Azure Cosmos DB service quotas and default limits on different resource types.
-author: abhijitpai
-ms.author: abpai
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 02/16/2022
 ---
 
 # Azure Cosmos DB service quotas
@@ -74,7 +74,7 @@ In summary, here are the minimum provisioned RU limits.
 | Resource | Default limit |
 | --- | --- |
 | Minimum RUs per container ([dedicated throughput provisioned mode](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimum RUs per database ([shared throughput provisioned mode](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. Additional 100 RU/s for each container afterward. |
+| Minimum RUs per database ([shared throughput provisioned mode](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. |
 
 Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.    
 
@@ -113,7 +113,7 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 | --- | --- |
 | Maximum number of databases | 500 |
 | Maximum number of containers per database with shared throughput |25 |
-| Maximum number of containers per database or account with dedicated throughput  | 500 |
+| Maximum number of containers per account | 500 |
 | Maximum number of regions | No limit (All Azure regions) |
 
 ### Serverless

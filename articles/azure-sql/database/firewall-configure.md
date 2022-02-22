@@ -6,7 +6,6 @@ ms.service: sql-database
 ms.subservice: security
 titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: 
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto

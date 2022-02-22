@@ -6,13 +6,13 @@ ms.date: 07/02/2021
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/cpp.md)]
+[!INCLUDE [Header](../../common/cpp.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 
