@@ -8,40 +8,40 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/30/2021
+ms.date: 02/17/2022
 ---
 
-# Troubleshooting common issues with Shared Private Link Resources
+# Troubleshooting common issues with Shared Private Links
 
-Shared private link resources allow Azure Cognitive Search to make secure outbound connections to access customer resources. However, during the process of managing (create, delete, or update) these resources a few different types of errors might occur.
+A shared private link allows Azure Cognitive Search to make secure outbound connections when accessing customer resources in a virtual network. This article can help you resolve errors that might occur.
 
-## Creating a shared private link resource
+## How a shared private link is created
 
-There are four distinct steps involved in creation of a shared private link resource:
+There are four distinct steps involved in [creating a shared private link](search-indexer-howto-access-private.md):
 
-1. Customer invokes the management plane [CreateOrUpdate API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update) on the Search Resource Provider (RP) with details of the shared private link resource to be created.
+1. Create a shared private link in the search service control plane using either the portal or a [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update).
 
-2. Search RP validates the request and if validate commences an asynchronous Azure Resource Manager operation (whose progress can be queried by the customer)
+2. The search [resource provider](../azure-resource-manager/management/overview.md#terminology) validates the request and  commences an asynchronous Azure Resource Manager operation to create the shared private link.
 
-3. Search queries for the completion of the operation (which usually takes a few minutes). At this point, the shared private link resource would have a provisioning state of "Updating".
+3. This operation usually takes a few minutes. You can query the status of the operation in the portal or through the Management API. During provisioning, the state of the request is "Updating".
 
-4. Once the operation completes successfully, a private endpoint (along with any DNS zones and mappings) is created. At this point, if the customer queries the state of the shared private link resource, it would have a provisioning state of "Succeeded".
+4. After the operation completes successfully, status is "Succeeded". A private endpoint, along with any DNS zones and mappings, is created.
 
 ![Steps involved in creating shared private link resources ](media\troubleshoot-shared-private-link-resources\shared-private-link-states.png)
 
 Some common errors that occur during the creation phase are listed below.
 
-### Request validation failures
+## Request validation failures
 
-+ Unsupported SKU: Shared private link resources can only be created for paid SKUs, free tier services are not supported.
++ Unsupported SKU: Shared private links are supported on the Basic tier and above. For indexers with skillsets, the minimum tier is Standard 2 (S2).
 
-+ Name validation: Shared private link resource names are restricted to only a certain set of characters. If the resource name contains any invalid characters, the request to create the resource will not be accepted.
-The rules for naming a shared private link resource are:
++ Invalid name: Naming rules for a shared private link are:
   
-  + Length should be between 1 to 60 characters.
-  + Should only contain alphanumeric characters or the characters underscore (_), period (.) or hyphen (-)
+  + Length should be between 1 to 60 characters
+  + Alphanumeric characters
+  + Names can include underscore `_`, period `.`, and hyphen `-` as long as it's not the first character in the name
 
-+ `groupId` validation: The `groupId` specified as part of the request to create a shared private link resource should match (in both spelling and case) to the table below:
++ Invalid group ID: Group IDs are case-sensitive and must be one of the values from the table below:
 
 | Azure resource | Group ID | First available API version |
 | --- | --- | --- |
@@ -53,7 +53,7 @@ The rules for naming a shared private link resource are:
 | Azure Key Vault | `vault` | `2020-08-01` |
 | Azure Functions (preview) | `sites` | `2020-08-01-Preview` |
 
-Resources marked with "(preview)" are only available in preview management plane API versions and are not generally available yet. Any other `groupId` (or a `groupId` used in an API version that does not support it) would fail validation.
+Resources marked with "(preview)" are only available in preview management plane API versions and are not generally available yet. Any other `groupId` (or a `groupId` used in an API version that does not support it) will fail validation.
 
 + `privateLinkResourceId` type validation: Similar to `groupId`, Azure Cognitive Search validates that the "correct" resource type is specified in the `privateLinkResourceId`. The following are valid resource types:
 
@@ -70,7 +70,7 @@ In addition, the specified `groupId` needs to be valid for the specified resourc
 
 + Quota limit enforcement: Search services have quotas imposed on the distinct number of shared private link resources that can be created and the number of various target resource types that are being used (based on `groupId`). These are documented in the [Shared private link resource limits section](search-limits-quotas-capacity.md#shared-private-link-resource-limits) of the Azure Cognitive Search service limits page.
 
-### Azure Resource Manager deployment failures
+## Azure Resource Manager deployment failures
 
 A search service initiates the request to create a shared private link, but Azure Resource Manager performs the actual work. You can [check the deployment's status](search-indexer-howto-access-private.md#check-endpoint-status) in the portal or by query, and address any errors that might occur.
 
@@ -83,7 +83,7 @@ Shared private link resources that have failed Azure Resource Manager deployment
 | Target resource not found | Existence of the target resource specified in `privateLinkResourceId` is checked only during the commencement of the Azure Resource Manager deployment. If the target resource is no longer available, then the deployment will fail. | Customer should ensure that the target resource is present in the specified subscription and resource group and is not moved/deleted |
 | Transient/other errors | The Azure Resource Manager deployment can fail if there is an infrastructure outage or because of other unexpected reasons. This should be rare and usually indicates a transient state. | Retry creating this resource at a later time. If the problem persists reach out to Azure Support. |
 
-### Resource stuck in "Updating" or "Incomplete" state
+## Resource stuck in "Updating" or "Incomplete" state
 
 Typically, a shared private link resource should go a terminal state (`Succeeded` or `Failed`) in a few minutes after the request has been accepted by the search RP.
 

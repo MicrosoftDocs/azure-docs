@@ -15,23 +15,23 @@ ms.date: 02/17/2022
 
 Many Azure resources, such as Azure storage accounts, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. If you're using an indexer and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) in Azure Cognitive Search to reach the data in another resource.
 
-## Prerequisites
-
-+ The Azure resource that provides content or code must be previously registered with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
-
-+ The Azure Cognitive Search service must be on the Basic tier or higher. The feature isn't available on the Free tier. Additionally, if your indexer has a skillset, the tier must be Standard 2 (S2) or higher. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
-
-## Shared private link resources management APIs
-
 Private endpoints created through Azure Cognitive Search APIs are referred to as *shared private links* or *managed outbound private endpoints*. The concept of a shared private link is "sharing" access to a resource, such as a storage account, that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). 
 
 To create a shared private link, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API.
 
 If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to create the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
 
-The following table lists Azure resources for which you can create outbound private endpoints from Azure Cognitive Search. 
+## Prerequisites
 
-To create a shared private link resource, set the **Group ID** values exactly as they're written in the API. The values are case-sensitive. For several resources and features, you'll need to set two IDs.
++ The Azure resource that provides content or code must be previously registered with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
+
++ The search service must be Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
+
+## Supported resources and Group IDs
+
+The following table lists Azure resources for which you can create managed private endpoints from within Azure Cognitive Search. 
+
+When setting up a shared private link resource, make sure the **Group ID** value is exact. Values are case-sensitive and must be identical to those shown in the following table. Notice that for several resources and features, you'll need to set two IDs.
 
 | Azure resource | Group ID |
 | --- | --- |
@@ -43,8 +43,12 @@ To create a shared private link resource, set the **Group ID** values exactly as
 | Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault for [customer-managed keys](search-security-manage-encryption-keys.md) | `vault` |
 | Azure Functions (preview) | `sites` |
-| [Enrichment cache](cognitive-search-incremental-indexing-conceptual.md) | `blob` and `table`|
-| [Knowledge store](knowledge-store-concept-intro.md) (object, file, table projections) | `blob` and `table`|
+
+For search features that use Azure Storage for storing customer data:
+
++ An [enrichment cache](cognitive-search-incremental-indexing-conceptual.md) connection needs a shared private link with `blob`.
+
++ A [knowledge store](knowledge-store-concept-intro.md) connection that makes full use of all types of projections (object, file, table) needs `blob` and `table`.
 
 > [!TIP]
 > Query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
