@@ -68,16 +68,16 @@ In this article you'll learn how to:
 ## Configuring DNS
 
 In the context of this scenario, DNS is relevant in two places:
-1. the DNS name which the user or client is using towards Application Gateway and what is shown in a browser
-2. the DNS name which Application Gateway is internally using to access the App Service in the backend
+1. the DNS name, which the user or client is using towards Application Gateway and what is shown in a browser
+2. the DNS name, which Application Gateway is internally using to access the App Service in the backend
 
 ### [Custom Domain (recommended)](#tab/customdomain)
 
-For the user or client to get routed to Application Gateway using the custom domain, DNS needs to be set up with a CNAME alias pointing to the DNS address of the Application Gateway.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.  Alternatively, an A record can be created, pointing to the IP address directly.  (Note that for Application Gateway V1 the VIP can change if you stop and start the service which makes this option undesired.)
+To route the user or client to Application Gateway using the custom domain, set up DNS with a CNAME alias pointing to the DNS for Application Gateway.  The Application Gateway DNS address is shown on the overview page of the associated Public IP address.  Alternatively, an A record can be created that points to the IP address directly.  (For Application Gateway V1 the VIP can change if you stop and start the service, which makes this option undesired.)
 
-For Application Gateway to connect to App Service using the same custom domain, App Service should be configured so it accepts traffic using the custom domain name as the incoming host.  For more information on how to map a custom domain to the App Service, see [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md)  Note that to verify the domain, App Service only requires adding a TXT record and no change is required on CNAME or A-records.  The DNS configuration for the custom domain will remain directed towards Application Gateway.
+For Application Gateway to connect to App Service using the same custom domain, App Service should be configured so it accepts traffic using the custom domain name as the incoming host.  For more information on how to map a custom domain to the App Service, see [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md)  To verify the domain, App Service only requires adding a TXT record.  No change is required on CNAME or A-records.  The DNS configuration for the custom domain will remain directed towards Application Gateway.
 
-To accept connections to App Service over HTTPS, configure its TLS binding.  For this, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md)  It is recommended to have App Service pull the certificate for the custom domain from Azure Key Vault.
+To accept connections to App Service over HTTPS, configure its TLS binding.  For this, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md)  Configure App Service to pull the certificate for the custom domain from Azure Key Vault.
 
 ### [Default Domain](#tab/defaultdomain)
 
