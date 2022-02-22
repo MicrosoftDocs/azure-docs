@@ -152,7 +152,7 @@ Support for performance counters in ASP.NET Core is limited:
 * SDK Versions 2.8.0 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](eventcounters.md)
 
 ## Performance counters for applications deployed to Azure App Service
-ASP.NET and ASP.NET Core applications deployed to Azure App Service can utilize a [Windows container](https://docs.microsoft.com/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-linux) or be hosted in a sandbox environment. If the application is deployed in a Windows Container all standard performance counters  are available in the container image. 
+ASP.NET and ASP.NET Core applications deployed to Azure App Service can utilize a [Windows container]](/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-linux) or be hosted in a sandbox environment. If the application is deployed in a Windows Container all standard performance counters  are available in the container image. 
 
 The sandbox environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Only a subset of counters are available in this environment, and the full list can be found [here.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
 
