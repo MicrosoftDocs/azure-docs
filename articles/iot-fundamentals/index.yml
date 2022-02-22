@@ -224,4 +224,4 @@ tools:
     # Card
     - title: Azure IoT Central REST API reference
       imageSrc: https://docs.microsoft.com/media/logos/logo_REST.svg
-      url: /rest/api/iot-central
+      url: /rest/api/iotcentral
