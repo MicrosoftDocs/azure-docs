@@ -153,7 +153,7 @@ Tables related to Application Insights resources also keep data for 90 days at n
 - `AppSystemEvents`
 - `AppTraces`
 
-## Pricing
+## Pricing model
 
 You'll be charged for each day you retain data. The cost of retaining data for part of a day is the same as for a full day.
 
