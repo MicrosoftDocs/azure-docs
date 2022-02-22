@@ -16,6 +16,11 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
+| Documentation | Added questions and answers to the [Commercial marketplace analytics FAQ](/azure/marketplace/analytics-faq). Such as how to enroll in commercial marketplace, where to create a marketplace offer, how to get started with programmatic access to commercial marketplace analytics report, and more. | 2022-11-02 |
+| Documentation | The payment schedule for [Payout schedules and processes](/azure/marketplace/analytics-programmatic-access) was updated. | 2022-11-02 |
+| Analytics | We’ve added a new [Customer Retention Dashboard](/azure/marketplace/customer-retention-dashboard) that provides vital insights into customer engagement.  See also the [FAQ article](/azure/marketplace/analytics-faq). | 2022-11-02 |
+| Analytics | We added a Quality of Service (QoS) report query to the [List of system queries](/azure/marketplace/analytics-system-queries) used in the Create Report API. | 2022-11-02 |
+| Analytics | An ISV can now specify time-bound margins for CSP partners, to incentivize them to sell it to their customers.  When their partner makes a sale to a customer, Microsoft will pay the ISV the wholesale price.  See [ISV to CSP Partner private offers](/azure/marketplace/isv-csp-reseller) and [the FAQs](/azure/marketplace/isv-csp-faq). | 2022-11-02 |
 | Offers | Added a [Revenue Dashboard](revenue-dashboard.md) to Partner Center, including a revenue report, [sample queries](analytics-sample-queries.md#revenue-report-queries), and [FAQs](/azure/marketplace/analytics-faq#revenue) page. | 2021-12-08 |
 | Offers | Container and container apps offers can now use the Microsoft [Standard Contract](standard-contract.md). | 2021-11-02 |
 | Offers | Private plans for [SaaS offers](plan-saas-offer.md) are now available on AppSource. | 2021-10-06 |
@@ -24,8 +29,6 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Offers | While [private plans](private-plans.md) were previously only available on the Azure portal, they are now also available on Microsoft AppSource. | 2021-09-10 |
 | Analytics | Publishers of Azure application offers can view offer deployment health in the Quality of service (QoS) reports. QoS helps publishers understand the reasons for offer deployment failures and provides actionable insights for their remediation. For details, see [Quality of service (QoS) dashboard](quality-of-service-dashboard.md). | 2021-09-07 |
 | Policy | The SaaS customer [refund window](/marketplace/refund-policies) is now [72 hours](/azure/marketplace/marketplace-faq-publisher-guide) for all offers. | 2021-09-01 |
-| Offers | Additional properties at the plan level are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-plan-overview.md#properties) article for more information. | 2021-07-26 |
-| Fees | Microsoft has reduced its standard store service fee to 3%. See [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) and Common questions about payouts and taxes, "[How do I find the current Store Service Fee and the payout rate?](/partner-center/payout-faq)". | 2021-07-14 |
 |
 
 ## Tax updates
@@ -35,9 +38,6 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Taxation | - Kenya, Moldova, Tajikistan, and Uzbekistan were moved from the Publisher/Developer managed list to the [End-customer taxation with differences in marketplace](/partner-center/tax-details-marketplace) list to show the difference in treatment between the two Marketplaces. <br> - Rwanda and Qatar were added to the [Publisher/Developer managed countries](/partner-center/tax-details-marketplace) list.  <br> -  Barbados was moved from the [Publisher/Developer managed countries](/partner-center/tax-details-marketplace) list to [Microsoft Managed country](/partner-center/tax-details-marketplace) list. | 2022-02-10 |
 | Payouts | We've updated the external tax form page, including instructions on how to reconcile 1099-k forms; see questions about tax forms at [Understand IRS tax forms issued by Microsoft](/partner-center/understand-irs-tax-forms). | 2022-01-06 |
 | Taxation | Nigeria and Thailand are now [Microsoft-managed countries](/partner-center/tax-details-marketplace) in Azure Marketplace. | 2021-09-13 |
-| Taxation | End-customer taxation in Australia is managed by Microsoft, except for customer purchases made through an enterprise agreement, which are managed by the publisher. | 2021-07-01 |
-| Taxation | Updated [tax details page](/partner-center/tax-details-marketplace) country list to include the following: <br><br> - Argentina <br> - Bulgaria <br> - Hong Kong SAR <br> - Korea (South) <br>- Pakistan <br> - Palestinian Authority <br> - Panama <br> - Paraguay <br> - Peru <br> - Philippines <br> - Saint Kitts and Nevis <br> - Senegal <br> - Sri Lanka <br> - Tajikistan <br> - Tanzania <br> - Thailand <br> - Trinidad and Tobago <br> - Tunisia <br> - Turkmenistan <br> - Uganda <br> - Uzbekistan <br> - Zimbabwe | 2021-07-01 |
-| Taxation | Nigeria moved from the "shared publisher/developer-managed countries" list to the “end-customer taxation with differences in Marketplaces".  | 2021-07-01 |
 |
 
 ## Documentation updates
