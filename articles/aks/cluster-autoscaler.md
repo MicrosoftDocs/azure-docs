@@ -109,7 +109,7 @@ az aks update \
 The above example updates cluster autoscaler on the single node pool in *myAKSCluster* to a minimum of *1* and maximum of *5* nodes.
 
 > [!NOTE]
-> Cluster autoscaler will now enforce the minimum count in cases where the actual count drops below that. For example, Spot eviction or changing the minimum count value from the AKS API. In the past, the autoscaler operated and respected the minimum count but never interfered to enforce it if external factors affect it.
+> The cluster autoscaler will enforce the minimum count in cases where the actual count drops below the minimum due to external factors, such as during a spot eviction or when changing the minimum count value from the AKS API.
 
 Monitor the performance of your applications and services, and adjust the cluster autoscaler node counts to match the required performance.
 
