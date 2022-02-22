@@ -79,7 +79,7 @@ For Linux servers, you can create a user account in one of three ways:
 
     :::image type="content" source="./media/tutorial-discover-physical/issudo-reg-key.png" alt-text="Screenshot that shows how to enable sudo support.":::
 
-- You need to enable sudo access for the commands listed [here](migrate-appliance.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
+- You need to enable sudo access for the commands listed [here](discovered-metadata.md#linux-server-metadata). Make sure that you have enabled 'NOPASSWD' for the account to run the required commands without prompting for a password every time sudo command is invoked.
 - The following Linux OS distributions are supported for discovery by Azure Migrate using an account with sudo access:
 
     Operating system | Versions 

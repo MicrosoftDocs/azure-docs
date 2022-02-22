@@ -291,4 +291,4 @@ After discovery finishes, you can verify that the servers appear in the portal.
 ## Next steps
 
 * [Assess GCP servers](tutorial-assess-gcp.md) for migration to Azure VMs.
-* [Review the data](migrate-appliance.md#collected-data---physical) that the appliance collects during discovery.
+* [Review the data](discovered-metadata.md#collected-data---physical) that the appliance collects during discovery.

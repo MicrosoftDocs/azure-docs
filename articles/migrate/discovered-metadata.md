@@ -1,5 +1,5 @@
 ---
-title: Discovered metada
+title: Discovered metadata
 description: Provides details of the metadata discovered by Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 02/21/2022
 ---
 
-# Azure Migrate appliance
+# Metadata discovered by Azure Migrate appliance 
 
 This article provides details of the metadata discovered by Azure Migrate appliance.
 

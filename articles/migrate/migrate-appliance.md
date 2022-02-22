@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ---
 
-
+ 
 # Azure Migrate appliance
 
 This article summarizes the prerequisites and support requirements for the Azure Migrate appliance.
