@@ -22,14 +22,34 @@ Once your support representative has confirmed your access, register the Mobile 
 
 ## Allocate subnets and IP addresses
 
-The following table shows the networks to which a site will connect. For each network, allocate a subnet and then identify the IP addresses in the **Required IP addresses** column. If you're deploying multiple sites, you'll need to collect this information for each site.
+For each of the following networks, allocate a subnet and then identify the IP addresses in the **Required IP addresses** column. If you're deploying multiple sites, you'll need to collect this information for each site.
 
-| Network | Required IP addresses |
-|--|--|
-| Management network | - Network address in Classless Inter-Domain Routing (CIDR) notation. </br>-  Default gateway. </br>- One IP address for the Azure Stack Edge Pro device's management port. </br>- Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.</br>- One IP address for accessing local monitoring tools for the packet core instance. |
-| Access network | - Network address in CIDR notation. </br>- Default gateway. </br>- One IP address for port 5 on the Azure Stack Edge Pro device. </br>- One IP address for the packet core instance's N2 signaling interface. </br>- One IP address for the packet core instance's N3 interface. |
-| Data network | - Network address in CIDR notation. </br>- Default gateway. </br>- One IP address for port 6 on the Azure Stack Edge Pro device. </br>- One IP address for the packet core instance's N6 interface. |
-| User Equipment (UE) IP address pool | IP address pool in CIDR notation. This should contain IP addresses for each UE that will be served by the private mobile network. |
+### Management network
+
+- Network address in Classless Inter-Domain Routing (CIDR) notation. 
+-  Default gateway. 
+- One IP address for the Azure Stack Edge Pro device's management port. 
+- Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
+- One IP address for accessing local monitoring tools for the packet core instance.
+
+### Access network
+
+- Network address in CIDR notation. 
+- Default gateway. 
+- One IP address for port 5 on the Azure Stack Edge Pro device. 
+- One IP address for the packet core instance's N2 signaling interface. 
+- One IP address for the packet core instance's N3 interface.
+
+### Data network
+
+- Network address in CIDR notation.
+- Default gateway.
+- One IP address for port 6 on the Azure Stack Edge Pro device.
+- One IP address for the packet core instance's N6 interface.
+
+### User Equipment (UE) IP address pool
+
+- IP address pool in CIDR notation. This should contain IP addresses for each UE that will be served by the private mobile network.
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 
