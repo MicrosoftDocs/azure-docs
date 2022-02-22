@@ -30,7 +30,17 @@
             "redirect_url": "/azure/defender-for-iot/organizations/getting-started",
             "redirect_document_id": false
         },
-	{
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-view-information-provided-in-alerts.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/how-to-view-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/how-to-work-with-alerts-on-your-sensor.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/concept-key-concepts#analytics-and-self-learning-engines",
+            "redirect_document_id": false
+        },
+	    {
             "source_path_from_root": "/azure/defender-for-iot/organizations/quickstart-system-prerequisites.md",
             "redirect_url": "/azure/defender-for-iot/organizations/getting-started",
             "redirect_document_id": false
@@ -553,6 +563,16 @@
         {
             "source_path_from_root": "/articles/defender-for-iot/device-builders/architecture-agent-based.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/references-horizon-api.md",
+            "redirect_url": "/azure/defender-for-iot/organizations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/defender-for-iot/organizations/references-horizon-sdk.md",
+            "redirect_url": "/azure/defender-for-iot/organizations",
             "redirect_document_id": false
         }
     ]

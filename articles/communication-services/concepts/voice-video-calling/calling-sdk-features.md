@@ -14,8 +14,6 @@ ms.subservice: calling
 ---
 # Calling SDK overview
 
-[!INCLUDE [SDP Plan B Deprecation Notice](../../includes/plan-b-sdp-deprecation.md)]
-
 The Calling SDK enables end-user devices to drive voice and video communication experiences. This page provides detailed descriptions of Calling features, including platform and browser support information. To get started right away, please check out [Calling quickstarts](../../quickstarts/voice-video-calling/getting-started-with-calling.md) or [Calling hero sample](../../samples/calling-hero-sample.md). 
 
 Once you've started development, check out the [known issues page](../known-issues.md) to find bugs we're working on.
@@ -55,6 +53,7 @@ The following list presents the set of features which are currently available in
 | Screen sharing    | Share the entire screen from within the application                                                                 | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Share a specific application (from the list of running applications)                                                | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Share a web browser tab from the list of open tabs                                                                  | ✔️   | ❌       | ❌              | ❌                 |
+|                   | Share system audio during screen sharing                                                                            | ❌   | ❌       | ❌              | ❌                 |
 |                   | Participant can view remote screen share                                                                            | ✔️   | ✔️       | ✔️              | ✔️                 |
 | Roster            | List participants                                                                                                   | ✔️   | ✔️       | ✔️              | ✔️                 |
 |                   | Remove a participant                                                                                                | ✔️   | ✔️       | ✔️              | ✔️                 |

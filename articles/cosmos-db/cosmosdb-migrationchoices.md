@@ -1,8 +1,8 @@
 ---
 title: Cosmos DB Migration options
 description: This doc describes the various options to migrate your on-premises or cloud data to Azure Cosmos DB
-author: anfeldma-ms
-ms.author: anfeldma
+author: rothja
+ms.author: jroth
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 11/03/2021

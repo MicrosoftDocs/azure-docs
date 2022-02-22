@@ -44,26 +44,28 @@ Enable replication. This procedure assumes that the primary Azure region is East
    - **Target subscription**: The target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription.
    - **Target resource group**: The resource group to which all your replicated virtual machines belong.
        - By default Site Recovery creates a new resource group in the target region with an "asr" suffix in the name.
-       - If the resource group created by Site Recovery already exists, it is reused.
+       - If the resource group created by Site Recovery already exists, it's reused.
        - You can customize the resource group settings.
        - The location of the target resource group can be any Azure region, except the region in which the source VMs are hosted.
    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region with an "asr" suffix in the name. This is mapped to your source network, and used for any future protection. [Learn more](./azure-to-azure-network-mapping.md) about network mapping.
-   - **Target storage accounts (source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account mimicking your source VM storage configuration. In case storage account already exists, it is reused.
+   - **Target storage accounts (source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account mimicking your source VM storage configuration. In case storage account already exists, it's reused.
    - **Replica-managed disks (source VM uses managed disks)**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
    - **Cache Storage accounts**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. This storage account should be Standard.
-   - **Target availability sets**: By default, Site Recovery creates a new availability set in the target region with the "asr" suffix in the name, for VMs that are part of an availability set in the source region. If the availability set created by Site Recovery already exists, it is reused.
+   - **Target availability sets**: By default, Site Recovery creates a new availability set in the target region with the "asr" suffix in the name, for VMs that are part of an availability set in the source region. If the availability set created by Site Recovery already exists, it's reused.
      >[!NOTE]
      >While configuring the target availability sets, please configure different availability sets for differently sized VMs. 
      >
    - **Target availability zones**: By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones.
 
-     If the target region does not support availability zones, the target VMs are configured as single instances by default. If required, you can configure such VMs to be part of availability sets in target region by clicking 'Customize'.
+     If the target region does not support availability zones, the target VMs are configured as single instances by default. If necessary, you can configure such VMs to be part of availability sets in target region by clicking 'Customize'.
 
      >[!NOTE]
      >You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You need to disable and enable replication to change the availability type.
      >
 
-   - **Replication Policy**: It defines the settings for recovery point retention history and app consistent snapshot frequency. By default, Azure Site Recovery creates a new replication policy with default settings of ‘24 hours’ for recovery point retention and ’4 hours’ for app consistent snapshot frequency.
+   - **Replication Policy**: It defines the settings for retention period of recovery points and app-consistent snapshot frequency. By default, Azure Site Recovery creates a default replication policy with the following settings:
+     - One day of retention for recovery points.
+     - No app-consistent snapshots.
 
      ![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 

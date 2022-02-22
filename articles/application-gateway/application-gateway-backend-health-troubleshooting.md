@@ -264,7 +264,7 @@ request contains the string **unauthorized**, it will be marked as Healthy. Othe
 
 1.  Verify that the response body in the Application Gateway custom probe configuration matches what's configured.
 
-1.  If they don't match, change the probe configuration so that is has the correct string value to accept.
+1.  If they don't match, change the probe configuration so that it has the correct string value to accept.
 
 Learn more about [Application Gateway probe matching](./application-gateway-probe-overview.md#probe-matching).
 

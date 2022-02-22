@@ -7,7 +7,6 @@ ms.service: sql-db-mi
 ms.subservice: high-availability
 ms.custom: sqldbrb=2, devx-track-azurecli
 ms.topic: how-to
-ms.devlang: 
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma

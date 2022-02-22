@@ -38,7 +38,7 @@ In this tutorial you will learn how to:
 
 The IoT Hub recommendations list displays all of the aggregated security recommendations for your IoT Hub.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
 
@@ -48,7 +48,7 @@ The IoT Hub recommendations list displays all of the aggregated security recomme
 
 Open each aggregated recommendation to display the detailed recommendation description, remediation steps, device ID for each device that triggered a recommendation. It also displays recommendation severity and direct-investigation access using Log Analytics.
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
 
@@ -66,7 +66,7 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
 **To access your recommendations in Log Analytics workspace**:
 
-1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Recommendations**.
 

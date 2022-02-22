@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 11/18/2021
+ms.date: 01/22/2022
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -118,6 +118,14 @@ To update your app to Azure Functions 4.x, update your local installation of [Az
 
 #### Azure
 
+A pre-upgrade validator is available to help identify potential issues when migrating a function app to 4.x. Before you migrate an existing app, follow these steps to run the validator:
+
+1. In the Azure portal, navigate to your function app
+
+1. Open the *Diagnose and solve problems* blade
+
+1. In *Search for common problems or tools*, enter and select **Functions 4.x Pre-Upgrade Validator**
+
 To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
 
 ```bash
@@ -198,7 +206,7 @@ The main differences between versions when running .NET class library functions 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-* Output bindings assigned through `context.done` or return values now behave the same as setting in `context.bindings`.
+* Output bindings assigned through 1.x `context.done` or return values now behave the same as setting in 2.x+ `context.bindings`.
 
 * Timer trigger object is camelCase instead of PascalCase
 

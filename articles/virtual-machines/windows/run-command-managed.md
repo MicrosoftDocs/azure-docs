@@ -9,8 +9,7 @@ ms.author: cynthn
 ms.date: 10/28/2021
 ms.topic: how-to  
 ms.reviewer: jushiman
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Preview: Run scripts in your Windows VM by using managed Run Commands
 
@@ -76,7 +75,7 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 This command will deliver the script to the VM, execute it, and return the captured output.
 
 ```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" – Script "Write-Host Hello World!"
+Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" –SourceScript "Write-Host Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a VM 

@@ -47,7 +47,7 @@ This section lists protocols that are detected using passive monitoring.
 
 **Medical:** ASTM, HL7
 
-**Microsoft:** Horizon community dissectors, Horizon proprietary dissectors (developed by customers). See [Horizon proprietary protocol dissector](references-horizon-sdk.md) for details.
+**Microsoft:** Horizon community dissectors, Horizon proprietary dissectors (developed by customers). 
 
 **Mitsubishi:** Melsoft / Melsec (Mitsubishi Electric)
 
@@ -113,6 +113,4 @@ We invite you to join our community here: <horizon-community@microsoft.com>
 
 ## Next steps
 
-Learn more about the [Horizon proprietary protocol dissector](references-horizon-sdk.md).
-
-Check out our [Horizon API](references-horizon-api.md).
+[Customize alert rules](how-to-accelerate-alert-incident-response.md#customize-alert-rules).

@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to update a command from a client application.
 services: cognitive-services
 author: eric-urban
-manager: yetian
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: eur
 ---

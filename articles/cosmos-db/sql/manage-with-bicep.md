@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 02/18/2022
 ms.author: mjbrown
 ---
 
@@ -20,18 +20,17 @@ This article shows Bicep samples for Core (SQL) API accounts. You can also find 
 > [!IMPORTANT]
 >
 > * Account names are limited to 44 characters, all lowercase.
-> * To change the throughput values, redeploy the Bicep file with updated RU/s.
+> * To change the throughput (RU/s) values, redeploy the Bicep file with updated RU/s.
 > * When you add or remove locations to an Azure Cosmos account, you can't simultaneously modify other properties. These operations must be done separately.
-> * Azure Cosmos DB resources cannot be renamed as this violates how Azure Resource Manager works with resource URIs.
 > * To provision throughput at the database level and share across all containers, apply the throughput values to the database options property.
 
-To create any of the Azure Cosmos DB resources below, copy the following example into a new bicep file. You can optionally create a parameters file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Resource Manager templates including, [Azure CLI](../../azure-resource-manager/bicep/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/bicep/deploy-powershell.md) and [Cloud Shell](../../azure-resource-manager/bicep/deploy-cloud-shell.md).
+To create any of the Azure Cosmos DB resources below, copy the following example into a new bicep file. You can optionally create a parameters file to use when deploying multiple instances of the same resource with different names and values. There are many ways to deploy Azure Bicep files including, [Azure CLI](../../azure-resource-manager/bicep/deploy-cli.md), [Azure PowerShell](../../azure-resource-manager/bicep/deploy-powershell.md) and [Cloud Shell](../../azure-resource-manager/bicep/deploy-cloud-shell.md).
 
 <a id="create-autoscale"></a>
 
 ## Azure Cosmos account with autoscale throughput
 
-Create an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for autoscale throughput that has most policy options enabled.
+Create an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for autoscale throughput that has most index policy options enabled.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql-autoscale/main.bicep":::
 
