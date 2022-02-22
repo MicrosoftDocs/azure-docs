@@ -1540,7 +1540,7 @@
     - name: Common API samples
       items:
         - name: Overview common API samples
-          href: cli-samples.md
+          href: common-cli-samples.md
         - name: Azure CLI samples
           items:
             - name: Add or fail over regions

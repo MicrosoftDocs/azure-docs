@@ -61,4 +61,10 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
+For Azure CLI samples for specific APIs see:
 
+- [CLI Samples for Cassandra](../cassandra/cli-samples.md)
+- [CLI Samples for Gremlin](../graph/cli-samples.md)
+- [CLI Samples for MongoDB API](../mongodb/cli-samples.md)
+- [CLI Samples for SQL](../sql/cli-samples.md)
+- [CLI Samples for Table](../table/cli-samples.md)

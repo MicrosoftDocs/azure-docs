@@ -25,7 +25,7 @@ The script in this article demonstrates performing resource lock operations for 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.9.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 
@@ -61,3 +61,5 @@ This script uses the following commands. Each command in the table links to comm
 - [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
 - [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+
+For Azure CLI samples common for all Cosmos DB APIs see [Common API samples](/common-cli-samples.md).

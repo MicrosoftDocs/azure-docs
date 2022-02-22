@@ -61,3 +61,5 @@ This script uses the following commands. Each command in the table links to comm
 - [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
 - [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
+
+For Azure CLI samples common for all Cosmos DB APIs see [Common API samples](/common-cli-samples.md).

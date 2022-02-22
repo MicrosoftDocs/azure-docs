@@ -19,7 +19,7 @@ The script in this article creates a Table API table then updates the throughput
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.12.1 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If using Azure Cloud Shell, the latest version is already installed.
 
 ## Sample script
 
@@ -54,4 +54,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
-
+For Azure CLI samples common for all Cosmos DB APIs see [Common API samples](/common-cli-samples.md).

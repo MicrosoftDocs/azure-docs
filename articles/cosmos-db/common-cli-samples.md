@@ -1,26 +1,27 @@
 ---
-title: Azure CLI Samples for Azure Cosmos DB Table API
-description: Azure CLI Samples for Azure Cosmos DB Table API
-author: markjbrown
+title: Azure CLI Samples common to all Azure Cosmos DB APIs
+description: Azure CLI Samples common to all Azure Cosmos DB APIs
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 11/15/2021
+ms.date: 02/22/2022
 ms.author: mjbrown 
 ms.custom: devx-track-azurecli
 ---
 
-# Azure CLI samples for Azure Cosmos DB Table API
+# Azure CLI samples for Azure Cosmos DB API
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
-The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Use the links on the right to navigate to API specific samples. Common samples are the same across all APIs. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb).
+The following table includes links to sample Azure CLI scripts that apply to all Cosmos DB APIs.
 
-These samples require Azure CLI version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli)
+For API specific samples, see [API specific samples](#api-specific-samples). Common samples are the same across all APIs.
 
-## Common Samples
+These samples require Azure CLI version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If using Azure Cloud Shell, the latest version is already installed.
 
-These samples apply to all Azure Cosmos DB APIs
+## Common API Samples
+
+These samples apply to all Azure Cosmos DB APIs. These samples use a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB.
 
 |Task | Description |
 |---|---|
@@ -38,3 +39,7 @@ These samples apply to all Azure Cosmos DB APIs
 - [MongoDB API samples](mongodb/cli-samples.md)
 - [SQL API samples](sql/cli-samples.md)
 - [Table API samples](table/cli-samples.md)
+
+## Next steps
+
+Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb).
