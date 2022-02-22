@@ -14,7 +14,7 @@ ms.date: 02/10/2022
 
 This sample CLI script enables [audit logs](../concepts-audit-logs.md) on an Azure Database for MySQL - Flexible Server.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/flexible-server-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/flexible-server-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
