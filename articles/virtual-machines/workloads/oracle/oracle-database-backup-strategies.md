@@ -138,6 +138,14 @@ Azure Backup service provides a [framework](../../../backup/backup-azure-linux-a
 
 Azure Backup is now providing an [enhanced pre-script and post-script framework](../../../backup/backup-azure-linux-database-consistent-enhanced-pre-post.md), now generally available, where the Azure Backup service will provide packaged pre-scripts and post-scripts for selected applications. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre-scripts and post-scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team so users can be assured of the support, ownership, and validity of these scripts. Currently, the supported applications for the enhanced framework are Oracle and MySQL, with more application types expected in the future. The snapshot will be a full copy of the storage and not an incremental or Copy on Write snapshot, so it is an effective medium to restore your database from.
 
+## VLDB considerations
+
+Backup strategies for Very large databases (VLDB) require careful consideration due to their size. Using RMAN to backup to Azure Blob and Azure Files storage may not provide the required throughput to backup a VLDB in the target time frame. RMAN incremental backup can be used to reduce backup sizes which may allow Azure Storage to be used as the backup medium for VLDB's, however for VLDB's with high volumes of changes this might not be effective. 
+
+Using Azure services that provide snapshot capabilities such as Azure Backup service or Azure NetApp Files (ANF) is generally the recommended approach for VLDB's. Application consistent snapshots, where the databases are automatically placed in and out of backup mode, take only seconds to create regardless of the size of the database.
+
+Your backup strategy may be also tied to the overall storage solution used for the Oracle database. Extreme IO throughput database workloads often use Azure NetApp Files or third party Azure marketplace solutions such as Silk, to underpin the database storage throughput and IOPS requirements. These solutions also provide application consistent snapshots that can be used for fast database backup and restore operations. 
+
 ## Next steps
 
 - [Create Oracle Database quickstart](oracle-database-quick-create.md)

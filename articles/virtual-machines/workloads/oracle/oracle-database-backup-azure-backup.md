@@ -1,6 +1,6 @@
 ---
-title: Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup
-description: Learn how to back up and recover an Oracle Database 19c database using the Azure Backup service.
+title: Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup
+description: Learn how to back up and recover an Oracle Database using the Azure Backup service.
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -12,7 +12,7 @@ ms.reviewer: dbakevlar
 
 ---
 
-# Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup
+# Back up and recover an Oracle Database on an Azure Linux VM using Azure Backup
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
@@ -26,7 +26,9 @@ This article demonstrates the use of Azure Backup to take disk snapshots of the 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 19c. The Marketplace image currently used to create the VM is  **Oracle:oracle-database-19-3:oracle-database-19-0904:latest**. Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
+- To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 12c or higher.
+
+- Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
 
 
 ## Prepare the environment
@@ -169,12 +171,17 @@ The Azure Backup service provides simple, secure, and cost-effective solutions t
 
 Azure Backup service provides a [framework](../../../backup/backup-azure-linux-app-consistent.md) to achieve application consistency during backups of Windows and Linux VMs for various applications like Oracle and MySQL. This involves invoking a pre-script (to quiesce the applications) before taking a snapshot of disks and calling a post-script (to unfreeze the applications) after the snapshot is completed. 
 
-The framework has now been enhanced so that packaged pre-scripts and post-scripts for selected applications like Oracle are provided by the Azure Backup service and are pre-loaded on the Linux image, so there is nothing you need to install. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre and post scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team and so users can be assured of the support, ownership, and validity of these scripts. Currently, the supported applications for the enhanced framework are *Oracle* and *MySQL*.
+The framework has now been enhanced so that packaged pre-scripts and post-scripts for selected applications like Oracle are provided by the Azure Backup service and are pre-loaded on the Linux image, so there is nothing you need to install. Azure Backup users just need to name the application and then Azure VM backup will automatically invoke the relevant pre and post scripts. The packaged pre-scripts and post-scripts will be maintained by the Azure Backup team and so users can be assured of the support, ownership, and validity of these scripts. 
+
+Currently, the supported applications for the enhanced framework are *Oracle 12.x or higher* and *MySQL*.
+Please see the [Support matrix for managed pre-post scripts for Linux databases](../../../backup/backup-support-matrix-iaas.md) for details. 
+Customers can author their own scripts for Azure Backup to use with pre-12.x databases. Example scripts can be found [here](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts).
+
 
 > [!Note]
 > The enhanced framework will run the pre and post scripts on all Oracle databases installed on the VM each time a backup is executed. 
 >
-> The parameter `configuration_path` in the **workload.conf** file points to the location of the Oracle /etc/oratab file (or a user defined file that follows the oratab syntax). See  [Set up application-consistent backups](#set-up-application-consistent-backups) for details.
+> The parameter `configuration_path` in the **workload.conf** file points to the location of the Oracle /etc/oratab file (or a user defined file that follows the oratab syntax). See  [Set up application-consistent backups](#set-up-application-consistent-backups) for details. 
 > 
 > Azure Backup will run the pre and post backup scripts for each database listed in the file pointed to by configuration_path, except those lines that begin with # (treated as comment) or +ASM (Oracle Automatic Storage Management instance).
 > 
@@ -247,8 +254,9 @@ To use Azure Backup to back up the database, complete these steps:
 1. Set up external authentication for the new backup user. 
 
    The backup user `azbackup` needs to be able to access the database using external authentication, so as not to be challenged by a password. In order to do this you must create a database user that authenticates externally through `azbackup`. The database uses a prefix for the user name which you need to find.
-
-   On each database installed on the VM perform the following steps:
+   
+   > [!IMPORTANT]
+   > On each database installed on the VM perform the following steps:
  
    Log in to the database using sqlplus and check the default settings for external authentication:
    
@@ -294,7 +302,8 @@ To use Azure Backup to back up the database, complete these steps:
    
 1. Create a stored procedure to log backup messages to the database alert log:
 
-   Perform the following for each database installed on the VM:
+   > [!IMPORTANT]
+   > Perform the following for each database installed on the VM:
 
    ```bash
    sqlplus / as sysdba

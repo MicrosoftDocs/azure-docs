@@ -1,6 +1,6 @@
 ---
-title: Back up an Oracle Database 19c database on an Azure Linux VM with RMAN and Azure Files
-description: Learn how to back up an Oracle Database 19c database to Azure Files.
+title: Back up an Oracle Database on an Azure Linux VM with RMAN and Azure Files
+description: Learn how to back up an Oracle Database to Azure Files.
 author: cro27
 ms.service: virtual-machines
 ms.subservice: oracle
@@ -12,15 +12,17 @@ ms.reviewer: dbakevlar
 
 ---
 
-# Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Files
+# Back up and recover an Oracle Database on an Azure Linux VM using Azure Files
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-This article demonstrates the use of Azure Files as a media to back up and restore an Oracle database running on an Azure VM. You will back up the database using Oracle RMAN to an Azure file share mounted to the VM using the SMB protocol. Using Azure Files for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
+This article demonstrates the use of Azure Files as a media to back up and restore an Oracle database running on an Azure VM. The steps in this article have been tested against Oracle 12.x and higher. You will back up the database using Oracle RMAN to an Azure file share mounted to the VM using the SMB protocol. Using Azure Files for backup media is extremely cost effective and performant. However, for very large databases, Azure Backup provides a better solution.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
-- To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database 19c. The Marketplace image currently used to create the VM is  **Oracle:oracle-database-19-3:oracle-database-19-0904:latest**. Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
+- To perform the backup and recovery process, you must first create a Linux VM that has an installed instance of Oracle Database. We recommend using Oracle 12.x or higher. 
+
+- Follow the steps in the [Oracle create database quickstart](./oracle-database-quick-create.md) to create an Oracle database to complete this tutorial.
 
 ## Prepare the database environment
 
