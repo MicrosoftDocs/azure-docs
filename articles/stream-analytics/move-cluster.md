@@ -22,7 +22,7 @@ You must have the Azure Az PowerShell module installed on your machine to comple
 2. Select the resource group that contains the Stream Analytics cluster you want to move. 
 3. Select the Azure Stream Analytics resource you want to move and then click **Export template**.
 
-![Export Template](./media/move-cluster/export-template.png)
+:::image type="content" source="./media/move-cluster/export-template.png" alt-text="Screenshot of Azure Portal, with Stream Analytics resource selected, and the Export Template button highlighted at upper right" lightbox="./media/move-cluster/export-template.png":::
 
 4. Decompress the file and save the template to your local drive.
 5. Sign in to Azure PowerShell using your Azure credentials.
