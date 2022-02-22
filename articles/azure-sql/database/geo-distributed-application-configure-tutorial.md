@@ -5,7 +5,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: 
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa

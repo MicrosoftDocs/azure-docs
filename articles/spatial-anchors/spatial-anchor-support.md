@@ -38,7 +38,7 @@ For support from the Spatial Anchors team and the user community, see [Azure Spa
 ### Azure Spatial Anchors samples 
 If you are unable to run the samples, please file an issue in the [ASA samples repository](https://github.com/Azure/azure-spatial-anchors-samples/issues) by clicking _New issue_ then _Get started_
 
-## Provide content feedback
+## Provide content article feedback
 
 At the bottom of each content article, there is an opportunity to open a GitHub issue and provide feedback on the Azure Spatial Anchor documentation content.
 

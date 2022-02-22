@@ -18,7 +18,9 @@ You can protect your data and guard against extended downtime by creating virtua
 
 ## About VM restore points
 
- An individual VM restore point stores the VM configuration and a disk restore point for each attached disk. A disk restore point consists of a snapshot of an individual managed disk.
+An individual VM restore point is a resource that stores VM configuration and point-in-time application consistent snapshots of all the managed disks attached to the VM. VM restore points can be leveraged to easily capture multi-disk consistent backups.  VM restore points contains a disk restore point for each of the attached disks. A disk restore point consists of a snapshot of an individual managed disk.
+
+VM restore points support application consistency for VMs running Windows operating systems and support file system consistency for VMs running Linux operating system. Application consistent restore points use VSS writers (or pre/post scripts for Linux) to ensure the consistency of the application data before a restore point is created. To get an application consistent restore point the application running in the VM needs to provide a VSS writer (for Windows) or pre and post scripts (for Linux) to achieve application consistency.
 
 VM restore points are organized into restore point collections. A restore point collection is an Azure Resource Management resource that contains the restore points for a specific VM. If you want to utilize ARM templates for creating restore points and restore point collections, visit the public [Virtual-Machine-Restore-Points](https://github.com/Azure/Virtual-Machine-Restore-Points) repository on GitHub.
 
