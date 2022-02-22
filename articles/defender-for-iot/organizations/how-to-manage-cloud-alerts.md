@@ -56,7 +56,7 @@ This section describes the information available in the Alerts table.
     |--|--|
     | **Severity**|  A predefined alert severity assigned by the sensor. The severity can be updated. See [Manage alert status and severity](#manage-alert-status-and-severity) for details.
     | **Name** |  The alert title.
-    | **Site** |  The site associated  with the sensor. This site name is defined when you register a sensor with Microsoft  Defender for IoT on the Azure portal. The name can be viewed in the Sites and Sensors page on the portal. See [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#view-onboarded-sensors) for information on registered sensors. 
+    | **Site** |  The site associated  with the sensor. This site name is defined when you register a sensor with Microsoft  Defender for IoT on the Azure portal. The name can be viewed in the Sites and Sensors page on the portal. See [View onboarded sensors](how-to-manage-sensors-on-the-cloud.md#manage-on-boarded-sensors) for information on registered sensors. 
     | **Engine** | The sensor  engine that detected the Operational Technology (OT) traffic. To learn more about engines, see [Detection engines](how-to-control-what-traffic-is-monitored.md#detection-engines). For device builders, the term micro-agent will be displayed.
     | **Detection time** | The first time the alert was detected. The alert traffic may occur several times after the first detection. If the alert Status is **New**, the detection time won't change. If the alert is Closed and the traffic is seen again, a new detection time will be displayed.
     | **Status** | The alert status: New, Active, Closed
