@@ -294,7 +294,7 @@ When you report an issue, you'll need to provide the following information to he
 
 If you decided to use Log Analytics, you can view all the log data in a custom log named **WVDTenantScale_CL** under **Custom Logs** in the **Logs** view of your Log Analytics Workspace. We've listed some sample queries you might find helpful.
 
-- To see all logs for a host pool, enter the following query
+- To see all logs for a host pool, enter the following query:
 
     ```Kusto
     WVDTenantScale_CL
@@ -302,7 +302,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-- To view the total number of currently running session host VMs and active user sessions in your host pool, enter the following query
+- To view the total number of currently running session host VMs and active user sessions in your host pool, enter the following query:
 
     ```Kusto
     WVDTenantScale_CL
@@ -313,7 +313,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-- To view the status of all session host VMs in a host pool, enter the following query
+- To view the status of all session host VMs in a host pool, enter the following query:
 
     ```Kusto
     WVDTenantScale_CL
@@ -322,7 +322,7 @@ If you decided to use Log Analytics, you can view all the log data in a custom l
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
 
-- To view any errors and warnings, enter the following query
+- To view any errors and warnings, enter the following query:
 
     ```Kusto
     WVDTenantScale_CL
