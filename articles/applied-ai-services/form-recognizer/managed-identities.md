@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 # Create and use managed identities
 
-Managed identities for Azure resources is a feature of Azure Active Directory. Manged identities is a service principals that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources.
+Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 
 * You can use managed identities **instead of a shared access signature (SAS) token** to grant access to any resource that supports Azure AD authentication.
 
@@ -86,7 +86,7 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 
 ## Grant access to your storage account
 
-You need to grant Form Recognizer access to your storage account before it can create, read, or delete blobs. Now that you enabled Form Recognizer with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give a managed identity (Form Recognizer) access to another resource (Azure storage)—just like any security principal. The **Storage Blob Data Reader** role gives Form Recognizer (represented by the system-assigned managed identity) read and list access to the blob container and data.
+You need to grant Form Recognizer access to your storage account before it can create, read, or delete blobs. Now that you've enabled Form Recognizer with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give Form Recognizer access to Azure storage. The **Storage Blob Data Reader** role gives Form Recognizer (represented by the system-assigned managed identity) read and list access to the blob container and data.
 
 1. Under **Permissions** select **Azure role assignments**:
 

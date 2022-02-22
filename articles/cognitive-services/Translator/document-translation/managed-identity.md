@@ -15,11 +15,9 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> Managed identities for Azure resources is currently unavailable for Document Translation service in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
+> Managed identities for Azure resources are currently unavailable for Document Translation service in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
 
-## What are managed identities?
-
-* Managed identities for Azure resources is a service principal that creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources.
+Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 
 * You can use managed identities **instead of a shared access signature (SAS) token** to grant access to any resource that supports Azure AD authentication, including your own applications. To grant access, assign a role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md).
 
