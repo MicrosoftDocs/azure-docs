@@ -22,11 +22,11 @@ You can use the Azure portal or the Azure CLI to retrieve past key-value pairs.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance where your key-value pairs are stored.
 
-2. In the **Operations** menu, select **Restore**.
+1. In the **Operations** menu, select **Restore**.
    :::image type="content" source="media/restore-key-value-portal.png" alt-text="Screenshot of the Azure portal, selecting restore":::
 
-3. Select **Date: Select date** to select a date and time you want to explore.
-4. Click outside of the date and time fields or press **Tab** to validate your choice. You can now access all the key-value pairs that existed at the selected date, and see how they differ from current keys and values.
+1. Select **Date: Select date** to select a date and time you want to explore.
+1. Click outside of the date and time fields or press **Tab** to validate your choice. You can now access all the key-value pairs that existed at the selected date, and see how they differ from current keys and values.
    :::image type="content" source="media/restore-key-value-past-values.png" alt-text="Screenshot of the Azure portal with saved key-value pairs":::
 
    The portal displays a table of key-value pairs. The first column includes symbols indicating what will happen if you restore the data for the chosen date and time:
@@ -34,14 +34,14 @@ You can use the Azure portal or the Azure CLI to retrieve past key-value pairs.
    - The green plus sign (+) means that the key-value pair existed then and will be added.
    - The orange bullet sign (•) means that the value was modified since.
 
-5. Check a box on a line to display the difference between the current and compared key-value pairs and select it for restoring.
+1. Check a box on a line to display the difference between the current and compared key-value pairs and select it for restoring.
    :::image type="content" source="media/restore-key-value-compare.png" alt-text="Screenshot of the Azure portal with compared keys-value pairs":::
 
    In the above example, the preview shows the key TestApp:Settings:BackgroundColor, which currently has a value of #45288E. This value will be modified to #FFF if we go through with restoring the data.
 
    You can select one or more checkboxes in the table to take action on the key-value pairs of your choice. You can also select all the checkboxes at the same time to revert all keys-value pairs to a date and time in the past.
 
-6. Select **Restore**.
+1. Select **Restore**.
    :::image type="content" source="media/restore-key-value-confirm.png" alt-text="Screenshot of the Azure portal selecting Restore":::
 
 ### [Azure CLI](#tab/azure-cli)
@@ -72,6 +72,8 @@ az appconfig kv restore --name <app-config-store-name> --label v1.* --datetime "
 ```
 
 For more more examples and optional parameters, go to the [Azure CLI documentation](/cli/azure/appconfig/kv?view=azure-cli-latest).
+
+---
 
 ## Access the history of a key-value pair
 
@@ -129,6 +131,8 @@ az appconfig revision list --name <app-config-store-name> --key color --top 10 -
 ```
 
 For more more examples and optional parameters, go to the [Azure CLI documentation](/cli/azure/appconfig/revision?view=azure-cli-latest).
+
+---
 
 ## Next steps
 
