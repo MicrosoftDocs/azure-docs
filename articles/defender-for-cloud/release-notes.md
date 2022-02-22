@@ -22,7 +22,7 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in February include:
 
 - [Kubernetes workload protection for Arc enabled K8s clusters](#kubernetes-workload-protection-for-arc-enabled-k8s-clusters)
-- [Native CSPM for GCP and threat protection for GCP compute instances and Google Kubernetes Engine (GKE) clusters](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances-and-google-kubernetes-engine-gke-clusters)
+- [Native CSPM for GCP and threat protection for GCP compute instances](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances)
 
 ### Kubernetes workload protection for Arc enabled K8s clusters 
 
@@ -30,7 +30,7 @@ Defender for Containers for Kubernetes workloads previously only protected AKS. 
 
 Learn how to [set up your Kubernetes workload protection](kubernetes-workload-protections.md#set-up-your-workload-protection) for AKS and Azure Arc enabled Kubernetes clusters.
 
-### Native CSPM for GCP and threat protection for GCP compute instances and Google Kubernetes Engine (GKE) clusters
+### Native CSPM for GCP and threat protection for GCP compute instances
 
 The new automated onboarding of GCP environments allows you to protect GCP workloads with Microsoft Defender for Cloud. Defender for Cloud protects your resources with the following plans:
 
