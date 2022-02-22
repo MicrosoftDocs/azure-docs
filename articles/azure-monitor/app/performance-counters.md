@@ -138,9 +138,13 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 
 * *Exceptions* is a count of the TrackException reports received by the portal in the sampling interval of the chart. It includes only the handled exceptions where you have written TrackException calls in your code, and doesn't include all [unhandled exceptions](./asp-net-exceptions.md).
 
-## Performance counters for applications running in Azure Web Apps
+## Performance counters for applications running in Azure Web Apps or Azure App Service
 
-Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. This environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Application Insights SDK for ASP.NET and ASP.NET Core collects performance counters from Azure Web Apps from these special environment variables. Only a subset of counters are available in this environment, and the full list can be found [here.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
+Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a special sandbox environment. Applications deployed to Azure App Service can utilize a [Windows container](/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-linux) or be hosted in a sandbox environment. If the application is deployed in a Windows Container all standard performance counters are available in the container image. 
+
+The sandbox environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Only a subset of counters are available in this environment, and the full list can be found [here](https://github.com/microsoft/ApplicationInsights-dotnet/blob/main/WEB/Src/PerformanceCollector/PerformanceCollector/Implementation/WebAppPerformanceCollector/CounterFactory.cs).
+
+The Application Insights SDK for ASP.NET and ASP.NET Core collects performance counters from applications using either environment variables when in a sandbox environment or utilizing the standard collection mechanism when hosted on a Windows Container or Virtual Machine. Sandbox environments include Azure Web Apps running on a hypervisor and Azure App Service Apps not running in a Windows container.
 
 ## Performance counters in ASP.NET Core applications
 
@@ -150,13 +154,6 @@ Support for performance counters in ASP.NET Core is limited:
 * SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
 * For applications targeting the .NET Framework, all versions of the SDK support performance counters.
 * SDK Versions 2.8.0 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](eventcounters.md)
-
-## Performance counters for applications deployed to Azure App Service
-ASP.NET and ASP.NET Core applications deployed to Azure App Service can utilize a [Windows container](/azure/app-service/quickstart-custom-container?tabs=dotnet&pivots=container-linux) or be hosted in a sandbox environment. If the application is deployed in a Windows Container all standard performance counters  are available in the container image. 
-
-The sandbox environment does not allow direct access to system performance counters. However, a limited subset of counters are exposed as environment variables as described [here](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables). Only a subset of counters are available in this environment, and the full list can be found [here.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
-
-Application Insights SDK for ASP.NET and ASP.NET Core detects if the application is running in the Azure App Service sandbox or inside a Windows Container. The SDK collects performance counters from Azure App Service Apps using either environment variables when in a sandbox environment or utilzing the standard collection mechanism when hosted on a Windows Container or Virtual Machine.
 
 ## Alerts
 Like other metrics, you can [set an alert](../alerts/alerts-log.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
