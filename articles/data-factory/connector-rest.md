@@ -547,11 +547,11 @@ baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=10000
 
 *Step 1*: Input `sysparm_offset={offset}` either in **Base URL** or **Relative URL** as shown in the following screenshots:
         
-:::image type="content" source="media/connector-rest/pagination-example-1-rest-linked-service-base-url.png" alt-text="Screenshot showing the configuration step 1 to send multiple requests whose variables are in QueryParameters.":::  
+:::image type="content" source="media/connector-rest/pagination-rule-example-1-rest-linked-service-base-url.png" alt-text="Screenshot showing one configuration to send multiple requests whose variables are in QueryParameters.":::  
     
 or
 
-:::image type="content" source="media/connector-rest/pagination-example-1-rest-linked-service-relative-url.png" alt-text="Screenshot showing the configuration step 2 to send multiple requests whose variables are in QueryParameters."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-1-rest-linked-service-relative-url.png" alt-text="Screenshot showing another configuration to send multiple requests whose variables are in QueryParameters."::: 
         
 *Step 2*: Set **Pagination rules** as either option 1 or option 2：
             
@@ -574,8 +574,13 @@ BaseUrl/api/now/table/t100
 
 *Step 1*: Input `{id}` either in **Base URL** in the linked service configuration page or **Relative URL** in the dataset connection pane.
     
-*Step 2*: Set **Pagination rules** as **"AbsoluteUrl.{id}" :"RANGE:1:100:1"**.
+:::image type="content" source="media/connector-rest/pagination-rule-example-2-rest-linked-service-base-url.png" alt-text="Screenshot showing one configuration to send multiple requests whose variables are in AbsoluteUrl."::: 
 
+or
+
+:::image type="content" source="media/connector-rest/pagination-rule-example-2-rest-linked-service-relative-url.png" alt-text="Screenshot showing another configuration to send multiple requests whose variables are in AbsoluteUrl."::: 
+
+*Step 2*: Set **Pagination rules** as **"AbsoluteUrl.{id}" :"RANGE:1:100:1"**.
 
 #### Example 3：Variables in Headers
 
@@ -592,7 +597,7 @@ Request 100: `Header(id->100)`<br/>
     
 *Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RARNGE:0:100:10"**.
 
-:::image type="content" source="media/connector-rest/pagination-example-3.png" alt-text="Screenshot showing the configuration steps to send multiple requests whose variables are in Headers."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 
 
 #### Example 4：Variables are in AbsoluteUrl/QueryParameters/Headers, the end variable is not pre-defined and the end condition is based on the response
 
@@ -650,7 +655,7 @@ Response 2：
     ```
     Set the end condition rule as **"EndCondition:$.data": "Empty"** to end the pagination when the value of the specific node in response is empty.
 
-    :::image type="content" source="media/connector-rest/pagination-example-4-1.png" alt-text="Screenshot showing the EndCondition setting for Example 4.1."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-1.png" alt-text="Screenshot showing the EndCondition setting for Example 4.1."::: 
 
 - **Example 4.2: The pagination ends when the value of the specific node in response dose not exist** 
 
@@ -662,7 +667,7 @@ Response 2：
     ```
     Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response dose not exist.
         
-    :::image type="content" source="media/connector-rest/pagination-example-4-2.png" alt-text="Screenshot showing the EndCondition setting for Example 4.2."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-2.png" alt-text="Screenshot showing the EndCondition setting for Example 4.2."::: 
 
 - **Example 4.3: The pagination ends when the value of the specific node in response exists**
     
@@ -681,7 +686,7 @@ Response 2：
     ```
     Set the end condition rule as **"EndCondition:$.Complete": "Exist"** to end the pagination when the value of the specific node in response exists.
 
-    :::image type="content" source="media/connector-rest/pagination-example-4-3.png" alt-text="Screenshot showing the EndCondition setting for Example 4.3."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-3.png" alt-text="Screenshot showing the EndCondition setting for Example 4.3."::: 
 
 - **Example 4.4: The pagination ends when the value of the specific node in response is a user-defined const value**
 
@@ -714,7 +719,7 @@ Response 2：
     ```
     Set the end condition rule as **"EndCondition:$.Complete": "Const:true"** to end the pagination when the value of the specific node in response is a user-defined const value.
         
-    :::image type="content" source="media/connector-rest/pagination-example-4-4.png" alt-text="Screenshot showing the EndCondition setting for Example 4.4."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-4.png" alt-text="Screenshot showing the EndCondition setting for Example 4.4."::: 
 
 - **Example 4.5: The pagination ends when the value of the header key in response equals to user-defined const value**
 
@@ -726,7 +731,7 @@ Response 2：
         
     Set the end condition rule as **"EndCondition:headers.Complete": "Const:1"** to end the pagination when the value of the header key in response is equal to user-defined const value.
         
-    :::image type="content" source="media/connector-rest/pagination-example-4-5.png" alt-text="Screenshot showing the EndCondition setting for Example 4.5."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-5.png" alt-text="Screenshot showing the EndCondition setting for Example 4.5."::: 
 
 - **Example 4.6: The pagination ends when the key exists in the response header**
 
@@ -738,7 +743,7 @@ Response 2：
         
     Set the end condition rule as **"EndCondition:headers.CompleteTime": "Exist"** to end the pagination when the key exists in the response header.
 
-    :::image type="content" source="media/connector-rest/pagination-example-4-6.png" alt-text="Screenshot showing the EndCondition setting for Example 4.6."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-4-6.png" alt-text="Screenshot showing the EndCondition setting for Example 4.6."::: 
 
 #### Example 5：Set end condition to avoid endless requests when range rule is not defined
 
@@ -798,18 +803,18 @@ The last response is:
 
 Set **MaxRequestNumber** to avoid endless request as shown in the following screenshot:
 
-:::image type="content" source="media/connector-rest/pagination-example-6.png" alt-text="Screenshot showing the MaxRequestNumber setting for Example 6."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-6.png" alt-text="Screenshot showing the MaxRequestNumber setting for Example 6."::: 
 
 #### Example 7：The RFC 5988 pagination rule is supported by default
 
 The backend will automatically get the next URL based on the RFC 5988 style links in the header.  
 
-:::image type="content" source="media/connector-rest/pagination-example-7-1.png" alt-text="Screenshot showing the MaxRequestNumber setting for Example 7."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-7-http-header.png" alt-text="Screenshot showing the sample http header for Example 7."::: 
 
 > [!TIP]
 > If you don't want to enable this default pagination rule, you can set `supportRFC5988` to `false` or just delete it in the script.
 >
-> :::image type="content" source="media/connector-rest/pagination-example-7-2.png" alt-text="Screenshot showing how to disable RFC 5988 setting for Example 7."::: 
+> :::image type="content" source="media/connector-rest/pagination-rule-example-7-disable-rfc5988.png" alt-text="Screenshot showing how to disable RFC 5988 setting for Example 7."::: 
 
 #### Example 8: The next request URL is from the response body when use pagination in mapping data flows
 
@@ -817,11 +822,11 @@ This example states how to set the pagination rule and the end condition rule in
 
 The response schema is shown below:
 
-:::image type="content" source="media/connector-rest/pagination-example-8-response-schema.png" alt-text="Screenshot showing the response schema of Example 8."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-8-response-schema.png" alt-text="Screenshot showing the response schema of Example 8."::: 
 
 The pagination rules should be set as the following screenshot:
 
-:::image type="content" source="media/connector-rest/pagination-example-8-pagination-rule.png" alt-text="Screenshot showing how to set the pagination rule for Example 8."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-8.png" alt-text="Screenshot showing how to set the pagination rule for Example 8."::: 
 
 By default, the pagination will stop when body **.{@odata.nextLink}** is null or empty. 
 
@@ -829,27 +834,27 @@ But if the value of **@odata.nextLink** in the last response body is equal to th
 
 - If **Value** in the last response is **Empty**, then the end condition rule can be set as below: 
 
-    :::image type="content" source="media/connector-rest/pagination-example-8-end-condition-1.png" alt-text="Screenshot showing setting the end condition rule when the last response is empty."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-8-end-condition-1.png" alt-text="Screenshot showing setting the end condition rule when the last response is empty."::: 
     
 - If the value of the complete key in the response header equals to true indicates the end of pagination, then the end condition rule can be set as below: 
 
-    :::image type="content" source="media/connector-rest/pagination-example-8-end-condition-2.png" alt-text="Screenshot showing setting the end condition rule when the complete key in the response header equals to true indicates the end of pagination."::: 
+    :::image type="content" source="media/connector-rest/pagination-rule-example-8-end-condition-2.png" alt-text="Screenshot showing setting the end condition rule when the complete key in the response header equals to true indicates the end of pagination."::: 
 
 #### Example 9: The response format is XML and the next request URL is from the response body when use pagination in mapping data flows
 
 This example states how to set the pagination rule in mapping data flows when the response format is XML and the next request URL is from the response body. As shown in the following screenshot, the first URL is *https://\<user\>.dfs.core.windows.net/bugfix/test/movie_1.xml*
 
 
-:::image type="content" source="media/connector-rest/pagination-example-9-situation.png" alt-text="Screenshot showing the response format is XML and the next request URL is from the response body."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-9-situation.png" alt-text="Screenshot showing the response format is XML and the next request URL is from the response body."::: 
 
 
 The response schema is shown below:
 
-:::image type="content" source="media/connector-rest/pagination-example-9-response-schema.png" alt-text="Screenshot showing the response schema of Example 9."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-9-response-schema.png" alt-text="Screenshot showing the response schema of Example 9."::: 
 
 The pagination rule sytax is the same as in Example 8 and should be set as below in this example:
 
-:::image type="content" source="media/connector-rest/pagination-example-9-pagination-rule.png" alt-text="Screenshot showing setting the pagination rule for Example 9."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-9.png" alt-text="Screenshot showing setting the pagination rule for Example 9."::: 
 
 
 ## Use OAuth
