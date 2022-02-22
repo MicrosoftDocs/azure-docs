@@ -85,7 +85,7 @@ SafeFreezeWaitInSeconds=600
 
 **Step 2**
 
-* Check for duplicate mount.
+* Check if there are duplicate mount points present.
 
 Identify the failed to freeze mount points from the extension log file. <br>
 For example: /boot, /usr/sap in the below sample output. 
@@ -97,7 +97,7 @@ For example: /boot, /usr/sap in the below sample output.
     2017-11-02 11:22:56 Failed to FITHAW: /usr/sap
 ```
 
-On the Linux VM run 'Mount' command. Check if the failed mount points have multiple entries. If yes, remove old entries or rename the mount path and retry the backup operation.
+On the Linux VM execute 'mount' command and check if the failed mount points have multiple entries. If yes, remove the old entries or rename the mount path and retry the backup operation.
 
 
 ### ExtensionSnapshotFailedCOM / ExtensionInstallationFailedCOM / ExtensionInstallationFailedMDTC - Extension installation/operation failed due to a COM+ error
