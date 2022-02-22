@@ -60,10 +60,6 @@ items:
       href: provision-sims-azure-portal.md
     - name: Activate SIMs
       href: activate-sims.md
-- name: Reference
-  items:
-   - name: REST API documentation
-     href: /rest/api/private-5g-core
 - name: Resources
   items:
   - name: Azure private MEC documentation
