@@ -49,7 +49,7 @@ This table lists data types and how each is used to create a custom Text-to-Spee
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
 > [!NOTE]
-> The maximum number of datasets allowed to be imported per subscription is 500 for standard subscription (S0) users.
+> The maximum number of datasets allowed to be imported per subscription is 500 zip files for standard subscription (S0) users.
 >
 > For the two beta options, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
