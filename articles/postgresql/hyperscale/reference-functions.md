@@ -274,56 +274,6 @@ SELECT create_distributed_table('github_events', 'repo_id');
 SELECT undistribute_table('github_events');
 ```
 
-### mark\_tables\_colocated
-
-The mark\_tables\_colocated() function takes a distributed table (the
-source), and a list of others (the targets), and puts the targets into
-the same colocation group as the source. If the source isn't yet in a
-group, this function creates one, and assigns the source and targets to
-it.
-
-Colocating tables ought to be done at table distribution time via the
-`colocate_with` parameter of
-[create_distributed_table](#create_distributed_table), but
-`mark_tables_colocated` can take care of it later if necessary.
-
-#### Arguments
-
-**source\_table\_name:** Name of the distributed table whose colocation
-group the targets will be assigned to match.
-
-**target\_table\_names:** Array of names of the distributed target
-tables, must be non-empty. These distributed tables must match the
-source table in:
-
-> -   distribution method
-> -   distribution column type
-> -   replication type
-> -   shard count
-
-If none of the above apply, Hyperscale (Citus) will raise an error. For
-instance, attempting to colocate tables `apples` and `oranges` whose
-distribution column types differ results in:
-
-```
-ERROR:  XX000: cannot colocate tables apples and oranges
-DETAIL:  Distribution column types don't match for apples and oranges.
-```
-
-#### Return Value
-
-N/A
-
-#### Example
-
-This example puts `products` and `line_items` in the same colocation
-group as `stores`. The example assumes that these tables are all
-distributed on a column with matching type, most likely a \"store id.\"
-
-```postgresql
-SELECT mark_tables_colocated('stores', ARRAY['products', 'line_items']);
-```
-
 ### create\_distributed\_function
 
 Propagates a function from the coordinator node to workers, and marks it for
