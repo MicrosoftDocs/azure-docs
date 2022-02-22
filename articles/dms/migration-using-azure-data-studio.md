@@ -9,13 +9,13 @@ ms.reviewer: cheryl.adams
 ms.service: dms
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/01/2021
+ms.date: 02/22/2022
 ms.custom: references_regions
 ---
 
 # Migrate databases with Azure SQL Migration extension for Azure Data Studio (Preview)
 
-The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to use the new SQL Server assessment and migration capability in Azure Data Studio.
+The [Azure SQL Migration extension for Azure Data Studio](/sql/azure-data-studio/extensions/azure-sql-migration-extension) enables you to assess, get Azure recommendations and migrate your SQL Server databases to Azure.
 
 ## Architecture of Azure SQL Migration extension for Azure Data Studio
 
@@ -50,6 +50,8 @@ Azure Database Migration Service prerequisites that are common across all suppor
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Owner or Contributor role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
     - Owner or Contributor role for the Azure subscription.
+    > [!IMPORTANT]
+    > Azure account is only required when configuring the migration steps and is not required for assessment or Azure recommendation steps in the migration wizard.
 * Create a target [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md) or [SQL Server on Azure Virtual Machine](../azure-sql/virtual-machines/windows/create-sql-vm-portal.md)
 
     > [!IMPORTANT]
@@ -103,7 +105,6 @@ Azure Database Migration Service prerequisites that are common across all suppor
     - SSIS packages
     - Server roles
     - Server audit
-- Automating migrations with Azure Data Studio using PowerShell / CLI isn't supported.
 - SQL Server 2014 and below are not supported.
 - Migrating to Azure SQL Database isn't supported.
 - Azure storage accounts secured by specific firewall rules or configured with a private endpoint are not supported for migrations.
