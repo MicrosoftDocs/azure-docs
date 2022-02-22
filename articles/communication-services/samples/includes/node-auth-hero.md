@@ -12,7 +12,7 @@ ms.custom: include file
 ms.author: dademath
 ---
 
-## Getting Started
+## Getting started
 
 If you're wondering where to get started, here are a few scenarios to help you get going:
 
