@@ -72,12 +72,12 @@ You'll run the `Get-StoragePolicy` cmdlet to list the vSAN based storage policie
 
 ## Set storage policy on VM
 
-You'll run the `Set-AvsVMStoragePolicy` cmdlet to Modify vSAN based storage policies on an individual VM. 
+You'll run the `Set-VMStoragePolicy` cmdlet to Modify vSAN based storage policies on an individual VM or on a group of VMs sharing a similar VM name. For example, if you have 3 VMs named "MyVM1", "MyVM2", "MyVM3", supplying "MyVM*" to the VMName parameter would change the StoragePolicy on all three VMs.
 
 >[!NOTE]
 >You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
 
-1. Select **Run command** > **Packages** > **Set-AvsVMStoragePolicy**.
+1. Select **Run command** > **Packages** > **Set-VMStoragePolicy**.
 
 1. Provide the required values or change the default values, and then select **Run**.
 
@@ -90,6 +90,28 @@ You'll run the `Set-AvsVMStoragePolicy` cmdlet to Modify vSAN based storage poli
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
+
+## Set storage policy on all VMs in a location
+
+You'll run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage policies on all VMs in a location where a location is the name of a cluster, resource pool, or folder. For example, if you have 3 VMs in Cluster-3, supplying "Cluster-3" would change the storage policy on all 3 VMs.
+
+>[!NOTE]
+>You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
+
+1. Select **Run command** > **Packages** > **Set-LocationStoragePolicy**.
+
+1. Provide the required values or change the default values, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **Location** | Name of the target VM. |
+   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
+   | **Specify name for execution**  | Alphanumeric name, for example, **changeVMStoragePolicy**.  |
+   | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
+
+1. Check **Notifications** to see the progress.
+
 
 
 ## Specify storage policy for a cluster
