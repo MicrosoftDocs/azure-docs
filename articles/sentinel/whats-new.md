@@ -29,6 +29,9 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## February 2022
 
+- [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
+- [View MITRE support coverage (Public preview)](#view-mitre-support-coverage-public-preview)
+
 ### View MITRE support coverage (Public preview)
 
 Microsoft Sentinel now provides a new **MITRE** page, which highlights the MITRE tactic and technique coverage you currently have, and can configure, for your organization.
@@ -40,7 +43,6 @@ For example:
 :::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
 
 For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
-- [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
 
 ### Manually run playbooks based on the incident trigger (Public preview)
 
