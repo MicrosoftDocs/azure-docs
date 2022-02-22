@@ -1,17 +1,17 @@
 ---
-title: Feature support for tables in Azure Monitor Logs 
-description: Reference for which features are currently supported by different tables in a Log Analytics workspace in Azure Monitor.
+title: Tables that support ingestion-time transformations in Azure Monitor Logs (preview)
+description: Reference for tables that support ingestion-time transformations in Azure Monitor Logs (preview).
 ms.topic: reference
 ms.tgt_pltfrm: na
-ms.date: 01/27/2022
+ms.date: 02/22/2022
 ---
 
-# Feature support for tables in Azure Monitor Logs 
+# Tables that support ingestion-time transformations in Azure Monitor Logs (preview)
 
 The following list identifies the tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that support [Ingest-time transformations](ingestion-time-transformations.md).
 
 
-| Table |  | [Custom logs API](custom-logs-overview.md) |
+| Table |  | Limtations |
 |:---|:---|
 | [AACAudit](/azure/azure-monitor/reference/tables/aacaudit) | | 
 | [AACHttpRequest](/azure/azure-monitor/reference/tables/aachttprequest) | | 
