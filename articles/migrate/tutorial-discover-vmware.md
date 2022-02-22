@@ -339,4 +339,4 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 - Learn how to [assess servers to migrate to Azure VMs](./tutorial-assess-vmware-azure-vm.md).
 - Learn how to [assess servers running SQL Server to migrate to Azure SQL](./tutorial-assess-sql.md).
 - Learn how to [assess web apps to migrate to Azure App Service](./tutorial-assess-webapps.md).
-- Review [data the Azure Migrate appliance collects](discovered-metadata.md#collected-data---vmware) during discovery.
+- Review [data the Azure Migrate appliance collects](discovered-metadata.md#collected-metadata-for-vmware-servers) during discovery.

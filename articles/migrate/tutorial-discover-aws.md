@@ -286,4 +286,4 @@ After discovery finishes, you can verify that the servers appear in the portal.
 ## Next steps
 
 - [Assess physical servers](tutorial-migrate-aws-virtual-machines.md) for migration to Azure VMs.
-- [Review the data](discovered-metadata.md#collected-data---physical) that the appliance collects during discovery.
+- [Review the data](discovered-metadata.md#collected-data-for-physical-servers) that the appliance collects during discovery.

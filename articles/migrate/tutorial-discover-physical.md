@@ -332,4 +332,4 @@ After the discovery has been initiated, you can delete any of the added servers 
 ## Next steps
 
 - [Assess physical servers](tutorial-assess-physical.md) for migration to Azure VMs.
-- [Review the data](discovered-metadata.md#collected-data---physical) that the appliance collects during discovery.
+- [Review the data](discovered-metadata.md#collected-data-for-physical-servers) that the appliance collects during discovery.

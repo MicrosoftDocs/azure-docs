@@ -341,4 +341,4 @@ After discovery finishes, you can verify that the servers appear in the portal.
 ## Next steps
 
 - [Assess servers on Hyper-V environment](tutorial-assess-hyper-v.md) for migration to Azure VMs.
-- [Review the data](discovered-metadata.md#collected-data---hyper-v) that the appliance collects during discovery.
+- [Review the data](discovered-metadata.md#collected-metadata-for-hyper-v-servers) that the appliance collects during discovery.
