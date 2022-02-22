@@ -66,7 +66,7 @@ These sample queries apply to the Orders report.
 | List Order details with quantity, term start, term end date and estimatedcharges, currency for the last 6M | `SELECT AssetId, Quantity, PurchaseRecordId, PurchaseRecordLineItemId, TermStartDate, TermEndDate, BilledRevenue, Currency from ISVOrder WHERE OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
 | List Order details for trial orders active for the last 6M | `SELECT AssetId, Quantity, PurchaseRecordId, PurchaseRecordLineItemId from ISVOrder WHERE OrderStatus = 'Active' and IsTrial = 'True' TIMESPAN LAST_6_MONTHS` |
 | List Order details for all offers that are active for the last 6M | `SELECT OfferName, SKU, IsPrivateOffer, AssetId, PurchaseRecordId, PurchaseRecordLineItemId, OrderPurchaseDate, BilledRevenue FROM ISVOrder WHERE OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
-| List Order details for private offers active for the last 6M | SELECT OfferName,SKU,IsPrivateOffer,AssetId,PurchaseRecordId,PurchaseRecordLineItemId,OrderPurchaseDate,BilledRevenue FROM ISVOrder WHERE IsPrivateOffer = '1' and OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS |
+| List Order details for private offers active for the last 6M | `SELECT OfferName,SKU,IsPrivateOffer,AssetId,PurchaseRecordId,PurchaseRecordLineItemId,OrderPurchaseDate,BilledRevenue FROM ISVOrder WHERE IsPrivateOffer = '1' and OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
 |||
 
 ## Revenue report queries
