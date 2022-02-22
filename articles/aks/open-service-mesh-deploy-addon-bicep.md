@@ -243,7 +243,7 @@ Alternatively, you can uninstall the OSM add-on and the related resources from y
 
 ## Next steps
 
-This article showed you how to install the OSM add-on on an AKS cluster and verify it is installed an running. With the the OSM add-on on your cluster you can [Deploy a sample application][osm-deploy-sample-app] or [Onboard an existing application][osm-onboard-app] to work with your OSM mesh.
+This article showed you how to install the OSM add-on on an AKS cluster and verify it is installed and running. With the OSM add-on on your cluster you can [Deploy a sample application][osm-deploy-sample-app] or [Onboard an existing application][osm-onboard-app] to work with your OSM mesh.
 
 <!-- Links -->
 <!-- Internal -->
