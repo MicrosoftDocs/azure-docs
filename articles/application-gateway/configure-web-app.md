@@ -227,7 +227,7 @@ To accept traffic we need to configure a Listener.  For more info on this see [A
 
 ### [Azure Portal](#tab/azure-portal/defaultdomain)
 
-Assuming there's no custom domain available or associated certificate, we'll configure Application Gateway to listen for HTTP traffic on port 80.  Alternatively, see the instructions on how to [Create a self-signed certificate](tutorial-ssl-powershell.md#create-a-self-signed-certificate.md)
+Assuming there's no custom domain available or associated certificate, we'll configure Application Gateway to listen for HTTP traffic on port 80.  Alternatively, see the instructions on how to [Create a self-signed certificate](tutorial-ssl-powershell.md#create-a-self-signed-certificate)
 
 1. Open the "Listeners" section and choose "Add listener" or click an existing one to edit
 1. For a new listener: give it a name
