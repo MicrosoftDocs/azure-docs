@@ -257,66 +257,66 @@ In a more advanced scenario, you could define a policy that requires Kubernetes 
 
 ```json
 "parameters": {
-      "labelSelector": {
+    "labelSelector": {
         "type": "Object",
         "metadata": {
-          "displayName": "Kubernetes label selector",
-          "description": "Label query to select Kubernetes resources for policy evaluation. An empty label selector matches all Kubernetes resources."
+            "displayName": "Kubernetes label selector",
+            "description": "Label query to select Kubernetes resources for policy evaluation. An empty label selector matches all Kubernetes resources."
         },
         "defaultValue": {},
         "schema": {
-          "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all resources.",
-          "type": "object",
-          "properties": {
-            "matchLabels": {
-              "description": "matchLabels is a map of {key,value} pairs.",
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              },
-              "minProperties": 1
-            },
-            "matchExpressions": {
-              "description": "matchExpressions is a list of values, a key, and an operator.",
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "key": {
-                    "description": "key is the label key that the selector applies to.",
-                    "type": "string"
-                  },
-                  "operator": {
-                    "description": "operator represents a key's relationship to a set of values.",
-                    "type": "string",
-                    "enum": [
-                      "In",
-                      "NotIn",
-                      "Exists",
-                      "DoesNotExist"
-                    ]
-                  },
-                  "values": {
-                    "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty.",
+            "description": "A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all resources.",
+            "type": "object",
+            "properties": {
+                "matchLabels": {
+                    "description": "matchLabels is a map of {key,value} pairs.",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "minProperties": 1
+                },
+                "matchExpressions": {
+                    "description": "matchExpressions is a list of values, a key, and an operator.",
                     "type": "array",
                     "items": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "required": [
-                  "key",
-                  "operator"
-                ],
-                "additionalProperties": false
-              },
-              "minItems": 1
-            }
-          },
-          "additionalProperties": false
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "description": "key is the label key that the selector applies to.",
+                                "type": "string"
+                            },
+                            "operator": {
+                                "description": "operator represents a key's relationship to a set of values.",
+                                "type": "string",
+                                "enum": [
+                                    "In",
+                                    "NotIn",
+                                    "Exists",
+                                    "DoesNotExist"
+                                ]
+                            },
+                            "values": {
+                                "description": "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty.",
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "required": [
+                            "key",
+                            "operator"
+                        ],
+                        "additionalProperties": false
+                    },
+                    "minItems": 1
+                }
+            },
+            "additionalProperties": false
         }
-      },
-    }
+    },
+}
 ```
 
 A sample input for this object-type parameter at assignment time would be in JSON format, validated by the specified schema, and might be:
@@ -324,20 +324,20 @@ A sample input for this object-type parameter at assignment time would be in JSO
 ```json
 {
     "matchLabels": {
-    "poolID": "abc123",
-		"nodeGroup": "Group1",
-		"region": "southcentralus"
+        "poolID": "abc123",
+        "nodeGroup": "Group1",
+        "region": "southcentralus"
     },
     "matchExpressions": [
         {
-            "key": "nodeGroup",
+            "key": "name",
             "operator": "In",
-            "values": ["prod"]
-        },      
-		{
-            "key": "nodeGroup",
-            "operator": "In",
-            "values": ["prod"]
+            "values": ["payroll", "web"]
+        },
+        {
+            "key": "environment",
+            "operator": "NotIn",
+            "values": ["dev"]
         }
     ]
 }
