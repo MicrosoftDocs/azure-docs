@@ -46,7 +46,7 @@ To create a custom voice project:
 
    See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects.
 
-1. After you've created a Pro project, you'll see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. See [Prepare data for Custom Neural Voice](how-to-custom-voice-prepare-data.md) to set up the voice talent, and proceed to training data.
+1. After you've created a CNV Pro project, you'll see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. See [Prepare data for Custom Neural Voice](how-to-custom-voice-prepare-data.md) to set up the voice talent, and proceed to training data.
 
 ## Tips for creating a professional custom neural voice
 
