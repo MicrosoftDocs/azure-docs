@@ -11,7 +11,7 @@ ms.date: 02/22/2022
 The following list identifies the tables in a [Log Analytics workspace](log-analytics-workspace-overview.md) that support [Ingest-time transformations](ingestion-time-transformations.md).
 
 
-| Table |  | Limtations |
+| Table | Limitations |
 |:---|:---|
 | [AACAudit](/azure/azure-monitor/reference/tables/aacaudit) | | 
 | [AACHttpRequest](/azure/azure-monitor/reference/tables/aachttprequest) | | 
@@ -99,7 +99,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [CDBPartitionKeyStatistics](/azure/azure-monitor/reference/tables/cdbpartitionkeystatistics) | | 
 | [CDBQueryRuntimeStatistics](/azure/azure-monitor/reference/tables/cdbqueryruntimestatistics) | | 
 | [CloudAppEvents](/azure/azure-monitor/reference/tables/cloudappevents) | | 
-| [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) | Yes  | Yes | 
+| [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) | |
 | [ComputerGroup](/azure/azure-monitor/reference/tables/computergroup) | | 
 | [ConfigurationData](/azure/azure-monitor/reference/tables/configurationdata) | Partial support – some of the data is ingested through internal services that aren't supported.|
 | [ContainerImageInventory](/azure/azure-monitor/reference/tables/containerimageinventory) | | 
@@ -223,7 +223,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [UserAccessAnalytics](/azure/azure-monitor/reference/tables/useraccessanalytics) | | 
 | [UserPeerAnalytics](/azure/azure-monitor/reference/tables/userpeeranalytics) | | 
 | [Watchlist](/azure/azure-monitor/reference/tables/watchlist) | | 
-| [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent) | Yes  | Yes | 
+| [WindowsEvent](/azure/azure-monitor/reference/tables/windowsevent) | | 
 | [WindowsFirewall](/azure/azure-monitor/reference/tables/windowsfirewall) | | 
 | [WireData](/azure/azure-monitor/reference/tables/wiredata) | Partial support – some of the data is ingested through internal services that aren't supported. |
 | [WorkloadDiagnosticLogs](/azure/azure-monitor/reference/tables/workloaddiagnosticlogs) | | 
