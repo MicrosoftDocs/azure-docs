@@ -1,7 +1,7 @@
 ---
 title: Trusted Authentication Service Hero Sample
 titleSuffix: An Azure Communication Services sample overview
-description: Overview of trusted authentication services hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample and learn how to modify it.
+description: Overview of trusted authentication services hero sample using Azure Communication Services.
 author: ddematheu2
 manager: chpalm
 services: azure-communication-services
@@ -21,20 +21,20 @@ zone_pivot_groups: acs-js-csharp
 
 ## Overview
 
-In order to properly implement a secure Azure Communication Services solutions, developers must start by putting in place the correct infrastructure to properly generate user and access token credentials for Azure Communication Services. Azure Communication Services is identity-agnostic, to learn more check out our [conceptual documentation](../concepts/identity-model.md).
+Azure Communication Services requires developers to generate user and access token credentials inside of a trusted authentication service. Azure Communication Services is identity-agnostic, to learn more check out our [conceptual documentation](../concepts/identity-model.md).
 
 This repository provides a sample of a server implementation of an authentication service for Azure Communication Services. It uses best practices to build a trusted backend service that issues Azure Communication Services credentials and maps them to Azure Active Directory identities. 
 
 This sample can help you in the following scenarios:
 - As a developer, you need to enable an authentication flow to generate Azure Communication Services user identities mapped to an Azure Active Directory identity. Using this identity you then will provision access tokens to be used in calling and chat experiences.
-- As a developer, you need to enable an authentication flow for Custom Teams Endpoint which is done by using an M365 Azure Active Directory identity of a Teams' user to fetch an Azure Communication Services token to be able to join Teams calling/chat.
+- As a developer, you need to enable an authentication flow for Custom Teams Endpoint, which is done by using an Microsoft 365 Azure Active Directory identity of a Teams' user to fetch an Azure Communication Services token to be able to join Teams calling/chat.
 
 > [!NOTE]
 >If you are looking to get started with Azure Communication Services, but are still in learning / prototyping phases, check out our [quickstarts for getting started with Azure communication services users and access tokens](../quickstarts/access-tokens.md?pivots=programming-language-csharp).
 
 ![Screenshot of the Azure Communication Services Authentication Server Sample Architecture](./media/auth/ACS-Authentication-Server-Sample_Overview-Flow.png)
 
-Since this sample only focuses on the server APIs, the client application is not part of it. If you want to add the client application to login user using Azure Active Directory, then please follow the MSAL samples [here](https://github.com/AzureAD/microsoft-authentication-library-for-js).
+Since this sample only focuses on the server APIs, the client application is not part of it. If you want to add the client application to login user using Azure Active Directory, then follow the MSAL samples [here](https://github.com/AzureAD/microsoft-authentication-library-for-js).
 
 
 ## Prerequisites
