@@ -59,4 +59,4 @@ To resolve such cases, see [Troubleshoot redirection to App service’s URL issu
 
 ## Next steps
 
-Learn how to set up an application gateway with a multi-tenant app such as Azure App service web app as a back-end pool member by visiting [Configure App Service web apps with Application Gateway](./configure-web-app-portal.md)
+Learn how to set up an application gateway with a multi-tenant app such as Azure App service web app as a back-end pool member by visiting [Configure App Service web apps with Application Gateway](./configure-web-app.md)

@@ -70,7 +70,7 @@ In the context of this scenario, DNS is relevant in two places:
 
 For the user or client to get routed to Application Gateway using the custom domain, DNS needs to be set up with a CNAME alias pointing to the DNS address of the Application Gateway.  The Application Gateway DNS address can be found on the overview page of the associated Public IP address.  Alternatively, an A record can be created, pointing to the IP address directly.  (Note that for Application Gateway V1 the VIP can change if you stop and start the service which makes this option undesired.)
 
-For Application Gateway to connect to App Service using the same custom domain, App Service should be configured so it accepts traffic using the custom domain name as the incoming host.  For more information on how to map a custom domain to the App Service, see [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)  Note that to verify the domain, App Service only requires adding a TXT record and no change is required on CNAME or A-records.  The DNS configuration for the custom domain will remain directed towards Application Gateway.
+For Application Gateway to connect to App Service using the same custom domain, App Service should be configured so it accepts traffic using the custom domain name as the incoming host.  For more information on how to map a custom domain to the App Service, see [Tutorial: Map an existing custom DNS name to Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md)  Note that to verify the domain, App Service only requires adding a TXT record and no change is required on CNAME or A-records.  The DNS configuration for the custom domain will remain directed towards Application Gateway.
 
 To accept connections to App Service over HTTPS, configure its TLS binding.  For this, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../app-service/configure-ssl-bindings.md)  It is recommended to have App Service pull the certificate for the custom domain from Azure Key Vault.
 
@@ -257,7 +257,7 @@ Pay attention to the following non-exhaustive list of potential symptoms when te
 - this includes authentication redirects that try access ".azurewebsites.net" directly
 - domain-bound cookies not being passed on to the backend
 
-The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url).
+The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
 
 ### [Azure Portal](#tab/azure-portal/customdomain)
 
@@ -326,7 +326,7 @@ Pay attention to the following non-exhaustive list of potential symptoms when te
 - this includes authentication redirects that try access ".azurewebsites.net" directly
 - domain-bound cookies not being passed on to the backend
 
-The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url).
+The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
 
 ---
 
