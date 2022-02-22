@@ -1,5 +1,5 @@
 ---
-title: Azure CLI scripts for throughput (RU/s) operations for Azure Cosmos DB API for MongoDB resources
+title: Perform throughput (RU/s) operations for Azure Cosmos DB API for MongoDB resources
 description: Azure CLI scripts for throughput (RU/s) operations for Azure Cosmos DB API for MongoDB resources
 author: markjbrown
 ms.author: mjbrown

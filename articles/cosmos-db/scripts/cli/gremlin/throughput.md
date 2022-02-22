@@ -1,5 +1,5 @@
 ---
-title: Azure CLI scripts for throughput (RU/s) operations for Azure Cosmos DB Gremlin API resources
+title: Perform throughput (RU/s) operations for Azure Cosmos DB Gremlin API resources
 description: Azure CLI scripts for throughput (RU/s) operations for Azure Cosmos DB Gremlin API resources
 author: markjbrown
 ms.author: mjbrown
