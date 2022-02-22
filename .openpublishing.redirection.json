@@ -33110,6 +33110,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/migrate/migrate-appliance-architecture.md",
+      "redirect_url": "discovered-metadata",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/common/storage-access-blobs-queues-portal.md",
       "redirect_url": "articles/storage/blobs/authorize-blob-access-portal",
       "redirect_document_id": false

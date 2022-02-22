@@ -108,8 +108,8 @@
       href: migrate-support-matrix-physical.md
     - name: Azure Migrate appliance requirements
       href: migrate-appliance.md
-    - name: Azure Migrate appliance architecture
-      href: migrate-appliance-architecture.md
+    - name: Discovery of metadata by Azure Migrate appliance
+      href: discovered-metadata.md
     - name: Dependency analysis overview
       href: concepts-dependency-visualization.md
   - name: Assess
