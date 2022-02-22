@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 02/20/2022
+ms.date: 02/22/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
@@ -15,24 +15,14 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Adding a GCP project to an Azure subscription connects Defender for Cloud with GCP Security Command. Defender for Cloud can then protect your resources across both of these cloud environments and provide:
-
-- Detection of security misconfigurations
-- A single view showing Defender for Cloud recommendations and GCP Security Command Center findings
-- Incorporation of your GCP resources into Defender for Cloud's secure score calculations
-- Integration of GCP Security Command Center recommendations based on the CIS standard into the Defender for Cloud's regulatory compliance dashboard
-
-To protect your GCP-based resources, you can connect an account with one of two mechanisms:
+To protect your GCP-based resources, you can connect an account in two different ways:
 
 - **Classic cloud connectors experience** - As part of the initial multi-cloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP projects.
 
 - **Environment settings page** (Recommended) - This page provides the onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your GCP resources:
 
-    - **Defender for Cloud's CSPM features** extend to your GCP resources. This agentless plan assesses your GCP resources according to GCP-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to GCP. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your GCP resources alongside your Azure resources.
-    - **Microsoft Defender for servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [Supported features for virtual machines and servers table](supported-machines-endpoint-solutions-clouds.md#supported-features-for-virtual-machines-and-servers-a-namevm-server-featuresa)
-
-> [!IMPORTANT]
-> At Ignite Fall 2021, we announced an updated way of connecting your accounts from other cloud providers. This uses the new **Environment settings** page. GCP projects aren't supported from that page. To connect a GCP project to your Azure subscription, you'll need to use the classic cloud connectors experience as described below.
+    - **Defender for Cloud's CSPM features** extends to your GCP resources. This agentless plan assesses your GCP resources according to GCP-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to GCP. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your GCP resources alongside your Azure resources.
+    - **Microsoft Defender for servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [Supported features for virtual machines and servers table](supported-machines-endpoint-solutions-clouds.md)
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
@@ -42,20 +32,35 @@ To protect your GCP-based resources, you can connect an account with one of two 
 
 |Aspect|Details|
 |----|:----|
+| Release state: | Preview <br> The Azure Preview Supplemental Terms include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
 |Pricing:|The **CSPM plan** is free.<br> The **Defender for servers** plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
-|Required/Preferred Environmental Requirements:| Have workloads in GCP, and are looking for CSPM solution (can be either replacement or new deployment)|
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 |||
 
-## Connect your GCP project
+## Remove 'classic' connectors
+
+If you have any existing connectors created with the classic cloud connectors experience, remove them first:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Environment settings**.
+
+1. Select the option to switch back to the classic connectors experience.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
+
+1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
+
+1. On AWS, delete the role ARN, or the credentials created for the integration.
+
+## Connect your GCP projects
 
 When connecting your GCP projects to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
 
-- You can connect your GCP projects to Defender for Cloud in the *organization* level
-- You can connect multiple organizations to one Azure subscription
-- You can connect multiple organizations to multiple Azure subscriptions
-- When you connect an organization, all *projects* within that organization are added to Defender for Cloud
+- You can connect your GCP projects to Defender in the project level.
+- You can connect multiple projects to one Azure subscription.
+- You can connect multiple projects to multiple Azure subscriptions.
 
 Follow the steps below to create your GCP cloud connector. 
 
@@ -67,23 +72,13 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Select **+ Add environment**.
 
-1. Select **Google Cloud**.
+1. Select the **Google Cloud Platform**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/google-cloud.png" border="false" alt-text="Screenshot of the location of the Google cloud environment button.":::
 
-1. Enter a Connector name.
+1. Enter all relevant information.
 
     :::image type="content" source="media/quickstart-onboard-gcp/create-connector.png" alt-text="Screenshot of the Create GCP connector page where you need to enter all relevant information.":::
-
-1. Select a Subscription from the drop down menu
-
-1. Select a Resource group, or create a new one.
-
-1. Select a Location from the drop down menu.
-
-1. Enter a GCP project number.
-
-1. Enter a GCP project ID
 
 1. Select the **Next: Select Plans** button.
 
@@ -126,6 +121,8 @@ Follow the steps below to create your GCP cloud connector.
 1. Ensure the information presented is correct.
 
 1. Select the **Create** button. 
+
+After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender after up to 6 hours. If you enabled agent auto-provisioning, Arc agent installation will happen automatically with each new resource detected.
 
 ## (Optional) Configure selected plans
 
@@ -271,7 +268,7 @@ When the connector is successfully created and GCP Security Command Center has b
 
 ::: zone-end
 
-## Monitoring your GCP resources
+## Monitor your GCP resources
 
 As shown above, Microsoft Defender for Cloud's security recommendations page displays your GCP resources together with your Azure and AWS resources for a true multi-cloud view.
 
@@ -282,16 +279,8 @@ To view all the active recommendations for your resources by resource type, use 
 
 ## FAQ - Connecting GCP projects to Microsoft Defender for Cloud
 
-### Can I connect multiple GCP organizations to Defender for Cloud?
-Yes. Defender for Cloud's GCP connector connects your Google Cloud resources at the *organization* level. 
-
-Create a connector for every GCP organization you want to monitor from Defender for Cloud. When you connect an organization, all projects within that organization are added to Defender for Cloud.
-
-Learn about the Google Cloud resource hierarchy in [Google's online docs](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
-
-
 ### Is there an API for connecting my GCP resources to Defender for Cloud?
-Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/securitycenter/connectors).
+Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/securitycenter/security-connectors).
 
 ## Next steps
 
