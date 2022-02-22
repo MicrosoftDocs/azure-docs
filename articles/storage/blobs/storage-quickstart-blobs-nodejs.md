@@ -76,7 +76,7 @@ Create a JavaScript application named *blob-quickstart-v12*.
 While still in the *blob-quickstart-v12* directory, install the Azure Blob storage client library for JavaScript package by using the `npm install` command. This command reads the *package.json* file and installs the Azure Blob storage client library v12 for JavaScript package and all the libraries on which it depends.
 
 ```console
-npm install
+npm install @azure/storage-blob
 ```
 
 ### Set up the app framework
