@@ -1,8 +1,8 @@
 ---
 title: Set up an Azure Migrate appliance for Hyper-V
 description: Learn how to set up an Azure Migrate appliance to assess and migrate servers on Hyper-V.
-author: vineetvikram 
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
@@ -16,10 +16,13 @@ The [Azure Migrate appliance](migrate-appliance.md)  is a lightweight appliance 
 
 You can deploy the appliance using a couple of methods:
 
-- Set up on a server on Hyper-V using a downloaded VHD. This method described in this article.
+- Set up on a server on Hyper-V using a downloaded VHD. This method described in the current article.
 - Set up on a server on Hyper-V or physical server with a PowerShell installer script. [This method](deploy-appliance-script.md) should be used if you can't set up a server using a VHD, or if you're in Azure Government.
 
 After creating the appliance, you check that it can connect to Azure Migrate: Discovery and assessment, configure it for the first time, and register it with the project.
+
+> [!NOTE]
+> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers.[Learn more](create-manage-projects.md#find-a-project)
 
 ## Appliance deployment (VHD)
 
@@ -140,6 +143,8 @@ If you're running VHDs on SMBs, you must enable delegation of credentials from t
 
 Connect from the appliance to Hyper-V hosts or clusters, and start discovery.
 
+### Provide Hyper-V host/cluster details
+
 1. In **Step 1: Provide Hyper-V host credentials**, click on **Add credentials** to  specify a friendly name for credentials, add **Username** and **Password** for a Hyper-V host/cluster that the appliance will use to discover servers. Click on **Save**.
 1. If you want to add multiple credentials at once, click on **Add more** to save and add more credentials. Multiple credentials are supported for the discovery of servers on Hyper-V.
 1. In **Step 2: Provide Hyper-V host/cluster details**, click on **Add discovery source** to specify the Hyper-V host/cluster **IP address/FQDN** and the friendly name for credentials to connect to the host/cluster.
@@ -158,9 +163,49 @@ Connect from the appliance to Hyper-V hosts or clusters, and start discovery.
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
 1. You can **revalidate** the connectivity to hosts/clusters anytime before starting the discovery.
-1. Click on **Start discovery**, to kick off server discovery from the successfully validated hosts/clusters. After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
 
-This starts discovery. It takes approximately 2 minutes per host for metadata of discovered servers to appear in the Azure portal.
+### Provide server credentials
+
+In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
+
+:::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis":::
+
+If you want to use these features, provide server credentials by completing the following steps. The appliance attempts to automatically map the credentials to the servers to perform the discovery features.
+
+To add server credentials:
+
+1. Select **Add Credentials**.
+1. In the dropdown menu, select **Credentials type**.
+    
+    You can provide domain/, Windows(non-domain)/, Linux(non-domain) credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
+1. For each type of credentials, enter:
+    * A friendly name.
+    * A username.
+    * A password.
+    Select **Save**.
+
+    If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
+1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for discovery of installed applications and agentless dependency analysis.
+1. To add multiple credentials at once, select **Add more** to save credentials, and then add more credentials.
+    When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as during discovery, the appliance iterates to map credentials to respective servers.
+
+To check validation of the domain credentials:
+
+In the configuration manager, in the credentials table, see the **Validation status** for domain credentials. Only domain credentials are validated.
+
+If validation fails, you can select the **Failed** status to see the validation error. Fix the issue, and then select **Revalidate credentials** to reattempt validation of the credentials.
+
+:::image type="content" source="./media/tutorial-discover-hyper-v/add-server-credentials-multiple.png" alt-text="Screenshot that shows providing and validating multiple credentials.":::
+
+### Start discovery
+
+Click on **Start discovery**, to kick off server discovery from the successfully validated host(s)/cluster(s). After the discovery has been successfully initiated, you can check the discovery status against each host/cluster in the table.
+
+## How discovery works
+
+* It takes approximately 2 minutes per host for metadata of discovered servers to appear in the Azure portal.
+* If you have provided server credentials, software inventory (discovery of installed applications) is automatically initiated when the discovery of servers running on Hyper-V host(s)/cluster(s) is finished. Software inventory occurs once every 12 hours.
+* During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 
 ## Verify servers in the portal
 

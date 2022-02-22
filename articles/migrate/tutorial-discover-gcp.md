@@ -1,8 +1,8 @@
 ---
 title: Discover servers on  GCP instances with Azure Migrate Discovery and assessment 
 description: Learn how to discover servers on GCP with Azure Migrate Discovery and assessment.
-author: vineetvikram
-ms.author: vivikram
+author: Vikram1988
+ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 03/13/2021
@@ -37,8 +37,8 @@ Before you start this tutorial, check you have these prerequisites in place.
 **Requirement** | **Details**
 --- | ---
 **Appliance** | You need a server on GCP on which to run the Azure Migrate appliance. The machine should have:<br/><br/> - Windows Server 2016 installed.<br/> _Running the appliance on a machine with Windows Server 2019 isn't supported_.<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
-**Windows server instances** | Allow inbound connections on WinRM port 5985 (HTTP), so that the appliance can pull configuration and performance metadata.
-**Linux server instances** | Allow inbound connections on port 22 (TCP).
+**Windows server instances** | Allow inbound connections on WinRM port 5985 (HTTP) for discovery of Windows servers.
+**Linux server instances** | Allow inbound connections on port 22 (TCP) for discovery of Linux servers.
 
 ## Prepare an Azure user account
 
@@ -102,7 +102,7 @@ Set up a new project.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Overview**, select **Create project**.
 4. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#supported-geographies-public-cloud) and [government clouds](migrate-support-matrix.md#supported-geographies-azure-government).
+5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
    ![Boxes for project name and region](./media/tutorial-discover-gcp/new-project.png)
 
@@ -266,10 +266,20 @@ Now, connect from the appliance to the GCP servers to be discovered, and start t
     - If validation fails for a server, review the error by clicking on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
     - To remove a server, click on **Delete**.
 6. You can **revalidate** the connectivity to servers anytime before starting the discovery.
-7. Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
+1. Before initiating discovery, you can choose to disable the slider to not perform software inventory and agentless dependency analysis on the added servers.You can change this option at any time.
 
+    :::image type="content" source="./media/tutorial-discover-physical/disable-slider.png" alt-text="Screenshot that shows where to disable the slider.":::
 
-This starts discovery. It takes approximately 2 minutes per server for metadata of discovered server to appear in the Azure portal.
+### Start discovery
+
+Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
+
+## How discovery works
+
+* It takes approximately 2 minutes to complete discovery of 100 servers and their metadata to appear in the Azure portal.
+* [Software inventory](how-to-discover-applications.md) (discovery of installed applications) is automatically initiated when the discovery of servers is finished.
+* The time taken for discovery of installed applications depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
+* During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
 
 ## Verify servers in the portal
 
