@@ -107,7 +107,7 @@ You might need to see a list of watchlist aliases to identify a watchlist to use
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **General**, select **Logs**.
-1. If you see a list of queries, closes the **Queries** window.
+1. If you see a list of queries, close the **Queries** window.
 1. On the **New Query** page, run the following query: `_GetWatchlistAlias`. 
 1. Review the list of aliases in the **Results** tab.
 
