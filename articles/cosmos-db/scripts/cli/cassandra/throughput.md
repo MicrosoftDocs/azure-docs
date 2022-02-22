@@ -27,7 +27,7 @@ The script in this article creates a Cassandra keyspace with shared throughput a
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/cassandra/throughput.sh" range="4-107":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/cassandra/throughput.sh" range="4-106":::
 
 ## Clean up resources
 

@@ -27,7 +27,7 @@ The script in this article creates a Table API table then updates the throughput
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/autoscale.sh" range="4-58":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/autoscale.sh" range="4-57":::
 
 ## Clean up resources
 
