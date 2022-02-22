@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix request rate too large exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/25/2021
+ms.date: 02/22/2022
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -21,7 +21,9 @@ When you use provisioned throughput, you set the throughput measured in request 
 
 In a given second, if the operations consume more than the provisioned request units, Azure Cosmos DB will return a 429 exception. Each second, the number of request units available to use is reset.
 
-Before taking an action to change the RU/s, it's important to understand the root cause of rate limiting and address the underlying issue.  
+Before taking an action to change the RU/s, it's important to understand the root cause of rate limiting and address the underlying issue. 
+> [!TIP]
+> The guidance in this article applies to databases and containers using provisioned throughput - both autoscale and manual throughput.
 
 There are different error messages that correspond to different types of 429 exceptions:
 - [Request rate is large. More Request Units may be needed, so no changes were made.](#request-rate-is-large)
@@ -30,19 +32,18 @@ There are different error messages that correspond to different types of 429 exc
 
 
 ## Request rate is large
-This is the most common scenario. It occurs when the request units consumed by operations on data exceed the provisioned number of RU/s. 
+This is the most common scenario. It occurs when the request units consumed by operations on data exceed the provisioned number of RU/s. If you are using manual throughput, this occurs when you have consumed more RU/s than the manual throughput provisioned. If you are using autoscale, this occurs when you have consumed more than the maximum RU/s provisioned. For example, if you have a resource provisioned with manual throughput of 400 RU/s, you will see 429 when you consume more than 400 request units in a single second. If you have a resource provisioned with autoscale max RU/s of 4000 RU/s (scales between 400 RU/s - 4000 RU/s), you will see 429s when you consume more than 4000 request units in a single second.
 
 ### Step 1: Check the metrics to determine the percentage of requests with 429 error
-Seeing 429 error messages doesn't necessarily mean there is a problem with your database or container.
+Seeing 429 error messages doesn't necessarily mean there is a problem with your database or container. A small percentage of 429s is normal whether you are using manual or autoscale throughput, and is a sign that you are using the RU/s you have provisioned. 
 
 #### How to investigate
 
 Determine what percent of your requests to your database or container resulted in 429s, compared to the overall count of successful requests. From your Azure Cosmos DB account blade, navigate to **Insights** > **Requests** > **Total Requests by Status Code**. Filter to a specific database and container. 
 
-By default, the Azure Cosmos DB client SDKs and data import tools such as Azure Data Factory and bulk executor library automatically retry requests on 429s. They retry typically up to 9 times. As a result, while you may see 429s in the metrics, these errors may not even have been returned to your application. 
+By default, the Azure Cosmos DB client SDKs and data import tools such as Azure Data Factory and bulk executor library automatically retry requests on 429s. They retry typically up to 9 times. As a result, while you may see 429s in the metrics, these errors may not even have been returned to your application.
 
 :::image type="content" source="media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests.":::
-
 
 #### Recommended solution
 In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. No action is required. Otherwise, move to the next troubleshooting steps.
@@ -98,7 +99,7 @@ If there is high percent of rate limited requests and there is an underlying hot
 - Short-term, you can temporarily increase the RU/s to allow more throughput to the hot partition. This is not recommended as a long-term strategy, as it leads to overprovisioning RU/s and higher cost. 
 
 > [!TIP]
->  When you increase the throughput, the scale-up operation will either complete instantaneously or require up to 5-6 hours to complete, depending on the number of RU/s you want to scale up to. If you want to know the highest number of RU/s you can set without triggering the asynchronous scale-up operation (which requires Azure Cosmos DB to provision more physical partitions), multiply the number of distinct PartitionKeyRangeIds by 10,0000 RU/s. For example, if you have 30,000 RU/s provisioned and 5 physical partitions (6000 RU/s allocated per physical partition), you can increase to 50,000 RU/s (10,000 RU/s per physical partition) in an instantaneous scale-up operation. Increasing to >50,000 RU/s would require an asynchronous scale-up operation.
+>  When you increase the throughput, the scale-up operation will either complete instantaneously or require up to 5-6 hours to complete, depending on the number of RU/s you want to scale up to. If you want to know the highest number of RU/s you can set without triggering the asynchronous scale-up operation (which requires Azure Cosmos DB to provision more physical partitions), multiply the number of distinct PartitionKeyRangeIds by 10,0000 RU/s. For example, if you have 30,000 RU/s provisioned and 5 physical partitions (6000 RU/s allocated per physical partition), you can increase to 50,000 RU/s (10,000 RU/s per physical partition) in an instantaneous scale-up operation. Increasing to >50,000 RU/s would require an asynchronous scale-up operation. Learn more about [best practices for scaling provisioned throughput (RU/s)](../scaling-provisioned-throughput-best-practices.md).
 
 ### Step 3: Determine what requests are returning 429s
 
