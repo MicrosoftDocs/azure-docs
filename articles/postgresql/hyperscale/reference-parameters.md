@@ -143,11 +143,11 @@ failures on a more frequent basis.
 
 #### citus.shard\_count (integer)
 
-Sets the shard count for hash-partitioned tables and defaults to 32.  This
+Sets the shard count for hash-distributed tables and defaults to 32.  This
 value is used by the
-[create_distributed_table](reference-functions.md#create_distributed_table)
-UDF when creating hash-partitioned tables. This parameter can be set at
-run-time and is effective on the coordinator.
+[create_distributed_table](reference-functions.md#create_distributed_table) UDF
+when creating hash-distributed tables. This parameter can be set at run-time
+and is effective on the coordinator.
 
 #### citus.shard\_max\_size (integer)
 

@@ -176,7 +176,7 @@ Example function.json:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, myQueueItem) {
+module.exports = async function (context, myQueueItem) {
     context.log('Node.js queue trigger function processed work item', myQueueItem);
 
     // In this example the queue item is a JSON string representing an order that contains the name of a
@@ -193,8 +193,6 @@ module.exports = function (context, myQueueItem) {
         body : msg,
         to : myQueueItem.mobileNumber
     };
-
-    context.done();
 };
 ```
 

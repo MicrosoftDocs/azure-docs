@@ -789,6 +789,18 @@
       "branch": "main",
       "branch_mapping": {}
     },
+    {  
+      "path_to_root": "active-directory-b2c-msal-node-sign-in-sign-out-webapp",
+      "url": "https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {  
+      "path_to_root": "active-directory-b2c-javascript-nodejs-webapi",
+      "url": "https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi",
+      "branch": "master",
+      "branch_mapping": {}
+    },
     {
       "path_to_root": "msdocs-python-flask-webapp-quickstart",
       "url": "https://github.com/Azure-Samples/msdocs-python-flask-webapp-quickstart",

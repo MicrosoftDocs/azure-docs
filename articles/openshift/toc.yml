@@ -131,6 +131,8 @@
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
+    - name: Azure Red Hat Openshift service definition
+      href: openshift-service-definitions.md
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Support policies for ARO 4

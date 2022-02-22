@@ -288,7 +288,7 @@ For more information, see:
 
 - [Discover and deploy Microsoft Sentinel solutions (Public preview)](sentinel-solutions-deploy.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
-- [Advanced SIEM Information Model (ASIM) parsers (Public preview)](normalization-about-parsers.md)
+- [Advanced Security Information Model (ASIM) parsers (Public preview)](normalization-about-parsers.md)
 - [Visualize collected data](get-visibility.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Hunt for threats with Microsoft Sentinel](hunting.md)

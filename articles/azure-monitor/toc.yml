@@ -428,7 +428,7 @@ items:
       - name: Data collection
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
-      - name: Migrate from legacy agents
+      - name: Migrate from Log Analytics agent
         displayName: Migrate to Azure Monitor agent
         href: agents/azure-monitor-agent-migration.md
       - name: FAQ
@@ -515,6 +515,8 @@ items:
       href: autoscale/autoscale-get-started.md
     - name: Configuration settings
       href: autoscale/autoscale-understanding-settings.md
+    - name: Predictive autoscale
+      href: autoscale/autoscale-predictive.md
     - name: Best practices
       href: autoscale/autoscale-best-practices.md
     - name: Common metrics
@@ -579,7 +581,7 @@ items:
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
     - name: Notifications and actions
       items:
-      - name: Alert Processing Rules (Preview)
+      - name: Alert processing rules
         href: alerts/alerts-action-rules.md
         displayName: Azure CLI, az monitor action rule
       - name: Create action group
@@ -689,8 +691,47 @@ items:
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: FAQ
-
       href: /azure/azure-monitor/faq#application-insights
+    - name: Auto-instrumentation
+      items: 
+      - name: Overview
+        href: app/codeless-overview.md
+      - name: Azure VM and virtual machine scale set
+        href: app/azure-vm-vmss-apps.md
+      - name: Azure App Service
+        items: 
+        - name: Overview
+          href: app/azure-web-apps.md
+        - name: ASP.NET Core
+          href: app/azure-web-apps-net-core.md
+        - name: ASP.NET 
+          href: app/azure-web-apps-net.md
+        - name: Java 
+          href: app/azure-web-apps-java.md
+        - name: Node.js 
+          href: app/azure-web-apps-nodejs.md
+      - name: Azure Functions
+        displayName: functions, monitor functions, automation
+        href: app/monitor-functions.md
+      - name: Azure Kubernetes Service
+        href: app/kubernetes-codeless.md
+      - name: Any environment
+        items:
+        - name: ASP.NET
+          items:
+            - name: Overview
+              displayName: IIS monitoring, on premises monitoring, on prem 
+              href: app/status-monitor-v2-overview.md
+            - name: Getting started
+              href: app/status-monitor-v2-get-started.md
+            - name: Detailed instructions
+              href: app/status-monitor-v2-detailed-instructions.md
+            - name: Troubleshooting
+              href: app/status-monitor-v2-troubleshoot.md
+            - name: API reference
+              href: app/status-monitor-v2-api-reference.md
+        - name: Java
+          href: app/java-on-premises.md
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -766,49 +807,6 @@ items:
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights 
         href: app/remove-application-insights.md
-    - name: Auto-instrumentation
-      items: 
-      - name: Overview
-        href: app/codeless-overview.md
-      - name: Azure VM and virtual machine scale set
-        href: app/azure-vm-vmss-apps.md
-      - name: Azure App Service
-        items: 
-        - name: Overview
-          href: app/azure-web-apps.md
-        - name: ASP.NET Core
-          href: app/azure-web-apps-net-core.md
-        - name: ASP.NET 
-          href: app/azure-web-apps-net.md
-        - name: Java 
-          href: app/azure-web-apps-java.md
-        - name: Node.js 
-          href: app/azure-web-apps-nodejs.md
-      - name: Azure Cloud Services
-        displayName: cloud, cloud services, PaaS
-        href: app/cloudservices.md
-      - name: Azure Functions
-        displayName: functions, monitor functions, automation
-        href: app/monitor-functions.md
-      - name: Azure Kubernetes Service
-        href: app/kubernetes-codeless.md
-      - name: Any environment
-        items:
-        - name: ASP.NET
-          items:
-            - name: Overview
-              displayName: IIS monitoring, on premises monitoring, on prem 
-              href: app/status-monitor-v2-overview.md
-            - name: Getting started
-              href: app/status-monitor-v2-get-started.md
-            - name: Detailed instructions
-              href: app/status-monitor-v2-detailed-instructions.md
-            - name: Troubleshooting
-              href: app/status-monitor-v2-troubleshoot.md
-            - name: API reference
-              href: app/status-monitor-v2-api-reference.md
-        - name: Java
-          href: app/java-on-premises.md
     - name: OpenTelemetry-based instrumentation
       items: 
       - name: Overview
@@ -851,6 +849,8 @@ items:
       href: app/create-workspace-resource.md
     - name: Migrate to a workspace-based resource
       href: app/convert-classic-resource.md
+    - name: Migrate to connection strings
+      href: app/migrate-from-instrumentation-keys-to-connection-strings.md
     - name: Application dashboard
       displayName: dashboard, Application Insights dashboard
       href: app/overview-dashboard.md
@@ -1224,8 +1224,6 @@ items:
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
       href: insights/data-explorer.md
-    - name: Azure Service Bus
-      href: insights/service-bus-insights.md
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
@@ -1237,7 +1235,7 @@ items:
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#sql-insights-preview
+        href: /azure/azure-monitor/faq#sql-insights-(preview)
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts

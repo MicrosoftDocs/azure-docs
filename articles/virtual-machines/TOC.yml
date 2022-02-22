@@ -1489,6 +1489,8 @@
     - name: Portal
       displayName: port nsg network security group
       href: ./windows/nsg-quickstart-portal.md
+  - name: Migrate a virtual machine public IP address
+    href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-machines/toc.json
   - name: Assign public IP address
     href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Use a custom domain name

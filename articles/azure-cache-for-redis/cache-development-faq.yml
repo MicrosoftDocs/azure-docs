@@ -5,11 +5,10 @@ metadata:
   author: flang-msft
   ms.author: franlanglois
   ms.service: cache
-  ms.topic: conceptual
+  ms.topic: faq
   ms.devlang: csharp
   ms.custom: devx-track-csharp
   ms.date: 08/06/2020
-    
 title: Azure Cache for Redis development FAQs
 summary: This article provides answers to common questions about how to develop for Azure Cache for Redis.
 
