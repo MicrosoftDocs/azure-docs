@@ -151,7 +151,10 @@ Learn more about [Cosmos DB account - CosmosDBMongoSelfServeUpgrade (Upgrade you
 
 ### Add a second region to your production workloads on Azure Cosmos DB
 
-Based on their names and configuration, we have detected the Azure Cosmos DB accounts below as being potentially used for production workloads. These accounts currently run in a single Azure region. You can increase their availability by configuring them to span at least two Azure regions. NOTE: Additional regions will incur extra costs.
+Based on their names and configuration, we have detected the Azure Cosmos DB accounts below as being potentially used for production workloads. These accounts currently run in a single Azure region. You can increase their availability by configuring them to span at least two Azure regions. 
+
+> [!NOTE]
+> Additional regions will incur extra costs.
 
 Learn more about [Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a second region to your production workloads on Azure Cosmos DB)](/azure/cosmos-db/high-availability).
 
