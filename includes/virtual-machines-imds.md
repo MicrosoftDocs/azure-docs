@@ -986,7 +986,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 ---
 
 >[!NOTE]
-> * If you are looking to retrieve IMDS information for **Standard** SKU Public IP address, review [Load Balancer Metadata API](https://docs.microsoft.com/azure/load-balancer/howto-load-balancer-imds?tabs=windows) for more infomration.
+> * If you are looking to retrieve IMDS information for **Standard** SKU Public IP address, review [Load Balancer Metadata API](../articles/load-balancer/howto-load-balancer-imds.md?tabs=windows) for more infomration.
 
 ## Attested data
 
@@ -1184,6 +1184,8 @@ You can find the intermediate certificates in the [PKI repository](https://www.m
 > The intermediate certificate for Azure China 21Vianet will be from DigiCert Global Root CA, instead of Baltimore.
 If you pinned the intermediate certificates for Azure China as part of a root chain authority change, the intermediate certificates must be updated.
 
+> [!NOTE]
+> Starting February 2022, our Attested Data certificates will be migrated from SSLAdminV2 to Microsoft PKI. Due to this, the root CA will change from Baltimore CyberTrust to DigiCert Global G2. If you have the Baltimore CyberTrust cert or other intermediate certificates listed in **[this post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953)** pinned, please follow the instructions listed there **immediately** to prevent any disruptions from using the Attested Data endpoint.
 
 ## Managed identity
 

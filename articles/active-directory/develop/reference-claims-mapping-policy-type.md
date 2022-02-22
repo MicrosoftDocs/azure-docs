@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 01/04/2022
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin, jeedes, luleon
+ms.reviewer: paulgarn, ludwignick, jeedes, luleon
 ---
 
 # Claims mapping policy type

@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/03/2022
+ms.date: 02/16/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -156,6 +156,8 @@ az feature show --namespace Microsoft.Storage --name AllowSFTP
 
 ## Enable SFTP support
 
+This section shows you how to enable SFTP support for an existing storage account. To view an Azure Resource Manager template that enables SFTP support as part of creating the account, see [Create an Azure Storage Account and Blob Container accessible using SFTP protocol on Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-sftp).
+
 ### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
@@ -194,14 +196,16 @@ az storage account update -g <resource-group> -n <storage-account> --enable-sftp
 
 ---
 
-
 ## Configure permissions
 
 Azure Storage doesn't support shared access signature (SAS), or Azure Active directory (Azure AD) authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. 
 
 In this section, you'll learn how to create a local user, choose an authentication method, and assign permissions for that local user. 
 
-To learn more about the SFTP permissions model, see [SFTP Permissions model](secure-file-transfer-protocol-support.md#sftp-permissions-model).
+To learn more about the SFTP permissions model, see [SFTP Permissions model](secure-file-transfer-protocol-support.md#sftp-permission-model).
+
+> [!TIP]
+> This section shows you how to configure local users for an existing storage account. To view an Azure Resource Manager template that configures a local user as part of creating an account, see [Create an Azure Storage Account and Blob Container accessible using SFTP protocol on Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-sftp).
 
 ### [Portal](#tab/azure-portal)
 
