@@ -23,11 +23,9 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 ### Authorize access to Blob storage
 
-You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. Using Azure AD credentials is recommended, and this article's examples use Azure AD exclusively.
+You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using a storage account access key. Using Azure AD credentials is recommended, and this article's examples use Azure AD exclusively.
 
-Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to `login` to authorize with Azure AD credentials. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
-
-Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization.
+Azure CLI commands for data operations against Blob storage support the `--auth-mode` parameter, which enables you to specify how to authorize a given operation. Set the `--auth-mode` parameter to *login* to authorize with Azure AD credentials. Only Blob storage data operations support the `--auth-mode` parameter. Management operations, such as creating a resource group or storage account, automatically use Azure AD credentials for authorization. For more information, see [Authorize access to blob or queue data with Azure CLI](./authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 Run the `login` command to open a browser and connect to your Azure subscription.
 
@@ -55,30 +53,24 @@ az storage container create \
 
 ```
 
-When you use the following examples, you'll need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+When you use the examples included in this article, you'll need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Upload blobs
 
-To upload a file to a block blob, pass the required parameter values to the `az storage blob upload` command. Supply the path and file name with the `--file` parameter, and the name of the container with the `--container-name` parameter. You'll also need to authorize the operation with the `--account-name` parameter.
+To upload a file to a block blob, pass the required parameter values to the `az storage blob upload` command. Supply the source path and file name with the `--file` parameter, and the name of the destination container with the `--container-name` parameter. You'll also need to authorize the operation with the `--account-name` parameter. This command creates a new blob or overwrites the original blob if it already exists.
 
-`This command creates the blob if it doesn't exist, or prompts for overwrite confirmation if it exists. You can overwrite the file without confirmation if you pass the -Force parameter to the cmdlet.`
+You can use the `az storage blob upload-batch` command to recursively upload multiple blobs to a storage container. All files from the specified container can be uploaded by omitting values for the `--source` and `--destination` parameter values. You can also use Unix filename pattern matching specify a range of files to upload by  with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
 In the following example, the first operation uses the `az storage blob upload` command to upload a single, named file. The source file and destination storage container are specified with the `--file` and `--container-name` parameters.  
 
-`insert upload-batch`
-
 The second operation demonstrates the use of the `az storage blob upload-batch` command to upload multiple files. The `--if-modified-since` parameter ensures that only files modified with the last seven days will be uploaded. The value supplied by this parameter must be provided in UTC format.
-
-The `--pattern` parameter is used to specify files or blobs in the `--source` folder to be uploaded. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
-
-You can omit the `--pattern` parameter to upload all files from a local path directory to a specific container. Files can also be included or excluded based on the last modified date . using the `--if-modified-since` and `--if-unmodified-since` parameters.
 
 ```azurecli-interactive
 
 #!/bin/bash
 storageAccount="<storage-account>"
 containerName="demo-container"
-lastModified="2022-02-01T20:51Z"
+lastModified=`date -d "10 days ago" '+%Y-%m-%dT%H:%MZ'`
 
 path="C:\\temp\\"
 filename="demo-file.txt"
@@ -105,11 +97,15 @@ az storage blob upload-batch \
 
 ## List blobs
 
-The `az storage blob list` cmdlet is used to list blobs stored within a container. You can use various approaches to define the scope of your search. Use the `--container` and `--prefix` parameter to list a specific blob within a known container. To generate an unfiltered list of all blobs within a specific container, use the `-Container` parameter alone, without a `-Name` value.
+The `az storage blob list` command is used to list blobs stored within a container. You can use various approaches to define the scope of your search. There's no restriction on the number of containers or blobs a storage account may have. To potentially avoid retrieving thousands of blobs, it's a good idea to limit the amount of data returned.
 
-There's no restriction on the number of containers or blobs a storage account may have. To potentially avoid retrieving thousands of blobs, it's a good idea to limit the amount of data returned. When retrieving multiple blobs, you can use the `-Prefix` parameter to specify blobs whose names begin with a specific string. You may also use the `-Name` parameter in conjunction with a wildcard to specify file names or types.
+Use the `--prefix` parameter to select either a single known file or a range of files whose names begin with a defined string. To generate an unfiltered list of all blobs within a specific container, use the `--container` parameter alone, without a `--prefix` value.
 
-The `-MaxCount` parameter can be used to limit the number of unfiltered blobs returned from a container. A service limit of 5,000 is imposed on all Azure resources. This limit ensures that manageable amounts of data are retrieved and performance is not impacted. If the number of blobs returned exceeds either the `-MaxCount` value or the service limit, a continuation token is returned. This token allows you to use multiple requests to retrieve anynumber of blobs. More information is available on [Enumerating blob resources](/rest/api/storageservices/enumerating-blob-resources).
+If needed, specify additional datasets to include in your request by passing a value to the `--include` parameter. The values can be combined, and include (*c*)opy, (*d*)eleted, (*m*)etadata, (*s*)napshots, (*v*)ersions, (*t*)ags, (*i*)mmutabilitypolicy, (*l*)egalhold, and (*d*)eletedwithversions.
+
+Passing a `--delimeter` parameter value returns a `BlobPrefix` element at the beginning of the result list. The value may consist of a single character or a string. If present, the returned element acts as a placeholder for all blobs whose names begin with the specified value. The element will represent the name of the blobs up to the appearance of the delimiter character.
+
+The `--num-results` parameter can be used to limit the number of unfiltered blobs returned from a container. A service limit of 5,000 is imposed on all Azure resources. This limit ensures that manageable amounts of data are retrieved and performance is not impacted. If the number of blobs returned exceeds either the `--num-results` value or the service limit, a continuation token is returned. This token allows you to use multiple requests to retrieve any number of blobs. More information is available on [Enumerating blob resources](/rest/api/storageservices/enumerating-blob-resources).
 
 The following example shows several approaches used to provide a list of blobs. The first approach lists a single blob within a specific container resource. The second approach uses the `--prefix` parameter to list all files with a prefix of *louis*. The search is restricted to five containers using the `--num-results` parameter. The third approach uses `--num-results` and `--marker` parameters to limit the retrieval of all blobs within a container.
 
@@ -175,11 +171,11 @@ done
 
 ## Download a blob
 
-Depending on your use case, you'll use either the `az storage blob download` or `az storage blob download-batch` command to download either single or multiple blobs. To download a single named blob, you can call the `az storage blob download` command directly and supply values for the `--container-name`, `--file`, and `--name` parameters. The blob will be downloaded to the shell directory by default, but an alternate location can be specified. Because the operation can't create a destination, it will fail with an error if your specified path doesn't exist.
+Depending on your use case, you'll use either the `az storage blob download` or `az storage blob download-batch` command to download blobs. To download an individual blob, call the `az storage blob download` command directly and pass values for the `--container-name`, `--file`, and `--name` parameters. The blob will be downloaded to the shell directory by default, but an alternate location can be specified. The operation will fail with an error if your specified path doesn't exist.
 
-You can use the `az storage blob download-batch` command to recursively download multiple blobs from a storage container. Specify values for the `--source` and `--destination` parameter values download all files from the specified container. This command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+To recursively download multiple blobs from a storage container, use the `az storage blob download-batch` command. This command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
-The following sample code provides an example of both single and multiple download approaches. It also offers a simplified approach to searching all containers for specific files using a wildcard. Because some environments may have hundreds of thousands of resources, using the `--num-results` parameter is recommended.
+The following sample code provides an example of both single and multiple download approaches. It also offers a simplified approach to searching all containers for specific files using a wildcard. Because some environments may have many thousands of resources, using the `--num-results` parameter is recommended.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -239,13 +235,13 @@ done
 
 ## Manage blob properties and metadata
 
-A container exposes both system properties and user-defined metadata. System properties exist on each Blob Storage resource. Some properties are read-only, while others can be read or set. Under the covers, some system properties map to certain standard HTTP headers.
+A blob exposes both system properties and user-defined metadata. System properties exist on each Blob Storage resource. Some properties are read-only, while others can be read or set. Under the covers, some system properties map to certain standard HTTP headers.
 
-User-defined metadata consists of one or more name-value pairs that you specify for a Blob Storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
+User-defined metadata consists of one or more name-value pairs that you specify for a Blob Storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own specific purposes only, and don't affect how the resource behaves.
 
 ### Reading blob properties
 
-To read blob properties or metadata, you must first retrieve the blob from the service. Use the `az storage blob show` cmdlet to retrieve a blob's properties and metadata, but not its content. The following example retrieves a blob and lists its properties.
+To read blob properties or metadata, you must first retrieve the blob from the service. Use the `az storage blob show` command to retrieve a blob's properties and metadata, but not its content. The following example retrieves a blob and lists its properties.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -416,7 +412,7 @@ The following example illustrates how to add blob index tags to a series of blob
 </Venue>
 ```
 
-The sample code creates a hash table and assigns the **$tags** variable to it. Next, it uses the `Get-Content` and `Get-Data` cmdlets to create an object based on the XML structure. It then adds key-value pairs to the hash table to be used as the tag values. Finally, it iterates through the XML object and creates tags for each `File` node.
+The sample code creates a hash table and assigns the **$tags** variable to it. Next, it uses the `Get-Content` and `Get-Data` commands to create an object based on the XML structure. It then adds key-value pairs to the hash table to be used as the tag values. Finally, it iterates through the XML object and creates tags for each `File` node.
 
 ```azurecli-interactive
 #Set variables
