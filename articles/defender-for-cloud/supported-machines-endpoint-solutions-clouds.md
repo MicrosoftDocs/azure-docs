@@ -2,7 +2,7 @@
 title: Microsoft Defender for Cloud's features according to OS, machine type, and cloud
 description: Learn about the availability of Microsoft Defender for Cloud features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 02/01/2022
+ms.date: 02/10/2022
 ms.custom: references_regions
 ---
 
@@ -65,27 +65,27 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 
 ### [**Multi-cloud machines**](#tab/features-multi-cloud)
 
-| **Feature**                                                                                                                       | **Availability in AWS**                                                                                         |
-|-----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|
-| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                               | ✔                                                                                                              |
-| [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)                                                 | ✔                                                                                                              |
-| [Fileless security alerts](alerts-reference.md#alerts-windows)                                                                    | ✔                                                                                                              |
-| [Network-based security alerts](other-threat-protections.md#network-layer)                                                        | -                                                                                                               |
-| [Just-in-time VM access](just-in-time-access-usage.md)                                                                            | -                                                                                                               |
-| [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔                                                                                                              |
-| [File integrity monitoring](file-integrity-monitoring-overview.md)                                                                | ✔                                                                                                              |
-| [Adaptive application controls](adaptive-application-controls.md)                                                                 | ✔                                                                                                              |
-| [Network map](protect-network-resources.md#network-map)                                                                           | -                                                                                                               |
-| [Adaptive network hardening](adaptive-network-hardening.md)                                                                       | -                                                                                                               |
-| [Regulatory compliance dashboard & reports](regulatory-compliance-dashboard.md)                                                   | ✔                                                                                                              |
-| [Docker host hardening](harden-docker-hosts.md)                                                                                   | ✔                                                                                                              |
-| Missing OS patches assessment                                                                                                     | ✔                                                                                                              |
-| Security misconfigurations assessment                                                                                             | ✔                                                                                                              |
-| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds.md#supported-endpoint-protection-solutions-)        | ✔                                                                                                              |
-| Disk encryption assessment                                                                                                        | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) |
-| Third-party vulnerability assessment                                                                                              | -                                                                                                               |
-| [Network security assessment](protect-network-resources.md)                                                                       | -                                                                                                               |
-|                                                                                                                                   |                                                                                                                 |
+| **Feature** | **Availability in AWS** | **Availability in GCP** |
+|--|:-:|
+| [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md) | ✔ | ✔ |
+| [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md) | ✔ | ✔ |
+| [Fileless security alerts](alerts-reference.md#alerts-windows) | ✔ | ✔ |
+| [Network-based security alerts](other-threat-protections.md#network-layer) | - | - |
+| [Just-in-time VM access](just-in-time-access-usage.md) | - | - |
+| [Integrated Qualys vulnerability scanner](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner) | ✔ | ✔ |
+| [File integrity monitoring](file-integrity-monitoring-overview.md) | ✔ | ✔ |
+| [Adaptive application controls](adaptive-application-controls.md) | ✔ | ✔ |
+| [Network map](protect-network-resources.md#network-map) | - | - |
+| [Adaptive network hardening](adaptive-network-hardening.md) | - | - |
+| [Regulatory compliance dashboard & reports](regulatory-compliance-dashboard.md) | ✔ | ✔ |
+| [Docker host hardening](harden-docker-hosts.md) | ✔ | ✔ |
+| Missing OS patches assessment | ✔ | ✔ |
+| Security misconfigurations assessment | ✔ | ✔ |
+| [Endpoint protection assessment](supported-machines-endpoint-solutions-clouds.md#supported-endpoint-protection-solutions-) | ✔ | ✔ |
+| Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) |
+| Third-party vulnerability assessment | - | - |
+| [Network security assessment](protect-network-resources.md) | - | - |
+|  |  |
 
 --- 
 
