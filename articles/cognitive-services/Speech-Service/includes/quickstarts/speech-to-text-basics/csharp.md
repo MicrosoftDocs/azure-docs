@@ -49,7 +49,7 @@ Follow these steps to create a new console application and install the Speech SD
         static var YourSubscriptionKey = "YourSubscriptionKey";
         static var YourServiceRegion = "YourServiceRegion";
 
-        static void OutputSpeechRecognitionResult(SpeechRecognitionResult result)
+        static void OutputSpeechRecognitionResult(SpeechRecognitionResult speechRecognitionResult)
         {
             switch (speechRecognitionResult.Reason)
             {
