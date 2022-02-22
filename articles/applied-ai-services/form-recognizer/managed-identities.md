@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 01/26/2022
+ms.date: 02/22/2022
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
@@ -17,17 +17,22 @@ ms.custom: ignite-fall-2021
 > [!IMPORTANT]
 > Azure RBAC (Azure role-based access control) assignment is currently in preview and not recommended for production workloads. Certain features may not be supported or have constrained capabilities. Azure RBAC assignments are used to grant permissions for managed identity.
 
-## What is managed identity?
+## What are managed identities?
 
-Azure managed identity is a service principal. It creates an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources. You can use a managed identity to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure RBAC](../../role-based-access-control/overview.md) (Azure role-based access control).  There's no added cost to use managed identity in Azure.
+* Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources.
 
-Managed identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.   In this article, you'll learn to enable a system-assigned managed identity for your Form Recognizer instance.
+* You can use managed identities **instead of a shared access signature (SAS) token** to grant access to any resource that supports Azure AD authentication. To grant access, assign a role to a managed identity using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).  
+
+* There's no added cost to use managed identity in Azure.
+
+> [!TIP]
+> Managed identities eliminate the need for you to manage credentials, including Shared Access Signature (SAS) tokens. Managed identities are a safer way to grant access to data without having credentials in your code.
 
 ## Private storage account access
+
 > [!NOTE]
 >
-> Form Recognizer only supports system-assigned managed identities today. User-assigned managed identities is on the roadmap and will be enabled in the near future. 
-
+> Form Recognizer only supports system-assigned managed identities today. User-assigned managed identities is on the feature road map and will be enabled in the near future.
 
  Private Azure storage account access and authentication are supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account, protected by a Virtual Network (VNet) or firewall, Form Recognizer can't directly access your storage account data. However, once a managed identity is enabled, Form Recognizer can access your storage account using an assigned managed identity credential.
 
@@ -82,6 +87,10 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 
 1. In the main window, toggle the **System assigned Status** tab to **On**.
 
+## Grant access to your storage account
+
+You need to grant Form Recognizer access to your storage account before it can create, read, or delete blobs. Now that you enabled Form Recognizer with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give a managed identity (Form Recognizer) access to another resource (Azure storage)—just like any security principal. The **Storage Blob Data Reader** role gives Form Recognizer (represented by the system-assigned managed identity) read and list access to the blob container and data.
+
 1. Under **Permissions** select **Azure role assignments**:
 
     :::image type="content" source="media/managed-identities/enable-system-assigned-managed-identity-portal.png" alt-text="Screenshot: enable system-assigned managed identity in Azure portal.":::
@@ -94,14 +103,14 @@ In the following steps, we'll enable a system-assigned managed identity and gran
     >
     > If you're unable to assign a role in the Azure portal because the Add > Add role assignment option is disabled or you get the permissions error, "you do not have permissions to add role assignment at this scope", check that you're currently signed in as a user with an assigned a role that has Microsoft.Authorization/roleAssignments/write permissions such as Owner or User Access Administrator at the Storage scope for the storage resource.
 
- 7. Next, you're going to assign a **Storage Blob Data Reader** role to your Form Recognizer service resource. In the **Add role assignment** pop-up window complete the fields as follows and select **Save**:
+1. Next, you're going to assign a **Storage Blob Data Reader** role to your Form Recognizer service resource. In the **Add role assignment** pop-up window complete the fields as follows and select **Save**:
 
     | Field | Value|
     |------|--------|
-    |**Scope**| ***Storage***|
-    |**Subscription**| ***The subscription associated with your storage resource***.|
-    |**Resource**| ***The name of your storage resource***|
-    |**Role** | ***Storage Blob Data Reader***—allows for read access to Azure Storage blob containers and data.|
+    |**Scope**| **_Storage_**|
+    |**Subscription**| **_The subscription associated with your storage resource_**.|
+    |**Resource**| **_The name of your storage resource_**|
+    |**Role** | **_Storage Blob Data Reader_**—allows for read access to Azure Storage blob containers and data.|
 
      :::image type="content" source="media/managed-identities/add-role-assignment-window.png" alt-text="Screenshot: add role assignments page in the Azure portal.":::
 
@@ -113,9 +122,9 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 
     :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
- That's it! You've completed the steps to enable a system-assigned managed identity. With this identity credential, you can grant Form Recognizer-specific access rights to documents and files stored in your BYOS account.
+ That's it! You've completed the steps to enable a system-assigned managed identity. With managed identity and Azure RBAC, you granted Form Recognizer specific access rights to documents and files stored in your storage resource without having to manage credentials, such as SAS tokens.
 
 ## Learn more about  managed identity
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources: frequently asked questions - Azure AD](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md)
+> [Access Azure Storage form a web app using managed identities](/azure/app-service/scenario-secure-app-access-storage?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json )
