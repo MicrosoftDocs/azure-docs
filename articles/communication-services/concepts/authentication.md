@@ -64,8 +64,14 @@ The user identity is intended to act as a primary key for logs and metrics colle
 
 > [!div class="nextstepaction"]
 > [Create and manage Communication Services resources](../quickstarts/create-communication-resource.md)
+
+> [!div class="nextstepaction"]
 > [Create an Azure Active Directory service principal application from the Azure CLI](../quickstarts/identity/service-principal-from-cli.md)
+
+> [!div class="nextstepaction"]
 > [Create user access tokens](../quickstarts/access-tokens.md)
+
+> [!div class="nextstepaction"]
 > [Trusted authentication service hero sample](../samples/trusted-auth-sample.md)
 
 For more information, see the following articles:
