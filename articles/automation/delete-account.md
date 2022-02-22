@@ -164,7 +164,7 @@ After the Automation account is successfully unlinked from the workspace, perfor
 
 You can recover a deleted automation account from Azure portal.
 
-To recover a storage account, ensure that the following conditions are met:
+To recover an Automation account, ensure that the following conditions are met:
 - You've created the Automation account with the Azure Resource Manager deployment model and deleted within the past 30 days.
 - Before you attempt to recover a deleted Automation account, ensure that resource group for that account exists.
 
