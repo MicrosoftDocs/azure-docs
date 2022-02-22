@@ -35,8 +35,7 @@ sections:
       - question: |
           Is there a limit to the number of partial document update operations?
         answer: |
-          There is a limit of 10 patch operations that can be added in a single patch specification. If you need this number to be increased, please contact the [support team](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
+          There is a limit of 10 patch operations that can be added in a single patch specification.
       - question: |
           Is partial document update supported for system-generated properties?
         answer: |
