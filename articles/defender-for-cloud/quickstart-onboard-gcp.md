@@ -32,7 +32,7 @@ To protect your GCP-based resources, you can connect an account in two different
 
 |Aspect|Details|
 |----|:----|
-| Release state: | Preview <br> The Azure Preview Supplemental Terms include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
+| Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
 |Pricing:|The **CSPM plan** is free.<br> The **Defender for servers** plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
@@ -51,8 +51,6 @@ If you have any existing connectors created with the classic cloud connectors ex
     :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
 
 1. For each connector, select the three dot button **…** at the end of the row, and select **Delete**.
-
-1. On AWS, delete the role ARN, or the credentials created for the integration.
 
 ## Connect your GCP projects
 
