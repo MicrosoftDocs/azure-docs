@@ -54,7 +54,7 @@ $existingrulecollection.Rules.Add($newrule1)
 $existingrulecollection.Rules.Add($newrule2)
 ```
 
-Use this step to add any more rules to the same rule collection group.
+Use this step to add any more rules, or perform any modifications to existing rules in the same rule collection group.
 
 ## Update the rule collection on Azure
 
