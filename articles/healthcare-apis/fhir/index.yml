@@ -4,7 +4,7 @@ title: FHIR service documentation
 summary: FHIR service documentation for Azure Health Data Services. FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
 
 metadata:
-  title: FHIR service documentation 
+  title: Azure Health Data Services FHIR service
   description: FHIR service is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning. 
   services: healthcare-apis
   ms.service: healthcare-apis
