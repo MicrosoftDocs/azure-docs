@@ -221,20 +221,8 @@
           href: sql/powershell-samples.md
         - name: Azure CLI samples
           items:
-          - name: Overview
+          - name: Overview SQL API samples
             href: sql/cli-samples.md
-          - name: Common API samples
-            items:
-            - name: Add or fail over regions
-              href: scripts/cli/common/regions.md
-            - name: Perform account key operations
-              href: scripts/cli/common/keys.md
-            - name: Secure with IP firewall
-              href: scripts/cli/common/ipfirewall.md
-            - name: Secure new account with service endpoints
-              href: scripts/cli/common/service-endpoints.md
-            - name: Secure existing account with service endpoints
-              href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
           - name: SQL API samples
             items:
             - name: Create account, keyspace, and table
@@ -1050,20 +1038,8 @@
       items:
         - name: Azure CLI samples
           items:
-          - name: Overview
+          - name: Overview Cassandra API samples
             href: cassandra/cli-samples.md
-          - name: Common API samples
-            items:
-            - name: Add or fail over regions
-              href: scripts/cli/common/regions.md
-            - name: Perform account key operations
-              href: scripts/cli/common/keys.md
-            - name: Secure with IP firewall
-              href: scripts/cli/common/ipfirewall.md
-            - name: Secure new account with service endpoints
-              href: scripts/cli/common/service-endpoints.md
-            - name: Secure existing account with service endpoints
-              href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
           - name: Cassandra API samples
             items:
             - name: Create account, keyspace, and table
@@ -1227,20 +1203,8 @@
       items:
         - name: Azure CLI samples
           items: 
-          - name: Overview
+          - name: Overview MongoDB API samples
             href: mongodb/cli-samples.md
-          - name: Common API samples
-            items:
-            - name: Add or fail over regions
-              href: scripts/cli/common/regions.md
-            - name: Perform account key operations
-              href: scripts/cli/common/keys.md
-            - name: Secure with IP firewall
-              href: scripts/cli/common/ipfirewall.md
-            - name: Secure new account with service endpoints
-              href: scripts/cli/common/service-endpoints.md
-            - name: Secure existing account with service endpoints
-              href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
           - name: MongoDB API samples
             items:
             - name: Create account, keyspace, and table
@@ -1380,20 +1344,8 @@
       items:
         - name: Azure CLI samples
           items:
-          - name: Overview
+          - name: Overview Gremlin API samples
             href: graph/cli-samples.md
-          - name: Common API samples
-            items:
-            - name: Add or fail over regions
-              href: scripts/cli/common/regions.md
-            - name: Perform account key operations
-              href: scripts/cli/common/keys.md
-            - name: Secure with IP firewall
-              href: scripts/cli/common/ipfirewall.md
-            - name: Secure new account with service endpoints
-              href: scripts/cli/common/service-endpoints.md
-            - name: Secure existing account with service endpoints
-              href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
           - name: Gremlin API samples
             items:
             - name: Create account, keyspace, and table
@@ -1585,6 +1537,23 @@
   items:
     - name: Azure Resource Graph queries
       href: ./resource-graph-samples.md
+    - name: Common API samples
+      items:
+        - name: Overview common API samples
+          href: cli-samples.md
+        - name: Azure CLI samples
+          items:
+            - name: Add or fail over regions
+              href: scripts/cli/common/regions.md
+            - name: Perform account key operations
+              href: scripts/cli/common/keys.md
+            - name: Secure with IP firewall
+              href: scripts/cli/common/ipfirewall.md
+            - name: Secure new account with service endpoints
+              href: scripts/cli/common/service-endpoints.md
+            - name: Secure existing account with service endpoints
+              href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+  
 - name: How-to guides
   items:
     - name: Free tier
