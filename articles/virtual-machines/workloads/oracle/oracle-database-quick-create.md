@@ -340,6 +340,10 @@ For a GUI management tool that you can use to explore the database, set up Oracl
     ```bash
     exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
+    
+    PENDING(edburns): put some debugging steps for what happens if
+    they are not able to complete this step.
+    
 
 3.  Connect EM Express from your browser. Make sure your browser is compatible with EM Express (Flash install is required): 
 
