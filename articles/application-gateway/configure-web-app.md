@@ -203,6 +203,102 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 ---
 
+## Configure the Listener
+
+To accept traffic we need to configure a Listener.  For more info on this see [Application Gateway listener configuration](configuration-listeners.md).
+
+### [Azure Portal](#tab/azure-portal/customdomain)
+
+1. Open the "Listeners" section and choose "Add listener" or click an existing one to edit
+1. For a new listener: give it a name
+1. Under "Frontend IP", select the IP address to listen on
+1. Under "Port", select 443
+1. Under "Protocol", select "HTTPS"
+1. Under "Choose a certificate", select "Choose a certificate from Key Vault".  For more information, see [Using Key Vault](key-vault-certs.md) where you find more information on how to assign a managed identity and provide it with rights to your Key Vault.
+    1. Give the certificate a name
+    1. Select the Managed Identity
+    1. Select the Key Vault from where to get the certificate
+    1. Select the certificate
+1. Under "Listener Type", select "Basic"
+1. Click "Add" to add the listener
+
+:::image type="content" source="media/configure-web-app/add-https-listener.png" alt-text="Add a listener for HTTPS traffic":::
+
+### [Azure Portal](#tab/azure-portal/defaultdomain)
+
+Assuming there's no custom domain available or associated certificate, we'll configure Application Gateway to listen for HTTP traffic on port 80.  Alternatively, see the instructions on how to [Create a self-signed certificate](tutorial-ssl-powershell#create-a-self-signed-certificate.md)
+
+1. Open the "Listeners" section and choose "Add listener" or click an existing one to edit
+1. For a new listener: give it a name
+1. Under "Frontend IP", select the IP address to listen on
+1. Under "Port", select 80
+1. Under "Protocol", select "HTTP"
+
+:::image type="content" source="media/configure-web-app/add-http-listener.png" alt-text="Add a listener for HTTP traffic":::
+
+### [Powershell](#tab/azure-powershell/customdomain)
+
+```powershell
+# This script assumes that:
+# - a certificate was imported in Azure Key Vault already
+# - a managed identity was assigned to Application Gateway with access to the certificate
+# - there is no HTTP listener defined yet for HTTPS on port 443
+
+$rgName = "<name of resource group for App Gateway>"
+$appGwName = "<name of the App Gateway>"
+$appGwSSLCertificateName = "<name for ssl cert to be created within Application Gateway"
+$appGwSSLCertificateKeyVaultSecretId = "<key vault secret id for the SSL certificate to use>"
+$httpListenerName = "<name for the listener to add>"
+
+# Get existing Application Gateway:
+$gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
+
+# Create SSL certificate object for Application Gateway:
+Add-AzApplicationGatewaySslCertificate -Name $appGwSSLCertificateName -ApplicationGateway $gw -KeyVaultSecretId $appGwSSLCertificateKeyVaultSecretId
+$sslCert = Get-AzApplicationGatewaySslCertificate -Name $appGwSSLCertificateName -ApplicationGateway $gw
+
+# Fetch public ip associated with Application Gateway:
+$ipAddressResourceId = $gw.FrontendIPConfigurations.PublicIPAddress.Id
+$ipAddressResource = Get-AzResource -ResourceId $ipAddressResourceId
+$publicIp = Get-AzPublicIpAddress -ResourceGroupName $ipAddressResource.ResourceGroupName -Name $ipAddressResource.Name
+
+$frontendIpConfig = $gw.FrontendIpConfigurations | Where-Object {$_.PublicIpAddress -ne $null}
+
+$port = New-AzApplicationGatewayFrontendPort -Name "port_443" -Port 443
+Add-AzApplicationGatewayFrontendPort -Name "port_443" -ApplicationGateway $gw -Port 443
+Add-AzApplicationGatewayHttpListener -Name $httpListenerName -ApplicationGateway $gw -Protocol Https -FrontendIPConfiguration $frontendIpConfig -FrontendPort $port -SslCertificate $sslCert
+
+# Update Application Gateway with the new HTTPS listener:
+Set-AzApplicationGateway -ApplicationGateway $gw
+
+```
+
+### [Powershell](#tab/azure-powershell/defaultdomain)
+
+In many cases a public listener for HTTP on port 80 will already exist.  The below script will create one if that is not yet the case.
+
+```powershell
+$rgName = "<name of resource group for App Gateway>"
+$appGwName = "<name of the App Gateway>"
+$httpListenerName = "<name for the listener to add if not exists yet>"
+
+# Get existing Application Gateway:
+$gw = Get-AzApplicationGateway -Name $appGwName -ResourceGroupName $rgName
+
+# Check if HTTP listener on port 80 already exists:
+$port = $gw.FrontendPorts | Where-Object {$_.Port -eq 80}
+$listener = $gw.HttpListeners | Where-Object {$_.Protocol.ToString().ToLower() -eq "http" -and $_.FrontendPort.Id -eq $port.Id}
+
+if ($listener -eq $null){
+    $frontendIpConfig = $gw.FrontendIpConfigurations | Where-Object {$_.PublicIpAddress -ne $null}
+    Add-AzApplicationGatewayHttpListener -Name $httpListenerName -ApplicationGateway $gw -Protocol Http -FrontendIPConfiguration $frontendIpConfig -FrontendPort $port
+
+    # Update Application Gateway with the new HTTPS listener:
+    Set-AzApplicationGateway -ApplicationGateway $gw
+}
+```
+
+---
 ## Configure Request Routing Rule
 
 Provided with the earlier configured Backend Pool and the HTTP Settings, the request routing rule can be set up to take traffic from a listener and route it to the Backend Pool using the HTTP Settings.  For this, make sure you have a HTTP or HTTPS listener available that is not already bound to an existing routing rule.
@@ -328,8 +424,9 @@ Invoke-WebRequest "http://$($publicIp.IpAddress)"
 
 Pay attention to the following non-exhaustive list of potential symptoms when testing the application:
 - redirections pointing to ".azurewebsites.net" directly instead of to Application Gateway
-- this includes authentication redirects that try access ".azurewebsites.net" directly
+- this includes [App Service Authentication](../app-service/configure-authentication-provider-aad.md) redirects that try access ".azurewebsites.net" directly
 - domain-bound cookies not being passed on to the backend
+- this includes the use of the ["ARR affinity" setting](../app-service/configure-common.md#configure-general-settings) in App Service
 
 The above conditions (explained in more detail in [Architecture Center](/azure/architecture/best-practices/host-name-preservation)) would indicate that your web application does not deal well with rewriting the host name.  This is very common to see.  The recommended way to deal with this is to follow the instructions for configuration Application Gateway with App Service using a custom domain.  Also see: [Troubleshoot App Service issues in Application Gateway](troubleshoot-app-service-redirection-app-service-url.md).
 
