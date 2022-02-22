@@ -29,7 +29,10 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## February 2022
 
-### Data transformation at ingestion time
+- [Data transformation at ingestion time (Public preview)](#data-transformation-at-ingestion-time-public-preview)
+- [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
+
+### Data transformation at ingestion time (Public preview)
 
 Microsoft Sentinel supports the ingestion-time data transformation features provided by Log Analytics. Ingestion-time data transformation acts on your data even before it's stored in your workspace. Use it to filter out irrelevant data, saving you storage space, reducing costs, and enhancing performance. You can also use it to enrich or tag your data, or to hide sensitive or personal information.
 
@@ -54,6 +57,14 @@ For more information, see:
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 - [Data transformation in Microsoft Sentinel](data-transformation.md)
 - [Configure ingestion-time data transformation for Microsoft Sentinel](configure-data-transformation.md).
+
+### Manually run playbooks based on the incident trigger (Public preview)
+
+While full automation is the best solution for many incident-handling, investigation, and mitigation tasks, there may often be cases where you would prefer your analysts have more human input and control over the situation. Also, you may want your SOC engineers to be able to test the playbooks they write before fully deploying them in automation rules.
+
+For these and other reasons, Microsoft Sentinel now allows you to [**run playbooks manually on-demand for incidents**](automate-responses-with-playbooks.md#run-a-playbook-manually) as well as alerts.
+
+Learn more about [running incident-trigger playbooks manually](tutorial-respond-threats-playbook.md#run-a-playbook-manually-on-an-incident).
 
 ## January 2022
 

@@ -69,8 +69,8 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
-3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
-4. Once you get the `Connection String`, Add the connection string to the **Chat/appsettings.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
+3. Get the `Connection String` and `Endpoint URL` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
+4. Once you get the `Connection String` and `Endpoint URL`, Add both values to the **Server/appsettings.json** file found under the Chat Hero Sample folder. Input your connection string in the variable: `ResourceConnectionString` and endpoint URL in the variable: `EndpointUrl`.
 
 ### Local run
 
