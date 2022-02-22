@@ -129,7 +129,7 @@ mlflow.set_experiment(experimentName)
 ```
 
 > [!NOTE]
-> MLflow Tracking in a [private link enabled Azure Machine Learning workspace](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-configure-private-link?tabs=python) is not supported.
+> MLflow Tracking in a [private link enabled Azure Machine Learning workspace](how-to-configure-private-link.md) is not supported.
 
 ### Set MLflow Tracking to only track in your Azure Machine Learning workspace
 
