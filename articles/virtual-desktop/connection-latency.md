@@ -9,212 +9,134 @@ manager: femila
 ---
 # Connection quality in Azure Virtual Desktop
 
-Azure Virtual Desktop helps users host client sessions on their session hosts runningon Azure. When a user starts a session, they connect from their end-user device, also known as a "client," over a network to access the session host. It's important that the user experience feels as much like a local session on a physical device as possible. In this article, we'll talk about how you can measure and improve the connection quality of your end-users.
+Azure Virtual Desktop helps users host client sessions on their session hosts running on Azure. When a user starts a session, they connect from their end-user device, also known as a "client," over a network to access the session host. It's important that the user experience feels as much like a local session on a physical device as possible. In this article, we'll talk about how you can measure and improve the connection quality of your end-users.
 
 >[!NOTE]
 >Azure Virtual Desktop currently only supports network data in commercial clouds.
 
 ## Measure connection quality with Azure Log Analytics
 
-If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you can monitor network data with the conneciton network data diagnostics. The data Log Analytics collects can help you discover areas that impact your end-user's graphical experience. The service collects data for reports about every two minutes. Log Analytics reports have the following advantages over RemoteFX network performance counters:
+If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you can monitor network data with the connection network data diagnostics. The data Log Analytics collects can help you discover areas that impact your end-user's graphical experience. The service collects data for reports about every two minutes. Log Analytics reports have the following advantages over RemoteFX network performance counters:
 
 - Each record is connection-specific and includes the correlation ID of the connection that can be tied back to the user.
 
-- The round trip time measured in this table is protocol-agnostic and will record the measured latency for TCP or UDP connections
+- The round trip time measured in this table is protocol-agnostic and will record the measured latency for Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) connections.
 
 To start collecting this data, you’ll need to make sure you have diagnostics and the Network Data table enabled in your your Azure Virtual Desktop host pools.
 
 To check and modify your diagnostics settings in the Azure Portal:
 
-1.  Sign in to the Azure portal, then go to **Azure Virtual Desktop** and select **Host pools**.
+1. Sign in to the Azure portal, then go to **Azure Virtual Desktop** and select **Host pools**.
 
-2.  Select the host pool you want to collect network data for.
+2. Select the host pool you want to collect network data for.
 
-3.  Select **Diagnostic settings**. Create a new setting or if you have a Diagnostic Setting already, select **Edit setting**.
+3. Select **Diagnostic settings**, then create a new setting if you haven't configured your diagnostic settings yet. If you've already configured your diagnostic settings, select **Edit setting**.
 
-4.  Select **allLogs** or the diagnostics tables you would like to collect,
-    including **NetworkData**. allLogs will ensure new tables are automatically
-    collected in the future.
+4. Select **allLogs**, then select the names of the diagnostics tables you want to collect data for, including **NetworkData**. The *allLogs* parameter will automatically add new tables to your data table in the future.
 
-5.  **Save** and repeat for other host pools.
+5. Select **Save** to apply your changes.
 
-Connection network data
------------------------
+6. Repeat this process for all other host pools you want to measure.
 
-Network data records include the following information:
+### Connection network data
 
--   **Estimated available bandwidth (kilobytes per second):** The average
-    estimated available network bandwidth over the last connection time interval
+The network data you collect for your data tables includes the following information:
 
--   **Estimated round trip time (milliseconds):** The average estimated time it
-    takes for a network request to go from the end user device, over the network
-    to the session host, and back to the end user device over the last
-    connection time interval
+- The **estimated available bandwidth (kilobytes per second)** is the average estimated available network bandwidth during each connection time interval.
 
--   **Correlation ID:** The activity ID of the AVD connection that can be
-    correlated with other diagnostics from that connection.
+- The **estimated round trip time (milliseconds)** is how long it takes for a network request to go between the client and the session host. Each time interval is measured by how long it takes for the network request to go from the end-user's device over the network to the session host, then return to the device.
 
--   **Source system:** name of the compute/cloud provider (Azure or…)
+- The **Correlation ID** is the activity ID of a specific Azure Virtual Desktop connection that's assigned to every diagnostic task within that connection.
 
--   **Tenant ID**: a unique identifier for the Azure tenant that the record is
-    associated with
+- The **source system** is name of the compute or cloud provider. Source systems can be from Azure or elsewhere.
 
--   **Time generated**: Time stamp (UTC) of when the event was generated on the
-    VM. Averages were for the time window ending at the marked time stamp.
+- The **Tenant ID**, which is a unique ID assigned to the Azure tenant associated with the data the diagnostics service collects for this table.
 
--   **Type**: The name of the table; “WVDConnectionNetworkData”
+- The **time generated**, which is a timestamp in UTC time that marks when an event the data counter is tracking happened on the virtual machine (VM). All averages are measured by the time window that ends that the marked timestamp.
 
--   **Resource ID**: a unique identifier for the AVD host pool that the record
-    is associated with
+- The **type**, which is the name of the data table. In this case, the table's name is “WVDConnectionNetworkData."
 
--   **Subscription ID:** a unique identifier for the Azure subscription that the
-    record is associated with
+- The **Resource ID**, which is a unique ID assigned to the Azure Virtual Desktop host pool associated with the data the diagnostics service collects for this table.
 
-To learn more about this table, see \<insert schema doc link\>.
+- The **Subscription ID**, which is a unique identifier assigned to the Azure subscription associated with the data the diagnostics service collects for this table.
 
-Sample queries:
----------------
+## Sample queries
 
-The following query list lets you review connection quality information. You can
-run this query in the [Log Analytics query
-editor](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial#write-a-query).
-For each query, replace userupn with the UPN of the user you want to look up.
+In this section, we have a list of queries that will help you review connection quality information. You can run queries in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query).
 
-**Query average RTT and bandwidth**
+>[!NOTE]
+>For each example, replace the *userupn* variable with the UPN of the user you want to look up.
 
->   // 90th, 50th, 10th Percentile for RTT in 10 min increments
+### Query average RTT and bandwidth
 
->   WVDConnectionNetworkData
+To look up the average round-trip time and bandwidth:
 
->   \| summarize
->   RTTP90=percentile(EstRoundTripTimeInMs,90),RTTP50=percentile(EstRoundTripTimeInMs,50),RTTP10=percentile(EstRoundTripTimeInMs,10)
->   by bin(TimeGenerated,10m)
+```kusto
+// 90th, 50th, 10th Percentile for RTT in 10 min increments
+WVDConnectionNetworkData
+| summarize RTTP90=percentile(EstRoundTripTimeInMs,90),RTTP50=percentile(EstRoundTripTimeInMs,50),RTTP10=percentile(EstRoundTripTimeInMs,10) by bin(TimeGenerated,10m)
+| render timechart
+// 90th, 50th, 10th Percentile for BW in 10 min increments
+WVDConnectionNetworkData
+| summarize BWP90=percentile(EstAvailableBandwidthKBps,90),BWP50=percentile(EstAvailableBandwidthKBps,50),BWP10=percentile(EstAvailableBandwidthKBps,10) by bin(TimeGenerated,10m)
+| render timechart
+```
 
->   \| render timechart
+### Query data for a specific user
 
->   // 90th, 50th, 10th Percentile for BW in 10 min increments
+To look up the bandwidth for a specific user:
 
->   WVDConnectionNetworkData
+```kusto
+let user = "alias@domain";
+WVDConnectionNetworkData
+| join kind=leftouter (
+    WVDConnections
+    | distinct CorrelationId, UserName
+) on CorrelationId
+| where UserName == user
+| project EstAvailableBandwidthKBps, TimeGenerated
+| render columnchart  
+```
 
->   \| summarize
->   BWP90=percentile(EstAvailableBandwidthKBps,90),BWP50=percentile(EstAvailableBandwidthKBps,50),BWP10=percentile(EstAvailableBandwidthKBps,10)
->   by bin(TimeGenerated,10m)
+To look up the round trip time for a specific user:
 
->   \| render timechart
+```kusto
+let user = "alias@domain";
+WVDConnectionNetworkData
+| join kind=leftouter (
+WVDConnections
+| distinct CorrelationId, UserName
+) on CorrelationId
+| where UserName == user
+| project EstRoundTripTimeInMs, TimeGenerated
+| render columnchart  
+```
 
-**Query data for a specific user**
+To look up the top 10 users with the highest round trip time and their connecting region:
 
--   **BW**
+```kusto
+WVDConnectionNetworkData
+| join kind=leftouter (
+    WVDConnections
+    | distinct CorrelationId, UserName
+) on CorrelationId
+| summarize AvgRTT=avg(EstRoundTripTimeInMs),RTT_P95=percentile(EstRoundTripTimeInMs,95) by UserName
+| top 10 by AvgRTT desc
+```
 
->   let user = "alias\@domain";
+To look up the 10 users with the lowest bandwidth:
 
->   WVDConnectionNetworkData
+```kusto
+WVDConnectionNetworkData
+| join kind=leftouter (
+    WVDConnections
+    | distinct CorrelationId, UserName
+) on CorrelationId
+| summarize AvgBW=avg(EstAvailableBandwidthKBps),BW_P95=percentile(EstAvailableBandwidthKBps,95) by UserName
+| top 10 by AvgBW asc
+```
 
->   \| join kind=leftouter (
 
->   WVDConnections
-
->   \| distinct CorrelationId, UserName
-
->   ) on CorrelationId
-
->   \| where UserName == user
-
->   \| project EstAvailableBandwidthKBps, TimeGenerated
-
->   \| render columnchart
-
--   **RTT**
-
->   let user = "alias\@domain";
-
->   WVDConnectionNetworkData
-
->   \| join kind=leftouter (
-
->   WVDConnections
-
->   \| distinct CorrelationId, UserName
-
->   ) on CorrelationId
-
->   \| where UserName == user
-
->   \| project EstRoundTripTimeInMs, TimeGenerated
-
->   \| render columnchart
-
->   **Top 10 users with the highest RTT & their connecting region**
-
->   WVDConnectionNetworkData
-
->   \| join kind=leftouter (
-
->   WVDConnections
-
->   \| distinct CorrelationId, UserName
-
->   ) on CorrelationId
-
->   \| summarize
->   AvgRTT=avg(EstRoundTripTimeInMs),RTT_P95=percentile(EstRoundTripTimeInMs,95)
->   by UserName
-
->   \| top 10 by AvgRTT desc
-
->   **Top 10 users with the lowest bandwidth**
-
->   WVDConnectionNetworkData
-
->   \| join kind=leftouter (
-
->   WVDConnections
-
->   \| distinct CorrelationId, UserName
-
->   ) on CorrelationId
-
->   \| summarize
->   AvgBW=avg(EstAvailableBandwidthKBps),BW_P95=percentile(EstAvailableBandwidthKBps,95)
->   by UserName
-
->   \| top 10 by AvgBW asc
-
-Troubleshooting
----------------
-
-Many factors can influence the graphics quality of an Azure Virtual Desktop
-connection. The WVDConnectionNetworkData table helps signal if there are
-problems with network configuration, network load, or virtual machine (VM) load.
-
-Performant round trip time will depend on the workloads running, the end user’s
-sensitivity to latency, and the baseline round trip time expected for the
-environment. Generally, a round trip time under 200 milliseconds results in a
-good experience for an end user. To reduce round trip time:
-
--   Reduce the physical distance from the end users to the server. When
-    possible, ensure that your end users are connecting to Virtual Machines in
-    the azure region closest to them.
-
--   Check your network configuration. Firewalls, ExpressRoutes, and other
-    network configuration features can impact RTT.
-
--   Check whether your network bandwidth is constrained. If your network
-    bandwidth is frequently constrained, you may need to adjust your network
-    configuration to improve connection quality. To view our recommended network
-    settings, see [Network guidelines \| Microsoft
-    Docs](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/network-guidance).
-
--   Check whether your compute resources are constrained by looking at CPU
-    utilization and available memory on the VM. You can do this by collecting
-    and reviewing performance counters from the VM, like Processor
-    Information(_Total)\\% Processor Time for CPU utilization and
-    Memory(\*)\\Available Mbytes for available memory (both are enabled by
-    default for Azure Virtual Desktop Insights). If your VM resources are
-    frequently constrained, it could mean your VM size cannot support the
-    workloads and you may need to upgrade the VM. To collect performance
-    counters, see [Configuring performance
-    counters](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources-performance-counters#configuring-performance-counters).
 
 
 
@@ -247,18 +169,10 @@ Azure Virtual Desktop uses [Azure Front Door](https://azure.microsoft.com/servic
 
 ## Next steps
 
+- Troubleshoot connection and latency issues at [Troubleshoot connection quality for Azure Virtual Desktop](troubleshoot-connection-quality.md).
 - To check the best location for optimal latency, see the [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - For pricing plans, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 - To get started with your Azure Virtual Desktop deployment, check out [our tutorial](./create-host-pools-azure-marketplace.md).
-
--   To learn about bandwidth requirements for Azure Virtual Desktop,
-    see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for
-    Azure Virtual
-    Desktop](https://docs.microsoft.com/en-us/azure/virtual-desktop/rdp-bandwidth).
-
--   To learn about Azure Virtual Desktop network connectivity,
-    see [Understanding Azure Virtual Desktop network
-    connectivity](https://docs.microsoft.com/en-us/azure/virtual-desktop/network-connectivity).
-
--   Get started with Azure Monitor for Azure Virtual Desktop
-    <https://docs.microsoft.com/en-us/azure/virtual-desktop/azure-monitor>
+- To learn about bandwidth requirements for Azure Virtual Desktop, see [Understanding Remote Desktop Protocol (RDP) Bandwidth Requirements for Azure Virtual Desktop](rdp-bandwidth.md).
+- To learn about Azure Virtual Desktop network connectivity, see [Understanding Azure Virtual Desktop network connectivity](network-connectivity.md).
+- Learn how to use Azure Monitor at [Get started with Azure Monitor for Azure Virtual Desktop](azure-monitor.md).

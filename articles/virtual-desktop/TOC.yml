@@ -51,7 +51,7 @@
         href: rdp-bandwidth.md
       - name: Proxy support guidelines
         href: proxy-server-support.md
-      - name: Determine user connection latency
+      - name: Determine user connection quality
         href: connection-latency.md
   - name: Delegated access in Azure Virtual Desktop
     href: delegated-access-virtual-desktop.md
@@ -271,6 +271,8 @@
     href: troubleshoot-azure-monitor.md
   - name: Azure Files authorization
     href: troubleshoot-authorization.md
+  - name: Connection quality issues
+    href: troubleshoot-connection-quality.md
 - name: Reference
   items:
   - name: Security best practices
