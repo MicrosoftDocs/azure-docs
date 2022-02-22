@@ -30,7 +30,8 @@ This article provides a summary of the options available, and guidance on what t
 **Command Line** | <ul><li><a href="/cli/azure/purview" target="_blank">Azure CLI</a></li><li><a href="/powershell/module/az.purview" target="_blank">Azure PowerShell</a></li></ul> | Interactive | ✓ | | |
 **API** | <ul><li><a href="/rest/api/purview/" target="_blank">REST API</a></li></ul> | On-Demand | ✓ | ✓ | ✓ |
 **Streaming** (Atlas Kafka) | <ul><li><a href="/azure/purview/manage-kafka-dotnet" target="_blank">Apache Kafka</a></li></ul> | Real Time | | ✓ | |
-**Streaming** (Diagnostic Logs) | <ul><li><a href="/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD#destinations" target="_blank">Event Hubs</a></li></ul> | Real Time | | | ✓ |
+**Streaming** (Diagnostic Logs) | <ul><li><a href="/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD#destinations" target="_blank">Diagnostic Logs</a></li></ul> | Real Time | | | ✓ |
+**Streaming** (EventHub) | <ul><li><a href="/azure/purview/tutorial-purview-audit-logs-diagnostics" target="_blank">Event Hub</a></li></ul> | Real Time | | | ✓ |
 **SDK** | <ul><li><a href="/dotnet/api/overview/azure" target="_blank">.NET</a></li><li><a href="/java/api/overview/azure" target="_blank">Java</a></li><li><a href="/javascript/api/overview/azure" target="_blank">JavaScript</a></li><li><a href="/python/api/overview/azure" target="_blank">Python</a></li></ul> | Custom Development | ✓ | ✓ | ✓ |
 
 ## Resource Management
