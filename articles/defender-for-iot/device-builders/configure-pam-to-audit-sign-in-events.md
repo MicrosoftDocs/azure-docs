@@ -23,11 +23,14 @@ For more information, see [Tutorial: Install the Defender for IoT micro agent (P
 
 This procedure provides a sample process for configuring logging for successful SSH and Telnet sign-in events.
 
-Our example uses on unmodified Ubuntu 20.04 or 18.04 installation, and the steps in this process may differ for your system.
+Our example is based on an unmodified Ubuntu 20.04 or 18.04 installation, and the steps in this process may differ for your system.
 
-This process authenticates via the `pam_unix.so` module. If case of success, the PAM skips one module. In case of failure, the PAM continues to the `pam_deny.so` module, which prevents access.
+This process authenticates via the `pam_unix.so` module. In case of success, the PAM skips one module. In case of failure, the PAM continues to the `pam_deny.so` module, which prevents access.
 
-1. Locate your PAM configuration files. The names of these files may vary, such as `/etc/pam.d/sshd` or `/etc/pam.d/login`.
+1. Locate the following files:
+
+    - `/etc/pam.d/sshd`
+    - `/etc/pam.d/login`
 
 1. Append the following lines to the end of each file:
 
@@ -47,7 +50,7 @@ This procedure describes a sample process for configuring logging for authentica
 
 This example in this procedure is based on an unmodified Ubuntu 18.04 or 20.04 installation. The files and commands listed below may differ per configuration or as a result of modifications. Technical knowledge is required.
 
-1. <a name="files"></a>Locate the `/etc/pam.d/common-auth` file and look for the following lines:
+1. Locate the `/etc/pam.d/common-auth` file and look for the following lines:
 
     ```bash
     # here are the per-package modules (the "Primary" block)
@@ -57,8 +60,6 @@ This example in this procedure is based on an unmodified Ubuntu 18.04 or 20.04 i
     ```
 
     This section authenticates via the `pam_unix.so` module. In case of authentication failure, this section continues to the `pam_deny.so` module to prevent access.
-
-    If the [required files](#files) don't exist, look for this code in the files listed in the [the previous procedure](#modify-ssshd-and-sign-in-service-configurations).
 
 1. Replace the indicated lines of code with the following:
 

@@ -135,7 +135,7 @@ You will need to copy the module identity connection string from the DefenderIoT
 
 1. Procure a certificate by following [these instructions](../../iot-hub/tutorial-x509-scripts.md).
 
-1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender for Cloud Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`.
+1. Place the PEM-encoded public part of the certificate, and the private key, in `/etc/defender_iot_micro_agent`, to files called `certificate_public.pem`, and `certificate_private.pem`.
 
 1. Place the appropriate connection string in to the `connection_string.txt` file. The connection string should look like this:
 

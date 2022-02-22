@@ -35,17 +35,14 @@
     href: tutorial-investigate-security-alerts.md
 - name: Concepts
   items:
-  - name: Agent portfolio overview and OS support (Preview)                     
+  - name: Agent portfolio overview and OS support (Preview)
     displayName: standalone agent, micro agent, RTOS
     href: concept-agent-portfolio-overview-os-support.md
   - name: Standalone micro agent overview (Preview)
-    displayName: endpoint, posture, distribution, flexible, model 
+    displayName: endpoint, posture, distribution, flexible, model
     href: concept-standalone-micro-agent-overview.md
   - name: Data processing and residency
     href: concept-data-processing.md
-  - name: Security agent authentication (Preview)
-    displayName: connection string, certificate, authentication
-    href: tutorial-standalone-agent-binary-installation.md
   - name: Micro agent configurations (Preview)
     displayNAme: collectors, configuration, configurations, event-based, trigger, general
     href: concept-micro-agent-configuration.md
