@@ -9,18 +9,24 @@ ms.date: 01/06/2022
 # Custom logs API in Azure Monitor Logs (Preview)
 With the DCR based custom logs API in Azure Monitor, you can send data to a Log Analytics workspace from any REST API client. This allows you to send data from virtually any source to [supported built-in tables](tables-feature-support.md) or to custom tables that you create. You can even extend the schema of built-in tables with custom columns.
 
+[!INCLUDE [Sign up for preview](../../includes/azure-monitor-custom-logs-signup.md)]
+
 > [!NOTE]
 > The custom logs API should not be confused with [custom logs](../agents/data-sources-custom-logs.md) data source with the legacy Log Analytics agent.
 ## Basic operation
 Your application sends data to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) which is a unique connection point for your subscription. The payload of your API call includes the source data formatted in JSON. The call specifies a [data collection rule](../essentials/data-collection-rule-overview.md) that understands the format of the source data, potentially filters and transforms it for the target table, and then directs it to a specific table in a specific workspace. You can modify the target table and workspace by modifying the data collection rule without any change to the REST API call or source data.
 
 
-
 ## Authentication
 Authentication for the custom logs API is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-custom-logs.md).
 
 ## Tables
-Custom logs can send data to any custom table that you create and to [certain built-in tables](tables-feature-support.md) in your Log Analytics workspace. The target table must exist before you can send data to it. 
+Custom logs can send data to any custom table that you create and to certain built-in tables in your Log Analytics workspace. The target table must exist before you can send data to it. The following built-in tables are currently supported:
+
+- [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecurityevent)
+- [SecurityEvents](/azure/azure-monitor/reference/tables/securityevents)
+- [Syslog](/azure/azure-monitor/reference/tables/syslog)
+- [WindowsEvents](/azure/azure-monitor/reference/tables/windowsevent)
 
 ## Source data
 The source data sent by your application is formatted in JSON and must match the structure expected by the data collection rule. It doesn't necessarily need to match the structure of the target table since the DCR can include a transformation to convert the data to match the table's structure.

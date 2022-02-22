@@ -4,7 +4,7 @@ description: Details on the structure of different kinds of data collection rule
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/06/2022
+ms.date: 02/22/2022
 
 ---
 
@@ -17,17 +17,17 @@ ms.date: 01/06/2022
 ## Custom logs
 A DCR for  [custom logs](../logs/custom-logs-overview.md) contains the following sections:
 ### streamDeclarations
-This section contains the declaration of all the different types of data that will be sent via the HTTP endpoint directly into Log Analytics. Each stream is an object whose key represents the stream name (Must begin with *Custom-*) and whose value is the full list of top-level properties that the JSON data that will be sent will contain. Note that the shape of the data you send to the endpoint doesn't need to match that of the destination table. Rather, the output of the transform that is applied on top of the input data needs to match the destination shape. The possible data types that can be assigned to the properties are `string`, `int`, `long`, `real`, `boolean`, `dynamic`, and `dateTime`. Dynamic data should be represented by a `string`.
+This section contains the declaration of all the different types of data that will be sent via the HTTP endpoint directly into Log Analytics. Each stream is an object whose key represents the stream name (Must begin with *Custom-*) and whose value is the full list of top-level properties that the JSON data that will be sent will contain. Note that the shape of the data you send to the endpoint doesn't need to match that of the destination table. Rather, the output of the transform that is applied on top of the input data needs to match the destination shape. The possible data types that can be assigned to the properties are `string`, `int`, `long`, `real`, `boolean`, `dynamic`, and `datetime`. 
 
 ### destinations
-This section contains a declaration of all the destinations where the data will be sent. Only Log Analytics is currently supported as a destination. Each Log Analytics destination will require the full Workspace Resource ID, as well as a friendly name that will be used elsewhere in the DCR to refer to this workspace.  Only one destination is allowed per stream.
+This section contains a declaration of all the destinations where the data will be sent. Only Log Analytics is currently supported as a destination. Each Log Analytics destination will require the full Workspace Resource ID, as well as a friendly name that will be used elsewhere in the DCR to refer to this workspace.  
 
 ### dataFlows
 This section ties the other sections together. Defines the following for each stream declared in the `streamDeclarations` section:
 
 - `destination` from the `destinations` section where the data will be sent. 
 - `transformKql` which is the [transformation](data-collection-rule-transformations.md) applied to the data that was sent in the input shape described in the `streamDeclarations` section to the shape of the target table.
-- `outputStream` section, which describes which table in the workspace specified under the `destination` property the data will be ingested into. The value of the outputStream will have the `Microsoft-[tableName]` shape when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom-created table.
+- `outputStream` section, which describes which table in the workspace specified under the `destination` property the data will be ingested into. The value of the outputStream will have the `Microsoft-[tableName]` shape when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom-created table. Only one destination is allowed per stream.
 
 ## Azure Monitor agent
  A DCR for [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md) contains the following sections:

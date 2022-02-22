@@ -78,7 +78,6 @@ The following list identifies which features are currently supported by differen
 | [AppServiceFileAuditLogs](/azure/azure-monitor/reference/tables/appservicefileauditlogs) | Yes  | | 
 | [AppServiceHTTPLogs](/azure/azure-monitor/reference/tables/appservicehttplogs) | Yes  | | 
 | [AppServicePlatformLogs](/azure/azure-monitor/reference/tables/appserviceplatformlogs) | Yes  | | 
-| [AsimDNSActivityLog](/azure/azure-monitor/reference/tables/asimdnsactivityLog ) | | Yes | 
 | [ATCExpressRouteCircuitIpfix](/azure/azure-monitor/reference/tables/atcexpressroutecircuitipfix) | Yes  | | 
 | [AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) | Yes  | | 
 | [AutoscaleEvaluationsLog](/azure/azure-monitor/reference/tables/autoscaleevaluationslog) | Yes  | | 
