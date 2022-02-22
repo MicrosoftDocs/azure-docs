@@ -240,10 +240,10 @@
             - name: Create account, keyspace, and table
               href: scripts/cli/sql/create.md
             - name: Create serverless
-              href: scripts/cli/sql/create.md
+              href: scripts/cli/sql/serverless.md
             - name: Create with autoscale
               href: ./scripts/cli/sql/autoscale.md
-            - name: Throughput operations
+            - name: Perform throughput operations
               href: scripts/cli/sql/throughput.md
             - name: Lock resources from deletion
               href: scripts/cli/sql/lock.md
@@ -1069,10 +1069,10 @@
             - name: Create account, keyspace, and table
               href: scripts/cli/cassandra/create.md
             - name: Create serverless
-              href: scripts/cli/cassandra/create.md
+              href: scripts/cli/cassandra/serverless.md
             - name: Create with autoscale
               href: ./scripts/cli/cassandra/autoscale.md
-            - name: Throughput operations
+            - name: Perform throughput operations
               href: scripts/cli/cassandra/throughput.md
             - name: Lock resources from deletion
               href: scripts/cli/cassandra/lock.md
@@ -1246,10 +1246,10 @@
             - name: Create account, keyspace, and table
               href: scripts/cli/mongodb/create.md
             - name: Create serverless
-              href: scripts/cli/mongodb/create.md
+              href: scripts/cli/mongodb/serverless.md
             - name: Create with autoscale
               href: ./scripts/cli/mongodb/autoscale.md
-            - name: Throughput operations
+            - name: Perform throughput operations
               href: scripts/cli/mongodb/throughput.md
             - name: Lock resources from deletion
               href: scripts/cli/mongodb/lock.md
@@ -1399,10 +1399,10 @@
             - name: Create account, keyspace, and table
               href: scripts/cli/gremlin/create.md
             - name: Create serverless
-              href: scripts/cli/gremlin/create.md
+              href: scripts/cli/gremlin/serverless.md
             - name: Create with autoscale
               href: ./scripts/cli/gremlin/autoscale.md
-            - name: Throughput operations
+            - name: Perform throughput operations
               href: scripts/cli/gremlin/throughput.md
             - name: Lock resources from deletion
               href: scripts/cli/gremlin/lock.md
@@ -1536,10 +1536,10 @@
             - name: Create account, keyspace, and table
               href: scripts/cli/table/create.md
             - name: Create serverless
-              href: scripts/cli/table/create.md
+              href: scripts/cli/table/serverless.md
             - name: Create with autoscale
               href: ./scripts/cli/table/autoscale.md
-            - name: Throughput operations
+            - name: Perform throughput operations
               href: scripts/cli/table/throughput.md
             - name: Lock resources from deletion
               href: scripts/cli/table/lock.md

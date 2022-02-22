@@ -36,8 +36,8 @@ These samples apply to all Azure Cosmos DB APIs
 |Task | Description |
 |---|---|
 | [Create an Azure Cosmos account, keyspace and table](../scripts/cli/cassandra/create.md)| Creates an Azure Cosmos DB account, keyspace, and table for Cassandra API. |
-| [Create a serverless Azure Cosmos account for Cassandra API, keyspace and table](../scripts/cli/cassandra/create.md)| Creates a serverless Azure Cosmos DB account, keyspace, and table for Cassandra API. |
+| [Create a serverless Azure Cosmos account for Cassandra API, keyspace and table](../scripts/cli/cassandra/serverless.md)| Creates a serverless Azure Cosmos DB account, keyspace, and table for Cassandra API. |
 | [Create an Azure Cosmos account, keyspace and table with autoscale](../scripts/cli/cassandra/autoscale.md)| Creates an Azure Cosmos DB account, keyspace, and table with autoscale for Cassandra API. |
-| [Throughput operations](../scripts/cli/cassandra/throughput.md) | Read, update and migrate between autoscale and standard throughput on a keyspace and table.|
+| [Perform throughput operations](../scripts/cli/cassandra/throughput.md) | Read, update and migrate between autoscale and standard throughput on a keyspace and table.|
 | [Lock resources from deletion](../scripts/cli/cassandra/lock.md)| Prevent resources from being deleted with  resource locks.|
 |||

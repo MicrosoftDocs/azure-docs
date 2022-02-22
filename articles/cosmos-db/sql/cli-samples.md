@@ -41,6 +41,6 @@ These samples apply to all Azure Cosmos DB APIs
 | [Create an Azure Cosmos account, database, and container](../scripts/cli/sql/create.md)| Creates an Azure Cosmos DB account, database, and container for Core (SQL) API. |
 | [Create a serverless Azure Cosmos account, database, and container](../scripts/cli/sql/serverless.md)| Creates a serverless Azure Cosmos DB account, database, and container for Core (SQL) API. |
 | [Create an Azure Cosmos account, database, and container with autoscale](../scripts/cli/sql/autoscale.md)| Creates an Azure Cosmos DB account, database, and container with autoscale for Core (SQL) API. |
-| [Throughput operations](../scripts/cli/sql/throughput.md) | Read, update, and migrate between autoscale and standard throughput on a database and container.|
+| [Perform throughput operations](../scripts/cli/sql/throughput.md) | Read, update, and migrate between autoscale and standard throughput on a database and container.|
 | [Lock resources from deletion](../scripts/cli/sql/lock.md)| Prevent resources from being deleted with  resource locks.|
 |||

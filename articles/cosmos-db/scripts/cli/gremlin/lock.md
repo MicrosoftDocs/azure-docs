@@ -21,7 +21,7 @@ ms.date: 02/21/2022
 
 > [!IMPORTANT]
 >
-> To create resource locks, you must have membership in the owner role to the subscription.
+> To create resource locks, you must have membership in the owner role in the subscription.
 >
 > Resource locks do not work for changes made by users connecting using any Gremlin SDK or the Azure Portal unless the Cosmos DB account is first locked with the `disableKeyBasedMetadataWriteAccess` property enabled. To learn more about how to enable this property see, [Preventing changes from SDKs](../../../role-based-access-control.md#prevent-sdk-changes).
 

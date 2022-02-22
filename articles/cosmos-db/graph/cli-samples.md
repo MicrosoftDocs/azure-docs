@@ -36,8 +36,8 @@ These samples apply to all Azure Cosmos DB APIs
 |Task | Description |
 |---|---|
 | [Create an Azure Cosmos account, database and graph](../scripts/cli/gremlin/create.md)| Creates an Azure Cosmos DB account, database, and graph for Gremlin API. |
-| [Create a serverless Azure Cosmos account for Gremlin API, database and graph](../scripts/cli/gremlin/create.md)| Creates a serverless Azure Cosmos DB account, database, and graph for Gremlin API. |
+| [Create a serverless Azure Cosmos account for Gremlin API, database and graph](../scripts/cli/gremlin/serverless.md)| Creates a serverless Azure Cosmos DB account, database, and graph for Gremlin API. |
 | [Create an Azure Cosmos account, database and graph with autoscale](../scripts/cli/gremlin/autoscale.md)| Creates an Azure Cosmos DB account, database, and graph with autoscale for Gremlin API. |
-| [Throughput operations](../scripts/cli/gremlin/throughput.md) | Read, update and migrate between autoscale and standard throughput on a database and graph.|
+| [Perform throughput operations](../scripts/cli/gremlin/throughput.md) | Read, update and migrate between autoscale and standard throughput on a database and graph.|
 | [Lock resources from deletion](../scripts/cli/gremlin/lock.md)| Prevent resources from being deleted with  resource locks.|
 |||

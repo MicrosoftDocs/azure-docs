@@ -11,7 +11,7 @@ ms.date: 02/21/2022
 
 # Throughput (RU/s) operations with Azure CLI for a keyspace or table for Azure Cosmos DB - Cassandra API
 
-[!INCLUDE[appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
+[!INCLUDE [appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
 The script in this article creates a Cassandra keyspace with shared throughput and a Cassandra table with dedicated throughput, then updates the throughput for both the keyspace and table. The script then migrates from standard to autoscale throughput then reads the value of the autoscale throughput after it has been migrated.
 

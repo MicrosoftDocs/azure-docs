@@ -36,8 +36,8 @@ These samples apply to all Azure Cosmos DB APIs
 |Task | Description |
 |---|---|
 | [Create an Azure Cosmos account and table](../scripts/cli/table/create.md)| Creates an Azure Cosmos DB account and table for Table API. |
-| [Create a serverless Azure Cosmos account and table](../scripts/cli/table/create.md)| Creates a serverless Azure Cosmos DB account and table for Table API. |
+| [Create a serverless Azure Cosmos account and table](../scripts/cli/table/serverless.md)| Creates a serverless Azure Cosmos DB account and table for Table API. |
 | [Create an Azure Cosmos account and table with autoscale](../scripts/cli/table/autoscale.md)| Creates an Azure Cosmos DB account and table with autoscale for Table API. |
-| [Throughput operations](../scripts/cli/table/throughput.md) | Read, update and migrate between autoscale and standard throughput on a table.|
+| [Perform throughput operations](../scripts/cli/table/throughput.md) | Read, update and migrate between autoscale and standard throughput on a table.|
 | [Lock resources from deletion](../scripts/cli/table/lock.md)| Prevent resources from being deleted with resource locks.|
 |||

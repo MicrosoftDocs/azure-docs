@@ -36,9 +36,9 @@ These samples apply to all Azure Cosmos DB APIs
 |Task | Description |
 |---|---|
 | [Create an Azure Cosmos account, database and collection](../scripts/cli/mongodb/create.md)| Creates an Azure Cosmos DB account, database, and collection for MongoDB API. |
-| [Create a serverless Azure Cosmos account, database and collection](../scripts/cli/mongodb/create.md)| Creates a serverless Azure Cosmos DB account, database, and collection for MongoDB API. |
+| [Create a serverless Azure Cosmos account, database and collection](../scripts/cli/mongodb/serverless.md)| Creates a serverless Azure Cosmos DB account, database, and collection for MongoDB API. |
 | [Create an Azure Cosmos account, database with autoscale and two collections with shared throughput](../scripts/cli/mongodb/autoscale.md)| Creates an Azure Cosmos DB account, database with autoscale and two collections with shared throughput for MongoDB API. |
-| [Throughput operations](../scripts/cli/mongodb/throughput.md) | Read, update and migrate between autoscale and standard throughput on a database and collection.|
+| [Perform throughput operations](../scripts/cli/mongodb/throughput.md) | Read, update and migrate between autoscale and standard throughput on a database and collection.|
 | [Lock resources from deletion](../scripts/cli/mongodb/lock.md)| Prevent resources from being deleted with  resource locks.|
 |||
 
