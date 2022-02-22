@@ -3,7 +3,7 @@ title: Use Archive Tier
 description: Learn about using Archive Tier Support for Azure Backup.
 ms.topic: conceptual
 ms.date: 10/23/2021
-ms.custom: devx-track-azurepowershell-azurecli
+ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
 zone_pivot_groups: backup-client-powershelltier-clitier-portaltier
 author: v-amallick
 ms.service: backup

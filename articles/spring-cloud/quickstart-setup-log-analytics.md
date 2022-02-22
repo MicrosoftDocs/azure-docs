@@ -6,10 +6,13 @@ ms.author: felixsong
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 12/09/2021
-ms.custom: devx-track-java, fasttrack-edit, mode-other
+ms.custom: devx-track-java, fasttrack-edit, mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Set up a Log Analytics workspace
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 This quickstart explains how to set up a Log Analytics workspace in Azure Spring Cloud for application development.
 

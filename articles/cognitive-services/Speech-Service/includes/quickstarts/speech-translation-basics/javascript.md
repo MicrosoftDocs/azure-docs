@@ -3,17 +3,17 @@ author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/14/2020
-ms.author: eric-urban
+ms.author: eur
 ms.custom: devx-track-js
 ---
 
-[!INCLUDE [Header](../common/javascript.md)]
+[!INCLUDE [Header](../../common/javascript.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK
 

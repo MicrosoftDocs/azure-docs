@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 02/17/2022
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
 
@@ -27,6 +27,7 @@ For information on how to create and manage files, including notebooks, see [Cre
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* Your user identity must have access to your workspace's default storage account. Whether you can read, edit, or create notebooks depends on your [access level](how-to-assign-roles.md) to your workspace. For example, a Contributor can edit the notebook, while a Reader could only view it.
 
 ## Edit a notebook
 

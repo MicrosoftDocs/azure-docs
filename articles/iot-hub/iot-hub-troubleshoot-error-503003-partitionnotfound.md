@@ -1,12 +1,12 @@
 ---
 title: Troubleshooting Azure IoT Hub error 503003 PartitionNotFound
 description: Understand how to fix error 503003 PartitionNotFound 
-author: jlian
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
 ms.date: 07/07/2021
-ms.author: jlian
+ms.author: kgremban
 #Customer intent: As a developer or operator for Azure IoT Hub, I want to resolve 503003 PartitionNotFound errors.
 ---
 

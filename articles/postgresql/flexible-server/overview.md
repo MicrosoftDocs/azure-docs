@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 12/06/2021
+ms.date: 02/17/2022
 ms.custom: "mvc, references_regions"
 ---
 
@@ -14,8 +14,8 @@ ms.custom: "mvc, references_regions"
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - [Single Server](../overview-single-server.md)
-- Flexible Server 
-- Hyperscale (Citus)
+- [Flexible Server](./overview.md) 
+- [Hyperscale (Citus)](../hyperscale/overview.md)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
@@ -98,7 +98,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East Asia | :heavy_check_mark: | :x: | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| East US 2 | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :x: $ | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
@@ -110,7 +110,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Norway East | :heavy_check_mark: | :x: | :x: |
 | South Africa North | :heavy_check_mark: | :x: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :x: | :x: |
+| Southeast Asia | :heavy_check_mark: | :x: $  | :x: |
 | Sweden Central | :heavy_check_mark: | :x: | :x: |
 | Switzerland North | :heavy_check_mark: | :x: | :x: |
 | UAE North | :heavy_check_mark: | :x: | :x: |
@@ -120,6 +120,8 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | West US | :heavy_check_mark: | :x: | :x: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | West US 3 | :heavy_check_mark: | :x: | :x: |
+
+$ New Zone-redundant high availability deployments are temporarily blocked in this region. Already provisioned HA servers are fully supported. 
 
 <!-- We continue to add more regions for flexible server. -->
 > [!NOTE]

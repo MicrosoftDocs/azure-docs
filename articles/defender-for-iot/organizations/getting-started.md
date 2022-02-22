@@ -152,9 +152,6 @@ We recommend that you group multiple sensors monitoring the same networks in one
 
 For more information, see [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console).
 
-## Populate Microsoft Sentinel with alert information (optional)
-
-Send alert information to Microsoft Sentinel by configuring Microsoft Sentinel. See [Connect your data from Defender for IoT to Microsoft Sentinel](how-to-configure-with-sentinel.md).  
 
 ## Next steps ##
 

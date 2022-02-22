@@ -89,4 +89,4 @@ There are no resources to clean up.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> Learn how to [Connect your data from Defender for IoT for device builders to Microsoft Sentinel (Public preview)](how-to-configure-with-sentinel.md)
+> Learn how to [integrate Microsoft Sentinel and Microsoft Defender for IoT](/azure/sentinel/iot-solution?toc=%2Fazure%2Fdefender-for-iot%2Forganizations%2Ftoc.json&bc=%2Fazure%2Fdefender-for-iot%2Fbreadcrumb%2Ftoc.json&tabs=use-out-of-the-box-analytics-rules-recommended)
