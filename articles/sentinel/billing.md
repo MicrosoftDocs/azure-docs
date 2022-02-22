@@ -5,14 +5,14 @@ author: cwatson-cat
 ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 02/22/2022
 ---
 
 # Plan costs for Microsoft Sentinel
 
 Microsoft Sentinel provides intelligent security analytics across your enterprise. The data for this analysis is stored in an Azure Monitor Log Analytics workspace. Microsoft Sentinel is billed based on the volume of data for analysis in Microsoft Sentinel and storage in the Azure Monitor Log Analytics workspace. For more information, see the [Microsoft Sentinel Pricing Page](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
-Before you add any resources for the Microsoft Sentinel use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate your costs.
+Before you add any resources for the Microsoft Sentinel, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to help estimate your costs.
 
 Costs for Microsoft Sentinel are only a portion of the monthly costs in your Azure bill. Although this article explains how to plan costs and understand the billing for Microsoft Sentinel, you're billed for all Azure services and resources your Azure subscription uses, including Partner services.
 
@@ -49,10 +49,6 @@ For example, you can enter the GB of daily data you expect to ingest in Microsof
 - Data archive (archived logs)
 - Basic logs queries
 
-The costs shown in following image are for example purposes only. They're not intended to reflect actual costs.
-
-:::image type="content" source="media/billing/pricing-calculator.png" alt-text="Screenshot of sample estimated cost in the Azure pricing calculator for Microsoft Sentinel." lightbox="media/billing/pricing-calculator.png" :::
-
 ## Understand the full billing model for Microsoft Sentinel
 
 Microsoft Sentinel offers a flexible and predictable pricing model. For more information, see the [Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/). For the related Log Analytics charges, see [Azure Monitor Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
@@ -61,7 +57,7 @@ Microsoft Sentinel runs on Azure infrastructure that accrues costs when you depl
 
 ### How you're charged for Microsoft Sentinel
 
-Microsoft Sentinel offers flexible pricing based on the types of logs ingested into a workspace. Analytics logs typically make up the majority of your high security value logs. Basic logs tend to be verbose with low security value.
+Microsoft Sentinel offers flexible pricing based on the types of logs ingested into a workspace. Analytics logs typically make up most of your high security value logs. Basic logs tend to be verbose with low security value.
 
 #### Analytics logs
 
@@ -212,11 +208,11 @@ The following table lists the free data sources you can enable in Microsoft Sent
 
 For data connectors that include both free and paid data types, you can select which data types you want to enable.
 
-:::image type="content" source="media/billing/data-types.png" alt-text="Screenshot of the Data connector page for Defender for Cloud Apps, with the free security alerts selected and the paid MCASShadowITReporting not selected." lightbox="media/billing/data-types.png":::
+:::image type="content" source="media/billing/data-types.png" alt-text="Screenshot of the Data connector page for Defender for Cloud Apps, with the free security alerts selected and the paid M C A S Shadow I T Reporting not selected." lightbox="media/billing/data-types.png":::
 
 For more information about free and paid data sources and connectors, see [Connect data sources](connect-data-sources.md).
 
-Data connectors listed as public preview do not generate cost. Data connectors generate cost only once becoming Generally Available (GA).
+Data connectors listed as public preview don't generate cost. Data connectors generate cost only once becoming Generally Available (GA).
 
 
 ## Next steps

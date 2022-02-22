@@ -5,7 +5,7 @@ author: cwatson-cat
 ms.author: cwatson
 ms.custom: subject-cost-optimization
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 02/22/2022
 ---
 
 # Reduce costs for Microsoft Sentinel
@@ -36,7 +36,7 @@ When hunting or investigating threats in Microsoft Sentinel, you might need to a
 
 ## Turn on basic logs data ingestion for data that's high-volume low security value (preview)
 
-Unlike analytics logs, [basic logs](../azure-monitor/logs/basic-logs-configure.md) are typically verbose. They contains a mix of high volume and low security value data, that isn't frequently used or accessed on demand for ad-hoc querying, investigations and search. Enable basic log data ingestion at a significantly reduced cost for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
+Unlike analytics logs, [basic logs](../azure-monitor/logs/basic-logs-configure.md) are typically verbose. They contain a mix of high volume and low security value data, that isn't frequently used or accessed on demand for ad-hoc querying, investigations and search. Enable basic log data ingestion at a significantly reduced cost for eligible data tables. For more information, see [Microsoft Sentinel Pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
 ## Optimize Log Analytics costs with dedicated clusters
 
@@ -48,7 +48,7 @@ You can add multiple Microsoft Sentinel workspaces to a Log Analytics dedicated 
 
 - Cross-workspace queries run faster if all the workspaces involved in the query are in the dedicated cluster. It's still best to have as few workspaces as possible in your environment, and a dedicated cluster still retains the [100 workspace limit](../azure-monitor/logs/cross-workspace-query.md) for inclusion in a single cross-workspace query.
 
-- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 500 GB ingestion per day.
+- All workspaces in the dedicated cluster can share the Log Analytics Commitment Tier set on the cluster. Not having to commit to separate Log Analytics Commitment Tiers for each workspace can allow for cost savings and efficiencies. By enabling a dedicated cluster, you commit to a minimum Log Analytics Commitment Tier of 500-GB ingestion per day.
 
 Here are some other considerations for moving to a dedicated cluster for cost optimization:
 
@@ -68,7 +68,7 @@ Microsoft Sentinel data retention is free for the first 90 days. To adjust the d
 
 Microsoft Sentinel security data might lose some of its value after a few months. Security operations center (SOC) users might not need to access older data as frequently as newer data, but still might need to access the data for sporadic investigations or audit purposes.
 
-To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers archived logs. Archived logs store log data for very long periods of time, up to 7 years, at a reduced cost with limitations on its usage. Archived logs are in public preview. For more information, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
+To help you reduce Microsoft Sentinel data retention costs, Azure Monitor now offers archived logs. Archived logs store log data for long periods of time, up to seven years, at a reduced cost with limitations on its usage. Archived logs are in public preview. For more information, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
 
 Alternatively, you can use Azure Data Explorer for long-term data retention at lower cost. Azure Data Explorer provides the right balance of cost and usability for aged data that no longer needs Microsoft Sentinel security intelligence.
 
