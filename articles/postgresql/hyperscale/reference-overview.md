@@ -43,7 +43,7 @@ configuration options for:
 | [citus_set_default_rebalance_strategy](reference-functions.md#) | change the strategy named by its argument to be the default chosen when rebalancing shards |
 | [get_rebalance_progress](reference-functions.md#get_rebalance_progress) | monitor the moves planned and executed by `rebalance_table_shards` |
 | [get_rebalance_table_shards_plan](reference-functions.md#get_rebalance_table_shards_plan) | output the planned shard movements of rebalance_table_shards without performing them |
-| [rebalance_table_shards](reference-functions.md#rebalance_table_shards) | move shards of the given table to make them evenly distributed among the workers |
+| [rebalance_table_shards](reference-functions.md#rebalance_table_shards) | move shards of the given table to distribute them evenly among the workers |
 
 ### Colocation
 
@@ -78,7 +78,7 @@ configuration options for:
 | [citus_table_size](reference-functions.md#citus_table_size) | get disk space used by all the shards of the specified distributed table, excluding indexes |
 | [citus_total_relation_size](reference-functions.md#citus_total_relation_size) | get total disk space used by the all the shards of the specified distributed table, including all indexes and TOAST data |
 | [column_to_column_name](reference-functions.md#column_to_column_name) | translate the `partkey` column of `pg_dist_partition` into a textual column name |
-| [get_shard_id_for_distribution_column](reference-functions.md#get_shard_id_for_distribution_column) | find the shard id associated with a value of the distribution column |
+| [get_shard_id_for_distribution_column](reference-functions.md#get_shard_id_for_distribution_column) | find the shard ID associated with a value of the distribution column |
 
 ## Server parameters
 
@@ -89,7 +89,7 @@ configuration options for:
 | [citus.all_modifications_commutative](reference-parameters.md#citusall_modifications_commutative) | allow all commands to claim a shared lock |
 | [citus.count_distinct_error_rate](reference-parameters.md#cituscount_distinct_error_rate-floating-point) | tune error rate of postgresql-hll approximate counting |
 | [citus.enable_repartition_joins](reference-parameters.md#citusenable_repartition_joins-boolean) | allow JOINs made on non-distribution columns |
-| [citus.enable_repartitioned_insert_select](reference-parameters.md#citusenable_repartition_joins-boolean) | allow repartitioning rows from the SELECT statement and transfering them between workers for insertion |
+| [citus.enable_repartitioned_insert_select](reference-parameters.md#citusenable_repartition_joins-boolean) | allow repartitioning rows from the SELECT statement and transferring them between workers for insertion |
 | [citus.limit_clause_row_fetch_count](reference-parameters.md#cituslimit_clause_row_fetch_count-integer) | the number of rows to fetch per task for limit clause optimization |
 | [citus.local_table_join_policy](reference-parameters.md#cituslocal_table_join_policy-enum) | where data moves when doing a join between local and distributed tables |
 | [citus.multi_shard_commit_protocol](reference-parameters.md#citusmulti_shard_commit_protocol-enum) | the commit protocol to use when performing COPY on a hash distributed table |

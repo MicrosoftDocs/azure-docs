@@ -29,8 +29,7 @@ all worker nodes, or just for the coordinator node.
 
 #### citus.use\_secondary\_nodes (enum)
 
-Sets the policy to use when choosing nodes for SELECT queries. If it
-is set to 'always', then the planner will query only nodes that are
+Sets the policy to use when choosing nodes for SELECT queries. If it's set to 'always', then the planner will query only nodes that are
 marked as 'secondary' noderole in
 [pg_dist_node](reference-metadata.md#worker-node-table).
 
@@ -101,7 +100,7 @@ SET citus.log_remote_commands TO on;
 SELECT count(*) FROM github_users;
 ```
 
-This reveals several queries running on workers because of the single
+The output reveals several queries running on workers because of the single
 `count(*)` query on the coordinator.
 
 ```
@@ -134,11 +133,10 @@ runtime.
 #### citus.stat_statements_max (integer)
 
 The maximum number of rows to store in `citus_stat_statements`. Defaults to
-50000, and may be changed to any value in the range 1000 - 10000000. Note that
-each row requires 140 bytes of storage, so setting `stat_statements_max` to its
-maximum value of 10M would consume 1.4GB of memory.
+50000, and may be changed to any value in the range 1000 - 10000000. Each row requires 140 bytes of storage, so setting `stat_statements_max` to its
+maximum value of 10M would consume 1.4 GB of memory.
 
-Changing this GUC will not take effect until PostgreSQL is restarted.
+Changing this GUC won't take effect until PostgreSQL is restarted.
 
 #### citus.stat_statements_track (enum)
 
@@ -157,7 +155,7 @@ and off.
 Sets the commit protocol to use when performing COPY on a hash distributed
 table. On each individual shard placement, the COPY is performed in a
 transaction block to ensure that no data is ingested if an error occurs during
-the COPY. However, there is a particular failure case in which the COPY
+the COPY. However, there's a particular failure case in which the COPY
 succeeds on all placements, but a (hardware) failure occurs before all
 transactions commit. This parameter can be used to prevent data loss in that
 case by choosing between the following commit protocols:
@@ -198,16 +196,16 @@ necessary to support the join. Copying table data is referred to as a
 “conversion.” If a local table is converted, then it will be sent to any
 workers that need its data to perform the join. If a distributed table is
 converted, then it will be collected in the coordinator to support the join.
-The citus planner will send only the necessary rows doing a conversion.
+The Citus planner will send only the necessary rows doing a conversion.
 
 There are four modes available to express conversion preference:
 
 * **auto:** (Default) Citus will convert either all local or all distributed
   tables to support local and distributed table joins. Citus decides which to
-  convert using a heuristic. It will convert distributed tables if they are
-  joined using a constant filter on a unique index (such as a primary key). This
-  ensures less data gets moved between workers.
-* **never:** Citus will not allow joins between local and distributed tables.
+  convert using a heuristic. It will convert distributed tables if they're
+  joined using a constant filter on a unique index (such as a primary key). The
+  conversion ensures less data gets moved between workers.
+* **never:** Citus won't allow joins between local and distributed tables.
 * **prefer-local:** Citus will prefer converting local tables to support local
   and distributed table joins.
 * **prefer-distributed:** Citus will prefer converting distributed tables to
@@ -282,8 +280,7 @@ be used.
     a round-robin fashion alternating between different replicas. This policy
     enables better cluster utilization when the shard count for a
     table is low compared to the number of workers.
--   **first-replica:** The first-replica policy assigns tasks on the
-    basis of the insertion order of placements (replicas) for the
+-   **first-replica:** The first-replica policy assigns tasks based on the insertion order of placements (replicas) for the
     shards. In other words, the fragment query for a shard is assigned to the worker that has the first replica of that shard.
     This method allows you to have strong guarantees about which shards
     will be used on which nodes (that is, stronger memory residency
@@ -312,7 +309,7 @@ Hyperscale (Citus) enforces commutativity rules and acquires appropriate locks
 for modify operations in order to guarantee correctness of behavior. For
 example, it assumes that an INSERT statement commutes with another INSERT
 statement, but not with an UPDATE or DELETE statement. Similarly, it assumes
-that an UPDATE or DELETE statement does not commute with another UPDATE or
+that an UPDATE or DELETE statement doesn't commute with another UPDATE or
 DELETE statement. This precaution means that UPDATEs and DELETEs require
 Hyperscale (Citus) to acquire stronger locks.
 
@@ -338,7 +335,7 @@ Hyperscale (Citus) has three executor types for running distributed SELECT
 queries.  The desired executor can be selected by setting this configuration
 parameter. The accepted values for this parameter are:
 
--   **adaptive:** The default. It is optimal for fast responses to
+-   **adaptive:** The default. It's optimal for fast responses to
     queries that involve aggregations and colocated joins spanning
     across multiple shards.
 -   **task-tracker:** The task-tracker executor is well suited for long
@@ -401,7 +398,7 @@ default value is false.
 
 ##### citus.enable_repartitioned_insert_select (boolean)
 
-By default, an INSERT INTO … SELECT statement that cannot be pushed down will
+By default, an INSERT INTO … SELECT statement that can’t be pushed down will
 attempt to repartition rows from the SELECT statement and transfer them between
 workers for insertion. However, if the target table has too many shards then
 repartitioning will probably not perform well. The overhead of processing the
@@ -413,11 +410,11 @@ Repartitioning can be disabled manually by setting
 
 Setting this parameter to true instructs the coordinator node to use
 PostgreSQL’s binary serialization format (when applicable) to transfer data
-with workers. Some column types do not support binary serialization.
+with workers. Some column types don't support binary serialization.
 
 Enabling this parameter is mostly useful when the workers must return large
-amounts of data. Examples are when a lot of rows are requested, the rows have
-many columns, or they use big types such as `hll` from the postgresql-hll
+amounts of data. Examples are when many rows are requested, the rows have
+many columns, or they use wide types such as `hll` from the postgresql-hll
 extension.
 
 The default value is true for Postgres versions 14 and higher. For Postgres
@@ -441,15 +438,15 @@ The default value is 16.
 Time to wait in milliseconds between opening connections to the same worker
 node.
 
-When the individual tasks of a multi-shard query take very little time, they
+When the individual tasks of a multi-shard query take little time, they
 can often be finished over a single (often already cached) connection. To avoid
-redundantly opening additional connections, the executor waits between
+redundantly opening more connections, the executor waits between
 connection attempts for the configured number of milliseconds. At the end of
-the interval, it increases the number of connections it is allowed to open next
+the interval, it increases the number of connections it's allowed to open next
 time.
 
-For long queries (those taking >500ms), slow start might add latency, but for
-short queries it’s faster. The default value is 10ms.
+For long queries (those taking >500 ms), slow start might add latency, but for
+short queries it’s faster. The default value is 10 ms.
 
 ##### citus.max_cached_conns_per_worker (integer)
 
@@ -460,7 +457,7 @@ multi-shard queries, but will also increase overhead on the workers.
 
 The default value is 1. A larger value such as 2 might be helpful for clusters
 that use a small number of concurrent sessions, but it’s not wise to go much
-further (e.g. 16 would be too high).
+further (for example, 16 would be too high).
 
 ##### citus.force_max_query_parallelization (boolean)
 
@@ -562,7 +559,7 @@ default value of `citus.explain_analyze_sort_method` is `execution-time`.
 The supported values are:
 
 * **execution-time:** sort by execution time.
-* **taskId:** sort by task id.
+* **taskId:** sort by task ID.
 
 ## PostgreSQL parameters
 
@@ -629,7 +626,7 @@ The supported values are:
 * [exit_on_error](https://www.postgresql.org/docs/current/runtime-config-error-handling.html#GUC-EXIT-ON-ERROR) - Terminates session on any error
 * [extra_float_digits](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-EXTRA-FLOAT-DIGITS) - Sets the number of digits displayed for floating-point values
 * [force_parallel_mode](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FORCE-PARALLEL-MODE) - Forces use of parallel query facilities
-* [from_collapse_limit](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT) - Sets the FROM-list size beyond which subqueries are not collapsed
+* [from_collapse_limit](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT) - Sets the FROM-list size beyond which subqueries aren't collapsed
 * [geqo](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO) - Enables genetic query optimization
 * [geqo_effort](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT) - GEQO: effort is used to set the default for other GEQO parameters
 * [geqo_generations](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-GENERATIONS) - GEQO: number of iterations of the algorithm
@@ -640,7 +637,7 @@ The supported values are:
 * [gin_fuzzy_search_limit](https://www.postgresql.org/docs/current/runtime-config-client.html#id-1.6.6.14.5.2.2.1.3) - Sets the maximum allowed result for exact search by GIN
 * [gin_pending_list_limit](https://www.postgresql.org/docs/current/runtime-config-client.html#id-1.6.6.14.2.2.23.1.3) - Sets the maximum size of the pending list for GIN index
 * [idle_in_transaction_session_timeout](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT) - Sets the maximum allowed duration of any idling transaction
-* [join_collapse_limit](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT) - Sets the FROM-list size beyond which JOIN constructs are not flattened
+* [join_collapse_limit](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT) - Sets the FROM-list size beyond which JOIN constructs aren't flattened
 * [lc_monetary](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LC-MONETARY) - Sets the locale for formatting monetary amounts
 * [lc_numeric](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LC-NUMERIC) - Sets the locale for formatting numbers
 * [lo_compat_privileges](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES) - Enables backward compatibility mode for privilege checks on large objects
@@ -661,7 +658,7 @@ The supported values are:
 * [log_statement_stats](https://www.postgresql.org/docs/current/runtime-config-statistics.html#id-1.6.6.12.3.2.1.1.3) - For each query, writes cumulative performance statistics to the server log
 * [log_temp_files](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES) - Logs the use of temporary files larger than this number of kilobytes
 * [maintenance_work_mem](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM) - Sets the maximum memory to be used for maintenance operations
-* [max_parallel_workers](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS) - Sets the maximum number of parallel workers than can be active at one time
+* [max_parallel_workers](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS) - Sets the maximum number of parallel workers that can be active at one time
 * [max_parallel_workers_per_gather](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER) - Sets the maximum number of parallel processes per executor node
 * [max_pred_locks_per_page](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-PAGE) - Sets the maximum number of predicate-locked tuples per page
 * [max_pred_locks_per_relation](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-RELATION) - Sets the maximum number of predicate-locked pages and tuples per relation
@@ -680,7 +677,7 @@ The supported values are:
 * [quote_all_identifiers](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS) - When generating SQL fragments, quotes all identifiers
 * [random_page_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-RANDOM-PAGE-COST) - Sets the planner's estimate of the cost of a nonsequentially fetched disk page
 * [row_security](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-ROW-SECURITY) - Enables row security
-* [search_path](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH) - Sets the schema search order for names that are not schema-qualified
+* [search_path](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH) - Sets the schema search order for names that aren't schema-qualified
 * [seq_page_cost](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-SEQ-PAGE-COST) - Sets the planner's estimate of the cost of a sequentially fetched disk page
 * [session_replication_role](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SESSION-REPLICATION-ROLE) - Sets the session's behavior for triggers and rewrite rules
 * [standard_conforming_strings](https://www.postgresql.org/docs/current/runtime-config-compatible.html#id-1.6.6.16.2.2.7.1.3) - Causes '...' strings to treat backslashes literally

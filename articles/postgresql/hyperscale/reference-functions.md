@@ -31,7 +31,7 @@ inserts appropriate metadata to mark the table as distributed. The function
 defaults to 'hash' distribution if no distribution method is specified. If the
 table is hash-distributed, the function also creates worker shards based on the
 shard count and shard replication factor configuration values. If the table
-contains any rows, they are automatically distributed to worker nodes.
+contains any rows, they're automatically distributed to worker nodes.
 
 This function replaces usage of master\_create\_distributed\_table() followed
 by master\_create\_worker\_shards().
@@ -48,7 +48,7 @@ table is to be distributed. Permissible values are append or hash, with
 a default value of 'hash'.
 
 **colocate\_with:** (Optional) include current table in the colocation group
-of another table. By default tables are colocated when they are distributed by
+of another table. By default tables are colocated when they're distributed by
 columns of the same type, have the same shard count, and have the same
 replication factor. Possible values for `colocate_with` are `default`, `none`
 to start a new colocation group, or the name of another table to colocate
@@ -62,7 +62,7 @@ distribution columns, accidentally colocating them can decrease performance
 during [shard rebalancing](howto-scale-rebalance.md).  The
 table shards will be moved together unnecessarily in a \"cascade.\"
 
-If a new distributed table is not related to other tables, it's best to
+If a new distributed table isn't related to other tables, it's best to
 specify `colocate_with => 'none'`.
 
 #### Return Value
@@ -86,8 +86,7 @@ SELECT create_distributed_table('github_events', 'repo_id',
 
 Truncate all local rows after distributing a table, and prevent constraints
 from failing due to outdated local records. The truncation cascades to tables
-having a foreign key to the designated table. If the referring tables are not
-themselves distributed then truncation is forbidden until they are, to protect
+having a foreign key to the designated table. If the referring tables aren't themselves distributed, then truncation is forbidden until they are, to protect
 referential integrity:
 
 ```
@@ -95,7 +94,7 @@ ERROR:  cannot truncate a table referenced in a foreign key constraint by a loca
 ```
 
 Truncating local coordinator node table data is safe for distributed tables
-because their rows, if they have any, are copied to worker nodes during
+because their rows, if any, are copied to worker nodes during
 distribution.
 
 #### Arguments
@@ -186,12 +185,12 @@ The update_distributed_table_colocation() function is used to update colocation
 of a distributed table. This function can also be used to break colocation of a
 distributed table. Citus will implicitly colocate two tables if the
 distribution column is the same type, this can be useful if the tables are
-related and will do some joins. If table A and B are colocated, and table A
-gets rebalanced, table B will also be rebalanced. If table B does not have a
+related and will do some joins. If tables A and B are colocated, and table A
+gets rebalanced, table B will also be rebalanced. If table B doesn't have a
 replica identity, the rebalance will fail. Therefore, this function can be
 useful breaking the implicit colocation in that case.
 
-Note that this function does not move any data around physically.
+This function doesn't move any data around physically.
 
 #### Arguments
 
@@ -215,7 +214,7 @@ B.
 SELECT update_distributed_table_colocation('A', colocate_with => 'B');
 ```
 
-Assume that table A and table B are colocated( possibily implicitly), if you
+Assume that table A and table B are colocated (possibly implicitly), if you
 want to break the colocation:
 
 ```postgresql
@@ -245,7 +244,7 @@ or create_reference_table. Undistributing moves all data from shards back into
 a local table on the coordinator node (assuming the data can fit), then deletes
 the shards.
 
-Citus will not undistribute tables that have -- or are referenced by -- foreign
+Citus won't undistribute tables that have--or are referenced by--foreign
 keys, unless the cascade_via_foreign_keys argument is set to true. If this
 argument is false (or omitted), then you must manually drop the offending
 foreign key constraints before undistributing.
@@ -279,7 +278,7 @@ SELECT undistribute_table('github_events');
 
 The mark\_tables\_colocated() function takes a distributed table (the
 source), and a list of others (the targets), and puts the targets into
-the same colocation group as the source. If the source is not yet in a
+the same colocation group as the source. If the source isn't yet in a
 group, this function creates one, and assigns the source and targets to
 it.
 
@@ -334,10 +333,10 @@ to pick a worker node to run the function. Executing the function on workers
 increases parallelism, and can bring the code closer to data in shards for
 lower latency.
 
-The Postgres search path is not propagated from the coordinator to workers
+The Postgres search path isn't propagated from the coordinator to workers
 during distributed function execution, so distributed function code should
 fully qualify the names of database objects. Also notices emitted by the
-functions will not be displayed to the user.
+functions won't be displayed to the user.
 
 #### Arguments
 
@@ -347,9 +346,9 @@ multiple functions can have the same name in PostgreSQL. For instance,
 `'foo(int)'` is different from `'foo(int, text)'`.
 
 **distribution\_arg\_name:** (Optional) The argument name by which to
-distribute. For convenience (or if the function arguments do not have
+distribute. For convenience (or if the function arguments don't have
 names), a positional placeholder is allowed, such as `'$1'`. If this
-parameter is not specified, then the function named by `function_name`
+parameter isn't specified, then the function named by `function_name`
 is merely created on the workers. If worker nodes are added in the
 future, the function will automatically be created there too.
 
@@ -412,20 +411,20 @@ overridden with these GUCs:
 **table_name:** Name of the columnar table.
 
 **chunk_row_count:** (Optional) The maximum number of rows per chunk for
-newly inserted data. Existing chunks of data will not be changed and may have
+newly inserted data. Existing chunks of data won't be changed and may have
 more rows than this maximum value. The default value is 10000.
 
 **stripe_row_count:** (Optional) The maximum number of rows per stripe for
-newly inserted data. Existing stripes of data will not be changed and may have
+newly inserted data. Existing stripes of data won't be changed and may have
 more rows than this maximum value. The default value is 150000.
 
 **compression:** (Optional) `[none|pglz|zstd|lz4|lz4hc]` The compression type
-for newly inserted data. Existing data will not be recompressed or
+for newly inserted data. Existing data won't be recompressed or
 decompressed. The default and suggested value is zstd (if support has
 been compiled in).
 
 **compression_level:** (Optional) Valid settings are from 1 through 19. If the
-compression method does not support the level chosen, the closest level will be
+compression method doesn't support the level chosen, the closest level will be
 selected instead.
 
 #### Return value
@@ -444,7 +443,7 @@ SELECT alter_columnar_table_set(
 ### alter_table_set_access_method
 
 The alter_table_set_access_method() function changes access method of a table
-(e.g. heap or columnar).
+(for example, heap or columnar).
 
 #### Arguments
 
@@ -567,7 +566,7 @@ database administrator can ignore. However it can be useful to determine a
 row's shard, either for manual database maintenance tasks or just to satisfy
 curiosity. The `get_shard_id_for_distribution_column` function provides this
 info for hash-distributed, range-distributed, and reference tables. It
-does not work for the append distribution.
+doesn't work for the append distribution.
 
 #### Arguments
 
@@ -804,7 +803,7 @@ SELECT master_copy_shard_placement(12345, 'good_host', 5432, 'bad_host', 5432);
 ### master\_move\_shard\_placement
 
 This function moves a given shard (and shards colocated with it) from one node
-to another. It is typically used indirectly during shard rebalancing rather
+to another. It's typically used indirectly during shard rebalancing rather
 than being called directly by a database administrator.
 
 There are two ways to move the data: blocking or nonblocking. The blocking
@@ -857,8 +856,8 @@ SELECT master_move_shard_placement(12345, 'from_host', 5432, 'to_host', 5432);
 
 ### rebalance\_table\_shards
 
-The rebalance\_table\_shards() function moves shards of the given table to make
-them evenly distributed among the workers. The function first calculates the
+The rebalance\_table\_shards() function moves shards of the given table to
+distribute them evenly among the workers. The function first calculates the
 list of moves it needs to make in order to ensure that the server group is
 balanced within the given threshold. Then, it moves shard placements one by one
 from the source node to the destination node and updates the corresponding
@@ -953,7 +952,7 @@ Output the planned shard movements of
 [rebalance_table_shards](#rebalance_table_shards) without performing them.
 While it's unlikely, get\_rebalance\_table\_shards\_plan can output a slightly
 different plan than what a rebalance\_table\_shards call with the same
-arguments will do. They are not executed at the same time, so facts about the
+arguments will do. They aren't executed at the same time, so facts about the
 server group \-- for example, disk space \-- might differ between the calls.
 
 #### Arguments
@@ -1094,7 +1093,7 @@ SELECT * from citus_remote_connection_stats();
 ### isolate\_tenant\_to\_new\_shard
 
 This function creates a new shard to hold rows with a specific single value in
-the distribution column. It is especially handy for the multi-tenant Hyperscale
+the distribution column. It's especially handy for the multi-tenant Hyperscale
 (Citus) use case, where a large tenant can be placed alone on its own shard and
 ultimately its own physical node.
 
