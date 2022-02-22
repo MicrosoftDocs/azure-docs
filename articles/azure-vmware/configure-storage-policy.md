@@ -17,8 +17,8 @@ You can assign a VM storage policy in an initial deployment of a VM or when you 
 The Run command lets authorized users change the default or existing VM storage policy to an available policy for a VM post-deployment. There are no changes made on the disk-level VM storage policy. You can always change the disk level VM storage policy as per your requirements.
 
 
->  [!NOTE]
->  Run commands are executed one at a time in the order submitted.
+> [!NOTE]
+> Run commands are executed one at a time in the order submitted.
 
 
 In this how-to, you learn how to:
@@ -74,8 +74,8 @@ You'll run the `Get-StoragePolicy` cmdlet to list the vSAN based storage policie
 
 You'll run the `Set-VMStoragePolicy` cmdlet to Modify vSAN based storage policies on an individual VM or on a group of VMs sharing a similar VM name. For example, if you have 3 VMs named "MyVM1", "MyVM2", "MyVM3", supplying "MyVM*" to the VMName parameter would change the StoragePolicy on all three VMs.
 
->  [!NOTE]
->  You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
+> [!NOTE]
+> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
 
 1. Select **Run command** > **Packages** > **Set-VMStoragePolicy**.
 
@@ -95,8 +95,8 @@ You'll run the `Set-VMStoragePolicy` cmdlet to Modify vSAN based storage policie
 
 You'll run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage policies on all VMs in a location where a location is the name of a cluster, resource pool, or folder. For example, if you have 3 VMs in Cluster-3, supplying "Cluster-3" would change the storage policy on all 3 VMs.
 
->  [!NOTE]
->  You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
+> [!NOTE]
+> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM. 
 
 1. Select **Run command** > **Packages** > **Set-LocationStoragePolicy**.
 
