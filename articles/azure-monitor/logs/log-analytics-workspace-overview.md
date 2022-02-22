@@ -34,7 +34,7 @@ By default, all tables in a workspace are **Analytics** tables, which are availa
 The following table gives a brief summary of the two plans. See [Configure Basic Logs in Azure Monitor (Preview)](basic-logs-configure.md) for more details on Basic Logs and how to configure them.
 
 > [!NOTE]
-> Basic Logs are currently in public preview. Other components, such as alerts, dashboards, workbooks, Power BI, and Logic App Connector do not currently support Basic Logs.
+> Basic Logs are currently in public preview. You can currently work with Basic Logs tables in the Azure Portal and using a limited number of other components.
 
 The following table summarizes the differences between the plans.
 
@@ -43,6 +43,7 @@ The following table summarizes the differences between the plans.
 | Ingestion | Cost for ingestion. | Reduced cost for ingestion. |
 | Log queries | No additional cost. Full query language. | Additional cost. Subset of query language. |
 | Retention |  Configure retention from 30 days to 750 days. | Retention fixed at 8 days. |
+| Alerts | Supported. | Not supported. |
 
 ## Ingestion-time transformations
 [Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all workflows don't yet support DCRs, each workspace can define ingestion-time transformations. This allows you filter or transform data before it's stored. 
