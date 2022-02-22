@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a virtual machine in Azure public MEC using Python SDK'
+title: 'Tutorial: Deploy a virtual machine in Azure public MEC Preview using Python SDK'
 description: This tutorial demonstrates how to use the Azure SDK management libraries in a Python script to create a resource group in Azure public multi-access edge compute that contains a Linux virtual machine.
 author: reemas-new
 ms.author: reemas
@@ -9,9 +9,9 @@ ms.date: 02/18/2022
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
-# Tutorial: Deploy a virtual machine in Azure public MEC using Python SDK
+# Tutorial: Deploy a virtual machine in Azure public MEC Preview using Python SDK
 
-In this tutorial, you use Python SDK to deploy resources in Azure public multi-access edge compute (MEC). The tutorial provides Python code to deploy a virtual machine (VM) and its dependencies in Azure public MEC.
+In this tutorial, you use Python SDK to deploy resources in Azure public multi-access edge compute (MEC) Preview. The tutorial provides Python code to deploy a virtual machine (VM) and its dependencies in Azure public MEC.
 
 For information about Python SDKs, see [Azure libraries for Python usage patterns](/azure/developer/python/azure-sdk-library-usage-patterns?tabs=pip).
 

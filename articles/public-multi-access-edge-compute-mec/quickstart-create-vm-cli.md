@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy a virtual machine in Azure public MEC using Azure CLI'
+title: 'Quickstart: Deploy a virtual machine in Azure public MEC Preview using Azure CLI'
 description: In this quickstart, learn how to deploy a virtual machine in Azure public multi-access edge compute by using the Azure CLI.
 author: reemas-new
 ms.author: reemas
@@ -9,9 +9,9 @@ ms.date: 02/18/2022
 ms.custom: template-quickstart, devx-track-azurecli
 ---
 
-# QuickStart: Deploy a virtual machine in Azure public MEC using Azure CLI
+# Quickstart: Deploy a virtual machine in Azure public MEC Preview using Azure CLI
 
-In this quickstart, you learn how to use Azure CLI to deploy a Linux virtual machine (VM) in Azure public multi-access edge compute (MEC).
+In this quickstart, you learn how to use Azure CLI to deploy a Linux virtual machine (VM) in Azure public multi-access edge compute (MEC) Preview.
 
 ## Prerequisites
 
@@ -132,4 +132,4 @@ az group delete \--name myResourceGroup \--yes
 To deploy a virtual machine in Azure public MEC using an ARM template, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template](quickstart-create-vm-arm-template.md)
+> [Tutorial: Deploy resources in Azure public MEC using the Go SDK](tutorial-create-vm-using-go-sdk.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template'
+title: 'Quickstart: Deploy a virtual machine in Azure public MEC Preview using an ARM template'
 description: In this quickstart, learn how to deploy a virtual machine in Azure public multi-access edge compute by using an Azure Resource Manager template.
 author: reemas-new
 ms.author: reemas
@@ -9,9 +9,9 @@ ms.date: 02/18/2022
 ms.custom: template-quickstart, devx-track-azurecli
 ---
 
-# Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template
+# Quickstart: Deploy a virtual machine in Azure public MEC Preview using an ARM template
 
-In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to deploy an Ubuntu Linux virtual machine (VM) in Azure public multi-access edge compute (Azure public MEC).
+In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to deploy an Ubuntu Linux virtual machine (VM) in Azure public multi-access edge compute (MEC) Preview.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -422,4 +422,4 @@ az group delete \--name myResourceGroup \--yes
 To deploy resources in Azure public MEC using the Go SDK, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy resources in Azure public MEC using the Go SDK](tutorial-create-vm-using-go-sdk.md)
+> [Quickstart: Deploy a virtual machine in Azure public MEC using Azure CLI](quickstart-create-vm-cli.md)

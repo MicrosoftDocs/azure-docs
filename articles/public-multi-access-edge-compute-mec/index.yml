@@ -1,0 +1,53 @@
+### YamlMime:Landing
+
+title: Azure public multi-access-edge compute (MEC) Preview documentation # < 60 chars
+summary: Learn how to use an Azure public MEC solution to develop and deploy latency-sensitive workloads at the 5G network edge integrated with Azure compute. # < 160 chars
+
+metadata:
+  title: Azure public multi-access-edge compute (MEC) Preview documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Azure public MEC solution to develop and deploy latency-sensitive workloads at the 5G network edge integrated with Azure compute. # Required; article description that is displayed in search results. < 160 chars.
+  ms.service: public-multi-access-edge-compute-mec # Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.topic: landing-page # Required
+  author: reemas-new # Required; your GitHub user alias, with correct capitalization.
+  ms.author: reemas # Required; microsoft alias of author; optional team alias.
+  ms.date: 02/22/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card
+  - title: About Azure public multi-access-edge compute (MEC)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure public MEC?
+            url: overview.md
+      - linkListType: concept
+        links:
+          - text: Deployment considerations for Azure public MEC
+            url: Considerations for deployment on the public MEC.md
+          - text: Public MEC prerequisites
+            url: Public MEC prerequisites.md
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create VM using ARM template
+            url: quickstart-create-vm-arm-template.md
+          - text: Create VM using Azure CLI
+            url: quickstart-create-vm-cli.md
+     
+ # Card
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create VM using GO SDK
+            url: quickstart-create-vm-arm-template.md
+          - text: Create VM using Python SDK
+            url: tutorial-create-vm-using-python-sdk.md
