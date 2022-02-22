@@ -5,7 +5,7 @@ description: Azure SQL Database and Azure SQL Managed Instance automatically cre
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
 author: SudhirRaparla 
 ms.author: nvraparl

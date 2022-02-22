@@ -10,12 +10,14 @@
   - name: Release notes
     href: release-notes.md
     displayName: Release Notes, notes, updates, announcements, deprecations
-  - name: Compliance and regulatory
-    href: compliance-concept.md
-    displayName: compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR
-  - name: Compliance, privacy and security
-    href: media-services-compliance.md
-    displayName: compliance, security, privacy
+  - name: Compliance
+    items:
+    - name: Regulatory compliance
+      href: compliance-concept.md
+      displayName: compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR
+    - name: Privacy and security compliance
+      href: media-services-compliance.md
+      displayName: compliance, security, privacy
   - name: FAQs
     items:
       - name: Frequently asked questions

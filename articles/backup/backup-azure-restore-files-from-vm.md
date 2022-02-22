@@ -2,7 +2,7 @@
 title: Recover files and folders from Azure VM backup
 description: In this article, learn how to recover files and folders from an Azure virtual machine recovery point.
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 02/22/2022
 ms.custom: references_regions
 ---
 # Recover files from Azure virtual machine backup
@@ -34,6 +34,9 @@ To restore files or folders from the recovery point, go to the virtual machine a
     The **File Recovery** menu opens.
 
     ![File recovery menu](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
+
+> [!IMPORTANT]
+> Users should note the performance limitations of this feature. As pointed out in the footnote section of the above blade, this feature should be used when the total size of recovery is not beyond 10 GB and you could get data transfer speeds of around 1 GB per hour
 
 4. From the **Select recovery point** drop-down menu, select the recovery point that holds the files you want. By default, the latest recovery point is already selected.
 

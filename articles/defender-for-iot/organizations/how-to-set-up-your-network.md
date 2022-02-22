@@ -1,6 +1,6 @@
 ---
 title: Set up your network
-description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
+description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Microsoft Defender for IoT appliances.
 ms.date: 12/19/2021
 ms.topic: how-to
 ---
@@ -108,7 +108,7 @@ Verify that your organizational security policy allows access to the following:
 
 | Protocol | Transport | In/Out | Port | Used | Purpose | Source | Destination |
 |--|--|--|--|--|--|--|--|
-| HTTPS / Websocket | TCP | In/Out | 443 | Gives the sensor access to the Azure portal. (Optional) Access can be granted through a proxy. | Access to Azure portal | Sensor | Azure portal |
+| HTTPS / Websocket | TCP | Out | 443 | Gives the sensor access to the Azure portal. (Optional) Access can be granted through a proxy. | Access to Azure portal | Sensor |  *.azure-devices.net, *.blob.core.windows.net, *.servicebus.windows.net |
 
 #### Sensor access to the on-premises management console
 

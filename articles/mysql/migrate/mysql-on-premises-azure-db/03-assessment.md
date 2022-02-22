@@ -4,8 +4,8 @@ description: "Before jumping right into migrating a MySQL workload, there's a fa
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: arunkumarthiags
-ms.author: arthiaga
+author: rothja
+ms.author: jroth
 ms.reviewer: maghan
 ms.custom:
 ms.date: 06/21/2021
