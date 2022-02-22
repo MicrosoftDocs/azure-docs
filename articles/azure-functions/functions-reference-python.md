@@ -351,25 +351,25 @@ First, the function.json file must be updated to include a `route` in the HTTP t
 
 ```json
 {
-"scriptFile": "__init__.py",
-"bindings": [
-  {
-  "authLevel": "anonymous",
-  "type": "httpTrigger",
-  "direction": "in",
-  "name": "req",
-  "methods": [
-  "get",
-  "post"
-  ],
-  "route": "/{*route}"
-  },
-  {
-  "type": "http",
-  "direction": "out",
-  "name": "$return"
-  }
-]
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+       "authLevel": "anonymous",
+       "type": "httpTrigger",
+       "direction": "in",
+       "name": "req",
+       "methods": [
+           "get",
+           "post"
+       ],
+       "route": "/{*route}"
+    },
+    {
+       "type": "http",
+       "direction": "out",
+       "name": "$return"
+    }
+  ]
 }
 ```
 
@@ -409,7 +409,7 @@ Update the Python code file `init.py`, depending on the interface used by your f
 # [ASGI](#tab/asgi)
 
 ```python
-app=Flask("Test")
+app=FastAPI("Test")
 
 @app.route("/api/HandleApproach")
 def test():

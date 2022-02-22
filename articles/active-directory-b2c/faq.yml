@@ -8,12 +8,11 @@ metadata:
   
   ms.service: active-directory
   ms.workload: identity
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 01/03/2022
   ms.author: kengaderdus
   ms.subservice: B2C
   ms.custom: "b2c-support"
-    
 title: 'Azure AD B2C: Frequently asked questions (FAQ)'
 summary: This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
 
@@ -245,7 +244,7 @@ sections:
           Follow the following steps to check if the refresh token is valid or revoked:
           1. Retrieve the `RefreshToken` and the `AccessToken` by redeeming `authorization_code`.
           1. Wait for 7 minutes.
-          1. Use PowerShell cmdlet [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or Microsoft Graph API [invalidateAllRefreshTokens](https://docs.microsoft.com/graph/api/user-invalidateallrefreshtokens?view=graph-rest-beta&tabs=http) to run the `RevokeAllRefreshToken` command.
+          1. Use PowerShell cmdlet [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or Microsoft Graph API [invalidateAllRefreshTokens](/graph/api/user-invalidateallrefreshtokens?tabs=http&view=graph-rest-beta) to run the `RevokeAllRefreshToken` command.
           1. Wait for 10 minutes.
           
           1. Retrieve the `RefreshToken` again.

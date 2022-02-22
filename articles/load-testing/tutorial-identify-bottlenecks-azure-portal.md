@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/30/2021
+ms.date: 02/15/2022
 ms.topic: tutorial
 #Customer intent: As an Azure user, I want to learn how to identify and fix bottlenecks in a web app so that I can improve the performance of the web apps that I'm running in Azure.
 ---
@@ -106,6 +106,10 @@ If you already have a Load Testing resource, skip this section and continue to [
 If you don't yet have a Load Testing resource, create one now:
 
 [!INCLUDE [azure-load-testing-create-portal](../../includes/azure-load-testing-create-in-portal.md)]
+
+### <a name="role_assignment"></a> Configure role-based access
+
+[!INCLUDE [azure-load-testing-role-assignment](../../includes/azure-load-testing-role-assignment.md)]
 
 ### <a name="create_test"></a> Create a load test
 

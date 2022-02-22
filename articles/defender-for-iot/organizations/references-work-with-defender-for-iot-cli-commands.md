@@ -12,6 +12,7 @@ This article describes CLI commands for sensors and on-premises management conso
 - Administrator
 - CyberX 
 - Support
+- cyberx_host
 
 To start working in the CLI, connect using a terminal. For example, terminal name `Putty`, and `Support` user. 
 

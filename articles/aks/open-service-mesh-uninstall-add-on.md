@@ -59,4 +59,4 @@ kubectl delete mutatingwebhookconfiguration -l app.kubernetes.io/name=openservic
 kubectl delete validatingwebhookconfiguration -l app.kubernetes.io/name=openservicemesh.io,app.kubernetes.io/instance=osm,app=osm-controller --ignore-not-found
 ```
 
-5. Delete the OSM CRDs: For guidance on OSM's CRDs and how to delete them, refer to [this documentation](https://docs.openservicemesh.io/docs/getting_started/uninstall/#removal-of-osm-cluster-wide-resources).
+5. Delete the OSM CRDs: For guidance on OSM's CRDs and how to delete them, refer to [this documentation](https://release-v0-11.docs.openservicemesh.io/docs/getting_started/uninstall/#removal-of-osm-cluster-wide-resources).

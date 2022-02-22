@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 01/31/2022
+ms.date: 02/18/2022
 
 ms.author: mimart
 author: msmimart
@@ -27,7 +27,7 @@ Developers can use Azure AD business-to-business APIs to customize the invitatio
 
 
 > [!IMPORTANT]
-> **As of November 1, 2021**, Microsoft no longer supports the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. At that time, we began rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. If you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode).
+> **Starting July 2022**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode)..
 
 ## Collaborate with any partner using their identities
 
@@ -100,6 +100,13 @@ Bring your external partners on board in ways customized to your organization's 
 Azure AD supports external identity providers like Facebook, Microsoft accounts, Google, or enterprise identity providers. You can set up federation with identity providers so your external users can sign in with their existing social or enterprise accounts instead of creating a new account just for your application. Learn more about [identity providers for External Identities](identity-providers.md).
 
 ![Screenshot showing the Identity providers page](media/what-is-b2b/identity-providers.png)
+
+## Integrate with SharePoint and OneDrive
+
+You can [enable integration with SharePoint and OneDrive](/sharepoint/sharepoint-azureb2b-integration) to share files, folders, list items, document libraries, and sites with people outside your organization, while using Azure B2B for authentication and management. The users you share resources with are typically added to your directory as guests, and permissions and groups work the same for these guests as they do for internal users. When enabling integration with SharePoint and OneDrive, you'll also enable the [email one-time passcode](one-time-passcode.md) feature in Azure AD B2B to serve as a fallback authentication method. 
+
+![Screenshot of the email one-time-passcode setting.](media/what-is-b2b/enable-email-otp-options.png)
+
 
 ## Next steps
 
