@@ -114,9 +114,9 @@ To get an output value from a module, use the following syntax:
 <module-name>.outputs.<property-name>
 ```
 
-The following example shows how to set the IP address on a load balancer by retrieving a value from a module. The name of the module is `publicIP`.
+The following example shows how to set the IP address on a load balancer by retrieving a value from a module.
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/module-output.bicep" range="5-21" highlight="10" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/outputs/module-output.bicep" highlight="14" :::
 
 ## Get output values
 
