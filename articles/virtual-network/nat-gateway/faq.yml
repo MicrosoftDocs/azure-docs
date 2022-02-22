@@ -38,6 +38,10 @@ sections:
         answer: |
           No. A public IP address of NAT gateway cannot connect directly to a private IP over the internet. 
       
+      - question: If NAT gateway has multiple public IP addresses, can one of those IPs be assigned to a specific VM to use explicitly for going outbound?
+        answer: |
+          No. Explicit IP assignment to specific VM instances in a NAT gateway configured subnet cannot be done.
+      
       - question: Are basic SKU resources (Basic Load Balancer and Basic public IP addresses) compatible with VNet NAT gateway?
         answer: |
           No. VNet NAT gateway can only be used with standard SKU resources. Learn more from [VNet NAT basics](./nat-overview.md#vnet-nat-basics)
