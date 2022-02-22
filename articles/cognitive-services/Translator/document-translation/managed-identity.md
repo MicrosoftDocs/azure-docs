@@ -1,5 +1,5 @@
 ---
-title: Create and use managed identities
+title: Create and use managed identities for Document Translation
 titleSuffix: Azure Cognitive Services
 description: Understand how to create and use managed identities in the Azure portal
 author: laujan
@@ -11,7 +11,7 @@ ms.date: 02/22/2022
 ms.author: lajanuar
 ---
 
-# Create and use managed identities
+# Managed identities for Document Translation
 
 > [!IMPORTANT]
 >
@@ -19,7 +19,9 @@ ms.author: lajanuar
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 
-* You can use managed identities **instead of a shared access signature (SAS) token** to grant access to any resource that supports Azure AD authentication, including your own applications. To grant access, assign a role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md).
+* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Unlike security keys and authentication tokens, managed identities eliminate the need for developers to manage credentials. 
+
+* To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
@@ -52,7 +54,11 @@ To get started, you'll need:
 
 ## Managed identity assignments
 
-There are two types of managed identities: **system-assigned** and **user-assigned**.  Currently, Document Translation is supported by system-assigned managed identities. A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+There are two types of managed identities: **system-assigned** and **user-assigned**.  Currently, Document Translation is supports system-assigned managed identities:
+
+* A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting. 
+
+* The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
 In the following steps, we'll enable a system-assigned managed identity and grant your Translator resource limited access to your Azure blob storage account.
 
@@ -74,7 +80,9 @@ In the following steps, we'll enable a system-assigned managed identity and gran
 
 ## Grant access to your storage account
 
-You need to grant Translator access to your storage account before it can create, read, or delete blobs. Now that you enabled Translator with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give a managed identity (Translator) access to another resource (Azure storage), just like any security principal. The **Storage Blob Data Contributor** role gives Translator (represented by the system-assigned managed identity) read, write, and delete access to the blob container and data.
+You need to grant Translator access to your storage account before it can create, read, or delete blobs. Now that you enabled Translator with a system-assigned managed identity, you can use Azure role-based access control (Azure RBAC), to give Translator access to Azure storage. 
+
+The **Storage Blob Data Contributor** role gives Translator (represented by the system-assigned managed identity) read, write, and delete access to the blob container and data.
 
 1. Under **Permissions** select **Azure role assignments**:
 

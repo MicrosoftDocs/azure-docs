@@ -12,13 +12,13 @@ ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
 
-# Create and use managed identities
+# Managed identities for Form Recognizer
 
 Managed identities for Azure resources are service principals that create an Azure Active Directory (Azure AD) identity and specific permissions for Azure managed resources:
 
-* You can use managed identities **instead of a shared access signature (SAS) token** to grant access to any resource that supports Azure AD authentication.
+* You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Unlike security keys and authentication tokens, managed identities eliminate the need for developers to manage credentials.
 
-* To grant access, assign a role to a managed identity using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
+* To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
@@ -119,7 +119,7 @@ You need to grant Form Recognizer access to your storage account before it can c
 
     :::image type="content" source="media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
- That's it! You've completed the steps to enable a system-assigned managed identity. With managed identity and Azure RBAC, you granted Form Recognizer specific access rights to documents and files stored in your storage resource without having to manage credentials, such as SAS tokens.
+ That's it! You've completed the steps to enable a system-assigned managed identity. With managed identity and Azure RBAC, you granted Form Recognizer specific access rights to your storage resource without having to manage credentials such as SAS tokens.
 
 ## Learn more about  managed identity
 
