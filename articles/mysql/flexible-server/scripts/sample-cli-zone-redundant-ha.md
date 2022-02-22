@@ -17,7 +17,7 @@ You can enable Zone-Redundant high availability only during Flexible Server crea
 
 Currently, Zone-Redundant high availability is supported only for the General purpose and Memory optimized pricing tiers.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/flexible-server-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -27,7 +27,7 @@ Currently, Zone-Redundant high availability is supported only for the General pu
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/high-availability/zone-redundant-ha.sh" range="4-45":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/high-availability/zone-redundant-ha.sh" range="4-46":::
 
 ## Clean up resources
 

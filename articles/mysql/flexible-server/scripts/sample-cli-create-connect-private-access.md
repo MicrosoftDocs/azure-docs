@@ -17,7 +17,7 @@ This sample CLI script creates an Azure Database for MySQL - Flexible Server in 
 > [!NOTE]
 > The connectivity method cannot be changed after creating the server. For example, if you create server using *Private access (VNet Integration)*, you cannot change to *Public access (allowed IP addresses)* after creation. To learn more about connectivity methods, see [Networking concepts](../concepts-networking.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/flexible-server-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
@@ -27,7 +27,7 @@ This sample CLI script creates an Azure Database for MySQL - Flexible Server in 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/create-server-private-access/create-connect-server-in-vnet.sh" range="4-87":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/create-server-private-access/create-connect-server-in-vnet.sh" range="4-91":::
 
 ## Clean up resources
 
