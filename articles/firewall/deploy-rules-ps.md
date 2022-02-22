@@ -15,7 +15,7 @@ When you add new rules to Azure Firewall or Azure Firewall policy, you should us
 
 1. Retrieve the Azure Firewall or Azure Firewall Policy object.
 1. Add all new rules and perform other desired modifications in the local object. You can add them to an existing rule collection or create new ones as needed.
-1. Push  the Firewall or the Firewall Policy updates only when all modifications are done.
+1. Push the Firewall or the Firewall Policy updates only when all modifications are done.
 
 The following example shows how to add multiple new DNAT rules to an existing firewall policy using Azure PowerShell. You should follow these same principles also when:
 
