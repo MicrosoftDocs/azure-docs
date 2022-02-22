@@ -58,14 +58,14 @@ These sample queries apply to the Orders report.
 
 | **Query Description** | **Sample Query** |
 | --- | --- |
-| List Order details for Azure License Type as “Enterprise” for the last 6M | `SELECT AssetId,PurchaseRecordId,PurchaseRecordLineItemId,OrderPurchaseDate FROM ISVOrder WHERE AzureLicenseType = 'Enterprise' TIMESPAN LAST_6_MONTHS` |
-| List Order details for Azure License Type as “Pay as You Go” for the last 6M | `SELECT OfferName,AssetId,PurchaseRecordId,PurchaseRecordLineItemId,OrderPurchaseDate,OrderStatus,OrderCancelDate FROM ISVOrder WHERE AzureLicenseType = 'Pay as You Go' TIMESPAN LAST_6_MONTHS` |
+| List Order details for Azure License Type as “Enterprise” for the last 6M | `SELECT AssetId, PurchaseRecordId, PurchaseRecordLineItemId, OrderPurchaseDate FROM ISVOrder WHERE AzureLicenseType = 'Enterprise' TIMESPAN LAST_6_MONTHS` |
+| List Order details for Azure License Type as “Pay as You Go” for the last 6M | `SELECT OfferName, AssetId, PurchaseRecordId, PurchaseRecordLineItemId, OrderPurchaseDate, OrderStatus, OrderCancelDate FROM ISVOrder WHERE AzureLicenseType = 'Pay as You Go' TIMESPAN LAST_6_MONTHS` |
 | List Order details for specific offer name for the last 6M | `SELECT AssetId, PurchaseRecordId, PurchaseRecordLineItemId , OrderPurchaseDate FROM ISVOrder WHERE OfferName = Contoso test Services' TIMESPAN LAST_6_MONTHS` |
-| List Order details for active orders for the last 6M | `SELECT OfferName,AssetId,PurchaseRecordId,PurchaseRecordLineItemId,OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
-| List Order details for cancelled orders for the last 6M | `SELECT OfferName,AssetId,PurchaseRecordId,PurchaseRecordLineItemId,OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = 'Cancelled' TIMESPAN LAST_6_MONTHS` |
-| List Order details with quantity, term start, term end date and estimatedcharges, currency for the last 6M | `SELECT AssetId,Quantity,PurchaseRecordId,PurchaseRecordLineItemId,TermStartDate,TermEndDate, BilledRevenue,Currency from ISVOrder WHERE OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
-| List Order details for trial orders active for the last 6M | `SELECT AssetId,Quantity,PurchaseRecordId,PurchaseRecordLineItemId from ISVOrder WHERE OrderStatus = 'Active' and IsTrial = 'True' TIMESPAN LAST_6_MONTHS` |
-| List Order details for all offers that are active for the last 6M | `SELECT OfferName,SKU,IsPrivateOffer,AssetId,PurchaseRecordId,PurchaseRecordLineItemId,OrderPurchaseDate,BilledRevenue FROM ISVOrder WHERE OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
+| List Order details for active orders for the last 6M | `SELECT OfferName, AssetId, PurchaseRecordId, PurchaseRecordLineItemId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
+| List Order details for cancelled orders for the last 6M | `SELECT OfferName, AssetId, PurchaseRecordId, PurchaseRecordLineItemId, OrderPurchaseDate FROM ISVOrder WHERE OrderStatus = 'Cancelled' TIMESPAN LAST_6_MONTHS` |
+| List Order details with quantity, term start, term end date and estimatedcharges, currency for the last 6M | `SELECT AssetId, Quantity, PurchaseRecordId, PurchaseRecordLineItemId, TermStartDate, TermEndDate, BilledRevenue, Currency from ISVOrder WHERE OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
+| List Order details for trial orders active for the last 6M | `SELECT AssetId, Quantity, PurchaseRecordId, PurchaseRecordLineItemId from ISVOrder WHERE OrderStatus = 'Active' and IsTrial = 'True' TIMESPAN LAST_6_MONTHS` |
+| List Order details for all offers that are active for the last 6M | `SELECT OfferName, SKU, IsPrivateOffer, AssetId, PurchaseRecordId, PurchaseRecordLineItemId, OrderPurchaseDate, BilledRevenue FROM ISVOrder WHERE OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS` |
 | List Order details for private offers active for the last 6M | SELECT OfferName,SKU,IsPrivateOffer,AssetId,PurchaseRecordId,PurchaseRecordLineItemId,OrderPurchaseDate,BilledRevenue FROM ISVOrder WHERE IsPrivateOffer = '1' and OrderStatus = 'Active' TIMESPAN LAST_6_MONTHS |
 |||
 
@@ -95,8 +95,8 @@ This sample query applies to the Customer retention report.
 
 | **Query Description** | **Sample Query** |
 | ------------ | ------------- |
-| List customer retention details for last 6 months | `SELECT OfferCategory,OfferName,ProductId,DeploymentMethod,ServicePlanName,Sku,SkuBillingType,CustomerId,CustomerName,CustomerCompanyName,CustomerCountryName,CustomerCountryCode,CustomerCurrencyCode,FirstUsageDate,AzureLicenseType,OfferType,Offset FROM ISVOfferRetention TIMESPAN LAST_6_MONTHS` |
-| List usage activity and revenue details of all customers in last 6 months | `SELECT OfferCategory,OfferName,Sku,ProductId,OfferType,FirstUsageDate,Offset,CustomerId,CustomerName,CustomerCompanyName,CustomerCountryName,CustomerCountryCode,CustomerCurrencyCode FROM ISVOfferRetention TIMESPAN LAST_6_MONTHS` |
+| List customer retention details for last 6 months | `SELECT OfferCategory, OfferName, ProductId, DeploymentMethod, ServicePlanName, Sku, SkuBillingType, CustomerId, CustomerName, CustomerCompanyName, CustomerCountryName, CustomerCountryCode, CustomerCurrencyCode, FirstUsageDate, AzureLicenseType, OfferType, Offset FROM ISVOfferRetention TIMESPAN LAST_6_MONTHS` |
+| List usage activity and revenue details of all customers in last 6 months | `SELECT OfferCategory, OfferName, Sku, ProductId, OfferType, FirstUsageDate, Offset, CustomerId, CustomerName, CustomerCompanyName, CustomerCountryName, CustomerCountryCode, CustomerCurrencyCode FROM ISVOfferRetention TIMESPAN LAST_6_MONTHS` |
 |||
 
 ## Next steps
