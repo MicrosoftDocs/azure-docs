@@ -10,11 +10,11 @@ ms.date: 02/22/2022
 
 # Microsoft Sentinel SAP solution: security content reference (public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article details the security content available for the [Microsoft Sentinel SAP solution](sap-deploy-solution.md#deploy-sap-security-content).
+This article details the security content available for the SAP continuous threat monitoring.
 
-Available security content includes a built-in workbook and built-in analytics rules. You can also add SAP-related [watchlists](watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
+Available security content includes a built-in workbook and built-in analytics rules. You can also add SAP-related [watchlists](../watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -34,11 +34,11 @@ Use the following built-in workbooks to visualize and monitor data ingested via 
 |**SAP - Persistency &  Data Exfiltration**     |    Displays data such as: <br><br>Internet Communication Framework (ICF) services, including activations and deactivations and data about new services and service handlers <br><br> Insecure operations, including both function modules and programs <br><br>Direct access to sensitive tables      | Uses data from the following logs: <br><br>[ABAPAuditLog_CL](sap-solution-log-reference.md#abap-security-audit-log) <br><br>[ABAPTableDataLog_CL](sap-solution-log-reference.md#abap-db-table-data-log)<br><br>[ABAPSpoolLog_CL](sap-solution-log-reference.md#abap-spool-log)<br><br>[ABAPSpoolOutputLog_CL](sap-solution-log-reference.md#apab-spool-output-log)<br><br>[Syslog](sap-solution-log-reference.md#abap-syslog) |
 |     |         | |
 
-For more information, see [Tutorial: Visualize and monitor your data](monitor-your-data.md) and [Deploy SAP continuous threat monitoring (public preview)](sap-deploy-solution.md).
+For more information, see [Tutorial: Visualize and monitor your data](../monitor-your-data.md) and [Deploy SAP continuous threat monitoring](deployment-overview.md).
 
 ## Built-in analytics rules
 
-The following tables list the built-in [analytics rules](sap-deploy-solution.md#deploy-sap-security-content) that are included in the Microsoft Sentinel SAP solution, deployed from the Microsoft Sentinel Solutions marketplace.
+The following tables list the built-in [analytics rules](deploy_sap_security_content.md) that are included in the Microsoft Sentinel SAP solution, deployed from the Microsoft Sentinel Solutions marketplace.
 
 ### Built-in SAP analytics rules for initial access
 
@@ -123,7 +123,7 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 
 ## Available watchlists
 
-The following table lists the [watchlists](sap-deploy-solution.md#deploy-sap-security-content) available for the Microsoft Sentinel SAP solution, and the fields in each watchlist.
+The following table lists the [watchlists](deploy_sap_security_content.md) available for the Microsoft Sentinel SAP solution, and the fields in each watchlist.
 
 These watchlists provide the configuration for the Microsoft Sentinel SAP Continuous Threat Monitoring solution. The [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) are available in the Microsoft Sentinel GitHub repository.
 
@@ -154,9 +154,9 @@ These watchlists provide the configuration for the Microsoft Sentinel SAP Contin
 
 For more information, see:
 
-- [Deploy the Microsoft Sentinel solution for SAP](sap-deploy-solution.md)
+- [Deploying SAP continuous threat monitoring](deployment-overview.md)
 - [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
-- [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
-- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure_snc.md)
+- [Configuration file reference](configuration_file_reference.md)
+- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 - [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

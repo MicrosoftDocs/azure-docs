@@ -10,12 +10,12 @@ ms.date: 02/22/2022
 
 # Microsoft Sentinel SAP solution data reference (public preview)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 > [!IMPORTANT]
 > The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+> Some logs, noted below, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Configuration file reference](configuration_file_reference.md).
 >
 
 This article describes the SAP logs available from the Microsoft Sentinel SAP data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
@@ -159,7 +159,7 @@ The following sections describe the logs that are produced by the SAP data conne
 
 ### ABAP DB table data log
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must add it manually to the **systemconfig.ini** file. For more information see [Configuration file reference](configuration_file_reference.md).
 
 - **Name in Microsoft Sentinel**: `ABAPTableDataLog_CL`
 
@@ -193,7 +193,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP Gateway log
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must add it manually to the **systemconfig.ini** file. For more information see [Configuration file reference](configuration_file_reference.md).
 
 
 - **Name in Microsoft Sentinel**: `ABAPOS_GW_CL`
@@ -216,7 +216,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP ICM log
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must add it manually to the **systemconfig.ini** file. For more information see [Configuration file reference](configuration_file_reference.md).
 
 
 - **Name in Microsoft Sentinel**: `ABAPOS_ICM_CL`
@@ -445,7 +445,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP SysLog
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must add it manually to the **systemconfig.ini** file. For more information see [Configuration file reference](configuration_file_reference.md).
 
 
 - **Name in Microsoft Sentinel**: `ABAPOS_Syslog_CL`
@@ -532,7 +532,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### ABAP WorkProcess log
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must add it manually to the **systemconfig.ini** file. For more information see [Configuration file reference](configuration_file_reference.md).
 
 
 - **Name in Microsoft Sentinel**: `ABAPOS_WP_CL`
@@ -560,7 +560,11 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### HANA DB Audit Trail
 
+<<<<<<< HEAD:articles/sentinel/sap/sap-solution-log-reference.md
+To have this log sent to Microsoft Sentinel, you must add it manually to the **systemconfig.ini** file. For more information see [Configuration file reference](configuration_file_reference.md).
+=======
 To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](connect-syslog.md) to gather Syslog data from the machine running HANA DB.
+>>>>>>> master:articles/sentinel/sap-solution-log-reference.md
 
 
 - **Name in Microsoft Sentinel**: `Syslog`
@@ -587,7 +591,7 @@ To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Manage
 
 ### JAVA files
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must add it manually to the **systemconfig.ini** file. For more information see [Configuration file reference](configuration_file_reference.md).
 
 
 - **Name in Microsoft Sentinel**: `JavaFilesLogsCL`
@@ -736,9 +740,9 @@ The **SAPUsersAuthorizations** function returns the following data:
 
 For more information, see:
 
-- [Deploy the Microsoft Sentinel solution for SAP](sap-deploy-solution.md)
-- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
-- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
-- [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
+- [Deploying SAP continuous threat monitoring](deployment-overview.md)
+- [Prerequisites for deploying SAP continuous threat monitoring](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](configure_snc.md)
+- [Configuration file reference](configuration_file_reference.md).
 - [Microsoft Sentinel SAP solution: built-in security content](sap-solution-security-content.md)
 - [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

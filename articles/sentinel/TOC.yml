@@ -306,19 +306,17 @@
       href: offboard.md
 - name: Integrate SAP and Microsoft Sentinel
   items:
-    - name: Deploy SAP continuous threat monitoring
-      href: sap-deploy-solution.md
-    - name: Deployment requirements
-      href: sap-solution-detailed-requirements.md
+    - name: Deployment guide
+      href: sap/deployment-overview.md
+    - name: Optional deployment steps
+      href: sap/optional_deployment_steps.md
     - name: SAP solution data reference
-      href: sap-solution-log-reference.md
-    - name: SAP workbook, rules, and watchlists
-      href: sap-solution-security-content.md
-    - name: Use an SNC connection to deploy your SAP data connector
-      href: sap-solution-deploy-snc.md
-    - name: Expert configuration options
-      href: sap-solution-deploy-alternate.md
-    - name: Troubleshooting your SAP solution deployment
+      href: sap/sap-solution-log-reference.md
+    - name: SAP solution content overview
+      href: sap/sap-solution-security-content.md
+    - name: Configure SAP data connector to use SNC
+      href: sap/sap-solution-deploy-snc.md
+    - name: Troubleshooting SAP solution deployment
       href: sap-deploy-troubleshoot.md
 - name: Reference
   items:
