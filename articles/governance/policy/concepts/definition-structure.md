@@ -249,7 +249,7 @@ be used by each assignment of the policy definition to limit the accepted values
 }
 ```
 
-A sample input for this array-type parameter (without strongType) at assignment time might be ["westus", "eastus"].
+A sample input for this array-type parameter (without strongType) at assignment time might be ["westus", "eastus2"].
 
 #### Example 2
 
