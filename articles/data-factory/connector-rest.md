@@ -662,8 +662,7 @@ Response 2：
     The REST API returns the last response in the following structure:
 
     ```json
-    {
-    }
+    {}
     ```
     Set the end condition rule as **"EndCondition:$.data": "NonExist"** to end the pagination when the value of the specific node in response dose not exist.
         
@@ -809,7 +808,7 @@ Set **MaxRequestNumber** to avoid endless request as shown in the following scre
 
 The backend will automatically get the next URL based on the RFC 5988 style links in the header.  
 
-:::image type="content" source="media/connector-rest/pagination-rule-example-7-http-header.png" alt-text="Screenshot showing the sample http header for Example 7."::: 
+:::image type="content" source="media/connector-rest/pagination-rule-example-7-http-header.png" alt-text="Screenshot showing samples of the http header that complies with RFC 5988."::: 
 
 > [!TIP]
 > If you don't want to enable this default pagination rule, you can set `supportRFC5988` to `false` or just delete it in the script.
@@ -852,7 +851,7 @@ The response schema is shown below:
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-9-response-schema.png" alt-text="Screenshot showing the response schema of Example 9."::: 
 
-The pagination rule sytax is the same as in Example 8 and should be set as below in this example:
+The pagination rule syntax is the same as in Example 8 and should be set as below in this example:
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-9.png" alt-text="Screenshot showing setting the pagination rule for Example 9."::: 
 
