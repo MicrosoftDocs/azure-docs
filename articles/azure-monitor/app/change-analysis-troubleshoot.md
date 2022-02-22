@@ -68,9 +68,7 @@ This general unauthorized error message occurs when the current user does not ha
 
 ## Cannot see in-guest changes for newly enabled Web App.
 
-You may not immediately see web app in-guest file changes and configuration changes. Restart the web app and wait for at least 4 hours before checking on in-guest changes. 
-
-Please restart your web app. Changes should show up within 30 minutes. If not, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
+You may not immediately see web app in-guest file changes and configuration changes. Restart your web app and you should be able to view changes within 30 minutes. If not, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
 
 ## Diagnose and solve problems tool for virtual machines
 
