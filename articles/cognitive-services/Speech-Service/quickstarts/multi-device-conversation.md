@@ -19,6 +19,9 @@ ms.custom: devx-track-csharp, mode-other
 
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/header.md)]
 
+> [!NOTE]
+> The Speech SDK for Java, JavaScript, Objective-C, and Swift support Multi-device Conversation, but we haven't yet included a guide here. 
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/multi-device-conversation/csharp/header.md)]
 [!INCLUDE [csharp](../includes/quickstarts/multi-device-conversation/csharp/csharp.md)]
