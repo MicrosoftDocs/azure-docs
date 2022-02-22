@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 02/21/2022
 ms.author: makromer
 ---
 
@@ -508,7 +508,7 @@ This generic REST connector supports the following pagination patterns:
 | Headers.*request_header* OR Headers['request_header'] | "request_header" is user-defined, which references one header name in the next HTTP request. |
 | EndCondition:*end_condition* | "end_condition" is user-defined, which indicates the condition that will end the pagination loop in the next HTTP request. |
 | MaxRequestNumber | Indicates the maximum pagination request number. Leave it as empty means no limit. |
-| SupportRFC5988 | RFC 5988 is supported in the pagination rules. By default, this is set to true. It will only be honored if no other pagination rules are defined. If you don't want to enable this default pagination rule, you can set `supportRFC5988` to `false` or just delete it in script.
+| SupportRFC5988 | By default, this is set to true if no pagination rule is defined. You can disable this rule by setting `supportRFC5988` to false or remove this property from script. |
 
 **Supported values** in pagination rules:
 
@@ -517,102 +517,21 @@ This generic REST connector supports the following pagination patterns:
 | Headers.*response_header* OR Headers['response_header'] | "response_header" is user-defined, which references one header name in the current HTTP response, the value of which will be used to issue next request. |
 | A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
 
-**Example:**
+>[!NOTE]
+> The pagination rules in mapping data flows is different from it in copy activity in the following aspects:
+>1. Range is not supported in mapping data flows.
+>2. `['']` is not supported in mapping data flows. Instead, use `{}` to escape special character. For example, `body.{@odata.nextLink}`, whose JSON node `@odata.nextLink` contains special character `.` .
+>3. The end condition is supported in mapping data flows, but the condition syntax is different from it in copy activity. `body` is used to indicate the response body instead of `$`. `header` is used to indicate the response header instead of `headers`. Here are two examples showing this difference:  
+>    - Example 1:  
+>      Copy activity: **"EndCondition:$.data": "Empty"**  
+>      Mapping data flows: **"EndCondition:body.data": "Empty"**  
+>    - Example 2:  
+>      Copy activity: **"EndCondition:headers.complete": "Exist"**  
+>      Mapping data flows: **"EndCondition:header.complete": "Exist"**  
 
-Facebook Graph API returns response in the following structure, in which case next page's URL is represented in ***paging.next***:
+### Pagination rules examples
 
-```json
-{
-    "data": [
-        {
-            "created_time": "2017-12-12T14:12:20+0000",
-            "name": "album1",
-            "id": "1809938745705498_1809939942372045"
-        },
-        {
-            "created_time": "2017-12-12T14:14:03+0000",
-            "name": "album2",
-            "id": "1809938745705498_1809941802371859"
-        },
-        {
-            "created_time": "2017-12-12T14:14:11+0000",
-            "name": "album3",
-            "id": "1809938745705498_1809941879038518"
-        }
-    ],
-    "paging": {
-        "cursors": {
-            "after": "MTAxNTExOTQ1MjAwNzI5NDE=",
-            "before": "NDMyNzQyODI3OTQw"
-        },
-        "previous": "https://graph.facebook.com/me/albums?limit=25&before=NDMyNzQyODI3OTQw",
-        "next": "https://graph.facebook.com/me/albums?limit=25&after=MTAxNTExOTQ1MjAwNzI5NDE="
-    }
-}
-```
-
-The corresponding REST copy activity source configuration especially the `paginationRules` is as follows:
-
-```json
-"typeProperties": {
-    "source": {
-        "type": "RestSource",
-        "paginationRules": {
-            "AbsoluteUrl": "$.paging.next"
-        },
-        ...
-    },
-    "sink": {
-        "type": "<sink type>"
-    }
-}
-```
-
-**Example: Pagination rules**
-
-If you want to send multiple sequence requests with one variable in a range, you can define a variable such as `{offset}`, `{id}` in AbsoluteUrl, Headers, QueryParameters, and define the range rule in pagination rules. See the following examples of pagination rules:
-
-- **Example 1**
-
-    You have multiple requests:
-    
-    ```
-    baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=0,
-    
-    baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=1000,
-    
-    ......
-    
-    baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset=10000
-    ```
-    You need to specify the range pagination: 
-    
-    `AbosoluteUrl = baseUrl/api/now/table/incident?sysparm_limit=1000&sysparm_offset={offset}`
-
-    The pagination rule is: `QueryParameter.{offset} = RANGE:0:10000:1000`
-
-- **Example 2**
-
-    You have multiple requests:
-
-    ```
-    baseUrl/api/now/table/t1
-    
-    baseUrl/api/now/table/t2
-    
-    ......
-    
-    baseUrl/api/now/table/t100
-    ```
-    You need to specify the range pagination:
-
-    `AbosoluteUrl = baseUrl/api/now/table/t{id}`
-
-    The pagination rule is: `AbsoluteUrl.{id} = RANGE:1:100:1`
-
-### Pagination examples
-
-This section provides examples of sending different kinds of multiple requests.
+This section provides a list of examples for pagination rules settings.
 
 #### Example 1: Variables in QueryParameters
 
@@ -666,7 +585,6 @@ This example provides the configuration steps to send multiple requests whose va
 RequestUrl: *https://example/table*<br/> 
 Request 1: `Header(id->0)`<br/>
 Request 2: `Header(id->10)`<br/>
-Request 2: `Header(id->20)`<br/>
 ......<br/>
 Request 100: `Header(id->100)`<br/>
 
@@ -693,47 +611,52 @@ Two responses encountered in this example:<br/>
 
 Response 1：
 
-```
+```json
 {
-Data: [
-    		    {key1: val1, key2: val2},
- {key1: val3, key2: val4}
-        ]
+    Data: [
+        {key1: val1, key2: val2
+        },
+        {key1: val3, key2: val4
+        }
+    ]
 }
 ```
 
 Response 2：
-```
+
+```json
 {
-Data: [
-    		    {key1: val5, key2: val6},
- {key1: val7, key2: val8}
-            ]
+    Data: [
+        {key1: val5, key2: val6
+        },
+        {key1: val7, key2: val8
+        }
+    ]
 }
 ```
     
-*Step 1*: Set the range of **Pagination rules** as Example 1 and leave the end of range empty as **"AbsoluteUrl.{offset}": "RANGE:0::1000"**.
+*Step 1*: Set the range of **Pagination rules** as [Example 1](#example-1-variables-in-queryparameters) and leave the end of range empty as **"AbsoluteUrl.{offset}": "RANGE:0::1000"**.
 
-*Step 2*: Set different end condition rules according to different last responses. Six examples are shown below:
+*Step 2*: Set different end condition rules according to different last responses. See below examples:
 
-- **Example 4.1: The pagination will end when the value of the specific node in response is empty** 
+- **Example 4.1: The pagination ends when the value of the specific node in response is empty** 
 
     The REST API returns the last response in the following structure:
         
-    ```
+    ```json
     {
-    Data: []
+        Data: []
     }
     ```
     Set the end condition rule as **"EndCondition:$.data": "Empty"** to end the pagination when the value of the specific node in response is empty.
 
     :::image type="content" source="media/connector-rest/pagination-example-4-1.png" alt-text="Screenshot showing the EndCondition setting for Example 4.1."::: 
 
-- **Example 4.2: The pagination will end when the value of the specific node in response dose not exist** 
+- **Example 4.2: The pagination ends when the value of the specific node in response dose not exist** 
 
     The REST API returns the last response in the following structure:
 
-    ```
+    ```json
     {
     }
     ```
@@ -741,53 +664,59 @@ Data: [
         
     :::image type="content" source="media/connector-rest/pagination-example-4-2.png" alt-text="Screenshot showing the EndCondition setting for Example 4.2."::: 
 
-- **Example 4.3: The pagination will end when the value of the specific node in response exists**
+- **Example 4.3: The pagination ends when the value of the specific node in response exists**
     
     The REST API returns the last response in the following structure:
 
-    ```
+    ```json
     {
-    Data: [
-        		    {key1: val991, key2: val992},
-     {key1: val993, key2: val994}
-            ],
-            Complete: true
+        Data: [
+            {key1: val991, key2: val992
+            },
+            {key1: val993, key2: val994
+            }
+        ],
+                Complete: true
     }
     ```
     Set the end condition rule as **"EndCondition:$.Complete": "Exist"** to end the pagination when the value of the specific node in response exists.
 
     :::image type="content" source="media/connector-rest/pagination-example-4-3.png" alt-text="Screenshot showing the EndCondition setting for Example 4.3."::: 
 
-- **Example 4.4: The pagination will end when the value of the specific node in response is a user-defined const value**
+- **Example 4.4: The pagination ends when the value of the specific node in response is a user-defined const value**
 
     The REST API returns the response in the following structure:
-    ```
+    ```json
     {
-    Data: [
-        		    {key1: val1, key2: val2},
-     {key1: val3, key2: val4}
-            ],
-            Complete: false
+        Data: [
+            {key1: val1, key2: val2
+            },
+            {key1: val3, key2: val4
+            }
+        ],
+                Complete: false
     }
     ```
     ......
 
     And the last response is in the following structure:
 
-    ```
+    ```json
     {
-    Data: [
-        		    {key1: val991, key2: val992},
-     {key1: val993, key2: val994}
-            ],
-            Complete: true
+        Data: [
+            {key1: val991, key2: val992
+            },
+            {key1: val993, key2: val994
+            }
+        ],
+                Complete: true
     }
     ```
     Set the end condition rule as **"EndCondition:$.Complete": "Const:true"** to end the pagination when the value of the specific node in response is a user-defined const value.
         
     :::image type="content" source="media/connector-rest/pagination-example-4-4.png" alt-text="Screenshot showing the EndCondition setting for Example 4.4."::: 
 
-- **Example 4.5: The pagination will end when the value of the header key in response is equal to user-defined const value**
+- **Example 4.5: The pagination ends when the value of the header key in response equals to user-defined const value**
 
     The header keys in REST API responses are shown in the structure below:
 
@@ -799,7 +728,7 @@ Data: [
         
     :::image type="content" source="media/connector-rest/pagination-example-4-5.png" alt-text="Screenshot showing the EndCondition setting for Example 4.5."::: 
 
-- **Example 4.6: The pagination will end when the key exists in the response header**
+- **Example 4.6: The pagination ends when the key exists in the response header**
 
     The header keys in REST API responses are shown in the structure below:
 
@@ -811,7 +740,7 @@ Data: [
 
     :::image type="content" source="media/connector-rest/pagination-example-4-6.png" alt-text="Screenshot showing the EndCondition setting for Example 4.6."::: 
 
-#### Example 5：The range rule is not used but the end condition can be set to avoid endless requests
+#### Example 5：Set end condition to avoid endless requests when range rule is not defined
 
 This example provides the configuration steps to send multiple requests when the range rule is not used. The end condition can be set refer to Example 4.1-4.6 to avoid endless requests. The REST API returns response in the following structure, in which case next page's URL is represented in ***paging.next***.
 
@@ -921,19 +850,6 @@ The response schema is shown below:
 The pagination rule sytax is the same as in Example 8 and should be set as below in this example:
 
 :::image type="content" source="media/connector-rest/pagination-example-9-pagination-rule.png" alt-text="Screenshot showing setting the pagination rule for Example 9."::: 
-
-
->[!NOTE]
-> The pagination in mapping data flows is different from it in copy activities in the following aspects:
->1. RANGE in Rest pagination is not supported in mapping data flows.
->2. `['']` is not supported in mapping data flows and will use `{}` to escape special character. For example, `body.{@odata.nextLink}`, and its JSON node `@odata.nextLink` contains special character `.` .
->3. The end condition is supported in mapping data flows, but the condition syntax is a little different from it in copy activities. `$` is not used to indicate the response body, instead, `body` is used. `headers` is not used to indicate the response header, instead, `header` is used. Here are two examples showing this difference:<br/>
->     - Example 1:<br/>
->         Copy activities: **"EndCondition:$.data": "Empty"**<br/>
->         Mapping data flows: **"EndCondition:body.data": "Empty"**<br/>
->     - Example 2:<br/>
->         Copy activities: **"EndCondition:headers.complete": "Exist"**<br/>
->         Mapping data flows: **"EndCondition:header.complete": "Exist"**<br/>
 
 
 ## Use OAuth
