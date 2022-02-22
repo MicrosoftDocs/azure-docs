@@ -84,7 +84,7 @@ The below table and graphic indicate how to map information from the CA Certific
 |Subject |=|Issuer |
 |Subject Key Identifier |=|Authority Key Identifier (KeyID) |
 
-:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/Cert-CRL-Compare.png" alt-text="Compare CA Certificate with CRL Information.":::
+:::image type="content" border="false" source="./media/how-to-certificate-based-authentication/certificate-crl-compare.png" alt-text="Compare CA Certificate with CRL Information.":::
 
 >[!TIP]
 >The value for crlDistributionPoint in the above is the http location for the CA’s Certificate Revocation List (CRL). This can be found in a few places.
