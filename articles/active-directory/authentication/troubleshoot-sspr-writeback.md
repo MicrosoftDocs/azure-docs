@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Troubleshoot self-service password reset writeback in Azure Active Directory
 
-Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users reset their passwords in the cloud. Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time.
+Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users reset their passwords in the cloud. Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) or [cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time.
 
 If you have problems with SSPR writeback, the following troubleshooting steps and common errors may help. If you can't find the answer to your problem, [our support teams are always available](#contact-microsoft-support) to assist you further.
 
