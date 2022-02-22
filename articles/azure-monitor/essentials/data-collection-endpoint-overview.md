@@ -2,7 +2,7 @@
 title: Data collection endpoints in Azure Monitor (preview)
 description: Overview of data collection endpoints (DCEs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
-ms.date: 1/5/2022
+ms.date: 02/21/2022
 ms.custom: references_region
 
 ---
@@ -33,15 +33,16 @@ Data collection endpoints are ARM resources created within specific regions. An 
 Data collection endpoints only support Log Analytics as a destination for collected data. [Custom Metrics (preview)](../essentials/metrics-custom-overview.md) collected and uploaded via the Azure Monitor Agent are not currently controlled by DCEs nor can they be configured over private links.
 
 ## Create endpoint in Azure portal
-In the **Azure Monitor** menu in the Azure portal, select **Data Collection Endpoint** from the **Settings** section. Click **Create** to create a new Data Collection Rule and assignment.
 
-[![Data Collection Endpoints](media/data-collection-endpoint-overview/data-collection-endpoint-overview.png)](media/data-collection-endpoint-overview/data-collection-endpoint-overview.png#lightbox)
+1. In the **Azure Monitor** menu in the Azure portal, select **Data Collection Endpoint** from the **Settings** section. Click **Create** to create a new Data Collection Rule and assignment.
 
-Click **Create** to create a new endpoint. Provide a **Rule name** and specify a **Subscription**, **Resource Group** and **Region**. This specifies where the DCE will be created.
+  [![Data Collection Endpoints](media/data-collection-endpoint-overview/data-collection-endpoint-overview.png)](media/data-collection-endpoint-overview/data-collection-endpoint-overview.png#lightbox)
 
-[![Data Collection Rule Basics](media/data-collection-endpoint-overview/data-collection-endpoint-basics.png)](media/data-collection-endpoint-overview/data-collection-endpoint-basics.png#lightbox)
+2. Click **Create** to create a new endpoint. Provide a **Rule name** and specify a **Subscription**, **Resource Group** and **Region**. This specifies where the DCE will be created.
 
-Click **Review + create** to review the details of the data collection endpoint. Click **Create** to create it.
+  [![Data Collection Rule Basics](media/data-collection-endpoint-overview/data-collection-endpoint-basics.png)](media/data-collection-endpoint-overview/data-collection-endpoint-basics.png#lightbox)
+
+3. Click **Review + create** to review the details of the data collection endpoint. Click **Create** to create it.
 
 ## Create endpoint and association using REST API
 

@@ -35,285 +35,293 @@ In this tutorial, you'll use a PowerShell script to send sample Apache access lo
 ## Configure application
 Start by registering an Azure Active Directory application to authenticate against the API. Any ARM authentication scheme is supported, but this will follow the [Client Credential Grant Flow scheme](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) for this tutorial.
 
-From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
+1. From the **Azure Active Directory** menu in the Azure portal, select **App registrations** and then **New registration**.
 
-:::image type="content" source="media/tutorial-custom-logs/new-app-registration.png" lightbox="media/tutorial-custom-logs/new-app-registration.png" alt-text="Screenshot for app registration":::
+    :::image type="content" source="media/tutorial-custom-logs/new-app-registration.png" lightbox="media/tutorial-custom-logs/new-app-registration.png" alt-text="Screenshot showing app registration screen.":::
 
-Give the application a name and change the tenancy scope if the default is not appropriate for your environment. A **Redirect URI** isn't required.
+2. Give the application a name and change the tenancy scope if the default is not appropriate for your environment. A **Redirect URI** isn't required.
 
-:::image type="content" source="media/tutorial-custom-logs/new-app-name.png" lightbox="media/tutorial-custom-logs/new-app-name.png" alt-text="Screenshot for app details":::
+    :::image type="content" source="media/tutorial-custom-logs/new-app-name.png" lightbox="media/tutorial-custom-logs/new-app-name.png" alt-text="Screenshot showing app details.":::
 
-Once registered, you can view the details of the application. Note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later in the process.
+3. Once registered, you can view the details of the application. Note the **Application (client) ID** and the **Directory (tenant) ID**. You'll need these values later in the process.
 
-:::image type="content" source="media/tutorial-custom-logs/new-app-id.png" lightbox="media/tutorial-custom-logs/new-app-id.png" alt-text="Screenshot for app id":::
+    :::image type="content" source="media/tutorial-custom-logs/new-app-id.png" lightbox="media/tutorial-custom-logs/new-app-id.png" alt-text="Screenshot showing app id.":::
 
-You now need to generate an application client secret, which is similar to creating a password to use with a username. Select **Certificates & secrets** and then **New client secret**. Give the secret a name to identify its purpose and select an **Expires** duration. *1 year* is selected here although for a production implementation, you would follow best practices for a secret rotation procedure or use a more secure authentication mode such a certificate.
+4. You now need to generate an application client secret, which is similar to creating a password to use with a username. Select **Certificates & secrets** and then **New client secret**. Give the secret a name to identify its purpose and select an **Expires** duration. *1 year* is selected here although for a production implementation, you would follow best practices for a secret rotation procedure or use a more secure authentication mode such a certificate.
 
-:::image type="content" source="media/tutorial-custom-logs/new-app-secret.png" lightbox="media/tutorial-custom-logs/new-app-secret.png" alt-text="Screenshot for new app secret":::
+    :::image type="content" source="media/tutorial-custom-logs/new-app-secret.png" lightbox="media/tutorial-custom-logs/new-app-secret.png" alt-text="Screenshot showing secret for new app.":::
 
-Click **Add** to save the secret and then note the **Value**. Ensure that you record this value since You can't recover it once you navigate away from this page. Use the same security measures as you would for safekeeping a password as it's the functional equivalent.
+5. Click **Add** to save the secret and then note the **Value**. Ensure that you record this value since You can't recover it once you navigate away from this page. Use the same security measures as you would for safekeeping a password as it's the functional equivalent.
 
-:::image type="content" source="media/tutorial-custom-logs/new-app-secret-value.png" lightbox="media/tutorial-custom-logs/new-app-secret-value.png" alt-text="Screenshot for new app secret value":::
+    :::image type="content" source="media/tutorial-custom-logs/new-app-secret-value.png" lightbox="media/tutorial-custom-logs/new-app-secret-value.png" alt-text="Screenshot show secret value for new app.":::
 
 ## Create data collection endpoint
-A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md) is required to accept the data from the script. Once you configure the DCE and link it to a data collection rule, you can send data over HTTP from your application. The DCE must be located in the same region as the Log Analytics workspace where the data will be sent. 
+A [data collection endpoint (DCE)](../essentials/data-collection-endpoint-overview.md) is required to accept the data from the script. Once you configure the DCE and link it to a data collection rule, you can send data over HTTP from your application. The DCE must be located in the same region as the Log Analytics workspace where the data will be sent.
 
-To create a new DCE, go to the **Monitor** menu in the Azure portal. Select **Data Collection Endpoints** and then **Create**.
+1. To create a new DCE, go to the **Monitor** menu in the Azure portal. Select **Data Collection Endpoints** and then **Create**.
 
-:::image type="content" source="media/tutorial-custom-logs/new-data-collection-endpoint.png" lightbox="media/tutorial-custom-logs/new-data-collection-endpoint.png" alt-text="Screenshot for new data collection endpoint":::
+    :::image type="content" source="media/tutorial-custom-logs/new-data-collection-endpoint.png" lightbox="media/tutorial-custom-logs/new-data-collection-endpoint.png" alt-text="Screenshot showing new data collection endpoint.":::
 
-Provide a name for the DCE and ensure that it's in the same region as your workspace. Click **Create** to create the DCE.
+2. Provide a name for the DCE and ensure that it's in the same region as your workspace. Click **Create** to create the DCE.
 
-:::image type="content" source="media/tutorial-custom-logs/data-collection-endpoint-details.png" lightbox="media/tutorial-custom-logs/data-collection-endpoint-details.png" alt-text="Screenshot for data collection endpoint details":::
+    :::image type="content" source="media/tutorial-custom-logs/data-collection-endpoint-details.png" lightbox="media/tutorial-custom-logs/data-collection-endpoint-details.png" alt-text="Screenshot showing data collection endpoint details.":::
 
-Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion** URI since you'll need this in a later step.
+3. Once the DCE is created, select it so you can view its properties. Note the **Logs ingestion** URI since you'll need this in a later step.
 
-:::image type="content" source="media/tutorial-custom-logs/data-collection-endpoint-uri.png" lightbox="media/tutorial-custom-logs/data-collection-endpoint-uri.png" alt-text="Screenshot for data collection endpoint uri":::
-
-
-## Prepare PowerShell script
-The following PowerShell script both generates sample data to configure the custom table and sends sample data to the custom logs API to test the configuration. Update the values of `$tenantId`, `$appId`, and `$appSecret` with the values you noted for **Directory (tenant) ID**, **Application (client) ID**, and secret **Value** and then save with the file name *LogGenerator.ps1*.
-
-``` PowerShell
-param ([Parameter(Mandatory=$true)] $Log, $Type="file", $Output, $DcrImmutableId, $DceURI, $Table)
-################
-##### Usage
-################
-# LogGenerator.ps1
-#   -Log <String>              - log file to be forwarded
-#   [-Type "file|API"]         - whether the script should generate sample JSON file or send data via
-#                                API call. Data will be written to a file by default
-#   [-Output <String>]         - path to resulting JSON sample
-#   [-DcrImmutableId <string>] - DCR immutable ID
-#   [-DceURI]                  - Data collection endpoint URI
-#   [-Table]                   - The name of the custom log table, including "_CL" suffix
+    :::image type="content" source="media/tutorial-custom-logs/data-collection-endpoint-uri.png" lightbox="media/tutorial-custom-logs/data-collection-endpoint-uri.png" alt-text="Screenshot showing data collection endpoint uri.":::
 
 
-##### >>>> PUT YOUR VALUES HERE <<<<<
-# information needed to authenticate to AAD and obtain a bearer token
-$tenantId = "<put tenant ID here>"; #the tenant ID in which the Data Collection Endpoint resides
-$appId = "<put application ID here>"; #the app ID created and granted permissions
-$appSecret = "<put secret value here>"; #the secret created for the above app - never store your secrets in the source code
-##### >>>> END <<<<<
+## Generate sample data
+The following PowerShell script both generates sample data to configure the custom table and sends sample data to the custom logs API to test the configuration. 
+
+1. Update the values of `$tenantId`, `$appId`, and `$appSecret` with the values you noted for **Directory (tenant) ID**, **Application (client) ID**, and secret **Value** and then save with the file name *LogGenerator.ps1*.
+
+    ``` PowerShell
+    param ([Parameter(Mandatory=$true)] $Log, $Type="file", $Output, $DcrImmutableId, $DceURI, $Table)
+    ################
+    ##### Usage
+    ################
+    # LogGenerator.ps1
+    #   -Log <String>              - log file to be forwarded
+    #   [-Type "file|API"]         - whether the script should generate sample JSON file or send data via
+    #                                API call. Data will be written to a file by default
+    #   [-Output <String>]         - path to resulting JSON sample
+    #   [-DcrImmutableId <string>] - DCR immutable ID
+    #   [-DceURI]                  - Data collection endpoint URI
+    #   [-Table]                   - The name of the custom log table, including "_CL" suffix
 
 
-$file_data = Get-Content $Log
-if ("file" -eq $Type) {
-    ############
-    ## Convert plain log to JSON format and output to .json file
-    ############
-    # If not provided, get output file name
-    if ($null -eq $Output) {
-        $Output = Read-Host "Enter output file name" 
-    };
+    ##### >>>> PUT YOUR VALUES HERE <<<<<
+    # information needed to authenticate to AAD and obtain a bearer token
+    $tenantId = "<put tenant ID here>"; #the tenant ID in which the Data Collection Endpoint resides
+    $appId = "<put application ID here>"; #the app ID created and granted permissions
+    $appSecret = "<put secret value here>"; #the secret created for the above app - never store your secrets in the source code
+    ##### >>>> END <<<<<
 
-    # Form file payload
-    $payload = @();
-    $records_to_generate = [math]::min($file_data.count, 500)
-    for ($i=0; $i -lt $records_to_generate; $i++) {
-        $log_entry = @{
-            # Define the structure of log entry, as it will be sent
-            Time = Get-Date ([datetime]::UtcNow) -Format O
-            Application = "LogGenerator"
-            RawData = $file_data[$i]
+
+    $file_data = Get-Content $Log
+    if ("file" -eq $Type) {
+        ############
+        ## Convert plain log to JSON format and output to .json file
+        ############
+        # If not provided, get output file name
+        if ($null -eq $Output) {
+            $Output = Read-Host "Enter output file name" 
+        };
+
+        # Form file payload
+        $payload = @();
+        $records_to_generate = [math]::min($file_data.count, 500)
+        for ($i=0; $i -lt $records_to_generate; $i++) {
+            $log_entry = @{
+                # Define the structure of log entry, as it will be sent
+                Time = Get-Date ([datetime]::UtcNow) -Format O
+                Application = "LogGenerator"
+                RawData = $file_data[$i]
+            }
+            $payload += $log_entry
         }
-        $payload += $log_entry
-    }
-    # Write resulting payload to file
-    New-Item -Path $Output -ItemType "file" -Value ($payload | ConvertTo-Json) -Force
+        # Write resulting payload to file
+        New-Item -Path $Output -ItemType "file" -Value ($payload | ConvertTo-Json) -Force
 
-} else {
-    ############
-    ## Send the content to the data collection endpoint
-    ############
-    if ($null -eq $DcrImmutableId) {
-        $DcrImmutableId = Read-Host "Enter DCR Immutable ID" 
-    };
+    } else {
+        ############
+        ## Send the content to the data collection endpoint
+        ############
+        if ($null -eq $DcrImmutableId) {
+            $DcrImmutableId = Read-Host "Enter DCR Immutable ID" 
+        };
 
-    if ($null -eq $DceURI) {
-        $DceURI = Read-Host "Enter data collection endpoint URI" 
-    }
-
-    if ($null -eq $Table) {
-        $Table = Read-Host "Enter the name of custom log table" 
-    }
-
-    ## Obtain a bearer token used to authenticate against the data collection endpoint
-    $scope = [System.Web.HttpUtility]::UrlEncode("https://monitor.azure.com//.default")   
-    $body = "client_id=$appId&scope=$scope&client_secret=$appSecret&grant_type=client_credentials";
-    $headers = @{"Content-Type" = "application/x-www-form-urlencoded" };
-    $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
-    $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
-    ## If the above line throws an 'Unable to find type [System.Web.HttpUtility].' error, execute the line below separately from the rest of the code
-    # Add-Type -AssemblyName System.Web
-
-    ## Generate and send some data
-    foreach ($line in $file_data) {
-        # We are going to send log entries one by one with a small delay
-        $log_entry = @{
-            # Define the structure of log entry, as it will be sent
-            Time = Get-Date ([datetime]::UtcNow) -Format O
-            Application = "LogGenerator"
-            RawData = $line
+        if ($null -eq $DceURI) {
+            $DceURI = Read-Host "Enter data collection endpoint URI" 
         }
-        # Sending the data to Log Analytics via the DCR!
-        $body = $log_entry | ConvertTo-Json -AsArray;
-        $headers = @{"Authorization" = "Bearer $bearerToken"; "Content-Type" = "application/json" };
-        $uri = "$DceURI/dataCollectionRules/$DcrImmutableId/streams/Custom-$Table"+"?api-version=2021-11-01-preview";
-        $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers;
 
-        # Let's see how the response looks like
-        Write-Output $uploadResponse
-        Write-Output "---------------------"
+        if ($null -eq $Table) {
+            $Table = Read-Host "Enter the name of custom log table" 
+        }
 
-        # Pausing for 1 second before processing the next entry
-        Start-Sleep -Seconds 1
+        ## Obtain a bearer token used to authenticate against the data collection endpoint
+        $scope = [System.Web.HttpUtility]::UrlEncode("https://monitor.azure.com//.default")   
+        $body = "client_id=$appId&scope=$scope&client_secret=$appSecret&grant_type=client_credentials";
+        $headers = @{"Content-Type" = "application/x-www-form-urlencoded" };
+        $uri = "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token"
+        $bearerToken = (Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers).access_token
+        ## If the above line throws an 'Unable to find type [System.Web.HttpUtility].' error, execute the line below separately from the rest of the code
+        # Add-Type -AssemblyName System.Web
+
+        ## Generate and send some data
+        foreach ($line in $file_data) {
+            # We are going to send log entries one by one with a small delay
+            $log_entry = @{
+                # Define the structure of log entry, as it will be sent
+                Time = Get-Date ([datetime]::UtcNow) -Format O
+                Application = "LogGenerator"
+                RawData = $line
+            }
+            # Sending the data to Log Analytics via the DCR!
+            $body = $log_entry | ConvertTo-Json -AsArray;
+            $headers = @{"Authorization" = "Bearer $bearerToken"; "Content-Type" = "application/json" };
+            $uri = "$DceURI/dataCollectionRules/$DcrImmutableId/streams/Custom-$Table"+"?api-version=2021-11-01-preview";
+            $uploadResponse = Invoke-RestMethod -Uri $uri -Method "Post" -Body $body -Headers $headers;
+
+            # Let's see how the response looks like
+            Write-Output $uploadResponse
+            Write-Output "---------------------"
+
+            # Pausing for 1 second before processing the next entry
+            Start-Sleep -Seconds 1
+        }
     }
-}
-```
+    ```
 
-## Generate sample data 
-Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called *sample_access.log*. Run the script using the following command to read this data and create a JSON file called *data_sample.json* that you can send to the custom logs API.
+2. Copy the sample log data from [sample data](#sample-data) or copy your own Apache log data into a file called *sample_access.log*. Run the script using the following command to read this data and create a JSON file called *data_sample.json* that you can send to the custom logs API.
 
-```PowerShell
-.\LogGenerator.ps1 -Log "sample_access.log" -Type "file" -Output "data_sample.json"
-```
-Run the script using the following command to read this data and create a JSON file called *data_sample.json* that you can send to the custom logs API.
-:::image type="content" source="media/tutorial-custom-logs/new-custom-log.png" lightbox="media/tutorial-custom-logs/new-custom-log.png" alt-text="Screenshot for new DCR-based custom log":::
+    ```PowerShell
+    .\LogGenerator.ps1 -Log "sample_access.log" -Type "file" -Output "data_sample.json"
+    ```
 
-## Add custom log
-To create the table that the script will send its data to, go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables (preview)**. The tables in the workspace will be displayed. Select **Create** and then **New custom log (DCR based)**.
+3. Run the script using the following command to read this data and create a JSON file called *data_sample.json* that you can send to the custom logs API.
+ 
+    :::image type="content" source="media/tutorial-custom-logs/new-custom-log.png" lightbox="media/tutorial-custom-logs/new-custom-log.png" alt-text="Screenshot showing new DCR-based custom log.":::
 
-:::image type="content" source="media/tutorial-custom-logs/new-custom-log.png" lightbox="media/tutorial-custom-logs/new-custom-log.png" alt-text="Screenshot for new DCR-based custom log":::
+## Add custom log table
+Before you can send data to the workspace, you need to create the custom table that the data will be sent to.
 
-Specify a name for the table. You don't need to add the *_CL* suffix required for a custom table since this will be automatically added to the name you specify. Click **Create a new data collection rule** to create the DCR that will be used to send data to this table. If you have an existing data collection rule, you can choose to use it instead. Specify the **Subscription**, **Resource group**, and **Name** for the data collection rule that will contain the custom log configuration. 
+1. Go to the **Log Analytics workspaces** menu in the Azure portal and select **Tables (preview)**. The tables in the workspace will be displayed. Select **Create** and then **New custom log (DCR based)**.
 
-:::image type="content" source="media/tutorial-custom-logs/new-data-collection-rule.png" lightbox="media/tutorial-custom-logs/new-data-collection-rule.png" alt-text="Screenshot for new data collection rule":::
+    :::image type="content" source="media/tutorial-custom-logs/new-custom-log.png" lightbox="media/tutorial-custom-logs/new-custom-log.png" alt-text="Screenshot showing new DCR-based custom log.":::
 
-Select the data collection endpoint that you created and click **Next**.
+2. Specify a name for the table. You don't need to add the *_CL* suffix required for a custom table since this will be automatically added to the name you specify. 
 
-:::image type="content" source="media/tutorial-custom-logs/custom-log-table-name.png" lightbox="media/tutorial-custom-logs/custom-log-table-name.png" alt-text="Screenshot for custom log table name":::
+3. Click **Create a new data collection rule** to create the DCR that will be used to send data to this table. If you have an existing data collection rule, you can choose to use it instead. Specify the **Subscription**, **Resource group**, and **Name** for the data collection rule that will contain the custom log configuration. 
+
+    :::image type="content" source="media/tutorial-custom-logs/new-data-collection-rule.png" lightbox="media/tutorial-custom-logs/new-data-collection-rule.png" alt-text="Screenshot showing new data collection rule.":::
+
+4. Select the data collection endpoint that you created and click **Next**.
+
+    :::image type="content" source="media/tutorial-custom-logs/custom-log-table-name.png" lightbox="media/tutorial-custom-logs/custom-log-table-name.png" alt-text="Screenshot showing custom log table name.":::
 
 
 ## Parse and filter sample data
 Instead of directly configuring the schema of the table, the portal allows you to upload sample data so that Azure Monitor can determine the schema. The sample is expected to be a JSON file containing one or multiple log records structured in the same way they will be sent in the body of HTTP request of the custom logs API call.
 
-Click **Browse for files** and locate *data_sample.json* that you previously created. 
+1. Click **Browse for files** and locate *data_sample.json* that you previously created. 
 
-:::image type="content" source="media/tutorial-custom-logs/custom-log-browse-files.png" lightbox="media/tutorial-custom-logs/custom-log-browse-files.png" alt-text="Screenshot for custom log browse for files":::
+    :::image type="content" source="media/tutorial-custom-logs/custom-log-browse-files.png" lightbox="media/tutorial-custom-logs/custom-log-browse-files.png" alt-text="Screenshot showing custom log browse for files.":::
 
-Data from the sample file is displayed with a warning that a `TimeGenerated` is not in the data. All log tables within Azure Monitor Logs are required to have a `TimeGenerated` column populated with the timestamp of logged event. In this sample, the timestamp of event is stored in field called `Time`. You're going to add a trasnformation that will rename this column in the output. Click **Transformation editor** to open the transformation editor to add this column. You're going to add a transformation that will rename this column in the output.
+2. Data from the sample file is displayed with a warning that a `TimeGenerated` is not in the data. All log tables within Azure Monitor Logs are required to have a `TimeGenerated` column populated with the timestamp of logged event. In this sample, the timestamp of event is stored in field called `Time`. You're going to add a transformation that will rename this column in the output. 
 
-:::image type="content" source="media/tutorial-custom-logs/custom-log-data-preview.png" lightbox="media/tutorial-custom-logs/custom-log-data-preview.png" alt-text="Screenshot for custom log data preview":::
+3. Click **Transformation editor** to open the transformation editor to add this column. You're going to add a transformation that will rename this column in the output. The transformation editor lets you create a transformation for the incoming data stream. This is a KQL query that is run against each incoming record. The results of the query will be stored in the destination table. See [Data collection rule transformations in Azure Monitor](../essentials/data-collection-rule-transformations.md) for details on transformation queries.
 
-The transformation editor lets you create a transformation for the incoming data stream. This is a KQL query that is run against each incoming record. The results of the query will be stored in the destination table. See [Data collection rule transformations in Azure Monitor](../essentials/data-collection-rule-transformations.md) for details on transformation queries.
+    :::image type="content" source="media/tutorial-custom-logs/custom-log-data-preview.png" lightbox="media/tutorial-custom-logs/custom-log-data-preview.png" alt-text="Screenshot showing custom log data preview.":::
 
-Add the following query to the transformation editor to add the `TimeGenerated` column to the output. 
+4. Add the following query to the transformation editor to add the `TimeGenerated` column to the output. 
 
-```kusto
-source
-| extend TimeGenerated = todatetime(Time)
-```
+    ```kusto
+    source
+    | extend TimeGenerated = todatetime(Time)
+    ```
 
-Click **Run** to views the results.
+5. Click **Run** to view the results. You can see that the `TimeGenerated` column is now added to the other columns. Most of the interesting data is contained in the `RawData` column though
 
-:::image type="content" source="media/tutorial-custom-logs/custom-log-query-01.png" lightbox="media/tutorial-custom-logs/custom-log-query-01.png" alt-text="Screenshot for custom log data query 01":::
+    :::image type="content" source="media/tutorial-custom-logs/custom-log-query-01.png" lightbox="media/tutorial-custom-logs/custom-log-query-01.png" alt-text="Screenshot showing initial custom log data query.":::
 
-You can see that the `TimeGenerated` column is now added to the other columns. Most of the interesting data is contained in the `RawData` column though, so you can add to the query to parse this data to make it more useful in the resulting table. The following query extracts the client IP address, HTTP method, address of the page being access, and the response code from each log entry. 
+6. Modify the query to the following, which extracts the client IP address, HTTP method, address of the page being access, and the response code from each log entry. 
 
-```kusto
-source
-| extend TimeGenerated = todatetime(Time)
-| parse RawData.value with 
-  ClientIP:string
-  ' ' *
-  ' ' *
-  ' [' * '] "' RequestType:string
-  " " Resource:string
-  " " *
-  '" ' ResponseCode:int
-  " " *
-  ```
+    ```kusto
+    source
+    | extend TimeGenerated = todatetime(Time)
+    | parse RawData.value with 
+    ClientIP:string
+    ' ' *
+    ' ' *
+    ' [' * '] "' RequestType:string
+    " " Resource:string
+    " " *
+    '" ' ResponseCode:int
+    " " *
+    ```
 
-Click **Run** to views the results.
+7. Click **Run** to views the results. This extracts the contents of `RawData` into separate columns  `ClientIP`, `RequestType`, `Resource`, and `ResponseCode`. 
 
-:::image type="content" source="media/tutorial-custom-logs/custom-log-query-02.png" lightbox="media/tutorial-custom-logs/custom-log-query-02.png" alt-text="Screenshot for custom log data query 02":::
+    :::image type="content" source="media/tutorial-custom-logs/custom-log-query-02.png" lightbox="media/tutorial-custom-logs/custom-log-query-02.png" alt-text="Screenshot showing custom log data query with parse command.":::
 
-This extracts the contents of `RawData` into separate columns  `ClientIP`, `RequestType`, `Resource`, and `ResponseCode`. The query can be optimized more though by removing the `RawData` and `Time` columns since they aren't needed anymore. You can also filter out any records with `ResponseCode` of 200 since you're only interested in collecting data for requests that were not successful. This reduces the volume of data being ingested which reduces its overall cost.
-
-
-```kusto
-source
-| extend TimeGenerated = todatetime(Time)
-| parse RawData.value with 
-  ClientIP:string
-  ' ' *
-  ' ' *
-  ' [' * '] "' RequestType:string
-  " " Resource:string
-  " " *
-  '" ' ResponseCode:int
-  " " *
-| where ResponseCode != 200
-| project-away Time, RawData
-  ```
-
-Click **Run** to views the results.
-
-:::image type="content" source="media/tutorial-custom-logs/custom-log-query-03.png" lightbox="media/tutorial-custom-logs/custom-log-query-03.png" alt-text="Screenshot for custom log data query 03":::
+8. The query can be optimized more though by removing the `RawData` and `Time` columns since they aren't needed anymore.You can also filter out any records with `ResponseCode` of 200 since you're only interested in collecting data for requests that were not successful. This reduces the volume of data being ingested which reduces its overall cost.
 
 
-Click **Apply** to save the transformation and view the schema of the table that's about to be created. Click **Next** to proceed.
+    ```kusto
+    source
+    | extend TimeGenerated = todatetime(Time)
+    | parse RawData.value with 
+    ClientIP:string
+    ' ' *
+    ' ' *
+    ' [' * '] "' RequestType:string
+    " " Resource:string
+    " " *
+    '" ' ResponseCode:int
+    " " *
+    | where ResponseCode != 200
+    | project-away Time, RawData
+    ```
 
-:::image type="content" source="media/tutorial-custom-logs/custom-log-final-schema.png" lightbox="media/tutorial-custom-logs/custom-log-final-schema.png" alt-text="Screenshot for custom log final schema":::
+9. Click **Run** to views the results.
 
-Verify the final details and click **Create** to save the custom log.
+    :::image type="content" source="media/tutorial-custom-logs/custom-log-query-03.png" lightbox="media/tutorial-custom-logs/custom-log-query-03.png" alt-text="Screenshot showing custom log data query with filter.":::
 
-:::image type="content" source="media/tutorial-custom-logs/custom-log-create.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for custom log create":::
+10. Click **Apply** to save the transformation and view the schema of the table that's about to be created. Click **Next** to proceed.
+
+    :::image type="content" source="media/tutorial-custom-logs/custom-log-final-schema.png" lightbox="media/tutorial-custom-logs/custom-log-final-schema.png" alt-text="Screenshot showing custom log final schema.":::
+
+11. Verify the final details and click **Create** to save the custom log.
+
+    :::image type="content" source="media/tutorial-custom-logs/custom-log-create.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot showing custom log create.":::
 
 ## Collect information from DCR
-From the **Monitor** menu in the Azure portal, select **Data collection rules** and select the DCR you just created. From **Overview** for the data collection rule, select the **JSON View**.
+With the data collection rule created, you need to collect its ID which is needed in the API call.
 
-:::image type="content" source="media/tutorial-custom-logs/data-collection-rule-json-view.png" lightbox="media/tutorial-custom-logs/data-collection-rule-json-view.png" alt-text="Screenshot for data collection rule JSON view":::
+1. From the **Monitor** menu in the Azure portal, select **Data collection rules** and select the DCR you just created. From **Overview** for the data collection rule, select the **JSON View**.
 
-Copy the **immutableId** value. 
+    :::image type="content" source="media/tutorial-custom-logs/data-collection-rule-json-view.png" lightbox="media/tutorial-custom-logs/data-collection-rule-json-view.png" alt-text="Screenshot showing data collection rule JSON view.":::
 
-:::image type="content" source="media/tutorial-custom-logs/data-collection-rule-immutable-id.png" lightbox="media/tutorial-custom-logs/data-collection-rule-immutable-id.png" alt-text="Screenshot for collecting immutable ID from JSON view":::
+2 Copy the **immutableId** value. 
+
+    :::image type="content" source="media/tutorial-custom-logs/data-collection-rule-immutable-id.png" lightbox="media/tutorial-custom-logs/data-collection-rule-immutable-id.png" alt-text="Screenshot showing collecting immutable ID from JSON view.":::
 
 
 
 ## Assign permissions to DCR
 The final step is to give the application permission to use the DCR. This will allow any application using the correct application ID and application key to send data to the new DCE and DCR.
 
-Select **Access Control (IAM)** for the DCR and then **Add role assignment**. 
+1. Select **Access Control (IAM)** for the DCR and then **Add role assignment**. 
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot for adding custom role assignment to DCR":::
+    :::image type="content" source="media/tutorial-custom-logs/add-role-assignment.png" lightbox="media/tutorial-custom-logs/custom-log-create.png" alt-text="Screenshot showing adding custom role assignment to DCR.":::
 
-Select **Monitoring Metrics Publisher** and click **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
+2. Select **Monitoring Metrics Publisher** and click **Next**.  You could instead create a custom action with the `Microsoft.Insights/Telemetry/Write` data action. 
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-role.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-role.png" alt-text="Screenshot for selecting role for DCR role assignment":::
+    :::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-role.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-role.png" alt-text="Screenshot showing selecting role for DCR role assignment.":::
 
-Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select the application that you created and click **Select**.
+3. Select **User, group, or service principal** for **Assign access to** and click **Select members**. Select the application that you created and click **Select**.
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-member.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-member.png" alt-text="Screenshot for selecting members for DCR role assignment":::
+    :::image type="content" source="media/tutorial-custom-logs/add-role-assignment-select-member.png" lightbox="media/tutorial-custom-logs/add-role-assignment-select-member.png" alt-text="Screenshot showing selecting members for DCR role assignment.":::
 
 
-Click **Review + assign** and verify the details before saving your role assignment.
+4. Click **Review + assign** and verify the details before saving your role assignment.
 
-:::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/add-role-assignment-save.png" alt-text="Screenshot for saving DCR role assignment":::
+    :::image type="content" source="media/tutorial-custom-logs/add-role-assignment-save.png" lightbox="media/tutorial-custom-logs/add-role-assignment-save.png" alt-text="Screenshot showing saving DCR role assignment.":::
 
 
 
 ## Send sample data
 Allow at least 30 minutes for the configuration to take effect. You may also experience increased latency for the first few entries, but this should normalize.
 
-Run the following command providing the values that you collected for your data collection rule and data collection endpoint. The script will start ingesting data by placing calls to the API at pace of approximately 1 record per second.
+1. Run the following command providing the values that you collected for your data collection rule and data collection endpoint. The script will start ingesting data by placing calls to the API at pace of approximately 1 record per second.
 
 ```PowerShell
 .\LogGenerator.ps1 -Log "sample_access.log" -Type "API" -Table "ApacheAccess_CL" -DcrImmutableId <immutable ID> -DceUrl <data collection endpoint URL> 
 ```
 
-From Log Analytics, query your newly created table to verify that data arrived and if it is transformed properly.
+2. From Log Analytics, query your newly created table to verify that data arrived and if it is transformed properly.
 
 ## Troubleshooting
 This section describes different error conditions you may receive and how to correct them.

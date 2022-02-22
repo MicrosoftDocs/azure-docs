@@ -1,8 +1,6 @@
 ---
 title: Configure Basic Logs in Azure Monitor (Preview)
 description: Configure a table for Basic Logs in Azure Monitor.
-author: bwren
-ms.author: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 01/13/2022
@@ -37,14 +35,14 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 > [!IMPORTANT]
 > Use the Bearer token for authentication. Read more about [using Bearer tokens](https://social.technet.microsoft.com/wiki/contents/articles/51140.azure-rest-management-api-the-quickest-way-to-get-your-bearer-token.aspx).
 
-### Request Body
+### Request body
 |Name | Type | Description |
 | --- | --- | --- |
 |properties.plan | string  | The table plan. Possible values are *Analytics* and *Basic*.|
 
 ### Example
 This example configures the `ContainerLog` table for Basic Logs.
-#### Sample Request
+#### Sample request
 
 ```http
 PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
@@ -70,7 +68,7 @@ Use this request body to change to Analytics Logs:
 }
 ```
 
-#### Sample Response
+#### Sample response
 This is the response for a table changed to Basic Logs.
 
 Status code: 200

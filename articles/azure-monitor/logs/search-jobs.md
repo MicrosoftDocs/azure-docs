@@ -48,7 +48,7 @@ To run a search job, call the **Tables - Create or Update** API. The call includ
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/tables/<TableName>_SRCH?api-version=2021-12-01-preview
 ```
 
-### Request Body
+### Request body
 Include the following values in the body of the request:
 
 |Name | Type | Description |
@@ -59,7 +59,7 @@ Include the following values in the body of the request:
 |properties.searchResults.endSearchTime | string  | End of the time range to search. |
 
 
-### Sample Request
+### Sample request
 This example creates a table called *Syslog_suspected_SRCH* with the results of a query that searches for particular records in the *Syslog* table.
 
 **Request**
@@ -102,7 +102,7 @@ Each search job table has a property called *provisioningState*, which can have 
 | Deleting | Deleting the search job table. |
 
 
-#### Sample Request
+#### Sample request
 This example retrieves the table status for the search job in the previous example.
 
 **Request**

@@ -13,8 +13,6 @@ ms.date: 01/19/2022
 ## Basic operation
 The transformation is a [KQL query](../essentials/data-collection-rule-transformations.md) that runs against the incoming data and modifies it before it's stored in the workspace. Transformations are defined separately for each table in the workspace. This article provides an overview of this feature and guidance for further details and samples. Configuration for ingestion-time transformation is stored in a workspace transformation DCR. You can either [create this DCR directly](tutorial-ingestion-time-transformations-api.md) or configure transformation [through the Azure portal](tutorial-ingestion-time-transformations.md). 
 
-:::image type="content" source="media/ingestion-time-transformations/dcr-workspace.png" lightbox="media/ingestion-time-transformations/dcr-workspace.png" alt-text="Overview of workspace transformation DCR":::
-
 ## When to use ingestion-time transformations
 Use ingestion-time transformation for the following scenarios:
 
@@ -23,7 +21,7 @@ Use ingestion-time transformation for the following scenarios:
 **Simplify query requirements.** You may have a table with valuable data buried in a particular column or data that needs some type of conversion each time it's queried. Create a transformation that parses this data into a custom column so that queries don't need to parse it. Remove extra data from the column that isn't required to decrease ingestion and retention costs.
 
 ## Supported workflows
-Ingestion-time transformation is applied to any workflow that doesn't currently use a [data collection rule](../essentials/data-collection-rule-overview.md) sending data to a [supported table](tables-feature-support.md). The workflows that currently use data collection rules are as follows. Any transformation on a workspace will ignored for these workloads.
+Ingestion-time transformation is applied to any workflow that doesn't currently use a [data collection rule](../essentials/data-collection-rule-overview.md) sending data to a [supported table](tables-feature-support.md). The workflows that currently use data collection rules are as follows. Any transformation on a workspace will be ignored for these workloads.
 
 - [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)
 - [Custom logs](../logs/custom-logs-overview.md)
@@ -35,7 +33,7 @@ See [Supported tables for ingestion-time transformations](tables-feature-support
 See the following tutorials for a complete walkthrough of configuring ingestion-time transformation.
 
 - [Azure portal](../logs/tutorial-ingestion-time-transformations.md)
-- [Resource manager templates and REST API](../logs/tutorial-ingestion-time-transformations-api.md)
+- [Resource Manager templates and REST API](../logs/tutorial-ingestion-time-transformations-api.md)
 
 
 ## Limits
@@ -46,4 +44,4 @@ See the following tutorials for a complete walkthrough of configuring ingestion-
 
 - [Get details on transformation queries](../essentials/data-collection-rule-transformations.md)
 - [Walk through configuration of ingestion-time transformation using the Azure portal](tutorial-ingestion-time-transformations.md)
-- [Walk through configuration of ingestion-time transformation using resource manager templates and REST API](tutorial-ingestion-time-transformations.md)
+- [Walk through configuration of ingestion-time transformation using Resource Manager templates and REST API](tutorial-ingestion-time-transformations.md)

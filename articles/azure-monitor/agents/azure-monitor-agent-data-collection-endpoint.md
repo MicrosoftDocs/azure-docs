@@ -12,9 +12,11 @@ ms.custom: references_region
 # Using data collection endpoints with Azure Monitor agent (preview)
 [Data Collection Endpoints (DCEs)](../essentials/data-collection-endpoint-overview.md) allow you to uniquely configure ingestion settings for your machines, giving you greater control over your networking requirements. 
 
+## Create data collection endpoint
+See [Data collection endpoints in Azure Monitor (preview)](../essentials/data-collection-endpoint-overview.md) for details on data collection endpoints and how to create them.
+
 ## Create endpoint association in Azure portal
-Use **Data collection rules** in the portal to associate endpoints with a resource (e.g. a virtual machine) or a set of resources.  
-Create a new rule or open an existing rule. In the **Resources** tab, click on the **Data collection endpoint** drop-down to associate an existing endpoint for your resource in the same region (or select multiple resources in the same region to bulk-assign an endpoint for them). Doing this creates an association per resource which links the endpoint to the resource. The Azure Monitor agent running on these resources will now start using the endpoint instead for uploading data to Azure Monitor.
+Use **Data collection rules** in the portal to associate endpoints with a resource (e.g. a virtual machine) or a set of resources. Create a new rule or open an existing rule. In the **Resources** tab, click on the **Data collection endpoint** drop-down to associate an existing endpoint for your resource in the same region (or select multiple resources in the same region to bulk-assign an endpoint for them). Doing this creates an association per resource which links the endpoint to the resource. The Azure Monitor agent running on these resources will now start using the endpoint instead for uploading data to Azure Monitor.
 
 [![Data Collection Rule virtual machines](media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png)](../agents/media/data-collection-rule-azure-monitor-agent/data-collection-rule-virtual-machines-with-endpoint.png#lightbox) 
 

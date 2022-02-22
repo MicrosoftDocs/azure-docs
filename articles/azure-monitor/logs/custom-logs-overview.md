@@ -14,7 +14,7 @@ With the DCR based custom logs API in Azure Monitor, you can send data to a Log 
 ## Basic operation
 Your application sends data to a [data collection endpoint](../essentials/data-collection-endpoint-overview.md) which is a unique connection point for your subscription. The payload of your API call includes the source data formatted in JSON. The call specifies a [data collection rule](../essentials/data-collection-rule-overview.md) that understands the format of the source data, potentially filters and transforms it for the target table, and then directs it to a specific table in a specific workspace. You can modify the target table and workspace by modifying the data collection rule without any change to the REST API call or source data.
 
-:::image type="content" source="media/direct-ingestion/direct-ingestion-overview.png" alt-text="Overview diagram for direct ingestion" lightbox="media/direct-ingestion/direct-ingestion-overview.png":::
+
 
 ## Authentication
 Authentication for the custom logs API is performed at the data collection endpoint which uses standard Azure Resource Manager authentication. A common strategy is to use an Application ID and Application Key as described in [Tutorial: Add ingestion-time transformation to Azure Monitor Logs (preview)](tutorial-custom-logs.md).
@@ -51,7 +51,7 @@ The call can use the following headers:
 | x-ms-client-request-id | No | String-formatted GUID |  Request ID that can be used by Microsoft for any troubleshooting purposes.  |
 
 ### Body
-The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be be a JSON object or array with a structure that matches the format expected by the stream in the DCR.
+The body of the call includes the custom data to be sent to Azure Monitor. The shape of the data must be a JSON object or array with a structure that matches the format expected by the stream in the DCR.
 
 ## Limits and restrictions
 For limits related to custom logs, see [Azure Monitor service limits](../service-limits.md#custom-logs).
@@ -65,4 +65,4 @@ For limits related to custom logs, see [Azure Monitor service limits](../service
 ## Next steps
 
 - [Walk through a tutorial sending custom logs using the Azure portal.](tutorial-custom-logs.md)
-- [Walk through a tutorial sending custom logs using resource manager templates and REST API.](tutorial-custom-logs-api.md)
+- [Walk through a tutorial sending custom logs using Resource Manager templates and REST API.](tutorial-custom-logs-api.md)

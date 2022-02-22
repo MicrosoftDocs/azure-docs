@@ -1,8 +1,6 @@
 ---
 title: Query data from Basic Logs in Azure Monitor (Preview)
 description: Create a log query using tables configured for Basic logs in Azure Monitor.
-author: bwren
-ms.author: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 01/27/2022
@@ -12,7 +10,8 @@ ms.date: 01/27/2022
 # Query Basic Logs in Azure Monitor (Preview)
 Basic Logs reduce the cost of high-volume verbose logs you don’t need for analytics and alerts. Basic Logs have reduced charges for ingestion and limitations on log queries and other Azure Monitor features. This article describes how to query data from tables configured for Basic Logs in the Azure portal and using the Log Analytics REST API. 
 
-Note that other tools that use the Azure API for querying - for example, Grafana and PowerBI - cannot access Basic Logs. 
+> [!NOTE]
+> Other tools that use the Azure API for querying - for example, Grafana and Power BI - cannot access Basic Logs. 
 
 ## Limits
 Queries with Basic Logs are subject to the following limitations:

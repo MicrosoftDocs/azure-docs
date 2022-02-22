@@ -48,7 +48,7 @@ The following table summarizes the differences between the plans.
 | Data visualization | Supported. | Not supported. |
 
 ## Ingestion-time transformations
-[Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all workflows don't yet support DCRs, each workspace can define ingestion-time transformations. This allows you filter or transform data before its stored. 
+[Data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that define data coming into Azure Monitor can include transformations that allow you to filter and transform data before it's ingested into the workspace. Since all workflows don't yet support DCRs, each workspace can define ingestion-time transformations. This allows you filter or transform data before it's stored. 
 
 [Ingestion-time transformations](ingestion-time-transformations.md) are defined for each table in a workspace and apply to all data sent to that table, even if sent from multiple sources. Ingestion-time transformations though only apply to workflows that don't already use a data collection rule. For example, [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) uses a data collection rule to define data collected from virtual machines. This data will not be subject to any ingestion-time transformations defined in the workspace. 
 

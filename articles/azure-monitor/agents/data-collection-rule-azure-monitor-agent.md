@@ -58,7 +58,7 @@ On the **Collect and deliver** tab, click **Add data source** to add a data sour
 [![Data source basic](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-basic-updated.png#lightbox)
 
 
-To specify other logs and performance counters from the [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to filter events using XPath queries, select **Custom**. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) for any specific values to collect. See [Sample DCR](dcr-sample-agent.md) for an example.
+To specify other logs and performance counters from the [currently supported data sources](azure-monitor-agent-overview.md#data-sources-and-destinations) or to filter events using XPath queries, select **Custom**. You can then specify an [XPath ](https://www.w3schools.com/xml/xpath_syntax.asp) for any specific values to collect. See [Sample DCR](data-collection-rule-sample-agent.md) for an example.
 
 [![Data source custom](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png)](media/data-collection-rule-azure-monitor-agent/data-collection-rule-data-source-custom-updated.png#lightbox)
 
@@ -108,7 +108,7 @@ Follow the steps below to create a data collection rule and association
 > [!NOTE]
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 
-1. Manually create the DCR file using the JSON format shown in [Sample DCR](dcr-sample-agent.md).
+1. Manually create the DCR file using the JSON format shown in [Sample DCR](data-collection-rule-sample-agent.md).
 
 2. Create the rule using the [REST API](/rest/api/monitor/datacollectionrules/create#examples).
 

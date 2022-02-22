@@ -83,7 +83,7 @@ You can use either PUT or PATCH, with the following difference:
 - The **PATCH** API doesn't change the *retentionInDays* or *totalRetentionInDays* values if you don't specify values. 
 
 
-#### Request Body
+#### Request body
 The request body includes the values in the following table.
 
 |Name | Type | Description |

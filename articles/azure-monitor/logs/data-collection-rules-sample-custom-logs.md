@@ -12,6 +12,7 @@ The sample [data collection rule](../essentials/data-collection-rule-overview.md
 - Sends data to a table called MyTable_CL in a workspace called my-workspace.
 - Applies a [transformation](../essentials/data-collection-rule-transformations.md) to the incoming data.
 
+## Sample DCR
 
 ```json
 {

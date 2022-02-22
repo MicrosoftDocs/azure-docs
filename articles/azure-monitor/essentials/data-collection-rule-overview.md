@@ -2,8 +2,7 @@
 title: Data Collection Rules in Azure Monitor
 description: Overview of data collection rules (DCRs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
-ms.date: 01/19/2021
-ms.custom: references_region
+ms.date: 02/21/2022
 
 ---
 
@@ -38,8 +37,8 @@ The following articles describe different scenarios for creating data collection
 | Workflow | Resources |
 |:---|:---|
 | Azure Monitor agent | [Configure data collection for the Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md)<br>[Use Azure Policy to install Azure Monitor agent and associate with DCR](../agents/azure-monitor-agent-manage.md#using-azure-policy) |
-| Custom logs | [Configure custom logs using the Azure portal](../logs/tutorial-custom-logs.md)<br>[Configure custom logs using resource manager templates and REST API](../logs/tutorial-custom-logs-api.md) |
-| Workspace transformation | [Configure ingestion-time transformations using the Azure portal](../logs/tutorial-ingestion-time-transformations.md)<br>[Configure ingestion-time transformations using resource manager templates and REST API](../logs/tutorial-ingestion-time-transformations-api.md) |
+| Custom logs | [Configure custom logs using the Azure portal](../logs/tutorial-custom-logs.md)<br>[Configure custom logs using Resource Manager templates and REST API](../logs/tutorial-custom-logs-api.md) |
+| Workspace transformation | [Configure ingestion-time transformations using the Azure portal](../logs/tutorial-ingestion-time-transformations.md)<br>[Configure ingestion-time transformations using Resource Manager templates and REST API](../logs/tutorial-ingestion-time-transformations-api.md) |
 
 
 ## Programmatically work with DCRs

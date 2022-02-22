@@ -110,7 +110,9 @@ items:
   - name: Data collection rules
     items: 
     - name: Agent
-      href: agents/dcr-sample-agent.md
+      href: agents/data-collection-rule-sample-agent.md
+    - name: Custom logs
+      href: agents/data-collection-rule-custom-logs.md
   - name: Azure CLI
     href: cli-samples.md
   - name: Monitor Logs in Azure CLI
@@ -467,7 +469,7 @@ items:
         displayName: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
       - name: Use data collection endpoints
-        href: agents/azure-monitor-agent-dce.md
+        href: agents/azure-monitor-agent-data-collection-endpoint.md
       - name: Migrate from Log Analytics agent
         displayName: Migrate to Azure Monitor agent
         href: agents/azure-monitor-agent-migration.md

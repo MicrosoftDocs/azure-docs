@@ -2,7 +2,7 @@
 title: Data collection rule transformations
 description: Use transformations in a data collection rule in Azure Monitor to filter and modify incoming data.
 ms.topic: conceptual
-ms.date: 01/19/2021
+ms.date: 02/21/2022
 
 ---
 
@@ -142,7 +142,7 @@ print x = 2 + 2, y = 5 | extend z = exp2(x) + exp2(y)
 ```
 
 
-### Tabular Operators
+### Tabular operators
 - [extend](/azure/data-explorer/kusto/query/extendoperator)
 - [project](/azure/data-explorer/kusto/query/projectoperator)
 - [print](/azure/data-explorer/kusto/query/printoperator)
