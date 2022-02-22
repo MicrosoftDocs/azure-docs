@@ -177,27 +177,35 @@ This article assumes that you have already installed an Ubuntu Linux operating s
 
 15. To bring a Generation 2 VM on Azure, please follow these additional steps:
 
-	i. Change directory to the boot EFI directory:
-	```console
-	# cd /boot/efi/EFI
-	```
-	ii. Copy the ubuntu directory in to a new directory named boot:
-	```console
-	# sudo cp -r ubuntu/ boot
-	```
-	iii. Change directory to the newly created boot directory:
-	```console
-	# cd boot
-	```
-	iv. Rename the shimx64.efi file:
-	```console
-	# sudo mv shimx64.efi bootx64.efi
-	```
+    1. Change directory to the boot EFI directory:
+    
+       ```console
+       # cd /boot/efi/EFI
+       ```
 
-	v. Rename the grub.cfg file to bootx64.cfg
-	```console
-	# sudo mv grub.cfg bootx64.cfg 
-	```
+    1. Copy the ubuntu directory to a new directory named boot:
+	
+       ```console
+       # sudo cp -r ubuntu/ boot
+       ```
+
+    1. Change directory to the newly created boot directory:
+
+       ```console
+       # cd boot
+       ```
+	
+    1. Rename the shimx64.efi file:
+
+       ```console
+       # sudo mv shimx64.efi bootx64.efi
+       ```
+
+    1. Rename the grub.cfg file to bootx64.cfg:
+
+       ```console
+       # sudo mv grub.cfg bootx64.cfg 
+       ```
 
 ## Next steps
 You're now ready to use your Ubuntu Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
