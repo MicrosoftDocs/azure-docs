@@ -13,6 +13,8 @@ ms.date: 02/21/2022
 
 [!INCLUDE[appliesto-mongodb-api](../../../includes/appliesto-mongodb-api.md)]
 
+The script in this article demonstrates creating a MongoDB API database with autoscale and 2 collections that share throughput.
+
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]

@@ -13,6 +13,8 @@ ms.date: 02/21/2022
 
 [!INCLUDE[appliesto-table-api](../../../includes/appliesto-table-api.md)]
 
+The script in this article demonstrates creating a Table API table.
+
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]

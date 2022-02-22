@@ -13,6 +13,8 @@ ms.date: 02/21/2022
 
 [!INCLUDE[appliesto-sql-api](../../../includes/appliesto-sql-api.md)]
 
+The script in this article demonstrates creating a SQL API database and container.
+
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../../../includes/azure-cli-prepare-your-environment.md)]
