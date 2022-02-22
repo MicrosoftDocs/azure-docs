@@ -14,6 +14,9 @@ This document describes the subprotocol `protobuf.reliable.webpubsub.azure.v1`.
 
 When a client is using this subprotocol, both the outgoing and incoming data frames are expected to be protocol buffers (protobuf) payloads.
 
+> [!NOTE]
+> Reliable protocols are still in preview. Some changes are expected in future.
+
 ## Overview
 
 Subprotocol `protobuf.reliable.webpubsub.azure.v1` empowers the client to have a high reliable message delivery experience under network issues and do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. The WebSocket connection with the `protobuf.reliable.webpubsub.azure.v1` subprotocol is called a Reliable PubSub WebSocket client.
@@ -53,6 +56,7 @@ message UpstreamMessage {
         string group = 1;
         optional uint64 ack_id = 2;
         MessageData data = 3;
+        optional bool no_echo = 4;
     }
 
     message EventMessage {
@@ -109,7 +113,6 @@ message DownstreamMessage {
         uint64 ack_id = 1;
         bool success = 2;
         optional ErrorMessage error = 3;
-        uint64 sequence_id = 4;
     
         message ErrorMessage {
             string name = 1;
@@ -134,18 +137,16 @@ message DownstreamMessage {
             string connection_id = 1;
             string user_id = 2;
             string reconnection_token = 3;
-            uint64 sequence_id = 4;
         }
 
         message DisconnectedMessage {
             string reason = 2;
-            uint64 sequence_id = 3;
         }
     }
 }
 ```
 
-Messages received by the client can be in any of three types: `ack`, `message`, or `system`. All response messages have `sequence_id` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
+`AckMessage` has `sequence_id` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
 
 ### Ack response
 

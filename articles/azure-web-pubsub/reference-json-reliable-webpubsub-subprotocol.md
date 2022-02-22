@@ -14,6 +14,9 @@ This document describes the subprotocol `json.reliable.webpubsub.azure.v1`.
 
 When the client is using this subprotocol, both outgoing data frame and incoming data frame are expected to be **JSON** payloads.
 
+> [!NOTE]
+> Reliable protocols are still in preview. Some changes are expected in future.
+
 ## Overview
 
 Subprotocol `json.reliable.webpubsub.azure.v1` empowers the client to have a high reliable message delivery experience under network issues and do a publish-subscribe (PubSub) directly instead of doing a round trip to the upstream server. The WebSocket connection with the `json.reliable.webpubsub.azure.v1` subprotocol is called a Reliable PubSub WebSocket client.
@@ -37,7 +40,7 @@ Format:
 
 ```json
 {
-    "type": "ack",
+    "type": "sequenceAck",
     "sequenceId": "<sequenceId>",
 }
 ```
@@ -48,7 +51,7 @@ Reliable PubSub WebSocket client must send sequence ack message once it received
 
 ## Responses
 
-Messages received by the client can be several types: `ack`, `message`, and `system`. All response messages have `sequenceId` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
+Messages received by the client can be several types: `ack`, `message`, and `system`. Messages with type `message` have `sequenceId` property. Client must send [Sequence Ack](#sequence-ack) to the service once it receives a message.
 
 ### Ack response
 
@@ -57,7 +60,6 @@ If the request contains `ackId`, the service will return an ack response for thi
 Format:
 ```json
 {
-    "sequenceId": 1,
     "type": "ack",
     "ackId": 1, // The ack id for the request to ack
     "success": false, // true or false
@@ -153,7 +155,6 @@ When the connection connects to service.
 
 ```json
 {
-    "sequenceId": 1,
     "type": "system",
     "event": "connected",
     "userId": "user1",
@@ -176,7 +177,6 @@ When the server closes the connection, or when the service declines the client.
 
 ```json
 {
-    "sequenceId": 1,
     "type": "system",
     "event": "disconnected",
     "message": "reason"

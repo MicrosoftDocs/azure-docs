@@ -12,9 +12,26 @@ ms.date: 12/15/2021
 
 Websocket client connections may drop due to intermittent network issue and when connections drop, messages will also be lost. In a pubsub system, publishers are decoupled from subscribers, so publishers hard to detect subscribers' drop or message loss. It's crucial for clients to overcome intermittent network issue and keep the reliability of message delivery. To achieve that, you can create a reliable Websocket client with the help of reliable subprotocols.
 
+> [!NOTE]
+> Reliable protocols are still in preview. Some changes are expected in future.
+
 ## Reliable Protocol
 
 Service supports two reliable subprotocols `json.reliable.webpubsub.azure.v1` and `protobuf.reliable.webpubsub.azure.v1`. Clients must follow the protocol, mainly including the part of reconnection, publisher and subscriber to achieve the reliability, or the message delivery may not work as expected or the service may terminate the client as it violates the protocol spec.
+
+## Initialization
+
+To use reliable subprotocols, you must set subprotocol when constructing Websocket connections. In JavaScript, you can use as following:
+
+- Use Json reliable subprotocol
+    ```js
+    var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'json.reliable.webpubsub.azure.v1');
+    ```
+
+- Use Protobuf reliable subprotocol
+    ```js
+    var pubsub = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'protobuf.reliable.webpubsub.azure.v1');
+    ```
 
 ## Reconnection
 
@@ -65,7 +82,7 @@ A sample ack response:
 
 If the service returns ack with `success: true`, the message has been processed by the service and the client can expect the message will be delivered to all subscribers.
 
-However, In some cases, Service meets some transient internal error and the message can't be sent to subscriber. In such case, publisher will receive an ack like following and should resend message with the same `ackId`.
+However, In some cases, Service meets some transient internal error and the message can't be sent to subscriber. In such case, publisher will receive an ack like following and should resend message with the same `ackId` if it's necessary based on business logic.
  
 ```json
 {
@@ -81,7 +98,7 @@ However, In some cases, Service meets some transient internal error and the mess
 
 ![Message Failure](./media/howto-develop-reliable-clients/message-failed.png)
 
-Service's ack may be dropped because of WebSockets connection dropped. So, publishers should wait for ack with timeout, and resend message with the same message-id after timeout. If the message has actually processed by the service, it will response ack with `Duplicate` and publishers should stop resending this message again.
+Service's ack may be dropped because of WebSockets connection dropped. So, publishers should get notified when Websocket connection drops and resend message with the same `ackId` after reconnection. If the message has actually processed by the service, it will response ack with `Duplicate` and publishers should stop resending this message again.
 
 ```json
 {
@@ -99,16 +116,16 @@ Service's ack may be dropped because of WebSockets connection dropped. So, publi
 
 ## Subscriber
 
-Clients who receive messages sent from event handlers or publishers are called subscriber in the document. When connections drop by network issues, the service doesn't know how many messages are actually sent to subscribers. So subscribers should tell the service which message has been received. Messages send to subscribers contains `sequenceId` and subscribers must ack the sequence-id with sequence ack message:
+Clients who receive messages sent from event handlers or publishers are called subscriber in the document. When connections drop by network issues, the service doesn't know how many messages are actually sent to subscribers. So subscribers should tell the service which message has been received. Data Messages contains `sequenceId` and subscribers must ack the sequence-id with sequence ack message:
 
 A sample sequence ack:
 ```json
 {
-    "type": "ack",
+    "type": "sequenceAck",
     "sequenceId": 1
 }
 ```
 
-The sequence-id is a uint64 incremental number with-in a connection-id session. And don't expect the number must be consecutive. Subscribers should record the largest sequence-id it ever received and accept all messages with larger sequence-id and drop all messages with smaller or equal sequence-id. The sequence ack supports quick ack, which means if you ack `sequence-id=5`, the service will treat all messages with sequence-id smaller than 5 have already been received by subscribers. Subscribers should ack with the largest sequence-id it recorded, so that the service can skip redelivering messages that subscribers have already received.
+The sequence-id is a uint64 incremental number with-in a connection-id session. Subscribers should record the largest sequence-id it ever received and accept all messages with larger sequence-id and drop all messages with smaller or equal sequence-id. The sequence ack supports selective ack, which means if you ack `sequence-id=5`, the service will treat all messages with sequence-id smaller than 5 have already been received by subscribers. Subscribers should ack with the largest sequence-id it recorded, so that the service can skip redelivering messages that subscribers have already received.
 
 All messages are delivered to subscribers in order until the WebSockets connection drops. With sequence-id, the service can have the knowledge about how many messages subscribers have actually received across WebSockets connections with-in a connection-id session. After a WebSockets connection drop, the service will redeliver messages it should deliver but not ack-ed by the subscriber. The service hold messages that are not ack-ed with limit, if messages exceed the limit, the service will close the WebSockets connection and remove the connection-id session. Thus, subscribers should ack the sequence-id as soon as possible.
