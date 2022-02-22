@@ -29,46 +29,46 @@ For some locales, Speech service defines its own phonetic alphabets, which ordin
 See the sections in this article for the phonemes that are specific to each locale.
 
 ## ca-ES
-[!INCLUDE [ca-ES](./includes/phonetic-sets/text-to-speech/ca-ES.md)]
+[!INCLUDE [ca-ES](./includes/phonetic-sets/text-to-speech/ca-es.md)]
 
 ## de-DE
-[!INCLUDE [de-DE](./includes/phonetic-sets/text-to-speech/de-DE.md)]
+[!INCLUDE [de-DE](./includes/phonetic-sets/text-to-speech/de-de.md)]
 
 ## en-GB
-[!INCLUDE [en-GB](./includes/phonetic-sets/text-to-speech/en-GB.md)]
+[!INCLUDE [en-GB](./includes/phonetic-sets/text-to-speech/en-gb.md)]
 
 ## en-US
-[!INCLUDE [en-US](./includes/phonetic-sets/text-to-speech/en-US.md)]
+[!INCLUDE [en-US](./includes/phonetic-sets/text-to-speech/en-us.md)]
 
 ## es-ES
-[!INCLUDE [es-ES](./includes/phonetic-sets/text-to-speech/es-ES.md)]
+[!INCLUDE [es-ES](./includes/phonetic-sets/text-to-speech/es-es.md)]
 
 ## es-MX
-[!INCLUDE [es-MX](./includes/phonetic-sets/text-to-speech/es-MX.md)]
+[!INCLUDE [es-MX](./includes/phonetic-sets/text-to-speech/es-mx.md)]
 
 ## fr-FR
-[!INCLUDE [fr-FR](./includes/phonetic-sets/text-to-speech/fr-FR.md)]
+[!INCLUDE [fr-FR](./includes/phonetic-sets/text-to-speech/fr-fr.md)]
 
 ## it-IT
-[!INCLUDE [it-IT](./includes/phonetic-sets/text-to-speech/it-IT.md)]
+[!INCLUDE [it-IT](./includes/phonetic-sets/text-to-speech/it-it.md)]
 
 ## ja-JP
-[!INCLUDE [ja-JP](./includes/phonetic-sets/text-to-speech/ja-JP.md)]
+[!INCLUDE [ja-JP](./includes/phonetic-sets/text-to-speech/ja-jp.md)]
 
 ## pt-BR
-[!INCLUDE [pt-BR](./includes/phonetic-sets/text-to-speech/pt-BR.md)]
+[!INCLUDE [pt-BR](./includes/phonetic-sets/text-to-speech/pt-br.md)]
 
 ## pt-PT
-[!INCLUDE [pt-PT](./includes/phonetic-sets/text-to-speech/pt-PT.md)]
+[!INCLUDE [pt-PT](./includes/phonetic-sets/text-to-speech/pt-pt.md)]
 
 ## ru-RU
-[!INCLUDE [ru-RU](./includes/phonetic-sets/text-to-speech/ru-RU.md)]
+[!INCLUDE [ru-RU](./includes/phonetic-sets/text-to-speech/ru-ru.md)]
 
 ## zh-CN
-[!INCLUDE [zh-CN](./includes/phonetic-sets/text-to-speech/zh-CN.md)]
+[!INCLUDE [zh-CN](./includes/phonetic-sets/text-to-speech/zh-cn.md)]
 
 ## zh-TW
-[!INCLUDE [zh-TW](./includes/phonetic-sets/text-to-speech/zh-TW.md)]
+[!INCLUDE [zh-TW](./includes/phonetic-sets/text-to-speech/zh-tw.md)]
 
 
 ***
