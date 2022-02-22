@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/16/2022
+ms.date: 02/22/2022
 ms.author: sipastak 
 ---
 
@@ -48,6 +48,7 @@ The device must be installed on a standard 19-inch rack. Use the following proce
     :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-install-inner-rail-onto-chassis.png" alt-text="Install inner rail onto chassis.":::
 
 1. Adjust the fastening position of Bracket B. Release the retainer by pulling and moving the retainer hook.
+    :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-bracket-b.png" alt-text="Diagram of Bracket B.":::
 
     :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-adjust-bracket-b.png" alt-text="Adjust Bracket B fastening position.":::
 
@@ -64,10 +65,10 @@ The device must be installed on a standard 19-inch rack. Use the following proce
     :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-front-rear-bracket.png" alt-text="Instructions for front and rear brackets.":::
 
 1. Insert the chassis to complete the installation.
-    1. Ensure the ball bearing retainer is located at the front of the middle rail.
-    1. Insert the chassis into the middle-outer rails.
-    1. When you hit a stop, pull/push the blue release tab on the inner rails.
-    1. Tighten the M5 screws of the chassis to the rail once the server is seated. 
+    1. Ensure the ball bearing retainer is located at the front of the middle rail (reference diagram 1 and 2).
+    1. Insert the chassis into the middle-outer rails (reference diagram 3).
+    1. When you hit a stop, pull/push the blue release tab on the inner rails (reference diagram 4).
+    1. Tighten the M5 screws of the chassis to the rail once the server is seated (reference diagram 5).
 :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-insert-chassis.png" alt-text="Insert chassis.":::
 
 ## To remove the chassis:

@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 01/21/2022
+ms.date: 02/22/2022
 ms.author: sipastak
 ---
 
@@ -35,7 +35,7 @@ A Graphics Processing Unit (GPU) is included on an Azure Stack Edge Pro 2 device
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| GPU   | One Nvidia T4 GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
+| GPU   | One Nvidia A2 Tensor Core GPU. For more information, see [NVIDIA A2 Tensor Core GPU](https://www.nvidia.com/en-us/data-center/products/a2/).| 
 
 
 ## Power supply unit specifications

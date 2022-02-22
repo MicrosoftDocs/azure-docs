@@ -7,7 +7,7 @@ author:   sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/07/2022
+ms.date: 02/22/2022
 ms.author: sipastak
 ---
 
@@ -61,8 +61,6 @@ To reduce the risk of bodily injury, electrical shock, fire, and equipment damag
 * To reduce the risk of fire or electric shock, install the equipment/system in a temperature-controlled indoor area free of conductive contaminants. Don’t place the equipment near liquids or in an excessively humid environment.
 * Don’t allow any liquid or any foreign object to enter the device. Don’t place beverages or any other liquid containers on or near the device.
 
-
-### Rack mounting precautions
 ![Safety warning](./media/azure-stack-edge-pro-2-safety/icon-safety-warning.png)**CAUTION:**
 * Elevated operating ambient - If installed in a closed or multi-unit rack assembly, the operating ambient temperature of the rack environment may be greater than room ambient. Therefore, consideration should be given to installing the equipment in an environment compatible with the maximum ambient temperature (Tma is 45°C) specified by the manufacturer.
 * Reduced air flow - Installation of the equipment in a rack should be such that the amount of air flow required for safe operation of the equipment isn’t compromised. Carefully route cables as directed to minimize airflow blockage and cooling problems.
@@ -121,8 +119,8 @@ This equipment is designed for use with NRTL Listed (UL, CSA, ETL, etc.), and IE
 This equipment is designed to operate in the following environment:
 
 * Temperature specifications
-    * Storage: –40°C–70°C (–40°F–149°F)
-    * Operating: 10°C–45°C (50°F–113°F)
+    * Storage: –40°C to 70°C (–40°F to 149°F)
+    * Operating: 10°C to 45°C (50°F to 113°F)
 * Relative humidity specifications
     * Storage: 5% to 95% relative humidity
     * Operating: 5% to 85% relative humidity
@@ -142,6 +140,8 @@ Models: DB040, DB040-W
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-notice.png" border="false":::NOTICE: This equipment has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device. 
+
+Any changes or modifications not expressly approved by the party responsible for compliance could void the user's authority to operate this equipment. 
 
 :::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-french-instructions.png" alt-text="Canada instructions":::
 
@@ -167,6 +167,13 @@ This equipment should be installed and operated with a minimum distance of 20 cm
 
 This equipment complies with FCC/ISED radiation exposure limits set forth for an uncontrolled environment. Additional information about radiofrequency safety can be found on the FCC website at https://www.fcc.gov/general/radio-frequency-safety-0 and the Industry Canada website at http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html
 
+**Detachable antenna usage**
+This radio transmitter [IC: 7542A-MT7921] has been approved by Innovation, Science and Economic Development Canada to operate with the antenna types listed below, with the maximum permissible gain indicated. Antenna types not included in this list that have a gain greater than the maximum gain indicated for any type listed are strictly prohibited for use with this device. 
+
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-canada-instructions-3.png" alt-text="Canada antenna usage.":::
+
+:::image type="content" source="media/azure-stack-edge-pro-2-safety/icon-antenna-usage.png" alt-text="Detachable antenna usage table.":::
+
 ### European Union
 
 :::image type="icon" source="media/azure-stack-edge-pro-2-safety/icon-safety-warning.png" border="false":::**WARNING:** 
@@ -188,7 +195,7 @@ In accordance with Article 10.8(a) and 10.8(b) of the Radio Equipment Directive 
 |Frequency band (MHz) |Maximum EIRP (dBm)  |
 |---------|---------|
 |2400 - 2483.5     |19.74        |
-|R5150 - 5350   |22.56        |
+|5150 - 5350   |22.56        |
 |5470 - 5725   | 19.68      |
 |5725 - 5875    |13.83       |
 
