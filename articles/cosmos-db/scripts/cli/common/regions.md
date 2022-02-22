@@ -12,17 +12,14 @@ ms.date: 02/21/2022
 
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
-The script in this article demonstrates three operations.
+The script in this article demonstrates three operations. It uses a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB.
 
 - Add a region to an existing Azure Cosmos account.
 - Change regional failover priority (applies to accounts using automatic failover)
 - Trigger a manual failover from primary to secondary regions (applies to accounts with manual failover)
 
-> [!NOTE]
+> [!IMPORTANT]
 > Add and remove region operations on a Cosmos account cannot be done while changing other properties.
-
-> [!NOTE]
-> This script demonstrates using a SQL (Core) API account but these operations are identical across all database APIs in Cosmos DB.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +33,7 @@ The script in this article demonstrates three operations.
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/ipfirewall.sh" range="4-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/common/regions.sh" range="4-32":::
 
 ## Clean up resources
 

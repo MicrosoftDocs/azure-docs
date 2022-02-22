@@ -12,10 +12,9 @@ ms.date: 02/21/2022
 
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
-The script in this article shows how to connect an existing Azure Cosmos account to an existing new virtual network where the subnet is not yet configured for service endpoints by using the `ignore-missing-vnet-service-endpoint` parameter. This allows the configuration for the Cosmos account to complete without error before the configuration to the virtual network's subnet is completed. Once the subnet configuration is complete, the Cosmos account is accessible through the configured subnet.
+The script in this article demonstrates connecting an existing Azure Cosmos account to an existing new virtual network where the subnet is not yet configured for service endpoints by using the `ignore-missing-vnet-service-endpoint` parameter. This allows the configuration for the Cosmos account to complete without error before the configuration to the virtual network's subnet is completed. Once the subnet configuration is complete, the Cosmos account is accessible through the configured subnet.
 
-> [!NOTE]
-> This script demonstrates using a SQL (Core) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
+This script uses a SQL (Core) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 

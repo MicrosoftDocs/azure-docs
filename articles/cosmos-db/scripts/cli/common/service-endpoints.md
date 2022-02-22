@@ -14,8 +14,7 @@ ms.date: 02/21/2022
 
 The script in this article creates a new virtual network with a front and back end subnet and enables service endpoints for `Microsoft.AzureCosmosDB`. It then retrieves the resource ID for this subnet and applies it to the Azure Cosmos account and enables service endpoints for the account.
 
-> [!NOTE]
-> This sample demonstrates using a Core (SQL) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
+This script uses a Core (SQL) API account. To use this sample for other APIs, apply the `enable-virtual-network` and `virtual-network-rules` parameters in the script below to your API specific script.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 

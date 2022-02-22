@@ -12,7 +12,7 @@ ms.date: 02/21/2022
 
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
-The script in this article demonstrates using a SQL (Core) API account. To use this sample for other APIs, apply the `ip-range-filter` parameter in the script to the `az cosmosdb account create` command for your API specific script.
+The script in this article demonstrates creating a Cosmos DB account with default values and IP Firewall enabled. It uses a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB. To use this sample for other APIs, apply the `ip-range-filter` parameter in the script to the `az cosmosdb account create` command for your API specific script.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
