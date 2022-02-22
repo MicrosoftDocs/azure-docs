@@ -70,7 +70,7 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 
 | Changes | Details |
 | --- | --- |
-| **GA for maintenance window** | The [maintenance window](../database/maintenance-window.md) feature allows you to configure a maintenance schedule for your Azure SQL Managed Instance and receive advance notifications of maintenance windows. [Maintenance window advance notifications](../database/advance-notifications.md) (preview) are available for databases configured to use a non-default [maintenance window](../database/maintenance-window.md). | 
+| **GA for maintenance window, preview for advance notifications** | The [maintenance window](../database/maintenance-window.md) feature allows you to configure a maintenance schedule for your Azure SQL Managed Instance and receive advance notifications of maintenance windows. [Maintenance window advance notifications](../database/advance-notifications.md) (preview) are available for databases configured to use a non-default [maintenance window](../database/maintenance-window.md). | 
 | | | 
 
 ### November 2021
