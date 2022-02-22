@@ -170,6 +170,8 @@
         href: manage-jobs-cluster.md
       - name: Scale cluster size
         href: scale-cluster.md
+      - name: Move cluster to another region
+        href: move-cluster.md
     - name: Autoscale jobs
       href: stream-analytics-autoscale.md
     - name: Update credentials

@@ -156,7 +156,11 @@ For information on authorizing access to your Azure blob storage account and dat
 
 ## Create a custom named entity recognition project
 
+Once your resource and storage container are configured, create a new custom NER project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.
+
 [!INCLUDE [Create custom NER project](../includes/create-project.md)]
+
+Review the data you entered and select **Create Project**.
 
 ## Next steps
 

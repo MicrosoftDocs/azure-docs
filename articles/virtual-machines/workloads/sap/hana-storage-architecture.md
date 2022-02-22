@@ -3,7 +3,7 @@ title: Storage architecture of SAP HANA on Azure (Large Instances) | Microsoft D
 description: Learn about the storage architecture for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: msjuergent
+author: mamccrea
 manager: bburns
 editor: ''
 ms.service: virtual-machines-sap
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/22/2021
-ms.author: madhukan
+ms.author: mamccrea
 ms.custom: H1Hack27Feb2017
 
 ---

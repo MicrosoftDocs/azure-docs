@@ -1,7 +1,7 @@
 ---
 title: Create a people counting solution with Azure Percept Vision
 description: This guide will focus on detecting and counting people using the Azure Percept DK hardware, Azure IoT Hub, Azure Stream Analytics, and Power BI dashboard. 
-author: nkhuyent
+author: ozhernan
 ms.author: sbhasale
 ms.service: azure-percept 
 ms.topic: tutorial 
