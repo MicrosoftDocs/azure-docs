@@ -8,10 +8,9 @@ metadata:
   manager: trrwilson
   ms.service: cognitive-services
   ms.subservice: speech-service
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 04/15/2020
   ms.author: travisw
-    
 title: Samples and FAQs
 summary: |
   ## The UWP Voice Assistant Sample

@@ -30,6 +30,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ## February 2022
 
 - [View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
+- [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
 
 ### View Azure Purview data in Microsoft Sentinel (Public Preview)
 
@@ -40,6 +41,14 @@ The Azure Purview solution includes the Azure Purview data connector, related an
 :::image type="content" source="media/purview-solution/purview-workbook.png" alt-text="Screenshot of the Azure Purview workbook in Microsoft Sentinel.":::
 
 For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md).
+
+### Manually run playbooks based on the incident trigger (Public preview)
+
+While full automation is the best solution for many incident-handling, investigation, and mitigation tasks, there may often be cases where you would prefer your analysts have more human input and control over the situation. Also, you may want your SOC engineers to be able to test the playbooks they write before fully deploying them in automation rules.
+
+For these and other reasons, Microsoft Sentinel now allows you to [**run playbooks manually on-demand for incidents**](automate-responses-with-playbooks.md#run-a-playbook-manually) as well as alerts.
+
+Learn more about [running incident-trigger playbooks manually](tutorial-respond-threats-playbook.md#run-a-playbook-manually-on-an-incident).
 
 ## January 2022
 

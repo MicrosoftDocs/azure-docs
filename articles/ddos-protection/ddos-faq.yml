@@ -6,13 +6,11 @@ metadata:
   documentationcenter: na
   author: aletheatoh
   ms.service: virtual-network
-  ms.topic: article
+  ms.topic: faq
   ms.tgt_pltfrm: na
   ms.workload: infrastructure-services
   ms.date: 10/28/2020
   ms.author: yitoh
-  
-    
 title: Azure DDoS Protection Standard frequently asked questions
 summary: This article answers common questions about Azure DDoS Protection Standard. 
 

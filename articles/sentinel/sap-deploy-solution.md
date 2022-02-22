@@ -4,7 +4,7 @@ description: Learn how to deploy the Microsoft Sentinel solution for SAP environ
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc, ignite-fall-2021, devx-track-azurecli
 ms.date: 11/09/2021
 ---
 
@@ -84,8 +84,8 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 1. Download and install one of the following SAP change requests from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR):
 
-    - **SAP version 750 or later**: Install the SAP change request *NPLK900180*
-    - **SAP version 740**: Install the SAP change request *NPLK900179*
+    - **SAP version 750 or later**: Install the SAP change request *NPLK900202*
+    - **SAP version 740**: Install the SAP change request *NPLK900201*
 
     When you're performing this step, be sure to use binary mode to transfer the files to the SAP system, and use the **STMS_IMPORT** SAP transaction code.
 

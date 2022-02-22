@@ -9,8 +9,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/10/2021
 ms.author: rolyon 
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Elevate access to manage all Azure subscriptions and management groups
 
