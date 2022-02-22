@@ -36,7 +36,7 @@ When you press the "Start a Chat" button, the web application fetches a user acc
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="Screenshot showing the application's pre-chat screen.":::
 
-Once your configure your display name and emoji, you can join the chat session. Now you will see the main chat canvas where the core chat experience lives.
+Once you configure your display name and emoji, you can join the chat session. Now you will see the main chat canvas where the core chat experience lives.
 
 :::image type="content" source="./media/chat/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
@@ -102,7 +102,7 @@ For more information, see the following articles:
 
 - Learn about [chat concepts](../concepts/chat/concepts.md)
 - Familiarize yourself with our [Chat SDK](../concepts/chat/sdk-features.md)
-- Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample
+- Check out the chat components in the [UI Library](https://azure.github.io/communication-ui-library/)
 
 ## Additional reading
 
