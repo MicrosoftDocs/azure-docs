@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/21/2022
+ms.date: 02/22/2022
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I want to save time and avoid Support calls during deployment of Azure Stack Edge devices by verifying network settings in advance.
@@ -31,7 +31,7 @@ The Azure Stack Network Readiness Checker can check whether a network meets the 
 
 - The Network Time Protocol (NTP) server is available and functioning.
 
-- Azure endpoints are available and respond on HTTPS, with or without a proxy server.
+- Azure endpoints are available and respond on HTTPS, with or without a proxy server.<!--Ask Shijo: HTTPS isn't supported on a proxy server. Does the Network Readiness Checker tool check proxy server connections?-->
 
 - The Windows Update server - either the customer-provided Windows Server Update services (WSUS) server or the public Windows Update server - is available and functioning.
 
@@ -53,7 +53,7 @@ For example, the report provides:
 
 - Detailed DNS response properties that the DNS server returned for each test
 
-- Detailed HTTPS response for each test of a URL<!--Verify: This, also, would be HTTPS?-->
+- Detailed HTTP response for each test of a URL<!--Verify: Should this also be HTTPS instead of HTTP? Does the tool check connections when a proxy server is in use?-->
 
 - Network route trace for each test
 
