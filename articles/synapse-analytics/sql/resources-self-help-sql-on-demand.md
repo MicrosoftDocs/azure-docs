@@ -244,7 +244,7 @@ FROM
 
 ### Cannot bulk load because the file could not be opened
 
-The error *Cannot bulk load because the file could not be opened* is returned if a file is modified during the query execution. Usually, you may get an error like:
+The error *Cannot bulk load because the file could not be opened* is returned if a file is modified during the query execution. Usually, you might get an error like:
 `Cannot bulk load because the file {file path} could not be opened. Operating system error code 12(The access code is invalid.).`
 
 The serverless sql pools cannot read files that are being modified while the query is running. The query cannot take a lock on the files. 
@@ -270,7 +270,7 @@ Id, first name,
 4,David
 five,Eva
 ```
-with the below 'query 1':
+with the following 'query 1':
 
 Query 1:
 ```sql 
@@ -329,7 +329,7 @@ Id, first name,
 five,Eva
 ```
 
-You may observe that the data has unexpected values for ID in the fifth row. 
+You might observe that the data has unexpected values for ID in the fifth row. 
 In such circumstances, it is important to align with the business owner of the data to agree on how corrupt data like this can be avoided. If prevention is not possible at application level, reasonable sized VARCHAR might be the only option here.
 
 > [!Tip]
@@ -338,7 +338,7 @@ In such circumstances, it is important to align with the business owner of the d
 ### The query result does not look expected. Resulting columns either empty or unexpected data is returned.
 
 If your query does not fail but you find that your resultset is not as expected, it is likely that row delimiter or field terminator have been chosen wrongly. 
-To resolve this problem, it is needed to have another look at the data and change those settings. As shown below, debugging this query is easy like in the upcoming example. 
+To resolve this problem, it is needed to have another look at the data and change those settings. As shown next, debugging this query is easy like in the upcoming example. 
 
 **Example**
 If you would like to query the file ‘names.csv’ with the query in 'Query 1', Azure Synapse SQL serverless will return with result that look odd. 
@@ -436,7 +436,7 @@ Best practice hint: Specify mapping only for columns that would otherwise resolv
 Avoiding VARCHAR when possible, leads to better performance in queries. 
 
 **Example**
-If you would like to query the file 'taxi-data.parquet' with this Query 1, Azure Synapse SQL serverless will return the below error.
+If you would like to query the file 'taxi-data.parquet' with this Query 1, Azure Synapse SQL serverless will return the following error.
 
 taxi-data.parquet:
 
@@ -666,7 +666,7 @@ There are some limitations and known issues that you might see in Delta Lake sup
   - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
 - Delta Lake tables created in the Apache Spark pools are not automatically available in serverless SQL pool. To query such Delta Lake tables using T-SQL language, run the [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) statement and specify Delta as format.
-- External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
+- External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds later in the article.
 - Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/d365community/idea/8fa91755-0925-ec11-b6e6-000d3a4f07b8). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
 - Serverless SQL pools in Azure Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
@@ -696,7 +696,7 @@ Now you can continue using Delta Lake folder with Spark pool. You will provide c
 
 ## Performance
 
-The serverless SQL pool assigns the resources to the queries based on the size of data set and query complexity. You cannot change or limit the resources that are provided to the queries. There are some cases where you might experience unexpected query performance degradations and you may have to identify the root causes.
+The serverless SQL pool assigns the resources to the queries based on the size of data set and query complexity. You cannot change or limit the resources that are provided to the queries. There are some cases where you might experience unexpected query performance degradations and you might have to identify the root causes.
 
 ### Query duration is very long
 
@@ -731,7 +731,7 @@ Serverless SQL pool enables you to connect using TDS protocol and use T-SQL lang
 
 ### SQL pool is warming up
 
-Following a longer period of inactivity Serverless SQL pool will be deactivated. The activation will happen automatically on the first next activity, such as the first connection attempt. Activation process may take a bit longer than a single connection attempt interval, thus the error message is displayed. Re-trying the connection attempt should be enough.  
+Following a longer period of inactivity Serverless SQL pool will be deactivated. The activation will happen automatically on the first next activity, such as the first connection attempt. Activation process might take a bit longer than a single connection attempt interval, thus the error message is displayed. Re-trying the connection attempt should be enough.  
 As a best practice, for the clients which support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behavior. 
 
 If the error message persists, file a support ticket through the Azure portal.
@@ -815,7 +815,7 @@ or just try to login on serverless SQL endpoint using the just set admin app.
 
 ## Constraints
 
-There are some general system constraints that may affect your workload:
+There are some general system constraints that might affect your workload:
 
 | Property | Limitation |
 |---|---|
