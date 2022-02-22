@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 2/24/2022
+ms.date: 2/23/2022
 ---
 
 # Sample queries for programmatic analytics
