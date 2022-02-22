@@ -39,6 +39,10 @@ For example, to see charts of your daily costs for a certain time frame:
 1. Select the drop-down caret in the date field and select a date range.
 1. Select the drop-down caret next to **Granularity** and select **Daily**.
 
+The costs shown in the following image are for example purposes only. They're not intended to reflect actual costs.
+
+![Screenshot showing a Cost Management + Billing Cost analysis screen.](media/billing-monitor-costs/cost-management.png)
+
 Microsoft Sentinel data ingestion volumes appear under **Security Insights** in some portal Usage Charts.
 
 The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
