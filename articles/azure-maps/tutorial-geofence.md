@@ -34,7 +34,7 @@ Azure Maps provides a number of services to support the tracking of equipment en
 
 ## Create an Azure Maps account with a global region
 
-The Geofence API async event requires the region property of your Azure Maps account be set to ***Global***. When creating an Azure Maps account in the Azure portal, this is not given as an option, however you do have several other options for creating a new Azure Maps account with the *global* region setting. This section lists the three methods that can be used to create and Azure Maps account with teh region set to global.
+The Geofence API async event requires the region property of your Azure Maps account be set to ***Global***. This isn't given as an option when creating an Azure Maps account in the Azure portal, however you do have several other options for creating a new Azure Maps account with the *global* region setting. This section lists the three methods that can be used to create an Azure Maps account with the region set to *global*.
 
 > [!NOTE]
 > The `location` property in both the ARM template and PowerShell `New-AzMapsAccount` command refer to the same property as the `Region` field in the Azure portal.
