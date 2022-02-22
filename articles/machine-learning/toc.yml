@@ -616,9 +616,6 @@
           href: how-to-deploy-inferencing-gpus.md
         - name: Azure Cognitive Search
           href: how-to-deploy-model-cognitive-search.md
-        - name: Azure Functions
-          displayName: functions app
-          href: how-to-deploy-functions.md
         - name: FPGA inference
           href: how-to-deploy-fpga-web-service.md
       - name: Prebuilt Docker images
@@ -661,9 +658,6 @@
       - name: Deploy designer models
         displayName: designer, studio
         href: how-to-deploy-model-designer.md
-      - name: No code deployment
-        displayName: no code
-        href: how-to-deploy-no-code-deployment.md
       - name: Package models
         displayName: docker file download
         href: how-to-deploy-package-models.md
