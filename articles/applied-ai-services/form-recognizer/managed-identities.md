@@ -27,10 +27,6 @@ Managed identities for Azure resources are service principals that create an Azu
 
 ## Private storage account access
 
-> [!NOTE]
->
-> Form Recognizer only supports system-assigned managed identities today. User-assigned managed identities is on the feature road map and will be enabled in the near future.
-
  Private Azure storage account access and authentication are supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account, protected by a Virtual Network (VNet) or firewall, Form Recognizer can't directly access your storage account data. However, once a managed identity is enabled, Form Recognizer can access your storage account using an assigned managed identity credential.
 
 > [!NOTE]
@@ -64,7 +60,11 @@ To get started, you'll need:
 
 ## Managed identity assignments
 
-There are two types of managed identity: **system-assigned** and **user-assigned**. Currently, Form Recognizer is supported by system-assigned managed identity. A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you have to go to your resource and update the identity setting. The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
+There are two types of managed identity: **system-assigned** and **user-assigned**. Currently, Form Recognizer supports system-assigned managed identity:
+
+* A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting.
+
+* The system-assigned managed identity is tied to your resource throughout its lifecycle. If you delete your resource, the managed identity will be deleted as well.
 
 In the following steps, we'll enable a system-assigned managed identity and grant Form Recognizer limited access to your Azure blob storage account.
 

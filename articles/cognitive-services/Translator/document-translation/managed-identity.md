@@ -54,7 +54,7 @@ To get started, you'll need:
 
 ## Managed identity assignments
 
-There are two types of managed identities: **system-assigned** and **user-assigned**.  Currently, Document Translation is supports system-assigned managed identities:
+There are two types of managed identities: **system-assigned** and **user-assigned**.  Currently, Document Translation supports system-assigned managed identities:
 
 * A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting. 
 
