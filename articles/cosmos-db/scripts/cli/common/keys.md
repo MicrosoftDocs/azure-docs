@@ -12,12 +12,14 @@ ms.date: 02/21/2022
 
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
-The script in this article demonstrates four operations. It uses a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB.
+The script in this article demonstrates four operations.
 
 - List all account keys
 - List read only account keys
 - List connection strings
 - Regenerate account keys
+
+ This script uses a SQL (Core) API account, but these operations are identical across all database APIs in Cosmos DB.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 

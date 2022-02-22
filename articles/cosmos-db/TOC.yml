@@ -225,9 +225,9 @@
             href: sql/cli-samples.md
           - name: Common API samples
             items:
-            - name: Add or failover regions
+            - name: Add or fail over regions
               href: scripts/cli/common/regions.md
-            - name: Account keys and connection strings
+            - name: Perform account key operations
               href: scripts/cli/common/keys.md
             - name: Secure with IP firewall
               href: scripts/cli/common/ipfirewall.md
@@ -1054,9 +1054,9 @@
             href: cassandra/cli-samples.md
           - name: Common API samples
             items:
-            - name: Add or failover regions
+            - name: Add or fail over regions
               href: scripts/cli/common/regions.md
-            - name: Account keys and connection strings
+            - name: Perform account key operations
               href: scripts/cli/common/keys.md
             - name: Secure with IP firewall
               href: scripts/cli/common/ipfirewall.md
@@ -1231,9 +1231,9 @@
             href: mongodb/cli-samples.md
           - name: Common API samples
             items:
-            - name: Add or failover regions
+            - name: Add or fail over regions
               href: scripts/cli/common/regions.md
-            - name: Account keys and connection strings
+            - name: Perform account key operations
               href: scripts/cli/common/keys.md
             - name: Secure with IP firewall
               href: scripts/cli/common/ipfirewall.md
@@ -1384,9 +1384,9 @@
             href: graph/cli-samples.md
           - name: Common API samples
             items:
-            - name: Add or failover regions
+            - name: Add or fail over regions
               href: scripts/cli/common/regions.md
-            - name: Account keys and connection strings
+            - name: Perform account key operations
               href: scripts/cli/common/keys.md
             - name: Secure with IP firewall
               href: scripts/cli/common/ipfirewall.md
@@ -1521,9 +1521,9 @@
             href: table/cli-samples.md
           - name: Common API samples
             items:
-            - name: Add or failover regions
+            - name: Add or fail over regions
               href: scripts/cli/common/regions.md
-            - name: Account keys and connection strings
+            - name: Perform account key operations
               href: scripts/cli/common/keys.md
             - name: Secure with IP firewall
               href: scripts/cli/common/ipfirewall.md

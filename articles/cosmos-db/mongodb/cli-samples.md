@@ -24,8 +24,8 @@ These samples apply to all Azure Cosmos DB APIs
 
 |Task | Description |
 |---|---|
-| [Add or failover regions](../scripts/cli/common/regions.md) | Add a region, change failover priority, trigger a manual failover.|
-| [Account keys and connection strings](../scripts/cli/common/keys.md) | List account keys, read-only keys, regenerate keys and list connection strings.|
+| [Add or fail over regions](../scripts/cli/common/regions.md) | Add a region, change failover priority, trigger a manual failover.|
+| [Perform account key operations](../scripts/cli/common/keys.md) | List account keys, read-only keys, regenerate keys and list connection strings.|
 | [Secure with IP firewall](../scripts/cli/common/ipfirewall.md)| Create a Cosmos account with IP firewall configured.|
 | [Secure new account with service endpoints](../scripts/cli/common/service-endpoints.md)| Create a Cosmos account and secure with service-endpoints.|
 | [Secure existing account with service endpoints](../scripts/cli/common/service-endpoints-ignore-missing-vnet.md)| Update a Cosmos account to secure with service-endpoints when the subnet is eventually configured.|
