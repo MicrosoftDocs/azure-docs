@@ -30,6 +30,9 @@ This article explains how to import or export an Azure SQL Database using [Priva
 > [!NOTE]
 > Import Export using Private Link for Azure SQL Database is currently in preview
 
+> [!IMPORTANT]
+> Import or Export of a database using Private Link from [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) or from a database in the [Hyperscale service tier](service-tier-hyperscale.md) using PowerShell isn't currently supported.
+
 ---
 
 ## Configure Import-Export Private Link
@@ -38,7 +41,7 @@ Import-Export Private Link can be configured via Azure portal, PowerShell or usi
 ### Configure Import-Export Private link using Azure portal
 
 #### Create Import Private Link
-1.  Go to server into which you would like to import database. select Import database from toolbar in Overview page.
+1.  Go to server into which you would like to import database. Select Import database from toolbar in Overview page.
 2.  In Import Database page, select Use Private Link option
 ![Import Private Link](./media/database-import-export-private-link/import-database-private-link.png)
 3.  Enter the storage account, server credentials, Database details and select on Ok
@@ -51,11 +54,16 @@ Import-Export Private Link can be configured via Azure portal, PowerShell or usi
 
 #### Approve Private End Points
 
+##### Approve Private Endpoints in Private Link Center
+1.  Go to Private Link Center
+2.  Navigate to Private endpoints section
+3.  Approve the private endpoints you created using Import/Export service
+
 ##### Approve Private End Point connection on Azure SQL Database
-1.	Go to the server that hosts the database.
-2.	Open the ‘Private endpoint connections’ page in security section on the left.
-3.	Select the private endpoint you want to approve.
-4.	Select Approve to approve the connection. 
+1.  Go to the server that hosts the database.
+2.  Open the ‘Private endpoint connections’ page in security section on the left.
+3.  Select the private endpoint you want to approve.
+4.  Select Approve to approve the connection. 
 
 ![Approve Azure SQL Database Private Link](./media/database-import-export-private-link/approve-private-link.png)      
 
@@ -95,8 +103,6 @@ $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>
 ```
 
 #### Export a Database using Private Link in PowerShell
-Export of a database using Private Link from [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) or from a database in the [Hyperscale service tier](service-tier-hyperscale.md) using PowerShell isn't currently supported.
-
 Use the [New-AzSqlDatabaseExport](/powershell/module/az.sql/new-azsqldatabaseexport) cmdlet to submit an export database request to the Azure SQL Database service. Depending on the size of your database, the export operation may take some time to complete.
 
 ```powershell
