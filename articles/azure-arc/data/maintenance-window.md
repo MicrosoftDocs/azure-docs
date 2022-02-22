@@ -1,5 +1,5 @@
 ---
-title: Maintenance Windows
+title: Maintenance window - Azure Arc-enabled data services
 description: Article describes how to set a maintenance window
 services: azure-arc
 ms.service: azure-arc
@@ -11,7 +11,7 @@ ms.date: 02/24/2022
 ms.topic: how-to
 ---
 
-# Maintenance Window
+# Maintenance window
 
 A maintenance window can be configured on a data controller to define a time period in which upgrades will take place. In this time period, the Arc-enabled SQL Managed Instances on that data controller which have the "desiredVersion" property set to "auto" will be upgraded.
 
