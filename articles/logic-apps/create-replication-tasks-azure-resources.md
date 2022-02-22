@@ -118,7 +118,8 @@ For Service Bus, you must enable sessions so that message sequences with the sam
 > When a message arrives, check the message's state and process only when the message is unprocessed. 
 > That way, no processing happens for an already processed message. 
 >
-> This pattern demonstrates *idempotency* where repeating an action on an input doesn't change that input's value or always produces the same result. 
+> This pattern demonstrates the *idempotence* concept where repeating an action on an input produces 
+> the same result without other side effects or won't change the input's value. 
 
 To learn more about multi-site and multi-region federation for Azure services where you can create replication tasks, review the following documentation:
 
