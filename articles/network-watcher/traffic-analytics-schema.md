@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure traffic analytics schema | Microsoft Docs
 description: Understand schema of Traffic Analytics to analyze Azure network security group flow logs.
 author: vinynigam
@@ -31,11 +31,13 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 6. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but in Log Analytics user will see only the single, reduced record. To see all the flows, use the blob_id field,  which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
 
 The below query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
+
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
 | project Subnet1_s, Subnet2_s  
 ```
+
 To view the blob path for the flows in the above mentioned query, use the query below:
 
 ```
@@ -68,7 +70,7 @@ TableWithBlobId
 | project Subnet_s , BlobPath
 ```
 
-The above query constructs a URL to access the blob directly. The URL with place-holders is below:
+The above query constructs a URL to access the blob directly. The URL with placeholders is below:
 
 ```
 https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
@@ -76,12 +78,16 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 ```
 
 ### Fields used in Traffic Analytics schema
-  > [!IMPORTANT]
-  > The Traffic Analytics Schema has been updated on 22nd August, 2019. The new schema provides source and destination IPs separately removing need to parse FlowDirection field making queries simpler. </br>
-  > FASchemaVersion_s updated from 1 to 2. </br>
-  > Deprecated fields: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d </br>
-  > New fields: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s </br>
-  > Deprecated fields will be available until 22nd November, 2019.
+
+> [!IMPORTANT]
+> The Traffic Analytics schema was updated August 22, 2019. The new schema provides source and destination IPs separately, removing need to parse the FlowDirection field so that queries are simpler. These changes were made:
+> 
+> - FASchemaVersion_s updated from 1 to 2.
+> - Deprecated fields: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d
+> - New fields: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s
+> 
+> Deprecated fields are available until November 2022.
+> 
 
 Traffic Analytics is built on top of Log Analytics, so you can run custom queries on data decorated by Traffic Analytics and set alerts on the same.
 

@@ -1,7 +1,6 @@
 ---
 title: Designing tables
 description: Introduction to designing tables using dedicated SQL pool. 
-services: synapse-analytics
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual

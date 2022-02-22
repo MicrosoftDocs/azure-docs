@@ -5,10 +5,9 @@ metadata:
   services: dns
   author: rohinkoul
   ms.service: dns
-  ms.topic: article
+  ms.topic: faq
   ms.date: 01/15/2021
   ms.author: rohink
-    
 title: Azure Private DNS FAQ
 summary: The following are frequently asked questions about Azure private DNS.
 

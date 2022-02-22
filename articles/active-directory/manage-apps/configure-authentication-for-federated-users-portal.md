@@ -3,14 +3,14 @@ title: Configure sign-in auto-acceleration using Home Realm Discovery
 titleSuffix: Azure AD
 description: Learn how to force federated IdP acceleration for an application using Home Realm Discovery policy.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/09/2022
-ms.author: hirsin
+ms.author: ludwignick
 ms.custom: seoapril2019, contperf-fy22q2
 ms.collection: M365-identity-device-management
 zone_pivot_groups: home-realm-discovery

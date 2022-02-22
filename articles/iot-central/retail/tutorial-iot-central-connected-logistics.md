@@ -24,23 +24,15 @@ The benefits of a connected logistics solution include:
 - Geo-fencing, route optimization, fleet management, and vehicle analytics.
 - Forecasting for predictable departure and arrival of shipments.
 
-Use the application template and guidance in this article to develop an end-to-end *connected logistics solution*.
-
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-architecture.png" alt-text="Connected logistics dashboard." border="false":::
 
-1. IoT tags send telemetry data to a gateway device.
-2. Gateway devices send telemetry and aggregated insights to IoT Central.
-3. IoT Central routes data to an Azure service for manipulation.
-4. Services such as Azure Stream Analytics or Azure Functions can reformat data streams and send the data to storage accounts.
-5. End-user business applications can power business workflows.
+*IoT tags (1)* provide physical, ambient, and environmental sensor capabilities such as temperature, humidity, shock, tilt, and light. IoT tags typically connect to gateway device through Zigbee (802.15.4). Tags are less expensive sensors and can be discarded at the end of a typical logistics journey to avoid challenges with reverse logistics.
 
-*IoT tags* provide physical, ambient, and environmental sensor capabilities such as temperature, humidity, shock, tilt, and light. IoT tags typically connect to gateway device through Zigbee (802.15.4). Tags are less expensive sensors and can be discarded at the end of a typical logistics journey to avoid challenges with reverse logistics.
-
-*Gateways* enable upstream Azure IoT cloud connectivity using cellular or Wi-Fi channels.  Bluetooth, NFC, and 802.15.4 Wireless Sensor Network modes are used for downstream communication with IoT tags. Gateways provide end-to-end secure cloud connectivity, IoT tag pairing, sensor data aggregation, data retention, and the ability to configure alarm thresholds.
+*Gateways (2)* enable upstream Azure IoT cloud connectivity using cellular or Wi-Fi channels.  Bluetooth, NFC, and 802.15.4 Wireless Sensor Network modes are used for downstream communication with IoT tags. Gateways provide end-to-end secure cloud connectivity, IoT tag pairing, sensor data aggregation, data retention, and the ability to configure alarm thresholds.
 
 Azure IoT Central is a solution development platform that simplifies IoT device connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. You can build end-to-end enterprise solutions to achieve a digital feedback loop in logistics.
 
-The IoT Central platform provides rich extensibility options through data export and APIs. Business insights based on telemetry data processing or raw telemetry are typically exported to a preferred line-of-business application.
+The IoT Central platform provides rich extensibility options through _data export and APIs (3)_. Business insights based on telemetry data processing or raw telemetry are typically exported to a preferred _line-of-business application (4,5)_.
 
 This tutorial shows you how to get started with the IoT Central *connected logistics* application template. You'll learn how to deploy and use the template.
 
@@ -77,7 +69,7 @@ Create the application using following steps:
     * **Billing Info**: The directory, Azure subscription, and region details are required to provision the resources.
     * **Create**: Select create at the bottom of the page to deploy your application.
 
-    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Connected logistics app template":::
+    :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png" alt-text="Connected logistics application template":::
 
     :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png" alt-text="Connected logistics billing info":::
 
@@ -149,4 +141,4 @@ If you're not going to continue to use this application, delete the application 
 Learn more about :
 
 > [!div class="nextstepaction"]
-> [Connected logistics concepts](./architecture-connected-logistics.md)
+> [IoT Central data integration](../core/overview-iot-central-solution-builder.md)
