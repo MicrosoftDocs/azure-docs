@@ -59,7 +59,7 @@ To connect a device to to your IoT Central application, you need some connection
 
 To register your device:
 
-1. In IoT Central, navigate to the **Devices** page and select **Create a device**:
+1. In IoT Central, navigate to the **Devices** page and select **Add a device**:
 
     :::image type="content" source="media/quick-deploy-iot-central/create-device.png" alt-text="Screenshot that shows create a device in IoT Central.":::
 

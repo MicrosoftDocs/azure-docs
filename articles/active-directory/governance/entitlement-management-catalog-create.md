@@ -165,7 +165,25 @@ To require attributes for access requests:
 
 ### Add a resource to a catalog programmatically
 
-You can also add a resource to a catalog by using Microsoft Graph. A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/entitlementmanagement-post-accesspackageresourcerequests?view=graph-rest-beta&preserve-view=true). An application with application permissions can't yet programmatically add a resource without a user context at the time of the request, however.
+You can also add a resource to a catalog by using Microsoft Graph. A user in an appropriate role, or a catalog and resource owner, with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [create an accessPackageResourceRequest](/graph/api/entitlementmanagement-post-accesspackageresourcerequests?view=graph-rest-beta&preserve-view=true). An application with the application permission `EntitlementManagement.ReadWrite.All` and permissions to change resources, such as `Group.ReadWrite.All`, can also add resources to the catalog.
+
+### Add a resource to a catalog with PowerShell
+
+You can also add a resource to a catalog in PowerShell with the `New-MgEntitlementManagementAccessPackageResourceRequest` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.  The following example shows how to add a group to a catalog as a resource.
+
+```powershell
+Connect-MgGraph -Scopes "EntitlementManagement.ReadWrite.All,Group.ReadWrite.All"
+Select-MgProfile -Name "beta"
+$g = Get-MgGroup -Filter "displayName eq 'Marketing'"
+Import-Module Microsoft.Graph.Identity.Governance
+$catalog = Get-MgEntitlementManagementAccessPackageCatalog -Filter "displayName eq 'Marketing'"
+$nr = New-Object Microsoft.Graph.PowerShell.Models.MicrosoftGraphAccessPackageResource
+$nr.OriginId = $g.Id
+$nr.OriginSystem = "AadGroup"
+$rr = New-MgEntitlementManagementAccessPackageResourceRequest -CatalogId $catalog.Id -AccessPackageResource $nr
+$ar = Get-MgEntitlementManagementAccessPackageCatalog -AccessPackageCatalogId $catalog.Id -ExpandProperty accessPackageResources
+$ar.AccessPackageResources
+```
 
 ## Remove resources from a catalog
 

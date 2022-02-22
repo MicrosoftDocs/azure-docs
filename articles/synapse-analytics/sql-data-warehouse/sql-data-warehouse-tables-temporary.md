@@ -1,7 +1,6 @@
 ---
 title: Temporary tables
 description: Essential guidance for using temporary tables in dedicated SQL pool, highlighting the principles of session level temporary tables. 
-services: synapse-analytics
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
