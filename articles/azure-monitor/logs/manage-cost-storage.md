@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 02/18/2022
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
 ---
@@ -45,9 +45,11 @@ Billing for the commitment tiers is done on a daily basis. [Learn more](https://
 > [!NOTE]
 > Starting June 2, 2021, **Capacity Reservations** are now called **Commitment Tiers**. Data collected above your commitment tier level (overage) is now billed at the same price-per-GB as the current commitment tier level, lowering costs compared to the old method of billing at the Pay-As-You-Go rate, and reducing the need for users with large data volumes to fine-tune their commitment level. Three new commitment tiers were also added: 1000, 2000, and 5000 GB/day. 
 
+### Data size calculation
+
 <a name="data-size"></a>
 <a name="free-data-types"></a>
-In all pricing tiers, an event's data size is calculated from a string representation of the properties that are stored in Log Analytics for this event, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage) and [Operation](/azure/azure-monitor/reference/tables/operation) types. Some solutions have more solution-specific policies about free data ingestion, for instance [Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/) makes dependency visualization data free for the first 180-days of a Server Assessment. To determine whether an event was excluded from billing for data ingestion, you can use the [_IsBillable](log-standard-columns.md#_isbillable) property as shown [below]Fdata-volume-for-specific-events). Usage is reported in GB (10^9 bytes). 
+In all pricing tiers, an event's data size is calculated from a string representation of the properties that are stored in Log Analytics for this event, regardless of whether the data is sent from an agent or added during the ingestion process. This includes any [custom fields](custom-fields.md) that are added as data is collected and then stored in Log Analytics. Several properties common to all data types, including some [Log Analytics Standard Properties](./log-standard-columns.md), are excluded in the calculation of the event size. This includes `_ResourceId`, `_SubscriptionId`, `_ItemId`, `_IsBillable`, `_BilledSize` and `Type`. All other properties stored in Log Analytics are included in the calculation of the event size. Some data types are free from data ingestion charges altogether, for example the [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity), [Heartbeat](/azure/azure-monitor/reference/tables/heartbeat), [Usage](/azure/azure-monitor/reference/tables/usage) and [Operation](/azure/azure-monitor/reference/tables/operation) types. Some solutions have more solution-specific policies about free data ingestion, for instance [Azure Migrate](https://azure.microsoft.com/pricing/details/azure-migrate/) makes dependency visualization data free for the first 180-days of a Server Assessment. To determine whether an event was excluded from billing for data ingestion, you can use the [_IsBillable](log-standard-columns.md#_isbillable) property as shown [below](#data-volume-for-specific-events). Usage is reported in GB (10^9 bytes). 
 
 Also, some solutions, such as [Microsoft Defender for Cloud](https://azure.microsoft.com/pricing/details/azure-defender/), [Microsoft Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), and [Configuration management](https://azure.microsoft.com/pricing/details/automation/) have their own pricing models. 
 
