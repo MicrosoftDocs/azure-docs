@@ -1,6 +1,6 @@
 ---
 title: Connect an ESPRESSIF ESP-32 to Azure IoT Central quickstart
-description: Use Azure FreeRTOS device middleware to connect an ESPRESSIF ESP32-Azure IoT Kit device to Azure IoT and send telemetry.
+description: Use Azure IoT middleware for FreeRTOS to connect an ESPRESSIF ESP32-Azure IoT Kit device to Azure IoT and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -16,7 +16,7 @@ ms.custom: mode-other
 **Applies to**: [Embedded device development](about-iot-develop.md#embedded-device-development)<br>
 **Total completion time**:  30 minutes
 
-In this quickstart, you use the Azure FreeRTOS middleware to connect the ESPRESSIF ESP32-Azure IoT Kit (from now on, the ESP32 DevKit) to Azure IoT.
+In this quickstart, you use the Azure IoT middleware for FreeRTOS to connect the ESPRESSIF ESP32-Azure IoT Kit (from now on, the ESP32 DevKit) to Azure IoT.
 
 You'll complete the following tasks:
 
@@ -225,12 +225,12 @@ To remove the entire Azure IoT Central sample application and all its devices an
 
 ## Next Steps
 
-In this quickstart, you built a custom image that contains the Azure FreeRTOS middleware sample code, and then you flashed the image to the ESP32 DevKit device. You also used the IoT Central portal to create Azure resources, connect the ESP32 DevKit securely to Azure, view telemetry, and send messages.
+In this quickstart, you built a custom image that contains the Azure IoT middleware for FreeRTOS sample code, and then you flashed the image to the ESP32 DevKit device. You also used the IoT Central portal to create Azure resources, connect the ESP32 DevKit securely to Azure, view telemetry, and send messages.
 
 As a next step, explore the following articles to learn more about working with embedded devices and connecting them to Azure IoT. 
 
 > [!div class="nextstepaction"]
-> [Azure FreeRTOS middleware samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples)
+> [Azure IoT middleware for FreeRTOS samples](https://github.com/Azure-Samples/iot-middleware-freertos-samples)
 > [!div class="nextstepaction"]
 > [Azure RTOS embedded development quickstarts](quickstart-devkit-mxchip-az3166.md)
 > [!div class="nextstepaction"]
