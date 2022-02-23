@@ -27,11 +27,11 @@ Centralize the events and the performance counter data to your Log Analytics wor
 
 ### Instrumenting on-premises virtual machines
 
-The article [Install Log Analytics agent on Windows computers](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows) describes how to install the client on a virtual machine typically hosted on-premises. This can be either a physical server or a virtual machine hosted on a customer managed hypervisor. As mentioned in the prerequisite section, when installing the Log Analytics agent, you will have to provide the Log Analytics workspace ID and Workspace Key to finalize the connection.
+The article [Install Log Analytics agent on Windows computers](../azure-monitor/agents/agent-windows.md) describes how to install the client on a virtual machine typically hosted on-premises. This can be either a physical server or a virtual machine hosted on a customer managed hypervisor. As mentioned in the prerequisite section, when installing the Log Analytics agent, you will have to provide the Log Analytics workspace ID and Workspace Key to finalize the connection.
 
 ### Instrumenting Azure virtual machines
 
-The recommended approach to instrument an Azure virtual machine based SHIR is to use virtual machine insights as described in the article [Enable VM insights overview](https://docs.microsoft.com/azure/azure-monitor/vm/vminsights-enable-overview).  Note that there are multiple ways to configure the Log Analytics agent when the SHIR is hosted in an Azure virtual machine. All the options are described in the article [Log Analytics agent overview](https://docs.microsoft.com/azure/azure-monitor/agents/log-analytics-agent#installation-options).
+The recommended approach to instrument an Azure virtual machine based SHIR is to use virtual machine insights as described in the article [Enable VM insights overview](../azure-monitor/vm/vminsights-enable-overview.md).  Note that there are multiple ways to configure the Log Analytics agent when the SHIR is hosted in an Azure virtual machine. All the options are described in the article [Log Analytics agent overview](../azure-monitor/agents/log-analytics-agent#installation-options.md).
 
 ## Configuring event log and performance counter capture
 
@@ -39,7 +39,7 @@ This step will highlight how to configure both Event viewer logs and performance
 
 ### Selecting event viewer journals
 
-First you must collect event viewer journals relevant to the SHIR as described in the article [Collect Windows event log data sources with Log Analytics agent in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources-windows-events).
+First you must collect event viewer journals relevant to the SHIR as described in the article [Collect Windows event log data sources with Log Analytics agent in Azure Monitor](../azure-monitor/agents/data-sources-windows-events.md).
 
 It's important to note that when choosing the event logs using the interface, it is normal that you will not see all journals that can possibly exist on a machine. Consequently, the two journals that we need for SHIR monitoring will not show up in this list. If you type the journal name exactly as it appears on the local virtual machine, it will be captured and sent to your Log analytics workspace.
 
@@ -63,7 +63,7 @@ In the interface, when first configuring it, a suggested counter set will be rec
 
 ## Viewing Events and Performance counter data in Log Analytics
 
-Please consult this tutorial on [How to query data in Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial).
+Please consult this tutorial on [How to query data in Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 The two tables where the telemetry is saved are called Perf and Event respectively. The following query will check the row count to see if we have data flowing in. This would confirm if the instrumentation described above is working.
 
 ### Sample KQL queries
