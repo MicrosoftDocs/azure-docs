@@ -34,7 +34,7 @@ File access logs supports SMB, NFSv4.1, and dual protocols.
 
 File access logs captures different file and directory events depending on the protocol used. 
 
-| **NFS** | **SMB events** |
+| **NFS** | **SMB** |
 | :--- | :--- |
 Close | Create
 Create | Delete
