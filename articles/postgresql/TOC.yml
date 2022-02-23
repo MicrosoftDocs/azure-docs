@@ -632,7 +632,7 @@
           displayName: hyperscale, tutorial, real-time
       - name: Administer
         items:
-        - name: Private access
+        - name: Set up private access
           href: hyperscale/tutorial-private-access.md
           displayName: hyperscale, tutorial, private
   - name: Concepts
@@ -673,7 +673,7 @@
       href: hyperscale/concepts-connection-pool.md
     - name: Monitor and tune
       items:
-      - name: Monitor and tune
+      - name: Monitoring
         href: hyperscale/concepts-monitoring.md
       - name: Audit logs
         href: hyperscale/concepts-audit.md
@@ -719,10 +719,8 @@
     - name: Manage read replicas
       href: hyperscale/howto-read-replicas-portal.md
       displayName: replication, read replica
-    - name: Scheduled maintenance
-      items:
-      - name: Azure portal
-        href: hyperscale/howto-maintenance.md
+    - name: Schedule maintenance
+      href: hyperscale/howto-maintenance.md
     - name: Restart server group
       href: hyperscale/howto-restart.md
     - name: Monitor
@@ -736,10 +734,8 @@
         href: hyperscale/howto-logging.md
         displayName: log, hyperscale
     - name: Restore server group
-      items:
-      - name: Azure portal
-        href: hyperscale/howto-restore-portal.md
-    - name: Major version upgrades
+      href: hyperscale/howto-restore-portal.md
+    - name: Upgrade server group
       href: hyperscale/howto-upgrade.md
     - name: Troubleshoot
       items:
@@ -761,7 +757,7 @@
         items:
         - name: Overview
           href: hyperscale/reference-overview.md
-        - name: SQL API functions
+        - name: SQL functions
           href: hyperscale/reference-functions.md
         - name: Server parameters
           href: hyperscale/reference-parameters.md
