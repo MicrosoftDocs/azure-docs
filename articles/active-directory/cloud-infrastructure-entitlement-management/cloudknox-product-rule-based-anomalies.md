@@ -29,28 +29,29 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 
       - **Alert name**: Lists the name of the alert.
     
-         - To view the specific identity, resource, and task names that occurred during the alert collection period, select the **Alert Name**.
+      - To view the specific identity, resource, and task names that occurred during the alert collection period, select the **Alert Name**.
 
       - **Anomaly alert rule**: Displays the name of the rule select when creating the alert.
       - **# of occurrences**: How many times the alert trigger has occurred.
-      - **Task**: How many tasks are affected by the alert.
-      - **Resources**: How many resources are affected by the alert.
-      - **Identity**: How many identities are affected by the alert.
+      - **Task**: How many tasks performed are triggered by the alert.
+      - **Resources**: How many resources accessed are triggered by the alert.
+      - **Identity**: How many identities performing unusual behavior are triggered by the alert.
       - **Authorization system**: Displays which authorization systems the alert applies to, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**). 
       - **Date/Time**: Lists the date and time of the alert.
       - **Date/Time (UTC)**: Lists the date and time of the alert in Coordinated Universal Time (UTC).
-      - **View trigger**: Displays the current trigger settings and applicable authorization system details.
-      - **Activity**: Displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date**, and **IP Address**.
+      
 
 1. To filter alerts:
 
     - From the **Alert Name** dropdown, select **All** or the appropriate alert name.  
     - From the **Date** dropdown menu, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**, and select **Apply**.
 
-        - If you select **Custom Range**, also enter **From** and **To** duration settings.
+     - If you select **Custom Range**, also enter **From** and **To** duration settings.
 1. To view details that match the alert criteria, select the ellipses (**...**). 
 
-    For example, **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities**.
+     - **View Trigger**: Displays the current trigger settings and applicable authorization system details
+     - **Details**: Displays details about **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, **Identities**, and **Activity**
+     - **Activity**: Displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date/Time**, **Inactive For**, and **IP Address**. Selecting the "eye" icon displays the **Raw Events Summary**
 
 ## Create a rule-based anomaly trigger
 
@@ -63,11 +64,11 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 1. Select one of the following conditions:
       - **Any Resource Accessed for the First Time**: The identity accesses a resource for the first time during the specified time interval.
       - **Identity Performs a Particular Task for the First Time**: The identity does a specific task for the first time during the specified time interval.
-      - **Inactive Identity Becomes Active**: An identity that hasn't been active for 90 days becomes active and does any task in the selected time interval.
+       - **Identity Performs a Task for the First Time**: The identity performs any task for the first time during the specified time interval
 1. Select **Next**.
-1. On the **Authorization systems** tab, select the available authorization systems accounts and folders, or select **All**. 
+1. On the **Authorization Systems** tab, select the available authorization systems and folders, or select **All**. 
 
-    This screen defaults to **List** view, but you can change it to **Folder** view. You can select the applicable folder instead of individually by system. 
+    This screen defaults to **List** view, but you can change it to **Folders** view. You can select the applicable folder instead of individually selecting by authorization system. 
 
       - The **Status** column displays if the authorization system is online or offline. 
       - The **Controller** column displays if the controller is enabled or disabled.
@@ -82,14 +83,13 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
  
     The **Alert triggers** subtab displays the following information:
 
-      - **Alert**: Displays the name of the alert.
+      - **Alerts**: Displays the name of the alert.
       - **Anomaly Alert Rule**: Displays the name of the selected rule when creating the alert.
       - **# of users subscribed**: Displays the number of users subscribed to the alert.
       - **Created by**: Displays the email address of the user who created the alert.
-      - **Last modified by**: Displays the email address of the user who last modified the alert.
-      - **Last modified on**: Displays the date and time the trigger was last modified.
-      - **Subscription**: Switches between **On** and **Off**.
-      - **View Trigger**: Displays the current trigger settings and applicable authorization system details.
+      - **Last Modified By**: Displays the email address of the user who last modified the alert.
+      - **Last Modified On**: Displays the date and time the trigger was last modified.
+      - **Subscription**: Subscribes you to receive alert emails. Switches between **On** and **Off**. 
 
 1. To view other options available to you, select the ellipses (**...**), and then select from the available options:
 
@@ -99,16 +99,16 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
 
        Only the user who created the alert can edit the trigger screen, rename an alert, deactivate an alert, and delete an alert. Changes made by other users aren't saved.
 
-    - **Duplicate**: Create a duplicate of the alert called "**Copy of XXX**".
+    - **Duplicate**: Create a duplicate copy of the selected alert trigger.
     - **Rename**: Enter the new name of the query, and then select **Save.**
     - **Deactivate**: The alert will still be listed, but will no longer send emails to subscribed users.
     - **Activate**: Activate the alert trigger and start sending emails to subscribed users.
-    - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger and their **User status**. 
+    - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger. 
     - **Delete**: Delete the alert.
 
     If the **Subscription** is **Off**, the following options are available:
     - **View**: View  details of the alert trigger.
-    - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger and their **User status**. 
+    - **Notification settings**: View the **Email** of users who are subscribed to the alert trigger.
     - **Duplicate**: Create a duplicate copy of the selected alert trigger.
 
 1. To filter by **Activated** or **Deactivated**, in the **Status** section, select **All**, **Activated**, or **Deactivated**, and then select **Apply**.

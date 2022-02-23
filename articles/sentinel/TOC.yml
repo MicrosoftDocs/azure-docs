@@ -35,6 +35,14 @@
   items:
   - name: Microsoft Sentinel prerequisites
     href: prerequisites.md
+  - name: Costs and billing
+    items:
+    - name: Plan costs
+      href: billing.md
+    - name: Monitor costs
+      href: billing-monitor-costs.md
+    - name: Reduce costs
+      href: billing-reduce-costs.md
   - name: Best practices
     items:
     - name: Overview
@@ -49,8 +57,6 @@
     items:
     - name: Roles and permissions
       href: roles.md
-    - name: Costs and billing
-      href: billing.md
     - name: Extend Microsoft Sentinel across workspaces and tenants
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Security baseline
