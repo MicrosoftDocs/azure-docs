@@ -1,6 +1,6 @@
 ---
-title: Secure an app in Azure Container Apps Preview
-description: Learn to secure applications in Azure Container Apps.
+title: Manage secrets in Azure Container Apps Preview
+description: Learn to store and consume sensitive configuration values in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
 
-# Secure an app in Azure Container Apps Preview
+# Manage secrets in Azure Container Apps Preview
 
 Azure Container Apps allows your application to securely store sensitive configuration values. Once defined at the application level, secured values are available to containers, inside scale rules, and via Dapr.
 
@@ -24,7 +24,7 @@ When a secret is updated or deleted, you can respond to changes in one of two wa
  1. Deploy a new revision.
  2. Restart an existing revision.
 
-An updated or removed secret does not automatically re-start a revision.
+An updated or removed secret does not automatically restart a revision.
 
 - Before you delete a secret, deploy a new revision that no longer references the old secret.
 - If you change a secret value, you need to restart the revision to consume the new value.
