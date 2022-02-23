@@ -33,7 +33,7 @@ Maximum message sizes differ for different types of operations. To learn more, s
 | --------- | ------------------- |
 | Identity registry operations <br/> (create, retrieve, list, update, delete, bulk update, statistics) | Not charged. **REVIEWER IS [BULK UPDATE REGISTRY](https://docs.microsoft.com/rest/api/iothub/service/bulk-registry/update-registry) NOT CHARGED?** |
 | Device-to-cloud messages | Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 100-byte message is charged as one message, and a 6-KB message is charged as two messages. <br/><br/> [Send Device Event](/rest/api/iothub/device/send-device-event), *Device to Cloud Telemetry*, *Device to Cloud Telemetry Routing* |
-| Cloud-to-device messages | Successfully sent messages are charged in 4-KB chunks. For example, a 6-KB message is charged 2 messages. <br/><br/> [Receive Device Bound Notification](/rest/api/iothub/device/receive-device-bound-notification), *Cloud To Device Command* |
+| Cloud-to-device messages | Successfully sent messages are charged in 4-KB chunks. For example, a 6-KB message is charged as 2 messages. <br/><br/> [Receive Device Bound Notification](/rest/api/iothub/device/receive-device-bound-notification), *Cloud To Device Command* |
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4-KB increments. For example, transferring a 10-MB file is charged as two messages in addition to the Azure Storage cost. <br/><br/> [Create File Upload Sas Uri](/rest/api/iothub/device/create-file-upload-sas-uri), *Device To Cloud File Upload* <br/> [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status), *Device To Cloud File Upload* |
 | Direct methods | Successful method requests are charged in 4-KB chunks, and responses are charged in 4-KB chunks as additional messages. Requests to disconnected devices are charged as messages in 4-KB chunks. For example, a method with a 4-KB body that results in a response with no body from the device is charged as two messages. A method with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the request plus another message for the response. <br/><br/> [Device - Invoke Method](/rest/api/iothub/service/devices/invoke-method), *Device Direct Invoke Method*, <br/> [Module - Invoke Method](/rest/api/iothub/service/modules/invoke-method), *Module Direct Invoke Method* |
 | Device and module twin reads | Twin reads from the device or module and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 8-KB twin is charged as 2 messages.   <br/><br/> [Get Twin](/rest/api/iothub/service/devices/get-twin), *Get Twin*  <br/> [Get Module Twin](/rest/api/iothub/service/modules/get-twin), *Get Module Twin* <br/><br/> Read device and module twins from a device: <br/> **Endpoint**: `/devices/{id}/twin` ([MQTT](iot-hub-mqtt-support.md#retrieving-a-device-twins-properties), AMQP only), *D2C Get Twin* <br/> **Endpoint**: `/devices/{deviceid}/modules/{moduleid}/twin` (MQTT, AMQP only), *Module D2C Get Twin* |
@@ -52,8 +52,10 @@ Maximum message sizes differ for different types of operations. To learn more, s
 
 > [!NOTE]
 > All sizes are computed considering the payload size in bytes (protocol framing is ignored). For messages, which have properties and body, the size is computed in a protocol-agnostic way. For more information, see [IoT Hub message format](iot-hub-devguide-messages-construct.md).
-
-For some operations, like device-to-cloud messages, you can use batching and compression strategies to reduce costs. For an example using device-to-cloud telemetry, see [Example #3](#example-3).  
+>
+> Maximum message sizes differ for different types of operations. To learn more, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+>
+> For some operations, you can use batching and compression strategies to reduce costs. For an example using device-to-cloud telemetry, see [Example #3](#example-3).  
 
 ## Example #1
 
