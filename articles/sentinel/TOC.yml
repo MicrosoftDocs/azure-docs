@@ -17,8 +17,6 @@
     href: investigate-with-ueba.md
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
-  - name: Integrate with Microsoft Defender for IoT
-    href: iot-solution.md
   - name: Write your first query with Kusto Query Language (Learn module)
     href: /learn/modules/write-first-query-kusto-query-language/
   - name: Get started with notebooks and MSTICPy
@@ -29,6 +27,10 @@
     href: monitor-key-vault-honeytokens.md
   - name: Build and monitor Zero Trust
     href: /security/zero-trust/integrate/sentinel-solution
+  - name: Integrate with Microsoft Defender for IoT
+    href: iot-solution.md
+  - name: Integrate with Azure Purview
+    href: purview-solution.md
 - name: Concepts
   items:
   - name: Microsoft Sentinel prerequisites
