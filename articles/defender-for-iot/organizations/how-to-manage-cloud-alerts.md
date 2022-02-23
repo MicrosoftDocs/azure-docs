@@ -17,7 +17,7 @@ Defender for IoT alerts lets you enhance the security and operation of your netw
 - Protocol and operational anomalies
 - Suspected malware traffic
 
-:::image type="content" source="media/how-to-view-manage-cloud-alerts/main-alert-page.png" alt-text="Main Alerts page in the Cloud":::
+:::image type="content" source="media/how-to-view-manage-cloud-alerts/main-alert-page.png" alt-text="Main Alerts page in the Cloud." lightbox="media/how-to-view-manage-cloud-alerts/main-alert-page.png":::
 
 Alerts triggered by Defender for IoT are displayed on the Alerts page in the Azure portal. Use the Alerts page to:
 
