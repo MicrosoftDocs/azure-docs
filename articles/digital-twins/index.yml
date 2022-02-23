@@ -55,12 +55,14 @@ landingContent:
           - text: Connect an end-to-end solution
             url: tutorial-end-to-end.md
 
-  - title: Industry ontology models
+  - title: DTDL-based industry ontologies
     linkLists:
       - linkListType: concept
         links:
           - text: What is an ontology?
             url: concepts-ontologies.md
+          - text: Adopting DTDL-based industry ontologies
+            url: concepts-ontologies-adopt.md
       - linkListType: reference
         links:
           - text: RealEstateCore smart building ontology

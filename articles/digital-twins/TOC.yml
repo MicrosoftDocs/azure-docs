@@ -29,7 +29,7 @@
     items:
     - name: What is an ontology?
       href: concepts-ontologies.md
-    - name: Adopting industry-standard ontologies
+    - name: Adopting DTDL-based industry ontologies
       href: concepts-ontologies-adopt.md
     - name: Converting ontologies
       href: concepts-ontologies-convert.md
