@@ -1,18 +1,18 @@
 ---
-title: Reserved labels for Azure Kubernetes Service
-description: Lists the reserved labels for Azure Kubernetes Service. These labels can't be changed by the end user.
+title: Reserved labels for Azure Kubernetes Service (AKS)
+description: Lists the reserved labels for Azure Kubernetes Service (AKS).
 ms.date: 1/25/2022
 ms.topic: reference
 ---
-# Reserved labels for Azure Kubernetes Service
+# Reserved labels for Azure Kubernetes Service (AKS)
 
-Since [Release 2021-08-19][aks-release-2021-gh], AKS has stopped the ability to make changes to AKS reserved system labels. Attempted change of these labels will result in an error message.
+Since [Release 2021-08-19][aks-release-2021-gh], Azure Kubernetes Service (AKS) has stopped the ability to make changes to AKS reserved system labels. Attempting to change these labels will result in an error message.
 
 ## Reserved system labels
 
 The following lists of labels are reserved for use by AKS. Virtual node usage specifies if these labels could be a supported system feature on virtual nodes. 
 
-Some properties that these system features change aren't available on the virtual nodes because they require modifying the host.
+Some properties that these system features change aren't available on the virtual nodes, because they require modifying the host.
 
 | Label | Value | Example/Options | Virtual node usage |
 | ---- | --- | --- | --- |
@@ -39,6 +39,11 @@ Some properties that these system features change aren't available on the virtua
 | kubernetes.azure.com/fips_enabled | \<is fips enabled?> | true | N/A |
 | kubernetes.azure.com/os-sku | \<os/sku> | [Create or update OS SKU][create-or-update-os-sku] | Linux |
 
+* *Same* is included in places where the expected values for the labels don't differ between a standard node pool and a virtual node pool. As virtual node pods don't expose any underlying virtual machine (VM), the VM SKU values are replaced with the SKU *Virtual*.
+* *Virtual node version* refers to the current version of the [virtual Kubelet-ACI connector release][virtual-kubelet-release].
+* *Virtual node subnet name* is the name of the subnet where virtual node pods are deployed into Azure Container Instance (ACI).
+* *Virtual node virtual network* is the name of the virtual network, which contains the subnet where virtual node pods are deployed on ACI.
+
 ## Reserved prefixes
 
 The following lists of prefixes are reserved for usage by AKS and aren't to be used for any node. 
@@ -58,19 +63,20 @@ The following lists of labels are planned for deprecated. Customers should chang
 | beta.kubernetes.io/arch | kubernetes.io/arch | [Kubernetes][kubernetes-labels-selectors]
 | beta.kubernetes.io/instance-type | node.kubernetes.io/instance-type | [Kubernetes][kubernetes-labels-selectors]
 | beta.kubernetes.io/os  | kubernetes/io/os | [Kubernetes][kubernetes-labels-selectors]
-| node-role.kubernetes.io/agent | kubernetes.azure.com/role=agent | Azure Kubernetes Service
-| kubernetes.io/role | kubernetes.azure.com/role=agent | Azure Kubernetes Service
+| node-role.kubernetes.io/agent* | kubernetes.azure.com/role=agent | Azure Kubernetes Service
+| kubernetes.io/role* | kubernetes.azure.com/role=agent | Azure Kubernetes Service
 | Agentpool* | kubernetes.azure.com/agentpool | Azure Kubernetes Service
 | Storageprofile* | kubernetes.azure.com/storageprofile | Azure Kubernetes Service
 | Storagetier* | kubernetes.azure.com/storagetier | Azure Kubernetes Service
 | Accelerator* | kubernetes.azure.com/accelerator | Azure Kubernetes Service
 
-*Newly deprecated. See [Release Notes][aks-release-notes-gh] for details on when these labels will no longer be maintained.
+*Newly deprecated. For more information, see [Release Notes][aks-release-notes-gh] on when these labels will no longer be maintained.
 
 <!-- LINKS - external -->
 [aks-release-2021-gh]: https://github.com/Azure/AKS/releases/tag/2021-08-19
 [aks-release-notes-gh]: https://github.com/Azure/AKS/releases
 [kubernetes-labels-selectors]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+[virtual-kubelet-release]: https://github.com/virtual-kubelet/azure-aci/releases
 
 <!-- LINKS - internal -->
 [create-or-update-os-sku]: /rest/api/aks/agent-pools/create-or-update#ossku
