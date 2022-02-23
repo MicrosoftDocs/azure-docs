@@ -15,6 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Security operations for privileged accounts
 
+Barbara - I am editing your doc. Please reject this PR. 
 The security of business assets depends on the integrity of the privileged accounts that administer your IT systems. Cyber attackers use credential theft attacks and other means to target privileged accounts and gain access to sensitive data.
 
 Traditionally, organizational security has focused on the entry and exit points of a network as the security perimeter. However, software as a service (SaaS) applications and personal devices on the internet have made this approach less effective.
