@@ -63,7 +63,7 @@ To create a virtual network, use the following steps:
     >
     > The workspace and other dependency services will go into the training subnet. They can still be used by resources in other subnets, such as the scoring subnet.
 
-    1. Look at the default __IPv4 address space__ value. In the screenshot, the value is __172.16.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the 172.16.0.0/16 value.
+    1. Look at the default __IPv4 address space__ value. In the screenshot, the value is __172.17.0.0/16__. __The value may be different for you__. While you can use a different value, the rest of the steps in this tutorial are based on the __172.16.0.0/16 value__.
     
         > [!IMPORTANT]
         > We do not recommend using an address in the 172.17.0.1/16 range if you plan on using Azure Kubernetes Services for deployment with this cluster. The Docker bridge in Azure Kubernetes Services uses 172.17.0.1/16 as its default. Other ranges may also conflict depending on what you want to connect to the virtual network. For example, if you plan to connect your on premises network to the VNet, and your on-premises network also uses the 172.16.0.0/16 range. Ultimately, it is up to __you__ to plan your network infrastructure.
@@ -72,7 +72,7 @@ To create a virtual network, use the following steps:
     
         :::image type="content" source="./media/tutorial-create-secure-workspace/delete-default-subnet.png" alt-text="Screenshot of deleting default subnet":::
 
-    1. To create a subnet to contain the workspace, dependency services, and resources used for training, select __+ Add subnet__ and use the following values for the subnet:
+    1. To create a subnet to contain the workspace, dependency services, and resources used for training, select __+ Add subnet__ and set the subnet name and address range. The following are the values used in this tutorial:
         * __Subnet name__: Training
         * __Subnet address range__: 172.16.0.0/24
 
@@ -86,7 +86,7 @@ To create a virtual network, use the following steps:
         >
         > If you plan on using a _private endpoint_ to add these services to the VNet, you do not need to select these entries. The steps in this article use a private endpoint for these services, so you do not need to select them when following these steps.
 
-    1. To create a subnet for compute resources used to score your models, select __+ Add subnet__ again, and use the follow values:
+    1. To create a subnet for compute resources used to score your models, select __+ Add subnet__ again, and set the name and address range:
         * __Subnet name__: Scoring
         * __Subnet address range__: 172.16.1.0/24
 
