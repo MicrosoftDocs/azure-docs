@@ -97,7 +97,7 @@ To complete this tutorial, you need to:
 1. Click the **Get Azure recommendation** button.
 2. Pick the **Collect performance data now** option and enter a path for performance logs to be collected and click the **Start** button.
 3. Azure Data Studio will now collect performance data until you either stop the collection, press the **Next** button in the wizard or close Azure Data Studio.
-4. After 10 minutes you will see a recommended configuration for your Azure SQL Managed Instance. You can also press the **Refresh recommendation** link to get the recommendation sooner.
+4. After 10 minutes you will see a recommended configuration for your Azure SQL VM. You can also press the Refresh recommendation link after the initial 10 minutes to refresh the recommendation with the additional data collected.
 5. In the above **SQL Server on Azure Virtual Machine** box click the **View details** button for more information about your recommendation. 
 6. Close the view details box and press the **Next** button. 
 
