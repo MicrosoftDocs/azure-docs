@@ -73,11 +73,12 @@ To create your database, follow these steps:
 
     :::image type="content" source="./media/free-sql-db-free-account-how-to-deploy/create-database-networking-tab.png" alt-text="Networking tab":::
 
-1. Leave the values unchanged in **Security** tab. 
-1. Select **Next: Additional settings** at the bottom of the page.
+1. Leave the values unchanged on **Security** tab. 
+
 
    :::image type="content" source="./media/free-sql-db-free-account-how-to-deploy/create-database-security-tab.png" alt-text="Security tab":::
-  
+
+1. Select **Next: Additional settings** at the bottom of the page.  
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there are some tables and data to query and experiment with, as opposed to an empty blank database.
 1. Select **Review + create** at the bottom of the page.
 
@@ -85,15 +86,15 @@ To create your database, follow these steps:
 
 1. On the **Review + create** page, after reviewing, select **Create**.
  
-    >[!IMPORTANT]
-    >While creating the SQL database from your Azure free account, you will still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits (to view usage information, refer [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) section below), you won't be charged for the service. 
+    > [!IMPORTANT]
+    > While creating the SQL Database from your Azure free account, you will still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits, you won't be charged for the service. To view usage information, review [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) later in this article. 
     
 ## Query the database
 
 Once your database is created, you can use the **Query editor (preview)** in the Azure portal to connect to the database and query data.
 
 1. In the portal, search for and select **SQL databases**, and then select your database from the list.
-1. On the page for your database, select **Query editor (preview)** in the left menu.
+1. On the page for your database, select **Query editor (preview)** in the navigation menu. 
 1. Enter your server admin login information, and select **OK**.
 
    :::image type="content" source="./media/single-database-create-quickstart/query-editor-login.png" alt-text="Sign in to Query editor":::
@@ -115,7 +116,10 @@ Once your database is created, you can use the **Query editor (preview)** in the
 
 ## Monitor and track service usage
 
-You are not charged for Azure SQL Database service included for free with your Azure free account unless you exceed the free service limit. To remain within the limit, use the Azure portal to track and monitor your free services usage.
+You are not charged for the Azure SQL Database included with your Azure free account unless you exceed the free service limit. To remain within the limit, use the Azure portal to track and monitor your free services usage.
+
+
+To track usage, follow these steps: 
 
 1. In the Azure portal, search for **Subscriptions** and select the free trial subscription. 
 
@@ -126,6 +130,31 @@ You are not charged for Azure SQL Database service included for free with your A
 1. Locate the meters related to **Azure SQL Database** to track usage.
 
     :::image type="content" source="media/free-sql-db-free-account-how-to-deploy/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
+
+
+The following table describes the values found on the track usage page: 
+
+| **Category** | **Description**| 
+| ----     | ---------- | 
+| **Meter**    | Identifies the unit of measure for the service being consumed.| 
+|**SQL Database, Single Standard, S0 DTUs**| The meter for Azure SQL Database that tracks the number of S0 databases used per day </br> Monthly limit: 1| 
+| **Usage/Limit** | The usage of the meter for the current month, and the limit for the meter. | 
+| **Status** | The current status of your usage of the service defined by the meter. 
+| ------ | ------ | 
+
+The following table describes the possible values for **Status**: 
+
+| **Status**| **Description**|
+| ----     | ---------- | 
+| **Not in use** | You haven't used the meter or the usage for the meter hasn't reached the billing system.|
+| **Exceeded on \<Date\>** | You haven't used the meter or the usage for the meter hasn't reached the billing system.| 
+| **Exceeded on \<Date\>** | You've exceeded the limit for the meter on \<Date\>.|
+| **Unlikely to Exceed** | You're unlikely to exceed the limit for the meter.| 
+| **Exceeds on \<Date\>** | You're likely to exceed the limit for the meter on \<Date\>. | 
+| ------ | ------ | 
+
+
+Previous: 
 
     |Meter    |Description    |Monthly Limit  |
     |---------|---------|---------|
@@ -141,10 +170,10 @@ You are not charged for Azure SQL Database service included for free with your A
     - Exceeds on \<Date\>: You're likely to exceed the limit for the meter on \<Date\>.
     
 
-    >[!IMPORTANT]
-    >With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage beyond the free monthly amounts of services will be deducted from this credit.
-    >At the end of your first 30 days or after you spend your $200 credit (whichever comes first), you'll only pay for what you use beyond the free monthly amounts of services. To keep getting free services after 30 days, move to pay-as-you-go pricing. If you don't move to pay as you go, you can't purchase Azure services beyond your $200 credit—and eventually your account and services will be disabled.
-    >For more information, see [**Azure free account FAQ**](https://azure.microsoft.com/free/free-account-faq/).
+>[!IMPORTANT]
+>With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage of the service beyond the free monthly amount is deducted from this credit.
+>At the end of your first 30 days or after you spend your $200 credit (whichever comes first), you'll only pay for what you use beyond the free monthly amount of services. To keep getting free services after 30 days, move to pay-as-you-go pricing. If you don't move to pay as you go, you can't purchase Azure services beyond your $200 credit and eventually your account and services will be disabled.
+>For more information, see [**Azure free account FAQ**](https://azure.microsoft.com/free/free-account-faq/).
 
 ## Clean up resources
 
