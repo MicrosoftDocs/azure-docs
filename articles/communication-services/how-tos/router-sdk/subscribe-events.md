@@ -13,9 +13,9 @@ ms.custom: template-how-to
 
 # Subscribe to Job Router events
 
-This guide outlines the steps to setup a subscription for Job Router events and how to receive them.
+This guide outlines the steps to set up a subscription for Job Router events and how to receive them.
 
-For more details on Event Grid, please see the [Event Grid documentation][event-grid-overview].
+For more details on Event Grid, see the [Event Grid documentation][event-grid-overview].
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
@@ -30,29 +30,29 @@ For more details on Event Grid, please see the [Event Grid documentation][event-
 > [!NOTE]
 > Since Job Router is still in preview, the events are not included in the portal UI. You have to use an Azure Resource Manager (ARM) template to create a subscription that references them.
 
-This template deploys an EventGrid subscription on a Storage Queue for Job Router events.
-If the storage account, queue or system topic do not exist, they will be created as well.
+This template deploys an Event Grid subscription on a Storage Queue for Job Router events.
+If the storage account, queue or system topic doesn't exist, they'll be created as well.
 
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoftDocs%2Fazure-docs%2Fmain%2Farticles%2Fcommunication-services%2Fhow-tos%2Frouter-sdk%2Fmedia%2Fdeploy-subscription.json)
 
 ### Parameters
 
 - **Azure Communication Services Resource Name**: The name of your Azure Communication Services resource. For example, if the endpoint to your resource is `https://contoso.communication.azure.net`, then set to `contoso`.
-- **Storage Name**: The name of your Azure Storage Account. If it does not exist, it will be created.
+- **Storage Name**: The name of your Azure Storage Account. If it doesn't exist, it will be created.
 - **Event Sub Name**: The name of the event subscription to create.
 - **System Topic Name**: If you have existing event subscriptions on your ACS resource, find the `System Topic` name in the `Events` tab of your ACS resource. Otherwise, specify a unique name such as the ACS resource name itself.
-- **Queue Name**: The name of your Queue within your Storage Account. If it does not exist, it will be created.
+- **Queue Name**: The name of your Queue within your Storage Account. If it doesn't exist, it will be created.
 
 ### Deployed resources
 
 The following resources are deployed as part of the solution
 
-- **Storage Account**: If the storage account name does not exist.
-- **Storage Queue**: If the queue does not exist within the storage account.
-- **Event Grid System Topic**: If the topic does not exist.
+- **Storage Account**: If the storage account name doesn't exist.
+- **Storage Queue**: If the queue doesn't exist within the storage account.
+- **Event Grid System Topic**: If the topic doesn't exist.
 - **Event Grid Subscription**: A subscription for all Job Router events on the storage queue.
 
-## Quick-start: Receive EventGrid events via an Azure Storage Queue
+## Quick-start: Receive Event Grid events via an Azure Storage Queue
 
 ### Create a new C# application
 
@@ -71,7 +71,7 @@ dotnet build
 
 ### Install the packages
 
-Install the Azure Storage Queues and EventGrid packages.
+Install the Azure Storage Queues and Event Grid packages.
 
 ```console
 dotnet add package Azure.Storage.Queues
@@ -182,6 +182,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -247,6 +248,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | queueInfo | `QueueInfo` | ❌ |
@@ -310,6 +312,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -364,6 +367,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | errors| `List<CommunicationError>` | ❌ |
@@ -409,6 +413,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -456,6 +461,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -503,6 +509,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | note| `string` | ✔️ | | Based on user input
@@ -548,6 +555,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
@@ -607,6 +615,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
@@ -658,6 +667,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -709,6 +719,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -747,6 +758,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -781,6 +793,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
@@ -815,6 +828,7 @@ dotnet run
 ```
 
 **Attribute list**
+
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
