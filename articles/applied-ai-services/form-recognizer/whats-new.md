@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 02/22/2022
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
@@ -18,6 +18,22 @@ ms.custom: ignite-fall-2021
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
 ## February 2022
+
+### Form Recognizer v3.0 preview SDK release update (beta.3/beta.4)
+
+ The beta.3/beta.4 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates bug fixes and minor feature updates.
+
+### [**C#**](#tab/csharp)
+
+**Version 4.0.0-beta.3 (2022-02-10)**
+
+| [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.3) | [**Changelog**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md) | [**API reference documentation**](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true)
+
+#### Bugs Fixed
+
+#### Feature updates
+
+#### Breaking changes
 
 ### Form Recognizer v3.0 preview release
 
@@ -53,6 +69,8 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
  The beta.2 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates bug fixes and minor feature updates.
 
 ### [**C#**](#tab/csharp)
+
+**Version 4.0.0-beta.2 (2021-11-09)**
 
 | [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.2) | [**Changelog**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md) | [**API reference documentation**](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true)
 
@@ -114,6 +132,8 @@ The `BuildModelOperation` and `CopyModelOperation` now correctly populate the `P
 
 ### Form Recognizer v3.0 preview release (beta.1)
 
+**Version 4.0.0-beta.1 (2021-10-07)**
+
  Form Recognizer v3.0 preview release introduces several new features and capabilities:
 
 * [**General document**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
@@ -145,15 +165,15 @@ Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/d
 
 * [Azure metrics explorer advanced features](../../azure-monitor/essentials/metrics-charts.md) are available on your Form Recognizer resource overview page in the Azure portal.
 
-    ### Monitoring menu
+### Monitoring menu
 
     :::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
 
-    ### Charts
+### Charts
 
     :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metric chart in the Azure portal.":::
 
-*  **ID document** model update: given names including a suffix, with or without a period (full stop), process successfully:
+* **ID document** model update: given names including a suffix, with or without a period (full stop), process successfully:
 
     |Input Text | Result with update |
     |------------|-------------------------------------------|
