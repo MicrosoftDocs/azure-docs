@@ -22,7 +22,7 @@ ms.date: 03/10/2022
 This topic teaches you how to configure an [auto-failover group](auto-failover-group-sql-mi.md) for Azure SQL Managed Instance using the Azure portal and Azure PowerShell.
 
 > [!NOTE]
-> This article covers auto-failover groups for Azure SQL Managed Instance. For Azure SQL Database, see [Configure auto-failover groups in SQL Database](../managed-instance/auto-failover-group-configure-sql-db.md). 
+> This article covers auto-failover groups for Azure SQL Managed Instance. For Azure SQL Database, see [Configure auto-failover groups in SQL Database](../database/auto-failover-group-configure-sql-db.md). 
 
 
 ## Prerequisites
