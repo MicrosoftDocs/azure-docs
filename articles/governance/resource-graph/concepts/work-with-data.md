@@ -89,8 +89,8 @@ defines how many records that match the query.
 
 **resultTruncated** is **true** when there are less resources available than a query is requesting or when paging is disabled or when paging is not possible because: 
 
-- The query contains a `limit` or `sample` operator.
-- All output columns are either `dynamic` or `null` type.
+- The query contains a `limit` or `sample`/`take` operator.
+- **All** output columns are either `dynamic` or `null` type.
 
 When **resultTruncated** is **true**, the **$skipToken** property isn't set.
 
@@ -107,8 +107,8 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 
 > [!IMPORTANT]
 > The response won't include the **$skipToken** if:
-> - The query contains a `limit` or `sample` operator.
-> - All output columns are either `dynamic` or `null` type. 
+> - The query contains a `limit` or `sample`/`take` operator.
+> - **All** output columns are either `dynamic` or `null` type. 
 
 For an example, see
 [Next page query](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query)
