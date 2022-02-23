@@ -33,7 +33,7 @@ The script in this article demonstrates performing resource lock operations for 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/autoscale.sh" range="4-34":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/lock.sh" range="4-34":::
 
 ## Clean up resources
 
@@ -61,5 +61,3 @@ This script uses the following commands. Each command in the table links to comm
 - [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
 
 - [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
-
-For Azure CLI samples common for all Cosmos DB APIs see [Common API samples](/common-cli-samples.md).

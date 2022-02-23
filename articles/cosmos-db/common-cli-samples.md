@@ -14,9 +14,7 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
-The following table includes links to sample Azure CLI scripts that apply to all Cosmos DB APIs.
-
-For API specific samples, see [API specific samples](#api-specific-samples). Common samples are the same across all APIs.
+The following table includes links to sample Azure CLI scripts that apply to all Cosmos DB APIs. For API specific samples, see [API specific samples](#api-specific-samples). Common samples are the same across all APIs.
 
 These samples require Azure CLI version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If using Azure Cloud Shell, the latest version is already installed.
 

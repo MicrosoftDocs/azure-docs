@@ -27,7 +27,7 @@ The script in this article creates a Table API table then updates the throughput
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/autoscale.sh" range="4-57":::
+:::code language="azurecli" source="~/azure_cli_scripts/cosmosdb/table/throughput.sh" range="4-57":::
 
 ## Clean up resources
 
@@ -53,5 +53,3 @@ This script uses the following commands. Each command in the table links to comm
 ## Next steps
 
 For more information on the Azure Cosmos DB CLI, see [Azure Cosmos DB CLI documentation](/cli/azure/cosmosdb).
-
-For Azure CLI samples common for all Cosmos DB APIs see [Common API samples](/common-cli-samples.md).
