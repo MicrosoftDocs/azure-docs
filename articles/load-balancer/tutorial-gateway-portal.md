@@ -270,7 +270,7 @@ Instead of chaining a load balancer frontend to the gateway load balancer, chain
 > [!IMPORTANT]
 > A virtual machine must have a public IP address assigned before attempting to chain the NIC configuration to the frontend of the gateway load balancer.
 
-1. In the search box in the Azure portal, enter **Virtual machine**. In the search results, select **Virtual Machines**.
+1. In the search box in the Azure portal, enter **Virtual machine**. In the search results, select **Virtual machines**.
 
 2. In **Virtual machines**, select the virtual machine that you want to add to the gateway load balancer. In this example, the virtual machine is named **myVM1**.
 
