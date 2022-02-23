@@ -38,7 +38,7 @@ After creation, clusters are billed for a minimum of 4 hours of usage. In the Pr
 
 As scaling the dedicated clusters requires submitting a support request, it's important to determine when to scale up your dedicated cluster proactively. 
 
-CPU consumption is the key indicator of the resource consumption of your dedicated cluster. When the overall CPU consumption is reaching 70% (without observing any abnormal conditions such as high number of server errors or low successful requests), that means your cluster is moving towards its maximum capacity.  Therefore you can use this as an indicate to consider whether you need to scale up your dedicated cluster or not.
+CPU consumption is the key indicator of the resource consumption of your dedicated cluster. When the overall CPU consumption is reaching 70% (without observing any abnormal conditions such as high number of server errors or low successful requests), that means your cluster is moving towards its maximum capacity.  Therefore you can use this as an indicator to consider whether you need to scale up your dedicated cluster or not.
 
 To monitor the CPU usage of the dedicated cluster you need to follow these steps. 
 - In the metrics blade of your Event Hubs Dedicated cluster, add a new metric in the Event Hubs as shown below. 
