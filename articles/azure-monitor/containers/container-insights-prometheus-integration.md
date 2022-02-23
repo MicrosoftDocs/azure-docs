@@ -21,8 +21,8 @@ Scraping of Prometheus metrics is supported with Kubernetes clusters hosted on:
 
 - Azure Kubernetes Service (AKS)
 - Azure Stack or on-premises
-- Azure Red Hat OpenShift version 3.x
-- Azure Red Hat OpenShift and Red Hat OpenShift version 4.x
+- Azure Arc enabled Kubernetes
+	- Azure Red Hat OpenShift and Red Hat OpenShift version 4.x through cluster connect to Azure Arc
 
 ### Prometheus scraping settings
 

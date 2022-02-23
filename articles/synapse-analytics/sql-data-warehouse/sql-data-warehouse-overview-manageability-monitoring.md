@@ -1,7 +1,6 @@
 ---
 title: Manageability and monitoring - overview 
 description: Monitoring and manageability overview for resource utilization, log and query activity, recommendations, and data protection (backup and restore) with dedicated SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics

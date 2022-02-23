@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 12/03/2021
+ms.date: 02/04/2022
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---
@@ -35,7 +35,7 @@ In this tutorial, you accomplish the following tasks:
 ## Prerequisites
 
 * Familiarity with Azure Virtual Networks and IP networking
-* While most of the steps in this article use the Azure portal or the Azure Machine Learning studio, some steps use the Azure CLI extension for Machine Learning.
+* While most of the steps in this article use the Azure portal or the Azure Machine Learning studio, some steps use the Azure CLI (v1) extension for Machine Learning.
 
 ## Create a virtual network
 
@@ -326,7 +326,18 @@ There are several ways that you can connect to the secured workspace. The steps 
 Use the following steps to create a Data Science Virtual Machine for use as a jump box:
 
 1. In the [Azure portal](https://portal.azure.com), select the portal menu in the upper left corner. From the menu, select __+ Create a resource__ and then enter __Data science virtual machine__. Select the __Data science virtual machine - Windows__ entry, and then select __Create__.
-1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide a unique __Virtual machine name__, __Username__, and __Password__. Leave other fields at the default values.
+1. From the __Basics__ tab, select the __subscription__, __resource group__, and __Region__ you previously used for the virtual network. Provide values for the following fields:
+
+    * __Virtual machine name__: A unique name for the VM.
+    * __Username__: The username you will use to login to the VM.
+    * __Password__: The password for the username.
+    * __Security type__: Standard.
+    * __Image__: Data Science Virtual Machine - Windows Server 2019 - Gen1.
+
+        > [!IMPORTANT]
+        > Do not select a Gen2 image.
+
+    You can leave other fields at the default values.
 
     :::image type="content" source="./media/tutorial-create-secure-workspace/create-virtual-machine-basic.png" alt-text="Image of VM basic configuration":::
 
@@ -409,19 +420,24 @@ For more information on creating a compute cluster and compute cluster, includin
 
 ## Configure image builds
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 When Azure Container Registry is behind the virtual network, Azure Machine Learning can't use it to directly build Docker images (used for training and deployment). Instead, configure the workspace to use the compute cluster you created earlier. Use the following steps to create a compute cluster and configure the workspace to use it to build images:
 
 1. Navigate to [https://shell.azure.com/](https://shell.azure.com/) to open the Azure Cloud Shell.
 1. From the Cloud Shell, use the following command to install the 1.0 CLI for Azure Machine Learning:
-
+ 
     ```azurecli-interactive
     az extension add -n azure-cli-ml
     ```
 
 1. To update the workspace to use the compute cluster to build Docker images. Replace `docs-ml-rg` with your resource group. Replace `docs-ml-ws` with your workspace. Replace `cpu-cluster` with the compute cluster to use:
-
+    
     ```azurecli-interactive
-    az ml workspace update -g docs-ml-rg -w docs-ml-ws --image-build-compute cpu-cluster
+    az ml workspace update \
+        -g docs-ml-rg \
+        --name docs-ml-ws \
+        --image-build-compute cpu-cluster
     ```
 
     > [!NOTE]

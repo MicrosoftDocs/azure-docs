@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: MilanMSFT
 ms.author: mlazic
-ms.reviewer: mathoma
+ms.reviewer: mathoma, nvraparl 
 ms.date: 07/03/2019
 ---
 # Use PowerShell to restore an Azure SQL Managed Instance database to another geo-region

@@ -82,7 +82,7 @@ When you select the **Create your own application** link near the top of the bla
 
 ## Request new gallery application
 
-After you successfully integrate an application with Azure AD and thoroughly tested it, you can request to have it added to the gallery. Publishing an application to the gallery from the portal isn't supported but there is a process that you can follow to have it done for you. For more information about publishing to the gallery, select [Request new gallery application](../develop/v2-howto-app-gallery-listing.md).
+After you successfully integrate an application with Azure AD and thoroughly tested it, you can request to have it added to the gallery. Publishing an application to the gallery from the portal isn't supported but there is a process that you can follow to have it done for you. For more information about publishing to the gallery, select [Request new gallery application](../manage-apps/v2-howto-app-gallery-listing.md).
 
 ## Next steps
 

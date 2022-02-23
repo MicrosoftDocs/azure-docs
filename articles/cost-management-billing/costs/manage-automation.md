@@ -291,8 +291,8 @@ We recommend that you call the APIs no more than once per day. Cost Management d
 
 To enable a consistent experience for all Cost Management subscribers, Cost Management APIs are rate limited. When you reach the limit, you receive the HTTP status code `429: Too many requests`. The current throughput limits for our APIs are as follows:
 
-- 30 calls per minute - It's done per scope, per user, or application.
-- 200 calls per minute - It's done per tenant, per user, or application.
+- 15 calls per minute - It's done per scope, per user, or application.
+- 100 calls per minute - It's done per tenant, per user, or application.
 
 ## Next steps
 

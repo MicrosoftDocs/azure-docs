@@ -22,7 +22,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 
 
 
-## Benefits 
+## Benefits
 
 - Securely deploy virtual machines with verified boot loaders, OS kernels, and drivers.
 - Securely protect keys, certificates, and secrets in the virtual machines.
@@ -62,7 +62,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
 
-**Regions**: 
+**Regions**:
 - All public regions
 
 **Pricing**:
@@ -75,7 +75,7 @@ No additional cost to existing VM pricing.
 - Shared disk
 - Ultra disk
 - Managed image
-- Azure Dedicated Host 
+- Azure Dedicated Host
 - Nested Virtualization
 
 ## Secure boot
@@ -84,7 +84,7 @@ At the root of trusted launch is Secure Boot for your VM. This mode, which is im
 
 ## vTPM
 
-Trusted launch also introduces vTPM for Azure VMs. This is a virtualized version of a hardware [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-overview), compliant with the TPM2.0 spec. It serves as a dedicated secure vault for keys and measurements. Trusted launch provides your VM with its own dedicated TPM instance, running in a secure environment outside the reach of any VM. The vTPM enables [attestation](/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers). 
+Trusted launch also introduces vTPM for Azure VMs. This is a virtualized version of a hardware [Trusted Platform Module](/windows/security/information-protection/tpm/trusted-platform-module-overview), compliant with the TPM2.0 spec. It serves as a dedicated secure vault for keys and measurements. Trusted launch provides your VM with its own dedicated TPM instance, running in a secure environment outside the reach of any VM. The vTPM enables [attestation](/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation) by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers).
 
 Trusted launch uses the vTPM to perform remote attestation by the cloud. This is used for platform health checks and for making trust-based decisions. As a health check, trusted launch can cryptographically certify that your VM booted correctly. If the process fails, possibly because your VM is running an unauthorized component, Microsoft Defender for Cloud will issue integrity alerts. The alerts include details on which components failed to pass integrity checks.
 
@@ -99,11 +99,11 @@ With trusted launch and VBS you can enable Windows Defender Credential Guard. Th
 
 ## Azure Defender for Cloud integration
 
-Trusted launch is integrated with Azure Defender for Cloud to ensure your VMs are properly configured. Azure Azure Defender for Cloud will continually assess compatible VMs and issue relevant recommendations.
+Trusted launch is integrated with Azure Defender for Cloud to ensure your VMs are properly configured. Azure Defender for Cloud will continually assess compatible VMs and issue relevant recommendations.
 
-- **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Azure Azure Defender for Cloud will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
-- **Recommendation to enable vTPM** - If your VM has vTPM enabled, Azure Defender for Cloud can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Defender for Cloud identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it. 
-- **Recommendation to install guest attestation extension** - If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Azure Defender for Cloud will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Azure Defender for Cloud to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.  
+- **Recommendation to enable Secure Boot** - This Recommendation only applies for VMs that support trusted launch. Azure Defender for Cloud will identify VMs that can enable Secure Boot, but have it disabled. It will issue a low severity recommendation to enable it.
+- **Recommendation to enable vTPM** - If your VM has vTPM enabled, Azure Defender for Cloud can use it to perform Guest Attestation and identify advanced threat patterns. If Azure Defender for Cloud identifies VMs that support trusted launch and have vTPM disabled, it will issue a low severity recommendation to enable it.
+- **Recommendation to install guest attestation extension** - If your VM has secure boot and vTPM enabled but it doesn't have the guest attestation extension installed, Azure Defender for Cloud will issue a low severity recommendation to install the guest attestation extension on it. This extension allows Azure Defender for Cloud to proactively attest and monitor the boot integrity of your VMs. Boot integrity is attested via remote attestation.
 - **Attestation health assessment** - If your VM has vTPM enabled and attestation extension installed, Azure Defender for Cloud can remotely validate that your VM booted in a healthy way. This is known as remote attestation. Azure Defender for Cloud issues an assessment, indicating the status of remote attestation.
 
 
@@ -115,7 +115,7 @@ If your VMs are properly set up with trusted launch, Microsoft Defender for Clou
     VM attestation can fail for the following reasons:
     - The attested information, which includes a boot log, deviates from a trusted baseline. This can indicate that untrusted modules have been loaded, and the OS may be compromised.
     - The attestation quote could not be verified to originate from the vTPM of the attested VM. This can indicate that malware is present and may be intercepting traffic to the vTPM.
-    
+
     > [!NOTE]
     >  This alert is available for VMs with vTPM enabled and the Attestation extension installed. Secure Boot must be enabled for attestation to pass. Attestation will fail if Secure Boot is disabled. If you must disable Secure Boot, you can suppress this alert to avoid false positives.
 
@@ -131,7 +131,7 @@ Frequently asked questions about trusted launch.
 ### Why should I use trusted launch? What does trusted launch guard against?
 
 Trusted launch guards against boot kits, rootkits, and kernel-level malware. These sophisticated types of malware run in kernel mode and remain hidden from users. For example:
-- Firmware rootkits: these kits overwrite the firmware of the virtual machine’s BIOS, so the rootkit can start before the OS. 
+- Firmware rootkits: these kits overwrite the firmware of the virtual machine’s BIOS, so the rootkit can start before the OS.
 - Boot kits: these kits replace the OS’s bootloader so that the virtual machine loads the boot kit before the OS.
 - Kernel rootkits: these kits replace a portion of the OS kernel so the rootkit can start automatically when the OS loads.
 - Driver rootkits: these kits pretend to be one of the trusted drivers that OS uses to communicate with the virtual machine’s components.
@@ -147,22 +147,18 @@ Trusted launch for Azure virtual machines is monitored for advanced threats. If 
 Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert will be triggered. Trusted launch attestation can fail for the following reasons:
 
 Trusted launch for Azure virtual machines is monitored for advanced threats. If such threats are detected, an alert will be triggered. Alerts are only available in the [Standard Tier](../security-center/security-center-pricing.md) of Azure Defender for Cloud.
-Azure Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert will be triggered. Trusted launch attestation can fail for the following reasons: 
+Azure Defender for Cloud periodically performs attestation. If the attestation fails, a medium severity alert will be triggered. Trusted launch attestation can fail for the following reasons:
 - The attested information, which includes a log of the Trusted Computing Base (TCB), deviates from a trusted baseline (like when Secure Boot is enabled). This can indicate that untrusted modules have been loaded and the OS may be compromised.
 - The attestation quote could not be verified to originate from the vTPM of the attested VM. This can indicate that malware is present and may be intercepting traffic to the TPM.
 - The attestation extension on the VM is not responding. This can indicate a denial-of-service attack by malware, or an OS admin.
 
 ### How does trusted launch compared to Hyper-V Shielded VM?
 
-Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or virtual machine scale sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.  
-
-### How can I convert existing VMs to trusted launch?
-
-You can update a gen 2 VM to use Trusted Launch. For more information about how to update an existing VM to use Trusted Launch, see [Deploy a VM with trusted launch enabled](trusted-launch-portal.md#verify-or-update-your-settings).
+Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM](/windows-server/security/guarded-fabric-shielded-vm/guarded-fabric-and-shielded-vms) is typically deployed in conjunction with Guarded Fabric. A Guarded Fabric consists of a Host Guardian Service (HGS), one or more guarded hosts, and a set of Shielded VMs. Hyper-V Shielded VMs are intended for use in fabrics where the data and state of the virtual machine must be protected from both fabric administrators and untrusted software that might be running on the Hyper-V hosts. Trusted launch on the other hand can be deployed as a standalone virtual machine or virtual machine scale sets on Azure without additional deployment and management of HGS. All of the trusted launch features can be enabled with a simple change in deployment code or a checkbox on the Azure portal.
 
 ### What is VM Guest State (VMGS)?  
 
-VM Guest State (VMGS) is specific to Trusted Launch VM. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.  
+VM Guest State (VMGS) is specific to Trusted Launch VM. It is a blob that is managed by Azure and contains the unified extensible firmware interface (UEFI) secure boot signature databases and other security information. The lifecycle of the VMGS blob is tied to that of the OS Disk.
 
 ## Next steps
 

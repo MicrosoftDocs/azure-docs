@@ -47,11 +47,23 @@ landingContent:
             url: ./azure-dev-tools-teaching/enroll-renew-subscription.md
           - text: Set up access
             url: ./azure-dev-tools-teaching/set-up-access.md
-          - text: Find IDs
-            url: find-ids.md
       - linkListType: how-to-guide
         links:
           - text: How to manage students
             url: ./azure-dev-tools-teaching/manage-students.md
           - text: How to download software
             url: ./azure-dev-tools-teaching/download-software.md
+
+  # Card
+  - title: Education Hub REST APIs
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Find IDs
+            url: find-ids.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to create a lab
+            url: create-lab-education-hub.md
+          - text: How to delete a lab
+            url: delete-lab-education-hub-apis.md

@@ -4,7 +4,7 @@ titleSuffix: Azure
 description: Best practices for keeping your Azure Virtual Desktop environment secure.
 author: heidilohr
 ms.topic: conceptual
-ms.date: 01/12/2022
+ms.date: 02/22/2022
 ms.author: helohr
 ms.service: virtual-desktop
 manager: femila
@@ -146,7 +146,7 @@ By restricting operating system capabilities, you can strengthen the security of
 
 ## Azure Virtual Desktop support for Trusted Launch
 
-Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines (preview)](../virtual-machines/trusted-launch.md).
+Trusted launch are Gen2 Azure VMs with enhanced security features aimed to protect against “bottom of the stack” threats through attack vectors such as rootkits, boot kits, and kernel-level malware. The following are the enhanced security features of trusted launch, all of which are supported in Azure Virtual Desktop. To learn more about trusted launch, visit [Trusted launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
 ### Secure Boot
 
@@ -186,6 +186,7 @@ The following operating systems support running nested virtualization on Azure V
 - Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
+- Windows 11
 
 ## Windows Defender Application Control
 
@@ -196,6 +197,7 @@ The following operating systems support using Windows Defender Application Contr
 - Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
+- Windows 11
 
 >[!NOTE]
 >When using Windows Defender Access Control, we recommend only targeting policies at the device level. Although it's possible to target policies to individual users, once the policy is applied, it affects all users on the device equally.

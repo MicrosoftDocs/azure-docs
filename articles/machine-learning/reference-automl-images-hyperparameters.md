@@ -10,14 +10,13 @@ ms.reviewer: nibaccam
 author: swatig007
 ms.author: swatig
 ms.date: 01/18/2022
-ms.custom: 
 ---
 
 # Hyperparameters for computer vision tasks in automated machine learning
 
 Learn which hyperparameters are available specifically for computer vision tasks in automated ML experiments.
 
-With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are task-specific or model-specific.
+With support for computer vision tasks, you can control the model algorithm and sweep hyperparameters. These model algorithms and hyperparameters are passed in as the parameter space for the sweep. While many of the hyperparameters exposed are model-agnostic, there are instances where hyperparameters are model-specific or task-specific.
 
 ## Model-specific hyperparameters
 
@@ -26,12 +25,21 @@ This table summarizes hyperparameters specific to the `yolov5` algorithm.
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|----|
 | `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
+| `validation_iou_threshold` | IOU threshold for box matching when computing validation metrics.  <br>Must be a float in the range [0.1, 1]. | 0.5 |
 | `img_size` | Image size for train and validation. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 640 |
 | `model_size` | Model size. <br> Must be `small`, `medium`, `large`, or `xlarge`. <br><br> *Note: training run may get into CUDA OOM if the model size is too big*.  | `medium` |
 | `multi_scale` | Enable multi-scale image by varying image size by +/- 50% <br> Must be 0 or 1. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*. | 0 |
 | `box_score_thresh` | During inference, only return proposals with a score greater than `box_score_thresh`. The score is the multiplication of the objectness score and classification probability. <br> Must be a float in the range [0, 1]. | 0.1 |
-| `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
+| `nms_iou_thresh` | IOU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
 
+This table summarizes hyperparameters specific to the `maskrcnn_*` for instance segmentation during inference.
+
+| Parameter name       | Description           | Default  |
+| ------------- |-------------|----|
+| `mask_pixel_score_threshold` | Score cutoff for considering a pixel as part of the mask of an object. | 0.5 |
+| `max_number_of_polygon_points` | Maximum number of (x, y) coordinate pairs in polygon after converting from a mask. | 100 |
+| `export_as_image` | Export masks as images. | False |
+| `image_type` | Type of image to export mask as (options are jpg, png, bmp).  | JPG |
 
 ## Model agnostic hyperparameters
 
@@ -83,15 +91,16 @@ The following table summarizes hyperparmeters for image classification (multi-cl
 The following hyperparameters are for object detection and instance segmentation tasks.
 
 > [!WARNING]
-> These parameters are not supported with the `yolov5` algorithm.
+> These parameters are not supported with the `yolov5` algorithm. See the [model specific hyperparameters](#model-specific-hyperparameters) section for `yolo5` supported hyperparmeters.
 
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
 | `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
+| `validation_iou_threshold` | IOU threshold for box matching when computing validation metrics.  <br>Must be a float in the range [0.1, 1]. | 0.5 |
 | `min_size` | Minimum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*.| 600 |
 | `max_size` | Maximum size of the image to be rescaled before feeding it to the backbone. <br> Must be a positive integer.<br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 1333 |
 | `box_score_thresh` | During inference, only return proposals with a classification score greater than `box_score_thresh`. <br> Must be a float in the range [0, 1].| 0.3 |
-| `box_nms_thresh` | Non-maximum suppression (NMS) threshold for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
+| `nms_iou_thresh` | IOU (intersection over union) threshold used in non-maximum suppression (NMS) for the prediction head. Used during inference.  <br>Must be a float in the range [0, 1]. | 0.5 |
 | `box_detections_per_img` | Maximum number of detections per image, for all classes. <br> Must be a positive integer.| 100 |
 | `tile_grid_size` | The grid size to use for tiling each image. <br>*Note: tile_grid_size must not be None to enable [small object detection](how-to-use-automl-small-object-detect.md) logic*<br> A tuple of two integers passed as a string. Example: --tile_grid_size "(3, 2)" | No Default |
 | `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |

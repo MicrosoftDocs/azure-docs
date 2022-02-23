@@ -55,8 +55,6 @@ items:
     displayName: get, started
 - name: Workspace
   items:
-  # - name: Overview
-  #   items:
   - name: Quickstarts
     items:
     - name: Create a workspace
@@ -431,6 +429,8 @@ items:
       items:
       - name: Database access control
         href: ../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
+      - name: Shared database access control
+        href: sql/shared-databases-access-control.md
       - name: Data security
         items:
         - name: Column-level security
@@ -444,20 +444,6 @@ items:
         - name: TDE with bring your own key
           href: ../azure-sql/database/transparent-data-encryption-byok-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
           displayName: transparent, data, encryption
-      # - name: Advanced Data Security
-      #   items:
-      #   - name: SQL pool
-      #     items:
-      #     - name: Overview
-      #       href: ../sql-database/sql-database-advanced-data-security.md?context=/azure/synapse-analytics/context/context
-      #     - name: Data discovery & classification
-      #       href: ../sql-database/sql-database-data-discovery-and-classification.md?context=/azure/synapse-analytics/context/context
-      #     - name: Vulnerability assessment
-      #       href: ../sql-database/sql-vulnerability-assessment.md?context=/azure/synapse-analytics/context/context
-      #     - name: Advanced Threat Protection
-      #       href: ../sql-database/sql-database-threat-detection-overview.md?context=/azure/synapse-analytics/context/context
-      #     - name: Auditing
-      #       href: ../sql-database/sql-database-auditing.md?context=/azure/synapse-analytics/context/context
     - name: Workload management
       items:
       - name: Overview

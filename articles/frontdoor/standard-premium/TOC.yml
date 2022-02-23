@@ -31,12 +31,16 @@
     href: concept-endpoint-manager.md
   - name: Caching
     href: concept-caching.md
+  - name: Traffic acceleration
+    href: ../front-door-traffic-acceleration.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
   - name: Routing
     items:
     - name: Routing architecture
-      href: ../front-door-routing-architecture.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      href: ../front-door-routing-architecture.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json&pivots=front-door-standard-premium
     - name: Route matching
       href: concept-route.md
+    - name: Origin selection
+      href: ../front-door-routing-methods.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
   - name: Origin
     href: concept-origin.md
   - name: Health probes

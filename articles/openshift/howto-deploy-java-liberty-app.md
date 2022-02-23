@@ -19,10 +19,10 @@ This guide demonstrates how to run your Java, Java EE, [Jakarta EE](https://jaka
 
 ## Prerequisites
 
+[!INCLUDE [aro-quota](includes/aro-quota.md)]
+
 Complete the following prerequisites to successfully walk through this guide.
 
-> [!NOTE]
-> Azure Red Hat OpenShift requires a minimum of 40 cores to create and run an OpenShift cluster. The default Azure resource quota for a new Azure subscription does not meet this requirement. To request an increase in your resource limit, see [Standard quota: Increase limits by VM series](../azure-portal/supportability/per-vm-quota-requests.md). Note that the free trial subscription isn't eligible for a quota increase, [upgrade to a Pay-As-You-Go subscription](../cost-management-billing/manage/upgrade-azure-subscription.md) before requesting a quota increase.
 
 1. Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS).
 1. Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
@@ -107,7 +107,7 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 
 Follow the instructions below to set up an Azure Database for MySQL for use with your app. If your application doesn't require a database, you can skip this section.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Return to this document after creating the database.
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Return to this document after creating the database.
     > [!NOTE]
     >
     > * At the **Basics** step, write down the ***Server name**.mysql.database.azure.com*, **Server admin login** and **Password**.
@@ -125,7 +125,7 @@ Follow the instructions below to set up an Azure Database for MySQL for use with
    String url ="jdbc:mysql://<Database name>.mysql.database.azure.com:3306/{your_database}?useSSL=true&requireSSL=false"; myDbConn = DriverManager.getConnection(url, "<Server admin login>", {your_password});
    ```
 
-4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal#connect-to-the-server-by-using-mysqlexe) to create one. Return to this document after creating the database.
+4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#connect-to-the-server-by-using-mysqlexe) to create one. Return to this document after creating the database.
     > [!NOTE]
     >
     > * Write down the **Database name** you created.

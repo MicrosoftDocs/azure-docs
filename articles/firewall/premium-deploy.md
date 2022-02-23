@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 11/24/2021
+ms.date: 01/31/2022
 ms.author: victorh
 ---
 
@@ -14,7 +14,7 @@ ms.author: victorh
 
  Azure Firewall Premium is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. It includes the following features:
 
-- **TLS inspection** - decrypts outbound traffic, processes the data, then encrypts the data and sends it to the destination.
+- **TLS Inspection** - decrypts outbound traffic, processes the data, then encrypts the data and sends it to the destination.
 - **IDPS** - A network intrusion detection and prevention system (IDPS) allows you to monitor network activities for malicious activity, log information about this activity, report it, and optionally attempt to block it.
 - **URL filtering** - extends Azure Firewall’s FQDN filtering capability to consider an entire URL. For example, `www.contoso.com/a/c` instead of `www.contoso.com`.
 - **Web categories** - administrators can allow or deny user access to website categories such as gambling websites, social media websites, and others.
@@ -38,11 +38,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Deploy the infrastructure
 
-The template deploys a complete testing environment for Azure Firewall Premium enabled with IDPS, TLS Inspection, URL Filtering and Web Categories:
+The template deploys a complete testing environment for Azure Firewall Premium enabled with IDPS, TLS Inspection, URL Filtering, and Web Categories:
 
-- a new Azure Firewall Premium and Firewall Policy with predefined settings to allow easy validation of its core capabilities (IDPS, TLS Inspection, URL Filtering and Web Categories)
-- deploys all dependencies including Key Vault and a Managed Identity. In a production environment these resources may already be created and not needed in the same template.
-- generates self signed Root CA and deploys it on the generated Key Vault
+- a new Azure Firewall Premium and Firewall Policy with predefined settings to allow easy validation of its core capabilities (IDPS, TLS Inspection, URL Filtering, and Web Categories)
+- deploys all dependencies including Key Vault and a Managed Identity. In a production environment, these resources may already be created and not needed in the same template.
+- generates self-signed Root CA and deploys it on the generated Key Vault
 -  generates a derived Intermediate CA and deploys it on a Windows test virtual machine (WorkerVM)
 - a Bastion Host (BastionHost) is also deployed and can be used to connect to the Windows testing machine (WorkerVM)
 
@@ -52,7 +52,7 @@ The template deploys a complete testing environment for Azure Firewall Premium e
 
 ## Test the firewall
 
-Now you can test IDPS, TLS inspection, Web filtering, and Web categories.
+Now you can test IDPS, TLS Inspection, Web filtering, and Web categories.
 
 ### Add firewall diagnostics settings
 
@@ -67,7 +67,7 @@ To collect firewall logs, you need to add diagnostics settings to collect firewa
 
 ### IDPS tests
 
-To test IDPS, you'll need to deploy your own internal Web server with an appropriate server certificate. For more information about Azure Firewall Premium certificate requirements, see [Azure Firewall Premium certificates](premium-certificates.md).
+To test IDPS, you should deploy your own internal test Web server with an appropriate server certificate. This test includes sending malicious traffic to a Web server, so it isn't advisable to do this to a public Web server. For more information about Azure Firewall Premium certificate requirements, see [Azure Firewall Premium certificates](premium-certificates.md).
 
 You can use `curl` to control various HTTP headers and simulate malicious traffic.
 
@@ -123,7 +123,7 @@ You should see the same results that you had with the HTTP tests.
 
 Use the following steps to test TLS Inspection with URL filtering.
 
-1. Edit the firewall policy application rules and add a new rule called `AllowURL` to the `AllowWeb` rule collection. Configure the target URL `www.nytimes.com/section/world`, Source IP address **\***, Destination type **URL**, select **TLS inspection**, and protocols **http, https**.
+1. Edit the firewall policy application rules and add a new rule called `AllowURL` to the `AllowWeb` rule collection. Configure the target URL `www.nytimes.com/section/world`, Source IP address **\***, Destination type **URL**, select **TLS Inspection**, and protocols **http, https**.
 
 3. When the deployment completes, open a browser on WorkerVM and go to `https://www.nytimes.com/section/world` and validate that the HTML response is displayed as expected in the browser.
 4. In the Azure portal, you can view the entire URL in the Application rule Monitoring logs:
@@ -145,7 +145,7 @@ Let's create an application rule to allow access to sports web sites.
 1. From the portal, open your resource group and select **DemoFirewallPolicy**.
 2. Select **Application Rules**, and then **Add a rule collection**.
 3. For **Name**, type *GeneralWeb*, **Priority** *103*, **Rule collection group** select **DefaultApplicationRuleCollectionGroup**.
-4. Under **Rules** for **Name** type *AllowSports*, **Source** *\**, **Protocol** *http, https*, select **TLS inspection**, **Destination Type** select *Web categories*, **Destination** select *Sports*.
+4. Under **Rules** for **Name** type *AllowSports*, **Source** *\**, **Protocol** *http, https*, select **TLS Inspection**, **Destination Type** select *Web categories*, **Destination** select *Sports*.
 5. Select **Add**.
 
       :::image type="content" source="media/premium-deploy/web-categories.png" alt-text="Sports web category":::

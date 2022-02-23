@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/10/2022
+ms.date: 01/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, tunag
+ms.reviewer: calebb, vmahtani
 
 ms.collection: M365-identity-device-management
 ---
@@ -23,7 +23,7 @@ Within a Conditional Access policy, an administrator can make use of session con
 
 ## Application enforced restrictions
 
-Organizations can use this control to require Azure AD to pass device information to the selected cloud apps. The device information allows cloud apps to know if a connection is from a compliant or domain-joined device and update the session experience. This control only supports SharePoint Online and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users with a limited or full experience. Limited when the device isn't managed or compliant and full when the device is managed and compliant.
+Organizations can use this control to require Azure AD to pass device information to the selected cloud apps. The device information allows cloud apps to know if a connection is from a compliant or domain-joined device and update the session experience. This control only supports Office 365, SharePoint Online, and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users with a limited or full experience. Limited when the device isn't managed or compliant and full when the device is managed and compliant.
 
 For more information on the use and configuration of app-enforced restrictions, see the following articles:
 
