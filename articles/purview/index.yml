@@ -163,8 +163,6 @@ landingContent:
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Authoring data owner access policies
-          url: how-to-data-owner-policy-authoring-generic.md
         - text: Data owner policies for Azure Storage
           url: tutorial-data-owner-policies-storage.md
         - text: Data owner policies on resource groups or subscriptions
