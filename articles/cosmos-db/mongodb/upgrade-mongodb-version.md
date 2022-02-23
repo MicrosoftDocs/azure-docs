@@ -25,13 +25,7 @@ When upgrading to a new API version, start with development/test workloads befor
 - Several major improvements to the aggregation pipeline such as support for `$merge`, Trigonometry, arithmetic expressions, and more.
 - Support for client side field encyption which further secures your database by enabling individual fields to be selectively encrypted and maintaining privacy of the encrypted data from database users and hosting providers.
 
-### Benefits of upgrading to version 4.0
 
-The following are the new features included in version 4.0:
-- Support for multi-document transactions within unsharded collections.
-- New aggregation operators.
-- Enhanced scan performance.
-- Faster, more efficient storage.
 
 ### Benefits of upgrading to version 4.0
 
