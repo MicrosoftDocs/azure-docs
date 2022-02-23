@@ -20,7 +20,7 @@ This workflow has been tested with [Narrator](https://support.microsoft.com/help
 
 ## Navigate the pipeline graph
 
-The pipeline graph is organized as a nested list. The outer list is a component list, which describes all the components in the pipeline graph. The inner list is a connection list, which describes input/output ports of a specific component connection details. Use below keyboard action to navigate a pipeline graph when focus moved to it
+The pipeline graph is organized as a nested list. The outer list is a component list, which describes all the components in the pipeline graph. The inner list is a connection list, which describes input/output ports of a specific component connection details. The following keyboard actions help you to navigate a pipeline graph. 
 
 1. Tab: navigate to first node -> each port of the node -> next node
 2. Up/down arrow key: to next/previous node by it's position in the graph
