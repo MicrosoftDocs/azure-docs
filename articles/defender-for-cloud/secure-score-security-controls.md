@@ -1,11 +1,11 @@
 ---
-title: Security posture Microsoft Defender for Cloud
+title: Security posture for Microsoft Defender for Cloud
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 ms.topic: article
-ms.date: 02/17/2022
+ms.date: 02/23/2022
 ---
 
-# Security posture Microsoft Defender for Cloud
+# Security posture for Microsoft Defender for Cloud
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -29,6 +29,18 @@ To increase your security, review Defender for Cloud's recommendations page for 
 Recommendations are grouped into **security controls**. Each control is a logical group of related security recommendations, and reflects your vulnerable attack surfaces. Your score only improves when you remediate *all* of the recommendations for a single resource within a control. To see how well your organization is securing each individual attack surface, review the scores for each security control.
 
 For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
+
+## View/manage/navigate your security posture
+
+Describe the Security posture page here:
+
+in the circle top left - hovering over each section will show a tooltip providing more details on. 
+
+Default environments shows all, select each one to limit the view
+
+Environment tab
+
+Owner tab lists all the owners of each recommendation - who has the most overdue recommendations
 
 ## How your secure score is calculated 
 
@@ -64,7 +76,9 @@ In this example:
 |**Secure score**<br>Single subscription|<br>![Equation for calculating a subscription's secure score](media/secure-score-security-controls/secure-score-equation-single-sub.png)<br><br>![Single subscription secure score with all controls enabled](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>In this example, there is a single subscription with all security controls available (a potential maximum score of 60 points). The score shows 28 points out of a possible 60 and the remaining 32 points are reflected in the "Potential score increase" figures of the security controls.<br>![List of controls and the potential score increase](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**Secure score**<br>Multiple subscriptions|<br>![Equation for calculating the secure score for multiple subscriptions.](media/secure-score-security-controls/secure-score-equation-multiple-subs.png)<br><br>When calculating the combined score for multiple subscriptions, Defender for Cloud includes a *weight* for each subscription. The relative weights for your subscriptions are determined by Defender for Cloud based on factors such as the number of resources.<br>The current score for each subscription is calculated in the same way as for a single subscription, but then the weight is applied as shown in the equation.<br>When viewing multiple subscriptions, secure score evaluates all resources within all enabled policies and groups their combined impact on each security control's maximum score.<br>![Secure score for multiple subscriptions with all controls enabled](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>The combined score is **not** an average; rather it's the evaluated posture of the status of all resources across all subscriptions.<br>Here too, if you go to the recommendations page and add up the potential points available, you will find that it's the difference between the current score (24) and the maximum score available (60).|
 
-A grace period has been added. While a recommendation is within its grace period, it will have no impact on your Secure Score. You will know that a recommendation is in its grace period when you see the flag icon :::image type="icon" source="media/secure-score-security-controls/flag-icon.png" border="false":::.
+#### Grace period
+
+A grace period has been added. While a recommendation is within its grace period, it will have no impact on your Secure Score. You will know that a recommendation is in its grace period when you see the hour glass icon :::image type="icon" source="media/secure-score-security-controls/flag-icon.png" border="false":::.
  
 ### Which recommendations are included in the secure score calculations?
 
