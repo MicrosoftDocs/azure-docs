@@ -18,27 +18,27 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register-same-tenant)| [Yes](#scan-same-tenant)| No | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+| [Yes](#register-same-tenant)| [Yes](#scan-same-tenant)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
 ### Supported scenarios for Power BI scans
 
-|**Azure Purview Firewall status** |**Power BI tenant Firewall status** | **Scenario**  | **Runtime option**  |
+|**Azure Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Power BI tenant same/cross**  | **Runtime option**  |
 |---------|---------|---------|---------|
-|Public access allowed     |Public access allowed        |Same tenant        |Azure Runtime        |
-|Public access allowed     |Public access allowed        |Same tenant        |Self-hosted runtime        |
-|Public access allowed     |Public access denied       |Same tenant       |Self-hosted runtime        |
-|Public access denied     |Public access allowed       |Same tenant       |Self-hosted runtime        |
-|Public access denied     |Public access denied       |Same tenant       |Self-hosted runtime        |
-|Public access allowed     |Public access allowed        |Cross-tenant        |Azure Runtime        |
-|Public access allowed     |Public access allowed        |Cross-tenant       |Self-hosted runtime        |
+|Allowed     |Allowed        |Same tenant        |[Azure Runtime & Managed Identity](###Authenticate-to-Power-BI-Tenant-(For-Managed-Identity-only))    |
+|Allowed     |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](####Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
+|Allowed     |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](####Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
+|Denied      |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](####Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
+|Denied      |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](####Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
+|Allowed     |Allowed        |Cross-tenant       |[Azure Runtime  & Delegated auth](##Cross-Power-BI-tenant-registration-and-scan)                  |
+|Allowed     |Allowed        |Cross-tenant       |[Self-hosted runtime & Delegated auth](##Cross-Power-BI-tenant-registration-and-scan)             |
 
 ### Known limitations
 
--  Currently we support scanning Power BI using a self-hosted runtime, if Azure Purview or Power BI tenant is protected behind a private endpoint. 
--  Delegated Auth is the only supported authentication option if self-hosted integration runtime is used during the scan.  
--  For cross-tenant scenario, no UX experience currently available to register, however, you can trigger a scan cross Power BI tenant from Azure Purview Studio.
+-  If Azure Purview or Power BI tenant is protected behind a private endpoint, Self-hosted runtime is the only option to scan
+-  Delegated Auth is the only supported authentication option if self-hosted integration runtime is used during the scan
 -  For cross-tenant scenario, delegated Auth is only supported option for scanning.
--  You can create only one scan in a Power BI data source that is registered in your Azure Purview account.
+-  You can create only one scan for a Power BI data source that is registered in your Azure Purview account
+-  If Power BI dataset schema is not shown after scan, it is due to one of the current limitations with [Power BI Metadata scanner](https://docs.microsoft.com/en-us/power-bi/admin/service-admin-metadata-scanning)
 
 ## Prerequisites
 
@@ -54,16 +54,14 @@ This article outlines how to register a Power BI tenant, and how to authenticate
   
   - Ensure [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html), is installed on the virtual machine where the self-hosted integration runtime is installed.
 
-- To register a cross-tenant Power BI tenant, you may need to use additional tool such as _Postman_ which can be downloaded from [postman.com](https://www.postman.com). 
-
-## Same tenant
+## Same Power BI tenant registration and scan
 
 ### Authentication options 
 
 - Managed Identity 
 - Delegated Authentication
 
-### Authenticate to Power BI Tenant
+### Authenticate to Power BI Tenant (For Managed Identity only)
 
 > [!Note]
 > Follow steps in this section, only if you are planning to use **Managed Identity** as authentication option.
@@ -93,7 +91,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/success-add-catalog-msi.png" alt-text="Screenshot showing successful addition of  catalog MSI.":::
 
-#### Associate the security group with the tenant
+### Associate the security group with Power BI tenant
 
 1. Log into the [Power BI admin portal](https://app.powerbi.com/admin-portal/tenantSettings).
    
@@ -121,7 +119,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
     > [!Note]
     > You can remove the security group from your developer settings, but the metadata previously extracted won't be removed from the Azure Purview account. You can delete it separately, if you wish.
 
-### Register same tenant
+### Register same Power BI tenant
 
 This section describes how to register a Power BI tenant in Azure Purview for same-tenant scenario.
 
@@ -143,7 +141,7 @@ This section describes how to register a Power BI tenant in Azure Purview for sa
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Image showing the registered Power BI data source.":::
 
-### Scan same tenant
+### Scan same Power BI tenant
 
 #### Scan same tenant using Azure IR and Managed Identity
 
@@ -263,55 +261,30 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of save and run Power BI source.":::
 
-## Cross-Tenant
+## Cross Power BI tenant registration and scan
 
 ### Authentication options 
 - Delegated Authentication
 
-### Register cross-tenant
+### Cross Power BI tenant registration
 
-In a cross-tenant scenario, you can use Azure Purview REST API using a tool such as [Postman](https://www.postman.com/), to register your Power BI tenants. Once you register a Power BI tenant, you can configure a scan, browse, and search assets of remote tenant using Azure Purview Studio through the UI experience. 
+1. Select the **Data Map** on the left navigation.
 
-1. Follow [these steps](tutorial-using-rest-apis.md) to and obtain a valid token from your REST API connection.
-   
-2. Use [Data Sources - Create Or Update](/rest/api/purview/scanningdataplane/data-sources/create-or-update) operation to register a new Power BI tenant.
+1. Then select **Register**.
 
-    **Request URL:**
-        `PUT` `{Endpoint}/datasources/{dataSourceName}?api-version=2018-12-01-preview`
+    Select **Power BI** as your data source.
 
-    **Request URL example:**
-        `https://purview02.purview.azure.com/scan/datasources/PowerBI-TenantB?api-version=2018-12-01-preview`
-    
-    **Request Body example:**
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Image showing the list of data sources available to choose.":::
 
-    ```json
-        {
-        "kind": "PowerBI",
-        "name": "PowerBI-TenantB",
-            "properties": {
-                "tenant": "12345678-abcd-abcd-1234-abcd12345678",
-                "kind": "PowerBI",
-                "name": "PowerBI-TenantB",
-                "collection": { 
-                        "referenceName": "Contoso-Collection", 
-                        "type": "CollectionReference" 
-                 }
-            }
-        }  
-    ```
+1. Give your Power BI instance a friendly name. The name must be between 3-63 characters long and must contain only letters, numbers, underscores, and hyphens.  Spaces aren't allowed.
 
-    > [!Note]
-    > Update the required such as name, tenant, Azure Purview account name and Collection referenceName.
+1. Edit the Tenant ID field to replace with cross Power BI tenant you want to register and scan. By default, Power BI tenant ID that exists in the same Azure Active Directory as Azure Purview will be populated.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-register-cross-tenant.png" alt-text="Image showing how to register a cross-tenant Power BI data source using Postman.":::
-   
-1. Login to [Azure Purview Studio](https://web.purview.azure.com) and from **Data Map** verify if Power BI tenant is registered in Azure Purview.
+     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/register-cross-tenant.png" alt-text="Image showing the registration experience for cross tenant Power BI":::
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-register-cross-tenant-validate.png" alt-text="Image showing a cross-tenant Power BI tenant is registered as a data source.":::
+### Cross Power BI tenant scanning
 
-### Scan cross-tenant
-
-#### Scan cross-tenant using Delegated Auth 
+#### Scan cross Power BI tenant using Delegated Auth 
 
 Delegated auth is the only supported option for cross-tenant scan option, however, you can use either Azure runtime or a self-hosted integration runtime to run a scan. 
 
