@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 You can create a service principal in the Azure portal or by using Azure PowerShell.
 
 > [!NOTE]
-> To create a service principal and assign roles, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding. You also need to be a member of either the Azure Active Directory [Cloud Application Administrator](../../active-directory/roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../../active-directory/roles/permissions-reference.md#application-administrator) role.
+> To assign Arc-enabled server roles, your account must be a member of the **Owner** or **User Access Administrator** role in the subscription that you want to use for onboarding. To create a service principal, you need to be a member of either the Azure Active Directory [Cloud Application Administrator](../../active-directory/roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../../active-directory/roles/permissions-reference.md#application-administrator) role.
 
 ### Azure portal
 
