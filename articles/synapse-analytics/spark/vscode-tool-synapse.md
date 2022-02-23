@@ -11,7 +11,7 @@ ms.subservice: spark
 ms.date: 09/03/2020
 ---
 
-# Tutorial: Create an Apache Spark applications with VSCode using a Synapse workspace
+# Tutorial: Create an Apache Spark application with VSCode using a Synapse workspace
 
 Learn how to use Apache Spark & Hive Tools for Visual Studio Code. Use the tools to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install Spark & Hive Tools in Visual Studio Code. Then we'll walk through how to submit jobs to Spark & Hive Tools.
 
@@ -92,7 +92,7 @@ Follow these steps to connect to Azure:
 
 ## Submit interactive Synapse PySpark queries to Spark pool (Not supported currently)
 
-For Synapse Pyspark interactive, since it's dependency will not be maintained anymore by other team, it will not be maintained any more.  If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
+For Synapse Pyspark interactive, since its dependency will not be maintained anymore by other team, it will not be maintained anymore.  If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
 
 Users can perform Synapse PySpark interactive on Spark pool in the following ways:
 
@@ -302,7 +302,7 @@ You can perform different operations in Azure Explorer within Spark & Hive tools
 
 ![known issues](./media/vscode-tool-synapse/known-issue.png)
 
- For Synapse PySpark installation error, since it's dependency will not be maintained anymore by other team, it will not be maintained any more. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
+ For Synapse PySpark installation error, since its dependency will not be maintained anymore by other team, it will not be maintained anymore. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
 
 ## Next steps
 
