@@ -20,11 +20,13 @@ This workflow has been tested with [Narrator](https://support.microsoft.com/help
 
 ## Navigate the pipeline graph
 
-The pipeline graph is organized as a nested list. The outer list is a component list, which describes all the components in the pipeline graph. The inner list is a connection list, which describes input/output ports of a specific component connection details. The following keyboard actions help you to navigate a pipeline graph. 
+The pipeline graph is organized as a nested list. The outer list is a component list, which describes all the components in the pipeline graph. The inner list is a connection list, which describes input/output ports and details for a specific component connection. 
 
-1. Tab: navigate to first node -> each port of the node -> next node
-2. Up/down arrow key: to next/previous node by it's position in the graph
-3. Ctrl + g when focus on a port:  go to the connected port. When there are more than one connection from one port, open a list view to select the target. Use "Esc" to go to the selected target
+The following keyboard actions help you navigate a pipeline graph: 
+
+- Tab: Move to first node > each port of the node > next node.
+- Up/down arrow keys: Move to next or previous node by its position in the graph.
+- Ctrl+G when focus is on a port: Go to the connected port. When there's more than one connection from one port, open a list view to select the target. Use the Esc key to go to the selected target.
 
 ## Edit the pipeline graph
 
@@ -33,17 +35,20 @@ The pipeline graph is organized as a nested list. The outer list is a component 
 1. Use Ctrl+F6 to switch focus from the canvas to the component tree.
 1. Find the desired component in the component tree using standard treeview control.
 
-### To connect a component to another component
+### Connect a component to another component
 
-1. User can move focus to a port with tab key as mentioned above
-2. Screen reader will read the port information. The information contains whether this port is a valid source port to set connection to other components. 
-3. If the current port is a valid source port, user can use short cut (accessKey + c) to start connecting. This command will set this port as connection source. 
-4. Then use "tab" key, user can move focus through every available destination port.
-5. Press "enter" will use current port as the destination port and set up the connection. 
-6. Press "esc" key will cancel the connecting. 
+1. Use the Tab key to move focus to a port. 
+   
+   The screen reader reads the port information, which includes whether this port is a valid source port to set a connection to other components.   
+
+1. If the current port is a valid source port, press access key + C to start connecting. This command sets this port as the connection source. 
+1. Using the Tab key, move focus through every available destination port.
+1. To use the current port as the destination port and set up the connection, press Enter. 
+1. To cancel the connection, press Esc. 
 
 ### Edit setting of a component
-1. Use accessKey + a to open the component setting panel. Then use tab to move focus to the setting pannel, where you can edit the settings. 
+
+- Use access key + A to open the component setting panel. Then, use the Tab key to move focus to the setting panel, where you can edit the settings. 
 
 ## Navigation shortcuts
 
@@ -70,6 +75,7 @@ Use the following shortcuts with the access key. For more information on access 
 | Access key + K | Open "Create inference pipeline" dropdown |
 | Access key + U | Open "Update inference pipeline" dropdown |
 | Access key + M | Open more(...) dropdown |
+| Access key + A | Open component settings |
 
 ## Next steps
 
