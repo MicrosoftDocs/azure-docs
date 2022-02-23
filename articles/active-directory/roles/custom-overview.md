@@ -3,7 +3,7 @@ title: Overview of Azure Active Directory role-based access control (RBAC)
 description: Learn how to understand the parts of a role assignment and restricted scope in Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -38,8 +38,8 @@ Once you’ve created your custom role definition (or using a built-in role), yo
 
 The following are the high-level steps that Azure AD uses to determine if you have access to a management resource. Use this information to troubleshoot access issues.
 
-1. A user (or service principal) acquires a token to the Microsoft Graph or Azure AD Graph endpoint.
-1. The user makes an API call to Azure Active Directory (Azure AD) via Microsoft Graph or Azure AD Graph using the issued token.
+1. A user (or service principal) acquires a token to the Microsoft Graph endpoint.
+1. The user makes an API call to Azure Active Directory (Azure AD) via Microsoft Graph using the issued token.
 1. Depending on the circumstance, Azure AD takes one of the following actions:
    - Evaluates the user’s role memberships based on the [wids claim](../develop/access-tokens.md) in the user’s access token.
    - Retrieves all the role assignments that apply for the user, either directly or via group membership, to the resource on which the action is being taken.

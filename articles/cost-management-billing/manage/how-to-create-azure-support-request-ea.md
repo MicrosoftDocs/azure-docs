@@ -2,7 +2,7 @@
 title: How to create an Azure support request for an Enterprise Agreement issue
 description: Enterprise Agreement customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: troubleshooting
-ms.date: 10/07/2021
+ms.date: 02/03/2022
 ms.author: banders
 author: bandersmsft
 ms.reviewer: sapnakeshari
@@ -76,7 +76,7 @@ Based on the information you provided, we'll show you recommended solutions you 
 
 If you're still unable to resolve the issue, continue creating your support request by selecting **Next: Details**.
 
-### Additional details
+### Other details
 
 Next, we collect more details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
@@ -101,7 +101,7 @@ A support engineer will contact you using the method you indicated. For informat
 
 ## Can't create request with Microsoft Account
 
-If you have a Microsoft Account (MSA), you can't create an Azure support ticket. Microsoft accounts are created for services including Outlook, Windows Live, and Hotmail.
+If you have a Microsoft Account (MSA) and you aren't able to create an Azure support ticket, use the following steps to file a support case. Microsoft accounts are created for services including Outlook, Windows Live, and Hotmail.
 
 To create an Azure support ticket, an *organizational account* must have the EA administrator role or Partner administrator role.
 
@@ -114,7 +114,7 @@ If you have an MSA, have an administrator create an organizational account for y
 
 Follow these links to learn more:
 
-* [How to manage an Azure support request]()../../azure-portal/supportability/how-to-manage-azure-support-request.md)
+* [How to manage an Azure support request](../../azure-portal/supportability/how-to-manage-azure-support-request.md)
 * [Azure support ticket REST API](/rest/api/support)
 * Engage with us on [Twitter](https://twitter.com/azuresupport)
 * Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)

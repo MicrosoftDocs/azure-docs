@@ -4,14 +4,13 @@ description: Describes how to upgrade from DirSync and Azure AD Sync to Azure AD
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 07/13/2017
 ms.subservice: hybrid
@@ -46,11 +45,6 @@ If you are running DirSync, there are two ways you can upgrade: In-place upgrade
 | [Upgrade from DirSync](how-to-dirsync-upgrade-get-started.md) |<li>If you have an existing DirSync server already running.</li> |
 | [Upgrade from Azure AD Sync](how-to-upgrade-previous-version.md) |<li>If you are moving from Azure AD Sync.</li> |
 
-If you want to see how to do an in-place upgrade from DirSync to Azure AD Connect, then see this Channel 9 video:
-
-> [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-in-place-upgrade-from-legacy-tools/player]
->
->
 
 ## FAQ
 **Q: I have received an email notification from the Azure Team and/or a message from the Microsoft 365 message center, but I am using Connect.**  

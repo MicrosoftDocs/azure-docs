@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
@@ -15,64 +15,35 @@ ms.topic: how-to
 
 [Azure Data Studio](/sql/azure-data-studio/what-is) provides an experience similar to the Azure portal for viewing information about your Azure Arc resources.  These views are called **dashboards** and have a layout and options similar to what you could see about a given resource in the Azure portal, but give you the flexibility of seeing that information locally in your environment in cases where you don't have a connection available to Azure.
 
-
-## Connecting to a data controller
+## Connect to a data controller
 
 ### Prerequisites
 
 - Download [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - Azure Arc extension is installed
 
-### Determine the data controller server API endpoint URL
-
-First, you'll need to connect Azure Data Studio to your data controller service API endpoint URL.
-
-To get this endpoint you can run the following command:
-
-```console
-kubectl get svc/controller-svc-external -n <namespace name>
-
-#Example:
-kubectl get svc/controller-svc-external -n arc
-```
-
-You'll see output that looks like this:
-
-```console
-NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                       AGE
-controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
-```
-
-If you are using a LoadBalancer type, you'll want to copy the external IP address and port number. If you are using NodePort, you'll want to use the IP address of your Kubernetes API server and the port number listed under the PORT(S) column.
-
-Now, you'll want to construct a URL to your endpoint by combining this information like so:
-
-```console
-https://<ip address>:<port>
-
-Example:
-https://52.154.152.24:30080
-```
-
-Take note of your IP address as you will use it in the next step.
-
 ### Connect
 
-1. Open Azure Data Studio
+1. Open Azure Data Studio.
+2. Select the **Connections** tab on the left.
+3. Expand the panel called **Azure Arc Controllers**.
+4. Select the **Connect Controller** button. 
 
-1. Select the **Connections** tab on the left
+   Azure Data Studio opens a blade on the right side.
 
-Towards the bottom, expand the panel called **Azure Arc Controllers**.
+1. Enter the **Namespace** for the data controller.
 
-Click the + icon to add a new data controller connection.
+   Azure Data Studio reads from the `kube.config` file in your default directory and lists the available Kubernetes cluster contexts. It selects the current cluster context. If this is the right cluster to connect to, use that namespace. 
 
-At the top of the screen in the command palette, enter the URL you constructed in Step 1, click enter.
-Enter the username for the data controller.  This was the username value that you passed during the deployment of the data controller.  Click enter.
-Enter the password for the data controller.  This was the password value that you passed during the deployment of the data controller. Click enter.
+   If you need to retrieve the namespace where the Azure Arc data controller is deployed, you can run `kubectl get datacontrollers -A` on your Kubernetes cluster. 
 
-Now that you are connected to a data controller, you can view the dashboards for the data controller and any SQL managed instances or PostgreSQL Hyperscale server group resources that you have.
+6. Optionally add a display name for the Azure Arc data controller in the input for **Name**.
+7. Select **Connect**.
 
-## View the Data Controller dashboard
+
+After you connect to a data controller, you can view the dashboards. Azure Data Studio has dashboards for the data controller and any SQL managed instances or PostgreSQL Hyperscale server group resources that you have.
+
+## View the data controller dashboard
 
 Right-click on the data controller in the Connections panel in the **Arc Controllers** expandable panel and choose **Manage**.
 
@@ -84,38 +55,42 @@ Conveniently, you can launch the creation of a SQL managed instance or PostgreSQ
 
 You can also open the Azure portal in context to this data controller by clicking the Open in Azure portal button.
 
-## View the SQL managed instance dashboards
+## View the SQL Managed Instance dashboards
 
-If you have created some SQL managed instances, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
+If you have created some SQL Managed Instances, see them listed under **Connections** in the **Azure Data Controllers** expandable panel underneath the data controller that is managing them.
 
-To view the SQL managed instance dashboard for a given instance, right-click on the instance and choose Manage.
+To view the SQL Managed Instance dashboard for a given instance, right-click on the instance and choose **Manage**.
 
-The Connection panel will pop up on the right and prompt you for the login/password to connect to that SQL instance. If you know the connection information you can enter it and click Connect.  If you don't know, you can click Cancel.  Either way, you will be brought to the dashboard when the Connection panel closes.
+The **Connection** panel prompts you for the login and password to connect to an instance. If you know the connection information you can enter it and choose **Connect**.  If you don't know, choose **Cancel**.  Either way, Azure Data Studio returns to the dashboard when the **Connection** panel closes.
 
-On the Overview tab you can view details about the SQL managed instance such as resource group, data controller, subscription ID, status, region and more.  You can also see link that you can click to go into the Grafana or Kibana dashboards in context to that SQL managed instance.
+On the **Overview** tab, view resource group, data controller, subscription ID, status, region, and other information. This location also provides links to the Grafana dashboard for viewing metrics or Kibana dashboard for viewing logs in context to that SQL managed instance.
 
-If you are able to connect to the SQL manage instance, you can see additional information here.
+With a connection to the SQL manage instance, you can see additional information here.
 
 You can delete the SQL managed instance from here or open the Azure portal to view the SQL managed instance in the Azure portal.
 
-If you click on the Connection Strings tab on the left, you can see a list of pre-constructed connection strings for that SQL managed instance making it easy for you to copy/paste into various other applications or code.
+If you click on the **Connection Strings** tab, the Azure Data Studio presents a list of pre-constructed connection strings for that instance making. Copy and paste these strings into various other applications or code.
 
 ## View the PostgreSQL Hyperscale server group dashboards
 
-If you have created some PostgreSQL Hyperscale server groups, you can see them listed in the Connections panel in the Azure Data Controllers expandable panel underneath the data controller that is managing them.
+If the deployment includes PostgreSQL Hyperscale server groups, Azure Data Studio lists them  in the **Connections** panel in the **Azure Data Controllers** expandable panel underneath the data controller that is managing them.
 
 To view the PostgreSQL Hyperscale server group dashboard for a given server group, right-click on the server group and choose Manage.
 
-On the Overview tab you can view details about the server group such as resource group, data controller, subscription ID, status, region and more.  You can also see link that you can click to go into the Grafana or Kibana dashboards in context to that server group.
+On the **Overview** tab, review details about the server group such as resource group, data controller, subscription ID, status, region and more. The tab also has links to the Grafana dashboard for viewing metrics or Kibana dashboard for viewing logs in context to that server group.
 
 You can delete the server group from here or open the Azure portal to view the server group in the Azure portal.
 
-If you click on the Connection Strings tab on the left, you can see a list of pre-constructed connection strings for that server group making it easy for you to copy/paste into various other applications or code.
+If you click on the **Connection Strings** tab on the left, Azure Data Studio provides pre-constructed connection strings for that server group. Copy and paste these strings to various other applications or code.
 
-If you click on the Properties tab on the left, you can see additional details.
+Select the **Properties** tab on the left to see additional details.
 
-If you click on the Resource health tab on the left you can see the current high-level health of that server group.
+The **Resource health** tab on the left displays the current health of that server group.
 
-If you click on the Diagnose and solve problems tab on the left, you can launch the PostgreSQL troubleshooting notebook.
+The **Diagnose and solve problems** tab on the left, launches the PostgreSQL troubleshooting notebook.
 
-If you click on the New support request tab on the left, you can launch the Azure portal in context to the server group and create an Azure support request from there.
+For Azure support, select the **New support request** tab. This launches the Azure portal in context to the server group. Create an Azure support request from there.
+
+## Next steps
+
+- [View SQL Managed Instance in the Azure portal](view-arc-data-services-inventory-in-azure-portal.md)

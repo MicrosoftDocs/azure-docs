@@ -31,7 +31,7 @@ VM extensions can be applied to your Azure Arc-enabled server-managed machine vi
 
     ![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
 
-    To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
+    To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](../../azure-monitor/agents/agent-windows.md#workspace-id-and-key).
 
 4. After confirming the required information provided, select **Review + Create**. A summary of the deployment is displayed and you can review the status of the deployment.
 
@@ -84,7 +84,7 @@ You can upgrade one extension by one of three ways:
 
     :::image type="content" source="media/manage-vm-extensions-portal/vm-extensions-update-selected.png" alt-text="Update selected extension." border="true":::
 
-## Uninstall extensions
+## Remove extensions
 
 You can remove one or more extensions from an Azure Arc-enabled server from the Azure portal. Perform the following steps to remove an extension.
 

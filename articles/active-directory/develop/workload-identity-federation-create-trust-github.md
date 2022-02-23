@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/18/2021
+ms.date: 01/28/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: keyam, udayh, vakarand
@@ -23,7 +23,7 @@ This article describes how to create a trust relationship between an application
 
 Anyone with permissions to create an app registration and add a secret or certificate can add a federated identity credential.  If the **Users can register applications** switch in the [User Settings](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) blade is set to **No**, however, you won't be able to create an app registration or configure the federated identity credential.  Find an admin to configure the federated identity credential on your behalf.  Anyone in the Application Administrator or Application Owner roles can do this.
 
-After you configure your app to trust a GitHub repo, configure your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources (described in the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)).
+After you configure your app to trust a GitHub repo, [configure your GitHub Actions workflow](/azure/developer/github/connect-from-azure) to get an access token from Microsoft identity provider and access Azure AD protected resources.
 
 ## Prerequisites
 [Create an app registration](quickstart-register-app.md) in Azure AD.  Grant your app access to the Azure resources targeted by your GitHub workflow.  
@@ -44,7 +44,7 @@ In the **Federated credential scenario** drop-down box select **GitHub actions d
 
 Specify the **Organization** and **Repository** for your GitHub Actions workflow.  
 
-For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value.
+For **Entity type**, select **Environment**, **Branch**, **Pull request**, or **Tag** and specify the value. The values must exactly match the configuration in the [GitHub workflow](https://docs.github.com/actions/using-workflows/workflow-syntax-for-github-actions#on).  For more info, read the [examples](#entity-type-examples).
 
 Add a **Name** for the federated credential.
 
@@ -59,6 +59,67 @@ Click **Add** to configure the federated credential.
 
 > [!IMPORTANT]
 > The **Organization**, **Repository**, and **Entity type** values must exactly match the configuration on the GitHub workflow configuration. Otherwise, Microsoft identity platform will look at the incoming external token and reject the exchange for an access token.  You won't get an error, the exchange fails without error.
+
+### Entity type examples
+
+#### Branch example
+
+For a workflow triggered by a push or pull request event on the main branch:
+
+```yml
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+```
+
+Specify an **Entity type** of **Branch** and a **GitHub branch name** of "main".
+
+#### Environment example
+
+For Jobs tied to an environment named "production":
+
+```yml
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: deploy
+        # ...deployment-specific steps
+```
+
+Specify an **Entity type** of **Environment** and a **GitHub environment name** of "production".
+
+#### Tag example
+
+For example, for a workflow triggered by a push to the tag named "v2":
+
+```yml
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
+      - 'mona/octocat'
+      - 'releases/**'
+    # Sequence of patterns matched against refs/tags
+    tags:        
+      - v2
+      - v1.*
+```
+
+Specify an **Entity type** of **Tag** and a **GitHub tag name** of "v2".
+
+#### Pull request example
+
+For a workflow triggered by a pull request event, specify an **Entity type** of **Pull request**.
 
 # [Microsoft Graph](#tab/microsoft-graph)
 Launch [Azure Cloud Shell](https://portal.azure.com/#cloudshell/) and sign in to your tenant.
@@ -145,4 +206,6 @@ az rest -m DELETE  -u 'https://graph.microsoft.com/beta/applications/f6475511-fd
 Before configuring your GitHub Actions workflow, get the *tenant-id* and *client-id* values of your app registration.  You can find these values in the Azure portal. Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and select your app registration.  In **Overview**->**Essentials**, find the **Application (client) ID** and **Directory (tenant) ID**. Set these values in your GitHub environment to use in the Azure login action for your workflow.  
 
 ## Next steps
-[Configure a GitHub Actions workflow](/azure/developer/github/connect-from-azure) to get an access token from Microsoft identity provider and access Azure resources.
+For an end-to-end example, read [Deploy to App Service using GitHub Actions](../../app-service/deploy-github-actions.md?tabs=openid).
+
+Read the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) to learn more about configuring your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources.

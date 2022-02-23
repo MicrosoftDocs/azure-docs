@@ -39,7 +39,7 @@ Whenever possible, use [deployment slots](deploy-staging-slots.md) when deployin
 
 ### Continuously deploy code
 
-If your project has designated branches for testing, QA, and staging, then each of those branches should be continuously deployed to a staging slot. (This is known as the [Gitflow design](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) This allows your stakeholders to easily assess and test the deployed the branch. 
+If your project has designated branches for testing, QA, and staging, then each of those branches should be continuously deployed to a staging slot. (This is known as the [Gitflow design](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow).) This allows your stakeholders to easily assess and test the deployed branch. 
 
 Continuous deployment should never be enabled for your production slot. Instead, your production branch (often main) should be deployed onto a non-production slot. When you are ready to release the base branch, swap it into the production slot. Swapping into production—instead of deploying to production—prevents downtime and allows you to roll back the changes by swapping again. 
 
@@ -152,7 +152,7 @@ For more information on best practices, visit [App Service Diagnostics](./overvi
 - Choose **Best Practices** homepage tile.
 - Click **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regards to these best practices.
 
-You can also use this link to directly open App Service Diagnostics for your resource: `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
+You can also use this link to directly open App Service Diagnostics for your resource: `https://portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.
 
 ## More resources
 

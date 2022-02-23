@@ -9,7 +9,7 @@ ms.reviewer: laobri
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 10/21/2021
 
 ## As a developer, I need to use private Python packages securely when training machine learning models.
 
@@ -66,7 +66,7 @@ with token based authentication, such as private GitHub repositories.
     ws = Workspace.from_config()
     ws.set_connection(name="connection-1", 
         category = "PythonFeed",
-        target = "https://<my-org>.pkgs.visualstudio.com", 
+        target = "https://pkgs.dev.azure.com/<MY-ORG>", 
         authType = "PAT", 
         value = pat_token) 
      ```
@@ -80,7 +80,7 @@ with token based authentication, such as private GitHub repositories.
     env = Environment(name="my-env")
     cd = CondaDependencies()
     cd.add_pip_package("<my-package>")
-    cd.set_pip_option("--extra-index-url https://<my-org>.pkgs.visualstudio.com/<my-project>/_packaging/<my-feed>/pypi/simple")
+    cd.set_pip_option("--extra-index-url https://pkgs.dev.azure.com/<MY-ORG>/_packaging/<MY-FEED>/pypi/simple")")
     env.python.conda_dependencies=cd
     ```
 

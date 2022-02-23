@@ -3,12 +3,12 @@ title: Group management permissions for Azure AD custom roles (Preview) - Azure 
 description: Group management permissions for Azure AD custom roles (Preview) in the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/18/2021
+ms.date: 10/26/2021
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -29,6 +29,9 @@ Group management permissions can be used in custom role definitions in Azure Act
 - Manage a specific type of group
 
 This article lists the permissions you can use in your custom roles for different group management scenarios. For information about how to create custom roles, see [Create and assign a custom role](custom-create.md).
+
+> [!NOTE]
+> Assigning custom roles at a group scope using the Azure portal is currently available **only** for Azure AD Premium P1.
 
 ## How to interpret group management permissions
 

@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 10/27/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 #Customer intent: As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
@@ -426,7 +427,5 @@ After the Content Moderation job is completed, analyze the JSON response. It con
 ```
 
 ## Next steps
-
-Learn how to generate [video reviews](video-reviews-quickstart-dotnet.md) from your moderation output.
 
 [Download the Visual Studio solution](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) for this and other Content Moderator quickstarts for .NET.

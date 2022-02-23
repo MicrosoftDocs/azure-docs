@@ -30,7 +30,7 @@ To learn more about our at-scale deployment recommendations, you can also refer 
 
 * Your machines run a [supported operating system](agent-overview.md#supported-operating-systems) for the Connected Machine agent.
 * Your machines have connectivity from your on-premises network or other cloud environment to resources in Azure, either directly or through a proxy server.
-* To install and configure the Azure Arc-enabled servers Connected Machine agent, an account with elevated (that is, an administrator or as root) privileges on the machines.
+* To install and configure the Azure Connected Machine agent, an account with elevated (that is, an administrator or as root) privileges on the machines.
 * To onboard machines, you are a member of the **Azure Connected Machine Onboarding** role.
 * To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role.
 
@@ -62,11 +62,11 @@ In this phase, system engineers or administrators enable the core features in th
 | Configure [Role based access control](../../role-based-access-control/overview.md) (RBAC) | Develop an access plan to control who has access to manage Azure Arc-enabled servers and ability to view their data from other Azure services and solutions. | One day |
 | Identify machines with Log Analytics agent already installed | Run the following log query in [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md) to support conversion of existing Log Analytics agent deployments to extension-managed agent:<br> Heartbeat <br> &#124; where TimeGenerated > ago(30d) <br> &#124; where ResourceType == "machines" and (ComputerEnvironment == "Non-Azure") <br> &#124; summarize by Computer, ResourceProvider, ResourceType, ComputerEnvironment | One hour |
 
-<sup>1</sup> An important consideration as part of evaluating your Log Analytics workspace design, is integration with Azure Automation in support of its Update Management and Change Tracking and Inventory feature, as well as Azure Security Center and Azure Sentinel. If your organization already has an Automation account and enabled its management features linked with a Log Analytics workspace, evaluate whether you can centralize and streamline management operations, as well as minimize cost, by using those existing resources versus creating a duplicate account, workspace, etc.
+<sup>1</sup> An important consideration as part of evaluating your Log Analytics workspace design, is integration with Azure Automation in support of its Update Management and Change Tracking and Inventory feature, as well as Microsoft Defender for Cloud and Microsoft Sentinel. If your organization already has an Automation account and enabled its management features linked with a Log Analytics workspace, evaluate whether you can centralize and streamline management operations, as well as minimize cost, by using those existing resources versus creating a duplicate account, workspace, etc.
 
 ## Phase 2: Deploy Azure Arc-enabled servers
 
-Next, we add to the foundation laid in phase 1 by preparing for and deploying the Azure Arc-enabled servers Connected Machine agent.
+Next, we add to the foundation laid in phase 1 by preparing for and deploying the Azure Connected Machine agent.
 
 |Task |Detail |Duration |
 |-----|-------|---------|
@@ -81,7 +81,7 @@ Phase 3 sees administrators or system engineers enable automation of manual task
 |Task |Detail |Duration |
 |-----|-------|---------|
 |Create a Resource Health alert |If a server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it is offline, the network connection has been blocked, or the agent is not running. Develop a plan for how you’ll respond and investigate these incidents and use [Resource Health alerts](../..//service-health/resource-health-alert-monitor-guide.md) to get notified when they start.<br><br> Specify the following when configuring the alert:<br> **Resource type** = **Azure Arc-enabled servers**<br> **Current resource status** = **Unavailable**<br> **Previous resource status** = **Available** | One hour |
-|Create an Azure Advisor alert | For the best experience and most recent security and bug fixes, we recommend keeping the Azure Arc-enabled servers agent up to date. Out-of-date agents will be identified with an [Azure Advisor alert](../../advisor/advisor-alerts-portal.md).<br><br> Specify the following when configuring the alert:<br> **Recommendation type** = **Upgrade to the latest version of the Azure Connected Machine Agent** | One hour |
+|Create an Azure Advisor alert | For the best experience and most recent security and bug fixes, we recommend keeping the Azure Connected Machine agent up to date. Out-of-date agents will be identified with an [Azure Advisor alert](../../advisor/advisor-alerts-portal.md).<br><br> Specify the following when configuring the alert:<br> **Recommendation type** = **Upgrade to the latest version of the Azure Connected Machine agent** | One hour |
 |[Assign Azure policies](../../governance/policy/assign-policy-portal.md) to your subscription or resource group scope |Assign the **Enable Azure Monitor for VMs** [policy](../../azure-monitor/vm/vminsights-enable-policy.md) (and others that meet your needs) to the subscription or resource group scope. Azure Policy allows you to assign policy definitions that install the required agents for VM insights across your environment.| Varies |
 |[Enable Update Management for your Azure Arc-enabled servers](../../automation/update-management/enable-from-automation-account.md) |Configure Update Management in Azure Automation to manage operating system updates for your Windows and Linux virtual machines registered with Azure Arc-enabled servers. | 15 minutes |
 

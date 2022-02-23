@@ -158,3 +158,4 @@ export class AzureFunctionTokenProvider implements ITokenProvider {
 ## See also
 
 - [Add custom data to an auth token](connect-fluid-azure-service.md#adding-custom-data-to-tokens)
+- [How to: Deploy Fluid applications using Azure Static Web Apps](deploy-fluid-static-web-apps.md)

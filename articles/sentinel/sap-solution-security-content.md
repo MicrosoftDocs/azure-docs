@@ -1,24 +1,23 @@
 ---
-title: Azure Sentinel SAP solution - security content reference | Microsoft Docs
-description: Learn about the built-in security content provided by the Azure Sentinel SAP solution.
-author: batamig
-ms.author: bagold
-ms.service: azure-sentinel
+title: Microsoft Sentinel SAP solution - security content reference | Microsoft Docs
+description: Learn about the built-in security content provided by the Microsoft Sentinel SAP solution.
+author: MSFTandrelom
+ms.author: andrelom
 ms.topic: reference
-ms.custom: mvc
-ms.date: 07/28/2021
-ms.subservice: azure-sentinel
-
+ms.custom: mvc, ignite-fall-2021
+ms.date: 02/22/2022
 ---
 
-# Azure Sentinel SAP solution: security content reference (public preview)
+# Microsoft Sentinel SAP solution: security content reference (public preview)
 
-This article details the security content available for the [Azure Sentinel SAP solution](sap-deploy-solution.md#deploy-sap-security-content).
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+This article details the security content available for the [Microsoft Sentinel SAP solution](sap-deploy-solution.md#deploy-sap-security-content).
 
 Available security content includes a built-in workbook and built-in analytics rules. You can also add SAP-related [watchlists](watchlists.md) to use in your search, detection rules, threat hunting, and response playbooks.
 
 > [!IMPORTANT]
-> The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 
@@ -39,7 +38,7 @@ For more information, see [Tutorial: Visualize and monitor your data](monitor-yo
 
 ## Built-in analytics rules
 
-The following tables list the built-in [analytics rules](sap-deploy-solution.md#deploy-sap-security-content) that are included in the Azure Sentinel SAP solution, deployed from the Azure Sentinel Solutions marketplace.
+The following tables list the built-in [analytics rules](sap-deploy-solution.md#deploy-sap-security-content) that are included in the Microsoft Sentinel SAP solution, deployed from the Microsoft Sentinel Solutions marketplace.
 
 ### Built-in SAP analytics rules for initial access
 
@@ -47,7 +46,8 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |---------|---------|---------|---------|
 |**SAP - High - Login from unexpected network**     |   Identifies a sign-in from an unexpected network. <br><br>Maintain networks in the [SAP - Networks](#networks) watchlist.    |    Sign in to the backend system from an IP address that is not assigned to one of the networks. <br><br>**Data sources**: SAPcon - Audit Log    |   Initial Access      |
 |**SAP - High - SPNego Attack**     | Identifies SPNego Replay Attack.       |  **Data sources**: SAPcon -  Audit Log | Impact, Lateral Movement  |
-|**SAP - Medium - Brute force attacks**     |     Identifies brute force attacks on the SAP system, according to failed sign-in attempts for the backend system.    |   Attempt to sign in from the same IP address to several systems/clients within the scheduled time interval. <br><br>**Data sources**: SAPcon - Audit Log      | Credential Access        |
+|**SAP - High- Dialog logon attempt from a privileged user**     | Identifies dialog sign-in attempts, with the **AUM** type, by privileged users in a SAP system. For more information, see the [SAPUsersGetPrivileged](sap-solution-log-reference.md#sapusersgetprivileged).      |  Attempt to sign in from the same IP to several systems or clients within the scheduled time interval<br><br>**Data sources**: SAPcon -  Audit Log | Impact, Lateral Movement  |
+|**SAP - Medium - Brute force attacks**     |     Identifies brute force attacks on the SAP system using RFC logons | Attempt to login from the same IP to several systems/clients within the scheduled time interval using RFC<br><br>**Data sources**: SAPcon - Audit Log      | Credential Access        |
 |**SAP - Medium - Multiple Logons from the same IP**     |  Identifies the sign-in of several users from same IP address within a scheduled time interval.   <br><br>**Sub-use case**: [Persistency](#built-in-sap-analytics-rules-for-persistency)    |    Sign in using several users through the same IP address. <br><br>**Data sources**: SAPcon - Audit Log | Initial Access        |
 |**SAP - Medium - Multiple Logons by User**     | Identifies sign-ins of the same user from several terminals within scheduled time interval.  <br><br>Available only via the Audit SAL method, for SAP versions 7.5 and higher.      |   Sign in using the same user, using different IP addresses.   <br><br>**Data sources**: SAPcon - Audit Log   |  PreAttack, Credential Access, Initial Access, Collection <br><br>**Sub-use case**: [Persistency](#built-in-sap-analytics-rules-for-persistency)      |
 |**SAP - Informational - Lifecycle - SAP Notes were implemented in system**     |   Identifies SAP Note implementation in the system. | Implement an SAP Note using SNOTE/TCI. <br><br>**Data sources**: SAPcon -  Change Requests      | -  |
@@ -121,13 +121,11 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |**SAP - Medium - Sensitive Roles Changes**     |Identifies changes in sensitive roles. <br><br> Maintain sensitive roles in the [SAP - Sensitive Roles](#roles) watchlist.       |  Change a role using PFCG. <br><br>**Data sources**: SAPcon - Change Documents Log, SAPcon – Audit Log   |  Impact, Privilege Escalation, Persistence    |
 | | | | |
 
-
 ## Available watchlists
 
-The following table lists the [watchlists](sap-deploy-solution.md#deploy-sap-security-content) available for the Azure Sentinel SAP solution, and the fields in each watchlist.
+The following table lists the [watchlists](sap-deploy-solution.md#deploy-sap-security-content) available for the Microsoft Sentinel SAP solution, and the fields in each watchlist.
 
-These watchlists provide the configuration for the Azure Sentinel SAP Continuous Threat Monitoring solution, and are accessible in the Azure Sentinel GitHub repository at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists.
-
+These watchlists provide the configuration for the Microsoft Sentinel SAP Continuous Threat Monitoring solution. The [SAP watchlists](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists) are available in the Microsoft Sentinel GitHub repository.
 
 |Watchlist name  |Description and fields  |
 |---------|---------|
@@ -156,9 +154,9 @@ These watchlists provide the configuration for the Azure Sentinel SAP Continuous
 
 For more information, see:
 
-- [Deploy the Azure Sentinel solution for SAP](sap-deploy-solution.md)
-- [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
-- [Deploy the Azure Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
+- [Deploy the Microsoft Sentinel solution for SAP](sap-deploy-solution.md)
+- [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md)
+- [Deploy the Microsoft Sentinel SAP data connector with SNC](sap-solution-deploy-snc.md)
 - [Expert configuration options, on-premises deployment, and SAPControl log sources](sap-solution-deploy-alternate.md)
-- [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
-- [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)
+- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
+- [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md)

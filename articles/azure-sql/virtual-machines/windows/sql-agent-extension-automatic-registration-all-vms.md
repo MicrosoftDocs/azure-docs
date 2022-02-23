@@ -9,7 +9,7 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 9/01/2021 
+ms.date: 10/26/2021 
 ms.custom: devx-track-azurepowershell
 ms.reviewer: mathoma
 ---
@@ -35,8 +35,13 @@ When automatic registration is enabled, a job runs daily to detect whether or no
 
 Once automatic registration is enabled for a subscription, all current and future VMs that have SQL Server installed will be registered with the SQL IaaS Agent extension **in lightweight mode without downtime, and without restarting the SQL Server service**. You still need to [manually upgrade to full manageability mode](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full) to take advantage of the full feature set. The license type automatically defaults to that of the VM image. If you use a pay-as-you-go image for your VM, then your license type will be `PAYG`, otherwise your license type will be `AHUB` by default. 
 
+By default, Azure VMs with SQL Server 2016 or later installed will be automatically registered with the SQL IaaS Agent extension when detected by the [CEIP service](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server).  See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
+
 > [!IMPORTANT]
 > The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server within Azure Virtual Machines. Microsoft will not use this data for licensing audits without the customer's advance consent. See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
+
+
+
 
 ## Prerequisites
 
@@ -51,7 +56,7 @@ To register your SQL Server VM with the extension, you'll need:
 To enable automatic registration of your SQL Server VMs in the Azure portal, follow these steps:
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-1. Navigate to the [**SQL virtual machines**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource page. 
+1. Navigate to the [**SQL virtual machines**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) resource page. 
 1. Select **Automatic SQL Server VM registration** to open the **Automatic registration** page. 
 
    :::image type="content" source="media/sql-agent-extension-automatic-registration-all-vms/automatic-registration.png" alt-text="Select Automatic SQL Server VM registration to open the automatic registration page":::

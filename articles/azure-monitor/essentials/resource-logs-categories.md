@@ -679,7 +679,7 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
 |AmlComputeClusterEvent|AmlComputeClusterEvent|No|
-|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|No|
+|AmlComputeClusterNodeEvent (deprecated) |AmlComputeClusterNodeEvent|No|
 |AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|No|
 |AmlComputeJobEvent|AmlComputeJobEvent|No|
 |AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|No|
@@ -704,6 +704,9 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |PipelineReadEvent|PipelineReadEvent|Yes|
 |RunEvent|RunEvent|Yes|
 |RunReadEvent|RunReadEvent|Yes|
+
+> [!NOTE]
+> Effective February 2022, the AmlComputeClusterNodeEvent category will be deprecated. We recommend that you instead use the AmlComputeClusterEvent category.
 
 
 ## Microsoft.Media/mediaservices

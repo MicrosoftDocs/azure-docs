@@ -2,10 +2,9 @@
 metadata:
   title: Frequently asked questions - Azure Event Hubs for Apache Kafka 
   description: This article answers frequent questions asked about Azure Event Hubs' support for Apache Kafka clients not covered elsewhere.
-  ms.topic: article
+  ms.topic: faq
   ms.service: event-hubs
   ms.date: 09/20/2021
-    
 title: Frequently asked questions - Event Hubs for Apache Kafka 
 summary: This article provides answers to some of the frequently asked questions on migrating to Event Hubs for Apache Kafka.
 
@@ -38,6 +37,13 @@ sections:
           - They fully distinct from Event Hubs consumer groups. You **don't** need to use '$Default', nor do you need to worry about Kafka clients interfering with AMQP workloads.
           - They aren't viewable in the Azure portal. Consumer group info is accessible via Kafka APIs.
           
+      - question: |
+          Does Azure Event Hubs for Apache Kafka support shared access signature token authentication?
+        answer: |
+          Authenticating by using [OAuth 2.0 and shared access signature](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication) is supported.
+          
+          Shared access signature tokens are [generated](authenticate-shared-access-signature.md#generate-a-shared-access-signature-token) by using an authorization rule and one of its signing keys. This is not supported when using the Event Hubs for Apache Kafka endpoint.
+
 additionalContent: |
 
   ## Next steps

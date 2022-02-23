@@ -6,14 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: feospina
 ms.author: feospina
-ms.date: 7/15/2021
+ms.date: 10/26/2021
 ---
 
 # Microsoft preferred solution badge
 
+> [!TIP]
+> To see the customer's view of preferred solutions in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#microsoft-preferred-solutions) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
+
 ## What is the Microsoft preferred solution badge?
 
-The preferred solution badge is awarded as a [commercial marketplace benefit](./co-sell-overview.md) to:
+The preferred solution badge is awarded as a [commercial marketplace benefit](/partner-center/co-sell-overview?context=/azure/marketplace/context/context) to:
 
 - Offers published to the commercial marketplace with an Azure IP co-sell incentive
 - Offers enrolled in the Microsoft Business Applications ISV Connect program with co-sell ready status
@@ -34,5 +37,5 @@ Until July 2021, publishers with at least one co-sell ready offer were eligible 
 
 ## Next steps
 
-- To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](./co-sell-configure.md)
-- For information about co-sell incentive status, see [Requirements for Azure IP Co-sell incentive status](./co-sell-requirements.md) or [Business Applications Co-sell incentive status](./co-sell-requirements.md)
+- To configure an offer for co-sell, see [Configure Co-sell for a commercial marketplace offer](/partner-center/co-sell-configure?context=/azure/marketplace/context/context)
+- For information about co-sell incentive status, see [Requirements for Azure IP Co-sell incentive status](/partner-center/co-sell-requirements?context=/azure/marketplace/context/context) or [Business Applications Co-sell incentive status](/partner-center/co-sell-requirements?context=/azure/marketplace/context/context)

@@ -14,7 +14,9 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
 > [!NOTE]
 > All major versions of Durable Functions are supported on all versions of the Azure Functions runtime. However, the schema of the host.json configuration is slightly different depending on the version of the Azure Functions runtime and the Durable Functions extension version you use. The following examples are for use with Azure Functions 2.0 and 3.0. In both examples, if you're using Azure Functions 1.0, the available settings are the same, but the "durableTask" section of the host.json should go in the root of the host.json configuration instead of as a field under "extensions".
 
-### <a name="durable-functions-2-0-host-json"></a>Durable Functions 2.x
+# [Durable Functions 2.x](#tab/2x-durable-functions)
+
+<a name="durable-functions-2-0-host-json"></a>
 
 ```json
 {
@@ -56,14 +58,14 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "extendedSessionsEnabled": false,
     "extendedSessionIdleTimeoutInSeconds": 30,
     "useAppLease": true,
-    "useGracefulShutdown": false
+    "useGracefulShutdown": false,
+    "maxEntityOperationBatchSize": 50
   }
  }
 }
-
 ```
 
-### Durable Functions 1.x
+# [Durable Functions 1.x](#tab/1x-durable-functions)
 
 ```json
 {
@@ -91,6 +93,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
   }
 }
 ```
+---
 
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default task hub name for a function app is **DurableFunctionsHub**. For  more information, see [Task hubs](../articles/azure-functions/durable/durable-functions-task-hubs.md).
 
@@ -118,5 +121,6 @@ Task hub names must start with a letter and consist of only letters and numbers.
 |useAppLease|true|When set to `true`, apps will require acquiring an app-level blob lease before processing task hub messages. For more information, see the [disaster recovery and geo-distribution](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md) documentation. Available starting in v2.3.0.
 |useLegacyPartitionManagement|false|When set to `false`, uses a partition management algorithm that reduces the possibility of duplicate function execution when scaling out.  Available starting in v2.3.0.|
 |useGracefulShutdown|false|(Preview) Enable gracefully shutting down to reduce the chance of host shutdowns failing in-process function executions.|
+|maxEntityOperationBatchSize(2.6.1)|**Consumption plan**: 50 <br> **Dedicated/Premium plan**: 5000|The maximum number of entity operations that are processed as a [batch](../articles/azure-functions/durable/durable-functions-perf-and-scale.md#entity-operation-batching). If set to 1, batching is disabled, and each operation message is processed by a separate function invocation.|
 
 Many of these settings are for optimizing performance. For more information, see [Performance and scale](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Manage DTDL models
 titleSuffix: Azure Digital Twins
-description: See how to create, edit, and delete a model within Azure Digital Twins.
+description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/30/2021
+ms.date: 10/20/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -46,6 +46,9 @@ This model defines a name and a unique ID for the patient room, and properties t
 
 Following this method, you can go on to define models for the hospital's wards, zones, or the hospital itself.
 
+> [!NOTE]
+> There are some DTDL features that Azure Digital Twins doesn't currently support, including the `writable` attribute on properties and relationships, and `minMultiplicity` and `maxMultiplicity` for relationships. For more information, see [Azure Digital Twins DTDL implementation specifics](concepts-models.md#azure-digital-twins-dtdl-implementation-specifics).
+
 ### Validate syntax
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
@@ -64,7 +67,7 @@ If you're using the SDK, you can upload multiple model files with the `CreateMod
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), you can also upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should placed in a JSON array within the file, like in the following example:
+If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt), you can also upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should placed in a JSON array within the file, like in the following example:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 
@@ -98,10 +101,10 @@ This section describes considerations and strategies for updating your models.
 Before making updates to your models, it's recommended to think holistically about your entire solution and the impact of the model changes you're about to make. Models in an Azure Digital Twins solution are often interconnected, so it's important to be aware of cascading changes where updating one model requires updating several others. Updating models will impact the twins that use the models, and can also affect ingress and processing code, client applications, and automated reports.
 
 Here are some recommendations to help you manage your model transitions smoothly:
-* Instead of thinking in terms of individual models, consider evolving your entire model set when appropriate to keep models and their relationships up-to-date together.
+* Instead of thinking of models as separate entities, consider evolving your entire model set when appropriate to keep models and their relationships up-to-date together.
 * Treat models like source code and manage them in source control. Apply the same rigor and attention to models and model changes that you apply to other code in your solution.
 
-When you're ready to proceed with updating your models, the rest of this section describes the strategies you can use to implement the updates.
+When you're ready to continue with the process of updating your models, the rest of this section describes the strategies you can use to implement the updates.
 
 ### Strategies for updating models
 
@@ -113,7 +116,7 @@ There are two strategies to choose from when replacing a model:
 * [Strategy 1: Upload new model version](#strategy-1-upload-new-model-version): Upload the model, with a new version number, and update your twins to use that new model. Both the new and old versions of the model will exist in your instance until you delete one.
     - **Use this strategy when** you want to update only some of your twins that use the model, or when you want to make sure twins stay conformant with their models and writable through the model transition.
 * [Strategy 2: Delete old model and reupload](#strategy-2-delete-old-model-and-reupload): Delete the original model and upload the new model with the same name and ID (DTMI value) in its place. Completely replaces the old model with the new one. 
-    - **Use this strategy when** you want to update all twins that use this model at once, as well as all code reacting to the models. If your model update contains a breaking change with the model update, twins will be nonconformant with their models for a short time while you're transitioning them from the old model to the new one, meaning that they won't be able to take any updates until the new model is uploaded and the twins conform to it.
+    - **Use this strategy when** you want to update all twins that use this model at once, in addition to all code reacting to the models. If your model update contains a breaking change with the model update, twins will be nonconformant with their models for a short time while you're transitioning them from the old model to the new one, meaning that they won't be able to take any updates until the new model is uploaded and the twins conform to it.
 
 >[!NOTE]
 > Making breaking changes to your models is discouraged outside of development.
@@ -245,7 +248,7 @@ Generally, models can be deleted at any time.
 
 The exception is models that other models depend on, either with an `extends` relationship or as a component. For example, if a ConferenceRoom model extends a Room model, and has a ACUnit model as a component, you can't delete Room or ACUnit until ConferenceRoom removes those respective references. 
 
-You can do this by updating the dependent model to remove the dependencies, or deleting the dependent model completely.
+You can do so by updating the dependent model to remove the dependencies, or deleting the dependent model completely.
 
 #### During deletion: Deletion process
 

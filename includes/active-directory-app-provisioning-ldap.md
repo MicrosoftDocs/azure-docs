@@ -1,12 +1,8 @@
-This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into an LDAP directory. The document focuses on AD LDS, but you can provision into any of the supported LDAP directories mentioned below. Provisioning users into Active Directory Domain Services through this solution is not supported. 
+This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into an LDAP directory. The document sample for how you can provision users into AD LDS, but you can provision into any of the supported LDAP directories mentioned below. Provisioning users into Active Directory Domain Services through this solution is not supported. 
  
 For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md).
 
 ## Prerequisites for provisioning users into an LDAP directory
-
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability. Provisioning users into Active Directory Domain Services is not supported through this preview. 
-
 
 ### On-premises prerequisites
 
@@ -28,7 +24,6 @@ Depending on the options you select, some of the wizard screens might not be ava
 * Novell eDirectory
 * Open DJ
 * Open DS
-* Open LDAP (openldap.org)
 * Oracle (previously Sun) Directory Server Enterprise Edition
 * RadiantOne Virtual Directory Server (VDS)
 * Sun One Directory Server
@@ -50,7 +45,7 @@ The following bullet points are more recommendations and limitations.
 - Provisioning users from LDAP to Azure AD is not supported.
 
 ## Prepare the LDAP directory
-The following information is provided to help create a test AD LDS environment.  This setup uses PowerShell and the ADAMInstall.exe with an answers file.  This document does not cover in-depth information on AD LDS.  For more information, see [Active Directory Lightweight Directory Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)). 
+The following information is provided to help create a test AD LDS environment.  This setup uses PowerShell and the ADAMInstall.exe with an answers file.  This document does not cover in-depth information on AD LDS.  For more information, see [Active Directory Lightweight Directory Services](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)). 
 
 If you already have AD LDS setup in a test environment, you can skip the following sections and move to installing the ECMA Host connector section.
 
@@ -69,7 +64,7 @@ Now that the role has been installed, you need to create an instance of AD LDS. 
 
 Copy the contents of [Appendix B](#appendix-b---answer-file) in to notepad and save it as **answer.txt** in **"C:\Windows\ADAM"**.
 
-Now open a cmd prompt with administrative privileges and run the following exectuable:
+Now open a cmd prompt with administrative privileges and run the following executable:
 
 ```
 C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
@@ -86,7 +81,7 @@ The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-po
 On the Windows Server virtual machine, you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
 ## Grant the NETWORK SERVICE read permissions to the SSL cert
-In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To grant persmissions, use the following steps.
+In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To grant permissions, use the following steps.
 
  1. Navigate to **C:\Program Data\Microsoft\Crypto\Keys**.
  2. Right-click on the system file located here.  It will be a guid.  This container is storing our certificate.
@@ -122,35 +117,21 @@ Now that we have configured the certificate and granted the network service acco
 
 ## Download, install, and configure the Azure AD Connect Provisioning Agent Package
 
- 1. Sign in to the Azure portal.
- 2. Go to **Enterprise applications** > **Add a new application**.
- 3. Search for the **On-premises ECMA app** application, and add it to your tenant.
- 4. Select the **on-premises ECMA app** that was added.
- 5. Under **Getting Started**, on the **3. Provision user accounts** box, select **Get started**.
- 6. At the top, from the drop-down, change provisioning to **automatic**.  This action will bring up **on-premises connectivity** below.
- 7. Under **On-Premises Connectivity**, download the agent installer.
- 8. Run the Azure AD Connect provisioning installer **AADConnectProvisioningAgentSetup.msi**.
- 9. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms, and select **Install**.
-     [![Microsoft Azure AD Connect Provisioning Agent Package screen.](media/active-directory-app-provisioning-sql/install-1.png)](media/active-directory-app-provisioning-sql/install-1.png#lightbox)</br>
- 10. After this operation finishes, the configuration wizard starts. Select **Next**.
-     [![Screenshot that shows the Welcome screen.](media/active-directory-app-provisioning-sql/install-2.png)](media/active-directory-app-provisioning-sql/install-2.png#lightbox)</br>
- 11. On the **Select Extension** screen, select **On-premises application provisioning (Azure AD to application)**. Select **Next**.
-     [![Screenshot that shows Select extension.](media/active-directory-app-provisioning-sql/install-3.png)](media/active-directory-app-provisioning-sql/install-3.png#lightbox)</br>
- 12. Use your global administrator account to sign in to Azure AD.
-     [![Screenshot that shows Azure sign-in.](media/active-directory-app-provisioning-sql/install-4.png)](media/active-directory-app-provisioning-sql/install-4.png#lightbox)</br>
- 13. On the **Agent configuration** screen, select **Confirm**.
-     [![Screenshot that shows Confirm installation.](media/active-directory-app-provisioning-sql/install-5.png)](media/active-directory-app-provisioning-sql/install-5.png#lightbox)</br>
- 14. After the installation is complete, you should see a message at the bottom of the wizard. Select **Exit**.
-     [![Screenshot that shows finishing.](media/active-directory-app-provisioning-sql/install-6.png)](media/active-directory-app-provisioning-sql/install-6.png#lightbox)</br>
- 15. Go to back to the Azure portal under the **On-premises ECMA app** application, and back to **Edit Provisioning**.
- 16. On the **Provisioning** page, change the mode to **Automatic**.
-     [![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)](.\media\active-directory-app-provisioning-sql\configure-7.png#lightbox)</br>
- 17. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
-     [![Screenshot that shows restarting an agent.](.\media\active-directory-app-provisioning-ldap\assign-1.png)](.\media\active-directory-app-provisioning-ldap\assign-1.png#lightbox)</br>
+1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or server that has connectivity to your SQL server.
      >[!NOTE]
-     >After you add the agent, wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes.
-     >
-     >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
+     >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
+ 1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
+ 1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
+ 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. Hybrid administrator or global administrator is required.
+ 1. Select **Confirm** to confirm the installation was successful.
+ 1. Sign in to the Azure portal.
+ 1. Go to **Enterprise applications** > **Add a new application**.
+ 1. Search for the **On-premises ECMA app** application, and add it to your tenant.
+ 1. Navigate to the provisioning page of your application.
+ 1. Select **Get started**.
+ 1. On the **Provisioning** page, change the mode to **Automatic**.
+     ![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)</br>
+ 1. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
 
  ## Configure the Azure AD ECMA Connector Host certificate
  1. On the desktop, select the ECMA shortcut.
@@ -236,9 +217,11 @@ Now that we have configured the certificate and granted the network service acco
     |Property|Value|
     |-----|-----|
     |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
- 
+
  5. Enter the **Secret Token** value that you defined when you created the connector.
- 6. Select **Test Connection**, and wait one minute.
+     >[!NOTE]
+     >If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
+ 7. Select **Test Connection**, and wait one minute.
      [![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-ldap\test-1.png)](.\media\active-directory-app-provisioning-ldap\test-1.png#lightbox)
  7. After the connection test is successful, select **Save**.</br>
      [![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)](.\media\active-directory-app-provisioning-sql\configure-9.png#lightbox)
@@ -271,10 +254,7 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
      |Expression|Join("", "CN=", Word([userPrincipalName], 1, "@"), ",CN=CloudUsers,CN=App,DC=Contoso,DC=lab")|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:-dn-|
      |Direct|isSoftDeleted|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:msDS-UserAccountDisabled|
      |Direct|displayName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:displayName|
-     |Direct|objectId|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:objectGUID|
   
-     [![Screenshot mapping assignments.](.\media\active-directory-app-provisioning-ldap\map-1.png)](.\media\active-directory-app-provisioning-ldap\map-1.png#lightbox)
- 
  6. Select **Save**.
 
 ## Disable the local password policy
@@ -380,13 +360,15 @@ This file is used to automate and create an instance of AD LDS.
 
 >[!IMPORTANT]
 > This script uses the local administrator for the AD LDS service account and has its password hard-coded in the answers.  This action is for **testing only** and should never be used in a production environment.
+>
+> If you are installing AD LDS on a domain joined server and not a standalone server, you will need to change the LocalLDAPPortToListenOn and LocalSSLPortToListonOn to something other than the well-known ports for LDAP and LDAP over SSL.  For example, LocalLDAPPortToListenOn=51300 and LocalSSLPortToListenOn=51301.
 
 ```
  [ADAMInstall]
  InstallType=Unique
  InstanceName=AD-APP-LDAP
- LocalLDAPPortToListenOn=51300
- LocalSSLPortToListenOn=51301
+ LocalLDAPPortToListenOn=389
+ LocalSSLPortToListenOn=636
  NewApplicationPartitionToCreate=CN=App,DC=contoso,DC=lab
  DataFilesPath=C:\Program Files\Microsoft ADAM\AD-APP-LDAP\data
  LogFilesPath=C:\Program Files\Microsoft ADAM\AD-APP-LDAP\data
@@ -431,11 +413,11 @@ New-ADUser -name "svcAccountLDAP" -accountpassword  (ConvertTo-SecureString -AsP
 Write-Output "Creating service account"
 
 # Enable the new service account
-Enable-ADAccount -Identity "CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab" -Server "APP3:389"
+Enable-ADAccount -Identity "CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab" -Server "APP3:389"
 Write-Output "Enabling service account"
 
 # Add the service account to the Administrators role
-Get-ADGroup -Server "APP3:389" -SearchBase "CN=Administrators,CN=Roles,CN=App,DC=contoso,DC=lab" -Filter "name -like 'Administrators'" | Add-ADGroupMember -Members "CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
+Get-ADGroup -Server "APP3:389" -SearchBase "CN=Administrators,CN=Roles,CN=App,DC=contoso,DC=lab" -Filter "name -like 'Administrators'" | Add-ADGroupMember -Members "CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
 Write-Output "Adding service accounnt to Administrators role"
 
 

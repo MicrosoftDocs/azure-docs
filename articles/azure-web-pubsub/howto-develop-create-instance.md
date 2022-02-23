@@ -4,8 +4,9 @@ description: Quickstart showing how to create a Web PubSub instance from Azure p
 author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
-ms.topic: quickstart 
-ms.date: 03/17/2021
+ms.topic: quickstart
+ms.date: 11/08/2021
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a Web PubSub instance from Azure portal

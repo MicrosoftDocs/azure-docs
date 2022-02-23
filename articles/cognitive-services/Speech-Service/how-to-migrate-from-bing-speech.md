@@ -5,12 +5,11 @@ description: Learn how to migrate from an existing Bing Speech subscription to t
 services: cognitive-services
 author: wsturman
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.author: pafarley
+ms.author: eur
 
 # Customer intent: As a developer currently using the deprecated Bing Speech, I want to learn the differences between Bing Speech and the Speech service, so that I can migrate my application to the Speech service.
 ---
@@ -75,7 +74,7 @@ To get started with the Speech SDK:
 
 ## Support
 
-Bing Speech customers should contact customer support by opening a [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also contact us if your support need requires a [technical support plan](https://azure.microsoft.com/support/plans/).
+Bing Speech customers should contact customer support by opening a [support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also contact us if your support need requires a [technical support plan](https://azure.microsoft.com/support/plans/).
 
 For Speech service, SDK, and API support, visit the Speech service [support page](../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
@@ -84,9 +83,3 @@ For Speech service, SDK, and API support, visit the Speech service [support page
 * [Try out Speech service for free](overview.md#try-the-speech-service-for-free)
 * [Get started with speech-to-text](get-started-speech-to-text.md)
 * [Get started with text-to-speech](get-started-text-to-speech.md)
-
-## See also
-
-* [Speech service release notes](releasenotes.md)
-* [What is the Speech service](overview.md)
-* [Speech service and Speech SDK documentation](speech-sdk.md#get-the-speech-sdk)

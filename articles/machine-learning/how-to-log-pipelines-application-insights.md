@@ -7,7 +7,7 @@ author: NilsPohlmann
 ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: mlops
-ms.date: 08/11/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 ---

@@ -1,22 +1,21 @@
 ---
 title: On-premises password writeback with self-service password reset - Azure Active Directory
 description: Learn how password change or reset events in Azure Active Directory can be written back to an on-premises directory environment
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/28/2021
-
+ms.date: 10/25/2021
 ms.author: justinha
 author: justinha
-manager: daveba
-ms.reviewer: rhicock
+manager: karenhoran
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
+ms.custom: ignite-fall-2021
 ---
 # How does self-service password reset writeback work in Azure Active Directory?
 
-Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users reset their passwords in the cloud, but most companies also have an on-premises Active Directory Domain Services (AD DS) environment where their users exist. Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time. In this configuration, as users change or reset their passwords using SSPR in the cloud, the updated passwords also written back to the on-premises AD DS environment
+Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users reset their passwords in the cloud, but most companies also have an on-premises Active Directory Domain Services (AD DS) environment for users. Password writeback allows password changes in the cloud to be written back to an on-premises directory in real time by using either [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) or [Azure AD Connect cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md). When users change or reset their passwords using SSPR in the cloud, the updated passwords also written back to the on-premises AD DS environment.
 
 > [!IMPORTANT]
 > This conceptual article explains to an administrator how self-service password reset writeback works. If you're an end user already registered for self-service password reset and need to get back into your account, go to https://aka.ms/sspr.
@@ -36,18 +35,23 @@ Password writeback provides the following features:
 * **Supports password changes from the access panel and Microsoft 365**: When federated or password hash synchronized users come to change their expired or non-expired passwords, those passwords are written back to AD DS.
 * **Supports password writeback when an admin resets them from the Azure portal**: When an admin resets a user's password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
 * **Doesn't require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
+* **Supports side-by-side domain-level deployment** using [Azure AD Connect](tutorial-enable-sspr-writeback.md) or [cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md) to target different sets of users depending on their needs, including users who are in disconnected domains.  
 
 > [!NOTE]
-> Administrator accounts that exist within protected groups in on-premises AD can be used with password writeback. Administrators can change their password in the cloud but can't use password reset to reset a forgotten password. For more information about protected groups, see [Protected accounts and groups in AD DS](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> Administrator accounts that exist within protected groups in on-premises AD can be used with password writeback. Administrators can change their password in the cloud but can't reset a forgotten password. For more information about protected groups, see [Protected accounts and groups in AD DS](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
-To get started with SSPR writeback, complete the following tutorial:
+To get started with SSPR writeback, complete either one or both of the following tutorials:
 
-> [!div class="nextstepaction"]
-> [Tutorial: Enable self-service password reset (SSPR) writeback](./tutorial-enable-sspr-writeback.md)
+- [Tutorial: Enable self-service password reset (SSPR) writeback](tutorial-enable-cloud-sync-sspr-writeback.md)
+- [Tutorial: Enable Azure Active Directory Connect cloud sync self-service password reset writeback to an on-premises environment (Preview)](tutorial-enable-cloud-sync-sspr-writeback.md)
+
+## Azure AD Connect and cloud sync side-by-side deployment
+
+You can deploy Azure AD Connect and cloud sync side-by-side in different domains to target different sets of users. This helps existing users continue to writeback password changes while adding the option in cases where users are in disconnected domains because of a company merger or split. Azure AD Connect and cloud sync can be configured in different domains so users from one domain can use Azure AD Connect while users in another domain use cloud sync. Cloud sync can also provide higher availability because it doesn't rely on a single instance of Azure AD Connect. For a feature comparison between the two deployment options, see [Comparison between Azure AD Connect and cloud sync](../cloud-sync/what-is-cloud-sync.md#comparison-between-azure-ad-connect-and-cloud-sync).
 
 ## How password writeback works
 
-When a password hash synchronized, pass-through authentication configured or a federated user attempts to reset or change their password in the cloud, the following actions occur:
+When a user account configured for federation, password hash synchronization (or, in the case of an Azure AD Connect deployment, pass-through authentication) attempts to reset or change a password in the cloud, the following actions occur:
 
 1. A check is performed to see what type of password the user has. If the password is managed on-premises:
    * A check is performed to see if the writeback service is up and running. If it is, the user can proceed.
@@ -136,7 +140,7 @@ Passwords are written back in all the following situations:
    * Any administrator self-service force change password operation, for example, password expiration.
    * Any administrator self-service password reset that originates from the [password reset portal](https://passwordreset.microsoftonline.com).
    * Any administrator-initiated end-user password reset from the [Azure portal](https://portal.azure.com).
-   * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword?tabs=http).
+   * Any administrator-initiated end-user password reset from the [Microsoft Graph API](/graph/api/passwordauthenticationmethod-resetpassword).
 
 ## Unsupported writeback operations
 

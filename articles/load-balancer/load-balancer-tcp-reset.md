@@ -7,7 +7,6 @@ documentationcenter: na
 author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 8/05/2021
 ms.author: ronytho
-ms.reviewer: jrasnick, wiassaf
+ms.reviewer: sngun, wiassaf
 ms.custom: subject-rbac-steps
 ---
 
@@ -97,7 +97,7 @@ Identify the following information about your storage:
     | --- | --- |
     | Role | Storage Blob Data Contributor |
     | Assign access to |SERVICEPRINCIPAL |
-    | Members |workspace1_SynapseAdmins, workspace1_SynapseContributors, and workspace1_SynapseComputeOperators|
+    | Members |workspace1_SynapseAdministrators, workspace1_SynapseContributors, and workspace1_SynapseComputeOperators|
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
@@ -124,7 +124,7 @@ In the Azure portal, create an Azure Synapse workspace:
 
 ## STEP 4: Grant the workspace MSI access to the default storage container
 
-To run pipelines and perform system tasks, Azure Synapse requires that the workspace managed service identity (MSI) needs access to `container1` in the default ADLS Gen2 account. For more information, see [Azure Synapse workspace managed identity](synapse-workspace-managed-identity.md).
+To run pipelines and perform system tasks, Azure Synapse requires that the workspace managed service identity (MSI) needs access to `container1` in the default ADLS Gen2 account. For more information, see [Azure Synapse workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics).
 
 - Open the Azure portal
 - Locate the storage account, `storage1`, and then `container1`

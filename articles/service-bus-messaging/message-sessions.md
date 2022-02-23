@@ -49,7 +49,7 @@ When workflows are processed in high-scale, high-availability cloud systems, the
 
 The session state facility enables an application-defined annotation of a message session inside the broker, so that the recorded processing state relative to that session becomes instantly available when the session is acquired by a new processor.
 
-From the Service Bus perspective, the message session state is an opaque binary object that can hold data of the size of one message, which is 256 KB for Service Bus Standard, and 1 MB for Service Bus Premium. The processing state relative to a session can be held inside the session state, or the session state can point to some storage location or database record that holds such information.
+From the Service Bus perspective, the message session state is an opaque binary object that can hold data of the size of one message, which is 256 KB for Service Bus Standard, and 100 MB for Service Bus Premium. The processing state relative to a session can be held inside the session state, or the session state can point to some storage location or database record that holds such information.
 
 The methods for managing session state, SetState and GetState, can be found on the session receiver object. A session that had previously no session state returns a null reference for GetState. The previously set session state can be cleared by passing null to the SetState method on the receiver.
 

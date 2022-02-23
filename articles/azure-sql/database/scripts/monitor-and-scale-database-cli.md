@@ -1,5 +1,5 @@
 ---
-title: "Azure CLI: Monitor and scale a single database in Azure SQL Database" 
+title: "Azure CLI example: Monitor and scale a single database in Azure SQL Database" 
 description: Use an Azure CLI example script to monitor and scale a single database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -9,8 +9,8 @@ ms.devlang: azurecli
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
-ms.date: 06/25/2019
+ms.reviewer: kendralittle, mathoma
+ms.date: 01/26/2022 
 ---
 
 # Use the Azure CLI to monitor and scale a single database in Azure SQL Database
@@ -19,33 +19,27 @@ ms.date: 06/25/2019
 
 This Azure CLI script example scales a single database in Azure SQL Database to a different compute size after querying the size information of the database.
 
-If you choose to install and use the Azure CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-### Sign in to Azure
-
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
-
-```azurecli-interactive
-$subscription = "<subscriptionId>" # add subscription here
-
-az account set -s $subscription # ...or use 'az login'
-```
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a database in Azure SQL Database")]
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh" range="4-32":::
 
 > [!TIP]
 > Use [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) to get a list of operations performed on the database, and use [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) to cancel an update operation on the database.
 
-### Clean up deployment
+## Clean up resources
 
-Use the following command to remove the resource group and all resources associated with it.
+[!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
 
-```azurecli-interactive
-az group delete --name $resource
+```azurecli
+az group delete --name $resourceGroup
 ```
 
 ## Sample reference

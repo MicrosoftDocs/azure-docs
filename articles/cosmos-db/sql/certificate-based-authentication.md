@@ -1,12 +1,12 @@
 ---
 title: Certificate-based authentication with Azure Cosmos DB and Active Directory
 description: Learn how to configure an Azure AD identity for certificate-based authentication to access keys from Azure Cosmos DB.
-author: voellm
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.author: tvoellm
+ms.author: jroth
 ms.reviewer: sngun 
 ms.custom: devx-track-azurepowershell
 
@@ -67,6 +67,8 @@ In this step, you will install the Azure AD PowerShell module. This module is re
    ```powershell
    Install-Module AzureAD
    Import-Module AzureAD 
+   # On PowerShell 7.x, use the -UseWindowsPowerShell parameter
+   # Import-Module AzureAD -UseWindowsPowerShell
    ```
 
 ## Sign into your Azure AD

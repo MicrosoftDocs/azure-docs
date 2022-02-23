@@ -36,14 +36,14 @@ As a solution architect/developer, **you should consider using Service Bus queue
 * Your solution needs to support automatic duplicate detection.
 * You want your application to process messages as parallel long-running streams (messages are associated with a stream using the **session ID** property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
 * Your solution requires transactional behavior and atomicity when sending or receiving multiple messages from a queue.
-* Your application handles messages that can exceed 64 KB but won't likely approach the 256-KB limit.
+* Your application handles messages that can exceed 64 KB but won't likely approach the 256 KB or 1 MB limit, depending on the chosen [service tier](service-bus-premium-messaging.md) (although Service Bus queues can [handle messages up to 100 MB](service-bus-premium-messaging.md#large-messages-support)).
 * You deal with a requirement to provide a role-based access model to the queues, and different rights/permissions for senders and receivers. For more information, see the following articles:
     - [Authenticate with managed identities](service-bus-managed-service-identity.md)
     - [Authenticate from an application](authenticate-application.md)
 * Your queue size won't grow larger than 80 GB.
 * You want to use the AMQP 1.0 standards-based messaging protocol. For more information about AMQP, see [Service Bus AMQP Overview](service-bus-amqp-overview.md).
 * You envision an eventual migration from queue-based point-to-point communication to a publish-subscribe messaging pattern. This pattern enables integration of additional receivers (subscribers). Each receiver receives independent copies of either some or all messages sent to the queue. 
-* Your messaging solution needs to support the "At-Most-Once" delivery guarantee without the need for you to build the additional infrastructure components.
+* Your messaging solution needs to support the "At-Most-Once" and the "At-Least-Once" delivery guarantees without the need for you to build the additional infrastructure components.
 * Your solution needs to publish and consume batches of messages.
 
 ## Compare Storage queues and Service Bus queues
@@ -123,7 +123,7 @@ This section compares Storage queues and Service Bus queues from the perspective
 | Comparison Criteria | Storage queues | Service Bus queues |
 | --- | --- | --- |
 | Maximum queue size |**500 TB**<br/><br/>(limited to a [single storage account capacity](../storage/common/storage-introduction.md#queue-storage)) |**1 GB to 80 GB**<br/><br/>(defined upon creation of a queue and [enabling partitioning](service-bus-partitioning.md) – see the “Additional Information” section) |
-| Maximum message size |**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |**256 KB** or **1 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
+| Maximum message size |**64 KB**<br/><br/>(48 KB when using **Base64** encoding)<br/><br/>Azure supports large messages by combining queues and blobs – at which point you can enqueue up to 200 GB for a single item. |**256 KB** or **100 MB**<br/><br/>(including both header and body, maximum header size: 64 KB).<br/><br/>Depends on the [service tier](service-bus-premium-messaging.md). |
 | Maximum message TTL |**Infinite** (api-version 2017-07-27 or later) |**TimeSpan.Max** |
 | Maximum number of queues |**Unlimited** |**10,000**<br/><br/>(per service namespace) |
 | Maximum number of concurrent clients |**Unlimited** |**5,000** |

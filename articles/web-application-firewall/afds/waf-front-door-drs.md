@@ -5,7 +5,7 @@ ms.service: web-application-firewall
 author: vhorne
 ms.author: victorh
 ms.topic: conceptual
-ms.date: 07/29/2021
+ms.date: 02/04/2022
 ---
 
 # Web Application Firewall DRS rule groups and rules
@@ -352,7 +352,7 @@ Front Door.
 |944130|Suspicious Java classes|
 |944200|Exploitation of Java deserialization Apache Commons|
 |944210|Possible use of Java serialization|
-|944240|Remote Command Execution: Java serialization|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
 ### <a name="drs9905-20"></a> MS-ThreatIntel-WebShells
@@ -448,7 +448,7 @@ Front Door.
 |941110|XSS Filter - Category 1: Script Tag Vector|
 |941120|XSS Filter - Category 2: Event Handler Vector|
 |941130|XSS Filter - Category 3: Attribute Vector|
-|941140|XSS Filter - Category 4: Javascript URI Vector|
+|941140|XSS Filter - Category 4: JavaScript URI Vector|
 |941150|XSS Filter - Category 5: Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
@@ -531,7 +531,7 @@ Front Door.
 |944130|Suspicious Java class detected|
 |944200|Magic bytes Detected, probable java serialization in use|
 |944210|Magic bytes Detected Base64 Encoded, probable java serialization in use|
-|944240|Remote Command Execution: Java serialization (CVE-2015-5842)|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
 ### <a name="drs9905-11"></a> MS-ThreatIntel-WebShells
@@ -712,7 +712,7 @@ Front Door.
 |944130|Suspicious Java classes|
 |944200|Exploitation of Java deserialization Apache Commons|
 |944210|Possible use of Java serialization|
-|944240|Remote Command Execution: Java serialization|
+|944240|Remote Command Execution: Java serialization and Log4j vulnerability ([CVE-2021-44228](https://www.cve.org/CVERecord?id=CVE-2021-44228), [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046))|
 |944250|Remote Command Execution: Suspicious Java method detected|
 
 # [Bot rules](#tab/bot)

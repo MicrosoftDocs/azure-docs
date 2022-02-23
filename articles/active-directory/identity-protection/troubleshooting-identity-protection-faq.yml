@@ -6,14 +6,13 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: identity-protection
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.date: 01/07/2021
   ms.author: joflore
   author: MicrosoftGuyJFlo
   manager: karenhoran
   ms.reviewer: sahandle
   ms.collection: M365-identity-device-management
-    
 title: Frequently asked questions Identity Protection in Azure Active Directory
 summary: |
 
@@ -98,4 +97,4 @@ sections:
 
           ### What is the difference between the "Activity from anonymous IP address" and "Anonymous IP address" detections?
 
-          The "Anonymous IP address" detection's source is Azure AD Identity Protection, while the "Activity from anonymous IP address" detection is integrated from MCAS (Microsoft Cloud App Security). While they have very similar names and it is possible that you may see overlap in these signals, they have distinct back-end detections.
+          The "Anonymous IP address" detection's source is Azure AD Identity Protection, while the "Activity from anonymous IP address" detection is integrated from Microsoft Defender for Cloud Apps). While they have very similar names and you might see overlap in these signals, they have distinct back-end detections.
