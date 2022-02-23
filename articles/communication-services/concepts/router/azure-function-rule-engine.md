@@ -185,6 +185,7 @@ Output for **Worker 1**
 ```
 
 With the aforementioned implementation, for the given job we'll get the following scores for workers:
+
 | Worker | Score |
 |--------|-------|
 | Worker 1 | 200 |
