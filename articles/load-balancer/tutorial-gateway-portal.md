@@ -239,7 +239,7 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
 ## Add network virtual appliances to the gateway load balancer backend pool
 
-Deploy NVAs through the Azure Marketplace. Once deployed, add the NVA virtual machines to the backend pool by navigating to the backend pools tab of your gateway load balancer.
+Deploy NVAs through the Azure Marketplace. Once deployed, add the NVA virtual machines to the backend pool of the gateway load balancer. To add the virtual machines, go to the backend pools tab of your gateway load balancer.
 
 ## Chain load balancer frontend to the gateway load balancer
 
@@ -263,9 +263,9 @@ You'll add the frontend to the frontend IP of an existing load balancer in your 
 
     :::image type="content" source="./media/tutorial-gateway-portal/select-gateway-load-balancer.png" alt-text="Screenshot of addition of gateway load balancer to frontend IP." border="true":::
 
-## Chain a VM NIC configuration to the gateway load balancer
+## Chain a virtual machine NIC configuration to the gateway load balancer
 
-Instead of chaining a load balancer frontend to the gateway load balancer, you can chain a virtual machine's NIC configuration to the gateway load balancer. To chain the NIC configuration, add the configuration to the gateway load balancer frontend.
+Instead of chaining a load balancer frontend to the gateway load balancer, chain a virtual machine's NIC configuration to the gateway load balancer. To chain the NIC configuration, add the configuration to the gateway load balancer frontend.
 
 > [!IMPORTANT]
 > A virtual machine must have a public IP address assigned before attempting to chain the NIC configuration to the frontend of the gateway load balancer.
@@ -282,7 +282,7 @@ Instead of chaining a load balancer frontend to the gateway load balancer, you c
 
 5. In the network interface page, select **IP configurations** in **Settings**.
 
-6. Select **myFrontend** in the **Gateway Load balancer** pull-down box.
+6. Select **myFrontend** in **Gateway Load balancer**.
 
     :::image type="content" source="./media/tutorial-gateway-portal/vm-nic-gw-lb.png" alt-text="Screenshot of nic IP configuration." border="true":::
 
