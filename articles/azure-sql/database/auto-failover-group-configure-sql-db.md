@@ -1,28 +1,30 @@
 ---
-title: Configure a failover group
+title: Configure an auto-failover group
 titleSuffix: Azure SQL Database
 description: Learn how to configure an auto-failover group for a single or pooled database in Azure SQL Database  using the Azure portal  and PowerShell. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, sql-db-mi-split
 ms.topic: how-to
 ms.devlang: 
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
-ms.date: 02/24/2022
+ms.date: 03/10/2022
 zone_pivot_groups: azure-sql-deployment-option-single-elastic
 ---
-# Configure a failover group for Azure SQL Database
+# Configure a auto-failover group for Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!div class="op_single_selector"]
 > * [Azure SQL Database](auto-failover-group-configure-sql-db.md)
 > * [Azure SQL Managed Instance](../managed-instance/auto-failover-group-configure-sql-mi.md)
 
-This topic teaches you how to configure an [auto-failover group](auto-failover-group-sql-db.md) for single and pooled databases in Azure SQL Database. 
+This topic teaches you how to configure an [auto-failover group](auto-failover-group-sql-db.md) for single and pooled databases in Azure SQL Database by using the Azure portal and Azure PowerShell. 
 
+> [!NOTE]
+> This article covers auto-failover groups for Azure SQL Database. For Azure SQL Managed Instance, see [Configure auto-failover groups in Azure SQL Managed Instance](../managed-instance/auto-failover-group-configure-sql-mi.md). 
 
 
 ::: zone pivot="azure-sql-single-db"

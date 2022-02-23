@@ -121,8 +121,6 @@
           href: database/business-continuity-high-availability-disaster-recover-hadr-overview.md
         - name: High availability
           href: database/high-availability-sla.md
-        - name: Auto-failover groups
-          href: database/auto-failover-group-overview.md
         - name: Backup and recovery 
           items:
           - name: Automated backups
@@ -294,7 +292,7 @@
       href: database/single-database-overview.md
     - name: Elastic pools
       href: database/elastic-pool-overview.md
-    - name: Logical SQL servers
+    - name: Logical servers
       href: database/logical-servers.md
     - name: Purchasing models
       items: 
