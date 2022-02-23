@@ -10,6 +10,8 @@ ms.author: jaysoni
 
 ---
 
+# Disabled state of a listener
+
 The SSL/TLS certificates for Azure Application Gateway’s listeners can be referenced from a customer’s Key Vault resource. Your application gateway must always have access to such linked key vault resource and its certificate object to ensure smooth operations of the TLS termination feature and the overall health of the gateway resource.
 
 It is important to consider any impact on your Application Gateway resource when making changes or revoking access to your Key Vault resource. In case your application gateway is unable to access the associated key vault or locate its certificate object, it will automatically put that listener in a disabled state. The action is triggered only in the case of configuration errors. Transient connectivity problems do not have any impact on the listeners. 
