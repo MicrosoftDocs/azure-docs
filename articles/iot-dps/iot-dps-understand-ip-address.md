@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 02/22/2022
 ---
 
 # IoT Hub DPS IP addresses
@@ -16,7 +16,7 @@ The IP address prefixes for the public endpoints of an IoT Hub Device Provisioni
 | Goal | Approach |
 |------|----------|
 | Ensure your devices and services communicate with IoT Hub DPS endpoints only | Use the _AzureIoTHub_ service tag to discover IoT Hub DPS instances. Configure ALLOW rules on your devices' and services' firewall setting for those IP address prefixes accordingly. Configure rules to drop traffic to other destination IP addresses that you do not want devices or services to communicate with. |
-| Ensure your IoT Hub DPS endpoint receives connections only from your devices and network assets | Use IoT DPS [IP filter feature](iot-dps-ip-filtering.md) to create filter rules for the device and DPS service APIs. These filter rules can be used to allow connections only from your devices and network asset IP addresses (see [limitations](#limitations-and-workarounds) section). | 
+| Ensure your IoT Hub DPS endpoint receives connections only from your devices and network assets | Use IoT DPS [IP filter feature](iot-dps-ip-filtering.md) to create filter rules for the device and DPS service APIs. These filter rules can be used to allow connections only from your devices and network asset IP addresses (see [limitations](#limitations-and-workarounds) section). |
 
 
 
@@ -34,7 +34,7 @@ The IP address prefixes for the public endpoints of an IoT Hub Device Provisioni
 
 ## Limitations and workarounds
 
-* The DPS IP filter feature has a limit of 100 rules. This limit and can be raised via requests through Azure Customer Support. 
+* The DPS IP filter feature has a limit of 100 rules.
 
 * Your configured [IP filtering rules](iot-dps-ip-filtering.md) are only applied on your DPS endpoints and not on the linked IoT Hub endpoints. IP filtering for linked IoT Hubs must be configured separately. For more information, see, [IoT Hub IP filtering rules](../iot-hub/iot-hub-ip-filtering.md).
 
