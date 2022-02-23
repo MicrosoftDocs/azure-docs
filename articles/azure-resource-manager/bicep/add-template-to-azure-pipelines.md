@@ -55,7 +55,7 @@ variables:
   azureServiceConnection: '<your-connection-name>'
   resourceGroupName: 'exampleRG'
   location: '<your-resource-group-location>'
-  templateFile: './main.bicep'
+  templateFile: 'main.bicep'
 pool:
   vmImage: $(vmImageName)
 
