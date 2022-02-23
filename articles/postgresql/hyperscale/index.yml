@@ -36,8 +36,8 @@ landingContent:
             url: concepts-nodes.md
           - text: Sharding data on worker nodes
             url: tutorial-shard.md
-          - text: Regions and resources
-            url: concepts-configuration-options.md
+          - text: Regions
+            url: resources-regions.md
       - linkListType: how-to-guide
         links:
           - text: Choose distribution column

@@ -1,15 +1,31 @@
 ---
-title: Reserved compute pricing - Azure Database for PostgreSQL - Hyperscale (Citus)
-description: Prepay for Azure Database for PostgreSQL - Hyperscale (Citus) compute resources with reserved capacity.
+title: Pricing – Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Pricing and how to save with Hyperscale (Citus)
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: conceptual
-ms.date: 06/15/2020
+ms.topic: resource
+ms.date: 02/23/2022
 ---
 
-# Prepay for Azure Database for PostgreSQL - Hyperscale (Citus) compute resources with reserved capacity
+# Pricing for Azure Database for PostgreSQL – Hyperscale (Citus)
+
+## General pricing
+
+For the most up-to-date pricing information, see the service
+[pricing page](https://azure.microsoft.com/pricing/details/postgresql/).
+To see the cost for the configuration you want, the
+[Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)
+shows the monthly cost on the **Configure** tab based on the options you
+select. If you don't have an Azure subscription, you can use the Azure pricing
+calculator to get an estimated price. On the
+[Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)
+website, select **Add items**, expand the **Databases** category, and choose
+**Azure Database for PostgreSQL – Hyperscale (Citus)** to customize the
+options.
+
+## Prepay for compute resources with reserved capacity
 
 Azure Database for PostgreSQL – Hyperscale (Citus) now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Hyperscale (Citus) reserved capacity, you make an upfront commitment on Hyperscale (Citus) server group for a one- or three-year period to get a significant discount on the compute costs. To purchase Hyperscale (Citus) reserved capacity, you need to specify the Azure region, reservation term, and billing frequency.
 
@@ -30,7 +46,7 @@ For information on how Enterprise Agreement customers and pay-as-you-go customer
 - [Understand Azure reservation usage for your Enterprise Agreement enrollment](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 - [Understand Azure reservation usage for your pay-as-you-go subscription](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
-## Determine the right server group size before purchase
+### Determine the right server group size before purchase
 
 The size of reservation is based on the total amount of compute used by the existing or soon-to-be-deployed coordinator and worker nodes in Hyperscale (Citus) server groups within a specific region.
 
@@ -41,7 +57,7 @@ In this case, purchase a one-year reservation for:
 * Total 16 vCores + 32 vCores = 48 vCores for coordinator nodes
 * Total 3 nodes x 8 vCores + 2 nodes x 4 vCores = 24 + 8 = 32 vCores for worker nodes
 
-## Buy Azure Database for PostgreSQL reserved capacity
+### Buy Azure Database for PostgreSQL reserved capacity
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select **All services** > **Reservations**.
@@ -62,15 +78,15 @@ The following table describes required fields.
 
 
 
-## Cancel, exchange, or refund reservations
+### Cancel, exchange, or refund reservations
 
 You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure reservations](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-## vCore size flexibility
+### vCore size flexibility
 
 vCore size flexibility helps you scale up or down coordinator and worker nodes within a region, without losing the reserved capacity benefit.
 
-## Need help? Contact us
+### Need help? Contact us
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

@@ -679,10 +679,6 @@
         href: hyperscale/concepts-audit.md
     - name: Columnar storage
       href: hyperscale/concepts-columnar.md
-    - name: Configuration options
-      href: hyperscale/concepts-configuration-options.md
-    - name: Reserved capacity
-      href: hyperscale/concepts-reserved-pricing.md
   - name: How-to guides
     items:
     - name: Server group size
@@ -773,6 +769,14 @@
         href: hyperscale/reference-extensions.md
       - name: Limits and limitations
         href: hyperscale/reference-limits.md
+  - name: Resources
+    items:
+      - name: Pricing
+        href: resources-pricing.md
+      - name: Regional availability
+        href: resources-regions.md
+      - name: Compute and storage
+        href: resources-compute.md
 - name: Samples
   items:
   - name: Azure CLI samples
