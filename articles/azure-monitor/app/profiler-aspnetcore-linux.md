@@ -55,7 +55,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
     }
     ```
 
-2. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
+1. Add a line of code in the **HomeController.cs** section to randomly delay a few seconds:
 
     ```csharp
     using System.Threading;
@@ -70,7 +70,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
         }
     ```
 
-3. Save and commit your changes to the local repository:
+1. Save and commit your changes to the local repository:
 
     ```console
     git init
