@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 10/14/2021
 ms.author: pafarley
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Install and run the Spatial Analysis container (Preview)

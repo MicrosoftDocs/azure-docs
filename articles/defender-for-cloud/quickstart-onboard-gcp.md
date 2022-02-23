@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 02/21/2022
+ms.date: 02/23/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
@@ -15,15 +15,14 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Adding a GCP project to an Azure subscription connects Defender for Cloud with GCP Security Command. Defender for Cloud can then protect your resources across both of these cloud environments and provide:
+To protect your GCP-based resources, you can connect an account in two different ways:
 
-- Detection of security misconfigurations
-- A single view showing Defender for Cloud recommendations and GCP Security Command Center findings
-- Incorporation of your GCP resources into Defender for Cloud's secure score calculations
-- Integration of GCP Security Command Center recommendations based on the CIS standard into the Defender for Cloud's regulatory compliance dashboard
+- **Classic cloud connectors experience** - As part of the initial multi-cloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP projects.
 
-> [!IMPORTANT]
-> At Ignite Fall 2021, we announced an updated way of connecting your accounts from other cloud providers. This uses the new **Environment settings** page. GCP projects aren't supported from that page. To connect a GCP project to your Azure subscription, you'll need to use the classic cloud connectors experience as described below.
+- **Environment settings page** (Recommended) - This page provides the onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your GCP resources:
+
+    - **Defender for Cloud's CSPM features** extends to your GCP resources. This agentless plan assesses your GCP resources according to GCP-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to GCP. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your GCP resources alongside your Azure resources.
+    - **Microsoft Defender for servers** brings threat detection and advanced defenses to your GCP VM instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [Supported features for virtual machines and servers table](supported-machines-endpoint-solutions-clouds.md)
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
@@ -33,20 +32,33 @@ Adding a GCP project to an Azure subscription connects Defender for Cloud with G
 
 |Aspect|Details|
 |----|:----|
-|Required/Preferred Environmental Requirements:| Have workloads in GCP, and are looking for CSPM solution (can be either replacement or new deployment)|
-|Pricing:|The **CSPM plan** is free.<br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for AWS at the same price as for Azure resources.|
+| Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
+|Pricing:|The **CSPM plan** is free.<br> The **Defender for servers** plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 |||
 
-## Connect your GCP project
+## Remove 'classic' connectors
+
+If you have any existing connectors created with the classic cloud connectors experience, remove them first:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Navigate to **Defender for Cloud** > **Environment settings**.
+
+1. Select the option to switch back to the classic connectors experience.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
+
+1. For each connector, select the three dot button at the end of the row, and select **Delete**.
+
+## Connect your GCP projects
 
 When connecting your GCP projects to specific Azure subscriptions, consider the [Google Cloud resource hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy#resource-hierarchy-detail) and these guidelines:
 
-- You can connect your GCP projects to Defender for Cloud in the *project* level
-- You can connect multiple organizations to one Azure subscription
-- You can connect multiple organizations to multiple Azure subscriptions
-- When you connect an organization, all *projects* within that organization are added to Defender for Cloud
+- You can connect your GCP projects to Microsoft Defender for Cloud on the project level.
+- You can connect multiple projects to one Azure subscription.
+- You can connect multiple projects to multiple Azure subscriptions.
 
 Follow the steps below to create your GCP cloud connector. 
 
@@ -58,57 +70,59 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Select **+ Add environment**.
 
-1. Select **Google Cloud**.
+1. Select the **Google Cloud Platform**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/google-cloud.png" border="false" alt-text="Screenshot of the location of the Google cloud environment button.":::
 
-1. Enter a Connector name.
+1. Enter all relevant information.
 
     :::image type="content" source="media/quickstart-onboard-gcp/create-connector.png" alt-text="Screenshot of the Create GCP connector page where you need to enter all relevant information.":::
 
-1. Select a Subscription from the drop down menu
+1. Select the **Next: Select Plans**.
 
-1. Select a Resource group, or create a new one.
+1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans).
 
-1. Select a Location from the drop down menu.
+1. Select the **Next: Configure access**.
 
-1. Enter a GCP project number.
-
-1. Enter a GCP project ID
-
-1. Select the **Next: Select Plans** button. 
-
-1. Toggle the plans you want to connect to **On**. By default all necessary prerequisites and components will be provisioned. (Optional) Learn how to [configure each plan](#optional-configure-selected-plans). 
-
-1. Select the **Next: Configure access** button.
-
-1. Select the copy button.
+1. Select **Copy**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot showing the location of the copy button.":::
 
-1. Select the **GCP Cloud Shell >** button.
+1. Select the **GCP Cloud Shell >**.
 
 1. The GCP Cloud Shell will open.
 
 1. Paste the script into the Cloud Shell terminal and run it.
 
 1. Ensure that the following resources were created:
-    
+
     | CSPM | Defender for Containers|
     |--|--|
-    | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool | Microsoft Defender Containers’ service account role, <br> Microsoft Defender Data Collector service account role <br> microsoft defender for cloud identity pool |
+    | CSPM service account reader role <br> Microsoft Defender for Cloud identity federation <br> CSPM identity pool <br>*Microsoft Defender for Servers* service account (when the servers plan is enabled) <br>*Azure-Arc for servers onboarding* service account (when the Arc for servers auto-provisioning is enabled) | Microsoft Defender Containers’ service account role, <br> Microsoft Defender Data Collector service account role <br> microsoft defender for cloud identity pool |
+
+1. (**Servers only**) When Arc auto-provisioning is enabled, copy the unique numeric ID presented at the end of the Cloud Shell script.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique numeric id to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
+
+    To locate the unique numeric ID in the GCP portal, Navigate to **IAM & Admin** > **Service Accounts**, in the Name column, locate `Azure-Arc for servers onboarding` and copy the unique numeric ID number (OAuth 2 Client ID).
 
 1. Navigate back to the Microsoft Defender for Cloud portal.
 
-1. (Optional) If you changed any of the names of any of the resources, update the names in the appropriate field.
+1. (Optional) If you changed any of the names of any of the resources, update the names in the appropriate fields.
 
-1. Select the **Next: Review and generate >** button.
+1. (**Servers only**) Select **Azure-Arc for servers onboarding**
+
+    :::image type="content" source="media/quickstart-onboard-gcp/unique-numeric-id.png" alt-text="Screenshot showing the Azure-Arc for servers onboarding section of the screen.":::
+
+    Enter the service account unique ID, which is generated automatically after running the GCP Cloud Shell. 
+
+1. Select the **Next: Review and generate >**.
 
 1. Ensure the information presented is correct.
 
-1. Select the **Create** button.
+1. Select the **Create**. 
 
-After the connector is created, the discovery service will start to scan the GCP environment and generate GKE recommendations. Recommendations will appear in the portal after 6 to 8 hours have passed. 
+After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled agent auto-provisioning, Arc agent installation will occur automatically for each new resource detected.
 
 ## (Optional) Configure selected plans
 
@@ -116,7 +130,25 @@ By default, all plans are toggled to `On`, on the plans select screen.
 
 :::image type="content" source="media/quickstart-onboard-gcp/toggle-plans-to-on.png" alt-text="Screenshot showing that all plans are toggle to on.":::
 
-### Configure the Servers plan
+### Configure the servers plan
+
+Connect your GCP VM instances to Azure Arc in order to have full visibility to Microsoft Defender for Servers security content.
+
+Microsoft Defender for servers brings threat detection and advanced defenses to your GCP VMs instances.
+To have full visibility to Microsoft Defender for Servers security content, ensure you have the following requirements configured:
+
+- Microsoft Defender for servers enabled on your subscription. Learn how to enable plans in the [Enable enhanced security features](enable-enhanced-security.md) article.
+
+- Azure Arc for servers installed on your VM instances.
+    - **(Recommended) Auto-provisioning** - Auto-provisioning is enabled by default in the onboarding process and requires owner permissions on the subscription. Arc auto-provisioning process is using the OS config agent on GCP end. Additional information on Arc auto-provisioning can be found in the [OS config agent on the GCP machines](https://cloud.google.com/compute/docs/images/os-details#vm-manager) article.
+    - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
+
+- The following extensions should be enabled on the Arc-connected machines according to your needs:
+    - Microsoft Defender for Endpoint
+    - VA solution (TVM/ Qualys)
+    - Log Analytics (LA) agent on Arc machines. Ensure the selected workspace has security solution installed.
+
+    These extensions are currently configured as auto-provisioning settings on the subscription level. All GCP projects and AWS accounts under this subscription will inherit the subscription settings. Learn how to [configure auto-provisioning on your subscription](enable-data-collection.md#configure-auto-provisioning-for-agents-and-extensions-from-microsoft-defender-for-cloud).
 
 **To configure the Servers plan**:
 
@@ -129,6 +161,9 @@ By default, all plans are toggled to `On`, on the plans select screen.
 1. On the Auto provisioning screen, toggle the switches on, or off depending on your need.
 
     :::image type="content" source="media/quickstart-onboard-gcp/auto-provision-screen.png" alt-text="Screenshot showing the toggle switches for the Servers plan.":::
+
+    > [!Note]
+    > If Azure Arc is toggled **Off**, you will need to follow the manual installation process mentioned above. 
 
 1. Select **Save**.
 
@@ -252,7 +287,7 @@ When the connector is successfully created and GCP Security Command Center has b
 
 ::: zone-end
 
-## Monitoring your GCP resources
+## Monitor your GCP resources
 
 As shown above, Microsoft Defender for Cloud's security recommendations page displays your GCP resources together with your Azure and AWS resources for a true multi-cloud view.
 
@@ -263,16 +298,8 @@ To view all the active recommendations for your resources by resource type, use 
 
 ## FAQ - Connecting GCP projects to Microsoft Defender for Cloud
 
-### Can I connect multiple GCP organizations to Defender for Cloud?
-Yes. Defender for Cloud's GCP connector connects your Google Cloud resources at the *organization* level. 
-
-Create a connector for every GCP organization you want to monitor from Defender for Cloud. When you connect an organization, all projects within that organization are added to Defender for Cloud.
-
-Learn about the Google Cloud resource hierarchy in [Google's online docs](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy).
-
-
 ### Is there an API for connecting my GCP resources to Defender for Cloud?
-Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/securitycenter/connectors).
+Yes. To create, edit, or delete Defender for Cloud cloud connectors with a REST API, see the details of the [Connectors API](/rest/api/securitycenter/security-connectors).
 
 ## Next steps
 

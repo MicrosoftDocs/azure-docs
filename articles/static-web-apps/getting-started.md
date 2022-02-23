@@ -110,6 +110,14 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 
     Enter **dist** as the build output location.
 
+    # [Blazor](#tab/blazor)
+
+    :::image type="content" source="media/getting-started/extension-presets-blazor.png" alt-text="Application presets: Blazor":::
+
+    Enter **Client** as the location for the application files, since this is the root folder of the Blazor project.
+
+    Enter **wwwroot** as the build output location.
+
     ---
 
 1. Once the app is created, a confirmation notification is shown in Visual Studio Code.
@@ -132,7 +140,7 @@ If you're not going to continue to use this application, you can delete the Azur
 
 In the Visual Studio Code Explorer window, return to the _Static Web Apps_ section and right-click on **my-first-static-web-app** and select **Delete**.
 
-:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Delete app":::
+:::image type="content" source="media/getting-started/extension-delete.png" alt-text="Delete app"::: 
 
 ## Next steps
 
