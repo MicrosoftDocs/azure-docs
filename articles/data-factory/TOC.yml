@@ -531,6 +531,8 @@ items:
       href: connector-square.md
     - name: Sybase
       href: connector-sybase.md
+    - name: TeamDesk
+      href: connector-teamdesk.md
     - name: Teradata
       href: connector-teradata.md
     - name: Vertica
@@ -1079,7 +1081,7 @@ items:
       href: ssis-integration-runtime-management-troubleshoot.md
       displayName: timeout
     - name: Package Execution in Azure-SSIS IR
-      href: ssis-integration-runtime-ssis-activity-faq.yml
+      href: ssis-integration-runtime-ssis-activity-faq.md
       displayName: retry, timeout
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md

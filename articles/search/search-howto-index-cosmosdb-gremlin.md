@@ -33,7 +33,9 @@ Although Cosmos DB indexing is easiest with the [Import data wizard](search-impo
 
 + An [automatic indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
-Unfamiliar with indexers? Start with [**Create an indexer**](search-howto-create-indexers.md) for more background.
++ Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
+
+Unfamiliar with indexers? See [**Create an indexer**](search-howto-create-indexers.md) before you get started.
 
 ## Define the data source
 

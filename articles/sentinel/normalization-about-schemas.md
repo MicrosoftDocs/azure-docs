@@ -115,9 +115,9 @@ The following fields are defined by ASIM for all schemas:
 | <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails** | Optional | String | The original result details provided by the source. This value is used to derive [EventResultDetails](#eventresultdetails), which should have only one of the values documented for each schema. |
 | <a name="eventseverity"></a>**EventSeverity** | Enumerated | String | The severity of the event. Valid values are: `Informational`, `Low`, `Medium`, or `High`. | 
 | <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | Optional | String | The original severity as provided by the source. This value is used to derive [EventSeverity](#eventseverity). | 
-| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field might not be available in the source record. In such cases, this field must be set by the parser.           |
+| <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |  The product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Sysmon`  |
 | **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`      |
-| <a name="eventvendor"></a>**EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field might not be available in the source record. In such cases, this field must be set by the parser.  |
+| <a name="eventvendor"></a>**EventVendor**  | Mandatory   | String     |   The vendor of the product generating the event. The value should be one of the values listed in [Vendors and Products](#vendors-and-products).<br><br>Example: `Microsoft`  <br><br>  |
 | **EventSchema** | Mandatory | String | The schema the event is normalized to. Each schema documents its schema name. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. Each schema documents its current version.         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides more information about the event.|
@@ -274,6 +274,28 @@ Based on these entities, [Windows event 4624](/windows/security/threat-protectio
 |**TargetHostname**     |   Computer      |  WIN-GG82ULGC9GO	       |         |
 |**Hostname**     |     Computer    |     Alias    |         |
 | | | | |
+
+## Vendors and products
+
+To maintain consistency, the list of allowed vendors and products is set as part of ASIM, and may not directly correspond to the value sent by the source, when available.
+
+The currently supported list of vendors and products used in the [EventVendor](#eventvendor) and [EventProduct](#eventproduct) fields respectively is:
+
+| Vendor | Products |
+| ------ | -------- | 
+| Apache | Squid Proxy | 
+| AWS | - CloudTrail<br> - VPC | 
+| Cisco | - ASA<br> - Umbrella |
+| Corelight | Zeek | 
+| GCP | Cloud DNS | 
+| Infoblox | NIOS | 
+| Microsoft | - AAD<br> - Azure Defender for IoT<br> - Azure Firewall<br> - Azure File Storage<br> -  DNS Server<br> - M365 Defender for Endpoint<br> - NSGFlow <br> - Security Events<br> - Sharepoint 365<br>- Sysmon<br> - Sysmon for Linux<br> - VMConnection<br> - Windows Firewall<br> - WireData <br>
+| Okta | Okta | 
+| Palo Alto | - PanOS<br> - CDL<br> |
+| Zscaler |  - ZIA DNS<br> - ZIA Firewall<br> - ZIA Proxy |
+|||
+
+If you are developing a parser for a vendor or a product which are not listed here, contact the [Microsoft Sentinel](mailto:azuresentinel@microsoft.com) team to allocate a new allowed vendor and product designators. 
 
 ## Next steps
 

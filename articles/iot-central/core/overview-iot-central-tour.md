@@ -13,7 +13,7 @@ manager: corywink
 
 # Take a tour of the Azure IoT Central UI
 
-This article introduces you to Azure IoT Central UI. You can use the UI to create, manage, and use an IoT Central application and its connected devices.
+This article introduces you to Azure IoT Central UI. You can use the UI to create, administer, and use an IoT Central application and its connected devices.
 
 ## IoT Central homepage
 
@@ -23,7 +23,7 @@ The [IoT Central homepage](https://apps.azureiotcentral.com/) page is the place 
 
 ### Create an application
 
-In the **Build** section you can browse the list of industry-relevant IoT Central templates, or start from scratch using a Custom app template.  
+In the **Build** section you can browse the list of industry-relevant IoT Central templates, or start from scratch using a Custom application template.  
 
 :::image type="content" source="media/overview-iot-central-tour/iot-central-build.png" alt-text="IoT Central build page":::
 
