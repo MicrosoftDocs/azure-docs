@@ -47,7 +47,7 @@ There are many networking features that enable apps in a multi-tenant App Servic
 
 ## Dedicated environment
 
-An App Service Environment is a single-tenant deployment of the Azure App Service that runs on your virtual network. 
+An App Service Environment is a single-tenant deployment of Azure App Service that runs on your virtual network. 
 
 Applications are hosted in App Service plans, which are created in an App Service Environment. An App Service plan is essentially a provisioning profile for an application host. As you scale out your App Service plan, you create more application hosts with all the apps in that App Service plan on each host. A single App Service Environment v3 can have up to 200 total App Service plan instances across all the App Service plans combined. A single App Service Isolated v2 (Iv2) plan can have up to 100 instances by itself.
 
@@ -55,7 +55,7 @@ When you're deploying onto dedicated hardware (hosts), you're limited in scaling
 
 ## Virtual network support
 
-The App Service Environment feature is a deployment of the Azure App Service into a single subnet on a virtual network. When you deploy an app into an App Service Environment, the app is exposed on the inbound address that's assigned to the App Service Environment. If your App Service Environment is deployed with an internal virtual IP (VIP) address, the inbound address for all the apps will be an address in the App Service Environment subnet. If your App Service Environment is deployed with an external VIP address, the inbound address will be an internet-addressable address, and your apps will be in a public Domain Name System.
+The App Service Environment feature is a deployment of Azure App Service into a single subnet on a virtual network. When you deploy an app into an App Service Environment, the app is exposed on the inbound address that's assigned to the App Service Environment. If your App Service Environment is deployed with an internal virtual IP (VIP) address, the inbound address for all the apps will be an address in the App Service Environment subnet. If your App Service Environment is deployed with an external VIP address, the inbound address will be an internet-addressable address, and your apps will be in a public Domain Name System.
 
 The number of addresses that are used by an App Service Environment v3 in its subnet will vary, depending on the number of instances and the amount of traffic. Some infrastructure roles are automatically scaled, depending on the number of App Service plans and the load. The recommended size for your App Service Environment v3 subnet is a `/24` Classless Inter-Domain Routing (CIDR) block with 256 addresses in it, because that size can host an App Service Environment v3 that's scaled out to its limit.
 
