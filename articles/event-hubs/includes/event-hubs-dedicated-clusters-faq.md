@@ -48,7 +48,7 @@ To monitor the CPU usage of the dedicated cluster you need to follow these steps
 - Then add a filter for the property type `Role`, use the equal operator and select all three values(`SBSAdmin`, `SBSFE`, `SBSEH`) from the dropdown.  
 
 Then you can monitor this metic to determine when you should scale your dedicated cluster. 
-You can also set up [alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview?toc=%2Fazure%2Fazure-monitor%2Ftoc.json) against this metric to get notified when CPU usage reaches the thresholds you set.  
+You can also set up [alerts](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview?toc=%2Fazure%2Fazure-monitor%2Ftoc.json) against this metric to get notified when CPU usage reaches the thresholds you set.  
 
 
 ### How does Geo-DR work with my cluster?
