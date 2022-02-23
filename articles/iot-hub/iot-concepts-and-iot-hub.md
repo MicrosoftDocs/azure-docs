@@ -6,20 +6,20 @@ ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/07/2021
+ms.date: 02/23/2022
 ms.custom: contperf-fy22q3
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts.
 ---
 
 # IoT concepts and Azure IoT Hub
 
-The Internet of Things (IoT) is typically defined as a network of physical devices that connect to and exchange data with other devices and services over the Internet or other communication network. There are currently over ten billion connected devices in the world and more are added every year. Anything that can be embedded with the necessary sensors and software can be connected over the internet.
+The Internet of Things (IoT) is a network of physical devices that connect to and exchange data with other devices and services over the Internet or other network. There are currently over ten billion connected devices in the world and more are added every year. Anything that can be embedded with the necessary sensors and software can be connected over the internet.
 
 Azure IoT Hub is a managed service hosted in the cloud that acts as a central message hub for communication between an IoT application and its attached devices. You can connect millions of devices and their backend solutions reliably and securely. Almost any device can be connected to an IoT hub.
 
 Several messaging patterns are supported, including device-to-cloud telemetry, uploading files from devices, and request-reply methods to control your devices from the cloud. IoT Hub also supports monitoring to help you track device creation, device connections, and device failures.
 
-IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. For more information about scaling your IoT Hub, see [IoT Hub scaling](iot-hub-scaling.md). To learn more about the multiple tiers of service offered by IoT Hub and how to best fit your scalability needs, check out the [pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub scales to millions of simultaneously connected devices and millions of events per second to support your IoT workloads. For more information about scaling your IoT Hub, see [IoT Hub scaling](iot-hub-scaling.md). To learn more about the tiers of service offered by IoT Hub, check out the [pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 You can integrate IoT Hub with other Azure services to build complete, end-to-end solutions. For example, use:
 
@@ -35,7 +35,7 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 IoT Hub has a 99.9% [Service Level Agreement for IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
-Each Azure subscription has default quota limits in place to prevent service abuse. These limits could impact the scope of your IoT solution. The current limit on a per-subscription basis is 50 IoT hubs per subscription. You can request quota increases by contacting support. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). For more details on quota limits, see one of the following articles:
+Each Azure subscription has default quota limits in place to prevent service abuse. These limits could impact the scope of your IoT solution. The current limit on a per-subscription basis is 50 IoT hubs per subscription. You can request quota increases by contacting support. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). For more information on quota limits, see one of the following articles:
 
 - [Azure subscription service limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
 
@@ -54,7 +54,7 @@ IoT devices differ from other clients such as browsers and mobile apps. Specific
 
 ## Device identity and authentication
 
-Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to it. Before a device or module can connect, there must be an entry for that device or module in the IoT hub's identity registry. A device or module must also authenticate with the IoT hub based on credentials stored in the identity registry.
+Every IoT hub has an identity registry that stores information about the devices and modules permitted to connect to it. Before a device or module can connect, there must be an entry for that device or module in the IoT hub's identity registry. A device or module authenticates with the IoT hub based on credentials stored in the identity registry.
 
 We support two methods of authentication between the device and the IoT hub. You can use SAS token-based authentication or X.509 certificate authentication.
 
@@ -78,7 +78,7 @@ Examples of telemetry received from a device can include sensor data such as spe
 
 ## Device properties
 
-Properties can be read or set from the IoT hub and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. This can be a writable property that can be updated on the device or read from a temperature sensor attached to the device.
+Properties can be read or set from the IoT hub and can be used to send notifications when an action has completed. An example of a specific property on a device is temperature. Temperature can be a writable property that can be updated on the device or read from a temperature sensor attached to the device.
 
 You can enable properties in IoT Hub using [Device twins](iot-hub-devguide-device-twins.md) or [Plug and Play](../iot-develop/overview-iot-plug-and-play.md).
 
@@ -109,14 +109,14 @@ iot-hub-devguide-endpoints.md#list-of-built-in-iot-hub-endpoints)
 
 Data can also be routed to different services for further processing. As the IoT solution scales out, the number of devices, volume of events, variety of events, and different services also varies. A flexible, scalable, consistent, and reliable method to route events is necessary to serve this pattern. Once a message route has been created, data stops flowing to the built-in-endpoint unless a fallback route has been configured. For a tutorial showing multiple uses of message routing, see the [Routing Tutorial](tutorial-routing.md).
 
-IoT Hub also integrates with Event Grid which enables you to fan out data to multiple subscribers. Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless architectures. The differences between message routing and using Event Grid are explained in the [Message Routing and Event Grid Comparison](iot-hub-event-grid-routing-comparison.md)
+IoT Hub also integrates with Event Grid, which enables you to fan out data to multiple subscribers. Event Grid is a fully managed event service that enables you to easily manage events across many different Azure services and applications. Made for performance and scale, it simplifies building event-driven applications and serverless architectures. The differences between message routing and using Event Grid are explained in the [Message Routing and Event Grid Comparison](iot-hub-event-grid-routing-comparison.md)
 
 ## Next steps
 
 To try out an end-to-end IoT solution, check out the IoT Hub quickstarts:
 
 - [Send telemetry from a device to IoT Hub](quickstart-send-telemetry-cli.md)
-- [Send telemetry from an IoT Plug and Play device to IoT Hub](quickstart-send-telemetry-iot-hub.md)
+- [Send telemetry from an IoT Plug and Play device to IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json)
 - [Control a device connected to an IoT hub](quickstart-control-device.md)
 
 To learn more about the ways you can build and deploy IoT solutions with Azure IoT, visit:
