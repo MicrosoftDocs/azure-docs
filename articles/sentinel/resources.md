@@ -1,12 +1,7 @@
 ---
 title: Useful resources when working with Microsoft Sentinel
 description: This document provides you with a list of useful resources when working with Microsoft Sentinel.
-services: sentinel
 author: yelevin
-manager: rkarlin
-ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -23,10 +18,14 @@ This article lists resources that can help you get more information about workin
 
 Microsoft Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL) to build queries. For more information, see:
 
-- [KQL concepts](/azure/data-explorer/kusto/concepts/)
-- [KQL queries](/azure/data-explorer/kusto/query/)
-- [KQL quick reference guide](/azure/data-explorer/kql-quick-reference).
-- [Get started with KQL queries](../azure-monitor/logs/get-started-queries.md)
+- [Kusto Query Language in Microsoft Sentinel](kusto-overview.md)
+- [Useful resources for working with Kusto Query Language in Microsoft Sentinel](kusto-resources.md)
+
+## Microsoft Sentinel templates for data to monitor
+
+The [Azure Active Directory Security Operations Guide](../active-directory/fundamentals/security-operations-introduction.md) includes specific guidance and knowledge about data that's important to monitor for security purposes, for several operational areas. 
+
+In each article, check for sections named [Things to monitor](../active-directory/fundamentals/security-operations-privileged-accounts.md#things-to-monitor) for lists of events that we recommend alerting on and investigating, as well as analytics rule templates to deploy directly to Microsoft Sentinel.
 
 ## Learn more about creating automation
 

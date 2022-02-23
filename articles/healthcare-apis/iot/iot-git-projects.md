@@ -1,11 +1,11 @@
 ---
 title: Related GitHub projects for IoT connector - Azure Healthcare APIs
-description: List all open-source (GitHub) repositories for IoT connector
+description: IoT connector has a robust open-source (GitHub) library for ingesting device messages from popular wearable devices.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/28/2021
+ms.date: 11/23/2021
 ms.author: jasteppe
 ---
 # Open-source projects
@@ -14,15 +14,15 @@ Check out our open-source projects on GitHub that provide source code and instru
 
 ## IoT connector GitHub projects
 
-#### FHIR integration
+### FHIR integration
 
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Healthcare APIs IoT connector managed service. Can be used with any Fast Healthcare Interoperability Resources (FHIR&#174;) service that supports [FHIR R7&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
+* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Healthcare APIs IoT connector managed service. Can be used with any Fast Healthcare Interoperability Resources (FHIR&#174;) service that supports [FHIR R4&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
 
-#### Device and FHIR destination mappings
+### Device and FHIR destination mappings
 
 * [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): Tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the open-source version.
 
-#### Wearables integration
+### Wearables integration
 
 Fitbit
 

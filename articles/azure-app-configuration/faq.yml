@@ -5,11 +5,10 @@ metadata:
   services: azure-app-configuration
   author: AlexandraKemperMS
   ms.service: azure-app-configuration
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-    
 title: Azure App Configuration FAQ
 summary: This article answers frequently asked questions about Azure App Configuration.
 
@@ -107,11 +106,13 @@ sections:
         answer: |
           Azure App Configuration supports Azure Availability Zones to protect your application and data from single datacenter failures. All Availability Zone enabled regions consist of a minimum of 3 availability zones, where each is a physically independent datacenter. For resiliency, this support in App Configuration is enabled for all customers at no extra cost. Following are regions that App Configuration has enabled Availability Zone support. For more information, see [Regions and Availability Zones in Azure.](../availability-zones/az-overview.md)
           - Central US
+          - South Central US
           - East US
           - East US 2
           - West US 2
           - West US 3
           - Canada Central
+          - Brazil South
           - France Central
           - Germany West Central
           - North Europe
@@ -119,6 +120,7 @@ sections:
           - West Europe
           - Southeast Asia
           - Japan East
+          - Korea Central
           
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |
@@ -148,7 +150,7 @@ sections:
 
           The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal).
 
-          Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` [command](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
+          Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` [command](/cli/azure/appconfig#az_appconfig_create).
 
       - question: How can I restore an App Configuration store that I deleted mistakenly?
         answer: |

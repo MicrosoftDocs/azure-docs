@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 01/07/2021
+ms.custom: mode-other
 ---
 
 # Enroll or renew an Azure Dev Tools for Teaching subscription

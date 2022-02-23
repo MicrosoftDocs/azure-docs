@@ -10,7 +10,8 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: ssambare
 author: shivanissambare
-ms.custom: deploy, devplatv2
+ms.custom: deploy, devplatv2, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # High-performance serving with Triton Inference Server (Preview) 
@@ -35,7 +36,7 @@ In this article, you will learn how to deploy Triton and a model to a managed on
 * Access to NCv3-series VMs for your Azure subscription.
 
     > [!IMPORTANT]
-    > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](/azure/virtual-machines/ncv3-series).
+    > You may need to request a quota increase for your subscription before you can use this series of VMs. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
@@ -44,6 +45,8 @@ NVIDIA Triton Inference Server requires a specific model repository structure, w
 The information in this document is based on using a model stored in ONNX format, so the directory structure of the model repository is `<model-repository>/<model-name>/1/model.onnx`. Specifically, this model performs image identification.
 
 ## Deploy using CLI (v2)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 This section shows how you can deploy Triton to managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
 
@@ -84,7 +87,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
     > [!IMPORTANT]
     > For Triton no-code-deployment (NCD) to work, setting **`model_format`** to **`Triton`** is required. For more information, [check CLI (v2) model YAML schema](reference-yaml-model.md).
     >
-    > This deployment uses a Standard_NC6s_v3 VM. You may need to request a quota increase for your subscription before you can use this VM. For more information, see [NCv3-series](/azure/virtual-machines/ncv3-series).
+    > This deployment uses a Standard_NC6s_v3 VM. You may need to request a quota increase for your subscription before you can use this VM. For more information, see [NCv3-series](../virtual-machines/ncv3-series.md).
 
     :::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
 

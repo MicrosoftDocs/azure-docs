@@ -1,5 +1,5 @@
 ---
-title: Pipeline Failure and Error Message
+title: Pipeline failure and error message
 description: Understand how pipeline failure status and error message are determined
 ms.service: data-factory
 ms.subservice: orchestration
@@ -14,7 +14,7 @@ ms.date: 11/08/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## Error Handling
+## Error handling
 
 Azure Data Factory and Synapse Pipeline orchestration allows conditional logic and enables user to take different based upon outcomes of a previous activity. Using different paths allow users to build robust pipelines and incorporates error handling in ETL/ELT logic. In total, we allow four conditional paths,
 
@@ -45,7 +45,7 @@ In this approach, customer defines the business logic, and defines both the _Upo
 
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/pipeline-error-4-do-if-skip-else-definition.png" alt-text="Screenshot showing definition and outcome of do if skip else block.":::
 
-### Summary Table
+### Summary table
 
 Approach | Defines | When activity succeeds, overall pipeline shows | When activity fails, overall pipeline shows
 ---------------------------- | ------------------- | ------------------- | -------------------

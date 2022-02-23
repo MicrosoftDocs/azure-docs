@@ -61,7 +61,7 @@ With an HTTP scaling rule, you have control over the threshold that determines w
             "name": "http-rule",
             "http": {
               "metadata": {
-                  "concurrentRequests": 100
+                  "concurrentRequests": "100"
               }
             }
           }]
@@ -138,7 +138,7 @@ The following example shows how to create a CPU scaling rule.
       "template": {
         ...
         "scale": {
-          "minReplicas": "0",
+          "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
             "name": "cpuScalingRule",
@@ -176,7 +176,7 @@ The following example shows how to create a memory scaling rule.
       "template": {
         ...
         "scale": {
-          "minReplicas": "0",
+          "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
             "name": "memoryScalingRule",
@@ -197,7 +197,6 @@ The following example shows how to create a memory scaling rule.
 
 - In this example, the container app scales when memory usage exceeds 50%.
 - At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
-
 
 ## Considerations
 

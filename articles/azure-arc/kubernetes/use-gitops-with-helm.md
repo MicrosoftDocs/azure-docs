@@ -11,6 +11,9 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Serv
 
 # Deploy Helm Charts using GitOps on an Azure Arc-enabled Kubernetes cluster
 
+> [!NOTE]
+> This article is for GitOps with Flux v1.  GitOps with Flux v2 is now available in preview for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md).
+
 Helm is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers like APT and Yum, Helm is used to manage Kubernetes charts, which are packages of pre-configured Kubernetes resources.
 
 This article shows you how to configure and use Helm with Azure Arc-enabled Kubernetes.
@@ -82,7 +85,7 @@ You can learn more about the HelmRelease in the official [Helm Operator document
 
 Using the Azure CLI extension for `k8s-configuration`, link your connected cluster to the example Git repository. Give this configuration the name `azure-arc-sample` and deploy the Flux operator in the `arc-k8s-demo` namespace.
 
-```console
+```azurecli
 az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-chart-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
@@ -94,7 +97,7 @@ To customize the creation of the configuration, [learn about additional paramete
 
 Using the Azure CLI, verify that the configuration was successfully created.
 
-```console
+```azurecli
 az k8s-configuration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 

@@ -5,7 +5,7 @@ description: Ensure that your organization's administrative access and administr
 services: active-directory 
 keywords: 
 author: rolyon
-manager: KarenH444
+manager: karenhoran
 ms.author: rolyon
 ms.date: 11/04/2021
 ms.topic: conceptual
@@ -299,7 +299,7 @@ If your Azure Active Directory is connected to on-premises Active Directory, the
 
 #### Establish integrated monitoring
 
-The [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md):
+The [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md):
 
 * Provides integrated security monitoring and policy management across your Azure subscriptions
 * Helps detect threats that may otherwise go unnoticed

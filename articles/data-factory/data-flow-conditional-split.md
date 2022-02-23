@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 01/20/2022
 ---
 
 # Conditional split transformation in mapping data flow
@@ -59,7 +59,7 @@ CleanData
     split(
         year < 1960,
 	    year > 1980,
-	    disjoint: false
+	    disjoint: true
     ) ~> SplitByYear@(moviesBefore1960, moviesAfter1980, AllOtherMovies)
 ```
 

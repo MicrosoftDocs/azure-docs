@@ -3,7 +3,7 @@ author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
-ms.author: eric-urban
+ms.author: eur
 ---
 
 ## Next steps

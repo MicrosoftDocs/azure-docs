@@ -1,17 +1,8 @@
 ---
 title: Extend Microsoft Sentinel across workspaces and tenants | Microsoft Docs
 description: How to use Microsoft Sentinel to query and analyze data across workspaces and tenants.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -129,7 +120,7 @@ Cross-workspace hunting capabilities enable your threat hunters to create new hu
 
 To configure and manage multiple Microsoft Sentinel workspaces, you will need to automate the use of the Microsoft Sentinel management API. For more information on how to automate the deployment of Microsoft Sentinel resources, including alert rules, hunting queries, workbooks and playbooks, see [Extending Microsoft Sentinel: APIs, Integration and management automation](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
-See also [Deploying and Managing Microsoft Sentinel as Code](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) and [Combining Azure Lighthouse with Microsoft Sentinel’s DevOps capabilities](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) for a consolidated, community-contributed methodology for managing Microsoft Sentinel as code and for deploying and configuring resources from a private GitHub repository.
+See also [Deploy Custom Content from your Repository](ci-cd.md) for a consolidated methodology for managing Microsoft Sentinel as code and for deploying and configuring resources from a private Azure DevOps or GitHub repository.
 
 ## Managing workspaces across tenants using Azure Lighthouse
 

@@ -125,4 +125,4 @@ If this is your first time using Chaos Studio, you must first register the Chaos
 
 ## Next steps
 Now that you have run a VM shutdown service-direct experiment, you are ready to:
-- [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based.md)
+- [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)

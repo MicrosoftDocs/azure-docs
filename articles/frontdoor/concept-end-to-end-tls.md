@@ -38,7 +38,7 @@ Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ## Online Certificate Status Protocol (OCSP) stapling
 
-OSCP stapling is supported by default in Azure Front Door and no configuration is required.
+OCSP stapling is supported by default in Azure Front Door and no configuration is required.
 
 ## Backend TLS connection (Azure Front Door to backend)
 
@@ -47,7 +47,7 @@ For HTTPS connections, Azure Front Door expects that your backend presents a cer
 > [!NOTE]
 > The certificate must have a complete certificate chain with leaf and intermediate certificates. The root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If a certificate without complete chain is presented, the requests which involve that certificate are not guaranteed to work as expected.
 
-From a security standpoint, Microsoft doesn't recommend disabling certificate subject name check. In certain use cases such as for testing, for example, your origin must use a self-signed certificate. As a work-around to resolve failing HTTPS connection, can you disable certificate subject name check for your Azure Front Door. The option to disable is present under the Azure Front Door settings in the Azure portal and on the BackendPoolsSettings in the Azure Front Door API. 
+From a security standpoint, Microsoft doesn't recommend disabling certificate subject name check. In certain use cases such as for testing, as a work-around to resolve failing HTTPS connection, you can disable certificate subject name check for your Azure Front Door. Note that the origin still needs to present a certificate with a valid trusted chain, but doesn't have to match the origin host name. The option to disable is present under the Azure Front Door settings in the Azure portal and on the BackendPoolsSettings in the Azure Front Door API. 
 
 ## Frontend TLS connection (Client to Front Door)
 
@@ -71,7 +71,7 @@ For your own custom TLS/SSL certificate:
 
     You'll need to ensure that the service principal for Front Door has access to the key vault. Refer to how to grant access to your key vault. The updated certificate rollout operation by Azure Front Door won't cause any production down time provided the subject name or subject alternate name (SAN) for the certificate didn't changed.
 
-### Supported cipher suites
+## Supported cipher suites
 
 For TLS1.2 the following cipher suites are supported:
 

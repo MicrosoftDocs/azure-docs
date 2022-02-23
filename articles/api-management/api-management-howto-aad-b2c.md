@@ -55,7 +55,7 @@ In this section, you'll create a user flow in your Azure Active Directory B2C te
 1. Return to the browser tab for your Azure Active Directory B2C tenant in the Azure portal. Select **App registrations** >  **+ New registration**.
 1. In the **Register an application** page, enter your application's registration information.
     * In the **Name** section, enter an application name of your choosing.
-    * In the **Supported account types** section, choose the type of accounts that are appropriate for your scenario. To target a wide set of customers, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. For more information, see [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application).
+    * In the **Supported account types** section, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. For more information, see [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application).
     * In **Redirect URI**, enter the Redirect URL your copied from your API Management instance.
     * In **Permissions**, select **Grant admin consent to openid and offline_access permissions.**
     * Select **Register** to create the application.

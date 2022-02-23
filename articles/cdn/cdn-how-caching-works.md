@@ -11,7 +11,6 @@ ms.assetid:
 ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2021
 ms.author: duau
@@ -69,7 +68,7 @@ Azure CDN supports the following HTTP cache-directive headers, which define cach
 - Introduced in HTTP 1.1 to give web publishers more control over their content and to address the limitations of the `Expires` header.
 - Overrides the `Expires` header, if both it and `Cache-Control` are defined.
 - When used in an HTTP request from the client to the CDN POP, `Cache-Control` is ignored by all Azure CDN profiles, by default.
-- When used in an HTTP response from the client to the CDN POP:
+- When used in an HTTP response from the origin server  to the CDN POP:
      - **Azure CDN Standard/Premium from Verizon** and **Azure CDN Standard from Microsoft** support all `Cache-Control` directives.
      - **Azure CDN Standard/Premium from Verizon** and **Azure CDN Standard from Microsoft** honors caching behaviors for Cache-Control directives in [RFC 7234 - Hypertext Transfer Protocol (HTTP/1.1): Caching (ietf.org)](https://tools.ietf.org/html/rfc7234#section-5.2.2.8).
      - **Azure CDN Standard from Akamai** supports only the following `Cache-Control` directives; all others are ignored:

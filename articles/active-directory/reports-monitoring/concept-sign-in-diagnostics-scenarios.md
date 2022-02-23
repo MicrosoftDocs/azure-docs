@@ -10,12 +10,11 @@ editor: ''
 
 ms.assetid: e2b3d8ce-708a-46e4-b474-123792f35526
 ms.service: active-directory
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/08/2021
+ms.date: 11/12/2021
 ms.author: markvi
 ms.reviewer: tspring  
 
@@ -72,8 +71,14 @@ The sign-in diagnostic for Azure AD provides you with support for the following 
     - Error code insights  
 
     - Legacy authentication  
+    
+    - B2B blocked sign-in due to conditional access
 
     - Blocked by risk policy 
+    
+    - Pass Through Authentication
+    
+    - Seamless single sign on
 
 
 
@@ -268,7 +273,7 @@ For more information, see [How to block legacy authentication to Azure AD with C
 
 This diagnostic scenario detects a blocked or interrupted sign-in due to the user being from another organization-a B2B sign-in-where a Conditional Access policy requires that the client's device is joined to the resource tenant. 
 
-For more information, see [Conditional Access for B2B collaboration users](../external-identities/conditional-access.md). 
+For more information, see [Conditional Access for B2B collaboration users](../external-identities/authentication-conditional-access.md). 
 
 ### Blocked by risk policy 
 
@@ -284,6 +289,20 @@ Because pass trough authentication is an integration of on premises and cloud au
 This diagnostic scenario identifies user specific sign-in issues when the authentication method being used is pass through authentication (PTA) and there is a PTA specific error. Errors due to other problems-even when PTA authentication is being used-will still be diagnosed correctly. 
 
 The diagnostic shows contextual information about the failure and the user signing in, additional reasons why the sign-in failed, and recommended actions the admin can take to resolve the problem. For more information, see [Azure AD Connect: Troubleshoot Pass-through Authentication](../hybrid/tshoot-connect-pass-through-authentication.md). 
+
+
+### Seamless single sign on
+
+Seamless single sign on integrates Kerberos authentication with cloud authentication. Because this scenario involves two authentication protocols it can be difficult to understand where a failure point lies when sign-in problems occur. This diagnostic is intended to make these scenarios easier to diagnose and resolve.
+ 
+This diagnostic scenario examines the context of the sign-in failure and specific failure cause, contextual information on the sign-in attempt, and suggested actions which the admin can take-on premises or in the cloud-to resolve the problem. For more information, see [Troubleshoot Azure Active Directory Seamless Single Sign-On](../hybrid/tshoot-connect-sso.md). 
+ 
+
+
+
+
+
+
 
 ## Next steps
 

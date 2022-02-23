@@ -102,7 +102,7 @@ The following deployment methods are available in Azure Functions.
 
 You can use an external package URL to reference a remote package (.zip) file that contains your function app. The file is downloaded from the provided URL, and the app runs in [Run From Package](run-functions-from-deployment-package.md) mode.
 
->__How to use it:__ Add [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) to your application settings. The value of this setting should be a URL (the location of the specific package file you want to run). You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set).
+>__How to use it:__ Add [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) to your application settings. The value of this setting should be a URL (the location of the specific package file you want to run). You can add settings either [in the portal](functions-how-to-use-azure-function-app-settings.md#settings) or [by using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 >
 >If you use Azure Blob storage, use a private container with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) to give Functions access to the package. Any time the application restarts, it fetches a copy of the content. Your reference must be valid for the lifetime of the application.
 
@@ -127,7 +127,7 @@ You can deploy a Linux container image that contains your function app.
 >* Create a Linux function app on an Azure App Service plan in the Azure portal. For **Publish**, select **Docker Image**, and then configure the container. Enter the location where the image is hosted.
 >* Create a Linux function app on an App Service plan by using the Azure CLI. To learn how, see [Create a function on Linux by using a custom image](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
->To deploy to an existing app by using a custom container, in [Azure Functions Core Tools](functions-run-local.md), use the [`func deploy`](functions-run-local.md#publish) command.
+>To deploy to a Kubernetes cluster as a custom container, in [Azure Functions Core Tools](functions-run-local.md), use the [`func kubernetes deploy`](functions-core-tools-reference.md#func-kubernetes-deploy) command.
 
 >__When to use it:__ Use the Docker container option when you need more control over the Linux environment where your function app runs. This deployment mechanism is available only for Functions running on Linux.
 

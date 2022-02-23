@@ -1,7 +1,7 @@
 ---
 title: Create Azure Functions on Linux using a custom image
 description: Learn how to create Azure Functions running on a custom Linux image.
-ms.date: 12/2/2020
+ms.date: 01/20/2021
 ms.topic: tutorial
 ms.custom: "devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
 zone_pivot_groups: programming-languages-set-functions-full
@@ -159,7 +159,7 @@ COPY --from=mcr.microsoft.com/dotnet/core/sdk:3.1 /usr/share/dotnet /usr/share/d
 ```
 ---
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
+::: zone pivot="programming-language-csharp" 
 Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a C# code file in your project.
 
 ```console

@@ -1,9 +1,9 @@
 ---
-author: anastasia-ms
+author: wesmc7777
 ms.service: iot-dps
 ms.topic: include
 ms.date: 10/10/2021	
-ms.author: v-stharr
+ms.author: wesmc
 ---
 
 > [!NOTE]
@@ -11,7 +11,7 @@ ms.author: v-stharr
 >
 >The actual value to which a limit can be adjusted may vary based on each customer’s deployment. Multiple instances of DPS may be required for very large deployments.
 >
-> If your business requires raising an adjustable limit or quota above the default limit, you can request additional resources by [opening a support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+> If your business requires raising an adjustable limit or quota above the default limit, you can request additional resources by [opening a support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 The following table lists the limits that apply to Azure IoT Hub Device Provisioning Service resources.
 
@@ -37,4 +37,3 @@ The Device Provisioning Service has the following rate limits.
 | Device registrations | 200/min/service | Yes |
 | Device polling operation | 5/10 sec/device | No |
 
-Each API call on DPS is billable as one *Operation*. This includes all the service APIs and the device registration API. The device registration polling operation is not billed.

@@ -1,16 +1,7 @@
 ---
 title: Microsoft Sentinel network normalization schema (Legacy version - Public preview)| Microsoft Docs
 description: This article displays the Microsoft Sentinel data normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -21,9 +12,9 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The network normalization schema is used to describe reported network events, and is used by Microsoft Sentinel to enable source-agnostic analytics.
+The network normalization schema is used to describe reported network events, and is used by Microsoft Sentinel to enable unifying analytics.
 
-For more information, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > This article relates to version 0.1 of the network normalization schema, which was released as a preview before ASIM was available. [Version 0.2](network-normalization-schema.md) of the network normalization schema aligns with ASIM and provides other enhancements.
@@ -199,8 +190,8 @@ The original version of the Microsoft Sentinel Network session normalization sch
 
 Differences between version 0.1, documented in this article, and [version 0.2](network-normalization-schema.md) include:
 
-- In version 0.2, source-agnostic and source-specific parser names have been changed to conform to a standard ASIM naming convention.
-- Version 0.2 adds specific guidelines and source-agnostic parsers to accommodate specific device types.
+- In version 0.2, unifying and source-specific parser names have been changed to conform to a standard ASIM naming convention.
+- Version 0.2 adds specific guidelines and unifying parsers to accommodate specific device types.
 
 The following sections describe how [version 0.2](network-normalization-schema.md) differs for specific fields.
 

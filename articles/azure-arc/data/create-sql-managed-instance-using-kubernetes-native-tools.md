@@ -16,7 +16,7 @@ ms.topic: how-to
 
 ## Prerequisites
 
-You should have already created an [Azure Arc data controller](./create-data-controller.md).
+You should have already created a [data controller](plan-azure-arc-data-services.md).
 
 To create a SQL managed instance using Kubernetes tools, you will need to have the Kubernetes tools installed.  The examples in this article will use `kubectl`, but similar approaches could be used with other Kubernetes tools such as the Kubernetes dashboard, `oc`, or `helm` if you are familiar with those tools and Kubernetes yaml/json.
 

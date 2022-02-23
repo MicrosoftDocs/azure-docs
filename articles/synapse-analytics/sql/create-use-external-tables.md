@@ -1,14 +1,13 @@
 ---
 title: Create and use external tables in Synapse SQL pool
 description: In this section, you'll learn how to create and use external tables in Synapse SQL pool.
-services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 07/23/2021
+ms.date: 02/02/2022
 ms.author: vvasic
-ms.reviewer: jrasnick, wiassaf
+ms.reviewer: sngun, wiassaf
 ms.custom: ignite-fall-2021
 ---
 
@@ -23,6 +22,17 @@ External tables are useful when you want to control access to external data in S
 > [!NOTE]
 > In dedicated SQL pools you can only use native external tables with a Parquet file type, and this feature is in **public preview**. If you want to use generally available Parquet reader functionality in dedicated SQL pools, or you need to access CSV or ORC files, use Hadoop external tables. Native external tables are generally available in serverless SQL pools.
 > Learn more about the differences between native and Hadoop external tables in [Use external tables with Synapse SQL](develop-tables-external-tables.md).
+
+The following table lists the data formats supported:
+
+|Data format (Native external tables)  |Serverless SQL pool |Dedicated SQL pool |
+|---------|---------|---------|
+|Parquet |  Yes (GA)  | Yes (public preview)  |
+|CSV  |  Yes  |  No (Alternatively, use [Hadoop external tables](develop-tables-external-tables.md?tabs=hadoop)) |
+|delta  |  Yes  |  No  |
+|Spark  |  Yes  | No |
+|Dataverse |  Yes | No  |
+|Azure Cosmos DB data formats (JSON, BSON etc.)  |  No (Alternatively, [create views](query-cosmos-db-analytical-store.md?tabs=openrowset-credential#create-view)) | No  |
 
 ## Prerequisites
 

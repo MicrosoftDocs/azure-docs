@@ -40,6 +40,8 @@
           - name: ARM template
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
+      - name: Create and manage databases
+        href: flexible-server/how-to-create-manage-databases.md
       - name: Connect and query
         items:
           - name: Azure CLI
@@ -54,6 +56,8 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
+          - name: Node.js
+            href: flexible-server/connect-nodejs.md
           - name: Connect to server in VNET
             href: flexible-server/quickstart-create-connect-server-vnet.md
       - name: Connect using TLS/SSL
@@ -130,6 +134,8 @@
         href: flexible-server/tutorial-deploy-wordpress-on-aks.md
       - name: Build PHP (Laravel) app with database
         href: flexible-server/tutorial-php-database-app.md
+      - name: Deploy Java Spring Boot app on AKS in VNet
+        href: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
       - name: Connect with private web app
         href: flexible-server/tutorial-webapp-server-vnet.md
       - name: Database deployment
@@ -211,6 +217,8 @@
           href: flexible-server/how-to-restore-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restore-server-cli.md
+      - name: Restore a deleted server
+        href: flexible-server/how-to-restore-dropped-server.md 
     - name: Troubleshooting
       items:
       - name: Troubleshoot Connection errors

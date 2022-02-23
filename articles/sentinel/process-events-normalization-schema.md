@@ -1,16 +1,7 @@
 ---
 title: Microsoft Sentinel Process Event normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel Process Event normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
@@ -25,7 +16,7 @@ The Process Event normalization schema is used to describe the operating system 
 
 A process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. While processes themselves do not run, they do manage threads that run and execute code.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Process Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -43,23 +34,25 @@ Microsoft Sentinel provides the following built-in, product-specific process eve
 - **Sysmon process termination (Event 5)**, collected using the Log Analytics Agent or Azure Monitor Agent
 - **Microsoft 365 Defender for Endpoint process creation**
 
-To use the source-agnostic parsers that unify all of listed parsers and ensure that you analyze across all the configured sources, use the following table names in your queries:
+To use the unifying parsers that unify all of listed parsers and ensure that you analyze across all the configured sources, use the following table names in your queries:
 
 - **imProcessCreate**, for queries that require process creation information. These queries are the most common case.
 - **imProcessTerminate** for queries that require process termination information.
 - **imProcessEvents** for queries that require both process creation and termination information. In such cases, the `EventType` field enables you to distinguish between the events, and is set to `ProcessCreate` or `ProcessTerminate`, respectively. Process termination events generally include a lot less information than process creation events.
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
+Deploy the [unifying and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelProcessEvents).
+
+For more information, see [ASIM parsers overview](normalization-parsers-overview.md).
 
 ## Add your own normalized parsers
 
 When implementing custom parsers for the [Process Event](normalization-about-schemas.md#the-process-entity) information model, name your KQL functions using the following syntax: `imProcess<Type><vendor><Product>`, where `Type` is either `Create`, `Terminate`, or `Event` if the parser implements both creation and termination events.
 
-Add your KQL function to the `imProcess<Type>` and `imProcess` source-agnostic parsers to ensure that any content using the [Process Event](normalization-about-schemas.md#the-process-entity) model also uses your new parser.
+Add your KQL function to the `imProcess<Type>` and `imProcess` unifying parsers to ensure that any content using the [Process Event](normalization-about-schemas.md#the-process-entity) model also uses your new parser.
 
 ## Normalized content for process activity data
 
-The following Microsoft Sentinel content works with any process activity that's normalized using the Advanced SIEM Information Model:
+The following Microsoft Sentinel content works with any process activity that's normalized using the Advanced Security Information Model:
 
 - **Analytics rules**:
 
@@ -237,9 +230,8 @@ The process event schema references the following entities, which are central to
 
 For more information, see:
 
-- [Normalization in Microsoft Sentinel](normalization.md)
-- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)
-- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

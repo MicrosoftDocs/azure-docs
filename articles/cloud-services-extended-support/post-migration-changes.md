@@ -44,7 +44,7 @@ Customers need to update their tooling and automation to start using the new API
 
 ## Changes to Certificate Management Post Migration 
 
-As a standard practice to manage your certificates, all the valid .pfx certificate files should be added to certificate store in Key Vault and update would work perfectly fine via any client - Portal, Powershell or Rest API.
+As a standard practice to manage your certificates, all the valid .pfx certificate files should be added to certificate store in Key Vault and update would work perfectly fine via any client - Portal, PowerShell or Rest API.
 
 Currently, Azure Portal does a validation for you to check if all the required Certificates are uploaded in certificate store in Key Vault and warns if a certificate is not found. However, if you are planning to use Certificates as secrets, then these certificates cannot be validated for their thumbprint and any update operation which involves addition of secrets would fail via Portal. Customers are reccomended to use PowerShell or RestAPI to continue updates involving Secrets.
 

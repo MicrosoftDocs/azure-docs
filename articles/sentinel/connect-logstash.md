@@ -1,18 +1,9 @@
 ---
 title: Connect data sources through Logstash to Microsoft Sentinel | Microsoft Docs
 description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ---
@@ -41,11 +32,11 @@ The Logstash engine is comprised of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current version of this plugin is v1.0.0, released 2020-08-25. You can [open a support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current version of this plugin is v1.0.0, released 2020-08-25. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
-> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.15**.
+> - Microsoft Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.16**.
 
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 

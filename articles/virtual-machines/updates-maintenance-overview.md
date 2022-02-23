@@ -31,7 +31,7 @@ Enabling [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-mac
 - Automatic OS image upgrade can be enabled on a scale set of any size.
 
 
-## Automatic VM guest patching (Preview)
+## Automatic VM guest patching 
 
 Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance.
 

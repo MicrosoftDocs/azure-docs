@@ -7,6 +7,6 @@ ms.author: bobazile
 ms.custom: emergency_calling
 ---
 > [!IMPORTANT]
-> **Azure Communication Services does not support emergency calling**
+> **Azure Communication Services supports emergency calling to 911 in the United States and Puerto Rico only.**
 >
-> Azure Communication Services' outbound voice calling services cannot be used for contacting emergency services. You should maintain traditional telephone service for placing emergency calls.
+>Azure Communication Services’ Voice Calling (PSTN) can be used for dialing 911 from users in the United States and Puerto Rico. Dialling 911 from outside of the United States & Puerto Rico or dialling emergency services in countries other than the United States & Puerto Rico is not supported.  

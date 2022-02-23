@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
+ms.devlang: python
 ---
 
 # Access control lists (ACLs) in Azure Data Lake Storage Gen2
@@ -222,7 +223,7 @@ The mask may be specified on a per-call basis. This allows different consuming s
 
 ### The sticky bit
 
-The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user.
+The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user, the directory's owner, or the Superuser ($superuser).
 
 The sticky bit isn't shown in the Azure portal.
 

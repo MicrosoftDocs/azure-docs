@@ -1,21 +1,17 @@
 ---
 title: Azure Spatial Anchors Unity overview
 description: Learn how Azure Spatial Anchors can be used within Unity Apps. Review quickstarts for Unity for HoloLens, Unity for Android, and Unity for iOS.
-author: msftradford
-ms.author: parkerra
+author: pamistel
+ms.author: pamistel
 manager: MehranAzimi-msft
 ms.service: azure-spatial-anchors
-ms.date: 2/4/2021
+ms.date: 11/12/2021
 ms.topic: conceptual
 ---
 
 # Building in Unity with Azure Spatial Anchors
 
-Developers can choose Unity for creating and deploying mixed reality applications that use Azure Spatial Anchors.
-
-[!INCLUDE [Unity Project Requirements](../../includes/spatial-anchors-unity-project-requirements.md)]
-
-The following platforms are supported:
+Developers can choose Unity for creating and deploying mixed reality applications that use Azure Spatial Anchors. If creating your own project, follow the [Unity project setup guide](./how-tos/setup-unity-project.md). Otherwise, you can get started quickly with one of the following Quickstarts:
 
 **Unity for HoloLens**
 

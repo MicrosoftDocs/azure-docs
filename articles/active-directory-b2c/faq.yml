@@ -8,11 +8,11 @@ metadata:
   
   ms.service: active-directory
   ms.workload: identity
-  ms.topic: conceptual
-  ms.date: 10/26/2021
+  ms.topic: faq
+  ms.date: 01/03/2022
   ms.author: kengaderdus
   ms.subservice: B2C
-    
+  ms.custom: "b2c-support"
 title: 'Azure AD B2C: Frequently asked questions (FAQ)'
 summary: This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
 
@@ -130,7 +130,7 @@ sections:
       - question: |
           Should I use Azure AD B2C or B2B to manage external identities?
         answer: |
-          Read [Compare B2B collaboration and B2C in Azure AD](../active-directory/external-identities/compare-with-b2c.md) to learn more about applying the appropriate features to your external identity scenarios.
+          Read [Compare solutions for External Identities](../active-directory/external-identities/external-identities-overview.md) to learn more about applying the appropriate features to your external identity scenarios.
           
       - question: |
           What reporting and auditing features does Azure AD B2C provide? Are they the same as in Azure AD Premium?
@@ -140,6 +140,18 @@ sections:
           * **Sign-in reports** provide a record of each sign-in with reduced details.
           * **Audit reports** include both admin activity as well as application activity.
           * **Usage reports** include the number of users, number of logins, and volume of MFA.
+
+      - question: |
+          Can end users use a time-based one-time password (TOTP) with an authenticator app to authenticate to my Azure AD B2C app?
+        answer: |
+          Yes. End users need to download any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) (recommended). For details see, [verification methods](multi-factor-authentication.md#verification-methods).
+          
+          This feature is in public preview.
+      - question: |
+          Why are my TOTP authenticator app codes not working?
+        answer: |
+          If the TOTP authenticator app codes aren't working with your Android or iPhone mobile phone or device, your device's clock time might be incorrect. In your device's settings, select the option to use the network-provided time or to set the time automatically.
+          This feature is in public preview.
           
       - question: |
           Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
@@ -208,12 +220,34 @@ sections:
           No, Azure AD B2C is a pay-as-you-go Azure service and is not part of Enterprise Mobility Suite.
           
       - question: |
+          Can I purchase Azure AD Premium P1 and Azure AD Premium P2 licensing for my Azure AD B2C tenant?
+        answer: |
+          No, Azure AD B2C tenants don't use Azure AD Premium P1 or Azure AD Premium P2 licensing. Azure AD B2C uses [Azure AD B2C Premium P1 or P2](billing.md#change-your-azure-ad-pricing-tier) licenses, which are different from Azure AD Premium P1 or P2 licenses for a Standard Azure AD tenant. Azure AD B2C tenants natively support some features that are similar to Azure AD Premium features, as explained in [Supported Azure AD features](supported-azure-ad-features.md).
+         
+      - question: |
+          Can I use group-based assignment for Azure AD Enterprise Applications in my Azure AD B2C tenant?
+        answer: |
+          No, Azure AD B2C tenants do not support [group-based assignment to Azure AD Enterprise Applications](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
+          
+      - question: |
           What Azure AD B2C features are unavailable in Microsoft Azure Government?
         answer: |
           The following AD B2C features are currently unavailable in Microsoft Azure Government:
 
           * API connectors
           * Conditional Access
+          
+      - question: |
+          I have revoked the refresh token using Microsoft Graph invalidateAllRefreshTokens, or Azure AD PowerShell,  Revoke-AzureADUserAllRefreshToken. Why is Azure AD B2C still accepting the old refresh token?
+        answer: |
+          In Azure AD B2C, if the time difference between `refreshTokensValidFromDateTime` and `refreshTokenIssuedTime` is less than or equal to 5 minutes, the refresh token is still considered as valid. However, if the `refreshTokenIssuedTime` is greater than the `refreshTokensValidFromDateTime`, then the refresh token is revoked.
+          Follow the following steps to check if the refresh token is valid or revoked:
+          1. Retrieve the `RefreshToken` and the `AccessToken` by redeeming `authorization_code`.
+          1. Wait for 7 minutes.
+          1. Use PowerShell cmdlet [Revoke-AzureADUserAllRefreshToken](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or Microsoft Graph API [invalidateAllRefreshTokens](/graph/api/user-invalidateallrefreshtokens?tabs=http&view=graph-rest-beta) to run the `RevokeAllRefreshToken` command.
+          1. Wait for 10 minutes.
+          
+          1. Retrieve the `RefreshToken` again.
           
       - question: |
           How do I report issues with Azure AD B2C?

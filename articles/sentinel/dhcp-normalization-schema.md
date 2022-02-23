@@ -1,16 +1,7 @@
 ---
 title: Microsoft Sentinel DHCP normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel DHCP normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
@@ -23,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 The DHCP information model is used to describe events reported by a DHCP server, and is used by Microsoft Sentinel to enable source-agnostic analytics.
 
-For more information, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
+For more information, see [Normalization and the Advanced Security Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The DHCP normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -81,7 +72,7 @@ Event fields are common to all schemas, and describe the activity itself and the
 | <a name ="eventproduct"></a>**EventProduct** | Mandatory | String | The product generating the event. This field may not be available in the source record, in which case it should be set by the parser. <br><br>Example: `DHCP Server` |
 | **EventProductVersion** | Optional | String | The version of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser. <br><br>Example: `12.1` |
 | <a name="eventvendor"></a>**EventVendor** | Mandatory | String | The vendor of the product generating the event. This field may not be available in the source record, in which case it should be set by the parser.<br><br>Example: `Microsoft`|
-| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1.0**. |
+| **EventSchemaVersion** | Mandatory | String | The version of the schema documented here is **0.1**. |
 | **EventSchema** | Mandatory | String | The name of the schema documented here is **Dhcp**. |
 | **EventReportUrl** | Optional | String | A URL provided in the event for a resource that provides more information about the event. |
 | <a name="dvc"></a>**Dvc** | Alias | String | A unique identifier of the DHCP server.<br><br>Example: `ContosoDc.Contoso.Azure`<br><br>This field may alias the [DvcFQDN](#dvcfqdn), [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is not apparent device, use the same value as the [Event Product](#eventproduct) field. |
@@ -141,6 +132,7 @@ The fields below are specific to DHCP events, but many are similar to fields in 
 For more information, see:
 
 - Watch the [ASIM Webinar](https://www.youtube.com/watch?v=WoGD-JeC7ng) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
-- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
-- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)
-- [Advanced SIEM Information Model content](normalization-content.md)
+- [Advanced Security Information Model (ASIM) overview](normalization.md)
+- [Advanced Security Information Model (ASIM) schemas](normalization-about-schemas.md)
+- [Advanced Security Information Model (ASIM) parsers](normalization-parsers-overview.md)
+- [Advanced Security Information Model (ASIM) content](normalization-content.md)

@@ -28,9 +28,6 @@ Azure AD stores reports and security signals for a defined period of time. When 
 
 Organizations can choose to store data for longer periods by changing diagnostic settings in Azure AD to send **RiskyUsers** and **UserRiskEvents** data to a Log Analytics workspace, archive data to a storage account, stream data to an Event Hub, or send data to a partner solution. Find these options in the **Azure portal** > **Azure Active Directory**, **Diagnostic settings** > **Edit setting**. If you don't have a diagnostic setting, follow the instructions in the article [Create diagnostic settings to send platform logs and metrics to different destinations](../../azure-monitor/essentials/diagnostic-settings.md) to create one.
 
->[!NOTE]
->The diagnostic settings for RiskyUsers and UserRiskEvents are currently in public preview.
-
 [ ![Diagnostic settings screen in Azure AD showing existing configuration](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png) ](./media/howto-export-risk-data/change-diagnostic-setting-in-portal.png#lightbox)
 
 ## Log Analytics

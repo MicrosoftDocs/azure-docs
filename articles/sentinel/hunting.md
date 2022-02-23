@@ -1,11 +1,7 @@
 ---
 title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
 description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
-services: sentinel
-documentationcenter: na
 author: yelevin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
@@ -111,7 +107,7 @@ Create or modify a query and save it as your own query or share it with users wh
 
 ## Sample query
 
-A typical query starts with a table name followed by a series of operators separated by a pipe character ("\|").
+A typical query starts with a table or parser name followed by a series of operators separated by a pipe character ("\|").
 
 In the example above, start with the table name SecurityEvent and add piped elements as needed.
 
@@ -124,6 +120,11 @@ In the example above, start with the table name SecurityEvent and add piped elem
 1. Project only the columns you're interested in exploring and limit the results to 1000 and select **Run query**.
 
 1. Select the green triangle and run the query. You can test the query and run it to look for anomalous behavior.
+
+> [!IMPORTANT]
+>
+> We recommend that your query uses an [Advanced Security Information Model (ASIM) parser](normalization-about-parsers.md) and not a built-in table. This ensures that the query will support any current or future relevant data source rather than a single data source.
+>
 
 ## Create bookmarks
 

@@ -1,7 +1,7 @@
 ---
 title: Query types 
 titleSuffix: Azure Cognitive Search
-description: Learn about the types of queries supported in Cognitive Search, including free text, filter, autocomplete and suggestions, geo-search, system queries, and document lookup.
+description: Learn about the types of queries supported in Cognitive Search, including free text, filter, autocomplete and suggestions, geospatial search, system queries, and document lookup.
 
 manager: nitinme
 author: HeidiSteen
@@ -83,11 +83,20 @@ You might also need filters to invoke a specialized query form, as described in 
 | Filter scenario | Description |
 |-----------------|-------------|
 | Range filters | In Azure Cognitive Search, range queries are built using the filter parameter. For more information and examples, see [Range filter example](search-query-simple-examples.md#example-5-range-filters). |
-| Geo-location search | If a searchable field is of [Edm.GeographyPoint type](/rest/api/searchservice/supported-data-types), you can create a filter expression for "find near me" or map-based search controls. Fields that drive geo-search contain coordinates. For more information and an example, see [Geo-search example](search-query-simple-examples.md#example-6-geo-search). |
-| Faceted navigation | In [faceted navigation](search-faceted-navigation.md) tree, users can select facets, narrowing the results on each click. Each facet is backed by a filter that excludes documents that no longer match the criteria. |
+| Faceted navigation | In [faceted navigation](search-faceted-navigation.md) tree, users can select facets. When backed by filters, search results narrow on each click. Each facet is backed by a filter that excludes documents that no longer match the criteria provided by the facet. |
 
 > [!NOTE]
 > Text that's used in a filter expression is not analyzed during query processing. The text input is presumed to be a verbatim case-sensitive character pattern that either succeeds or fails on the match. Filter expressions are constructed using [OData syntax](query-odata-filter-orderby-syntax.md) and passed in a **`filter`** parameter in all *filterable* fields in your index. For more information, see [Filters in Azure Cognitive Search](search-filters.md).
+
+## Geospatial search
+
+Geospatial search matches on a location's latitude and longitude coordinates for "find near me" or map-based search experience. In Azure Cognitive Search, you can implement geospatial search by following these steps:
+
++ Define a filterable field of one of these types: [Edm.GeographyPoint, Collection(Edm.GeographyPoint, Edm.GeographyPolygon)](/rest/api/searchservice/supported-data-types).
++ Verify the incoming documents include the appropriate coordinates.
++ After indexing is complete, build a query that uses a filter and a [geo-spatial function](search-query-odata-geo-spatial-functions.md). 
+
+For more information and an example, see [Geospatial search example](search-query-simple-examples.md#example-6-geospatial-search).
 
 ## Document look-up
 
