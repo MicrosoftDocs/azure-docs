@@ -5,7 +5,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/23/2022
 
 ---
 
@@ -21,7 +21,7 @@ You can configure a [private endpoint](../private-link/private-endpoint-overview
 
 With a private endpoint and Private Link, you can:
 
-- Create up to 100 Private Link connections to an API Management instance. 
+- Create multiple Private Link connections to an API Management instance. 
 
 - Use the private endpoint to send inbound traffic on a secure connection. 
 
@@ -234,4 +234,4 @@ To connect to 'Microsoft.ApiManagement/service/my-apim-service', please use the 
 * Use [policy expressions](api-management-policy-expressions.md#ref-context-request) with the `context.request` variable to identify traffic from the private endpoint.
 * Learn more about [private endpoints](../private-link/private-endpoint-overview.md) and [Private Link](../private-link/private-link-overview.md).
 * Learn more about [managing private endpoint connections](../private-link/manage-private-endpoint.md).
-* Use a [Resource Manager template TBD](LINK TBD) to create an API Management instance and a private endpoint with private DNS integration.
+* Use a [Resource Manager template](https://azure.microsoft.com/resources/templates/api-management-private-endpoint/) to create an API Management instance and a private endpoint with private DNS integration.
