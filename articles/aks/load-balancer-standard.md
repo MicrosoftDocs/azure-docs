@@ -26,7 +26,7 @@ This document covers the integration with Public Load balancer. For internal Loa
 
 ## Before you begin
 
-Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, *Standard* SKU is used when you create an AKS cluster. Use the *Standard* SKU to have access to added functionality, such as a larger backend pool, [**multiple node pools**](use-multiple-node-pools.md), and [**Availability Zones**](availability-zones.md). It's the recommended Load Balancer SKU for AKS.
+Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, *Standard* SKU is used when you create an AKS cluster using the Azure CLI or Azure Portal. Use the *Standard* SKU to have access to added functionality, such as a larger backend pool, [**multiple node pools**](use-multiple-node-pools.md), and [**Availability Zones**](availability-zones.md). It's the recommended Load Balancer SKU for AKS.
 
 For more information on the *Basic* and *Standard* SKUs, see [Azure load balancer SKU comparison][azure-lb-comparison].
 
