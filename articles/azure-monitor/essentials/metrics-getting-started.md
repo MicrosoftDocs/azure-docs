@@ -74,7 +74,7 @@ Select "Share" and "Copy link". You should get a notification that the link was 
 :::image type="content" source="media/metrics-getting-started/share-link.png" alt-text="screenshot how to share metric chart using a link":::
 
 ### Send to workbook
-Select "Share" and "Send to Workbook". The **Send to Workbook** window opens for you to select the workbook to which you want to add the metric chart.
+Select "Share" and "Send to Workbook". The **Send to Workbook** window opens for you to send the metric chart to a new or existing workbook.
 
 :::image type="content" source="media/metrics-getting-started/share-workbook.png" alt-text="screenshot how to share metric chart to a workbook":::
 
