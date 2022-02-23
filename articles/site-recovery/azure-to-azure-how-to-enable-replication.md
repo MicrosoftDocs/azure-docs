@@ -35,10 +35,10 @@ Enable replication. This procedure assumes that the primary Azure region is East
    - **Disaster Recovery between Availability Zones**: Select yes if you want to perform zonal disaster recovery on virtual machines.
    - **Availability Zones**: Select the availability zone where the source virtual machines are pinned.
 
-     ![Screenshot that highlights the fields needed to configure replication.](./media/azure-to-azure-how-to-enable-replication/enabledrwizard1.png)
+     ![Screenshot that highlights the fields needed to configure replication.](./media/azure-to-azure-how-to-enable-replication/enabled-rwizard-1.png)
 
 3. In **Virtual Machines > Select virtual machines**, click and select each VM that you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
-   	![Screenshot that highlights where you select virtual machines.](./media/azure-to-azure-how-to-enable-replication/virtualmachine_selection.png)
+   	![Screenshot that highlights where you select virtual machines.](./media/azure-to-azure-how-to-enable-replication/virtual-machine-selection.png)
 
 4. In **Settings**, you can optionally configure target site settings:
 
@@ -68,7 +68,7 @@ Enable replication. This procedure assumes that the primary Azure region is East
      - One day of retention for recovery points.
      - No app-consistent snapshots.
 
-     ![Screenshot that displays the enable replication parameters.](./media/azure-to-azure-how-to-enable-replication/enabledrwizard3.PNG)
+     ![Screenshot that displays the enable replication parameters.](./media/azure-to-azure-how-to-enable-replication/enabled-rwizard-3.PNG)
 
 ### Enable replication for added disks
 
@@ -114,10 +114,10 @@ You can modify the default target settings used by Site Recovery.
     - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004.
     - Ensure there's no firewall appliance blocking the internal communication between the VMs over port 20004.
     - If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened according to guidance for the specific Linux version.
-![Screenshot that shows the Multi-VM consistency settings.](./media/azure-to-azure-how-to-enable-replication/multivmsettings.PNG)
+![Screenshot that shows the Multi-VM consistency settings.](./media/azure-to-azure-how-to-enable-replication/multi-vm-settings.PNG)
 
 5. Click **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings.
-   ![Screenshot that shows the Capacity Reservation settings.](./media/azure-to-azure-how-to-enable-replication/capacity-reservation-editbutton.png)
+   ![Screenshot that shows the Capacity Reservation settings.](./media/azure-to-azure-how-to-enable-replication/capacity-reservation-edit-button.png)
 6. Click **Create target resource** > **Enable Replication**.
 7. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 
