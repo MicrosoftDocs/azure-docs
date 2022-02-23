@@ -4,7 +4,7 @@ description: In this article, you learn how to add or modify multiple Azure Fire
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 02/22/2022
+ms.date: 02/23/2022
 ms.author: victorh
 ms.topic: how-to
 ---
