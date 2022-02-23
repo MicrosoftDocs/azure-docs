@@ -129,7 +129,7 @@
     - name: Scale Outbound SNAT Ports
       href: integrate-with-nat-gateway.md
     - name: Add or modify rules using PowerShell
-      href: deploy-rules-ps.md
+      href: deploy-rules-powershell.md
 - name: Reference
   items:
   - name: Azure CLI
