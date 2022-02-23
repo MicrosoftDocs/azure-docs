@@ -22,14 +22,14 @@ This article covers **event routes** and how Azure Digital Twins uses them to se
 There are two major cases for sending Azure Digital Twins data:
 * Sending data from one twin in the Azure Digital Twins graph to another. For instance, when a property on one digital twin changes, you may want to notify and update another digital twin based on the updated data.
 * Sending data to downstream data services for more storage or processing (also known as *data egress*). For instance,
-  - A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), to record time series data of handwashing-related events for bulk analytics.
+  - A hospital may want to send Azure Digital Twins event data to [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), to record time series data of handwashing-related events for bulk analytics.
   - A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries using their Azure Maps and Azure Digital Twins data together.
 
 Event routes are used for both of these scenarios.
 
 ## About event routes
 
-An event route lets you send event data from digital twins in Azure Digital Twins to custom-defined endpoints in your subscriptions. Three Azure services are currently supported for endpoints: [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Each of these Azure services can be connected to other services and acts as the middleman, sending data along to final destinations such as TSI or Azure Maps for whatever processing you need.
+An event route lets you send event data from digital twins in Azure Digital Twins to custom-defined endpoints in your subscriptions. Three Azure services are currently supported for endpoints: [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Each of these Azure services can be connected to other services and acts as the middleman, sending data along to final destinations such as Time Series Insights or Azure Maps for whatever processing you need.
 
 Azure Digital Twins implements **at least once** delivery for data emitted to egress services. 
 
@@ -37,7 +37,7 @@ The following diagram illustrates the flow of event data through a larger IoT so
 
 :::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Diagram of Azure Digital Twins routing data through endpoints to several downstream services." border="false":::
 
-Typical downstream targets for event routes are resources like TSI, Azure Maps, storage, and analytics solutions.
+Typical downstream targets for event routes are resources like Time Series Insights, Azure Maps, storage, and analytics solutions.
 
 ### Event routes for internal digital twin events
 

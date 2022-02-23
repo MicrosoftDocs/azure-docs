@@ -231,9 +231,7 @@ This problem occurs for one of the following reasons:
 - You're not the subscription owner, so you don't have permission to purchase a domain.
 
     **Solution**: [Assign the Owner role](../role-based-access-control/role-assignments-portal.md) to your account. Or contact the subscription administrator to get permission to purchase a domain.
-- You have reached the limit for purchasing domains on your subscription. The current limit is 20.
 
-    **Solution**: To request an increase to the limit, contact [Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Your Azure subscription type does not support the purchase of an App Service domain.
 
     **Solution**: Upgrade your Azure subscription to another subscription type, such as a Pay-As-You-Go subscription.

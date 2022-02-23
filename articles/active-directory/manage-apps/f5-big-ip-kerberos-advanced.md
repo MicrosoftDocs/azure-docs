@@ -19,7 +19,7 @@ In this tutorial, you'll learn to implement Secure Hybrid Access (SHA) with sing
 
 Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
 
-* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
+* Improved Zero Trust governance through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services.
 
@@ -52,7 +52,7 @@ The SHA solution for this scenario consists of the following elements:
 
 The following image illustrates the SAML SP-initiated flow for this scenario, but IdP-initiated flow is also supported.
 
-![Diagram of the scenario architecture.](./media/f5-big-ip-kerberos-advanced/scenario-architecture.png)
+![Diagram of the scenario architecture.](./media/f5-big-ip-kerberos-easy-button/scenario-architecture.png)
 
 | Step| Description |
 | -------- |-------|
@@ -503,6 +503,6 @@ For help with diagnosing KCD-related problems, see the F5 BIG-IP deployment guid
 
 * [Forget passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
 
-* [What is Conditional Access?](../conditional-access/overview.md)
+* [What is Conditional Access?](/azure/active-directory/conditional-access/overview)
 
 * [Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)

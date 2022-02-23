@@ -24,7 +24,7 @@ Collections are Azure Purview's tool to manage ownership and access control acro
 
 ## Check permissions
 
-In order to create and manage collections in Azure Purview, you will need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](use-purview-studio.md). You can find the studio by going to your Azure Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Azure Purview Studio** tile on the overview page.
+In order to create and manage collections in Azure Purview, you will need to be a **Collection Admin** within Azure Purview. We can check these permissions in the [Azure Purview Studio](use-azure-purview-studio.md). You can find the studio by going to your Azure Purview resource in the [Azure portal](https://portal.azure.com), and selecting the **Open Azure Purview Studio** tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 
@@ -44,7 +44,7 @@ In order to create and manage collections in Azure Purview, you will need to be 
 
 ## Create a collection in the portal
 
-To create your collection, we'll start in the [Azure Purview Studio](use-purview-studio.md). You can find the studio by going to your Azure Purview resource in the Azure portal and selecting the **Open Azure Purview Studio** tile on the overview page.
+To create your collection, we'll start in the [Azure Purview Studio](use-azure-purview-studio.md). You can find the studio by going to your Azure Purview resource in the Azure portal and selecting the **Open Azure Purview Studio** tile on the overview page.
 
 1. Select Data Map > Collections from the left pane to open collection management page.
 

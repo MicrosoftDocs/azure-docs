@@ -27,13 +27,65 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## February 2022
+
+- [View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
+- [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
+
+### View Azure Purview data in Microsoft Sentinel (Public Preview)
+
+Microsoft Sentinel now integrates directly with Azure Purview by providing an out-of-the-box solution.
+
+The Azure Purview solution includes the Azure Purview data connector, related analytics rule templates, and a workbook that you can use to visualize sensitivity data detected by Azure Purview, together with other data ingested in Microsoft Sentinel.
+
+:::image type="content" source="media/purview-solution/purview-workbook.png" alt-text="Screenshot of the Azure Purview workbook in Microsoft Sentinel.":::
+
+For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md).
+
+### Manually run playbooks based on the incident trigger (Public preview)
+
+While full automation is the best solution for many incident-handling, investigation, and mitigation tasks, there may often be cases where you would prefer your analysts have more human input and control over the situation. Also, you may want your SOC engineers to be able to test the playbooks they write before fully deploying them in automation rules.
+
+For these and other reasons, Microsoft Sentinel now allows you to [**run playbooks manually on-demand for incidents**](automate-responses-with-playbooks.md#run-a-playbook-manually) as well as alerts.
+
+Learn more about [running incident-trigger playbooks manually](tutorial-respond-threats-playbook.md#run-a-playbook-manually-on-an-incident).
+
 ## January 2022
 
+- [Support for MITRE ATT&CK techniques (Public preview)](#support-for-mitre-attck-techniques-public-preview)
 - [Codeless data connectors (Public preview)](#codeless-data-connectors-public-preview)
 - [Maturity Model for Event Log Management (M-21-31) Solution (Public preview)](#maturity-model-for-event-log-management-m-21-31-solution-public-preview)
 - [SentinelHealth data table (Public preview)](#sentinelhealth-data-table-public-preview)
 - [More workspaces supported for Multiple Workspace View](#more-workspaces-supported-for-multiple-workspace-view)
 - [Kusto Query Language workbook and tutorial](#kusto-query-language-workbook-and-tutorial)
+
+### Support for MITRE ATT&CK techniques (Public preview)
+
+In addition to supporting MITRE ATT&CK tactics, your entire Microsoft Sentinel user flow now also supports MITRE ATT&CK techniques.
+
+When creating or editing [analytics rules](detect-threats-custom.md), map the rule to one or more specific tactics *and* techniques. When searching for rules on the **Analytics** page, filter by tactic and technique to narrow your search results.
+
+:::image type="content" source="media/whats-new/mitre-in-analytics-rules.png" alt-text="Screenshot of MITRE technique and tactic filtering." lightbox="media/whats-new/mitre-in-analytics-rules.png":::
+
+Check for mapped tactics and techniques throughout Microsoft Sentinel, in:
+
+- **[Incidents](investigate-cases.md)**. Incidents created from alerts that are detected by rules mapped to MITRE ATT&CK tactics and techniques automatically inherit the rule's tactic and technique mapping.
+
+- **[Bookmarks](bookmarks.md)**. Bookmarks that capture results from hunting queries mapped to MITRE ATT&CK tactics and techniques automatically inherit the query's mapping.
+
+#### MITRE ATT&CK framework version upgrade
+
+We also upgraded the MITRE ATT&CK support throughout Microsoft Sentinel to use the MITRE ATT&CK framework *version 9*. This update includes support for the following new tactics:
+
+**Replacing the deprecated *PreAttack* tactic**:
+
+- [Reconnaissance](https://attack.mitre.org/versions/v9/tactics/TA0043/)
+- [Resource Development](https://attack.mitre.org/versions/v9/tactics/TA0042/)
+
+**Industrial Control System (ICS) tactics**:
+
+- [Impair Process Control](https://collaborate.mitre.org/attackics/index.php/Impair_Process_Control)
+- [Inhibit Response Function](https://collaborate.mitre.org/attackics/index.php/Inhibit_Response_Function)
 
 ### Codeless data connectors (Public preview)
 
@@ -411,7 +463,7 @@ However, rules created from templates ***do*** remember which templates they cam
 
 ### DHCP normalization schema (Public preview)
 
-The Advanced SIEM Information Model (ASIM) now supports a DHCP normalization schema, which is used to describe events reported by a DHCP server and is used by Azure Sentinel to enable source-agnostic analytics. 
+The Advanced Security Information Model (ASIM) now supports a DHCP normalization schema, which is used to describe events reported by a DHCP server and is used by Azure Sentinel to enable source-agnostic analytics. 
 
 Events described in the DHCP normalization schema include serving requests for DHCP IP address leased from client systems and updating a DNS server with the leases granted.
 

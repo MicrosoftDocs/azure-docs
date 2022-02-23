@@ -11,42 +11,93 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/28/2022
+ms.date: 2/15/2022
 ms.author: gunnarc
 ---
 
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
+## February 2022 Guest OS
+
 >[!NOTE] 
 
->The January Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the January Guest OS. This list is subject to change. 
+>The February Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the February Guest OS. This list is subject to change. 
+>
+
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 22-02 |  [5010351]  |  Latest Cumulative Update(LCU) | 6.41 | Feb 8, 2022 |
+|  Rel 22-02 |  [5006671]  |  IE Cumulative Updates | 2.120, 3.107, 4.100 | Oct 12, 2021 |
+|  Rel 22-02 |  [5010354]  |  Latest Cumulative Update(LCU) | 7.9 | Feb 8, 2022 |
+|  Rel 22-02 |  [5010359]  |  Latest Cumulative Update(LCU) | 5.65 | Feb 8, 2022 |
+|  Rel 22-02 |  [5008867]  |  .NET Framework 3.5 Security and Quality Rollup | 2.120 | Jan 11, 2022 |
+|  Rel 22-02 |  [5008860]  |  .NET Framework 4.5.2 Security and Quality Rollup | 2.120 | Jan 11, 2022 |
+|  Rel 22-02 |  [5008868]  |  .NET Framework 3.5 Security and Quality Rollup | 4.100 | Jan 11, 2022 |
+|  Rel 22-02 |  [5008870]  |  .NET Framework 4.5.2 Security and Quality Rollup | 4.100 | Jan 11, 2022 |
+|  Rel 22-02 |  [5008865]  |  .NET Framework 3.5 Security and Quality Rollup | 3.107 | Jan 11, 2022 |
+|  Rel 22-02 |  [5008869]  |  . NET Framework 4.5.2 Security and Quality Rollup | 3.107 | Jan 11, 2022 |
+|  Rel 22-02 |  [5008873]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | 6.41 | Jan 11, 2022 |
+|  Rel 22-02 |  [5008882]  |  .NET Framework 4.8 Security and Quality Rollup | 7.9 | Jan 11, 2022 |
+|  Rel 22-02 |  [5010404]  |  Monthly Rollup | 2.120 | Feb 8, 2022 |
+|  Rel 22-02 |  [5010392]  |  Monthly Rollup | 3.107 | Feb 8, 2022 |
+|  Rel 22-02 |  [5010419]  |  Monthly Rollup | 4.100 | Feb 8, 2022 |
+|  Rel 22-02 |  [5001401]  |  Servicing Stack update | 3.107 | Apr 13, 2021 |
+|  Rel 22-02 |  [5001403]  |  Servicing Stack update | 4.100 | Apr 13, 2021 |
+|  Rel 22-02 |  [4578013]  |  Standalone Security Update | 4.100 | Aug 19, 2020 |
+|  Rel 22-02 |  [5005698]  |  Servicing Stack update | 5.65 | Sep 14, 2021 |
+|  Rel 22-02 |  [5010451]  |  Servicing Stack update | 2.120 | Feb 8, 2022 |
+|  Rel 22-02 |  [4494175]  |  Microcode | 5.65 | Sep 1, 2020 |
+|  Rel 22-02 |  [4494174]  |  Microcode | 6.41 | Sep 1, 2020 |
+
+[5010351]: https://support.microsoft.com/kb/5010351
+[5006671]: https://support.microsoft.com/kb/5006671
+[5010354]: https://support.microsoft.com/kb/5010354
+[5010359]: https://support.microsoft.com/kb/5010359
+[5008867]: https://support.microsoft.com/kb/5008867
+[5008860]: https://support.microsoft.com/kb/5008860
+[5008868]: https://support.microsoft.com/kb/5008868
+[5008870]: https://support.microsoft.com/kb/5008870
+[5008865]: https://support.microsoft.com/kb/5008865
+[5008869]: https://support.microsoft.com/kb/5008869
+[5008873]: https://support.microsoft.com/kb/5008873
+[5008882]: https://support.microsoft.com/kb/5008882
+[5010404]: https://support.microsoft.com/kb/5010404
+[5010392]: https://support.microsoft.com/kb/5010392
+[5010419]: https://support.microsoft.com/kb/5010419
+[5001401]: https://support.microsoft.com/kb/5001401
+[5001403]: https://support.microsoft.com/kb/5001403
+[4578013]: https://support.microsoft.com/kb/4578013
+[5005698]: https://support.microsoft.com/kb/5005698
+[5010451]: https://support.microsoft.com/kb/5010451
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494174]: https://support.microsoft.com/kb/4494174
 
 ## January 2022 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
-|  Rel 22-01 |  [5010791]  |  Latest Cumulative Update(LCU) | 6.39 | Jan 18, 2022 |
-|  Rel 22-01 |  [5006671]  |  IE Cumulative Updates | 2.118, 3.105, 4.98 | Oct 12, 2021 |
-|  Rel 22-01 |  [5010796]  |  Latest Cumulative Update(LCU) | 7.7 | Jan 17, 2022 |
-|  Rel 22-01 |  [5010790]  |  Latest Cumulative Update(LCU) | 5.63 | Jan 17, 2022 |
-|  Rel 22-01 |  [5008867]  |  .NET Framework 3.5 Security and Quality Rollup | 2.118 | Jan 11, 2022 |
-|  Rel 22-01 |  [5008860]  |  .NET Framework 4.5.2 Security and Quality Rollup | 2.118 | Jan 11, 2022 |
-|  Rel 22-01 |  [5008868]  |  .NET Framework 3.5 Security and Quality Rollup | 4.98 | Jan 11, 2022 |
-|  Rel 22-01 |  [5008870]  |  .NET Framework 4.5.2 Security and Quality Rollup | 4.98 | Jan 11, 2022 |
-|  Rel 22-01 |  [5008865]  |  .NET Framework 3.5 Security and Quality Rollup | 3.105 | Jan 11, 2022 |
-|  Rel 22-01 |  [5008869]  |  . NET Framework 4.5.2 Security and Quality Rollup | 3.105 | Jan 11, 2022 |
-|  Rel 22-01 |  [5008873]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | 6.39 | Jan 11, 2022 |
-|  Rel 22-01 |  [5008882]  |  .NET Framework 4.8 Security and Quality Rollup | 7.7 | Jan 11, 2022 |
-|  Rel 22-01 |  [5009610]  |  Monthly Rollup | 2.118 | Jan 11, 2022 |
-|  Rel 22-01 |  [5009586]  |  Monthly Rollup | 3.105 | Jan 11, 2022 |
-|  Rel 22-01 |  [5009624]  |  Monthly Rollup | 4.98 | Jan 11, 2022 |
-|  Rel 22-01 |  [5001401]  |  Servicing Stack update | 3.105 | Apr 13, 2021 |
-|  Rel 22-01 |  [5001403]  |  Servicing Stack update | 4.98 | Apr 13, 2021 |
-|  Rel 22-01 |  [4578013]  |  Standalone Security Update | 4.98 | Aug 19, 2020 |
-|  Rel 22-01 |  [5005698]  |  Servicing Stack update | 5.63 | Sep 14, 2021 |
-|  Rel 22-01 |  [5006749]  |  Servicing Stack update | 2.118 | July 13, 2021 |
-|  Rel 22-01 |  [4494175]  |  Microcode | 5.63 | Sep 1, 2020 |
-|  Rel 22-01 |  [4494174]  |  Microcode | 6.39 | Sep 1, 2020 |
+|  Rel 22-01 |  [5010791]  |  Latest Cumulative Update(LCU) | [6.40] | Jan 18, 2022 |
+|  Rel 22-01 |  [5006671]  |  IE Cumulative Updates | [2.119], [3.106], [4.99] | Oct 12, 2021 |
+|  Rel 22-01 |  [5010796]  |  Latest Cumulative Update(LCU) | [7.8] | Jan 17, 2022 |
+|  Rel 22-01 |  [5010790]  |  Latest Cumulative Update(LCU) | [5.64] | Jan 17, 2022 |
+|  Rel 22-01 |  [5008867]  |  .NET Framework 3.5 Security and Quality Rollup | [2.119] | Jan 11, 2022 |
+|  Rel 22-01 |  [5008860]  |  .NET Framework 4.5.2 Security and Quality Rollup | [2.119] | Jan 11, 2022 |
+|  Rel 22-01 |  [5008868]  |  .NET Framework 3.5 Security and Quality Rollup | [4.99] | Jan 11, 2022 |
+|  Rel 22-01 |  [5008870]  |  .NET Framework 4.5.2 Security and Quality Rollup | [4.99] | Jan 11, 2022 |
+|  Rel 22-01 |  [5008865]  |  .NET Framework 3.5 Security and Quality Rollup | [3.106] | Jan 11, 2022 |
+|  Rel 22-01 |  [5008869]  |  . NET Framework 4.5.2 Security and Quality Rollup | [3.106] | Jan 11, 2022 |
+|  Rel 22-01 |  [5008873]  |  . NET Framework 3.5 and 4.7.2 Cumulative Update | [6.40] | Jan 11, 2022 |
+|  Rel 22-01 |  [5008882]  |  .NET Framework 4.8 Security and Quality Rollup | [7.8] | Jan 11, 2022 |
+|  Rel 22-01 |  [5009610]  |  Monthly Rollup | [2.119] | Jan 11, 2022 |
+|  Rel 22-01 |  [5009586]  |  Monthly Rollup | [3.106] | Jan 11, 2022 |
+|  Rel 22-01 |  [5009624]  |  Monthly Rollup | [4.99] | Jan 11, 2022 |
+|  Rel 22-01 |  [5001401]  |  Servicing Stack update | [3.106] | Apr 13, 2021 |
+|  Rel 22-01 |  [5001403]  |  Servicing Stack update | [4.99] | Apr 13, 2021 |
+|  Rel 22-01 |  [4578013]  |  Standalone Security Update | [4.99] | Aug 19, 2020 |
+|  Rel 22-01 |  [5005698]  |  Servicing Stack update | [5.64] | Sep 14, 2021 |
+|  Rel 22-01 |  [5006749]  |  Servicing Stack update | [2.119] | July 13, 2021 |
+|  Rel 22-01 |  [4494175]  |  Microcode | [5.64] | Sep 1, 2020 |
+|  Rel 22-01 |  [4494174]  |  Microcode | [6.40] | Sep 1, 2020 |
 
 
 [5010791]: https://support.microsoft.com/kb/5010791
@@ -71,7 +122,12 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5006749]: https://support.microsoft.com/kb/5006749
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2.119]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3.106]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4.99]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5.64]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.40]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.8]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 
 ## December 2021 Guest OS

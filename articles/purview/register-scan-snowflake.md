@@ -14,8 +14,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to register Snowflake, and how to authenticate and interact with Snowflake in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> Snowflake as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -221,7 +220,9 @@ After scanning your Snowflake source, you can [browse data catalog](how-to-brows
 Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Snowflake lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
 :::image type="content" source="media/register-scan-snowflake/lineage.png" alt-text="Snowflake lineage view" border="true":::
-
+> [!NOTE]
+> If a view was created by tables from different databases, scan all databases simultaneously using the names in the semicolon (;) list.
+        
 ## Troubleshooting tips
 
 - Check your account identifer in the source registration step. Don't include `https://` part at the front.
