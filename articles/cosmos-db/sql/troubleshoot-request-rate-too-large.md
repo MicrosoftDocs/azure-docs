@@ -48,6 +48,8 @@ By default, the Azure Cosmos DB client SDKs and data import tools suc
 #### Recommended solution
 In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. No action is required. Otherwise, move to the next troubleshooting steps.
 
+If you are using autoscale, it is possible to see 429s on your database or container, even if the RU/s was not scaled to the maximum RU/s. 
+
 ### Step 2: Determine if there is a hot partition
 A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests. It results in many requests being directed to a small subset of logical (which implies physical) partitions that become "hot." Because all data for a logical partition resides on one physical partition and total RU/s is evenly distributed among the physical partitions, a hot partition can lead to 429s and inefficient use of throughput.
 
@@ -161,6 +163,24 @@ This will lower the Request Units required per create document operation, which 
 ##### 429s on execute stored procedures
 - [Stored procedures](stored-procedures-triggers-udfs.md) are intended for operations that require write transactions across a partition key value. It is not recommended to use stored procedures for a large number of read or query operations. For best performance, these read or query operations should be done on the client-side, using the Cosmos SDKs.
 
+## Request rate is large with autoscale
+All the guidance in this article applies to both manual and autoscale throughput. 
+
+When using autoscale, a common question that arises is, **"Is it still possible to see 429s with autoscale?"**
+
+Yes. There are two main scenarios where this can occur. 
+
+**Scenario 1**: When the overall consumed RU/s exceeds the max RU/s of the database or container, the service will throttle requests accordingly. This is analogous to exceeding the overall manual provisioned throughput of a database or container. 
+
+**Scenario 2**: If there is a hot partition, i.e. a logical partition key value that has a disproportionately higher amount of requests compared to other partition key values, it is possible for the underlying physical partition to exceed its RU/s budget. As a best practice, to avoid hot partitions, choose a good partition key that results in an even distribution of both storage and throughput. This is similar to when there is a hot partition when using manual throughput.
+
+For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage, with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you will see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, i.e. exceeds 100% normalized utilization.
+
+Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determine if-there-is-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429s) to debug these scenarios.
+
+Another common question that arises is, **Why is normalized RU consumption 100%, but autoscale did not scale to the max RU/s?**
+
+This typically occurs for workloads that have temporary or intermittent spikes of usage. When you use autoscale, Azure Cosmos DB only scales the RU/s to the maximum throughput when the normalized RU consumption is 100% for a sustained, continuous period of time in a 5 second interval. This is done to ensure the scaling logic is cost friendly to the user, as it ensures that single, momentary spikes to not lead to unnecessary scaling and higher cost. When there are momentary spikes, the system typically scales up to a value higher than the previously scaled to RU/s, but lower than the max RU/s. Learn more about how to [interpret the normalized RU consumption metric with autoscale](../monitor-normalized-request-units.md#normalized-ru-consumption-and-autoscale).
 ## Rate limiting on metadata requests
 
 Metadata rate limiting can occur when you are performing a high volume of metadata operations on databases and/or containers. Metadata operations include:
