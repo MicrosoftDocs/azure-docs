@@ -80,7 +80,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
-| Azure Event Grid | Microsoft.EventGrid/topics  | Event grid topic |
+| Azure Event Grid | Microsoft.EventGrid/topics  | topic |
 | Azure Event Hub | Microsoft.EventHub/namespaces | namespace |
 | Azure HDInsight | Microsoft.HDInsight/clusters | cluster |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
