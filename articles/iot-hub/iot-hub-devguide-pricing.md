@@ -19,23 +19,25 @@ ms.custom: [amqp, mqtt]
 
 ## Charges per operation
 
-Use the following table to help determine which operations are charged. All billable operations are charged in 4K-byte blocks. Details for each category are provided in the **Billing information** column. This column also includes the following information:
+Use the following table to help determine which operations are charged. All billable operations are charged in 4K-byte blocks on basic and standard tier IoT hubs. Operations are metered in 0.5K-byte chunks on free tier IoT hubs. Details for each category are provided in the **Billing information** column. This column includes the following information:
 
-- Details of how billable operations are metered.
+- Details of how billable operations are metered on basic and standard tier IoT hubs. Not all operations are available in the basic tier. To learn more, see [How to choose the right IoT Hub tier](iot-hub-scaling.md).
 - The operations that result in charges, with either:
   - A link to the REST API documentation if it exists.
   - The operation endpoint if REST API documentation isn't available, or if the operation is only available over MQTT and/or AMQP. The endpoint value omits the leading reference to the target IoT hub; `{fully-qualified-iothubname}.azure-devices.net`.
 - One or more terms in *italics* following each operation (or endpoint) that represents terms that may be returned by customer support for billable operations. These are provided to help customers relate these terms to operations that produce the associated charges. If you're not working with customer support, you can ignore them.
 
+Maximum message sizes differ for different types of operations. To learn more, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+
 | Operation category | Billing information |
 | --------- | ------------------- |
 | Identity registry operations <br/> (create, retrieve, list, update, delete, bulk update, statistics) | Not charged. |
-| Device-to-cloud messages | Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 6-KB message is charged 2 messages. <br/><br/> [Send Device Event](/rest/api/iothub/device/send-device-event), *Device to Cloud Telemetry*, *Device to Cloud Telemetry Routing* |
+| Device-to-cloud messages | Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 100 byte message is charged as one message, and a 6-KB message is charged 2 messages. <br/><br/> [Send Device Event](/rest/api/iothub/device/send-device-event), *Device to Cloud Telemetry*, *Device to Cloud Telemetry Routing* |
 | Cloud-to-device messages | Successfully sent messages are charged in 4-KB chunks. For example, a 6-KB message is charged 2 messages. <br/><br/> [Receive Device Bound Notification](/rest/api/iothub/device/receive-device-bound-notification), *Cloud To Device Command* |
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4-KB increments. For example, transferring a 10-MB file is charged as two messages in addition to the Azure Storage cost. <br/><br/> [Create File Upload Sas Uri](/rest/api/iothub/device/create-file-upload-sas-uri), *Device To Cloud File Upload* <br/> [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status), *Device To Cloud File Upload* |
 | Direct methods | Successful method requests are charged in 4-KB chunks, and responses are charged in 4-KB chunks as additional messages. Requests to disconnected devices are charged as messages in 4-KB chunks. For example, a method with a 4-KB body that results in a response with no body from the device is charged as two messages. A method with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the request plus another message for the response. <br/><br/> [Device - Invoke Method](/rest/api/iothub/service/devices/invoke-method), *Device Direct Invoke Method*, <br/> [Module - Invoke Method](/rest/api/iothub/service/modules/invoke-method), *Module Direct Invoke Method* |
 | Device and module twin reads | Twin reads from the device or module and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 8-KB twin is charged as 2 messages.   <br/><br/> [Get Twin](/rest/api/iothub/service/devices/get-twin), *Get Twin*  <br/> [Get Module Twin](/rest/api/iothub/service/modules/get-twin), *Get Module Twin* <br/><br/> Read device and module twins from a device: <br/> **Endpoint**: `/devices/{id}/twin` ([MQTT](iot-hub-mqtt-support.md#retrieving-a-device-twins-properties), AMQP only), *D2C Get Twin* <br/> **Endpoint**: `/devices/{deviceid}/modules/{moduleid}/twin` (MQTT, AMQP only), *Module D2C Get Twin* |
-| Device and module twin updates (tags and properties) | Twin updates from the device or module and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 12-KB twin is charged as 3 messages.  <br/><br/> [Update Twin](/rest/api/iothub/service/devices/update-twin), *Update Twin* <br/> [Update Module Twin](/rest/api/iothub/service/modules/update-twin), *Update Module Twin* <br/> [Replace Twin](/rest/api/iothub/service/devices/replace-twin), *Replace Twin* <br/> [Replace Module Twin](/rest/api/iothub/service/modules/replace-twin), *Replace Module Twin* <br/><br/> Update device or module twin reported properties from a device: <br/> **Endpoint**: `/twin/PATCH/properties/reported/` ([MQTT](iot-hub-mqtt-support.md#update-device-twins-reported-properties), AMQP only), *D2 Patch ReportedProperties* or *Module D2 Patch ReportedProperties* <br/><br/> Receive desired properties update notifications on a device: <br/> **Endpoint**: `/twin/PATCH/properties/desired/` ([MQTT](iot-hub-mqtt-support.md#receiving-desired-properties-update-notifications), AMQP only), *D2C Notify DesiredProperties* or *Module D2C Notify DesiredProperties* |
+| Device and module twin updates (tags and properties) | Twin updates from the device or module and from the solution back end are charged as messages in 4-KB chunks. For example, a 12-KB update to a twin is charged as 3 messages.  <br/><br/> [Update Twin](/rest/api/iothub/service/devices/update-twin), *Update Twin* <br/> [Update Module Twin](/rest/api/iothub/service/modules/update-twin), *Update Module Twin* <br/> [Replace Twin](/rest/api/iothub/service/devices/replace-twin), *Replace Twin* <br/> [Replace Module Twin](/rest/api/iothub/service/modules/replace-twin), *Replace Module Twin* <br/><br/> Update device or module twin reported properties from a device: <br/> **Endpoint**: `/twin/PATCH/properties/reported/` ([MQTT](iot-hub-mqtt-support.md#update-device-twins-reported-properties), AMQP only), *D2 Patch ReportedProperties* or *Module D2 Patch ReportedProperties* <br/><br/> Receive desired properties update notifications on a device: <br/> **Endpoint**: `/twin/PATCH/properties/desired/` ([MQTT](iot-hub-mqtt-support.md#receiving-desired-properties-update-notifications), AMQP only), *D2C Notify DesiredProperties* or *Module D2C Notify DesiredProperties* |
 | Device and module twin queries | Queries are charged as messages depending on the result size in 4-KB chunks. <br/><br/> [Get Twins](/rest/api/iothub/service/query/get-twins)  (query against **devices** or **devices.modules** collections), *Query Devices*  |
 | Digital twin reads | Digital twin reads from the device and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 8-KB twin is charged as 2 messages. <br/><br/> [Get Digital Twin](/rest/api/iothub/service/digital-twin/get-digital-twin), *Get Digital Twin* |
 | Digital twin updates | Digital twin updates from the device and from the solution back end are charged as messages in 4-KB chunks. For example, reading a 12-KB twin is charged as 3 messages. <br/><br/> [Update Digital Twin](/rest/api/iothub/service/digital-twin/get-digital-twin), *Patch Digital Twin* |
@@ -51,6 +53,8 @@ Use the following table to help determine which operations are charged. All bill
 > [!NOTE]
 > All sizes are computed considering the payload size in bytes (protocol framing is ignored). For messages, which have properties and body, the size is computed in a protocol-agnostic way. For more information, see [IoT Hub message format](iot-hub-devguide-messages-construct.md).
 
+For some operations, like device-to-cloud messages, you can use batching and compression strategies to reduce costs. For an example using device-to-cloud telemetry, see [Example #3](#example-#3).  
+
 ## Example #1
 
 A device sends one 1-KB device-to-cloud message per minute to IoT Hub, which is then read by Azure Stream Analytics. The solution back end invokes a method (with a 512-byte payload) on the device every 10 minutes to trigger a specific action. The device responds to the method with a result of 200 bytes.
@@ -58,7 +62,7 @@ A device sends one 1-KB device-to-cloud message per minute to IoT Hub, which is 
 The device consumes:
 
 * One message * 60 minutes * 24 hours = 1440 messages per day for the device-to-cloud messages.
-* Two request plus response * 6 times per hour * 24 hours = 288 messages for the methods.
+* Two messages (request plus response) * 6 times per hour * 24 hours = 288 messages for the methods.
 
 This calculation gives a total of 1728 messages per day.
 
@@ -76,3 +80,15 @@ This calculation gives a total of 612 messages per day.
 The solution back end consumes 28 messages (14 KB / 0.5 KB) to read the device twin, plus one message to update it, for a total of 29 messages.
 
 In total, the device and the solution back end consume 641 messages per day.
+
+## Example #3
+
+Depending on your scenario, batching messages can reduce your quota usage.
+
+For example, consider a device that has a sensor that only generates 100 bytes of data each time it's read:
+
+- If the device batches 40 sensor reads into a single device-to-cloud message with a 4 KB payload (40 * 100 bytes), then only one message is charged against quota.
+
+- If the device sends a device-to-cloud message with a 100 byte payload for each sensor read, then it consumes 40 messages against quota for the same amount of data.
+
+Your batching strategy will depend on your scenario and on how time-critical the data is. If you're sending large amounts of data, you can also consider implementing data compression to further reduce the impact on message quota.
