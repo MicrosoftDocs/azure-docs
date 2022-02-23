@@ -31,8 +31,8 @@ Statistical anomalies can detect outliers in an identity's behavior if recent ac
       - **Anomaly Alert Rule**: Displays the name of the rule select when creating the alert. 
       - **# of Occurrences**: Displays how many times the alert trigger has occurred.
       - **Authorization System**: Displays which authorization systems the alert applies to.
-      - **Date/Time**: Lists the day of the outlier occuring.
-      - **Date/Time (UTC)**: Lists the day of the outlier occuring in Coordinated Universal Time (UTC).
+      - **Date/Time**: Lists the day of the outlier occurring.
+      - **Date/Time (UTC)**: Lists the day of the outlier occurring in Coordinated Universal Time (UTC).
       
 
 1. To filter the alerts based on name, select the appropriate alert name or choose **All** from the **Alert Name** dropdown menu, and select **Apply**.
