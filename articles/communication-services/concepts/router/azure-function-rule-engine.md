@@ -16,415 +16,302 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-As part of customer extensibility model, Router supports Azure Function Rule Engine. It gives Contoso the ability to bring their own Azure function. With Azure function, Contoso can incorporate custom and complex logic into the process of routing.
+As part of customer extensibility model, Azure Communication Services Job Router supports Azure Function Rule Engine. It gives Contoso the ability to bring their own Azure function. With Azure function Rule, Contoso can incorporate custom and complex logic into the process of routing.
 
-Let's walk through the scenario below and observe how Contoso can use Azure Communication Services Job Router to solve it.
+A couple of examples are given below to showcase the additional flexibility that Azure Function Rule provides.
 
-For example,
+## Example 1: Custom Scoring Rule in *Best Worker Distribution Mode*
+
 Contoso wants to distribute offers among their workers associated with a queue. The workers will be given a score based on their labels and skill set. The worker with the highest score should get the first offer (_BestWorker Distribution Mode_).
-```text
-Situation:
+
+:::image type="content" source="../media/router/Best_Worker_Distribution_Mode_Problem_Statement.jpg" alt-text="Diagram showing Best Worker Distribution Mode problem statement":::
+
+### Situation
+
 - A job has been created and classified.
-- Job currently is in a state of 'Queued' waiting to be matched to an worker.
-- Multiple workers (associated to the same queue as job) becomes available simultaneously. 
-- All workers has ability to take up the job
-- Which worker should the job be routed to?
+  - Job has the following **labels** associated with it
+    - ["CommunicationType"] = "Chat"
+    - ["IssueType"] = "XboxSupport"
+    - ["Language"] = "en"
+    - ["HighPriority"] = true
+    - ["SubIssueType"] = "ConsoleMalfunction"
+    - ["ConsoleType"] = "XBOX_SERIES_X"
+    - ["Model"] = "XBOX_SERIES_X_1TB"
+  - Job has the following **WorkerSelectors** associated with it
+    - ["English"] >= 7
+    - ["ChatSupport"] = true
+    - ["XboxSupport"] = true
+- Job currently is in a state of '**Queued**'; enqueued in *Xbox Hardware Support Queue* waiting to be matched to an worker.
+- Multiple workers becomes available simultaneously.
+  - **Worker 1** has been created with the following **labels**
+    - ["HighPrioritySupport"] = true
+    - ["HardwareSupport"] = true
+    - ["Support_XBOX_SERIES_X"] = true
+    - ["English"] = 10
+    - ["ChatSupport"] = true
+    - ["XboxSupport"] = true
+  - **Worker 2** has been created with the following **labels**
+    - ["HighPrioritySupport"] = true
+    - ["HardwareSupport"] = true
+    - ["Support_XBOX_SERIES_X"] = true
+    - ["Support_XBOX_SERIES_S"] = true
+    - ["English"] = 8
+    - ["ChatSupport"] = true
+    - ["XboxSupport"] = true
+  - **Worker 3** has been created with the following **labels**
+    - ["HighPrioritySupport"] = false
+    - ["HardwareSupport"] = true
+    - ["Support_XBOX"] = true
+    - ["English"] = 7
+    - ["ChatSupport"] = true
+    - ["XboxSupport"] = true
 
-In context of a contact center, this could be a scenario of a returning caller. 
-For best user experience, maybe it's best to route the job to a worker who has previously interacted with the caller (assuming the same worker became available)
+### Expectation
 
-Task:
-- The 'Best Worker' needs to be evaluated via some scoring mechanism
-- Contoso needs to interact with a separate service to fetch 'score' of worker
-- Scoring logic may involve interaction with more than one service
-- Scoring logic is complicated and involves querying against Contoso's metadata store to fetch additional information. Router do not have access to the metadata store.
-- Contoso wants to incorporate query results from the metadata store to calculate score for workers and pass it to Router so that it can generate an offer to the best worker
+Contoso would like the following behavior when scoring workers to select which worker gets the first offer.
 
-Action:
-- Contoso creates an Azure Function which can query the metadata store and calculate score of an worker given all other pieces of information from Router.
-- Contoso creates Distribution policy with the BestWorker distribution mode with the aforementioned azure function as it scoring rule
-- Contoso provides azure function url, credentials etc. for Router to be able to access its custom function
+:::image type="content" source="../media/router/Best_Worker_Distribution_Mode_Scoring_Rule.jpg" alt-text="Decision flow diagram for scoring worker":::
 
-Result
-- Router when distributing jobs between workers, makes a request to Contoso's azure function to fetch score of workers
-- Router sorts workers based on their scores and sends out offer(s) to workers
+The decision flow (as shown above) is as follows:
 
-```
+- If a job is **NOT HighPriority**:
+  - Workers with label: **["Support_XBOX"] = true**; gets a score of *100*
+  - Otherwise, gets a score of *1*
 
-## Creating an Azure Function Rule
+- If a job is **HighPriority**:
+  - Workers with label: **["HighPrioritySupport"] = false**; gets a score of *1*
+  - Otherwise, if **["HighPrioritySupport"] = true**:
+    - Does Worker specialize in console type -> Does worker have label: **["Support_<**jobLabels.ConsoleType**>"] = true**? If true, worker gets score of *200*
+    - Otherwise, gets a score of *100*
 
-Building on the previous sample situation, let's create a custom Azure Function Rule.
+### Creating an Azure Function
 
-Before moving on any further in the process, let us first define an Azure function that scores worker in the following manner:
+Before moving on any further in the process, let us first define an Azure function that scores worker.
 > [!NOTE]
-> The following Azure function is using C#. For more information, please refer to [Quickstart: Create your first C# function in Azure using Visual Studio](../../../azure-functions/functions-create-your-first-function-visual-studio.md)
+> The following Azure function is using Javascript. For more information, please refer to [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-node.md)
 
+Sample input for **Worker 1**
 
-```text
-- Function takes in job labels and worker labels as input
-- Function implements OverlappingLabelMatchScorer (Contoso implemented) as the scoring mode. This scoring mode counts the number of labels that is common between a worker and a job.
-- The number of labels that 'overlaps' is the score of the worker.
-```
-
-```csharp
-    public class OverlappingLabelMatchScorer
-    {
-        public static async Task<IDictionary<string, float>> GetScoreAsync(List<KeyValuePair<string, Dictionary<string, object>>>? workerLabelsCollection, Dictionary<string, object>? jobLabels)
-        {
-            var response = new ConcurrentDictionary<string, float>();
-            var tasks = new List<Task>();
-
-            var workerLabelsCollectionWithIndex = workerLabelsCollection.Select(labels => (labels.Key, labels.Value));
-
-            foreach (var workerLabels in workerLabelsCollectionWithIndex)
-            {
-                var commonLabels = workerLabels.Value.Intersect(jobLabels);
-                tasks.Add(GetCount(workerLabels.Key, commonLabels, response));
-            }
-
-            await Task.WhenAll(tasks);
-
-            return response;
-        }
-
-        private static async Task GetCount(string workerLabelsId, IEnumerable<KeyValuePair<string, object>> commonLabels, ConcurrentDictionary<string, float> response)
-        {
-            int counter = 0;
-            foreach (var r in commonLabels)
-            {
-                counter++;
-            }
-
-            response.AddOrUpdate(workerLabelsId.ToString(), counter, (_, _) => counter);
-        }
-    }
-```
-
-The complete function definition is provided below
-
-```csharp
-// © Microsoft Corporation. All rights reserved.
-
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using JsonException = System.Text.Json.JsonException;
-
-namespace AzureFunctionScorer
-{
-    public static class BestWorkerScorer
-    {
-        public class OverlappingLabelMatchScorer
-        {
-            public static async Task<IDictionary<string, float>> GetScoreAsync(List<KeyValuePair<string, Dictionary<string, object>>>? workerLabelsCollection, Dictionary<string, object>? jobLabels)
-            {
-                var response = new ConcurrentDictionary<string, float>();
-                var tasks = new List<Task>();
-
-                var workerLabelsCollectionWithIndex = workerLabelsCollection.Select(labels => (labels.Key, labels.Value));
-
-                foreach (var workerLabels in workerLabelsCollectionWithIndex)
-                {
-                    var commonLabels = workerLabels.Value.Intersect(jobLabels);
-                    tasks.Add(GetCount(workerLabels.Key, commonLabels, response));
-                }
-
-                await Task.WhenAll(tasks);
-
-                return response;
-            }
-
-            private static async Task GetCount(string workerLabelsId, IEnumerable<KeyValuePair<string, object>> commonLabels, ConcurrentDictionary<string, float> response)
-            {
-                int counter = 0;
-                foreach (var r in commonLabels)
-                {
-                    counter++;
-                }
-
-                response.AddOrUpdate(workerLabelsId.ToString(), counter, (_, _) => counter);
-            }
-        }
-
-        public class AzureFunctionPayload
-        {
-            public Dictionary<string, object> Parameters { get; set; } = default!;
-        }
-
-        public class WorkerLabels
-        {
-            [JsonProperty("workerId")]
-            public string WorkerId { get; set; }
-
-            [JsonProperty("workerLabels")]
-            public Dictionary<string, object> Labels { get; set; }
-        }
-
-
-        private const int MaxDepth = 8;
-
-
-        [FunctionName("BestWorkerScorerByOverlappingLabels")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
-        {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-
-            string requestBodyAsString = await new StreamReader(req.Body).ReadToEndAsync();
-
-            var parameters = ReadContent(requestBodyAsString);
-
-            var reqPayload = new AzureFunctionPayload()
-            {
-                Parameters = (Dictionary<string, object>)parameters.GetValueOrDefault("parameters")
-            };
-
-            var jobLabels = (Dictionary<string, object>)reqPayload.Parameters.GetValueOrDefault("jobLabels", Array.Empty<Dictionary<string, object>>());
-            if (jobLabels.Count == 0)
-            {
-                var msg = $"Invalid job labels. Job labels found: {jobLabels.Count}";
-                log.LogError(msg);
-                return new BadRequestObjectResult(msg);
-            }
-
-
-            var workerLabelsRaw = (List<object>)reqPayload.Parameters.GetValueOrDefault("workerLabelsCollection", Array.Empty<Dictionary<string, object>>());
-
-            if (workerLabelsRaw.Count == 0)
-            {
-                var msg = $"Invalid worker labels. Worker labels found: {workerLabelsRaw.Count}";
-                log.LogError(msg);
-                return new BadRequestObjectResult(msg);
-            }
-
-            var workerLabelsCollection = new List<WorkerLabels>();
-
-            foreach (var workerLabels in workerLabelsRaw)
-            {
-                var res = (Dictionary<string, object>)workerLabels;
-                var workerId = (string)res.GetValueOrDefault("workerId");
-                var _labels = (Dictionary<string, object>)res.GetValueOrDefault("workerLabels");
-
-                workerLabelsCollection.Add(new WorkerLabels()
-                {
-                    WorkerId = workerId,
-                    Labels = _labels,
-                });
-
-            }
-
-            var workerScores =
-                await OverlappingLabelMatchScorer.GetScoreAsync(workerLabelsCollection.Select(x => new KeyValuePair<string, Dictionary<string, object>>(x.WorkerId, x.Labels)).ToList(), jobLabels);
-
-            var result = workerScores.Select(x => x.Value).ToList();
-            return new OkObjectResult(result.First());
-        }
-
-        private static Dictionary<string, object>? ReadContent(string requestContent)
-        {
-            var doc = JsonDocument.Parse(requestContent);
-            var objenum = doc.RootElement.EnumerateObject();
-            var result = new Dictionary<string, object>();
-            while (objenum.MoveNext())
-            {
-                result.Add(objenum.Current.Name, ConvertJsonElement(objenum.Current.Value, 0));
-            }
-
-            return result;
-        }
-
-        private static object? ConvertJsonElement(JsonElement element, int depth)
-        {
-            if (depth > MaxDepth)
-                throw new JsonException("Max recursion depth exeeded.");
-
-            switch (element.ValueKind)
-            {
-                case JsonValueKind.Object:
-                    var objenum = element.EnumerateObject();
-                    var obj = new Dictionary<string, object>();
-                    while (objenum.MoveNext())
-                    {
-                        obj.Add(objenum.Current.Name, ConvertJsonElement(objenum.Current.Value, depth + 1));
-                    }
-
-                    return obj;
-                case JsonValueKind.Array:
-                    var arrenum = element.EnumerateArray();
-                    var arr = new List<object>();
-                    while (arrenum.MoveNext())
-                    {
-                        arr.Add(ConvertJsonElement(arrenum.Current, depth + 1));
-                    }
-
-                    return arr;
-                case JsonValueKind.String:
-                    return element.GetString();
-                case JsonValueKind.Number:
-                    return element.GetDecimal();
-                case JsonValueKind.False:
-                    return false;
-                case JsonValueKind.True:
-                    return true;
-            }
-
-            return null;
-        }
-    }
-}
-
-```
-
-The following payload is sent to Contoso's  Azure function
-
-**Input**
 ```json
 {
-    "parameters": {
-        "jobLabels": {
-            "Key1": "Label1"
-        },
-        "workerLabelsCollection": [
-            {
-                "workerId": "WorkerId1",
-                "workerLabels": {
-                    "Key1": "Label1"
-                }
-            }
-        ]
+  "job": {
+    "CommunicationType": "Chat",
+    "IssueType": "XboxSupport",
+    "Language": "en",
+    "HighPriority": true,
+    "SubIssueType": "ConsoleMalfunction",
+    "ConsoleType": "XBOX_SERIES_X",
+    "Model": "XBOX_SERIES_X_1TB"
+  },
+  "selectors": [
+    {
+      "key": "English",
+      "operator": "GreaterThanEqual",
+      "value": 7,
+      "ttl": null
+    },
+    {
+      "key": "ChatSupport",
+      "operator": "Equal",
+      "value": true,
+      "ttl": null
+    },
+    {
+      "key": "XboxSupport",
+      "operator": "Equal",
+      "value": true,
+      "ttl": null
     }
+  ],
+  "worker": {
+    "Id": "e3a3f2f9-3582-4bfe-9c5a-aa57831a0f88",
+    "HighPrioritySupport": true,
+    "HardwareSupport": true,
+    "Support_XBOX_SERIES_X": true,
+    "English": 10,
+    "ChatSupport": true,
+    "XboxSupport": true
+  }
 }
 ```
 
-**Output**
-```markdown
-1.0
+Sample implementation:
 
-Score of 1.0 is returned as response since there is an overlap of exactly 1 key-value pair between 'jobLabels' and 'workerLabels'
+```javascript
+module.exports = async function (context, req) {
+    context.log('Best Worker Distribution Mode using Azure Function');
+
+    let score = 0;
+    const jobLabels = req.body.job;
+    const workerLabels = req.body.worker;
+
+    const isHighPriority = jobLabels["HighPriority"] !== undefined ? jobLabels["HighPriority"] : false;
+    context.log('Job is high priority? Status: ' + isHighPriority);
+
+    if(!isHighPriority) {
+        const isGenericXboxSupportWorker = workerLabels["Support_XBOX"] !== undefined ? workerLabels["Support_XBOX"] : false;
+        context.log('Worker provides general xbox support? Status: ' + isGenericXboxSupportWorker);
+
+        if(isGenericXboxSupportWorker) {
+            score = 100;
+        } else {
+            score = 1;
+        }
+    } else {
+        const workerSupportsHighPriorityJob = workerLabels["HighPrioritySupport"] !== undefined ? workerLabels["HighPrioritySupport"] : false;
+        context.log('Worker provides high priority support? Status: ' + workerSupportsHighPriorityJob);
+
+        if(!workerSupportsHighPriorityJob) {
+            score = 1;
+        } else {
+            const key = 'Support_'.concat(jobLabels["ConsoleType"]);
+            
+            const workerSpecializeInConsoleType = workerLabels[key] !== undefined ? workerLabels[key] : false;
+            context.log('Worker specializes in consoleType:' + jobLabels["ConsoleType"] + '? Status: ' + workerSpecializeInConsoleType);
+
+            if(workerSpecializeInConsoleType) {
+                score = 200;
+            } else {
+                score = 100;
+            }
+        }
+    }
+    context.log('Final score of worker: ' + score);
+
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: score
+    };
+}
 ```
 
-## Distribute offers based on Best Worker Mode
+Output for **Worker 1**
+
+```markdown
+200
+```
+
+With the aforementioned implementation, for the given job we will get the following scores for workers:
+| Worker | Score |
+| -- | -- |
+| Worker 1 | 200 |
+| Worker 2 | 200 |
+| Worker 3 | 1 |
+
+### Distribute offers based on Best Worker Mode
+
 Now that the Azure function app is ready, let us create an instance of **BestWorkerDistribution** mode using Router SDK.
 
 ```csharp
     // ----- initialize router client
-    // setup distribution policy
-    var bestWorkerMode = new BestWorkerMode(
-        new AzureFunctionRule("<insert azure function url>"),
-        new List<ScoringRuleParameterSelector>()
-        {
-            ScoringRuleParameterSelector.JobLabels, 
-            ScoringRuleParameterSelector.WorkerLabelsCollection
-        }, 
-        minConcurrentOffers:1, 
-        maxConcurrentOffers:1); // only 1 offer will be sent out
+    // Setup Distribution Policy
+    var bestWorkerDistributionMode = new BestWorkerMode(
+        scoringRule: new AzureFunctionRule(
+            functionAppUrl: "<insert function url>");
 
+    var distributionPolicy = await client.SetDistributionPolicyAsync(
+        id: "BestWorkerDistributionMode",
+        mode: bestWorkerDistributionMode,
+        name: "XBox hardware support distribution",
+        offerTTL: TimeSpan.FromMinutes(5));
 
-    var bestWorkerDistributionPolicyReponse = await client.SetDistributionPolicyAsync(
-        "BestWorkerByOverlap",
-        TimeSpan.FromMinutes(1),
-        bestWorkerMode,
-        "best worker distribution policy with azure function");
-    var bestWorkerDistributionPolicy = bestWorkerDistributionPolicyReponse.Value;
+    // Setup Queue
+    var queue = await client.SetQueueAsync(
+        id: "XBox_Hardware_Support_Q",
+        distributionPolicyId: distributionPolicy.Value.Id,
+        name: "XBox Hardware Support Queue");
 
-    // Setup channel
-    var upsertChannelResponse = await client.SetChannelAsync("ITSupport");
-    var upsertChannel = upsertChannelResponse.Value;
+    // Setup Channel
+    var channel = await client.SetChannelAsync("Xbox_Chat_Channel");
 
-    // Setup queue
-    var queueLabels = new LabelCollection()
-    {
-        ["region"] = "NAM",
-        ["country"] = "CAN",
-        ["queueType"] = "Escalation Queue"
-    };
+    // Create workers
 
-    var upsertQueueResponse = await client.SetQueueAsync("ITSupportEscalation", bestWorkerDistributionPolicy.Id, labels: queueLabels);
-    var upsertQueue = upsertQueueResponse.Value;
-
-    // Register workers
-    // --- create correct queue assignments
-    var queueAssignments = new List<QueueAssignment>()
-    {
-        new QueueAssignment(upsertQueue.Id)
-    };
-    var worker1Id = "Bob";
     var worker1Labels = new LabelCollection()
     {
-        ["region"] = "NAM",
-        ["country"] = "CAN",
-        ["lang"] = "en"
+        ["HighPrioritySupport"] = true,
+        ["HardwareSupport"] = true,
+        ["Support_XBOX_SERIES_X"] = true,
+        ["English"] = 10,
+        ["ChatSupport"] = true,
+        ["XboxSupport"] = true
     };
+    var worker1 = await client.RegisterWorkerAsync(
+        id: "Worker_1",
+        totalCapacity: 100,
+        queueIds: new[] {queue.Value.Id},
+        labels: worker1Labels,
+        channelConfigurations: new[] {new ChannelConfiguration(channel.Value.Id, 10)});
 
-    var worker2Id = "Susan";
     var worker2Labels = new LabelCollection()
     {
-        ["region"] = "NAM",
-        ["country"] = "CAN",
-        ["lang"] = "en",
-        ["en"] = 10
+        ["HighPrioritySupport"] = true,
+        ["HardwareSupport"] = true,
+        ["Support_XBOX_SERIES_X"] = true,
+        ["Support_XBOX_SERIES_S"] = true,
+        ["English"] = 8,
+        ["ChatSupport"] = true,
+        ["XboxSupport"] = true
     };
+    var worker2 = await client.RegisterWorkerAsync(
+        id: "Worker_2",
+        totalCapacity: 100,
+        queueIds: new[] { queue.Value.Id },
+        labels: worker2Labels,
+        channelConfigurations: new[] { new ChannelConfiguration(channel.Value.Id, 10) });
 
-    // Same worker capacity for both workers
-    var workerTotalCapacity = 100;
-
-    // Both workers associated with same channel with equal capacityCostPerJob
-    var workerChannelConfigList = new List<ChannelConfiguration>()
+    var worker3Labels = new LabelCollection()
     {
-        new ChannelConfiguration(upsertChannel.Id, 10)
+        ["HighPrioritySupport"] = false,
+        ["HardwareSupport"] = true,
+        ["Support_XBOX"] = true,
+        ["English"] = 7,
+        ["ChatSupport"] = true,
+        ["XboxSupport"] = true
     };
+    var worker3 = await client.RegisterWorkerAsync(
+        id: "Worker_3",
+        totalCapacity: 100,
+        queueIds: new[] { queue.Value.Id },
+        labels: worker3Labels,
+        channelConfigurations: new[] { new ChannelConfiguration(channel.Value.Id, 10) });
 
-    // --- Register worker 1
-    var registeredWorker1 = await client.RegisterWorkerAsync(
-        worker1Id,
-        workerTotalCapacity,
-        new List<string>() {upsertQueue.Id},
-        worker1Labels,
-        workerChannelConfigList);
-
-    // --- Register worker 2
-    var registeredWorker2 = await client.RegisterWorkerAsync(
-        worker2Id,
-        workerTotalCapacity,
-        new List<string>() { upsertQueue.Id },
-        worker2Labels,
-        workerChannelConfigList);
-
-
-    // Create job
-    // --- Create job labels
+    // Create Job
     var jobLabels = new LabelCollection()
     {
-        ["region"] = "NAM",
-        ["country"] = "CAN",
-        ["lang"] = "en",
-        ["en"] = 10
+        ["CommunicationType"] = "Chat",
+        ["IssueType"] = "XboxSupport",
+        ["Language"] = "en",
+        ["HighPriority"] = true,
+        ["SubIssueType"] = "ConsoleMalfunction",
+        ["ConsoleType"] = "XBOX_SERIES_X",
+        ["Model"] = "XBOX_SERIES_X_1TB"
     };
-
+    var workerSelectors = new List<LabelSelector>()
+    {
+        new LabelSelector("English", LabelOperator.GreaterThanEqual, 7),
+        new LabelSelector("ChatSupport", LabelOperator.Equal, true),
+        new LabelSelector("XboxSupport", LabelOperator.Equal, true)
+    };
     var job = await client.CreateJobAsync(
-        upsertChannel.Id,
-        upsertQueue.Id,
-        priority: 10,
-        labels: jobLabels);
+        channelId: channel.Value.Id,
+        queueId: queue.Value.Id,
+        priority: 100,
+        channelReference: "ChatChannel",
+        labels: jobLabels,
+        workerSelectors: workerSelectors);
+
+    var getJob = await client.GetJobAsync(job.Value.Id);
+    Console.WriteLine(getJob.Value.Assignments.Select(assignment => assignment.Value.WorkerId).First());
 ```
 
-**Output**
-As shown below from the snippet, Susan is made an offer.
+Output
 
-:::image type="content" source="../media/router/acs-router-azure-function-best-worker-example.png" alt-text="Diagram showing Communication Services' Job Router Routing offer using best worker distribution with Azure Function Rule.":::
+```markdown
+Worker_1 // or Worker_2
 
-
+Since both workers, Worker_1 and Worker_2, get the same score of 200,
+both workers are equally likely to get an offer.
+```
 
 ## See also
 

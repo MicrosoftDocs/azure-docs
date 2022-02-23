@@ -92,3 +92,6 @@ await client.upsertClassificationPolicy({
 ```
 
 ::: zone-end
+
+## See also
+- [Azure Function Rule](azure-function-rule-engine.md)

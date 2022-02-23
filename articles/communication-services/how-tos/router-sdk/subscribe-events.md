@@ -121,13 +121,13 @@ dotnet run
 |------|:------------:| ---------- |
 | [`RouterJobReceived`](#microsoftcommunicationrouterjobreceived) | `Job` | A new job was created for routing |
 | [`RouterJobClassified`](#microsoftcommunicationrouterjobclassified)| `Job` | The classification policy was applied to a job |
-| [`RouterJobLabelsUpdated`](#microsoftcommunicationrouterjoblabelsupdated) | `Job` | The labels of the job were changed |
+| [`RouterJobQueued`](#microsoftcommunicationrouterjobqueued)  | `Job` | A job has been successfully enqueued |
 | [`RouterJobClassificationFailed`](#microsoftcommunicationrouterjobclassificationfailed) | `Job` | Router failed to classify job using classification policy |
 | [`RouterJobCompleted`](#microsoftcommunicationrouterjobcompleted) | `Job` | A job was completed and enters wrap-up |
 | [`RouterJobClosed`](#microsoftcommunicationrouterjobclosed) | `Job` | A job was closed and wrap-up is finished |
 | [`RouterJobCancelled`](#microsoftcommunicationrouterjobcancelled) | `Job` | A job was canceled |
 | [`RouterJobExceptionTriggered`](#microsoftcommunicationrouterjobexceptiontriggered) | `Job` | A job exception has been triggered |
-| [`RouterJobExceptionCleared`](#microsoftcommunicationrouterjobexceptioncleared) | `Job` | A job exception has cleared |
+| [`RouterJobWorkerSelectorsExpired`](#microsoftcommunicationrouterjobworkerselectorsexpired)  | `Job` |  One or more worker selectors on a job have expired  |
 | [`RouterWorkerOfferIssued`](#microsoftcommunicationrouterworkerofferissued) | `Worker` | A job was offered to a worker |
 | [`RouterWorkerOfferAccepted`](#microsoftcommunicationrouterworkerofferaccepted) | `Worker` | An offer to a worker was accepted |
 | [`RouterWorkerOfferDeclined`](#microsoftcommunicationrouterworkerofferdeclined) | `Worker` | An offer to a worker was declined |
@@ -159,27 +159,41 @@ dotnet run
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
-    }
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "requestedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ]
   },
   "eventType": "Microsoft.Communication.RouterJobReceived",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
-| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li> </ul> | When this event is sent out, the classification process is yet to have been executed. |
+| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li><li>Queued</li> </ul> | When a this event is sent out, classification process is yet to have been executed or job was created with an associated queueId.
 |channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job |
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job |
-| priority | `int` | ✔️ | | Null when `classificationPolicyId` is specified. Non-null value if there is a direct queue assignment. |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job
+| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job
+| priority | `int` | ✔️ | | Null when `classificationPolicyId` is specified. Non-null value in case of direct queue assignment.
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobClassified
 
@@ -210,29 +224,43 @@ dotnet run
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
-    }
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "attachedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ]
   },
   "eventType": "Microsoft.Communication.RouterJobClassified",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | queueInfo | `QueueInfo` | ❌ |
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job (direct queue assignment) |
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job |
-| priority | `int` | ❌ |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| classificationPolicyId | `string` | ❌ | |
+| queueId | `string` | ✔️ | | `null` when `classificationPolicy` is not used for queue selection
+| priority | `int` | ✔️ | | `null` when `classificationPolicy` is not used for applying priority on job
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
-### Microsoft.Communication.RouterJobLabelsUpdated
+### Microsoft.Communication.RouterJobQueued
 
 [Back to Event Catalog](#events-catalog)
 
@@ -240,47 +268,59 @@ dotnet run
 {
   "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}",
+  "subject": "job/{job-id}/channel/{channel-id}/queue/{queue-id}",
   "data": {
     "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
     "channelReference": "test-abc",
-    "jobStatus": "Queued",
     "channelId": "FooVoiceChannelId",
-    "classificationPolicyId": "test-policy",
     "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
-    "priority": 5,
-    "labelsAddedOrChanged": {
-      "English": "5",
-      "Office": "7"
-    },
+    "priority": 1,
     "labels": {
       "Locale": "en-us",
       "Segment": "Enterprise",
-      "Token": "FooToken",
-      "English": "5",
-      "Office": "7"
-    }
+      "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "requestedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ],
+    "attachedWorkerSelectors": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ]
   },
-  "eventType": "Microsoft.Communication.RouterJobLabelsUpdated",
+  "eventType": "Microsoft.Communication.RouterJobQueued",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
-| channelReference | `string` | ❌ |
-| jobStatus| `enum` | ❌ | Possible values <ul> <li>PendingClassification</li> <li>Queued</li> <li>Assigned</li> <li>Completed</li> <li>Closed</li> <li>Canceled</li> <li>ClassificationFailed</li> </ul> |
+| channelReference | `string` | ✔️ |
 |channelId | `string` | ❌ |
-| classificationPolicyId | `string` | ✔️ | | `null` when `queueId` is specified for a job |
-| queueId | `string` | ✔️ | | `null` when `classificationPolicyId` is specified for a job |
+| queueId | `string` | ❌ | |
 | priority | `int` | ❌ |
-| labelsAddedOrChanged | `Dictionary<string, object>` | ✔️ | | Labels added or changed based on user input. |
-| labels | `Dictionary<string, object>` | ✔️ | | Complete set of labels associated with job. |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| requestedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | Based on user input while creating job
+| attachedWorkerSelectors | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
 ### Microsoft.Communication.RouterJobClassificationFailed
 
@@ -309,17 +349,21 @@ dotnet run
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
     }
   },
   "eventType": "Microsoft.Communication.RouterJobClassificationFailed",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | errors| `List<CommunicationError>` | ❌ |
@@ -327,7 +371,8 @@ dotnet run
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | classificationPolicyId | `string` | ❌ | |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterJobCompleted
 
@@ -348,26 +393,31 @@ dotnet run
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
-    }
-    "workerId": ""
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "workerId": "e3a3f2f9-3582-4bfe-9c5a-aa57831a0f88"
   },
   "eventType": "Microsoft.Communication.RouterJobCompleted",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ | |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | assignmentId| `string` | ❌ | |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 | workerId | `string` | ❌ | |
 
 ### Microsoft.Communication.RouterJobClosed
@@ -391,27 +441,32 @@ dotnet run
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
     }
   },
   "eventType": "Microsoft.Communication.RouterJobClosed",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ | |
-| dispositionCode| `string` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| dispositionCode| `string` | ✔️ | | Based on user input
 | workerId | `string` | ❌ | |
 | assignmentId | `string` | ❌ | |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
 
 ### Microsoft.Communication.RouterJobCancelled
 
@@ -433,26 +488,31 @@ dotnet run
       "Segment": "Enterprise",
       "Token": "FooToken"
     },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
     "queueId": ""
   },
   "eventType": "Microsoft.Communication.RouterJobCancelled",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:30Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
-| note| `string` | ✔️ | | Based on user input |
+| note| `string` | ✔️ | | Based on user input
 | dispositionCode| `string` | ❌ |
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
-| queueId | `string` | ✔️ | | Non-null when job is canceled after successful classification. |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| queueId | `string` | ✔️ | |
 
 ### Microsoft.Communication.RouterJobExceptionTriggered
 
@@ -473,17 +533,21 @@ dotnet run
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
     }
   },
   "eventType": "Microsoft.Communication.RouterJobExceptionTriggered",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | ruleKey | `string` | ❌ | |
@@ -491,44 +555,68 @@ dotnet run
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 | channelId | `string` | ❌ |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
-### Microsoft.Communication.RouterJobExceptionCleared
+### Microsoft.Communication.RouterJobWorkerSelectorsExpired
 
 [Back to Event Catalog](#events-catalog)
 
 ```json
 {
-  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
+  "id": "b6d8687a-5a1a-42ae-b8b5-ff7ec338c872",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}/exceptionrule/{rulekey}",
+  "subject": "job/{job-id}/channel/{channel-id}/queue/{queue-id}",
   "data": {
-    "ruleKey": "r100",
     "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
     "channelReference": "test-abc",
     "channelId": "FooVoiceChannelId",
+    "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
     "labels": {
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
-    }
+    },
+    "tags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
+    "requestedWorkerSelectorsExpired": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ],
+    "attachedWorkerSelectorsExpired": [
+      {
+        "key": "string",
+        "labelOperator": "equal",
+        "value": 5,
+        "ttl": "P3Y6M4DT12H30M5S"
+      }
+    ]
   },
-  "eventType": "Microsoft.Communication.RouterJobExceptionCleared",
+  "eventType": "Microsoft.Communication.RouterJobWorkerSelectorsExpired",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
-| ruleKey | `string` | ❌ | |
 | jobId| `string` | ❌ |
-| channelReference | `string` | ❌ |
+| channelReference | `string` | ✔️ |
+| queueId | `string` | ❌ | |
 | channelId | `string` | ❌ |
-| labels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| labels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| requestedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | Based on user input while creating a job
+| attachedWorkerSelectorsExpired | `List<WorkerSelector>` | ✔️ | | List of worker selectors attached by a classification policy
 
 ## Worker Events
 
@@ -555,17 +643,21 @@ dotnet run
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
+    },
+    "jobTags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
     }
   },
   "eventType": "Microsoft.Communication.RouterWorkerOfferIssued",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -577,7 +669,8 @@ dotnet run
 | offerTimeUtc | `DateTimeOffset` | ❌ |
 | expiryTimeUtc| `DateTimeOffset` | ❌ |
 | jobPriority| `int` | ❌ |
-| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| jobTags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
 ### Microsoft.Communication.RouterWorkerOfferAccepted
 
@@ -597,6 +690,11 @@ dotnet run
       "Segment": "Enterprise",
       "Token": "FooToken"
     },
+    "jobTags": {
+      "Locale": "en-us",
+      "Segment": "Enterprise",
+      "Token": "FooToken"
+    },
     "channelReference": "test-abc",
     "channelId": "FooVoiceChannelId",
     "queueId": "625fec06-ab81-4e60-b780-f364ed96ade1",
@@ -606,18 +704,18 @@ dotnet run
   "eventType": "Microsoft.Communication.RouterWorkerOfferAccepted",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
 | jobId| `string` | ❌ |
 | jobPriority| `int` | ❌ |
-| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input |
+| jobLabels | `Dictionary<string, object>` | ✔️ | | Based on user input
+| jobTags | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
 | queueId | `string` | ❌ |
@@ -644,12 +742,11 @@ dotnet run
   "eventType": "Microsoft.Communication.RouterWorkerOfferDeclined",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | workerId | `string` | ❌ |
@@ -679,12 +776,11 @@ dotnet run
   "eventType": "Microsoft.Communication.RouterWorkerOfferRevoked",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
 | offerId | `string` | ❌ |
@@ -714,16 +810,15 @@ dotnet run
   "eventType": "Microsoft.Communication.RouterWorkerOfferExpired",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
 **Attribute list**
-
 | Attribute | Type | Nullable |Description | Notes |
 |:--------- |:-----:|:-------:|-------------|-------|
-| offerId | `string` | ❌ |
 | workerId | `string` | ❌ |
+| offerId | `string` | ❌ |
 | jobId| `string` | ❌ |
 | channelReference | `string` | ❌ |
 |channelId | `string` | ❌ |
@@ -766,7 +861,7 @@ dotnet run
   "eventType": "Microsoft.Communication.RouterWorkerRegistered",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
 
@@ -795,9 +890,10 @@ dotnet run
   "eventType": "Microsoft.Communication.RouterWorkerDeregistered",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "eventTime": "2021-06-23T02:43:31Z"
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
 }
 ```
+
 **Attribute list**
 
 | Attribute | Type | Nullable |Description | Notes |
