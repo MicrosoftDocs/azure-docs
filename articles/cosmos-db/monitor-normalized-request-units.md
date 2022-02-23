@@ -23,30 +23,30 @@ If you are interested in seeing the request unit consumption at a per second int
 
 ## What to expect and do when normalized RU/s is higher
 
-When the normalized RU/s consumption reaches 100% for given partition key range, and if a client still makes requests in that time window of 1 second to that specific partition key range - it receives a rate limited error (429).
+When the normalized RU consumption reaches 100% for given partition key range, and if a client still makes requests in that time window of 1 second to that specific partition key range - it receives a rate limited error (429).
 
 This does not necessarily mean there is a problem with your resource. By default, the Azure Cosmos DB client SDKs and data import tools such as Azure Data Factory and bulk executor library automatically retry requests on 429s. They retry typically up to 9 times. As a result, while you may see 429s in the metrics, these errors may not even have been returned to your application.
 
-In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. In this case, the normalized RU/s consumption reaching 100% only means that in a given second, at least one partition key range used all its provisioned throughput. This is ok because the overall rate of 429s is low. No action is required.
+In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. In this case, the normalized RU consumption metric reaching 100% only means that in a given second, at least one partition key range used all its provisioned throughput. This is ok because the overall rate of 429s is low. No action is required.
 
 To determine what percent of your requests to your database or container resulted in 429s, from your Azure Cosmos DB account blade, navigate to **Insights** > **Requests** > **Total Requests by Status Code**. Filter to a specific database and container. For other APIs, use the **Mongo Requests**, **Gremlin Requests**, or **Cassandra Requests** metric.
 
 :::image type="content" source="sql/media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests.":::
 
-If the Normalized RU/s Consumption metric is consistently 100% across multiple partition key ranges and the rate of 429s is greater than 5%, it's recommended to increase the throughput. You can find out which operations are heavy and their peak usage by utilizing the Azure monitor metrics and Azure monitor diagnostic logs. Follow the [best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md).
+If the normalized RU consumption metric is consistently 100% across multiple partition key ranges and the rate of 429s is greater than 5%, it's recommended to increase the throughput. You can find out which operations are heavy and what their peak usage is by using the [Azure monitor metrics and Azure monitor diagnostic logs](sql/troubleshoot-request-rate-too-large.md#step-3-determine-what-requests-are-returning-429s). Follow the [best practices for scaling provisioned throughput (RU/s)](scaling-provisioned-throughput-best-practices.md).
 
-It is not always the case that you'll see a 429 rate limiting error just because the normalized RU has reached 100%. That's because the normalized RU is a single value that represents the max usage over all partition key ranges. One partition key range may be busy but the other partition key ranges can serve requests without issues. For example, a single operation such as a stored procedure that consumes all the RU/s on a partition key range will lead to a short spike in the normalized RU/s consumption. In such cases, there will not be any immediate rate limiting errors if the overall request rate is low or requests are made to other partitions on different partition key ranges.
+It is not always the case that you'll see a 429 rate limiting error just because the normalized RU has reached 100%. That's because the normalized RU is a single value that represents the max usage over all partition key ranges. One partition key range may be busy but the other partition key ranges can serve requests without issues. For example, a single operation such as a stored procedure that consumes all the RU/s on a partition key range will lead to a short spike in the normalized RU consumption metric. In such cases, there will not be any immediate rate limiting errors if the overall request rate is low or requests are made to other partitions on different partition key ranges.
 
 Learn more about how to [interpret and debug 429 rate limiting errors](sql/troubleshoot-request-rate-too-large.md).
 
 ## Monitor for hot partitions
-The Normalized RU/s Consumption metric can be used to monitor if your workload has a hot partition. A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests. It results in many requests being directed to a small subset of logical partitions, (which implies partition key ranges) that become "hot." Because all data for a logical partition resides on one partition key range and total RU/s is evenly distributed among all the partition key ranges, a hot partition can lead to 429s and inefficient use of throughput.
+The normalized RU consumption metric can be used to monitor if your workload has a hot partition. A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests. It results in many requests being directed to a small subset of logical partitions, (which implies partition key ranges) that become "hot." Because all data for a logical partition resides on one partition key range and total RU/s is evenly distributed among all the partition key ranges, a hot partition can lead to 429s and inefficient use of throughput.
 
-#### How to identify the hot partition
+#### How to identify if there is a hot partition
 
 To verify if there is a hot partition, navigate to **Insights** > **Throughput** > **Normalized RU Consumption (%) By PartitionKeyRangeID**. Filter to a specific database and container.
 
-Each PartitionKeyRangeId maps to one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition.
+Each PartitionKeyRangeId maps to one physical partition. If there is one PartitionKeyRangeId that has significantly higher normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition.
 
 :::image type="content" source="sql/media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
 
@@ -72,7 +72,7 @@ CDBPartitionKeyRUConsumption
 | summarize sum(RequestCharge) by bin(TimeGenerated, 1sec), PartitionKeyRangeId
 | render timechart
 ```
-In general, for a production workload using autoscale, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. Even if the normalized RU/s consumption occasionally reaches 100% and autoscale does not scale up to the max RU/s, this is ok because the overall rate of 429s is low. No action is required.
+In general, for a production workload using autoscale, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. Even if the normalized RU consumption occasionally reaches 100% and autoscale does not scale up to the max RU/s, this is ok because the overall rate of 429s is low. No action is required.
 
 
 > [!TIP]
@@ -98,9 +98,9 @@ In general, for a production workload using autoscale, if you see between 1-5% o
 
    :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Choose a metric from the Azure portal" border="true":::
 
-### Filters for normalized request unit consumption
+### Filters for normalized RU consumption metric
 
-You can also filter metrics and the chart displayed by a specific **CollectionName**, **DatabaseName**, **PartitionKeyRangeID**, and **Region**. To filter the metrics, select **Add filter** and choose the required property such as **CollectionName** and corresponding value you are interested in. The graph then displays the Normalized RU Consumption units consumed for the container for the selected period.
+You can also filter metrics and the chart displayed by a specific **CollectionName**, **DatabaseName**, **PartitionKeyRangeID**, and **Region**. To filter the metrics, select **Add filter** and choose the required property such as **CollectionName** and corresponding value you are interested in. The graph then displays the normalized RU consumption metric for the container for the selected period.
 
 You can group metrics by using the **Apply splitting** option. For shared throughput databases, the normalized RU metric shows data at the database granularity only, it doesn't show any data per collection. So for shared throughput database, you won't see any data when you apply splitting by collection name.
 
