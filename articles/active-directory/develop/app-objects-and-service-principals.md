@@ -40,7 +40,7 @@ You can use the **App registrations** blade in the [Azure portal][AZURE-Portal] 
 
 The Microsoft Graph [Application entity][MS-Graph-App-Entity] defines the schema for an application object's properties.
 
-## Service principal object
+## Security principal object
 
 To access resources that are secured by an Azure AD tenant, the entity that requires access must be represented by a security principal. This requirement is true for both users (user principal) and applications (service principal). The security principal defines the access policy and permissions for the user/application in the Azure AD tenant. This enables core features such as authentication of the user/application during sign-in, and authorization during resource access.
 
