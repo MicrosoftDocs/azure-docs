@@ -169,9 +169,8 @@ compute_client = ComputeManagementClient(
 
 
 print('\nStart VM')
-async_vm_start = compute_client.virtual_machines.start(
+async_vm_start = compute_client.virtual_machines.begin_start(
     "MyResourceGroup", "TestVM")
-async_vm_start.wait()
 ```
 
 Where `MyResourceGroup` is the name of the resource group that contains the VM, and `TestVM` is the name of the VM that you want to start.
@@ -196,9 +195,8 @@ This imports the `sys` module, and creates two variables to hold the resource gr
 Now you can modify the last two lines of the runbook to use the input parameter values instead of using hard-coded values:
 
 ```python
-async_vm_start = compute_client.virtual_machines.start(
+async_vm_start = compute_client.virtual_machines.begin_start(
     resource_group_name, vm_name)
-async_vm_start.wait()
 ```
 
 When you start a Python runbook, either from the **Test** pane or as a published runbook, you can enter the values for parameters in the **Start Runbook** page under **Parameters**.
