@@ -1,7 +1,7 @@
 ---
 title: Azure Queue storage trigger for Azure Functions
 description: Learn to run an Azure Function as Azure Queue storage data changes.
-author: craigshoemaker
+author: ggailey777
 ms.topic: reference
 ms.date: 12/18/2021
 ms.author: cshoe

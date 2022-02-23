@@ -1,7 +1,7 @@
 ---
 title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
 ms.date: 12/07/2021

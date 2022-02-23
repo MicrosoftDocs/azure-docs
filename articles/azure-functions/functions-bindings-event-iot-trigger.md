@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Hub trigger for Azure Functions
 description: Learn to respond to events sent to an IoT hub event stream in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe

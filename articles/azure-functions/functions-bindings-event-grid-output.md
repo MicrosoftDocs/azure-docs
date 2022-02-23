@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid output binding for Azure Functions
 description: Learn to send an Event Grid event in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 
 ms.topic: reference
 ms.date: 10/21/2021
@@ -119,13 +119,9 @@ public static async Task Run(
 
 # [Isolated process](#tab/isolated-process)
 
-When running your C# function in an isolated process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
-
 The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-33":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="12-23":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -447,28 +443,27 @@ def main(eventGridEvent: func.EventGridEvent,
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) attribute. C# script instead uses a function.json configuration file.    
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the binding. C# script instead uses a function.json configuration file.    
 
-The attribute's constructor takes the name of an application setting that contains the name of the custom topic, and the name of an application setting that contains the topic key. Here's an `EventGrid` attribute example:
+The attribute's constructor takes the name of an application setting that contains the name of the custom topic, and the name of an application setting that contains the topic key. 
 
 # [In-process](#tab/in-process)
 
-Here's an `EventGridOutput` attribute in a method signature:
+The following table explains the parameters for the `EventGridAttribute`.
 
-```csharp
-[FunctionName("EventGridOutput")]
-[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
-public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
-{
-    ...
-}
-```
+|Parameter | Description|
+|---------|---------|----------------------|
+|**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
+|**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
 
 # [Isolated process](#tab/isolated-process)
 
-Here's an `EventGridOutput` attribute in a method signature:
+The following table explains the parameters for the `EventGridOutputAttribute`.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16":::
+|Parameter | Description|
+|---------|---------|----------------------|
+|**TopicEndpointUri** | The name of an app setting that contains the URI for the custom topic, such as `MyTopicEndpointUri`. |
+|**TopicKeySetting** | The name of an app setting that contains an access key for the custom topic. |
 
 # [C# Script](#tab/csharp-script)
 
@@ -575,7 +570,7 @@ Functions version 1.x doesn't support isolated process.
 
 # [Extension v3.x](#tab/extensionv3/csharp-script)
 
-In-process C# class library functions supports the following types:
+C# script functions support the following types:
 
 + [Azure.Messaging.CloudEvent][CloudEvent]
 + [Azure.Messaging.EventGrid][EventGridEvent2]
@@ -587,7 +582,7 @@ To write multiple messages, you can instead use `ICollector<EventGridEvent>` or 
 
 # [Extension v2.x](#tab/extensionv2/csharp-script)
 
-In-process C# class library functions supports the following types:
+C# script functions support the following types:
 
 + [Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent]
 + [Newtonsoft.Json.Linq.JObject][JObject]
@@ -598,7 +593,7 @@ To write multiple messages, you can instead use `ICollector<EventGridEvent>` or 
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 
-In-process C# class library functions supports the following types:
+C# script functions support the following types:
 
 + [Newtonsoft.Json.Linq.JObject][JObject]
 + [System.String][String]

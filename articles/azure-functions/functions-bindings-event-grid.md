@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid bindings for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 
 ms.topic: reference
 ms.date: 10/21/2021
@@ -107,6 +107,8 @@ The Event Grid extension is part of an [extension bundle], which is specified in
 
 # [Bundle v3.x](#tab/extensionv3)
 
+This version of the extension supports updated Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Microsoft.Azure.EventGrid.Models.EventGridEvent](/dotnet/api/microsoft.azure.eventgrid.models.eventgridevent).
+
 You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
 
 ```json
@@ -118,8 +120,6 @@ You can add this version of the extension from the extension bundle v3 by adding
   }
 }
 ```
-
-[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
 
 To learn more, see [Update your extensions].
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Functions SignalR Service input binding
 description: Learn to return a SignalR service endpoint URL and access token in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp

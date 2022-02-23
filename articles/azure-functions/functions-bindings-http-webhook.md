@@ -1,7 +1,7 @@
 ---
 title: Azure Functions HTTP triggers and bindings
 description: Learn to use HTTP triggers and bindings in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 
 ms.topic: reference
 ms.date: 02/14/2020

@@ -620,9 +620,6 @@
             - name: Trigger
               href: functions-bindings-event-iot-trigger.md
               displayName: Azure IoT Hubs
-            - name: Output
-              href: functions-bindings-event-iot-output.md
-              displayName: Azure IoT Hubs
         - name: Kafka
           href: https://github.com/azure/azure-functions-kafka-extension
         - name: HTTP and webhooks

@@ -1,7 +1,7 @@
 ---
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
-author: craigshoemaker
+author: ggailey777
 
 ms.topic: reference
 ms.date: 02/21/2020
