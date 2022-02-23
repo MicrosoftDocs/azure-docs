@@ -96,7 +96,7 @@ After you acquire your on-premises management console appliance:
 
 **To install and set up**:
 
-1. Go to [Defender for IoT: Getting Started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal].
+1. Go to [Defender for IoT: Getting Started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
 
 1. Select the **On-premises management console** tab.
 
