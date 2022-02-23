@@ -161,8 +161,7 @@ Under **Choose a certificate** select the certificate named in the previous step
 > [!NOTE]
 > It is important to consider any impact on your Application Gateway resource when making changes or revoking access to your Key Vault resource. In case your application gateway is unable to access the associated key vault or locate the certificate object in it, it will automatically put that listener in a disabled state. 
 >
-> You can identify this user-driven event by viewing the Resource Health for your Application Gateway. [Learn more](link).
-()
+> You can identify this user-driven event by viewing the Resource Health for your Application Gateway. [Learn more](../application-gateway/disabled-listeners.md).
  
 Azure Application Gateway doesn't just poll for the renewed certificate version on Key Vault at every four-hour interval. It also logs any error and is integrated with Azure Advisor to surface any misconfiguration with a recommendation for its fix.
  
