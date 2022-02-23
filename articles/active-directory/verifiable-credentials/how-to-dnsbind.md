@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/17/2022
+ms.date: 02/22/2022
 ms.author: barclayn
 
 #Customer intent: Why are we doing this?
@@ -17,7 +17,7 @@ ms.author: barclayn
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -35,7 +35,7 @@ Linking a DID to a domain solves the initial trust problem by allowing any entit
 
 ## When do we need to manage linked domains?
 
- Any situation that requires the domain associated with your company to change, like a company merger or a company rename, may mean that you need to manage your linked domain. In either one of these cases, you would make changes to your domain list through the Azure AD Portal and those changes would be published in the greater Decentralized Network.  
+ Any situation that requires the domain associated with your company to change, like a company merger or a company rename, may mean that you need to manage your linked domain. Before, In either one of these situations would have required for you to opt out and back in. You no longer need to [opt out](how-to-opt-out.md) to make changes to your domain information. You can make changes to your domain through the Azure AD Portal. After you publish your changes, those changes are published to the ION network.
 
 ## How do we link DIDs and domains?
 
@@ -97,7 +97,7 @@ If all of the previously mentioned are true, then Microsoft Authenticator displa
 
 ## Unverified domain
 
-If any of the above aren't true, the Microsoft Authenticator will display a full page warning to the user that the domain is unverified, the user is in the middle of a risky transaction and they should proceed with caution. We have chosen to take this route because:
+If any of the above aren't true, Microsoft Authenticator displays a full page warning to the user that the domain is unverified. The user is warned that they are in the middle of a risky transaction and they should proceed with caution. We have chosen to take this route because:
 
 * The DID is either not anchored to a domain.
 * The configuration wasn't set up properly.
@@ -110,7 +110,7 @@ It is of high importance that you link your DID to a domain recognizable to the 
 ## How do you change a linked domain?
 
 1. Navigate to the Verifiable Credentials | Getting Started page.  
-1. One the left side of the page select **Domain**.
+1. On the left side of the page select **Domain**.
 1. In the Domain box, enter your new domain name.
 1. Choose **Publish**.
 
@@ -121,6 +121,11 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 
 :::image type="content" source="media/how-to-dnsbind/verification.png" alt-text="You need to verify your domain once that the publishing process completes":::
+
+
+>[!IMPORTANT]
+> No changes to the domain are possible before the changes are confirmed as published and live in the [ION network](https://identity.foundation/ion/). 
+
 
 ### Do I need to wait for my DID Doc to be updated to verify my newly added domains?
 
@@ -135,9 +140,7 @@ Today, we're unable to tel you exactly when your domain link change will complet
 
 ## Distribute well-known config
 
-1. Navigate to the Settings page in Verifiable Credentials and choose **Verify this domain**
-
-   ![Verify this domain in settings](media/how-to-dnsbind/settings-verify.png) 
+1. From the Azure portal, navigate to the Verifiable Credentials page. Select **Domain** and choose **Verify this domain**
 
 2. Download the did-configuration.json file shown in the image below.
 
@@ -158,4 +161,4 @@ Congratulations, you now have bootstrapped the web of trust with your DID!
 
 ## Next steps
 
-If during onboarding you enter the wrong domain information or if you decide to change it, you will need to [opt out](how-to-opt-out.md). At this time, we don't support updating your DID document. Opting out and opting back in will create a brand new DID.
+- [How to customize your Azure Active Directory Verifiable Credentials](credential-design.md)
