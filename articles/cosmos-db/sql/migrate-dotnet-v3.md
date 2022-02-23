@@ -76,6 +76,7 @@ The following are some of the main class name changes:
 |`Microsoft.Azure.Documents.Client.FeedOptions`|`Microsoft.Azure.Cosmos.QueryRequestOptions`|
 |`Microsoft.Azure.Documents.Client.StoredProcedure`|`Microsoft.Azure.Cosmos.StoredProcedureProperties`|
 |`Microsoft.Azure.Documents.Client.Trigger`|`Microsoft.Azure.Cosmos.TriggerProperties`|
+|`Microsoft.Azure.Documents.SqlQuerySpec`|`Microsoft.Azure.Cosmos.QueryDefinition`|
 
 ### Classes replaced on .NET v3 SDK
 
