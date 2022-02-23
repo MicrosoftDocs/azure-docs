@@ -57,32 +57,27 @@ The following details display:
 - **Trusted entities**: The identities from external accounts that can assume this role.
 
 1. To view all the identities from various accounts that can assume this role, select the down arrow to the left of the role name.
-
 1. To view a graph of all the identities that can access the specified account and through which role(s), select the role name.
 
+   If CloudKnox is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted entity** section.
 
-If CloudKnox is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted entity** section.
-
-- **Connecting roles**: Lists the following roles for each account:
-
-- *Direct roles* that are trusted by the account role.
-- *Intermediary roles* that aren't directly trusted by the account role but are assumable by identities through role-chaining.
+   **Connecting roles**: Lists the following roles for each account:
+      - *Direct roles* that are trusted by the account role.
+      - *Intermediary roles* that aren't directly trusted by the account role but are assumable by identities through role-chaining.
 
 1. To view all the roles from that account that are used to access the specified account, select the down arrow to the left of the account name.
-
 1. To view the trusted identities declared by the role, select the down arrow to the left of the role name.
 
-The trusted identities for the role are listed only if the account is being monitored by CloudKnox.
+   The trusted identities for the role are listed only if the account is being monitored by CloudKnox.
 
 1. To view the role definition, select the "eye" icon to the right of the role name.
 
-When you select the down arrow and expand details, a search box is displayed. Enter your criteria in this box to search for specific roles.
+   When you select the down arrow and expand details, a search box is displayed. Enter your criteria in this box to search for specific roles.
 
-- **Identities with access**: Lists the identities that come from external accounts:
-
-- To view all the identities from that account can access the specified account, select the down arrow to the left of the account name.
-- To view the **Role summary** for EC2 instances and Lambda functions, select the "eye" icon to the right of the identity name.
-- To view a graph of how the identity can access the specified account and through which role(s), select the identity name.
+   **Identities with access**: Lists the identities that come from external accounts:
+      - To view all the identities from that account can access the specified account, select the down arrow to the left of the account name.
+      - To view the **Role summary** for EC2 instances and Lambda functions, select the "eye" icon to the right of the identity name.
+      - To view a graph of how the identity can access the specified account and through which role(s), select the identity name.
 
 1. The **Info** tab displays the **Privilege creep index** and **Service control policy (SCP)** information about the account.
 
