@@ -19,7 +19,7 @@ Listed below are the support, breaking change policies for Microsoft Defender fo
 
 ### Servicing information and timelines
 
-Microsoft plans to release updates for Defender for IoT no less than once a quarter. Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console is supported for nine months after release. Fixes and new functionality will be applied to the current GA version that is currently supported and won't be applied to older GA versions.
+Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console is supported for nine months after release. Fixes and new functionality will be applied to the current GA version that is currently supported and won't be applied to older GA versions.
 
 The Defender for IoT sensor and on-premises management console update packages includes new functionality and security patches. Urgent, high-risk security updates will be applied to minor releases occurring during the quarter.
 

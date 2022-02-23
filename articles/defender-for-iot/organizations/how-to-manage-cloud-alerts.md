@@ -38,9 +38,9 @@ Alert details triggered by these sensors and aggregated in the Alerts page:
 
 ## Alert types and messages
 
-You can view alert messages you may receive. Reviewing alert types and messages ahead of time will help you plan remediation and integration with playbooks.  
-[Alert types and descriptions](alert-engine-messages.md#alert-types-and-descriptions).
+You can view alert messages you may receive. Reviewing alert types and messages ahead of time will help you plan remediation and integration with playbooks.
 
+For more information, see [Alert types and descriptions](alert-engine-messages.md#alert-types-and-descriptions).
 
 ## View alerts
 
