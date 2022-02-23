@@ -138,7 +138,7 @@ In the following example, API Management interprets any request as a request wit
 
 By default, validation of request or response content uses JSON or XML schemas from the API definition. These schemas can be specified manually or generated automatically when importing an API from an OpenAPI or WSDL specification into API Management.
 
-Using the `validate-content` policy, you may optionally validate against one or more JSON or XML schemas that you’ve added to your API Management instance.
+Using the `validate-content` policy, you may optionally validate against one or more JSON or XML schemas that you’ve added to your API Management instance and that aren't part of the API definition. A schema that you add to API Management can be reused across many APIs.
 
 To add a schema to your API Management instance using the Azure portal:
 
