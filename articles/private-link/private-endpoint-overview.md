@@ -108,6 +108,9 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure App Service | Microsoft.Web/sites | sites |
 | Azure App Service | Microsoft.Web/staticSites | staticSite |
 
+> [!NOTE]
+> You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
+ 
 ## Network security of private endpoints 
 
 When you use private endpoints, traffic is secured to a private-link resource. The platform does an access control to validate network connections that reach only the specified private-link resource. To access more resources within the same Azure service, you need additional private endpoints. 
