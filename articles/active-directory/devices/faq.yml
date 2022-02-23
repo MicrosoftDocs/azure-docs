@@ -6,14 +6,13 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: devices
-  ms.topic: troubleshooting
-  ms.date: 09/02/2021
+  ms.topic: faq
+  ms.date: 02/15/2022
   ms.author: joflore
   author: MicrosoftGuyJFlo
   manager: karenhoran
   ms.reviewer: ravenn
   ms.collection: M365-identity-device-management
-    
 title: Azure Active Directory device management FAQ
 summary: |
 
@@ -22,13 +21,13 @@ sections:
     questions:
       - question: I registered the device recently. Why can't I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
         answer: |
-          Windows 10 or later devices that are hybrid Azure AD joined don't show up under **USER devices**.
+          Windows 10 or newer devices that are hybrid Azure AD joined don't show up under **USER devices**.
           Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice) cmdlet.
           
           Only the following devices are listed under **USER devices**:
           
           - All personal devices that aren't hybrid Azure AD joined. 
-          - All non-Windows 10 or later and Windows Server 2016 or later devices.
+          - All non-Windows 10 or newer and Windows Server 2016 or later devices.
           - All non-Windows devices. 
           
           
@@ -37,7 +36,7 @@ sections:
         answer: |
           In the Azure portal, go to **All devices**. Search for the device by using the device ID. Check the value under the join type column. Sometimes, the device might be reset or reimaged. So it's essential to also check the device registration state on the device:
           
-          - For Windows 10 or later and Windows Server 2016 or later devices, run `dsregcmd.exe /status`.
+          - For Windows 10 or newer and Windows Server 2016 or later devices, run `dsregcmd.exe /status`.
           - For down-level OS versions, run `%programFiles%\Microsoft Workplace Join\autoworkplace.exe`.
           
           For troubleshooting information, see these articles:
@@ -107,7 +106,7 @@ sections:
           
       - question: Why do I see duplicate device entries in the Azure portal?
         answer: |
-          - For Windows 10  or later and Windows Server 2016 or later, repeated tries to unjoin and rejoin the same device might cause duplicate entries. 
+          - For Windows 10 or newer and Windows Server 2016 or later, repeated tries to unjoin and rejoin the same device might cause duplicate entries. 
           - Each Windows user who uses **Add Work or School Account** creates a new device record with the same device name.
           - For down-level Windows OS versions that are on-premises Azure Directory domain joined, automatic registration creates a new device record with the same device name for each domain user who signs in to the device. 
           - An Azure AD joined machine that's wiped, reinstalled, and rejoined with the same name shows up as another record with the same device name.
@@ -260,7 +259,7 @@ sections:
           
       - question: What happens if a user changes their password and tries to sign in to their Windows 10/11 hybrid Azure AD joined device outside the corporate network?
         answer: |
-          If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user sign in with the new password will fail. For hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. When a device does not have line of sight to the domain controller, it is unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign in capability in Windows. However, the old password is invalidated by Azure AD during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies. This issue doesn't occur if you use Windows Hello for Business. 
+          If a password is changed outside the corporate network (for example, by using Azure AD SSPR), then the user sign in with the new password will fail. For hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. When a device does not have line of sight to the domain controller, it is unable to validate the new password. So, user needs to establish connection with the domain controller (either via VPN or being in the corporate network) before they're able to sign in to the device with their new password. Otherwise, they can only sign in with their old password because of cached sign in capability in Windows. However, the old password is invalidated by Azure AD during token requests and hence, prevents single sign-on and fails any device-based Conditional Access policies until the user authenticates with their new password in an app or browser. This issue doesn't occur if you use Windows Hello for Business. 
           
           
   - name: Azure AD register FAQ

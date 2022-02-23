@@ -46,7 +46,7 @@ To complete this tutorial, you need to:
 * Have an Azure account that is assigned to one of the built-in roles listed below:
     - Contributor for the target Azure SQL Managed Instance (and Storage Account to upload your database backup files from SMB network share).
     - Owner or Contributor role for the Azure Resource Groups containing the target Azure SQL Managed Instance or the Azure storage account.
-    - Owner or Contributor role for the Azure subscription.
+    - Owner or Contributor role for the Azure subscription (required if creating a new DMS service).
 * Create a target [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 * Ensure that the logins used to connect the source SQL Server are members of the *sysadmin* server role or have `CONTROL SERVER` permission. 
 * Use one of the following storage options for the full database and transaction log backup files: 

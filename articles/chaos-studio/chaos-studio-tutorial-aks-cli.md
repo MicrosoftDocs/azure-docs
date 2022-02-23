@@ -6,7 +6,8 @@ ms.topic: how-to
 ms.date: 11/11/2021
 ms.author: johnkem
 ms.service: chaos-studio
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create a chaos experiment that uses a Chaos Mesh fault with the Azure CLI
@@ -18,7 +19,10 @@ Azure Chaos Studio uses [Chaos Mesh](https://chaos-mesh.org/), a free, open-sour
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- An AKS cluster. If you do not have an AKS cluster, you can [follow these steps to create one](../aks/kubernetes-walkthrough-portal.md).
+- An AKS cluster with Linux node pools. If you do not have an AKS cluster, you can [follow these steps to create one](../aks/kubernetes-walkthrough-portal.md).
+
+> [!WARNING]
+> AKS Chaos Mesh faults are only supported on Linux node pools.
 
 ## Launch Azure Cloud Shell
 

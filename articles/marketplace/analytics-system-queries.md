@@ -4,7 +4,7 @@ description: Learn about system queries you can use to programmatically get anal
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 12/03/2021
+ms.date: 01/20/2022
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
@@ -14,14 +14,16 @@ ms.reviewer: sroy
 
 The following system queries can be used in the [Create Report API](analytics-programmatic-access.md#create-report-api) directly with a `QueryId`. The system queries are like the export reports in Partner Center for a six month (6M) computation period.
 
-For more information on the column names, attributes, and description, see these articles:
+For more information on the column names, attributes, and description, see these articles about commercial marketplace analytics:
 
-- [Customers dashboard in commercial marketplace analytics](customer-dashboard.md#customer-details-table)
-- [Orders dashboard in commercial marketplace analytics](orders-dashboard.md#orders-details-table)
-- [Usage dashboard in commercial marketplace analytics](usage-dashboard.md#usage-details-table)
-- [Marketplace Insights dashboard in commercial marketplace analytics](insights-dashboard.md#marketplace-insights-details-table)
+- [Customers dashboard](customer-dashboard.md#customer-details-table)
+- [Orders dashboard](orders-dashboard.md#orders-details-table)
+- [Usage dashboard](usage-dashboard.md#usage-details-table)
+- [Marketplace Insights dashboard](insights-dashboard.md#marketplace-insights-details-table)
+- [Revenue dashboard](revenue-dashboard.md)
+- [Quality of Service dashboard](quality-of-service-dashboard.md)
 
-The following sections provide report queries for various reports.
+The following sections provide various report queries.
 
 ## Customers report query
 
@@ -96,6 +98,16 @@ The following sections provide report queries for various reports.
 **Report query**:
 
 `SELECT AssetId,SalesChannel,BillingAccountId,CustomerCity,CustomerCompanyName,CustomerCountry,CustomerEmail,CustomerId,CustomerName,CustomerState,EarningAmountCC,EarningAmountPC,EarningAmountUSD,EarningCurrencyCode,EarningExchangeRatePC,EstimatedPayoutMonth,Revenue,EstimatedRevenuePC,EstimatedRevenueUSD,ExchangeRateDate,ExchangeRatePC,ExchangeRateUSD,PayoutStatus,IncentiveRate,TrialDeployment,LineItemId,MonthStartDate,OfferName,OfferType,PaymentInstrumentType,PaymentSentDate,PurchaseRecordId,Quantity,SKU,TermEndDate,TermStartDate,TransactionAmountCC,TransactionAmountPC,TransactionAmountUSD,BillingModel,Units FROM ISVRevenue TIMESPAN LAST_6_MONTHS`
+
+## Quality of service report query
+
+**Report description**: Quality of service report for the last 3M
+
+**QueryID**: `q9df4939-073f-5795-b0cb-v2c81d11e58d`
+
+**Report query**:
+
+`SELECT OfferId,Sku,DeploymentStatus,DeploymentCorrelationId,SubscriptionId,CustomerTenantId,CustomerName,TemplateType,StartTime,EndTime,DeploymentDurationInMilliSeconds,DeploymentRegion,ResourceProvider,ResourceUri,ResourceGroup,ResourceType,ResourceName,ErrorCode,ErrorName,ErrorMessage,DeepErrorCode,DeepErrorMessage FROM ISVQualityOfService TIMESPAN LAST_3_MONTHS`
 
 ## Next steps
 

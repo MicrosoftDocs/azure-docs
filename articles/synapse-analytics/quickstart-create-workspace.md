@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: create a Synapse workspace'
 description: Create an  Synapse workspace by following the steps in this guide.
-services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart
@@ -51,7 +50,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
     | Setting | Value |
     | --- | --- |
     | Role | Owner and Storage Blob Data Owner |
-    | Assign access to | [USER |
+    | Assign access to | USER |
     | Members | your user name |
 
     ![Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)

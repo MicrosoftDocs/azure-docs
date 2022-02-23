@@ -13,7 +13,7 @@ ms.author: aahi
 ## Create an Computer Vision resource
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-1. Click [Create **Computer Vision**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resource.
+1. Click [Create **Computer Vision**](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision) resource.
 1. Enter all required settings:
 
     |Setting|Value|

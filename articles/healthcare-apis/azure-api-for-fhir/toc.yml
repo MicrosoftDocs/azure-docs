@@ -133,13 +133,13 @@ items:
       expanded: false
       items:
       - name: Configure Export
-        href: ../data-transformation/configure-export-data.md
+        href: configure-export-data.md
       - name: Export data
-        href: ../data-transformation/export-data.md
+        href: export-data.md
       - name: De-identified export
-        href: ../data-transformation/de-identified-export.md
-      - name: Move data to Synapse
-        href: ../data-transformation/move-to-synapse.md
+        href: de-identified-export.md
+      - name: Copy data to Synapse
+        href: copy-to-synapse.md
     - name: Convert data
       expanded: false
       items:
@@ -155,7 +155,7 @@ items:
     href: get-healthcare-apis-access-token-cli.md
   - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
     href: iot-troubleshoot-guide.md
-  - name: Move FHIR service
+  - name: Move Azure API for FHIR
     href: move-fhir-service.md
 - name: Concepts
   expanded: true

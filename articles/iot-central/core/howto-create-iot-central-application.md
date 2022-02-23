@@ -55,8 +55,6 @@ The _subdomain_ you choose uniquely identifies your application. The subdomain i
 
 The application template you choose determines the initial contents of your application, such as dashboards and device templates. The template ID For a custom application, use `iotc-pnp-preview` as the template ID.
 
-To learn more about custom and industry-focused application templates, see [What are application templates?](concepts-app-templates.md).
-
 ### Billing information
 
 If you choose one of the standard plans, you need to provide billing information:
@@ -123,9 +121,9 @@ Add these items manually to any applications created from an application templat
 
 To create an application template from an existing IoT Central application:
 
-1. Go to the **Administration** section in your application.
-1. Select **Application Template Export**.
-1. On the **Application Template Export** page, enter a name and description for your template.
+1. Go to the **Application** section in your application.
+1. Select **Template Export**.
+1. On the **Template Export** page, enter a name and description for your template.
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
 :::image type="content" source="media/howto-create-iot-central-application/create-template.png" alt-text="Screenshot that shows create an application template.":::

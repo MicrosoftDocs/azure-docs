@@ -22,7 +22,7 @@ Outbound connectivity to the internet can be enabled in the following ways in Az
 | # | Method | Type of port allocation | Production-grade? | Rating |
 | ------------ | ------------ | ------ | ------------ | ------------ |
 | 1 | Using the frontend IP address(es) of a Load Balancer for outbound via Outbound rules | Static, explicit | Yes, but not at scale | OK | 
-| 2 | Associating a NAT gateway to the subnet | Static, explicit | Yes | Best | 
+| 2 | Associating a NAT gateway to the subnet | Dynamic, explicit | Yes | Best | 
 | 3 | Assigning a Public IP to the Virtual Machine | Static, explicit | Yes | OK | 
 | 4 | Using [default outbound access](../virtual-network/ip-services/default-outbound-access.md) | Implicit | No | Worst |
 
