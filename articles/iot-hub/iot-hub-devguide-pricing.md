@@ -25,9 +25,7 @@ Use the following table to help determine which operations are charged. All bill
 - The operations that result in charges, with either:
   - A link to the REST API documentation if it exists.
   - The operation endpoint if REST API documentation isn't available, or if the operation is only available over MQTT and/or AMQP. The endpoint value omits the leading reference to the target IoT hub; `{fully-qualified-iothubname}.azure-devices.net`.
-- One or more terms in *italics* following each operation (or endpoint) that represents terms that may be returned by customer support for billable operations. These are provided to help customers relate these terms to operations that produce the associated charges. If you're not working with customer support, you can ignore them.
-
-Maximum message sizes differ for different types of operations. To learn more, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+- One or more terms in *italics* following each operation (or endpoint) that represents terms that may be returned by customer support for billable operations. These terms are provided to help customers relate them to operations that produce the associated charges. If you're not working with customer support, you can ignore them.
 
 | Operation category | Billing information |
 | --------- | ------------------- |
