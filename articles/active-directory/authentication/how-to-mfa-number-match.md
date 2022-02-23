@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 02/23/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -242,6 +242,7 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
 ## Known issues
 
+- Number matching can't be disabled for passwordless sign-in. Passwordless sign-in has number matching on by default and can never be turned off. 
 - Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ## Next steps
