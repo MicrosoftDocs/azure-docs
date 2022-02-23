@@ -206,7 +206,7 @@ The following are frequently asked questions (FAQ) about using your own persiste
 
 * I'm using the service endpoint to configure the Storage Account to allow access only from my own virtual network. Why did I receive *Permission Denied* while trying to mount custom persistent storage to my applications?
 
-    *Service endpoint provides network access on subnet level only. Please make sure you added both subnets used by Azure Spring Cloud instance to the scope of service endpoint.*
+    *A service endpoint provides network access on a subnet level only. Be sure you've added both subnets used by the Azure Spring Cloud instance to the scope of the service endpoint.*
 
 ## Next steps
 
