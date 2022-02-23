@@ -769,6 +769,8 @@
         href: hyperscale/howto-useful-diagnostic-queries.md
   - name: API Reference
     items:
+      - name: Overview
+        href: hyperscale/reference-overview.md
       - name: SQL API functions
         href: hyperscale/reference-functions.md
       - name: Server parameters
