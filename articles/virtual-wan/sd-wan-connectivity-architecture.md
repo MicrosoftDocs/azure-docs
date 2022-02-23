@@ -18,10 +18,10 @@ Azure Virtual WAN is a networking service that brings together many cloud connec
 
 Although Azure Virtual WAN is a cloud-based SD-WAN that provides a rich suite of Azure first-party connectivity, routing, and security services, Azure Virtual WAN also is designed to enable seamless interconnection with premises-based SD-WAN and SASE technologies and services. Many such services are offered by our [Virtual WAN](virtual-wan-locations-partners.md) ecosystem and Azure Networking Managed Services partners [(MSPs)](../networking/networking-partners-msp.md). Enterprises that are transforming their private WAN to SD-WAN have options when interconnecting their private SD-WAN with Azure Virtual WAN. Enterprises can choose from these options:
 
-* Direct Interconnect Model
-* Direct Interconnect Model with NVA-in-VWAN-hub
-* Indirect Interconnect Model
-* Managed Hybrid WAN Model using their favorite managed service provider [MSP](../networking/networking-partners-msp.md)
+* Direct Interconnect model
+* Direct Interconnect model with NVA-in-VWAN-hub
+* Indirect Interconnect model
+* Managed Hybrid WAN model using their favorite managed service provider [MSP](../networking/networking-partners-msp.md)
 
 In all of these cases, the interconnection of Virtual WAN with SD-WAN is similar from the connectivity side, but may vary on the orchestration and operational side.
 
@@ -39,7 +39,7 @@ In this model, some vendor proprietary traffic optimization based on real-time t
 
 With Virtual WAN, users can get Azure Path Selection, which is policy-based path selection across multiple ISP links from the branch CPE to Virtual WAN VPN gateways. Virtual WAN allows for the setup of multiple links (paths) from the same SD-WAN branch CPE; each link represents a dual tunnel connection from a unique public IP of the SD-WAN CPE to two different instances of Azure Virtual WAN VPN gateway. SD-WAN vendors can implement the most optimal path to Azure, based on traffic policies set by their policy engine on the CPE links. On the Azure end, all connections coming in are treated equally.
 
-## <a name="direct-nva"></a>Direct Interconnect Model with NVA-in-VWAN-hub
+## <a name="direct-nva"></a>Direct Interconnect model with NVA-in-VWAN-hub
 
 :::image type="content" source="./media/sd-wan-connectivity-architecture/direct-nva.png" alt-text="Diagram of direct interconnect model with NVA-in-VWAN-hub." lightbox="./media/sd-wan-connectivity-architecture/direct-nva.png":::
 
