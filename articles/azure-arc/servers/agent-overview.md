@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 01/19/2022
+ms.date: 02/23/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -103,7 +103,7 @@ The following versions of the Windows and Linux operating system are officially 
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. See [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md) for a list of the reserved words.
 
 > [!NOTE]
-> While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distro:
+> While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distribution:
 >
 > * The Dependency agent used by Azure Monitor VM insights
 > * Azure Automation Update Management
@@ -116,6 +116,8 @@ The following versions of the Windows and Linux operating system are officially 
 ### Required permissions
 
 * To onboard machines, you are a member of the **Azure Connected Machine Onboarding** or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
+
+* To create a service principal in support of onboarding machines at scale using that identity, your account must be a member of the Azure Active Directory [Cloud Application Administrator](../../active-directory/roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../../active-directory/roles/permissions-reference.md#application-administrator) role.
 
 * To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role in the resource group.
 

@@ -2,11 +2,8 @@
 title: Use Application Change Analysis in Azure Monitor to find web-app issues | Microsoft Docs
 description: Use Application Change Analysis in Azure Monitor to troubleshoot application issues on live sites on Azure App Service.
 ms.topic: conceptual
-author: cawams
-ms.author: cawa
 ms.date: 01/11/2022 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Use Application Change Analysis in Azure Monitor (preview)
