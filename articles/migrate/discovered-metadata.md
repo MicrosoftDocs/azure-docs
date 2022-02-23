@@ -18,7 +18,7 @@ Metadata discovered by the Azure Migrate appliance helps you to assess server re
 
 ## Collected metadata for VMware servers
 
-The appliance collects configuration, performance metadata,data about installed applications, roles and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your VMware environment.
+The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your VMware environment.
 
 Here's the full list of server metadata that the appliance collects and sends to Azure:
 
@@ -84,7 +84,7 @@ NIC writes throughput (MB per second) | net.transmitted.average  |Calculation fo
 
 ## Collected metadata for Hyper-V servers
 
-The appliance collects configuration, performance metadata,data about installed applications, roles and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your Hyper-V environment.
+The appliance collects configuration, performance metadata, data about installed applications, roles and features (software inventory) and dependency data (if agentless dependency analysis is enabled) from servers running in your Hyper-V environment.
 
 Here's the full list of server metadata that the appliance collects and sends to Azure.
 
@@ -361,7 +361,7 @@ Azure Migrate appliance can collect data about inter-server dependencies for ser
 
 ### Windows server dependencies data
 
-Here's the connection data that the appliance collects from each Windows server which has been enabled for agentless dependency analysis from portal:
+Here's the connection data that the appliance collects from each Windows server, which has been enabled for agentless dependency analysis from portal:
 
 **Data** | **Commands**
 --- | ---
@@ -381,7 +381,7 @@ Application name | Win32_Process | VersionInfo.ProductName parameter of Executab
 
 ### Linux server dependencies data
 
-Here's the connection data that the appliance collects from each Linux server which has been enabled for agentless dependency analysis.
+Here's the connection data that the appliance collects from each Linux server, which has been enabled for agentless dependency analysis.
 
 **Data** | **Commands**
 --- | ---
