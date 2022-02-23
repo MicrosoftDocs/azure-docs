@@ -74,7 +74,7 @@ In this field, you can provide a URL of the privacy policy and terms and conditi
 
 Your terms of service must include terms specific to the short code program brief and must contain ALL of the following:
 - Program Name and Description
-- Message Frequency, it can be either listed as Message Frequency Varies or the accurate frequency, it also needs to match with what is listed in the CTA (Call-To-Action)
+- Message Frequency, it can be either listed as Message Frequency Varies or the accurate frequency, it also needs to match with what is listed in the call-to-action
 - The disclaimer: "Message and data rates may apply" written verbatim
 - Customer care information, for example: "For help call [phone number] or send an email to [email]"
 - Opt-Out message: "Text STOP to cancel"
