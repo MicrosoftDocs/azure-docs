@@ -67,9 +67,9 @@ While still in the *blob-quickstart-v12* directory, install the Azure Blob stora
 
 Install the dependencies for this quickstart:
 
-    ```console
-    npm install @azure/storage-blob
-    ```
+```console
+npm install @azure/storage-blob
+```
 
 ### Create JavaScript file
 
