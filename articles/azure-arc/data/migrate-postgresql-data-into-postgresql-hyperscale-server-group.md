@@ -203,7 +203,7 @@ Within your Arc setup you can use `psql` to connect to your Postgres instance, s
 
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from all the power of Azure Database for PostgreSQL Hyperscale:
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
-    * [Determine application type](../../postgresql/hyperscale/hoto-app-type.md)
+    * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
     * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
     * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
     * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)

@@ -55,7 +55,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Public access
-            url: howto-firewall-rules.md
+            url: howto-manage-firewall-using-portal.md
           - text: Private access
             url: howto-private-access.md
           - text: Configure TLS
@@ -117,7 +117,7 @@ landingContent:
           - text: Columnar table storage
             url: concepts-columnar.md
           - text: Limits and limitations
-            url: concepts-limits.md
+            url: reference-limits.md
       - linkListType: how-to-guide
         links:
           - text: Scale server group
