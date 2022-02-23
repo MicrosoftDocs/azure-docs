@@ -655,7 +655,8 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 
 To learn about Azure VM extensions, see:
 
- - [Azure VM extensions and features for Windows](/azure/virtual-machines/extensions/features-windows)
- - [Azure VM extensions and features for Linux](/azure/virtual-machines/extensions/features-linux)
+ - [Azure VM extensions and features for Windows](/azure/virtual-machines/extensions/features-windows).
+ - [Azure VM extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
 
-To learn about VM extensions for Arc-enabled servers, see [VM extension management with Azure Arc-enabled servers - Azure Arc](/azure/azure-arc/servers/manage-vm-extensions) 
+To learn about VM extensions for Arc-enabled servers, see:
+-  [VM extension management with Azure Arc-enabled servers](/azure/azure-arc/servers/manage-vm-extensions). 
