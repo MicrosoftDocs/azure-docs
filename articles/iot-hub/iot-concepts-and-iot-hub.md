@@ -33,8 +33,6 @@ You can integrate IoT Hub with other Azure services to build complete, end-to-en
 
 [IoT Central](../iot-central/core/overview-iot-central.md) applications use multiple IoT hubs as part of their scalable and resilient infrastructure.
 
-IoT Hub has a 99.9% [Service Level Agreement for IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
-
 Each Azure subscription has default quota limits in place to prevent service abuse. These limits could impact the scope of your IoT solution. The current limit on a per-subscription basis is 50 IoT hubs per subscription. You can request quota increases by contacting support. For more information, see [IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md). For more information on quota limits, see one of the following articles:
 
 - [Azure subscription service limits](../azure-resource-manager/management/azure-subscription-service-limits.md)
