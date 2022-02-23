@@ -46,10 +46,10 @@ To set up the appliance using a VHD template:
 
 In **2: Download Azure Migrate appliance**, select the .VHD file and click on **Download**.
 
-   ![Selections for Discover servers](./media/tutorial-assess-hyper-v/servers-discover.png)
+   ![Screenshot of selections for Discover servers.](./media/tutorial-assess-hyper-v/servers-discover.png)
 
 
-   ![Selections for Generate Key](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
+   ![Scereenshot of selections for Generate Key.](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
 ### Verify security
 
@@ -69,7 +69,7 @@ Import the downloaded file, and create an appliance.
 1. Extract the zipped VHD file to a folder on the Hyper-V host that will host the appliance. Three folders are extracted.
 2. Open Hyper-V Manager. In **Actions**, click **Import Virtual Machine**.
 
-    ![Deploy VHD](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
+    ![Screenshot of preocedure to Deploy VHD.](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. In the Import Virtual Machine Wizard > **Before you begin**, click **Next**.
 3. In **Locate Folder**, specify the folder containing the extracted VHD. Then click **Next**.
@@ -112,7 +112,7 @@ Set up the appliance for the first time.
 1. Paste the **project key** copied from the portal. If you do not have the key, go to **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
 
-    ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
+    ![Modal showing the device code.](./media/tutorial-discover-vmware/device-code.png)
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 1. On the new tab, paste the device code and sign-in by using your Azure username and password.
@@ -150,7 +150,7 @@ Connect from the appliance to Hyper-V hosts or clusters, and start discovery.
 1. In **Step 2: Provide Hyper-V host/cluster details**, click on **Add discovery source** to specify the Hyper-V host/cluster **IP address/FQDN** and the friendly name for credentials to connect to the host/cluster.
 1. You can either **Add single item** at a time or **Add multiple items** in one go. There is also an option to provide Hyper-V host/cluster details through **Import CSV**.
 
-    ![Selections for adding discovery source](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
+    ![Screenshot of selections for adding discovery source.](./media/tutorial-assess-hyper-v/add-discovery-source-hyperv.png)
 
     - If you choose **Add single item**, you need to specify friendly name for credentials and Hyper-V host/cluster **IP address/FQDN** and click on **Save**.
     - If you choose **Add multiple items** _(selected by default)_, you can add multiple records at once by specifying Hyper-V host/cluster **IP address/FQDN** with the friendly name for credentials in the text box. Verify** the added records and click on **Save**.
@@ -168,7 +168,7 @@ Connect from the appliance to Hyper-V hosts or clusters, and start discovery.
 
 In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can skip this step and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
 
-:::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis":::
+:::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis.":::
 
 If you want to use these features, provide server credentials by completing the following steps. The appliance attempts to automatically map the credentials to the servers to perform the discovery features.
 

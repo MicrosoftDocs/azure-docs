@@ -43,7 +43,7 @@ Performing software inventory helps identify and tailor a migration path to Azur
 2. Navigate to the **Manage credentials and discovery sources** panel.
 1.  In **Step 1: Provide credentials for discovery source**, click on **Add credentials** to  provide credentials for the discovery source that the appliance will use to discover servers running in your environment.
 1. In **Step 2: Provide discovery source details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details.":::
 1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, click **Add credentials** to provide multiple server credentials to perform software inventory.
 1. Click on **Start discovery**, to initiate discovery.
 

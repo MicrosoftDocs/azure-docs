@@ -47,7 +47,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 2. Navigate to the **Manage credentials and discovery sources** panel.
 1.  In **Step 1: Provide credentials for discovery source**, click on **Add credentials** to  provide credentials for the discovery source that the appliance will use to discover servers running in your environment.
 1. In **Step 2: Provide discovery source details**, click on **Add discovery source** to select the friendly name for credentials from the drop-down, specify the **IP address/FQDN** of the discovery source.
-:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details":::
+:::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="Panel 3 on appliance configuration manager for vCenter Server details.":::
 1. In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis**, click **Add credentials** to provide multiple server credentials to perform software inventory.
 1. Click on **Start discovery**, to initiate discovery.
 
@@ -70,7 +70,7 @@ Select the servers on which you want to enable dependency discovery.
 1. In the **Add servers** page, select the servers where you want to enable dependency analysis. You can enable dependency mapping only on those servers where validation succeeded. The next validation cycle will run 24 hours after the last validation timestamp.
 1. After selecting the servers, click **Add servers**.
 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png" alt-text="Start dependency analysis":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png" alt-text="Screenshot of process to start dependency analysis.":::
 
 You can visualize dependencies around six hours after enabling dependency analysis on servers. If you want to simultaneously enable multiple servers for dependency analysis, you can use [PowerShell](#start-or-stop-dependency-analysis-using-powershell) to do so.
 
@@ -84,11 +84,11 @@ You can visualize dependencies around six hours after enabling dependency analys
 1. Expand the **Client** group to list the servers with a dependency on the selected server.
 1. Expand the **Port** group to list the servers that have a dependency from the selected server.
 1. To navigate to the map view of any of the dependent servers, click on the server name > **Load server map**
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Expand Server port group and load server map":::
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png" alt-text="Screenshot to Expand Server port group and load server map.":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png" alt-text="Expand client group.":::
 
 8. Expand the selected server to view process-level details for each dependency.
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png" alt-text="Expand server to show processes.":::
 
 > [!NOTE]
 > Process information for a dependency is not always available. If it's not available, the dependency is depicted with the process marked as "Unknown process".
@@ -103,7 +103,7 @@ You can visualize dependencies around six hours after enabling dependency analys
 6. Click **Export dependency**.
 
 The dependency data is exported and downloaded in a CSV format. The downloaded file contains the dependency data across all servers enabled for dependency analysis. 
-:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export.png" alt-text="Export dependencies":::
+:::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/export.png" alt-text="Screenshot to Export dependencies.":::
 
 ### Dependency information
 

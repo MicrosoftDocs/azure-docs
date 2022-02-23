@@ -128,7 +128,7 @@ Set up a new project.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
 6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
 
-   ![Boxes for project name and region.](./media/tutorial-discover-hyper-v/new-project.png)
+   ![Screenshot of project name and region.](./media/tutorial-discover-hyper-v/new-project.png)
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
@@ -237,7 +237,7 @@ Set up the appliance for the first time.
 1. Paste the **project key** copied from the portal. If you do not have the key, go to **Azure Migrate: Discovery and assessment> Discover> Manage existing appliances**, select the appliance name you provided at the time of key generation and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
 
-    ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
+    ![Modal showing the device code.](./media/tutorial-discover-vmware/device-code.png)
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 1. On the new tab, paste the device code and sign-in by using your Azure username and password.
@@ -291,7 +291,7 @@ Connect from the appliance to Hyper-V hosts or clusters, and start server discov
 
 In **Step 3: Provide server credentials to perform software inventory and agentless dependency analysis.**, you can provide multiple server credentials. If you don't want to use any of these appliance features, you can disable the slider and proceed with discovery of servers running on Hyper-V hosts/clusters. You can change this option at any time.
 
-:::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis":::
+:::image type="content" source="./media/tutorial-discover-hyper-v/appliance-server-credentials-mapping.png" alt-text="Screenshot that shows providing credentials for software inventory and dependency analysis.":::
 
 If you want to use these features, provide server credentials by completing the following steps. The appliance attempts to automatically map the credentials to the servers to perform the discovery features.
 

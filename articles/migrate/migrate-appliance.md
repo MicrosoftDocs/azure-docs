@@ -174,7 +174,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 
 ## Discovery and collection process
 
-:::image type="content" source="./media/migrate-appliance/architecture1.png" alt-text="Appliance architecture":::
+:::image type="content" source="./media/migrate-appliance/architecture.png" alt-text="Diagram of Appliance architecture.":::
 
 The appliance communicates with the discovery sources using the following process.
 
@@ -196,7 +196,7 @@ The appliance is upgraded as the Azure Migrate services running on the appliance
 2. Navigate to **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. To turn off auto-update, create a registry key **AutoUpdate** key with DWORD value of 0.
 
-    ![Set registry key](./media/migrate-appliance/registry-key.png)
+    ![Screenshot of process to set the registry key.](./media/migrate-appliance/registry-key.png)
 
 
 ### Turn on auto-update
@@ -217,7 +217,7 @@ To turn on from Appliance Configuration Manager, after discovery is complete:
 1. On the appliance configuration manager, go to **Set up prerequisites** panel
 2. In the latest updates check, click on **View appliance services** and click on the link to turn on auto-update.
 
-    ![Turn on auto updates](./media/migrate-appliance/autoupdate-off.png)
+    ![Image of turn on auto updates screen.](./media/migrate-appliance/autoupdate-off.png)
 
 ### Check the appliance services version
 
@@ -231,14 +231,14 @@ To check in the Appliance configuration manager:
 1. On the appliance configuration manager, go to **Set up prerequisites** panel
 2. In the latest updates check, click on **View appliance services**.
 
-    ![Check version](./media/migrate-appliance/versions.png)
+    ![Screenshot of screen to check the version.](./media/migrate-appliance/versions.png)
 
 To check in the Control Panel:
 
 1. On the appliance, click **Start** > **Control Panel** > **Programs and Features**
 2. Check the appliance services versions in the list.
 
-    ![Check version in Control Panel](./media/migrate-appliance/programs-features.png)
+    ![Screenshot of process to check version in Control Panel.](./media/migrate-appliance/programs-features.png)
 
 ### Manually update an older version
 
