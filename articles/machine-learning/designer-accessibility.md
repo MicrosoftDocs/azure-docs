@@ -24,7 +24,7 @@ The pipeline graph is organized as a nested list. The outer list is a component 
 
 1. Tab: navigate to first node -> each port of the node -> next node
 2. Up/down arrow key: to next/previous node by it's position in the graph
-3. Ctrl + g when focus on a port:  go to the connected port. When there are more than one connection from one port, open a list view to select the target. Use "Esc" to go to the selected target.
+3. Ctrl + g when focus on a port:  go to the connected port. When there are more than one connection from one port, open a list view to select the target. Use "Esc" to go to the selected target
 
 ## Edit the pipeline graph
 
@@ -33,15 +33,7 @@ The pipeline graph is organized as a nested list. The outer list is a component 
 1. Use Ctrl+F6 to switch focus from the canvas to the component tree.
 1. Find the desired component in the component tree using standard treeview control.
 
-### Edit a component
-
-#### To connect a component to another component:
-
-1. 
-2. Use Ctrl + Shift + H when targeting a component in the component list to open the connection helper.
-3. Edit the connection ports for the component.
-
-#### To adjust component properties:
+### To connect a component to another component
 
 1. User can move focus to a port with tab key as mentioned above
 2. Screen reader will read the port information. The information contains whether this port is a valid source port to set connection to other components. 
@@ -50,6 +42,8 @@ The pipeline graph is organized as a nested list. The outer list is a component 
 5. Press "enter" will use current port as the destination port and set up the connection. 
 6. Press "esc" key will cancel the connecting. 
 
+### Edit setting of a component
+1. Use accessKey + a to open the component setting panel. Then use tab to move focus to the setting pannel, where you can edit the settings. 
 
 ## Navigation shortcuts
 
