@@ -316,7 +316,7 @@ The `platform` section controls platform specific settings, such as the API lang
 
 ### Selecting the API language runtime version
 
-To configure the API language runtime version, set the `apiRuntime` property in the `platform` section to the desired version from the following values.
+To configure the API language runtime version, set the `apiRuntime` property in the `platform` section to one of the following supported values.
 
 | Language runtime version | Operating system | Azure Functions version | `apiRuntime` value |
 |--|--|--|--|
