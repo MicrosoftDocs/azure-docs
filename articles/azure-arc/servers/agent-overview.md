@@ -117,8 +117,6 @@ The following versions of the Windows and Linux operating system are officially 
 
 * To onboard machines, you are a member of the **Azure Connected Machine Onboarding** or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
-* To create a service principal in support of onboarding machines at scale using that identity, your account must be a member of the Azure Active Directory [Cloud Application Administrator](../../active-directory/roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../../active-directory/roles/permissions-reference.md#application-administrator) role.
-
 * To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role in the resource group.
 
 * To select a resource group from the drop-down list when using the **Generate script** method, at a minimum you are a member of the [Reader](../../role-based-access-control/built-in-roles.md#reader) role for that resource group.
