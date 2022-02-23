@@ -18,19 +18,19 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register-same-tenant)| [Yes](#scan-same-tenant)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+| [Yes](#-Prerequisites)| [Yes](#-Prerequisites)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
 ### Supported scenarios for Power BI scans
 
 |**Azure Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Power BI tenant same/cross**  | **Runtime option**  |
 |---------|---------|---------|---------|
-|Allowed     |Allowed        |Same tenant        |[Azure Runtime & Managed Identity](###Authenticate-to-Power-BI-Tenant-(For-Managed-Identity-only))    |
-|Allowed     |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](####Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
-|Allowed     |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](####Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
-|Denied      |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](####Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
-|Denied      |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](####Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
-|Allowed     |Allowed        |Cross-tenant       |[Azure Runtime  & Delegated auth](##Cross-Power-BI-tenant-registration-and-scan)                  |
-|Allowed     |Allowed        |Cross-tenant       |[Self-hosted runtime & Delegated auth](##Cross-Power-BI-tenant-registration-and-scan)             |
+|Allowed     |Allowed        |Same tenant        |[Azure Runtime & Managed Identity](#Authenticate-to-Power-BI-Tenant-Managed-Identity-only)    |
+|Allowed     |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](#Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
+|Allowed     |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](#Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
+|Denied      |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](#Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
+|Denied      |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](#Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
+|Allowed     |Allowed        |Cross-tenant       |[Azure Runtime  & Delegated auth](#Cross-Power-BI-tenant-registration-and-scan)                  |
+|Allowed     |Allowed        |Cross-tenant       |[Self-hosted runtime & Delegated auth](#Cross-Power-BI-tenant-registration-and-scan)             |
 
 ### Known limitations
 
@@ -38,7 +38,7 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 -  Delegated Auth is the only supported authentication option if self-hosted integration runtime is used during the scan
 -  For cross-tenant scenario, delegated Auth is only supported option for scanning.
 -  You can create only one scan for a Power BI data source that is registered in your Azure Purview account
--  If Power BI dataset schema is not shown after scan, it is due to one of the current limitations with [Power BI Metadata scanner](https://docs.microsoft.com/en-us/power-bi/admin/service-admin-metadata-scanning)
+-  If Power BI dataset schema is not shown after scan, it is due to one of the current limitations with [Power BI Metadata scanner](/power-bi/admin/service-admin-metadata-scanning)
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 - Managed Identity 
 - Delegated Authentication
 
-### Authenticate to Power BI Tenant (For Managed Identity only)
+### Authenticate to Power BI Tenant-Managed Identity only
 
 > [!Note]
 > Follow steps in this section, only if you are planning to use **Managed Identity** as authentication option.
