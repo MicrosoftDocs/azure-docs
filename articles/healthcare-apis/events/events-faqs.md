@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/17/2022
+ms.date: 02/23/2022
 ms.author: jasteppe
 ---
 
@@ -54,9 +54,9 @@ You can use the Event Grid filtering feature. There are unique identifiers in th
 
 Yes. We recommend that you use different subscribers for each individual FHIR accounts to process in isolated scopes.
 
-### Can Event Grid be used as part of HIPAA and HITRUST compliance?
+### Is Event Grid compatible with HIPAA and HITRUST compliance obligations?
 
-Yes. Event Grid can be used as part of your overall Health Insurance Portability and Accountability Act (HIPAA) and Health Information Trust Alliance (HITRUST) compliance. For more information, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
+Yes. Event Grid supports customer's Health Insurance Portability and Accountability Act (HIPAA) and Health Information Trust Alliance (HITRUST) obligations. For more information, see [Microsoft Azure Compliance Offerings](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/).
 
 
  ### What is the expected time to receive an Events message?
