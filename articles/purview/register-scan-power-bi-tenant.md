@@ -61,7 +61,7 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 - Managed Identity 
 - Delegated Authentication
 
-### Authenticate to Power BI Tenant-Managed Identity only
+### Authenticate to Power BI tenant-managed identity only
 
 > [!Note]
 > Follow steps in this section, only if you are planning to use **Managed Identity** as authentication option.
@@ -164,7 +164,7 @@ To create and run a new scan, do the following:
     > [!Note]
     > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source.
 
-3. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
+3. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem.
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
     2. Assets (+ lineage) - Failed status means the Azure Purview - Power BI authorization has failed. Make sure the Azure Purview managed identity is added to the security group associated in Power BI admin portal.
     3. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
@@ -175,9 +175,9 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Azure Purview scan scheduler.":::
 
-5. On **Review new scan**, select **Save and Run** to launch your scan.
+5. On **Review new scan**, select **Save and run** to launch your scan.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan-managed-identity.png" alt-text="Screenshot of save and run Power BI source using Managed Identity.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan-managed-identity.png" alt-text="Screenshot of Save and run Power BI source using Managed Identity.":::
 
 #### Scan same tenant using Self-hosted IR and Delegated authentication
 
@@ -206,7 +206,7 @@ To create and run a new scan, do the following:
    
 6. Create an App Registration in your Azure Active Directory tenant. Take note of Client ID(App ID).
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-serviceprinciple.png" alt-text="Screenshot how to create a Service principle.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service principle.":::
   
 7. From Azure Active Directory dashboard, select newly created application and then select App registration. Assign the application the following delegated permissions and grant admin consent for the tenant:
 
@@ -254,9 +254,9 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Azure Purview scan scheduler.":::
 
-18. On **Review new scan**, select **Save and Run** to launch your scan.
+18. On **Review new scan**, select **Save and run** to launch your scan.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of save and run Power BI source.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of Save and run Power BI source.":::
 
 ## Cross Power BI tenant registration and scan
 
@@ -303,7 +303,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
    
 7. Create an App Registration in your Azure Active Directory tenant where Power BI is located. Take note of Client ID (App ID).
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-serviceprinciple.png" alt-text="Screenshot how to create a Service Principle.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-service-principle.png" alt-text="Screenshot how to create a Service Principle.":::
   
 8. From Azure Active Directory dashboard, select newly created application and then select App registration. Assign the application the following delegated permissions and grant admin consent for the tenant:
 
@@ -364,9 +364,9 @@ In the Azure Purview Studio, navigate to the **Data map** in the left menu.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Screenshot of the Azure Purview scan scheduler.":::
 
-18. On **Review new scan**, select **Save and Run** to launch your scan.
+18. On **Review new scan**, select **Save and run** to launch your scan.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of save and run Power BI source.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Screenshot of Save and run Power BI source.":::
 
 ## Next steps
 
