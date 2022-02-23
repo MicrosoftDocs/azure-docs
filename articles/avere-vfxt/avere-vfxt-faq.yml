@@ -4,11 +4,10 @@ metadata:
   description: Use these frequently asked questions to decide if Avere vFXT for Azure fits your needs. Learn how Avere vFXT for Azure works with other Azure components.
   author: ekpgh
   ms.service: avere-vfxt
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 12/19/2019
   ms.author: rohogue
   ms.custom: references_regions
-    
 title: Avere vFXT for Azure FAQ
 summary: This article answers questions that can help you decide if Avere vFXT for Azure is right for your needs. It gives basic information about Avere vFXT and explains how it works with other Azure components and with products from outside vendors.
 
@@ -78,14 +77,6 @@ sections:
           Is Avere vFXT highly available?
         answer: |
           Yes, Avere vFXT runs exclusively as an HA solution.
-
-      - question: |
-          Does Avere vFXT for Azure also support other cloud services?
-        answer: |
-          Yes, customers can use more than one cloud provider with the Avere vFXT cluster. It supports AWS S3 standard buckets, Google Cloud Services standard buckets, and Azure blob containers.
-          
-          > [!NOTE]
-          > A software fee applies to use Avere vFXT with AWS or Google Cloud storage. There is no additional software fee for using Azure blob storage.
           
   - name: "Technical: Compute"
     questions:
@@ -251,8 +242,6 @@ sections:
           * NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) and (7-Mode 7.*, 8.0-8.3)
           
           * Azure blob containers (locally redundant storage only)
-          * AWS S3 buckets
-          * Google Cloud buckets
           
       - question: |
           Why doesn't Avere vFXT support all NFS filers?
@@ -291,7 +280,7 @@ sections:
         answer: |
           Cool tier blob storage is not usually recommended for an Avere vFXT for Azure core filer. Cool tier offers lower storage costs but higher operations costs. (See [Block blob pricing](<https://azure.microsoft.com/pricing/details/storage/blobs/>) for more details.) If data will be accessed and modified or deleted frequently, please consider using the Hot tier.
           
-          [Access tiers](../storage/blobs/storage-blob-storage-tiers.md#cool-access-tier) gives more information about when it might make sense to use Cool tier storage as a vFXT core filer.
+          [Access tiers](../storage/blobs/access-tiers-overview.md) gives more information about when it might make sense to use Cool tier storage as a vFXT core filer.
           
       - question: |
           How do I encrypt the blob container?

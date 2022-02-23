@@ -4,9 +4,9 @@ description: Learn how to manage Azure Reservations. See steps to change the res
 ms.service: cost-management-billing
 ms.subservice: reservations
 author: bandersmsft
-ms.reviewer: yashesvi
+ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 06/27/2021
+ms.date: 09/20/2021
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -46,6 +46,8 @@ To update the scope of a reservation:
 If you change from shared to single scope, you can only select subscriptions where you're the owner. Only subscriptions within the same billing context as the reservation can be selected.
 
 The scope only applies to individual subscriptions with pay-as-you-go rates (offers MS-AZR-0003P or MS-AZR-0023P), Enterprise offer MS-AZR-0017P or MS-AZR-0148P, or CSP subscription types.
+
+If all subscriptions are moved out of a management group, the scope of the reservation is automatically changed to Shared.
 
 ## Who can manage a reservation by default
 

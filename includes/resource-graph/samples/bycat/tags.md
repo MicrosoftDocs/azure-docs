@@ -1,9 +1,9 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 09/03/2021
-ms.author: dacoulte
+ms.date: 01/20/2022
+ms.author: gwallace
 ms.custom: generated
 ---
 

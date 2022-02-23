@@ -4,15 +4,14 @@ metadata:
   description: This document describes frequently asked questions for cloud sync.
   services: active-directory
   author: billmath
-  manager: daveba
+  manager: karenhoran
   ms.service: active-directory
   ms.workload: identity
-  ms.topic: reference
-  ms.date: 09/10/2021
+  ms.topic: faq
+  ms.date: 12/13/2021
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-    
 title: Azure Active Directory Connect cloud sync FAQ
 summary: |
   Read about frequently asked questions for Azure Active Directory (Azure AD) Connect cloud sync.
@@ -114,6 +113,14 @@ sections:
           Does Azure AD Connect cloud sync support large groups?
         answer: |
           Yes. Today we support up to 50K group members synchronized using the OU scope filtering. 
+      - question: |
+          Does the cloud provisioning agent load balance if I have multiple agents installed?
+        answer: |
+          No. Only one agent is ever active. 
+      - question: |
+          Does the cloud provisioning agent require a preferred domain controller list be set?
+        answer: |
+          No. The preferred domain controller list is specified during [agent installation](how-to-install.md) but it is optional.  If no preferred DCs are configured, then the agent will use any available DC in the domain.
 additionalContent: |
 
   ## Next steps 

@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 03/02/2021
 ms.author: thvankra
-
+ms.devlang: java
 ---
 
 # Troubleshoot common issues in the Azure Cosmos DB Cassandra API
@@ -40,6 +40,8 @@ You might see this error: "Cannot connect to any host, scheduling retry in 60000
 This error might be caused by source network address translation (SNAT) exhaustion on the client side. Follow the steps at [SNAT for outbound connections](../../load-balancer/load-balancer-outbound-connections.md) to rule out this issue.
 
 The error might also be an idle timeout issue where the Azure load balancer has four minutes of idle timeout by default. See [Load balancer idle timeout](../../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). [Enable keep-alive for the Java driver](#enable-keep-alive-for-the-java-driver) and set the `keepAlive` interval on the operating system to less than four minutes.
+
+See [troubleshoot NoHostAvailableException](troubleshoot-nohostavailable-exception.md) for more ways of handling the exception.
 
 ## OverloadedException (Java)
 

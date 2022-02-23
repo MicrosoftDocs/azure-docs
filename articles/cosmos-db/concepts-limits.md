@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB service quotas
 description: Azure Cosmos DB service quotas and default limits on different resource types.
-author: abhijitpai
-ms.author: abpai
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 02/16/2022
 ---
 
 # Azure Cosmos DB service quotas
@@ -35,7 +35,7 @@ You can provision throughput at a container-level or a database-level in terms o
 | Minimum RU/s required per 1 GB | 10 RU/s<br>**Note:** this minimum can be lowered if your account is eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
-> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
+> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md). If your workload has already reached the logical partition limit of 20GB in production, it is recommended to re-architect your application with a different partition key as a long-term solution. To help give time for this, you can request a temporary increase in the logical partition key limit for your existing application. [File an Azure support ticket](create-support-request-quota-increase.md) and select quota type **Temporary increase in container's logical partition key size**. Note this is intended as a temporary mitigation and not recommended as a long-term solution, as SLA guarantees are not honored when the limit is increased. To remove the configuration, file a support ticket and select quota type **Restore container’s logical partition key size to default (20 GB)**. This can be done after you have either deleted data to fit the 20 GB logical partition limit or have re-architected your application with a different partition key.
 
 ### Minimum throughput limits
 
@@ -51,7 +51,7 @@ To estimate the minimum throughput required of a container with manual throughpu
 
 * 400 RU/s 
 * Current storage in GB * 10 RU/s
-* Highest RU/s provisioned on the container / 100
+* Highest RU/s ever provisioned on the container / 100
 
 Example: Suppose you have a container provisioned with 400 RU/s and 0 GB storage. You increase the throughput to 50,000 RU/s and import 20 GB of data. The minimum RU/s is now `MAX(400, 20 * 10 RU/s per GB, 50,000 RU/s / 100)` = 500 RU/s. Over time, the storage grows to 200 GB. The minimum RU/s is now `MAX(400, 200 * 10 RU/s per GB, 50,000 / 100)` = 2000 RU/s. 
 
@@ -62,7 +62,7 @@ To estimate the minimum throughput required of a shared throughput database with
 
 * 400 RU/s 
 * Current storage in GB * 10 RU/s
-* Highest RU/s provisioned on the database / 100
+* Highest RU/s ever provisioned on the database / 100
 * 400 + MAX(Container count - 25, 0) * 100 RU/s
 
 Example: Suppose you have a database provisioned with 400 RU/s, 15 GB of storage, and 10 containers. The minimum RU/s is `MAX(400, 15 * 10 RU/s per GB, 400 / 100, 400 + 0 )` = 400 RU/s. If there were 30 containers in the database, the minimum RU/s would be `400 + MAX(30 - 25, 0) * 100 RU/s` = 900 RU/s. 
@@ -74,7 +74,7 @@ In summary, here are the minimum provisioned RU limits.
 | Resource | Default limit |
 | --- | --- |
 | Minimum RUs per container ([dedicated throughput provisioned mode](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 |
-| Minimum RUs per database ([shared throughput provisioned mode](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. Additional 100 RU/s for each container afterward. |
+| Minimum RUs per database ([shared throughput provisioned mode](./account-databases-containers-items.md#azure-cosmos-containers)) | 400 RU/s for first 25 containers. |
 
 Cosmos DB supports programmatic scaling of throughput (RU/s) per container or database via the SDKs or portal.    
 
@@ -97,7 +97,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
+| Maximum database accounts per subscription | 50 by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md) up to 1,000 max.|
 | Maximum number of regional failovers | 1/hour by default. You can increase it by [filing an Azure support ticket](create-support-request-quota-increase.md)|
 
 > [!NOTE]
@@ -111,16 +111,15 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 | Resource | Default limit |
 | --- | --- |
-| Maximum number of databases | Unlimited |
+| Maximum number of databases | 500 |
 | Maximum number of containers per database with shared throughput |25 |
-| Maximum number of containers per database or account with dedicated throughput  |unlimited |
+| Maximum number of containers per account | 500 |
 | Maximum number of regions | No limit (All Azure regions) |
 
 ### Serverless
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of databases | Unlimited |
 | Maximum number of containers per account  | 100 |
 | Maximum number of regions | 1 (Any Azure region) |
 
@@ -192,6 +191,7 @@ Azure Cosmos DB maintains system metadata for each account. This metadata allows
 |Maximum collection create rate per minute|    100|
 |Maximum Database create rate per minute|    100|
 |Maximum provisioned throughput update rate per minute|    5|
+|Maximum throughput supported by an account for metadata operations | 240 RU/s |
 
 ## Limits for autoscale provisioned throughput
 

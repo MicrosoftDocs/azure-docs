@@ -1,11 +1,11 @@
 ---
 title: Schedule recurring tasks and workflows
-description: Schedule and run recurring automated tasks and workflows with the Recurrence trigger in Azure Logic Apps
+description: Schedule and run recurring automated tasks and workflows with the Recurrence trigger in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
-ms.date: 12/18/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 01/24/2022
 ---
 
 # Create, schedule, and run recurring tasks and workflows with the Recurrence trigger in Azure Logic Apps
@@ -55,19 +55,27 @@ For differences between this trigger and the Sliding Window trigger or for more 
    ||||||
 
    > [!IMPORTANT]
-   > If a recurrence doesn't specify a specific [start date and time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time), 
-   > the first recurrence runs immediately when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, 
-   > provide a start date and time for when you want the first recurrence to run.
+   > If you use the **Day** or **Week** frequency and specify a future date and time, make sure that you set up the recurrence in advance:
    >
-   > If a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, those recurrences are 
-   > based on the last run time. As a result, the start times for those recurrences might drift due to factors such as latency during storage calls. 
-   > To make sure that your logic app doesn't miss a recurrence, especially when the frequency is in days or longer, try these options:
-   > 
+   > * **Day**: Set up the daily recurrence at least 24 hours in advance.
+   >
+   > * **Week**: Set up the weekly recurrence at least 7 days in advance.
+   >
+   > Otherwise, the workflow might skip the first recurrence.
+   >
+   > If a recurrence doesn't specify a specific [start date and time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time), the first recurrence runs immediately 
+   > when you save or deploy the logic app, despite your trigger's recurrence setup. To avoid this behavior, provide a start 
+   > date and time for when you want the first recurrence to run.
+   >
+   > If a recurrence doesn't specify any other advanced scheduling options such as specific times to run future recurrences, 
+   > those recurrences are based on the last run time. As a result, the start times for those recurrences might drift due to 
+   > factors such as latency during storage calls. To make sure that your logic app doesn't miss a recurrence, especially when 
+   > the frequency is in days or longer, try these options:
+   >
    > * Provide a start date and time for the recurrence plus the specific times when to run subsequent recurrences by using the properties 
    > named **At these hours** and **At these minutes**, which are available only for the **Day** and **Week** frequencies.
-   > 
-   > * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), 
-   > rather than the Recurrence trigger.
+   >
+   > * Use the [Sliding Window trigger](../connectors/connectors-native-sliding-window.md), rather than the Recurrence trigger.
 
 1. To set advanced scheduling options, open the **Add new parameter** list. Any options that you select appear on the trigger after selection.
 

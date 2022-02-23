@@ -4,6 +4,7 @@ description: Understand how to use Azure Notification Hub binding in Azure Funct
 author: craigshoemaker
 
 ms.topic: reference
+ms.devlang: csharp, fsharp, javascript
 ms.custom: devx-track-csharp
 ms.date: 11/21/2017
 ms.author: cshoe
@@ -144,7 +145,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 This example sends a notification for a [template registration](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) that contains `location` and `message`.
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
     if (myTimer.IsPastDue)
@@ -156,7 +157,6 @@ module.exports = function (context, myTimer) {
         location: "Redmond",
         message: "Hello from Node!"
     };
-    context.done();
 };
 ```
 

@@ -14,6 +14,8 @@ ms.custom: seodec18, devx-track-azurecli
 
 # Install & use the CLI extension for Azure Machine Learning
 
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
+
 [!INCLUDE [cli-version-info](../../includes/machine-learning-cli-version-1-only.md)]
 
 The Azure Machine Learning CLI is an extension to the [Azure CLI](/cli/azure/), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with Azure Machine Learning. It allows you to automate your machine learning activities. The following list provides some example actions that you can do with the CLI extension:
@@ -57,7 +59,10 @@ For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/aut
 
 ## Install the extension
 
-The extension is automatically installed when you first try to use a command that begins with `az ml`.
+To install the CLI (v1) extension:
+```azurecli-interactive
+az extension add -n azure-cli-ml
+```
 
 ## Update the extension
 
@@ -412,7 +417,7 @@ The following commands demonstrate how to work with machine learning pipelines:
 
     For more information, see [az ml pipeline create](/cli/azure/ml(v1)/pipeline#az_ml_pipeline_create).
 
-    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md).
+    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-yaml-job-pipeline.md).
 
 + Run a pipeline:
 
@@ -422,7 +427,7 @@ The following commands demonstrate how to work with machine learning pipelines:
 
     For more information, see [az ml run submit-pipeline](/cli/azure/ml(v1)/run#az_ml_run_submit_pipeline).
 
-    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md).
+    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-yaml-job-pipeline.md).
 
 + Schedule a pipeline:
 
@@ -431,8 +436,6 @@ The following commands demonstrate how to work with machine learning pipelines:
     ```
 
     For more information, see [az ml pipeline create-schedule](/cli/azure/ml(v1)/pipeline#az_ml_pipeline_create-schedule).
-
-    For more information on the pipeline schedule YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md#schedules).
 
 ## Model registration, profiling, deployment
 

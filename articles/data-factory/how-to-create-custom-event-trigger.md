@@ -91,7 +91,7 @@ Data Factory expects events to follow the [Event Grid event schema](../event-gri
 
 ## Advanced filtering
 
-Custom event trigger supports advanced filtering capabilities, similar to [Event Grid Advanced Filtering](../event-grid/event-filtering.md#advanced-filtering). These conditional filters allow pipelines to trigger based upon the _values_ of event payload. For instance, you may have a field in the event payload, named _Department, and pipeline should only trigger if _Department_ equals to _Finance_. You may also specify complex logic, such as _date_ field in list [1, 2, 3, 4, 5], _month_ field __not__ in list [11, 12], _tag_ field contains any of ['Fiscal Year 2021', 'FiscalYear2021', 'FY2021'].
+Custom event trigger supports advanced filtering capabilities, similar to [Event Grid Advanced Filtering](../event-grid/event-filtering.md#advanced-filtering). These conditional filters allow pipelines to trigger based upon the _values_ of event payload. For instance, you may have a field in the event payload, named _Department_, and pipeline should only trigger if _Department_ equals to _Finance_. You may also specify complex logic, such as _date_ field in list [1, 2, 3, 4, 5], _month_ field __not__ in list [11, 12], _tag_ field contains any of ['Fiscal Year 2021', 'FiscalYear2021', 'FY2021'].
 
  :::image type="content" source="media/how-to-create-custom-event-trigger/custom-event-5-advanced-filters.png" alt-text="Screenshot of setting advanced filters for customer event trigger":::
 
@@ -110,9 +110,9 @@ As of today custom event trigger supports a __subset__ of [advanced filtering op
 * StringIn
 * StringNotIn
 
-Click **+New** to add new filter conditions. 
+Select **+New** to add new filter conditions. 
 
-Additionally, custom event triggers obey the [same limitations as event grid](../event-grid/event-filtering.md#limitations), including:
+Additionally, custom event triggers obey the [same limitations as Event Grid](../event-grid/event-filtering.md#limitations), including:
 
 * 5 advanced filters and 25 filter values across all the filters per custom event trigger
 * 512 characters per string value
@@ -128,7 +128,7 @@ The following table provides an overview of the schema elements that are related
 
 | JSON element | Description | Type | Allowed values | Required |
 |---|----------------------------|---|---|---|
-| `scope` | The Azure Resource Manager resource ID of the event grid topic. | String | Azure Resource Manager ID | Yes |
+| `scope` | The Azure Resource Manager resource ID of the Event Grid topic. | String | Azure Resource Manager ID | Yes |
 | `events` | The type of events that cause this trigger to fire. | Array of strings    |  | Yes, at least one value is expected. |
 | `subjectBeginsWith` | The `subject` field must begin with the provided pattern for the trigger to fire. For example, _factories_ only fire the trigger for event subjects that start with *factories*. | String   | | No |
 | `subjectEndsWith` | The `subject` field must end with the provided pattern for the trigger to fire. | String   | | No |
@@ -143,11 +143,11 @@ Azure Data Factory uses Azure role-based access control (RBAC) to prohibit unaut
 
 To successfully create or update a custom event trigger, you need to sign in to Data Factory with an Azure account that has appropriate access. Otherwise, the operation will fail with an _Access Denied_ error.
 
-Data Factory doesn't require special permission to your Event Grid. You also do *not* need to assign special Azure RBAC permission to the Data Factory service principal for the operation.
+Data Factory doesn't require special permission to your Event Grid. You also do *not* need to assign special Azure RBAC role permission to the Data Factory service principal for the operation.
 
 Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission on `/subscriptions/####/resourceGroups//####/providers/Microsoft.EventGrid/topics/someTopics`.
 
 ## Next steps
 
-* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * Learn how to [reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

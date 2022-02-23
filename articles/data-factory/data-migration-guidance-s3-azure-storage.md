@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 8/04/2019
+ms.date: 01/27/2022
 ---
 
 # Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage 
@@ -66,7 +66,6 @@ Migrate data over private link:
 
 - In this architecture, data migration is done over a private peering link between AWS Direct Connect and Azure Express Route such that data never traverses over public Internet.  It requires use of AWS VPC and Azure Virtual network. 
 - You need to install ADF self-hosted integration runtime on a Windows VM within your Azure virtual network to achieve this architecture.  You can manually scale up your self-hosted IR VMs or scale out to multiple VMs (up to 4 nodes) to fully utilize your network and storage IOPS/bandwidth. 
-- If it is acceptable to transfer data over HTTPS but you want to lock down network access to source S3 to a specific IP range, you can adopt a variation of this architecture by removing AWS VPC and replacing private link with HTTPS.  You will want to keep Azure Virtual and self-hosted IR on Azure VM so you can have a static publicly routable IP for filtering purpose. 
 - Both initial snapshot data migration and delta data migration can be achieved using this architecture. 
 
 ## Implementation best practices 
@@ -76,7 +75,7 @@ Migrate data over private link:
 - To authenticate to Amazon S3 account, you must use [access key for IAM account](./connector-amazon-simple-storage-service.md#linked-service-properties). 
 - Multiple authentication types are supported to connect to Azure Blob Storage.  Use of [managed identities for Azure resources](./connector-azure-blob-storage.md#managed-identity) is highly recommended: built on top of an automatically managed ADF identify in Azure AD, it allows you to configure pipelines without supplying credentials in Linked Service definition.  Alternatively, you can authenticate to Azure Blob Storage using [Service Principal](./connector-azure-blob-storage.md#service-principal-authentication), [shared access signature](./connector-azure-blob-storage.md#shared-access-signature-authentication), or [storage account key](./connector-azure-blob-storage.md#account-key-authentication). 
 - Multiple authentication types are also supported to connect to Azure Data Lake Storage Gen2.  Use of [managed identities for Azure resources](./connector-azure-data-lake-storage.md#managed-identity) is highly recommended, although [service principal](./connector-azure-data-lake-storage.md#service-principal-authentication) or [storage account key](./connector-azure-data-lake-storage.md#account-key-authentication) can also be used. 
-- When you are not using managed identities for Azure resources, [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) is highly recommended to make it easier to centrally manage and rotate keys without modifying ADF linked services.  This is also one of the [best practices for CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
+- When you are not using managed identities for Azure resources, [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) is highly recommended to make it easier to centrally manage and rotate keys without modifying ADF linked services.  This is also one of the [best practices for CI/CD](./continuous-integration-delivery.md#best-practices-for-cicd). 
 
 ### Initial snapshot data migration 
 

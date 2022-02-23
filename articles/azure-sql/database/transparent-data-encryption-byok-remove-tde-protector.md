@@ -6,11 +6,10 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
-ms.devlang:
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 06/23/2021
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell

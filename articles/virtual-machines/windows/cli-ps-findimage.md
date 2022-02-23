@@ -216,7 +216,7 @@ $vm = Get-azvm `
 $vm.Plan
 ```
 
-If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://ms.portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
+If you didn't get the plan information before the original VM was deleted, you can file a [support request](https://portal.azure.com/#create/Microsoft.Support). They will need the VM name, subscription ID and the time stamp of the delete operation.
 
 To create a VM using a VHD, refer to this article [Create a VM from a specialized VHD](create-vm-specialized.md) and add in a line to add the plan information to the VM configuration using [Set-AzVMPlan](/powershell/module/az.compute/set-azvmplan) similar to the following:
 
@@ -233,4 +233,4 @@ $vmConfig = Set-AzVMPlan `
 
 To create a virtual machine quickly with the `New-AzVM` cmdlet by using basic image information, see [Create a Windows virtual machine with PowerShell](quick-create-powershell.md).
 
-For more information on using Azure Marketplace images to create custom images in a shared image gallery, see [Supply Azure Marketplace purchase plan information when creating images](../marketplace-images.md).
+For more information on using Azure Marketplace images to create custom images in an Azure Compute Gallery (formerly known as Shared Image Gallery), see [Supply Azure Marketplace purchase plan information when creating images](../marketplace-images.md).

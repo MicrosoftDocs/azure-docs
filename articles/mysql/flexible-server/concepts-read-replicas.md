@@ -10,10 +10,7 @@ ms.date: 06/17/2021
 
 # Read replicas in Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Read replicas in Azure Database for MySQL - Flexible Server is in preview.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 MySQL is one of the popular database engines for running internet-scale web and mobile applications. Many of our customers use it for their online education services, video streaming services, digital payment solutions, e-commerce platforms, gaming services, news portals, government, and healthcare websites. These services are required to serve and scale as the traffic on the web or mobile application increases.
 
@@ -23,10 +20,13 @@ The read replica feature allows you to replicate data from an Azure Database for
 
 Replicas are new servers that you manage similar to your source Azure Database for MySQL flexible servers. You will incur billing charges for each read replica based on the provisioned compute in vCores and storage in GB/ month. For more information, see [pricing](./concepts-compute-storage.md#pricing).
 
+> [!NOTE]
+> The read replica feature is only available for Azure Database for MySQL - Flexible servers in the General Purpose or Memory Optimized pricing tiers. Ensure the source server is in one of these pricing tiers.
+
 To learn more about MySQL replication features and issues, see the [MySQL replication documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## Common use cases for read replica
 
@@ -89,7 +89,7 @@ Learn how to [stop replication to a replica](how-to-read-replicas-portal.md).
 
 There is no automated failover between source and replica servers.
 
-Read replicas is meant for scaling of read intensive workloads and is not designed to meet high availability needs of a server. There is no automated failover between source and replica servers. Stopping the replication on read replica to bring it online in read write mode is the means by which this manual failover is performed.
+Read replicas is meant for scaling of read intensive workloads and is not designed to meet high availability needs of a server. Stopping the replication on read replica to bring it online in read write mode is the means by which this manual failover is performed.
 
 Since replication is asynchronous, there is lag between the source and the replica. The amount of lag can be influenced by many factors like how heavy the workload running on the source server is and the latency between data centers. In most cases, replica lag ranges between a few seconds to a couple minutes. You can track your actual replication lag using the metric *Replica Lag*, which is available for each replica. This metric shows the time since the last replayed transaction. We recommend that you identify what your average lag is by observing your replica lag over a period of time. You can set an alert on replica lag, so that if it goes outside your expected range, you can take action.
 
@@ -108,19 +108,19 @@ After your application is successfully processing reads and writes, you have com
 
 ## Global transaction identifier (GTID)
 
-Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL Flexible serever. GTID is supported on versions 5.7 and 8.0. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
+Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL Flexible server. GTID is supported on versions 5.7 and 8.0. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
 
-The following server parameters are available for configuring GTID: 
+The following server parameters are available for configuring GTID:
 
 |**Server parameter**|**Description**|**Default Value**|**Values**|
 |--|--|--|--|
 |`gtid_mode`|Indicates if GTIDs are used to identify transactions. Changes between modes can only be done one step at a time in ascending order (ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF*`|`OFF`: Both new and replication transactions must be anonymous <br> `OFF_PERMISSIVE`: New transactions are anonymous. Replicated transactions can either be anonymous or GTID transactions. <br> `ON_PERMISSIVE`: New transactions are GTID transactions. Replicated transactions can either be anonymous or GTID transactions. <br> `ON`: Both new and replicated transactions must be GTID transactions.|
-|`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF*`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
+|`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF*`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. |
 
 **For Azure Database for MySQL-Flexible servers having High Availability feature enabled the default value is set to `ON`*
 > [!NOTE]
 >
-> * After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+> * After GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support.
 >
 > * To change GTID's from one value to another can only be one step at a time in ascending order of modes. For example, if gtid_mode is currently set to OFF_PERMISSIVE, it is possible to change to ON_PERMISSIVE but not to ON.
 >
@@ -136,7 +136,8 @@ If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas
 
 | Scenario | Limitation/Consideration |
 |:-|:-|
-| Replica on server with zone-redundant HA enabled | Not supported |
+| Replica on server with HA enabled | Not supported |
+| Replica on server in Burstable Pricing Tier| Not supported |
 | Cross region read replication | Not supported |
 | Pricing | The cost of running the replica server is based on the region where the replica server is running |
 | Source server restart | When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period |
@@ -145,7 +146,7 @@ If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas
 | Stopped replicas | If you stop replication between a source server and a read replica, the stopped replica becomes a standalone server that accepts both reads and writes. The standalone server can't be made into a replica again. |
 | Deleted source and standalone servers | When a source server is deleted, replication is stopped to all read replicas. These replicas automatically become standalone servers and can accept both reads and writes. The source server itself is deleted. |
 | User accounts | Users on the source server are replicated to the read replicas. You can only connect to a read replica using the user accounts available on the source server. |
-| Server parameters | To prevent data from becoming out of sync and to avoid potential data loss or corruption, some server parameters are locked from being updated when using read replicas. <br> The following server parameters are locked on both the source and replica servers:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is locked on the replica servers. <br> To update one of the above parameters on the source server, delete replica servers, update the parameter value on the source, and recreate replicas. 
+| Server parameters | To prevent data from becoming out of sync and to avoid potential data loss or corruption, some server parameters are locked from being updated when using read replicas. <br> The following server parameters are locked on both the source and replica servers:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parameter is locked on the replica servers. <br> To update one of the above parameters on the source server, delete replica servers, update the parameter value on the source, and recreate replicas.
 <br> When configuring session level parameters such as ‘foreign_keys_checks’ on the read replica, ensure the parameter values being set on the read replica are consistent with that of the source server.|
 | Other | - Creating a replica of a replica is not supported. <br> - In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information. <br>- Ensure the source server tables have primary keys. Lack of primary keys may result in replication latency between the source and replicas.<br>- Review the full list of MySQL replication limitations in the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
 

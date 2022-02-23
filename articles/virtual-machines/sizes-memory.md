@@ -3,20 +3,17 @@ title: Azure VM sizes - Memory | Microsoft Docs
 description: Lists the different memory optimized sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for sizes in this series.
 services: virtual-machines
 documentationcenter: ''
-author: mimckitt
-manager: gwallace
-editor: ''
+author: brbell
 tags: azure-resource-manager,azure-service-management
 keywords: VM isolation,isolated VM,isolation,isolated
 
 ms.assetid: 
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
-ms.devlang: na
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
-ms.author: mimckitt
+ms.date: 10/20/2021
+ms.author: brbell
 
 ---
 
@@ -40,6 +37,12 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that is great for rel
 - The [Ev4 and Esv4-series](ev4-esv4-series.md) runs on 2nd Generation Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 504 GiB of RAM. It features  the [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). The Ev4 and Esv4-series do not include a local temp disk. For more information, refer to  [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
 
 - The [Edv4 and Edsv4-series](edv4-edsv4-series.md) runs on 2nd Generation Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake) processors, ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory. Additionally, these VM sizes include fast, larger local SSD storage for applications that benefit from low latency, high-speed local storage. It features an all core Turbo clock speed of 3.4 GHz, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+
+- The [Easv5 and Eadsv5-series](easv5-eadsv5-series.md) utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processor in a multi-threaded configuration with up to 256 MB L3 cache, increasing customer options for running most memory optimized workloads. These virtual machines offer a combination of vCPUs and memory to meet the requirements associated with most memory-intensive enterprise applications, such as relational database servers and in-memory analytics workloads. 
+
+- The [Edv5 and Edsv5-series](edv5-edsv5-series.md) runs on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processors in a hyper-threaded configuration, and are ideal for various memory-intensive enterprise applications and feature up to 672 GiB of RAM, [Intel&reg; Turbo Boost Technology 2.0](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) and [Intel&reg; Advanced Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). They also support [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). These new VM sizes will have 50% larger local storage, as well as better local disk IOPS for both read and write compared to the [Ev3/Esv3](./ev3-esv3-series.md) sizes with [Gen2 VMs](./generation-2.md). It features an all core Turbo clock speed of 3.4 GHz.
+
+- The [Ev5 and Esv5-series](ev5-esv5-series.md) runs on the Intel&reg; Xeon&reg; Platinum 8272CL (Ice Lake) processors in a hyper-threaded configuration, are ideal for various memory-intensive enterprise applications and feature up to 512 GiB of RAM. It features an all core Turbo clock speed of 3.4 GHz.
 
 - The [M-series](m-series.md) offers a high vCPU count (up to 128 vCPUs) and a large amount of memory (up to 3.8 TiB). It's also ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 

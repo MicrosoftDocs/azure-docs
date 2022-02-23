@@ -2,11 +2,10 @@
 metadata:
   title: Frequently asked questions about networking in Azure Functions
   description: Answers to some of the most common questions and scenarios for networking with Azure Functions.
-  ms.topic: article
+  ms.topic: faq
   ms.service: azure-functions
   ms.date: 4/11/2019
   ms.reviewer: glenga
-    
 title: Frequently asked questions about networking in Azure Functions
 summary: |
   This article lists frequently asked questions about networking in Azure Functions. For a more comprehensive overview, see [Functions networking options](functions-networking-options.md).
@@ -73,6 +72,6 @@ additionalContent: |
           
   * [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
   * [Learn more about the networking options in Azure Functions](./functions-networking-options.md)
-  * [Learn more about virtual network integration with App Service and Functions](../app-service/web-sites-integrate-with-vnet.md)
+  * [Learn more about virtual network integration with App Service and Functions](../app-service/overview-vnet-integration.md)
   * [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
   * [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)

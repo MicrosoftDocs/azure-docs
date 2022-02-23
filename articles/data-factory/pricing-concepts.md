@@ -14,7 +14,7 @@ ms.date: 09/07/2021
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.
+This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.  You can also refer to the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for more specific scenarios and to estimate your future costs to use the service.
 
 > [!NOTE]
 > The prices used in these examples below are hypothetical and are not intended to imply actual pricing.
@@ -46,10 +46,10 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 **Total Scenario pricing: $0.16811**
 
 - Data Factory Operations = **$0.0001**
-  - Read/Write = 10\*00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring  = 2\*000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
+  - Read/Write = 10\*0.00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
+  - Monitoring  = 2\*0.000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
 - Pipeline Orchestration &amp; Execution = **$0.168**
-  - Activity Runs = 001\*2 = 0.002 [1 run = $1/1000 = 0.001]
+  - Activity Runs = 0.001\*2 = $0.002 [1 run = $1/1000 = 0.001]
   - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
 
 ## Copy data and transform with Azure Databricks hourly
@@ -78,10 +78,10 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 **Total Scenario pricing: $0.16916**
 
 - Data Factory Operations = **$0.00012**
-  - Read/Write = 11\*00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring  = 3\*000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
+  - Read/Write = 11\*0.00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
+  - Monitoring  = 3\*0.000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
 - Pipeline Orchestration &amp; Execution = **$0.16904**
-  - Activity Runs = 001\*3 = 0.003 [1 run = $1/1000 = 0.001]
+  - Activity Runs = 0.001\*3 = $0.003 [1 run = $1/1000 = 0.001]
   - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
   - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
 
@@ -113,10 +113,10 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 **Total Scenario pricing: $0.17020**
 
 - Data Factory Operations = **$0.00013**
-  - Read/Write = 11\*00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring  = 4\*000005 = $0.00002 [1 Monitoring = $0.25/50000 = 0.000005]
+  - Read/Write = 11\*0.00001 = $0.00011 [1 R/W = $0.50/50000 = 0.00001]
+  - Monitoring  = 4\*0.000005 = $0.00002 [1 Monitoring = $0.25/50000 = 0.000005]
 - Pipeline Orchestration &amp; Execution = **$0.17007**
-  - Activity Runs = 001\*4 = 0.004 [1 run = $1/1000 = 0.001]
+  - Activity Runs = 0.001\*4 = $0.004 [1 run = $1/1000 = 0.001]
   - Data Movement Activities = $0.166 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
   - Pipeline Activity = $0.00003 (Prorated for 1 minute of execution time. $0.002/hour on Azure Integration Runtime)
   - External Pipeline Activity = $0.000041 (Prorated for 10 minutes of execution time. $0.00025/hour on Azure Integration Runtime)
@@ -168,10 +168,10 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 **Total Scenario pricing: $1.4631**
 
 - Data Factory Operations = **$0.0001**
-  - Read/Write = 10\*00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring  = 2\*000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
+  - Read/Write = 10\*0.00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]
+  - Monitoring  = 2\*0.000005 = $0.00001 [1 Monitoring = $0.25/50000 = 0.000005]
 - Pipeline Orchestration &amp; Execution = **$1.463**
-  - Activity Runs = 001\*2 = 0.002 [1 run = $1/1000 = 0.001]
+  - Activity Runs = 0.001\*2 = $0.002 [1 run = $1/1000 = 0.001]
   - Data Flow Activities = $1.461 prorated for 20 minutes (10 mins execution time + 10 mins TTL). $0.274/hour on Azure Integration Runtime with 16 cores general compute
 
 ## Data integration in Azure Data Factory Managed VNET
@@ -199,10 +199,10 @@ To accomplish the scenario, you need to create two pipelines with the following 
 **Total Scenario pricing: $1.45523**
 
 - Data Factory Operations = $0.00023
-  - Read/Write = 20*00001 = $0.0002 [1 R/W = $0.50/50000 = 0.00001]
-  - Monitoring = 6*000005 = $0.00003 [1 Monitoring = $0.25/50000 = 0.000005]
+  - Read/Write = 20*0.00001 = $0.0002 [1 R/W = $0.50/50000 = 0.00001]
+  - Monitoring = 6*0.000005 = $0.00003 [1 Monitoring = $0.25/50000 = 0.000005]
 - Pipeline Orchestration & Execution = $1.455
-  - Activity Runs = 0.001*6 = 0.006 [1 run = $1/1000 = 0.001]
+  - Activity Runs = 0.001*6 = $0.006 [1 run = $1/1000 = 0.001]
   - Data Movement Activities = $0.333 (Prorated for 10 minutes of execution time. $0.25/hour on Azure Integration Runtime)
   - Pipeline Activity = $1.116 (Prorated for 7 minutes of execution time plus 60 minutes TTL. $1/hour on Azure Integration Runtime)
 

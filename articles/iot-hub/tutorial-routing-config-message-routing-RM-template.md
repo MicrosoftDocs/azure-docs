@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Configure message routing for Azure IoT Hub using an Azure Resource Manager template
 description: Tutorial - Configure message routing for Azure IoT Hub using an Azure Resource Manager template
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 08/24/2021
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my resources using an Azure Resource Manager template.
 ---
@@ -25,7 +25,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 For the second part of this tutorial, you download and run a Visual Studio application to send messages to the IoT Hub. There is a folder in that download that contains the Azure Resource Manager template and parameters file, as well as the Azure CLI and PowerShell scripts.
 
-Go ahead and download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) now. Unzip the master.zip file. The Resource Manager template and the parameters file are in /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **template_iothub.json** and **template_iothub_parameters.json**.
+Go ahead and download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip) now. Unzip the main.zip file. The Resource Manager template and the parameters file are in /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **template_iothub.json** and **template_iothub_parameters.json**.
 
 ## Create your resources
 

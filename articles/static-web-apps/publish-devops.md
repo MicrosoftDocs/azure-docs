@@ -30,9 +30,6 @@ In this tutorial, you learn to:
 
   > [!NOTE]
   > If you have an existing app in your repository, you may skip to the next section.
-  
-  > [!NOTE]
-  > The application must target .NET Core 3.1 for the pipeline to succeed.
 
 1. Navigate to your repository in Azure Repos.
 
@@ -133,7 +130,7 @@ In this tutorial, you learn to:
 
 9. Paste in the deployment token in the _Value_ box.
 
-    :::image type="content" source="media/publish-devops/variable-token.png" alt-text="Variable token":::
+    :::image type="content" source="media/publish-devops/yaml-token.png" alt-text="Variable token" lightbox="media/publish-devops/yaml-token.png":::
 
 10. Select **Keep this value secret**.
 
@@ -143,7 +140,7 @@ In this tutorial, you learn to:
 
 13. Select **Save and run** to open the _Save and run_ dialog.
 
-    :::image type="content" source="media/publish-devops/save-and-run.png" alt-text="Pipeline":::
+    :::image type="content" source="media/publish-devops/yaml-save.png" alt-text="Pipeline" lightbox="media/publish-devops/yaml-save.png":::
 
 14. Select **Save and run** to run the pipeline.
 

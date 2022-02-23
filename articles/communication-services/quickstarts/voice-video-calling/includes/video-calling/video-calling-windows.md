@@ -1,3 +1,5 @@
+[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+
 In this quickstart, you'll learn how to start a 1:1 video call using the Azure Communication Services Calling SDK for Windows.
 
 ## Prerequisites
@@ -30,7 +32,7 @@ Check `Microphone` to access the audio feed of the microphone.
 Check `WebCam` to access the camera of the device. 
 
 Add the following code to your `Package.appxmanifest` by right-clicking and choosing View Code. 
-```XML
+```xml
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>
@@ -100,6 +102,7 @@ namespace CallingQuickstart
         {
             this.InitializeComponent();
             this.InitCallAgentAndDeviceManager();
+            remoteParticipantDictionary = new Dictionary<string, RemoteParticipant>();
         }
         
         private async void InitCallAgentAndDeviceManager()
@@ -127,6 +130,7 @@ namespace CallingQuickstart
         Call call;
         DeviceManager deviceManager;
         LocalVideoStream[] localVideoStream;
+        Dictionary<String, RemoteParticipant> remoteParticipantDictionary;
     }
 }
 ```
@@ -251,6 +255,8 @@ private async void Agent_OnCallsUpdated(object sender, CallsUpdatedEventArgs arg
     {
         foreach (var remoteParticipant in call.RemoteParticipants)
         {
+            String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+            remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
             await AddVideoStreams(remoteParticipant.VideoStreams);
             remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
         }
@@ -263,6 +269,8 @@ private async void Call_OnRemoteParticipantsUpdated(object sender, ParticipantsU
 {
     foreach (var remoteParticipant in args.AddedParticipants)
     {
+        String remoteParticipantMRI = remoteParticipant.Identifier.ToString();
+        remoteParticipantDictionary.TryAdd(remoteParticipantMRI, remoteParticipant);
         await AddVideoStreams(remoteParticipant.VideoStreams);
         remoteParticipant.OnVideoStreamsUpdated += async (s, a) => await AddVideoStreams(a.AddedRemoteVideoStreams);
     }
@@ -303,7 +311,7 @@ private async void Call_OnStateChanged(object sender, PropertyChangedEventArgs a
             await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
             {
                 LocalVideo.Source = null;
-                RemoteVideo = null;
+                RemoteVideo.Source = null;
             });
             break;
         default:

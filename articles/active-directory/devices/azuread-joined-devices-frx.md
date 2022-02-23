@@ -10,8 +10,8 @@ ms.date: 06/28/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
-ms.reviewer: jairoc
+manager: karenhoran
+ms.reviewer: ravenn
 
 #Customer intent: As a user, I want to join my corporate device during a first-run so that I can access my corporate resources 
 
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 With device management in Azure Active Directory (Azure AD), you can ensure that your users are accessing your resources from devices that meet your standards for security and compliance. For more information, see the [introduction to device management in Azure Active Directory](overview.md).
 
-With Windows 10, You can join a new device to Azure AD during the first-run experience (FRX).  
+With Windows 10, You can join a new device to Azure AD during the first-run out-of-box experience (OOBE).  
 This enables you to distribute shrink-wrapped devices to your employees or students.
 
 If you have either Windows 10 Professional or Windows 10 Enterprise installed on a device, the experience defaults to the setup process for company-owned devices.
@@ -47,16 +47,16 @@ In addition, if your tenant is federated, your Identity provider MUST support WS
 1. When you turn on your new device and start the setup process, you should see the  **Getting Ready** message. Follow the prompts to set up your device.
 1. Start by customizing your region and language. Then accept the Microsoft Software License Terms.
  
-    ![Customize for your region](./media/azuread-joined-devices-frx/01.png)
+    <!--![Customize for your region](./media/azuread-joined-devices-frx/01.png)-->
 
 1. Select the network you want to use for connecting to the Internet.
 1. Click **This device belongs to my organization**. 
 
-    ![Who owns this PC screen](./media/azuread-joined-devices-frx/02.png)
+    <!--![Who owns this PC screen](./media/azuread-joined-devices-frx/02.png)-->
 
 1. Enter the credentials that were provided to you by your organization, and then click **Sign in**.
 
-    ![Sign-in screen](./media/azuread-joined-devices-frx/03.png)
+    <!--![Sign-in screen](./media/azuread-joined-devices-frx/03.png)-->
 
 1. Your device locates a matching tenant in Azure AD. If you are in a federated domain, you are redirected to your on-premises Secure Token Service (STS) server, for example, Active Directory Federation Services (AD FS).
 1. If you are a user in a non-federated domain, enter your credentials directly on the Azure AD-hosted page. 

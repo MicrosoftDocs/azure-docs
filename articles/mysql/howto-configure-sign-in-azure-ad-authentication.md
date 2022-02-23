@@ -109,7 +109,7 @@ After authentication is successful, Azure AD will return an access token:
 
 The token is a Base 64 string that encodes all the information about the authenticated user, and which is targeted to the Azure Database for MySQL service.
 
-The access token validity is anywhere between ***5 minutes to 60 minutes***. We recommend you get the access token just before initiating the login to Azure Database for MySQL. You can use the following Powershell command to see the token validity. 
+The access token validity is anywhere between ***5 minutes to 60 minutes***. We recommend you get the access token just before initiating the login to Azure Database for MySQL. You can use the following PowerShell command to see the token validity. 
 
 ```azurepowershell-interactive
 $accessToken.ExpiresOn.DateTime
@@ -171,9 +171,9 @@ Example:
 ```sql
 CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
 ```
-
 > [!NOTE]
-> Authenticating a user through Azure AD does not give the user any permissions to access objects within the Azure Database for MySQL database. You must grant the user the required permissions manually.
+> 1. MySQL ignores leading and trailing spaces so user name should not have any leading or trailing spaces. 
+> 2. Authenticating a user through Azure AD does not give the user any permissions to access objects within the Azure Database for MySQL database. You must grant the user the required permissions manually.
 
 ## Creating Azure AD groups in Azure Database for MySQL
 

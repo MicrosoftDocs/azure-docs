@@ -1,9 +1,10 @@
 ---
 title: Monitor data factories using Azure Monitor 
 description: Learn how to use Azure Monitor to monitor Azure Data Factory pipelines by enabling diagnostic logs with information from Data Factory.
-author: minhe-msft
-ms.author: hemin
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
+ms.custom: contperf-fy22q1
 ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
@@ -18,7 +19,7 @@ Cloud applications are complex and have many moving parts. Monitors provide data
 
 Azure Monitor provides base-level infrastructure metrics and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. Azure Data Factory (ADF) can write diagnostic logs in Azure Monitor. For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
 
 For more information, see [Azure Monitor overview](../azure-monitor/overview.md).
 

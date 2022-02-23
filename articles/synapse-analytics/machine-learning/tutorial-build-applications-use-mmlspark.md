@@ -1,7 +1,6 @@
 ---
-title: 'Tutorial: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)'
-description: Learn how to use Microsoft Machine Learning for Apache Spark to create machine learning applications in Azure Synapse Analytics.
-services: synapse-analytics
+title: 'Tutorial: Build machine learning applications using Synapse Machine Learning'
+description: Learn how to use Synapse Machine Learning to create machine learning applications in Azure Synapse Analytics.
 ms.service: synapse-analytics 
 ms.subservice: machine-learning
 ms.topic: tutorial
@@ -13,19 +12,19 @@ ms.author: ruxu
 ---
 
 
-# Tutorial: Build machine learning applications using Microsoft Machine Learning for Apache Spark (Preview)
+# Tutorial: Build machine learning applications using Synapse Machine Learning
 
-In this article, you will learn how to use Microsoft Machine Learning for Apache Spark ([MMLSpark](https://github.com/Azure/mmlspark)) to create machine learning applications. 
-MMLSpark expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  MMLSpark allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
-Synapse Spark provide built-in MMLSpark libraries including:
+In this article, you will learn how to use Synapse Machine Learning ([SynapseML](https://github.com/microsoft/SynapseML)) to create machine learning applications. 
+SynapseML expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure Cognitive Services](../../cognitive-services/big-data/cognitive-services-for-big-data.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
+Synapse Spark provide built-in SynapseML libraries including:
 
-- [Vowpal Wabbit](https://github.com/Azure/mmlspark/blob/master/docs/vw.md) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
-- [Cognitive Services on Spark](https://github.com/Azure/mmlspark/blob/master/docs/cogsvc.md) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
-- [LightGBM](https://github.com/Azure/mmlspark/blob/master/docs/lightgbm.md) – LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is designed to be distributed and higher efficiency.
+- [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
+- [Cognitive Services on Spark](https://arxiv.org/abs/1810.08744) – To combine the feature of Azure Cognitive Services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
+- [LightGBM](https://github.com/Microsoft/LightGBM) – LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is designed to be distributed and higher efficiency.
 - Conditional KNN - Scalable KNN Models with Conditional Queries.
-- [HTTP on Spark](https://github.com/Azure/mmlspark/blob/master/docs/http.md) – Enables distributed Microservices orchestration in integrating Spark and HTTP protocol-based accessibility.
+- HTTP on Spark – Enables distributed Microservices orchestration in integrating Spark and HTTP protocol-based accessibility.
 
-This tutorial covers samples using Azure Cognitive Services in MMLSpark for 
+This tutorial covers samples using Azure Cognitive Services in SynapseML for 
 
 - Text Analytics - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
@@ -42,13 +41,12 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 
 ## Get started
-To get started, import mmlspark and configurate service keys. 
+To get started, import SynapseML and configurate service keys. 
 
 ```python
-import mmlspark
-mmlspark.__spark_package_version__ # current version: 1.0.0-rc3-6-a862d6b1-SNAPSHOT
+import synapse.ml
 
-from mmlspark.cognitive import *
+from synapse.ml.cognitive import *
 from notebookutils import mssparkutils
 
 # A general Cognitive Services key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
@@ -275,4 +273,4 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 ## Next steps
 
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [MMLSpark GitHub Repo](https://github.com/Azure/mmlspark)
+* [SynapseML GitHub Repo](https://github.com/microsoft/SynapseML)

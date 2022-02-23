@@ -20,6 +20,19 @@ ms.date: 09/09/2021
 
 The Spark activity in a data factory and Synapse [pipelines](concepts-pipelines-activities.md) executes a Spark program on [your own](compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)  HDInsight cluster. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. When you use an on-demand Spark linked service, the service automatically creates a Spark cluster for you just-in-time to process the data and then deletes the cluster once the processing is complete. 
 
+## Add a Spark activity to a pipeline with UI
+
+To use a Spark activity to a pipeline, complete the following steps:
+
+1. Search for _Spark_ in the pipeline Activities pane, and drag a Spark activity to the pipeline canvas.
+1. Select the new Spark activity on the canvas if it is not already selected.
+1. Select the  **HDI Cluster** tab to select or create a new linked service to an HDInsight cluster that will be used to execute the Spark activity.
+
+   :::image type="content" source="media/transform-data-using-spark/spark-activity.png" alt-text="Shows the UI for a Spark activity.":::
+
+1. Select the **Script / Jar** tab to select or create a new job linked service to an Azure Storage account that will host your script.  Specify a path to the file to be executed there.  You can also configure advanced details including a proxy user, debugging configuration, and arguments and Spark configuration parameters to be passed to the script.
+
+   :::image type="content" source="media/transform-data-using-spark/spark-script-configuration.png" alt-text="Shows the UI for the Script / Jar tab for a Spark activity.":::
 
 ## Spark activity properties
 Here is the sample JSON definition of a Spark Activity:    
@@ -124,5 +137,4 @@ See the following articles that explain how to transform data in other ways:
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)
 * [Spark activity](transform-data-using-spark.md)
 * [.NET custom activity](transform-data-using-dotnet-custom-activity.md)
-* [ML Studio (classic) Batch Execution activity](transform-data-using-machine-learning.md)
 * [Stored procedure activity](transform-data-using-stored-procedure.md)

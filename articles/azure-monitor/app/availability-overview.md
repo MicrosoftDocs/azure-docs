@@ -22,7 +22,7 @@ There are four types of availability tests:
 * [Custom TrackAvailability test](availability-azure-functions.md): If you decide to create a custom application to run availability tests, you can use the [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) method to send the results to Application Insights.
 
 > [!IMPORTANT]
-> Both the [URL ping test](monitor-web-app-availability.md) and the [multi-step web test](availability-multistep.md) rely on the DNS infrastructure of the public internet to resolve the domain names of the tested endpoints. If you're using private DNS, you must ensure that the public domain name servers can remove every domain name of your test. When that's not possible, you can use [custom TrackAvailability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
+> Both the [URL ping test](monitor-web-app-availability.md) and the [multi-step web test](availability-multistep.md) rely on the DNS infrastructure of the public internet to resolve the domain names of the tested endpoints. If you're using private DNS, you must ensure that the public domain name servers can resolve every domain name of your test. When that's not possible, you can use [custom TrackAvailability tests](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) instead.
 
 You can create up to 100 availability tests per Application Insights resource.
 

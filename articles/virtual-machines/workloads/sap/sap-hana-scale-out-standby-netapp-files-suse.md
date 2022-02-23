@@ -1,19 +1,15 @@
 ---
 title: SAP HANA scale-out with standby with Azure NetApp Files on SLES | Microsoft Docs
 description: Learn how to deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/06/2021
+ms.date: 02/11/2022
 ms.author: radeltch
 
 ---
@@ -211,7 +207,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 The next instructions assume that you've already created the resource group, the Azure virtual network, and the three Azure virtual network subnets: `client`, `storage` and `hana`. When you deploy the VMs, select the client subnet, so that the client network interface is the primary interface on the VMs. You will also need to configure an explicit route to the Azure NetApp Files delegated subnet via the storage subnet gateway. 
 
 > [!IMPORTANT]
-> Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.  
+> Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.  
 
 1. Create an availability set for SAP HANA. Make sure to set the max update domain.  
 
@@ -556,7 +552,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
      * For **Root User Password**: enter the root user's password
      * For roles for host hanadb2: enter **1**  (for worker)
      * For **Host Failover Group** for host hanadb2 [default]: press Enter to accept the default
-     * For **Storage Partition Number** for host hanadb2 [<<assign automatically>>]: press Enter to accept the default
+     * For **Storage Partition Number** for host hanadb2 [\<\<assign automatically\>\>]: press Enter to accept the default
      * For **Worker Group** for host hanadb2 [default]: press Enter to accept the default
      * For **Select roles** for host hanadb3: enter **2** (for standby)
      * For **Host Failover Group** for host hanadb3 [default]: press Enter to accept the default

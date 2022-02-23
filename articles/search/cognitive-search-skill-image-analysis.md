@@ -6,7 +6,7 @@ description: Extract semantic text through image analysis using the Image Analys
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 # Image Analysis cognitive skill

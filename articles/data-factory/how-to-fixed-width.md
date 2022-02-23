@@ -5,7 +5,7 @@ author: kromerm
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 8/18/2019
+ms.date: 01/27/2022
 ms.author: makromer
 ---
 
@@ -59,7 +59,7 @@ By using mapping data flows in Microsoft Azure Data Factory, you can transform d
 
 10. In the expression builder, type the following:
 
-    ```substring(Column_1,1,4)```
+    `substring(Column_1,1,4)`
 
     :::image type="content" source="media/data-flow/fwderivedcol1.png" alt-text="derived column":::
 

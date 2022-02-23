@@ -4,12 +4,12 @@ description: Log Analytics workspaces in Azure Monitor store data from servers i
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020 
+ms.date: 10/20/2021
 ms.custom: devx-track-azurepowershell
 ---
 
 # Create and configure a Log Analytics workspace in Azure Monitor using PowerShell
-This article provides two code samples that show how to create and configure a Log Analytics workspace in Azure Monitor.  
+This article provides two code samples that show how to create and configure a Log Analytics workspace in Azure Monitor. 
 
 
 > [!NOTE]
@@ -40,7 +40,7 @@ New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku
 
 ## Create workspace and configure data sources
 
-The following sample script sample creates a workspace and configures multiple data sources. These data sources are only required if you are monitoring virtual machines using the [Log Analytics agent](../agents/log-analytics-agent.md).
+The following sample script sample creates a workspace and configures multiple data sources. These data sources are only required if you are monitoring virtual machines using the [Log Analytics agent](../agents/log-analytics-agent.md). A workspace has unique workspace ID and resource ID. You can reuse the same workspace name when in different resource groups.
 
 This script performs the following functions:
 
@@ -87,7 +87,7 @@ $ExportedSearches = @"
     {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
-        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:"",
+        "Query":  'Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:"',
         "Version":  1
     }
 ]
@@ -137,9 +137,6 @@ try {
 } catch {
     New-AzResourceGroup -Name $ResourceGroup -Location $Location
 }
-
-# Create the workspace
-New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 
 # List all solutions and their installation status
 Get-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: aarathin
 ms.author: aarathin
-ms.date: 05/21/2021
+ms.date: 09/27/2021
 ---
 
 # Create an IoT Edge Module offer
@@ -21,11 +21,15 @@ Review [Plan an IoT Edge Module offer](marketplace-iot-edge.md). It will explain
 
 ## Create a new offer
 
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-3. On the Overview page, select **+ New offer** > **IoT Edge module**.
+1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002).
 
-    :::image type="content" source="media/iot-edge/new-offer-iot-edge.png" alt-text="The left pane menu options and the 'New offer' button.":::
+1. On the Home page, select the **Marketplace offers** tile.
+
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. On the Marketplace offers page, select **+ New offer** > **IoT Edge module**.
+
+    [ ![The left pane menu options and the 'New offer' button.](./media/iot-edge/new-offer-iot-edge-workspaces.png) ](./media/iot-edge/new-offer-iot-edge-workspaces.png#lightbox)
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Azure Marketplace only after you republish the offer. Be sure to always republish an offer after changing it.

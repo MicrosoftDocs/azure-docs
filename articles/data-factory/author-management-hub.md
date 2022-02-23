@@ -4,8 +4,8 @@ description: Manage your connections, source control configuration and global au
 ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
-author: minhe-msft
-ms.author: hemin
+author: joshuha-msft
+ms.author: joowen
 ms.date: 04/27/2021
 ---
 
@@ -43,7 +43,7 @@ For more information, learn about [source control in Azure Data Factory](source-
 
 ### Parameterization template
 
-To override the generated Resource Manager template parameters when publishing from the collaboration branch, you can generate or edit a custom parameters file. For more information, learn how to [use custom parameters in the Resource Manager template](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template). The parameterization template is only available when working in a git repository. If the *arm-template-parameters-definition.json* file doesn't exist in the working branch, editing the default template will generate it.
+To override the generated Resource Manager template parameters when publishing from the collaboration branch, you can generate or edit a custom parameters file. For more information, learn how to [use custom parameters in the Resource Manager template](continuous-integration-delivery-resource-manager-custom-parameters.md). The parameterization template is only available when working in a git repository. If the *arm-template-parameters-definition.json* file doesn't exist in the working branch, editing the default template will generate it.
 
 :::image type="content" source="media/author-management-hub/management-hub-custom-parameters.png" alt-text="Manage custom params":::
 
@@ -51,7 +51,7 @@ To override the generated Resource Manager template parameters when publishing f
 
 ### Triggers
 
-Triggers determine when a pipeline run should be kicked off. Currently triggers can be on a wall clock schedule, operate on a periodic interval, or depend on an event. For more information, learn about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution). In the management hub, you can create, edit, delete, or view the current state of a trigger.
+Triggers determine when a pipeline run should be kicked off. Currently triggers can be on a wall clock schedule, operate on a periodic interval, or depend on an event. For more information, learn about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json). In the management hub, you can create, edit, delete, or view the current state of a trigger.
 
 :::image type="content" source="media/author-management-hub/management-hub-triggers.png" alt-text="Screenshot that shows where to create, edit, delete, nor view the current state of a trigger.":::
 

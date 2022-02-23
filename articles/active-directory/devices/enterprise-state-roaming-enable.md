@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ When you enable Enterprise State Roaming, your organization is automatically gra
   
    ![image of device setting labeled Users may sync settings and app data across devices](./media/enterprise-state-roaming-enable/device-settings.png)
   
-For a Windows 10 device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](./hybrid-azuread-join-plan.md). 
+For a Windows 10 or newer device to use the Enterprise State Roaming service, the device must authenticate using an Azure AD identity. For devices that are joined to Azure AD, the user’s primary sign-in identity is their Azure AD identity, so no additional configuration is required. For devices that use on-premises Active Directory, the IT admin must [Configure hybrid Azure Active Directory joined devices](./hybrid-azuread-join-plan.md). 
 
 ## Data storage
 
@@ -55,13 +55,8 @@ Follow these steps to view a per-user device sync status report.
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
 1. Select **Azure Active Directory** > **Users** > **All users**.
 1. Select the user, and then select **Devices**.
-1. Under **Show**, select **Devices syncing settings and app data** to show sync status.
-  
-   ![image of device sync data setting](./media/enterprise-state-roaming-enable/sync-status.png)
-  
-1. If there are devices syncing for this user, you see the devices as shown here.
-  
-   ![image of device sync columnar data](./media/enterprise-state-roaming-enable/device-status-row.png)
+1. Select **View devices syncing settings and app data** to show sync status.
+1. Devices syncing for the user are shown and can be downloaded.
 
 ## Data retention
 

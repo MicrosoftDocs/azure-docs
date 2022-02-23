@@ -3,7 +3,7 @@ title: Plan an automatic user provisioning deployment for Azure Active Directory
 description: Guidance for planning and executing automatic user provisioning in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
@@ -94,7 +94,7 @@ In this example, users and or groups are created in an HR database connected to 
 
 In this example, user creation occurs in Azure AD and the  Azure AD provisioning service manages automatic user provisioning to the target (SaaS) applications.
 
-![Diagram that shows the user/group creation process from an on-premises H R application through the Azure A D Provisioning Service to the target S a a S applications.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagram that shows the user/group creation process from an on-premises H R application through the Azure A D Provisioning Service to the target S A A S applications.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Description of workflow:**
 
@@ -152,7 +152,7 @@ The actual steps required to enable and configure automatic provisioning vary de
 
 If not, follow the steps below:
 
-1. [Create a request](../develop/v2-howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
+1. [Create a request](../manage-apps/v2-howto-app-gallery-listing.md) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
 
 1. Use the [BYOA SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md) generic user provisioning support for the app. This is a requirement for Azure AD to provision users to the app without a pre-integrated provisioning connector.
 
@@ -313,7 +313,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 #### Resources
 
-* [Provide product feedback](https://feedback.azure.com/forums/169401-azure-active-directory)
+* [Provide product feedback](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
 * [Keep up to date on what's new with Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 

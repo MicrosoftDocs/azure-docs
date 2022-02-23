@@ -1,23 +1,20 @@
 ---
 title: Tutorial - Use OpenSSL to create self signed certificates for Azure IoT Hub | Microsoft Docs
 description: Tutorial - Use OpenSSL to create self-signed X.509 certificates for Azure IoT Hub
-author: v-gpettibone
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 02/26/2021
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to show me how to use OpenSSL to self-sign device certificates.
 ---
 
 # Tutorial: Using OpenSSL to create self-signed certificates
 
-You can authenticate a device to your IoT Hub using two self-signed device certificates. This is sometimes called thumbprint authentication because the certificates contain thumbprints (hash values) that you submit to the IoT hub. The following steps tell you how to create two self-signed certificates.
-
-> [!NOTE]
-> This example was created using Cygwin64 for Windows. Cygwin is an open source tool collection that allows Unix or Linux applications to be run on Windows from within a Linux-like interface. CygWin64 is bundled with OpenSSL. If you are using Linux, you probably already have OpenSSL installed. 
+You can authenticate a device to your IoT Hub using two self-signed device certificates. This is sometimes called thumbprint authentication because the certificates contain thumbprints (hash values) that you submit to the IoT hub. The following steps tell you how to create two self-signed certificates. This type of certificate is mainly used for testing.
 
 ## Step 1 - Create a key for the first certificate
 
@@ -105,4 +102,8 @@ Navigate to your IoT Hub in the Azure portal and create a new IoT device identit
 
 ## Next Steps
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub.
+Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
+
+```bash
+openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx
+```

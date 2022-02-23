@@ -6,9 +6,9 @@ metadata:
   author: vhorne
   ms.service: firewall
   ms.topic: conceptual
-  ms.date: 09/01/2021
+  ms.date: 02/22/2022
   ms.author: victorh
-    
+
 title: Azure Firewall FAQ
 summary: |
 
@@ -111,7 +111,7 @@ sections:
           
           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
           $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-          $pip= Get-AzureRmPublicIpAddress -Name "azfwpublicip" -ResourceGroupName "RG Name"
+          $pip= Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
           $mgmtPip2 = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
           $azfw.Allocate($vnet, $pip, $mgmtPip2)
           $azfw | Set-AzFirewall
@@ -163,7 +163,7 @@ sections:
            |Type  |Rule  |Supported?  |Positive examples  |
            |---------|---------|---------|---------|
            |TargetURL  |`www.contoso.com` |Yes|`www.contoso.com`<br>`www.contoso.com/`|
-           |TargetURL  |`*.contoso.com` |Yes|`www.contoso.com`<br>`any.contoso.com/`|
+           |TargetURL  |`*.contoso.com` |Yes|`any.contoso.com/`|
            |TargetURL  |`*contoso.com`|Yes         |`example.anycontoso.com`<br>`contoso.com`|
            |TargetURL  |`www.contoso.com/test`|Yes|`www.contoso.com/test`<br>`www.contoso.com/test/`<br>`www.contoso.com/test?with_query=1`|
            |TargetURL  |`www.contoso.com/test/*`|Yes|`www.contoso.com/test/anything`<br>Note - `www.contoso.com/test` will **not** match (last slash)|
@@ -174,7 +174,7 @@ sections:
            |TargetURL   |`www.contoso.com:8080`|No|         |
            |TargetURL   |`*.contoso.*`|No|         |
            |TargetFQDN    |`www.contoso.com`|Yes|`www.contoso.com`|
-           |TargetFQDN    |`*.contoso.com`|Yes|`www.contoso.com`<br>`any.contoso.com`|
+           |TargetFQDN    |`*.contoso.com`|Yes|`any.contoso.com`<br><br>Note: If you want to specifically allow `contoso.com`, you must include contoso.com in the rule. Otherwise, the connection will be dropped by default because the request will not match any rule.|
            |TargetFQDN    |`*contoso.com`|Yes|`example.anycontoso.com`<br>`contoso.com`|
            |TargetFQDN    |`www.contoso.*`|No|         |
            |TargetFQDN    |`*.contoso.*`|No|         |
@@ -224,9 +224,9 @@ sections:
           Yes, you can use Azure PowerShell to do it:
           
           ```azurepowershell
-          # Add a Threat Intelligence allow list to an Existing Azure Firewall
+          # Add a Threat Intelligence allowlist to an Existing Azure Firewall
 
-          # Create the allow list with both FQDN and IPAddresses
+          # Create the allowlist with both FQDN and IPAddresses
           $fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
           $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
              -FQDN @("fqdn1", "fqdn2", …) -IpAddress @("ip1", "ip2", …)
@@ -242,9 +242,10 @@ sections:
           
       - question: Why can a TCP ping and similar tools successfully connect to a target FQDN even when no rule on Azure Firewall allows that traffic?
         answer: |
-          A TCP ping isn't actually connecting  to the target FQDN. This happens because Azure Firewall's transparent proxy listens on port 80/443 for outbound traffic. The TCP ping establishes a connection with the firewall, which then drops the packet. This behavior doesn't have any security impact. However, to avoid confusion we're investigating potential changes to this behavior.
+          A TCP ping isn't actually connecting  to the target FQDN. Azure Firewall doesn't allow a connection to any target IP address/FQDN unless there is an explicit rule that allows it.
+          
+          TCP ping is a unique use case where if there is no allowed rule, the Firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. In this case, the event is not logged. If there is a network rule that allows access to the target IP address/FQDN, then the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.
 
-          Similarly for inbound DNAT traffic, Azure Firewall’s listener on port 80/443 allows TCP connections to be established. However, the firewall then drops and denies the packet by design, unless explicitly allowed in rules. 
 
       - question: Are there limits for the number of IP addresses supported by IP Groups?
         answer: |
@@ -257,7 +258,7 @@ sections:
         answer: |
           A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the idle timeout up to 30 minutes.
           
-          If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive#System_Net_ServicePoint_SetTcpKeepAlive_System_Boolean_System_Int32_System_Int32_).
+          If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the [.NET examples](/dotnet/api/system.net.servicepoint.settcpkeepalive).
           
       - question: Can I deploy Azure Firewall without a public IP address?
         answer: No, currently you must deploy Azure Firewall with a public IP address.

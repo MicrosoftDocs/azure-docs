@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 05/07/2021
+ms.date: 01/14/2022
 ms.author: cshoe
 ---
 
@@ -46,7 +46,7 @@ Before you associate an existing Functions app, you first need to adjust to conf
 
 1. From the _Environment_ dropdown, select **Production**.
 
-1. Next to the _Functions source_ label, select **Link to a Function app**.
+1. Next to the _Functions type_ label, select **Link to a Function app**.
 
 1. From the _Subscription_ dropdown, select your Azure subscription name.
 
@@ -68,7 +68,7 @@ You're responsible for setting up a [deployment workflow](../azure-functions/fun
 - **Authentication and authorization:** If authentication and authorization policies aren't already set up on your existing Functions app, then the static web app has exclusive access to the API. To make your Functions app accessible to other applications, add another identity provider or change the security settings to allow unauthenticated access.
 
   > [!NOTE]
-  > If you enable authentication and authorization in your linked Functions app, it must use Azure App Service Authentication and authorization provider is version 2.
+  > If you enable authentication and authorization in your linked Functions app, it must use Azure App Service Authentication and authorization provider version 2.
 
 - **Required public accessibility:** An existing Functions app needs to not apply the following security configurations.
   - Restricting the IP address of the Functions app.

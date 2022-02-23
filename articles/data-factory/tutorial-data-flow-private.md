@@ -182,13 +182,13 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
     :::image type="content" source="media/tutorial-data-flow-private/filter-years.png" alt-text="Screenshot that shows FilterYears.":::
 1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data flow expression builder](./concepts-data-flow-expression-builder.md).
 
-    * In this tutorial, you want to filter movies in the comedy genre that came out between the years 1910 and 2000. Because the year is currently a string, you need to convert it to an integer by using the ```toInteger()``` function. Use the greater than or equal to (>=) and less than or equal to (<=) operators to compare against the literal year values 1910 and 2000. Union these expressions together with the and (&&) operator. The expression comes out as:
+    * In this tutorial, you want to filter movies in the comedy genre that came out between the years 1910 and 2000. Because the year is currently a string, you need to convert it to an integer by using the `toInteger()` function. Use the greater than or equal to (>=) and less than or equal to (<=) operators to compare against the literal year values 1910 and 2000. Union these expressions together with the and (&&) operator. The expression comes out as:
 
-        ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
+        `toInteger(year) >= 1910 && toInteger(year) <= 2000`
 
-    * To find which movies are comedies, you can use the ```rlike()``` function to find the pattern 'Comedy' in the column genres. Union the rlike expression with the year comparison to get:
+    * To find which movies are comedies, you can use the `rlike()` function to find the pattern 'Comedy' in the column genres. Union the `rlike` expression with the year comparison to get:
 
-        ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
+        `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 
     * If you have a debug cluster active, you can verify your logic by selecting **Refresh** to see the expression output compared to the inputs used. There's more than one right answer on how you can accomplish this logic by using the data flow expression language.
 
@@ -213,7 +213,7 @@ If you didn't use the hyperlink when you tested the preceding connection, follow
     :::image type="content" source="media/tutorial-data-flow-private/name-column.png" alt-text="Screenshot that shows the aggregate column name.":::
 1. To get the average of column **Rating**, use the ```avg()``` aggregate function. Because **Rating** is a string and ```avg()``` takes in a numerical input, we must convert the value to a number via the ```toInteger()``` function. This expression looks like:
 
-    ```avg(toInteger(Rating))```
+    `avg(toInteger(Rating))`
 
 1. Select **Save and finish** after you're finished.
 

@@ -2,11 +2,11 @@
 title: Emergency Rotation of the AD FS certificates | Microsoft Docs
 description: This article explains how to revoke and update AD FS certificates immediately.
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/22/2021
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 ---
@@ -22,7 +22,7 @@ In the event that you need to rotate the AD FS certificates immediately, you can
 > For more information, see [Hardware Security Module](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
 
 ## Determine your Token Signing Certificate thumbprint
-In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-sigining certificate.  To do this, use the following steps below:
+In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-signing certificate.  To do this, use the following steps below:
 
  1.    Connect to the Microsoft Online Service
 `PS C:\>Connect-MsolService`
@@ -37,7 +37,7 @@ By default, AD FS is configured to generate token signing and token decryption c
 
 You can run the following Windows PowerShell command: `PS C:\>Get-AdfsProperties | FL AutoCert*, Certificate*`.
 
-The AutoCertificateRollover property describes whether AD FS is configured to renew token signing and token decrypting certificates automatically.  If AutoCertificateRollover is set to TRUE, follow the instructions outlined below in [Generating new self-signed certificate if AutoCertificateRollover is set to TRUE].  If AutoCertificateRollover is set to FALSE, follow the instructions outlined below in [Generating new certificates manually if AutoCertificateRollover is set to FALSE]
+The AutoCertificateRollover property describes whether AD FS is configured to renew token signing and token decrypting certificates automatically.  If AutoCertificateRollover is set to TRUE, follow the instructions outlined below in [Generating new self-signed certificate if AutoCertificateRollover is set to TRUE](#generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true).  If AutoCertificateRollover is set to FALSE, follow the instructions outlined below in [Generating new certificates manually if AutoCertificateRollover is set to FALSE](#generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false).
 
 
 ## Generating new self-signed certificate if AutoCertificateRollover is set to TRUE

@@ -10,7 +10,6 @@ editor: TomSh
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -141,7 +140,7 @@ Identity Secure Score is a set of recommended security controls that Microsoft p
 If you have multiple tenants or you want to enable users to [reset their own passwords](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e), it’s important that you use appropriate security policies to prevent abuse.
 
 **Best practice**: Set up self-service password reset (SSPR) for your users.  
-**Detail**: Use the Azure AD [self-service password reset](../../active-directory-b2c/user-flow-self-service-password-reset.md) feature.
+**Detail**: Use the Azure AD [self-service password reset](../../active-directory/authentication/tutorial-enable-sspr.md) feature.  
 
 **Best practice**: Monitor how or if SSPR is really being used.  
 **Detail**: Monitor the users who are registering by using the Azure AD [Password Reset Registration Activity report](../../active-directory/authentication/howto-sspr-reporting.md). The reporting feature that Azure AD provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.
@@ -215,7 +214,7 @@ You can use [Azure RBAC](../../role-based-access-control/overview.md) to assign 
 **Best practice**: Grant the appropriate permissions to security teams that have direct operational responsibilities.
 **Detail**: Review the Azure built-in roles for the appropriate role assignment. If the built-in roles don't meet the specific needs of your organization, you can create [Azure custom roles](../../role-based-access-control/custom-roles.md). As with built-in roles, you can assign custom roles to users, groups, and service principals at subscription, resource group, and resource scopes.
 
-**Best practices**: Grant Azure Security Center access to security roles that need it. Security Center allows security teams to quickly identify and remediate risks.
+**Best practices**: Grant Microsoft Defender for Cloud access to security roles that need it. Defender for Cloud allows security teams to quickly identify and remediate risks.
 **Detail**: Add security teams with these needs to the Azure RBAC [Security Admin](../../role-based-access-control/built-in-roles.md#security-admin) role so they can view security policies, view security states, edit security policies, view alerts and recommendations, and dismiss alerts and recommendations. You can do this by using the root management group or the segment management group, depending on the scope of responsibilities.
 
 Organizations that don’t enforce data access control by using capabilities like Azure RBAC might be giving more privileges than necessary to their users. This can lead to data compromise by allowing users to access types of data (for example, high business impact) that they shouldn’t have.

@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 09/21/2021
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB API for MongoDB offline
@@ -44,7 +44,11 @@ In this tutorial, you migrate a dataset in MongoDB that is hosted in an Azure vi
 To complete this tutorial, you need to:
 
 * [Complete the pre-migration](../cosmos-db/mongodb-pre-migration.md) steps, such as estimating throughput and choosing a partition key.
-* [Create an account for the Azure Cosmos DB API for MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+* [Create an account for the Azure Cosmos DB API for MongoDB](https://portal.azure.com/#create/Microsoft.DocumentDB).
+
+  > [!NOTE]
+  > DMS is currently not supported if you are migrating to API for MongoDB account that is provisioned with serverless mode.
+
 * Create a Microsoft Azure Virtual Network for Azure Database Migration Service by using Azure Resource Manager. This deployment model provides site-to-site connectivity to your on-premises source servers by using either [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Azure Virtual Network documentation](../virtual-network/index.yml), especially the "quickstart" articles with step-by-step details.
 
     > [!NOTE]

@@ -5,12 +5,14 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 04/23/2021
-ms.custom: devx-track-java
+ms.date: 10/12/2021
+ms.custom: devx-track-java, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
 # Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
 With the built-in monitoring capability in Azure Spring Cloud, you can debug and monitor complex issues. Azure Spring Cloud integrates Steeltoe [distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal.
@@ -24,6 +26,7 @@ The following procedures explain how to use Log Streaming, Log Analytics, Metric
   * [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
   * [Set up Azure Spring Cloud configuration server](./quickstart-setup-config-server.md).
   * [Build and deploy apps](./quickstart-deploy-apps.md).
+  * [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
@@ -111,8 +114,9 @@ With the built-in monitoring capability in Azure Spring Cloud, you can debug and
 Complete previous steps:
 
 * [Provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md)
-* [Set up the config server](./quickstart-setup-config-server.md)
+* [Set up the config server](./quickstart-setup-config-server.md). For enterprise tier, please follow [set up Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * [Build and deploy apps](./quickstart-deploy-apps.md).
+* [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
@@ -204,7 +208,7 @@ Navigate to the `Live Metrics` blade - you can see live metrics on screen with l
 
 ## Tracing
 
-Open the Application Insights created by Azure Spring Cloud and start monitoring microservice applications.
+Open the Application Insights created by Azure Spring Cloud and start monitoring Spring applications.
 
 Navigate to the `Application Map` blade:
 [ ![Application map](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg#lightbox)

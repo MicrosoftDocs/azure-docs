@@ -1,13 +1,14 @@
 ---
 title: How to use Queue Storage (C++) - Azure Storage
 description: Learn how to use the Queue Storage service in Azure. Samples are written in C++.
-author: twooley
-ms.author: twooley
+author: normesta
+ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 07/16/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
+ms.devlang: cpp
 ---
 
 # How to use Queue Storage from C++

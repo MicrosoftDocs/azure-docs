@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 10/19/2021
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how to write a protected web API using the Microsoft identity platform for developers.
@@ -20,14 +20,13 @@ ms.custom: aaddev
 
 This article describes how you can add authorization to your web API. This protection ensures that the API is called only by:
 
-- Applications on behalf of users who have the right scopes.
+- Applications on behalf of users who have the right scopes and roles.
 - Daemon apps that have the right application roles.
 
-> [!NOTE]
-> The code snippets in this article are extracted from the following code samples on GitHub:
->
-> - [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs)
-> - [ASP.NET web API sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/master/TodoListService/Controllers/TodoListController.cs)
+The code snippets in this article are extracted from the following code samples on GitHub:
+
+- [ASP.NET Core web API incremental tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/1.%20Desktop%20app%20calls%20Web%20API/TodoListService/Controllers/TodoListController.cs)
+- [ASP.NET web API sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof/blob/master/TodoListService/Controllers/TodoListController.cs)
 
 To protect an ASP.NET or ASP.NET Core web API, you must add the `[Authorize]` attribute to one of the following items:
 
@@ -44,8 +43,8 @@ To protect an ASP.NET or ASP.NET Core web API, you must add the `[Authorize]` at
 
 But this protection isn't enough. It guarantees only that ASP.NET and ASP.NET Core validate the token. Your API needs to verify that the token used to call the API is requested with the expected claims. These claims in particular need verification:
 
-- The *scopes* if the API is called on behalf of a user.
-- The *app roles* if the API can be called from a daemon app.
+- The _scopes_ if the API is called on behalf of a user.
+- The _app roles_ if the API can be called from a daemon app.
 
 ## Verify scopes in APIs called on behalf of users
 
@@ -74,7 +73,7 @@ public class TodoListController : Controller
     /// The web API will accept only tokens that have the `access_as_user` scope for
     /// this API.
     /// </summary>
-    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
+    const string scopeRequiredByApi = "access_as_user";
 
     // GET: api/values
     [HttpGet]
@@ -170,7 +169,7 @@ public class TodoListController : Controller
     /// The web API will accept only tokens 1) for users, 2) that have the `access_as_user` scope for
     /// this API.
     /// </summary>
-    const string[] scopeRequiredByApi = new string[] { "access_as_user" };
+    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
 
     // GET: api/values
     [HttpGet]
@@ -231,7 +230,7 @@ public class TodoListController : ApiController
     }
 ```
 
-Below is a simplified version of  `ValidateScopes`:
+Below is a simplified version of `ValidateScopes`:
 
 ```csharp
 private void ValidateScopes(IEnumerable<string> acceptedScopes)
@@ -251,7 +250,7 @@ private void ValidateScopes(IEnumerable<string> acceptedScopes)
 }
 ```
 
-For a full version of `ValidateScopes` for ASP.NET Core, [*ScopesRequiredHttpContextExtensions.cs*](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/ScopesRequiredHttpContextExtensions.cs)
+For a full version of `ValidateScopes` for ASP.NET Core, [_ScopesRequiredHttpContextExtensions.cs_](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/ScopesRequiredHttpContextExtensions.cs)
 
 ---
 
@@ -278,30 +277,20 @@ public class TodoListController : ApiController
     }
 ```
 
-Instead, you can use the [Authorize("role")] attributes on the controller or an action (or a razor page).
+
+Instead, you can use the [Authorize(Roles = "access_as_application")] attributes on the controller or an action (or a razor page).
 
 ```CSharp
-[Authorize("role")]
+[Authorize(Roles = "access_as_application")]
 MyController : ApiController
 {
     // ...
 }
 ```
 
-But for this, you'll need to map the Role claim to "roles" in the Startup.cs file:
+[Role-based authorization in ASP.NET Core](/aspnet/core/security/authorization/roles) lists several approaches to implement role based authorization. Developers can choose one among them which suits to their respective scenarios.
 
-
-```CSharp
- services.Configure<OpenIdConnectOptions>(OpenIdConnectDefaults.AuthenticationScheme, options =>
- {
-    // The claim in the Jwt token where App roles are available.
-    options.TokenValidationParameters.RoleClaimType = "roles";
- });
-```
-
-This isn't the best solution if you also need to do authorization based on groups.
-
-For details, see the web app incremental tutorial on [authorization by roles and groups](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ).
+For working samples, see the web app incremental tutorial on [authorization by roles and groups](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ).
 
 ### [ASP.NET Classic](#tab/aspnet)
 
@@ -318,7 +307,7 @@ public class TodoListController : ApiController
     }
 ```
 
-A simplified version of  `ValidateAppRole` is:
+A simplified version of `ValidateAppRole` is:
 
 ```csharp
 private void ValidateAppRole(string appRole)
@@ -338,13 +327,17 @@ private void ValidateAppRole(string appRole)
 }
 ```
 
-For a full version of `ValidateAppRole` for ASP.NET Core, see [*RolesRequiredHttpContextExtensions.cs*](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs) code.
+For a full version of `ValidateAppRole` for ASP.NET Core, see [_RolesRequiredHttpContextExtensions.cs_](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/RolesRequiredHttpContextExtensions.cs) code.
 
 ---
 
-### Accepting app-only tokens if the web API should be called only by daemon apps
+### Verify app roles in APIs called on behalf of users
 
-Users can also use roles claims in user assignment patterns, as shown in [How to: Add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md). If the roles are assignable to both, checking roles will let apps sign in as users and users to sign in as apps. We recommend that you declare different roles for users and apps to prevent this confusion.
+Users can also use roles claims in user assignment patterns, as shown in [How to add app roles in your application and receive them in the token](howto-add-app-roles-in-azure-ad-apps.md). If the roles are assignable to both, checking roles will let apps sign in as users and users sign in as apps. We recommend that you declare different roles for users and apps to prevent this confusion.
+
+If you have defined app roles with user/group, then roles claim can also be verified in the API along with scopes. The verification logic of the app roles in this scenario remains same as if API is called by the daemon apps since there is no differentiation in the role claim for user/group and application. 
+
+### Accepting app-only tokens if the web API should be called only by daemon apps
 
 If you want only daemon apps to call your web API, add the condition that the token is an app-only token when you validate the app role.
 
@@ -367,7 +360,7 @@ If you are using Microsoft.Identity.Web on ASP.NET core, you'll need to declare 
 System.UnauthorizedAccessException: IDW10201: Neither scope or roles claim was found in the bearer token.
 ```
 
- To avoid this exception, set the `AllowWebApiToBeAuthorizedByACL` configuration property to true, in the appsettings.json or programmatically.
+To avoid this exception, set the `AllowWebApiToBeAuthorizedByACL` configuration property to true, in the appsettings.json or programmatically.
 
 ```Json
 {

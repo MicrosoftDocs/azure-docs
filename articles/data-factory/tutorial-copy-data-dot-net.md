@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ### Create a blob and a SQL table
 
-Now, prepare your Azure Blob and Azure SQL Database for the tutorial by creating a source blog and a sink SQL table.
+Now, prepare your Azure Blob and Azure SQL Database for the tutorial by creating a source blob and a sink SQL table.
 
 #### Create a source blob
 

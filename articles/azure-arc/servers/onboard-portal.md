@@ -1,11 +1,11 @@
 ---
-title: Connect hybrid machines to Azure from the Azure portal
-description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers from the Azure portal.
+title: Connect hybrid machines to Azure using a deployment script
+description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers using the deployment script you create in the Azure portal.
 ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 
-# Connect hybrid machines to Azure from the Azure portal
+# Connect hybrid machines to Azure using a deployment script
 
 You can enable Azure Arc-enabled servers for one or a small number of Windows or Linux machines in your environment by performing a set of steps manually. Or you can use an automated method by running a template script that we provide. This script automates the download and installation of both agents.
 
@@ -122,7 +122,7 @@ The following example downloads the agent and installs it:
 # Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent.
+# Install the Azure Connected Machine agent.
 bash ~/Install_linux_azcmagent.sh
 ```
 
@@ -132,7 +132,7 @@ bash ~/Install_linux_azcmagent.sh
     # Download the installation package.
     wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-    # Install the connected machine agent.
+    # Install the AZure Connected Machine agent.
     bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
     ```
 

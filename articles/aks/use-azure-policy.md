@@ -47,7 +47,7 @@ Custom policy definitions are written in JSON. To learn more about creating a cu
 > [!NOTE]
 > Azure Policy now utilizes a new property known as *templateInfo* that allows users to define the source type for the constraint template. By defining *templateInfo* in policy definitions, users don’t have to define *constraintTemplate* or *constraint* properties. Users still need to define *apiGroups* and *kinds*. For more information on this, see [Understanding Azure Policy effects][azure-policy-effects-audit].
 
-Once your custom policy definition has been created, see [Assign a policy definition][azure-policy-tutorial-assign] for a step-by-step walkthrough of assigning the policy to your Kubernetes cluster.
+Once your custom policy definition has been created, see [Assign a policy definition][custom-policy-tutorial-assign] for a step-by-step walkthrough of assigning the policy to your Kubernetes cluster.
 
 ## Validate a Azure Policy is running
 
@@ -108,7 +108,7 @@ kubectl apply -f nginx-privileged.yaml
 As expected the pod fails to be scheduled, as shown in the following example output:
 
 ```console
-$ kubectl apply -f privileged.yaml
+$ kubectl apply -f nginx-privileged.yaml
 
 Error from server ([denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}): error when creating "privileged.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by azurepolicy-container-no-privilege-00edd87bf80f443fa51d10910255adbc4013d590bec3d290b4f48725d4dfbdf9] Privileged container is not allowed: nginx-privileged, securityContext: {"privileged": true}
 ```

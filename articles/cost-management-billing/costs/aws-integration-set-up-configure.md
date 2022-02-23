@@ -1,9 +1,10 @@
 ---
-title: Set up AWS integration with Azure Cost Management
-description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management.
+title: Set up AWS integration with Cost Management
+titleSuffix: Azure Cost Management + Billing
+description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2021
+ms.date: 01/10/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,13 +13,9 @@ ms.reviewer: matrive
 
 # Set up and configure AWS Cost and Usage report integration
 
-With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you monitor and control your AWS spending in Azure Cost Management. The integration allows a single location in the Azure portal where you monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you can use Azure Cost Management features to analyze costs and review budgets.
+With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you monitor and control your AWS spending in Cost Management. The integration allows a single location in the Azure portal where you monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you can use Cost Management features to analyze costs and review budgets.
 
 Cost Management processes the AWS Cost and Usage report stored in an S3 bucket by using your AWS access credentials to get report definitions and download report GZIP CSV files.
-
-Watch the video [How to set up Connectors for AWS in Cost Management](https://www.youtube.com/watch?v=Jg5KC1cx5cA) to learn more about how to set up AWS report integration. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
-
->[!VIDEO https://www.youtube.com/embed/Jg5KC1cx5cA]
 
 ## Create a Cost and Usage report in AWS
 
@@ -54,7 +51,7 @@ It can take up to 24 hours for AWS to start delivering reports to your Amazon S3
 
 ## Create a role and policy in AWS
 
-Azure Cost Management accesses the S3 bucket where the Cost and Usage report is located several times a day. The service needs access to credentials to check for new data. You create a role and policy in AWS to allow Cost Management to access it.
+Cost Management accesses the S3 bucket where the Cost and Usage report is located several times a day. The service needs access to credentials to check for new data. You create a role and policy in AWS to allow Cost Management to access it.
 
 To enable role-based access to an AWS account in Cost Management, the role is created in the AWS console. You need to have the _role ARN_ and _external ID_ from the AWS console. Later, you use them on the **Create an AWS connector** page in Cost Management.
 
@@ -66,7 +63,7 @@ Use the Create a New Role wizard:
 4. On the next page, select **Another AWS account**.
 5. In **Account ID**, enter **432263259397**.
 6. In **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
-7. In **External ID**, enter the external ID which is a shared passcode between the AWS role and Azure Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
+7. In **External ID**, enter the external ID which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
 8. Select **Next: Permissions**.
@@ -104,16 +101,29 @@ Add permission for AWS Organizations:
 
 1. Enter **Organizations**.
 2. Select **Access level** > **List** > **ListAccounts**. This action gets the names of the accounts.
-3. In **Review Policy**, enter a name for the new policy. Check that you entered the correct information, and then select **Create Policy**.
-4. Go back to the previous tab and refresh your browser's webpage. On the search bar, search for your new policy.
-5. Select **Next: Review**.
-6. Enter a name for the new role. Check that you entered the correct information, and then select **Create Role**.
+3. Select **Add Additional permissions**.
 
-    Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Azure Cost Management connector.
+Configure permissions for Policies
 
-The policy JSON should resemble the following example. Replace _bucketname_ with the name of your S3 bucket.
+1.	Enter **IAM**.
+1.	Select Access level > List > **ListAttachedRolePolicies** and **ListPolicyVersions** and **ListRoles**.
+1.	Select Access level > Read > **GetPolicyVersion**.
+1.	Select **Resources** > policy, and then select **Any**. These actions allow verification that only the minimal required set of permissions were granted to the connector.
+1.	Select role - **Add ARN**. The account number should be automatically populated.
+1.	In **Role name with path** enter a role name and note it. You need to use it in the final role creation step.
+1.	Select **Add**.
+1.	Select **Next: Tags**. You may enter tags you wish to use or skip this step. This step isn't required to create a connector in Cost Management.
+1.	Select **Next: Review Policy**.
+1.	In Review Policy, enter a name for the new policy. Verify that you entered the correct information, and then select **Create Policy**.
+1.	Go back to the previous tab and refresh the policies list. On the search bar, search for your new policy.
+1.	Select **Next: Review**.
+1.	Enter the same role name you defined and noted while configuring the IAM permissions. Verify that you entered the correct information, and then select **Create Role**.
 
-```JSON
+Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Cost Management connector.
+
+The policy JSON should resemble the following example. Replace `bucketname` with the name of your S3 bucket, `accountname` with your account number and `rolename` with the role name you created.
+
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -121,9 +131,10 @@ The policy JSON should resemble the following example. Replace _bucketname_ with
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-"organizations:ListAccounts",
-             "ce:*",
-             "cur:DescribeReportDefinitions"
+                "organizations:ListAccounts",
+                "iam:ListRoles",
+                "ce:*",
+                "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },
@@ -133,10 +144,15 @@ The policy JSON should resemble the following example. Replace _bucketname_ with
             "Action": [
                 "s3:GetObject",
                 "s3:ListBucket"
+                "iam:GetPolicyVersion",
+                "iam:ListPolicyVersions",
+                "iam:ListAttachedRolePolicies",
             ],
             "Resource": [
                 "arn:aws:s3:::bucketname",
                 "arn:aws:s3:::bucketname/*"
+                "arn:aws:iam::accountnumber:policy/*",
+                "arn:aws:iam::accountnumber:role/rolename"
             ]
         }
     ]

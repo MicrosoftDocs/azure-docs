@@ -1,207 +1,273 @@
 ---
 title: Passwordless security key sign-in to on-premises resources - Azure Active Directory
-description: Learn how to enable passwordless security key sign-in to on-premises resources using Azure Active Directory
+description: Learn how to enable passwordless security key sign-in to on-premises resources by using Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 02/22/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign-in to on-premises resources with Azure Active Directory 
+# Enable passwordless security key sign-in to on-premises resources by using Azure AD 
 
-This document focuses on enabling passwordless authentication to on-premises resources for environments with both **Azure AD joined** and **hybrid Azure AD joined** Windows 10 devices. This functionality provides seamless single sign-on (SSO) to on-premises resources using Microsoft-compatible security keys.
+This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys, or with [Windows Hello for Business Cloud trust](/windows/security/identity-protection/hello-for-business/hello-hybrid-cloud-trust.md)
 
-## SSO to on-premises resources using FIDO2 keys
+## Use SSO to sign in to on-premises resources by using FIDO2 keys
 
-Azure Active Directory (AD) can issue Kerberos Ticket Granting Tickets (TGTs) for one or more of your Active Directory domains. This functionality allows users to sign into Windows with modern credentials like FIDO2 security keys and access traditional Active Directory based resources. Kerberos Service Tickets and authorization continue to be controlled by your on-premises Active Directory domain controllers.
+Azure AD can issue Kerberos ticket-granting tickets (TGTs) for one or more of your Active Directory domains. With this functionality, users can sign in to Windows with modern credentials, such as FIDO2 security keys, and then access traditional Active Directory-based resources. Kerberos Service Tickets and authorization continue to be controlled by your on-premises Active Directory domain controllers (DCs).
 
-An Azure AD Kerberos Server object is created in your on-premises Active Directory and then securely published to Azure Active Directory. The object isn't associated with any physical servers. It's simply a resource that can be used by Azure Active Directory to generate Kerberos TGTs for your Active Directory Domain.
+An Azure AD Kerberos Server object is created in your on-premises Active Directory instance and then securely published to Azure Active Directory. The object isn't associated with any physical servers. It's simply a resource that can be used by Azure Active Directory to generate Kerberos TGTs for your Active Directory domain.
 
-![Getting a ticket granting ticket (TGT) from Azure AD and AD DS](./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png)
+:::image type="Image" source="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png" alt-text="Diagram showing how to get a TGT from Azure AD and Active Directory Domain Services." lightbox="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png":::
 
-1. User signs in to their Windows 10 device with a FIDO2 security key and authenticates to Azure AD.
-1. Azure AD checks the directory for a Kerberos server key matching the user's on-premises AD domain.
-   1. Azure AD generates a Kerberos TGT for the user's on-premises AD domain. The TGT only includes the user's SID. No authorization data is included in the TGT.
-1. The TGT is returned to the client along with their Azure AD Primary Refresh Token (PRT).
-1. The client machine contacts an on-premises AD domain controller and trades the partial TGT for a fully formed TGT.
+1. A user signs in to a Windows 10 device with an FIDO2 security key and authenticates to Azure AD.
+1. Azure AD checks the directory for a Kerberos Server key that matches the user's on-premises Active Directory domain.
+
+   Azure AD generates a Kerberos TGT for the user's on-premises Active Directory domain. The TGT includes the user's SID only, and no authorization data.
+
+1. The TGT is returned to the client along with the user's Azure AD Primary Refresh Token (PRT).
+1. The client machine contacts an on-premises Azure AD DC and trades the partial TGT for a fully formed TGT.
 1. The client machine now has an Azure AD PRT and a full Active Directory TGT and can access both cloud and on-premises resources.
 
-## Requirements
+## Prerequisites
 
-Organizations must complete the steps to [Enable passwordless security key sign to Windows 10 devices](howto-authentication-passwordless-security-key.md) before completing the steps in this article.
+Before you begin the procedures in this article, your organization must complete the instructions in [Enable passwordless security key sign-in to Windows 10 devices](howto-authentication-passwordless-security-key.md).
 
-Organizations must also meet the following software requirements.
+You must also meet the following system requirements:
 
-- Devices must be running Windows 10 version 2004 or newer.
-- You must have version 1.4.32.0 or later of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
-  - For more information on the available Azure AD hybrid authentication options, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](../hybrid/choose-ad-authn.md) and [Select which installation type to use for Azure AD Connect](../hybrid/how-to-connect-install-select-installation.md).
-- Your Windows Server domain controllers must have the following patches installed:
-    - For Windows Server 2016 - https://support.microsoft.com/help/4534307/windows-10-update-kb4534307
-    - For Windows Server 2019 - https://support.microsoft.com/help/4534321/windows-10-update-kb4534321
+- Devices must be running Windows 10 version 2004 or later.
 
+- Your Windows Server domain controllers must have patches installed for the following servers:
+    - [Windows Server 2016](https://support.microsoft.com/help/4534307/windows-10-update-kb4534307)
+    - [Windows Server 2019](https://support.microsoft.com/help/4534321/windows-10-update-kb4534321)
+
+- Have the credentials required to complete the steps in the scenario:
+    - An Active Directory user who is a member of the Domain Admins group for a domain and a member of the Enterprise Admins group for a forest. Referred to as **$domainCred**.
+    - An Azure Active Directory user who is a member of the Global Administrators role. Referred to as **$cloudCred**.
+ 
 ### Supported scenarios
 
-The scenario supports single sign-on (SSO) in both of the following scenarios:
+The scenario in this article supports SSO in both of the following instances:
 
-- For cloud resources like Microsoft 365 and other SAML enabled applications.
-- For on-premises resources, and Windows-Integrated authentication to web sites. The resources can include web sites and SharePoint sites that require IIS Authentication, and / or resources that use NTLM authentication.
+- Cloud resources such as Microsoft 365 and other Security Assertion Markup Language (SAML)-enabled applications.
+- On-premises resources, and Windows-integrated authentication to websites. The resources can include websites and SharePoint sites that require IIS authentication and/or resources that use NTLM authentication.
 
 ### Unsupported scenarios
 
 The following scenarios aren't supported:
 
-- Windows Server Active Directory Domain Services (AD DS) domain joined (on-premises only devices) deployment.
-- RDP, VDI, and Citrix scenarios using a security key.
-- S/MIME using a security key.
-- "Run as" using a security key.
-- Log in to a server using security key.
+- Windows Server Active Directory Domain Services (AD DS)-joined (on-premises only devices) deployment.
+- Remote Desktop Protocol (RDP), virtual desktop infrastructure (VDI), and Citrix scenarios by using a security key.
+- S/MIME by using a security key.
+- *Run as* by using a security key.
+- Log in to a server by using a security key.
 
-## Create Kerberos server object
+## Install the Azure AD Kerberos PowerShell module
 
-Administrators use PowerShell tools from their Azure AD Connect server to create an Azure AD Kerberos Server object in their on-premises directory. Run the following steps in each domain and forest in your organization that contain Azure AD users:
+The [Azure AD Kerberos PowerShell module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) provides FIDO2 management features for administrators.
 
-1. Upgrade to the latest version of Azure AD Connect. The instructions assume you have already configured Azure AD Connect to support your hybrid environment.
-1. On the Azure AD Connect Server, open an elevated PowerShell prompt, and navigate to `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
-1. Run the following PowerShell commands to create a new Azure AD Kerberos server object in both your on-premises Active Directory domain and Azure Active Directory tenant.
+1. Open a PowerShell prompt using the Run as administrator option.
+1. Install the Azure AD Kerberos PowerShell module:
+
+   ```powershell
+   # First, ensure TLS 1.2 for PowerShell gallery access.
+   [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+
+   # Install the Azure AD Kerberos PowerShell Module.
+   Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
+   ```
 
 > [!NOTE]
-> Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
+> - The Azure AD Kerberos PowerShell module uses the [AzureADPreview PowerShell module](https://www.powershellgallery.com/packages/AzureADPreview) to provide advanced Azure Active Directory management features. If the [AzureAD PowerShell module](https://www.powershellgallery.com/packages/AzureAD) is already installed on your local computer, the installation described here might fail because of conflict. To prevent any conflicts during installation, be sure to include the "-AllowClobber" option flag.
+> - You can install the Azure AD Kerberos PowerShell module on any computer from which you can access your on-premises Active Directory Domain Controller, without dependency on the Azure AD Connect solution.
+> - The Azure AD Kerberos PowerShell module is distributed through the [PowerShell Gallery](https://www.powershellgallery.com/). The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful PowerShell modules that contain PowerShell commands and Desired State Configuration (DSC) resources.
 
-```powerShell
-Import-Module ".\AzureAdKerberos.psd1"
+## Create a Kerberos Server object
 
-# Specify the on-premises Active Directory domain. A new Azure AD
-# Kerberos Server object will be created in this Active Directory domain.
-$domain = "contoso.corp.com"
+Administrators use the Azure AD Kerberos PowerShell module to create an Azure AD Kerberos Server object in their on-premises directory.
 
-# Enter an Azure Active Directory global administrator username and password.
-$cloudCred = Get-Credential
+Run the following steps in each domain and forest in your organization that contain Azure AD users:
 
-If you have MFA enabled for Global administrator, Please remove "-Cloudcredential $cloudCred"
-you will see web-based popup and complete the U/P and MFA there
+1. Open a PowerShell prompt using the Run as administrator option.
+1. Run the following PowerShell commands to create a new Azure AD Kerberos Server object both in your on-premises Active Directory domain and in your Azure Active Directory tenant.
 
-# Enter a domain administrator username and password.
-$domainCred = Get-Credential
+   > [!NOTE]
+   > Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
 
-# Create the new Azure AD Kerberos Server object in Active Directory
-# and then publish it to Azure Active Directory.
-Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
-```
+   ```powershell
+   # Specify the on-premises Active Directory domain. A new Azure AD
+   # Kerberos Server object will be created in this Active Directory domain.
+   $domain = "contoso.corp.com"
 
-### Viewing and verifying the Azure AD Kerberos Server
+   # Enter an Azure Active Directory global administrator username and password.
+   $cloudCred = Get-Credential -Message 'An Active Directory user who is a member of the Global Administrators group for Azure AD.'
 
-You can view and verify the newly created Azure AD Kerberos Server using the following command:
+   # Enter a domain administrator username and password.
+   $domainCred = Get-Credential -Message 'An Active Directory user who is a member of the Domain Admins group.'
 
-```powerShell
+   # Create the new Azure AD Kerberos Server object in Active Directory
+   # and then publish it to Azure Active Directory.
+   Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
+   ```
+
+   > [!NOTE]
+   > If you're working on a domain-joined machine with an account that has domain administrator privileges, you can skip the "-DomainCredential" parameter. If the "-DomainCredential" parameter isn't provided, the current Windows login credential is used to access your on-premises Active Directory Domain Controller.
+
+   ```powershell
+   # Specify the on-premises Active Directory domain. A new Azure AD
+   # Kerberos Server object will be created in this Active Directory domain.
+   $domain = "contoso.corp.com"
+
+   # Enter an Azure Active Directory global administrator username and password.
+   $cloudCred = Get-Credential
+
+   # Create the new Azure AD Kerberos Server object in Active Directory
+   # and then publish it to Azure Active Directory.
+   # Use the current windows login credential to access the on-prem AD.
+   Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred
+   ```
+
+   > [!NOTE]
+   > If your organization protects password-based sign-in and enforces modern authentication methods such as multifactor authentication, FIDO2, or smart card technology, you must use the `-UserPrincipalName` parameter with the User Principal Name (UPN) of a global administrator.
+   > - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
+   > - Replace `administrator@contoso.onmicrosoft.com` in the following example with the UPN of a global administrator.
+
+   ```powershell
+   # Specify the on-premises Active Directory domain. A new Azure AD
+   # Kerberos Server object will be created in this Active Directory domain.
+   $domain = "contoso.corp.com"
+
+   # Enter a UPN of an Azure Active Directory global administrator
+   $userPrincipalName = "administrator@contoso.onmicrosoft.com"
+
+   # Enter a domain administrator username and password.
+   $domainCred = Get-Credential
+
+   # Create the new Azure AD Kerberos Server object in Active Directory
+   # and then publish it to Azure Active Directory.
+   # Open an interactive sign-in prompt with given username to access the Azure AD.
+   Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential $domainCred
+   ```
+
+### View and verify the Azure AD Kerberos Server
+
+You can view and verify the newly created Azure AD Kerberos Server by using the following command:
+
+```powershell
 Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
 ```
 
 This command outputs the properties of the Azure AD Kerberos Server. You can review the properties to verify that everything is in good order.
 
 > [!NOTE]
-
-Running against another domain by supplying the credential will connect over NTLM and then it would fails. if the users are part of "Protected Users" Security Group in AD
-Workaround: login with another domain user into ADConnect box and don’t supply -domainCredential . it would consume the kerebros ticket of the current logon user. 
-you can confirm by executing whoami /groups to validate if the user has required privelege in AD to execute the above command
+> Running against another domain by supplying the credential will connect over NTLM, and then it fails. If the users are in the Protected Users security group in Active Directory, complete these steps to resolve the issue: Sign in as another domain user in **ADConnect** and don’t supply "-domainCredential". The Kereberos ticket of the user that's currently signed in is used. You can confirm by executing `whoami /groups` to validate whether the user has the required permissions in Active Directory to execute the preceding command.
  
 | Property | Description |
 | --- | --- |
-| ID | The unique ID of the AD DS DC object. This ID is sometimes referred to as it's "slot" or it's "branch ID". |
-| DomainDnsName | The DNS domain name of the Active Directory Domain. |
+| ID | The unique ID of the AD DS DC object. This ID is sometimes referred to as its *slot* or its *branch ID*. |
+| DomainDnsName | The DNS domain name of the Active Directory domain. |
 | ComputerAccount | The computer account object of the Azure AD Kerberos Server object (the DC). |
-| UserAccount | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The DN of this account is `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>` |
-| KeyVersion | The key version of the Azure AD Kerberos Server TGT encryption key. The version is assigned when the key is created. The version is then incremented every time the key is rotated. The increments are based on replication meta-data and likely greater than one. For example, the initial *KeyVersion* could be *192272*. The first time the key is rotated, the version could advance to *212621*. The important thing to verify is that the *KeyVersion* for the on-premises object and the *CloudKeyVersion* for the cloud object are the same. |
+| UserAccount | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The domain name of this account is `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>`. |
+| KeyVersion | The key version of the Azure AD Kerberos Server TGT encryption key. The version is assigned when the key is created. The version is then incremented every time the key is rotated. The increments are based on replication metadata and likely greater than one. For example, the initial *KeyVersion* could be *192272*. The first time the key is rotated, the version could advance to *212621*. The important thing to verify is that the *KeyVersion* for the on-premises object and the *CloudKeyVersion* for the cloud object are the same. |
 | KeyUpdatedOn | The date and time that the Azure AD Kerberos Server TGT encryption key was updated or created. |
 | KeyUpdatedFrom | The DC where the Azure AD Kerberos Server TGT encryption key was last updated. |
-| CloudId | The ID from the Azure AD Object. Must match the ID above. |
-| CloudDomainDnsName | The *DomainDnsName* from the Azure AD Object. Must match the *DomainDnsName* above. |
-| CloudKeyVersion | The *KeyVersion* from the Azure AD Object. Must match the *KeyVersion* above. |
-| CloudKeyUpdatedOn | The *KeyUpdatedOn* from the Azure AD Object. Must match the *KeyUpdatedOn* above. |
+| CloudId | The ID from the Azure AD object. Must match the ID from the first line of the table. |
+| CloudDomainDnsName | The *DomainDnsName* from the Azure AD object. Must match the *DomainDnsName* from the second line of the table. |
+| CloudKeyVersion | The *KeyVersion* from the Azure AD object. Must match the *KeyVersion* from the fifth line of the table. |
+| CloudKeyUpdatedOn | The *KeyUpdatedOn* from the Azure AD object. Must match the *KeyUpdatedOn* from the sixth line of the table. |
+| | |
 
-### Rotating the Azure AD Kerberos Server key
+### Rotate the Azure AD Kerberos Server key
 
-The Azure AD Kerberos Server encryption krbtgt keys should be rotated on a regular basis. It's recommended that you follow the same schedule you use to rotate all other Active Directory Domain Controller krbtgt keys.
+The Azure AD Kerberos Server encryption *krbtgt* keys should be rotated on a regular basis. We recommend that you follow the same schedule you use to rotate all other Active Directory DC *krbtgt* keys.
 
 > [!WARNING]
-> There are other tools that could rotate the krbtgt keys, however, you must use the tools mentioned in this document to rotate the krbtgt keys of your Azure AD Kerberos Server. This ensures the keys are updated in both on-premises AD and Azure AD.
+> There are other tools that could rotate the *krbtgt* keys. However, you must use the tools mentioned in this document to rotate the *krbtgt* keys of your Azure AD Kerberos Server. This ensures that the keys are updated in both on-premises Active Directory and Azure AD.
 
-```powerShell
+```powershell
 Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred -RotateServerKey
 ```
 
-### Removing the Azure AD Kerberos Server
+### Remove the Azure AD Kerberos Server
 
-If you'd like to revert the scenario and remove the Azure AD Kerberos Server from both on-premises Active Directory and Azure Active Directory, run the following command:
+If you want to revert the scenario and remove the Azure AD Kerberos Server from both the on-premises Active Directory and Azure AD, run the following command:
 
-```powerShell
+```powershell
 Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
 ```
 
-### Multi-forest and multi-domain scenarios
+### Multiforest and multidomain scenarios
 
-The Azure AD Kerberos server object is represented in Azure AD as a *KerberosDomain* object. Each on-premises Active Directory domain is represented as a single *KerberosDomain* object in Azure AD.
+The Azure AD Kerberos Server object is represented in Azure AD as a *KerberosDomain* object. Each on-premises Active Directory domain is represented as a single *KerberosDomain* object in Azure AD.
 
-For example, your organization has an Active Directory forest with two domains, `contoso.com` and `fabrikam.com`. If you choose to allow Azure AD to issue Kerberos TGTs for the entire forest, there are two *KerberosDomain* objects in Azure AD. One *KerberosDomain* object for `contoso.com`, and one for `fabrikam.com`. If you have multiple Active Directory forests, there is one *KerberosDomain* object for each domain in each forest.
+For example, let's say that your organization has an Active Directory forest with two domains, `contoso.com` and `fabrikam.com`. If you choose to allow Azure AD to issue Kerberos TGTs for the entire forest, there are two *KerberosDomain* objects in Azure AD, one *KerberosDomain* object for `contoso.com` and the other for `fabrikam.com`. If you have multiple Active Directory forests, there is one *KerberosDomain* object for each domain in each forest.
 
-You need to run the steps to [Create Kerberos server object](#create-kerberos-server-object) in each domain and forest in your organization that contain Azure AD users.
+Follow the instructions in [Create a Kerberos Server object](#create-a-kerberos-server-object) in each domain and forest in your organization that contains Azure AD users.
 
 ## Known behavior
 
-Sign in with FIDO is blocked if your password has expired. The expectation is for user to reset their password before being able to log in using FIDO.
+If your password has expired, signing in with FIDO is blocked. The expectation is that users reset their passwords before they can log in by using FIDO.
 
 ## Troubleshooting and feedback
 
-If you'd like to share feedback or encounter issues with this feature, share via the Windows Feedback Hub app using the following steps:
+If you encounter issues or want to share feedback about this passwordless security key sign-in feature, share via the Windows Feedback Hub app by doing the following:
 
-1. Launch **Feedback Hub** and make sure you're signed in.
-1. Submit feedback under the following categorization:
+1. Open **Feedback Hub**, and make sure that you're signed in.
+1. Submit feedback by selecting the following categories:
    - Category: Security and Privacy
    - Subcategory: FIDO
-1. To capture logs, use the option to **Recreate my Problem**.
+1. To capture logs, use the **Recreate my Problem** option.
 
-## Frequently asked questions
+## Passwordless security key sign-in FAQ
 
-### Does this work in my on-premises environment?
+Here are some answers to commonly asked questions about passwordless sign-in:
 
-This feature doesn't work for a pure on-premises Active Directory Domain Services (AD DS) environment.
+### Does passwordless security key sign-in work in my on-premises environment?
 
-### My organization requires two factor authentication to access resources. What can I do to support this requirement?
+The feature doesn't work in a pure on-premises AD DS environment.
 
-Security keys come in a variety of form factors. Contact the device manufacturer of interest to discuss how their devices can be enabled with a PIN or biometric as a second factor.
+### My organization requires two-factor authentication to access resources. What can I do to support this requirement?
 
-### Can admins set up security keys?
+Security keys come in a variety of form factors. Contact the device manufacturer of record to discuss how their devices can be enabled with a PIN or biometric as a second factor.
 
-We are working on this capability for general availability (GA) of this feature.
+### Can administrators set up security keys?
 
-### Where can I go to find compliant Security Keys?
+We are working on this capability for the general availability (GA) release of this feature.
 
-[FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
+### Where can I go to find compliant security keys?
 
-### What do I do if I lose my security key?
+For information about compliant security keys, see [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys).
 
-You can remove keys from the Azure portal by navigating to the **Security info** page and removing the security key.
+### What can I do if I lose my security key?
 
-### I'm not able to use FIDO immediately after I create a hybrid Azure AD joined machine
+To retrieve a security key, sign in to the Azure portal, and then go to the **Security info** page.
 
-If clean installing a hybrid Azure AD joined machine, after the domain join and restart process you must sign in with a password and wait for policy to sync before being able to use FIDO to sign in.
+### What can I do if I'm unable to use the FIDO security key immediately after I create a hybrid Azure AD-joined machine?
 
-- Check your current status by typing `dsregcmd /status` into a command window and check that both *AzureAdJoined* and *DomainJoined* are showing *YES*.
-- This delay is a known limitation for domain joined devices and isn't FIDO-specific.
+If you're clean-installing a hybrid Azure AD-joined machine, after the domain join and restart process, you must sign in with a password and wait for the policy to sync before you can use the FIDO security key to sign in.
 
-### I'm unable to get SSO to my NTLM network resource after signing in with FIDO and get a credential prompt
+- Check your current status by running `dsregcmd /status` in a Command Prompt window, and check to ensure that both the **AzureAdJoined** and **DomainJoined** statuses are showing as *YES*.
+- This delay in syncing is a known limitation of domain-joined devices and isn't FIDO-specific.
 
-Make sure enough domain controllers are patched to respond in time to service your resource request. To check if you can see a domain controller that is running the feature, review the output of `nltest /dsgetdc:contoso /keylist /kdc`.
+### What if I'm unable to get single sign-on to my NTLM network resource after I sign in with FIDO and get a credential prompt?
 
-Note: This /Keylist switch in nltest command can be found from client windows 10 v2004 and above
+Make sure that enough DCs are patched to respond in time to service your resource request. To see whether a DC is running the feature, run `nltest /dsgetdc:contoso /keylist /kdc`, and then review the output.
+
+> [!NOTE]
+> The `/keylist` switch in the `nltest` command is available in client Windows 10 v2004 and later.
+
+
+### Do FIDO2 security keys work in a Windows login with RODC present in the hybrid environment?
+
+An FIDO2 Windows login looks for a writable DC to exchange the user TGT. As long as you have at least one writable DC per site, the login works fine. 
 
 ## Next steps
 
-[Learn more about passwordless](concept-authentication-passwordless.md)
+[Learn more about passwordless authentication](concept-authentication-passwordless.md)

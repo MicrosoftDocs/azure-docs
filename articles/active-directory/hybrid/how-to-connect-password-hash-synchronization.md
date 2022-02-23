@@ -4,12 +4,12 @@ description: Provides information about how password hash synchronization works 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
@@ -106,7 +106,9 @@ Continue with this operation?
 
 Once enabled, Azure AD does not go to each synchronized user to remove the `DisablePasswordExpiration` value from the PasswordPolicies attribute. Instead, the `DisablePasswordExpiration` value is removed from PasswordPolicies during the next password hash sync for each user, upon their next password change in on-premises AD.
 
-It is recommended to enable EnforceCloudPasswordPolicyForPasswordSyncedUsers, prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
+After the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature is enabled, new users are provisioned without a PasswordPolicies value.
+
+It is recommended to enable *EnforceCloudPasswordPolicyForPasswordSyncedUsers* prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
 
 The default Azure AD password policy requires users to change their passwords every 90 days. If your policy in AD is also 90 days, the two policies should match. However, if the AD policy is not 90 days, you can update the Azure AD password policy to match by using the Set-MsolPasswordPolicy PowerShell command.
 
@@ -115,6 +117,9 @@ Azure AD supports a separate password expiration policy per registered domain.
 Caveat: If there are synchronized accounts that need to have non-expiring passwords in Azure AD, you must explicitly add the `DisablePasswordExpiration` value to the PasswordPolicies attribute of the user object in Azure AD.  You can do this by running the following command.
 
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
+
+> [!NOTE]
+> For hybrid users that have a PasswordPolicies value set to `DisablePassordExpiration`, this value switches to `None` after a password change is executed on-premises.
 
 > [!NOTE]
 > The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 

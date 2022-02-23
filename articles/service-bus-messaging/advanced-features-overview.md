@@ -2,7 +2,7 @@
 title: Azure Service Bus messaging - advanced features
 description: This article provides a high-level overview of advanced features in Azure Service Bus. 
 ms.topic: overview
-ms.date: 06/11/2021
+ms.date: 01/24/2022
 ---
 
 # Azure Service Bus - advanced features
@@ -28,9 +28,6 @@ You can submit messages to a queue or a topic for delayed processing, setting a 
 
 ## Message deferral
 A queue or subscription client can defer retrieval of a received message until a later time. The message may have been posted out of an expected order and the client wants to wait until it receives another message. Deferred messages remain in the queue or subscription and must be reactivated explicitly using their service-assigned sequence number. For more information, see [Message deferral](message-deferral.md).
-
-## Batching
-Client-side batching enables a queue or topic client to accumulate a set of messages and transfer them together. It's often done to either save bandwidth or to increase throughput. For more information, see [Client-side batching](service-bus-performance-improvements.md#client-side-batching).
 
 ## Transactions
 A transaction groups two or more operations together into an execution scope. Service Bus allows you to group operations against multiple messaging entities within the scope of a single transaction. A message entity can be a queue, topic, or subscription. For more information, see [Overview of Service Bus transaction processing](service-bus-transactions.md).

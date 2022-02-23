@@ -135,12 +135,14 @@ In ASP.NET Core, another file ([properties\launchSettings.json](https://github.c
 In the Azure portal, the redirect URIs that you register on the **Authentication** page for your application need to match these URLs. For the two preceding configuration files, they would be `https://localhost:44321/signin-oidc`. The reason is that `applicationUrl` is `http://localhost:3110`, but `sslPort` is specified (44321). `CallbackPath` is `/signin-oidc`, as defined in `appsettings.json`.
 
 In the same way, the sign-out URI would be set to `https://localhost:44321/signout-oidc`.
+> [!NOTE]
+> SignedOutCallbackPath should set either to portal or the application to avoid conflict while handling the event.
 
 # [ASP.NET](#tab/aspnet)
 
 In ASP.NET, the application is configured through the [Web.config](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/Web.config#L12-L15) file, lines 12 to 15.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   For more information on how to configure your ASP.NET application, visit
@@ -246,7 +248,7 @@ To add authentication with the Microsoft identity platform (formerly Azure AD v2
 >
 > If you prefer to start your project with the current default ASP.NET Core web project within Visual Studio or by using `dotnet new mvc --auth SingleOrg` or `dotnet new webapp --auth SingleOrg`, you'll see code like the following:
 >
->```c#
+> ```c#
 >  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
 >          .AddAzureAD(options => Configuration.Bind("AzureAd", options));
 > ```
@@ -369,7 +371,6 @@ from flask import Flask, render_template, session, request, redirect, url_for
 from flask_session import Session  # https://pythonhosted.org/Flask-Session
 import msal
 import app_config
-
 
 app = Flask(__name__)
 app.config.from_object(app_config)

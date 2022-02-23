@@ -1,8 +1,9 @@
 ---
 title: Monitor delegated resources at scale
 description: Azure Lighthouse helps you use Azure Monitor Logs in a scalable way across customer tenants.
-ms.date: 08/12/2021
+ms.date: 12/06/2021
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor delegated resources at scale
@@ -18,7 +19,7 @@ This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/logs/da
 
 In order to collect data, you'll need to create Log Analytics workspaces. These Log Analytics workspaces are unique environments for data collected by Azure Monitor. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace.
 
-We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. This also allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor.
+We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. Creating the workspaces in the customer tenants allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor. Workspaces created in customer tenants are required in order to collect information from [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md).
 
 > [!TIP]
 > Any automation account used to access data from a Log Analytics workspace must be created in the same tenant as the workspace.
@@ -30,13 +31,13 @@ You can create a Log Analytics workspace by using the [Azure portal](../../azure
 >
 > ```powershell
 > $ManagingTenantId = "your-managing-Azure-AD-tenant-id"
-> 
+>
 > # Authenticate as a user with admin rights on the managing tenant
 > Connect-AzAccount -Tenant $ManagingTenantId
-> 
+>
 > # Register the Microsoft.Insights resource providers Application Ids
-> New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
-> New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
+> New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4 -Role Contributor
+> New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d -Role Contributor
 > ```
 
 ## Deploy policies that log data

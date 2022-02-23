@@ -4,8 +4,9 @@ description: Learn about how to move data to/from SQL Server database that is on
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 robots: noindex
 ---
 # Move data to and from SQL Server using Azure Data Factory

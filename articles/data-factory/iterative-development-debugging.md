@@ -21,7 +21,7 @@ Azure Data Factory and Synapse Analytics supports iterative development and debu
 
 For an eight-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
 ## Debugging a pipeline
 
@@ -98,4 +98,4 @@ Using the activity runtime will create a new cluster using the settings specifie
 
 ## Next steps
 
-After testing your changes, promote them to higher environments using [continuous integration and deployment](continuous-integration-deployment.md).
+After testing your changes, promote them to higher environments using [continuous integration and deployment](continuous-integration-delivery.md).

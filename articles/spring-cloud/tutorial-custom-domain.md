@@ -6,12 +6,14 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Tutorial: Map an existing custom domain to Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
+
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
 Domain Name Service (DNS) is a technique for storing network node names throughout a network. This tutorial maps a domain, such as www.contoso.com, using a CNAME record. It secures the custom domain with a certificate and shows how to enforce Transport Layer Security (TLS), also known as Secure Sockets Layer (SSL).
 
@@ -19,7 +21,7 @@ Certificates encrypt web traffic. These TLS/SSL certificates can be stored in Az
 
 ## Prerequisites
 
-* An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./quickstart.md), or use an existing app).
+* An application deployed to Azure Spring Cloud (see [Quickstart: Launch an existing application in Azure Spring Cloud using the Azure portal](./quickstart.md), or use an existing app).
 * A domain name with access to the DNS registry for domain provider such as GoDaddy.
 * A private certificate (that is, your self-signed certificate) from a third-party provider. The certificate must match the domain.
 * A deployed instance of [Azure Key Vault](../key-vault/general/overview.md)
@@ -168,7 +170,7 @@ After you add the CNAME, the DNS records page will resemble the following exampl
 ![DNS records page](./media/custom-dns-tutorial/dns-records.png)
 
 ## Map your custom domain to Azure Spring Cloud app
-If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./quickstart.md).
+If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing application in Azure Spring Cloud using the Azure portal](./quickstart.md).
 
 #### [Portal](#tab/Azure-portal)
 Go to application page.
@@ -241,7 +243,7 @@ az spring-cloud app update -n <app name> --resource-group <resource group name> 
 
 When the operation is complete, navigate to any of the HTTPS URLs that point to your app. Note that HTTP URLs don't work.
 
-## See also
+## Next steps
 
 * [What is Azure Key Vault?](../key-vault/general/overview.md)
 * [Import a certificate](../key-vault/certificates/certificate-scenarios.md#import-a-certificate)

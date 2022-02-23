@@ -1,11 +1,17 @@
 ---
 title: Get started with Document Translation
-description: How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms
-ms.topic: how-to
-manager: nitinme
-ms.author: lajanuar
+description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms"
+services: cognitive-services
 author: laujan
-ms.date: 08/09/2021
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: translator-text
+ms.topic: quickstart
+ms.date: 02/02/2022
+ms.author: lajanuar
+recommendations: false
+ms.devlang: csharp, golang, java, javascript, python
+ms.custom: mode-other
 ---
 
 # Get started with Document Translation
@@ -24,9 +30,9 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
 
 ## Custom domain name and subscription key
 
@@ -62,7 +68,7 @@ Requests to the Translator service require a read-only key for authenticating ac
 
 ## Create Azure blob storage containers
 
-You'll need to  [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
+You'll need to  [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) for source and target files.
 
 * **Source container**. This container is where you upload your files for translation (required).
 * **Target container**. This container is where your translated files will be stored (required).
@@ -108,7 +114,7 @@ The following headers are included with each Document Translator API request:
 * The `targetUrl` for each target language must be unique.
 
 >[!NOTE]
-> If a file with the same name already exists in the destination, it will be overwritten.
+> If a file with the same name already exists in the destination, the job will fail.
 
 <!-- markdownlint-disable MD024 -->
 ### Translate all documents in a container
@@ -363,7 +369,6 @@ Operation-Location   | https://<<span>NAME-OF-YOUR-RESOURCE>.cognitiveservices.a
         }
 
     }
-}
 ```
 
 ### [Node.js](#tab/javascript)

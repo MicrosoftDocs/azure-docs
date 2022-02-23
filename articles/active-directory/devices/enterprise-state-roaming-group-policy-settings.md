@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: na
 
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ The following tables describe the policy settings available.
 
 ## MDM settings
 
-The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows 10 Mobile support exists only for Microsoft account based roaming via user’s OneDrive account. Refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD-based syncing.
+The MDM policy settings apply to Windows 10 or newer. Refer to [Devices and endpoints](enterprise-state-roaming-windows-settings-reference.md) for details on what devices are supported for Azure AD-based syncing.
 
 | Name | Description |
 | --- | --- |
@@ -36,7 +36,7 @@ The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows
 
 ## Group policy settings
 
-The group policy settings apply to Windows 10 devices that are joined to an Active Directory domain. The table also includes legacy settings that would appear to manage sync settings, but that do not work for Enterprise State Roaming for Windows 10, which are noted with ‘Do not use’ in the description.
+The group policy settings apply to Windows 10 or newer devices that are joined to an Active Directory domain. The table also includes legacy settings that would appear to manage sync settings, but that do not work for Enterprise State Roaming for Windows 10 or newer, which are noted with ‘Do not use’ in the description.
 
 These settings are located at: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 

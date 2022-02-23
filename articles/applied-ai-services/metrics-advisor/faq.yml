@@ -8,10 +8,9 @@ metadata:
   manager: nitinme
   ms.service: applied-ai-services
   ms.subservice: metrics-advisor
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 11/05/2020
   ms.author: mbullwin
-    
 title: Metrics Advisor frequently asked questions
 summary: |
 
@@ -64,7 +63,7 @@ sections:
           What are the data retention and limitations of Metrics Advisor?
         answer: |       
           1. Data retention.
-          Metrics Advisor will keep at most **10,000** time intervals (what is an interval?) forward counting from current timestamp, no matter there's data available or not. Data falls out of the window will be deleted.  Data retention mapping to count of days for different metric granularity.
+          Metrics Advisor will keep at most **10,000** time intervals [what is an interval?](tutorials/write-a-valid-query.md#what-is-an-interval) forward counting from current timestamp, no matter there's data available or not. Data falls out of the window will be deleted.  Data retention mapping to count of days for different metric granularity.
           
           | Granularity(min) |	Retention(day) |
           |------------------| ------------------|
@@ -82,7 +81,7 @@ sections:
 
           3. Limitation on maximum data points stored in one Metrics Advisor instance
 
-          Metrics Advisor counts on total data points from all data feeds that onboarded to the instance starting from the first ingestion timstamp. The maximum number of data points to be stored in one Metrics Advisor instance is **2 billion**. 
+          Metrics Advisor counts on total data points from all data feeds that onboarded to the instance starting from the first ingestion timestamp. The maximum number of data points to be stored in one Metrics Advisor instance is **2 billion**. 
           - Metrics Advisor resource admins and all users will be notified when the **80%** limitation is reached on the data feed list page and the add new data feed page. 
           - If total data points has exceeded the limitation all data feeds **will be paused** and new feed onboarding **will be blocked** as well. It's suggested to delete unused data feeds or create a new Metrics Advisor resource within your subscription.
       
@@ -107,16 +106,16 @@ sections:
       - question: |
           How to set up email settings and enable alerting by email?
         answer: |
-          1.	A user with subscription administrator or resource group administrator privileges needs to navigate to the Metrics Advisor resource that created in the Azure portal, and select the **Access control(IAM)** tab. 
-          2.	Select **Add role assignments**
-          3.	Pick a role of **Cognitive Services Metrics Advisor Administrator**, select your account as in the image below.
-          4.	Click **Save** button, then you are successfully been added as administrator of Metrics Advisor resource. Note that all above actions need to be performed by subscription administrator or resource group administrator. 
+          1. A user with subscription administrator or resource group administrator privileges needs to navigate to the Metrics Advisor resource that created in the Azure portal, and select the **Access control(IAM)** tab. 
+          2. Select **Add role assignments**
+          3. Pick a role of **Cognitive Services Metrics Advisor Administrator**, select your account as in the image below.
+          4. Click **Save** button, then you are successfully been added as administrator of Metrics Advisor resource. Note that all above actions need to be performed by subscription administrator or resource group administrator. 
           
               :::image type="content" source="media/access-control.png" alt-text="Access control(IAM) menu page with add a role assignment selected, followed by a box with assign access to selected user displayed with an access role of Cognitive Services Metrics Advisor Administrator, followed by the save button of the UI being selected to illustrate the steps of searching for a user and adding a particular level of access permissions." lightbox="media/access-control.png":::
           
           
-          5.	It might take up to one minute for the permissions to propagate. Then, select your Metrics Advisor workspace, and select the **Email setting** option in the left navigation panel. Fill in the required items, in particular the SMTP-related info. 
-          6.	Select **Save**, then you're all set with the e-mail configuration. You can create new hooks and subscribe to metric anomalies for near real-time alerts. 
+          5. It might take up to one minute for the permissions to propagate. Then, select your Metrics Advisor workspace, and select the **Email setting** option in the left navigation panel. Fill in the required items, in particular the SMTP-related info. 
+          6. Select **Save**, then you're all set with the e-mail configuration. You can create new hooks and subscribe to metric anomalies for near real-time alerts. 
           
   - name: Advanced concepts
     questions:

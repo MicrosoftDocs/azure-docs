@@ -4,14 +4,15 @@ description: Learn how to assign Azure AD roles in Azure AD Privileged Identity 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/01/2021
+ms.date: 02/02/2022
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.collection: M365-identity-device-management
 ms.custom: subject-rbac-steps
 ---
@@ -23,6 +24,11 @@ With Azure Active Directory (Azure AD), a Global administrator can make **perman
 The Azure AD Privileged Identity Management (PIM) service also allows Privileged role administrators to make permanent admin role assignments. Additionally, Privileged role administrators can make users **eligible** for Azure AD admin roles. An eligible administrator can activate the role when they need it, and then their permissions expire once they're done.
 
 Privileged Identity Management support both built-in and custom Azure AD roles. For more information on Azure AD custom roles, see [Role-based access control in Azure Active Directory](../roles/custom-overview.md).
+
+>[!Note]
+>When a role is assigned, the assignment:
+>- Can't be asigned for a duration of less than five minutes
+>- Can't be removed within five minutes of it being assigned
 
 ## Assign a role
 
@@ -60,7 +66,7 @@ Follow these steps to make a user eligible for an Azure AD admin role.
 
     ![Memberships settings - date and time](./media/pim-how-to-add-role-to-user/start-and-end-dates.png)
 
-1. After the role is assigned, a assignment status notification is displayed.
+1. After the role is assigned, an assignment status notification is displayed.
 
     ![New assignment - Notification](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
@@ -104,8 +110,8 @@ POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilitySc
     "action": "AdminAssign", 
     "justification": "abcde", 
     "directoryScopeId": "/", 
-    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
     "scheduleInfo": { 
         "startDateTime": "2021-07-15T19:15:08.941Z", 
         "expiration": { 
@@ -122,26 +128,26 @@ The following is an example of the response. The response object shown here migh
 ````HTTP
 { 
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleEligibilityScheduleRequests/$entity", 
-    "id": "bd3cb7fc-cf0e-4590-a668-de8d0cc8c7e6", 
+    "id": "<schedule-ID-GUID>", 
     "status": "Provisioned", 
     "createdDateTime": "2021-07-15T19:47:41.0939004Z", 
     "completedDateTime": "2021-07-15T19:47:42.4376681Z", 
     "approvalId": null, 
     "customData": null, 
     "action": "AdminAssign", 
-    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-    "roleDefinitionId": "88d8e3e3-8f55-4a1e-953a-9b9898b8876b", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
     "directoryScopeId": "/", 
     "appScopeId": null, 
     "isValidationOnly": false, 
-    "targetScheduleId": "bd3cb7fc-cf0e-4590-a668-de8d0cc8c7e6", 
+    "targetScheduleId": "<schedule-ID-GUID>", 
     "justification": "test", 
     "createdBy": { 
         "application": null, 
         "device": null, 
         "user": { 
             "displayName": null, 
-            "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+            "id": "<user-ID-GUID>" 
         } 
     }, 
     "scheduleInfo": { 
@@ -173,8 +179,8 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentSch
     "action": "AdminAssign", 
     "justification": "abcde", 
     "directoryScopeId": "/", 
-    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-    "roleDefinitionId": "cf1c38e5-3621-4004-a7cb-879624dced7c", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
     "scheduleInfo": { 
         "startDateTime": "2021-07-15T19:15:08.941Z", 
         "expiration": { 
@@ -192,26 +198,26 @@ The following is an example of the response. The response object shown here migh
 ````HTTP
 { 
     "@odata.context": "https://graph.microsoft.com/beta/$metadata#roleManagement/directory/roleAssignmentScheduleRequests/$entity", 
-    "id": "5ea884f1-8a4d-4c75-b085-c509b93cd582", 
+    "id": "<schedule-ID-GUID>", 
     "status": "Provisioned", 
     "createdDateTime": "2021-07-15T19:15:09.7093491Z", 
     "completedDateTime": "2021-07-15T19:15:11.4437343Z", 
     "approvalId": null, 
     "customData": null, 
     "action": "AdminAssign", 
-    "principalId": "d96ea738-3b95-4ae7-9e19-78a083066d5b", 
-    "roleDefinitionId": "cf1c38e5-3621-4004-a7cb-879624dced7c", 
+    "principalId": "<principal-ID-GUID>", 
+    "roleDefinitionId": "<definition-ID-GUID>", 
     "directoryScopeId": "/", 
     "appScopeId": null, 
     "isValidationOnly": false, 
-    "targetScheduleId": "5ea884f1-8a4d-4c75-b085-c509b93cd582", 
+    "targetScheduleId": "<schedule-ID-GUID>", 
     "justification": "test", 
     "createdBy": { 
         "application": null, 
         "device": null, 
         "user": { 
             "displayName": null, 
-            "id": "5d851eeb-b593-4d43-a78d-c8bd2f5144d2" 
+            "id": "<user-ID-GUID>" 
         } 
     }, 
     "scheduleInfo": { 

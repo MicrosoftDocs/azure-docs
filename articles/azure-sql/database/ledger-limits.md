@@ -4,10 +4,10 @@ description: Limitations of the ledger feature in Azure SQL Database
 ms.date: "09/09/2021"
 ms.service: sql-database
 ms.subservice: security
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
+author: VanMSFT
+ms.author: vanto
 ---
 
 # Limitations for Azure SQL Database ledger

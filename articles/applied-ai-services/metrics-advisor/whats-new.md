@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 10/14/2020
 ms.author: mbullwin
 ---
@@ -47,4 +47,4 @@ If you want to learn about the latest updates to Metrics Advisor client SDKs see
 
 ### Updated articles
 
-* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics](/azure/applied-ai-services/metrics-advisor/faq#how-does-metric-advisor-build-a-diagnostic-tree-for-multi-dimensional-metrics)
+* [Update on how Metric Advisor builds an incident tree for multi-dimensional metrics](./faq.yml)

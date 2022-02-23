@@ -5,6 +5,7 @@ description: Learn how to authenticated client certificates on TLS. Azure App Se
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
+ms.devlang: csharp
 ms.custom: "devx-track-csharp, seodec18"
 
 ---
@@ -38,7 +39,7 @@ When you enable mutual auth for your application, all paths under the root of yo
 
 1. From the left navigation of your app's management page, select **Configuration** > **General Settings**.
 
-1. Next to **Client exclusion paths**, click the edit icon.
+1. Next to **Certificate exclusion paths**, click the edit icon.
 
 1. Click **New path**, specify a path, or a list of paths separated by `,` or `;`, and click **OK**.
 
@@ -78,6 +79,9 @@ public class Startup
         {
             options.ForwardedHeaders =
                 ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            // Only loopback proxies are allowed by default. Clear that restriction to enable this explicit configuration.
+            options.KnownNetworks.Clear();
+            options.KnownProxies.Clear();
         });       
         
         // Configure the application to client certificate forwarded the frontend load balancer

@@ -8,13 +8,13 @@ ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: normesta
-ms.reviewer: prishet 
+ms.reviewer: prishet
 ms.custom: devx-track-azurecli
 ---
 
-# Use Azure CLI to manage directories and files in Azure Data Lake Storage Gen2
+# Manage directories and files in Azure Data Lake Storage Gen2 via the Azure CLI
 
-This article shows you how to use the [Azure Command-Line Interface (CLI)](/cli/azure/) to create and manage directories and files in storage accounts that have a hierarchical namespace.
+This article shows you how to use the [Azure CLI](/cli/azure/) to create and manage directories and files in storage accounts that have a hierarchical namespace.
 
 To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use Azure CLI to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-cli.md).
 
@@ -22,7 +22,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. For more information, see [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
@@ -38,7 +38,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
     az --version
    ```
 
-   If your version of Azure CLI is lower than `2.6.0`, then install a later version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+   If your version of Azure CLI is lower than `2.6.0`, then install a later version. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Connect to the account
 
@@ -67,7 +67,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Create a container
 
-A container acts as a file system for your files. You can create one by using the `az storage fs create` command. 
+A container acts as a file system for your files. You can create one by using the `az storage fs create` command.
 
 This example creates a container named `my-file-system`.
 
@@ -97,7 +97,7 @@ az storage fs file list -f my-file-system --account-name mystorageaccount --auth
 
 Delete a container by using the `az storage fs delete` command.
 
-This example deletes a container named `my-file-system`. 
+This example deletes a container named `my-file-system`.
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -105,7 +105,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 ## Create a directory
 
-Create a directory reference by using the `az storage fs directory create` command. 
+Create a directory reference by using the `az storage fs directory create` command.
 
 This example adds a directory named `my-directory` to a container named `my-file-system` that is located in an account named `mystorageaccount`.
 
@@ -141,27 +141,27 @@ az storage fs directory move -n my-directory -f my-file-system --new-directory "
 
 Delete a directory by using the `az storage fs directory delete` command.
 
-This example deletes a directory named `my-directory`. 
+This example deletes a directory named `my-directory`.
 
 ```azurecli
-az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs directory delete -n my-directory -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## Check if a directory exists
 
 Determine if a specific directory exists in the container by using the `az storage fs directory exists` command.
 
-This example reveals whether a directory named `my-directory` exists in the `my-file-system` container. 
+This example reveals whether a directory named `my-directory` exists in the `my-file-system` container.
 
 ```azurecli
-az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
+az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
 ## Download from a directory
 
 Download a file from a directory by using the `az storage fs file download` command.
 
-This example downloads a file named `upload.txt` from a directory named `my-directory`. 
+This example downloads a file named `upload.txt` from a directory named `my-directory`.
 
 ```azurecli
 az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\myFolder\download.txt" --account-name mystorageaccount --auth-mode login
@@ -171,7 +171,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 List the contents of a directory by using the `az storage fs file list` command.
 
-This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` container of a storage account named `mystorageaccount`. 
+This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` container of a storage account named `mystorageaccount`.
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
@@ -181,7 +181,7 @@ az storage fs file list -f my-file-system --path my-directory --account-name mys
 
 Upload a file to a directory by using the `az storage fs file upload` command.
 
-This example uploads a file named `upload.txt` to a directory named `my-directory`. 
+This example uploads a file named `upload.txt` to a directory named `my-directory`.
 
 ```azurecli
 az storage fs file upload -s "C:\myFolder\upload.txt" -p my-directory/upload.txt  -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -212,7 +212,7 @@ Delete a file by using the `az storage fs file delete` command.
 This example deletes a file named `my-file.txt`
 
 ```azurecli
-az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
+az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login
 ```
 
 ## See also

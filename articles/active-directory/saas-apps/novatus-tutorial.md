@@ -177,7 +177,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, a user called Britta Simon is created in Novatus. Novatus supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Novatus, a new one is created after authentication.
 
 >[!NOTE]
->If you need to create an user manually, you need to contact the [Novatus support team](mailto:jvinci@novatusinc.com). 
+>If you need to create a user manually, you need to contact the [Novatus support team](mailto:jvinci@novatusinc.com). 
 > 
 
 ### Test single sign-on 

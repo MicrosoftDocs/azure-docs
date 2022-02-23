@@ -9,7 +9,6 @@ editor: ''
 tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -214,7 +213,7 @@ To troubleshoot this issue:
 
 For more information, see the following articles:
 
-* [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md)
+* [Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md)
 * [About Point-to-Site VPN routing](../vpn-gateway/vpn-gateway-about-point-to-site-routing.md)
 
 ## Troubleshoot a virtual network peering configuration error message 

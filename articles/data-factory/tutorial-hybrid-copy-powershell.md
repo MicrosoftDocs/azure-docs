@@ -182,13 +182,13 @@ In this section, you create a self-hosted integration runtime and associate it w
 1. Create a variable for the name of integration runtime. Use a unique name, and note the name. You use it later in this tutorial.
 
     ```powershell
-   $integrationRuntimeName = "ADFTutorialIR"
+    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
 1. Create a self-hosted integration runtime.
 
     ```powershell
-	Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 
     Here is the sample output:
@@ -205,7 +205,7 @@ In this section, you create a self-hosted integration runtime and associate it w
 1. To retrieve the status of the created integration runtime, run the following command:
 
     ```powershell
-   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+    Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
     Here is the sample output:
@@ -356,7 +356,7 @@ In this step, you link your SQL Server instance to the data factory.
 
     **Using SQL authentication (sa):**
 
-	```json
+    ```json
     {  
         "name":"SqlServerLinkedService",
         "type":"Microsoft.DataFactory/factories/linkedservices",

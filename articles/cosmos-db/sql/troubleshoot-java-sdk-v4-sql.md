@@ -1,10 +1,10 @@
 ---
 title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
-author: anfeldma-ms
+author: rothja
 ms.service: cosmos-db
-ms.date: 06/11/2020
-ms.author: anfeldma
+ms.date: 02/03/2022
+ms.author: jroth
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -106,6 +106,10 @@ GoneException{error=null, resourceAddress='https://cdb-ms-prod-westus-fd4.docume
 If you have a firewall running on your app machine, open port range 10,000 to 20,000 which are used by the direct mode.
 Also follow the [Connection limit on a host machine](#connection-limit-on-host).
 
+#### UnknownHostException
+
+UnknownHostException means that the Java framework cannot resolve the DNS entry for the Cosmos DB endpoint in the affected machine. You should verify that the machine can resolve the DNS entry or if you have any custom DNS resolution software (such as VPN or Proxy, or a custom solution), make sure it contains the right configuration for the DNS endpoint that the error is claiming cannot be resolved. If the error is constant, you can verify the machine's DNS resolution through a `curl` command to the endpoint described in the error.
+
 #### HTTP proxy
 
 If you use an HTTP proxy, make sure it can support the number of connections configured in the SDK `ConnectionPolicy`.
@@ -143,6 +147,14 @@ This failure is a server-side failure. It indicates that you consumed your provi
 * **Implement backoff at getRetryAfterInMilliseconds intervals**
 
     During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
+
+### Error handling from Java SDK Reactive Chain
+
+Error handling from Cosmos DB Java SDK is important when it comes to client's application logic. There are different error handling mechanism provided by [reactor-core framework](https://projectreactor.io/docs/core/release/reference/#error.handling) which can be used in different scenarios. We recommend customers to understand these error handling operators in detail and use the ones which fit their retry logic scenarios the best.
+
+> [!IMPORTANT]
+> We do not recommend using [`onErrorContinue()`](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-) operator, as it is not supported in all scenarios.
+> Note that `onErrorContinue()` is a specialist operator that can make the behaviour of your reactive chain unclear. It operates on upstream, not downstream operators, it requires specific operator support to work, and the scope can easily propagate upstream into library code that didn't anticipate it (resulting in unintended behaviour.). Please refer to [documentation](https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html#onErrorContinue-java.util.function.BiConsumer-) of `onErrorContinue()` for more details on this special operator.
 
 ### Failure connecting to Azure Cosmos DB Emulator
 

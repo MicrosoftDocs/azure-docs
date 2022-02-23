@@ -26,7 +26,6 @@ Due to its hybrid nature, some traditional server backup and disaster recovery s
 - Reverting to a previous virtual machine checkpoint
 - Restoring files from on-premises backup if cloud tiering is enabled
 
-
 ## High availability
 
 There are two different strategies you may use to achieve high availability for your on-premises server. You can either: configure a failover cluster, or configure a standby server. The deciding factor between either configuration is how much you're willing to invest in your system and if minimizing the length of time your system is down in the case of a disaster is worth that extra cost.
@@ -62,7 +61,7 @@ In Azure File Sync agent version 9 and above, [Volume Shadow Copy Service (VSS) 
 To ensure a robust disaster recovery solution, add some form of data redundancy to your infrastructure. There are four redundancy offerings for Azure Files, they are: [Locally-redundant storage (LRS)](../common/storage-redundancy.md#locally-redundant-storage), [zone-redundant storage (ZRS)](../common/storage-redundancy.md#zone-redundant-storage), [geo-redundant storage (GRS)](../common/storage-redundancy.md#geo-redundant-storage) and [geo-zone-redundant storage (GZRS)](../common/storage-redundancy.md#geo-zone-redundant-storage).
 
 - [Locally-redundant storage (LRS)](../common/storage-redundancy.md#locally-redundant-storage): With LRS, every file is stored three times within an Azure storage cluster. This protects against loss of data due to hardware faults, such as a bad disk drive. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS may be lost or unrecoverable.
-- [Zone-redundant storage (ZRS)](../common/storage-redundancy.md#zone-redundant-storage): With ZRS, three copies of each file stored, however these copies are physically isolated in three distinct storage clusters in different Azure *availability zones*. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. A write to storage is not accepted until it is written to the storage clusters in all three availability zones. 
+- [Zone-redundant storage (ZRS)](../common/storage-redundancy.md#zone-redundant-storage): With ZRS, three copies of each file stored, however these copies are physically isolated in three distinct storage clusters in different Azure *availability zones*. Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more data centers equipped with independent power, cooling, and networking. A write to storage is not accepted until it is written to the storage clusters in all three availability zones.
 - [Geo-redundant storage (GRS)](../common/storage-redundancy.md#geo-redundant-storage): With GRS, you have two regions, a primary and secondary region. Files are stored three times within an Azure storage cluster in the primary region. Writes are asynchronously replicated to a Microsoft-defined secondary region. GRS provides six copies of your data spread between two Azure regions.
 - [Geo-zone-redundant storage (GZRS)](../common/storage-redundancy.md#geo-zone-redundant-storage): You can think of GZRS as if it were like ZRS but with geo-redundancy. With GZRS, files are stored three times across three distinct storage clusters in the primary region. All writes are then asynchronously replicated to a Microsoft-defined secondary region.
 
@@ -70,9 +69,7 @@ For a robust disaster recovery solution, most customers should consider ZRS. ZRS
 
 ### Geo-redundancy
 
-If you enable either GRS or GZRS on the storage account containing your cloud endpoint, you need to enable it on your Storage Sync Service as well. This ensures all information about your Azure File Sync topology and the data contained in your cloud endpoint is asynchronously copied to the paired secondary region in the event of a disaster.
-
-For resources that are configured with either GRS or GZRS, Microsoft will initiate the failover for your service if the primary region is judged to be permanently unrecoverable or unavailable for a long time. The Azure File Sync service will automatically fail over to the paired region in the event of a region disaster when the Storage Sync Service is using GRS or GZRS. If you are using Azure File Sync configured with GRS or GZRS, there is no action required from you in the event of a disaster.
+If your storage account is configured with either GRS or GZRS replication, Microsoft will initiate the failover of the Storage Sync Service if the primary region is judged to be permanently unrecoverable or unavailable for a long time. There is no action required from you in the event of a disaster.
 
 Although you can manually request a failover of your Storage Sync Service to your GRS or GZRS paired region, we don't recommend doing this outside of large-scale regional outages since the process isn't seamless and may incur extra cost. To initiate the process, open a support ticket and request that both your Azure storage accounts that contain your Azure file share and your Storage Sync Service be failed over.
 

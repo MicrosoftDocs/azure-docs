@@ -8,9 +8,10 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: sample
+ms.topic: how-to
 ms.date: 03/01/2018
 ms.author: sbowles
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -170,7 +171,7 @@ When you're ready to integrate, **reference the VideoFrameAnalyzer library from 
 
 In this guide, you learned how to run near-real-time analysis on live video streams using the Face, Computer Vision, and Emotion APIs, and how to use our sample code to get started.
 
-Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) or, for broader API feedback, on our [UserVoice](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743) site.
+Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) or, for broader API feedback, on our [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) site.
 
 ## Related Topics
 - [Call the detect API](HowtoDetectFacesinImage.md)
