@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/17/2022
+ms.date: 02/23/2022
 ---
 
 #  Transform data in TeamDesk (Preview) using Azure Data Factory or Synapse Analytics
