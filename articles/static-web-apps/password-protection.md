@@ -34,7 +34,7 @@ Password protection is a lightweight feature that offers a limited level of secu
 
     :::image type="content" source="media/password-protection/portal-enable.png" alt-text="Enable password protection":::
 
-1. Enter a password in **Visitor password**. Passwords must be at least 8 characters long and contain a capital letter, a lowercase letter, a number, and a symbol.
+1. Enter a password in **Visitor password**. Passwords must be at least eight characters long and contain a capital letter, a lowercase letter, a number, and a symbol.
 
 1. Enter the same password in **Confirm visitor password**.
 
