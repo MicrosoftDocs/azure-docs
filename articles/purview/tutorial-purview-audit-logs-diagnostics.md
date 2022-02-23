@@ -52,57 +52,61 @@ Create an [Azure Event Hubs Namespace using Azure ARM Template (GitHub)](https:/
 
 Now that Event Hubs is deployed and created, connect Azure Purview diagnostics audit logging to this Event Hubs:
 
-  1. Go To your Azure Purview Account home page (where the overview information is displayed, not the Azure Purview Studio home page.) and follow instructions as detailed below.
+1. Go To your Azure Purview Account home page (where the overview information is displayed, not the Azure Purview Studio home page.) and follow instructions as detailed below.
 
-  1. Select "Monitoring" -> "Diagnostic Settings" in the left navigation menu.
+1. Select "Monitoring" -> "Diagnostic Settings" in the left navigation menu.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-e.png" alt-text="Click Azure Purview Diagnostic Settings" lightbox="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-e.png":::
 
-  1. Select "Add Diagnostic Settings" or "Edit Setting". Adding more than one row of diagnostic setting in the context of Azure Purview isn't recommended. In other words, if you already have a diagnostic setting row added, don't select "Add Diagnostic"; select "Edit" instead.
+1. Select "Add Diagnostic Settings" or "Edit Setting". Adding more than one row of diagnostic setting in the context of Azure Purview isn't recommended. In other words, if you already have a diagnostic setting row added, don't select "Add Diagnostic"; select "Edit" instead.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-f.png" alt-text="Add or Edit Diagnostic Settings screen." lightbox="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-f.png":::
 
-  1. Ensure to select checkbox "audit" and "allLogs" to enable collection of Azure Purview audit logs. Optionally, select "allMetrics" if you wish to capture DataMap Capacity Units and Data Map size metrics of the Azure Purview account as well.
+1. Ensure to select checkbox "audit" and "allLogs" to enable collection of Azure Purview audit logs. Optionally, select "allMetrics" if you wish to capture DataMap Capacity Units and Data Map size metrics of the Azure Purview account as well.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-g.png" alt-text="Configure Azure Purview Diagnostic settings - select diagnostics types" lightbox="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-g.png":::
 
-  1. Diagnostics Configuration on the Azure Purview account is complete.
+1. Diagnostics Configuration on the Azure Purview account is complete.
 
 Now that Azure Purview diagnostics audit logging configuration is complete, configure the data capture and data retention settings for the Event Hubs:
 
-  1. Go to [Azure portal](https://portal.azure.com) home page and search the name of the Event Hubs Namespace you created in *Step-1*.
+1. Go to [Azure portal](https://portal.azure.com) home page and search the name of the Event Hubs Namespace you created earlier.
 
-  1. Navigate to the Event Hubs Namespace. Select the Event Hubs and select "Capture Data".
+1. Navigate to the Event Hubs Namespace. Select the Event Hubs and select "Capture Data".
 
-  1. Supply the name of the Event Hubs Namespace and the Event Hubs where you would like the audit and diagnostics to be captured and streamed. Modify the "Time Window" and "Size Window" values for retention period of streaming events. Select Save.
+1. Supply the name of the Event Hubs Namespace and the Event Hubs where you would like the audit and diagnostics to be captured and streamed. Modify the "Time Window" and "Size Window" values for retention period of streaming events. Select Save.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-h.png" alt-text="Capture Settings on Event Hubs Namespace and Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-h.png":::
 
-  1. Optionally, go to "Properties" on the left navigation menu and change the "Message Retention" to any value between 1-7 days. Retention period value depends on the frequency of scheduled jobs/scripts you've created to continuously listen and capture the streaming events. If you schedule a capture once every week, take the slider to seven days.
+1. Optionally, go to "Properties" on the left navigation menu and change the "Message Retention" to any value between 1-7 days. Retention period value depends on the frequency of scheduled jobs/scripts you've created to continuously listen and capture the streaming events. If you schedule a capture once every week, take the slider to seven days.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-i.png" alt-text="Event Hubs properties - message retention period." lightbox="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-i.png":::
 
-  1. At this stage, the Event Hubs configuration will be complete. Azure Purview will start streaming all its audit history and diagnostics data to this Event Hubs. You can now proceed to read, extract and perform further analytics and operations on the captured diagnostics and audit events.
+1. At this stage, the Event Hubs configuration will be complete. Azure Purview will start streaming all its audit history and diagnostics data to this Event Hubs. You can now proceed to read, extract and perform further analytics and operations on the captured diagnostics and audit events.
 
 ### Reading captured "audit" events
 
 Analyzing and making sense of the captured Audit and Diagnostics log data from Azure Purview:
 
-  1. Navigate to "Process Data" on the Event Hubs page to see a preview of the captured Azure Purview audit logs and diagnostics.
-
+1. Navigate to "Process Data" on the Event Hubs page to see a preview of the captured Azure Purview audit logs and diagnostics.
+  
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-d.png" alt-text="Configure Event Hubs - Process Data." lightbox="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-d.png":::
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-c.png" alt-text="Navigating Azure Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-c.png":::
 
-  1. Switch between "Table" and "Raw" view of the JSON output.
+1. Switch between "Table" and "Raw" view of the JSON output.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-a.png" alt-text="Explore Azure Purview Audit Events on Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-a.png":::
 
-  1. Select "Download Sample Data" to download and analyze the results carefully.
+1. Select "Download Sample Data" to download and analyze the results carefully.
 
     :::image type="content" source="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-b.png" alt-text="Query and Process Azure Purview Audit data on Event Hubs." lightbox="./media/tutorial-purview-audit-logs-diagnostics/azure-purview-diagnostics-audit-eventhub-b.png":::
 
-  1. Lastly, you can use automatic, periodically scheduled scripts to extract, read and perform further analytics and operations on the Event Hubs audit and diagnostics data. You can even build your own utilities and custom code to extract business value out of the captured audit events. What's more, you can even use these audit logs and transform them to Excel, any database, Dataverse or Synapse, for analytics and reporting using Power BI. While you're free to use any programming or scripting language of your choice to read the Event Hubs, here's one ready-made [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py). Python tutorial on how to [Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md)
+Now that you know how to gather this information, you can use automatic, scheduled scripts to extract, read, and perform further analytics on the Event Hubs audit and diagnostics data. You can even build your own utilities and custom code to extract business value from captured audit events.
+
+These audit logs can also be transformed to Excel, any database, Dataverse, or Synapse Analytics database, for analytics and reporting using Power BI. 
+
+While you're free to use any programming or scripting language of your choice to read the Event Hubs, here's one ready-made [Python-based script](https://github.com/Azure/Azure-Purview-API-PowerShell/blob/main/purview_atlas_eventhub_sample.py). Python tutorial on how to [capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)](../event-hubs/event-hubs-capture-python.md).
 
 ## Next steps
 
