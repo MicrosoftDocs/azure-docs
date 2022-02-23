@@ -27,7 +27,30 @@ This sample CLI script creates an Azure Database for MySQL - Flexible Server in 
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/create-server-private-access/create-connect-server-in-vnet.sh" range="4-91":::
+:::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/create-server-private-access/create-connect-server-in-vnet.sh" range="4-78":::
+
+## Test connectivity to the MySQL server from the VM
+
+Use the following steps to test connectivity to the MySQL server from the VM by connecting using SSH, downloading MySQL tools, and then using them to connect to the MySQL server.
+
+1. To SSH into the VM, start by getting the public IP address and then use MySQL tools to connect
+
+   ```bash
+   publicIp=$(az vm list-ip-addresses --resource-group $resourceGroup --name $vm --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" --output tsv)
+   
+   ssh azureuser@$publicIp
+   ```
+
+1. Download MySQL tools and connect to the server. Substitute <server_name> and <admin_user> with your values.
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install mysql-client
+   
+   wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+
+   mysql -h <replace_with_server_name>.mysql.database.azure.com -u mysqladmin -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
+   ```
 
 ## Clean up resources
 

@@ -31,31 +31,6 @@ Once the script runs successfully, the MySQL Flexible Server will be accessible 
 
 :::code language="azurecli" source="~/azure_cli_scripts/mysql/flexible-server/create-server-public-access/create-connect-burstable-server-public-access.sh" range="4-40":::
 
-## Test connectivity to the MySQL server from the VM
-
-Use the following steps to test connectivity to the MySQL server from the VM:
-
-### Connect to VM and install MySQL client tools
-
-1. To SSH into the VM, start by getting the public IP address and then use MySQL tools to connect
-
-   ```bash
-   publicIp=$(az vm list-ip-addresses --resource-group $resourceGroup --name $vm --query "[].virtualMachine.network.publicIpAddresses[0].ipAddress" --output tsv)
-   
-   ssh azureuser@$publicIp
-   ```
-
-1. Download MySQL tools and connect to the server. Substitute <server_name> and <admin_user> with your values.
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install mysql-client
-   
-   wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
-
-   mysql -h <replace_with_server_name>.mysql.database.azure.com -u mysqladmin -p --ssl-mode=REQUIRED --ssl-ca=DigiCertGlobalRootCA.crt.pem
-   ```
-
 ## Clean up resources
 
 [!INCLUDE [cli-clean-up-resources.md](../../../../includes/cli-clean-up-resources.md)]
