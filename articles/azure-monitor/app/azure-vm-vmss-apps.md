@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Deploy the Azure Monitor Application Insights Agent on Azure virtual machines and Azure virtual machine scale sets
