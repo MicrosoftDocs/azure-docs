@@ -49,7 +49,7 @@ To enable this, within SQL Server Management Studio (SSMS), navigate to "Server 
 
 :::image type="content" source="media/register-scan-on-premises-sql-server/enable-sqlserver-authentication.png" alt-text="Enable SQL Server and Windows Authentication.":::
 
-A change to the Server Authentication will require a restart of the SQL Server Instance and SQL Server Agent, this can be triggered within SSMS by navigating to the SQL Server instance and selecting "Restart" within the right-click options pane.### SQL Authentication to register
+A change to the Server Authentication will require a restart of the SQL Server Instance and SQL Server Agent, this can be triggered within SSMS by navigating to the SQL Server instance and selecting "Restart" within the right-click options pane.
 
 ##### Creating a new login and user
 
