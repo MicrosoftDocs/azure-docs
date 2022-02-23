@@ -43,7 +43,7 @@ items:
   - name: Data owner policies on resource groups or subscriptions
     href: tutorial-access-policies-resource-group.md
   - name: Integrate with Microsoft Sentinel
-    href: /azure/sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
+    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Use Azure Purview Studio
