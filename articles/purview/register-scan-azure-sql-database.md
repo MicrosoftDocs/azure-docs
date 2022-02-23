@@ -86,7 +86,8 @@ The following options are supported:
 >[!IMPORTANT]
 > If you are using a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to your resource, system-assigned and user-assigned managed identities will not work. You need to use SQL Authentication or Service Principal Authentication.
 
-#### Using SQL Authentication for scanning
+
+# [SQL Authentication](#tab/sql-authentication)
 
 > [!Note]
 > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Azure Purview account should have the appropriate permissions to be able to scan the resource(s).
@@ -115,7 +116,7 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault-options.png" alt-text="Screenshot that shows the key vault option to create a secret":::
 
-#### Using a system or user assigned managed identity for scanning
+# [Managed identity](#tab/managed-identity)
 
 >[!IMPORTANT]
 > If you are using a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to your resource, system-assigned and user-assigned managed identities will not work. You need to use SQL Authentication or Service Principal Authentication.
@@ -155,7 +156,8 @@ It is important to give your Azure Purview account's system-managed identity or 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-access-managed-identity.png" alt-text="Screenshot that shows the details to assign permissions for the Azure Purview account":::
 
-#### Using Service Principal for scanning
+
+# [Service Principal](#tab/service-principal)
 
 ##### Creating a new service principal
 
@@ -217,6 +219,9 @@ The service principal needs permission to get metadata for the database, schemas
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp-appln-id.png" alt-text="Screenshot that shows the Application (client) ID for the Service Principal":::
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp-cred.png" alt-text="Screenshot that shows the key vault option to create a secret for Service Principal":::
+
+---
+
 
 ### Firewall settings
 
