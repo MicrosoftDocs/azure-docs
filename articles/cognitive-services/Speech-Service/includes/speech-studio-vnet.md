@@ -37,7 +37,6 @@ The following table describes Custom Speech project accessibility per Speech res
 >
 > - **Private endpoints**. If you restrict the access to the Speech resource through a private endpoint only, you will not be able to work with the Speech Studio for this resource. The reason is, that the private endpoint is not reachable for Speech Studio. See below the possible workaround using Speech-to-text REST API.
 
-Note, that all Custom Speech operations, which you can do with the Speech Studio are also accessible via [Speech-to-text REST API v3.0](../rest-speech-to-text.md#speech-to-text-rest-api-v30). To use it, you need just access to the Speech resource endpoint, no additional Speech Studio web portal access is required. So in case your scenario requires, for instance access through private endpoints only, you may use this option.
 
 To use custom speech without relaxing network access restrictions on your production Speech resource, consider one of these workarounds. 
 * Create another Speech resource for development that can be used on a public network. Prepare your custom model in Speech Studio on the development resource, and then copy the model to your production resource. See the [Copy Model](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) REST request with [Speech-to-text REST API v3.0](../rest-speech-to-text.md#speech-to-text-rest-api-v30). 
