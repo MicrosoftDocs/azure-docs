@@ -283,12 +283,21 @@ Scans can be managed or run again on completion
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
 
 ## Access policy
+
+Access policies allow data owners to manage access to datasets from Azure Purview. Owners can monitor and manage data use from within the Azure Purview Studio, without directly modifying the storage account where the data is housed.
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+To create an access policy for an Azure Storage account, follow the guidelines below.
+
 [!INCLUDE [Azure Storage specific pre-requisites](./includes/access-policies-prerequisites-storage.md)]
 
-Follow these configuration guides to:
-- [Configure from Azure Purview data owner access policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
-- [Configure from Azure Purview data owner access policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
+### Create an access policy
 
+Now that you’ve prepared your storage account and environment for access policies, you can follow one of these configuration guides to create your policies:
+
+- [Single storage account](./tutorial-data-owner-policies-storage.md) - This guide will allow you to enable access policies on a single storage account in your subscription.
+- [All sources in a subscription or resource group](./tutorial-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
 
 ## Next steps
 

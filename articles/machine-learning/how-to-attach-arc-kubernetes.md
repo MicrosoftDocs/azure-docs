@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 11/23/2021
 ms.topic: how-to
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Configure Kubernetes clusters for machine learning (preview)
@@ -259,7 +259,7 @@ kubectl get pods -n azureml
 ```
 ## Update Azure Machine Learning extension
 
-Use ```k8s-extension update``` CLI command to update the mutable properties of  Azure Machine Learning extension. For more information, see the [`k8s-extension update` CLI command documentation](/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_update&preserve-view=true). 
+Use ```k8s-extension update``` CLI command to update the mutable properties of  Azure Machine Learning extension. For more information, see the [`k8s-extension update` CLI command documentation](/cli/azure/k8s-extension#az_k8s_extension_update).
 
 1.	Azure Arc supports update of  ``--auto-upgrade-minor-version``, ``--version``,  ``--configuration-settings``, ``--configuration-protected-settings``.  
 2.	For configurationSettings, only the settings that require update need to be provided. If the user provides all settings, they would be merged/overwritten with the provided values. 
@@ -280,7 +280,7 @@ Use ```k8s-extension update``` CLI command to update the mutable properties of  
 
 ## Delete Azure Machine Learning extension
 
-Use [`k8s-extension delete`](/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_delete&preserve-view=true) CLI command to delete the Azure Machine Learning extension. 
+Use [`k8s-extension delete`](/cli/azure/k8s-extension#az_k8s_extension_delete) CLI command to delete the Azure Machine Learning extension. 
 
 It takes around 10 minutes to delete all components deployed to the Kubernetes cluster. Run `kubectl get pods -n azureml` to check if all components were deleted.
 
@@ -417,4 +417,4 @@ Use the `identity_type` argument to enable `SystemAssigned` or `UserAssigned` ma
 - [Train a TensorFlow model](how-to-train-tensorflow.md)
 - [Train a PyTorch model](how-to-train-pytorch.md)
 - [Train using Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
-- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server)
+- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server)

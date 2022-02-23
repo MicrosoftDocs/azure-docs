@@ -267,7 +267,7 @@ az identity list --query "[].{Name:name, Id:id, Location:location}" -o table
 
 ### Create a cluster using kubelet identity
 
-Now you can use the following command to create your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kublet-identity`:
+Now you can use the following command to create your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
 
 ```azurecli-interactive
 az aks create \

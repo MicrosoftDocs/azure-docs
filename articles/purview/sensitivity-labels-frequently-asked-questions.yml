@@ -6,10 +6,9 @@ metadata:
   author: ajaykar
   ms.service: purview
   ms.subservice: purview-insights
-  ms.topic: 
+  ms.topic: faq
   ms.date: 09/17/2021
   ms.author: ajaykar
-    
 title: Sensitivity labels in Azure Purview FAQ
 summary: |
   This article lists frequently asked questions about sensitivity labeling in Azure Purview, with their answers and links to more information as needed.</br></br>

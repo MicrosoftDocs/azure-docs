@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 01/25/2022
+ms.date: 02/08/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,6 +26,8 @@ Timely response to policy violations or security issues really requires a "conve
 The initial implementation of continuous access evaluation focuses on Exchange, Teams, and SharePoint Online.
 
 To prepare your applications to use CAE, see [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md).
+
+Continuous access evaluation isn't currently available in Azure Government GCC High tenants.
 
 ### Key benefits
 
@@ -59,9 +61,7 @@ Exchange Online, SharePoint Online, Teams, and MS Graph can synchronize key Cond
 This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
 > [!NOTE]
-> Not all client app and resource provider combinations are supported. See table below. The first column of this table refers to web applications launched via web browser (i.e. PowerPoint launched in web browser) while the remaining four columns refer to native applications running on each platform described. Additionally, references to "Office" encompass Word, Excel, and PowerPoint.
-
-Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Access policy is set.
+> Not all client app and resource provider combinations are supported. See the following tables. The first column of this table refers to web applications launched via web browser (i.e. PowerPoint launched in web browser) while the remaining four columns refer to native applications running on each platform described. Additionally, references to "Office" encompass Word, Excel, and PowerPoint.
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -70,7 +70,7 @@ Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Acc
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Not Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Not Supported \* | Supported | Supported | Supported | Supported |
 | **Exchange Online** | Not Supported | Supported | Supported | Supported | Supported |
 
 | | OneDrive web | OneDrive Win32 | OneDrive iOS | OneDrive Android | OneDrive Mac |
@@ -79,9 +79,11 @@ Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Acc
 
 | | Teams web | Teams Win32 | Teams iOS | Teams Android | Teams Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Teams Service** | Supported | Supported | Supported | Supported | Supported |
-| **SharePoint Online** | Supported | Supported | Supported | Supported | Supported |
-| **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
+| **Teams Service** | Partially supported | Partially supported | Partially supported | Partially supported | Partially supported |
+| **SharePoint Online** | Partially supported | Partially supported | Partially supported | Partially supported | Partially supported |
+| **Exchange Online** | Partially supported | Partially supported | Partially supported | Partially supported | Partially supported |
+
+> \* Token lifetimes for Office web apps are reduced to 1 hour when a Conditional Access policy is set.
 
 ## Client Capabilities
 
@@ -112,7 +114,7 @@ If you aren't using CAE-capable clients, your default access token lifetime will
 
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
-1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/azuread/revoke-azureaduserallrefreshtoken). A revocation event will be sent to the resource provider from Azure AD.
+1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/microsoft.graph.users.actions/revoke-mgusersign). A revocation event will be sent to the resource provider from Azure AD.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there's any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
@@ -166,7 +168,7 @@ Changes made to Conditional Access policies and group membership made by adminis
 
 When Conditional Access policy or group membership changes need to be applied to certain users immediately, you have two options. 
 
-- Run the [revoke-azureaduserallrefreshtoken PowerShell command](/powershell/module/azuread/revoke-azureaduserallrefreshtoken) to revoke all refresh tokens of a specified user.
+- Run the [revoke-mgusersign PowerShell command](/powershell/module/microsoft.graph.users.actions/revoke-mgusersign) to revoke all refresh tokens of a specified user.
 - Select "Revoke Session" on the user profile page in the Azure portal to revoke the user's session to ensure that the updated policies will be applied immediately.
 
 ### IP address variation
@@ -201,7 +203,7 @@ For an explanation of the office update channels, see [Overview of update channe
 
 ### Coauthoring in Office apps
 
-When multiple users are collaborating on a document at the same time, their access to the document may not be immediately revoked by CAE based on user revocation or policy change events. In this case, the user loses access completely after: 
+When multiple users are collaborating on a document at the same time, their access to the document may not be immediately revoked by CAE based on policy change events. In this case, the user loses access completely after:
 
 - Closing the document
 - Closing the Office app

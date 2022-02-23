@@ -340,7 +340,7 @@ The following table lists the OAuth2 identity provider generic metadata. The met
 | `ProviderName` | No | The name of the identity provider. |
 | `ResponseErrorCodeParamName` | No | The name of the parameter that contains the error message returned over HTTP 200 (Ok). |
 | `IncludeClaimResolvingInClaimsHandling`  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
-| `ResolveJsonPathsInJsonTokens`  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#output-claims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data.0.to.0.email`.|
+| `ResolveJsonPathsInJsonTokens`  | No | Indicates whether the technical profile resolves JSON paths. Possible values: `true`, or `false` (default). Use this metadata to read data from a nested JSON element. In an [OutputClaim](technicalprofiles.md#output-claims), set the `PartnerClaimType` to the JSON path element you want to output. For example: `firstName.localized`, or `data[0].to[0].email`.|
 
 ## Cryptographic keys
 
