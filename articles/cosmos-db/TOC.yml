@@ -1515,7 +1515,7 @@
   items:
      - name: Azure Resource Graph queries
        href: ./resource-graph-samples.md
-     - name: Azure CLI samples
+     - name: Common Azure CLI samples
        items:
          - name: Overview of common API samples
            href: common-cli-samples.md
