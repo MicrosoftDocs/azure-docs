@@ -35,6 +35,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Getting started
 
+To get started, you'll create a storage account and a virtual network.
+
 ### Create a storage account
 
 Before you can work with an NFS Azure file share, you have to create an Azure storage account with the Premium performance tier. Premium is the only tier that supports NFS Azure file shares.
@@ -69,12 +71,14 @@ The NFS protocol can only be used from a machine inside of a virtual network, so
 
 1. Azure will attempt to validate the virtual network. When validation is complete, select **Create**. After a few minutes, you should see a notification that deployment is complete.
 
-### Create an NFS Azure file share
+## Create an NFS Azure file share
 
-Next, create an NFS file share.
+Now you're ready to create an NFS file share.
 
 1. Select **Home** and then **Storage accounts**.
+
 1. Select the storage account you created.
+
 1. Select **File shares** from the storage account pane.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
@@ -103,10 +107,39 @@ Next, create an NFS file share.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" border="true":::
 
-1. Confirm that the **Subscription**, **Resource type** and **Resource** are correct, and then select **Next: Virtual Network**.
+1. Confirm that the **Subscription**, **Resource type** and **Resource** are correct, and select **File** from the **Target sub-resource** drop-down. Then select **Next: Virtual Network**.
 
-1. Disable secure transfer.
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" alt-text="Screenshot showing how to select the resources that a new private endpoint should connect to." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" border="true":::
 
+1. Under **Networking**, select the virtual network that you created earlier and leave the default subnet. Select **Yes** for **Integrate with private DNS zone**. Your subscription and resource group should automatically populate. Select **Next: Tags**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" alt-text="Screenshot showing how to add virtual networking and DNS integration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-virtual-network.png" border="true":::
+
+1. You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" alt-text="Screenshot showing how to add tags to resources in order to categorize them." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" border="true":::
+
+1. Azure will attempt to validate the private endpoint. When validation is complete, select **Create**. You'll see a notification that deployment is in progress. After a few minutes, you should see a notification that deployment is complete.
+
+1. Select **Home** and then **Storage accounts**.
+
+1. Select the storage account you created.
+
+1. Select **File shares** from the storage account pane.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
+
+1. Select the NFS file share that you created. Because the NFS protocol doesn't support encryption and relies instead on network-level security, you'll need to disable secure transfer. Under **Secure transfer setting**, select **Change setting**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" alt-text="Screenshot showing how to change the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" border="true":::
+
+1. Change the **Secure transfer required** setting to **Disabled**, and select **Save**. The setting change may take up to 30 seconds to take effect.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" alt-text="Screenshot showing how to disable the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" border="true":::
+
+## Deploy a Linux VM
+
+Next, create an Azure VM with Linux to represent the on-premises server.
 
 ## Clean up resources
 
