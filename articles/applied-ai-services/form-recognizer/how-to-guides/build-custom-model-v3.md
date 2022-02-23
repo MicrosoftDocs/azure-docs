@@ -8,7 +8,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/16/2022
-ms.author: vikurpad
+ms.author: lajanuar
 ---
 
 # Build your training dataset for a custom model
