@@ -656,8 +656,8 @@
             - name: Secure access to data
               displayName: primary key, resource token, users, roles
               href: secure-access-to-data.md
-            - name: Advanced threat protection
-              href: sql/advanced-threat-protection.md
+            - name: Threat protection with Microsoft Defender
+              href: sql/defender-for-cosmos-db.md
         - name: Partial document update
           items:
             - name: Partial document update overview
@@ -1587,7 +1587,11 @@
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
         - name: Configure alerts
-          href: create-alerts.md
+          items:
+            - name: Create alert on Metrics
+              href: create-alerts.md
+            - name: Create alert on logical partition key size
+              href: how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md
         - name: Application logging with Logic Apps

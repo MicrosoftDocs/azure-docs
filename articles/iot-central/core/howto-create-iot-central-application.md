@@ -121,9 +121,9 @@ Add these items manually to any applications created from an application templat
 
 To create an application template from an existing IoT Central application:
 
-1. Go to the **Administration** section in your application.
-1. Select **Application Template Export**.
-1. On the **Application Template Export** page, enter a name and description for your template.
+1. Go to the **Application** section in your application.
+1. Select **Template Export**.
+1. On the **Template Export** page, enter a name and description for your template.
 1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
 :::image type="content" source="media/howto-create-iot-central-application/create-template.png" alt-text="Screenshot that shows create an application template.":::

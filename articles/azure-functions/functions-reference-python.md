@@ -354,20 +354,20 @@ First, the function.json file must be updated to include a `route` in the HTTP t
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "route": "test",
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
+       "authLevel": "anonymous",
+       "type": "httpTrigger",
+       "direction": "in",
+       "name": "req",
+       "methods": [
+           "get",
+           "post"
+       ],
+       "route": "/{*route}"
     },
     {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
+       "type": "http",
+       "direction": "out",
+       "name": "$return"
     }
   ]
 }
@@ -378,18 +378,28 @@ The host.json file must also be updated to include an HTTP `routePrefix`, as sho
 ```json
 {
   "version": "2.0",
-  "logging": {
-    "applicationInsights": {
-      "samplingSettings": {
+  "logging": 
+  {
+    "applicationInsights": 
+    {
+      "samplingSettings": 
+      {
         "isEnabled": true,
         "excludedTypes": "Request"
       }
-    },
-    "extensions": { "http": { "routePrefix": "" }}
+    }
   },
-  "extensionBundle": {
+  "extensionBundle": 
+  {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[2.*, 3.0.0)"
+  },
+  "extensions": 
+  {
+    "http": 
+    {
+        "routePrefix": ""
+    }
   }
 }
 ```
@@ -399,7 +409,7 @@ Update the Python code file `init.py`, depending on the interface used by your f
 # [ASGI](#tab/asgi)
 
 ```python
-app=Flask("Test")
+app=FastAPI("Test")
 
 @app.route("/api/HandleApproach")
 def test():

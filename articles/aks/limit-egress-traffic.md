@@ -365,7 +365,7 @@ az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --pub
 
 When the previous command has succeeded, save the firewall frontend IP address for configuration later.
 
-```bash
+```azurecli
 # Capture Firewall IP Address for Later Use
 
 FWPUBLIC_IP=$(az network public-ip show -g $RG -n $FWPUBLICIP_NAME --query "ipAddress" -o tsv)

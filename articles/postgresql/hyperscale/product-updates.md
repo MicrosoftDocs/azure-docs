@@ -42,4 +42,4 @@ Let us know about your experience using preview features, by emailing [Ask
 Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com).
 (This email address isn't a technical support channel. For technical problems,
 open a [support
-request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).)
+request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).)

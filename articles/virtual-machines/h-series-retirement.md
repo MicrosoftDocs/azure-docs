@@ -1,12 +1,10 @@
 ---
 title: H-series retirement
 description: H-series retirement started September 1, 2021.
-author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.author: amverma
 ---
 
 # Migrate your H and H-series Promo virtual machines by August 31, 2022
