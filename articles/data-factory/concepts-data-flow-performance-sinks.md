@@ -80,13 +80,13 @@ If a column corresponds to how you wish to generate folder names, select **Name 
 
 **Output to single file** combines all the data into a single partition. This leads to long write times, especially for large datasets. This option is strongly discouraged unless there is an explicit business reason to use it.
 
-## CosmosDB sinks
+## Azure Cosmos DB sinks
 
-When writing to CosmosDB, altering throughput and batch size during data flow execution can improve performance. These changes only take effect during the data flow activity run and will return to the original collection settings after conclusion. 
+When writing to Azure Cosmos DB, altering throughput and batch size during data flow execution can improve performance. These changes only take effect during the data flow activity run and will return to the original collection settings after conclusion. 
 
 **Batch size:** Usually, starting with the default batch size is sufficient. To further tune this value, calculate the rough object size of your data, and make sure that object size * batch size is less than 2MB. If it is, you can increase the batch size to get better throughput.
 
-**Throughput:** Set a higher throughput setting here to allow documents to write faster to CosmosDB. Keep in mind the higher RU costs based upon a high throughput setting.
+**Throughput:** Set a higher throughput setting here to allow documents to write faster to Azure Cosmos DB. Keep in mind the higher RU costs based upon a high throughput setting.
 
 **Write throughput budget:** Use a value which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput will allow more balance across those partitions.
 
