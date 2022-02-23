@@ -531,6 +531,8 @@ items:
       href: connector-square.md
     - name: Sybase
       href: connector-sybase.md
+    - name: TeamDesk
+      href: connector-teamdesk.md
     - name: Teradata
       href: connector-teradata.md
     - name: Vertica

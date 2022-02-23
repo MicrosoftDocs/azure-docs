@@ -141,7 +141,8 @@ If you're not going to continue to use this application, delete the application 
 
 ## Next steps
 
-Learn more about smart inventory management:
+Learn more about :
 
 > [!div class="nextstepaction"]
-> [Smart inventory management concept](./architecture-smart-inventory-management.md)
+> [IoT Central data integration](../core/overview-iot-central-solution-builder.md)
+

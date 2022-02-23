@@ -134,6 +134,8 @@ The example host.json file below contains only the settings for version 5.0.0 an
                 "maxRetries": 3
             },
             "prefetchCount": 0,
+            "transportType": "amqpWebSockets",
+            "webProxy": "https://proxyserver:8080",
             "autoCompleteMessages": true,
             "maxAutoLockRenewalDuration": "00:05:00",
             "maxConcurrentCalls": 16,
@@ -151,6 +153,8 @@ When using service bus extension version 5.x and higher, the following global co
 |Property  |Default | Description |
 |---------|---------|---------|
 |prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
+| transportType| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
+| webProxy| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
 |autoCompleteMessages|true|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
 |maxAutoLockRenewalDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
 |maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the should be initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting only applies for functions that receive a single message at a time.|

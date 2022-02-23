@@ -72,9 +72,9 @@ For Azure China
 - `https://login.chinacloudapi.cn` - For authentication flows.
 - `https://pas.chinacloudapi.cn` - For Azure RBAC flows.
 
-## Enabling Azure AD login in for Windows VM in Azure
+## Enabling Azure AD login for Windows VM in Azure
 
-To use Azure AD login in for Windows VM in Azure, you need to first enable Azure AD login option for your Windows VM and then you need to configure Azure role assignments for users who are authorized to login in to the VM.
+To use Azure AD login for Windows VM in Azure, you need to first enable Azure AD login option for your Windows VM and then you need to configure Azure role assignments for users who are authorized to login in to the VM.
 There are multiple ways you can enable Azure AD login for your Windows VM:
 
 - Using the Azure portal experience when creating a Windows VM

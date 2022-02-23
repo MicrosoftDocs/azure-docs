@@ -110,7 +110,7 @@ To create a custom theme:
 
     :::image type="content" source="media/tutorial-in-store-analytics-create-app/dashboard-expand.png" alt-text="Azure IoT Central left pane.":::
 
-1. Select **Administration > Customize your application**.
+1. Select **Customization > App appearance**.
 
 1. Use the **Change** button to choose an image to upload as the **Application logo**. Optionally, specify a value for **Logo alt text**. 
 
@@ -128,7 +128,7 @@ To create a custom theme:
 
 To update the application image:
 
-1. Select **Administration > Your Application**.
+1. Select **Customization > App appearance.**
 
 1. Use the **Select image** button to choose an image to upload as the application image. This image appears on the application tile in the **My Apps** page of the IoT Central application manager.
 

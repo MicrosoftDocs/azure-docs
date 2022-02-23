@@ -4,15 +4,13 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 02/15/2022
 ms.topic: conceptual
-author: csand-msft
-ms.author: csand
 description: "This article contains a list of frequently asked questions related to Azure Arc-enabled Kubernetes and Azure GitOps"
-keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps, Flux, faq"
+keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps, faq"
 ---
 
-# Frequently Asked Questions - Azure Arc-enabled Kubernetes
+# Frequently Asked Questions - Azure Arc-enabled Kubernetes and GitOps
 
-This article addresses frequently asked questions about Azure Arc-enabled Kubernetes.
+This article addresses frequently asked questions about Azure Arc-enabled Kubernetes and GitOps.
 
 ## What is the difference between Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS)?
 
@@ -80,32 +78,6 @@ This feature applies baseline configurations (like network policies, role bindin
 **Cluster compliance**
 
 The compliance state of each GitOps configuration is reported back to Azure. This lets you keep track of any failed deployments.
-
-## Error installing the microsoft.flux extension (Flux v2)
-
-The `microsoft.flux` extension installs the Flux controllers and Azure GitOps agents into your Azure Arc-enabled Kubernetes or AKS clusters. If you experience an error during installation below are some troubleshooting actions.
-
-* Error message
-
-    ```console
-    {'code':'DeploymentFailed','message':'At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/DeployOperations for usage details.','details':[{'code':'ExtensionCreationFailed','message':' Request failed to https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerService/managedclusters/<CLUSTER_NAME>/extensionaddons/flux?api-version=2021-03-01. Error code: BadRequest. Reason: Bad Request'}]}
-    ```
-    
-* For AKS cluster, assure that the subscription has the following feature flag enabled: `Microsoft.ContainerService/AKS-ExtensionManager`.
-
-     ```console
-     az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
-    ```
-    
-* Force delete the extension.
-
-    ```console
-    az k8s-extension delete --force -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -n flux -t <managedClusters OR connectedClusters>
-    ```
-
-* Assure that the cluster does not have any policies that restrict creation of the `flux-system` namespace or resources in that namespace.
-    
-After you have verified the above, you can re-install the extension.
 
 ## Does Azure Arc-enabled Kubernetes store any customer data outside of the cluster's region?
 

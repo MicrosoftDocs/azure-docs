@@ -417,4 +417,4 @@ Use the `identity_type` argument to enable `SystemAssigned` or `UserAssigned` ma
 - [Train a TensorFlow model](how-to-train-tensorflow.md)
 - [Train a PyTorch model](how-to-train-pytorch.md)
 - [Train using Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
-- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#4a-connect-using-an-outbound-proxy-server)
+- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server)

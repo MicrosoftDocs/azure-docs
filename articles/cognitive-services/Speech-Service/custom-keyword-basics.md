@@ -12,7 +12,7 @@ ms.date: 11/12/2021
 ms.author: eur
 ms.devlang: csharp, objective-c, python
 ms.custom: devx-track-csharp, ignite-fall-2021
-zone_pivot_groups: keyword-quickstart
+zone_pivot_groups: programming-languages-speech-services
 ---
 
 # Get started with Custom Keyword
@@ -21,16 +21,40 @@ zone_pivot_groups: keyword-quickstart
 [!INCLUDE [C# include](includes/quickstarts/keyword-recognition/csharp.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-python"
-[!INCLUDE [Python include](includes/quickstarts/keyword-recognition/python.md)]
+::: zone pivot="programming-language-cpp"
+[!INCLUDE [C++ include](includes/quickstarts/keyword-recognition/cpp.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [Go include](includes/quickstarts/keyword-recognition/go.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java include](includes/quickstarts/keyword-recognition/java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript include](includes/quickstarts/keyword-recognition/javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-[!INCLUDE [Objective-C include](includes/quickstarts/keyword-recognition/objectivec.md)]
+[!INCLUDE [ObjectiveC include](includes/quickstarts/keyword-recognition/objectivec.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-swift"
 [!INCLUDE [Swift include](includes/quickstarts/keyword-recognition/swift.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python include](./includes/quickstarts/keyword-recognition/python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-rest"
+[!INCLUDE [REST include](includes/quickstarts/keyword-recognition/rest.md)]
+::: zone-end
+
+::: zone pivot="programming-language-cli"
+[!INCLUDE [CLI include](includes/quickstarts/keyword-recognition/cli.md)]
 ::: zone-end
 
 ## Next steps

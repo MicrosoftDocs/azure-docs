@@ -7,7 +7,7 @@ ms.author: judubois
 ms.service: sql-database
 ms.subservice: development
 ms.topic: quickstart
-ms.devlang: java, azurecli
+ms.devlang: java
 ms.date: 06/26/2020
 ms.custom: devx-track-java, devx-track-azurecli, mode-api
 ---

@@ -112,6 +112,8 @@ items:
     - name: Manage credentials
       href: manage-credentials.md
       displayName: Create and manage credentials
+    - name: Manage integration runtimes
+      href: manage-integration-runtimes.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
   - name: Sources
@@ -196,8 +198,6 @@ items:
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
-    - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
   - name: Data discovery

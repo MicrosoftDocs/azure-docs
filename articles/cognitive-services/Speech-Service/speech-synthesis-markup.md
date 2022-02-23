@@ -169,10 +169,12 @@ The following table has descriptions of each supported style.
 |`style="disgruntled"`|Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.|
 |`style="embarrassed"`|Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable.|
 |`style="empathetic"`|Expresses a sense of caring and understanding.|
+|`style="envious"`|Express a tone of admiration when you desire something that someone else has.|
 |`style="fearful"`|Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tension and unease.|
 |`style="gentle"`|Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy.|
 |`style="lyrical"`|Expresses emotions in a melodic and sentimental way.|
 |`style="narration-professional"`|Expresses a professional, objective tone for content reading.|
+|`style="narration-relaxed"`|Express a soothing and melodious tone for content reading.|
 |`style="newscast"`|Expresses a formal and professional tone for narrating news.|
 |`style="newscast-casual"`|Expresses a versatile and casual tone for general news delivery.|
 |`style="newscast-formal"`|Expresses a formal, confident, and authoritative tone for news delivery.|

@@ -27,7 +27,7 @@ To manage GitOps through the Azure CLI or the Azure portal, you need the followi
 
 * An Azure Arc-enabled Kubernetes connected cluster that's up and running.
   
-  [Learn how to Azure Arc-enable a Kubernetes cluster](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#4a-connect-using-an-outbound-proxy-server).
+  [Learn how to Azure Arc-enable a Kubernetes cluster](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 * Read and write permissions on the `Microsoft.Kubernetes/connectedClusters` resource type.
 
 ### For Azure Kubernetes Service clusters
@@ -839,7 +839,7 @@ Learn more about using a local Kubernetes secret with these authentication metho
 * [Bucket static authentication](https://fluxcd.io/docs/components/source/buckets/#static-authentication)
 
 >[!NOTE]
->If you need Flux to access the source through your proxy, you'll need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md?tabs=azure-cli#4a-connect-using-an-outbound-proxy-server).
+>If you need Flux to access the source through your proxy, you'll need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
 
 ### Git implementation
 

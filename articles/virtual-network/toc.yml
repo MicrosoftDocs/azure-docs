@@ -238,13 +238,17 @@
         href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
       - name: Azure CLI
         href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-    - name: Create VM - accelerated networking
+    - name: Accelerated Networking (AccelNet)
       items:
-      - name: Azure PowerShell
+      - name: Accelerated Networking overview
+        href: accelerated-networking-overview.md
+      - name: Creating an AccelNet VM with PowerShell
         href: create-vm-accelerated-networking-powershell.md
-      - name: Azure CLI
+      - name: Creating an AccelNet VM with Azure CLI
         href: create-vm-accelerated-networking-cli.md
         items:
+        - name: How Accelerated Networking works
+          href: accelerated-networking-how-it-works.md
         - name: Setup DPDK
           href: setup-dpdk.md
     - name: TCP/IP Performance Tuning for Azure VMs

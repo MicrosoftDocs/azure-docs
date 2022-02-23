@@ -119,7 +119,12 @@ https://{endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-pr
 * Train a custom model:
 
   > [!div class="nextstepaction"]
-  > [Form Recognizer quickstart](quickstarts/try-v3-form-recognizer-studio.md#custom-models)
+  > [How to train a model](how-to-guides/build-custom-model-v3.md)
+
+* Learn more about custom template models:
+
+  > [!div class="nextstepaction"]
+  > [Custom template models](concept-custom-template.md )
 
 * View the REST API:
 

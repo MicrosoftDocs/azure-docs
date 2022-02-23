@@ -54,6 +54,8 @@
           href: automation-secure-asset-encryption.md
         - name: Management of Azure Automation data
           href: automation-managing-data.md
+        - name: Best practices for security in Azure Automation
+          href: automation-security-guidelines.md
 - name: How-to guides
   items:
     - name: Automation Account

@@ -3,7 +3,7 @@ author: philmea
 ms.author: philmea
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.topic: include
 ms.custom: [mvc, mqtt, 'Role: Cloud Development', devx-track-azurecli]
 ms.date: 03/04/2020

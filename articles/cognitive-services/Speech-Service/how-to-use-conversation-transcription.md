@@ -28,6 +28,9 @@ You can transcribe meetings and other conversations with the ability to add, rem
 
 This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free).
 
+> [!NOTE]
+> The Speech SDK for C++, Java, Objective-C, and Swift support Conversation Transcription, but we haven't yet included a guide here. 
+
 ::: zone pivot="programming-language-javascript"
 [!INCLUDE [JavaScript Basics include](includes/how-to/conversation-transcription/real-time-javascript.md)]
 ::: zone-end

@@ -26,15 +26,16 @@ items:
       displayName: What is SPX?, spx, spx overview
       href: spx-overview.md
     - name: Setup Speech CLI
-      displayName: cli basics, spx basics, spx quickstart, spx get started, speech cli get started
+      displayName: cli basics, spx basics, spx quickstart, spx get started, get started, install
       href: spx-basics.md
 - name: Speech SDK
   items:
   - name: Speech SDK overview
     href: speech-sdk.md
+    displayName: get started, install, download
   - name: Setup Speech SDK
     href: quickstarts/setup-platform.md
-    displayName: get started
+    displayName: get started, install, download
 - name: Speech-to-text
   items:
     - name: Speech-to-text documentation
@@ -46,6 +47,8 @@ items:
       href: get-started-speech-to-text.md
     - name: How-to guides
       items:
+        - name: How to recognize speech
+          href: how-to-recognize-speech.md
         - name: Change recognition source language
           href: how-to-specify-source-language.md
         - name: How to use the audio input stream
@@ -126,8 +129,10 @@ items:
                   href: how-to-custom-voice.md
                 - name: Prepare data for training
                   href: how-to-custom-voice-prepare-data.md
-                - name: Create and use your voice model
+                - name: Train your voice model
                   href: how-to-custom-voice-create-voice.md
+                - name: Deploy and use your voice model
+                  href: how-to-deploy-and-use-endpoint.md
                 - name: How to record voice samples
                   href: record-custom-voice-samples.md
             - name: Audio Content Creation

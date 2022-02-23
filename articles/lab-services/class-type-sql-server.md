@@ -24,7 +24,7 @@ To use any external resources, you’ll need to [Connect to your virtual network
 > [!IMPORTANT]
 > [Advanced networking](how-to-connect-vnet-injection.md#connect-the-virtual-network-during-lab-plan-creation) must be enabled during the creation of your lab plan.  It can't be added later.
 
-Now that the networking side of things is handled, lets create a SQL Server Database.  We are going to create a [single database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) as it is the quickest deployment option for Azure SQL Database.  For other deployment options, create an [elastic pool](../azure-sql/database/elastic-pool-overview.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal), [managed instance](../azure-sql/managed-instance/instance-create-quickstart.md), or [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md).
+Now that the networking side of things is handled, lets create a SQL Server Database.  We are going to create a [single database](../azure-sql/database/single-database-create-quickstart.md?tabs=azure-portal) as it is the quickest deployment option for Azure SQL Database.  For other deployment options, create an [elastic pool](../azure-sql/database/elastic-pool-overview.md#create-a-new-sql-database-elastic-pool-by-using-the-azure-portal), [managed instance](../azure-sql/managed-instance/instance-create-quickstart.md), or [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
 1. From the Azure portal menu, choose **Create new resource**.
 2. Choose **SQL Database** and select the **Create** button.

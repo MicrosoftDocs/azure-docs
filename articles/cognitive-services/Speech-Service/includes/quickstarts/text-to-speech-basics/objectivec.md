@@ -6,13 +6,13 @@ ms.date: 9/22/2020
 ms.author: eric-urban
 ---
 
-[!INCLUDE [Header](../common/objectivec.md)]
+[!INCLUDE [Header](../../common/objectivec.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ### Install the Speech SDK and samples
 

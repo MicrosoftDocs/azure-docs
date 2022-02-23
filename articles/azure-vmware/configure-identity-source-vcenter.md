@@ -61,7 +61,8 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
-
+    
+    :::image type="content" source="media/run-command/run-packages-execution-command-status.png" alt-text="Screenshot showing how to check the run commands notification or status." lightbox="media/run-command/run-packages-execution-command-status.png":::
 
 ## Add Active Directory over LDAP with SSL
 
@@ -95,7 +96,6 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** or the **Run Execution Status** pane to see the progress.
-
 
 
 ## Add Active Directory over LDAP
