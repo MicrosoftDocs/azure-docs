@@ -43,11 +43,12 @@ There is only one way to set up authentication for SQL server on-premises:
 - SQL Authentication
 
 #### SQL Authentication to register
+
 Ensure the SQL Server deployment is configured to allow SQL Server and Windows Authentication.
 
 To enable this, within SQL Server Management Studio (SSMS), navigate to "Server Properties" and change from "Windows Authentication Mode" to "SQL Server and Windows Authentication mode".
 
-:::image type="content" source="media/register-scan-on-premises-sql-server/enable-sqlserver-authentication.png" alt-text="Enable SQL Server and Windows Authentication.":::
+:::image type="content" source="media/register-scan-on-premises-sql-server/enable-sql-server-authentication.png" alt-text="The Server Properties window is open with the security page selected. Under Server authentication, S Q L Server and Windows Authentication mode is selected.":::
 
 A change to the Server Authentication will require a restart of the SQL Server Instance and SQL Server Agent, this can be triggered within SSMS by navigating to the SQL Server instance and selecting "Restart" within the right-click options pane.
 
