@@ -40,7 +40,7 @@ Password protection is a lightweight feature that offers a limited level of secu
 
 1. Select the **Save** button.
 
-When visitors first navigate to a protected environment, they're prompted to enter the password before the can view the site.
+When visitors first navigate to a protected environment, they're prompted to enter the password before they can view the site.
 
 :::image type="content" source="media/password-protection/password-prompt.png" alt-text="Password prompt":::
 
