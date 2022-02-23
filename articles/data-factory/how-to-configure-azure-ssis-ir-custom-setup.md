@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 11/01/2021
+ms.date: 02/15/2022
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
 
-You can customize your Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) in Azure Data Factory (ADF) via custom setups. They allow you to add your own steps during the provisioning or reconfiguration of your Azure-SSIS IR. 
+You can customize your Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines via custom setups. They allow you to add your own steps during the provisioning or reconfiguration of your Azure-SSIS IR. 
 
 By using custom setups, you can alter the default operating configuration or environment of your Azure-SSIS IR. For example, to start additional Windows services, persist access credentials for file shares, or use only strong cryptography/more secure network protocol (TLS 1.2). Or you can install additional components, such as assemblies, drivers, or extensions, on each node of your Azure-SSIS IR. They can be custom-made, Open Source, or 3rd party components. For more information about built-in/preinstalled components, see [Built-in/preinstalled components on Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md).
 
