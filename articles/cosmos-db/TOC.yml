@@ -1169,6 +1169,8 @@
           href: mongodb/tutorial-global-distribution-mongodb.md
     - name: Concepts
       items:
+        - name: API version 4.2
+          href: mongodb/feature-support-42.md
         - name: API version 4.0
           href: mongodb/feature-support-40.md
         - name: API version 3.6
@@ -1195,7 +1197,7 @@
               href: mongodb/migrate-databricks.md
             - name: Post-migration guide
               href: mongodb/post-migration-optimization.md
-        - name: Upgrade to API version 4.0 or 3.6
+        - name: Upgrade API version
           href: mongodb/upgrade-mongodb-version.md
         - name: Get the connection string
           href: mongodb/connect-mongodb-account.md

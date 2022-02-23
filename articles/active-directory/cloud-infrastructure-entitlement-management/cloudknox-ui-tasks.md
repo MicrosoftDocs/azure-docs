@@ -18,7 +18,7 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to use to view task information the **CloudKnox Tasks** pane in CloudKnox Permissions Management (CloudKnox).
+This article describes the usage of the **CloudKnox Tasks** pane in CloudKnox Permissions Management (CloudKnox).
 
 ## Display active and completed tasks
 
