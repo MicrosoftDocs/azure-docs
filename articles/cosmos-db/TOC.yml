@@ -1517,7 +1517,7 @@
        href: ./resource-graph-samples.md
      - name: Common Azure CLI samples
        items:
-         - name: Overview of common API samples
+         - name: Overview common API samples
            href: common-cli-samples.md
          - name: Add or fail over regions
            href: scripts/cli/common/regions.md
