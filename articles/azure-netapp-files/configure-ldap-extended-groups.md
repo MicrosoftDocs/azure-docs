@@ -106,4 +106,4 @@ This article explains the considerations and steps for enabling LDAP with extend
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
 * [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
-* [Modify Active Directory connections for Azure NetApp Files](articles\azure-netapp-files\modify-active-directory-connections.md)
+* [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)
