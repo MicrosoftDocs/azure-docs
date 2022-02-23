@@ -34,22 +34,34 @@ File access logs supports SMB, NFSv4.1, and dual protocols.
 
 File access logs captures different file and directory events depending on the protocol used. 
 
-| **NFS** | **SMB** |
-| :--- | :--- |
-Close | Create
-Create | Delete
-Get attributes | Get attributes
-Link |  Hard link
-Nverify | Open object
-Open | Open object with the intent to delete
-Open attribute | Proposed central access policy does not grant the same access permissions as the current central access policy
-Read | Read 
-Read | Rename
-Remove | Set attribute
-Rename| Unlink
-Set attribute| Write 
-Verify |  
-Write | 
+### NFS events
+* Close
+* Create
+* Get attributes
+* Link
+* Nverify
+* Open
+* Open attribute
+* Read
+* Remove
+* Rename
+* Set attribute 
+* Verify 
+* Write
+
+### SMB events
+* Create
+* Delete
+* Get attributes
+* Hard link
+* Open object
+* Open object with the intent to delete
+* Proposed central access policy does not grant the same access permissions as the current central access policy
+* Read
+* Rename
+* Set attribute 
+* Unlink
+* Write
 
 ## Register the feature
 
