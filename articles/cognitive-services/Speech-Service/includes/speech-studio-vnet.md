@@ -3,7 +3,7 @@ author: alexeyo26
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/25/2022
+ms.date: 02/23/2022
 ms.author: alexeyo
 ---
 
@@ -20,11 +20,19 @@ Access to the Speech resource endpoint is *not* equal to access to Speech Studio
 
 ### Working with Speech Studio projects
 
-This section describes working with the different kind of Speech Studio projects for the different network security options of the Speech resource. It's expected that the web browser connection to Speech Studio is established. Speech resource network security settings are set in Azure portal, using **Networking** property, that is in **Resource Management** group of the Speech resource properties.
+This section describes working with the different kind of Speech Studio projects for the different network security options of the Speech resource. It's expected that the web browser connection to Speech Studio is established. Speech resource network security settings are set in Azure portal.
+
+1. Go to the [Azure portal](https://portal.azure.com/) and sign in to your Azure account.
+1. Select the Speech resource.
+1. In the **Resource Management** group in the left pane, select **Networking** > **Firewalls and virtual networks**. 
+1. Select one option from **All networks**, **Selected Networks and Private Endpoints**, or **Disabled**. 
 
 #### Custom Speech
 
-The following table describes Custom Speech project accessibility per Speech resource network security setting.
+The following table describes Custom Speech project accessibility per Speech resource **Networking** > **Firewalls and virtual networks** security setting.
+
+> [!NOTE]
+> If you allow only private endpoints via the **Networking** > **Private endpoint connections** tab, then you can't use Speech Studio with the Speech resource. You can still use the Speech resource outside of Speech Studio.  
 
 | Speech resource network security setting | Speech Studio project accessibility |
 |--|--|
@@ -32,11 +40,9 @@ The following table describes Custom Speech project accessibility per Speech res
 | Selected Networks and Private Endpoints | Accessible from allowed IP addresses |
 | Disabled | Not accessible |
 
-> [!NOTE]
-> - **Selected Networks and private endpoints**. If you select this network security option, you need to allow at least one public IP address and use this address for the browser connection with the Speech Studio. If you allow only Virtual network access, then in effect you don't allow access to the Speech resource through the Speech Studio. Thus, you will not be able to work with the Speech Studio for this resource. See below the possible workaround using Speech-to-text REST API.
->
-> - **Private endpoints**. If you restrict the access to the Speech resource through a private endpoint only, you will not be able to work with the Speech Studio for this resource. The reason is, that the private endpoint is not reachable for Speech Studio. See below the possible workaround using Speech-to-text REST API.
+If you select **Selected Networks and private endpoints**, then you will see a tab with **Virtual networks** and **Firewall** access configuration options. In the **Firewall** section, you must allow at least one public IP address and use this address for the browser connection with Speech Studio. 
 
+If you allow only access via **Virtual network**, then in effect you don't allow access to the Speech resource through Speech Studio. You can still use the Speech resource outside of Speech Studio. 
 
 To use custom speech without relaxing network access restrictions on your production Speech resource, consider one of these workarounds. 
 * Create another Speech resource for development that can be used on a public network. Prepare your custom model in Speech Studio on the development resource, and then copy the model to your production resource. See the [Copy Model](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription) REST request with [Speech-to-text REST API v3.0](../rest-speech-to-text.md#speech-to-text-rest-api-v30). 
@@ -44,5 +50,4 @@ To use custom speech without relaxing network access restrictions on your produc
 
 #### Custom Voice and Audio Content Creation
 
-You can use Custom Voice and Audio Content Creation Speech Studio projects only when the correspondent Speech resource network security setting is *All networks*.
-
+You can use Custom Voice and Audio Content Creation Speech Studio projects only when the Speech resource network security setting is **All networks**.
