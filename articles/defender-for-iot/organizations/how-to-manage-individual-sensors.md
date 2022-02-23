@@ -290,7 +290,7 @@ The console will display restore failures.
 
 The following procedure describes how to update a standalone sensor by using the sensor console.
 
-1. In the Azure portal, to to **Defender for IoT** > **Getting started** > **Updates**.
+1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **Updates**.
 
 1. From the **Sensors** section, select **Download** for the sensor update, and save your `<legacy/upstream>-sensor-secured-patcher-<version number>.tar` file locally. For example:
 

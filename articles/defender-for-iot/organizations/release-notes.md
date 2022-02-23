@@ -65,7 +65,7 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - The device details pages, accessed either from the **Device map** or **Device inventory** pages, is shown as read only. To modify device properties, select **Edit properties** on the bottom-left.
 
-- The **Data mining** page now includes reporting functionality. While the **Reports** page was removed, users with read-only access can view updates on the **Data mining page** without the ability to modify reports or settings
+- The **Data mining** page now includes reporting functionality. While the **Reports** page was removed, users with read-only access can view updates on the **Data mining page** without the ability to modify reports or settings.
 
     For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-a-report).
 
@@ -91,13 +91,13 @@ For example:
 
 Access global readiness and accessibility options from the **Settings** icon at the top-right corner of your screen:
 
-:::image type="content" source="media/release-notes/settings-icon.png" alt-text="Screenshot of localization options." lightbox="media/release-notes/settings-icon.png":::
+:::image type="content" source="media/release-notes/settings-icon.png" alt-text="Screenshot that shows localization options." lightbox="media/release-notes/settings-icon.png":::
 
 ### Enhanced sensor Overview page
 
 The Defender for IoT sensor portal's **Dashboard** page has been renamed as **Overview**, and now includes data that better highlights system deployment details, critical network monitoring health, top alerts, and important trends and statistics.
 
-:::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot of the updated interface." lightbox="media/release-notes/new-interface.png":::
+:::image type="content" source="media/release-notes/new-interface.png" alt-text="Screenshot that shows the updated interface." lightbox="media/release-notes/new-interface.png":::
 
 The Overview page also now serves as a *black box* to view your overall sensor status in case your outbound connections, such as to the Azure portal, go down.
 
@@ -149,7 +149,7 @@ Other alert updates include:
 
 The sensor console's **Custom alert rules** page now provides:
 
-- Hit count information in the **Custom alert rules** table, with at-glance details about the number of alerts triggered in the last week for each rule you've created.
+- Hit count information in the **Custom alert rules** table, with at-a-glance details about the number of alerts triggered in the last week for each rule you've created.
 
 - The ability to schedule custom alert rules to run outside of regular working hours.
 

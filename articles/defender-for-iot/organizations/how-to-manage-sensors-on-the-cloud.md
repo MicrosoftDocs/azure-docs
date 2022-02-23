@@ -85,7 +85,7 @@ This procedure describes how to reactivate a sensor specifically when upgrading 
 
 1. Make sure that your sensor is fully upgraded. For more information, see [Update a standalone sensor version](how-to-manage-individual-sensors.md#update-a-standalone-sensor-version).
 
-1. In Defender for IoT, select **Site and sensors** on the left.
+1. In Defender for IoT, select **Sites and sensors** on the left.
 
 1. Select the site where you want to update your sensor, and then navigate to the sensor you want to update.
 
