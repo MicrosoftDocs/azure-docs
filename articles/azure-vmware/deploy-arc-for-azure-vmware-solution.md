@@ -56,7 +56,7 @@ For feature registration, users will need to sign into their **Subscription**, n
 Users need to ensure they've registered themselves to **Microsoft.AVS/earlyAccess**. After registering, use the following feature to verify registration.
 
 ```azurecli
-az feature show –-name AzureArcForAVS --namespace Microsoft.AVS
+az feature show --name AzureArcForAVS --namespace Microsoft.AVS
 ```
 
 ## Onboard process to deploy Azure Arc
@@ -129,7 +129,7 @@ Use the following steps to guide you through the process to onboard in Arc for A
     ```
 ---
 
-4. You'll now see more Azure Resources being created in your resource group.
+4. You'll notice more Azure Resources have been created in your resource group.
     - Resource bridge
     - Custom location
     - VMware vCenter
@@ -325,7 +325,7 @@ The following command invokes the set credential for the specified appliance res
 
 ` az arcappliance setcredential <provider> --kubeconfig <kubeconfig>`
 
-## Off board from Azure Arc-enabled Azure MVware Solution
+## Off board from Azure Arc-enabled Azure VMware Solution
 
 This section demonstrates how to remove your VMware virtual machines (VMs) from Azure management services.
 
