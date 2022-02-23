@@ -18,6 +18,9 @@ ms.date: 09/09/2021
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google AdWords. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!Important]
+> Due to the sunset of Google AdWords API by April 27, 2022, the service has upgraded to the new Google Ads API. Please refer this [document](connector-troubleshoot-google-adwords.md) for detailed migration steps and recommendations. Please make sure the migration to be done before April 27,2022.  
+
 ## Supported capabilities
 
 This Google AdWords connector is supported for the following activities:
