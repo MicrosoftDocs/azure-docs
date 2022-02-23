@@ -11,10 +11,10 @@ ms.author: cshoe
 
 # Configure password protection
 
-You can use a password to protect your static web app. You can protect your app's pre-production environments or all environments with a password. Scenarios where password protection is useful include:
+You can use a password to protect your app's pre-production environments or all environments. Scenarios when password protection is useful include:
 
-- Limit access to your static web app to specific people who you've given the password to
-- Protect your static web app's staging environments
+- Limiting access to your static web app to people who you've given the password to
+- Protecting your static web app's staging environments
 
 Password protection is a lightweight feature that offers a limited level of security. To secure your app using an identity provider, use the integrated [Static Web Apps authentication](authentication-authorization.md). You can also restrict access to your app using [IP restrictions](configuration.md#networking) or a [private endpoint](private-endpoint.md).
 
