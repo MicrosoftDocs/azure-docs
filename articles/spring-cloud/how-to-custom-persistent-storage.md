@@ -27,9 +27,9 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 * The [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
 > [!IMPORTANT]
-> If you deployed your Azure Spring Cloud in your own virtual network and want the Storage Account to be accessed only from the virtual network, please refer:
+> If you deployed your Azure Spring Cloud in your own virtual network and you want the storage account to be accessed only from the virtual network, consult the following guidance:
 > - [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
-> - [Grant access from a virtual network using service endpoint](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
+> - [Configure Azure Storage firewalls and virtual networks](../storage/common/storage-network-security.md), especially the [Grant access from a virtual network using service endpoint](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) section
 
 ## Mount your own extra persistent storage to applications
 
