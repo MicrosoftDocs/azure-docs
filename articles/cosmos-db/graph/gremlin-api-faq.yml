@@ -4,11 +4,10 @@ metadata:
   description: Get answers to frequently asked questions about the Gremlin API in Azure Cosmos DB
   ms.service: cosmos-db
   ms.subservice: cosmosdb-graph
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 04/28/2020
   author: manishmsfte
   ms.author: mansha
-    
 title: Frequently asked questions about the Gremlin API in Azure Cosmos DB
 summary: |
   [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]

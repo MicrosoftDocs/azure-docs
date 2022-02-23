@@ -377,6 +377,16 @@ For more information, see the [Azure Information Protection documentation](/azur
 | **Supported by** | Microsoft |
 | | |
 
+## Azure Purview
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md). |
+| **Log Analytics table(s)** | PurviewDataSensitivityLogs |
+| **Supported by** | Microsoft |
+| | |
+
+
 ## Azure SQL Databases
 
 | Connector attribute | Description |
@@ -1731,7 +1741,7 @@ For more information, see [Gather insights about your DNS infrastructure with th
 
 ### Additional instructions for deploying the Windows Forwarded Events connector
 
-We recommend installing the [Advanced SIEM Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
+We recommend installing the [Advanced Security Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
 
 ## Windows Firewall
 

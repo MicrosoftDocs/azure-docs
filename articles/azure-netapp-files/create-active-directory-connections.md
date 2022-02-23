@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/21/2022
+ms.date: 02/15/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -37,6 +37,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify. In some cases, `msDS-SupportedEncryptionTypes` write permission is required to set account attributes within AD.
 
 * If you change the password of the Active Directory user account that is used in Azure NetApp Files, be sure to update the password configured in the [Active Directory Connections](#create-an-active-directory-connection). Otherwise, you will not be able to create new volumes, and your access to existing volumes might also be affected depending on the setup.  
+
+* Before you can remove an Active Directory connection from your NetApp account, you need to first remove all volumes associated with it. 
 
 * Proper ports must be open on the applicable Windows Active Directory (AD) server.  
     The required ports are as follows: 
@@ -147,7 +149,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
 ## Create an Active Directory connection
 
-1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
+1. From your NetApp account, select **Active Directory connections**, then select **Join**.  
 
     Azure NetApp Files supports only one Active Directory connection within the same region and the same subscription. If Active Directory is already configured by another NetApp account in the same subscription and region, you cannot configure and join a different Active Directory from your NetApp account. However, you can enable the Shared AD feature to allow an Active Directory configuration to be shared by multiple NetApp accounts within the same subscription and the same region. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad).
 
@@ -322,7 +324,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         ![Active Directory credentials](../media/azure-netapp-files/active-directory-credentials.png)
 
-3. Click **Join**.  
+3. Select **Join**.  
 
     The Active Directory connection you created appears.
 

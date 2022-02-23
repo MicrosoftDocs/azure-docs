@@ -30,7 +30,7 @@ The interactive interface of Linkurious Enterprise offers an easy way to investi
 
 * [Product details](https://linkurio.us/product/)
 * [Documentation](https://doc.linkurio.us/)
-* [Demo](https://resources.linkurio.us/demo)
+* [Demo](https://linkurious.com/demo/)
 * [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/linkurious.linkurious001?tab=overview)
 
 ## Cambridge Intelligence

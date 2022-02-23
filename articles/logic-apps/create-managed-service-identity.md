@@ -510,7 +510,7 @@ However, to access an Azure key vault with your managed identity, you have to cr
 
 | Tool | Documentation |
 |------|---------------|
-| Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/templates/microsoft.keyvault/vaults/) |
+| Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/azure/templates/microsoft.keyvault/vaults) |
 | Azure PowerShell | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-powershell) |
 | Azure CLI | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-cli) |
 |||
@@ -584,7 +584,7 @@ After you [enable the managed identity for your logic app resource](#azure-porta
 
 > [!IMPORTANT]
 > If you have an Azure function where you want to use the system-assigned identity, 
-> first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-for-functions).
+> first [enable authentication for Azure Functions](logic-apps-azure-functions.md#enable-authentication-functions).
 
 These steps show how to use the managed identity with a trigger or action through the Azure portal. To specify the managed identity in a trigger or action's underlying JSON definition, review [Managed identity authentication](logic-apps-securing-a-logic-app.md#managed-identity-authentication).
 
@@ -1076,7 +1076,7 @@ Following this `Microsoft.Web/connections` resource definition, make sure that y
 }
 ```
 
-For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/templates/microsoft.web/connections?tabs=json) documentation.
+For more information, review the [Microsoft.Web/connections/accesspolicies (ARM template)](/azure/templates/microsoft.web/connections) documentation.
 
 ---
 

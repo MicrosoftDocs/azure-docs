@@ -66,6 +66,7 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 az logout
 az login
 export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
+export  ARM_SUBSCRIPTION_ID=<subscriptionID>
 export       subscriptionID=<subscriptionID>
 export               spn_id=<appID>
 export           spn_secret=<password>
