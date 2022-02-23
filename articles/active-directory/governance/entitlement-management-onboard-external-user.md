@@ -63,7 +63,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 2. In the **Users who can request access** section, click **For users not in your directory** and then click **All users (All connected organizations + any new external users)**.
 
-3. Since any user not yet in your directory can view and submit a request for this access package, **Yes** is mandatory for the **Require approval** setting.
+3. Because any user who is not yet in your directory can view and submit a request for this access package, **Yes** is mandatory for the **Require approval** setting.
 
 4. The following settings allow you to configure how your approvals work for your external users:
 
