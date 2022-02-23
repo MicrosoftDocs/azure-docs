@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: The article explains the details of a disabled listener and ways to resolve the problem.
 author: jaesoni
 ms.service: application-gateway
-ms.topic: reference
+ms.topic: troubleshooting
 ms.date: 02/22/2022
 ms.author: jaysoni
 
@@ -18,15 +18,15 @@ It is important to consider any impact on your Application Gateway resource when
 
 1. The clients will observe the below error if any request is made to a disabled listener of your Application Gateway.
 
-![Screenshot of client error will look.](./application-gateway/media/disabled-listeners/client-error.png)
+![Screenshot of client error will look.](../application-gateway/media/disabled-listeners/client-error.png)
 
 2. You can verify if the error is a result of a disabled listener on your gateway by checking your [Application Gateway’s Resource Health page](../resource-health-overview.md). You will see an event such this.
 
-![A screenshot of user-driven resource health.](./application-gateway/media/disabled-listeners/resource-health-event.png)
+![A screenshot of user-driven resource health.](../application-gateway/media/disabled-listeners/resource-health-event.png)
 
 A disabled listener doesn’t affect the traffic for other operational listeners on your Application Gateway. For example, the HTTP listeners or HTTPS listeners for which PFX certificate file is directly uploaded on Application Gateway resource will never be in a disabled state.
 
-![An illustration showing affected listeners.](./application-gateway/media/disabled-listeners/affected-listener.png)
+![An illustration showing affected listeners.](../application-gateway/media/disabled-listeners/affected-listener.png)
 
 
 # Resolving Key Vault integration errors
