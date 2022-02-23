@@ -83,7 +83,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Event Grid | Microsoft.EventGrid/topics  | Event grid topic |
 | Azure Event Hub | Microsoft.EventHub/namespaces | namespace |
 | Azure HDInsight | Microsoft.HDInsight/clusters | cluster |
-| Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | service |
+| Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
 | Azure Key Vault HSM (hardware security module) | Microsoft.Keyvault/managedHSMs | HSM |
 | Azure Key Vault | Microsoft.KeyVault/vaults | vault |
 | Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | amlworkspace |
