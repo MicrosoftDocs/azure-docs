@@ -76,7 +76,7 @@ Recovery Time Objective (RTO), or the maximum tolerable business application dow
 
 ## Cost model for cross-region replication  
 
-With Azure NetApp Files cross-region replication, you pay only for the amount of data you replicate. There is no setup charges or minimum usage fee. The replication price is based on the replication frequency and the region of the *destination* volume you choose during the initial replication configuration. See the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page for more information.  
+With Azure NetApp Files cross-region replication, you pay only for the amount of data you replicate. There is no setup charge or minimum usage fee. The replication price is based on the replication frequency and the region of the *destination* volume you choose during the initial replication configuration. See the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page for more information.  
 
 Regular Azure NetApp Files storage capacity charge applies to the replication destination volume (also called the *data protection* volume). 
 
@@ -111,7 +111,7 @@ Regular Azure NetApp Files storage capacity charge applies to the destination vo
 
 #### Example 2: Month 2 incremental replications and resync replications  
 
-Assume you have a source volume, a destination volume, and a replication relationship between the two set up as described in Example 1. For 29 days of the second month (a 30-day month), the hourly replications occurred as expected.
+Assume you have a source volume, a destination volume, and a replication relationship between the two setups as described in Example 1. For 29 days of the second month (a 30-day month), the hourly replications occurred as expected.
 
 * Sum of data amount replicated across incremental replications for 29 days: `0.5 GiB * 24 hours * 29 days = 348 GiB`
 
