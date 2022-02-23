@@ -77,12 +77,10 @@ Use the following steps to generate a heap or thread dump of your app in Azure S
 3. In the **File path** field, specify the mount path of your persistent storage.
 4. Select **Collect**.
 
-:::image type="content" source="media/how-to-capture-dumps/spring-cloud-start-dump.png" lightbox="media/how-to-capture-dumps/spring-cloud-start-dump.png" alt-text="Azure portal screenshot of app page with Troubleshooting pane showing.":::
-
 ## Get your diagnostic files
 
 Navigate to the target file path in your persistent storage and find your dump/JFR. From there, you can download them to your local machine. The name of the generated file will be similar to *`<app-instance>_heapdump_<time-stamp>.hprof`* for the heap dump, *`<app-instance>_threaddump_<time-stamp>.txt`* for the thread dump, and *`<app-instance>_JFR_<time-stamp>.jfr`* for the JFR file.
 
 ## Next steps
 
-- [Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud](how-to-dump-jvm-options.md)
+* [Use the diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud](how-to-dump-jvm-options.md)
