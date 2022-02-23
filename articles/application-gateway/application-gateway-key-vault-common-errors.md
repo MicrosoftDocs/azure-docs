@@ -12,7 +12,7 @@ ms.author: jaysoni
 
 # Common key vault errors in Azure Application Gateway
 
-For using TLS certificate with HTTPS listeners on your Application Gateway, you can provide a reference to an existing Key Vault resource. When using such an integration, it is important that the gateway always has access to the linked key vault resource to ensure smooth operations of the TLS termination feature and maintain the overall health of your gateway. Failure to do so will automatically put that HTTPS listener in a disabled state.
+For using TLS certificate with HTTPS listeners on your Application Gateway, you can provide a reference to an existing Key Vault resource. When using such an integration, it is important that the gateway always has access to the linked key vault resource to ensure smooth operations of the TLS termination feature and maintain the overall health of your gateway. Failure to do so will automatically put that HTTPS listener in a disabled state. [Learn more](../application-gateway/disabled-listeners.md).
 
 This article helps you understand the details of key vault error codes you might encounter, including what is causing these errors. This article also contains steps to resolve such misconfigurations.
 
