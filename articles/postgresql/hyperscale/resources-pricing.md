@@ -5,7 +5,7 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: resource
+ms.topic: conceptual
 ms.date: 02/23/2022
 ---
 

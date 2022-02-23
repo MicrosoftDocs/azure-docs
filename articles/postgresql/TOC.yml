@@ -753,7 +753,11 @@
         href: hyperscale/howto-useful-diagnostic-queries.md
   - name: Reference
     items:
-      - name: SQL API
+      - name: PostgreSQL versions
+        href: hyperscale/reference-versions.md
+      - name: PostgreSQL extensions
+        href: hyperscale/reference-extensions.md
+      - name: Hyperscale (Citus) SQL API
         items:
         - name: Overview
           href: hyperscale/reference-overview.md
@@ -763,20 +767,16 @@
           href: hyperscale/reference-parameters.md
         - name: System tables
           href: hyperscale/reference-metadata.md
-      - name: PostgreSQL versions
-        href: hyperscale/reference-versions.md
-      - name: PostgreSQL extensions
-        href: hyperscale/reference-extensions.md
       - name: Limits and limitations
         href: hyperscale/reference-limits.md
   - name: Resources
     items:
       - name: Pricing
-        href: resources-pricing.md
+        href: hyperscale/resources-pricing.md
       - name: Regional availability
-        href: resources-regions.md
+        href: hyperscale/resources-regions.md
       - name: Compute and storage
-        href: resources-compute.md
+        href: hyperscale/resources-compute.md
 - name: Samples
   items:
   - name: Azure CLI samples
