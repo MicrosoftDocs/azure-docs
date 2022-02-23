@@ -39,7 +39,7 @@ If you have a hybrid environment, with both Azure AD and on-premises AD, it's li
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
 
 > [!NOTE]
-> Additional configuration is required for passwordless authentication to Azure AD joined devices
+> Additional configuration is required when passwordless authentication to Azure AD joined devices is used.
 >
 > For FIDO2 security key based passwordless authentication and Windows Hello for Business Hybrid Cloud Trust, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md).
 > 
