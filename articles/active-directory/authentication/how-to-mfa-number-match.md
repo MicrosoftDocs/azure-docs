@@ -37,6 +37,9 @@ Number matching is available for the following scenarios. When enabled, all scen
 - [AD FS adapter](howto-mfaserver-adfs-windows-server.md)
 - [NPS extension](howto-mfa-nps-extension.md)
 
+>[!NOTE]
+>For passwordless users, enabling number matching has no impact because it's already part of the passwordless experience. 
+
 ### Multifactor authentication
 
 When a user responds to an MFA push notification using Microsoft Authenticator, they will be presented with a number. They need to type that number into the app to complete the approval. 
@@ -239,11 +242,6 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
    ![Screenshot of enabling number match.](media/howto-authentication-passwordless-phone/enable-number-matching.png)
 
-
-## Known issues
-
-- Number matching can't be disabled for passwordless sign-in. Passwordless sign-in has number matching on by default and can never be turned off. 
-- Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ## Next steps
 
