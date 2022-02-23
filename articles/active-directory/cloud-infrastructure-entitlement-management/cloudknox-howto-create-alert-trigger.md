@@ -20,17 +20,17 @@ ms.author: v-ydequadros
 
 This article describes how you can create and view activity alerts and alert triggers in CloudKnox Permissions Management (CloudKnox).
 
-## Create an activity trigger
+## Create an activity alert trigger
 
-1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
-1. In the **Activity** tab, select **Create alert trigger**.
-1. In **Alert name**, enter a name for your activity trigger.
-1. In **Authorization system type**, select your authorization system: Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
-1. In **Authorization system**, select **Is** or **In**, and then select one or more accounts and folders from the **List** and **Folders** options.
-1. From the **Select a type** dropdown, select: **Access key ID**, **Identity tag key**, **Identity tag key value**, **Resource name**, **Resource tag key** or **Resource tag key value**.
+1. In the CloudKnox home page, select **Activity Triggers** (the bell icon).
+1. In the **Activity** tab, select **Create Activity Trigger**.
+1. In the **Alert Name** box, enter a name for your alert.
+1. In **Authorization System Type**, select your authorization system: Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
+1. In **Authorization System**, select **Is** or **In**, and then select one or more accounts and folders.
+1. From the **Select a Type** dropdown, select: **Access Key ID**, **Identity Tag Key**, **Identity Tag Key Value**, **Resource Name**, **Resource Tag Key**,  **Resource Tag Key Value**, **Role Name**, **Role Session Name**, **State**, **Task Name**, or **Username**.
 1. From the **Operator** dropdown, select an option:
 
-    - **Is**/**Is Not**: Select in the value field to view a list of all available usernames. You can either select or enter the required username.
+    - **Is**/**Is Not**: Select in the value field to view a list of all available values. You can either select or enter the required value.
     - **Contains**/**Not Contains**: Enter any text that the query parameter should or shouldn't contain, for example *CloudKnox*.
     - **In**/**Not In**: Select in the value field to view list of all available values. Select the required multiple values.
 
@@ -42,17 +42,17 @@ This article describes how you can create and view activity alerts and alert tri
 
     A message displays to confirm your activity trigger has been created.
 
-    The **Triggers** table in the **Alert triggers** subtab displays your alert.
+    The **Triggers** table in the **Alert Triggers** subtab displays your alert trigger.
 
 ## View an activity alert
 
-1. In the CloudKnox home page, select **Activity triggers** (the bell icon).
+1. In the CloudKnox home page, select **Activity Triggers** (the bell icon).
 1. In the **Activity** tab, select the **Alerts** subtab.
-1. From the **Alert name** dropdown, select an alert.
+1. From the **Alert Name** dropdown, select an alert.
 1. From the **Date** dropdown, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**.
 
     If you select **Custom range**, select date and time settings, and then select **Apply**.
-1. To run the alert, select **Apply**.
+1. To view the alert, select **Apply**
 
     The **Alerts** table displays information about your alert.
 

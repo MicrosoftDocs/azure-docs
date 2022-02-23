@@ -17,7 +17,7 @@ To learn how to enable SQL Insights, you can also refer to this Data Exposed epi
 > [!VIDEO https://docs.microsoft.com/Shows/Data-Exposed/How-to-Set-up-Azure-Monitor-for-SQL-Insights/player?format=ny]
 
 ## Create Log Analytics workspace
-SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-and-workspaces). Before you can enable SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
+SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-workspaces). Before you can enable SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
 
 ## Create monitoring user 
 You need a user (login) on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
@@ -169,7 +169,7 @@ The profile will store the information that you want to collect from your SQL sy
 
 For example, you might create one profile named *SQL Production* and another named *SQL Staging* with different settings for frequency of data collection, what data to collect, and which workspace to send the data to. 
 
-The profile is stored as a [data collection rule](../agents/data-collection-rule-overview.md) resource in the subscription and resource group you select. Each profile needs the following:
+The profile is stored as a [data collection rule](../essentials/data-collection-rule-overview.md) resource in the subscription and resource group you select. Each profile needs the following:
 
 - Name. Cannot be edited once created.
 - Location. This is an Azure region.
