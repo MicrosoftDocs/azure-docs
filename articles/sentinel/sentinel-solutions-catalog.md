@@ -327,7 +327,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Continuous Threat Monitoring for SAP**|[Data connector](sap/sap-deploy-solution.md), [workbooks, analytics rules, watchlists](sap/sap-solution-security-content.md) | Application  |Community |
+|**Continuous Threat Monitoring for SAP**|[Data connector](sap/deployment-overview.md), [workbooks, analytics rules, watchlists](sap/sap-solution-security-content.md) | Application  |Community |
 | | | | |
 
 ## Semperis

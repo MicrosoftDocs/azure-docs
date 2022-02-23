@@ -477,7 +477,7 @@
   - name: Microsoft Sentinel threat monitoring
     items:
       - name: Deploy the Microsoft Sentinel solution for SAP
-        href: ../../../sentinel/sap/sap-deploy-solution.md#deploy-sap-security-content
+        href: ../../../sentinel/sap/deploy_sap_security_content.md#deploy-sap-security-content
       - name: Detailed requirements
         href: ../../../sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
       - name: Microsoft Sentinel SAP solution data reference
