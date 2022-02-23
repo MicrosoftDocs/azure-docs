@@ -7,7 +7,7 @@ author: alexeyo26
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/07/2021
 ms.author: alexeyo 
 ms.custom: devx-track-azurepowershell

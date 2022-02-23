@@ -16,11 +16,11 @@ Learn about important updates in the commercial marketplace program of Partner C
 
 | Category | Description | Date |
 | --- | --- | --- |
-| Documentation | Added questions and answers to the [Commercial marketplace analytics FAQ](/azure/marketplace/analytics-faq). Such as how to enroll in commercial marketplace, where to create a marketplace offer, how to get started with programmatic access to commercial marketplace analytics report, and more. | 2022-22-02 |
-| Documentation | The payment schedule for [Payout schedules and processes](/azure/marketplace/analytics-programmatic-access) was updated. | 2022-22-02 |
-| Analytics | We’ve added a new [Customer Retention Dashboard](/azure/marketplace/customer-retention-dashboard) that provides vital insights into customer engagement.  See also the [FAQ article](/azure/marketplace/analytics-faq). | 2022-22-02 |
+| Documentation | Added questions and answers to the [Commercial marketplace analytics FAQ](/azure/marketplace/analytics-faq), such as enrolling in the commercial marketplace, where to create a marketplace offer, getting started with programmatic access to commercial marketplace analytics reports, and more. | 2022-22-02 |
+| Documentation | We updated the payment schedule for [Payout schedules and processes](/azure/marketplace/analytics-programmatic-access). | 2022-22-02 |
+| Analytics | We added a new [Customer Retention Dashboard](/azure/marketplace/customer-retention-dashboard) that provides vital insights into customer retention and engagement. See the [FAQ article](/azure/marketplace/analytics-faq). | 2022-22-02 |
 | Analytics | We added a Quality of Service (QoS) report query to the [List of system queries](/azure/marketplace/analytics-system-queries) used in the Create Report API. | 2022-22-02 |
-| Analytics | An ISV can now specify time-bound margins for CSP partners, to incentivize them to sell it to their customers.  When their partner makes a sale to a customer, Microsoft will pay the ISV the wholesale price.  See [ISV to CSP Partner private offers](/azure/marketplace/isv-csp-reseller) and [the FAQs](/azure/marketplace/isv-csp-faq). | 2022-22-02 |
+| Offers | An ISV can now specify time-bound margins for CSP partners to incentivize them to sell it to their customers. When their partner makes a sale to a customer, Microsoft will pay the ISV the wholesale price. See [ISV to CSP Partner private offers](/azure/marketplace/isv-csp-reseller) and [the FAQs](/azure/marketplace/isv-csp-faq). | 2022-22-02 |
 | Offers | Added a [Revenue Dashboard](revenue-dashboard.md) to Partner Center, including a revenue report, [sample queries](analytics-sample-queries.md#revenue-report-queries), and [FAQs](/azure/marketplace/analytics-faq#revenue) page. | 2021-12-08 |
 | Offers | Container and container apps offers can now use the Microsoft [Standard Contract](standard-contract.md). | 2021-11-02 |
 | Offers | Private plans for [SaaS offers](plan-saas-offer.md) are now available on AppSource. | 2021-10-06 |
@@ -46,7 +46,7 @@ Learn about important updates in the commercial marketplace program of Partner C
 | ------------ | ------------- | ------------- |
 | Payouts | Updated the payment schedule on [Payout schedules and processes](/partner-center/payout-policy-details), including terminology and graphics. | 2022-01-19 |
 | Offers | Added a new article, [Troubleshooting Private Plans in the commercial marketplace](azure-private-plan-troubleshooting.md). | 2021-12-13 |
-| Offers | We have updated the names of [Dynamics 365](/azure/marketplace/marketplace-dynamics-365#licensing-options) offer types: <br><br> - Dynamics 365 for Customer Engagement &amp; PowerApps is now **Dynamics 365 apps on Dataverse and Power Apps** <br> - Dynamics 365 for operations is now **Dynamics 365 Operations Apps** <br> - Dynamics 365 business central is now **Dynamics 365 Business Central** | 2021-12-03 |
+| Offers | We have updated the names of [Dynamics 365](./marketplace-dynamics-365.md#licensing-options) offer types: <br><br> - Dynamics 365 for Customer Engagement &amp; PowerApps is now **Dynamics 365 apps on Dataverse and Power Apps** <br> - Dynamics 365 for operations is now **Dynamics 365 Operations Apps** <br> - Dynamics 365 business central is now **Dynamics 365 Business Central** | 2021-12-03 |
 | Policy | We’ve created an [FAQ topic](/legal/marketplace/mpa-faq) to answer publisher questions about the Microsoft Publisher Agreement. | 2021-09-27 |
 | Policy | We've updated the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). For change history, see [Microsoft Publisher Agreement Version 8.0 – October 2021 Update](/legal/marketplace/mpa-change-history-oct-2021). | 2021-09-14 |
 | Policy | Updated [certification](/legal/marketplace/certification-policies) policy for September; see [change history](/legal/marketplace/offer-policies-change-history). | 2021-09-10 |

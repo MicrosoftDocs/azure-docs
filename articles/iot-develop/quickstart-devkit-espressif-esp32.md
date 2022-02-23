@@ -39,7 +39,7 @@ To set up your development environment, first you install the ESPRESSIF ESP-IDF 
 
 To install the ESP-IDF tools:
 1. Download and launch the [ESP-IDF Online installer](https://dl.espressif.com/dl/esp-idf).
-1. When the installer prompts for a version, select the latest release version.
+1. When the installer prompts for a version, select version ESP-IDF v4.3.
 1. When the installer prompts for the components to install, select all components. 
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]

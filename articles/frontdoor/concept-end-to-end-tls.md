@@ -38,7 +38,7 @@ Certificates from internal CAs or self-signed certificates aren't allowed.
 
 ## Online Certificate Status Protocol (OCSP) stapling
 
-OSCP stapling is supported by default in Azure Front Door and no configuration is required.
+OCSP stapling is supported by default in Azure Front Door and no configuration is required.
 
 ## Backend TLS connection (Azure Front Door to backend)
 
