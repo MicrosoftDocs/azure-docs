@@ -15,7 +15,7 @@ ms.date: 01/31/2022
 
 # How to set up Windows Authentication for Azure AD with the incoming trust-based flow (Preview)
 
-This article describes how to implement the incoming trust-based authentication flow to allow clients running Windows Server 2012 and higher to authenticate to an Azure SQL Managed Instance using Windows Authentication. This article also shares steps to rotate a Kerberos Key for your Azure AD service account and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
+This article describes how to implement the incoming trust-based authentication flow to allow clients running Windows 10, Windows Server 2012, or higher versions of Windows to authenticate to an Azure SQL Managed Instance using Windows Authentication. This article also shares steps to rotate a Kerberos Key for your Azure AD service account and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
 
 Enabling the incoming trust-based authentication flow is one step in [setting up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)](winauth-azuread-setup.md). The [modern interactive flow (Preview)](winauth-azuread-setup-modern-interactive-flow.md) is available for enlightened clients running Windows 10 21H1 and higher.
 
@@ -32,12 +32,13 @@ To implement the incoming trust-based authentication flow, first ensure that the
 
 |Prerequisite  |Description  |
 |---------|---------|
-|Clients running Windows 8, Windows Server 2012, or a higher version of Windows. |         |
-|The clients must be joined to AD. |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
+|Client must run Windows 10, Windows Server 2012, or a higher version of Windows. |         |
+|Clients must be joined to AD. |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
 |Azure AD Hybrid Authentication Management Module. | This PowerShell module provides management features for on-premises setup. |
 |Azure tenant.  |         |
 |Azure subscription under the same Azure AD tenant you plan to use for authentication.|         |
 |Azure AD Connect installed. | Hybrid environments where identities exist both in Azure AD and AD. |
+| | |
 
 ## Create and configure the Azure AD Kerberos Trusted Domain Object
 
@@ -62,7 +63,6 @@ To set up the Trusted Domain Object, first install the Azure AD Hybrid Authentic
     - Installs the Azure AD Hybrid Authentication Management PowerShell module.
         - The Azure AD Hybrid Authentication Management PowerShell uses the AzureADPreview module, which provides advanced Azure AD management feature.
         - To protect against unnecessary installation conflicts with AzureAD PowerShell module, this command includes the –AllowClobber option flag.
-    
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 

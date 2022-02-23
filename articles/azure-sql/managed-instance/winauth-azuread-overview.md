@@ -54,7 +54,7 @@ Windows Authentication for Azure Active Directory principals also enables the fo
 
 Enabling Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance equips customers to modernize their security practices.
 
-For example, a customer can enable a mobile analyst, using proven tools that rely on Windows Authentication, to authenticate to a managed instance using biometric credentials. This can be accomplished even if the mobile analyst works from a laptop which is joined to Azure AD.
+For example, a customer can enable a mobile analyst, using proven tools that rely on Windows Authentication, to authenticate to a managed instance using biometric credentials. This can be accomplished even if the mobile analyst works from a laptop that is joined to Azure AD.
 
 ## Next steps
 
