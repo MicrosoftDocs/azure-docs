@@ -104,12 +104,14 @@ The following options are supported:
 
 * **System-assigned managed identity** - As soon as the Azure Purview account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant, and has the same name as your Azure Purview account. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview SAMI to be able to scan.
 
-* **User-assigned managed identity**(preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. Depending on the type of resource, specific RBAC role assignments are required when using a UAMI credential to run scans.
+* **User-assigned managed identity** (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. Depending on the type of resource, specific RBAC role assignments are required when using a UAMI credential to run scans.
 
 * **Service Principal**- In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
 >[!IMPORTANT]
 > If you are using a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to your resource, system-assigned and user-assigned managed identities will not work. You need to use SQL Authentication or Service Principal Authentication.
+
+Select your method of authentication from the tabs below for steps to authenticate with your Azure SQL Database.
 
 # [SQL authentication](#tab/sql-authentication)
 
@@ -253,6 +255,7 @@ The service principal needs permission to get metadata for the database, schemas
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
+Select your method of authentication from the tabs below for scanning steps.
 
 # [SQL authentication](#tab/sql-authentication)
 
