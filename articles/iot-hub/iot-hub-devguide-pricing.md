@@ -32,7 +32,7 @@ Maximum message sizes differ for different types of operations. To learn more, s
 | Operation category | Billing information |
 | --------- | ------------------- |
 | Identity registry operations <br/> (create, retrieve, list, update, delete, bulk update, statistics) | Not charged. |
-| Device-to-cloud messages | Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 100 byte message is charged as one message, and a 6-KB message is charged 2 messages. <br/><br/> [Send Device Event](/rest/api/iothub/device/send-device-event), *Device to Cloud Telemetry*, *Device to Cloud Telemetry Routing* |
+| Device-to-cloud messages | Successfully sent messages are charged in 4-KB chunks on ingress into IoT Hub. For example, a 100-byte message is charged as one message, and a 6-KB message is charged as two messages. <br/><br/> [Send Device Event](/rest/api/iothub/device/send-device-event), *Device to Cloud Telemetry*, *Device to Cloud Telemetry Routing* |
 | Cloud-to-device messages | Successfully sent messages are charged in 4-KB chunks. For example, a 6-KB message is charged 2 messages. <br/><br/> [Receive Device Bound Notification](/rest/api/iothub/device/receive-device-bound-notification), *Cloud To Device Command* |
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4-KB increments. For example, transferring a 10-MB file is charged as two messages in addition to the Azure Storage cost. <br/><br/> [Create File Upload Sas Uri](/rest/api/iothub/device/create-file-upload-sas-uri), *Device To Cloud File Upload* <br/> [Update File Upload Status](/rest/api/iothub/device/update-file-upload-status), *Device To Cloud File Upload* |
 | Direct methods | Successful method requests are charged in 4-KB chunks, and responses are charged in 4-KB chunks as additional messages. Requests to disconnected devices are charged as messages in 4-KB chunks. For example, a method with a 4-KB body that results in a response with no body from the device is charged as two messages. A method with a 6-KB body that results in a 1-KB response from the device is charged as two messages for the request plus another message for the response. <br/><br/> [Device - Invoke Method](/rest/api/iothub/service/devices/invoke-method), *Device Direct Invoke Method*, <br/> [Module - Invoke Method](/rest/api/iothub/service/modules/invoke-method), *Module Direct Invoke Method* |
@@ -87,8 +87,8 @@ Depending on your scenario, batching messages can reduce your quota usage.
 
 For example, consider a device that has a sensor that only generates 100 bytes of data each time it's read:
 
-- If the device batches 40 sensor reads into a single device-to-cloud message with a 4 KB payload (40 * 100 bytes), then only one message is charged against quota.
+- If the device batches 40 sensor reads into a single device-to-cloud message with a 4-KB payload (40 * 100 bytes), then only one message is charged against quota.
 
-- If the device sends a device-to-cloud message with a 100 byte payload for each sensor read, then it consumes 40 messages against quota for the same amount of data.
+- If the device sends a device-to-cloud message with a 100-byte payload for each sensor read, then it consumes 40 messages against quota for the same amount of data.
 
 Your batching strategy will depend on your scenario and on how time-critical the data is. If you're sending large amounts of data, you can also consider implementing data compression to further reduce the impact on message quota.
