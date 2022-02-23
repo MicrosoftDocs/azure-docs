@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/22/2022
+ms.date: 02/23/2022
 ms.author: sipastak 
 ---
 
@@ -32,7 +32,7 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 * Chassis
 * The following screws and nuts: 
 
-    | Rack Type   | A (Screw) | B (Nut) |
+    | Rack Type   | Screws | Nuts |
     |-------------|-----------|---------|
     | Square hole | :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-screw-square-hole.png" alt-text="Image of square hole screw.":::M6X13 (8)     | :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-nut-square-hole.png" alt-text="Image of square hole nut.":::M6 (8) |
     | Round hole  | :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-screw-round-hole.png" alt-text="Image of round hole screw.":::M5X13 (8)   | :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-nut-round-hole.png" alt-text="Image of round hole nut.":::M5 (8) |
@@ -47,8 +47,10 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 
     :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-install-inner-rail-onto-chassis.png" alt-text="Install inner rail onto chassis.":::
 
-1. Adjust the fastening position of Bracket B. Release the retainer by pulling and moving the retainer hook.
+1. Identify Bracket B: 
     :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-bracket-b.png" alt-text="Diagram of Bracket B.":::
+    
+    Adjust the fastening position of Bracket B. Release the retainer by pulling and moving the retainer hook.
 
     :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-adjust-bracket-b.png" alt-text="Adjust Bracket B fastening position.":::
 
@@ -57,10 +59,10 @@ The device must be installed on a standard 19-inch rack. Use the following proce
     :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-loosen-screw.png" alt-text="Loosen screws by the oval holes.":::
 
 
-1. Move Bracket B to the needed position and fasten the screw. Then, move and hook the retainer back to the front.
+1. Move Bracket B to the needed position and fasten the screw. 
     :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-move-bracket-b.png" alt-text="Move Bracket B.":::
 
-
+1. Move and hook the retainer back to the front.
 
     :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-front-rear-bracket.png" alt-text="Instructions for front and rear brackets.":::
 
@@ -71,7 +73,7 @@ The device must be installed on a standard 19-inch rack. Use the following proce
     1. Tighten the M5 screws of the chassis to the rail once the server is seated (reference diagram 5).
 :::image type="content" source="media/azure-stack-edge-pro-2-two-post-rack-mounting/icon-insert-chassis.png" alt-text="Insert chassis.":::
 
-## To remove the chassis:
+## Remove the chassis
 1. Loosen the M5 screws of the chassis. 
 1. Pull out the chassis.
 1. Press the disconnect tab forward to remove the chassis. 

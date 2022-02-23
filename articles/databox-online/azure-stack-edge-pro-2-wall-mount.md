@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/22/2022
+ms.date: 02/23/2022
 ms.author: sipastak 
 ---
 # Tutorial: Wall mount the Azure Stack Edge Pro 2 
