@@ -24,12 +24,12 @@ The following predefined reports are available. These queries are generated in r
 - **Programming commands**: Devices that send industrial programming.
 - **Remote access**: Devices that communicate through remote session protocols.
 - **Internet activity**: Devices that are connected to the internet.
-- - **CVEs**: A list of devices detected with known vulnerabilities within the last 24 hours.
+- **CVEs**: A list of devices detected with known vulnerabilities within the last 24 hours.
 - **Excluded CVEs**: A list of all the CVEs that were manually excluded. To achieve more accurate results in VA reports and attack vectors, you can customize the CVE list manually by including and excluding CVEs.
 - **Nonactive devices**: Devices that have not communicated for the past seven days.
 - **Active devices**: Active network devices within the last 24 hours.
 
-Find these reports in Analyze** > **Data Mining*. Reports are available for users with Administrator and Security Analyst permissions. Read only users can't access these reports.
+Find these reports in **Analyze** > **Data Mining**. Reports are available for users with Administrator and Security Analyst permissions. Read only users can't access these reports.
 
 ## Create a report
 To create a data-mining report:
