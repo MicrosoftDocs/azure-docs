@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2022
+ms.date: 02/23/2022
 ms.author: alkohli 
 zone_pivot_groups: azure-stack-edge-device-deployment
 ---
