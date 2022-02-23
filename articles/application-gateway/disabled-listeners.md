@@ -16,7 +16,7 @@ It is important to consider any impact on your Application Gateway resource when
 
 # Identifying a disabled listener on your gateway
 
-1. The clients will observe the below error if any request is made to a disabled listener of your Application Gateway.
+1. The clients will observe the error "ERR_SSL_UNRECOGNIZED_NAME_ALERT" if any request is made to a disabled listener of your Application Gateway.
 
 ![Screenshot of client error will look.](../application-gateway/media/disabled-listeners/client-error.png)
 
