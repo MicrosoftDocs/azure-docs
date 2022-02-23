@@ -104,6 +104,8 @@ The following example uses the [Invoke-AzVMRunCommand](/powershell/module/az.com
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
+> [!NOTE]
+> Parameter values can be string type only and the script is responsible for converting them to other types if needed.
 
 ## Limiting access to Run Command
 
