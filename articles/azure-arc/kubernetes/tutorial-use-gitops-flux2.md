@@ -17,7 +17,7 @@ This tutorial describes how to use GitOps in a Kubernetes cluster. Before you di
 
 General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
 
->[!NOTE]
+>[!IMPORTANT]
 >GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One important feature, multi-tenancy, could be a breaking change for some users.  To prepare yourself for the release of multi-tenancy, [please review these details](#multi-tenancy).
 
 ## Prerequisites
@@ -997,15 +997,16 @@ By using this annotation, the HelmRelease that is deployed will be patched with 
 
 ## Multi-tenancy
 
-Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy). This capability will be integrated into Azure GitOps with Flux v2 prior to General Availability.
+Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
 
 >[!NOTE]
->This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects. To prepare for the release of this multi-tenancy feature you can take one of these actions:
+>This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects. To prepare for the release of this multi-tenancy feature, take one of these actions:
 >
 >* (Recommended) Assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
->* If you need time to migrate you can opt-out of multi-tenancy.
+>* If you need time to migrate, you can opt-out of multi-tenancy.
 
 ### Update manifests for multi-tenancy
+
 Let’s say we deploy a `fluxConfiguration` to one of our Kubernetes clusters in the **cluster-config** namespace with cluster scope. We configure the source to sync the https://github.com/fluxcd/flux2-kustomize-helm-example repo. This is the same sample Git repo used in the tutorial earlier in this doc. After Flux syncs the repo, it will deploy the resources described in the manifests (yamls). Two of the manifests describe HelmRelease and HelmRepository objects.
 
 ```yaml
@@ -1046,7 +1047,7 @@ spec:
   url: https://charts.bitnami.com/bitnami
 ```
 
-By default, the Flux extension will deploy the `fluxConfigurations` by impersonating the **flux-applier** service account that is deployed only in the **cluster-config** namespace. Using the above manifests, when multi-tenancy is enabled the HelmRelease would be blocked; this is because the HelmRelease is in the **nginx** namespace and is referencing a HelmRepository in the **flux-system** namespace. Also, the Flux helm-controller cannot apply the HelmRelease, because there is no **flux-applier** service account in the **nginx** namespace.
+By default, the Flux extension will deploy the `fluxConfigurations` by impersonating the **flux-applier** service account that is deployed only in the **cluster-config** namespace. Using the above manifests, when multi-tenancy is enabled the HelmRelease would be blocked. This is because the HelmRelease is in the **nginx** namespace and is referencing a HelmRepository in the **flux-system** namespace. Also, the Flux helm-controller cannot apply the HelmRelease, because there is no **flux-applier** service account in the **nginx** namespace.
 
 To work with multi-tenancy, the correct approach is to deploy all Flux objects into the same namespace as the `fluxConfigurations`. This avoids the cross-namespace reference issue, and allows the Flux controllers to get the permissions to apply the objects. Thus, for a GitOps configuration created in the **cluster-config** namespace, the above manifests would change to these:
 
@@ -1089,9 +1090,9 @@ spec:
   url: https://charts.bitnami.com/bitnami
 ```
 
-### Opt-out of multi-tenancy
+### Opt out of multi-tenancy
 
-Multi-tenancy will be enabled by default to assure security by default in your clusters.  However, if you need to disable multi-tenancy you can opt-out by creating or updating the `microsoft.flux` extension in your clusters with "--configuration-settings multiTenancy.enforce=false".
+Multi-tenancy will be enabled by default to assure security by default in your clusters.  However, if you need to disable multi-tenancy, you can opt out by creating or updating the `microsoft.flux` extension in your clusters with "--configuration-settings multiTenancy.enforce=false".
 
 ```console
 az k8s-extension create --extension-type microsoft.flux --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
