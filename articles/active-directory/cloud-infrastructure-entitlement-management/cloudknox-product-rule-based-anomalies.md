@@ -35,7 +35,7 @@ Rule-based anomalies identify recent activity in CloudKnox Permissions Managemen
       - **# of occurrences**: How many times the alert trigger has occurred.
       - **Task**: How many tasks performed are triggered by the alert.
       - **Resources**: How many resources accessed are triggered by the alert.
-      - **Identity**: How many identitiesperforming unusual behavior are triggered by the alert.
+      - **Identity**: How many identities performing unusual behavior are triggered by the alert.
       - **Authorization system**: Displays which authorization systems the alert applies to, Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**). 
       - **Date/Time**: Lists the date and time of the alert.
       - **Date/Time (UTC)**: Lists the date and time of the alert in Coordinated Universal Time (UTC).
