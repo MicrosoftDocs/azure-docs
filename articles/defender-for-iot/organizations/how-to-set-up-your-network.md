@@ -236,7 +236,7 @@ The following diagram is a general abstraction of a multilayer, multitenant netw
 
 Typically, NTA sensors are deployed in layers 0 to 3 of the OSI model.
 
-:::image type="content" source="media/how-to-set-up-your-network/osi-model.png" alt-text="Diagram of the OSI model.":::
+:::image type="content" source="media/how-to-set-up-your-network/osi-model.png" alt-text="Diagram of the OSI model." lightbox="media/how-to-set-up-your-network/osi-model.png":::
 
 #### Example: Ring topology
 
