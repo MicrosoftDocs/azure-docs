@@ -18,7 +18,7 @@ ms.custom: references_regions
 ---
 # Cross-region replication of Azure NetApp Files volumes
 
-The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to failover your critical application in case of a region-wide outage or disaster.
+The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  This capability enables you to failover your critical application if a region-wide outage or disaster happens.
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
@@ -76,7 +76,7 @@ Recovery Time Objective (RTO), or the maximum tolerable business application dow
 
 ## Cost model for cross-region replication  
 
-With Azure NetApp Files cross-region replication, you pay only for the amount of data you replicate. There is no setup charge or minimum usage fee. The replication price is based on the replication frequency and the region of the *destination* volume you choose during the initial replication configuration. See the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page for more information.  
+With Azure NetApp Files cross-region replication, you pay only for the amount of data you replicate. There's no setup charge or minimum usage fee. The replication price is based on the replication frequency and the region of the *destination* volume you choose during the initial replication configuration. See the [Azure NetApp Files Pricing](https://azure.microsoft.com/pricing/details/netapp/) page for more information.  
 
 Regular Azure NetApp Files storage capacity charge applies to the replication destination volume (also called the *data protection* volume). 
 
@@ -91,7 +91,7 @@ Assume the following situations:
 * Your *source* volume is from the Azure NetApp Files *Premium* service level. It has a volume quota size of 1000 GiB and a volume consumed size of 500 GiB at the beginning of the first day of a month. The volume is in the *US South Central* region.
 * Your *destination* volume is from the Azure NetApp Files *Standard* service level. It is in the *US East 2* region.
 * You’ve configured an *hourly* based cross-region replication between the two volumes above. Therefore, the price of replication is $0.12 per GiB.
-* For simplicity, assume your source volume has a constant 0.5-GiB data change every hour, but the total volume consumed size does not grow (remains at 500 GiB). 
+* For simplicity, assume your source volume has a constant 0.5-GiB data change every hour, but the total volume consumed size doesn't grow (remains at 500 GiB). 
 
 After the initial setup, the baseline replication happens immediately.  
 
