@@ -315,7 +315,7 @@
     - name: SAP solution content overview
       href: sap/sap-solution-security-content.md
     - name: Configure SAP data connector to use SNC
-      href: sap/sap-solution-deploy-snc.md
+      href: sap/configure_snc.md
     - name: Troubleshooting SAP solution deployment
       href: sap/sap-deploy-troubleshoot.md
 - name: Reference
