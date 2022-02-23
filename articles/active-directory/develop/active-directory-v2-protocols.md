@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 02/23/2022
 ms.author: ludwignick
 ms.reviewer: marsma
 ms.custom: aaddev
@@ -18,7 +18,9 @@ ms.custom: aaddev
 
 # OAuth 2.0 and OpenID Connect in the Microsoft identity platform
 
-The Microsoft identity platform offer authentication and authorization services using standards-compliant implementations of OAuth 2.0 and OpenID Connect (OIDC) 1.0. You're not required to learn OAuth and OIDC at the protocol level to use the identity platform, especially if you use a standards-compliant auth library like the [Microsoft Authentication Library (MSAL)](msal-overview.md). However, knowledge of the identity platform's implementation of these protocols can make building, debugging, and troubleshooting your applications easier.
+The Microsoft identity platform offers authentication and authorization services using standards-compliant implementations of OAuth 2.0 and OpenID Connect (OIDC) 1.0.
+
+You're not required to learn OAuth and OIDC at the protocol level to use the identity platform, especially if you use a standards-compliant auth library like the [Microsoft Authentication Library (MSAL)](msal-overview.md). However, knowledge of the identity platform's implementation of these protocols can make building, debugging, and troubleshooting your applications easier.
 
 ## Roles in OAuth
 
@@ -80,12 +82,11 @@ The `<signInAudience>` value specifies which identities are allowed to authentic
 
 ## Next steps
 
-To help determine the right OAuth 2.0 authentication flow for your application, see the [Microsoft identity platform application type overview](v2-app-types.md).
+To determine the right OAuth 2.0 authentication flow for your application, see the [overview of application types](v2-app-types.md).
 
-These articles describe several the OAuth 2.0 authentication flows and the types of applications that typically use them:
+If you're experienced in the protocols and have a specific need to do so, you can send and receive raw HTTP messages to the Microsoft identity platform to execute OAuth 2.0 and OIDC authentication flows:
 
-* [Build mobile, native, and web application with OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Sign users in with OpenID Connect](v2-protocols-oidc.md)
-* [Build daemons or server-side processes with the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
-* [Get tokens in a web API with the OAuth 2.0 on-behalf-of Flow](v2-oauth2-on-behalf-of-flow.md)
-* [Build single-page apps with the  OAuth 2.0 Implicit Flow](v2-oauth2-implicit-grant-flow.md)
+* [OpenID Connect](v2-protocols-oidc.md) - User sign-in, sign-out, and single sign-on (SSO)
+* [Authorization code grant flow](v2-oauth2-auth-code-flow.md) - Single-page apps (SPA), mobile apps, native (desktop) applications
+* [Client credentials flow](v2-oauth2-client-creds-grant-flow.md) - Server-side processes, scripts, daemons
+* [On-behalf-of (OBO) flow](v2-oauth2-on-behalf-of-flow.md) - Web APIs that call another web API on a user's behalf
