@@ -50,8 +50,8 @@ An object in Azure AD can have up to 100 attributes for directory extensions. Th
 
 > [!NOTE]
 > It is not supported to sync constructed attributes, such as msDS-UserPasswordExpiryTimeComputed. If you upgrade from an old version of AADConnect you may still see these attributes show up in the installation wizard, you should not enable them though. Their value will not sync to Azure AD if you do. 
-> You can read more about constructed attributes in [this artice](https://docs.microsoft.com/openspecs/windows_protocols/ms-adts/a3aff238-5f0e-4eec-8598-0a59c30ecd56).
-> You should also not attempt to sync [Non-replicated attributes](https://docs.microsoft.com/windows/win32/ad/attributes), such as badPwdCount, Last-Logon, and Last-Logoff, as their values will not be synced to Azure AD.
+> You can read more about constructed attributes in [this artice](/openspecs/windows_protocols/ms-adts/a3aff238-5f0e-4eec-8598-0a59c30ecd56).
+> You should also not attempt to sync [Non-replicated attributes](/windows/win32/ad/attributes), such as badPwdCount, Last-Logon, and Last-Logoff, as their values will not be synced to Azure AD.
 
 ## Configuration changes in Azure AD made by the wizard
 

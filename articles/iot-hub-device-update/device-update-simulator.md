@@ -65,9 +65,9 @@ Once the Device Update agent is running on an IoT device, the device needs to be
    sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
    ```
    
-   To register and invoke the simulator handler the command must follow the below format:
+   To register and invoke the simulator handler, use the following format, filling in the placeholders:
    
-   sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>
+   `sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>`
 
 4. Download the sample-du-simulator-data.json from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases). Run the command below to create and edit the du-simulator-data.json in the tmp folder. 
 
@@ -93,7 +93,7 @@ Once the Device Update agent is running on an IoT device, the device needs to be
    ```
    
 Device Update for Azure IoT Hub software is subject to the following license terms:
-   * [Device Update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+   * [Device Update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device Update for IoT Hub agent.
@@ -219,4 +219,3 @@ When no longer needed, clean up your Device Update account, instance, IoT Hub an
 
 > [!div class="nextstepaction"]
 > [Troubleshooting](troubleshoot-device-update.md)
-

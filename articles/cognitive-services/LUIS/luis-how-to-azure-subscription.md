@@ -10,7 +10,8 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.custom: contperf-fy21q4
+ms.custom: contperf-fy21q4, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # How to create and manage LUIS resources
@@ -42,7 +43,7 @@ You can use the [v3.0-preview LUIS Endpoint API](https://westus.dev.cognitive.mi
 
 ## Create LUIS resources
 
-To create LUIS resources, you can use the LUIS portal, [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne), or Azure CLI. After you've created your resources, you will need to assign them to your apps to be used by them.
+To create LUIS resources, you can use the LUIS portal, [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne), or Azure CLI. After you've created your resources, you will need to assign them to your apps to be used by them.
 
 # [LUIS portal](#tab/portal)
 
