@@ -27,7 +27,7 @@ This script exports the underlying VHD of a managed disk to a storage account in
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-managed-disks-vhd-to-storage-account/copy-managed-disks-vhd-to-storage-account.sh.sh":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-managed-disks-vhd-to-storage-account/copy-managed-disks-vhd-to-storage-account.sh":::
 
 ## Sample reference
 
