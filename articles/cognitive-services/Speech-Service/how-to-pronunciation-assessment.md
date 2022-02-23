@@ -244,22 +244,22 @@ A typical pronunciation assessment result in JSON:
 * Try out the [pronunciation assessment demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS) and watch the [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment.
 
 ::: zone pivot="programming-language-csharp"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs#:~:text=PronunciationAssessmentWithMicrophoneAsync) on GitHub for pronunciation assessment.
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_recognition_samples.cs) on GitHub for pronunciation assessment.
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp#:~:text=PronunciationAssessmentWithMicrophone) on GitHub for pronunciation assessment.
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/cpp/windows/console/samples/speech_recognition_samples.cpp) on GitHub for pronunciation assessment.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java#:~:text=pronunciationAssessmentWithMicrophoneAsync) on GitHub for pronunciation assessment.
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechRecognitionSamples.java) on GitHub for pronunciation assessment.
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py#:~:text=pronunciation_assessment_from_microphone) on GitHub for pronunciation assessment.
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py) on GitHub for pronunciation assessment.
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m#:~:text=pronunciationAssessFromMicrophone) on GitHub for pronunciation assessment.
+* See the [sample code](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/objective-c/ios/speech-samples/speech-samples/ViewController.m) on GitHub for pronunciation assessment.
 ::: zone-end
 
