@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Dropbox Business | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Dropbox Business'
 description: Learn how to configure single sign-on between Azure Active Directory and Dropbox Business.
 services: active-directory
 author: jeevansd
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/17/2021
+ms.date: 01/17/2022
 ms.author: jeedes
 ---
 # Tutorial: Integrate Dropbox Business with Azure Active Directory
@@ -134,23 +134,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Click on the **User Icon** and select **Settings** tab.
 
-	![Screenshot that shows the "USER ICON" action and "Settings" selected.](./media/dropboxforbusiness-tutorial/configure-1.png "Configure single sign-on")
+	![Screenshot that shows the "USER ICON" action and "Settings" selected.](./media/dropboxforbusiness-tutorial/user-icon.png "Configure single sign-on")
 
 5. In the navigation pane on the left side, click **Admin console**.
 
-	![Screenshot that shows "Admin console" selected.](./media/dropboxforbusiness-tutorial/configure-2.png "Configure single sign-on")
+	![Screenshot that shows "Admin console" selected.](./media/dropboxforbusiness-tutorial/admin-console.png "Configure single sign-on")
 
 6. On the **Admin console**, click **Settings** in the left navigation pane.
 
-	![Screenshot that shows "Settings" selected.](./media/dropboxforbusiness-tutorial/configure-3.png "Configure single sign-on")
+	![Screenshot that shows "Settings" selected.](./media/dropboxforbusiness-tutorial/settings.png "Configure single sign-on")
 
 7. Select **Single sign-on** option under the **Authentication** section.
 
-	![Screenshot that shows the "Authentication" section with "Single sign-on" selected.](./media/dropboxforbusiness-tutorial/configure-4.png "Configure single sign-on")
+	![Screenshot that shows the "Authentication" section with "Single sign-on" selected.](./media/dropboxforbusiness-tutorial/authentication.png "Configure single sign-on")
 
 8. In the **Single sign-on** section, perform the following steps:  
 
-	![Screenshot that shows the "Single sign-on" configuration settings.](./media/dropboxforbusiness-tutorial/configure-5.png "Configure single sign-on")
+	![Screenshot that shows the "Single sign-on" configuration settings.](./media/dropboxforbusiness-tutorial/configure-sso.png "Configure single sign-on")
 
 	a. Select **Required** as an option from the dropdown for the **Single sign-on**.
 
@@ -166,12 +166,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Dropbox Business test user
 
-In this section, a user called B.Simon is created in Dropbox Business. Dropbox Business supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Dropbox Business, a new one is created after authentication.
+1. Log in to the Dropbox Business website as an administrator.
+
+1. Go to the **Admin Console** and click **Members** in the left menu.
+
+	![Screenshot for Invite member](./media/dropboxforbusiness-tutorial/invite-member.png)
+
+1. Enter the valid user email to add the user and click **Invite**.
+
+	![Screenshot for Invite](./media/dropboxforbusiness-tutorial/invite-button.png)
 
 This application also supports automatic user provisioning. See how to enable auto provisioning for [Dropbox Business](dropboxforbusiness-provisioning-tutorial.md).
-
->[!Note]
->If you need to create a user manually, Contact [Dropbox Business Client support team](https://www.dropbox.com/business/contact)
 
 ## Test SSO
 

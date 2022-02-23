@@ -6,16 +6,17 @@ ms.topic: article
 ms.custom: references_regions
 author: stevevi
 ms.author: stevevi
-ms.date: 11/17/2021
+recommendations: false
+ms.date: 01/20/2022
 ---
 
 # Isolation guidelines for Impact Level 5 workloads
 
-Azure Government supports applications that use Impact Level 5 (IL5) data in all available regions. IL5 requirements are defined in the [US Department of Defense (DoD) Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#3INFORMATIONSECURITYOBJECTIVES/IMPACTLEVELS). IL5 workloads have a higher degree of impact to the DoD and must be secured to a higher standard. When you deploy these workloads on Azure Government, you can meet their isolation requirements in various ways. The guidance in this document addresses configurations and settings needed to meet the IL5 isolation requirements. We'll update this document as we enable new isolation options and the Defense Information Systems Agency (DISA) authorizes new services for IL5 data.
+Azure Government supports applications that use Impact Level 5 (IL5) data in all available regions. IL5 requirements are defined in the [US Department of Defense (DoD) Cloud Computing Security Requirements Guide (SRG)](https://public.cyber.mil/dccs/dccs-documents/). IL5 workloads have a higher degree of impact to the DoD and must be secured to a higher standard. When you deploy these workloads on Azure Government, you can meet their isolation requirements in various ways. The guidance in this document addresses configurations and settings needed to meet the IL5 isolation requirements. We'll update this document as we enable new isolation options and the Defense Information Systems Agency (DISA) authorizes new services for IL5 data.
 
 ## Background
 
-In January 2017, DISA awarded the IL5 Provisional Authorization (PA) to [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/), making it the first IL5 PA awarded to a hyperscale cloud provider. The PA covered two Azure Government regions (US DoD Central and US DoD East) that are [dedicated to the DoD](https://azure.microsoft.com/global-infrastructure/government/dod/). Based on DoD mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA boundary in December 2018 to cover the remaining Azure Government regions: US Gov Arizona, US Gov Texas, and US Gov Virginia. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
+In January 2017, DISA awarded the [IL5 Provisional Authorization](/azure/compliance/offerings/offering-dod-il5) (PA) to [Azure Government](https://azure.microsoft.com/global-infrastructure/government/get-started/), making it the first IL5 PA awarded to a hyperscale cloud provider. The PA covered two Azure Government regions (US DoD Central and US DoD East) that are [dedicated to the DoD](https://azure.microsoft.com/global-infrastructure/government/dod/). Based on DoD mission owner feedback and evolving security capabilities, Microsoft has partnered with DISA to expand the IL5 PA boundary in December 2018 to cover the remaining Azure Government regions: US Gov Arizona, US Gov Texas, and US Gov Virginia. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).
 
 Azure Government is available to US federal, state, local, and tribal governments and their partners. The IL5 expansion to Azure Government honors the isolation requirements mandated by the DoD. Azure Government continues to provide more PaaS services suitable for DoD IL5 workloads than any other cloud services environment.
 
@@ -28,11 +29,13 @@ You need to address two key areas for Azure services in IL5 scope: compute isola
 
 ### Compute isolation
 
-IL5 separation requirements are stated in the SRG [Section 5.2.2.3](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.2LegalConsiderations). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, **all IL5 virtual machines and virtual machine scale sets** should be isolated via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](../virtual-machines/isolation.md). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
+IL5 separation requirements are stated in Section 5.2.2.3 (Page 51) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). The SRG focuses on compute separation during "processing" of IL5 data. This separation ensures that a virtual machine that could potentially compromise the physical host can't affect a DoD workload. To remove the risk of runtime attacks and ensure long running workloads aren't compromised from other workloads on the same host, **all IL5 virtual machines and virtual machine scale sets** should be isolated via [Azure Dedicated Host](https://azure.microsoft.com/services/virtual-machines/dedicated-host/) or [isolated virtual machines](../virtual-machines/isolation.md). Doing so provides a dedicated physical server to host your Azure Virtual Machines (VMs) for Windows and Linux.
 
 For services where the compute processes are obfuscated from access by the owner and stateless in their processing of data, you should accomplish isolation by focusing on the data being processed and how it's stored and retained. This approach ensures the data is stored in protected mediums. It also ensures the data isn't present on these services for extended periods unless it's encrypted as needed.
 
 ### Storage isolation
+
+The DoD requirements for encrypting data at rest are provided in Section 5.11 (Page 122) of the [Cloud Computing SRG](https://public.cyber.mil/dccs/dccs-documents/). DoD emphasizes encrypting all data at rest stored in virtual machine virtual hard drives, mass storage facilities at the block or file level, and database records where the mission owner does not have sole control over the database service. For cloud applications where encrypting data at rest with DoD key control is not possible, mission owners must perform a risk analysis with relevant data owners before transmitting data into a cloud service offering.
 
 In a recent PA for Azure Government, DISA approved logical separation of IL5 from other data via cryptographic means. In Azure, this approach involves data encryption via keys that are maintained in Azure Key Vault and stored in [FIPS 140 validated](/azure/compliance/offerings/offering-fips-140-2) Hardware Security Modules (HSMs). The keys are owned and managed by the IL5 system owner (also known as customer-managed keys).
 
@@ -43,14 +46,12 @@ Here's how this approach applies to services:
 
 This approach ensures all key material for decrypting data is stored separately from the data itself using a hardware-based key management solution.
 
-The DoD requirements for encrypting data at rest are provided in the SRG [Section 5.11](https://dl.dod.cyber.mil/wp-content/uploads/cloud/SRG/index.html#5.11EncryptionofData-at-RestinCommercialCloudStorage). DoD emphasizes encrypting all data at rest stored in virtual machine virtual hard drives, mass storage facilities at the block or file level, and database records where the mission owner does not have sole control over the database service. For cloud applications where encrypting data at rest with DoD key control is not possible, mission owners must perform a risk analysis with relevant data owners before transmitting data into a cloud service offering.
-
 ## Applying this guidance
 
 IL5 guidelines require workloads to be deployed with a high degree of security, isolation, and control. The following configurations are required *in addition* to any other configurations or controls needed to meet IL5 requirements. Network isolation, access controls, and other necessary security measures aren't necessarily addressed in this article.
 
 > [!NOTE]
-> This article tracks Azure services that have received DoD IL5 PA and that require extra configuration options to meet IL5 isolation requirmements. Services with IL5 PA that do not require any extra configuration options are not mentioned in this article. For a list of services in scope for DoD IL5 PA, see **[Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).**
+> This article tracks Azure services that have received DoD IL5 PA and that require extra configuration options to meet IL5 isolation requirements. Services with IL5 PA that do not require any extra configuration options are not mentioned in this article. For a list of services in scope for DoD IL5 PA, see **[Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope).**
 
 Be sure to review the entry for each service you're using and ensure that all isolation requirements are implemented.
 
@@ -200,10 +201,6 @@ For Containers services availability in Azure Government, see [Products availabl
 ## Databases
 
 For Databases services availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sql,sql-server-stretch-database,redis-cache,database-migration,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia). For a list of services in scope for DoD IL5 PA, see [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope). Guidance below is provided only for IL5 PA services that require extra configuration to support IL5 workloads.
-
-### [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)
-
-Azure Cache for Redis supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
 ### [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
@@ -362,3 +359,23 @@ For more information about how to enable this Azure Storage encryption feature, 
 ### [StorSimple](https://azure.microsoft.com/services/storsimple/)
 
 - To help ensure the security and integrity of data moved to the cloud, StorSimple allows you to [define cloud storage encryption keys](../storsimple/storsimple-8000-security.md#storsimple-data-protection). You specify the cloud storage encryption key when you create a volume container. 
+
+
+## Next steps
+
+Learn more about Azure Government:
+
+- [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
+- [Azure Government overview](./documentation-government-welcome.md)
+- [DoD Impact Level 5](/azure/compliance/offerings/offering-dod-il5)
+- [DoD in Azure Government](./documentation-government-overview-dod.md)
+- [Azure Government services by audit scope](./compliance/azure-services-in-fedramp-auditscope.md#azure-government-services-by-audit-scope)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
+
+Start using Azure Government:
+
+- [Guidance for developers](./documentation-government-developer-guide.md)
+- [Connect with the Azure Government portal](./documentation-government-get-started-connect-with-portal.md)
+- [Deploy STIG-compliant Linux VMs](./documentation-government-stig-linux-vm.md)
+- [Deploy STIG-compliant Windows VMs](./documentation-government-stig-windows-vm.md)

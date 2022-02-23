@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/07/2022
+ms.date: 02/15/2022
 ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
@@ -34,7 +34,11 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 * The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify.  
 
+* The admin account you use must have the capability to create machine accounts in the organizational unit (OU) path that you will specify. In some cases, `msDS-SupportedEncryptionTypes` write permission is required to set account attributes within AD.
+
 * If you change the password of the Active Directory user account that is used in Azure NetApp Files, be sure to update the password configured in the [Active Directory Connections](#create-an-active-directory-connection). Otherwise, you will not be able to create new volumes, and your access to existing volumes might also be affected depending on the setup.  
+
+* Before you can remove an Active Directory connection from your NetApp account, you need to first remove all volumes associated with it. 
 
 * Proper ports must be open on the applicable Windows Active Directory (AD) server.  
     The required ports are as follows: 
@@ -72,6 +76,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
     If you have domain controllers that are unreachable by the Azure NetApp Files delegated subnet, you can specify an Active Directory site during creation of the Active Directory connection.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space is.
 
     See [Designing the site topology](/windows-server/identity/ad-ds/plan/designing-the-site-topology) about AD sites and services. 
+
+* Avoid configuring overlapping subnets in the AD machine. Even if the site name is defined in the Active Directory connections, overlapping subnets might result in the wrong site being discovered, thus affecting the service. It might also affect new volume creation or AD modification. 
     
 * You can enable AES encryption for AD Authentication by checking the **AES Encryption** box in the [Join Active Directory](#create-an-active-directory-connection) window. Azure NetApp Files supports DES, Kerberos AES 128, and Kerberos AES 256 encryption types (from the least secure to the most secure). If you enable AES encryption, the user credentials used to join Active Directory must have the highest corresponding account option enabled that matches the capabilities enabled for your Active Directory.    
 
@@ -85,7 +91,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
     [LDAP channel binding](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) configuration alone has no effect on the Azure NetApp Files service. However, if you use both LDAP channel binding and secure LDAP (for example, LDAPS or `start_tls`), then the SMB volume creation will fail.
 
-* For non-AD integrated DNS, you should add a DNS A/PTR record to enable Azure NetApp Files to function by using a “friendly name". 
+* Azure NetApp Files will attempt to add an A/PTR record in DNS for AD integrated DNS servers. Add a reverse lookup zone if one is missing under Reverse Lookup Zones on AD server. For non-AD integrated DNS, you should add a DNS A/PTR record to enable Azure NetApp Files to function by using a “friendly name".
 
 * The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
 
@@ -143,7 +149,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
 ## Create an Active Directory connection
 
-1. From your NetApp account, click **Active Directory connections**, then click **Join**.  
+1. From your NetApp account, select **Active Directory connections**, then select **Join**.  
 
     Azure NetApp Files supports only one Active Directory connection within the same region and the same subscription. If Active Directory is already configured by another NetApp account in the same subscription and region, you cannot configure and join a different Active Directory from your NetApp account. However, you can enable the Shared AD feature to allow an Active Directory configuration to be shared by multiple NetApp accounts within the same subscription and the same region. See [Map multiple NetApp accounts in the same subscription and region to an AD connection](#shared_ad).
 
@@ -223,6 +229,12 @@ This setting is configured in the **Active Directory Connections** under **NetAp
         ```
         
         You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+
+    * **LDAP over TLS**   
+        See [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md) for information about this option.
+
+    * **LDAP Search Scope**, **User DN**, **Group DN**, and **Group Membership Filter**   
+        See [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md#ldap-search-scope) for information about these options.
 
      * **Security privilege users**   <!-- SMB CA share feature -->   
         You can grant security privilege (`SeSecurityPrivilege`) to AD users or groups that require elevated privilege to access the Azure NetApp Files volumes. The specified AD users or groups will be allowed to perform certain actions on Azure NetApp Files SMB shares that require security privilege not assigned by default to domain users.   
@@ -312,7 +324,7 @@ This setting is configured in the **Active Directory Connections** under **NetAp
 
         ![Active Directory credentials](../media/azure-netapp-files/active-directory-credentials.png)
 
-3. Click **Join**.  
+3. Select **Join**.  
 
     The Active Directory connection you created appears.
 
@@ -346,3 +358,5 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 * [Create a dual-protocol volume](create-volumes-dual-protocol.md)
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Install a new Active Directory forest using Azure CLI](/windows-server/identity/ad-ds/deploy/virtual-dc/adds-on-azure-vm) 
+* [Configure ADDS LDAP over TLS](configure-ldap-over-tls.md)
+* [ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)

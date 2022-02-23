@@ -2,14 +2,14 @@
 title: HBv3-series VM sizes performance and scalability
 description: Learn about performance and scalability of HBv3-series VM sizes in Azure.  
 services: virtual-machines 
-author: vermagit 
 ms.service: virtual-machines 
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
 ms.date: 03/25/2021 
-ms.author: amverma 
 ms.reviewer: cynthn
+ms.author: mamccrea
+author: mamccrea
 ---
 
 # HBv3-series virtual machine performance

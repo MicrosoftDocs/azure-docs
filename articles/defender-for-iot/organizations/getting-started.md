@@ -38,11 +38,11 @@ Administrative user permissions are required to activate the sensor and manageme
 
 The following table describes user access permissions to Azure portal tools:
 
-| Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
+| Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
 | View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
 | Onboard sensors  |  |  ✓ | ✓ | ✓ |
-| Onboard subscriptions and update committed devices  |  |  | ✓ | ✓ |
+| Onboard subscriptions and update committed devices  |  | ✓ | ✓ | ✓ |
 | Recover passwords  | ✓  |  ✓ | ✓ | ✓ |
 
 ## Identify the solution infrastructure
@@ -152,9 +152,6 @@ We recommend that you group multiple sensors monitoring the same networks in one
 
 For more information, see [Connect sensors to the on-premises management console](how-to-activate-and-set-up-your-on-premises-management-console.md#connect-sensors-to-the-on-premises-management-console).
 
-## Populate Microsoft Sentinel with alert information (optional)
-
-Send alert information to Microsoft Sentinel by configuring Microsoft Sentinel. See [Connect your data from Defender for IoT to Microsoft Sentinel](how-to-configure-with-sentinel.md).  
 
 ## Next steps ##
 

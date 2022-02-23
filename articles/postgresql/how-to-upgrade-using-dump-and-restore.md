@@ -11,11 +11,11 @@ ms.date: 11/30/2021
 # Upgrade your PostgreSQL database using dump and restore
 
 >[!NOTE]
-> The concepts explained in this documentation is applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server. 
+> The concepts explained in this documentation are applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server. 
 
 You can upgrade your PostgreSQL server deployed in Azure Database for PostgreSQL by migrating your databases to a higher major version server using following methods.
 * **Offline** method using PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) which incurs downtime for migrating the data. This document addresses this method of upgrade/migration.
-* **Online** method using [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). This method provides a reduced downtime migration and keeps the target database in-sync with with the source and you can choose when to cut-over. However, there are few prerequisites and restrictions to be addressed for using DMS. For details, see the [DMS documentation](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
+* **Online** method using [Database Migration Service](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md) (DMS). This method provides a reduced downtime migration and keeps the target database in-sync with the source and you can choose when to cut-over. However, there are few prerequisites and restrictions to be addressed for using DMS. For details, see the [DMS documentation](../dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal.md). 
 
  The following table provides some recommendations based on database sizes and scenarios.
 
@@ -42,7 +42,7 @@ To step through this how-to-guide, you need:
 - A **source** PostgreSQL database server running a lower version of the engine that you want to upgrade.
 - A **target** PostgreSQL database server with the desired major version [Azure Database for PostgreSQL server - Single Server](quickstart-create-server-database-portal.md) or [Azure Database for PostgreSQL - Flexible Server](./flexible-server/quickstart-create-server-portal.md). 
 - A PostgreSQL client system to run the dump and restore commands. It is recommended to use the higher database version. For example, if you are upgrading from PostgreSQL version 9.6 to 11, please use PostgreSQL version 11 client. 
-  - It can be a Linux or Windows client with PostgreSQL installed and has [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. 
+  - It can be a Linux or Windows client that has PostgreSQL installed and that has the [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) command-line utilities installed. 
   - Alternatively, you can use [Azure Cloud Shell](https://shell.azure.com) or by clicking the Azure Cloud Shell on the menu bar at the upper right in the [Azure portal](https://portal.azure.com). You will have to login to your account `az login` before running the dump and restore commands.
 - Your PostgreSQL client preferably running in the same region as the source and target servers. 
 
@@ -137,7 +137,7 @@ If you do not have a PostgreSQL client or you want to use Azure Cloud Shell, the
 3. Once the upgrade (migration) process completes, you can test your application with the target server. 
 4. Repeat this process for all the databases within the server.
 
- As an example, the following table illustrates time it took to migrate using streaming dump method. The sample data is populated using [pgbench](https://www.postgresql.org/docs/10/pgbench.html). As your database can have different number of objects with varied sizes than pgbench generated tables and indexes, it is highly recommended to test dump and restore of your database to understand the actual time it takes to upgrade your database. 
+ As an example, the following table illustrates the time it took to migrate using streaming dump method. The sample data is populated using [pgbench](https://www.postgresql.org/docs/10/pgbench.html). As your database can have different number of objects with varied sizes than pgbench generated tables and indexes, it is highly recommended to test dump and restore of your database to understand the actual time it takes to upgrade your database. 
 
 | **Database Size** | **Approx. time taken** | 
 | ----- | ------ |

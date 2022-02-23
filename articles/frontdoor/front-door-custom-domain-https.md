@@ -87,16 +87,30 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Azure Active Directory via PowerShell.
+Register the service principal for Azure Front Door as an app in your Azure Active Directory using Azure PowerShell or Azure CLI.
 
 > [!NOTE]
 > This action requires Global Administrator permissions, and needs to be performed only **once** per tenant.
+
+##### Azure PowerShell
 
 1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
 
 2. In PowerShell, run the following command:
 
-     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037" -Role Contributor`
+     ```azurepowershell-interactive
+     New-AzADServicePrincipal -ApplicationId "205478c0-bd83-4e1b-a9d6-db63a3e1e1c8" -Role Contributor
+     ```
+
+##### Azure CLI
+
+1. If need, install [Azure CLI](/cli/azure/install-azure-cli) on your local machine.
+
+2. In CLI, run the following command:
+
+     ```azurecli-interactive
+     az ad sp create --id 205478c0-bd83-4e1b-a9d6-db63a3e1e1c8 --role Contributor
+     ```     
 
 #### Grant Azure Front Door access to your key vault
 
@@ -104,7 +118,7 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
 
 1. In your key vault account, under SETTINGS, select **Access policies**, then select **Add new** to create a new policy.
 
-2. In **Select principal**, search for **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037**, and choose **Microsoft.Azure.Frontdoor**. Click **Select**.
+2. In **Select principal**, search for **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**, and choose **Microsoft.Azure.Frontdoor**. Click **Select**.
 
 3. In **Secret permissions**, select **Get** to allow Front Door to retrieve the certificate.
 

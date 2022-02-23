@@ -10,11 +10,13 @@ ms.author:  petrodeg
 ms.reviewer: laobri
 ms.date: 11/03/2021
 ms.topic: troubleshooting
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
 # Troubleshooting online endpoints deployment and scoring (preview)
+
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
 Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints (preview).
 

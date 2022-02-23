@@ -105,7 +105,7 @@ To allow Azure VM Image Builder to distribute images to either the managed image
 
 In API version 2021-10-01 and beyond, Azure VM Image Builder supports adding Azure user-assigned identities to the build VM to enable scenarios where you will need to authenticate with services like Azure Key Vault in your subscription.
 
-For more information on permissions, please see the following links: [PowerShell](./linux/image-builder-permissions-powershell.md), [AZ CLI](./linux/image-builder-permissions-cli.md) and [Image Builder template reference: Identity](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json#identity). 
+For more information on permissions, please see the following links: [PowerShell](./linux/image-builder-permissions-powershell.md), [AZ CLI](./linux/image-builder-permissions-cli.md) and [Image Builder template reference: Identity](./linux/image-builder-json.md#identity). 
 
 ## Costs
 You will incur some compute, networking and storage costs when creating, building and storing images with Azure Image Builder. These costs are similar to the costs incurred in manually creating custom images. For the resources, you will be charged at your Azure rates. 
@@ -131,7 +131,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
 For more information on which Azure VM images support Gen2, please visit: [Generation 2 VM images in Azure Marketplace
-](https://docs.microsoft.com/azure/virtual-machines/generation-2)
+](./generation-2.md)
 
 ## Next steps 
  

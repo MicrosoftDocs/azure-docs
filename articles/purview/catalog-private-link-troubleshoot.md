@@ -1,16 +1,16 @@
 ---
-title: Troubleshooting private endpoint configuration for Purview accounts
-description: This article describes how to troubleshoot problems with your Purview account related to private endpoints configurations
+title: Troubleshooting private endpoint configuration for Azure Purview accounts
+description: This article describes how to troubleshoot problems with your Azure Purview account related to private endpoints configurations
 author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/12/2022
-# Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
+# Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account, for secure access.
 ---
 
-# Troubleshooting private endpoint configuration for Purview accounts
+# Troubleshooting private endpoint configuration for Azure Purview accounts
 
 This guide summarizes known limitations related to using private endpoints for Azure Purview and provides a list of steps and solutions for troubleshooting some of the most common relevant issues. 
 
@@ -27,7 +27,7 @@ This guide summarizes known limitations related to using private endpoints for A
 
 ## Recommended troubleshooting steps  
 
-1. Once you deploy private endpoints for your Purview account, review your Azure environment to make sure private endpoint resources are deployed successfully. Depending on your scenario, one or more of the following Azure private endpoints must be deployed in your Azure subscription:
+1. Once you deploy private endpoints for your Azure Purview account, review your Azure environment to make sure private endpoint resources are deployed successfully. Depending on your scenario, one or more of the following Azure private endpoints must be deployed in your Azure subscription:
 
     |Private endpoint  |Private endpoint assigned to | Example|
     |---------|---------|---------|
@@ -46,7 +46,7 @@ This guide summarizes known limitations related to using private endpoints for A
 
 3. If Azure Private DNS Zones are used, make sure the required Azure DNS Zones are deployed and there is DNS (A) record for each private endpoint.
 
-4. Test network connectivity and name resolution from management machine to Purview endpoint and purview web url. If account and portal private endpoints are deployed, the endpoints must be resolved through private IP addresses.
+4. Test network connectivity and name resolution from management machine to Azure Purview endpoint and purview web url. If account and portal private endpoints are deployed, the endpoints must be resolved through private IP addresses.
 
 
     ```powershell
@@ -81,7 +81,7 @@ This guide summarizes known limitations related to using private endpoints for A
     
 5. If you have created your Azure Purview account after 18 August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
    
-6. From self-hosted integration runtime VM, test network connectivity and name resolution to Purview endpoint.
+6. From self-hosted integration runtime VM, test network connectivity and name resolution to Azure Purview endpoint.
 
 7. From self-hosted integration runtime, test network connectivity and name resolution to Azure Purview managed resources such as blob queue and Event Hub through port 443 and private IP addresses. (Replace the managed storage account and Event Hubs namespace with corresponding managed resource name assigned to your Azure Purview account).
 
@@ -127,7 +127,7 @@ This guide summarizes known limitations related to using private endpoints for A
     TcpTestSucceeded : True
     ```
 
-8. From the network where data source is located, test network connectivity and name resolution to Purview endpoint and managed resources endpoints.
+8. From the network where data source is located, test network connectivity and name resolution to Azure Purview endpoint and managed resources endpoints.
 
 9.  If data sources are located in on-premises network, review your DNS forwarder configuration. Test name resolution from within the same network where data sources are located to self-hosted integration runtime, Azure Purview endpoints and managed resources. It is expected to obtain a valid private IP address from DNS query for each endpoint.
     
@@ -135,7 +135,7 @@ This guide summarizes known limitations related to using private endpoints for A
 
 10. If management machine and self-hosted integration runtime VMs are deployed in on-premises network and you have set up DNS forwarder in your environment, verify DNS and network settings in your environment. 
 
-11. If ingestion private endpoint is used, make sure self-hosted integration runtime is registered successfully inside Purview account and shows as running both inside the self-hosted integration runtime VM and in the [Purview Studio](https://web.purview.azure.com/resource/) .
+11. If ingestion private endpoint is used, make sure self-hosted integration runtime is registered successfully inside Azure Purview account and shows as running both inside the self-hosted integration runtime VM and in the [Azure Purview Studio](https://web.purview.azure.com/resource/) .
 
 ## Common errors and messages
 
@@ -182,7 +182,7 @@ Review your existing Azure Policy Assignments and make sure deployment of the fo
 
 
 ### Issue
-Not authorized to access this Purview account. This Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Purview account's private endpoint.
+Not authorized to access this Azure Purview account. This Azure Purview account is behind a private endpoint. Please access the account from a client in the same virtual network (VNet) that has been configured for the Azure Purview account's private endpoint.
 
 ### Cause 
 User is trying to connect to Azure Purview from a public endpoint or using Azure Purview public endpoints where **Public network access** is set to **Deny**.

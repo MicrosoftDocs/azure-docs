@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/05/2022
+ms.date: 02/03/2022
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -36,6 +36,14 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.4009.1500: This update was released in January 2022 and includes the following changes.
+    - Added logging to better capture agent update telemetry.
+    - Updated the agent's Azure Instance Metadata Service health check to be Azure Stack HCI-friendly
+- Version 1.0.3855.1400: This update was released December 2021 and has the following changes:
+    - Fixes an issue that caused an unhandled exception.
+    - This version now supports Azure Stack HCI by retrieving VM metadata from the Azure Arc service.
+    - This version now allows built-in stacks to be automatically updated if its version number is beneath a certain threshold.
+    - The UrlsAccessibleCheck health check now only gets the URL until the path delimiter to prevent 404 errors.
 - Version 1.0.3719.1700: This update was released November 2021 and has the following changes:
     - Updated agent error messages.
     - Fixes an issue with the agent restarting every time the side-by-side stack was updated.
@@ -71,6 +79,26 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
 
+## January 2022
+
+Here's what changed in January 2022:
+
+### FSLogix version 2201 public preview
+
+FSLogix version 2201 is now in public preview. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/the-fslogix-2201-public-preview-is-now-available/td-p/3070794) or [the FSLogix release notes](/fslogix/whats-new#fslogix-2201-public-preview-29804843478).
+
+### Migration tool now generally available
+
+The PowerShell commands that migrate metadata from Azure Virtual Desktop (classic) to Azure Virtual Desktop are now generally available. To learn more about migrating your existing deployment, see [Migrate automatically from Azure Virtual Desktop (classic)](automatic-migration.md) or [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/tool-to-migrate-from-azure-virtual-desktop-classic-to-arm/m-p/3094856#M8527).
+
+### Increased application group limit
+
+We've increased number of Azure Virtual Desktop application groups you can have on each Azure Active Directory (Azure AD) tenant from 200 to 500. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/increase-in-avd-application-group-limit-to-500/m-p/3094678).
+
+### Updates to required URLs
+
+We've updated the required URL list for Azure Virtual Desktop to accomodate Azure Virtual Desktop agent traffic. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/important-new-changes-in-required-urls/m-p/3094897#M8529).
+
 ## December 2021
 
 Here's what changed in December 2021:
@@ -81,7 +109,7 @@ You can now automatically create trusted launch virtual machines through the hos
  
 ### Azure Active Directory Join VMs with FSLogix profiles on Azure Files
 
-Azure Active Directory (Azure AD)-joined session hosts for FSLogix profiles on Azure Files in Windows 10 and 11 multi-session is now in public preview. We've updated Azure Files to use a Kerberos protocol for Azure AD that lets you secure folders in the file share to individual users. This new feature also allows FSLogix to function within your deployment without an Active Directory Domain Controller. For more information, check out [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-fslogix-profiles-for-azure-ad/ba-p/3019855).
+Azure AD-joined session hosts for FSLogix profiles on Azure Files in Windows 10 and 11 multi-session is now in public preview. We've updated Azure Files to use a Kerberos protocol for Azure AD that lets you secure folders in the file share to individual users. This new feature also allows FSLogix to function within your deployment without an Active Directory Domain Controller. For more information, check out [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-public-preview-of-fslogix-profiles-for-azure-ad/ba-p/3019855).
 
 ### Azure Virtual Desktop pricing calculator updates
 
@@ -613,7 +641,7 @@ Here's what changed in August 2020:
 
 - We fixed an issue in the Teams Desktop client (version 1.3.00.21759) where the client only showed the UTC time zone in the chat, channels, and calendar. The updated client now shows the remote session's time zone instead.
 
-- Azure Advisor is now a part of Azure Virtual Desktop. When you access Azure Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Azure Virtual Desktop environment. Learn more at [Azure Advisor](azure-advisor.md).
+- Azure Advisor is now a part of Azure Virtual Desktop. When you access Azure Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Azure Virtual Desktop environment. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
 
 - Azure CLI now supports Azure Virtual Desktop (`az desktopvirtualization`) to help you automate your Azure Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/desktopvirtualization) for a list of extension commands.
 

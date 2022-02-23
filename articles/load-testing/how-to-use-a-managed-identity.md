@@ -14,7 +14,7 @@ ms.topic: how-to
 
 This article shows how you can create a managed identity for an Azure Load Testing Preview resource and how to use it to read secrets from your Azure key vault.
 
-A managed identity in Azure Active Directory (Azure AD) allows your resource to easily access other Azure AD-protected resources, such as Azure Key Vault. The identity is managed by the Azure platform. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+A managed identity in Azure Active Directory (Azure AD) allows your resource to easily access other Azure AD-protected resources, such as Azure Key Vault. The identity is managed by the Azure platform. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Azure Load Testing supports only system-assigned identities. A system-assigned identity is associated with your Azure Load Testing resource and is removed when your resource is deleted. A resource can have only one system-assigned identity.
 
@@ -84,7 +84,7 @@ The `tenantId` property identifies which Azure AD tenant the identity belongs to
 
 A managed identity allows the Azure Load testing resource to access other Azure resources. In this section, you grant the Azure Load Testing service access to read secret values from your key vault.
 
-If you don't already have a key vault, follow the instructions in [Azure Key Vault quickstart](/azure/key-vault/secrets/quick-create-cli) to create it.
+If you don't already have a key vault, follow the instructions in [Azure Key Vault quickstart](../key-vault/secrets/quick-create-cli.md) to create it.
 
 1. In the Azure portal, go to your Azure Key Vault resource.
 

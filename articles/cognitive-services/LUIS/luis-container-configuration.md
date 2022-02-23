@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/01/2020
 ms.author: aahi
 ---
@@ -61,7 +61,7 @@ This setting can be found in the following places:
 
 | Required | Name | Data type | Description |
 |----------|------|-----------|-------------|
-| Yes      | `Billing` | string | Billing endpoint URI. For more information on obtaining the billing URI, see [gathering required parameters](luis-container-howto.md#gathering-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
+| Yes      | `Billing` | string | Billing endpoint URI. For more information on obtaining the billing URI, see [gather required parameters](luis-container-howto.md#gather-required-parameters). For more information and a complete list of regional endpoints, see [Custom subdomain names for Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## Eula setting
 
@@ -107,7 +107,7 @@ Replace {_argument_name_} with your own values:
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 | **{API_KEY}** | The endpoint key of the `LUIS` resource on the Azure `LUIS` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `LUIS` Overview page.| See [gathering required parameters](luis-container-howto.md#gathering-required-parameters) for explicit examples. |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `LUIS` Overview page.| See [gather required parameters](luis-container-howto.md#gather-required-parameters) for explicit examples. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 

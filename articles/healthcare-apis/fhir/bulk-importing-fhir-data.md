@@ -5,7 +5,7 @@ services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 12/16/2021
+ms.date: 01/28/2022
 ms.author: zxue
 ---
 
@@ -16,7 +16,7 @@ ms.author: zxue
 
 In this article, you'll learn how to bulk import data into the FHIR service in Healthcare APIs. The tools described in this article are freely available at GitHub and can be modified to meet your business needs. Technical support for the tools is available through GitHub and the open-source community.
 
-While tools such as [Postman](../use-postman.md), [cURL](../using-curl.md), and [REST Client](../using-rest-client.md) to ingest data to the FHIR service, they're not typically used to bulk load FHIR data.
+While tools such as [Postman](../fhir/use-postman.md), [cURL](../fhir/using-curl.md), and [REST Client](../fhir/using-rest-client.md) to ingest data to the FHIR service, they're not typically used to bulk load FHIR data.
 
 >[!Note]
 >The [bulk import](https://github.com/microsoft/fhir-server/blob/main/docs/BulkImport.md) feature is currently available in the open source FHIR server. It's not available in Healthcare APIs yet.
@@ -26,7 +26,7 @@ While tools such as [Postman](../use-postman.md), [cURL](../using-curl.md), and 
 The [FHIR Importer](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/FhirImporter) is an Azure Function or microservice, written in C#, that imports FHIR bundles in JSON or NDJSON formats as soon as they're uploaded to an Azure storage container.
 
 - Behind the scenes, the Azure Storage trigger starts the Azure Function when a new document is detected and the document is the input to the function.
-- It processes multiple documents in parallel and provides a basic retry logic using [HTTP call retries](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly) when the FHIR service is too busy to handle the requests.
+- It processes multiple documents in parallel and provides a basic retry logic using [HTTP call retries](/dotnet/architecture/microservices/implement-resilient-applications/implement-http-call-retries-exponential-backoff-polly) when the FHIR service is too busy to handle the requests.
 
 The FHIR Importer works for the FHIR service in Healthcare APIs and Azure API for FHIR.
 
@@ -70,4 +70,4 @@ In this article, you've learned about the tools and the steps for bulk-importing
 >[Configure export settings and set up a storage account](configure-export-data.md)
 
 >[!div class="nextstepaction"]
->[Moving data from Azure API for FHIR to Azure Synapse Analytics](move-to-synapse.md)
+>[Copy data from Azure API for FHIR to Azure Synapse Analytics](copy-to-synapse.md)

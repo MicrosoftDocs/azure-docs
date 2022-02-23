@@ -36,6 +36,8 @@
     href: tutorial-sql-backup.md
   - name: Back up SAP HANA databases in Azure VMs
     href: tutorial-backup-sap-hana-db.md
+  - name: Back up PostgreSQL databases
+    href: tutorial-postgresql-backup.md
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
@@ -54,7 +56,7 @@
     items:
     - name: Azure Backup support matrix
       href: backup-support-matrix.md
-    - name: Backup Center support matrix
+    - name: Backup center support matrix
       href: backup-center-support-matrix.md
     - name: Azure VM backup support matrix
       href: backup-support-matrix-iaas.md
@@ -76,13 +78,15 @@
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
+    - name: Azure Database for PostgreSQL backup support matrix
+      href: backup-azure-database-postgresql-support-matrix.md
     - name: Automation in Azure Backup
       href: backup-support-automation.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
       href: backup-azure-backup-faq.yml
-    - name: FAQ-Backup Center
+    - name: FAQ-Backup center
       href: backup-center-faq.yml
     - name: FAQ-Azure VM backup
       href: backup-azure-vm-backup-faq.yml
@@ -96,6 +100,8 @@
       href: faq-backup-sql-server.yml
     - name: FAQ-Back up SAP HANA databases on Azure VMs
       href: sap-hana-faq-backup-azure-vm.yml
+    - name: FAQ-Back up Azure Database for PostgreSQL server
+      href: backup-azure-database-postgresql-server-faq.yml
     - name: FAQ-Azure Backup Server and DPM
       href: backup-azure-dpm-azure-server-faq.yml
     - name: FAQ-Azure Backup monitor alert
@@ -126,7 +132,7 @@
       items:
       - name: Overview
         href: backup-vault-overview.md
-  - name: Backup Center
+  - name: Backup center
     items:
     - name: Overview
       href: backup-center-overview.md
@@ -559,7 +565,7 @@
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
     - name: Ransomware protection
-      href: /azure/security/fundamentals/backup-plan-to-protect-against-ransomware
+      href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Private Endpoints
@@ -619,6 +625,8 @@
       href: troubleshoot-archive-tier.md
 - name: Reference
   items:
+  - name: Archived release notes
+    href: backup-release-notes-archived.md
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
