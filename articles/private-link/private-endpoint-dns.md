@@ -56,7 +56,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Table | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
-| Azure Batch (Microsoft.Batch/batchAccounts) / batch account | privatelink.{region}.batch.azure.com | {region}.batch.azure.com |
+| Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.{region}.batch.azure.com | {region}.batch.azure.com |
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 | Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
@@ -83,10 +83,12 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Data Factory (Microsoft.DataFactory/factories) / portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 | Azure Cache for Redis Enterprise (Microsoft.Cache/RedisEnterprise) / redisEnterprise | privatelink.redisenterprise.cache.azure.net | redisenterprise.cache.azure.net |
-| Azure Purview (Microsoft.Purview)| privatelink.purview.azure.com | purview.azure.com |
-| Azure Purview (Microsoft.Purview)| privatelink.purviewstudio.azure.com | purview.azure.com |
+| Azure Purview (Microsoft.Purview) / portal | privatelink.purview.azure.com | purview.azure.com |
+| Azure Purview (Microsoft.Purview) / portal| privatelink.purviewstudio.azure.com | purview.azure.com |
 | Azure Digital Twins (Microsoft.DigitalTwins) / digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.net | azurehdinsight.net |
+| Azure Arc (Microsoft.HybridCompute) / hybridcompute | privatelink.his.arc.azure.com<br />privatelink.guestconfiguration.azure.com | his.arc.azure.com<br />guestconfiguration.azure.com |
+| Azure Media Services (Microsoft.Media) / keydelivery, liveevent, streamingendpoint | privatelink.media.azure.net | media.azure.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
 
