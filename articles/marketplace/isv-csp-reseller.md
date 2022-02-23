@@ -91,6 +91,13 @@ The offer setup page lets you define private offer terms, notification contact, 
     2. Search for your CSP partners by name/tenant ID. Or, search by applying filters such as regions, skills, or competencies.
     3. Choose the CSP partners and select **Add**.
 
+To extend a private offer to individual customers of a CSP partner, select **All customers selected**.
+
+1. Choose **Select customers**.
+2. Under **Provide customer tenant ID**, select **+Add**.
+3. Enter the customer’s tenant ID. You can add up to 25 customers for the CSP partner.
+4. Click **Add**.
+
     > [!NOTE]
     > - You can only select CSP partners who are part of Microsoft’s Cloud Solution Provider (CSP) program. 
     > - Once your private offer ends, the CSP partners you authorize can continue to sell your marketplace offer at the list price.
