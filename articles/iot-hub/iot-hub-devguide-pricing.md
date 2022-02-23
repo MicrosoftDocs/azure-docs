@@ -21,7 +21,7 @@ ms.custom: [amqp, mqtt]
 
 Use the following table to help determine which operations are charged. All billable operations are charged in 4K-byte blocks on basic and standard tier IoT hubs. Operations are metered in 0.5K-byte chunks on free tier IoT hubs. Details for each category are provided in the **Billing information** column. This column includes the following information:
 
-- Details of how billable operations are metered on basic and standard tier IoT hubs. Not all operations are available in the basic tier. To learn more, see [How to choose the right IoT Hub tier](iot-hub-scaling.md).
+- Details of how billable operations are metered on basic and standard tier IoT hubs. Not all operations are available in the basic tier.
 - The operations that result in charges, with either:
   - A link to the REST API documentation if it exists.
   - The operation endpoint if REST API documentation isn't available, or if the operation is only available over MQTT and/or AMQP. The endpoint value omits the leading reference to the target IoT hub; `{fully-qualified-iothubname}.azure-devices.net`.
