@@ -260,7 +260,7 @@ az storage blob show \
 
 ### Read and write blob metadata
 
-Blob metadata is an optional set of name/value pairs associated with a blob. As shown in the previous example, there's no metadata associated with a blob initially, though it can be added when necessary. To read, use the `az storage blob metadata show` command. To update blob metadata, you'll use `az storage blob metadata update` . For more information, see the [az storage blob metadata](/cli/azure/storage/blob/metadata?view=azure-cli-latest) reference.
+Blob metadata is an optional set of name/value pairs associated with a blob. As shown in the previous example, there's no metadata associated with a blob initially, though it can be added when necessary. To read, use the `az storage blob metadata show` command. To update blob metadata, you'll use `az storage blob metadata update` . For more information, see the [az storage blob metadata](/cli/azure/storage/blob/metadata) reference.
 
 The example below first updates and then commits a blob's metadata, and then retrieves it.
 
@@ -397,6 +397,9 @@ az storage blob copy start \
 
 Blob index tags make data management and discovery easier. Blob index tags are user-defined key-value index attributes that you can apply to your blobs. Once configured, you can categorize and find objects within an individual container or across all containers. Blob resources can be dynamically categorized by updating their index tags without requiring a change in container organization. This approach offers a flexible way to cope with changing data requirements. You can use both metadata and index tags simultaneously. For more information on index tags, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
 
+> [!TIP]
+> The code sample provided below uses pattern matching to obtain text from an XML file having a known structure. The example is used to illustrate a simplified approach for adding blob tags using basic Bash functionality. The use of an actual data parsing tool is always recommended when consuming data for production workloads.
+
 The following example illustrates how to add blob index tags to a series of blobs. The example reads data from an XML file and uses it to create index tags on several blobs. To use the sample code, create a local *blob-list.xml* file in your *C:\temp* directory. The XML data is provided below.
 
 ```xml
@@ -411,44 +414,36 @@ The following example illustrates how to add blob index tags to a series of blob
 </Venue>
 ```
 
-The sample code creates a hash table and assigns the **$tags** variable to it. Next, it uses the `Get-Content` and `Get-Data` commands to create an object based on the XML structure. It then adds key-value pairs to the hash table to be used as the tag values. Finally, it iterates through the XML object and creates tags for each `File` node.
+The sample code iterates the lines within the XML file. It locates the *Venue* element and creates variables for the *Name* and *Type* values. It then iterates through the remaining lines and creates tags for each blob referenced by a `File` node.
 
 ```azurecli-interactive
-#Set variables
-$filePath = "C:\temp\blob-list.xml"
-$tags     = @{}
-
-#Get data, set tag key-values
-[xml]$data = Get-Content -Path $filepath
-$tags.Add("VenueName", $data.Venue.Name)
-$tags.Add("VenueType", $data.Venue.Type)
- 
-#Loop through files and add tag
-$data.Venue.Files.ChildNodes | ForEach-Object {
-    #break the path: container name, blob
-    $path = $_.Path -split "/",2
-   
-    #set apply the blob tags
-    Set-AzStorageBlobTag -Container $location[0] -Blob $location[1] -Tag $tags -Context $ctx
- }
-
-
-for row in $(cat /mnt/c/temp/bloblist.xml); 
-do 
-	echo "${row}";
-done
+#!/bin/bash
+storageAccount="<storage-account>"
+containerName="demo-container"
 
 while read line
 do
  #echo $line
  
- if echo "$line" | grep -q "<Venue";then
-    echo $line
-    echo "$line" | grep -oPI '(?<=name).*?(?=)'
+#Set Tag values 
+if echo "$line" | grep -q "<Venue";then
+    name=`echo "$line" | cut -d'"' -f 2`
+    type=`echo "$line" | cut -d'"' -f 4`
+fi
 
- fi
+#Add tags to blobs
+if echo "$line" | grep -q "<File ";then
+    blobName=`echo "$line" | cut -d'"' -f 2`
+    
+    az storage blob tag set \
+        --container-name $containerName \
+        --name $blobName \
+        --accountName shaasstorageaccount \
+        --auth-mode login \
+        --tags name=\"$name\" type=$type"
+fi
+
 done < /mnt/c/temp/bloblist.xml
-
 
 ```
 
