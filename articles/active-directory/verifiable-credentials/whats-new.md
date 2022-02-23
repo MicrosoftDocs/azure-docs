@@ -24,7 +24,7 @@ We are rolling out some breaking changes to our service. These updates require A
 
 - The Azure AD Verifiable Credentials service can now store and handle data processing in the Azure European region. [More information](whats-new.md?#azure-ad-verifiable-credentials-available-in-europe)
 - Azure AD Verifiable Credentials customers can take advantage of enhancements to credential revocation. These changes add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. [More information](whats-new.md?#credential-revocation-with-enhanced-privacy)
-- Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID without having to opt-out and opt back in.
+- Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID without having to opt out and opt back in.
 - We made updates to Microsoft Authenticator that change the interaction between the Issuer of a verifiable credential and the user presenting the verifiable credential. This update forces all Verifiable Credentials to be reissued in Microsoft Authenticator for Android. [More information](whats-new.md?#microsoft-authenticator-android-did-generation-update)
 
 >[!IMPORTANT]
@@ -35,7 +35,7 @@ We are rolling out some breaking changes to our service. These updates require A
 Since the beginning of the Azure AD Verifiable Credentials service public preview, the service has only been available in our Azure North America region. Now, the service is also available in our Azure Europe region.
 
 - New customers with Azure AD European tenants now have their Verifiable Credentials data located and processed in our Azure Europe region.
-- Customers with Azure AD tenants setup in Europe who start using the Azure AD Verifiable Credentials service after February 15, 2022, have their data automatically processed in Europe. There is no need to take any further actions.
+- Customers with Azure AD tenants setup in Europe who start using the Azure AD Verifiable Credentials service after February 15, 2022, have their data automatically processed in Europe. There's no need to take any further actions.
 - Customers with Azure AD tenants setup in Europe that started using the Azure AD Verifiable Credentials service before February 15, 2022, are required to reconfigure the service on their tenants before March 31, 2022.
 
 Take the following steps to configure the Verifiable Credentials service in Europe:
@@ -106,7 +106,7 @@ We are making protocol updates in Microsoft Authenticator to support Single Long
 
 - We added [Postman collections](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/Postman) to our samples as a quick start to start using the Request Service REST API.
 - New sample added that demonstrates the integration of [Azure AD Verifiable Credentials with Azure AD B2C](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/B2C).
-- Fastrack setup sample for setting up the Azure AD Verifiable Credentials services using [PowerShell and an ARM template](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/ARM).
+- Sample for setting up the Azure AD Verifiable Credentials services using [PowerShell and an ARM template](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/ARM).
 - Sample Verifiable Credential configuration files to show sample cards for [IDToken](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDToken), [IDTokenHit](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDTokenHint) and [Self-attested](https://github.com/Azure-Samples/active-directory-verifiable-credentials/tree/main/CredentialFiles/IDTokenHint) claims.
 
 ## November 2021
