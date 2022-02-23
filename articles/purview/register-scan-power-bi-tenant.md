@@ -79,11 +79,11 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Screenshot of security group type.":::
 
-4. Add your Purview-managed identity to this security group. Select **Members**, then select **+ Add members**.
+4. Add your Azure Purview managed identity to this security group. Select **Members**, then select **+ Add members**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Screenshot of how to add the catalog's managed instance to group.":::
 
-5. Search for your Purview-managed identity and select it.
+5. Search for your Azure Purview managed identity and select it.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Screenshot showing how to add catalog by searching for its name.":::
 
@@ -166,7 +166,7 @@ To create and run a new scan, do the following:
 
 3. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
-    2. Assets (+ lineage) - Failed status means the Azure Purview - Power BI authorization has failed. Make sure the Purview-managed identity is added to the security group associated in Power BI admin portal.
+    2. Assets (+ lineage) - Failed status means the Azure Purview - Power BI authorization has failed. Make sure the Azure Purview managed identity is added to the security group associated in Power BI admin portal.
     3. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="Screenshot of test connection status report page.":::
@@ -245,7 +245,7 @@ To create and run a new scan, do the following:
 
 16. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
-    2. Assets (+ lineage) - Failed status means the Azure Purview - Power BI authorization has failed. Make sure the Purview-managed identity is added to the security group associated in Power BI admin portal.
+    2. Assets (+ lineage) - Failed status means the Azure Purview - Power BI authorization has failed. Make sure the Azure Purview managed identity is added to the security group associated in Power BI admin portal.
     3. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="Screenshot of test connection status report page.":::
@@ -355,7 +355,7 @@ In the Azure Purview Studio, navigate to the **Data map** in the left menu.
 
 16. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
-    2. Assets (+ lineage) - Failed status means the Azure Purview - Power BI authorization has failed. Make sure the Purview-managed identity is added to the security group associated in Power BI admin portal.
+    2. Assets (+ lineage) - Failed status means the Azure Purview - Power BI authorization has failed. Make sure the Azure Purview managed identity is added to the security group associated in Power BI admin portal.
     3. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-cross-tenant-test.png" alt-text="Screenshot of test connection status.":::
