@@ -644,8 +644,6 @@
       - name: Nodes and tables
         href: hyperscale/concepts-nodes.md
         displayName: nodes, tables
-      - name: Determine application type
-        href: hyperscale/concepts-app-type.md
       - name: Choose a distribution column
         href: hyperscale/concepts-choose-distribution-column.md
       - name: Table colocation
@@ -724,6 +722,8 @@
       href: hyperscale/howto-create-users.md
     - name: Distributed data
       items:
+      - name: Determine application type
+        href: hyperscale/howto-app-type.md
       - name: Determine table size
         href: hyperscale/howto-table-size.md
       - name: Distribute and modify tables
