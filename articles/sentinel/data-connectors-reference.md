@@ -615,8 +615,8 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | Only available after installing the [Continuous Threat Monitoring for SAP solution](sentinel-solutions-catalog.md#sap)|
-| **Log Analytics table(s)** | See [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md) |
-| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring](sap-deploy-solution.md) |
+| **Log Analytics table(s)** | See [Microsoft Sentinel SAP solution data reference](sap/sap-solution-log-reference.md) |
+| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring](sap/deployment-overview.md) |
 | **Supported by** | Microsoft |
 | | |
 

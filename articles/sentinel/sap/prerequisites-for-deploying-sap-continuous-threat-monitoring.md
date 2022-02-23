@@ -59,9 +59,9 @@ The [SAP data connector deployment script](deploy_data_connector_agent_container
 To successfully deploy the SAP continuous threat monitoring, a number of prerequisites must be met. That include ensuring relevant SAP CRs (change requests) are deployed on the SAP system, a Microsoft-provided CR is deployed on the SAP system and a role is created in SAP to enable access for SAP continuous threat monitoring data connector.
 
 > [!NOTE]
->  Step-by-step instructions on how to perform a deployment of a CR and deploy the required role are available in the [Deploying SAP CRs and configuring authorization](deploying-required-sap-crs.md) guide. Retreive the required CRs from the links in the tables below and proceed to the step-by-step guide.
+>  Step-by-step instructions on how to perform a deployment of a CR and deploy the required role are available in the [Deploying SAP CRs and configuring authorization](preparing_sap.md) guide. Retreive the required CRs from the links in the tables below and proceed to the step-by-step guide.
 >
-> Experienced SAP administrators may choose to create the role manually and assign it relevant permissions. In such case, it is **not** necessary to deploy the *NPLK900163*, but instead create a role using recommendations outlined in [Expert: Deploy SAP CRs and deploy required ABAP authorizations](deploy_required_abap_authorizations.md) as reference. Deployment of *NPLK900180* is still required to enable SAP continuous threat monitoring data connector agent to collect data from SAP successfully
+> Experienced SAP administrators may choose to create the role manually and assign it relevant permissions. In such case, it is **not** necessary to deploy the *NPLK900163*, but instead create a role using recommendations outlined in [Expert: Deploy SAP CRs and deploy required ABAP authorizations](preparing_sap.md#required-abap-authorizations) as reference. Deployment of *NPLK900180* is still required to enable SAP continuous threat monitoring data connector agent to collect data from SAP successfully
 
 
 ### SAP environment validation steps 
@@ -100,4 +100,4 @@ To successfully deploy the SAP continuous threat monitoring, a number of prerequ
 After verification that prerequisites are met, proceed to deploy CRs to SAP system and configure authorization
 
 > [!div class="nextstepaction"]
-> [Deploy SAP CRs and configure Authorization](deploying-required-sap-crs.md)
+> [Deploying SAP CRs and configuring authorization](preparing_sap.md)

@@ -317,7 +317,7 @@
     - name: Configure SAP data connector to use SNC
       href: sap/sap-solution-deploy-snc.md
     - name: Troubleshooting SAP solution deployment
-      href: sap-deploy-troubleshoot.md
+      href: sap/sap-deploy-troubleshoot.md
 - name: Reference
   items:
   - name: Microsoft Sentinel REST-API

@@ -80,7 +80,7 @@ To deploy SAP solution security content, do the following:
 
     [ ![SAP-related watchlists added to Microsoft Sentinel.](./media/deploy_sap_security_content/sap-watchlists.png) ](./media/deploy_sap_security_content/sap-watchlists.png#lightbox)
 
-    For more information, see [Use Microsoft Sentinel watchlists](watchlists.md) and [Available SAP watchlists](sap-solution-security-content.md#available-watchlists).
+    For more information, see [Use Microsoft Sentinel watchlists](../watchlists.md) and [Available SAP watchlists](sap-solution-security-content.md#available-watchlists).
 
 1. In Microsoft Sentinel, go to the **Microsoft Sentinel Continuous Threat Monitoring for SAP** data connector to confirm the connection:
 
