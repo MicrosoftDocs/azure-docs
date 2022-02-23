@@ -4,7 +4,7 @@ description: How to upgrade the MongoDB wire-protocol version for your existing 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 01/12/2022
+ms.date: 02/23/2022
 author: gahl-levy
 ms.author: gahllevy
 
@@ -21,7 +21,7 @@ When upgrading to a new API version, start with development/test workloads befor
 > At this moment, only qualifying accounts using the server version 3.2 can be upgraded to version 3.6 and higher. If your account doesn't show the upgrade option, please [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Upgrading to 4.2, 4.0, or 3.6
-The following are the new features included in version 4.0:
+### Benefits of upgrading to version 4.2:
 - Several major improvements to the aggregation pipeline such as support for `$merge`, Trigonometry, arithmetic expressions, and more.
 - Support for client side field encyption which further secures your database by enabling individual fields to be selectively encrypted and maintaining privacy of the encrypted data from database users and hosting providers.
 

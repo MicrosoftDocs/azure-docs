@@ -4,7 +4,7 @@ description: Learn about Azure Cosmos DB API for MongoDB 4.2 server version supp
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 02/23/2022
 author: gahl-levy
 ms.author: gahllevy
 ---
@@ -50,7 +50,7 @@ Azure Cosmos DB API for MongoDB supports the following database commands:
 
 ### Transaction commands
 > [!NOTE]
-> Multi-document transactions are only supported within a single non-sharded collection. Cross-collection and cross-shard multi-document transactions are not yet supported in the API for MongoDB and will be coming in a future release.
+> Multi-document transactions are only supported within a single non-sharded collection. Cross-collection and cross-shard multi-document transactions are not yet supported in the API for MongoDB.
 
 | Command | Supported |
 |---------|---------|
