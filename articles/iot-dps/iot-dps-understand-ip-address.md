@@ -18,9 +18,6 @@ The IP address prefixes for the public endpoints of an IoT Hub Device Provisioni
 | Ensure your devices and services communicate with IoT Hub DPS endpoints only | Use the _AzureIoTHub_ service tag to discover IoT Hub DPS instances. Configure ALLOW rules on your devices' and services' firewall setting for those IP address prefixes accordingly. Configure rules to drop traffic to other destination IP addresses that you do not want devices or services to communicate with. |
 | Ensure your IoT Hub DPS endpoint receives connections only from your devices and network assets | Use IoT DPS [IP filter feature](iot-dps-ip-filtering.md) to create filter rules for the device and DPS service APIs. These filter rules can be used to allow connections only from your devices and network asset IP addresses (see [limitations](#limitations-and-workarounds) section). |
 
-
-
-
 ## Best practices
 
 * When adding ALLOW rules in your devices' firewall configuration, it is best to provide specific [ports used by applicable protocols](../iot-hub/iot-hub-devguide-protocols.md#port-numbers).
@@ -38,7 +35,7 @@ The IP address prefixes for the public endpoints of an IoT Hub Device Provisioni
 
 * Your configured [IP filtering rules](iot-dps-ip-filtering.md) are only applied on your DPS endpoints and not on the linked IoT Hub endpoints. IP filtering for linked IoT Hubs must be configured separately. For more information, see, [IoT Hub IP filtering rules](../iot-hub/iot-hub-ip-filtering.md).
 
-## Support for IPv6 
+## Support for IPv6
 
 IPv6 is currently not supported on IoT Hub or DPS.
 
