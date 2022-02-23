@@ -73,7 +73,7 @@ After the Device Update agent is running on an IoT device, you must add the devi
    
    `sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>`
 
-1. Download the `sample-du-simulator-data.json` from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases). Run the following command to create and edit the `du-simulator-data.json`file in the tmp folder:
+1. Download the `sample-du-simulator-data.json` from [Release Assets](https://github.com/Azure/iot-hub-device-update/releases). Run the following command to create and edit the `du-simulator-data.json` file in the tmp folder:
 
    ```sh
    sudo nano /tmp/du-simulator-data.json
