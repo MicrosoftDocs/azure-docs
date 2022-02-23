@@ -68,7 +68,7 @@ Windows Service 2019 <br>
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+You can [use the pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate your Azure VMs costs.
 
 For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
