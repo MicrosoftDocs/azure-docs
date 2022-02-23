@@ -321,32 +321,32 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/postgresql/hyperscale/concept-app-type.md",
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-app-type.md",
         "redirect_url": "/azure/postgresql/hyperscale/howto-app-type",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/postgresql/hyperscale/concept-choose-distribution-column.md",
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-choose-distribution-column.md",
         "redirect_url": "/azure/postgresql/hyperscale/howto-choose-distribution-column",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/postgresql/hyperscale/concept-ssl-connection-security.md",
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-ssl-connection-security.md",
         "redirect_url": "/azure/postgresql/hyperscale/howto-ssl-connection-security",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/postgresql/hyperscale/concept-limits.md",
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-limits.md",
         "redirect_url": "/azure/postgresql/hyperscale/reference-limits",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/postgresql/hyperscale/concept-versions.md",
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-versions.md",
         "redirect_url": "/azure/postgresql/hyperscale/reference-versions",
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/postgresql/hyperscale/concept-extensions.md",
+        "source_path_from_root": "/articles/postgresql/hyperscale/concepts-extensions.md",
         "redirect_url": "/azure/postgresql/hyperscale/reference-extensions",
         "redirect_document_id": false
     },
