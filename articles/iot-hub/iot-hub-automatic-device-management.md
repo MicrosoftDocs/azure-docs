@@ -61,7 +61,7 @@ There are five steps to create a configuration. The following sections walk thro
 
 ### Name and Label
 
-1. Give your configuration a unique name that is up to 128 lowercase letters. Avoid spaces and the following invalid characters: `& ^ [ ] { } \ | " < > /`.
+1. Give your configuration a unique name that is up to 128 characters long. Lowercase letters and the special characters: `-+%_*!'` are allowed. Spaces are not allowed.
 
 2. Add labels to help track your configurations. Labels are **Name**, **Value** pairs that describe your configuration. For example, `HostPlatform, Linux` or `Version, 3.0.1`.
 
