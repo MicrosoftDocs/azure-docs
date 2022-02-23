@@ -222,7 +222,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 # [In-process](#tab/in-process)
 
-Use the [EventHubAttribute] to define a output binding to an event hub, which supports the following properties.
+Use the [EventHubAttribute] to define an output binding to an event hub, which supports the following properties.
 
 | Parameters | Description|
 |---------|----------------------|
@@ -231,7 +231,7 @@ Use the [EventHubAttribute] to define a output binding to an event hub, which su
 
 # [Isolated process](#tab/isolated-process)
 
-Use the [EventHubOutputAttribute] to define a output binding to an event hub, which supports the following properties.
+Use the [EventHubOutputAttribute] to define an output binding to an event hub, which supports the following properties.
 
 | Parameters | Description|
 |---------|----------------------|
@@ -239,6 +239,8 @@ Use the [EventHubOutputAttribute] to define a output binding to an event hub, wh
 |**Connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
 # [C# Script](#tab/csharp-script)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property | Description|
 |---------|------------------------|
@@ -254,7 +256,7 @@ Use the [EventHubOutputAttribute] to define a output binding to an event hub, wh
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation on parameters whose value would be published to Event Hub. The parameter should be of type `OutputBinding<T>` , where `T` is a POJO or any native Java type. The following settings are supported on the annotation:
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [EventHubOutput](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) annotation on parameters whose value would be published to Event Hub. The following settings are supported on the annotation:
 
 + [name](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput.name)
 + [dataType](/java/api/com.microsoft.azure.functions.annotation.eventhuboutput.datatype)
@@ -266,7 +268,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `EventHub` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file, which differs by runtime version.
 
 # [Functions 2.x+](#tab/functionsv2)
 
@@ -289,6 +291,8 @@ The following table explains the binding configuration properties that you set i
 |**connection**  | The name of an app setting or setting collection that specifies how to connect to Event Hubs. To learn more, see [Connections](#connections).|
 
 ---
+
+::: zone-end
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

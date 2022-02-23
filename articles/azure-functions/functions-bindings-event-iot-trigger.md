@@ -5,6 +5,7 @@ author: ggailey777
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure IoT Hub trigger for Azure Functions

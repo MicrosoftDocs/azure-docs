@@ -13,11 +13,11 @@ The extension NuGet package you install depends on the C# mode you're using in y
 
 # [In-process](#tab/in-process)
 
-Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](../articles/azure-functions/functions-dotnet-class-library.md).
 
 # [Isolated process](#tab/isolated-process)
 
-Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](dotnet-isolated-process-guide.md).
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running functions on .NET 5.0 in Azure](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
 # [C# script](#tab/csharp-script)
 
@@ -75,7 +75,7 @@ You can install this version of the extension in your function app by registerin
 
 The Event Hubs extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the Event Grid binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
-# [Bundle v3.x](#tab/extensionv3)
+# [Bundle v3.x](#tab/extensionv5)
 
 [!INCLUDE [functions-bindings-event-hubs-extension-5](functions-bindings-event-hubs-extension-5.md)] 
 
@@ -93,11 +93,13 @@ You can add this version of the extension from the extension bundle v3 by adding
 
 To learn more, see [Update your extensions].
 
-# [Bundle v2.x](#tab/extensionv2)
+# [Bundle v2.x](#tab/extensionv3)
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
 
 ---
+
+::: zone-end
 
 ## host.json settings
 <a name="host-json"></a>
