@@ -757,14 +757,16 @@
         href: hyperscale/howto-useful-diagnostic-queries.md
   - name: Reference
     items:
-      - name: Overview
-        href: hyperscale/reference-overview.md
-      - name: SQL API functions
-        href: hyperscale/reference-functions.md
-      - name: Server parameters
-        href: hyperscale/reference-parameters.md
-      - name: System tables
-        href: hyperscale/reference-metadata.md
+      - name: SQL API
+        items:
+        - name: Overview
+          href: hyperscale/reference-overview.md
+        - name: SQL API functions
+          href: hyperscale/reference-functions.md
+        - name: Server parameters
+          href: hyperscale/reference-parameters.md
+        - name: System tables
+          href: hyperscale/reference-metadata.md
       - name: PostgreSQL versions
         href: hyperscale/reference-versions.md
       - name: PostgreSQL extensions
