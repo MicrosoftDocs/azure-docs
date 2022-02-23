@@ -176,7 +176,7 @@ Yes. There are two main scenarios where this can occur.
 
 For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage, with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you will see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, i.e. exceeds 100% normalized utilization.
 
-Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determine if-there-is-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429s) to debug these scenarios.
+Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determine-if-there-is-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429s) to debug these scenarios.
 
 Another common question that arises is, **Why is normalized RU consumption 100%, but autoscale did not scale to the max RU/s?**
 
