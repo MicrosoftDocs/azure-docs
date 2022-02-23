@@ -99,11 +99,11 @@ When you are using virtual network integration, you can configure how parts of t
 
 Bringing you own storage for content in often used in Functions where [content storage](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
 
-To route content storage traffic through the virtual network integration, add an app setting named `WEBSITE_CONTENTOVERVNET` with the value `1`. In addition to adding the app setting, you must also ensure that any Firewall or Network Security Group configured on the subnet allow traffic to port 443 and 445.
+To route content storage traffic through the virtual network integration, you need to add an app setting named `WEBSITE_CONTENTOVERVNET` with the value `1`. In addition to adding the app setting, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
 
 ##### Container image pull
 
-When using custom containers for Linux, you can pull the container over the virtual network integration. To route the container pull traffic through the virtual network integration, you must add an app setting name `WEBSITE_PULL_IMAGE_OVER_VNET` with the value `true`
+When using custom containers for Linux, you can pull the container over the virtual network integration. To route the container pull traffic through the virtual network integration, you must add an app setting named `WEBSITE_PULL_IMAGE_OVER_VNET` with the value `true`.
 
 #### Network routing
 
