@@ -96,7 +96,7 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 > [!Note]
 > If you configure `http://localhost`, internally MSAL.NET will find a random open port and use it.
 
-### Linux and MAC
+### Linux and macOS
 
 On Linux, MSAL.NET will open the default OS browser using the a tool such as `xdg-open`. Opening the browser as `sudo` does is not supported, and MSAL will throw an exception. On Mac, the browser is opened by invoking `open <url>`.
 
