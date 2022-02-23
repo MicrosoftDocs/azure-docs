@@ -29,6 +29,7 @@ The following items are required for completing the steps in this article:
 
 ## Install Spark & Hive Tools
 
+
 After you meet the prerequisites, you can install Spark & Hive Tools for Visual Studio Code by following these steps:
 
 1. Open Visual Studio Code.
@@ -42,6 +43,10 @@ After you meet the prerequisites, you can install Spark & Hive Tools for Visual 
      ![Spark & Hive for Visual Studio Code Python install](./media/vscode-tool-synapse/install-hdInsight-plugin.png)
 
 5. Select **Reload** when necessary.
+
+> [!Note]
+>
+> **Synapse PySpark installation error** is an [known issue](#known-issues).
 
 ## Open a work folder
 
@@ -85,7 +90,9 @@ Follow these steps to connect to Azure:
 
      ![Set default cluster configuration](./media/vscode-tool-synapse/set-default-cluster-configuration.png)
 
-## Submit interactive Synapse PySpark queries to Spark pool
+## Submit interactive Synapse PySpark queries to Spark pool (Not supported currently)
+
+For Synapse Pyspark interactive, since it's dependency will not be maintained anymore by other team, it will not be maintained any more.  If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
 
 Users can perform Synapse PySpark interactive on Spark pool in the following ways:
 
@@ -291,12 +298,11 @@ You can perform different operations in Azure Explorer within Spark & Hive tools
 
 ## Known issues
 
-### ms-python >=2020.5.78807 version is not supported on this extention 
-
-"Failed to connect to Jupyter notebook." is a known issue for python version >=2020.5.78807. It is recommended that users use the **[2020.4.76186](https://github.com/microsoft/vscode-python/releases/download/2020.4.76186/ms-python-release.vsix)** version of ms-python to avoid this issue.
+### Synapse PySpark installation error.
 
 ![known issues](./media/vscode-tool-synapse/known-issue.png)
 
+ For Synapse PySpark installation error, since it's dependency will not be maintained anymore by other team, it will not be maintained any more. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
 
 ## Next steps
 

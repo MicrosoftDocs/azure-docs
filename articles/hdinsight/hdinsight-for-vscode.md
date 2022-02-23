@@ -39,6 +39,10 @@ After you meet the prerequisites, you can install Spark & Hive Tools for Visual 
 
 5. Select **Reload** when necessary.
 
+> [!Note]
+>
+> **Synapse PySpark installation error** is an [known issue](#known-issues).
+
 ## Open a work folder
 
 To open a work folder and to create a file in Visual Studio Code, follow these steps:
@@ -260,7 +264,9 @@ The tool also supports the **Spark SQL** query:
 
 > [!NOTE]
 >
-> [ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension](#known-issues) is a known issue. Please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
+> 1. [ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension](#known-issues) is a known issue. Please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
+>
+> 2. [For Synapse PySpark installation error](#known-issues), since it's dependency will not be maintained anymore by other team, it will not be maintained any more. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
 
 ## Submit PySpark batch job
 
@@ -483,7 +489,14 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
 ## Known Issues 
 
- ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension, please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
+### Synapse PySpark installation error.
+
+ For Synapse PySpark installation error, since it's dependency will not be maintained anymore by other team, it will not be maintained any more. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
+
+   ![synapse pyspark installation error](./media/hdinsight-for-vscode/known-issue.png)
+
+
+### ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension, please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
 
  1. Disable auto updating extension.
 
