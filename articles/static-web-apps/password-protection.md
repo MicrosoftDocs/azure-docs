@@ -20,7 +20,7 @@ Password protection is a lightweight feature that offers a limited level of secu
 
 ## Prerequisites
 
-- An existing static web app in the Standard plan
+An existing static web app in the Standard plan.
 
 ## Enable password protection
 
