@@ -18,19 +18,19 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#-Prerequisites)| [Yes](#-Prerequisites)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
+| [Yes](#prerequisites)| [Yes](#prerequisites)| Yes | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
 ### Supported scenarios for Power BI scans
 
 |**Azure Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Power BI tenant same/cross**  | **Runtime option**  |
 |---------|---------|---------|---------|
-|Allowed     |Allowed        |Same tenant        |[Azure Runtime & Managed Identity](#Authenticate-to-Power-BI-Tenant-Managed-Identity-only)    |
-|Allowed     |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](#Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
-|Allowed     |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](#Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
-|Denied      |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](#Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
-|Denied      |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](#Scan-same-tenant-using-Self-hosted-IR-and-Delegated-Auth)  |
-|Allowed     |Allowed        |Cross-tenant       |[Azure Runtime  & Delegated auth](#Cross-Power-BI-tenant-registration-and-scan)                  |
-|Allowed     |Allowed        |Cross-tenant       |[Self-hosted runtime & Delegated auth](#Cross-Power-BI-tenant-registration-and-scan)             |
+|Allowed     |Allowed        |Same tenant        |[Azure Runtime & Managed Identity](#authenticate-to-power-bi-tenant-managed-identity-only)    |
+|Allowed     |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](#scan-same-tenant-using-self-hosted-ir-and-delegated-auth)  |
+|Allowed     |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](#scan-same-tenant-using-self-hosted-ir-and-delegated-auth)  |
+|Denied      |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](#scan-same-tenant-using-self-hosted-ir-and-delegated-auth)  |
+|Denied      |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](#scan-same-tenant-using-self-hosted-ir-and-delegated-auth)  |
+|Allowed     |Allowed        |Cross-tenant       |[Azure Runtime  & Delegated auth](#cross-power-bi-tenant-registration-and-scan)                  |
+|Allowed     |Allowed        |Cross-tenant       |[Self-hosted runtime & Delegated auth](#cross-power-bi-tenant-registration-and-scan)             |
 
 ### Known limitations
 
