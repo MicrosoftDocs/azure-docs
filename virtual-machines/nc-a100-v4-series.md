@@ -14,7 +14,7 @@ ms.date: 03/01/2022
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The NC A100 v4 series virtual machine is a new addition to the Azure GPU family, designed for real worl Applied AI training and batch inferencing workloads. 
+The NC A100 v4 series virtual machine (VM) is a new addition to the Azure GPU family. You can use this series for real-world Azure Applied AI training and batch inference workloads. 
 
 The NC A100 v4 series is powered by NVIDIA A100 PCIe GPU and 3rd-generation AMD Epyc™ 7V13 (Milan) processor.  The VMs feature up to 4 NVIDIA A100 PCIe GPUs with 80GB memory each, up to 96 non-multithreaded AMD EPYC Milan processor cores and 880 GiB of system memory. 
 These virtual machines are ideal for real world Applied AI workload including GPU accelerated analytics and databases, batch inferencing with heavy pre- and post-processing, autonomous driving reinforcement learning, oil & gas reservoir simulation, ML development, video processing, AI/ML web services, and more.
