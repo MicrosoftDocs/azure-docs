@@ -301,7 +301,7 @@ AKS offers a separate feature to automatically scale node pools with a feature c
 
 ## Resize a node pool
 
-To increase of number of deployments or run a larger workload, you may want to change the VMSS plan or resize AKS instances. However, you should not do any direct customizations to these nodes using the IaaS APIs or resources, as any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. This means resizing your AKS instances in this manner is not supported.
+To increase of number of deployments or run a larger workload, you may want to change the virtual machine scale set plan or resize AKS instances. However, you should not do any direct customizations to these nodes using the IaaS APIs or resources, as any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. This means resizing your AKS instances in this manner is not supported.
 
 The recommended method to resize a node pool to the desired SKU size is as follows:
 
@@ -310,7 +310,7 @@ The recommended method to resize a node pool to the desired SKU size is as follo
 * Remove the old node pool.
 
 > [!IMPORTANT]
-> This method is specific to VMSS-based AKS clusters. When using VMAS, you are limited to only one node pool per cluster.
+> This method is specific to virtual machine scale set-based AKS clusters. When using virtual machine availability sets, you are limited to only one node pool per cluster.
 
 ### Create a new node pool with the desired SKU
 
@@ -388,7 +388,7 @@ kubectl get pods -o wide -A
 
 ### Remove the existing node pool
 
-To delete the existing node pool, see [the below steps](#delete-a-node-pool)
+To delete the existing node pool, see the section on [Deleting a node pool](#delete-a-node-pool).
 
 After completion, the final result is the AKS cluster having a single, new node pool with the new, desired SKU size and all the applications and pods properly running.
 
