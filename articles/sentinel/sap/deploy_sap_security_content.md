@@ -51,7 +51,7 @@ To deploy SAP solution security content, do the following:
 
 1. To open the SAP solution page, select **Microsoft Sentinel - Continuous Threat Monitoring for SAP (preview)**.
 
-    :::image type="content" source="media/sap/sap-solution.png" alt-text="Screenshot of the 'Microsoft Sentinel - Continuous Threat Monitoring for SAP (preview)' solution pane.":::
+    :::image type="content" source="./media/deploy_sap_security_content/sap-solution.png" alt-text="Screenshot of the 'Microsoft Sentinel - Continuous Threat Monitoring for SAP (preview)' solution pane.":::
 
 1. To launch the solution deployment wizard, select **Create**, and then enter the details of the Azure subscription, resource group, and Log Analytics workspace where you want to deploy the solution.
 
@@ -78,16 +78,16 @@ To deploy SAP solution security content, do the following:
     a. Download SAP watchlists from the Microsoft Sentinel GitHub repository at https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/Analytics/Watchlists.  
     b. In the Microsoft Sentinel **Watchlists** area, add the watchlists to your Microsoft Sentinel workspace. Use the downloaded CSV files as the sources, and then customize them as needed for your environment.  
 
-    [ ![SAP-related watchlists added to Microsoft Sentinel.](media/sap/sap-watchlists.png) ](media/sap/sap-watchlists.png#lightbox)
+    [ ![SAP-related watchlists added to Microsoft Sentinel.](./media/deploy_sap_security_content/sap-watchlists.png) ](./media/deploy_sap_security_content/sap-watchlists.png#lightbox)
 
     For more information, see [Use Microsoft Sentinel watchlists](watchlists.md) and [Available SAP watchlists](sap-solution-security-content.md#available-watchlists).
 
 1. In Microsoft Sentinel, go to the **Microsoft Sentinel Continuous Threat Monitoring for SAP** data connector to confirm the connection:
 
-    [ ![Screenshot of the Microsoft Sentinel Continuous Threat Monitoring for SAP data connector page.](media/sap/sap-data-connector.png) ](media/sap/sap-data-connector.png#lightbox)
+    [ ![Screenshot of the Microsoft Sentinel Continuous Threat Monitoring for SAP data connector page.](./media/deploy_sap_security_content/sap-data-connector.png) ](./media/deploy_sap_security_content/sap-data-connector.png#lightbox)
 
     SAP ABAP logs are displayed on the Microsoft Sentinel **Logs** page, under **Custom logs**:
 
-    [ ![Screenshot of the SAP ABAP logs in the 'Custom Logs' area in Microsoft Sentinel.](media/sap/sap-logs-in-sentinel.png) ](media/sap/sap-logs-in-sentinel.png#lightbox)
+    [ ![Screenshot of the SAP ABAP logs in the 'Custom Logs' area in Microsoft Sentinel.](./media/deploy_sap_security_content/sap-logs-in-sentinel.png) ](./media/deploy_sap_security_content/sap-logs-in-sentinel.png#lightbox)
 
     For more information, see [Microsoft Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).

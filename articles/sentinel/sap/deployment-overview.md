@@ -48,9 +48,7 @@ Deployment of the SAP continuous threat monitoring solution is divided into the 
 
 1. [Prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md)
 
-1. [Deploy SAP CRs and configure Authorization](deploying-required-sap-crs.md)
-
-1. [Define a role configuration and create a user account](role_configuration.md)
+1. [Prepare SAP environment by deploying SAP CRs, configure Authorization and create user](preparing_sap.md)
 
 1. [Deploy and configure the data connector agent container](deploy_data_connector_agent_container.md)
 
@@ -59,7 +57,6 @@ Deployment of the SAP continuous threat monitoring solution is divided into the 
 1. [Optional deployment steps](optional_deployment_steps.md)
    - [Configure auditing](configure_audit.md)
    - [Configure SAP data connector to use SNC](configure_snc.md)
-
 
 ## Next steps
 

@@ -236,7 +236,7 @@ Use the **RSAU_CONFIG_LOG** transaction for this step.
 
 If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system.
 
-For more information, see [Validate existing SAP environment](validate-existing-sap-environment.md).
+For more information, see [ValidateSAP environment validation steps](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps).
 
 ### Network connectivity issues
 
@@ -260,7 +260,7 @@ If you have unexpected issues not listed in this article, try the following step
 
 ### Retrieving an audit log fails with warnings
 
-If you attempt to retrieve an audit log, without the [required change request](validate-existing-sap-environment.md) deployed or on an older / unpatched version, and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
+If you attempt to retrieve an audit log, without the [required change request](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) deployed or on an older / unpatched version, and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
 
 - Using a compatibility mode called *XAL* on older versions
 - Using a version not recently patched
@@ -295,7 +295,7 @@ For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
 
 ### Unable to import the change request transports to SAP
 
-If you're not able to import the [required SAP log change requests](validate-existing-sap-environment.md) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
+If you're not able to import the [required SAP log change requests](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-environment-validation-steps) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
 
 ### Audit log data not ingested past initial load
 

@@ -35,37 +35,22 @@ This guide is a step-by-step instruction on how to enable and configure auditing
 
 #### Enabling auditing
 
+> [!IMPORTANT]
+> Audit policy should be configured in tight collaboration between SAP administrators and security department. Below steps outline a sample on how to enable auditing in SAP
+
 1. Logon to SAP GUI and run **RSAU_CONFIG** transaction
 1. In **Security Audit Log** select **Parameter** under **Security Audit Log Configuration** section in **Configuration** tree.
-1. Click on **Display <-> Change** and ensure **Static security audit active** checkbox is selected.
+1. If the **Static security audit active** checkbox is selected, system-level auditing is turned on, if it isn't, click on **Display <-> Change** and ensure **Static security audit active** checkbox is selected. A server reboot will be necessary to activate the auditing.
 1. Right click Static Configuration and select **Create Profile**
-1. 
-
-1. Edit Profiles** window select **More** -> **Utilities** -> **Import profiles** -> **Of active servers**
-<br>![Import profiles of active servers](./media/configure_audit/import_profiles_of_active_servers.png "Import profiles of active servers")
-1. In **Display Profile Check Log** click **Back**
-<br>![Display Profile Check Log](./media/configure_audit/display_profile_check_log.png "Display Profile Check Log")
-1. Back in **Edit Profiles** window click the boxes next to **Profile** field
-<br>![Profiles](./media/configure_audit/profiles.png "Profiles")
-1. In **Restrict Value Range** window select **Default** profile and click green checkbox (Copy)
-<br>![Select Default profile](./media/configure_audit/profile_select.png "Select Default profile")
-1. Back in **Edit Profiles** window verify **Administrative Data** is selected in **Edit Profile** section and click **Import**
-<br>![Import profile](./media/configure_audit/profile_import.png "Import profile")
-1. In the Information dialog box click green checkbox
-<br>![Information - First maintain management data](./media/configure_audit/info_maintain_management_data.png "Information - First maintain management data")
-1. In **Edit Profile Management Data** window, type a profile description and add an extension **.PFL** (e.g.) `DEFAULT` to **Activation in Operating System File** field (e.g.) `/usr/sap/A4H/SYS/profile/DEFAULT.PFL`, check **Default Profile** in **Profile type**, then click **Copy**
-<br>![Edit Profile Management Data](./media/configure_audit/edit_profile_management_data.png "Edit Profile Management Data")
-1. Back in **Edit Profiles** click **Import** 
-<br>![Import profile again](./media/configure_audit/edit_profiles.png "Import profile again")
-1. In **Import Profile** dialog box click the boxes next to **Name** field
-<br>![Import profile dialog box](./media/configure_audit/import_profile.png "Import profile dialog box")
-1. In the **Instance Profile** window, select the profile name specified in the previous step, then click **Copy** (green checkbox)
-<br>![Select profile](./media/configure_audit/instance_profile.png "Select profile")
-1. In the **Import profile** window click **Copy**
-<br>![Import profile dialog box - copy](./media/configure_audit/import_profile_copy.png "Import profile dialog box - copy")
-
-
-
+1. Specify a name for the profile in the **Profile/Filter Number** field
+1. Check the **Filter for recording active** checkbox
+1. In Client field, enter **\***
+1. In User field enter **\***
+1. In Event Selection, select **Classic event selection** select all events (Dialog Logon, RFC/CPIC Logon, RFC Function Call, Transaction Start, Report Start, User Master Changes, System Events, Other Events). Alternatively, review list of message IDs listed in [Recommended audit categories](#recommended-audit-categories) section of this article and configure them in **Detail event selection**
+1. Click **Save**
+1. Notice that **Static Configuration** section displays the newly created profile<br>
+Right click the profile and select **Activate**
+1. In the confirmation window click **Yes** to activate the newly created profile
 
 ### Recommended audit categories
 The following table lists Message IDs used by Continuous Threat Monitoring for SAP solution. In order for analytic rules to detect events in a correct fashion, it is strongly recommended to configure an audit policy that includes message IDs listed below as a minimum.
@@ -121,7 +106,3 @@ EU2	|	Client &A settings changed ( &B )	|	System	|	Critical	|	Used	|
 EUF	|	Could not call RFC function module &A	|	RFC Start	|	Non-Critical	|	Used	|
 FU0	|	Exclusive security audit log medium changed (new status &A)	|	System	|	Critical	|	Used	|
 FU1	|	RFC function &B with dynamic destination &C was called in program &A	|	RFC Start	|	Non-Critical	|	Used	|
-
-
-
-

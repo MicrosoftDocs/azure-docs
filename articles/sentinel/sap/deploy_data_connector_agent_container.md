@@ -51,8 +51,8 @@ More information on managed identity can be found here: [What are managed identi
 ### Prerequisites
 To deploy Data connector agent, a host running Linux must be deployed.
 Deployment of data connector container through a kickstart script supports **Ubuntu version 18.04 or higher**, **SLES version 15 or higher**, or **RHEL version 7.7 or higher**
-In case of a different Operating system, deploy and configure the container manually. For more information on manual configuration see [Manual deployment of data connector agent](deploy_data_connector_agent_manually.md)
-Azure CLI is used in this step-by-step guide. For more information on how to deploy Azure CLI see [How to install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+In case of a different Operating system, deploy and configure the container manually. For more information on manual configuration see [Manual deployment of data connector agent](#manual-sap-data-connector-deployment)
+Azure CLI is used in this step-by-step guide. For more information on how to deploy Azure CLI see [How to install the Azure CLI](../../../../cli/azure/install-azure-cli)
 
 ## Deployment of data connector agent running on an Azure VM using Azure Keyvault for secret storage
 
@@ -194,7 +194,6 @@ To view list of available container use `docker ps -a` command
     ```bash
     docker update --restart unless-stopped sapcon-a4h
     ```
-## Configuration stored in config file or using environment variables
 
 ## Deployment of Microsoft Sentinel continuous protection for SAP data connector using configuration file for secrets storage
 
@@ -225,6 +224,9 @@ To view list of available container use `docker ps -a` command
 ```bash
 docker update --restart unless-stopped sapcon-a4h
 ```
+
+## Manual SAP data connector deployment
+
 
 ## Next steps
 

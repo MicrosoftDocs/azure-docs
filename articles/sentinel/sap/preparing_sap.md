@@ -50,7 +50,7 @@ Deployment of the SAP continuous threat monitoring solution is divided into the 
 > Obtain details of the **SAP system version**, **SID**, **System number**, **Client number**, **IP address**, **administrative username** and **password** before beginning
 
 
-Deployment of Sentinel continuous protection for SAP requires installation of several CRs, more details about the required CRs can be found in the [Validate and configure existing SAP environment](#expert-required-abap-authorizations) step of this guide.
+Deployment of Sentinel continuous protection for SAP requires installation of several CRs, more details about the required CRs can be found in the [Validate and configure existing SAP environment](#required-abap-authorizations) step of this guide.
 
 To deploy the CRs, follow the steps outlined below:
 
