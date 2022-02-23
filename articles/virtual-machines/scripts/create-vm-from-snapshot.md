@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/10/2017
+ms.date: 02/23/2022
 ms.author: ramankum
 ms.custom: mvc
 ---
@@ -23,23 +23,27 @@ ms.custom: mvc
 
 This script creates a virtual machine from a snapshot of an OS disk.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh "Create VM from snapshot")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh":::
 
 ## Clean up deployment
 
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name myResourceGroupName
 ```
 
-## Script explanation
+## Sample reference
 
 This script uses the following commands to create a managed disk, virtual machine, and all related resources. Each command in the table links to command specific documentation.
 

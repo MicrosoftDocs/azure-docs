@@ -9,7 +9,7 @@ ms.subservice: disks
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 05/19/2017
+ms.date: 02/23/2022
 ms.author: ramankum
 ms.custom: "mvc,seodec18"
 ---
@@ -18,15 +18,19 @@ ms.custom: "mvc,seodec18"
 
 This script exports a managed snapshot to a storage account in different region. It first generates the SAS URI of the snapshot and then uses it to copy it to a storage account in different region. Use this script to maintain backup of your managed disks in different region for disaster recovery.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/copy-snapshots-to-storage-account/copy-snapshots-to-storage-account.sh "Copy snapshot")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Script explanation
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-snapshots-to-storage-account/copy-snapshots-to-storage-account.sh":::
+
+## Sample reference
 
 This script uses following commands to generate SAS URI for a managed snapshot and copies the snapshot to a storage account using SAS URI. Each command in the table links to command specific documentation.
 

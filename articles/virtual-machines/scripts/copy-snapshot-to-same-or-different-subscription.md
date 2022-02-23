@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 05/19/2017
+ms.date: 02/23/2022
 ms.author: ramankum
 ms.custom: mvc
 ---
@@ -24,15 +24,19 @@ This script copies a snapshot of a managed disk to same or different subscriptio
 > [!NOTE]
 > Both subscriptions must be located under the same tenant
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh "Copy snapshot")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Script explanation
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh":::
+
+## Sample reference
 
 This script uses following commands to create a snapshot in the target subscription using the `Id` of the source snapshot. Each command in the table links to command specific documentation.
 

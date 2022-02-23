@@ -9,7 +9,7 @@ ms.subservice: disks
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 05/19/2017
+ms.date: 02/23/2022
 ms.author: ramankum
 ms.custom: mvc
 ---
@@ -18,15 +18,19 @@ ms.custom: mvc
 
 This script creates a managed disk from a VHD file in a storage account in the same subscription. Use this script to import a specialized (not generalized/sysprepped) VHD to managed OS disk to create a virtual machine. Or, use it to import a data VHD to managed data disk.
 
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/create-managed-data-disks-from-vhd/create-managed-data-disks-from-vhd.sh "Create managed disk from VHD")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Script explanation
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-managed-data-disks-from-vhd/create-managed-data-disks-from-vhd.sh":::
+
+## Sample reference
 
 This script uses following commands to create a managed disk from a VHD. Each command in the table links to command specific documentation.
 

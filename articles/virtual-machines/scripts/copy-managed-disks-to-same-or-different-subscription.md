@@ -8,7 +8,7 @@ ms.service: virtual-machines
 ms.devlang: azurecli
 ms.topic: sample
 ms.workload: infrastructure
-ms.date: 05/19/2017
+ms.date: 02/23/2022
 ms.author: ramankum
 ms.custom: mvc
 ---
@@ -16,15 +16,20 @@ ms.custom: mvc
 # Copy managed disks to same or different subscription with CLI
 
 This script copies a managed disk to same or different subscription but in the same region. The copy works only when the subscriptions are part of the same Azure AD tenant.
-[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
 ## Sample script
 
-[!code-azurecli[main](../../../cli_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh "Copy managed disk")]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-## Script explanation
+### Run the script
+
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh":::
+
+## Sample reference
 
 This script uses following commands to create a new managed disk in the target subscription using the `Id` of the source managed disk. Each command in the table links to command specific documentation.
 
