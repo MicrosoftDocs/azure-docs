@@ -16,13 +16,13 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-As part of customer extensibility model, Azure Communication Services Job Router supports Azure Function Rule Engine. It gives Contoso the ability to bring their own Azure function. With Azure function Rule, Contoso can incorporate custom and complex logic into the process of routing.
+As part of customer extensibility model, Azure Communication Services Job Router supports Azure Function Rule Engine. It gives you the ability to bring their own Azure function. With Azure function Rule, you can incorporate custom and complex logic into the process of routing.
 
 A couple of examples are given below to showcase the flexibility that Azure Function Rule provides.
 
 ## Scenario: Custom Scoring Rule in *Best Worker Distribution Mode*
 
-Contoso wants to distribute offers among their workers associated with a queue. The workers will be given a score based on their labels and skill set. The worker with the highest score should get the first offer (_BestWorker Distribution Mode_).
+We want to distribute offers among their workers associated with a queue. The workers will be given a score based on their labels and skill set. The worker with the highest score should get the first offer (_BestWorker Distribution Mode_).
 
 :::image type="content" source="../media/router/Best_Worker_Distribution_Mode_Problem_Statement.jpg" alt-text="Diagram showing Best Worker Distribution Mode problem statement":::
 
@@ -68,7 +68,7 @@ Contoso wants to distribute offers among their workers associated with a queue. 
 
 ### Expectation
 
-Contoso would like the following behavior when scoring workers to select which worker gets the first offer.
+We would like the following behavior when scoring workers to select which worker gets the first offer.
 
 :::image type="content" source="../media/router/Best_Worker_Distribution_Mode_Scoring_Rule.jpg" alt-text="Decision flow diagram for scoring worker":::
 
