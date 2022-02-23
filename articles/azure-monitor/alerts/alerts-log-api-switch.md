@@ -57,6 +57,12 @@ $switchJSON = '{"scheduledQueryRulesEnabled": true}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 
+You can also use [Azure CLI](/cli/azure/reference-index#az-rest) tool:
+
+```bash
+az rest --method post --url /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview --body '{"scheduledQueryRulesEnabled": true}'
+```
+
 If the switch is successful, the response is:
 
 ```json
@@ -78,6 +84,12 @@ You can also use [ARMClient](https://github.com/projectkudu/ARMClient) tool:
 
 ```powershell
 armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
+```
+
+You can also use [Azure CLI](/cli/azure/reference-index#az-rest) tool:
+
+```bash
+az rest --method get --url /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
 If the Log Analytics workspace was switched to [scheduledQueryRules API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules), the response is:
