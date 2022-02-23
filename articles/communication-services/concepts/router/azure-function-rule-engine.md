@@ -18,9 +18,9 @@ ms.service: azure-communication-services
 
 As part of customer extensibility model, Azure Communication Services Job Router supports Azure Function Rule Engine. It gives Contoso the ability to bring their own Azure function. With Azure function Rule, Contoso can incorporate custom and complex logic into the process of routing.
 
-A couple of examples are given below to showcase the additional flexibility that Azure Function Rule provides.
+A couple of examples are given below to showcase the flexibility that Azure Function Rule provides.
 
-## Example 1: Custom Scoring Rule in *Best Worker Distribution Mode*
+## Scenario: Custom Scoring Rule in *Best Worker Distribution Mode*
 
 Contoso wants to distribute offers among their workers associated with a queue. The workers will be given a score based on their labels and skill set. The worker with the highest score should get the first offer (_BestWorker Distribution Mode_).
 
@@ -41,8 +41,8 @@ Contoso wants to distribute offers among their workers associated with a queue. 
     - ["English"] >= 7
     - ["ChatSupport"] = true
     - ["XboxSupport"] = true
-- Job currently is in a state of '**Queued**'; enqueued in *Xbox Hardware Support Queue* waiting to be matched to an worker.
-- Multiple workers becomes available simultaneously.
+- Job currently is in a state of '**Queued**'; enqueued in *Xbox Hardware Support Queue* waiting to be matched to a worker.
+- Multiple workers become available simultaneously.
   - **Worker 1** has been created with the following **labels**
     - ["HighPrioritySupport"] = true
     - ["HardwareSupport"] = true
@@ -75,14 +75,14 @@ Contoso would like the following behavior when scoring workers to select which w
 The decision flow (as shown above) is as follows:
 
 - If a job is **NOT HighPriority**:
-  - Workers with label: **["Support_XBOX"] = true**; gets a score of *100*
-  - Otherwise, gets a score of *1*
+  - Workers with label: **["Support_XBOX"] = true**; get a score of *100*
+  - Otherwise, get a score of *1*
 
 - If a job is **HighPriority**:
-  - Workers with label: **["HighPrioritySupport"] = false**; gets a score of *1*
+  - Workers with label: **["HighPrioritySupport"] = false**; get a score of *1*
   - Otherwise, if **["HighPrioritySupport"] = true**:
     - Does Worker specialize in console type -> Does worker have label: **["Support_<**jobLabels.ConsoleType**>"] = true**? If true, worker gets score of *200*
-    - Otherwise, gets a score of *100*
+    - Otherwise, get a score of *100*
 
 ### Creating an Azure Function
 
@@ -145,35 +145,28 @@ module.exports = async function (context, req) {
     const jobLabels = req.body.job;
     const workerLabels = req.body.worker;
 
-    const isHighPriority = jobLabels["HighPriority"] !== undefined ? jobLabels["HighPriority"] : false;
+    const isHighPriority = !!jobLabels["HighPriority"];
     context.log('Job is high priority? Status: ' + isHighPriority);
 
     if(!isHighPriority) {
-        const isGenericXboxSupportWorker = workerLabels["Support_XBOX"] !== undefined ? workerLabels["Support_XBOX"] : false;
+        const isGenericXboxSupportWorker = !!workerLabels["Support_XBOX"];
         context.log('Worker provides general xbox support? Status: ' + isGenericXboxSupportWorker);
 
-        if(isGenericXboxSupportWorker) {
-            score = 100;
-        } else {
-            score = 1;
-        }
+        score = isGenericXboxSupportWorker ? 100 : 1;
+
     } else {
-        const workerSupportsHighPriorityJob = workerLabels["HighPrioritySupport"] !== undefined ? workerLabels["HighPrioritySupport"] : false;
+        const workerSupportsHighPriorityJob = !!workerLabels["HighPrioritySupport"];
         context.log('Worker provides high priority support? Status: ' + workerSupportsHighPriorityJob);
 
         if(!workerSupportsHighPriorityJob) {
             score = 1;
         } else {
-            const key = 'Support_'.concat(jobLabels["ConsoleType"]);
+            const key = `Support_${jobLabels["ConsoleType"]}`;
             
-            const workerSpecializeInConsoleType = workerLabels[key] !== undefined ? workerLabels[key] : false;
-            context.log('Worker specializes in consoleType:' + jobLabels["ConsoleType"] + '? Status: ' + workerSpecializeInConsoleType);
+            const workerSpecializeInConsoleType = !!workerLabels[key];
+            context.log(`Worker specializes in consoleType: ${jobLabels["ConsoleType"]} ? Status: ${workerSpecializeInConsoleType}`);
 
-            if(workerSpecializeInConsoleType) {
-                score = 200;
-            } else {
-                score = 100;
-            }
+            score = workerSpecializeInConsoleType ? 200 : 100;
         }
     }
     context.log('Final score of worker: ' + score);
@@ -191,9 +184,9 @@ Output for **Worker 1**
 200
 ```
 
-With the aforementioned implementation, for the given job we will get the following scores for workers:
+With the aforementioned implementation, for the given job we'll get the following scores for workers:
 | Worker | Score |
-| -- | -- |
+|--------|-------|
 | Worker 1 | 200 |
 | Worker 2 | 200 |
 | Worker 3 | 1 |
@@ -310,7 +303,7 @@ Output
 Worker_1 // or Worker_2
 
 Since both workers, Worker_1 and Worker_2, get the same score of 200,
-both workers are equally likely to get an offer.
+the worker who has been idle the longest will get the first offer.
 ```
 
 ## See also
