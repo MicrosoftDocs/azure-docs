@@ -865,19 +865,6 @@ The following example shows an exported device lifecycle message received in Azu
 }
 ```
 
-## Comparison of legacy data export and data export
-
-The following table shows the differences between the [legacy data export](howto-export-data-legacy.md) and data export features:
-
-| Capabilities  | Legacy data export | New data export |
-| :------------- | :---------- | :----------- |
-| Available data types | Telemetry, Devices, Device templates | Telemetry, Property changes, Device connectivity changes, Device lifecycle changes, Device template lifecycle changes |
-| Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
-| Enrichments | None | Enrich with a custom string or a property value on the device |
-| Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export plus webhooks|
-| Supported application versions | V2, V3 | V3 only |
-| Notable limits | Five exports per app, one destination per export | 10 exports-destination connections per app |
-
 ## Next steps
 
 Now that you know how to configure data export, a suggested next step is to learn [Transform data inside your IoT Central application for export](howto-transform-data-internally.md).

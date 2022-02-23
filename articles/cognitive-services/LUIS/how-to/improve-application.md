@@ -6,7 +6,7 @@ ms.author: aahi
 author: aahill
 ms.manager: nitinme
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/07/2022
 ---
 
@@ -16,11 +16,11 @@ Use this article to learn how you can improve your LUIS apps, such as reviewing 
 
 ## Active Learning
 
-The process of reviewing endpoint utterances for correct predictions is called Active learning. Active learning captures queries that are sent to the endpoint, and selects user utterances that it is unsure of. You review these utterances to select the intent and mark the entities for these real-world utterances. Then you can accept these changes into your app's example utterances, then [train](/azure/cognitive-services/luis/how-to/train-test?branch=pr-en-us-181263) and [publish](/azure/cognitive-services/luis/how-to/publish?branch=pr-en-us-181263) the app. This helps LUIS identify utterances more accurately.
+The process of reviewing endpoint utterances for correct predictions is called Active learning. Active learning captures queries that are sent to the endpoint, and selects user utterances that it is unsure of. You review these utterances to select the intent and mark the entities for these real-world utterances. Then you can accept these changes into your app's example utterances, then [train](./train-test.md?branch=pr-en-us-181263) and [publish](./publish.md?branch=pr-en-us-181263) the app. This helps LUIS identify utterances more accurately.
 
 ## Log user queries to enable active learning
 
-To enable active learning, you must log user queries. This is accomplished by calling the [endpoint query](/azure/cognitive-services/luis/luis-get-started-create-app#query-the-v3-api-prediction-endpoint) with the `log=true` query string parameter and value.
+To enable active learning, you must log user queries. This is accomplished by calling the [endpoint query](../luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) with the `log=true` query string parameter and value.
 
 > [!Note]
 > To disable active learning, don't log user queries. You can change the query parameters by setting log=false in the endpoint query or omit the log parameter because the default value is false for the V3 endpoint.

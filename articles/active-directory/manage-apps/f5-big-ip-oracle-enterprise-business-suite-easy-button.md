@@ -19,13 +19,13 @@ In this article, learn to secure Oracle Enterprise Business Suite (EBS) using Az
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
+* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services
 
 * Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](http://f5-aad-integration.md/) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](/azure/active-directory/manage-apps/f5-aad-integration) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
@@ -160,9 +160,9 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted down from your registered application
+3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted when registering the Easy Button client in your tenant.
 
-4. Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
+4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
 
    ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
 

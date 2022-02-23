@@ -128,10 +128,9 @@ A workload may require splitting a cluster's nodes into separate pools for logic
 
 * All subnets assigned to nodepools must belong to the same virtual network.
 * System pods must have access to all nodes/pods in the cluster to provide critical functionality such as DNS resolution and tunneling kubectl logs/exec/port-forward proxy.
-* If you expand your VNET after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket. 
-* Calico Network Policy is not supported. 
+* If you expand your VNET after creating the cluster you must update your cluster (perform any managed cluster operation but node pool operations don't count) before adding a subnet outside the original cidr. AKS will error out on the agent pool add now though we originally allowed it. If you don't know how to reconcile your cluster file a support ticket.
 * Azure Network Policy is not supported.
-* Kube-proxy expects a single contiguous cidr and uses it this for three optmizations. See this [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) and --cluster-cidr [here](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) for details. In Azure cni your first node pool's subnet will be given to kube-proxy. 
+* Kube-proxy is designed for a single contiguous CIDR and optimizes rules based on that value. When using multiple non-contiguous ranges, these optimizations cannot occur. See this [K.E.P.](https://github.com/kubernetes/enhancements/tree/master/keps/sig-network/2450-Remove-knowledge-of-pod-cluster-CIDR-from-iptables-rules) and the documentation for the [`--cluster-cidr` `kube-proxy` argument](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) for more details. In clusters configured with Azure CNI, `kube-proxy` will be configured with the subnet of the first node pool at cluster creation. 
 
 To create a node pool with a dedicated subnet, pass the subnet resource ID as an additional parameter when creating a node pool.
 
@@ -300,6 +299,99 @@ It takes a few minutes for the scale operation to complete.
 
 AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). This feature can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
 
+## Resize a node pool
+
+To increase of number of deployments or run a larger workload, you may want to change the virtual machine scale set plan or resize AKS instances. However, you should not do any direct customizations to these nodes using the IaaS APIs or resources, as any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. This means resizing your AKS instances in this manner is not supported.
+
+The recommended method to resize a node pool to the desired SKU size is as follows:
+
+* Create a new node pool with the new SKU size
+* Cordon and drain the nodes in the old node pool in order to move workloads to the new nodes
+* Remove the old node pool.
+
+> [!IMPORTANT]
+> This method is specific to virtual machine scale set-based AKS clusters. When using virtual machine availability sets, you are limited to only one node pool per cluster.
+
+### Create a new node pool with the desired SKU
+
+The following command creates a new node pool with 2 nodes using the `Standard_DS3_v2` VM SKU:
+
+> [!NOTE]
+> Every AKS cluster must contain at least one system node pool with at least one node. In the below example, we are using a `--mode` of `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
+
+```azurecli-interactive
+az aks nodepool add \ 
+    --resource-group myResourceGroup \ 
+    --cluster-name myAKSCluster \ 
+    --name mynodepool \ 
+    --node-count 2 \ 
+    --node-vm-size Standard_DS3_v2 \ 
+    --mode System \ 
+    --no-wait 
+```
+
+Be sure to consider other requirements and configure your node pool accordingly. You may need to modify the above command. For a full list of the configuration options, please see the [az aks nodepool add][az-aks-nodepool-add] reference page.
+
+### Cordon the existing nodes
+
+Cordoning marks specified nodes as unschedulable and prevents any additional pods from being added to the nodes.
+
+First, obtain the names of the nodes you'd like to cordon with `kubectl get nodes`. Your output should look similar to the following:
+
+```bash
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-31721111-vmss000000   Ready    agent   7d21h   v1.21.9
+aks-nodepool1-31721111-vmss000001   Ready    agent   7d21h   v1.21.9
+aks-nodepool1-31721111-vmss000002   Ready    agent   7d21h   v1.21.9
+```
+
+Next, using `kubectl cordon <node-names>`, specify the desired nodes in a space-separated list:
+
+```bash
+kubectl cordon aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002
+```
+
+If succesful, your output should look similar to the following:
+
+```bash
+node/aks-nodepool1-31721111-vmss000000 cordoned
+node/aks-nodepool1-31721111-vmss000001 cordoned
+node/aks-nodepool1-31721111-vmss000002 cordoned
+```
+
+### Drain the existing nodes
+
+> [!IMPORTANT]
+> To successfully drain nodes and evict running pods, ensure that any PodDisruptionBudgets (PDBs) allow for at least 1 pod replica to be moved at a time, otherwise the drain/evict operation will fail. To check this, you can run `kubectl get pdb -A` and make sure `ALLOWED DISRUPTIONS` is at least 1 or higher.
+
+Draining nodes will cause pods running on them to be evicted and recreated on the other, schedulable nodes.
+
+To drain nodes, use `kubectl drain <node-names> --ignore-daemonsets --delete-emptydir-data`, again using a space-separated list of node names:
+
+> [!IMPORTANT]
+> Using `--delete-emptydir-data` is required to evict the AKS-created `coredns` and `metrics-server` pods. If this flag isn't used, an error is expected. Please see the [documentation on emptydir][empty-dir] for more information.
+
+```bash
+kubectl drain aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002 --ignore-daemonsets --delete-emptydir-data
+```
+
+> [!TIP]
+> By default, your cluster has AKS_managed pod disruption budgets (such as `coredns-pdb` or `konnectivity-agent`) with a `MinAvailable` of 1. If, for example, there are two `coredns` pods running, while one of them is getting recreated and is unavailable, the other is unable to be affected due to the pod disruption budget. This resolves itself after the initial `coredns` pod is scheduled and running, allowing the second pod to be properly evicted and recreated.
+>
+> Consider draining nodes one-by-one for a smoother eviction experience and to avoid throttling. For more information, see [plan for availability using a pod disruption budget][pod-disruption-budget].
+
+After the drain operation finishes, verify pods are running on the new nodepool:
+
+```bash
+kubectl get pods -o wide -A
+```
+
+### Remove the existing node pool
+
+To delete the existing node pool, see the section on [Deleting a node pool](#delete-a-node-pool).
+
+After completion, the final result is the AKS cluster having a single, new node pool with the new, desired SKU size and all the applications and pods properly running.
+
 ## Delete a node pool
 
 If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynoodepool* created in the previous steps:
@@ -347,6 +439,35 @@ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
 It takes a few minutes to delete the nodes and the node pool.
+
+## Associate capacity reservation groups to node pools (preview)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+As your application workloads demands, you may associate node pools to capacity reservation groups created prior. This ensures guaranteed capacity is allocated for your node pools.  
+
+For more information on the capacity reservation groups, please refer to [Capacity Reservation Groups][capacity-reservation-groups].
+
+Associating a node pool with an existing capacity reservation group can be done using [az aks nodepool add][az-aks-nodepool-add] command and specifying a capacity reservation group with the --capacityReservationGroup flag" The capacity reservation group should already exist , otherwise the node pool will be added to the cluster with a warning and no capacity reservation group gets associated. 
+
+```azurecli-interactive
+az aks nodepool add -g MyRG --cluster-name MyMC -n myAP --capacityReservationGroup myCRG
+```
+Associating a system node pool with an existing capacity reservation group can be done using [az aks create][az-aks-create] command. If the capacity reservation group specified does not exist, then a warning is issued and the cluster gets created without any capacity reservation group association. 
+
+```azurecli-interactive
+az aks create -g MyRG --cluster-name MyMC --capacityReservationGroup myCRG
+```
+Deleting a node pool command will implicitly dissociate a node pool from any associated capacity reservation group, before that node pool is deleted.
+
+```azurecli-interactive
+az aks nodepool delete -g MyRG --cluster-name MyMC -n myAP
+```
+Deleting a cluster command implicitly dissociates all node pools in a cluster from their associated capacity reservation groups.
+
+```azurecli-interactive
+az aks delete -g MyRG --cluster-name MyMC
+```
 
 ## Specify a VM size for a node pool
 
@@ -426,9 +547,11 @@ az aks nodepool add \
 
 The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *taintnp* is *Creating* nodes with the specified *nodeTaints*:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```
 
+```output
 [
   {
     ...
@@ -532,9 +655,10 @@ az aks nodepool add \
 
 The following example output from the [az aks nodepool list][az-aks-nodepool-list] command shows that *labelnp* is *Creating* nodes with the specified *nodeLabels*:
 
-```console
-$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+```azurecli
+az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
+```output
 [
   {
     ...
@@ -843,6 +967,8 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubernetes-labels]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
+[capacity-reservation-groups]:/azure/virtual-machines/capacity-reservation-associate-virtual-machine-scale-set
+[empty-dir]: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
 
 <!-- INTERNAL LINKS -->
 [aks-windows]: windows-container-cli.md
@@ -864,6 +990,7 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-delete]: /cli/azure/group#az_group_delete
 [az-deployment-group-create]: /cli/azure/deployment/group#az_deployment_group_create
+[az-aks-nodepool-add]: /cli/azure/aks#az_aks_nodepool_add
 [gpu-cluster]: gpu-cluster.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
@@ -883,3 +1010,5 @@ Use [proximity placement groups][reduce-latency-ppg] to reduce latency for your 
 [node-image-upgrade]: node-image-upgrade.md
 [fips]: /azure/compliance/offerings/offering-fips-140-2
 [use-tags]: use-tags.md
+[update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
+[pod-disruption-budget]: operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets

@@ -51,7 +51,7 @@ store.
 
 #### Best practices
 
--   **Partition distributed tables by a common tenant\_id column.** For
+-   **Distribute tables by a common tenant\_id column.** For
     instance, in a SaaS application where tenants are companies, the
     tenant\_id is likely to be the company\_id.
 -   **Convert small cross-tenant tables to reference tables.** When

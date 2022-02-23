@@ -1302,6 +1302,14 @@ groups:
     title: Environment settings
   - id: classic-connector
     title: Classic connector
+- id: connect-gcp-accounts
+  title: Add a GCP account
+  prompt: How will you connect the GCP account?
+  pivots:
+  - id: env-settings
+    title: Environment settings
+  - id: classic-connector
+    title: Classic connector
 - id: manage-asc-initiatives
   title: Manage Defender for Cloud initiatives
   prompt: How will you manage your Defender for Cloud initiatives?
@@ -1595,7 +1603,18 @@ groups:
   - id: iot-toolset-cmake
     title: CMake
   - id: iot-toolset-iar-ewarm
+    title: IAR EWAR
+# Owner: timlt
+- id: iot-develop-stm32-toolset
+  title: IoT Devices
+  prompt: Choose a build environment
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
     title: IAR EWARM
+  - id: iot-toolset-stm32cube
+    title: STM32Cube IDE
 # Owner: v-amallick
 - id: backup-client-powershelltier-clitier-portaltier
   title: Clients
@@ -1681,3 +1700,12 @@ groups:
     title: Basic/Standard tier
   - id: sc-enterprise-tier
     title: Enterprise tier
+# Owner: jomondi
+- id: home-realm-discovery
+  title: hrd-policy
+  prompt: Choose an option
+  pivots:
+  - id: powershell-hrd
+    title: PowerShell
+  - id: graph-hrd
+    title: Graph

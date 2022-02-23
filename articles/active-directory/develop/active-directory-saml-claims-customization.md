@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/21/2021
+ms.date: 02/07/2022
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -121,7 +121,7 @@ You can use the following functions to transform claims.
 | Function | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
-| **Join()** | Creates a new value by joining two attributes. Optionally, you can use a separator between the two attributes. |
+| **Join()** | Creates a new value by joining two attributes. Optionally, you can use a separator between the two attributes. For NameID claim transformation, the Join() function has specific behaviour when the transformation input has a domain part. It will remove the domain part from input before joining it with the separator and the selected parameter. For example, if the input of the transformation is ‘joe_smith@contoso.com’ and the separator is ‘@’ and the parameter is ‘fabrikam.com’, this will result in joe_smith@fabrikam.com. |
 | **ToLowercase()** | Converts the characters of the selected attribute into lowercase characters. |
 | **ToUppercase()** | Converts the characters of the selected attribute into uppercase characters. |
 | **Contains()** | Outputs an attribute or constant if the input matches the specified value. Otherwise, you can specify another output if there’s no match.<br/>For example, if you want to emit a claim where the value is the user’s email address if it contains the domain “@contoso.com”, otherwise you want to output the user principal name. To do this, you would configure the following values:<br/>*Parameter 1(input)*: user.email<br/>*Value*: "@contoso.com"<br/>Parameter 2 (output): user.email<br/>Parameter 3 (output if there's no match): user.userprincipalname |
@@ -169,13 +169,19 @@ To add a claim condition:
 3. Select the group(s) to which the user should belong. You can select up to 50 unique groups across all claims for a given application. 
 4. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
-The order in which you add the conditions are important. Azure AD evaluates the conditions from top to bottom to decide which value to emit in the claim. The last value which matches the expression will be emitted in the claim.
+The order in which you add the conditions are important. Azure AD first evaluates all conditions with source `Attribute` and then evaluates all conditions with source `Transformation` to decide which value to emit in the claim. Conditions with the same source are evaluated from top to bottom. The last value which matches the expression will be emitted in the claim. Transformations such as `IsNotEmpty` and `Contains` act like additional restrictions.
 
 For example, Britta Simon is a guest user in the Contoso tenant. She belongs to another organization that also uses Azure AD. Given the below configuration for the Fabrikam application, when Britta tries to sign in to Fabrikam, the Microsoft identity platform will evaluate the conditions as follow.
 
-First, the Microsoft identity platform verifies if Britta's user type is `All guests`. Since, this is true then the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies if Britta's user type is `AAD guests`, since this is also true then the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
+First, the Microsoft identity platform verifies if Britta's user type is **All guests**. Since, this is true then the Microsoft identity platform assigns the source for the claim to `user.extensionattribute1`. Second, the Microsoft identity platform verifies if Britta's user type is **AAD guests**, since this is also true then the Microsoft identity platform assigns the source for the claim to `user.mail`. Finally, the claim is emitted with value `user.mail` for Britta.
 
-![Claims conditional configuration](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
+:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png" alt-text="Claims conditional configuration" lightbox="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png":::
+
+As another example, consider when Britta Simon tries to sign in and the following configuration is used. Azure AD first evaluates all conditions with source `Attribute`. Because Britta's user type is **AAD guests**, `user.mail` is assigned as the source for the claim. Next, Azure AD evaluates the transformations. Because Britta is a guest, `user.extensionattribute1` is now the new source for the claim. Because Britta is in **AAD guests**, `user.othermail` is now the source for this claim. Finally, the claim is emitted with value `user.othermail` for Britta.
+
+:::image type="content" source="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims-2.png" alt-text="More claims conditional configuration" lightbox="./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims-2.png":::
+
+As a final example, let’s consider what happens if Britta has no `user.othermail` configured or it is empty. In both cases the condition entry is ignored, and the claim will fall back to `user.extensionattribute1` instead.
 
 ## Next steps
 
