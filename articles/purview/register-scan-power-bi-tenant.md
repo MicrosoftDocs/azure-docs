@@ -25,18 +25,18 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 |**Azure Purview public access allowed/denied** |**Power BI public access allowed /denied** | **Power BI tenant same/cross**  | **Runtime option**  |
 |---------|---------|---------|---------|
 |Allowed     |Allowed        |Same tenant        |[Azure Runtime & Managed Identity](#authenticate-to-power-bi-tenant-managed-identity-only)    |
-|Allowed     |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](#scan-same-tenant-using-self-hosted-ir-and-delegated-auth)  |
-|Allowed     |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](#scan-same-tenant-using-self-hosted-ir-and-delegated-auth)  |
-|Denied      |Allowed        |Same tenant        |[Self-hosted runtime & Delegated auth](#scan-same-tenant-using-self-hosted-ir-and-delegated-auth)  |
-|Denied      |Denied         |Same tenant        |[Self-hosted runtime & Delegated auth](#scan-same-tenant-using-self-hosted-ir-and-delegated-auth)  |
-|Allowed     |Allowed        |Cross-tenant       |[Azure Runtime  & Delegated auth](#cross-power-bi-tenant-registration-and-scan)                  |
-|Allowed     |Allowed        |Cross-tenant       |[Self-hosted runtime & Delegated auth](#cross-power-bi-tenant-registration-and-scan)             |
+|Allowed     |Allowed        |Same tenant        |[Self-hosted runtime & Delegated authentication](#scan-same-tenant-using-self-hosted-ir-and-delegated-authentication)  |
+|Allowed     |Denied         |Same tenant        |[Self-hosted runtime & Delegated authentication](#scan-same-tenant-using-self-hosted-ir-and-delegated-authentication)  |
+|Denied      |Allowed        |Same tenant        |[Self-hosted runtime & Delegated authentication](#scan-same-tenant-using-self-hosted-ir-and-delegated-authentication)  |
+|Denied      |Denied         |Same tenant        |[Self-hosted runtime & Delegated authentication](#scan-same-tenant-using-self-hosted-ir-and-delegated-authentication)  |
+|Allowed     |Allowed        |Cross-tenant       |[Azure Runtime  & Delegated authentication](#cross-power-bi-tenant-registration-and-scan)                  |
+|Allowed     |Allowed        |Cross-tenant       |[Self-hosted runtime & Delegated authentication](#cross-power-bi-tenant-registration-and-scan)             |
 
 ### Known limitations
 
 -  If Azure Purview or Power BI tenant is protected behind a private endpoint, Self-hosted runtime is the only option to scan
--  Delegated Auth is the only supported authentication option if self-hosted integration runtime is used during the scan
--  For cross-tenant scenario, delegated Auth is only supported option for scanning.
+-  Delegated authentication is the only supported authentication option if self-hosted integration runtime is used during the scan
+-  For cross-tenant scenario, delegated authentication is only supported option for scanning.
 -  You can create only one scan for a Power BI data source that is registered in your Azure Purview account
 -  If Power BI dataset schema is not shown after scan, it is due to one of the current limitations with [Power BI Metadata scanner](/power-bi/admin/service-admin-metadata-scanning)
 
@@ -89,7 +89,7 @@ In Azure Active Directory Tenant, where Power BI tenant is located:
 
     You should see a success notification showing you that it was added.
 
-    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/success-add-catalog-msi.png" alt-text="Screenshot showing successful addition of  catalog MSI.":::
+    :::image type="content" source="./media/setup-power-bi-scan-PowerShell/success-add-catalog-msi.png" alt-text="Screenshot showing successful addition of  catalog managed identity.":::
 
 ### Associate the security group with Power BI tenant
 
@@ -177,9 +177,9 @@ To create and run a new scan, do the following:
 
 5. On **Review new scan**, select **Save and Run** to launch your scan.
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan-msi.png" alt-text="Screenshot of save and run Power BI source using Managed Identity.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan-managed-identity.png" alt-text="Screenshot of save and run Power BI source using Managed Identity.":::
 
-#### Scan same tenant using Self-hosted IR and Delegated Auth
+#### Scan same tenant using Self-hosted IR and Delegated authentication
 
 This scenario can be used when Azure Purview and Power PI tenant or both, are configured to use private endpoint and deny public access. Additionally, this option is also applicable if Azure Purview and Power PI tenant are configured to allow public access.
 
@@ -206,7 +206,7 @@ To create and run a new scan, do the following:
    
 6. Create an App Registration in your Azure Active Directory tenant. Take note of Client ID(App ID).
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-spn.png" alt-text="Screenshot how to create a SPN.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-serviceprinciple.png" alt-text="Screenshot how to create a Service principle.":::
   
 7. From Azure Active Directory dashboard, select newly created application and then select App registration. Assign the application the following delegated permissions and grant admin consent for the tenant:
 
@@ -225,14 +225,14 @@ To create and run a new scan, do the following:
 
 12. Give your scan a name. Then select the option to include or exclude the personal workspaces.
    
-    > [!Note]
+    >[!Note]
     > Switching the configuration of a scan to include or exclude a personal workspace will trigger a full scan of PowerBI source.
 
 13. Select your self-hosted integration runtime from the drop-down list. 
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-shir.png" alt-text="Image showing Power BI scan setup using SHIR for same tenant.":::
 
-14. For the **Credential**, select **Delegated auth** and click **+ New** to create a new credential.
+14. For the **Credential**, select **Delegated authentication** and click **+ New** to create a new credential.
 
 15. Create a new credential and provide required parameters:
     
@@ -244,7 +244,7 @@ To create and run a new scan, do the following:
 
    - **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
 
-   :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-auth.png" alt-text="Image showing Power BI scan setup using Delegated Auth.":::
+   :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-authentication.png" alt-text="Image showing Power BI scan setup using Delegated authentication.":::
 
 16. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
@@ -284,9 +284,9 @@ To create and run a new scan, do the following:
 
 ### Cross Power BI tenant scanning
 
-#### Scan cross Power BI tenant using Delegated Auth 
+#### Scan cross Power BI tenant using Delegated authentication 
 
-Delegated auth is the only supported option for cross-tenant scan option, however, you can use either Azure runtime or a self-hosted integration runtime to run a scan. 
+Delegated authentication is the only supported option for cross-tenant scan option, however, you can use either Azure runtime or a self-hosted integration runtime to run a scan. 
 
 To create and run a new scan using Azure runtime, perform the following steps:
 
@@ -306,7 +306,7 @@ To create and run a new scan using Azure runtime, perform the following steps:
    
 7. Create an App Registration in your Azure Active Directory tenant where Power BI is located. Take note of Client ID (App ID).
 
-    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-spn.png" alt-text="Screenshot how to create a SPN.":::
+    :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-create-serviceprinciple.png" alt-text="Screenshot how to create a Service Principle.":::
   
 8. From Azure Active Directory dashboard, select newly created application and then select App registration. Assign the application the following delegated permissions and grant admin consent for the tenant:
 
@@ -340,7 +340,7 @@ In the Azure Purview Studio, navigate to the **Data map** in the left menu.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-cross-tenant.png" alt-text="Image showing Power BI scan setup using Azure IR for cross tenant.":::
 
-14. For the **Credential**, select **Delegated auth** and click **+ New** to create a new credential.
+14. For the **Credential**, select **Delegated authentication** and click **+ New** to create a new credential.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-shir.png" alt-text="Image showing Power BI scan setup using SHIR.":::
 
@@ -354,7 +354,7 @@ In the Azure Purview Studio, navigate to the **Data map** in the left menu.
    
    - **Password**: Select the appropriate Key vault connection and the **Secret name** where the Power BI account password was saved earlier.
 
-        :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-auth.png" alt-text="Image showing Power BI scan setup using Delegated Auth.":::
+        :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-delegated-authentication.png" alt-text="Image showing Power BI scan setup using Delegated authentication.":::
 
 16. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
