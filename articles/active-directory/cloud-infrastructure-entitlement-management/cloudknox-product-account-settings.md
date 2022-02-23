@@ -16,7 +16,8 @@ ms.author: v-ydequadros
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Account settings** dashboard in CloudKnox Permissions Management (CloudKnox) allows you to view personal and current organization information.
+The **Account settings** dashboard in CloudKnox Permissions Management (CloudKnox) allows you to view personal information, passwords, and account preferences. 
+This information can't be modified because the user information is pulled from Azure AD. Only **User Session Time(min)**
 
 ## View personal information
 

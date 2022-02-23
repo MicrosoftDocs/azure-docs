@@ -34,11 +34,11 @@ This article provides an overview of the components of the **Remediation** dashb
 
     The **Remediation** dashboard includes six subtabs: 
 
-    - **Roles/Policies**: Use this subtab to add filters to your role/policy.
-    - **Permissions**: Use this subtab to add filters to your permissions.
-    - **Role/Policy template**: Use this subtab to create a template for roles/policies.
-    - **Requests**: Use this subtab to view pending, approved, and processed requests.
-    - **My requests**: Use this subtab to view pending, approved, and processed requests that you initiated or are assigned to you for approval.
+    - **Roles/Policies**: Use this subtab to perform Create Read Update Delete (CRUD) operations on roles/policies.
+    - **Permissions**: Use this subtab to perform Read Update Delete (RUD) on granted permissions.
+    - **Role/Policy template**: Use this subtab to create a template for roles/policies template.
+    - **Requests**: Use this subtab to view approved, pending, and processed Permission on Demand (POD) requests.
+    - **My requests**: Use this tab to manage lifecycle of the POD request either created by you or needs your approval. 
     - **Settings**: Use this subtab to select **Request role/policy filters**, **Request settings**, and **Auto-approve** settings.
 
 1. Use the dropdown to select the **Authorization System Type** and **Authorization System**, and then select **Apply**.
