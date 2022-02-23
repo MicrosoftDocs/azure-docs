@@ -70,7 +70,7 @@ This section describes how to onboard a subscription.
 1. In the Pricing page, select **Subscribe**.
 1. In the **Onboard subscription** pane, select a subscription and the number of committed devices from the drop-down menu.
 
-   :::image type="content" source="media/how-to-manage-subscriptions/onboard-subscription.png" alt-text="select your  subscription and the number of committed devices.":::
+   :::image type="content" source="media/how-to-manage-subscriptions/onboard-subscription.png" alt-text="select your  subscription and the number of committed devices." lightbox="media/how-to-manage-subscriptions/onboard-subscription.png":::
 
 1. Select **Subscribe**.
 1. Confirm your subscription.
@@ -83,7 +83,7 @@ You may need to update your subscription with more committed devices, or more fe
 **To update a subscription:**
 1. Go to [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
 1. Select **Onboard subscription**.
-1. Select the subscription, and then select the three dots. (...).
+1. Select the subscription, and then select the three dots (...).
 1. Select **Edit**.
 1. Update the committed devices and select **Save**.
 2. In the confirmation dialog box that opens, select **Confirm.**
@@ -100,7 +100,7 @@ Remove all sensors that are associated with the subscription prior to offboardin
 **To offboard a subscription:**
 
 1. Go to [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
-1. Select the subscription, and then select the three dots. (...).
+1. Select the subscription, and then select the three dots (...).
 
 1. Select **Offboard subscription**.
 
