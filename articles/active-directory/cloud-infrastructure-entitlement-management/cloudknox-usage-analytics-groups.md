@@ -31,18 +31,18 @@ This article describes how to view usage analytics about groups.
 
 ## Create a query to view groups
 
-When you select **Groups**, the **Analytics** dashboard provides a high-level overview of tasks used by various identities. 
+When you select **Groups**, the **Usage Analytics** dashboard provides a high-level overview of groups. 
 
 1. On the main **Analytics** dashboard, select **Groups** from the  drop-down list at the top of the screen. 
 
-    The dashboard displays the groups in your system. The following components make up the **Groups** dashboard:
+    The following components make up the **Groups** dashboard:
 
     - **Authorization system type**: Select the authorization you want to use: Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
     - **Authorization system**: Select from a **List** of accounts and **Folders**.
     - **Group type**: Select **All**, **ED**, or **Local**.
     - **Group activity status**: Select **All**, **Active**, or **Inactive**.
     - **Tasks Type**: Select **All**, **High-risk tasks**, or **Delete tasks**
-    - **Search**: Enter criteria to find specific tasks.
+    - **Search**: Enter group name to find specific group.
 1. To display the criteria you've selected, select **Apply**.
     - **Reset filter**: Select to discard your changes.
 
@@ -81,11 +81,11 @@ The **Groups** table displays the results of your query:
 1. Select the arrow to the left of the group name to view details about the task.
 1. Select **Information** (**i**) to view when the task was last used.
 1. From the **Tasks** dropdown, select **All tasks**, **High-risk tasks**, and **Delete tasks**.
-1. The list on the right displays **Users**, **Roles/Policies**, and **Tags**.
+1. The pane on the right displays a list of **Users**, **Policies** for **AWS** and **Roles** for **GCP or AZURE**, and **Tags**.
 
 ## Apply filters to your query  
 
-There are many filter options within the **Groups** screen, including filters by **Authorization system**, **Group name**, and **Group type**. 
+There are many filter options within the **Groups** screen, including filters by **Authorization system type**, **Authorization system**, **Group type**, **Group activity status**, and **Tasks type**. 
 Filters can be applied in one, two, or all three categories depending on the type of information you're looking for. 
 
 ### Apply filters by authorization system type

@@ -3,8 +3,6 @@ title: Manage usage and costs for Azure Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-author: DaleKoetke
-ms.author: dalek
 ms.date: 02/17/2021
 ms.reviewer: aaronmax
 ---

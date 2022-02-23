@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 12/14/2021
+ms.date: 12/30/2021
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -218,6 +218,8 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md#incident-integration) |Public Preview |Public Preview|
 | - [Microsoft Teams integrations](../../sentinel/collaborate-in-microsoft-teams.md) |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
+|- [Search large datasets](../../sentinel/investigate-large-datasets.md) | Public Preview | Not Available |
+|- [Restore historical data](../../sentinel/investigate-large-datasets.md) | Public Preview | Not Available |
 | **Notebooks** | | |
 |- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
 | - [Notebook integration with Azure Synapse](../../sentinel/notebooks-with-synapse.md) | Public Preview | Not Available|
@@ -258,6 +260,10 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
+| - [Azure Purview](../../sentinel/data-connectors-reference.md#azure-purview) | Public Preview | Not Available |
+| - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
+| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
+| - [Microsoft Insider Risk Management](/azure/sentinel/sentinel-solutions-catalog#domain-solutions) | Public Preview | Not Available |
 | - [Azure Firewall ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
 | - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection-preview) | Public Preview | Not Available |
 | - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |
