@@ -295,29 +295,57 @@ You can't use `out` parameters in async functions. For output bindings, use the 
 
 A function can accept a [CancellationToken](/dotnet/api/system.threading.cancellationtoken) parameter, which enables the operating system to notify your code when the function is about to be terminated. You can use this notification to make sure the function doesn't terminate unexpectedly in a way that leaves data in an inconsistent state.
 
-The following example shows how to check for impending function termination.
+Consider the case when you have a function that processes messages in batches. The following Azure Service Bus-triggered function processes an array of [Message](/dotnet/api/microsoft.azure.servicebus.message) objects, which represents a batch of incoming messages to be processed by a specific function invocation:
 
 ```csharp
-public static class CancellationTokenExample
+using Microsoft.Azure.ServiceBus;
+using System.Threading;
+
+namespace ServiceBusCancellationToken
 {
-    public static void Run(
-        [QueueTrigger("inputqueue")] string inputText,
-        TextWriter logger,
-        CancellationToken token)
+    public static class servicebus
     {
-        for (int i = 0; i < 100; i++)
+        [FunctionName("servicebus")]
+        public static void Run([ServiceBusTrigger("csharpguitar", Connection = "SB_CONN")]
+               Message[] messages, CancellationToken cancellationToken, ILogger log)
         {
-            if (token.IsCancellationRequested)
-            {
-                logger.WriteLine("Function was cancelled at iteration {0}", i);
-                break;
+            try
+            { 
+                foreach (var message in messages)
+                {
+                    if (cancellationToken.IsCancellationRequested)
+                    {
+                        log.LogInformation("A cancellation token was received. Taking precautionary actions.");
+                        //Take precautions like noting how far along you are with processing the batch
+                        log.LogInformation("Precautionary activities --complete--.");
+                        break;
+                    }
+                    else
+                    {
+                        //business logic as usual
+                        log.LogInformation($"Message: {message} was processed.");
+                    }
+                }
             }
-            Thread.Sleep(5000);
-            logger.WriteLine("Normal processing for queue message={0}", inputText);
+            catch (Exception ex)
+            {
+                log.LogInformation($"Something unexpected happened: {ex.Message}");
+            }
         }
     }
 }
 ```
+
+As in the previous example, you commonly iterate through an array using a `foreach` loop. Within this loop and before processing the message, you should check the value of `cancellationToken.IsCancellationRequested` to see if cancellation is pending. In the case where `IsCancellationRequested` is `true`, you might need to take some actions to prepare for a graceful shutdown. For example, you might want to log the status of your code before the shutdown, or perhaps write to a persisted store the portion of the message batch which hasn't yet been processed. If you write this kind of information to a persisted store, your startup code needs to check the store for any unprocessed message batches that were written during shutdown. What your code needs to do during graceful shutdown depends on your specific scenario.
+
+Azure Event Hubs is an other trigger that supports batch processing messages. The following example is a function method definition for an Event Hubs trigger with a cancellation token that accepts an incoming batch as an array of [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) objects:
+
+```csharp
+public async Task Run([EventHubTrigger("csharpguitar", Connection = "EH_CONN")] 
+       EventData[] events, CancellationToken cancellationToken, ILogger log)
+```
+
+The pattern to process a batch of Event Hubs events is similar to the previous example of processing a batch of Service Bus messages. In each case, you should check the cancellation token for a cancellation state before processing each item in the array. When a pending shutdown is detected in the middle of the batch, handle it gracefully based on your business requirements.
 
 ## Logging
 

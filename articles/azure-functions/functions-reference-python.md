@@ -354,20 +354,20 @@ First, the function.json file must be updated to include a `route` in the HTTP t
   "scriptFile": "__init__.py",
   "bindings": [
     {
-      "route": "test",
-      "authLevel": "anonymous",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
+       "authLevel": "anonymous",
+       "type": "httpTrigger",
+       "direction": "in",
+       "name": "req",
+       "methods": [
+           "get",
+           "post"
+       ],
+       "route": "/{*route}"
     },
     {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
+       "type": "http",
+       "direction": "out",
+       "name": "$return"
     }
   ]
 }
@@ -378,18 +378,28 @@ The host.json file must also be updated to include an HTTP `routePrefix`, as sho
 ```json
 {
   "version": "2.0",
-  "logging": {
-    "applicationInsights": {
-      "samplingSettings": {
+  "logging": 
+  {
+    "applicationInsights": 
+    {
+      "samplingSettings": 
+      {
         "isEnabled": true,
         "excludedTypes": "Request"
       }
-    },
-    "extensions": { "http": { "routePrefix": "" }}
+    }
   },
-  "extensionBundle": {
+  "extensionBundle": 
+  {
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[2.*, 3.0.0)"
+  },
+  "extensions": 
+  {
+    "http": 
+    {
+        "routePrefix": ""
+    }
   }
 }
 ```
@@ -399,15 +409,16 @@ Update the Python code file `init.py`, depending on the interface used by your f
 # [ASGI](#tab/asgi)
 
 ```python
-app=Flask("Test")
+app=fastapi.FastAPI()
 
-@app.route("/api/HandleApproach")
-def test():
-  return "Hello!"
+@app.get("/hello/{name}")
+async def get_name(
+  name: str,):
+  return {
+      "name": name,}
 
-def main(req: func.HttpRequest, context) -> func.HttpResponse:
-  logging.info('Python HTTP trigger function processed a request.')
-  return func.AsgiMiddleware(app).handle(req, context)
+def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
+    return AsgiMiddleware(app).handle(req, context)
 ```
 
 # [WSGI](#tab/wsgi)
@@ -415,14 +426,15 @@ def main(req: func.HttpRequest, context) -> func.HttpResponse:
 ```python
 app=Flask("Test")
 
-@app.route("/api/WrapperApproach")
-def test():
-  return "Hello!"
+@app.route("/hello/<name>", methods=['GET'])
+def hello(name: str):
+    return f"hello {name}"
 
 def main(req: func.HttpRequest, context) -> func.HttpResponse:
   logging.info('Python HTTP trigger function processed a request.')
   return func.WsgiMiddleware(app).handle(req, context)
 ```
+For a full example, see [Using Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/).
 
 ---
 

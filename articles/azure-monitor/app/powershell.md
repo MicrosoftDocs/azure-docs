@@ -4,7 +4,6 @@ description: Automate creating and managing resources, alerts, and availability 
 ms.topic: conceptual
 ms.date: 05/02/2020 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 #  Manage Application Insights resources using PowerShell

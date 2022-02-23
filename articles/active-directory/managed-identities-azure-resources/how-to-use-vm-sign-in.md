@@ -14,7 +14,8 @@ ms.workload: identity
 ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # How to use managed identities for Azure resources on an Azure VM for sign-in 
