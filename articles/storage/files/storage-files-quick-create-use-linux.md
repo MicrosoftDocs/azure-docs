@@ -61,12 +61,20 @@ The following image shows the settings on the **Basics** tab for a new storage a
 The NFS protocol can only be used from a machine inside of a virtual network, so for this tutorial, you'll create a virtual network using the same Azure subscription and region as your storage account.
 
 1. Select **Home** and then **Create a resource**.
+1. In the search box, enter **Virtual Network**. Select **Virtual Network** in the search results.
+1. In the **Virtual Network** page, select **Create**.
+1. Under **Project details**, select the same subscription and resource group that you used when you created your storage account. Under **Instance details**, enter a name for your virtual network, such as **myVNet**, and select the same region you selected for your storage account. When all fields are complete, select **Review + create**.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/create-virtual-network.png" alt-text="Screenshot showing how to enter the project and instance details to create a virtual network in the Azure portal." lightbox="media/storage-files-quick-create-use-linux/create-virtual-network.png":::
+
+1. Azure will attempt to validate the virtual network. When validation is complete, select **Create**. After a few minutes, you should see a notification that deployment is complete.
 
 ### Create an NFS Azure file share
 
 Next, create an NFS file share.
 
 1. Select **Home** and then **Storage accounts**.
+1. Select the storage account you created.
 1. Select **File shares** from the storage account pane.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/click-files.png" alt-text="Screenshot showing how to select file shares from the storage account pane.":::
