@@ -129,12 +129,6 @@ The following properties have been removed:
 
 * `FeedOptions.PopulateQueryMetrics`
 
-### Changes to SqlQuerySpec (QueryDefinition in v3.0 SDK)
-
-The `SqlQuerySpec` class in SDK v2 has now been renamed to `QueryDefinition` in the SDK v3, and can be viewed in the [sample](#query-items) below.
-
-`SqlParameterCollection` and `SqlParameter` has been removed. Parameters are now added to the `QueryDefinition` with a builder model using `QueryDefinition.WithParameter`. Users can access the parameters with `QueryDefinition.GetQueryParameters`
-
 ### Constructing a client
 
 The .NET SDK v3 provides a fluent `CosmosClientBuilder` class that replaces the need for the SDK v2 URI Factory.
@@ -641,6 +635,11 @@ private static async Task ReadAllItems(DocumentClient client)
 ---
 
 ### Query items
+#### Changes to SqlQuerySpec (QueryDefinition in v3.0 SDK)
+
+The `SqlQuerySpec` class in SDK v2 has now been renamed to `QueryDefinition` in the SDK v3.
+
+`SqlParameterCollection` and `SqlParameter` has been removed. Parameters are now added to the `QueryDefinition` with a builder model using `QueryDefinition.WithParameter`. Users can access the parameters with `QueryDefinition.GetQueryParameters`
 
 # [.NET SDK v3](#tab/dotnet-v3)
 
