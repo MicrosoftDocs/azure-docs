@@ -1,0 +1,80 @@
+---
+title: Safely deploy Azure API Management service updates
+description: Leverage the Azure safe deployment approach with your Azure API Management instances to validate service updates before they reach your production environmens.
+author: dlepow
+ms.service: api-management
+ms.topic: conceptual
+ms.date: 02/22/2022
+ms.author: danlep
+---
+
+# Deploy service updates safely to your API Management instances 
+
+*"One of the value propositions of the cloud is that it’s continually improving, delivering new capabilities and features, as well as security and reliability enhancements. But since the platform is continuously evolving, change is inevitable." - Mark Russinovich, CTO, Azure*
+
+Microsoft uses a safe deployment practices framework to thoroughly test, monitor, and validate service updates, and then deploy them to Azure regions using a phased approach. Even so, service updates that reach your API Management instances could introduce unanticipated risks to your production workloads and disrupt your API consumers. Learn how you can leverage our safe deployment approach to reduce risks by validating the changes before they reach your production API Management environment.
+
+## What is the Azure safe deployment practices framework? 
+
+Azure deploys updates for a given service in a series of pre-production and production steps using a [safe deployment practices (SDP) framework](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). This framework is shown in simplified form in the following image:
+
+* **Development and test** - Azure engineering teams independently iterate on and validate updates for their services in development and test environments, with strict quality gates. 
+
+    Careful monitoring, validation, and extensive testing for regressions during these stages reduce the risk that software changes will negatively affect customers' Azure workloads in production. 
+
+* **Production** - Production-ready updates are then introduced to customers' Azure services in a phased production rollout pipeline: 
+
+    **Canary regions** receive updates first. These regions, known formally as **Early Updates Access Programs (EUAP)** regions, are full, production-level environments where scenarios can be validated at scale by Azure engineering teams and by certain invited customers. Currently, Azure canary regions are **East US 2 EUAP** and **Central US EUAP**. 
+
+    > [!NOTE]
+    > While the EUAP regions are production-ready, capacity may be limited, and services can be disrupted from time to time by disaster recovery drills and other testing by Azure engineering teams.
+
+    * A **pilot** region supported for production use with an SLA receives the updates next. Currently, the pilot region is **West Central US**. 
+
+    * After an observation period in the pilot region, the service updates are gradually introduced to remaining regions, increasing customers' exposure. 
+
+## How do I safely deploy updates to my API Management instances? 
+
+As an Azure customer, you're not able to control when to apply service updates to your API Management instances - updates are applied automatically. However, to minimize risk, you can use a strategy to deploy your non-critical instances to regions that receive updates before the regions running your production instances.
+
+* The instance that receives updates first is effectively your canary deployment. 
+
+    Use this instance to monitor for any issues caused by the updates against the baseline production instances. With monitoring, identify and mitigate potential regressions before your production services are affected. 
+
+    > [!IMPORTANT]
+    > If your canary instance experiences issues associated with the update process, please open a case with Azure Support as soon as possible.
+
+* After you validate the canary deployment, you have greater confidence in updates that come later to your production instances.
+
+## Know when your instances are receiving updates 
+
+As a first step, ensure that you know about service updates that are expected or are in progress. 
+
+* API Management updates are announced on the [API Management GitHub repo](https://github.com/Azure/API-Management/releases). We recommend that you subscribe to receive notifications from this repository to know when update rollouts begin. 
+
+* Monitor service updates that are taking place in your API Managemewnt instance by using the Azure [Activity log](../azure-monitor/essentials/activity-log.md). The "Scheduled maintenance" event is emitted when an update begins.
+
+    You can [set up an alert](../azure-monitor/alerts/alerts-activity-log.md) on the Activity log to receive notifications automatically.
+
+* Updates roll out to regions in the following phases: Azure EUAP regions, followed by West Central US, followed by remaining regions in several later phases. You can expect at least 24 hours between each phase of the production rollout.
+
+* Within a region, API Management instances in the Premium tier receive updates several hours later than those in other service tiers.
+
+## Create and use a canary deployment
+  
+Here are example strategies to use an API Management instances as a canary deployment that receives updates earlier than your production instances.
+
+> [!TIP]
+> If your API Management instance is deployed to multiple locations (regions), the timing of updates is determined by the instance's **Primary** location.
+
+* **Deploy in EUAP region** - If you have access to an Azure EUAP region, you can use an instance there to validate updates as soon as they are released to the production pipeline. Learn about the [Azure region access request process](../troubleshoot/azure/general/region-access-request-process).
+
+    > [!NOTE]
+    > Because of capacity constraints in EUAP regions, you might not be able to scale API Management instances as needed.  
+
+* **Deploy in pilot region** - Use an instance in the West Central US to simulate your production environment, or use it in production for noncritical API traffic. While this region receives updates after the EUAP regions, a deployment there is more likely to identify regressions that are specific to your service configuration.
+
+* **Deploy duplicate instances in a region** - If your production workload is a Premium tier instance in a specific region, consider deploying a similarly configured instance in a lower tier that receives updates earlier. For example, configure a pre-production instance in the Developer tier to validate updates. 
+ 
+## Next steps
+
