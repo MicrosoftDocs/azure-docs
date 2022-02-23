@@ -31,7 +31,7 @@ The article [Install Log Analytics agent on Windows computers](../azure-monitor/
 
 ### Instrumenting Azure virtual machines
 
-The recommended approach to instrument an Azure virtual machine based SHIR is to use virtual machine insights as described in the article [Enable VM insights overview](../azure-monitor/vm/vminsights-enable-overview.md).  Note that there are multiple ways to configure the Log Analytics agent when the SHIR is hosted in an Azure virtual machine. All the options are described in the article [Log Analytics agent overview](../azure-monitor/agents/log-analytics-agent#installation-options.md).
+The recommended approach to instrument an Azure virtual machine based SHIR is to use virtual machine insights as described in the article [Enable VM insights overview](../azure-monitor/vm/vminsights-enable-overview.md).  Note that there are multiple ways to configure the Log Analytics agent when the SHIR is hosted in an Azure virtual machine. All the options are described in the article [Log Analytics agent overview](../azure-monitor/agents/log-analytics-agent.md#installation-options.md).
 
 ## Configuring event log and performance counter capture
 
