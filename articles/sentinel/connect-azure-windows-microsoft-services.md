@@ -85,6 +85,8 @@ To ingest data into Microsoft Sentinel:
 
 1. Select **Save** at the top of the screen.
 
+For more information, see also [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings) in the Azure Monitor documentation.
+
 # [Azure Policy](#tab/AP)
 
 ### Prerequisites
