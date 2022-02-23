@@ -31,30 +31,24 @@ You can view information about users, groups, and resources that can access acco
 
 1. To choose an account from your authorization system, select the lock icon in the left panel.
 1. In the **Authorization systems** pane, select an account, then select **Apply**.
-
 1. To choose a user, role, or group, select the person icon. 
 1. Select a user or group, then select **Apply**. 
-
-2. To choose an account from your authorization system, select it from the Authorization Systems menu.
-3. In the user type filter, user, role, or group.
-4. In the **Task** filter, select **All** or **High-risk tasks**, then select **Apply**.
-5. To delete a task, select **Delete**, then select **Apply**.
-
+1. To choose an account from your authorization system, select it from the Authorization Systems menu.
+1. In the user type filter, user, role, or group.
+1. In the **Task** filter, select **All** or **High-risk tasks**, then select **Apply**.
+1. To delete a task, select **Delete**, then select **Apply**.
 
 ## Export information about users, groups, or tasks
 
-- To export the data in comma-separated values (CSV) file format, select **Export** from the top-right hand corner of the table.
+To export the data in comma-separated values (CSV) file format, select **Export** from the top-right hand corner of the table.
 
 ## View users and roles
-
 1. To view users and roles, select the lock icon, and then select the person icon to open the **Users** pane.
-
 1. To view the **Role summary**, select the "eye" icon to the right of the role name.
 
-The following details display:
-
-- **Policies**: A list of all the policies attached to the role.
-- **Trusted entities**: The identities from external accounts that can assume this role.
+   The following details display:
+   - **Policies**: A list of all the policies attached to the role.
+   - **Trusted entities**: The identities from external accounts that can assume this role.
 
 1. To view all the identities from various accounts that can assume this role, select the down arrow to the left of the role name.
 1. To view a graph of all the identities that can access the specified account and through which role(s), select the role name.
