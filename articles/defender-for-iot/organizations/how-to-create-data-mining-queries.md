@@ -1,7 +1,7 @@
 ---
 title: Create data mining reports
 description: generate comprehensive and granular information about your network devices at various layers, such as protocols, firmware versions, or programming commands.
-ms.date: 01/20/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

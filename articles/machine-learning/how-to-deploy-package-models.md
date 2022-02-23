@@ -5,8 +5,10 @@ description: 'Package a model. Models can be packaged as either a docker image, 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/31/2020
+ms.date: 10/21/2021
 ms.topic: how-to
+author: ssalgadodev
+ms.author: ssalgado
 ms.reviewer: larryfr
 ms.custom: deploy
 ---

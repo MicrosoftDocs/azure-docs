@@ -281,6 +281,11 @@ When you use the Request trigger to handle inbound requests, you can model the r
 
 1. When you're done, save your logic app. On the designer toolbar, select **Save**.
 
+> [!IMPORTANT]
+> If you have one or more Response actions in a complex workflow with branches, make sure 
+> that the workflow run processes at least one Response action during runtime. 
+> Otherwise, if all Response actions are skipped, the caller receives a **502 Bad Gateway** error, even if the workflow finishes successfully.
+
 ## Next steps
 
 * [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

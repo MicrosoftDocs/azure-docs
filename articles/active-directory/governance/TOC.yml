@@ -11,6 +11,8 @@
     href: access-reviews-overview.md
   - name: What is identity lifecycle management?
     href: what-is-identity-lifecycle-management.md
+  - name: What is provisioning?
+    href: what-is-provisioning.md  
 - name: Tutorials
   expanded: true
   items:
@@ -18,10 +20,14 @@
       href: entitlement-management-access-package-first.md
     - name: Manage access to resources - Microsoft Graph
       href: /graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json
+    - name: Manage access to resources - PowerShell
+      href: /powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta
     - name: Onboard external users to Azure AD through an approval process
       href: entitlement-management-onboard-external-user.md
     - name: Manage the lifecycle of your group-based licenses in Azure AD
       href: entitlement-management-group-licenses.md
+    - name: Automate identity governance tasks
+      href: identity-governance-automation.md
 - name: Concepts
   expanded: true
   items:
@@ -31,16 +37,6 @@
       href: entitlement-management-delegate.md
     - name: Request process and emails
       href: entitlement-management-process.md
-  - name: Identity lifecycle management
-    items:
-    - name: What is provisioning?
-      href: what-is-provisioning.md
-    - name: What is HR-driven provisioning?
-      href: what-is-hr-driven-provisioning.md
-    - name: What is app provisioning?
-      href: what-is-app-provisioning.md
-    - name: What is inter-directory provisioning?
-      href: what-is-inter-directory-provisioning.md
   - name: Access reviews
     items:
     - name: Manage access with reviews
@@ -74,6 +70,8 @@
       items:
       - name: Create a catalog of resources
         href: entitlement-management-catalog-create.md
+      - name: Create a custom extension (logic apps) for catalogs
+        href: entitlement-management-logic-apps-integration.md
       - name: Delegate to access package managers
         href: entitlement-management-delegate-managers.md
     - name: Access package managers and Access package assignment managers
@@ -145,7 +143,7 @@
 - name: Reference
   expanded: true
   items:
-  - name: Access reviews - Graph API
-    href: /graph/api/resources/accessreviewsv2-root?view=graph-rest-beta
-  - name: Entitlement management - Graph API
-    href: /graph/api/resources/entitlementmanagement-root?view=graph-rest-beta
+  - name: Access reviews - Microsoft Graph API
+    href: /graph/api/resources/accessreviewsv2-overview
+  - name: Entitlement management - Microsoft Graph API
+    href: /graph/api/resources/entitlementmanagement-overview

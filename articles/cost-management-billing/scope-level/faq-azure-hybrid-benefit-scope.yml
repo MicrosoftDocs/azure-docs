@@ -7,10 +7,9 @@ metadata:
   ms.reviewer: chrisrin
   ms.service: cost-management-billing
   ms.subservice: ahb
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 09/30/2021
   ms.author: banders
-    
 title: Centrally managed Azure Hybrid Benefit FAQ
 summary: |
 sections:
@@ -34,9 +33,10 @@ sections:
         answer: |
           The new scope-level Azure Hybrid Benefit experience is available automatically to the following agreements:
 
-            - Microsoft Azure Enterprise - MS-AZR-0017P
-            - Azure Government Enterprise - MS-AZR-USGOV-0017P
-            - Microsoft Azure Plan - MS-AZR-0017G
+            - Enterprise agreements, including:
+                - Microsoft Azure Enterprise - MS-AZR-0017P
+                - Azure Government Enterprise - MS-AZR-USGOV-0017P
+            - Microsoft Customer Agreement - Microsoft Azure Plan - MS-AZR-0017G
 
           Other agreement types aren't supported yet. For more information, see [Prerequisites](create-sql-license-assignments.md#prerequisites).
       - question: What SQL licenses qualify for Azure Hybrid Benefit?

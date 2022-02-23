@@ -1,9 +1,10 @@
 ---
-title: Create an Azure Video Analyzer account 
-description: This topic explains how to create an account for Azure Video Analyzer. 
+title: Create a Video Analyzer account
+description: This topic explains how to create an account for Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 10/31/2021
+ms.date: 11/04/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Create a Video Analyzer account
@@ -260,5 +261,4 @@ When no longer needed, delete the resource group, which deletes the account and 
 [docs-storage-access]: ../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor
 [docs-role-reader]: ../../role-based-access-control/built-in-roles.md#reader
 [docs-arm-template]: ../../azure-resource-manager/templates/overview.md
-[docs-deploy-on-edge]: deploy-iot-edge-device.md
-
+[docs-deploy-on-edge]: ./edge/deploy-iot-edge-device.md

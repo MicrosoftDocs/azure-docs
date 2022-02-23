@@ -3,7 +3,7 @@ title: Secure external access with groups in Azure Active Directory and Microsof
 description: Azure Active Directory and Microsoft 365 Groups can be used to increase security when external users access your resources.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
@@ -145,7 +145,7 @@ Hybrid organizations have both an on-premises infrastructure and an Azure AD clo
 
 ## Microsoft 365 Groups
 
-[Microsoft 365 Groups](/microsoft-365/admin/create-groups/office-365-groups) are the foundational membership service that drives all access across Microsoft 365. They can be created from the [Azure portal](https://portal.azure.com/), or the [Microsoft 365 portal](https://admin.microsoft.com/). When an Microsoft 365 group is created, you grant access to a group of resources used to collaborate. See [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups) for a complete listing of these resources.
+[Microsoft 365 Groups](/microsoft-365/admin/create-groups/office-365-groups) are the foundational membership service that drives all access across Microsoft 365. They can be created from the [Azure portal](https://portal.azure.com/), or the [Microsoft 365 portal](https://admin.microsoft.com/). When a Microsoft 365 group is created, you grant access to a group of resources used to collaborate. See [Overview of Microsoft 365 Groups for administrators](/microsoft-365/admin/create-groups/office-365-groups) for a complete listing of these resources.
 
 Microsoft 365 Groups have the following nuances for their roles:
 

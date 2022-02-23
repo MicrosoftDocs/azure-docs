@@ -3,16 +3,16 @@ title: Microsoft identity platform certificate credentials
 titleSuffix: Microsoft identity platform
 description: This article discusses the registration and use of certificate credentials for application authentication.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2021
-ms.author: hirsin
-ms.reviewer: nacanuma, jmprieur
+ms.date: 02/09/2022
+ms.author: ludwignick
+ms.reviewer: jmprieur
 ms.custom: contperf-fy21q4, aaddev
 ---
 
@@ -46,6 +46,7 @@ Claim type | Value | Description
 `jti` | (a Guid) | The "jti" (JWT ID) claim provides a unique identifier for the JWT. The identifier value MUST be assigned in a manner that ensures that there is a negligible probability that the same value will be accidentally assigned to a different data object; if the application uses multiple issuers, collisions MUST be prevented among values produced by different issuers as well. The "jti" value is a case-sensitive string. [RFC 7519, Section 4.1.7](https://tools.ietf.org/html/rfc7519#section-4.1.7)
 `nbf` | 1601519114 | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).  Using the current time is appropriate. 
 `sub` | {ClientID} | The "sub" (subject) claim identifies the subject of the JWT, in this case also your application. Use the same value as `iss`. 
+`iat` | 1601519114 | The "iat" (issued at) claim identifies the time at which the JWT was issued. This claim can be used to determine the age of the JWT. [RFC 7519, Section 4.1.5](https://tools.ietf.org/html/rfc7519#section-4.1.5).
 
 ### Signature
 
@@ -92,7 +93,7 @@ You can associate the certificate credential with the client application in the 
 ### Uploading the certificate file
 
 In the Azure app registration for the client application:
-1. Select **Certificates & secrets**.
+1. Select **Certificates & secrets** > **Certificates**.
 2. Click on **Upload certificate** and select the certificate file to upload.
 3. Click **Add**.
   Once the certificate is uploaded, the thumbprint, start date, and expiration values are displayed.

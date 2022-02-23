@@ -3,9 +3,10 @@ title: Integrate Azure Table Storage with Service Connector
 description: Integrate Azure Table Storage into your application with Service Connector
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
-ms.topic: how-to 
+ms.service: service-connector
+ms.topic: how-to
 ms.date: 10/29/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Integrate Azure Table Storage with Service Connector

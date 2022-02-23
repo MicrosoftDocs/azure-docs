@@ -3,13 +3,13 @@ title: Custom question answering encryption of data at rest
 titleSuffix: Azure Cognitive Services
 description: Microsoft offers Microsoft-managed encryption keys, and also lets you manage your Cognitive Services subscriptions with your own keys, called customer-managed keys (CMK). This article covers data encryption at rest for custom question answering, and how to enable and manage CMK.
 author: erindormier
-manager: venkyv
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: egeaney
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Custom question answering encryption of data at rest

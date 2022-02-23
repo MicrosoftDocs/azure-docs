@@ -4,9 +4,9 @@ description: Understand how permissions work in Azure Chaos Studio and how you c
 author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/01/2021
-ms.custom: template-concept
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Permissions and security in Azure Chaos Studio
@@ -60,5 +60,5 @@ Chaos Studio encrypts all data by default. Chaos Studio only accepts input for s
 
 ## Next steps
 Now that you understand how to secure your chaos experiment you are ready to:
-- [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
-- [Create and run your first Azure Kubernetes Service experiment](chaos-studio-tutorial-aks.md)
+- [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)
+- [Create and run your first Azure Kubernetes Service experiment](chaos-studio-tutorial-aks-portal.md)

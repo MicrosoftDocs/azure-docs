@@ -3,7 +3,7 @@ title: Azure Virtual Desktop required URL list - Azure
 description: A list of URLs you must unblock to ensure your Azure Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 12/04/2020
+ms.date: 02/11/2022
 ms.author: helohr
 manager: femila
 ---
@@ -74,7 +74,8 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 |*eh.servicebus.windows.net|443|Agent traffic|AzureCloud|
 |*xt.table.core.windows.net|443|Agent traffic|AzureCloud|
 |*xt.queue.core.windows.net|443|Agent traffic|AzureCloud|
-|catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
+|*.prod.warm.ingest.monitor.core.windows.net|443|Agent traffic|AzureMonitor|
+|catalogartifact.azureedge.net|443|Azure Marketplace|AzureFrontDoor.Frontend|
 |kms.core.windows.net|1688|Windows activation|Internet|
 |mrsglobalsteus2prod.blob.core.windows.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Azure portal support|AzureCloud|
@@ -82,7 +83,7 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 | 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 >[!IMPORTANT]
->Azure Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-azure-virtual-desktop.md).
+>Azure Virtual Desktop supports the FQDN tag. For more information, see [Use Azure Firewall to protect Azure Virtual Desktop deployments](../firewall/protect-azure-virtual-desktop.md).
 >
 >We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Azure Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory.
 
@@ -97,6 +98,7 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 |*xt.blob.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |*.servicebus.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 |*xt.table.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+|*.prod.warm.ingest.monitor.core.usgovcloudapi.net|443|Agent traffic|AzureMonitor|
 |Kms.core.usgovcloudapi.net|1688|Windows activation|Internet|
 |mrsglobalstugviffx.blob.core.usgovcloudapi.net|443|Agent and SXS stack updates|AzureCloud|
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure portal support|AzureCloud|

@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 10/10/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Azure resources for question answering
@@ -62,9 +62,6 @@ Your custom question answering feature deals with two kinds of keys: **authoring
 
 Use these keys when making requests to the service through APIs.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of key management managed preview.](../../../qnamaker/media/qnamaker-how-to-key-management/custom-question-answering-key-management.png)
-
 |Name|Location|Purpose|
 |--|--|--|
 |Authoring/Subscription key|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|These keys are used to access the Language Service APIs). These APIs let you edit the questions and answers in your knowledge base, and publish your knowledge base. These keys are created when you create a new resource.<br><br>Find these keys on the **Cognitive Services** resource on the **Keys and Endpoint** page.|
@@ -72,9 +69,9 @@ Use these keys when making requests to the service through APIs.
 
 ### Find authoring keys in the Azure portal
 
-You can view and reset your authoring keys from the Azure portal, where you added the Custom question answering (Preview) feature in Text Analytics resource.
+You can view and reset your authoring keys from the Azure portal, where you added the custom question answering feature in your language resource.
 
-1. Go to the Text Analytics resource in the Azure portal and select the resource that has the *Cognitive Services* type:
+1. Go to the language resource in the Azure portal and select the resource that has the *Cognitive Services* type:
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot of question answering resource list.](../../../qnamaker/media/qnamaker-how-to-setup-service/resources-created-question-answering.png)

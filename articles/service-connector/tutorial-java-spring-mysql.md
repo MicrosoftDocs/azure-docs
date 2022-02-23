@@ -3,9 +3,11 @@ title: 'Tutorial: Deploy Spring Cloud Application Connected to Azure Database fo
 description: Create a Spring Boot application connected to Azure Database for MySQL with Service Connector.
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/28/2021
+ms.custom: ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Tutorial: Deploy Spring Cloud Application Connected to Azure Database for MySQL with Service Connector
@@ -106,6 +108,9 @@ Once your server is created, it comes with the following settings:
     ```azurecli
     az spring-cloud connection create mysql
     ```
+
+    > [!NOTE]
+    > If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
 
 1. Clone sample code
 

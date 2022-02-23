@@ -5,11 +5,10 @@ services: ddos-protection
 documentationcenter: na
 author: mumian
 ms.service: ddos-protection
-ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.author: jgao
 ms.date: 04/26/2021
 ---

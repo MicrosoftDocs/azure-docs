@@ -40,7 +40,7 @@ For more information, see [Azure Object Anchors overview](overview.md).
 
 **Q: What are the supported CAD formats?**
 
-**A:** We currently support `fbx`, `ply`, `obj`, `glb`, and `gltf` file types. For more information, see [Asset Requirements](overview.md).
+**A:** We currently support `fbx`, `ply`, `obj`, and `glb` file types. For more information, see [Asset Requirements](overview.md).
 
 **Q: What is the gravity direction and unit required by the model conversion service?**
 

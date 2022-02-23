@@ -1,12 +1,13 @@
 ---
 title: Azure IoT Hub high availability and disaster recovery | Microsoft Docs
 description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/17/2020
-ms.author: robinsh
+ms.date: 02/04/2022
+ms.author: kgremban
+ms.custom: references_regions
 ---
 
 # IoT Hub high availability and disaster recovery
@@ -29,14 +30,27 @@ Depending on the uptime goals you define for your IoT solutions, you should dete
 
 The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No additional work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premises solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](iot-hub-reliability-features-in-sdks.md) must be built in to the components interacting with a cloud application to deal with transient failures.
 
-> [!NOTE]
-> Some Azure services also provide additional layers of availability within a region by integrating with [Availability Zones (AZs)](../availability-zones/az-overview.md). AZs are currently not supported by the IoT Hub service.
+## Availability Zones
+
+IoT Hub supports [Availability Zones](../availability-zones/az-overview.md). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is comprised of three zones supporting that region. Each zone provides one or more datacenters each in a unique physical location with independent power, cooling, and networking. This provides replication and redundancy within the region. Availability Zone support for IoT Hub is enabled automatically for new IoT Hub resources created in the following Azure regions:
+
+- Australia East
+- Brazil South
+- Canada Central
+- Central US
+- France Central
+- Germany West Central
+- Japan East
+- North Europe
+- Southeast Asia
+- UK South
+- West US 2
 
 ## Cross region DR
 
 There could be some rare situations when a datacenter experiences extended outages due to power failures or other failures involving physical assets. Such events are rare during which the intra region HA capability described above may not always help. IoT Hub provides multiple solutions for recovering from such extended outages. 
 
-The recovery options available to customers in such a situation are [Microsoft-initiated failover](#microsoft-initiated-failover) and [manual failover](#manual-failover). The fundamental difference between the two is that Microsoft initiates the former and the user initiates the latter. Also, manual failover provides a lower recovery time objective (RTO) compared to the Microsoft-initiated failover option. The specific RTOs offered with each option are discussed in the sections below. When either of these options to perform failover of an IoT hub from its primary region is exercised, the hub becomes fully functional in the corresponding [Azure geo-paired region](../best-practices-availability-paired-regions.md).
+The recovery options available to customers in such a situation are [Microsoft-initiated failover](#microsoft-initiated-failover) and [manual failover](#manual-failover). The fundamental difference between the two is that Microsoft initiates the former and the user initiates the latter. Also, manual failover provides a lower recovery time objective (RTO) compared to the Microsoft-initiated failover option. The specific RTOs offered with each option are discussed in the sections below. When either of these options to perform failover of an IoT hub from its primary region is exercised, the hub becomes fully functional in the corresponding [Azure geo-paired region](../availability-zones/cross-region-replication-azure.md).
 
 Both these failover options offer the following recovery point objectives (RPOs):
 
@@ -114,6 +128,25 @@ Time to recover = RTO [10 min - 2 hours for manual failover | 2 - 26 hours for M
 
 > [!IMPORTANT]
 > The IoT SDKs do not cache the IP address of the IoT hub. We recommend that user code interfacing with the SDKs should not cache the IP address of the IoT hub.
+
+## Disable disaster recovery
+
+IoT Hub provides Microsoft-Initiated Failover and Manual Failover by replicating data to the [paired region](../availability-zones/cross-region-replication-azure.md) for each IoT hub. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating an IoT hub. The following regions support this feature:
+
+- **Brazil South**; paired region, South Central US.
+- **Southeast Asia (Singapore)**; paired region, East Asia (Hong Kong).
+
+To disable disaster recovery in supported regions, make sure that **Disaster recovery enabled** is unselected when you create your IoT hub:
+
+:::image type="content" source="media/iot-hub-ha-dr/singapore.png" alt-text="Screenshot that shows disaster recovery option for an IoT hub in Singapore region.":::
+
+You can also disable disaster recovery when you create an IoT hub using an [ARM template](/azure/templates/microsoft.devices/iothubs?tabs=bicep#iothubproperties).
+
+Failover capability will not be available if you disable disaster recovery for an IoT hub.
+
+:::image type="content" source="media/iot-hub-ha-dr/disaster-recovery-disabled.png" alt-text="Screenshot that shows disaster recovery disabled for an IoT hub in Singapore region.":::
+
+You can only disable disaster recovery to avoid data replication outside of the paired region in Brazil South or Southeast Asia when you create an IoT hub. If you want to configure your existing IoT hub to disable disaster recovery, you need to create a new IoT hub with disaster recovery disabled and manually migrate your existing IoT hub. For guidance, see [How to clone an Azure IoT Hub to another region](iot-hub-how-to-clone.md). This article contains advice about migrating routes, custom endpoints, and other IoT Hub artifacts when migrating to a new Iot hub. You can ignore concerns that have to do with migrating across regions.
 
 ## Achieve cross region HA
 

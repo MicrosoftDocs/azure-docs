@@ -3,9 +3,9 @@ title: Manage knowledge bases - question answering
 description: Custom question answering allows you to manage projects by providing access to the project settings and content.
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Create and manage project settings

@@ -2,8 +2,9 @@
 author: fvneerden
 ms.service: azure-video-analyzer
 ms.topic: include
-ms.date: 05/05/2021
+ms.date: 11/04/2021
 ms.author: faneerde
+ms.custom: ignite-fall-2021
 ---
 
 Follow these steps to run the sample code:

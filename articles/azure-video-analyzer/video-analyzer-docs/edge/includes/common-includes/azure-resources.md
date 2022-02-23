@@ -2,8 +2,9 @@
 author: naiteeks
 ms.topic: include
 ms.service: azure-video-analyzer
-ms.date: 04/20/2021
+ms.date: 11/04/2021
 ms.author: juliako
+ms.custom: ignite-fall-2021
 ---
 
 The deployment process will take about **20 minutes**. Upon completion, you will have certain Azure resources deployed in the Azure subscription, including:

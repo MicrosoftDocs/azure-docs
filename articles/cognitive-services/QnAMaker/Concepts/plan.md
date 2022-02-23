@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Plan your QnA Maker app
@@ -86,7 +87,7 @@ A bot personality is recommended if your bot connects to your knowledge base. Yo
 
 Conversation flow usually begins with a salutation from a user, such as `Hi` or `Hello`. Your knowledge base can answer with a general answer, such as `Hi, how can I help you`, and it can also provide a selection of follow-up prompts to continue the conversation.
 
-You should design your conversational flow with a loop in mind so that a user knows how to use your bot and isn't abandoned by the bot in the conversation. [Follow-up prompts](../how-to/multiturn-conversation.md) provide linking between QnA pairs, which allow for the conversational flow.
+You should design your conversational flow with a loop in mind so that a user knows how to use your bot and isn't abandoned by the bot in the conversation. [Follow-up prompts](../how-to/multi-turn.md) provide linking between QnA pairs, which allow for the conversational flow.
 
 ### Authoring with collaborators
 

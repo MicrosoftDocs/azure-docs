@@ -4,9 +4,10 @@ description: Create a Spring Boot app connected to Apache Kafka on Confluent Clo
 ms.devlang: java
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: tutorial
 ms.date: 10/28/2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Tutorial: Deploy a Spring Boot app connected to Apache Kafka on Confluent Cloud with Service Connector in Azure Spring Cloud
@@ -113,6 +114,9 @@ az spring-cloud connection create confluent-cloud -g <your-spring-cloud-resource
 * **Replace** *\<cluster-api-key>* and *\<cluster-api-secret>* with your cluster API key and secret.
 * **Replace** *\<kafka-schema-registry-endpoint>* with your kafka Schema Registry endpoint (the value should be like `https://psrc-xxxx.westus2.azure.confluent.cloud`)
 * **Replace** *\<registry-api-key>* and *\<registry-api-secret>* with your kafka Schema Registry API key and secret.
+
+> [!NOTE]
+> If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
 
 #### [Portal](#tab/Azure-portal)
 

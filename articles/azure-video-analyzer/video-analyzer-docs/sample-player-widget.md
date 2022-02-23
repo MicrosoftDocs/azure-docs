@@ -1,10 +1,10 @@
 ---
-title: The Azure Video Analyzer player widget sample
+title: The Video Analyzer player widget sample
 description: This reference article gives a brief overview of the Video Analyzer player widget sample application
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 10/21/2021
-
+ms.date: 11/04/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Video Analyzer player widget sample
@@ -75,4 +75,3 @@ Your video clip can then be viewed in the typical video player format.
 
 ## Next Steps
 Try creating your own custom Video Analyzer player widget with these [instructions](./player-widget.md).
-

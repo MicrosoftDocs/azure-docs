@@ -6,6 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 # Quickstart: Deploy a Managed Apache Spark Cluster with Azure Databricks
 
@@ -102,4 +103,3 @@ In this quickstart, you learned how to create a fully managed Apache Spark clust
 
 > [!div class="nextstepaction"]
 > [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
-

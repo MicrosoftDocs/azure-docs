@@ -7,10 +7,10 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: "language-service-custom-classification, references_regions"
+ms.topic: how-to
+ms.date: 02/10/2022
+ms.author: aahi
+ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
 ---
 
 # How to create custom text classification projects
@@ -50,7 +50,7 @@ If it's your first time logging in, you'll see a window appear in [Language Stud
 
 :::image type="content" source="../../media/create-new-resource-small.png" alt-text="A screenshot showing the resource creation screen in Language Studio." lightbox="../../media/create-new-resource.png":::
 
-To use custom classification, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
+To use custom classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
@@ -81,7 +81,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile <path-to-parameters-file>
 ```
 
-See the ARM template documentation for information on [deploying templates](/azure/azure-resource-manager/templates/deploy-powershell#parameter-files) and [parameter files](/azure/azure-resource-manager/templates/parameter-files?tabs=json).
+See the ARM template documentation for information on [deploying templates](../../../../azure-resource-manager/templates/deploy-powershell.md#parameter-files) and [parameter files](../../../../azure-resource-manager/templates/parameter-files.md?tabs=json).
 
 --- 
 
@@ -95,13 +95,13 @@ You can use an existing Language resource to get started with custom text classi
 |Pricing tier     | Make sure your existing resource is in the Standard (**S**) pricing tier. Only this pricing tier is supported. If your resource doesn't use this pricing  tier, you will need to create a new resource.        |
 |Managed identity     | Make sure that the resource-managed identity setting is enabled. Otherwise, read the next section. |
 
-To use custom classification, you'll need to [create an Azure storage account](/azure/storage/common/storage-account-create) if you don't have one already. 
+To use custom classification, you'll need to [create an Azure storage account](../../../../storage/common/storage-account-create.md) if you don't have one already. 
 
 Next you'll need to assign the [correct roles](#roles-for-your-storage-account) for the storage account to connect it to your Language resource. 
 
-## Roles for your Azure resource
+## Roles for your Azure Language resource
 
-You should have the owner or contributor role assigned on your Azure resource.
+You should have the **owner** or **contributor** role assigned on your Azure Language resource.
 
 ## Enable identity management for your resource
 
@@ -120,9 +120,11 @@ Your Azure blob storage account must have the below roles:
 
 To set proper roles on your storage account:
 
-1. Go to your storage account page in the [Azure portal](https://ms.portal.azure.com/).
+1. Go to your storage account page in the [Azure portal](https://portal.azure.com/).
 2. Select **Access Control (IAM)** in the left navigation menu.
-3. Select **Add** to **Add Role Assignments**, and choose the **Owner** or **Contributor** role. You can search for user names in the **Select** field.
+3. Select **Add** to **Add Role Assignments**, and choose the appropriate role for your Language resource.
+4. Select **Managed identity** under **Assign access to**. 
+5. Select **Members** and find your resource. In the window that appears, select your subscription, and **Language** as the managed identity. You can search for user names in the **Select** field. Repeat this for all roles. 
 
 [!INCLUDE [Storage connection note](../includes/storage-account-note.md)]
 
@@ -130,8 +132,8 @@ To set proper roles on your storage account:
 
 * As a prerequisite for creating a custom text classification project, your training data needs to be uploaded to a blob container in your storage account. You can create and upload training files from Azure directly or through using the Azure Storage Explorer tool. Using Azure Storage Explorer tool allows you to upload more data in less time.
 
-  * [Create and upload files from Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
-  * [Create and upload files using Azure Storage Explorer](/azure/vs-azure-tools-storage-explorer-blobs)
+  * [Create and upload files from Azure](../../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container)
+  * [Create and upload files using Azure Storage Explorer](../../../../vs-azure-tools-storage-explorer-blobs.md)
 
 * You can only use `.txt`. files for custom text classification. If your data is in other format, you can use [Cognitive Services Language Utilities tool](https://aka.ms/CognitiveServicesLanguageUtilities) to parse your file to `.txt` format.
 

@@ -1,11 +1,8 @@
 ---
 title: Apache Kafka on Confluent Cloud overview - Azure partner solutions
 description: Learn about using Apache Kafka on Confluent Cloud in the Azure Marketplace.
-author: tfitzmac
 ms.topic: conceptual
-ms.service: partner-services
-ms.date: 06/07/2021
-ms.author: tomfitz
+ms.date: 12/14/2021
 ---
 
 # What is Apache Kafka for Confluent Cloud?
@@ -22,7 +19,7 @@ Now, you provision the Confluent Cloud resources through a resource provider nam
 
 The deep integration between Confluent Cloud and Azure enables the following capabilities:
 
-- Provision a new Confluent Cloud organization resource from the Azure portal with fully managed infrastructure.
+- Provision a new Confluent Cloud organization resource from the Azure portal with fully managed infrastructure or link to an existing Confluent Cloud organization.
 - Streamline single sign-on (SSO) from Azure to Confluent Cloud with Azure Active Directory (Azure AD). No separate authentication is needed from the Confluent Cloud portal.
 - Get unified billing of Confluent Cloud consumption through Azure subscription invoicing.
 - Manage Confluent Cloud resources from the Azure portal, and track them in the **All resources** page with your other Azure resources.
@@ -54,7 +51,7 @@ You decide which billing option to use when you create the service.
 
 ## Confluent links
 
-For additional help with using Apache Kafka for Confluent Cloud, see the following links to the [Confluent site](https://docs.confluent.io/home/overview.html).
+For more help with using Apache Kafka for Confluent Cloud, see the following links to the [Confluent site](https://docs.confluent.io/home/overview.html).
 
 To learn about billing options, see:
 

@@ -3,12 +3,12 @@ title: Create custom roles to manage enterprise apps in Azure Active Directory
 description: Create and assign custom Azure AD roles for enterprise apps access in Azure Active Directory
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 05/14/2021
+ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -132,48 +132,41 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
 ## Microsoft Graph API
 
-Create a custom role using the provided example in the Microsoft Graph API. For more detail, see [Create and assign a custom role](custom-create.md) and [Assign custom admin roles using the Microsoft Graph API](custom-assign-graph.md).
+Use the [Create unifiedRoleDefinition](/graph/api/rbacapplication-post-roledefinitions) API to create a custom role. For more information, see [Create and assign a custom role](custom-create.md) and [Assign custom admin roles using the Microsoft Graph API](custom-assign-graph.md).
 
-HTTP request to create the custom role.
+```http
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleDefinitions
 
-```HTTP
-POST
-https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitionsIsEnabled $true
 {
-    "description":"Can manage user and group assignments for Applications.",
-    "displayName":" Manage user and group assignments",
-    "isEnabled":true,
+    "description": "Can manage user and group assignments for Applications.",
+    "displayName": "Manage user and group assignments",
+    "isEnabled": true,
     "rolePermissions":
     [
         {
-            "resourceActions":
-            {
-                "allowedResourceActions":
-                [
-                    "microsoft.directory/servicePrincipals/appRoleAssignedTo/update"
-                ]
-            },
-            "condition":null
+            "allowedResourceActions":
+            [
+                "microsoft.directory/servicePrincipals/appRoleAssignedTo/update"
+            ]
         }
     ],
-    "templateId":"<PROVIDE NEW GUID HERE>",
-    "version":"1"
+    "templateId": "<PROVIDE NEW GUID HERE>",
+    "version": "1"
 }
 ```
 
 ### Assign the custom role using the Microsoft Graph API
 
-The role assignment combines a security principal ID (which can be a user or service principal), a role definition ID, and an Azure AD resource scope. For more information on the elements of a role assignment, see the [custom roles overview](custom-overview.md)
+Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign the custom role. The role assignment combines a security principal ID (which can be a user or service principal), a role definition ID, and an Azure AD resource scope. For more information on the elements of a role assignment, see the [custom roles overview](custom-overview.md)
 
-HTTP request to assign a custom role.
-
-```HTTP
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+```http
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 
 {
-    "principalId":"<PROVIDE OBJECTID OF USER TO ASSIGN HERE>",
-    "roleDefinitionId":"<PROVIDE OBJECTID OF ROLE DEFINITION HERE>",
-    "resourceScopes":["/"]
+    "@odata.type": "#microsoft.graph.unifiedRoleAssignment",
+    "principalId": "<PROVIDE OBJECTID OF USER TO ASSIGN HERE>",
+    "roleDefinitionId": "<PROVIDE OBJECTID OF ROLE DEFINITION HERE>",
+    "directoryScopeId": "/"
 }
 ```
 

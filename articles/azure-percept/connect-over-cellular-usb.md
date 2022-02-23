@@ -1,8 +1,8 @@
 ---
 title: Connect Azure Percept DK over 5G and LTE networks by using a USB modem
 description: This article explains how to connect Azure Percept DK over 5G and LTE networks by using a USB modem.
-author: juhaluoto
-ms.author: amiyouss
+author: nkhuyent
+ms.author: jluoto
 ms.service: azure-percept
 ms.topic: how-to 
 ms.date: 09/03/2021
@@ -19,7 +19,7 @@ This article discusses how to connect Azure Percept DK to 5G or LTE networks by 
 > The instructions in this article are intended to be used with USB modems that support a Mobile Broadband Interface Model (MBIM) interface. Before you obtain a USB modem, make sure that it supports the MBIM interface. Also make sure that it's listed in the ModemManager list of supported modems. ModemManager software can be used with other interfaces, but in this article we focus on the MBIM interface. For more information, go to the [freedesktop.org ModemManager](https://www.freedesktop.org/wiki/Software/ModemManager/) page.
 
 
-:::image type="Image" source="media/connect-over-cellular/azure-percept-all-modems.png" alt-text="A photographic illustration of Azure Precept DK using USB modems to connect to 5G and LTE networks.":::
+:::image type="Image" source="media/connect-over-cellular/azure-percept-all-modems-v2.png" alt-text="A photographic illustration of Azure Precept DK using USB modems to connect to 5G and LTE networks.":::
 
 ## Set up Azure Percept DK to use a USB modem
 

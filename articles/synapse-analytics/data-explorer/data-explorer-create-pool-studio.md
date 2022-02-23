@@ -6,9 +6,9 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Quickstart: Create a Data Explorer pool using Synapse Studio (Preview)
@@ -116,4 +116,6 @@ Use the following steps to delete the Data Explorer pool from the workspace usin
 
 ## Next steps
 
-[Quickstart: Create a Data Explorer pool using the Azure portal](data-explorer-create-pool-portal.md)
+- [Ingestion overview](ingest-data/data-explorer-ingest-data-overview.md)
+- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)

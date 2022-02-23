@@ -4,12 +4,11 @@ metadata:
   description: This article provides answers to frequently asked questions (FAQ) about Microsoft Azure VM sizes that don’t have local temporary disk. 
   author: brbell 
   ms.service: virtual-machines 
-  ms.topic: conceptual 
+  ms.topic: faq
   ms.subservice: sizes
   ms.author: brbell
   ms.reviewer: mimckitt
   ms.date: 06/15/2020 
-    
 title: Azure VM sizes with no local temporary disk 
 summary: |
   > [!TIP]
@@ -29,7 +28,7 @@ sections:
       - question: |
           What if I still want a local temp disk?
         answer: |
-          If your workload requires a local temporary disk, we still offer sizes such as [Dadsv5](dasv5-dadsv5-series.md) and [Eadsv5](easv5-eadsv5-series.md). 
+          If your workload requires a local temporary disk, we still offer sizes such as the [Dadsv5](dasv5-dadsv5-series.md). 
           
           > [!NOTE]
           > Local temporary disk is not persistent; to ensure your data is persistent, please use Standard HDD, Premium SSD or Ultra SSD options. 
@@ -84,7 +83,7 @@ additionalContent: |
   In this document, you learned more about the most frequent questions related to Azure VMs with no local temp disk. For more information about these VM sizes, see the following articles:
   
   - [Specifications for Dv5 and Dsv5-series](dv5-dsv5-series.md)
+  - [Specifications for Dasv5 and Dadsv5-series](dasv5-dadsv5-series.md)
   - [Specifications for Ev5 and Esv5-series](ev5-esv5-series.md)
   - [Specifications for Easv5 and Eadsv5-series](easv5-eadsv5-series.md)
-  - [Specifications for Ebsv5 and Ebdsv5-series](ebsv5-ebdsv5-series.md)
-  - [Specifications for Dasv5 and Dadsv5-series](dasv5-dadsv5-series.md)
+  

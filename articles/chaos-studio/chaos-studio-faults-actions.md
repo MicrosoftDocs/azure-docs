@@ -4,9 +4,9 @@ description: Understand what faults and actions are in Azure Chaos Studio. What 
 author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/01/2021
-ms.custom: template-concept
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Faults and actions in Azure Chaos Studio
@@ -35,4 +35,4 @@ Faults also include the name of the selector that describes the resources that t
 
 ## Next steps
 Now that you understand actions and faults you are ready to:
-- [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
+- [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)

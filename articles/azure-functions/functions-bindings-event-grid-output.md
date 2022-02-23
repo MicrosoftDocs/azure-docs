@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, fasttrack-edit, devx-track-python"
 ---
 
@@ -281,14 +282,13 @@ module.exports = async function (context, myTimer) {
         data: "event-data",
         eventTime: timeStamp
     };
-    context.done();
 };
 ```
 
 Here's JavaScript code that creates multiple events:
 
 ```javascript
-module.exports = function(context) {
+module.exports = async function(context) {
     var timeStamp = new Date().toISOString();
 
     context.bindings.outputEvent = [];
@@ -309,7 +309,6 @@ module.exports = function(context) {
         data: "event-data",
         eventTime: timeStamp
     });
-    context.done();
 };
 ```
 

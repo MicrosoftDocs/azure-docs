@@ -1,9 +1,9 @@
 ---
 title: Statsbeat in Azure Application Insights | Microsoft Docs
-description: Statstics about Application Insights SDKs and Auto-Instrumentation
+description: Statistics about Application Insights SDKs and Auto-Instrumentation
 ms.topic: conceptual
 ms.date: 09/20/2021
-
+ms.custom: references_regions
 ---
 
 # Statsbeat in Azure Application Insights
@@ -15,6 +15,8 @@ Statsbeat collects essential and non-essential [custom metric](../essentials/met
 
 Statsbeat data is stored in a Microsoft data store.  It doesn't impact customers' overall monitoring volume and cost. 
 
+Statsbeat doesn't support [Azure Private Link](../../automation/how-to/private-link-security.md). 
+
 ## What data does Statsbeat collect?
 
 Statsbeat collects essential and non-essential metrics.
@@ -25,6 +27,35 @@ Statsbeat collects essential and non-essential metrics.
 |---------------------------|-----------------|---------------------------|-----------------|-----------------|
 | Currently Not supported   | Supported       | Currently Not supported   | Supported       | Supported       |
 
+## Supported EU Regions
+
+#### [Java](#tab/eu-java)
+
+Statseat supports EU Data Boundary for Application Insights resources in the following regions:
+
+| Geo Name                  | Region Name            |
+|---------------------------|------------------------|
+| Europe                    | North Europe           |
+| Europe                    | West Europe            |
+| France                    | France Central         | 
+| France                    | France South           | 
+| Germany                   | Germany West Central   | 
+| Norway                    | Norway East            | 
+| Norway                    | Norway West            | 
+| Sweden                    | Sweden Central         | 
+| Switzerland               | Switzerland North      |
+| Switzerland               | Switzerland West       | 
+
+
+#### [Node](#tab/eu-node)
+
+N/A
+
+#### [Python](#tab/eu-python)
+
+N/A
+
+---
 
 ### Essential Statsbeat
 
@@ -53,10 +84,12 @@ Statsbeat collects essential and non-essential metrics.
 
 ### Non-essential Statsbeat
 
-- Track the success and failure of disk persistence
-- Live metrics network statsbeat
-- Azure metadata service network statsbeat
-- Profiler network statsbeat
+Track the Disk I/O failure when using disk persistence for retriable telemetry
+
+|Metric Name|Unit|Supported dimensions|
+|-----|-----|-----|
+|Read Failure Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
+|Write Failure Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
 
 ### Configure Statsbeat
 

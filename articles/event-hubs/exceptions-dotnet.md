@@ -6,7 +6,7 @@ documentationcenter: na
 author: spelluru
 
 ms.service: event-hubs
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

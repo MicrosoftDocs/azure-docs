@@ -4,11 +4,10 @@ description: Using Azure Active Directory access reviews, you can download a rev
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 ms.date: 03/25/2021
@@ -55,6 +54,7 @@ The reports provide details on a per-user basis showing the following:
 | Element name | Description |
 | --- | --- |
 | AccessReviewId |	Review object id |
+| AccessReviewSeriesId |	Object id of the review series, if the review is an instance of a recurring review. If a one-time review, the value will be am empty GUID. |
 | ReviewType | Review types include group, application, Azure AD role, Azure role, and access package|
 |ResourceDisplayName | Display Name of the resource being reviewed |
 | ResourceId | Id of the resource being reviewed |

@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
 ms.reviewer: larryfr
-ms.date: 06/23/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, devx-track-azurecli
 
@@ -37,7 +37,7 @@ For more information on features provided by Azure App Service, see the [App Ser
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
+* A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-deploy-notebook.md) to train and register one.
 
     > [!IMPORTANT]
     > The code snippets in this article assume that you have set the following variables:

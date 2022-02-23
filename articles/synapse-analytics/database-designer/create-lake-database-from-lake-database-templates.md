@@ -1,12 +1,13 @@
 ---
 title: Create a lake database in Azure Synapse from a database template.
-description: Learn how to explore, customize, and create a lake database from database template. 
+description: Learn how to explore, customize, and create a lake database from database template.
 author: aamerril
 ms.author: aamerril
 ms.service: synapse-analytics
-ms.topic: how-to 
+ms.subservice: database-editor
+ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 
@@ -73,7 +74,7 @@ In this article, you'll learn how to use the Azure Synapse database templates to
      - Your database will be validated for errors before it's published. Any errors found will be showing in the notifications tab with instructions on how to remedy the error.
       
        ![Screenshot of the validation pane showing validation errors in the database](./media/create-lake-database-from-lake-database-template/validation-error.png)
-     - Publishing will create your database schema in the Azure Synapse Metastore. After publishing, the database and table objects will be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Purview.
+     - Publishing will create your database schema in the Azure Synapse Metastore. After publishing, the database and table objects will be visible to other Azure services and allow the metadata from your database to flow into apps like Power BI or Azure Purview.
 
 12.  You've now created a lake database using a lake database template in Azure Synapse. 
 

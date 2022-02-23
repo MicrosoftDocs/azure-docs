@@ -1,13 +1,13 @@
 ---
 title: Connect to and manage multiple Azure sources
-description: This guide describes how to connect to multiple Azure sources in Azure Purview at once, and use Purview's features to scan and manage your sources.
+description: This guide describes how to connect to multiple Azure sources in Azure Purview at once, and use Azure Purview's features to scan and manage your sources.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Connect to and manage multiple Azure sources in Azure Purview
@@ -24,13 +24,13 @@ This article outlines how to register multiple Azure sources and how to authenti
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Purview resource](create-catalog-portal.md).
+* An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section describes how to register multiple Azure sources in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+This section describes how to register multiple Azure sources in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
 
 ### Prerequisites for registration
 
@@ -89,7 +89,7 @@ Follow the steps below to scan multiple Azure sources to automatically identify 
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the Azure Purview Studio.
 1. Select the data source that you registered.
 1. Select **View details** > **+ New scan**, or use the **Scan** quick-action icon on the source tile.
 1. For **Name**, fill in the name.
@@ -109,7 +109,7 @@ To create and run a new scan, do the following:
     - If you leave the option as **All**, then future resources of that type will also be scanned in future scan runs.
     - If you select specific storage accounts or SQL databases, then future resources of that type created within this subscription or resource group will not be included for scans, unless the scan is explicitly edited in the future.
 
-1. Select **Test connection**. This will first test access to check if you've applied the Azure Purview MSI file as a reader on the subscription or resource group. If you get an error message, follow [these instructions](#prerequisites-for-registration) to resolve it. Then it will test your authentication and connection to each of your selected sources and generate a report. The number of sources selected will impact the time it takes to generate this report. Test connection will first test connectivity and access on the subscription/resource group/synapse workspace level. It will then continue to test access and connectivity to each individual resource and display the result in the report. If failed on some resources, hovering over the **X** icon will display the detailed error message.
+1. Select **Test connection**. This will first test access to check if you've applied the Azure Purview MSI file as a reader on the subscription or resource group. If you get an error message, follow [these instructions](#prerequisites-for-registration) to resolve it. Then it will test your authentication and connection to each of your selected sources and generate a report. The number of sources selected will impact the time it takes to generate this report. If failed on some resources, hovering over the **X** icon will display the detailed error message.
 
     :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection.png" alt-text="Screenshot showing the scan set up slider, with the Test Connection button highlighted.":::
     :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection-report.png" alt-text="Screenshot showing an example test connection report, with some connections passing and some failing. Hovering over one of the failed connections shows a detailed error report.":::
@@ -158,7 +158,7 @@ To manage a scan, do the following:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)

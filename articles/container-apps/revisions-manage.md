@@ -1,12 +1,13 @@
 ---
 title: Manage revisions in Azure Container Apps Preview
 description: Manage revisions and traffic splitting  in Azure Container Apps.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
-ms.topic:  conceptual
-ms.date: 10/25/2021
+ms.service: container-apps
+ms.topic: conceptual
+ms.date: 11/02/2021
 ms.author: cshoe
+ms.custom: ignite-fall-2021
 ---
 
 # Manage revisions Azure Container Apps Preview
@@ -28,7 +29,7 @@ az containerapp revision list \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp revision list `
   --name <APPLICATION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME> `
@@ -54,7 +55,7 @@ az containerapp revision show \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp revision show `
   --name <REVISION_NAME> `
   --app <CONTAINER_APP_NAME> `
@@ -80,7 +81,7 @@ az containerapp update \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp update `
   --name <APPLICATION_NAME> `
   --resource-group <RESOURCE_GROUP_NAME> `
@@ -132,7 +133,7 @@ az containerapp revision deactivate \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp revision deactivate `
   --name <REVISION_NAME> `
   --app <CONTAINER_APP_NAME> `
@@ -158,7 +159,7 @@ az containerapp revision restart \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp revision restart `
   --name <REVISION_NAME> `
   --app <APPLICATION_NAME> `

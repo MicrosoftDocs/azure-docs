@@ -1,22 +1,21 @@
 ---
 title: 'Tutorial: Text Analytics with Cognitive Service'
-description: Learn how to use text analytics in Azure Synapse Analytics. 
-services: synapse-analytics
-ms.service: synapse-analytics 
+description: Learn how to use text analytics in Azure Synapse Analytics.
+ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: 
-
 ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Text Analytics with Cognitive Service
 
 [Text Analytics](../../cognitive-services/text-analytics/index.yml) is an [Azure Cognitive Service](../../cognitive-services/index.yml) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features. In this tutorial, you'll learn how to use [Text Analytics](../../cognitive-services/text-analytics/index.yml) to analyze unstructured text on Azure Synapse Analytics.
 
-This tutorial demonstrates using text analytics with [MMLSpark](https://github.com/Azure/mmlspark) to:
+This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
 > [!div class="checklist"]
 > - Detect sentiment labels at the sentence or document level
@@ -36,10 +35,11 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 
 ## Get started
-Open Synapse Studio and create a new notebook. To get started, import [MMLSpark](https://github.com/Azure/mmlspark). 
+Open Synapse Studio and create a new notebook. To get started, import [SynapseML](https://github.com/microsoft/SynapseML). 
 
 ```python
-from mmlspark.cognitive import *
+import synapse.ml
+from synapse.ml.cognitive import *
 from pyspark.sql.functions import col
 ```
 
@@ -351,4 +351,4 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 ## Next steps
 
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [MMLSpark GitHub Repo](https://github.com/Azure/mmlspark)
+* [SynapseML GitHub Repo](https://github.com/microsoft/SynapseML)

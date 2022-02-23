@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/28/2021
 ms.author: aahi
 ---
 
@@ -41,7 +41,7 @@ Unsupported app configurations|Details|
 
 LUIS containers support a subset of the [languages supported](luis-language-support.md#languages-supported) by LUIS proper. The LUIS containers are capable of understanding utterances in the following languages:
 
-| Language | Locale | Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Text analytics](../text-analytics/language-support.md)<br>(Sentiment and<br>Keywords)|
+| Language | Locale | Prebuilt domain | Prebuilt entity | Phrase list recommendations | **[Sentiment analysis](../language-service/sentiment-opinion-mining/language-support.md) and [key phrase extraction](../language-service/key-phrase-extraction/language-support.md)|
 |--|--|:--:|:--:|:--:|:--:|
 | English (United States) | `en-US` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Arabic (preview - modern standard Arabic) |`ar-AR`|❌|❌|❌|❌|
@@ -62,4 +62,4 @@ LUIS containers support a subset of the [languages supported](luis-language-supp
 
 [!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
-[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
+[!INCLUDE [Language service support notes](includes/text-analytics-support-notes.md)]

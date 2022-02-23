@@ -4,7 +4,7 @@ description: Learn how to configure a virtual network for injection of Azure-SSI
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 02/15/2022
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell
@@ -12,7 +12,9 @@ ms.custom: devx-track-azurepowershell
 
 # Configure a virtual network for injection of Azure-SSIS integration runtime
 
-When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF), there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. The express method starts your Azure-SSIS IR faster and has no inbound, as well as less outbound, traffic requirements, but it has some limitations compared to the standard method.
+[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+
+When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. The express method starts your Azure-SSIS IR faster and has no inbound, as well as less outbound, traffic requirements, but it has some limitations compared to the standard method.
 
 ## <a name="compare"></a>Compare the standard and express virtual network injection methods
 
@@ -30,6 +32,8 @@ Here’s a table highlighting the differences between standard and express virtu
 | **Outbound traffic** | Port *443* must be open for TCP traffic with *AzureCloud* service tag as destination. | Port *443* must be open for TCP traffic with *DataFactoryManagement* service tag as destination. | 
 | **Resource lock** | Not allowed in the resource group. | Not allowed in the virtual network. | 
 | **Azure-SSIS IRs per virtual network** | Unlimited. | Only one. | 
+
+:::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/standard-express-virtual-network-injection.png" alt-text="Screenshot of standard and express virtual network injection methods" lightbox="media/join-azure-ssis-integration-runtime-virtual-network/standard-express-virtual-network-injection.png":::
 
 Your virtual network needs to be configured differently based on your injection method. If you use the express method, see the [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md) article, otherwise see the [Standard virtual network injection method](azure-ssis-integration-runtime-standard-virtual-network-injection.md) article.
   

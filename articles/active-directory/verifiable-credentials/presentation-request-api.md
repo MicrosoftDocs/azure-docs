@@ -1,23 +1,22 @@
 ---
 title: Specify the Request Service REST API verify request (preview)
 titleSuffix: Azure Active Directory Verifiable Credentials
-description: Learn how to start a Verifiable Credential presentation request
+description: Learn how to start a presentation request in Verifiable Credentials
 documentationCenter: ''
 author: barclayn
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.topic: reference
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
 ms.author: barclayn
 
-#Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued
+#Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued.
 ---
 
 # Request Service REST API presentation specification (preview)
 
-Azure Active Directory (Azure AD) verifiable credentials Request Service REST API allows you to issue and verify a veritable credential. This article specifies the Request Service REST API for a presentation request. The presentation request asks the user to present a verifiable credential and then verify the credential.
-
+Azure Active Directory (Azure AD) Verifiable Credentials includes the Request Service REST API. This API allows you to issue and verify a credential. This article specifies the Request Service REST API for a presentation request. The presentation request asks the user to present a verifiable credential, and then verify the credential.
 
 ## HTTP request
 
@@ -25,16 +24,16 @@ The Request Service REST API presentation request supports the following HTTP me
 
 | Method |Notes  |
 |---------|---------|
-|POST | With JSON payload as specify in this article. |
+|POST | With JSON payload as specified in this article. |
 
 The Request Service REST API presentation request requires the following HTTP headers:
 
 | Method |Value  |
 |---------|---------|
-|`Authorization`| Attach the access token as a Bearer token to the Authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
+|`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
 |`Content-Type`| `Application/json`|
 
-Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your [tenant ID](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application), or tenant name.
+Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your tenant ID or tenant name.
 
 ```http
 https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
@@ -60,7 +59,7 @@ Authorization: Bearer  <token>
 } 
 ```  
 
-The following permission is required to call the Request Service REST API. For more information, see [Grant permissions to get access tokens](verifiable-credentials-configure-tenant.md#31-grant-permissions-to-get-access-tokens).
+The following permission is required to call the Request Service REST API. For more information, see [Grant permissions to get access tokens](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens).
 
 | Permission type | Permission  |
 |---------|---------|
@@ -103,15 +102,15 @@ The payload contains the following properties.
 
 |Parameter |Type  | Description |
 |---------|---------|---------|
-| `includeQRCode` |  boolean |   Determines whether a QR code is included in the response of this request. Present the QR code and ask the user to scan it. Scanning the QR code launches the authenticator app with this presentation request. Possible values `true` (default), or `false`. When set to `false`, use the return `url` property to render a deep link.  |
-| `authority` | string|  Your Decentralized Identifier of your verifier Azure AD tenant. For more information, see [Gather tenant details to set up your sample application](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
+| `includeQRCode` |  Boolean |   Determines whether a QR code is included in the response of this request. Present the QR code and ask the user to scan it. Scanning the QR code launches the authenticator app with this presentation request. Possible values are `true` (default) or `false`. When you set the value to `false`, use the return `url` property to render a deep link.  |
+| `authority` | string|  Your decentralized identifier (DID) of your verifier Azure AD tenant. For more information, see [Gather tenant details to set up your sample application](verifiable-credentials-configure-verifier.md#gather-tenant-details-to-set-up-your-sample-application).|
 | `registration` | [RequestRegistration](#requestregistration-type)|  Provides information about the verifier. |
 | `presentation` | [RequestPresentation](#requestpresentation-type)| Provides information about the verifiable credentials presentation request.  |
-|`callback`|  [Callback](#callback-type)| Allows the developer to update the UI during the verifiable credential presentation process. When the user completes the process, continue the process once the results are returned to the application.|
+|`callback`|  [Callback](#callback-type)| Mandatory. Allows the developer to update the UI during the verifiable credential presentation process. When the user completes the process, continue the process after the results are returned to the application.|
 
 ### RequestRegistration type
 
-The RequestRegistration type provides information registration for the issuer. The RequestRegistration type contains the following properties:
+The `RequestRegistration` type provides information registration for the issuer. The `RequestRegistration` type contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
@@ -119,41 +118,40 @@ The RequestRegistration type provides information registration for the issuer. T
 
 The following screenshot shows the `clientName` property and the display name of the `authority` (the verifier) in the presentation request.
 
-![Screenshot showing how to approve the presentation request.](media/presentation-request-api/approve-presentation-request.jpg)
+![Screenshot that shows how to approve the presentation request.](media/presentation-request-api/approve-presentation-request.jpg)
 
 ### RequestPresentation type
 
-The RequestPresentation provides information that is required for verifiable credential presentation. The RequestPresentation contains the following properties:
+The `RequestPresentation` type provides information required for verifiable credential presentation. `RequestPresentation` contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `includeReceipt` |  boolean | Determines whether a receipt should be included in the response of this request. Possible values `true`, or `false` (default). The receipt contains the original payload sent from authenticator to the Verifiable Credential Service.  The receipt is useful for troubleshooting and should not be set by default. In the OpenId Connect SIOP request, the receipt contains the ID token from the original request. |
+| `includeReceipt` |  Boolean | Determines whether a receipt should be included in the response of this request. Possible values are `true` or `false` (default). The receipt contains the original payload sent from the authenticator to the Verifiable Credentials service. The receipt is useful for troubleshooting, and shouldn't be set by default. In the `OpenId Connect SIOP` request, the receipt contains the ID token from the original request. |
 | `requestedCredentials` | collection| A collection of [RequestCredential](#requestcredential-type) objects.|
 
 ### RequestCredential type
 
-The RequestCredential provides information about the requested credentials the user needs to provide. The RequestCredential contains the following properties:
+The `RequestCredential` provides information about the requested credentials the user needs to provide. `RequestCredential` contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `type`| string| The verifiable credential type. The `type` must match the type as defined in the **issuer** verifiable credential manifest. For example, `VerifiedCredentialExpert`. To get the issuer manifest, follow the guidance  [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application). Copy the **Issue credential URL** and open it in a web browser, and check the **id** property. |
+| `type`| string| The verifiable credential type. The `type` must match the type as defined in the `issuer` verifiable credential manifest (for example, `VerifiedCredentialExpert`). To get the issuer manifest, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md). Copy the **Issue credential URL**, open it in a web browser, and check the **id** property. |
 | `purpose`| string | Provide information about the purpose of requesting this verifiable credential. |
-| `acceptedIssuers`| string collection | A collection of issuers' DID that could issue the type of verifiable credential that subjects can present. To get your issuer DID, follow the guidance  [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application), and copy the value of the **Decentralized identifier (DID)**. |
-
+| `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. |
 
 ### Callback type
 
-The Request Service REST API generates several events to the callback endpoint. Those events allow you to update the UI and continue the process once the results are returned to the application. The Callback type contains the following properties:
+The Request Service REST API generates several events to the callback endpoint. Those events allow you to update the UI and continue the process after the results are returned to the application. The `Callback` type contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `url` | string| URI to the callback endpoint of your application. |
+| `url` | string| URI to the callback endpoint of your application. The URI must point to a reacheable endpoint on the internet otherwise the service will throw a callback URL unreadable error. Accepted inputs IPv4, IPv6 or DNS resolvable hostname. |
 | `state` | string| Associates with the state passed in the original payload. |
-| `headers` | string| [Optional] You can include a collection of HTTP headers required by the receiving end of the POST message. The headers should only include the api-key or any header required for authorization.|
+| `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The current supported header values are the `api-key` or the `Authorization` headers. Any other header will throw an invalid callback header error.|
 
 ## Successful response
 
-If successful, this method returns an HTTP 201 Created response code and a collection of event objects in the response body. The following JSON demonstrates a successful response:
+If successful, this method returns a response code (*HTTP 201 Created*), and a collection of event objects in the response body. The following JSON demonstrates a successful response:
 
 ```json
 {  
@@ -168,16 +166,16 @@ The response contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `requestId`| string | Autogenerated correlation ID. The [callback](#callback-events) uses the same request. Allowing you to keep track of the presentation request and its callbacks. |
+| `requestId`| string | An autogenerated correlation ID. The [callback](#callback-events) uses the same request, allowing you to keep track of the presentation request and its callbacks. |
 | `url`|  string| A URL that launches the authenticator app and starts the presentation process. You can present this URL to the user if they can't scan the QR code. |
-| `expiry`| integer| Indicates when the response will be expired. |
-| `qrCode`| string | A QR code that user can scan to start the presentation flow. |
+| `expiry`| integer| Indicates when the response will expire. |
+| `qrCode`| string | A QR code that the user can scan to start the presentation flow. |
 
-When your app receives the response, the app needs to present the QR code to the user. The user scans the QR code, which opens the authenticator app starting the presentation process.
+When your app receives the response, the app needs to present the QR code to the user. The user scans the QR code, which opens the authenticator app and starts the presentation process.
 
 ## Error response
 
-Error responses also can be returned so that the app can handle them appropriately. The following JSON shows an unauthorized error message.
+Error responses also can be returned so that the app can handle them appropriately. The following JSON shows an unauthorized error message:
 
 
 ```json
@@ -195,25 +193,25 @@ The response contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `requestId`| string | Autogenerated request ID.|
-| `date`| date| The time of the error. |
-| `error.code` | string| The return error code. |
-| `error.message`| string| The error message. |
+| `requestId`| string | An autogenerated request ID.|
+| `date`| date | The time of the error. |
+| `error.code` | string | The return error code. |
+| `error.message`| string | The error message. |
 
 ## Callback events
 
-The callback endpoint is called when a user scans the QR code, uses the deep link their authenticator app, or finishes the presentation process. 
+The callback endpoint is called when a user scans the QR code, uses the deep link the authenticator app, or finishes the presentation process. 
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `requestId`| string | Mapped to the original request when the payload was posted to the Verifiable Credentials Service.|
-| `code` |string |The code returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved` the user scanned the QR code or click on the link that starts the presentation flow.</li><li>`presentation_verified` the verifiable credential validation completed successfully.</li></ul>    |
-| `state` |string| The state returns the state value that you passed in the original payload.   |
+| `requestId`| string | Mapped to the original request when the payload was posted to the Verifiable Credentials service.|
+| `code` |string |The code returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the presentation flow.</li><li>`presentation_verified`: The verifiable credential validation completed successfully.</li></ul>    |
+| `state` |string| Returns the state value that you passed in the original payload.   |
 | `subject`|string | The verifiable credential user DID.|
-| `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential it provides: </li><li>The verifiable credential type.</li><li>The claims retrieved.</li><li>The verifiable credential issuer’s domain. </li><li>The verifiable credential issuer’s domain validation status. </li></ul> |
-| `receipt`| string | [Optional] The receipt contains the original payload sent from authenticator to the Verifiable Credential Service.  |
+| `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type.</li><li>The claims retrieved.</li><li>The verifiable credential issuer’s domain. </li><li>The verifiable credential issuer’s domain validation status. </li></ul> |
+| `receipt`| string | Optional. The receipt contains the original payload sent from the wallet to the Verifiable Credentials service. The receipt should be used for troubleshooting/debugging only. The format in the receipt is not fix and can change based on the wallet and version used.|
 
-The following example demonstrates a callback payload when the presentation request is started by the authenticator app.
+The following example demonstrates a callback payload when the authenticator app starts the presentation request:
 
 ```json
 {  
@@ -223,7 +221,7 @@ The following example demonstrates a callback payload when the presentation requ
 } 
 ```
 
-The following example demonstrates a callback payload after verifiable credential presentation successfully completed.
+The following example demonstrates a callback payload after the verifiable credential presentation has successfully completed:
 
 ```json
 {
@@ -254,4 +252,4 @@ The following example demonstrates a callback payload after verifiable credentia
 
 ## Next steps
 
-Learn [how to call the Request Service REST API](get-started-request-api.md)
+Learn [how to call the Request Service REST API](get-started-request-api.md).

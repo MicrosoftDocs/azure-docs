@@ -1,5 +1,5 @@
 ---
-title: Text summarization language support 
+title: Text summarization language support
 titleSuffix: Azure Cognitive Services
 description: Learn about which languages are supported by text summarization.
 services: cognitive-services
@@ -7,10 +7,10 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-summarization
+ms.custom: language-service-summarization, ignite-fall-2021
 ---
 
 # Text summarization language support

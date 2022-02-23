@@ -5,7 +5,7 @@ author: spelluru
 ms.author: spelluru
 ms.date: 09/28/2021
 ms.topic: quickstart
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 

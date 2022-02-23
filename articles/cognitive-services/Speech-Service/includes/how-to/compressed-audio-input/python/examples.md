@@ -6,9 +6,9 @@ ms.date: 03/09/2020
 ms.author: amishu
 ---
 
-To configure Speech SDK to accept compressed audio input, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class, specifying the compression format of the stream.
+To configure the Speech SDK to accept compressed audio input, create `PullAudioInputStream` or `PushAudioInputStream`. Then, create an `AudioConfig` from an instance of your stream class that specifies the compression format of the stream.
 
-Let's assume that your use case is to use `PullStream` for an `MP3` file. Your code may look like this:
+Let's assume that your use case is to use `PullStream` for an `MP3` file. Your code might look like this:
 
 ```python
 

@@ -4,9 +4,9 @@ description: Understand the concept of a chaos experiment in Azure Chaos Studio.
 author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/01/2021
-ms.custom: template-concept
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Chaos experiments
@@ -26,4 +26,4 @@ Chaos experiments can target resources in a different subscription than the expe
 ## Next steps
 Now that you understand what a chaos experiment is you are ready to:
 - [Learn about faults and actions](chaos-studio-faults-actions.md)
-- [Create and run your first experiment](chaos-studio-tutorial-service-direct.md)
+- [Create and run your first experiment](chaos-studio-tutorial-service-direct-portal.md)

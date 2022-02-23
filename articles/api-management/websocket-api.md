@@ -7,7 +7,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 11/2/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Import a WebSocket API

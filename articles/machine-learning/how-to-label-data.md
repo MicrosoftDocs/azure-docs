@@ -7,8 +7,8 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.custom: data4ml
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Labeling images and text documents
@@ -22,7 +22,7 @@ After your project administrator creates an [image data labeling project](./how-
 
 ## Prerequisites
 
-* A [Microsoft account](https://account.microsoft.com/account) or an Azure Active Directory account for the organization and project
+* A [Microsoft account](https://account.microsoft.com/account) or an Azure Active Directory account for the organization and project.
 * Contributor level access to the workspace that contains the labeling project.
 
 ## Sign in to the studio
@@ -31,7 +31,7 @@ After your project administrator creates an [image data labeling project](./how-
 
 1. Select the subscription and the workspace that contains the labeling project.  Get this information from your project administrator.
 
-1. Select **Data labeling** on the left-hand side to find the project.  
+1. Depending on your access level, you may see multiple sections on the left.  If so, select **Data labeling** on the left-hand side to find the project.  
 
 ## Understand the labeling task
 
@@ -62,6 +62,8 @@ Machine learning algorithms may be triggered during your labeling. If these algo
     * At some point, you may see **Tasks prelabeled** next to the project name.  Items will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data might still be incorrectly prelabeled.  When you see labels, correct any wrong labels before submitting the page.
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
+
+When there are no more prelabled tasks, you'll stop confirming or correcting labels and go back to manually tagging the items.
 
 ## <a name="image-tasks"></a> Image tasks
 
@@ -196,6 +198,4 @@ When you're done labeling, select your name in the upper-right corner of the lab
 
 ## Next steps
 
-* Learn to [train image classification models in Azure](./tutorial-train-models-with-aml.md)
-
-
+* Learn to [train image classification models in Azure](./tutorial-train-deploy-notebook.md)

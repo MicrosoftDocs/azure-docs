@@ -1,10 +1,10 @@
 ---
-title: Data Collection Rules in Azure Monitor (preview)
+title: Data Collection Rules in Azure Monitor
 description: Overview of data collection rules (DCRs) in Azure Monitor including their contents and structure and how you can create and work with them.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/19/2021
+ms.date: 02/08/2022
 ms.custom: references_region
 
 ---
@@ -29,8 +29,6 @@ A data collection rule includes the following components.
 | Destinations | Set of destinations where the data should be sent. Examples include Log Analytics workspace and Azure Monitor Metrics. | 
 | Data flows | Definition of which streams should be sent to which destinations. | 
 
-Data collection rules are stored regionally, and are available in all public regions where Log Analytics is supported. Government regions and clouds are not currently supported.
-
 The following diagram shows the components of a data collection rule and their relationship
 
 [![Diagram of DCR](media/data-collection-rule-overview/data-collection-rule-components.png)](media/data-collection-rule-overview/data-collection-rule-components.png#lightbox)
@@ -40,17 +38,19 @@ Each data source has a data source type. Each type defines a unique set of prope
 
 | Data source type | Description | 
 |:---|:---|
-| extension | VM extension-based data source |
+| extension | VM extension-based data source, used exclusively by Log Analytics solutions and Azure services ([View agent supported services and solutions](./azure-monitor-agent-overview.md#supported-services-and-features)) |
 | performanceCounters | Performance counters for both Windows and Linux |
 | syslog | Syslog events on Linux |
 | windowsEventLogs | Windows event log |
 
+## Supported regions
+Data collection rules are stored regionally, and are available in all public regions where Log Analytics is supported, as well as the Azure Government and China clouds. Air-gapped clouds are not yet supported.
 
 ## Limits
 For limits that apply to each data collection rule, see [Azure Monitor service limits](../service-limits.md#data-collection-rules).
 
 ## Data resiliency and high availability
-Data Collection Rules as a service is deployed regionally. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../best-practices-availability-paired-regions.md#azure-regional-pairs) within the same Geo.  
+Data Collection Rules as a service is deployed regionally. A rule gets created and stored in the region you specify, and is backed up to the [paired-region](../../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) within the same Geo.  
 Additionally, the service is deployed to all 3 [availability zones](../../availability-zones/az-overview.md#availability-zones) within the region, making it a **zone-redundant service** which further adds to high availability.
 
 

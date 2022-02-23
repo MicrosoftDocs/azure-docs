@@ -110,9 +110,9 @@ As of today custom event trigger supports a __subset__ of [advanced filtering op
 * StringIn
 * StringNotIn
 
-Click **+New** to add new filter conditions. 
+Select **+New** to add new filter conditions. 
 
-Additionally, custom event triggers obey the [same limitations as event grid](../event-grid/event-filtering.md#limitations), including:
+Additionally, custom event triggers obey the [same limitations as Event Grid](../event-grid/event-filtering.md#limitations), including:
 
 * 5 advanced filters and 25 filter values across all the filters per custom event trigger
 * 512 characters per string value
@@ -128,7 +128,7 @@ The following table provides an overview of the schema elements that are related
 
 | JSON element | Description | Type | Allowed values | Required |
 |---|----------------------------|---|---|---|
-| `scope` | The Azure Resource Manager resource ID of the event grid topic. | String | Azure Resource Manager ID | Yes |
+| `scope` | The Azure Resource Manager resource ID of the Event Grid topic. | String | Azure Resource Manager ID | Yes |
 | `events` | The type of events that cause this trigger to fire. | Array of strings    |  | Yes, at least one value is expected. |
 | `subjectBeginsWith` | The `subject` field must begin with the provided pattern for the trigger to fire. For example, _factories_ only fire the trigger for event subjects that start with *factories*. | String   | | No |
 | `subjectEndsWith` | The `subject` field must end with the provided pattern for the trigger to fire. | String   | | No |
@@ -143,11 +143,11 @@ Azure Data Factory uses Azure role-based access control (RBAC) to prohibit unaut
 
 To successfully create or update a custom event trigger, you need to sign in to Data Factory with an Azure account that has appropriate access. Otherwise, the operation will fail with an _Access Denied_ error.
 
-Data Factory doesn't require special permission to your Event Grid. You also do *not* need to assign special Azure RBAC permission to the Data Factory service principal for the operation.
+Data Factory doesn't require special permission to your Event Grid. You also do *not* need to assign special Azure RBAC role permission to the Data Factory service principal for the operation.
 
 Specifically, you need `Microsoft.EventGrid/EventSubscriptions/Write` permission on `/subscriptions/####/resourceGroups//####/providers/Microsoft.EventGrid/topics/someTopics`.
 
 ## Next steps
 
-* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Get detailed information about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
 * Learn how to [reference trigger metadata in pipeline runs](how-to-use-trigger-parameterization.md).

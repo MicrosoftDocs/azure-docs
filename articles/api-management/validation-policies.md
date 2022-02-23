@@ -4,11 +4,11 @@ description: Learn about policies you can use in Azure API Management to validat
 services: api-management
 documentationcenter: ''
 author: dlepow
-
 ms.service: api-management
 ms.topic: article
 ms.date: 10/21/2021
 ms.author: danlep
+ms.custom: ignite-fall-2021
 ---
 
 # API Management policies to validate requests and responses
@@ -111,7 +111,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 The `validate-parameters` policy validates the header, query, or path parameters in requests against the API schema.
 
 > [!IMPORTANT]
-> If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-parameters` policy might not work. You may need to [reimport your API](/rest/api/apimanagement/2021-01-01-preview/apis/createorupdate) using management API version `2021-01-01-preview` or later.
+> If you imported an API using a management API version prior to `2021-01-01-preview`, the `validate-parameters` policy might not work. You may need to [reimport your API](/rest/api/apimanagement/current-ga/apis/create-or-update) using management API version `2021-01-01-preview` or later.
 
 
 ### Policy statement

@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: ignite-fall-2021
 ---
 
 # Azure disk pools (preview) planning guide
@@ -51,6 +52,8 @@ Refer to the [Networking planning checklist for Azure VMware Solution](../azure-
 The following example should give you an idea of how the different performance factors work together:
 
 As an example, if you add two 1-TiB premium SSDs (P30, with a provisioned target of 5000 IOPS and 200 Mbps) into a standard disk pool, you can achieve 2 x 5000  = 10,000 IOPS. However, throughput would be capped at 384 MBps by the disk pool. To exceed this 384-MBps limit, you can deploy more disk pools to scale out for extra throughput. Your network throughput will limit the effectiveness of scaling out.
+
+Disk pools created without specifying the SKU in the REST API are the standard disk pool, by default.
 
 ## Availability
 

@@ -2,12 +2,10 @@
 title: IoT Edge version navigation and history - Azure IoT Edge
 description: Discover what's new in IoT Edge with information about new features and capabilities in the latest releases.
 author: kgremban
-
 ms.author: kgremban
 ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
-services: iot-edge
 ---
 
 # Azure IoT Edge versions and release notes
@@ -20,8 +18,9 @@ Azure IoT Edge is a product built from the open-source IoT Edge project hosted o
 
 The IoT Edge documentation on this site is available for two different versions of the product, so that you can choose the content that applies to your IoT Edge environment. Currently, the two supported versions are:
 
-* **IoT Edge 1.2** contains content for new features and capabilities that are in the latest stable release.
-* **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. The documentation for this version covers all features and capabilities from all previous versions through 1.1. This documentation version will be stable through the supported lifetime of version 1.1, and will not reflect new features released in later versions. IoT Edge 1.1 LTS will be supported until December 3, 2022 to match the [.NET Core 3.1 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+* **IoT Edge 1.2** contains content for new features and capabilities that are in the latest stable release. This version of the documentation also contains content for the IoT Edge for Linux on Windows (EFLOW) continuous release version, which is based on IoT Edge 1.2 and contains the latest features and capabilities.
+* **IoT Edge 1.1 (LTS)** is the first long-term support (LTS) version of IoT Edge. The documentation for this version covers all features and capabilities from all previous versions through 1.1. This version of the documentation also contains content for the IoT Edge for Linux on Windows long-term support version, which is based on IoT Edge 1.1 LTS.
+  * This documentation version will be stable through the supported lifetime of version 1.1, and will not reflect new features released in later versions. IoT Edge 1.1 LTS will be supported until December 3, 2022 to match the [.NET Core 3.1 release lifecycle](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 For more information about IoT Edge releases, see [Azure IoT Edge supported systems](support.md).
 
@@ -39,4 +38,5 @@ This table provides recent version history for IoT Edge package releases, and hi
 ## Next steps
 
 * [View all Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases)
-* [Make or review feature requests in the feedback forum](https://feedback.azure.com/forums/907045-azure-iot-edge)
+
+* [Make or review feature requests in the feedback forum](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0)

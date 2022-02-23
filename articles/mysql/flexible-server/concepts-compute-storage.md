@@ -8,12 +8,10 @@ ms.topic: conceptual
 ms.date: 1/28/2021
 ---
 
-# Compute and storage options in Azure Database for MySQL - Flexible Server (Preview)
+# Compute and storage options in Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 You can create an Azure Database for MySQL Flexible Server in one of three different compute tiers: Burstable, General Purpose, and Memory Optimized. The compute tiers are differentiated by the underlying VM SKU used B-series, D-series, and E-series. The choice of compute tier and size determines the memory and vCores available on the server. The same storage technology is used across all compute tiers. All resources are provisioned at the MySQL server level. A server can have one or many databases.
 
@@ -106,9 +104,7 @@ Remember that storage once auto-scaled up, cannot be scaled down.
 
 Azure Database for MySQL – Flexible Server supports the provisioning of additional IOPS. This feature enables you to provision additional IOPS above the complimentary IOPS limit. Using this feature, you can increase or decrease the number of IOPS provisioned based on your workload requirements at any time. 
 
-The minimum IOPS is 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
-
-To learn more about the maximum IOPS per compute size is shown below: 
+The minimum IOPS is 360 across all compute sizes and the maximum IOPS is determined by the selected compute size. To learn more about the maximum IOPS per compute size is shown below: 
 
 | Compute size         | Maximum IOPS        | 
 |----------------------|---------------------|
@@ -138,7 +134,7 @@ The maximum IOPS is dependent on the maximum available IOPS per compute size. Re
 > [!Important]
 > **Complimentary IOPS** are equal to MINIMUM("Max uncached disk throughput: IOPS/MBps" of compute size, 300 + storage provisioned in GiB * 3)<br>
 > **Minimum IOPS** is 360 across all compute sizes<br>
-> **Maximum IOPS** is determined by the selected compute size. In preview, the maximum IOPS supported is 20,000 IOPS.
+> **Maximum IOPS** is determined by the selected compute size. 
 
 You can monitor your I/O consumption in the Azure portal (with Azure Monitor) using [IO percent](./concepts-monitoring.md) metric. If you need more IOPS than the max IOPS based on compute then you need to scale your server's compute.
 

@@ -6,18 +6,16 @@ metadata:
   keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
   documentationcenter: ''
   author: billmath
-  manager: daveba
+  manager: karenhoran
   ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 10/07/2019
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-    
 title: 'Azure Active Directory Seamless Single Sign-On: Frequently asked questions'
 summary: In this article, we address frequently asked questions about Azure Active Directory Seamless Single Sign-On (Seamless SSO). Keep checking back for new content.
 

@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
 ms.date: 11/2/2021
-ms.custom:
+ms.custom: ignite-fall-2021
 ---
 
 # Send events from API Management to Event Grid

@@ -53,7 +53,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
    |Rule type     |Match|
    |Priority    |100|
    |Match type     |IP address|
-   |Match variable|RemoteAddr|
+   |Match variable|SocketAddr|
    |Operation|Does not contain|
    |IP address or range|10.10.10.0/24|
    |Then|Deny traffic|
@@ -125,7 +125,7 @@ Next, add match condition to the rule:
 
 ```azurecli
 az network front-door waf-policy rule match-condition add \
---match-variable RemoteAddr \
+--match-variable SocketAddr \
 --operator IPMatch \
 --values "ip-address-range-1" "ip-address-range-2" \
 --negate true \
@@ -190,7 +190,7 @@ Use the [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor
 In the following example, replace *ip-address-range-1*, *ip-address-range-2* with your own range.
 ```powershell
 $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
--MatchVariable  RemoteAddr `
+-MatchVariable  SocketAddr `
 -OperatorProperty IPMatch `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
 -NegateCondition 1

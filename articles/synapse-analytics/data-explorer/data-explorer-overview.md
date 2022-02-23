@@ -6,9 +6,9 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: maraheja
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
+ms.custom: ignite-fall-2021
 ---
 
 # What is Azure Synapse Data Explorer? (Preview)
@@ -66,7 +66,7 @@ These efficient indexing capabilities enables Data Explore to make the data avai
 
 ### Kusto Query Language
 
-KQL has a large, growing community with the rapid adoption of Azure Monitor, Azure Application Insights, Azure Sentinel, Azure Data Explore, and other Microsoft offerings. The language is well designed with an easy-to-read syntax and provides a smooth transition from simple one-liner to complex data processing queries. This allows Data Explorer to provide rich Intellisense support and a rich set of language construct and built-in capabilities for aggregations, time series, and user analytics that aren't available in SQL for rapid exploration of telemetry data.
+KQL has a large, growing community with the rapid adoption of Azure Monitor Log Analytics and Application Insights, Microsoft Sentinel, Azure Data Explorer, and other Microsoft offerings. The language is well designed with an easy-to-read syntax and provides a smooth transition from simple one-liner to complex data processing queries. This allows Data Explorer to provide rich Intellisense support and a rich set of language construct and built-in capabilities for aggregations, time series, and user analytics that aren't available in SQL for rapid exploration of telemetry data.
 
 ## Next Steps
 

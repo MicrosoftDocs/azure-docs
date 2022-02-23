@@ -1,14 +1,15 @@
 ---
-title: Query folders and multiple files using serverless SQL pool  
+title: Query folders and multiple files using serverless SQL pool
 description: Serverless SQL pool supports reading multiple files/folders by using wildcards, which are similar to the wildcards used in Windows OS.
-services: synapse analytics 
-author: azaricstefan 
-ms.service: synapse-analytics 
+services: synapse analytics
+author: azaricstefan
+ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun
+ms.custom: ignite-fall-2021
 ---
 
 # Query folders and multiple files  

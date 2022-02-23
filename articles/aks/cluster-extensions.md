@@ -31,6 +31,19 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI](/cli/azure/install-azure-cli) version >= 2.16.0 installed.
 
+> [!NOTE]
+> If you have enabled [AAD-based pod identity][use-azure-ad-pod-identity] on your AKS cluster, please add the following `AzurePodIdentityException` to the release namespace of your extension instance on the AKS cluster:
+> ```yml
+> apiVersion: aadpodidentity.k8s.io/v1
+> kind: AzurePodIdentityException
+> metadata:
+>  name: k8s-extension-exception
+>  namespace: <release-namespace-of-extension>
+> spec:
+>  podLabels:
+>    clusterconfig.azure.com/managedby: k8s-extension
+> ```
+
 ### Register provider for cluster extensions
 
 #### [Azure CLI](#tab/azure-cli)
@@ -116,12 +129,11 @@ az extension update --name k8s-extension
 >[!NOTE]
 > Cluster extensions provides a platform for different extensions to be installed and managed on an AKS cluster. If you are facing issues while using any of these extensions, please open a support ticket with the respective service.
 
-<!--
 | Extension | Description |
 | --------- | ----------- |
--->
-
-Currently, no extensions are available.
+| [Dapr][dapr-overview] | Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on cloud and edge. |
+| [Azure ML][azure-ml-overview] | Use Azure Kubernetes Service clusters to train, inference, and manage machine learning models in Azure Machine Learning. |
+| [Flux (GitOps)][gitops-overview] | Use GitOps with Flux to manage cluster configuration and application deployment. |
 
 ## Supported regions and Kubernetes versions
 
@@ -222,23 +234,14 @@ az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubern
 
 ### Delete extension instance
 
+>[!NOTE]
+> The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
+
 Delete an extension instance on a cluster with `k8s-extension delete`, passing in values for the mandatory parameters.
 
 ```azurecli
 az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
-
->[!NOTE]
-> The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
-
-<!-- when extensions are available, add this section
-## Next steps
-
-Learn more about the cluster extensions currently available for AKS:
-
-> [!div class="nextstepaction"]
-
--->
 
 <!-- LINKS -->
 <!-- INTERNAL -->
@@ -246,9 +249,11 @@ Learn more about the cluster extensions currently available for AKS:
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
-[azure-ml-overview]:  <!-- need link -->
-[dapr-overview]: <!-- Not yet live -->
+[azure-ml-overview]: ../machine-learning/how-to-attach-arc-kubernetes.md
+[dapr-overview]: ./dapr.md
+[gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
+[use-azure-ad-pod-identity]: ./use-azure-ad-pod-identity.md
 
 <!-- EXTERNAL -->
 [arc-k8s-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all

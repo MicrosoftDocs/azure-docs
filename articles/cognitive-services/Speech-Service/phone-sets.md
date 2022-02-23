@@ -1,13 +1,14 @@
 ---
 title: "Universal Phone Sets"
 titleSuffix: Azure Cognitive Services
-description: Phone Sets used to customize pronunciation of words in Speech-to-Text. 
-author: ut-karsh 
-ms.author: umaheshwari 
+description: Phone Sets used to customize pronunciation of words in Speech-to-Text.
+author: ut-karsh
+ms.author: umaheshwari
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual 
-ms.date: 10/19/2021 
+ms.topic: conceptual
+ms.date: 10/19/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Universal Phone Set

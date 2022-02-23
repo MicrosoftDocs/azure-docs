@@ -8,16 +8,17 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/1/2021
+ms.date: 02/11/2022
 ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: b2c-support
 ---
 
 # Overview of tokens in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each [authentication flow](application-types.md). This article describes the format, security characteristics, and contents of each type of token.
+Azure Active Directory B2C (Azure AD B2C) emits different types of security tokens as it processes each [authentication flow](application-types.md). This article describes the format, security characteristics, and contents of each type of token.
 
 ## Token types
 
@@ -59,10 +60,10 @@ The following table lists the claims that you can expect in ID tokens and access
 | Code hash | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | A code hash included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. For more information about how to perform this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Access token hash | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | An access token hash included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. For more information about how to perform this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Nonce | `nonce` | `12345` | A nonce is a strategy used to mitigate token replay attacks. Your application can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request is emitted unmodified in the `nonce` claim of an ID token only. This claim allows your application to verify the value against the value specified on the request. Your application should perform this validation during the ID token validation process. |
-| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | The principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. |
+| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | The principal about which the token asserts information, such as the user of an application. This value is immutable and can't be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. |
 | Authentication context class reference | `acr` | Not applicable | Used only with older policies. |
 | Trust framework policy | `tfp` | `b2c_1_signupsignin1` | The name of the policy that was used to acquire the ID token. |
-| Authentication time | `auth_time` | `1438535543` | The time at which a user last entered credentials, represented in epoch time. There is no discrimination between that authentication being a fresh sign-in, a single sign-on (SSO) session, or another sign-in type. The `auth_time` is the last time the application (or user) initiated an authentication attempt against Azure AD B2C. The method used to authenticate is not differentiated. |
+| Authentication time | `auth_time` | `1438535543` | The time at which a user last entered credentials, represented in epoch time. There is no discrimination between that authentication being a fresh sign-in, a single sign-on (SSO) session, or another sign-in type. The `auth_time` is the last time the application (or user) initiated an authentication attempt against Azure AD B2C. The method used to authenticate isn't differentiated. |
 | Scope | `scp` | `Read`| The permissions granted to the resource for an access token. Multiple granted permissions are separated by a space. |
 | Authorized Party | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | The **application ID** of the client application that initiated the request. |
 
@@ -81,7 +82,7 @@ The following use cases are enabled using these properties:
 - Allow a user to stay signed in to a mobile application indefinitely, as long as the user is continually active on the application. You can set **Refresh token sliding window lifetime (days)** to **No expiry** in your sign-in user flow.
 - Meet your industry's security and compliance requirements by setting the appropriate access token lifetimes.
 
-These settings are not available for password reset user flows.
+These settings aren't available for password reset user flows.
 
 ## Compatibility
 
@@ -89,7 +90,7 @@ The following properties are used to [manage token compatibility](configure-toke
 
 - **Issuer (iss) claim** - This property identifies the Azure AD B2C tenant that issued the token. The default value is `https://<domain>/{B2C tenant GUID}/v2.0/`. The value of `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` includes IDs for both the Azure AD B2C tenant and the user flow that was used in the token request. If your application or library needs Azure AD B2C to be compliant with the [OpenID Connect Discovery 1.0 spec](https://openid.net/specs/openid-connect-discovery-1_0.html), use this value.
 
-- **Subject (sub) claim** - This property identifies the entity for which the token asserts information. The default value is **ObjectID**, which populates the `sub` claim in the token with the object ID of the user. The value of **Not supported** is only provided for backward-compatibility. It's recommended that you switch to **ObjectID** as soon as you are able to.
+- **Subject (sub) claim** - This property identifies the entity for which the token asserts information. The default value is **ObjectID**, which populates the `sub` claim in the token with the object ID of the user. The value of **Not supported** is only provided for backward-compatibility. It's recommended that you switch to **ObjectID** as soon as you're able to.
 
 - **Claim representing policy ID** - This property identifies the claim type into which the policy name used in the token request is populated. The default value is `tfp`. The value of `acr` is only provided for backward-compatibility.
 
@@ -133,6 +134,8 @@ https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.w
 ```
 
 To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
+
+Azure AD B2C uses the RS256 algorithm, which is based on the [RFC 3447](https://www.rfc-editor.org/rfc/rfc3447#section-3.1) specification. The public key consists of two components: the RSA modulus (`n`) and the RSA public exponent (`e`). You can programmatically convert `n` and `e` values to a certificate format for token validation.
 
 A description of how to perform signature validation is outside the scope of this document. Many open-source libraries are available to help you validate a token.
 

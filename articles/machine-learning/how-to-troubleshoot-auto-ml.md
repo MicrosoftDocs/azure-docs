@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 03/08/2021
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python, automl, references_regions
 ---
@@ -190,6 +190,10 @@ If this pattern is expected in your time series, you can switch your primary met
     1. Select the `Branch` button
     1. Navigate to the `Tags` tab
     1. Select the version
+    
+## Experiment throttling
+
+If you have over 100 automated ML experiments, this may cause new automated ML experiments to have long run times. 
 
 ## Next steps
 

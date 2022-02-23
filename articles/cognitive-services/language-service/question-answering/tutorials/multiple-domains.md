@@ -1,21 +1,21 @@
 ---
-title: "Tutorial: Create a FAQ bot for multiple domains with Azure Bot Service"
-description: In this tutorial, create a no code FAQ Bot for production use cases with QnA Maker and Azure Bot Service.
+title: "Tutorial: Create a FAQ bot for multiple categories with Azure Bot Service"
+description: In this tutorial, create a no code FAQ Bot for production use cases with question answering and Azure Bot Service.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
-# Add multiple domains to your FAQ bot
+# Add multiple categories to your FAQ bot
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a project and tag question answer pairs into distinct domains with metadata
+> * Create a project and tag question answer pairs into distinct categories with metadata
 > * Create a separate project for each domain
 > * Create a separate language resource for each domain
 
@@ -100,4 +100,4 @@ When the user question is received by the service, you would need to pass on the
 
 ## Create a separate language resource for each domain
 
-Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access knowledge bases on Surface and Xbox. In this case, it is advised to create two QnA Maker resources - one for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource.
+Let's say the marketing team at Microsoft wants to build a customer support bot that answers user queries on Surface and Xbox products. They plan to assign distinct teams to access knowledge bases on Surface and Xbox. In this case, it is advised to create two question answering resources - one for Surface and another for Xbox. You can however define distinct roles for users accessing the same resource.

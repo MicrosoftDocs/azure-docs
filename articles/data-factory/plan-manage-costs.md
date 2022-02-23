@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 04/28/2021
+ms.date: 11/01/2021
 ---
 
 # Plan to manage costs for Azure Data Factory
@@ -68,12 +68,15 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 ### Other costs that might accrue with Azure Data Factory
 
-When you create resources for Azure Data Factory, resources for other Azure services are also created. They include:
+When you create resources for Azure Data Factory (ADF), resources for other Azure services are also created. They include:
 
 - Pipeline Activity execution
 - External Pipeline Activity execution
 - Creation/editing/retrieving/monitoring of data factory artifacts
-- SSIS Integration Runtime duration based on instance type and duration
+- SSIS Integration Runtime (IR) duration based on instance type and duration
+
+> [!NOTE]
+> You can assign the same tag to your ADF and other Azure resources, putting them into the same category to view their consolidated billing. ADF tag will be inherited by all SSIS IRs in it. If you change your ADF tag, you need to stop and restart all SSIS IRs in it for them to inherit the new tag, see [Reconfigure SSIS IR](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir) section.
 
 ### Using Azure Prepayment with Azure Data Factory
 

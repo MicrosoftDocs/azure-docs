@@ -10,8 +10,9 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-summarization
-zone_pivot_groups: programming-languages-text-analytics       
+ms.devlang: csharp, java, javascript, python
+ms.custom: language-service-summarization, ignite-fall-2021, mode-api
+zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: using the Text Summarization client library and REST API (preview)

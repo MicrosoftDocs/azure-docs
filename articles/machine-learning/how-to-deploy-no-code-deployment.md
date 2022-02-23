@@ -8,7 +8,8 @@ ms.subservice: core
 ms.date: 07/31/2020
 ms.topic: how-to
 ms.custom: deploy
-ms.reviewer: larryfr
+ms.author: larryfr
+author: blackmist
 ---
 
 # No-code model deployment (preview)

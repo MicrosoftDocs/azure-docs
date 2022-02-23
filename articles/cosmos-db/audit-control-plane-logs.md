@@ -1,11 +1,11 @@
 ---
 title: How to audit Azure Cosmos DB control plane operations
 description: Learn how to audit the control plane operations such as add a region, update throughput, region failover, add a VNet etc. in Azure Cosmos DB
-author: SnehaGunda
+ms.author: esarroyo
+author: StefArroyo 
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/13/2021
-ms.author: sngun
 
 ---
 
@@ -32,7 +32,7 @@ Consider the following points when turning off the metadata write access:
 
 * Evaluate and ensure that your applications do not make metadata calls that change the above resources (For example, create collection, update throughput, …) by using the SDK or account keys.
 
-* Currently, the Azure portal uses account keys for metadata operations and hence these operations will be blocked. Alternatively, use the Azure CLI, SDKs, or Resource Manager template deployments to perform such operations.
+* When `disableKeyBasedMetadataWriteAccess` is set to true, the metadata operations issued by the SDK are blocked. Alternatively, you can use Azure portal, Azure CLI, Azure PowerShell, or Azure Resource Manager template deployments to perform these operations.
 
 ## Enable diagnostic logs for control plane operations
 

@@ -1,5 +1,5 @@
 ---
-title: how to call the Key Phrase Extraction API 
+title: how to call the Key Phrase Extraction API
 titleSuffix: Azure Cognitive Services
 description: How to extract key phrases by using the Key Phrase Extraction API.
 services: cognitive-services
@@ -7,10 +7,10 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: article
-ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-key-phrase
+ms.topic: how-to
+ms.date: 12/10/2021
+ms.author: aahi
+ms.custom: language-service-key-phrase, ignite-fall-2021
 ---
 
 # How to use key phrase extraction 
@@ -27,11 +27,7 @@ This feature is useful if you need to quickly identify the main points in a coll
 
 ### Specify the key phrase extraction model
 
-By default, key phrase extraction will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform key phrase extraction operations.
-
-| Supported Versions | latest version |
-|--|--|
-| `2019-10-01`, `2020-07-01`, `2021-06-01`  | `2021-06-01`   |
+By default, key phrase extraction will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
 
 ### Input languages
 
@@ -50,7 +46,7 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 Using the key phrase extraction feature synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
-When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
 
 ## Getting key phrase extraction results
@@ -87,4 +83,3 @@ Your rate limit will vary with your [pricing tier](https://aka.ms/unifiedLanguag
 ## Next steps
 
 [Key Phrase Extraction overview](../overview.md)
-

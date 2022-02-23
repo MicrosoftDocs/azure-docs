@@ -195,9 +195,9 @@ namespace ExampleCustomCode.Serialization
 
 ## Serialization format for REST APIs
 
-Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](/rest/api/streamanalytics/2016-03-01/inputs) documentation.
+Every Stream Analytics input has a **serialization format**. For more information on input options, see the [Input REST API](/rest/api/streamanalytics/2020-03-01/inputs) documentation.
 
-The following Javascript code is an example of the .NET deserializer serialization format when using the REST API:
+The following JavaScript code is an example of the .NET deserializer serialization format when using the REST API:
 
 ```javascript
 {    
@@ -237,7 +237,7 @@ This feature is available in [6 regions](#region-support). If you are interested
 
 ### Can I access MetadataPropertyValue from my inputs similar to GetMetadataPropertyValue function?
 
-This functionality is not supported. If you need this capability, you can vote for this request on [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
+This functionality is not supported. If you need this capability, you can vote for this request on [UserVoice](https://feedback.azure.com/d365community/idea/b4517302-b925-ec11-b6e6-000d3a4f0f1c).
 
 ### Can I share my deserializer implementation with the community so that others can benefit?
 

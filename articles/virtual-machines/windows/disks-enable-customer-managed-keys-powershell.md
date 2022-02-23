@@ -6,8 +6,8 @@ ms.date: 11/02/2021
 ms.topic: how-to
 ms.author: rogarana
 ms.service: storage
-ms.subservice: disks 
-ms.custom: devx-track-azurepowershell
+ms.subservice: disks
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
 ---
 
 # Azure PowerShell - Enable customer-managed keys with server-side encryption - managed disks

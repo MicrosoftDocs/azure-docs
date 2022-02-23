@@ -21,11 +21,13 @@ With Azure SQL Database, the default partitioning should work in most cases. The
 
 ### Best practice for deleting rows in sink based on missing rows in source
 
-Here is a video walk through of how to use data flows with exits, alter row, and sink transformations to achieve this common pattern: > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
+Here is a video walk through of how to use data flows with exits, alter row, and sink transformations to achieve this common pattern: 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
 
 ### Impact of error row handling to performance
 
-When you enable error row handling ("continue on error") in the sink transformation, the service will take an additional step before writing the compatible rows to your destination table. This additional step will have a small performance penalty that can be in the range of 5% added for this step with an additional small performance hit also added if you set the option to also with the incompatible rows to a log file.
+When you enable error row handling ("continue on error") in the sink transformation, the service will take an additional step before writing the compatible rows to your destination table. This additional step will have a small performance penalty that can be in the range of 5% added for this step with an additional small performance hit also added if you set the option to also write the incompatible rows to a log file.
 
 ### Disabling indexes using a SQL Script
 

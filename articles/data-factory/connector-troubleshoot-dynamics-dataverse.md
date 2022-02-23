@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/13/2021
+ms.date: 12/02/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -32,7 +32,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 
 - **Cause**: This issue is by design, because Data Factory and Synapse pipelines are unable to show columns that contain no values in the first 10 records. Make sure that the columns you've added are in the correct format. 
 
-- **Recommendation**: Manually add the columns in the mapping tab.
+- **Recommendation**: Manually add the columns in the mapping tab. For more details, refer to [Explicit mapping](copy-activity-schema-and-type-mapping.md#explicit-mapping).
 
 
 ## Error code: DynamicsMissingTargetForMultiTargetLookupField

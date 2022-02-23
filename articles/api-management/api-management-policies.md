@@ -4,11 +4,11 @@ description: Learn about the policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: dlepow
-
 ms.service: api-management
 ms.topic: article
 ms.date: 07/19/2021
 ms.author: danlep
+ms.custom: ignite-fall-2021
 ---
 # API Management policies
 This section provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](api-management-howto-policies.md).
@@ -20,7 +20,7 @@ This section provides a reference for the following API Management policies. For
 ##  <a name="ProxyPolicies"></a> Policies
 
 -   [Access restriction policies](api-management-access-restriction-policies.md#AccessRestrictionPolicies)
-    -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of a HTTP Header.
+    -   [Check HTTP header](api-management-access-restriction-policies.md#CheckHTTPHeader) - Enforces existence and/or value of an HTTP Header.
     -   [Limit call rate by subscription](api-management-access-restriction-policies.md#LimitCallRate) - Prevents API usage spikes by limiting call rate, on a per subscription basis.
     -   [Limit call rate by key](api-management-access-restriction-policies.md#LimitCallRateByKey) - Prevents API usage spikes by limiting call rate, on a per key basis.
     -   [Restrict caller IPs](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filters (allows/denies) calls from specific IP addresses and/or address ranges.

@@ -1,9 +1,10 @@
 ---
-title: Add Contributor role on the Media Services 
-description: This topic explains how to add contributor role on the Media Services. 
+title: Add Contributor role on the Media Services
+description: This topic explains how to add contributor role on the Media Services.
 ms.author: itnorman
 ms.topic: how-to
 ms.date: 10/13/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Add contributor role on the Media Services

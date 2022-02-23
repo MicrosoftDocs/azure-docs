@@ -4,12 +4,11 @@ titleSuffix: Azure Bastion
 description: Learn how to use Azure Bastion to connect to Linux VM using RDP.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
 ms.date: 10/12/2021
 ms.author: cherylmc
-
+ms.custom: ignite-fall-2021
 ---
 
 # Create an RDP connection to a Linux VM using Azure 

@@ -1,14 +1,14 @@
 ---
 title: Set up image labeling project
 titleSuffix: Azure Machine Learning
-description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task. 
+description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: data4ml
+ms.custom: data4ml, ignite-fall-2021
 ---
 
 # Create an image labeling project and export labels
@@ -189,10 +189,10 @@ On the **Data** tab, you can see your dataset and review labeled data. Scroll th
 
 ### Details tab
 
-View details of your project.  In this tab you can:
+View and change details of your project.  In this tab you can:
 
 * View project details and input datasets
-* Enable incremental refresh
+* Enable or disable incremental refresh at regular intervals or request an immediate refresh
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels

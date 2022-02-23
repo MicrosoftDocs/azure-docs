@@ -6,7 +6,8 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 10/16/2020
 author: manishmsfte
-ms.author: mansha 
+ms.author: mansha
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

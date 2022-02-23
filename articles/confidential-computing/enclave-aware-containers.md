@@ -7,6 +7,7 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
+ms.custom: ignite-fall-2021
 ---
 
 # Enclave Aware Containers with Intel SGX

@@ -13,7 +13,7 @@ ms.author: jixin
 
 [Azure Policy](../governance/policy/overview.md) is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements.
 
-This article introduces built-in policies (preview) for Azure Web PubSub Service. Use these policies to audit new and existing Web PubSub resources for compliance.
+This article introduces built-in policies for Azure Web PubSub Service. Use these policies to audit new and existing Web PubSub resources for compliance.
 
 There are no charges for using Azure Policy.
 

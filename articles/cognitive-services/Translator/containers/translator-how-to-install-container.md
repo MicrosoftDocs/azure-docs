@@ -16,9 +16,11 @@ keywords: on-premises, Docker, container, identify
 
 # Install and run Translator containers (preview)
 
-  Containers enable you to run several features of the Translator service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Translator container.
+Containers enable you to run several features of the Translator service in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Translator container.
 
 Translator container enables you to build a translator application architecture that is optimized for both robust cloud capabilities and edge locality.
+
+See the list of [languages supported](../language-support.md) when using Translator containers. 
 
 > [!IMPORTANT]
 >
@@ -37,7 +39,7 @@ You'll also need the following:
 |--|--|
 | Familiarity with Docker | <ul><li>You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker`  [terminology and commands](/dotnet/architecture/microservices/container-docker-introduction/docker-terminology).</li></ul> |
 | Docker Engine | <ul><li>You need the Docker Engine installed on a [host computer](#host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).</li><li> Docker must be configured to allow the containers to connect with and send billing data to Azure. </li><li> On **Windows**, Docker must also be configured to support **Linux** containers.</li></ul> |
-| Translator resource | <ul><li>An Azure [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource with region other than 'global', associated API key and endpoint URI. Both values are required to start the container and can be found on the resource overview page.</li></ul>|
+| Translator resource | <ul><li>An Azure [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource with region other than 'global', associated API key and endpoint URI. Both values are required to start the container and can be found on the resource overview page.</li></ul>|
 |||
 
 |Optional|Purpose|

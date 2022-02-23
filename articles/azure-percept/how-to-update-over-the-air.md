@@ -1,12 +1,12 @@
 ---
 title: Update Azure Percept DK over-the-air
 description: Learn how to receive over-the air (OTA) updates to your Azure Percept DK
-author: EthanChangAED
-ms.author: amiyouss
+author: nkhuyent
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Update Azure Percept DK over-the-air
@@ -19,13 +19,19 @@ Follow this guide to learn how to update the OS and firmware of the carrier boar
 - [Azure subscription](https://azure.microsoft.com/free/)
 - [Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md): you connected your dev kit to a Wi-Fi network, created an IoT Hub, and connected your dev kit to the IoT Hub
 - [Device Update for IoT Hub has been successfully configured](./how-to-set-up-over-the-air-updates.md)
+- Make sure you are using the Devic Update for IoT Hub with its **old version** (public preview) UX. When navigate to "device management - updates" in your IoT Hub, click the **"switch to the older version"** link in the banner.
+
+  :::image type="content" source="media/how-to-update-over-the-air/switch-banner.png" alt-text="Screenshot of banner." lightbox="media/how-to-update-over-the-air/switch-banner.png":::
+    > [!CAUTION]
+    > As the Device Update for IoT Hub has launched the public preview refresh, the new UX is only compatible with edge device that is using the newer client agent. The devkit is current using an older version of client agent, therefore you need to use the old device update UX accordingly. **Otherwise you will encounter issues when import updates or group device for deploying updates.**
+
 
 ## Import your update file and manifest file
 
 > [!NOTE]
 > If you have already imported the update, you can skip directly to **Create a device update group**.
 
-1. Determine which [manifest and update package](./how-to-select-update-package.md) is appropriate for your dev kit.
+1. Determine which [manifest and update package](./software-releases-over-the-air-updates.md) is appropriate for your dev kit.
 
 1. Navigate to the Azure IoT Hub that you are using for your Azure Percept device. On the left-hand menu panel, select **Device Updates** under **Automatic Device Management**.
 

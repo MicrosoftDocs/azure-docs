@@ -4,16 +4,15 @@ metadata:
   description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
   ms.service: data-factory
   ms.subservice: integration-services
-  ms.topic: conceptual
+  ms.topic: faq
   ms.author: sawinark
   author: swinarko
   ms.reviewer: sawinark
   ms.custom: seo-lt-2019
-  ms.date: 04/15/2019
-    
+  ms.date: 10/22/2021
 title: Troubleshoot package execution in the SSIS integration runtime
 summary: |
-  [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+  [!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
   
   This article includes the most common errors that you might find when you're executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. It describes the potential causes and actions to solve the errors.
   
@@ -31,7 +30,7 @@ sections:
   - name: Common errors, causes, and solutions
     questions:         
       - question: |
-          Error message: "Connection Timeout Expired" or "The service has encountered an error processing your request. Please try again. "
+          Error message: "Connection Timeout Expired" or "The service has encountered an error processing your request. Try again. "
         answer: |
           Here are potential causes and recommended actions:
           * The data source or destination is overloaded. Check the load on your data source or destination and see whether it has enough capacity. For example, if you used Azure SQL Database, consider scaling up if the database is likely to time out.
@@ -42,7 +41,7 @@ sections:
             * For an ADO.NET and OLE DB source or destination component, set **ConnectRetryCount** and **ConnectRetryInterval** in Connection Manager in the SSIS package or SSIS activity.
           
       - question: |
-          Error message: "ADO NET Source has failed to acquire the connection '...'` with "A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. "
+          Error message: "ADO NET Source has failed to acquire the connection '...'` with "A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server wasn't found or wasn't accessible. "
         answer: |
           This issue usually means the data source or destination is inaccessible from the SSIS integration runtime. The reasons can vary. Try these actions:
           * Make sure you're passing the data source or destination name/IP correctly.
@@ -52,12 +51,12 @@ sections:
             * You can find more details about using a virtual network with an SSIS integration runtime in [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
           
       - question: |
-          Error message: "ADO NET Source has failed to acquire the connection '...'" with "Could not create a managed connection manager. "
+          Error message: "ADO NET Source has failed to acquire the connection '...'" with "Couldn't create a managed connection manager. "
         answer: |
           The potential cause is that the ADO.NET provider used in the package isn't installed in the SSIS integration runtime. You can install the provider by using a custom setup. You can find more details about custom setup in [Customize setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md).
           
       - question: |
-          Error message: "The connection '...' is not found "
+          Error message: "The connection '...' isn't found "
         answer: |
           A known issue in older versions of SQL Server Management Studio (SSMS) can cause this error. If the package contains a custom component (for example, SSIS Azure Feature Pack or partner components) that isn't installed on the machine where SSMS is used to do the deployment, SSMS will remove the component and cause the error. Upgrade [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) to the latest version that has the issue fixed.
           
@@ -65,12 +64,12 @@ sections:
           Error message：`SSIS Executor exit code: -1073741819. "
         answer: |
           * Potential cause & recommended action:
-            * This error may be because of the limitation for Excel source and destination when multiple Excel sources or destinations are executing in parallel in multi-thread. You can workaround this limitation by change your Excel components to execute in sequence, or separate them into different packages and trigger through "Execute Package Task" with ExecuteOutOfProcess property set as True.
+            * This error may be because of the limitation for Excel source and destination when multiple Excel sources or destinations are executing in parallel in multi-thread. You can work around this limitation by change your Excel components to execute in sequence, or separate them into different packages and trigger through "Execute Package Task" with ExecuteOutOfProcess property set as True.
           
       - question: |
-          Error message: "There is not enough space on the disk "
+          Error message: "There isn't enough space on the disk "
         answer: |
-          This error means the local disk is used up in the SSIS integration runtime node. Check whether your package or custom setup is consuming a lot of disk space:
+          This error means the local disk is used up in the SSIS integration runtime node. Check whether your package or custom setup is consuming a lot of disk spaces:
           * If the disk is consumed by your package, it will be freed up after the package execution finishes.
           * If the disk is consumed by your custom setup, you'll need to stop the SSIS integration runtime, modify your script, and start the integration runtime again. The whole Azure blob container that you specified for custom setup will be copied to the SSIS integration runtime node, so check whether there's any unnecessary content under that container.
           
@@ -84,7 +83,7 @@ sections:
                 * The domain should be "Azure"
                 * The username should be \<storage account name\>
                 * The password should be \<storage access key\>
-              * If your are using on-premises file, please check if VNet, package access credential and permission are configured properly so that your Azure-SSIS integration runtime can access your on-premises file share
+              * If you are using on-premises file, please check if VNet, package access credential and permission are configured properly so that your Azure-SSIS integration runtime can access your on-premises file share
           
       - question: |
           Error message: "The file name '...' specified in the connection was not valid "
@@ -105,13 +104,13 @@ sections:
           Error message: "The database 'SSISDB' has reached its size quota "
         answer: |
           A potential cause is that the SSISDB database created in Azure SQL Database or in SQL Managed Instance has reached its quota. Try these actions:
-          * Consider increasing the DTU of your database. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
+          * Consider increasing the DTU of your database. You can find details in [SQL Database limits for a logical server](../azure-sql/database/resource-limits-logical-server.md).
           * Check whether your package would generate many logs. If so, you can configure an elastic job to clean up these logs. For details, see [Clean up SSISDB logs with Azure Elastic Database jobs](how-to-clean-up-ssisdb-logs-with-elastic-jobs.md).
           
       - question: |
           Error message: "The request limit for the database is ... and has been reached. "
         answer: |
-          If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTU of SSISDB to resolve this issue. You can find details in [SQL Database limits for an logical server](../azure-sql/database/resource-limits-logical-server.md).
+          If many packages are running in parallel in the SSIS integration runtime, this error might occur because SSISDB has hit its request limit. Consider increasing the DTU of SSISDB to resolve this issue. You can find details in [SQL Database limits for a logical server](../azure-sql/database/resource-limits-logical-server.md).
           
       - question: |
           Error message: "SSIS Operation failed with unexpected operation status: ... "

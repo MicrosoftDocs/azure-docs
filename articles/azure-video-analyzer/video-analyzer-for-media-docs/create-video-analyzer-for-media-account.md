@@ -1,9 +1,10 @@
 ---
-title: Create an Azure Video Analyzer for Media account 
-description: This topic explains how to create an account for Azure Video Analyzer for Media. 
+title: Create an Azure Video Analyzer for Media account
+description: This topic explains how to create an account for Azure Video Analyzer for Media.
 ms.topic: tutorial
 ms.author: itnorman
 ms.date: 10/13/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Get started with Azure Video Analyzer for Media in Azure portal

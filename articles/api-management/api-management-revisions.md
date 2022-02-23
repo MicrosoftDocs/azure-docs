@@ -52,8 +52,20 @@ When you create a revision, you can set a description for your own tracking purp
 
 When you set a revision as current you can also optionally specify a public change log note. The change log is included in the developer portal for your API users to view. You can modify your change log note using the `Update-AzApiManagementApiRelease` PowerShell cmdlet.
 
-> [!NOTE]
-> Certain API properties such as **Display name** and the **API suffix** can only be updated in the current revision.
+> [!CAUTION]
+> If you are editing a non-current revision of an API, you cannot change the following properties:
+>
+> * Name
+> * Type
+> * Description
+> * Subscription required
+> * API version
+> * API version description
+> * Path
+> * Protocols
+>
+> These properties can only be changed in the current revision.  If your edits change any of the above 
+> properties of a non-current revision, the error message `Can't change property for non-current revision` will be displayed.
 
 ## Versions and revisions
 

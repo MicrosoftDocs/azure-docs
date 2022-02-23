@@ -3,22 +3,20 @@ title: Call the Image Analysis API
 titleSuffix: Azure Cognitive Services
 description: Learn how to call the Image Analysis API and configure its behavior.
 services: cognitive-services
-author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: sample
-ms.date: 09/09/2019
-ms.author: kefre
-ms.custom: "seodec18, devx-track-csharp"
+ms.topic: how-to
+ms.date: 01/05/2022
+ms.custom: "seodec18"
 ---
 
 # Call the Image Analysis API
 
 This article demonstrates how to call the Image Analysis API to return information about an image's visual features.
 
-This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a subscription key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/image-analysis-client-library.md) to get started.
+This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">created a Computer Vision resource </a> and obtained a subscription key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/image-analysis-client-library.md) to get started.
   
 ## Submit data to the service
 
@@ -33,16 +31,16 @@ The [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/compu
 |URL parameter | Value | Description|
 |---|---|--|
 |`visualFeatures`|`Adult` | detects if the image is pornographic in nature (depicts nudity or a sex act), or is gory (depicts extreme violence or blood). Sexually suggestive content (aka racy content) is also detected.|
-||`Brands` | detects various brands within an image, including the approximate location. The Brands argument is only available in English.|
-||`Categories` | categorizes image content according to a taxonomy defined in documentation. This is the default value of `visualFeatures`.|
-||`Color` | determines the accent color, dominant color, and whether an image is black&white.|
-||`Description` | describes the image content with a complete sentence in supported languages.|
-||`Faces` | detects if faces are present. If present, generate coordinates, gender and age.|
-||`ImageType` | detects if image is clip art or a line drawing.|
-||`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
-||`Tags` | tags the image with a detailed list of words related to the image content.|
+|`visualFeatures`|`Brands` | detects various brands within an image, including the approximate location. The Brands argument is only available in English.|
+|`visualFeatures`|`Categories` | categorizes image content according to a taxonomy defined in documentation. This is the default value of `visualFeatures`.|
+|`visualFeatures`|`Color` | determines the accent color, dominant color, and whether an image is black&white.|
+|`visualFeatures`|`Description` | describes the image content with a complete sentence in supported languages.|
+|`visualFeatures`|`Faces` | detects if faces are present. If present, generate coordinates, gender and age.|
+|`visualFeatures`|`ImageType` | detects if image is clip art or a line drawing.|
+|`visualFeatures`|`Objects` | detects various objects within an image, including the approximate location. The Objects argument is only available in English.|
+|`visualFeatures`|`Tags` | tags the image with a detailed list of words related to the image content.|
 |`details`| `Celebrities` | identifies celebrities if detected in the image.|
-||`Landmarks` |identifies landmarks if detected in the image.|
+|`details`|`Landmarks` |identifies landmarks if detected in the image.|
 
 A populated URL might look like the following:
 
@@ -55,10 +53,10 @@ You can also specify the language of the returned data. The following URL query 
 |URL parameter | Value | Description|
 |---|---|--|
 |`language`|`en` | English|
-||`es` | Spanish|
-||`ja` | Japanese|
-||`pt` | Portuguese|
-||`zh` | Simplified Chinese|
+|`language`|`es` | Spanish|
+|`language`|`ja` | Japanese|
+|`language`|`pt` | Portuguese|
+|`language`|`zh` | Simplified Chinese|
 
 A populated URL might look like the following:
 
@@ -117,21 +115,21 @@ description.captions[].confidence    | `number`    | The confidence score for th
 See the following list of possible errors and their causes:
 
 * 400
-    * InvalidImageUrl - Image URL is badly formatted or not accessible.
-    * InvalidImageFormat - Input data is not a valid image.
-    * InvalidImageSize - Input image is too large.
-    * NotSupportedVisualFeature - Specified feature type is not valid.
-    * NotSupportedImage - Unsupported image, e.g. child pornography.
-    * InvalidDetails - Unsupported `detail` parameter value.
-    * NotSupportedLanguage - The requested operation is not supported in the language specified.
-    * BadArgument - Additional details are provided in the error message.
+    * `InvalidImageUrl` - Image URL is badly formatted or not accessible.
+    * `InvalidImageFormat` - Input data is not a valid image.
+    * `InvalidImageSize` - Input image is too large.
+    * `NotSupportedVisualFeature` - Specified feature type is not valid.
+    * `NotSupportedImage` - Unsupported image, for example child pornography.
+    * `InvalidDetails` - Unsupported `detail` parameter value.
+    * `NotSupportedLanguage` - The requested operation is not supported in the language specified.
+    * `BadArgument` - Additional details are provided in the error message.
 * 415 - Unsupported media type error. The Content-Type is not in the allowed types:
-    * For an image URL: Content-Type should be application/json
-    * For a binary image data: Content-Type should be application/octet-stream or multipart/form-data
+    * For an image URL, Content-Type should be `application/json`
+    * For a binary image data, Content-Type should be `application/octet-stream` or `multipart/form-data`
 * 500
-    * FailedToProcess
-    * Timeout - Image processing timed out.
-    * InternalServerError
+    * `FailedToProcess`
+    * `Timeout` - Image processing timed out.
+    * `InternalServerError`
 
 > [!TIP]
 > While working with Computer Vision, you might encounter transient failures caused by [rate limits](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern](/azure/architecture/patterns/retry) in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).

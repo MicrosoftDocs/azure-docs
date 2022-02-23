@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: storage
 ms.subservice: disks
+ms.custom: ignite-fall-2021
 ---
 
 # Deprovision an Azure disk pool (preview)

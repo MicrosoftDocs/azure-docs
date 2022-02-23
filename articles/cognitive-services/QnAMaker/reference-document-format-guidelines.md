@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 04/06/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Format guidelines for imported documents and URLs
