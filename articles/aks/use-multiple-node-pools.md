@@ -241,7 +241,6 @@ The valid Kubernetes upgrades for a cluster's control plane and node pools are v
    * If a node pool Kubernetes version is not specified, behavior depends on the client being used. Declaration in Resource Manager templates falls back to the existing version defined for the node pool if used, if none is set the control plane version is used to fall back on.
    * You can either upgrade or scale a control plane or a node pool at a given time, you cannot submit multiple operations on a single control plane or node pool resource simultaneously.
 
-
 ## Scale a node pool manually
 
 As your application workload demands change, you may need to scale the number of nodes in a node pool. The number of nodes can be scaled up or down.
