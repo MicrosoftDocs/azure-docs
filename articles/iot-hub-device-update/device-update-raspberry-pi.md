@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to:
 > * Deploy an image update.
 > * Monitor the update deployment.
 
-> [NOTE!]
+> [!NOTE]
 > Image updates in this tutorial were validated on the Raspberry Pi B3 board.
 
 ## Prerequisites
