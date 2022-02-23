@@ -171,3 +171,5 @@ To create an AKS cluster with a user-assigned NAT Gateway, use `--outbound-type 
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [byo-vnet-azure-cni]: configure-azure-cni.md
 [byo-vnet-kubenet]: configure-kubenet.md
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
