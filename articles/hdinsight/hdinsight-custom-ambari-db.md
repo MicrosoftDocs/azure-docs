@@ -59,8 +59,11 @@ az deployment group create --name HDInsightAmbariDBDeployment \
 
 > [!WARNING]
 > Please use the following recommended SQL DB and Headnode VM for your HDInsight cluster. Please don't use default Ambari DB (S0) for any production environment. 
->
 
+
+> [!WARNING]
+> Please note that you may be able to change the database password on the Azure SQL Database hosting ambari database; however, it is not supported to change Azure SQL database password when it is attached as ambari metastore to a running HDInsight cluster.
+>
 
 ## Database and Headnode sizing
 
