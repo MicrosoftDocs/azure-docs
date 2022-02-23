@@ -20,6 +20,8 @@ ms.author: v-ydequadros
 
 This article describes how you can create  and manage group-based permissions in CloudKnox Permissions Management (CloudKnox) with the User management dashboard.
 
+[!NOTE] The CloudKnox Administrator for all authorization systems will be able to create the new group based permissions.
+
 ## Select administrative permissions settings for a group
 
 1. To display the **User Management** dashboard, select **User** (your initials) in the upper right of the screen, and then select **User Management**.
