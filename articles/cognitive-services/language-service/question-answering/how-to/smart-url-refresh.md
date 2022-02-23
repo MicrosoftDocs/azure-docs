@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 02/17/2022
 ---
 
-# Smart URL refresh
+# Use smart URL refresh with a project
 
 Custom question answering offers the capability to refresh knowledge bases (projects) by getting the latest content from the source URL and updating the knowledge base with one click. This is applicable when the source is of the type "URL" only. The service will ingest content from the URL and either create, merge, or delete QnA pairs in the knowledge base.
 
@@ -30,19 +30,57 @@ When the user refreshes content using this feature, the following cases may aris
 > [!NOTE]
 > If the old KB contains QnA pairs that have been manually edited in the authoring portal, then they will not be dropped after refresh. However, they can be merged with new QnA pairs in the refreshed source.
 
+> [!NOTE]
+> All the non-edited empty answer QnAs will be deleted and added back from the new source.
+
 ## Merge scenarios
 
 When the user refreshes a source, and the answer of a new QnA pair matches the answer of an old QnA pair, then the two are merged. The following scenarios might arise during the merge action:
 1. If on executing the Refresh URL action, a new question exists for the same answer, it is added as an alternate question to the old question. For example, consider Q3A3 exists in the old source. Upon refreshing, it is found that a new QnA pair Q3'A3 can also be formed. In that case, two QnA pairs are merged and Q3' is added to Q3 as an alternate question.
-2. If the old question contains prompts, then the following scenarios arise:
+2. If the old question contains prompts, then the following scenarios may arise:
   a. If the prompt attached to the old question is from the same source, then it is deleted, and the prompt of the new question (if it exists) is appended to the newly merged QnA pair. 
   b. If the prompt attached to the old question is from a different source, then it is maintained as-is and the prompt from the new question (if it exists) is appended to the newly merged QnA pair.
 
 ## Notes
 
-3.	All the non-edited empty answer QnAs will be deleted and added back from the new source.
+
 4.	If the old QnA pair has a metadata value, then the metadata is retained after refresh and merge.
 
 
-# Demo 
+## Demo 
 * asdf
+
+## Duplicate answer scenario
+
+If there exist two QnA pairs in the old source with the same answer: Q1A1 and Q2A1. Additionally, if these QnAs have individual prompts P1 and P2 attached to them:
+QnA pairs in old source
+Q1A1+P1
+Q2A1+P2
+Now, if in the refreshed source content, there’s a new QnA pair generated with the same answer A1 and a new prompt P3.
+Creating a new QnA pair from the new source:
+Q1'A1+P3
+
+In such a case, after refreshing the source, the following will be the knowledgebase view
+Q1 (Q1' as alternate question) A1+P3    
+Q2 (Q1' as alternate question) A1+P3
+
+The questions are merged and the prompts are replaced. 
+
+Old QnA pair: 
+
+|Iteration|Question  |Answer  |Prompts  |
+|---------|---------|---------|--|
+|old|What is the new HR policy?     |  You may have to choose among the following options:       | P1, P2        |
+|new|What is the new payroll policy?     |  You may have to choose among the following options:    |  P3, P4   |
+
+
+In this scenario, the prompts P1 and P2 of the old QnA pair are different from prompts P3 and P4 of the new QnA pair, and that is what distinguishes the paris. They both have the same answer, `You may have to choose among the following options:`, but it leads to different prompts. 
+
+As per the merge logic, the resulting QnA pair would be the following:
+
+
+## Refresh using the REST API
+
+You can use the **[Update Sources](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects/update-sources)** REST API to do the refresh operation programmatically. See the linked reference docs for parameters and a sample request.
+
+## Next steps
