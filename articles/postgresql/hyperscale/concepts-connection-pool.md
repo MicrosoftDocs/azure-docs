@@ -51,5 +51,5 @@ through PgBouncer, follow these steps:
 
 ## Next steps
 
-Discover more about the [limits and limitations](concepts-limits.md)
+Discover more about the [limits and limitations](reference-limits.md)
 of Hyperscale (Citus).
