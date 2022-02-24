@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 02/24/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
@@ -14,7 +14,7 @@ ms.custom: mode-api
 
 This article outlines the basic steps to get started with the DICOM service in [Azure Health Data Services](../healthcare-apis-overview.md). 
 
-As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
+As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and to deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts. You'll need a workspace to provision a DICOM service. A FHIR service is optional and is only needed if you connect imaging data with electronic health records of the patient by way of DICOM cast.
 
 [![Get Started with DICOM](media/get-started-with-dicom.png)](media/get-started-with-dicom.png#lightbox)
 
@@ -29,7 +29,7 @@ You can create a workspace from the [Azure portal](../healthcare-apis-quickstart
 
 You can create a DICOM service instance from the [Azure portal](deploy-dicom-services-in-azure.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
-Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [IoT connector](../iot/deploy-iot-connector-in-azure.md) in the workspace.
+Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [MedTech service](../iot/deploy-iot-connector-in-azure.md) in the workspace.
 
 ## Access the DICOM service
 
@@ -57,11 +57,11 @@ You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, o
 
 #### Access using existing tools
 
-- [Postman](../fhir/use-postman.md)
-- [REST Client](../fhir/using-rest-client.md)
 - [.NET C#](dicomweb-standard-apis-c-sharp.md)
 - [cURL](dicomweb-standard-apis-curl.md)
 - [Python](dicomweb-standard-apis-python.md)
+- [Postman](../fhir/use-postman.md)
+- [REST Client](../fhir/using-rest-client.md)
 
 ### DICOMweb standard APIs and change feed
 
@@ -69,7 +69,7 @@ You can find more details on DICOMweb standard APIs and change feed in the [DICO
 
 #### DICOMCast
 
-You can use the Open Source [DICOMCast](https://github.com/microsoft/dicom-server/tree/main/converter/dicom-cast) project to work with FHIR data. In the future, this capability will be available in the managed service.
+DICOM cast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project, and it's under private preview as a managed service. To enable DICOM cast as a managed service for your Azure subscription, please request access to the DICOM cast managed service by opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket.
 
 ## Next steps
 
