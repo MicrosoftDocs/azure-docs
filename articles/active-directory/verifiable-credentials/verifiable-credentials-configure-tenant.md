@@ -7,7 +7,7 @@ author: barclayn
 manager: karenhoran
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 02/24/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -82,6 +82,8 @@ After you create your key vault, Verifiable Credentials generates a set of keys 
 
 A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the administrator account of the Azure AD Verifiable Credentials service, and for the Request Service API principal that you created.
 
+### Set access policies for the Verifiable Credentials Admin user
+
 1. In the [Azure portal](https://portal.azure.com/), go to the key vault you use for this tutorial.
 
 1. Under **Settings**, select **Access policies**.
@@ -94,20 +96,34 @@ A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) def
 
 1. To save the changes, select **Save**.
 
+### Set access policies for the Verifiable Credentials Issuer and Request services
+
 1. Select **+ Add Access Policy** to add permission to the service principal of the **Verifiable Credential Request Service**.
 
 1. In **Add access policy**:
 
     1. For **Key permissions**, select **Get** and **Sign**.
 
-    1. For **Secret permissions**, select **Get**.
-
     1. For **Select principal**, select **Verifiable Credential Request Service**.
 
     1. Select **Add**.  
         
-       ![Screenshot that demonstrates how to add an access policy for the Verifiable Credential Request Service.](media/verifiable-credentials-configure-tenant/set-key-vault-service-principal-access-policy.png)
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/request-service-key-vault-access-policy.png" alt-text="Screenshot that demonstrates how to add an access policy for the Verifiable Credential Request Service." :::
 
+The access policies for the Verifiable Credentials Issuer service should be added automatically. In the event that **Verifiable Credential Issuer Service** doesn't appear in the list of access policies, take the following steps to manually add access policies to the service.
+
+1. Select **+ Add Access Policy** to add permission to the service principal of the **Verifiable Credential Issuer Service**.
+
+1. In **Add access policy**:
+
+    1. For **Key permissions**, select **Get** and **Sign**.
+
+    1. For **Select principal**, select **Verifiable Credential Issuer Service**.
+
+    1. Select **Add**.  
+
+     :::image type="content" source="media/verifiable-credentials-configure-tenant/issuer-service-key-vault-access-policy.png" alt-text="Screenshot that demonstrates how to add an access policy for the Verifiable Credential Request Service." :::
+       
 1. Select **Save** to save the new policy you created.
 
 ## Register an application in Azure AD
