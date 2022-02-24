@@ -87,7 +87,7 @@ To create your database, follow these steps:
 1. On the **Review + create** page, after reviewing, select **Create**.
  
     > [!IMPORTANT]
-    > While creating the SQL Database from your Azure free account, you will still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits, you won't be charged for the service. To view usage information, review [**Monitor and track free services usage**](#monitor-and-track-services-usage) later in this article. 
+    > While creating the SQL Database from your Azure free account, you will still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits, you won't be charged for the service. To view usage information, review [**Monitor and track free services usage**](#monitor-and-track-service-usage) later in this article. 
     
 ## Query the database
 
