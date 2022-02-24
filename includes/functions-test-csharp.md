@@ -10,15 +10,15 @@ ms.author: glenga
 
 The following example describes how to create a C# Function app in Visual Studio and run and tests with [xUnit](https://github.com/xunit/xunit).
 
-![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
+![Testing Azure Functions with C# in Visual Studio](../articles/azure-functions/media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### Setup
 
 To set up your environment, create a Function and test app. The following steps help you create the apps and functions required to support the tests:
 
-1. [Create a new Functions app](./functions-get-started.md) and name it **Functions**
-2. [Create an HTTP function from the template](./functions-get-started.md) and name it **MyHttpTrigger**.
-3. [Create a timer function from the template](./functions-create-scheduled-function.md) and name it **MyTimerTrigger**.
+1. [Create a new Functions app](../articles/azure-functions/functions-get-started.md) and name it **Functions**
+2. [Create an HTTP function from the template](../articles/azure-functions/functions-get-started.md) and name it **MyHttpTrigger**.
+3. [Create a timer function from the template](../articles/azure-functions/functions-create-scheduled-function.md) and name it **MyTimerTrigger**.
 4. [Create an xUnit Test app](https://xunit.net/docs/getting-started/netcore/cmdline) in the solution and name it **Functions.Tests**.
 5. Use NuGet to add a reference from the test app to [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Reference the *Functions* app](/visualstudio/ide/managing-references-in-a-project) from *Functions.Tests* app.
@@ -231,13 +231,13 @@ The members implemented in this class are:
 
 - **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer functions. Once the function is run, then the log is checked to ensure the expected message is present.
 
-If you want to access application settings in your tests, you can [inject](./functions-dotnet-dependency-injection.md) an `IConfiguration` instance with mocked environment variable values into your function.
+If you want to access application settings in your tests, you can [inject](../articles/azure-functions/functions-dotnet-dependency-injection.md) an `IConfiguration` instance with mocked environment variable values into your function.
 
 ### Run tests
 
 To run the tests, navigate to the **Test Explorer** and click **Run all**.
 
-![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
+![Testing Azure Functions with C# in Visual Studio](../articles/azure-functions/media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### Debug tests
 
