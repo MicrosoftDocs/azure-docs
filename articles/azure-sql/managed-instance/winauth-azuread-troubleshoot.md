@@ -30,7 +30,7 @@ This command should return a ticket from the on-prem Active Directory realm.
 klist get MSSQLSvc/<miname>.<dnszone>.database.windows.net:1433
 ```
 
-This command should return a ticket from kerberos.microsoftonline.com realm with SPN to MSSQLSvc/<miname>.<dnszone>.database.windows.net:1433
+This command should return a ticket from the `kerberos.microsoftonline.com` realm with a Service Principal Name (SPN) to `MSSQLSvc/<miname>.<dnszone>.database.windows.net:1433`.
 
 Here are some well known error codes:
 
@@ -45,7 +45,6 @@ When using Wireshark the following is expected:
 
 - AS-REQ: Client => on-prem KDC => returns on-prem TGT
 - TGS-REQ: Client => on-prem KDC => returns referral to kerberos.microsoftonline.com
-
 
 ## Collect logs for troubleshooting
 
