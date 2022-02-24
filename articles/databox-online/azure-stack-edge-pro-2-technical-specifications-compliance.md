@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/18/2022
+ms.date: 02/23/2022
 ms.author: sipastak
 ---
 
@@ -27,16 +27,6 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory type    | 64 GB DDR4-2933Mhz 2Rx4 1.2v ECC UDIMM/SODIMM |
 | Memory: raw    | 128 GB RAM (2 x 64 GB)                                                      |
 | Memory: usable | 102 GB RAM                                                                  |
-
-
-## Compute acceleration specifications
-
-A Graphics Processing Unit (GPU) is included on an Azure Stack Edge Pro 2 device that enables Kubernetes, deep learning, and machine learning scenarios.
-
-| Specification           | Value                  |
-|-------------------------|----------------------------|
-| GPU   | One Nvidia T4 GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
-
 
 ## Power supply unit specifications
 
