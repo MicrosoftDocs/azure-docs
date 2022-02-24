@@ -37,7 +37,7 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 
 ### Deploy and Manage
 
-### Azure Resource Manager template or BICEP (Infrastructure as Code approach)
+#### Azure Resource Manager template or BICEP (Infrastructure as Code approach)
 
 - A simple declarative language to provision infrastructure on Azure.
 - Leverage ARM template knowledge and investments. 
@@ -94,6 +94,7 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 # [Users](#tab/users-inguest)
 - Central IT\Infrastructure Admins\Auditors looking for regulatory requirements at scale & ensuring end state of severs looks as desired, patched and audited.
 
+---
 
 #### Azure Automanage (Preview)
 - Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy , steady state of VM is equal to hands free management.
@@ -157,7 +158,7 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 
 ---
 
-### Azure Functions
+#### Azure Functions
 
 - Provides a serverless automation platform that allows you to write code to react to critical events, without having to worry about the underlying platform. 
 - Provides a variety of Languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific piece of code.
