@@ -27,12 +27,17 @@ This release is published February 24, 2022.
 
 For complete release version information, see [Version log](version-log.md).
 
+### SQL Managed Instance
+
+- Backup recovery support for multiple replica contained availability group.
+- Billing support when using multiple read replicas.
+
 ### Azure Data Studio improvements
 
 - Azure Arc and Azure CLI extensions now generally available. 
 - Changed edit commands for SQL Managed Instance for Azure Arc dashboard to use `update`, reflecting Azure CLI changes. This works in indirect or direct mode. 
 - Data controller deployment wizard step for connectivity mode is now earlier in the process.
-- SQL MI deployment wizard now reflects the exact wording of the experience in Azure portal,
+- SQL MI deployment wizard now reflects the exact wording of the experience in Azure portal.
 - SQL MI deployment wizard now has fields in the same order as Azure portal.
 - Removed an extra backups field in SQL MI deployment wizard.
 
