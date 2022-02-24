@@ -24,7 +24,7 @@ Azure Bastion offers support for file transfer between your target VM and local 
 
 ## Upload and download files - RDP
 
-This section helps you transfer files between your local Windows computer and your target VM over RDP. Once connected to the target VM, you can transfer files using right-click, then **Copy** and **Paste**.
+This section helps you transfer files between your local Windows computer and your target VM over RDP. The *az network bastion rdp command* uses the native client MSTSC to connect to the target VM. Once connected to the target VM, you can transfer files using right-click, then **Copy** and **Paste**.
 
 1. Sign in to your Azure account and select the subscription containing your Bastion resource.
 
@@ -44,7 +44,7 @@ This section helps you transfer files between your local Windows computer and yo
 
 ## Upload files - SSH
 
-This section helps you upload files from your local computer to your target VM over SSH using the *az network bastion tunnel* command. To learn more about the tunnel command, refer to [Connect to a VM using the *az network bastion tunnel* command](connect-native-client-windows.md#connect-tunnel).
+This section helps you upload files from your local computer to your target VM over SSH using the *az network bastion tunnel* command. The *az network tunnel command* allows you to use a native client of your choice. To learn more about the tunnel command, refer to [Connect to a VM using the *az network bastion tunnel* command](connect-native-client-windows.md#connect-tunnel).
 
 > [!NOTE]
 > File download over SSH is not currently supported.
@@ -64,7 +64,7 @@ This section helps you upload files from your local computer to your target VM o
    az network bastion tunnel --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --resource-port "<TargetVMPort>" --port "<LocalMachinePort>"
     ```
 
-1. Upload files to your local machine to your target VM using the following command:
+1. Open a second command prompt to connect to your target VM through the tunnel. In this second command prompt window, you can upload files from your local machine to your target VM using the following command:
 
     ```azurecli-interactive
     scp -P <LocalMachinePort>  <local machine file path>  <username>@127.0.0.1:<target VM file path>

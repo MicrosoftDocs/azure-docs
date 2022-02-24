@@ -1169,6 +1169,8 @@
           href: mongodb/tutorial-global-distribution-mongodb.md
     - name: Concepts
       items:
+        - name: API version 4.2
+          href: mongodb/feature-support-42.md
         - name: API version 4.0
           href: mongodb/feature-support-40.md
         - name: API version 3.6
@@ -1195,7 +1197,7 @@
               href: mongodb/migrate-databricks.md
             - name: Post-migration guide
               href: mongodb/post-migration-optimization.md
-        - name: Upgrade to API version 4.0 or 3.6
+        - name: Upgrade API version
           href: mongodb/upgrade-mongodb-version.md
         - name: Get the connection string
           href: mongodb/connect-mongodb-account.md
@@ -1587,7 +1589,11 @@
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
         - name: Configure alerts
-          href: create-alerts.md
+          items:
+            - name: Create alert on Metrics
+              href: create-alerts.md
+            - name: Create alert on logical partition key size
+              href: how-to-alert-on-logical-partition-key-storage-size.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md
         - name: Application logging with Logic Apps

@@ -47,24 +47,20 @@ At the root of the project, there's a shared [host.json](functions-host-json.md)
 
 The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](./functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
+<a name="#exporting-an-async-function"></a>
+
 ## Exporting a function
 
 JavaScript functions must be exported via [`module.exports`](https://nodejs.org/api/modules.html#modules_module_exports) (or [`exports`](https://nodejs.org/api/modules.html#modules_exports)). Your exported function should be a JavaScript function that executes when triggered.
 
 By default, the Functions runtime looks for your function in `index.js`, where `index.js` shares the same parent directory as its corresponding `function.json`. In the default case, your exported function should be the only export from its file or the export named `run` or `index`. To configure the file location and export name of your function, read about [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point) below.
 
-Your exported function is passed a number of arguments on execution. The first argument it takes is always a `context` object. If your function is synchronous (doesn't return a Promise), you must pass the `context` object, as calling `context.done` is required for correct use.
+Your exported function is passed a number of arguments on execution. The first argument it takes is always a `context` object. 
 
-```javascript
-// You should include context, other arguments are optional
-module.exports = function(context, myTrigger, myInput, myOtherInput) {
-    // function logic goes here :)
-    context.done();
-};
-```
+# [2.x+](#tab/v2-v3-v4-export)
 
-### Exporting an async function
-When using the [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) in version 2.x of the Functions runtime, you do not need to explicitly call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function completes when the exported async function/Promise completes. For functions targeting the version 1.x runtime, you must still call [`context.done`](#contextdone-method) when your code is done executing.
+
+When using the [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaration or plain JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) in version 2.x, 3.x, or 4.x of the Functions runtime, you do not need to explicitly call the [`context.done`](#contextdone-method) callback to signal that your function has completed. Your function completes when the exported async function/Promise completes. 
 
 The following example is a simple function that logs that it was triggered and immediately completes execution.
 
@@ -75,6 +71,24 @@ module.exports = async function (context) {
 ```
 
 When exporting an async function, you can also configure an output binding to take the `return` value. This is recommended if you only have one output binding.
+
+# [1.x](#tab/v1-export)
+
+If your function is synchronous (doesn't return a Promise), you must pass the `context` object, as calling `context.done` is required for correct use.
+
+```javascript
+// You should include `context`
+// Other arguments like `myTrigger` are optional
+module.exports = function(context, myTrigger, myInput, myOtherInput) {
+    // function logic goes here :)
+    context.done();
+};
+```
+
+
+---
+
+### Returning from the function
 
 To assign an output using `return`, change the `name` property to `$return` in `function.json`.
 
@@ -138,8 +152,8 @@ You can assign data to output bindings in one of the following ways (don't combi
   };
   ```
 
-  If you are using a synchronous function, you can return this object using [`context.done`](#contextdone-method) (see example).
-- **_[Recommended for single output]_ Returning a value directly and using the $return binding name.** This only works for async/Promise returning functions. See example in [exporting an async function](#exporting-an-async-function). 
+  
+- **_[Recommended for single output]_ Returning a value directly and using the $return binding name.** This only works for async/Promise returning functions. See example in [exporting an async function](#exporting-a-function). 
 - **Assigning values to `context.bindings`** You can assign values directly to context.bindings.
 
   ```javascript
@@ -149,7 +163,6 @@ You can assign data to output bindings in one of the following ways (don't combi
           body: retMsg
       };
       context.bindings.queueOutput = retMsg;
-      return;
   };
   ```
 
@@ -172,19 +185,13 @@ Options for `dataType` are: `binary`, `stream`, and `string`.
 
 The runtime uses a `context` object to pass data to and from your function and the runtime. Used to read and set data from bindings and for writing to logs, the `context` object is always the first parameter passed to a function.
 
-For functions featuring synchronous code, the context object includes the `done` callback which you call when the function is done processing.
-
-> [!NOTE]
-> Explicitly calling `done` is unnecessary when writing an [async function](#exporting-an-async-function); the `done` callback is called implicitly.
 
 ```javascript
-module.exports = (context) => {
+module.exports = async function(context){
 
     // function logic goes here
 
     context.log("The function has executed.");
-
-    context.done();
 };
 ```
 
@@ -206,7 +213,7 @@ module.exports = async function (context, req) {
 };
 ```
 
-### context.bindings property
+## context.bindings property
 
 ```js
 context.bindings
@@ -242,7 +249,7 @@ context.bindings.myOutput = {
 
 In a synchronous function, you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
 
-### context.bindingData property
+## context.bindingData property
 
 ```js
 context.bindingData
@@ -250,27 +257,40 @@ context.bindingData
 
 Returns a named object that contains trigger metadata and function invocation data (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). For an example of trigger metadata, see this [event hubs example](functions-bindings-event-hubs-trigger.md).
 
-### context.done method
+## context.done method
 
-The **context.done** method is used by synchronous functions.
+# [2.x](#tab/v2-v3-v4-done)
 
-|Synchronous execution|[Asynchronous](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) execution<br>(Node 8+, Functions runtime 2+)|
-|--|--|
-|Required: `context.done([err],[propertyBag])` to inform the runtime that your function is complete. The execution times out if it is missing.<br>The `context.done` method allows you to pass back both a user-defined error to the runtime and a JSON object containing output binding data. Properties passed to `context.done` overwrite anything set on the `context.bindings` object.|Not required: `context.done` - it is implicitly called.| 
-
+In 2.x, 3.x, and 4.x, the function should be marked as async even if there is no awaited function call inside the function, and the function doesn't need to call context.done to indicate the end of the function.
 
 ```javascript
-// Synchronous code only
-// Even though we set myOutput to have:
-//  -> text: 'hello world', number: 123
-context.bindings.myOutput = { text: 'hello world', number: 123 };
-// If we pass an object to the done function...
-context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
-// the done method overwrites the myOutput binding to be: 
-//  -> text: 'hello there, world', noNumber: true
+//you don't need an awaited function call inside to use async
+module.exports = async function (context, req) {
+    context.log("you don't need an awaited function call inside to use async")
+};
+```
+# [1.x](#tab/v1-done)
+
+The **context.done** method is used by 1.x synchronous functions. In 2.x, 3.x, and 4.x, the function should be marked as async even if there is no awaited function call inside the function, and the function doesn't need to call context.done to indicate the end of the function.
+
+```javascript
+module.exports = function (context, req) {
+    // 1.x Synchronous code only
+    // Even though we set myOutput to have:
+    //  -> text: 'hello world', number: 123
+    context.bindings.myOutput = { text: 'hello world', number: 123 };
+    
+    // If we pass an object to the done function...
+    context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
+    // the done method overwrites the myOutput binding to be: 
+    //  -> text: 'hello there, world', noNumber: true
+}
 ```
 
-### context.log method  
+
+---
+
+## context.log method  
 
 ```js
 context.log(message)
@@ -328,11 +348,11 @@ Because _error_ is the highest trace level, this trace is written to the output 
 
 Functions lets you define the threshold trace level for writing to the logs or the console. The specific threshold settings depend on your version of the Functions runtime.
 
-# [v2.x+](#tab/v2)
+# [2.x+](#tab/v2)
 
 To set the threshold for traces written to the logs, use the `logging.logLevel` property in the host.json file. This JSON object lets you define a default threshold for all functions in your function app, plus you can define specific thresholds for individual functions. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
-# [v1.x](#tab/v1)
+# [1.x](#tab/v1)
 
 To set the threshold for all traces written to logs and the console, use the `tracing.consoleLevel` property in the host.json file. This setting applies to all functions in your function app. The following example sets the trace threshold to enable verbose logging:
 
@@ -348,11 +368,11 @@ Values of **consoleLevel** correspond to the names of the `context.log` methods.
 
 ---
 
-### Log custom telemetry
+## Log custom telemetry
 
 By default, Functions writes output as traces to Application Insights. For more control, you can instead use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom telemetry data to your Application Insights instance. 
 
-# [v2.x+](#tab/v2)
+# [2.x+](#tab/v2-log-custom-telemetry)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -374,7 +394,7 @@ module.exports = async function (context, req) {
 };
 ```
 
-# [v1.x](#tab/v1)
+# [1.x](#tab/v1-log-custom-telemetry)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -470,19 +490,24 @@ When you work with HTTP triggers, you can access the HTTP request and response o
     }
     ``` 
 
-    In an async function, you can return the response object directly:
+    # [2.x+](#tab/v2-accessing-request-and-response)
+
+    In a 2.x+ function, you can return the response object directly:
 
     ```javascript
     return { status: 201, body: "Insert succeeded." };
     ```
 
-    In a sync function, return the response object using the second argument of `context.done()`:
+    # [1.x](#tab/v1-accessing-request-and-response)
+
+    In a 1.x sync function, return the response object using the second argument of `context.done()`:
 
     ```javascript
      // Define a valid response object.
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
+    ---
 
 Note that request and response keys are in lowercase.
 
@@ -511,13 +536,19 @@ You can see the current version that the runtime is using by logging `process.ve
 
 ### Setting the Node version
 
+# [Windows](#tab/windows-setting-the-node-version)
+
 For Windows function apps, target the version in Azure by setting the `WEBSITE_NODE_DEFAULT_VERSION` [app setting](functions-how-to-use-azure-function-app-settings.md#settings) to a supported LTS version, such as `~14`.
+
+# [Linux](#tab/linux-setting-the-node-version)
 
 For Linux function apps, run the following Azure CLI command to update the Node version.
 
 ```bash
 az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
+
+---
 
 To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md).
 
@@ -532,6 +563,7 @@ module.exports = async function(context) {
     // Using our imported underscore.js library
     const matched_names = _
         .where(context.bindings.myInput.names, {first: 'Carla'});
+}
 ```
 
 > [!NOTE]
@@ -894,7 +926,7 @@ When writing Azure Functions in JavaScript, you should write code using the `asy
  - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
  - Unexpected behavior, such as missing logs from context.log, caused by asynchronous calls that are not properly awaited.
 
-In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues mentioned above. An exception that is not explicitly caught in the correct scope crashed the entire process (issue #1). Calling `context.done()` outside of the scope of the callback function means that the function invocation may end before the file is read (issue #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
+In the example below, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues mentioned above. An exception that is not explicitly caught in the correct scope crashed the entire process (issue #1). Calling the 1.x `context.done()` outside of the scope of the callback function means that the function invocation may end before the file is read (issue #2). In this example, calling 1.x `context.done()` too early results in missing log entries starting with `Data from file:`.
 
 ```javascript
 // NOT RECOMMENDED PATTERN

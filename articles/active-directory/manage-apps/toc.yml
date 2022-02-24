@@ -24,8 +24,10 @@
       href: delete-application-portal.md
   - name: Tutorials
     items:
-    - name: List of app integration tutorials
-      href: ../saas-apps/tutorial-list.md
+    - name: Manage access and security
+      href: tutorial-manage-access-security.md
+    - name: Govern and monitor
+      href: tutorial-govern-monitor.md
   - name: Samples
     items: 
     - name: Overview of App Management samples
@@ -86,6 +88,8 @@
   - name: How-to guides
     expanded: false
     items:
+    - name: List of app integration tutorials
+      href: ../saas-apps/tutorial-list.md
     - name: Assign owners
       href: assign-app-owners.md
     - name: Manage access
@@ -176,6 +180,8 @@
             href: f5-big-ip-ldap-header-easybutton.md
           - name: Oracle EBS
             href: f5-big-ip-oracle-enterprise-business-suite-easy-button.md
+          - name: Oracle JDE
+            href: f5-big-ip-oracle-jde-easy-button.md
         - name: Advanced configuration
           items:
             - name: Headers

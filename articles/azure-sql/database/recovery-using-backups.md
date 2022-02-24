@@ -251,11 +251,11 @@ To restore a database by using the REST API:
 
 #### SQL Database
 
-To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az_sql_db_restore).
+To restore a database by using the Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 
 #### SQL Managed Instance
 
-To restore a managed instance database by using the Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az_sql_midb_restore).
+To restore a managed instance database by using the Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore).
 
 ## Summary
 
