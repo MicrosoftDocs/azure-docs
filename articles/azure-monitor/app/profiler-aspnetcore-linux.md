@@ -52,6 +52,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
     {
         services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
         services.AddServiceProfiler(); // Add this line of code to Enable Profiler
+        services.AddControllersWithViews();
     }
     ```
 
