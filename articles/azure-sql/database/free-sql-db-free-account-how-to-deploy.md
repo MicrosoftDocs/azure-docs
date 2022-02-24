@@ -87,7 +87,7 @@ To create your database, follow these steps:
 1. On the **Review + create** page, after reviewing, select **Create**.
  
     > [!IMPORTANT]
-    > While creating the SQL Database from your Azure free account, you will still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits, you won't be charged for the service. To view usage information, review [**Monitor and track free services usage**](#monitor-and-track-free-services-usage) later in this article. 
+    > While creating the SQL Database from your Azure free account, you will still see an **Estimated cost per month** in the **Compute + Storage : Cost Summary** blade and **Review + Create** tab. But, as long as you are using your Azure free account, and your free service usage is within monthly limits, you won't be charged for the service. To view usage information, review [**Monitor and track free services usage**](#monitor-and-track-services-usage) later in this article. 
     
 ## Query the database
 
@@ -170,9 +170,9 @@ Previous:
     
 
 >[!IMPORTANT]
->With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage of the service beyond the free monthly amount is deducted from this credit.
->At the end of your first 30 days or after you spend your $200 credit (whichever comes first), you'll only pay for what you use beyond the free monthly amount of services. To keep getting free services after 30 days, move to pay-as-you-go pricing. If you don't move to pay as you go, you can't purchase Azure services beyond your $200 credit and eventually your account and services will be disabled.
->For more information, see [**Azure free account FAQ**](https://azure.microsoft.com/free/free-account-faq/).
+> - With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage of the service beyond the free monthly amount is deducted from this credit.
+> - At the end of your first 30 days or after you spend your $200 credit (whichever comes first), you'll only pay for what you use beyond the free monthly amount of services. To keep getting free services after 30 days, move to pay-as-you-go pricing. If you don't move to pay as you go, you can't purchase Azure services beyond your $200 credit and eventually your account and services will be disabled.
+> - For more information, see [**Azure free account FAQ**](https://azure.microsoft.com/free/free-account-faq/).
 
 ## Clean up resources
 
