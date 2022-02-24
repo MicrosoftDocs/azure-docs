@@ -88,7 +88,7 @@ After the run finishes, you can check the results of each module:
 
 ## Save trained model to use in another pipeline
 
-Sometimes you may want to save the model trained in a pipeline and use the model in another pipeline later. In Studio(classic), all trained models are saved in "Trained Models" category in the module list. In designer, the trained models are automatically registered as file dataset with system generately name. Naming convention follows "MD - pipeline draft name - component name - Trained model ID" pattern. 
+Sometimes you may want to save the model trained in a pipeline and use the model in another pipeline later. In Studio (classic), all trained models are saved in "Trained Models" category in the module list. In designer, the trained models are automatically registered as file dataset with a system generated name. Naming convention follows "MD - pipeline draft name - component name - Trained model ID" pattern. 
 
 To give a trained model a meaningful name, you can register the output of **Train Model** component as a **file dataset**. Give it the name you want, for example linear-regression-model. 
 
