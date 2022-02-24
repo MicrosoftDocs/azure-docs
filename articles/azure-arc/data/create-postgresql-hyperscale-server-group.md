@@ -200,8 +200,8 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 - Connect to your Azure Arc-enabled PostgreSQL Hyperscale: read [Get Connection Endpoints And Connection Strings](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md)
 - Read the concepts and How-to guides of Azure Database for PostgreSQL Hyperscale to distribute your data across multiple PostgreSQL Hyperscale nodes and to benefit from better performances potentially:
     * [Nodes and tables](../../postgresql/hyperscale/concepts-nodes.md)
-    * [Determine application type](../../postgresql/hyperscale/concepts-app-type.md)
-    * [Choose a distribution column](../../postgresql/hyperscale/concepts-choose-distribution-column.md)
+    * [Determine application type](../../postgresql/hyperscale/howto-app-type.md)
+    * [Choose a distribution column](../../postgresql/hyperscale/howto-choose-distribution-column.md)
     * [Table colocation](../../postgresql/hyperscale/concepts-colocation.md)
     * [Distribute and modify tables](../../postgresql/hyperscale/howto-modify-distributed-tables.md)
     * [Design a multi-tenant database](../../postgresql/hyperscale/tutorial-design-database-multi-tenant.md)*

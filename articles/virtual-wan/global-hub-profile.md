@@ -49,7 +49,7 @@ To include or exclude a specific hub from the global VPN profile:
 
 1. Click **Include/Exclude Gateway from Global Profile**
 
-   :::image type="content" source="./media/global-hub-profile/include-exclude-1.png" alt-text="Screenshot showing how to include or exclude hub from profile" lightbox="/media/global-hub-profile/include-exclude-1.png":::
+   :::image type="content" source="./media/global-hub-profile/include-exclude-1.png" alt-text="Screenshot showing how to include or exclude hub from profile." lightbox="./media/global-hub-profile/include-exclude-1.png":::
 
 1. Click **Exclude** if you wish to remove this hub's gateway from the WAN Global User VPN Profile. Users who are using the Hub-level User VPN profile will still be able to connect to this gateway. Users who are using the WAN-level profile will not be able to connect to this gateway.
 

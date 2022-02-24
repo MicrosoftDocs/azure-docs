@@ -5,7 +5,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
-ms.devlang: 
 ms.topic: tutorial
 author: emlisa
 ms.author: emlisa

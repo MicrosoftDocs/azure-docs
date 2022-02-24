@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a custom voice assistant - Speech service'
 titleSuffix: Azure Cognitive Services
-description: In this article, you use the Speech SDK to create a custom voice assistant.
+description: In this quickstart, you use the Speech SDK to create a custom voice assistant.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
