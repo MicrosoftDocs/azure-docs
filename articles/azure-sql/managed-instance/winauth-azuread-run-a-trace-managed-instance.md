@@ -14,7 +14,7 @@ ms.date: 03/01/2022
 
 This article shows how to connect and run a trace against Azure SQL Managed Instance using Windows Authentication for Azure Active Directory (Azure AD) principals. Windows authentication provides a convenient way for customers to connect to a managed instance, especially for database administrators and developers who are accustomed to launching [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) with their Windows credentials.
 
-This article shares two options to run a trace against a managed instance: you can trace with [extended events](/sql/relational-databases/extended-events/extended-events) or with  [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler). While SQL Server Profiler may still be used, the feature is deprecated and will be removed in a future version of Microsoft SQL Server.
+This article shares two options to run a trace against a managed instance: you can trace with [extended events](/sql/relational-databases/extended-events/extended-events) or with  [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler). While SQL Server Profiler may still be used, the trace functionality used by SQL Server Profiler is deprecated and will be removed in a future version of Microsoft SQL Server.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Now that Object Explorer is connected, you can create and run an extended events
 
 ## Run a trace with Profiler 
 
-To run a trace with SQL Server Profiler against a managed instance using Windows Authentication, launch the Profiler application. Profiler may be [run from the Windows Start menu or from SQL Server Management Studio](/sql/tools/sql-server-profiler/start-sql-server-profiler?view=sql-server-ver15).
+To run a trace with SQL Server Profiler against a managed instance using Windows Authentication, launch the Profiler application. Profiler may be [run from the Windows Start menu or from SQL Server Management Studio](/sql/tools/sql-server-profiler/start-sql-server-profiler).
 
 1. On the File menu, select **New Trace**.
 1. Enter the name of your managed instance as the **Server name**. The name of your managed instance should be in a format similar to `managedinstancename.12a34b5c67ce.database.windows.net`.
