@@ -818,7 +818,7 @@
       "url": "https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app",
       "branch": "main",
       "branch_mapping": {}
-    }
+    },
     {
       "path_to_root": "samples-cache",
       "url": "https://github.com/Azure-Samples/azure-cache-redis-samples",
