@@ -30,7 +30,7 @@ To try Azure SQL Database for free, you need:
 
 ## Create a database
 
-This article uses the Azure portal to create a SQL Database with public access. Alternatively, you can create a SQL Database using [Powershell, the Azure CLI](./single-database-create-quickstart.md) or an [ARM template](./single-database-create-arm-template-quickstart.md).
+This article uses the Azure portal to create a SQL Database with public access. Alternatively, you can create a SQL Database using [PowerShell, the Azure CLI](./single-database-create-quickstart.md) or an [ARM template](./single-database-create-arm-template-quickstart.md).
 
 To create your database, follow these steps: 
 
@@ -130,7 +130,7 @@ To track usage, follow these steps:
 
 1. Locate the meters related to **Azure SQL Database** to track usage.
 
-    :::image type="content" source="media/free-sql-db-free-account-how-to-deploy/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
+    :::image type="content" source="media/free-sql-db-free-account-how-to-deploy/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure portal for all free services.":::
 
 The following table describes the values on the track usage page: 
 
