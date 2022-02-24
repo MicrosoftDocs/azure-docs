@@ -18,13 +18,15 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Azure Active Directory (Azure AD) Verifiable Credentials service.
 
+## March 2022
+- Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID easily from the Azure Portal.
+
 ## February 2022
 
 We are rolling out some breaking changes to our service. These updates require Azure AD Verifiable Credentials service reconfiguration. End-users need to have their verifiable credentials reissued.
 
 - The Azure AD Verifiable Credentials service can now store and handle data processing in the Azure European region. [More information](whats-new.md?#azure-ad-verifiable-credentials-available-in-europe)
 - Azure AD Verifiable Credentials customers can take advantage of enhancements to credential revocation. These changes add a higher degree of privacy through the implementation of the [W3C Status List 2021](https://w3c-ccg.github.io/vc-status-list-2021/) standard. [More information](whats-new.md?#credential-revocation-with-enhanced-privacy)
-- Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID easily from the Azure Portal.
 - We made updates to Microsoft Authenticator that change the interaction between the Issuer of a verifiable credential and the user presenting the verifiable credential. This update forces all Verifiable Credentials to be reissued in Microsoft Authenticator for Android. [More information](whats-new.md?#microsoft-authenticator-android-did-generation-update)
 
 >[!IMPORTANT]
