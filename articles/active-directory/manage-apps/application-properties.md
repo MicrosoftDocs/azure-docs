@@ -19,7 +19,7 @@ ms.reviewer: ergreenl
 
 This article describes the properties that you can configure for an enterprise application in your Azure Active Directory (Azure AD) tenant. To configure the properties, see [Configure enterprise application properties](add-application-portal-configure.md).
 
-## Enabled for users to sign-in? 
+## Enabled for users to sign in? 
 
 If this option is set to **Yes**, then assigned users are able to sign in to the application from the My Apps portal, the User access URL, or by navigating to the application URL directly. If assignment is required, then only users who are assigned to the application are able to sign-in. If assignment is required, applications must be assigned to be granted a token.
 
