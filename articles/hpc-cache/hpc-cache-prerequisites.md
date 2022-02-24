@@ -100,7 +100,7 @@ More tips for NTP access:
 
 ### Azure Queue Storage access
 
-The cache must be able to securely access the [Azure Queue Storage service](../storage/queues/storage-queues-introduction) from inside its dedicated subnet. Azure HPC Cache uses the queues service when communicating configuration and state information.
+The cache must be able to securely access the [Azure Queue Storage service](../storage/queues/storage-queues-introduction.md) from inside its dedicated subnet. Azure HPC Cache uses the queues service when communicating configuration and state information.
 
 If the cache can't access the queue service, you might see a `CacheConnectivityError` message when creating the cache.
 
