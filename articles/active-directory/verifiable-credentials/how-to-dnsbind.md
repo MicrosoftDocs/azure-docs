@@ -80,7 +80,7 @@ After you have the well-known configuration file, you need to make the file avai
 
 ## User experience in the wallet
 
-When a user is going through an issuance flow or presenting a verifiable credential, they should know something about organization and its DID. Microsoft Authenticator, validates a DID's relationship with the domain in the DID document and presents users with two different experiences depending on the outcome.
+When a user is going through an issuance flow or presenting a verifiable credential, they should know something about the organization and its DID. Microsoft Authenticator, validates a DID's relationship with the domain in the DID document and presents users with two different experiences depending on the outcome.
 
 ## Verified domain
 
@@ -97,11 +97,11 @@ If all of the previously mentioned are true, then Microsoft Authenticator displa
 
 ## Unverified domain
 
-If any of the above aren't true, Microsoft Authenticator displays a full page warning to the user that the domain is unverified. The user is warned that they are in the middle of a risky transaction and they should proceed with caution. We have chosen to take this route because:
+If any of the above aren't true, Microsoft Authenticator displays a full page warning to the user indicating that the domain is unverified. The user is warned that they are in the middle of a potential risky transaction and they should proceed with caution. We have chosen to take this route because:
 
 * The DID is either not anchored to a domain.
 * The configuration wasn't set up properly.
-* The DID the user is interacting with is malicious and actually can't prove they own a domain (since they actually don't). 
+* The DID that the user is interacting with could be malicious and actually can't prove that they own the domain linked. 
 
 It is of high importance that you link your DID to a domain recognizable to the user.
 
