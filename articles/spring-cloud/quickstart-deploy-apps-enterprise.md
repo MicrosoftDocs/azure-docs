@@ -43,11 +43,11 @@ To create apps on Azure Spring Cloud, follow these steps:
 
 ## Bind apps to Application Configuration Service for Tanzu and Tanzu Service Registry
 
-To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, follow these steps.
-
 ### [Portal](#tab/azure-portal)
 
-1. Select **Application Configuration Service**.
+To bind apps to Application Configuration Service for VMware Tanzu®, follow these steps.
+
+1. In the Azure portal, select **Application Configuration Service**.
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service for Tanzu.
 
@@ -57,7 +57,9 @@ A list under **App name** shows the apps bound with Application Configuration Se
 
 ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
 
-1. In the Azure portal, select **Service Registry**.
+To bind apps to VMware Tanzu® Service Registry, follow these steps.
+
+1. Select **Service Registry**.
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown, and then select **Apply** to bind the application to Tanzu Service Registry.
 
@@ -65,16 +67,20 @@ A list under **App name** shows the apps bound with Application Configuration Se
 
 A list under **App name** shows the apps bound with Tanzu Service Registry, as shown in the following screenshot:
 
-   :::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
+:::image type="content" source="media/enterprise/getting-started-enterprise/service-reg-app-bind.png" alt-text="Azure portal screenshot of Azure Spring Cloud with Service Registry page and 'App binding' section showing.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
-   ```azurecli
-   az spring-cloud application-configuration-service bind --app api-gateway
-   az spring-cloud application-configuration-service bind --app customers-service
-   az spring-cloud service-registry bind --app api-gateway
-   az spring-cloud service-registry bind --app customers-service
-   ```
+To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, use the following commands.
+
+```azurecli
+az spring-cloud application-configuration-service bind --app api-gateway
+az spring-cloud application-configuration-service bind --app customers-service
+az spring-cloud service-registry bind --app api-gateway
+az spring-cloud service-registry bind --app customers-service
+```
+
+---
 
 ## Build and deploy applications
 
