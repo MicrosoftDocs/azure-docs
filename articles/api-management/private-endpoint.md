@@ -155,7 +155,7 @@ When you use the Azure portal to create a private endpoint, as shown in the next
 
 After the private endpoint is created, it appears in the list on the API Management instance's **Private endpoint connections** page in the portal.
 
-You can also use the [Private Endpoint Connection - List By Service](/rest/api/apimanagement/current-ga/private-endpoint-connection/list-by-service) REST API to list private endpoint connections to the service instance,.
+You can also use the [Private Endpoint Connection - List By Service](/rest/api/apimanagement/current-ga/private-endpoint-connection/list-by-service) REST API to list private endpoint connections to the service instance.
 
 
 Note the endpoint's **Connection status**:

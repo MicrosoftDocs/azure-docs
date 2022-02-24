@@ -1,6 +1,6 @@
 ---
 title: Azure API Management with an Azure virtual network
-description: Learn about scenarios and requirements to connect you API Management instance to an Azure virtual network.
+description: Learn about scenarios and requirements to connect your API Management instance to an Azure virtual network.
 author: dlepow
 
 ms.service: api-management
