@@ -1,7 +1,7 @@
 ---
-title: Using Translator in sovereign clouds
+title: "Translator: sovereign clouds"
 titleSuffix: Azure Cognitive Services
-description: Overview of using Translator in sovereign clouds.
+description: Using Translator in sovereign clouds
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -12,9 +12,9 @@ ms.date: 02/24/2022
 ms.author: lajanuar
 ---
 
-# Use Translator in sovereign (national) clouds
+# Translator in sovereign (national) clouds
 
- Azure sovereign clouds are isolated in-country platforms with independent authentication, storage, and compliance requirements. Sovereign clouds are often used within geographical boundaries where there's a strict data residency requirement. Translator is currently deployed in the following sovereign clouds:
+ Azure sovereign clouds are isolated, in-country, platforms with independent authentication, storage, and compliance requirements. Sovereign clouds are often used within geographical boundaries where there's a strict data residency requirement. Translator is currently deployed in the following sovereign clouds:
 
 |Cloud | Region identifier |
 |---|--|
@@ -23,20 +23,20 @@ ms.author: lajanuar
 
 ## Azure portal endpoints
 
-The following table lists the base URLs for the Azure AD endpoints used to register an application for each sovereign cloud.
+The following table lists the base URLs for Azure sovereign cloud endpoints:
 
 | Sovereign cloud                          | Azure portal endpoint      |
 | --------------------------------------- | -------------------------- |
 | Azure portal for US Government          | `https://portal.azure.us`  |
 | Azure portal China operated by 21 Vianet | `https://portal.azure.cn`  |
 
-## Translator service in sovereign clouds
+## Translator: sovereign clouds
 
 ### [Azure US Government](#tab/us)
 
  The Azure Government cloud is available to US government customers and their partners. US federal, state, local, tribal governments and their partners have access to the Azure Government cloud dedicated instance. Cloud operations are controlled by screened US citizens.
 
-| Azure US Government | Availability |
+| Azure US Government | Availability and support |
 |--|--|
 |Azure portal | <ul><li>[Azure Government Portal](https://portal.azure.us/)</li></ul>|
 | Available regions</br></br>The region-identifier is a required header when using Translator for the government cloud. | <ul><li>`usgovarizona` </li><li> `usgovvirginia`</li></ul>|
@@ -46,17 +46,19 @@ The following table lists the base URLs for the Azure AD endpoints used to regis
 
 <!-- markdownlint-disable MD036 -->
 
-### Endpoints
+### Endpoint
 
-**Azure portal**
+#### Azure portal
+
+Base URL:
 
 ```http
 https://portal.azure.us
 ```
 
-**Authorization token**
+#### Authorization token
 
-Replace the `<region-identifier>` parameter with your sovereign cloud identifier:
+Replace the `<region-identifier>` parameter with the sovereign cloud identifier:
 
 |Cloud | Region identifier |
 |---|--|
@@ -67,21 +69,21 @@ Replace the `<region-identifier>` parameter with your sovereign cloud identifier
 https://<region-identifier>.api.cognitive.microsoft.us/sts/v1.0/issueToken
 ```
 
-**Text translation**
+#### Text translation
 
 ```http
 https://api.cognitive.microsofttranslator.us/
 ```
 
-**Document Translation custom endpoint**
+#### Document Translation custom endpoint
 
-Replace the `<your-custom-domain>` parameter with your [custom domain endpoint](document-translation/get-started-with-document-translation.md#what-is-the-custom-domain-endpoint)
+Replace the `<your-custom-domain>` parameter with your [custom domain endpoint](document-translation/get-started-with-document-translation.md#what-is-the-custom-domain-endpoint).
 
 ```http
 https://<your-custom-domain>.cognitiveservices.azure.us/
 ```
 
-**Custom Translator portal**
+#### Custom Translator portal
 
 ```http
 https://portal.customtranslator.azure.us/
@@ -114,9 +116,9 @@ curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version
 
 ### [Azure China 21 Vianet](#tab/china)
 
-The Azure China cloud is a physical and logical network-isolated instance of cloud services located in China. In order to apply for an Azure China account, you need a Chinese legal entity, Internet Content provider (ICP) license, and a physical presence within China.
+The Azure China cloud is a physical and logical network-isolated instance of cloud services located in China. In order to apply for an Azure China account, you need a Chinese legal entity, Internet Content provider (ICP) license, and physical presence within China.
 
-|Azure China 21 Vianet | Availability
+|Azure China 21 Vianet | Availability and support |
 |---|---|
 |Azure portal |<ul><li>[Azure China 21 Vianet Portal](https://portal.azure.cn/)</li></ul>|
 |Regions <br></br>The region-identifier is a required header when using a multi-service resource. | <ul><li>`chinanorth` </li><li> `chinaeast2`</li></ul>|
@@ -126,21 +128,25 @@ The Azure China cloud is a physical and logical network-isolated instance of clo
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD024 -->
 
-### Endpoints
+### Endpoint
 
-**Azure portal**
+Base URL
+
+#### Azure portal
 
 ```http
 https://portal.azure.cn
 ```
 
-**Authorization token**
+#### Authorization token
+
+Replace the `<region-identifier>` parameter with the sovereign cloud identifier:
 
 ```http
 https://<region-identifier>.api.cognitive.azure.cn/sts/v1.0/issueToken
 ```
 
-**Text translation**
+#### Text translation
 
 ```http
 https://api.translator.azure.cn/translate
@@ -148,7 +154,7 @@ https://api.translator.azure.cn/translate
 
 ### Example API translation request
 
-This example shows how to translate a single sentence from English to Simplified Chinese.
+Translate a single sentence from English to Simplified Chinese.
 
 **Request**
 
