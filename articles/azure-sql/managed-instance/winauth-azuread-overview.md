@@ -40,15 +40,8 @@ By enabling Windows Authentication for Azure Active Directory principals, custom
 Windows Authentication for Azure Active Directory principals also enables the following patterns on managed instances. These patterns are frequently used in traditional on-premises SQL Servers:
 
 
-- **"Double hop" authentication**: <!--- TODO: link to double hop article once it's created -->  Web applications use IIS identity impersonation to run queries against an instance in the security context of the end user.
-- **SQL Server Profiler** can be launched using Windows authentication, providing ease of use for database administrators and developers accustomed to this workflow.
-
- <!--- Hold off on this until we validate that we have support for this:
-- **Linked servers**  [TODO: link to linked server article once it's created] are used to run queries across instances in the security context of the originating user.
-- **SharePoint, Reporting Services, Integration Services, and Analysis Services** 
-    - Many on-premises SQL Server customers use applications such as SharePoint, SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS), and SQL Server Analysis Services (SSAS). Using Windows Authentication is a recommended security best practice for these applications.
-    - Azure SQL Managed Instance is certified for SharePoint 2019 and SharePoint 2016.
--->
+- **"Double hop" authentication**: Web applications use IIS identity impersonation to run queries against an instance in the security context of the end user.
+- **Traces using extended events and SQL Server Profiler** can be launched using Windows authentication, providing ease of use for database administrators and developers accustomed to this workflow. Learn how to [run a trace against Azure SQL Managed Instance using Windows Authentication for Azure Active Directory principals](winauth-azuread-run-a-trace-managed-instance.md).
 
 ### Modernize security infrastructure
 
