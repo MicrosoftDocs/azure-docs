@@ -19,15 +19,11 @@ For steps on implementing UPS, see [Structured text data for training phone sets
 
 This structured text data is not the same as [pronunciation files](how-to-custom-speech-test-and-train.md#pronunciation-data-for-training), and they cannot be used together.
 
-## Languages Supported
+See the sections in this article for the Universal Phone Set for each locale.
 
-Use the table below to navigate to the UPS for the respective language.
-
-| Language                | Locale  |
-|-------------------------|---------|
-| [English (United States)](phone-sets.md) | `en-US` |
-
+## en-US
+[!INCLUDE [en-US](./includes/phonetic-sets/speech-to-text/en-us.md)]
 
 ## Next steps
 
-* [Provide UPS pronunciation to Custom Speech](how-to-custom-speech-test-and-train.md#structured-text-data-for-training-public-preview)
+* [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md)
