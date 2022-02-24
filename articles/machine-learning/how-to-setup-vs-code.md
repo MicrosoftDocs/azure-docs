@@ -23,7 +23,6 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 - Train machine learning models
 - Debug machine learning experiments locally
 - Schema-based language support, autocompletion and diagnostics for specification file authoring
-- Snippets for common tasks
 
 ## Prerequisites
 
