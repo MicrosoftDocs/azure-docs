@@ -353,7 +353,7 @@ When you create or attach an AKS cluster, you can configure the cluster to use a
    
 ```
 >[!IMPORTANT]
-> If your AKS cluster is configured with an internal load balancer, using a Microsoft provided certificate is not supported and you must use [custom certificate to enable TLS](#create-or-attach-an-aks-cluster-with-tls-termination). 
+> If your AKS cluster is configured with an Internal Load Balancer, using a Microsoft provided certificate is not supported and you must use [custom certificate to enable TLS](how-to-secure-web-service.md#deploy-on-azure-kubernetes-service). 
 
 >[!NOTE]
 > For more information about how to secure inferencing environment, please see [Secure an Azure Machine Learning Inferencing Environment](how-to-secure-inferencing-vnet.md)
