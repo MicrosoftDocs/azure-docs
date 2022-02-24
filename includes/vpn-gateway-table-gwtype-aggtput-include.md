@@ -39,11 +39,8 @@
 
 * SLA (Service Level Agreement) information can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) page.
 
-* On a single tunnel a maximum of 1 Gbps throughput can be achieved. Aggregate Throughput Benchmark in the above table is based on measurements of multiple site-to-site tunnels aggregated through a single gateway. The Aggregate Throughput Benchmark for a VPN Gateway is S2S + P2S combined. **If you have a lot of P2S connections, it can negatively impact a S2S connection due to throughput limitations.** The Aggregate Throughput Benchmark is not a guaranteed throughput due to Internet traffic conditions and your application behaviors.
-
-* The throughput limit benchmark for P2S is based on a VPN gateway with many P2S connections. A single P2S connection will likely achieve a much lower throughput. 
-
-* Throughput benchmarks are based on site-to-site tunnels. A single point-to-site connections 
+* IPsec limits the throughput of a single VPN gateway (both S2S and P2S connections) to 1.25Gbps. **If you have a lot of P2S connections, it can negatively impact your S2S connections.** The Aggregate Throughput Benchmarks were tested by maximizing a combination of S2S and P2S connections. A single P2S connection will have a much lower throughput than the 1.25Gbps limit.
+* Note that all benchmarks are not guaranteed due to Internet traffic conditions and your application behaviors
 
 To help our customers understand the relative performance of SKUs using different algorithms, we used publicly available iPerf and CTSTraffic tools to measure performances for site-to-site connections. The table below lists the results of performance tests for Generation 1, VpnGw SKUs. As you can see, the best performance is obtained when we used GCMAES256 algorithm for both IPsec Encryption and Integrity. We got average performance when using AES256 for IPsec Encryption and SHA256 for Integrity. When we used DES3 for IPsec Encryption and SHA256 for Integrity we got lowest performance.
 
