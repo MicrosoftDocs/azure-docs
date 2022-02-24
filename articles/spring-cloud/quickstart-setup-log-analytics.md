@@ -12,6 +12,8 @@ ms.devlang: azurecli
 
 # Quickstart: Set up a Log Analytics workspace
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 This quickstart explains how to set up a Log Analytics workspace in Azure Spring Cloud for application development.
 
 Log Analytics is a tool in the Azure portal that's used to edit and run log queries with data in Azure Monitor Logs. You can write a query that returns a set of records and then use features of Log Analytics to sort, filter, and analyze those records. You can also write a more advanced query to do statistical analysis and visualize the results in a chart to identify particular trends. Whether you work with the results of your queries interactively or use them with other Azure Monitor features, Log Analytics is the tool that you use to write and test queries.

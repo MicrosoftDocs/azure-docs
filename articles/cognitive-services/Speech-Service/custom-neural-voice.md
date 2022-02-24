@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2022
+ms.date: 02/18/2022
 ms.author: eur
 ---
 
@@ -19,7 +19,7 @@ Custom Neural Voice is a text-to-speech feature that lets you create a one-of-a-
 Based on the neural text-to-speech technology and the multilingual, multi-speaker, universal model, Custom Neural Voice lets you create synthetic voices that are rich in speaking styles, or adaptable cross languages. The realistic and natural sounding voice of Custom Neural Voice can represent brands, personify machines, and allow users to interact with applications conversationally. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
 > [!NOTE]
-> Custom Neural Voice requires registration, and access to it is limited based on eligibility and use criteria. To use this feature, register your use cases by using the [intake form](https://aka.ms/customneural).
+> Custom Neural Voice access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).
 
 ## The basics of Custom Neural Voice
 
@@ -35,19 +35,47 @@ the recording samples of human voices. For more information, see [this Microsoft
 
 You can adapt the neural text-to-speech engine to fit your needs. To create a custom neural voice, use [Speech Studio](https://speech.microsoft.com/customvoice) to upload the recorded audio and corresponding scripts, train the model, and deploy the voice to a custom endpoint. Custom Neural Voice can use text provided by the user to convert text into speech in real time, or generate audio content offline with text input. You can do this by using the [REST API](./rest-text-to-speech.md), the [Speech SDK](./get-started-text-to-speech.md), or the [web portal](https://speech.microsoft.com/audiocontentcreation).
 
-## Get started
+## Custom Neural Voice project types
 
-The following articles help you start using this feature:
+Speech Studio provides two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite. 
 
-* To get started with Custom Neural Voice and create a project, see [Get started with Custom Neural Voice](how-to-custom-voice.md).
+The following table summarizes key differences between the CNV Pro and CNV Lite project types.  
+
+|**Items**|**Lite (Preview)**| **Pro**|
+|---------------|---------------|---------------|
+|Target scenarios |Demonstration or evaluation |Professional scenarios like brand and character voices for chat bots, or audio content reading.|   
+|Training data |Record online using Speech Studio |Bring your own data. Recording in a professional studio is recommended. |   
+|Scripts for recording  |Provided in Speech Studio |Use your own scripts that match the use case scenario. Microsoft provides [example scripts](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) for reference. |   
+|Required data size  |20-50 utterances |300-2000 utterances|
+|Training time  |Less than 1 compute hour| Approximately 20-40 compute hours |
+|Voice quality  |Moderate quality|High quality |
+|Availability  |Anyone can record samples online and train a model for demo and evaluation purpose. Full access to Custom Neural Voice is required if you want to deploy the CNV Lite model for business use. |Data upload is not restricted, but you can only train and deploy a CNV Pro model after access is approved. CNV Pro access is limited based on eligibility and usage criteria. Request access on the [intake form](https://aka.ms/customneural).|
+|Pricing  |Per unit prices apply equally for both the CNV Lite and CNV Pro projects. Check the [pricing details here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). |Per unit prices apply equally for both the CNV Lite and CNV Pro projects. Check the [pricing details here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).  |
+
+### Custom Neural Voice Lite (preview)
+
+Custom Neural Voice (CNV) Lite is a new project type in public preview. You can demo and evaluate Custom Neural Voice before investing in professional recordings to create a higher-quality voice. 
+
+With a CNV Lite project, you record your voice online by reading 20-50 pre-defined scripts provided by Microsoft. After you've recorded at least 20 samples, you can start to train a model. Once the model is trained successfully, you can review the model and check out 20 output samples produced with another set of pre-defined scripts.  
+
+Full access to Custom Neural Voice is required if you want to deploy a CNV Lite model and use it beyond reading the pre-defined scripts. A verbal statement recorded by the voice talent is also required before you can deploy the model for your business use. 
+
+### Custom Neural Voice Pro 
+
+Custom Neural Voice (CNV) Pro allows you to upload your training data collected through professional recording studios and create a higher-quality voice that is nearly indistinguishable from its human samples. Training a voice in a CNV Pro project is restricted to those who are approved.   
+
+Review these CNV Pro articles to learn more and get started.  
+
 * To prepare and upload your audio data, see [Prepare training data](how-to-custom-voice-prepare-data.md).
-* To train and deploy your models, see [Create and use your voice model](how-to-custom-voice-create-voice.md).
+* To train your model, see [Train your voice model](how-to-custom-voice-create-voice.md). 
+* To deploy your model and use it in your apps, see [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md). 
+* Learn how to prepare for the script and record your voice samples, see [How to record voice samples](record-custom-voice-samples.md). 
 
 ## Terms and definitions
 
-| **Term**      | **Definition**                                                                                                                                                                                                                                                                                                                                                                                       |
+| **Term**      | **Definition** |
 |---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Voice model   | A text-to-speech model that can mimic the unique vocal characteristics of a target speaker. A *voice model* is also known as a *voice font* or *synthetic voice*. A voice model is a set of parameters in binary format that is not human readable and does not contain audio recordings. It can't be reverse engineered to derive or construct the audio of a human voice. |
+| Voice model   | A text-to-speech model that can mimic the unique vocal characteristics of a target speaker. A *voice model* is also known as a *voice font* or *synthetic voice*. A voice model is a set of parameters in binary format that isn't human readable and doesn't contain audio recordings. It can't be reverse engineered to derive or construct the audio of a human voice. |
 | Voice talent  | Individuals or target speakers whose voices are recorded and used to create voice models. These voice models are intended to sound like the voice talent’s voice.|
 | Standard text-to-speech  | The standard, or "traditional," method of text-to-speech. This method breaks down spoken language into phonetic snippets so that they can be remixed and matched by using classical programming or statistical methods.|
 | Neural text-to-speech    | This method synthesizes speech by using deep neural networks. These networks have "learned" the way phonetics are combined in natural human speech, rather than using procedural programming or statistical methods. In addition to the recordings of a target voice talent, neural text-to-speech uses a source library or base model that is built with voice recordings from many different speakers.          |
@@ -57,7 +85,17 @@ The following articles help you start using this feature:
 
 ## Responsible use of AI
 
-To learn how to use Custom Neural Voice responsibly, see the [transparency note](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context). Transparency notes are intended to help you understand how the AI technology from Microsoft works, and the choices system owners can make that influence system performance and behavior. Transparency notes also discuss the importance of thinking about the whole system, including the technology, the people, and the environment.
+To learn how to use Custom Neural Voice responsibly, check the following articles.
+
+* [Transparency note and use cases for Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/transparency-note-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)  
+* [Characteristics and limitations for using Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)   
+* [Limited access to Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context) 
+* [Guidelines for responsible deployment of synthetic voice technology](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-guidelines-responsible-deployment-synthetic?context=/azure/cognitive-services/speech-service/context/context)   
+* [Disclosure for voice talent](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=/azure/cognitive-services/speech-service/context/context)   
+* [Disclosure design guidelines](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-guidelines?context=/azure/cognitive-services/speech-service/context/context)   
+* [Disclosure design patterns](/legal/cognitive-services/speech-service/custom-neural-voice/concepts-disclosure-patterns?context=/azure/cognitive-services/speech-service/context/context)   
+* [Code of Conduct for Text-to-Speech integrations](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context)   
+* [Data, privacy, and security for Custom Neural Voice](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
 
 ## Next steps
 

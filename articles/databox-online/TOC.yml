@@ -53,6 +53,19 @@
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: FAQ - Billing model
       href: azure-stack-edge-gpu-faq-billing-model.yml
+    - name: Clustering (Preview)
+      items:
+      - name: What is clustering?
+        href: azure-stack-edge-gpu-clustering-overview.md
+      - name: Cluster witness
+        href: azure-stack-edge-gpu-cluster-witness-overview.md
+      - name: Cluster failover scenarios
+        href: azure-stack-edge-gpu-cluster-failover-scenarios.md
+      - name: Cluster management
+        href: azure-stack-edge-gpu-manage-cluster.md
+      - name: Kubernetes failover on clustered device
+        href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
+
 - name: Azure Stack Edge Pro R
   items:
   - name: Overview
@@ -367,6 +380,8 @@
       href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
   - name: Shared how-tos
     items:         
+    - name: Check network readiness 
+      href: azure-stack-edge-deploy-check-network-readiness.md
     - name: Manage Edge compute 
       href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry
@@ -417,7 +432,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2111 - Current
+    - name: 2202 - Current
+      href: azure-stack-edge-gpu-2202-release-notes.md
+    - name: 2111 
       href: azure-stack-edge-gpu-2111-release-notes.md
     - name: 2110 
       href: azure-stack-edge-gpu-2110-release-notes.md

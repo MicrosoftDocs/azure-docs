@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
 ## Set up a continuous data export to Azure Event Hubs
 
-You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](../core/howto-export-data.md). You will only need to export for the telemetry for the purposes of this tutorial.
+You will first need to set up a continuous data export from your Azure IoT Central application template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](../core/howto-export-data.md). You will only need to export for the telemetry for the purposes of this tutorial.
 
 
 ## Create a Power BI streaming dataset

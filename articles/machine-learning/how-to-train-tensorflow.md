@@ -25,17 +25,15 @@ Whether you're developing a TensorFlow model from the ground-up or you're bringi
 
 Run this code on either of these environments:
 
- - Azure Machine Learning compute instance - no downloads or installation necessary
-
+- Azure Machine Learning compute instance - no downloads or installation necessary
      - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow** folder.
- 
- - Your own Jupyter Notebook server
 
+- Your own Jupyter Notebook server
     - [Install the Azure Machine Learning SDK](/python/api/overview/azure/ml/install) (>= 1.15.0).
     - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow) `tf_mnist.py` and `utils.py`
-     
+
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
@@ -293,6 +291,6 @@ The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine
 
 In this article, you trained and registered a TensorFlow model, and learned about options for deployment. See these other articles to learn more about Azure Machine Learning.
 
-* [Track run metrics during training](how-to-log-view-metrics.md)
-* [Tune hyperparameters](how-to-tune-hyperparameters.md)
-* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
+- [Track run metrics during training](how-to-log-view-metrics.md)
+- [Tune hyperparameters](how-to-tune-hyperparameters.md)
+- [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
