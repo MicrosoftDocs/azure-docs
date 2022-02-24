@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/18/2022
+ms.date: 02/24/2022
 ms.author: jasteppe
 ---
 
@@ -45,7 +45,7 @@ It's important that you have the following prerequisites completed before you be
    >[!NOTE]
    > For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings as their defaults.
 
-   :::image type="content" source="media/events-deploy-in-portal/events-create-new-subscription.png" alt-text="Screenshot of Create Event Subscription box"  lightbox="media/events-deploy-in-portal/events-create-new-subscription.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-create-new-subscription.png" alt-text="Screenshot of the Create Event Subscription box"  lightbox="media/events-deploy-in-portal/events-create-new-subscription.png":::
 
 4. After the form is completed, select **Create** to begin the subscription creation. 
 
