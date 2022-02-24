@@ -55,7 +55,10 @@ The event journal name we must configure are:
 
 ### Selecting Performance counters
 
-In the same configuration pane, you can click on **Windows Performance Counters** to select individual performance counters to send up to log analytics. Keep in mind that performance counters are, by their nature, a continuous data stream. Therefore, it’s crucial that you consider the impact of data collection on the total cost of your Azure Monitor/Log Analytics deployment. Unless an allowed data ingestion budget has been granted and a constant ingestion of data has been allowed and budgeted for, gathering performance counters should only be configured for a defined period to establish a performance baseline. 
+In the same configuration pane, you can click on **Windows Performance Counters** to select individual performance counters to send up to log analytics. 
+
+> [!IMPORTANT]
+> Keep in mind that performance counters are, by their nature, a continuous data stream. Therefore, it’s crucial that you consider the impact of data collection on the total cost of your Azure Monitor/Log Analytics deployment. Unless an allowed data ingestion budget has been granted and a constant ingestion of data has been allowed and budgeted for, gathering performance counters should only be configured for a defined period to establish a performance baseline. 
 
 In the interface, when first configuring it, a suggested counter set will be recommended. Select those that apply to the type of performance analysis you want to perform. **%CPU** and **Available memory** are commonly monitored counters but others like **Network bandwidth consumption** can be useful in scenarios where the data volume are large, and bandwidth or execution time are constrained.
 
