@@ -108,7 +108,7 @@ A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) def
 
     1. Select **Add**.  
         
-    :::image type="content" source="media/verifiable-credentials-configure-tenant/request-service-key-vault-access-policy.png" alt-text="Screenshot that demonstrates how to add an access policy for the Verifiable Credential Request Service." :::
+    :::image type="content" source="media/verifiable-credentials-configure-tenant/request-service-key-vault-access-policy.png" alt-text="Screenshot that demonstrates how to add an access policy for the Verifiable Credential Issuer Service." :::
 
 The access policies for the Verifiable Credentials Issuer service should be added automatically. In the event that **Verifiable Credential Issuer Service** doesn't appear in the list of access policies, take the following steps to manually add access policies to the service.
 
