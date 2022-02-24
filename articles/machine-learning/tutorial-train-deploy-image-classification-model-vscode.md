@@ -47,7 +47,7 @@ The code for this tutorial uses TensorFlow to train an image classification mach
 
 The first thing you have to do to build an application in Azure Machine Learning is to create a workspace. A workspace contains the resources to train models as well as the trained models themselves. For more information, see [what is a workspace](./concept-workspace.md).
 
-1. Open the *azureml-examples/cli/jobs/single-step/tensorflow/mnist* directory in Visual Studio Code.
+1. Open the *azureml-examples/cli/jobs/single-step/tensorflow/mnist* directory from the community driven repository in Visual Studio Code.
 1. On the Visual Studio Code activity bar, select the **Azure** icon to open the Azure Machine Learning view.
 1. In the Azure Machine Learning view, right-click your subscription node and select **Create Workspace**.
 
