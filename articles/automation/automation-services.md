@@ -33,7 +33,9 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 
 :::image type="content" source="media/automation-services/automation-services-overview.png" alt-text="Screenshot shows an Overview of Automation services.":::
 
-## Deploy and Manage
+## What are these services 
+
+### Deploy and Manage
 
 ### Azure Resource Manager template or BICEP (Infrastructure as Code approach)
 
@@ -46,23 +48,50 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 - Azure Blueprints to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements.
 - [Learn more](/azure/azure-resource-manager/bicep/overview?tabs=bicep).
 
-# [Scenarios](#tab/scenarios-deploy)
+# [Scenarios](#tab/scenarios-arm)
 - Create, manage, and update infrastructure resources, such as virtual machines, networks, storage account, containers etc.
 - Deploy apps, add tags, assign policies, assign role-based access control all declaratively as code and integrated with your CI\CD tools. 
 - Manage multiple environments like production, non-production and disaster recovery.
 - Deploy resources consistently and reliably at a scale.
 
-# [Users](#tab/users-deploy)
+# [Users](#tab/users-arm)
 - Application Developers\Infrastructure Admins\DevOps Engineers using Azure for the first time or using Azure as their primary cloud.
 - IT Engineer\Cloud Architect responsible for cloud infrastructure deployment.
 
 ---
 
-**Services** | **Description** | **Scenarios** | **Users**
---- | --- |--- | --- |
-**Azure Resource Manager template or BICEP (Infrastructure as Code approach)** | - Simple declarative language to provision infrastructure on Azure. </br> - Leverage ARM template knowledge and investments. </br> - Simple syntax without the use of JSON. </br> - Modular: Abstract common blocks of config into reusable elements </br> Open Source: Transparency and community </br> - ntegration with Policy as Code , Azure Blueprints to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. </br>[Learn more](/azure/azure-resource-manager/bicep/overview?tabs=bicep). | - Create, manage, and update infrastructure resources, such as virtual machines, networks, storage account, containers etc. </br> - Deploy apps, add tags, assign policies, assign role-based access control all declaratively as code and integrated with your CI\CD tools. </br> Manage multiple environments like production, non-production and disaster recovery. </br> Deploy resources consistently and reliably at a scale. | - Application Developers\Infrastructure Admins\DevOps Engineers using Azure for the first time or using Azure as their primary cloud. </br> IT Engineer\Cloud Architect responsible for cloud infrastructure deployment.  
-**[Azure Automation](/azure/automation/overview)** | - Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. </br> - Provides persistent shared assets including variables, connections, objects, which allows orchestration of complex jobs [Learn more](/azure/automation/automation-runbook-gallery). | - Schedule tasks for example – Stop dev/test VMs or services at night and turn on during day. </br>- Response to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, etc. </br> - Hybrid automation where you can manage, automate on-premises servers like SQL server, Active Directory etc. </br> - Azure resource life-cycle management and governance which includes resource provisioning, deprovisioning, adding correct tags, locks, NSGs etc. | - IT admins, System admins, IT operations admins who are skilled at using PowerShell or Python based scripting. </br> - Infrastructure Admins managing on-prem infrastructure using scripts or executing long running jobs like month-end operations on servers running on-prem. |
-|**Azure Automanage for machine configuration management** | A service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. [Learn more](/azure/automanage/automanage-virtual-machines#overview). |Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy, steady state of VM is equal to hands free management. </br></br> It supports Windows and Linux operating systems. </br></br> Provides VM best practices template for Dev/Test and Production workload. </br></br>It has a point and click onboarding portal experience. | The IT Admins/Infra Admins/IT Operations Admins who are responsible for managing server workload, day to day admin tasks like backup, disaster recovery, security updates, responding to security threats, etc. across Azure and on-premise. </br></br> Developers who do not wish to manage servers or spend the time on less priority tasks.
+#### [Azure Automation](/azure/automation/overview)
+
+- Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment. 
+- Provides persistent shared assets including variables, connections, objects, which allows orchestration of complex jobs [Learn more](/azure/automation/automation-runbook-gallery)
+
+# [Scenarios](#tab/scenarios-aa)
+- Schedule tasks for example – Stop dev/test VMs or services at night and turn on during day.
+- Response to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, etc. 
+- Hybrid automation where you can manage, automate on-premises servers like SQL server, Active Directory etc. 
+- Azure resource life-cycle management and governance which includes resource provisioning, deprovisioning, adding correct tags, locks, NSGs etc.
+
+# [Users](#tab/users-aa)
+- IT admins, System admins, IT operations admins who are skilled at using PowerShell or Python based scripting.
+- Infrastructure Admins managing on-prem infrastructure using scripts or executing long running jobs like month-end operations on servers running on-prem. 
+
+---
+
+#### Azure Automanage for machine configuration management
+- A service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. [Learn more](/azure/automanage/automanage-virtual-machines#overview).
+
+# [Scenarios](#tab/scenarios-automanage)
+- Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy, steady state of VM is equal to hands free management. 
+- It supports Windows and Linux operating systems. 
+- Provides VM best practices template for Dev/Test and Production workload. 
+- It has a point and click onboarding portal experience. 
+
+# [Users](#tab/users-automanage)
+- The IT Admins/Infra Admins/IT Operations Admins who are responsible for managing server workload, day to day admin tasks like backup, disaster recovery, security updates, responding to security threats, etc. across Azure and on-premise. 
+- Developers who do not wish to manage servers or spend the time on less priority tasks.
+
+---
+
 
 
 ### Respond
