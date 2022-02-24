@@ -15,10 +15,10 @@ Azure Database for PostgreSQL - Hyperscale (Citus) includes features beyond
 standard PostgreSQL. Below is a categorized reference of functions and
 configuration options for:
 
-* managing sharded data between multiple servers
-* compressing data with columnar storage
-* automating timeseries partitioning
-* parallelizing query execution across shards
+* Parallelizing query execution across shards
+* Managing sharded data between multiple servers
+* Compressing data with columnar storage
+* Automating timeseries partitioning
 
 ## SQL functions
 
