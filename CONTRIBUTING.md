@@ -21,8 +21,5 @@ Please use the Feedback tool at the bottom of any article to submit bugs and sug
 
 ### Editing in GitHub
 
-Follow the guidance for [Quick edits to existing documents](/contribute/#quick-edits-to-existing-documents) in our contributors guide.
+For guidance on how to contribute by editing in GitHub and submitting a pull request, refer to [Quick edits to existing documents](https://docs.microsoft.com/en-us/contribute/#quick-edits-to-existing-documents) in our contributors guide.
 
-### Pull Request
-
-Review the guidance for [Pull Requests](/contribute/how-to-write-workflows-major#pull-request-processing) in our contributors guide.
