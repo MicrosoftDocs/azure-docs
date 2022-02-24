@@ -20,7 +20,7 @@ This document covers a step-by-step guide for configuring Azure DevOps account i
 
 - You need to have an Azure DevOps account in another tenant than your Azure Data Factory. 
 - You should have a project in the above Azure DevOps tenant. 
-- Use feature flag &feature.enableCrossTenantAdo=true. Append this into the existing Azure Data Factory url. 
+- Use feature flag **&feature.enableCrossTenantAdo=true**. Append this into the existing Azure Data Factory url. 
 
   Example: https://adf.azure.com/en-us/management/git?factory=%2Fsubscriptions%xxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx%2FresourceGroups%2Fadf-rg%2Fproviders%2FMicrosoft.DataFactory%2Ffactories%2Fcontoso-developer<b>&feature.enableCrossTenantAdo=true</b>
 
