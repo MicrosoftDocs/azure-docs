@@ -653,6 +653,12 @@ Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/hybridRunbookW
 
 ## Next steps
 
+To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environments, see:
+* [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
+
+To learn how to troubleshoot your Hybrid Runbook Workers, see:
+* [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/extension-based-hybrid-runbook-worker.md)
+
 To learn about Azure VM extensions, see:
 
  - [Azure VM extensions and features for Windows](/azure/virtual-machines/extensions/features-windows).
