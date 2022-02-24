@@ -207,7 +207,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent workers (requests)|200|400|600|800|1000|1200|1400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
@@ -234,7 +234,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Max concurrent workers (requests)|1600|1800|2000|2400|3200|4000|8000|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-AZ|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|[Available in preview](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview)|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
