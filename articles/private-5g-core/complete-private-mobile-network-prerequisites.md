@@ -22,7 +22,7 @@ Once your support representative has confirmed your access, register the Mobile 
 
 ## Allocate subnets and IP addresses
 
-For each of the following networks, allocate a subnet and then identify the IP addresses in the **Required IP addresses** column. If you're deploying multiple sites, you'll need to collect this information for each site.
+For each of the following networks, allocate a subnet and then identify the listed IP addresses. If you're deploying multiple sites, you'll need to collect this information for each site.
 
 ### Management network
 
