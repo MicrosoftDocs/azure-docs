@@ -11,18 +11,7 @@ ms.date: 02/18/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
 ---
-# Tutorial: Install Azure Stack Edge Pro 2
-
-
-::: zone pivot="single-node"
-
-This tutorial describes how to install an Azure Stack Edge Pro 2 physical device. The installation procedure involves unpacking, rack mounting, and cabling the device. 
-
-The installation can take around two hours to complete.
-
-::: zone-end
-
-::: zone pivot="two-node"
+# Tutorial: Install two-node Azure Stack Edge Pro 2 
 
 This tutorial describes how to install a two-node Azure Stack Edge Pro 2 device cluster. The installation procedure involves unpacking, rack mounting, and cabling the device. 
 
@@ -73,26 +62,6 @@ Before you begin:
 
 ## Unpack the device
 
-::: zone pivot="single-node"
-
-This device is shipped in a single box. Complete the following steps to unpack your device. 
-
-1. Place the box on a flat, level surface.
-2. Inspect the box and the packaging foam for crushes, cuts, water damage, or any other obvious damage. If the box or packaging is severely damaged, don't open it. Contact Microsoft Support to help you assess whether the device is in good working order.
-3. Unpack the box. After unpacking the box, make sure that you have:
-    - One single enclosure Azure Stack Edge Pro 2 device
-    - One power cord
-    - One packaged bezel
-    - One packaged mounting accessory which could be:
-        - A 4-post rack slide rail, or
-        - A 2-post rack slide, or 
-        - A wall mount (Check - given this is big sheet, packaged separately or in the box).
-    - A safety, environmental, and regulatory information booklet (Pitt's team)
-
-::: zone-end
-
-::: zone pivot="two-node"
-
 This device is shipped in two boxes. Complete the following steps to unpack your device. 
 
 1. Place the box on a flat, level surface.
@@ -108,8 +77,6 @@ This device is shipped in two boxes. Complete the following steps to unpack your
     - A safety, environmental, and regulatory information booklet
 
 
-::: zone-end
-    
 If you didn't receive all of the items listed here, [Contact Microsoft Support](azure-stack-edge-contact-microsoft-support.md). The next step is to mount your device on a rack or wall.
 
 ## Rack mount the device
@@ -121,7 +88,6 @@ The device can be mounted using one of the following mounting accessory:
 - A wallmount.
 
 If you have received  4-post rackmount, use the following procedure to rack mount your device. For other mounting accessories, see [Racking using a 2-post rackmount](azure-stack-edge-pro-2-two-post-rack-mounting.md) or [Mounting the device on the wall](azure-stack-edge-pro-2-wall-mount.md).
-
 
 
 ### Prerequisites
@@ -195,28 +161,6 @@ Route the cables and then cable your device. The following procedures explain ho
 
 ### Cabling checklist
 
-::: zone pivot="single-node"
-
-Before you start cabling your device, you need the following things:
-
-- Your Azure Stack Edge Pro 2 physical device, unpacked, and rack mounted.
-- One power cable (included in the device package).
-- At least one 1-GbE RJ-45 network cable to connect to the Port 1. There are two 1-GbE network interfaces, one used for initial configuration and one for data, on the device. These network interfaces can also act as 10-GbE interfaces.
-- One 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface Port 3 and Port 4 to be configured. At least one data network interface from among Port 2, Port 3, and Port 4 needs to be connected to the Internet (with connectivity to Azure). Here is an example QSFP28 DAC connector: 
-
-    ![Example of a QSFP28 DAC connector](./media/azure-stack-edge-pro-2-deploy-install/qsfp28-dac-connector.png)
-
-CHANGE THIS IMAGE
-
-    For a full list of supported cables, modules, and switches, see [Connect-X6 DX adapter card compatible firmware](https://docs.nvidia.com/networking/display/ConnectX6DxFirmwarev22271016/Firmware+Compatible+Products). 
-- Access to one power distribution unit.
-- At least one 100-GbE network switch to connect a 1-GbE or a 100-GbE network interface to the Internet for data. 
-
-
-::: zone-end
-
-::: zone pivot="two-node"
-
 Before you start cabling your device, you need the following things:
 
 - Your two Azure Stack Edge Pro 2 physical devices, unpacked, and rack mounted.
@@ -230,8 +174,6 @@ Before you start cabling your device, you need the following things:
 - Access to one power distribution unit for each device.
 - At least one 100-GbE network switch to connect a 1-GbE or a 100-GbE network interface to the Internet for data for each device.
  
-::: zone-end
-
 > [!NOTE]
 > - If you are connecting only one data network interface, we recommend that you use a 100-GbE network interface such as Port 3 or Port 4 to send data to Azure. 
 > - For best performance and to handle large volumes of data, consider connecting all the data ports.
@@ -271,32 +213,6 @@ The front panel on Azure Stack Edge Pro 2 device:
 
 Follow these steps to cable your device for power and network:
 
-::: zone pivot="single-node"
- 
-1. Identify the various ports on the back plane of your device. 
-1. Locate the disk slots and the power button on the front of the device.
-1. Connect the power cord to the PSU in the enclosure. 
-1. Attach the power cord to the power distribution unit (PDU). 
-1. Press the power button to turn on the device.
-1. Connect the 10/1-GbE network interface Port 1 to the computer that's used to configure the physical device. PORT 1 serves as the management interface for the initial configuration of the device.
-    
-    > [!NOTE]
-    > If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
-
-1. Connect one or more of Port 2, Port 3, Port 4 to the datacenter network/internet.
-
-    - If connecting Port 2, use the 1-GbE RJ-45 network cable.
-    - For the 100-GbE network interfaces, use the QSFP28 passive direct attached cable (tested in-house).
-    
-    The back plane of a cabled device would be as follows: 
-
-    ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/cabled-backplane-1.png)
-    <!-- How should we change this ASE Pro2 -- For Network Function Manager deployments, make sure that PORT 5 and PORT 6 are connected. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).-->
-
-::: zone-end
-
-::: zone pivot="two-node"
-
 1. Identify the various ports on the back plane of each your devices. 
 1. Locate the disk slots and the power button on the front of each device.
 1. Connect the power cord to the PSU in each device enclosure. 
@@ -315,43 +231,48 @@ Each of these configurations is described in the following sections. For more in
 
 #### Switchless
 
-Use this configuration when high speed switches aren't available for storage and clustering traffic:
+Use this option when you don't have high speed switches available in the environment for storage and cluster traffic. There are further sub-options:
 
-#### Connect Port 1 and Port 2 via switches
+1. **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets. Port 3 and Port 4 are connected back-to-back directly without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic and aren't available for workload traffic. 
 
-Use this configuration when you need port level redundancy through teaming.
+    ![Figure showing the ports cabled for switchless option with separate subnets.](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
 
-Port 3 and Port 4 via 100 GB DAC cable
-Port 1 device configuration via static to laptop
-Port 3 and Port 4 are in the same subnet
-Port 2 of both device are in the same subnet
-
-
-Port 3 and Port 4 are used for NFM deployments
-
-
-External switches
-
-Switchless
-
-
-
-
-1. Connect the 10/1-GbE network interface Port 1 to the computer that's used to configure the physical device. Port 1 serves as the management interface for the initial configuration of the device.
+    1. Connect the 1-GbE network interface Port 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use an Ethernet crossover cable or a USB Ethernet adapter.
+    1. Connect Port 2 to the internet using a 1-GbE RJ-45 network cable via a 1-GbE switch. 
+    1. Connect Port 3 on one device directly (without a switch) to the Port 3 on the other device node. 
+    1. Connect Port 4 on one device directly (without a switch) to the Port 4 on the other device node.
     
-    > [!NOTE]
-    > If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
+1. **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet. Port 3 and Port 4 are connected back-to-back directly without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic and aren't available for workload traffic. 
 
-1. Connect one or more of Port 2, Port 3, Port 4 to the datacenter network/internet.
+    ![Figure showing the ports cabled for switchless option with same subnets.](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
 
-    - If connecting Port 2, use the 1-GbE RJ-45 network cable.
-    - For the 100-GbE network interfaces, use the QSFP28 passive direct attached cable (tested in-house).
+
+    1. Connect the 1-GbE network interface Port 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use an Ethernet crossover cable or a USB Ethernet adapter.
+    1. Connect Port 2 to the internet using a 1-GbE RJ-45 network cable via a 1-GbE switch. 
+    1. Connect Port 3 on one device directly (without a switch) to the Port 3 on the other device node. 
+    1. Connect Port 4 on one device directly (without a switch) to the Port 4 on the other device node.
+
+#### Using external switches
+
+Use this option when you have high speed switches (10 GbE switches) available for use with your device nodes for storage and cluster traffic. There are further sub-options:
+
+1. **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets. Port 3 and Port 4 are reserved for Private Multi-Access Edge Computing workload deployment. 
+
+    ![Figure showing the ports cabled for option with switches and configured in separate subnets.](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
+
+    1. Connect the 1-GbE network interface Port 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use an Ethernet crossover cable or a USB Ethernet adapter.
+    1. Connect Port 2 to the internet using a 1-GbE RJ-45 network cable via a 10-GbE high speed switch. 
+    1. Port 3 and Port 4 are reserved for workload deployment and will be connected based on the specific deployment.
+
     
-    The back plane of a cabled device would be as follows: 
+1. **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet. Port 3 and Port 4 are reserved for Private Multi-Access Edge Computing workload deployment. 
 
-    ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/cabled-backplane-1.png)
+    ![Figure showing the ports cabled for option with switches and configured in separate subnets.](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
 
-<!-- How should we change this ASE Pro2 -- For Network Function Manager deployments, make sure that PORT 5 and PORT 6 are connected. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).-->
+    1. Connect the 1-GbE network interface Port 1 to the computer that's used to configure the physical device. If connecting the computer directly to your device (without going through a switch), use an Ethernet crossover cable or a USB Ethernet adapter.
+    1. Connect Port 2 to the internet using a 1-GbE RJ-45 network cable via a 10-GbE high speed switch. 
+    1. Port 3 and Port 4 are reserved for workload deployment and will be connected based on the specific deployment.
+
 
 ::: zone-end
 

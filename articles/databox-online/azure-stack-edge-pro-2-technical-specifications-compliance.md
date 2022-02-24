@@ -29,13 +29,13 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | Memory: usable | 102 GB RAM                                                                  |
 
 
-<!--SKU A has no GPU ## Compute acceleration specifications
+## Compute acceleration specifications
 
 A Graphics Processing Unit (GPU) is included on an Azure Stack Edge Pro 2 device that enables Kubernetes, deep learning, and machine learning scenarios.
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| GPU   | One Nvidia T4 GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| -->
+| GPU   | One Nvidia T4 GPU. For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).| 
 
 
 ## Power supply unit specifications
