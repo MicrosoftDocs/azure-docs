@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 10/12/2021
-
 ---
 
 # Application Insights for ASP.NET Core applications
