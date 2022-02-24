@@ -143,13 +143,13 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 1. Accept the terms of service if you're prompted to do so.
 
-1. Create a new project: Select the project list at the top of the page, and then on the **Select a project** page, select **New Project**.
+1. Create a new project: At the top of the page, select the project menu to open the **Select a project** page. Choose  **New Project**.
 
 1. On the **New Project** page, give the project a name (for example, `MyB2BApp`), and then select **Create**:
    
    ![Screenshot that shows a New Project page.](media/google-federation/google-new-project.png)
 
-1. Open the new project: In the **Notifications** message box that confirms your project was created, choose **Select project**. Or, use the project menu at the top of the page to select the project.
+1. Open the new project by selecting the link in the **Notifications** message box or by using the project menu at the top of the page.
 
 1. In the left menu, select **APIs & Services**, and then select **OAuth consent screen**.
 
@@ -159,7 +159,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 1. Under **User support email**, select an email address.
 
-1. Under **Authorized domains**, select **Add domain**, and then add the **microsoftonline.com** domain.
+1. Under **Authorized domains**, select **Add domain**, and then add the `microsoftonline.com` domain.
 
 1. Under **Developer contact information**, enter an email address.
 
@@ -169,7 +169,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 1. Select **Create credentials**, and then select **OAuth client ID**.
 
-1. In the Application type menu, select **Web application**. Give the application a suitable name, like **Azure AD B2B**. Under **Authorized redirect URIs**, add the following URIs:
+1. In the Application type menu, select **Web application**. Give the application a suitable name, like `Azure AD B2B`. Under **Authorized redirect URIs**, add the following URIs:
 
     - `https://login.microsoftonline.com`
     - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(where `<tenant ID>` is your tenant ID)
@@ -192,7 +192,7 @@ You'll now set the Google client ID and client secret. You can use the Azure por
 1. Go to the [Azure portal](https://portal.azure.com). On the left pane, select **Azure Active Directory**. 
 2. Select **External Identities**.
 3. Select **All identity providers**, and then select the **Google** button.
-4. Enter the client ID and client secret you obtained earlier. Select **Save**: 
+4. Enter the client ID and client secret you obtained earlier. Select **Save**:
 
    ![Screenshot that shows the Add Google identity provider page.](media/google-federation/google-identity-provider.png)
 
