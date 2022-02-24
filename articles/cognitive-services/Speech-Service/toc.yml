@@ -45,51 +45,38 @@ items:
       displayName: stt
     - name: Speech-to-text quickstart
       href: get-started-speech-to-text.md
-    - name: How-to guides
+    - name: How to recognize speech
+      href: how-to-recognize-speech.md
+    - name: Change recognition source language
+      href: how-to-specify-source-language.md
+    - name: Transcribe audio in batches
+      href: batch-transcription.md
+    - name: Use Pronunciation Assessment
+      href: how-to-pronunciation-assessment.md
+    - name: Improve recognition with Custom Speech
       items:
-        - name: How to recognize speech
-          href: how-to-recognize-speech.md
-        - name: Change recognition source language
-          href: how-to-specify-source-language.md
-        - name: How to use the audio input stream
-          href: how-to-use-audio-input-streams.md
-        - name: Support compressed input audio
-          href: how-to-use-codec-compressed-audio-input-streams.md
-          displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
-        - name: Select a specific microphone input device
-          href: how-to-select-audio-input-devices.md
-        - name: Use the batch transcription API
-          href: batch-transcription.md
-        - name: Use Pronunciation Assessment
-          href: how-to-pronunciation-assessment.md
-        - name: Control and monitor connection status
-          href: how-to-control-connections.md
-        - name: Improve accuracy with tenant models
-          href: tutorial-tenant-model.md
-        - name: Migrate from v2.0 to v3.0
-          href: migrate-v2-to-v3.md
-        - name: Customization
-          items:
-            - name: Custom Speech overview
-              href: custom-speech-overview.md
-            - name: Prepare data for Custom Speech
-              href: how-to-custom-speech-test-and-train.md
-            - name: Inspect Custom Speech data
-              href: how-to-custom-speech-inspect-data.md
-            - name: Evaluate and improve Custom Speech accuracy
-              href: how-to-custom-speech-evaluate-data.md
-            - name: Train and deploy a Custom Speech model
-              href: how-to-custom-speech-train-model.md
-            - name: CI/CD for Custom Speech
-              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-            - name: Customize Pronunciation
-              href: customize-pronunciation.md
-            - name: Improve recognition with phrase list
-              href: improve-accuracy-phrase-list.md
-            - name: Create human-labeled transcriptions
-              href: how-to-custom-speech-human-labeled-transcriptions.md
-            - name: Model and Endpoint Lifecycle
-              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
+        - name: Custom Speech overview
+          href: custom-speech-overview.md
+        - name: Prepare data for Custom Speech
+          href: how-to-custom-speech-test-and-train.md
+        - name: Inspect Custom Speech data
+          href: how-to-custom-speech-inspect-data.md
+        - name: Evaluate and improve Custom Speech accuracy
+          href: how-to-custom-speech-evaluate-data.md
+        - name: Train and deploy a Custom Speech model
+          href: how-to-custom-speech-train-model.md
+        - name: CI/CD for Custom Speech
+          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+        - name: Customize Pronunciation
+          href: customize-pronunciation.md
+        - name: Improve recognition with phrase list
+          href: improve-accuracy-phrase-list.md
+        - name: Create human-labeled transcriptions
+          href: how-to-custom-speech-human-labeled-transcriptions.md
+        - name: Model and Endpoint Lifecycle
+          href: how-to-custom-speech-model-and-endpoint-lifecycle.md
+    - name: Improve recognition with tenant models
+      href: tutorial-tenant-model.md
     - name: Ingestion Client
       href: ingestion-client.md
     - name: Universal Phone Set
@@ -106,47 +93,35 @@ items:
       displayName: tts
     - name: Text-to-speech quickstart
       href: get-started-text-to-speech.md
-    - name: How-to guides
-      items:
-        - name: Improve synthesis with SSML
-          href: speech-synthesis-markup.md
-          displayName: ipa, phoneme, phonetic, prosody
-        - name: Lower speech synthesis latency using Speech SDK
-          href: how-to-lower-speech-synthesis-latency.md
-        - name: Synthesize speech with Long Audio API
-          href: long-audio-api.md
-        - name: Get facial pose events for lip-sync
-          href: how-to-speech-synthesis-viseme.md
-          displayName: viseme, phoneme, phonetic
-        - name: Customization
-          items:
-            - name: Custom Neural Voice
-              items:
-                - name: What is custom neural voice?
-                  href: custom-neural-voice.md
-                - name: Get started with custom neural voice
-                  displayName: 'custom voice, neural voice'
-                  href: how-to-custom-voice.md
-                - name: Prepare data for training
-                  href: how-to-custom-voice-prepare-data.md
-                - name: Train your voice model
-                  href: how-to-custom-voice-create-voice.md
-                - name: Deploy and use your voice model
-                  href: how-to-deploy-and-use-endpoint.md
-                - name: How to record voice samples
-                  href: record-custom-voice-samples.md
-            - name: Audio Content Creation
-              href: how-to-audio-content-creation.md 
-        - name: Neural voice migration
-          items:
-            - name: Migration to neural voice
-              href: migration-overview-neural-voice.md
-            - name: Migrate to custom neural voice 
-              href: how-to-migrate-to-custom-neural-voice.md  
-            - name: Migrate to prebuilt neural voice
-              href: how-to-migrate-to-prebuilt-neural-voice.md 
+    - name: Synthesize long-form speech
+      href: long-audio-api.md
+    - name: Improve synthesis with SSML
+      href: speech-synthesis-markup.md
     - name: SSML phonetic sets
       href: speech-ssml-phonetic-sets.md
+      displayName: ipa, phoneme, phonetic, prosody
+    - name: Lower speech synthesis latency using Speech SDK
+      href: how-to-lower-speech-synthesis-latency.md
+    - name: Get facial pose events for lip-sync
+      href: how-to-speech-synthesis-viseme.md
+      displayName: viseme, phoneme, phonetic
+    - name: Audio Content Creation
+      href: how-to-audio-content-creation.md 
+    - name: Custom Neural Voice
+      items:
+        - name: What is custom neural voice?
+          href: custom-neural-voice.md
+        - name: Get started with custom neural voice
+          displayName: 'custom voice, neural voice'
+          href: how-to-custom-voice.md
+        - name: Prepare data for training
+          href: how-to-custom-voice-prepare-data.md
+        - name: Train your voice model
+          href: how-to-custom-voice-create-voice.md
+        - name: Deploy and use your voice model
+          href: how-to-deploy-and-use-endpoint.md
+        - name: How to record voice samples
+          href: record-custom-voice-samples.md
 - name: Speech translation
   items:
     - name: Speech translation documentation
@@ -155,10 +130,8 @@ items:
       href: speech-translation.md
     - name: Speech translation quickstart
       href: get-started-speech-translation.md
-    - name: How-to guides
-      items:
-        - name: Translate and synthesize text with REST APIs
-          href: /learn/modules/python-flask-build-ai-web-app
+    - name: Translate and synthesize text with REST APIs
+      href: /learn/modules/python-flask-build-ai-web-app
     - name: Speech translation FAQ
       href: https://www.microsoft.com/translator/faq.aspx
 - name: Intent recognition
@@ -171,12 +144,10 @@ items:
       href: get-started-intent-recognition.md
     - name: Pattern Matching overview
       href: pattern-matching-overview.md
-    - name: How-to guides
-      items:
-        - name: 'Recognize speech intents with LUIS'
-          href: how-to-recognize-intents-from-speech-csharp.md
-        - name: 'Recognize speech intents with simple pattern matching'
-          href: how-to-use-simple-language-pattern-matching.md
+    - name: 'Recognize speech intents with LUIS'
+      href: how-to-recognize-intents-from-speech-csharp.md
+    - name: 'Recognize speech intents with simple pattern matching'
+      href: how-to-use-simple-language-pattern-matching.md
     - name: LUIS developer resources
       href: ../luis/developer-reference-resource.md
     - name: Language support
@@ -295,8 +266,32 @@ items:
   items:
     - name: Language identification
       href: language-identification.md
-    - name: Role-based access control in Speech Studio
-      href: speech-studio-role-based-access-control.md
+    - name: Audio configuration
+      items:
+      - name: How to use the audio input stream
+        href: how-to-use-audio-input-streams.md
+      - name: Support compressed input audio
+        href: how-to-use-codec-compressed-audio-input-streams.md
+        displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
+      - name: Select a specific microphone input device
+        href: how-to-select-audio-input-devices.md
+    - name: Endpoint connections
+      items:
+      - name: Enable private endpoint
+        href: speech-services-private-link.md
+      - name: Enable VNet service endpoint
+        href: speech-service-vnet-service-endpoint.md
+      - name: Control and monitor connection status
+        href: how-to-control-connections.md
+      - name: Configure OpenSSL for Linux
+        displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
+        href: how-to-configure-openssl-linux.md
+    - name: Access control and authentication
+      items:
+      - name: Role-based access control in Speech Studio
+        href: speech-studio-role-based-access-control.md
+      - name: Use Azure Active Directory Authentication
+        href: how-to-configure-azure-ad-auth.md
     - name: Logs and diagnostics
       items:
         - name: Enable logs in SDK
@@ -305,22 +300,13 @@ items:
           href: how-to-get-speech-session-id.md
         - name: Track memory usage
           href: how-to-track-speech-sdk-memory-usage.md
-    - name: Enable private endpoint
-      href: speech-services-private-link.md
-    - name: Enable VNet service endpoint
-      href: speech-service-vnet-service-endpoint.md
-    - name: Use Azure Active Directory Authentication
-      href: how-to-configure-azure-ad-auth.md
-    - name: Configure OpenSSL for Linux
-      displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
-      href: how-to-configure-openssl-linux.md
     - name: Configure RHEL/CentOS 7
       href: how-to-configure-rhel-centos-7.md
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Swagger documentation
       href: swagger-documentation.md
       displayName: rest
-    - name: Use containers
+    - name: Speech containers
       items:
         - name: Install and run Speech containers
           displayName: 'containers,install container,run container'
@@ -346,6 +332,16 @@ items:
           maintainContext: true
     - name: Migration
       items:
+        - name: Neural voice migration
+          items:
+            - name: Migration to neural voice
+              href: migration-overview-neural-voice.md
+            - name: Migrate to custom neural voice 
+              href: how-to-migrate-to-custom-neural-voice.md  
+            - name: Migrate to prebuilt neural voice
+              href: how-to-migrate-to-prebuilt-neural-voice.md 
+        - name: From Speech-to-text v2.0
+          href: migrate-v2-to-v3.md
         - name: From Bing Speech
           href: how-to-migrate-from-bing-speech.md
           displayName: migration, migrate 
