@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Deploy resources in Azure public MEC Preview using the Go SDK'
-description: In this tutorial, learn how to deploy resources in Azure public multi-access edge compute by using the Go SDK.
+description: In this tutorial, learn how to deploy resources in Azure public multi-access edge compute (MEC) by using the Go SDK.
 author: reemas-new
 ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
@@ -230,7 +230,7 @@ In this tutorial, you created a VM in Azure public MEC by using the Python SDK. 
 
 ## Next steps
 
-To deploy a virtual machine in Azure public MEC using Python SDK, advance to the following tutorial:
+To deploy a virtual machine in Azure public MEC using Python SDK, advance to the following article:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Deploy a virtual machine in Azure public MEC using Python SDK](tutorial-create-vm-using-python-sdk.md)

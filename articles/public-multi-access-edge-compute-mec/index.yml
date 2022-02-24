@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure public multi-access-edge compute (MEC) Preview documentation # < 60 chars
-summary: Learn how to use an Azure public MEC solution to develop and deploy latency-sensitive workloads at the 5G network edge integrated with Azure compute. # < 160 chars
+title: Azure public multi-access-edge compute documentation # < 60 chars
+summary: Learn how to use an Azure public multi-access-edge compute (MEC) solution to develop and deploy latency-sensitive workloads at the 5G network edge integrated with Azure compute. # < 160 chars
 
 metadata:
-  title: Azure public multi-access-edge compute (MEC) Preview documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure public MEC solution to develop and deploy latency-sensitive workloads at the 5G network edge integrated with Azure compute. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure public multi-access-edge compute documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Learn how to use Azure public multi-access-edge compute (MEC) to develop and deploy latency-sensitive workloads at the 5G network edge integrated with Azure compute. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: public-multi-access-edge-compute-mec # Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   author: reemas-new # Required; your GitHub user alias, with correct capitalization.
@@ -19,7 +19,7 @@ landingContent:
 # Start card title with a verb
 
   # Card
-  - title: About Azure public multi-access-edge compute (MEC)
+  - title: About Azure public MEC
     linkLists:
       - linkListType: overview
         links:
@@ -27,10 +27,10 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
-          - text: Deployment considerations for Azure public MEC
-            url: Considerations for deployment on the public MEC.md
+          - text: Considerations for deployment in Azure public MEC
+            url: considerations-for-deployment.md
           - text: Public MEC prerequisites
-            url: Public MEC prerequisites.md
+            url: key-concepts.md
 
   # Card
   - title: Get started

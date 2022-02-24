@@ -4,12 +4,12 @@ items:
 - name: Overview
   expanded: true
   items:
-  - name: What is the Azure public MEC?
-    href: tbd.md
-  - name: Azure Public MEC partner solutions
-    href: tbd.md   
-  - name: Edge connectivity using Metaswitch 5G Fusion Core
-    href: tbd.md
+  - name: What is Azure public MEC?
+    href: overview.md
+  - name: Key concepts
+    href: key-concepts.md   
+  - name: Considerations for deployment
+    href: considerations-for-deployment.md
 - name: Quickstarts
   expanded: true
   items:
@@ -24,16 +24,10 @@ items:
     href: tutorial-create-vm-using-go-sdk.md
   - name: Create VM Python SDK
     href: tutorial-create-vm-using-python-sdk.md
-- name: Concepts
-  items:
-  - name: Considerations and pre-requisites
-    href: tbd.md
-  - name: Comparisons
-    href: tbd.md
 - name: Resources
   items:
-  - name: Azure private MEC product page
-    href: https://go.microsoft.com/fwlink/?linkid=2165610
+  - name: Azure public MEC product page
+    href: https://go.microsoft.com/fwlink/?linkid=2186926
   - name: Azure Marketplace
     href: https://azuremarketplace.microsoft.com/marketplace/
   - name: Azure Roadmap
