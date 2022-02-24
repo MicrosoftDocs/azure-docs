@@ -11,11 +11,9 @@ ms.custom: template-quickstart, devx-track-azurecli
 
 # Quickstart: Deploy a virtual machine in Azure public MEC Preview using an ARM template
 
-In this quickstart, you learn how to use an Azure Resource Manager template (ARM template) to deploy an Ubuntu Linux virtual machine (VM) in Azure public multi-access edge compute (MEC) Preview.
+In this quickstart, you learn how to use an Azure Resource Manager (ARM) template to deploy an Ubuntu Linux virtual machine (VM) in Azure public multi-access edge compute (MEC) Preview.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
-
-An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
 ## Prerequisites
 
@@ -25,8 +23,8 @@ An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScri
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!NOTE]
-> Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.
+   > [!NOTE]
+   > Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.
 
 ## Review the template
 
@@ -40,7 +38,9 @@ An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScri
    - Network security group
    - Virtual machine
 
-   Note that the Azure Edge Zone ID in the example ARM template is different from the display name of the Azure public MEC.
+   In this example ARM template:
+   - The Azure Edge Zone ID is different from the display name of the Azure public MEC.
+   - The Azure network security group has an inbound rule that allows SSH and HTTPS access from everywhere.
 
    ```json
    {
@@ -218,9 +218,8 @@ An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScri
                            "properties": {
                                "addressPrefix": "[variables('subnetPrefix')]",
                                "networkSecurityGroup": {
-                                   "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName') )
-                                ]"
-                               }
+                                   "id": "[resourceId('Microsoft.Network/networkSecurityGroups', variables('networkSecurityGroupName'))]"
+                                }
                            }
                        }
                    ]
@@ -313,9 +312,6 @@ An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScri
        }
    }
    ```
-
-> [!NOTE]
-> The Azure network security group has an inbound rule that allows SSH and HTTPS access from everywhere.
 
 ## Deploy the ARM template using the Azure CLI
 

@@ -91,7 +91,7 @@ In this tutorial, you learn how to:
 
 ## Create a public IP address
 
-1. Add the latest network Go SDK to your import list:
+1. Add the latest network Go SDK to your import list.
 
    ```go
    import ( 

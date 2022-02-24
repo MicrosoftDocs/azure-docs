@@ -21,8 +21,8 @@ In this quickstart, you learn how to use Azure CLI to deploy a Linux virtual mac
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!NOTE]
-> Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.
+   > [!NOTE]
+   > Azure public MEC deployments are supported in Azure CLI versions 2.26 and later.
 
 ## Sign in to Azure and set your subscription
 

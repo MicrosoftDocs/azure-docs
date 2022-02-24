@@ -23,7 +23,7 @@ Azure public multi-access edge compute (MEC) Preview sites are small-footprint e
 
 For Azure public MEC, follow these best practices:
 
-- Deploy only the components of the application that are latency sensitive or need low latency compute at the Azure public MEC. Deploy all other components of the application that perform control plane and management plane functionalities in the parent region.
+- Deploy in Azure public MEC only those components of the application that are latency sensitive or need low latency compute at the Azure public MEC. Deploy in the parent region those components of the application that perform control plane and management plane functionalities.
 
 - Because Azure public MEC sites are connected to the Telco network, accessing resources deployed in it over the internet isn't allowed. To access VMs deployed in the Azure public MEC, deploy jump box virtual machines (VMs) or Azure Bastion in a virtual network (VNet) in the parent region.
 
@@ -39,7 +39,7 @@ Deploy application components that require ultra-low latencies in the Azure publ
 
 The Azure region should run the components of the application that perform control and management plane functions and aren't latency sensitive.
 
-For example:
+The following sections show some examples.
 
 #### Azure database and storage
 

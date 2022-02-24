@@ -6,10 +6,10 @@ items:
   items:
   - name: What is Azure public MEC?
     href: overview.md
+  - name: Considerations for deployment
+    href: considerations-for-deployment.md    
   - name: Key concepts
     href: key-concepts.md   
-  - name: Considerations for deployment
-    href: considerations-for-deployment.md
 - name: Quickstarts
   expanded: true
   items:

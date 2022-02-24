@@ -13,19 +13,19 @@ ms.custom: template-concept
 
 This document describes important concepts for Azure public multi-access edge compute (MEC) Preview.
 
-## ExtendedLocation
+## ExtendedLocation field
 
 All resource providers provide an additional field called [extendedLocation](/javascript/api/@azure/arm-compute/extendedlocation), which you use to deploy resources in the Azure public MEC.
 
-### Azure Edge Zone ID
+## Azure Edge Zone ID
 
-Every Azure public MEC site has an Azure Edge Zone ID. This ID is one of the attributes for `extendedLocation` to differentiate sites.
+Every Azure public MEC site has an Azure Edge Zone ID. This ID is one of the attributes that the `extendedLocation` field uses to differentiate sites.
 
-### Azure CLI and SDKs
+## Azure CLI and SDKs
 
-SDKs for services supported in Azure public MEC have been updated. For information about how to use these SDK for deployment, see [Tutorial: Deploy resources in Azure public MEC using the Go SDK](tutorial-create-vm-using-go-sdk.md), [Tutorial: Deploy a virtual machine in Azure public MEC using Python SDK](tutorial-create-vm-using-python-sdk.md), and [Quickstart: Deploy a virtual machine in Azure public MEC using Azure CLI](quickstart-create-vm-cli.md).
+SDKs for services supported in Azure public MEC have been updated. For information about how to use these SDKs for deployment, see [Tutorial: Deploy resources in Azure public MEC using the Go SDK](tutorial-create-vm-using-go-sdk.md), [Tutorial: Deploy a virtual machine in Azure public MEC using Python SDK](tutorial-create-vm-using-python-sdk.md), and [Quickstart: Deploy a virtual machine in Azure public MEC using Azure CLI](quickstart-create-vm-cli.md).
 
-### ARM templates
+## ARM templates
 
 You can use ARM Templates to deploy resources in the Azure public MEC. Here's' an example of how `extendedLocation` is used in an Azure Resource Manager (ARM) template to deploy a virtual machine (VM):
 
@@ -41,26 +41,26 @@ You can use ARM Templates to deploy resources in the Azure public MEC. Here's' a
 }
 ```
 
-## Parent region
+## Parent regions
 
-Every Azure public MEC site is associated with a parent Azure region. This region hosts all the control plane functions associated with the services running in the Azure public MEC. The following table lists all the active Azure public MEC sites, their Edge Zone ID and associated parent region.
+Every Azure public MEC site is associated with a parent Azure region. This region hosts all the control plane functions associated with the services running in the Azure public MEC. The following table lists active Azure public MEC sites, along with their Edge Zone ID and associated parent region.
 
-Telco Provider | Azure public MEC Name | Edge Zone ID | Parent region
--------------- | --------------------- | ------------ | -------------
-AT&T | ATT Atlanta A | attatlanta1 | East US 2
-AT&T | ATT Dallas A | attdallas1 | South Central US
+| Telco provider | Azure public MEC name | Edge Zone ID | Parent region |
+| -------------- | --------------------- | ------------ | ------------- |
+| AT&T | ATT Atlanta A | attatlanta1 | East US 2 |
+| AT&T | ATT Dallas A | attdallas1 | South Central US |
 
 ## Azure services
 
 ### Azure virtual machines
 
-Azure public MEC supports specific compute and GPU VM SKUs. The table below provides a list of all VM sizes supported:
+Azure public MEC supports specific compute and GPU VM SKUs. The following table lists the supported VM sizes:
 
-Type | Series | VM size
----- | ------ | -------
-VM | D-series | D2s_v3, D4s_v3, D8s_v3
-VM | E-series | E4s_v3, E8s_v3
-GPU | NCasT4_v3-series | Standard_NC4asT4_v3, Standard_NC8asT4_v3
+| Type | Series | VM size |
+| ---- | ------ | ------- |
+| VM | D-series | D2s_v3, D4s_v3, D8s_v3 |
+| VM | E-series | E4s_v3, E8s_v3 |
+| GPU | NCasT4_v3-series | Standard_NC4asT4_v3, Standard_NC8asT4_v3 |
 
 ### Public IP
 
@@ -88,12 +88,10 @@ Azure public MEC only supports creating Standard SSD Managed DiskS. All other st
 
 ### Default outbound access
 
-Because [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) isn't supported on the public MEC, manage your outbound connectivity by using a method in the following table:
+Because [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) isn't supported on the public MEC, manage your outbound connectivity by using one of the following methods:
 
-\# | Method
--- | ------
-1 | Use the frontend IP addresses of a Load Balancer for outbound via outbound rules.
-2 | Assign a public IP to the VM.
+- Use the frontend IP addresses of a Load Balancer for outbound via outbound rules.
+- Assign a public IP to the VM.
 
 ### DNS Resolution
 
@@ -104,4 +102,4 @@ By default, all services running in the Azure public MEC use the DNS infrastruct
 To deploy a virtual machine in Azure public MEC using an ARM template, advance to the following article:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template](quickstart-create-vm-using-go-sdk.md)
+> [Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template](quickstart-create-vm-arm-template.md)

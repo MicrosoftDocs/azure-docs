@@ -55,7 +55,7 @@ In this tutorial, you learn how to:
 
 ## Provision a virtual machine
 
-1. Create a Python file named *provision_vm_edge.py* to populate it with the following Python script. The script deploys VM and its associated dependency in Azure public MEC. The comments in the script explain the details.
+1. Create a Python file named *provision_vm_edge.py* and populate it with the following Python script. The script deploys VM and its associated dependency in Azure public MEC. The comments in the script explain the details.
 
    ```Python
    # Import the needed credential and management objects from the libraries.
@@ -290,7 +290,7 @@ az group delete --name PythonAzureExample-VM-rg --yes
 
 ## Next steps
 
-To contact the Azure public MEC product team:
+For questions about Azure public MEC, contact the product team:
 
 > [!div class="nextstepaction"]
 > [Azure public MEC product team](https://aka.ms/azurepublicmec)
