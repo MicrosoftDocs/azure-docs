@@ -37,7 +37,7 @@ The versions of each extension installed in a server group sometimes differ base
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
-> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5 | 10.0.5 | 10.2.1 | 10.2.1 |
+> | [citus](https://github.com/citusdata/citus) | Citus distributed database. | 9.5.10 | 10.0.6 | 10.2.4 | 10.2.4 |
 
 ### Data types extensions
 
@@ -130,9 +130,9 @@ The versions of each extension installed in a server group sometimes differ base
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
 > | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.4 | 3.0.3 | 3.1.4 |
-> | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.4 | 3.0.3 | 3.1.4 |
-> | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.5 | 3.0.4 | 3.0.3 | 3.1.4 |
-> | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.5 | 3.0.4 | 3.0.3 | 3.1.4 |
+> | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.4 | 3.0.4 | 3.1.4 |
+> | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.5 | 3.0.4 | 3.0.4 | 3.1.4 |
+> | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.5 | 3.0.4 | 3.0.4 | 3.1.4 |
 
 
 ## pg_stat_statements
