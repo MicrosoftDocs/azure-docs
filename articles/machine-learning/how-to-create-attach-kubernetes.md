@@ -353,7 +353,7 @@ When you create or attach an AKS cluster, you can configure the cluster to use a
    
 ```
 >[!IMPORTANT]
-> Azure Machine Learning does not support TLS termination with Internal Load Balancer. Internal Load Balancer has a private IP and that private IP could be on another network and certificate can be recused. 
+> If your AKS cluster is configured with an internal load balancer, using a Microsoft provided certificate is not supported and you must use [custom certificate to enable TLS](#create-or-attach-an-aks-cluster-with-tls-termination). 
 
 >[!NOTE]
 > For more information about how to secure inferencing environment, please see [Secure an Azure Machine Learning Inferencing Environment](how-to-secure-inferencing-vnet.md)
