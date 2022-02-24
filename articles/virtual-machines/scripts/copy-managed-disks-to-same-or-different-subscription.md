@@ -34,7 +34,7 @@ This script copies a managed disk to same or different subscription but in the s
 Run the following command to remove the resource group, VM, and all related resources.
 
 ```azurecli-interactive
-az group delete --name sourceResourceGroupName
+az group delete --name mySourceResourceGroupName
 ```
 
 ## Sample reference
