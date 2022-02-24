@@ -380,6 +380,8 @@
       href: /security/benchmark/azure/baselines/stack-edge-security-baseline?toc=/azure/databox-online/TOC.json
   - name: Shared how-tos
     items:         
+    - name: Check network readiness 
+      href: azure-stack-edge-deploy-check-network-readiness.md
     - name: Manage Edge compute 
       href: azure-stack-edge-gpu-manage-compute.md
     - name: Manage Edge container registry
