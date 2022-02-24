@@ -2,21 +2,21 @@
 title: "Tutorial: Govern and monitor applications"
 titleSuffix: Azure AD
 description: In this tutorial, you learn how to govern and monitor an application in Azure Active Directory.
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
-ms.author: davidmu
+ms.author: jomondi
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
-ms.date: 02/16/22
+ms.date: 02/24/2022
 # Customer intent: As an administrator of an Azure AD tenant, I want to govern and monitor my applications.
 ---
 
 # Tutorial: Govern and monitor applications
 
-Juan at Fabrikam has added and configured an application from the [Azure Active Directory (Azure AD) application gallery](overview-application-gallery.md). He also made sure that access can be managed and that the application is secure by using the information in [Tutorial: Manage application access and security](tutorial-manage-access-security.md). He now needs to understand the recources that are available to govern and monitor the application.
+The IT administrator at Fabrikam has added and configured an application from the [Azure Active Directory (Azure AD) application gallery](overview-application-gallery.md). They also made sure that access can be managed and that the application is secure by using the information in [Tutorial: Manage application access and security](tutorial-manage-access-security.md). They now need to understand the resources that are available to govern and monitor the application.
 
-By using the information in this tutorial Juan and you learn how to:
+By using the information in this tutorial, an administrator of the application learns how to:
 
 > [!div class="checklist"]
 > * Create an access review
@@ -26,21 +26,23 @@ By using the information in this tutorial Juan and you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. If you don't already have one, [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Privileged Role Administrator, Cloud Application Administrator, or Application Administrator.
-- An enterprise application that has been configured in your Azure AD tenant. See the [Quickstart: Add an enterprise application](add-application-portal.md).
+- An enterprise application that has been configured in your Azure AD tenant.
 
 ## Create an access review
 
-Juan wants to make sure that users or guests have appropriate access. He decides to ask users of the application to participate in an access review and recertify or attest to their need for access. When the access review is finished, he can then make changes and remove access from users who no longer need it. For more information, see
+The administrator wants to make sure that users or guests have appropriate access. They decide to ask users of the application to participate in an access review and recertify or attest to their need for access. When the access review is finished, they can then make changes and remove access from users who no longer need it. For more information, see
 [Manage user and guest user access with access reviews](../governance/manage-access-review.md).
+
+To create an access review:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with one of the roles listed in the prerequisites.
 1. Go to **Azure Active Directory**, and then select **Identity Governance**.
 1. On the left menu, select **Access reviews**.
 1. Select **New access review** to create a new access review.
 1. In **Select what to review**, select **Applications**.
-1. Select **+ Select application(s)**, select the application, and then select **Select**.
+1. Select **+ Select application(s)**, select the application, and then choose **Select**.
 1. Now you can select a scope for the review. Your options are:
     - **Guest users only** - This option limits the access review to only the Azure AD B2B guest users in your directory.
     - **All users** - This option scopes the access review to all user objects associated with the resource.
@@ -59,34 +61,37 @@ Juan wants to make sure that users or guests have appropriate access. He decides
 
 ### Start the access review
 
-After you've specified the settings for an access review, select Start. The access review appears in your list with an indicator of its status.
-By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to review access to groups or applications. If your review is for guests to review their own access, show them the instructions for how to review access for yourself to groups or applications.
+After you've specified the settings for an access review, select **Start**. The access review appears in your list with an indicator of its status.
+
+By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to review access to groups or applications. If your review is for guests to review their own access, show them the instructions for how to review access for themselves to groups or applications.
+
 If you've assigned guests as reviewers and they haven't accepted their invitation to the tenant, they won't receive an email from access reviews. They must first accept the invitation before they can begin reviewing.
 
 ## Access the audit logs report
 
 The audit logs report combines several reports around application activities into a single view for context-based reporting. For more information, see [Audit logs in Azure Active Directory](../reports-monitoring/concept-audit-logs.md).
 
-To access the audit logs report, select **Audit logs** from the **Activity** section of the Azure Active Directory blade.
+To access the audit logs report, select **Audit logs** from the **Activity** section of the Azure Active Directory page.
 
 The audit logs report consolidates the following reports:
-•	Password reset activity
-•	Password reset registration activity
-•	Self-service groups activity
-•	Office365 Group Name Changes
-•	Account provisioning activity
-•	Password rollover status
-•	Account provisioning errors
+
+- Password reset activity
+- Password reset registration activity
+- Self-service groups activity
+- Office365 Group Name Changes
+- Account provisioning activity
+- Password rollover status
+- Account provisioning errors
 
 ## Access the sign-ins report
 
-The Sign-ins view includes all user sign-ins, as well as the Application Usage report. You also can view application usage information in the Manage section of the Enterprise applications overview. For more information, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-sign-ins.md)
+The Sign-ins view includes all user sign-ins, and the Application Usage report. You also can view application usage information in the Manage section of the Enterprise applications overview. For more information, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-sign-ins.md)
 
-Select Signins from the Activity section of the Azure Active Directory blade.
+To access the sign-in logs report, select **Sign-ins** from the **Monitoring** section of the Azure Active Directory blade.
 
 ## Send logs to Azure Monitor
 
-The Azure AD activity logs only store information for a maximum of 30 days. Depending on your needs, you may want to have additional storage to back up the activity logs data. Using the Azure Monitor, you can archive the audit and sign logs to an Azure storage account to retain the data for a longer time. 
+The Azure AD activity logs only store information for a maximum of 30 days. Depending on your needs, you may require extra storage to back up the activity logs data. Using the Azure Monitor, you can archive the audit and sign logs to an Azure storage account to retain the data for a longer time. 
 The Azure Monitor is also useful for rich visualization, monitoring and alerting of data. To learn more about the Azure Monitor and the cost considerations for additional storage, see [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
 
 To send logs to your logs analytics workspace:
@@ -103,4 +108,4 @@ After about 15 minutes, verify that events are streamed to your Log Analytics wo
 
 Advance to the next article to learn how to...
 > [!div class="nextstepaction"]
-> [Manage certificates for federated single sign-on](manage-certificates-for-federated-single-sign-on.md)
+> [Manage consent to applications and evaluate consent requests](manage-consent-requests.md)
