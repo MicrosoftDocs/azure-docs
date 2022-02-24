@@ -140,34 +140,33 @@ The following table describes the values found on the track usage page:
 |**SQL Database, Single Standard, S0 DTUs**| The meter for Azure SQL Database that tracks the number of S0 databases used per day </br> Monthly limit: 1| 
 | **Usage/Limit** | The usage of the meter for the current month, and the limit for the meter. | 
 | **Status** | The current status of your usage of the service defined by the meter. 
-| ------ | ------ | 
+|  |  | 
 
 The following table describes the possible values for **Status**: 
 
 | **Status**| **Description**|
 | ----     | ---------- | 
 | **Not in use** | You haven't used the meter or the usage for the meter hasn't reached the billing system.|
-| **Exceeded on \<Date\>** | You haven't used the meter or the usage for the meter hasn't reached the billing system.| 
 | **Exceeded on \<Date\>** | You've exceeded the limit for the meter on \<Date\>.|
 | **Unlikely to Exceed** | You're unlikely to exceed the limit for the meter.| 
 | **Exceeds on \<Date\>** | You're likely to exceed the limit for the meter on \<Date\>. | 
-| ------ | ------ | 
+| | | 
 
 
 Previous: 
 
-    |Meter    |Description    |Monthly Limit  |
-    |---------|---------|---------|
-    |SQL Database, Single Standard, S0 DTUs | Tracks number of S0 SQL databases used per day  | 1 |    
+|Meter    |Description    |Monthly Limit  |
+|---------|---------|---------|
+|SQL Database, Single Standard, S0 DTUs | Tracks number of S0 SQL databases used per day  | 1 |    
 
-    
-    - Meter: Identifies the unit of measure for the service being consumed.
-    - Usage/Limit: Current month's usage and limit for the meter.
-    - Status: Usage status of the service. Based on your usage, you can have one of the following statutes:
-    - Not in use: You haven't used the meter or the usage for the meter hasn't reached the billing system.
-    - Exceeded on \<Date\>: You've exceeded the limit for the meter on \<Date\>.
-    - Unlikely to Exceed: You're unlikely to exceed the limit for the meter.
-    - Exceeds on \<Date\>: You're likely to exceed the limit for the meter on \<Date\>.
+
+- Meter: Identifies the unit of measure for the service being consumed.
+- Usage/Limit: Current month's usage and limit for the meter.
+- Status: Usage status of the service. Based on your usage, you can have one of the following statutes:
+- Not in use: You haven't used the meter or the usage for the meter hasn't reached the billing system.
+- Exceeded on \<Date\>: You've exceeded the limit for the meter on \<Date\>.
+- Unlikely to Exceed: You're unlikely to exceed the limit for the meter.
+- Exceeds on \<Date\>: You're likely to exceed the limit for the meter on \<Date\>.
     
 
 >[!IMPORTANT]
