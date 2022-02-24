@@ -5,7 +5,7 @@ description: Use Azure Storage lifecycle management policies to create automated
 author: tamram
 
 ms.author: tamram
-ms.date: 08/18/2021
+ms.date: 02/24/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
@@ -20,8 +20,8 @@ Data sets have unique lifecycles. Early in the lifecycle, people access some dat
 With the lifecycle management policy, you can:
 
 - Transition blobs from cool to hot immediately when they are accessed, to optimize for performance.
-- Transition current versions (previously called base blobs and referred in json formats as `baseBlob`), previous versions, and blob snapshots to a cooler storage tier if these objects have not been accessed or modified for a period of time, to optimize for cost. In this scenario, the lifecycle management policy can move objects from hot to cool, from hot to archive, or from cool to archive.
-- Delete current versions, previous versions, and blob snapshots at the end of their lifecycles.
+- Transition current versions of a blob, previous versions of a blob, or blob snapshots to a cooler storage tier if these objects have not been accessed or modified for a period of time, to optimize for cost. In this scenario, the lifecycle management policy can move objects from hot to cool, from hot to archive, or from cool to archive.
+- Delete current versions of a blob, previous versions of a blob, or blob snapshots at the end of their lifecycles.
 - Define rules to be run once per day at the storage account level.
 - Apply rules to containers or to a subset of blobs, using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters.
 
@@ -121,6 +121,9 @@ The following sample rule filters the account to run the actions on objects that
   ]
 }
 ```
+
+> [!NOTE]
+> The **baseBlob** element in a lifecycle management policy refers to the current version of a blob. The **version** element refers to a previous version.
 
 ### Rule filters
 
