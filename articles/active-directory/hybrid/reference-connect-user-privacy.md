@@ -4,12 +4,11 @@ description: This document describes how to obtain GDPR compliancy with Azure AD
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 05/21/2018
 ms.subservice: hybrid

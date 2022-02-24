@@ -1,8 +1,8 @@
 ---
 title: Reprovision devices in Azure IoT Hub Device Provisioning Service
 description: Learn how to reprovision devices with your Device Provisioning Service (DPS) instance, and why you might need to do this.
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 01/25/2021
 ms.topic: conceptual
 ms.service: iot-dps
@@ -74,7 +74,7 @@ How often a device submits a provisioning request depends on the scenario. Howev
 
 The reprovisioning policy on an enrollment entry determines how the device provisioning service instance handles these provisioning requests, and if device state data should be migrated during reprovisioning. The same policies are available for individual enrollments and enrollment groups:
 
-For example code of sending provisioning requests from a device during a boot sequence, see [Auto-provisioning a simulated device](quick-create-simulated-device.md).
+For example code of sending provisioning requests from a device during a boot sequence, see [Auto-provisioning a simulated device](quick-create-simulated-device-tpm.md).
 
 
 ## Next steps

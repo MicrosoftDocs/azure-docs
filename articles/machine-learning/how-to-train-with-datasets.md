@@ -4,12 +4,11 @@ titleSuffix: Azure Machine Learning
 description:  Learn how to make your data available to your local or remote compute for model training with Azure Machine Learning datasets.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.author: yogipandey
 author: ynpandey
-manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/31/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
 
@@ -317,7 +316,7 @@ myenv.environment_variables = {"AZUREML_DOWNLOAD_CONCURRENCY":64}
 
 To ensure your storage access credentials are linked to the workspace and the associated file datastore, complete the following steps:
 
-1. Navigate to your workspace in the [Azure Portal](https://ms.portal.azure.com).
+1. Navigate to your workspace in the [Azure Portal](https://portal.azure.com).
 1. Select the storage link on the workspace **Overview** page.
 1. On the storage page, select **Access keys** on the left side menu. 
 1. Copy the key.

@@ -4,12 +4,12 @@ description: Log Analytics workspaces in Azure Monitor store data from servers i
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020 
+ms.date: 10/20/2021
 ms.custom: devx-track-azurepowershell
 ---
 
 # Create and configure a Log Analytics workspace in Azure Monitor using PowerShell
-This article provides two code samples that show how to create and configure a Log Analytics workspace in Azure Monitor.  
+This article provides two code samples that show how to create and configure a Log Analytics workspace in Azure Monitor. 
 
 
 > [!NOTE]
@@ -40,7 +40,7 @@ New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku
 
 ## Create workspace and configure data sources
 
-The following sample script sample creates a workspace and configures multiple data sources. These data sources are only required if you are monitoring virtual machines using the [Log Analytics agent](../agents/log-analytics-agent.md).
+The following sample script sample creates a workspace and configures multiple data sources. These data sources are only required if you are monitoring virtual machines using the [Log Analytics agent](../agents/log-analytics-agent.md). A workspace has unique workspace ID and resource ID. You can reuse the same workspace name when in different resource groups.
 
 This script performs the following functions:
 
@@ -87,7 +87,7 @@ $ExportedSearches = @"
     {
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
-        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:"",
+        "Query":  'Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:"',
         "Version":  1
     }
 ]
@@ -137,9 +137,6 @@ try {
 } catch {
     New-AzResourceGroup -Name $ResourceGroup -Location $Location
 }
-
-# Create the workspace
-New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 
 # List all solutions and their installation status
 Get-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
@@ -209,7 +206,7 @@ In the above example regexDelimiter was defined as "\\n" for newline. The log de
 ## Troubleshooting
 When you create a workspace that was deleted in the last 14 days and in [soft-delete state](../logs/delete-workspace.md#soft-delete-behavior), the operation could have different outcome depending on your workspace configuration:
 1. If you provide the same workspace name, resource group, subscription and region as in the deleted workspace, your workspace will be recovered including its data, configuration and connected agents.
-2. Workspace name must be unique per resource group. If you use a workspace name that is already exists, also in soft-delete in your your resource group, you will get an error *The workspace name 'workspace-name' is not unique*, or *conflict*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
+2. Workspace name must be unique per resource group. If you use a workspace name that is already exists, also in soft-delete in your resource group, you will get an error *The workspace name 'workspace-name' is not unique*, or *conflict*. To override the soft-delete and permanently delete your workspace and create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:
    * [Recover](../logs/delete-workspace.md#recover-workspace) your workspace
    * [Permanently delete](../logs/delete-workspace.md#permanent-workspace-delete) your workspace
    * Create a new workspace using the same workspace name

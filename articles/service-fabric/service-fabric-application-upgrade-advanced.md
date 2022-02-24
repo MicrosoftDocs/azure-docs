@@ -43,11 +43,11 @@ There are several ways to configure the delay on the service side.
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
     ```
 
- * **When creating or updating an existing service through the ARM template**, specify the `InstanceCloseDelayDuration` value (minimum supported API version: 2019-11-01-preview):
+ * **When creating or updating an existing service through the ARM template**, specify the `InstanceCloseDelayDuration` value (minimum supported API version: 2020-03-01):
 
     ```ARM template to define InstanceCloseDelayDuration of 30seconds
     {
-      "apiVersion": "2019-11-01-preview",
+      "apiVersion": "2020-03-01",
       "type": "Microsoft.ServiceFabric/clusters/applications/services",
       "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
       "location": "[variables('clusterLocation')]",
@@ -209,7 +209,7 @@ During rollback, the value of *UpgradeReplicaSetCheckTimeout* and the mode can s
 ## Next steps
 [Upgrading your Application Using Visual Studio](service-fabric-application-upgrade-tutorial.md) walks you through an application upgrade using Visual Studio.
 
-[Upgrading your Application Using Powershell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
+[Upgrading your Application Using PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) walks you through an application upgrade using PowerShell.
 
 Control how your application upgrades by using [Upgrade Parameters](service-fabric-application-upgrade-parameters.md).
 

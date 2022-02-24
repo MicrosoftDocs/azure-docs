@@ -9,9 +9,9 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 8/11/2020
+ms.date: 09/03/2021
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin
+ms.reviewer: paulgarn, ludwignick
 ms.custom: aaddev
 ---
 
@@ -21,11 +21,11 @@ This article discusses what you need to know about the public keys that are used
 ## Overview of signing keys in the Microsoft identity platform
 The Microsoft identity platform uses public-key cryptography built on industry standards to establish trust between itself and the applications that use it. In practical terms, this works in the following way: The Microsoft identity platform uses a signing key that consists of a public and private key pair. When a user signs in to an application that uses the Microsoft identity platform for authentication, the Microsoft identity platform creates a security token that contains information about the user. This token is signed by the Microsoft identity platform using its private key before it is sent back to the application. To verify that the token is valid and originated from Microsoft identity platform, the application must validate the token’s signature using the public keys exposed by the Microsoft identity platform that is contained in the tenant’s [OpenID Connect discovery document](https://openid.net/specs/openid-connect-discovery-1_0.html) or SAML/WS-Fed [federation metadata document](../azuread-dev/azure-ad-federation-metadata.md).
 
-For security purposes, the Microsoft identity platform’s signing key rolls on a periodic basis and, in the case of an emergency, could be rolled over immediately. There is no set or guaranteed time between these key rolls - any application that integrates with the Microsoft identity platform should be prepared to handle a key rollover event no matter how frequently it may occur. If it doesn’t, and your application attempts to use an expired key to verify the signature on a token, the sign-in request will fail.  Checking every 24 hours for updates is a best practice, with throttled (once every five minutes at most) immediate refreshes of the key document if a token is encountered with an unknown key identifier. 
+For security purposes, the Microsoft identity platform’s signing key rolls on a periodic basis and, in the case of an emergency, could be rolled over immediately. There is no set or guaranteed time between these key rolls - any application that integrates with the Microsoft identity platform should be prepared to handle a key rollover event no matter how frequently it may occur. If your application doesn't handle sudden refreshes, and attempts to use an expired key to verify the signature on a token, your application will incorrectly reject the token.  Checking every 24 hours for updates is a best practice, with throttled (once every five minutes at most) immediate refreshes of the key document if a token is encountered that doesn't validate with the keys in your application's cache. 
 
-There is always more than one valid key available in the OpenID Connect discovery document and the federation metadata document. Your application should be prepared to use any and all of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.  The number of keys present can change over time based on the internal architecture of the Microsoft identity platform as we support new platforms, new clouds, or new authentication protocols. Neither the order of the keys in the JSON response nor the order in which they were exposed should be considered meaninful to your app. 
+There is always more than one valid key available in the OpenID Connect discovery document and the federation metadata document. Your application should be prepared to use any and all of the keys specified in the document, since one key may be rolled soon, another may be its replacement, and so forth.  The number of keys present can change over time based on the internal architecture of the Microsoft identity platform as we support new platforms, new clouds, or new authentication protocols. Neither the order of the keys in the JSON response nor the order in which they were exposed should be considered meaningful to your app. 
 
-Applications that support only a single signing key, or those that require manual updates to the signing keys, are inherently less secure and reliable.  They should be updated to use [standard libraries](reference-v2-libraries.md) to ensure that they are always using up-to-date signing keys, among other best practices. 
+Applications that support only a single signing key, or those that require manual updates to the signing keys, are inherently less secure and less reliable.  They should be updated to use [standard libraries](reference-v2-libraries.md) to ensure that they are always using up-to-date signing keys, among other best practices. 
 
 ## How to assess if your application will be affected and what to do about it
 How your application handles key rollover depends on variables such as the type of application or what identity protocol and library was used. The sections below assess whether the most common types of applications are impacted by the key rollover and provide guidance on how to update the application to support automatic rollover or manually update the key.
@@ -40,21 +40,20 @@ How your application handles key rollover depends on variables such as the type 
 * [Web applications protecting resources and created with Visual Studio 2013](#vs2013)
 * Web APIs protecting resources and created with Visual Studio 2013
 * [Web applications protecting resources and created with Visual Studio 2012](#vs2012)
-* [Web applications protecting resources and created with Visual Studio 2010, 2008 o using Windows Identity Foundation](#vs2010)
 * [Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols](#other)
 
 This guidance is **not** applicable for:
 
-* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regards to signing keys. [More information.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
+* Applications added from Azure AD Application Gallery (including Custom) have separate guidance with regard to signing keys. [More information.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * On-premises applications published via application proxy don't have to worry about signing keys.
 
 ### <a name="nativeclient"></a>Native client applications accessing resources
-Applications that are only accessing resources (i.e Microsoft Graph, KeyVault, Outlook API, and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
+Applications that are only accessing resources (for example, Microsoft Graph, KeyVault, Outlook API, and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
 
 Native client applications, whether desktop or mobile, fall into this category and are thus not impacted by the rollover.
 
 ### <a name="webclient"></a>Web applications / APIs accessing resources
-Applications that are only accessing resources (i.e Microsoft Graph, KeyVault, Outlook API, and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
+Applications that are only accessing resources (such as Microsoft Graph, KeyVault, Outlook API, and other Microsoft APIs) generally only obtain a token and pass it along to the resource owner. Given that they are not protecting any resources, they do not inspect the token and therefore do not need to ensure it is properly signed.
 
 Web applications and web APIs that are using the app-only flow (client credentials / client certificate) to request tokens fall into this category and are thus not impacted by the rollover.
 
@@ -283,20 +282,6 @@ Follow the steps below to verify that the key rollover logic is working.
    ```
 2. In the **\<add thumbprint="">** setting, change the thumbprint value by replacing any character with a different one. Save the **Web.config** file.
 3. Build the application, and then run it. If you can complete the sign-in process, your application is successfully updating the key by downloading the required information from your directory’s federation metadata document. If you are having issues signing in, ensure the changes in your application are correct by reading the [Adding Sign-On to Your Web Application Using Microsoft identity platform](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) article, or downloading and inspecting the following code sample: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
-
-### <a name="vs2010"></a>Web applications protecting resources and created with Visual Studio 2008 or 2010 and Windows Identity Foundation (WIF) v1.0 for .NET 3.5
-If you built an application on WIF v1.0, there is no provided mechanism to automatically refresh your application’s configuration to use a new key.
-
-* *Easiest way* Use the FedUtil tooling included in the WIF SDK, which can retrieve the latest metadata document and update your configuration.
-* Update your application to .NET 4.5, which includes the newest version of WIF located in the System namespace. You can then use the [Validating Issuer Name Registry (VINR)](/previous-versions/dotnet/framework/windows-identity-foundation/validating-issuer-name-registry) to perform automatic updates of the application’s configuration.
-* Perform a manual rollover as per the instructions at the end of this guidance document.
-
-Instructions to use the FedUtil to update your configuration:
-
-1. Verify that you have the WIF v1.0 SDK installed on your development machine for Visual Studio 2008 or 2010. You can [download it from here](https://www.microsoft.com/download/details.aspx?id=17331) if you have not yet installed it.
-2. In Visual Studio, open the solution, and then right-click the applicable project and select **Update federation metadata**. If this option is not available, FedUtil and/or the WIF v1.0 SDK has not been installed.
-3. From the prompt, select **Update** to begin updating your federation metadata. If you have access to the server environment where the application is hosted, you can optionally use FedUtil’s [automatic metadata update scheduler](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10)).
-4. Click **Finish** to complete the update process.
 
 ### <a name="other"></a>Web applications / APIs protecting resources using any other libraries or manually implementing any of the supported protocols
 If you are using some other library or manually implemented any of the supported protocols, you'll need to review the library or your implementation to ensure that the key is being retrieved from either the OpenID Connect discovery document or the federation metadata document. One way to check for this is to do a search in your code or the library's code for any calls out to either the OpenID discovery document or the federation metadata document.

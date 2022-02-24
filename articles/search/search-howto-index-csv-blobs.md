@@ -12,9 +12,11 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ---
 
-# How to index CSV blobs using delimitedText parsing mode and Blob indexers in Azure Cognitive Search
+# How to index CSV blobs and files using delimitedText parsing mode
 
-The Azure Cognitive Search [blob indexer](search-howto-indexing-azure-blob-storage.md) provides a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, `delimitedText` would result in two documents in the search index: 
+**Applies to**: [Blob indexers](search-howto-indexing-azure-blob-storage.md), [File indexers](search-file-storage-integration.md)
+
+In Azure Cognitive Search, both blob indexers and file indexers support a `delimitedText` parsing mode for CSV files that treats each line in the CSV as a separate search document. For example, given the following comma-delimited text, `delimitedText` would result in two documents in the search index: 
 
 ```text
 id, datePublished, tags
@@ -52,10 +54,10 @@ You can customize the delimiter character using the `delimitedTextDelimiter` con
 ```
 
 > [!NOTE]
-> Currently, only the UTF-8 encoding is supported. If you need support for other encodings, vote for it on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> Currently, only the UTF-8 encoding is supported. If you need support for other encodings, vote for it on [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8).
 
 > [!IMPORTANT]
-> When you use the delimited text parsing mode, Azure Cognitive Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please vote for it on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> When you use the delimited text parsing mode, Azure Cognitive Search assumes that all blobs in your data source will be CSV. If you need to support a mix of CSV and non-CSV blobs in the same data source, please vote for it on [UserVoice](https://feedback.azure.com/d365community/forum/9325d19e-0225-ec11-b6e6-000d3a4f07b8).
 >
 
 ## Request examples

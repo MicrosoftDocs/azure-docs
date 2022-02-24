@@ -12,10 +12,10 @@ ms.date: 07/06/2021
 ms.author: lajanuar
 ---
 
-# Document Translation client libraries and SDKs
+# Document Translation client-library SDKs
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD001 -->
-[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-info-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
+[Document Translation](overview.md) is a cloud-based feature of the [Azure Translator](../translator-overview.md) service. You can translate entire documents or process batch document translations in various file formats while preserving original document structure and format. In this article, you'll learn how to use the Document Translation service C#/.NET and Python client libraries. For the REST API, see our [Quickstart](get-started-with-document-translation.md) guide.
 
 ## Prerequisites
 
@@ -23,9 +23,9 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 
-* A [**single-service Translator resource**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
+* A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource).
 
-* An [**Azure blob storage account**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
+* An [**Azure blob storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll [**create containers**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in your Azure blob storage account for your source and target files:
 
   * **Source container**. This container is where you upload your files for translation (required).
   * **Target container**. This container is where your translated files will be stored (required).
@@ -106,7 +106,7 @@ using System;
 using System.Threading;
 ```
 
-In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
+In the application's **Program** class, create variable for your subscription key and custom endpoint. For details, *see* [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
 
 ```csharp
 private static readonly string endpoint = "<your custom endpoint>";
@@ -205,7 +205,7 @@ Create a new Python application in your preferred editor or IDE. Then import the
 ```
 
 Create variables for your resource subscription key, custom endpoint, sourceUrl, and targetUrl. For
-more information, *see*  [Get your custom domain name and subscription key](get-started-with-document-translation.md#get-your-custom-domain-name-and-subscription-key)
+more information, *see*  [Custom domain name and subscription key](get-started-with-document-translation.md#custom-domain-name-and-subscription-key)
 
 ```python
  subscriptionKey = "<your-subscription-key>"

@@ -1,14 +1,11 @@
 ---
 title: 'Azure ExpressRoute: Monitoring, Metrics, and Alerts'
 description: Learn about Azure ExpressRoute monitoring, metrics, and alerts using Azure Monitor, the one stop shop for all metrics, alerting, diagnostic logs across Azure.
-services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 09/14/2021
 ms.author: duau
-
-
 ---
 # ExpressRoute monitoring, metrics, and alerts
 
@@ -24,9 +21,14 @@ To view **Metrics**, navigate to the *Azure Monitor* page and select *Metrics*. 
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
+> [!IMPORTANT]
+> When viewing ExpressRoute metrics in the Azure portal, select a time granularity of **5 minutes or greater** for best possible results.
+> 
+> :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metric-granularity.png" alt-text="Screenshot of time granularity options.":::
+
 ### Aggregation Types:
 
-Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metrics.
+Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
 
 * Sum: The sum of all values captured during the aggregation interval. 
 * Count: The number of measurements captured during the aggregation interval. 
@@ -34,33 +36,59 @@ Metrics explorer supports SUM, MAX, MIN, AVG and COUNT as [aggregation types](..
 * Min: The smallest value captured during the aggregation interval. 
 * Max: The largest value captured during the aggregation interval. 
 
-### Available Metrics
+### ExpressRoute circuit
 
-|**Metric**|**Category**|**Dimension(s)**|**Feature(s)**|
-| --- | --- | --- | --- |
-|ARP Availability|Availability|<ui><li>Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type (Private/Public/Microsoft)</ui></li>|ExpressRoute|
-|BGP Availability|Availability|<ui><li> Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type</ui></li>|ExpressRoute|
-|BitsInPerSecond|Traffic|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>|<li>ExpressRoute</li><li>ExpressRoute Direct</li><ui><li>ExpressRoute Gateway Connection</ui></li>|
-|BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) |<ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li><ui><li>ExpressRoute Gateway Connection</ui></li>|
-|CPU Utilization|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
-|Packets per Second|Performance| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
-|Count of Routes Advertised to Peer |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
-|Count of Routes Learned from Peer |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
-|Frequency of Routes change |Availability| <ui><li>Instance</ui></li>|ExpressRoute Virtual Network Gateway|
-|Number of VMs in the Virtual Network |Availability| N/A |ExpressRoute Virtual Network Gateway|
-|GlobalReachBitsInPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
-|GlobalReachBitsOutPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
-|AdminState|Physical Connectivity|Link|ExpressRoute Direct|
-|LineProtocol|Physical Connectivity|Link|ExpressRoute Direct|
-|RxLightLevel|Physical Connectivity|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
-|TxLightLevel|Physical Connectivity|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+| Metric | Category | Unit | Aggregation Type | Description | Dimensions |  Exportable via Diagnostic Settings? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [Arp Availability](#arp) | Availability | Percent | Average | ARP Availability from MSEE towards all peers. | PeeringType, Peer |  Yes | 
+| [Bgp Availability](#bgp) | Availability | Percent | Average | BGP Availability from MSEE towards all peers. | PeeringType, Peer |  Yes | 
+| [BitsInPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | PeeringType | No | 
+| [BitsOutPerSecond](#circuitbandwidth) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeringType | No | 
+| DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Peering Type | Yes | 
+| DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Peering Type | Yes | 
+| GlobalReachBitsInPerSecond | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | PeeredCircuitSKey | No | 
+| GlobalReachBitsOutPerSecond | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | PeeredCircuitSKey | No | 
+
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
 >
 
+### ExpressRoute gateways
+
+| Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [CPU utilization](#cpu) | Performance | Count | Average | CPU Utilization of the ExpressRoute Gateway | roleInstance | Yes | 
+| [Packets per second](#packets) | Performance | CountPerSecond | Average | Packet count of ExpressRoute Gateway | roleInstance | No | 
+| [Count of routes advertised to peer](#advertisedroutes) | Availability | Count | Maximum | Count Of Routes Advertised To Peer by ExpressRouteGateway | roleInstance | Yes | 
+| [Count of routes learned from peer](#learnedroutes)| Availability | Count | Maximum | Count Of Routes Learned From Peer by ExpressRouteGateway | roleInstance | Yes | 
+| [Frequency of routes changed](#frequency) | Availability | Count | Total | Frequency of Routes change in ExpressRoute Gateway | roleInstance | No | 
+| [Number of VMs in virtual network](#vm) | Availability | Count | Maximum | Number of VMs in the Virtual Network | No Dimensions | No | 
+
+### ExpressRoute Gateway connections
+
+| Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [BitsInPerSecond](#connectionbandwidth) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | ConnectionName | No | 
+| [BitsOutPerSecond](#connectionbandwidth) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | ConnectionName | No | 
+| DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | ConnectionName | Yes | 
+| DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | ConnectionName | Yes | 
+
+### ExpressRoute Direct
+
+| Metric | Category | Unit | Aggregation Type | Description | Dimensions | Exportable via Diagnostic Settings? | 
+| --- | --- | --- | --- | --- | --- | --- | 
+| [BitsInPerSecond](#directin) | Traffic | BitsPerSecond | Average | Bits ingressing Azure per second | Link | Yes | 
+| [BitsOutPerSecond](#directout) | Traffic | BitsPerSecond | Average | Bits egressing Azure per second | Link | Yes | 
+| DroppedInBitsPerSecond | Traffic | BitsPerSecond | Average | Ingress bits of data dropped per second | Link | Yes | 
+| DroppedOutBitsPerSecond | Traffic | BitPerSecond | Average | Egress bits of data dropped per second | Link  | Yes | 
+| [AdminState](#admin) | Physical Connectivity | Count | Average | Admin state of the port | Link | Yes | 
+| [LineProtocol](#line) | Physical Connectivity | Count | Average | Line protocol status of the port | Link | Yes | 
+| [RxLightLevel](#rxlight) | Physical Connectivity | Count | Average | Rx Light level in dBm | Link, Lane | Yes | 
+| [TxLightLevel](#txlight) | Physical Connectivity | Count | Average | Tx light level in dBm | Link, Lane | Yes |
+
 ## Circuits metrics
 
-### Bits In and Out - Metrics across all peerings
+### <a name = "circuitbandwidth"></a>Bits In and Out - Metrics across all peerings
 
 Aggregation type: *Avg*
 
@@ -76,7 +104,7 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg" alt-text="metrics per peering":::
 
-### BGP Availability - Split by Peer  
+### <a name = "bgp"></a>BGP Availability - Split by Peer  
 
 Aggregation type: *Avg*
 
@@ -84,7 +112,7 @@ You can view near to real-time availability of BGP (Layer-3 connectivity) across
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="BGP availability per peer":::
 
-### ARP Availability - Split by Peering  
+### <a name = "arp"></a>ARP Availability - Split by Peering  
 
 Aggregation type: *Avg*
 
@@ -94,7 +122,7 @@ You can view near to real-time availability of [ARP](./expressroute-troubleshoot
 
 ## ExpressRoute Direct Metrics
 
-### Admin State - Split by link
+### <a name = "admin"></a>Admin State - Split by link
 
 Aggregation type: *Avg*
 
@@ -102,7 +130,7 @@ You can view the Admin state for each link of the ExpressRoute Direct port pair.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg" alt-text="ER Direct admin state":::
 
-### Bits In Per Second - Split by link
+### <a name = "directin"></a>Bits In Per Second - Split by link
 
 Aggregation type: *Avg*
 
@@ -110,7 +138,7 @@ You can view the bits in per second across both links of the ExpressRoute Direct
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg" alt-text="ER Direct bits in per second":::
 
-### Bits Out Per Second - Split by link
+### <a name = "directout"></a>Bits Out Per Second - Split by link
 
 Aggregation type: *Avg*
 
@@ -118,7 +146,7 @@ You can also view the bits out per second across both links of the ExpressRoute 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg" alt-text="ER Direct bits out per second":::
 
-### Line Protocol - Split by link
+### <a name = "line"></a>Line Protocol - Split by link
 
 Aggregation type: *Avg*
 
@@ -126,7 +154,7 @@ You can view the line protocol across each link of the ExpressRoute Direct port 
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg" alt-text="ER Direct line protocol":::
 
-### Rx Light Level - Split by link
+### <a name = "rxlight"></a>Rx Light Level - Split by link
 
 Aggregation type: *Avg*
 
@@ -134,7 +162,7 @@ You can view the Rx light level (the light level that the ExpressRoute Direct po
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg" alt-text="ER Direct line Rx Light Level":::
 
-### Tx Light Level - Split by link
+### <a name = "txlight"></a>Tx Light Level - Split by link
 
 Aggregation type: *Avg*
 
@@ -157,7 +185,7 @@ When you deploy an ExpressRoute gateway, Azure manages the compute and functions
 
 It's highly recommended you set alerts for each of these metrics so that you are aware of when your gateway could be seeing performance issues.
 
-### CPU Utilization - Split Instance
+### <a name = "cpu"></a>CPU Utilization - Split Instance
 
 Aggregation type: *Avg*
 
@@ -165,7 +193,7 @@ You can view the CPU utilization of each gateway instance. The CPU utilization m
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/cpu-split.jpg" alt-text="Screenshot of CPU utilization - split metrics.":::
 
-### Packets Per Second - Split by Instance
+### <a name = "packets"></a>Packets Per Second - Split by Instance
 
 Aggregation type: *Avg*
 
@@ -173,7 +201,7 @@ This metric captures the number of inbound packets traversing the ExpressRoute g
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/pps-split.jpg" alt-text="Screenshot of packets per second - split metrics.":::
 
-### Count of Routes Advertised to Peer - Split by Instance
+### <a name = "advertisedroutes"></a>Count of Routes Advertised to Peer - Split by Instance
 
 Aggregation type: *Count*
 
@@ -181,7 +209,7 @@ This metric is the count for the number of routes the ExpressRoute gateway is ad
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-advertised-to-peer.png" alt-text="Screenshot of count of routes advertised to peer.":::
 
-### Count of Routes Learned from Peer - Split by Instance
+### <a name = "learnedroutes"></a>Count of Routes Learned from Peer - Split by Instance
 
 Aggregation type: *Max*
 
@@ -189,7 +217,7 @@ This metric shows the number of routes the ExpressRoute gateway is learning from
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/count-of-routes-learned-from-peer.png" alt-text="Screenshot of count of routes learned from peer.":::
 
-### Frequency of Routes change - Split by Instance
+### <a name = "frequency"></a>Frequency of Routes change - Split by Instance
 
 Aggregation type: *Sum*
 
@@ -197,7 +225,7 @@ This metric shows the frequency of routes being learned from or advertised to re
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/frequency-of-routes-changed.png" alt-text="Screenshot of frequency of routes changed metric.":::
 
-### Number of VMs in the Virtual Network
+### <a name = "vm"></a>Number of VMs in the Virtual Network
 
 Aggregation type: *Max*
 
@@ -205,7 +233,7 @@ This metric shows the number of virtual machines that are using the ExpressRoute
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/number-of-virtual-machines-virtual-network.png" alt-text="Screenshot of number of virtual machines in the virtual network metric.":::
 
-## ExpressRoute gateway connections in bits/seconds
+## <a name = "connectionbandwidth"></a>ExpressRoute gateway connections in bits/seconds
 
 Aggregation type: *Avg*
 
@@ -242,14 +270,14 @@ In the **Alert Criteria**, you can select **Activity Log** for the Signal Type a
 
 You can also view ExpressRoute metrics by navigating to your ExpressRoute circuit resource and selecting the *Logs* tab. For any metrics you query, the output will contain the columns below.
 
-|**Column**|**Type**|**Description**|
-| --- | --- | --- |
-|TimeGrain|string|PT1M (metric values are pushed every minute)|
-|Count|real|Usually equal to 2 (each MSEE pushes a single metric value every minute)|
-|Minimum|real|The minimum of the two metric values pushed by the two MSEEs|
-|Maximum|real|The maximum of the two metric values pushed by the two MSEEs|
-|Average|real|Equal to (Minimum + Maximum)/2|
-|Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
+| **Column** | **Type** | **Description** | 
+|  ---  |  ---  |  ---  | 
+| TimeGrain | string | PT1M (metric values are pushed every minute) | 
+| Count | real | Usually equal to 2 (each MSEE pushes a single metric value every minute) | 
+| Minimum | real | The minimum of the two metric values pushed by the two MSEEs | 
+| Maximum | real | The maximum of the two metric values pushed by the two MSEEs | 
+| Average | real | Equal to (Minimum + Maximum)/2 | 
+| Total | real | Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried) | 
   
 ## Next steps
 

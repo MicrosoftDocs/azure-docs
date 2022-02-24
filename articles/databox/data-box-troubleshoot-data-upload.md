@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 05/10/2021
+ms.date: 10/21/2021
 ms.author: alkohli
 ---
 
@@ -106,7 +106,7 @@ Other REST API errors might occur during data uploads. For more information, see
 
 **Error description:** If a blob storage container is configured as Write Once, Read Many (WORM), upload of any blobs that are already stored in the container will fail.
 
-**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure the listed blobs are not part of an immutable storage container. For more information, see [Store business-critical blob data with immutable storage](../storage/blobs/storage-blob-immutable-storage.md).
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure the listed blobs are not part of an immutable storage container. For more information, see [Store business-critical blob data with immutable storage](../storage/blobs/immutable-storage-overview.md).
 
 
 ### The total provisioned capacity of the shares cannot exceed the account maximum size limit
@@ -155,4 +155,4 @@ Other REST API errors might occur during data uploads. For more information, see
 ## Next steps
 
 - [Review common REST API errors](/rest/api/storageservices/common-rest-api-error-codes).
-- [Verify a data upload to Azure](data-box-deploy-picked-up.md?tabs=in-us-canada-europe#verify-data-upload-to-azure-8)
+- [Verify data upload to Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure)

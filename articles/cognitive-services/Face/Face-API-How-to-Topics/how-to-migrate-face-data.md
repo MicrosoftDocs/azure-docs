@@ -8,9 +8,10 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: nitinme
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -232,4 +233,4 @@ Next, see the relevant API reference documentation, explore a sample app that us
 - [Snapshot reference documentation (.NET SDK)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations)
 - [Face snapshot sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Add faces](how-to-add-faces.md)
-- [Detect faces in an image](HowtoDetectFacesinImage.md)
+- [Call the detect API](HowtoDetectFacesinImage.md)

@@ -5,11 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 02/18/2022
 ms.author: cynthn
 ms.subservice: cloud-init
 ---
 # Use cloud-init to update and install packages in a Linux VM in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to update packages on a Linux virtual machine (VM) or virtual machine scale sets at provisioning time in Azure. These cloud-init scripts run on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
 ## Update a VM with cloud-init
@@ -35,24 +38,25 @@ packages:
 Before deploying, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.
 
 ```azurecli-interactive 
-az group create --name myResourceGroup --location eastus
+az group create --name myCentOSGroup --location eastus
 ```
 
 Now, create a VM with [az vm create](/cli/azure/vm) and specify the cloud-init file with the `--custom-data` parameter as follows:
 
 ```azurecli-interactive 
 az vm create \
-  --resource-group myResourceGroup \
-  --name centos74 \
-  --image OpenLogic:CentOS:7-CI:latest \
+  --resource-group myCentOSGroup \
+  --name centos83 \
+  --image OpenLogic:CentOS:8_3:latest \
   --custom-data cloud_init_upgrade.txt \
+  --admin-username azureuser \
   --generate-ssh-keys 
 ```
 
 SSH to the public IP address of your VM shown in the output from the preceding command. Enter your own **publicIpAddress** as follows:
 
 ```bash
-ssh <publicIpAddress>
+ssh azureuser@<publicIpAddress>
 ```
 
 Run the package management tool and check for updates.
@@ -64,12 +68,11 @@ sudo yum update
 As cloud-init checked for and installed updates on boot, there should be no additional updates to apply.  You see the update process, number of altered packages as well as the installation of `httpd` by running `yum history` and review the output similar to the one below.
 
 ```bash
-Loaded plugins: fastestmirror, langpacks
-ID     | Command line             | Date and time    | Action(s)      | Altered
--------------------------------------------------------------------------------
-     3 | -t -y install httpd      | 2018-04-20 22:42 | Install        |    5
-     2 | -t -y upgrade            | 2018-04-20 22:38 | I, U           |   65
-     1 |                          | 2017-12-12 20:32 | Install        |  522
+ID     | Command line                                | Date and time    | Action(s)      | Altered
+--------------------------------------------------------------------------------------------------
+     3 | -y install httpd                            | 2022-02-18 18:30 | Install        |    7
+     2 | -y upgrade                                  | 2022-02-18 18:23 | I, O, U        |  321 EE
+     1 |                                             | 2021-02-04 19:20 | Install        |  496 EE
 ```
 
 ## Next steps

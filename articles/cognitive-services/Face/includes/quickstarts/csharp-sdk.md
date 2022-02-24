@@ -26,6 +26,7 @@ Use the Face client library for .NET to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -86,10 +87,10 @@ From the project directory, open the *program.cs* file and add the following `us
 
 In the application's **Program** class, create variables for your resource's key and endpoint.
 
-
 > [!IMPORTANT]
 > Go to the Azure portal. If the Face resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**. 
->
+
+> [!IMPORTANT]
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_creds)]
@@ -145,6 +146,12 @@ Create a new method to detect faces. The `DetectFaceExtract` method processes th
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
+The above code processes the following remote images:
+
+![Photo of a woman smiling](../../media/quickstarts/detection-1.jpg)
+![Photo of a man, woman, and baby](../../media/quickstarts/detection-5.jpg)
+![Photo of an older man and woman](../../media/quickstarts/detection-6.jpg)
+
 > [!TIP]
 > You can also detect faces in a local image. See the [IFaceOperations](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations) methods such as **DetectWithStreamAsync**.
 
@@ -154,7 +161,7 @@ The rest of the `DetectFaceExtract` method parses and prints the attribute data 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect_parse)]
 
-
+The "QualityForRecognition" attribute is an indicator of the overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on. To leverage the quality attribute, users need to assign the model version by setting the detectionModel parameter to detection_01 or detection_03, recognitionModel parameter to recognition_03 or recognition_04, and include the QualityForRecognition attribute in the request as shown in the example above.    
 
 ## Identify a face
 
@@ -219,12 +226,19 @@ The following method detects faces in a set of target images and in a single sou
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar)]
 
+In this program, the following remote image will be used as the source:
+
+![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
+
 ### Print matches
 
 The following code prints the match details to the console:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_find_similar_print)]
 
+In this program, the face detected in this image should be returned as the face that's similar to the source image face.
+
+![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Run the application
 

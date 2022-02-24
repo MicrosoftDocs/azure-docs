@@ -1,11 +1,11 @@
 ---
 title: Mount an Azure HPC Cache
 description: How to connect clients to an Azure HPC Cache service
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/30/2020
-ms.author: v-erkel
+ms.date: 09/27/2021
+ms.author: femila
 ---
 
 # Mount the Azure HPC Cache
@@ -80,11 +80,13 @@ Follow this procedure to create the mount command.
 
    To learn more about Azure HPC Cache's aggregated namespace feature, read [Plan the aggregated namespace](hpc-cache-namespace.md).
 
-1. The **Mount command** field in step three automatically populates with a customized mount command that uses the mount address, virtual namespace path, and client path that you set in the previous fields.
+1. The **Mount command** field automatically populates with a customized mount command that uses the mount address, virtual namespace path, and client path that you set in the previous fields.
 
    Click the copy symbol to the right side of the field to automatically copy it to your clipboard.
 
    ![screenshot of the prototype mount command field, showing hover text for the "copy to clipboard" button](media/mount-command-copy.png)
+
+   Underneath, it shows alternate mount commands, which have the same client path and namespace path but use different cache mount addresses. For best performance, you must mount clients evenly among all of the available addresses on the HPC Cache.
 
 1. Use the copied mount command on the client machine to connect it to the Azure HPC Cache. You can issue the command directly from the client command line, or include the mount command in a client setup script or template.
 
@@ -130,6 +132,13 @@ The virtual namespace paths are shown on the cache's **Namespace** settings page
 
 ![screenshot of the portal Settings > Namespace page with a highlight box around the first column of the table: "Namespace path"](media/view-namespace-paths.png)
 
+## Use all available mount addresses
+
+You must spread out client traffic among all of the IP addresses listed for the cache. If you mount all of your clients to only one address, the cache's performance will be impaired.
+
+You can select different mount addresses for different clients manually, or by creating a script. You also can use a DNS server configured for round-robin DNS (RRDNS) to automatically rotate client mounts among all of the available addresses. Read [Load balance HPC Cache traffic](client-load-balancing.md) to learn more.
+
 ## Next steps
 
+* Learn more about how to use all of your cache's throughput by [balancing client load](client-load-balancing.md).
 * To move data to the cache's storage targets, read [Populate new Azure Blob storage](hpc-cache-ingest.md).

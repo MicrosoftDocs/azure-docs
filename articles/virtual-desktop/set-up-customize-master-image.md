@@ -1,13 +1,13 @@
 ---
-title: Prepare and customize a master VHD image - Azure
-description: How to prepare, customize and upload a Azure Virtual Desktop master image to Azure.
+title: Prepare and customize a VHD image of Azure Virtual Desktop - Azure
+description: How to prepare, customize and upload a Azure Virtual Desktop image to Azure.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: femila
 ---
-# Prepare and customize a master VHD image
+# Prepare and customize a VHD image for Azure Virtual Desktop
 
 This article tells you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install software on them. These instructions are for a Azure Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
@@ -122,7 +122,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### Disable Storage Sense
 
-For Azure Virtual Desktop session host that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
+For Azure Virtual Desktop session hosts that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. Disks where the operating system is installed are typically small in size and user data is stored remotely through profile roaming. This scenario results in Storage Sense believing that the disk is critically low on free space. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)

@@ -16,7 +16,7 @@ With [App Service authentication](overview-authentication-authorization.md), the
 
 1. Create a new JSON file for your configuration at the root of your project (deployed to D:\home\site\wwwroot in your web / function app). Fill in your desired configuration according to the [file-based configuration reference](#configuration-file-reference). If modifying an existing Azure Resource Manager configuration, make sure to translate the properties captured in the `authsettings` collection into your configuration file.
 
-2. Modify the existing configuration, which is captured in the [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs under `Microsoft.Web/sites/<siteName>/config/authsettingsV2`. To modify this, you can use an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or a tool like [Azure Resource Explorer](https://resources.azure.com/). Within the authsettingsV2 collection, you will need to set three properties (and may remove others):
+2. Modify the existing configuration, which is captured in the [Azure Resource Manager](../azure-resource-manager/management/overview.md) APIs under `Microsoft.Web/sites/<siteName>/config/authsettingsV2`. To modify this, you can use an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) or a tool like [Azure Resource Explorer](https://resources.azure.com/). Within the authsettingsV2 collection, you will need to set two properties (and may remove others):
 
     1. Set `platform.enabled` to "true"
     2. Set `platform.configFilePath` to the name of the file (for example, "auth.json")
@@ -38,11 +38,12 @@ The following exhausts possible configuration options within the file:
         "enabled": <true|false>
     },
     "globalValidation": {
-        "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|Return401|Return403",
+        "unauthenticatedClientAction": "RedirectToLoginPage|AllowAnonymous|RejectWith401|RejectWith404",
         "redirectToProvider": "<default provider alias>",
         "excludedPaths": [
             "/path1",
-            "/path2"
+            "/path2",
+            "/path3/subpath/*"
         ]
     },
     "httpSettings": {

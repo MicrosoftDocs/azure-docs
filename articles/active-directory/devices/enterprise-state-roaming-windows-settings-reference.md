@@ -6,22 +6,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/15/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: na
 
 ms.collection: M365-identity-device-management
 ---
 # Windows 10 roaming settings reference
 
-The following is a list of the settings that will be roamed or backed up in Windows 10. 
+The following is a list of the settings that will be roamed or backed up in Windows 10 or newer. 
 
 ## Devices and endpoints
 
-See the following table for a summary of the devices and account types that are supported by the sync, backup, and restore framework in Windows 10.
+See the following table for a summary of the devices and account types that are supported by the sync, backup, and restore framework in Windows 10 or newer.
 
 | Account type and operation | Desktop | Mobile |
 | --- | --- | --- |
@@ -36,7 +36,7 @@ Windows settings generally sync by default, but some settings are only backed up
 
 ## Windows Settings overview
 
-The following settings groups are available for end users to enable/disable settings sync on Windows 10 devices.
+The following settings groups are available for end users to enable/disable settings sync on Windows 10 or newer devices.
 
 * Theme: desktop background, user tile, taskbar position, etc. 
 * Internet Explorer Settings: browsing history, typed URLs, favorites, etc. 
@@ -99,7 +99,7 @@ Settings that don't roam or sync will not belong to a group.
 | **Microsoft Edge browser**: typed URLs <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: favorites bar settings <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: show the home button <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
-| **Microsoft Edge browser**: block pop-ups <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
+| **Microsoft Edge browser**: block pop-up windows <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: ask me what to do with each download <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: offer to save passwords <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |
 | **Microsoft Edge browser**: send do not track requests <sup>[[1]](#footnote-1)</sup> |sync |sync |internal |

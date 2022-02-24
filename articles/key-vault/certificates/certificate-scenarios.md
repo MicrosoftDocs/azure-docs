@@ -41,14 +41,14 @@ Certificates are composed of three interrelated resources linked together as a K
 
 **Step 3** - A Contoso admin, along with a Contoso employee (Key Vault user) who owns certificates, depending on the CA, can get a certificate from the admin or directly from the account with the CA.  
 
-- Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/setcertificateissuer/setcertificateissuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
+- Begin an add credential operation to a key vault by [setting a certificate issuer](/rest/api/keyvault/certificates/set-certificate-issuer/set-certificate-issuer) resource. A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
   - Ex. MyDigiCertIssuer  
     -   Provider  
     -   Credentials – CA account credentials. Each CA has its own specific data.  
 
     For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](/archive/blogs/kv/manage-certificates-via-azure-key-vault).  
 
-**Step 3.1** - Set up [certificate contacts](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
+**Step 3.1** - Set up [certificate contacts](/rest/api/keyvault/certificates/set-certificate-contacts/set-certificate-contacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
 
 Note - This process, through step 3.1, is a onetime operation.  
 
@@ -73,7 +73,7 @@ Note - This process, through step 3.1, is a onetime operation.
       -   Renewal information - > ex. 90 days before expiry  
 
   - A certificate creation process is usually an asynchronous process and involves polling your key vault for the state of the create certificate operation.  
-[Get certificate operation](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
+[Get certificate operation](/rest/api/keyvault/certificates/get-certificate-operation/get-certificate-operation)  
       -   Status: completed, failed with error information or, canceled  
       -   Because of the delay to create, a cancel operation can be initiated. The cancel may or may not be effective.  
 
@@ -111,7 +111,8 @@ When you are importing the certificate, you need to ensure that the key is inclu
 >Ensure that no other meta data is present in the certificate file and that the private key not showing as encrypted.
 
 ### Formats of Merge CSR we support
-AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B (chain of certificates signed by CA) 
+AKV supports 2 PEM based formats. You can either merge a single PKCS#8 encoded certificate or a base64 encoded P7B (chain of certificates signed by CA).
+If you need to covert the P7B's format to the supported one, you can use [certutil -encode](/windows-server/administration/windows-commands/certutil#-encode)
 
 -----BEGIN CERTIFICATE-----
 -----END CERTIFICATE-----

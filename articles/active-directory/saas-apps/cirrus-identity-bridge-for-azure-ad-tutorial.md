@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2021
+ms.date: 08/03/2021
 ms.author: jeedes
 
 ---
@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Cirrus Identity Bridge for Azure
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Cirrus Identity Bridge for Azure AD single sign-on (SSO) enabled subscription.
+* Cirrus Identity Bridge for Azure AD single sign-on (SSO) enabled subscription. If you are not already a subscriber, please visit the [Cirrus Identity Azure AD Bridge Registration Page](https://info.cirrusidentity.com/cirrus-identity-azure-ad-app-gallery-registration).
 
 ## Scenario description
 
@@ -56,7 +56,7 @@ To configure and test Azure AD SSO with Cirrus Identity Bridge for Azure AD, per
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Cirrus Identity Bridge for Azure AD SSO](#configure-cirrus-identity-bridge-for-azure-ad-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Cirrus Identity Bridge for Azure AD test user](#create-cirrus-identity-bridge-for-azure-ad-test-user)** - to have a counterpart of B.Simon in Cirrus Identity Bridge for Azure AD that is linked to the Azure AD representation of user.
+    1. **[Setup Cirrus Identity Bridge for Azure AD testing](#setup-cirrus-identity-bridge-for-azure-ad-testing)** - to have a counterpart of B.Simon in Cirrus Identity Bridge for Azure AD that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `<CUSTOMER_LOGIN_URL>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [Cirrus Identity Bridge for Azure AD Client support team](https://www.cirrusidentity.com/resources/service-desk) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. If you have not yet subscribed to the Cirrus Bridge, please visit the [registration page](https://info.cirrusidentity.com/cirrus-identity-azure-ad-app-gallery-registration). If you are an existing Cirrus Bridge customer, contact [Cirrus Identity Bridge for Azure AD Client support team](https://www.cirrusidentity.com/resources/service-desk) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. Cirrus Identity Bridge for Azure AD application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -127,9 +127,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Cirrus Identity Bridge for Azure AD** side, you need to send the **App Federation Metadata Url** to [Cirrus Identity Bridge for Azure AD support team](https://www.cirrusidentity.com/resources/service-desk). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create Cirrus Identity Bridge for Azure AD test user
+### Setup Cirrus Identity Bridge for Azure AD testing
 
-In this section, you create a user called Britta Simon in Cirrus Identity Bridge for Azure AD. Work with [Cirrus Identity Bridge for Azure AD support team](https://www.cirrusidentity.com/resources/service-desk) to add the users in the Cirrus Identity Bridge for Azure AD platform. Users must be created and activated before you use single sign-on.
+In this section, you verify a user called Britta Simon can be used for testing. The [Cirrus Identity Bridge for Azure AD support team](https://www.cirrusidentity.com/resources/service-desk) will provide a testing URL to verify Britta Simon is ready to use with the Cirrus Identity Bridge for Azure AD platform. The test user Britta Simon will need to also be added to any applications using the Cirrus Identity Bridge for Azure AD as a method to authenticate (for example, applications in multilateral federation metadata). 
 
 ## Test SSO 
 
@@ -145,8 +145,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Cirrus Identity Bridge for Azure AD for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the Cirrus Identity Bridge for Azure AD tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Cirrus Identity Bridge for Azure AD for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the Cirrus Identity Bridge for Azure AD tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the Cirrus Identity Bridge for Azure AD for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Cirrus Identity Bridge for Azure AD you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Cirrus Identity Bridge for Azure AD you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

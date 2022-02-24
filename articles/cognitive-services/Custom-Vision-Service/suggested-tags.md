@@ -8,14 +8,14 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 10/29/2019
+ms.topic: how-to
+ms.date: 10/27/2021
 ms.author: pafarley
 ---
 
 # Label images faster with Smart Labeler
 
-In this guide, you'll learn how to use Smart Labeler to generate suggested tags for images. This lets you label a large number of images more quickly when training a Custom Vision model.
+In this guide, you'll learn how to use Smart Labeler to generate suggested tags for images. This lets you label a large number of images more quickly when you're training a Custom Vision model.
 
 When you tag images for a Custom Vision model, the service uses the latest trained iteration of the model to predict the labels of untagged images. It then shows these predictions as suggested tags, based on the selected confidence threshold and prediction uncertainty. You can then either confirm or change the suggestions, speeding up the process of manually tagging the images for training.
 

@@ -42,4 +42,4 @@ Administrators can turn off this feature at any point of time. For more informat
 
 ## Next steps
 
-[Protect workloads](/azure/backup/back-up-hyper-v-virtual-machines-mabs)
+[Protect workloads](./back-up-hyper-v-virtual-machines-mabs.md)

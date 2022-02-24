@@ -3,7 +3,7 @@ title: Configure an availability group (PowerShell & Az CLI)
 description: "Use either PowerShell or the Azure CLI to create the Windows failover cluster, the availability group listener, and the internal load balancer on a SQL Server VM in Azure."
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: hadr
@@ -11,20 +11,23 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/20/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.date: 11/10/2021
+ms.author: rsetlem
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019, devx-track-azurecli, devx-track-azurepowershell"
 
 ---
 # Use PowerShell or Az CLI to configure an availability group for SQL Server on Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This article describes how to use [PowerShell](/powershell/scripting/install/installing-powershell) or the [Azure CLI](/cli/azure/sql/vm) to deploy a Windows failover cluster, add SQL Server VMs to the cluster, and create the internal load balancer and listener for an Always On availability group. 
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
+
+This article describes how to use [PowerShell](/powershell/scripting/install/installing-powershell) or the [Azure CLI](/cli/azure/sql/vm) to deploy a Windows failover cluster, add SQL Server VMs to the cluster, and create the internal load balancer and listener for an Always On availability group within a single subnet. 
 
 Deployment of the availability group is still done manually through SQL Server Management Studio (SSMS) or Transact-SQL (T-SQL). 
 
-While this article uses PowerShell and the Az CLI to configure the availability group environment, it is also possible to do so from the [Azure portal](availability-group-azure-portal-configure.md), using [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
+While this article uses PowerShell and the Az CLI to configure the availability group environment, it is also possible to do so from the [Azure portal](availability-group-azure-portal-configure.md), using [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial-single-subnet.md) as well. 
 
 > [!NOTE]
 > It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
@@ -73,11 +76,11 @@ az storage account create -n <name> -g <resource group name> -l <region> `
 # Create the storage account
 # example: New-AzStorageAccount -ResourceGroupName SQLVM-RG -Name cloudwitness `
 #    -SkuName Standard_LRS -Location West US -Kind StorageV2 `
-#    -AccessTier Hot -EnableHttpsTrafficOnly
+#    -AccessTier Hot -EnableHttpsTrafficOnly $true
 
 New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
     -SkuName Standard_LRS -Location <region> -Kind StorageV2 `
-    -AccessTier Hot -EnableHttpsTrafficOnly
+    -AccessTier Hot -EnableHttpsTrafficOnly $true
 ```
 
 ---
@@ -117,12 +120,13 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
 #  -StorageAccountUrl '<ex:https://cloudwitness.blob.core.windows.net/>' `
 #  -StorageAccountPrimaryKey '4Z4/i1Dn8/bpbseyWX'
 
+$storageAccountPrimaryKey = ConvertTo-SecureString -String "<PublicKey>" -AsPlainText -Force
 $group = New-AzSqlVMGroup -Name <name> -Location <regio> 
   -ResourceGroupName <resource group name> -Offer <SQL201?-WS201?> 
   -Sku Enterprise -DomainFqdn <FQDN> -ClusterOperatorAccount <domain account> 
   -ClusterBootstrapAccount <domain account>  -SqlServiceAccount <service account> 
   -StorageAccountUrl '<ex:StorageAccountUrl>' `
-  -StorageAccountPrimaryKey '<PublicKey>'
+  -StorageAccountPrimaryKey $storageAccountPrimaryKey
 ```
 
 ---

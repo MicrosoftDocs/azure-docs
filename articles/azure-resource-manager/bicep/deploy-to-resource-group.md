@@ -2,7 +2,7 @@
 title: Use Bicep to deploy resources to resource groups
 description: Describes how to deploy resources in a Bicep file. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ---
 
 # Resource group deployments with Bicep files
@@ -29,7 +29,7 @@ To deploy to a resource group, use the resource group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment group create \
@@ -82,16 +82,16 @@ To deploy resources to the target resource group, add those resources to the Bic
 // resource deployed to target resource group
 resource exampleResource 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   ...
-} 
+}
 ```
 
 For an example template, see [Deploy to target resource group](#deploy-to-target-resource-group).
 
 ### Scope to different resource group
 
-To deploy resources to a resource group that isn't the target resource group, add a [module](modules.md). Use the [resourceGroup function](bicep-functions-scope.md#resourcegroup) to set the `scope` property for that module. 
+To deploy resources to a resource group that isn't the target resource group, add a [module](modules.md). Use the [resourceGroup function](bicep-functions-scope.md#resourcegroup) to set the `scope` property for that module.
 
-If the resource group is in a different subscription, provide the subscription ID and the name of the resource group. If the resource group is in the same subscription as the current deployment, provide only the name of the resource group. If you don't specify a subscription in the [resourceGroup function](bicep-functions-scope.md#resourcegroup), the current subscription is used. 
+If the resource group is in a different subscription, provide the subscription ID and the name of the resource group. If the resource group is in the same subscription as the current deployment, provide only the name of the resource group. If you don't specify a subscription in the [resourceGroup function](bicep-functions-scope.md#resourcegroup), the current subscription is used.
 
 The following example shows a module that targets a resource group in a different subscription.
 
@@ -122,9 +122,9 @@ For an example template, see [Deploy to multiple resource groups](#deploy-to-mul
 
 ### Scope to subscription
 
-To deploy resources to a subscription, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set its `scope` property. 
+To deploy resources to a subscription, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set its `scope` property.
 
-To deploy to the current subscription, use the subscription function without a parameter. 
+To deploy to the current subscription, use the subscription function without a parameter.
 
 ```bicep
 
@@ -186,7 +186,7 @@ For more information, see [Management group](deploy-to-management-group.md#manag
 
 To deploy resources in the target resource group, define those resources in the `resources` section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/create-storage-account/azuredeploy.bicep":::
 
 ## Deploy to multiple resource groups
 

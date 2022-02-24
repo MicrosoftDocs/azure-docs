@@ -1,12 +1,12 @@
-﻿---
+---
 title: Understand Azure IoT Hub MQTT support | Microsoft Docs
 description: Support for devices connecting to an IoT Hub device-facing endpoint using the MQTT protocol. Includes information about built-in MQTT support in the Azure IoT device SDKs.
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: [amqp, mqtt, 'Role: IoT Device', 'Role: Cloud Development', contperf-fy21q1, fasttrack-edit, iot]
 ---
 
@@ -42,11 +42,11 @@ The following table contains links to code samples for each supported language a
 
 | Language | MQTT protocol parameter | MQTT over Web Sockets protocol parameter
 | --- | --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over Web Sockets if MQTT fails. To specify MQTT over Web Sockets only, use TransportType.Mqtt_WebSocket_Only |
-| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Supports MQTT by default | Add `websockets=True` in the call to create the client |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over Web Sockets if MQTT fails. To specify MQTT over Web Sockets only, use TransportType.Mqtt_WebSocket_Only |
+| [Python](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples) | Supports MQTT by default | Add `websockets=True` in the call to create the client |
 
 The following fragment shows how to specify the MQTT over Web Sockets protocol when using the Azure IoT Node.js SDK:
 
@@ -72,7 +72,7 @@ In order to ensure a client/IoT Hub connection stays alive, both the service and
 |Node.js     |   180 seconds      |     No    |
 |Java     |    230 seconds     |     No    |
 |C     | 240 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
-|C#     | 300 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
+|C#     | 300 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
 |Python   | 60 seconds |  No   |
 
 Following the [MQTT spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value. However, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1767 seconds) because all Azure services are bound to the Azure load balancer TCP idle timeout, which is 29.45 minutes. 
@@ -150,7 +150,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-dev-guide-sas.md#use-sas-tokens-as-a-device).
 
-  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az_iot_hub_generate_sas_token) to quickly generate a SAS token that you can copy and paste into your own code.
+  When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the CLI extension command [az iot hub generate-sas-token](/cli/azure/iot/hub#az-iot-hub-generate-sas-token) to quickly generate a SAS token that you can copy and paste into your own code.
 
 ### For Azure IoT Tools
 
@@ -294,6 +294,9 @@ The following is a list of IoT Hub implementation-specific behaviors:
 
 * IoT Hub only supports one active MQTT connection per device. Any new MQTT connection on behalf of the same device ID causes IoT Hub to drop the existing connection and **400027 ConnectionForcefullyClosedOnNewConnection** will be logged into IoT Hub Logs
 
+* To route messages based on message body, you must first add property 'contentType' (`ct`) to the end of the MQTT topic and set its value to be `application/json;charset=utf-8`. An example is shown below. To learn more about routing messages either based on message properties or message body, please see the [IoT Hub message routing query syntax documentation](iot-hub-devguide-routing-query-syntax.md).
+
+    ```devices/{device_id}/messages/events/$.ct=application%2Fjson%3Bcharset%3Dutf-8```
 
 For more information, see [Messaging developer's guide](iot-hub-devguide-messaging.md).
 

@@ -1,11 +1,10 @@
 ---
 title: Troubleshoot Python function apps in Azure Functions
 description: Learn how to troubleshoot Python functions.
-author: Hazhzeng
 
 ms.topic: article
 ms.date: 07/29/2020
-ms.author: hazeng
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 
@@ -167,14 +166,14 @@ On Windows in PowerShell: `py -c 'import platform; print(platform.architecture()
 
 On Unix-like shell: `python3 -c 'import platform; print(platform.architecture()[0])'`
 
-If there's a mismatch between Python interpreter bitness and operating system architecture, please download a proper Python interpreter from [Python Software Foundation](https://python.org/downloads/release).
+If there's a mismatch between Python interpreter bitness and operating system architecture, please download a proper Python interpreter from [Python Software Foundation](https://www.python.org/downloads).
 
 #### The Python interpreter is not supported by Azure Functions Python Worker
 
 The Azure Functions Python Worker only supports Python 3.6, 3.7, and 3.8.
 Please check if your Python interpreter matches our expected version by `py --version` in Windows or `python3 --version` in Unix-like systems. Ensure the return result is Python 3.6.x, Python 3.7.x, or Python 3.8.x.
 
-If your Python interpreter version does not meet our expectation, please download the Python 3.6, 3.7, or 3.8 interpreter from [Python Software Foundation](https://python.org/downloads/release).
+If your Python interpreter version does not meet our expectation, please download the Python 3.6, 3.7, or 3.8 interpreter from [Python Software Foundation](https://www.python.org/downloads).
 
 ---
 

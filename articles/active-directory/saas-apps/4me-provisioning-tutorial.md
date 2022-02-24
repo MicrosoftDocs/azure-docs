@@ -30,6 +30,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [A 4me tenant](https://www.4me.com/trial/)
 * A user account in 4me with Admin permissions.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Add 4me from the gallery
 
 Before configuring 4me for automatic user provisioning with Azure AD, you need to add 4me from the Azure AD application gallery to your list of managed SaaS applications.

@@ -2,16 +2,17 @@
 title: Overview of templates
 description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.author: susabat
 author: ssabat
 ms.custom: seo-lt-2019
-ms.date: 06/04/2021
+ms.date: 09/09/2021
 ---
 
 # Templates
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Templates are predefined Azure Data Factory pipelines that allow you to get started quickly with Data Factory. Templates are useful when you're new to Data Factory and want to get started quickly. These templates reduce the development time for building data integration projects thereby improving developer productivity.
 
@@ -21,15 +22,15 @@ You can get started creating a Data Factory pipeline from a template in the foll
 
 1.  Select **Pipeline templates** in the **Discover more** section of the Data Factory home page to open the template gallery.
 
-    ![Open the template gallery from the Overview page](media/doc-common-process/home-page-pipeline-templates-tile.png)
+    :::image type="content" source="media/doc-common-process/home-page-pipeline-templates-tile.png" alt-text="Screenshot showing how to open the template gallery from the Data Factory home page.":::
 
-1.  On the Author tab in Resource Explorer, select **+**, then **Pipeline from template** to open the template gallery.
+1.  On the Author tab in Resource Explorer, select **+**, then select **Pipeline from template** to open the template gallery.
 
-    ![Open the template gallery from the Author tab](media/solution-templates-introduction/templates-intro-image2.png)
+    :::image type="content" source="media/solution-templates-introduction/templates-introduction-image-2.png" alt-text="Screenshot showing how to open the template gallery from the Author tab.":::
 
 ## Template Gallery
 
-![The template gallery](media/solution-templates-introduction/templates-intro-image3.png)
+:::image type="content" source="media/solution-templates-introduction/templates-introduction-image-3.png" alt-text="Screenshot showing the Template gallery page.":::
 
 ### Out of the box Data Factory templates
 
@@ -75,11 +76,11 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 
 You can also save a pipeline as a template by selecting **Save as template** on the Pipeline tab.
 
-![Save a pipeline as a template](media/solution-templates-introduction/templates-intro-image4.png)
+:::image type="content" source="media/solution-templates-introduction/templates-introduction-image-4.png" alt-text="Screenshot showing how to save a pipeline as a template.":::
 
-You can view pipelines saved as templates in the **My Templates** section of the Template Gallery. You can also see them in the **Templates** section in the Resource Explorer.
+After checking the **My templates** box in the **Template gallery** page, you can view pipelines saved as templates in the right pane of this page. 
 
-![My templates](media/solution-templates-introduction/templates-intro-image5.png)
+:::image type="content" source="media/solution-templates-introduction/templates-introduction-image-5.png" alt-text="Screenshot showing the My templates pane.":::
 
 > [!NOTE]
 > To use the My Templates feature, you have to enable GIT integration. Both Azure DevOps GIT and GitHub are supported.

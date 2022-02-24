@@ -12,8 +12,8 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: ryanwi
-ms.custom: aaddev, content-perf, FY21Q1
-ms.reviewer: hirsin, jlu, annaba
+ms.custom: aaddev, contperf-fy21q1
+ms.reviewer: ludwignick, jlu, annaba
 ---
 # Configure token lifetime policies (preview)
 You can specify the lifetime of an access, SAML, or ID token issued by Microsoft identity platform. You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization. For more info, read [configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
@@ -89,11 +89,9 @@ Some users have reported a `Get-AzureADPolicy : The term 'Get-AzureADPolicy' is 
 # Uninstall the AzureAD Module
 UnInstall-Module AzureAD
 
-# Re-install the AzureAD Module
-Install-Module AzureAD
-
 # Install the AzureAD Preview Module adding the -AllowClobber
 Install-Module AzureADPreview -AllowClobber
+Note: You cannot install both the preview and the GA version on the same computer at the same time. 
 
 Connect-AzureAD
 Get-AzureADPolicy -All $true

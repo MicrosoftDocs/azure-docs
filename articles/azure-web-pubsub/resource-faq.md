@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview 
-ms.date: 04/26/2021
+ms.date: 11/11/2021
 ---
 
 # Azure Web PubSub service FAQ
@@ -13,8 +13,7 @@ ms.date: 04/26/2021
 This is the FAQ of Azure Web PubSub service. 
 
 ## Is Azure Web PubSub service ready for production use?
-
-The Azure Web PubSub service is in public preview state and doesn't have a committed SLA. 
+Yes, Azure Web PubSub service is generally available.
 
 ## How do I choose between Azure SignalR Service and Azure Web PubSub service?
 

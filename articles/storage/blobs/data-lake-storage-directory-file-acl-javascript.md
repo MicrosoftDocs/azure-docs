@@ -8,8 +8,8 @@ ms.author: normesta
 ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
+ms.devlang: javascript
 ms.custom: devx-track-js
-
 ---
 
 # Use JavaScript SDK in Node.js to manage directories and files in Azure Data Lake Storage Gen2
@@ -22,7 +22,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 ## Prerequisites
 
-- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+- An Azure subscription. For more information, see [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
 - A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
 
@@ -36,7 +36,7 @@ Install Data Lake client library for JavaScript by opening a terminal window, an
 npm install @azure/storage-file-datalake
 ```
 
-Import the `storage-file-datalake` package by placing this statement at the top of your code file. 
+Import the `storage-file-datalake` package by placing this statement at the top of your code file.
 
 ```javascript
 const {
@@ -46,13 +46,13 @@ StorageSharedKeyCredential
 } = require("@azure/storage-file-datalake");
 ```
 
-## Connect to the account 
+## Connect to the account
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. 
+To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account.
 
 ### Connect by using an account key
 
-This is the easiest way to connect to an account. 
+This is the easiest way to connect to an account.
 
 This example creates a **DataLakeServiceClient** instance by using an account key.
 
@@ -60,14 +60,14 @@ This example creates a **DataLakeServiceClient** instance by using an account ke
 
 function GetDataLakeServiceClient(accountName, accountKey) {
 
-  const sharedKeyCredential = 
+  const sharedKeyCredential =
      new StorageSharedKeyCredential(accountName, accountKey);
-  
+
   const datalakeServiceClient = new DataLakeServiceClient(
       `https://${accountName}.dfs.core.windows.net`, sharedKeyCredential);
 
-  return datalakeServiceClient;             
-}      
+  return datalakeServiceClient;
+}
 
 ```
 
@@ -78,17 +78,17 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 
 You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Azure AD.
 
-This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+This example creates a **DataLakeServiceClient** instance by using a client ID, a client secret, and a tenant ID. To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
 
 ```javascript
 function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantID) {
 
   const credential = new ClientSecretCredential(tenantID, clientID, clientSecret);
-  
+
   const datalakeServiceClient = new DataLakeServiceClient(
       `https://${accountName}.dfs.core.windows.net`, credential);
 
-  return datalakeServiceClient;             
+  return datalakeServiceClient;
 }
 ```
 
@@ -99,17 +99,17 @@ function GetDataLakeServiceClientAD(accountName, clientID, clientSecret, tenantI
 
 A container acts as a file system for your files. You can create one by getting a **FileSystemClient** instance, and then calling the **FileSystemClient.Create** method.
 
-This example creates a container named `my-file-system`. 
+This example creates a container named `my-file-system`.
 
 ```javascript
 async function CreateFileSystem(datalakeServiceClient) {
 
   const fileSystemName = "my-file-system";
-  
+
   const fileSystemClient = datalakeServiceClient.getFileSystemClient(fileSystemName);
 
   const createResponse = await fileSystemClient.create();
-        
+
 }
 ```
 
@@ -117,13 +117,13 @@ async function CreateFileSystem(datalakeServiceClient) {
 
 Create a directory reference by getting a **DirectoryClient** instance, and then calling the **DirectoryClient.create** method.
 
-This example adds a directory named `my-directory` to a container. 
+This example adds a directory named `my-directory` to a container.
 
 ```javascript
 async function CreateDirectory(fileSystemClient) {
-   
+
   const directoryClient = fileSystemClient.getDirectoryClient("my-directory");
-  
+
   await directoryClient.create();
 
 }
@@ -131,26 +131,26 @@ async function CreateDirectory(fileSystemClient) {
 
 ## Rename or move a directory
 
-Rename or move a directory by calling the **DirectoryClient.rename** method. Pass the path of the desired directory a parameter. 
+Rename or move a directory by calling the **DirectoryClient.rename** method. Pass the path of the desired directory a parameter.
 
 This example renames a sub-directory to the name `my-directory-renamed`.
 
 ```javascript
 async function RenameDirectory(fileSystemClient) {
 
-  const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
+  const directoryClient = fileSystemClient.getDirectoryClient("my-directory");
   await directoryClient.move("my-directory-renamed");
 
 }
 ```
 
-This example moves a directory named `my-directory-renamed` to a sub-directory of a directory named `my-directory-2`. 
+This example moves a directory named `my-directory-renamed` to a sub-directory of a directory named `my-directory-2`.
 
 ```javascript
 async function MoveDirectory(fileSystemClient) {
 
-  const directoryClient = fileSystemClient.getDirectoryClient("my-directory-renamed"); 
-  await directoryClient.move("my-directory-2/my-directory-renamed");      
+  const directoryClient = fileSystemClient.getDirectoryClient("my-directory-renamed");
+  await directoryClient.move("my-directory-2/my-directory-renamed");
 
 }
 ```
@@ -159,12 +159,12 @@ async function MoveDirectory(fileSystemClient) {
 
 Delete a directory by calling the **DirectoryClient.delete** method.
 
-This example deletes a directory named `my-directory`.   
+This example deletes a directory named `my-directory`.
 
 ```javascript
 async function DeleteDirectory(fileSystemClient) {
 
-  const directoryClient = fileSystemClient.getDirectoryClient("my-directory"); 
+  const directoryClient = fileSystemClient.getDirectoryClient("my-directory");
   await directoryClient.delete();
 
 }
@@ -179,17 +179,17 @@ This example uploads a text file to a directory named `my-directory`.`
 ```javascript
 async function UploadFile(fileSystemClient) {
 
-  const fs = require('fs') 
+  const fs = require('fs')
 
   var content = "";
-  
-  fs.readFile('mytestfile.txt', (err, data) => { 
-      if (err) throw err; 
+
+  fs.readFile('mytestfile.txt', (err, data) => {
+      if (err) throw err;
 
       content = data.toString();
 
-  }) 
-  
+  })
+
   const fileClient = fileSystemClient.getFileClient("my-directory/uploaded-file.txt");
   await fileClient.create();
   await fileClient.append(content, 0, content.length);
@@ -200,7 +200,7 @@ async function UploadFile(fileSystemClient) {
 
 ## Download from a directory
 
-First, create a **FileSystemClient** instance that represents the file that you want to download. Use the **FileSystemClient.read** method to read the file. Then, write the file. This example uses the Node.js `fs` module to do that. 
+First, create a **FileSystemClient** instance that represents the file that you want to download. Use the **FileSystemClient.read** method to read the file. Then, write the file. This example uses the Node.js `fs` module to do that.
 
 > [!NOTE]
 > This method of downloading a file works only for Node.js applications. If you plan to run your code in a browser, see the [Azure Storage File Data Lake client library for JavaScript](https://www.npmjs.com/package/@azure/storage-file-datalake) readme file for an example of how to do this in a browser.
@@ -213,7 +213,7 @@ async function DownloadFile(fileSystemClient) {
   const downloadResponse = await fileClient.read();
 
   const downloaded = await streamToString(downloadResponse.readableStreamBody);
- 
+
   async function streamToString(readableStream) {
     return new Promise((resolve, reject) => {
       const chunks = [];
@@ -225,8 +225,8 @@ async function DownloadFile(fileSystemClient) {
       });
       readableStream.on("error", reject);
     });
-  }   
-  
+  }
+
   const fs = require('fs');
 
   fs.writeFile('mytestfiledownloaded.txt', downloaded, (err) => {
@@ -242,13 +242,13 @@ This example, prints the names of each directory and file that is located in a d
 
 ```javascript
 async function ListFilesInDirectory(fileSystemClient) {
-  
+
   let i = 1;
 
   let iter = await fileSystemClient.listPaths({path: "my-directory", recursive: true});
 
   for await (const path of iter) {
-    
+
     console.log(`Path ${i++}: ${path.name}, is directory: ${path.isDirectory}`);
   }
 

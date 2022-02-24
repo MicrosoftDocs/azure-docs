@@ -1,16 +1,10 @@
-﻿---
+---
 title: Azure traffic analytics schema | Microsoft Docs
 description: Understand schema of Traffic Analytics to analyze Azure network security group flow logs.
-services: network-watcher
-documentationcenter: na
 author: vinynigam
 manager: agummadi
-editor:
-
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
@@ -37,11 +31,13 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 6. For any resource in TA, the flows indicated in the UI are total flows seen by the NSG, but in Log Analytics user will see only the single, reduced record. To see all the flows, use the blob_id field,  which can be referenced from Storage. The total flow count for that record will match the individual flows seen in the blob.
 
 The below query helps you look at all subnets interacting with non-Azure public IPs in the last 30 days.
+
 ```
 AzureNetworkAnalytics_CL
 | where SubType_s == "FlowLog" and FlowStartTime_t >= ago(30d) and FlowType_s == "ExternalPublic"
 | project Subnet1_s, Subnet2_s  
 ```
+
 To view the blob path for the flows in the above mentioned query, use the query below:
 
 ```
@@ -74,7 +70,7 @@ TableWithBlobId
 | project Subnet_s , BlobPath
 ```
 
-The above query constructs a URL to access the blob directly. The URL with place-holders is below:
+The above query constructs a URL to access the blob directly. The URL with placeholders is below:
 
 ```
 https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroup}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
@@ -82,12 +78,16 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 ```
 
 ### Fields used in Traffic Analytics schema
-  > [!IMPORTANT]
-  > The Traffic Analytics Schema has been updated on 22nd August, 2019. The new schema provides source and destination IPs separately removing need to parse FlowDirection field making queries simpler. </br>
-  > FASchemaVersion_s updated from 1 to 2. </br>
-  > Deprecated fields: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d </br>
-  > New fields: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s </br>
-  > Deprecated fields will be available until 22nd November, 2019.
+
+> [!IMPORTANT]
+> The Traffic Analytics schema was updated August 22, 2019. The new schema provides source and destination IPs separately, removing need to parse the FlowDirection field so that queries are simpler. These changes were made:
+> 
+> - FASchemaVersion_s updated from 1 to 2.
+> - Deprecated fields: VMIP_s, Subscription_s, Region_s, NSGRules_s, Subnet_s, VM_s, NIC_s, PublicIPs_s, FlowCount_d
+> - New fields: SrcPublicIPs_s, DestPublicIPs_s, NSGRule_s
+> 
+> Deprecated fields are available until November 2022.
+> 
 
 Traffic Analytics is built on top of Log Analytics, so you can run custom queries on data decorated by Traffic Analytics and set alerts on the same.
 
@@ -140,7 +140,7 @@ Listed below are the fields in the schema and what they signify
 | LocalNetworkGateway1_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Source IP in the flow |
 | LocalNetworkGateway2_s | \<SubscriptionID>/\<ResourceGroupName>/\<LocalNetworkGatewayName> | Local network gateway associated with the Destination IP in the flow |
 | ConnectionType_s | Possible values are VNetPeering, VpnGateway, and ExpressRoute |	Connection Type |
-| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Connection Name. For flow type P2S, this will be formatted as <gateway name>_<VPN Client IP> |
+| ConnectionName_s | \<SubscriptionID>/\<ResourceGroupName>/\<ConnectionName> | Connection Name. For flow type P2S, this will be formatted as \<gateway name\>_\<VPN Client IP\> |
 | ConnectingVNets_s	| Space separated list of virtual network names | In case of hub and spoke topology, hub virtual networks will be populated here |
 | Country_s | Two letter country code (ISO 3166-1 alpha-2) | Populated for flow type ExternalPublic. All IP addresses in PublicIPs_s field will share the same country code |
 | AzureRegion_s | Azure region locations | Populated for flow type AzurePublic. All IP addresses in PublicIPs_s field will share the Azure region |

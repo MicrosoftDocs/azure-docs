@@ -2,7 +2,7 @@
 title: Get notified about issues using alerts - Azure IoT Edge
 description: Use Azure Monitor alert rules to monitor at scale
 author: veyalla
-manager: philmea
+
 ms.author: veyalla
 ms.date: 06/08/2021
 ms.topic: conceptual
@@ -11,11 +11,14 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Get notified about issues using alerts (Preview)
+# Get notified about issues using alerts
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Use [Azure Monitor Log alerts](../azure-monitor/alerts/alerts-unified-log.md) to monitor IoT Edge devices at scale. As highlighted in the [solution architecture](how-to-collect-and-transport-metrics.md#architecture), Azure Monitor Log Analytics is used as the metrics database. This integration unlocks powerful and flexible alerting capabilities using resource-centric log alerts.
+
+> [!IMPORTANT]
+> This feature is currently only available for IoT Hub and not for IoT Central.
 
 ## Create an alert rule
 
@@ -55,7 +58,7 @@ Aggregate values by the `_ResourceId` field and choose it as the *Resource ID co
 
 ## Viewing alerts
 
-See alerts generated for devices across multiple IoT Hubs in **Alerts** tab of the [IoT Edge fleet view workbook](how-to-explore-curated-visualizations.md#iot-edge-fleet-view-workbook).
+See alerts generated for devices across multiple IoT Hubs in **Alerts** tab of the [IoT Edge fleet view workbook](how-to-explore-curated-visualizations.md#fleet-view-workbook).
 
 Click the alert rule name to see more context about the alert. Clicking the device name link will show you the detailed metrics for the device around the time when the alert fired.
 

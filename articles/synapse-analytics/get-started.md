@@ -1,11 +1,9 @@
 ---
 title: 'Tutorial: Get started with Azure Synapse Analytics' 
 description: In this tutorial, you'll learn the basic steps to set up and use Azure Synapse Analytics.
-services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-manager: julieMSFT
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
@@ -20,11 +18,12 @@ Follow the steps *in order* as shown below and you'll take a tour through many o
 
 * [STEP 1 - Create and setup a Synapse workspace](get-started-create-workspace.md)
 * [STEP 2 - Analyze using a serverless SQL pool](get-started-analyze-sql-on-demand.md)
-* [STEP 3 - Analyze using Apache Spark](get-started-analyze-spark.md)
-* [STEP 4 - Analyze using a dedicated SQL pool](get-started-analyze-sql-pool.md)
-* [STEP 5 - Analyze data in a storage account](get-started-analyze-storage.md)
-* [STEP 6 - Orchestrate with pipelines](get-started-pipelines.md)
-* [STEP 7 - Visualize data with Power BI](get-started-visualize-power-bi.md)
-* [STEP 8 - Monitor activities](get-started-monitor.md)
-* [STEP 9 - Explore the Knowledge center](get-started-knowledge-center.md)
-* [STEP 10 - Add an administrator](get-started-add-admin.md)
+* [STEP 3 - Analyze using a Data Explorer pool](get-started-analyze-data-explorer.md)
+* [STEP 4 - Analyze using Apache Spark](get-started-analyze-spark.md)
+* [STEP 5 - Analyze using a dedicated SQL pool](get-started-analyze-sql-pool.md)
+* [STEP 6 - Analyze data in a storage account](get-started-analyze-storage.md)
+* [STEP 7 - Orchestrate with pipelines](get-started-pipelines.md)
+* [STEP 8 - Visualize data with Power BI](get-started-visualize-power-bi.md)
+* [STEP 9 - Monitor activities](get-started-monitor.md)
+* [STEP 10 - Explore the Knowledge center](get-started-knowledge-center.md)
+* [STEP 11 - Add an administrator](get-started-add-admin.md)

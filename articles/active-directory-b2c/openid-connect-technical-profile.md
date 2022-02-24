@@ -3,14 +3,14 @@ title: Define an OpenID Connect technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -76,7 +76,7 @@ The technical profile also returns claims that aren't returned by the identity p
 | IdTokenAudience | No | The audience of the id_token. If specified, Azure AD B2C checks whether the `aud` claim in a token returned by the identity provider is equal to the one specified in the IdTokenAudience metadata.  |
 | METADATA | Yes | A URL that points to an OpenID Connect identity provider configuration document, which is also known as OpenID well-known configuration endpoint. The URL can contain the `{tenant}` expression, which is replaced with the tenant name.  |
 | authorization_endpoint | No | A URL that points to an OpenID Connect identity provider configuration authorization endpoint. The value of authorization_endpoint metadata takes precedence over the `authorization_endpoint` specified in the OpenID well-known configuration endpoint. The URL can contain the `{tenant}` expression, which is replaced with the tenant name. |
-| end_session_endpoint | No | The URL of the end session endpoint. The value of authorization_endpoint metadata takes precedence over the `end_session_endpoint` specified in the OpenID well-known configuration endpoint. |
+| end_session_endpoint | No | The URL of the end session endpoint. The value of `end_session_endpoint` metadata takes precedence over the `end_session_endpoint` specified in the OpenID well-known configuration endpoint. |
 | issuer | No | The unique identifier of an OpenID Connect identity provider. The value of issuer metadata takes precedence over the `issuer` specified in the OpenID well-known configuration endpoint.  If specified, Azure AD B2C checks whether the `iss` claim in a token returned by the identity provider is equal to the one specified in the issuer metadata. |
 | ProviderName | No | The name of the identity provider.  |
 | response_types | No | The response type according to the OpenID Connect Core 1.0 specification. Possible values: `id_token`, `code`, or `token`. |
@@ -125,7 +125,7 @@ The **CryptographicKeys** element contains the following attribute:
 | client_secret | Yes | The client secret of the identity provider application. This cryptographic key is required only if the **response_types** metadata is set to `code` and **token_endpoint_auth_method** is set to `client_secret_post` or `client_secret_basic`. In this case, Azure AD B2C makes another call to exchange the authorization code for an access token. If the metadata is set to `id_token` you can omit the cryptographic key.  |
 | assertion_signing_key | Yes | The RSA private key which will be used to sign the client assertion. This cryptographic key is required only if the **token_endpoint_auth_method** metadata is set to `private_key_jwt`. |
 
-## Redirect Uri
+## Redirect URI
 
 When you configure the redirect URI of your identity provider, enter `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{your-tenant-name}` with your tenant's name. The redirect URI needs to be in all lowercase.
 

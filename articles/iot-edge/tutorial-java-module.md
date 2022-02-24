@@ -3,7 +3,7 @@ title: Tutorial - Custom Java module tutorial using Azure IoT Edge
 description: This tutorial shows you how to create an IoT Edge module with Java code and deploy it to an edge device.
 services: iot-edge
 author: kgremban
-manager: philmea
+
 
 ms.author: kgremban
 ms.date: 07/30/2020
@@ -55,7 +55,7 @@ To develop an IoT Edge module in Java, install the following additional prerequi
 * [Maven](https://maven.apache.org/)
 
    >[!TIP]
-   >The Java and Maven installation processes add environment variables to your system. Restart any open Visual Studio Code terminal, Powershell, or command prompt instances after completing installation. This step ensures that these utilities can recognize the Java and Maven commands going forward.
+   >The Java and Maven installation processes add environment variables to your system. Restart any open Visual Studio Code terminal, PowerShell, or command prompt instances after completing installation. This step ensures that these utilities can recognize the Java and Maven commands going forward.
 
 ## Create a module project
 

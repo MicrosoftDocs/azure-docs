@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * NS1 SSO for Azure supports SP and IDP initiated SSO.
-* After you configure NS1 SSO for Azure, you can enforce session control. This protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* After you configure NS1 SSO for Azure, you can enforce session control. This protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from conditional access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 
 ## Add NS1 SSO for Azure from the gallery
@@ -163,7 +163,7 @@ In this section, you create a user called B.Simon in NS1 SSO for Azure. Work wit
 
 In this section, you test your Azure AD single sign-on configuration by using Access Panel.
 
-When you select the NS1 SSO for Azure tile in Access Panel, you should be automatically signed in to the NS1 SSO for Azure for which you set up SSO. For more information, see [Introduction to Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you select the NS1 SSO for Azure tile in Access Panel, you should be automatically signed in to the NS1 SSO for Azure for which you set up SSO. For more information, see [Introduction to Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
@@ -175,4 +175,4 @@ When you select the NS1 SSO for Azure tile in Access Panel, you should be automa
 
 - [Try NS1 SSO for Azure with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
