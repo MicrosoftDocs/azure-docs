@@ -41,6 +41,8 @@ To make use of workload identity risk, including the new **Risky workload identi
    - Security operator
    - Security reader
 
+Users assigned the Conditional Access administrator role can create policies that use risk as a condition.
+
 ## Workload identity risk detections
 
 We detect risk on workload identities across sign-in behavior and offline indicators of compromise. 
@@ -73,6 +75,10 @@ You can also query risky workload identities [using the Microsoft Graph API](/gr
 ### Export risk data 
 
 Organizations can export data by configurating [diagnostic settings in Azure AD](howto-export-risk-data.md) to send risk data to a Log Analytics workspace, archive it to a storage account, stream it to an event hub, or send it to a SIEM solution. 
+
+## Enforce access controls with risk-based Conditional Access
+
+Using [Conditional Access for workload identities](../conditional-access/workload-identity.md) you can block access for specific accounts you choose when Identity Protection marks them “at risk”. Policy can be applied to single tenant service principals that have been registered in your tenant. Third-party SaaS, multi-tenanted apps and managed identities are out of scope.
 
 ## Investigate risky workload identities
 
