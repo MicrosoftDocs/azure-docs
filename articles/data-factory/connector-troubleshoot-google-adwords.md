@@ -17,22 +17,24 @@ ms.custom: has-adal-ref, synapse
 
 This article provides suggestions to troubleshoot common problems with the Google AdWords connector in Azure Data Factory and Azure Synapse.
 
-## Error code:
+## Migrate to the new version of Google AdWords API
 
-- **Message**:
+- **Symptoms**
 
-- **Cause**: 
+    You see a hint on the Google AdWords linked service configuration page. It reminds you to upgrade your linked service to a newer version before the legacy API is deprecated by Google. 
 
-    Due to the sunset of Google AdWords API by April 27, 2022, you are recommended to migrate to the new version of Google AdWords API before the starting date April 27, 2022, and connection will start to fail because of the deprecation of Google AdWords API (see this [link](https://ads-developers.googleblog.com/2021/04/upgrade-to-google-ads-api-from-adwords.html)). Migration steps:
+- **Cause** 
+
+    Due to the sunset of Google AdWords API by April 27, 2022, you are recommended to migrate to the new version of Google Ads API before the date **April 27, 2022**, and connection will start to fail because of the deprecation of Google AdWords API (see this [link](https://ads-developers.googleblog.com/2021/04/upgrade-to-google-ads-api-from-adwords.html)). Migration steps:
     
-    1. Open your Google AdWords connector linked service.
-    2. Edit the linked service and choose the new API version.
+    1. Open your Google AdWords connector linked service configuration page.
+    2. Edit the linked service and choose the new API version (select **Google Ads**).
     
        :::image type="content" source="media/connector-troubleshoot-guide/update-google-adwords-linked-service.png" alt-text="Screenshot of updating the linked service configuration for Google AdWords.":::
 
     3. Apply the changes.
 
-- **Known issues and recommendations**:  
+- **Known issues and recommendations**  
 
     1. The new Google AdWords API doesn't provide a migration plan for below reports/tables:
         a. AD_CUSTOMIZERS_FEED_ITEM_REPORT
@@ -47,7 +49,7 @@ This article provides suggestions to troubleshoot common problems with the Googl
         j. MARKETPLACE_PERFORMANCE_REPORT
         k. TOP_CONTENT_PERFORMANCE_REPORT
 
-    2. The syntax for Google AdWords query language is similar to AWQL from the AdWords API, but not identical. You can refer this [document](https://developers.google.com/google-ads/api/docs/migration/querying) for more details.  
+    2. The syntax for Google Ads query language is similar to AWQL from the AdWords API, but not identical. You can refer this [document](https://developers.google.com/google-ads/api/docs/migration/querying) for more details.  
 
 
 ## Next steps
