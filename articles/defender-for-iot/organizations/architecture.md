@@ -2,12 +2,12 @@
 title: What is agentless solution architecture
 description: Learn about Microsoft Defender for IoT agentless architecture and information flow.
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 02/06/2022
 ---
 
 # Microsoft Defender for IoT architecture
 
-This article describes the functional system architecture of the Defender for IoT agentless solution. Microsoft Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders.
+This article describes the functional system architecture of the Defender for IoT agentless solution. Microsoft Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders. This article provides architectural information about the agentless solution for organizations.
 
 ## Agentless solution architecture for organizations
 ### Defender for IoT components
@@ -60,7 +60,7 @@ The anomaly detection engine detects unusual machine-to-machine (M2M) communicat
 The operational incident detection detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is thought to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
 
 ### Management consoles
-Managing Microsoft Defender for IoT across hybrid environments is accomplished via two management portals: 
+Managing Microsoft Defender for IoT across hybrid environments is accomplished via three management portals: 
 - Sensor console
 - The on-premises management console
 - The Azure portal
@@ -87,7 +87,7 @@ Tightly integrated with your SOC workflows and run books, it enables easy priori
 
 - Control all sensors – configure and monitor all sensors from a single location.
 
-   :::image type="content" source="media/updates/alerts-and-site-management-v2.png" alt-text="Manage all of your alerts and information.":::
+   :::image type="content" source="media/architecture/initial-dashboard.png" alt-text="Screen shot of dashboard." lightbox="media/architecture/initial-dashboard.png":::
 
 ### Azure portal
 
@@ -105,4 +105,3 @@ Defender for IoT in the Azure portal in Azure is used to help you:
 
 [Defender for IoT FAQ](resources-frequently-asked-questions.md)
 
-[System prerequisites](quickstart-system-prerequisites.md)

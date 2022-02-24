@@ -1,11 +1,11 @@
 ---
 title: How to administer Azure Cache for Redis
 description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Cache for Redis
-author: curib
+author: flang-msft
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
-ms.author: cauribeg 
+ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -18,6 +18,10 @@ This article describes how to do administration tasks such as [rebooting](#reboo
 ## Reboot
 
 On the left, **Reboot** allows you to reboot one or more nodes of your cache. This reboot capability enables you to test your application for resiliency if there's a failure of a cache node.
+
+> [!IMPORTANT]
+> Reboot is not yet available for the Enterprise tier. Reboot is available for all other tiers.
+>
 
 :::image type="content" source="media/cache-administration/cache-administration-reboot-2.png" alt-text="Screenshot that highlights the Reboot menu option":::
 
@@ -44,6 +48,7 @@ The effect on your client applications varies depending on which nodes you reboo
 * [Can I reboot the cache to clear client connections?](#can-i-reboot-the-cache-to-clear-client-connections)
 * [Will I lose data from my cache if I do a reboot?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 * [Can I reboot my cache using PowerShell, CLI, or other management tools?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
+* [Can I reboot my Enterprise cache?](#can-i-reboot-my-enterprise-cache)
 
 ### Which node should I reboot to test my application?
 
@@ -67,6 +72,10 @@ If you reboot just one of the nodes, data isn't typically lost, but it still mig
 ### Can I reboot my cache using PowerShell, CLI, or other management tools?
 
 Yes, for PowerShell instructions see [To reboot an Azure Cache for Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
+
+### Can I reboot my Enterprise cache?
+
+No. Reboot isn't available for the Enterprise tier yet. Reboot is available for Basic, Standard and Premium tiers.The settings that you see on the Resource menu under **Administration** depend on the tier of your cache. You don't see **Reboot** when using a cache from the Enterprise tier.
 
 ## Schedule updates
 

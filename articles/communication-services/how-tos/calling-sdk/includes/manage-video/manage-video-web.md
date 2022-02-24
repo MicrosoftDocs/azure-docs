@@ -194,6 +194,11 @@ subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     if (remoteVideoStream.isAvailable) {
         await renderVideo();
     }
+    
+    console.log(`Initial stream size: height: ${remoteVideoStream.size.height}, width: ${remoteVideoStream.size.width}`);
+    remoteVideoStream.on('sizeChanged', () => {
+        console.log(`Remote video stream size changed: new height: ${remoteVideoStream.size.height}, new width: ${remoteVideoStream.size.width}`);
+    });
 }
 ```
 
@@ -216,7 +221,13 @@ const type: MediaStreamType = remoteVideoStream.mediaStreamType;
 - `isAvailable`: Whether a remote participant endpoint is actively sending a stream.
 
 ```js
-const type: boolean = remoteVideoStream.isAvailable;
+const isAvailable: boolean = remoteVideoStream.isAvailable;
+```
+
+- `size`: The stream size. The higher the stream size, the better the video quality.
+
+```js
+const size: StreamSize = remoteVideoStream.size;
 ```
 
 ## VideoStreamRenderer methods and properties

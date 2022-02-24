@@ -289,7 +289,6 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 This section describes known issues and conditions in the current release of the change feed.
 
 - Change event records for any single change might appear more than once in your change feed.
-- You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them and you cannot delete the blobs.
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.

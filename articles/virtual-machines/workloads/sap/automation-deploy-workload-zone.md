@@ -80,13 +80,13 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 Assign the correct permissions to the Service Principal: 
 
-```azurecli-interactive
+```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
 
 ## Deploying the SAP Workload zone
    
-The sample Workload Zone configuration file `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
+The sample Workload Zone configuration file `DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars` is located in the `~/Azure_SAP_Automated_Deployment/samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
 
 Running the command below will deploy the SAP Workload Zone.
 
@@ -95,41 +95,69 @@ Running the command below will deploy the SAP Workload Zone.
 > [!TIP]
 > Perform this task from the deployer.
 
+You can copy the sample configuration files to start testing the deployment automation framework.
+
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
+cd ~/Azure_SAP_Automated_Deployment
 
-export subscriptionID=<subscriptionID>
-export appId=<appID>
-export spn_secret=<password>
-export tenant_id=<tenant>
-export keyvault=<keyvaultName>
-export storageaccount=<storageaccountName>
-export statefile_subscription=<statefile_subscription>
+cp -R sap-automation/samples/WORKSPACES WORKSPACES
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
-        --parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars   \
-        --keyvault $keyvault                                   \
-        --state_subscription $statefile_subscription           \
-        --subscription $subscriptionID                         \
-        --spn_id $appID                                        \
-        --spn_secret $spn_secret                               \
-        --tenant_id $tenant_id
+```
+
+
+```bash
+
+export subscriptionID="<subscriptionID>"
+export spn_id="<appID>"
+export spn_secret="<password>"
+export tenant_id="<tenant>"
+export region_code="WEEU"
+export storageaccount="<storageaccount>"
+export keyvault="<keyvault>"
+
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export ARM_SUBSCRIPTION_ID="${subscriptionID}"
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                        \
+    --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                  \
+    --deployer_environment MGMT                                                       \
+    --deployer_tfstate_key MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate \
+    --subscription "${subscriptionID}"                                                \
+    --spn_id "${spn_id}"                                                              \
+    --spn_secret "${spn_secret}"                                                      \
+    --tenant_id "${tenant_id}"                                                        \
+    --keyvault "${keyvault}"                                                          \
+    --storageaccountname "${storageaccount}"
 ```
 # [Windows](#tab/windows)
 
+You can copy the sample configuration files to start testing the deployment automation framework.
+
+```powershell
+
+cd C:\Azure_SAP_Automated_Deployment
+
+xcopy sap-automation\samples\WORKSPACES WORKSPACES
+
+```
+
+
 ```powershell
 $subscription="<subscriptionID>"
-$appId="<appID>"
+$spn_id="<appID>"
 $spn_secret="<password>"
 $tenant_id="<tenant>"
 $keyvault=<keyvaultName>
 $storageaccount=<storageaccountName>
 $statefile_subscription=<statefile_subscription>
+$region_code="WEEU"
 
-cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE
+cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-$region_code-SAP01-INFRASTRUCTURE
 
-New-SAPWorkloadZone -Parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
--Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
+New-SAPWorkloadZone -Parameterfile DEV-$region_code-SAP01-INFRASTRUCTURE.tfvars 
+-Subscription $subscription -SPN_id $spn_id -SPN_password $spn_secret -Tenant_id $tenant_id
 -State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
 ```
 
@@ -141,6 +169,11 @@ New-SAPWorkloadZone -Parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars
 > Replace `<keyvault>` with the deployer key vault name
 > Replace `<storageaccount>` with the name of the storage account containing the Terraform state files
 > Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
+
+---
+
+> [!TIP]
+> If the scripts fail to run, it can sometimes help to clear the local cache files by removing `~/.sap_deployment_automation/` and `~/.terraform.d/` directories before running the scripts again.
 
 ## Next step
 

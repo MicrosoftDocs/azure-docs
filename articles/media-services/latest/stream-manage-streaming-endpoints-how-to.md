@@ -10,11 +10,11 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Manage streaming endpoints with  Media Services v3

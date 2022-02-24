@@ -1,17 +1,17 @@
 ---
-title: User management enhancements (preview) - Azure Active Directory | Microsoft Docs
+title: User management enhancements - Azure Active Directory | Microsoft Docs
 description: Describes how Azure Active Directory enables user search, filtering, and more information about your users.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/11/2020
+ms.date: 01/03/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -19,34 +19,22 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# User management enhancements (preview) in Azure Active Directory
+# User management enhancements in Azure Active Directory
 
-This article describes how to use the user management enhancements preview in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article describes how to use the user management enhancements in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users.
 
-Changes in the preview include:
+Enhancements include:
 
 - More visible user properties including object ID, directory sync status, creation type, and identity issuer
-- Search now allows substring search and combined search of names, emails, and object IDs
+- Search allows substring search and combined search of names, emails, and object IDs
 - Enhanced filtering by user type (member, guest, none), directory sync status, creation type, company name, and domain name
-- New sorting capabilities on properties like name and user principal name
-- A new total users count that updates with searches or filters
+- Sorting capabilities on properties like name and user principal name
+- Total users count that updates with searches or filters
 
 > [!NOTE]
-> This preview is currently not available for Azure AD B2C tenants.
+> These enhancements are not currently available for Azure AD B2C tenants.
 
-## Find the preview
-
-The preview is turned on by default, so you can use it right away. You can check out the latest features and improvements by selecting **Preview features** on the **All users** page. All pages that have been updated as part of this preview will display a preview tag. If you are having any issues, you can switch back to the legacy experience:
-
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) and select **Users**.
-1. From the **Users – All users** page, select the banner at the top of the page.
-1. In the **Preview features** pane, turn **Enhanced user management** off.
-
-   ![How and where to turn Enhanced User Management on and off](./media/users-search-enhanced/enable-preview.png)
-
-We appreciate your feedback so that we can improve our experience.
-
-## More user properties
+## User properties enhanced
 
 We’ve made some changes to the columns available on the **All users** and **Deleted users** pages. In addition to the existing columns we provide for managing your list of users, we've added a few more columns.
 

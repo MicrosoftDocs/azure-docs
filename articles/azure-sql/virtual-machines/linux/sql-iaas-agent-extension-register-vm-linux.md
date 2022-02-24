@@ -7,7 +7,6 @@ author: adbadram
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-Linux-sql-server
 ms.workload: iaas-sql-server

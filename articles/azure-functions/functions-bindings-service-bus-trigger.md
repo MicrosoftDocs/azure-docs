@@ -7,6 +7,7 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
@@ -138,12 +139,11 @@ Here's the binding data in the *function.json* file:
 Here's the JavaScript script code:
 
 ```javascript
-module.exports = function(context, myQueueItem) {
+module.exports = async function(context, myQueueItem) {
     context.log('Node.js ServiceBus queue trigger function processed message', myQueueItem);
     context.log('EnqueuedTimeUtc =', context.bindingData.enqueuedTimeUtc);
     context.log('DeliveryCount =', context.bindingData.deliveryCount);
     context.log('MessageId =', context.bindingData.messageId);
-    context.done();
 };
 ```
 
@@ -223,7 +223,7 @@ def main(msg: func.ServiceBusMessage):
         'to': msg.to,
         'user_properties': msg.user_properties,
         'metadata' : msg.metadata
-    })
+    }, default=str)
 
     logging.info(result)
 ```

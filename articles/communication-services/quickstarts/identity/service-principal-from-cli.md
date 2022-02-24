@@ -6,11 +6,12 @@ services: azure-communication-services
 author: jbeauregardb
 ms.service: azure-communication-services
 ms.subservice: identity
-
 ms.topic: quickstart
 ms.date: 06/30/2021
 ms.author: jbeauregardb
 ms.reviewer: mikben
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Authenticate using Azure Active Directory (Azure CLI)

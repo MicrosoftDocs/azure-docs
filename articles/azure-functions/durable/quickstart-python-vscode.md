@@ -2,10 +2,11 @@
 title: Create your first durable function in Azure using Python
 description: Create and publish an Azure Durable Function in Python using Visual Studio Code.
 author: anthonychu
-
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
+ms.devlang: python
+ms.custom: mode-api
 ---
 
 # Create your first durable function in Python
@@ -28,7 +29,7 @@ To complete this tutorial:
 
 * Durable Functions require an Azure storage account. You need an Azure subscription.
 
-* Make sure that you have version 3.6, 3.7, or 3.8 of [Python](https://www.python.org/) installed.
+* Make sure that you have version 3.7, 3.8, or 3.9 of [Python](https://www.python.org/) installed.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

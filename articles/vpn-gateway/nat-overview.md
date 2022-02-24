@@ -3,15 +3,15 @@ title: 'About NAT (Network Address Translation) on VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn about NAT (Network Address Translation) in Azure VPN to connect networks with overlapping address spaces.
 services: vpn-gateway
-author: yushwang
+author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/22/2021
-ms.author: yushwang
+ms.date: 12/02/2021
+ms.author: cherylmc
 
 ---
-# About NAT on Azure VPN Gateway (Preview)
+# About NAT on Azure VPN Gateway
 
 This article provides an overview of NAT (Network Address Translation) support in Azure VPN Gateway. NAT defines the mechanisms to translate one IP address to another in an IP packet. There are multiple scenarios for NAT:
 
@@ -34,11 +34,13 @@ NAT on a gateway device translates the source and/or destination IP addresses, b
 
 * **Dynamic NAT**: For dynamic NAT, an IP address can be translated to different target IP addresses based on availability, or with a different combination of IP address and TCP/UDP port. The latter is also called NAPT, Network Address and Port Translation. Dynamic rules will result in stateful translation mappings depending on the traffic flows at any given time.
 
+> [!NOTE]
+> When Dynamic NAT rules are used, traffic is unidirectional which means communication must be initiated from the site that is represented in the Internal Mapping field of the rule. If traffic is initiated from the External Mapping, the connection will not be established. If you require bidirectional traffic initiation, then use a static NAT rule to define a 1:1 mapping.
+
 Another consideration is the address pool size for translation. If the target address pool size is the same as the original address pool, use static NAT rule to define a 1:1 mapping in a sequential order. If the target address pool is smaller than the original address pool, use dynamic NAT rule to accommodate the differences.
 
 > [!IMPORTANT]
-> * Azure VPN gateway NAT supports static, 1:1 NAT rules only. Dynamic NAT rules are not supported.
-> * NAT is supported on the the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
+> > * NAT is supported on the the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
 > * NAT is supported on IPsec cross-premises connections only. VNet-to-VNet connections or P2S connections are not supported.
 
 ## <a name="mode"></a>NAT mode: ingress & egress

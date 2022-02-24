@@ -6,11 +6,10 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang: 
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
-ms.reviewer:
+ms.reviewer: kendralittle, mathoma
 ms.date: 11/02/2020
 ---
 # Configure Always Encrypted by using Azure Key Vault 

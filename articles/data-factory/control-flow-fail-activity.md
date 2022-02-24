@@ -17,6 +17,16 @@ You might occasionally want to throw an error in a pipeline intentionally. A [Lo
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+## Create a Fail activity with UI
+
+To use a Fail activity in a pipeline, complete the following steps:
+
+1. Search for _Fail_ in the pipeline Activities pane, and drag a Fail activity to the pipeline canvas.
+1. Select the new Fail activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-fail-activity/fail-activity.png" alt-text="Shows the UI for a Fail activity.":::
+
+1. Enter a failure message and error code. These can be literal string expressions, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 
 ## Syntax
 

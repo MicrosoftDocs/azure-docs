@@ -6,7 +6,7 @@ ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: template-quickstart, ignite-fall-2021
+ms.custom: template-quickstart, ignite-fall-2021, mode-api
 ---
 
 # Quickstart: Create a mesh network with Azure Virtual Network Manager using Azure PowerShell
@@ -42,6 +42,18 @@ Install the latest *Az.Network* Azure PowerShell module using this command:
 Install-Module -Name Az.Network -AllowPrerelease
 ```
 
+## Create a resource group
+
+Before you can create an Azure Virtual Network Manager, you have to create a resource group to host the Network Manager. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named **myAVNMResourceGroup** in the **WestUS** location.
+
+```azurepowershell-interactive
+$rg = @{
+    Name = 'myAVNMResourceGroup'
+    Location = 'WestUS'
+}
+New-AzResourceGroup @rg
+```
+
 ## Create Virtual Network Manager
 
 1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using New-AzNetworkManagerScope.
@@ -74,21 +86,7 @@ Install-Module -Name Az.Network -AllowPrerelease
     $networkmanager = New-AzNetworkManager @avnm
     ```
 
-## Create resource group and virtual networks
-
-### Create a resource group
-
-Before you can create an Azure Virtual Network Manager, you have to create a resource group to host the Network Manager. Create a resource group with [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). This example creates a resource group named **myAVNMResourceGroup** in the **WestUS** location.
-
-```azurepowershell-interactive
-$rg = @{
-    Name = 'myAVNMResourceGroup'
-    Location = 'WestUS'
-}
-New-AzResourceGroup @rg
-```
-
-### Create three virtual networks
+## Create three virtual networks
 
 Create three virtual networks with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). This example creates virtual networks named **VNetA**, **VNetB** and **VNetC** in the **West US** location. If you already have virtual networks you want create a mesh network with, you can skip to the next section.
 

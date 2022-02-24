@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 02/22/2022
 
 ms.author: justinha
 author: mjsantani
-manager: daveba
+manager: karenhoran
 
 ms.collection: M365-identity-device-management
 
@@ -26,7 +26,7 @@ The option to let Azure AD manage the setting is a convenient way for an organiz
 
 ## Settings that can be Microsoft managed
 
-The following table lists settings that can be set to Microsoft managed and whether it is enabled or disabled. 
+The following table list each setting that can be set to Microsoft managed and whether that setting is enabled or disabled by default. 
 
 | Setting                                                                                                                         | Configuration |
 |---------------------------------------------------------------------------------------------------------------------------------|---------------|

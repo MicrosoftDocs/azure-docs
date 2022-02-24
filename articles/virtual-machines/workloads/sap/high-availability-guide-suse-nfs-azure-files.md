@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/22/2021
+ms.date: 01/24/2022
 ms.author: radeltch
 
 ---
@@ -413,6 +413,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     ```bash
     sudo vi /etc/waagent.conf
     
+    # Check if property ResourceDisk.Format is already set to y and if not, set it
+    ResourceDisk.Format=y
+
     # Set the property ResourceDisk.EnableSwap to y
     # Create and use swapfile on resource disk.
     ResourceDisk.EnableSwap=y
@@ -447,7 +450,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       op monitor interval=20s timeout=40s
     
     sudo crm configure primitive vip_NW1_ASCS IPaddr2 \
-      params ip=10.90.90.10 cidr_netmask=24 \
+      params ip=10.90.90.10 \
       op monitor interval=10 timeout=20
     
     sudo crm configure primitive nc_NW1_ASCS azure-lb port=62000
@@ -501,7 +504,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       op monitor interval=20s timeout=40s
    
     sudo crm configure primitive vip_NW1_ERS IPaddr2 \
-      params ip=10.90.90.9 cidr_netmask=24 \
+      params ip=10.90.90.9 \
       op monitor interval=10 timeout=20
    
     sudo crm configure primitive nc_NW1_ERS azure-lb port=62101

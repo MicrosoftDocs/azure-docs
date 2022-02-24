@@ -9,7 +9,7 @@ ms.subservice: openshift
 ms.collection: linux
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 11/19/2021
+ms.date: 11/29/2021
 
 ---
 
@@ -67,8 +67,10 @@ For the steps to deploy using the Azure CLI, follow the appropriate section in t
 
 Red Hat manages the Red Hat Enterprise Linux CoreOS (RHCOS) image for OpenShift 4.x. The deployment process gets the image from a Red Hat endpoint. As a result, the user (tenant) doesn't need to get an image from the Azure Stack hub Marketplace.
 
-You can follow the steps in the Open Shift documentation at [Installing a cluster on Azure Stack Hub using ARM templates](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html).
+You can follow the steps in the OpenShift documentation at [Installing a cluster on Azure Stack Hub using ARM templates](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html).
 
+> [!WARNING]
+> If you have an issue with OpenShift, please contact Red Hat for support.
 ## Next steps
 
 - [Post-deployment tasks](./openshift-container-platform-3x-post-deployment.md)

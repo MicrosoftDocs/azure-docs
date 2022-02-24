@@ -1,16 +1,18 @@
 ---
-title:  "Quickstart - Provision an Azure Spring Cloud service"
+title: "Quickstart - Provision an Azure Spring Cloud service"
 description: Describes creation of an Azure Spring Cloud service instance for app deployment.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/12/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Quickstart: Provision an Azure Spring Cloud service
+# Quickstart: Provision an Azure Spring Cloud service instance
+
+**This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
 In this quickstart, you use the Azure CLI to provision an instance of the Azure Spring Cloud service.
@@ -98,7 +100,7 @@ You can provision an instance of the Azure Spring Cloud service using the Azure 
 
 The following procedure creates an instance of Azure Spring Cloud using the Azure portal.
 
-1. In a new tab, open the [Azure portal](https://ms.portal.azure.com/).
+1. In a new tab, open the [Azure portal](https://portal.azure.com/).
 
 2. From the top search box, search for **Azure Spring Cloud**.
 

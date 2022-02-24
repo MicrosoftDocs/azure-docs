@@ -8,7 +8,8 @@ author: amjads1
 ms.author: amjads
 ms.collection: linux
 ms.date: 02/05/2021 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 
 ---
 # Use the Linux diagnostic extension 4.0 to monitor metrics and logs
@@ -77,6 +78,10 @@ Supported distributions and versions:
 * **Python 2**.
 
 ### Python requirement
+
+>[!NOTE]
+>We are currently planning to converge all versions of the Linux Diagnostic Extensions (LAD) with the new Azure Monitoring Agent - which already supports Python 3. We expect to ship this early to mid 2022; after which the LAD will be scheduled for deprecation pending announcement and approval.
+>
 
 The Linux diagnostic extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, install it.
 

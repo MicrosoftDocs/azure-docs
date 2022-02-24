@@ -2,12 +2,11 @@
 title: 'QuickStart: Create a static HTML web app'
 description: Deploy your first HTML Hello World to Azure App Service in minutes. You deploy using Git, which is one of many ways to deploy to App Service.
 author: msangapu-msft
-
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: mvc, cli-validate, seodec18, mode-other
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -18,7 +17,7 @@ adobe-target-content: ./quickstart-html-uiex
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a basic HTML+CSS site to Azure App Service. You'll complete this quickstart in [Cloud Shell](../cloud-shell/overview.md), but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli).
 
-![Home page of sample app](media/quickstart-html/hello-world-in-browser-az.png)
+:::image type="content" source="media/quickstart-html/hello-world-in-browser.png" alt-text="Home page of sample app":::
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -84,7 +83,7 @@ In a browser, go to the app URL: `http://<app_name>.azurewebsites.net`.
 
 The page is running as an Azure App Service web app.
 
-![Sample app home page](media/quickstart-html/hello-world-in-browser-az.png)
+:::image type="content" source="media/quickstart-html/hello-world-in-browser.png" alt-text="Sample app home page":::
 
 **Congratulations!** You've deployed your first HTML app to App Service.
 
@@ -104,7 +103,7 @@ az webapp up --location westeurope --name <app_name> --html
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
 
-![Updated sample app home page](media/quickstart-html/hello-azure-in-browser-az.png)
+:::image type="content" source="media/quickstart-html/hello-world-in-browser.png" alt-text="Updated sample app home page":::
 
 ## Manage your new Azure app
 

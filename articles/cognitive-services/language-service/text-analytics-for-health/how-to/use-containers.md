@@ -7,10 +7,11 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: conceptual
-ms.date: 11/22/2021
+ms.topic: how-to
+ms.date: 11/29/2021
 ms.author: aahi
-ms.custom: language-service-health, ignite-fall-2021
+ms.custom: language-service-health, ignite-fall-2021, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Use Text Analytics for health containers
@@ -26,7 +27,7 @@ You must meet the following prerequisites before using Text Analytics for health
 * [Docker](https://docs.docker.com/) installed on a host computer. Docker must be configured to allow the containers to connect with and send billing data to Azure. 
     * On Windows, Docker must also be configured to support Linux containers.
     * You should have a basic understanding of [Docker concepts](https://docs.docker.com/get-started/overview/). 
-* A <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">Language resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
+* A <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Create a Language resource"  target="_blank">Language resource </a> with the free (F0) or standard (S) [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/).
 
 [!INCLUDE [Gathering required parameters](../../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -70,6 +71,8 @@ There are multiple ways you can install and run the Text Analytics for health co
 - Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](../../../../docker/index.yml).
 - Use the following PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
+When you use the Text Analytics for health container, the data contained in your API requests and responses is not visible to Microsoft, and is not used for training the model applied to your data. 
+
 ### Run the container locally
 
 To run the container in your own environment after downloading the container image, execute the following `docker run` command. Replace the placeholders below with your own values:
@@ -85,7 +88,7 @@ mcr.microsoft.com/azure-cognitive-services/textanalytics/healthcare:latest \
 Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
-ApiKey={API_KEY} \
+ApiKey={API_KEY} 
 ```
 
 This command:

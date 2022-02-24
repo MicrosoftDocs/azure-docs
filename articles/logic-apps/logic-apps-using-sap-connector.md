@@ -153,7 +153,7 @@ An ISE provides access to resources that are protected by an Azure virtual netwo
 
 1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../storage/blobs/quickstart-storage-explorer.md).
 
-1. [Download and install the latest SAP client library](#sap-client-library-prerequisites) on your local computer. You should have the following assembly files:
+1. [Download and install the latest SAP client library](#sap-client-library-prerequisites) on your local computer. You should have the following assembly (.dll) files:
 
    * libicudecnumber.dll
 
@@ -199,15 +199,15 @@ The following list describes the prerequisites for the SAP client library that y
 
 * You must have the 64-bit version of the SAP client library installed, because the data gateway only runs on 64-bit systems. Installing the unsupported 32-bit version results in a "bad image" error.
 
-* Copy the assembly files from the default installation folder to another location, based on your scenario as follows.
+* From the client library's default installation folder, copy the assembly (.dll) files to another location, based on your scenario as follows:
 
   * For a logic app workflow that runs in an ISE, follow the [ISE prerequisites](#ise-prerequisites) instead.
 
-  * For a logic app workflow that runs in multi-tenant Azure and uses your on-premises data gateway, copy the assembly files to the data gateway installation folder. 
+  * For a logic app workflow that runs in multi-tenant Azure and uses your on-premises data gateway, copy the DLL files to the on-premises data gateway installation folder, for example, "C:\Program Files\On-Premises Data Gateway".
 
     > [!NOTE]
     > If your SAP connection fails with the error message, **Please check your account info and/or permissions and try again**, 
-    > make sure you copied the assembly files to the data gateway installation folder.
+    > make sure you copied the assembly (.dll) files to the data gateway installation folder, for example, "C:\Program Files\On-Premises Data Gateway".
     > 
     > You can troubleshoot further issues using the [.NET assembly binding log viewer](/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer). 
     > This tool lets you check that your assembly files are in the correct location. 
@@ -236,7 +236,7 @@ If you're enabling SNC through an external security product, copy the SNC librar
 > The version of your SNC library and its dependencies must be compatible with your SAP environment.
 >
 > * You must use `sapgenpse.exe` specifically as the SAPGENPSE utility.
-> * If you use an on-premises data gateway, also copy these same binary files to the installation folder there.
+> * If you use an on-premises data gateway, also copy these same binary files to the installation folder there, for example, "C:\Program Files\On-Premises Data Gateway".
 > * If PSE is provided in your connection, you don't need to copy and set up PSE and SECUDIR for your on-premises data gateway.
 > * You can also use your on-premises data gateway to troubleshoot any library compatibility issues.
 
@@ -1655,7 +1655,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. Download the NuGet package for **Microsoft.ApplicationInsights.EventSourceListener.dll** from this location: [https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/2.14.0).
 
-1. Add the downloaded file to your on-premises data gateway installation directory.
+1. Add the downloaded file to your on-premises data gateway installation directory, for example, "C:\Program Files\On-Premises Data Gateway".
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 

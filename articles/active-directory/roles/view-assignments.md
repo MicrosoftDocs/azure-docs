@@ -3,12 +3,12 @@ title: List Azure AD role assignments
 description: You can now see and manage members of an Azure Active Directory administrator role in the Azure Active Directory admin center.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/07/2021
+ms.date: 02/04/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -43,6 +43,8 @@ This procedure describes how to list role assignments with organization-wide sco
 ### List my role assignments
 
 It's easy to list your own permissions as well. Select **Your Role** on the **Roles and administrators** page to see the roles that are currently assigned to you.
+
+   ![List my role assignments](./media/view-assignments/list-my-role-assignments.png)
 
 ### Download role assignments
 
@@ -90,23 +92,21 @@ Get-AzureADMSRoleAssignment -Filter "roleDefinitionId eq '$($role.Id)'"
 
 This section describes how to list role assignments with organization-wide scope.  To list single-application scope role assignments using Graph API, you can use the operations in [Assign custom roles with Graph API](custom-assign-graph.md).
 
-HTTP request to get a role assignment for a given role definition.
+Use the [List unifiedRoleAssignments](/graph/api/rbacapplication-list-roleassignments) API to get the role assignment for a specified role definition.
 
-GET
-
-``` HTTP
-https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<template-id-of-role-definition>’
+```http
+GET https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<template-id-of-role-definition>’
 ```
 
 Response
 
-``` HTTP
+```http
 HTTP/1.1 200 OK
 {
-    "id":"CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1",
-    "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
-    "roleDefinitionId":"3671d40a-1aac-426c-a0c1-a3821ebd8218",
-    "directoryScopeId":"/"
+    "id": "CtRxNqwabEKgwaOCHr2CGJIiSDKQoTVJrLE9etXyrY0-1",
+    "principalId": "ab2e1023-bddc-4038-9ac1-ad4843e7e539",
+    "roleDefinitionId": "3671d40a-1aac-426c-a0c1-a3821ebd8218",
+    "directoryScopeId": "/"
 }
 ```
 

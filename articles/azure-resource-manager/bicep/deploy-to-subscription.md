@@ -16,7 +16,7 @@ To simplify the management of resources, you can deploy resources at the level o
 
 ### Microsoft Learn
 
-To learn more about deployment scopes, and for hands-on guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
+If you would rather learn about deployment scopes through step-by-step guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
 
 ## Supported resources
 
@@ -66,7 +66,7 @@ For managing your subscription, use:
 
 For monitoring, use:
 
-* [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [logprofiles](/azure/templates/microsoft.insights/logprofiles)
 
 For security, use:

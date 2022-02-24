@@ -1,12 +1,14 @@
 ---
 title: Create a JavaScript function using Visual Studio Code - Azure Functions
-description: Learn how to create a JavaScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.  
+description: Learn how to create a JavaScript function, then publish the local Node.js project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/18/2021
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-vs-code-node_uiex
+ms.devlang: javascript
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a JavaScript function in Azure using Visual Studio Code

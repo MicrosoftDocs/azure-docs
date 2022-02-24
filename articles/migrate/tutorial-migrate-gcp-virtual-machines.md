@@ -334,7 +334,10 @@ After you've verified that the test migration works as expected, you can migrate
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
-    - If you don't want to shut down the VM, select **No**.
+    
+    > [!NOTE]
+    >  Automatic shutdown is not supported while migrating GCP virtual machines.
+
 4. A migration job starts for the VM. You can view the job status by clicking the notification bell icon on the top right of the portal page or by going to the jobs page of the Server Migration tool (Click Overview on the tool tile > Select Jobs from the left menu).
 5. After the job finishes, you can view and manage the VM from the Virtual Machines page.
 
@@ -388,7 +391,7 @@ After you've verified that the test migration works as expected, you can migrate
 **Answer:** Make sure to review the Azure migrate appliance requirements and URL access needs. Make sure no proxy settings are blocking the appliance registration.
 
 **Question:** Do I have to make any changes before I migrate my GCP VMs to Azure   
-**Answer:** You may have to make these changes before migrating your EC2 VMs to Azure:
+**Answer:** You may have to make these changes before migrating your GCP VMs to Azure:
 
 - If you are using cloud-init for your VM provisioning, you may want to disable cloud-init on the VM before replicating it to Azure. The provisioning steps performed by cloud-init on the VM maybe GCP specific and won't be valid after the migration to Azure. ​
 - Review the [prerequisites](#prerequisites) section to determine whether there are any changes necessary for the operating system before you migrate them to Azure.

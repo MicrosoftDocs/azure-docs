@@ -7,6 +7,7 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, devx-track-python"
 
 ---
@@ -149,24 +150,22 @@ Here's the binding data in the *function.json* file:
 Here's JavaScript script code that creates a single message:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
     context.bindings.outputSbQueue = message;
-    context.done();
 };
 ```
 
 Here's JavaScript script code that creates multiple messages:
 
 ```javascript
-module.exports = function (context, myTimer) {
+module.exports = async function (context, myTimer) {
     var message = 'Service Bus queue message created at ' + timeStamp;
     context.log(message);   
     context.bindings.outputSbQueue = [];
     context.bindings.outputSbQueue.push("1 " + message);
     context.bindings.outputSbQueue.push("2 " + message);
-    context.done();
 };
 ```
 
