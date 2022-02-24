@@ -253,7 +253,7 @@ The Azure workbook is now ready to be created. We'll use a mix of built-in funct
    ```
 
 1. To see the results, select the blue button **Run Query** to see the results.
-1. If yous see the following error, then navigate back to the file (vpnstatfile.json) in the storage container's blob, and regenerate the SAS URL. Then paste the updated SAS URL in the query.
+1. If you see the following error, then navigate back to the file (vpnstatfile.json) in the storage container's blob, and regenerate the SAS URL. Then paste the updated SAS URL in the query.
 
    :::image type="content" source="./media/monitor-point-to-site-connections/workbook-error.png" alt-text="Screenshot shows error when running query in workbook.":::
 1. Save the workbook to return to it later.
