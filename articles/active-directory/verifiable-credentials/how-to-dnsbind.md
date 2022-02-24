@@ -33,9 +33,9 @@ A DID starts out as an identifier that isn't anchored to existing systems. A DID
 
 Linking a DID to a domain solves the initial trust problem by allowing any entity to cryptographically verify the relationship between a DID and a Domain.
 
-## When do we need to manage linked domains?
+## When do you need to update the domain in your DID?
 
- Any situation that requires the domain associated with your company to change, like a company merger or a company rename, may mean that you need to manage your linked domain. Before, In either one of these situations would have required for you to opt out and back in. You no longer need to [opt out](how-to-opt-out.md) to make changes to your domain information. You can make changes to your domain through the Azure AD Portal. After you publish your changes, those changes are published to the ION network.
+In the event where the domain associated with your company changes, you would also need to change the domain in your DID document that is also published in the ION network. You can update the domain in your DID directly from the Azure AD Verifiable Credential portal.
 
 ## How do we link DIDs and domains?
 
@@ -78,7 +78,7 @@ After you have the well-known configuration file, you need to make the file avai
 >[!IMPORTANT]
 >Microsoft Authenticator does not honor redirects, the URL specified must be the final destination URL.
 
-## User experience
+## User experience in the wallet
 
 When a user is going through an issuance flow or presenting a verifiable credential, they should know something about organization and its DID. Microsoft Authenticator, validates a DID's relationship with the domain in the DID document and presents users with two different experiences depending on the outcome.
 
@@ -107,14 +107,16 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 ![unverified domain warning in the add credential screen](media/how-to-dnsbind/add-credential-not-verified-authenticated.png)
 
-## How do you change a linked domain?
+## How do you update the linked domain on your DID?
 
 1. Navigate to the Verifiable Credentials | Getting Started page.  
 1. On the left side of the page select **Domain**.
 1. In the Domain box, enter your new domain name.
-1. Choose **Publish**.
+1. Select **Publish**.
 
 :::image type="content" source="media/how-to-dnsbind/publish-update-domain.png" alt-text="Choose the publish button so your changes become":::
+
+It might take up to two hours for your DID document to be updated in the [ION network](https://identity.foundation/ion) with the new domain information. No other changes to the domain are possible before the changes are published.
 
 >[!NOTE]
 >If your changes are successful you will need to [verify](#verified-domain) your newly added domain.
@@ -122,18 +124,13 @@ It is of high importance that you link your DID to a domain recognizable to the 
 
 :::image type="content" source="media/how-to-dnsbind/verification.png" alt-text="You need to verify your domain once that the publishing process completes":::
 
-
->[!IMPORTANT]
-> No changes to the domain are possible before the changes are confirmed as published and live in the [ION network](https://identity.foundation/ion/). 
-
-
 ### Do I need to wait for my DID Doc to be updated to verify my newly added domains?
 
 Yes. You need to wait until the config.json file gets updated before you publish it using your domain's hosting location.  
 
 ### How do I know when the linked domain update has successfully completed?
 
-Today, we're unable to tel you exactly when your domain link change will complete. We know that the publishing process may take up to two hours. 
+Once the domain changes are publised to ION, the domain section inside the Azure AD Verifiable Credentials service will display `Published` as the status and you should be able to make new changes to the domain. 
 
 >[!IMPORTANT]
 > No changes to your domain are possible while publishing is in progress.
