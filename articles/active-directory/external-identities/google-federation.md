@@ -143,15 +143,15 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 1. Accept the terms of service if you're prompted to do so.
 
-1. Create a new project. At the top of the page, select the project list, and then on the **Select a project** page, select **New Project**.
+1. Create a new project: Select the project list at the top of the page, and then on the **Select a project** page, select **New Project**.
 
 1. On the **New Project** page, give the project a name (for example, `MyB2BApp`), and then select **Create**:
    
    ![Screenshot that shows a New Project page.](media/google-federation/google-new-project.png)
 
-1. In the **Notifications** message box that confirms your project was created, choose **Select project**. (Or use the project menu at the top of the page to select your new project.)
+1. Open the new project: In the **Notifications** message box that confirms your project was created, choose **Select project**. Or, use the project menu at the top of the page to select the project.
 
-1. In the left navigation, select **APIs & Services**, and then select **OAuth consent screen**.
+1. In the left menu, select **APIs & Services**, and then select **OAuth consent screen**.
 
 1. Under **User Type**, select **External**, and then select **Create**.
 
@@ -159,15 +159,15 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 1. Under **User support email**, select an email address.
 
-1. Under **Authorized domains**, select **+ Add domain**, and then add the **microsoftonline.com** domain.
+1. Under **Authorized domains**, select **Add domain**, and then add the **microsoftonline.com** domain.
 
 1. Under **Developer contact information**, enter an email address.
 
 1. Select **Save and continue**.
 
-1. In the left navigation, select **Credentials**.
+1. In the left menu, select **Credentials**.
 
-1. Select **+ Create credentials**, and then select **OAuth client ID**.
+1. Select **Create credentials**, and then select **OAuth client ID**.
 
 1. In the Application type menu, select **Web application**. Give the application a suitable name, like **Azure AD B2B**. Under **Authorized redirect URIs**, add the following URIs:
 
