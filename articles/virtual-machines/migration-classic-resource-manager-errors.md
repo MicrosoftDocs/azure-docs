@@ -48,7 +48,7 @@ This article catalogs the most common errors and mitigations during the migratio
 
 ## Detailed mitigations
 
-### VM with Data Disk whose physical blob size bytes doesn't match the VM Data Disk logical size bytes.
+### VM with Data Disk whose physical blob size bytes does not match the VM Data Disk logical size bytes.
 
 This happens when the Data disk logical size can get out of sync with the actual VHD blob size. This can be easily verified using the following commands:
 
