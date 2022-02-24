@@ -45,7 +45,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Product capability:** End User Experiences  
  
 
-This change provides users who are signing into Azure Active Directory on iOS, Android, and Web UI flavors information about the accessibility of Microsoft's online services via a link on the sign-in page. This ensures that the France digital accessibility compliance requirements are met. The change will only be available for French language experiences.
+This change provides users who are signing into Azure Active Directory on iOS, Android, and Web UI flavors information about the accessibility of Microsoft's online services via a link on the sign-in page. This ensures that the France digital accessibility compliance requirements are met. The change will only be available for French language experiences.[Learn more](https://www.microsoft.com/fr-fr/accessibility/accessibilite/accessibility-statement)
  
 
 ---
@@ -106,13 +106,13 @@ Use multi-stage reviews to create Azure AD access reviews in sequential stages, 
 **Product capability:** 3rd Party Integration  
  
 
-In February 2022 we have added the following 20 new applications in our App gallery with Federation support
+In February 2022 we added the following 20 new applications in our App gallery with Federation support
 
 [Embark](../saas-apps/embark-tutorial.md),  [FENCE-Mobile RemoteManager SSO](../saas-apps/fence-mobile-remotemanager-sso-tutorial.md), [カオナビ](../saas-apps/kao-navi-tutorial.md), [Adobe Identity Management (OIDC)](../saas-apps/adobe-identity-management-tutorial.md), [AppRemo](../saas-apps/appremo-tutorial.md), [Live Center](https://livecenter.norkon.net/Login), [Offishall](https://app.offishall.io/), [MoveWORK Flow](https://www.movework-flow.fm/login), [Cirros SL](https://www.cirros.net/cirros-sl/), [ePMX Procurement Software](https://azure.epmxweb.com/admin/index.php?), [Vanta O365](https://app.vanta.com/connections), [Hubble](../saas-apps/hubble-tutorial.md), [Medigold Gateway](https://gateway.medigoldcore.com), [クラウドログ](../saas-apps/crowd-log-tutorial.md),[Amazing People Schools](../saas-apps/amazing-people-schools-tutorial.md), [Salus](https://salus.com/login), [XplicitTrust Network Access](https://console.xplicittrust.com/#/dashboard), [Spike Email - Mail & Team Chat](https://spikenow.com/web/), [AltheaSuite](https://planmanager.altheasuite.com/), [Balsamiq Wireframes](../saas-apps/balsamiq-wireframes-tutorial.md).
 
-You can also find the documentation of all the applications from here [https://aka.ms/AppsTutorial](https://aka.ms/AppsTutorial),
+You can also find the documentation of all the applications from here: [https://aka.ms/AppsTutorial](https://aka.ms/AppsTutorial),
 
-For listing your application in the Azure AD app gallery, please read the details here [https://aka.ms/AzureADAppRequest](https://aka.ms/AzureADAppRequest)
+For listing your application in the Azure AD app gallery, please read the details here: [https://aka.ms/AzureADAppRequest](https://aka.ms/AzureADAppRequest)
 
 
 
@@ -152,7 +152,7 @@ You can now automate creating, updating, and deleting user accounts for these ne
 [Gong](../saas-apps/gong-provisioning-tutorial.md)
 [LanSchool Air](../saas-apps/lanschool-air-provisioning-tutorial.md)
 [ProdPad](../saas-apps/prodpad-provisioning-tutorial.md)
-For more information about how to better secure your organization by using automated user account provisioning, see Automate user provisioning to SaaS applications with Azure AD.
+For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
  
 
 ---
