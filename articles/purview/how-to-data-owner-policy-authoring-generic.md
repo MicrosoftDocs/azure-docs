@@ -29,7 +29,7 @@ This tutorial describes how a data owner can create, update and publish access p
   - Publish a policy.
 - User needs Azure Purview *Policy authors* role at root collection level to create or edit policies.
 
-For more information, see the guide on [managing Azure Purview role assignments](../how-to-create-and-manage-collections.md).
+For more information, see the guide on [managing Azure Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
 
 ### Source configuration
 

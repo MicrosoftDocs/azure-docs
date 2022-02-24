@@ -1,6 +1,6 @@
 ---
-title: Authoring and publishing data owner access policies
-description: Step-by-step guide on how a data owner can author and publish access policies in Azure Purview
+title: Enabling data use governance on your Azure Purview sources
+description: Step-by-step guide on how to enable data use access for your registered sources.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
