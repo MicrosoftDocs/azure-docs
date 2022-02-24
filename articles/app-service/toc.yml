@@ -89,7 +89,7 @@
               - name: .NET
                 href: scenario-secure-app-access-microsoft-graph-as-app.md
               - name: JavaScript
-                href: scenario-secure-app-access-microsoft-graph-as-app-javascript.md
+                href: tutorial-connect-app-access-microsoft-graph-as-app-javascript.md
         - name: With Key Vault
           items: 
           - name: Connect to Cognitive Services
