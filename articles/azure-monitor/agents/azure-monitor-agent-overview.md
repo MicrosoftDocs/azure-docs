@@ -120,7 +120,7 @@ There's no cost for the Azure Monitor agent, but you might incur charges for the
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before you deploy the agent.
 
 ## Networking
-The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via **direct proxies, Log Analytics gateway and private links** as described below.
+The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required). It supports connecting via **direct proxies, Log Analytics gateway, and private links** as described below.
 
 ### Proxy configuration
 If the machine connects through a proxy server to communicate over the internet, review requirements below to understand the network configuration required.
@@ -175,6 +175,18 @@ New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType Azur
 ```
 
 ---
+
+### Log Analytics gateway configuration
+1. Follow the instructions above to configure proxy settings on the agent and provide the IP address and port number corresponding to the gateway server. If you have deployed multiple gateway servers behind a load balancer, the agent proxy configuration is the virtual IP address of the load balancer instead.  
+2. Add the **configuration endpoint URL** to fetch data collection rules to the allow list for the gateway  
+   `Add-OMSGatewayAllowedHost -Host global.handler.control.monitor.azure.com`  
+   `Add-OMSGatewayAllowedHost -Host <gateway-server-region-name>.handler.control.monitor.azure.com`  
+   (If using private links on the agent, you must also add the [dce endpoints](./data-collection-endpoint-overview.md#components-of-a-data-collection-endpoint))  
+3. Add the **data ingestion endpoint URL** to the allow list for the gateway  
+   `Add-OMSGatewayAllowedHost -Host <log-analytics-workspace-id>.ods.opinsights.azure.com`  
+3. Restart the **OMS Gateway** service to apply the changes  
+   `Stop-Service -Name <gateway-name>`  
+   `Start-Service -Name <gateway-name>` 
 
 ## Private link configuration
 To configure the agent to use private links for network communications with Azure Monitor, you can use [Azure Monitor Private Links Scopes (AMPLS)](../logs/private-link-security.md) and [data collection endpoints](azure-monitor-agent-data-collection-endpoint.md) to enable required network isolation. 
