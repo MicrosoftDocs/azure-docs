@@ -97,9 +97,8 @@ A recommended best practice when calling methods on `ConnectionMultiplexer` is t
 
 :::code language="csharp" source="~/samples-cache/quickstart/dotnet-core/RedisConnection.cs":::
 
-<!-- :::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-partial.png" alt-text="Console app partial"::: -->
+<!-- 
 
-<!-- https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core -->
 ```csharp
 using StackExchange.Redis;
 using System;
@@ -276,7 +275,7 @@ namespace Redistest
         }
     }
 }
-```
+-->```
 
 ## Executing cache commands
 
