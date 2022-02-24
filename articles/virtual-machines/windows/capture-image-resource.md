@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 09/27/2018
+ms.date: 02/24/2022
 ms.author: cynthn
 ms.custom: legacy
 ms.collection: windows
@@ -27,21 +27,18 @@ You need a [generalized](../generalize.md) VM in order to create an image.
 
 ## Create a managed image in the portal 
 
-1. Go to the [Azure portal](https://portal.azure.com) to manage the VM image. Search for and select **Virtual machines**.
+1. Go to the [Azure portal](https://portal.azure.com). Search for and select **Virtual machines**.
 
 2. Select your VM from the list.
 
-3. In the **Virtual machine** page for the VM, on the upper menu, select **Capture**.
+3. In the **Virtual machine** page for the VM, on the upper menu, select **Capture**. The **Create an image** page appears.
+4. For **Share image to Azure compute gallery**, select **No, capture only a managed image.**
+5. For **Resource Group**, you can either create the image in the same resource group as the VM or select another resource group in your subscription.
 
-   The **Create image** page appears.
-
-4. For **Name**, either accept the pre-populated name or enter a name that you would like to use for the image.
-
-5. For **Resource group**, either select **Create new** and enter a name, or select a resource group to use from the drop-down list.
+4. For **Name**, either accept the pre-populated name or type your own name for the image.
 
 6. If you want to delete the source VM after the image has been created, select **Automatically delete this virtual machine after creating the image**.
-
-7. If you want the ability to use the image in any [availability zone](../../availability-zones/az-overview.md), select **On** for **Zone resiliency**.
+7. 7. If you want the ability to use the image in any [availability zone](../../availability-zones/az-overview.md), select **On** for **Zone resiliency**.
 
 8. Select **Create** to create the image.
 
@@ -50,8 +47,6 @@ After the image is created, you can find it as an **Image** resource in the list
 
 
 ## Create an image of a VM using PowerShell
-
- 
 
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 
