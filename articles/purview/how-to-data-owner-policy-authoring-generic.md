@@ -6,8 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 2/2/2022
-ms.custom:
+ms.date: 2/24/2022
 ---
 
 # Authoring and publishing data owner access policies (Preview)
@@ -22,108 +21,23 @@ This tutorial describes how a data owner can create, update and publish access p
 
 ### Required permissions
 
-To register a data source, resource group, or subscription in Azure Purview with the *Data use Governance* option set (that is, with access policies), a user have **either one of the following** IAM role combinations on that resource:
+>[!IMPORTANT]
+> - Currently, policy operations are only supported at **root collection level** and not child collection level.
 
-- IAM *Owner*
-- Both IAM *Contributor* + IAM *User Access Administrator*
+- User needs Azure Purview *Data source administrator* role at the root collection level to:
+  - Register a data source, resource group or subscription for *Data use governance*.
+  - Publish a policy.
+- User needs Azure Purview *Policy authors* role at root collection level to create or edit policies.
 
-Follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md).
+For more information, see the guide on [managing Azure Purview role assignments](../how-to-create-and-manage-collections.md).
 
 ### Source configuration
+
 To apply these policies to data sources in your environment, you'll need to configure your sources.
 
-Check the [Azure Purview supported data sources table](azure-purview-connector-overview.md#azure-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available.
-
-Currently these are the supported sources:
-
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#access-policy)
-- [Azure Data Lake Gen2](register-scan-adls-gen2.md#access-policy)
-
-## Create policies for individual sources
-
-To create an access policy for a resource, the resource will first need to be registered in Azure Purview.
-Once you have your resource registered, follow the rest of the steps steps to enable an individual resource for access policy.
-
-1. Follow the **Prerequisites** and **Register** sections of the source pages for your resources:
-
-  - [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md)
-  - [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
-
-1. Go to the [Azure Purview Studio](https://web.purview.azure.com/resource/).
-
-1. Select the **Data map** tab in the left menu.
-
-1. Select the **Sources** tab in the left menu.
-
-1. Select the source you want to enable access policies for.
-
-1. At the top of the source page, select **Edit source**.
-
-1. Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the image below.
-
-    :::image type="content" source="./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Set Data use governance toggle to **Enabled** at the bottom of the menu.":::
-
-> [!WARNING]
-> **Known issues** related to source registration:
->
-> - Moving data sources to a different resource group or subscription is not yet supported. If want to do that, de-register the data source in Azure Purview before moving it and then register it again after that happens.
-> - Once a subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
-
-Now that you've enabled your resource for access policies, you can [create your access policies](#create-a-new-policy).
-
-## Create policies for resource groups or subscriptions
-
-A data owner can use Azure Purview to enable access to ALL data sources in a subscription or a resource group. This can be achieved through a single policy statement, and will cover all existing data sources, and data sources that are created afterwards.
-
-To create a policy for a resource group, Azure Purview will need permissions to list resources in a subscription or group, then the subscription or group will need to be registered as a source.
-
-To create an access policy across a resource group or subscription, follow these instructions:
-
-[!INCLUDE [Permissions to list resources](./includes/authentication-to-enumerate-resources.md)]
-
-1. To create an access policy for a resource group or subscription, the resource group or subscription will need to be registered as a source in Azure Purview. Follow the **Prerequisites** and **Register** sections for [multiple Azure sources in Azure Purview](register-scan-azure-multiple-sources.md).
-
-1. Now that you have your resource group or subscription registered in Azure Purview, go to the [Azure Purview Studio](https://web.purview.azure.com/resource/).
-
-1. Select the **Data map** tab in the left menu.
-
-1. Select the **Sources** tab in the left menu.
-
-1. Select the source you want to enable access policies for.
-
-1. At the top of the source page, select **Edit source**.
-
-1. Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the image below.
-
-   :::image type="content" source="./media/tutorial-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Set Data use governance toggle to 'Enabled' at the bottom of the menu.":::
-
-1. Enable the resource group or the subscription for access policies in Azure Purview by setting the **Data use governance** toggle to **Enabled**, as shown in the picture.
-
-![Image shows how to register a resource group or subscription for policy.](./media/tutorial-data-owner-policies-resource-group/register-resource-group-for-policy.png)
-
->[!IMPORTANT]
->Make sure you write down the **Name** you use when registering in Azure Purview. You will need it when you publish a policy. The recommended practice is to make the registered name exactly the same as the endpoint name.
-
-Now that you've enabled your resource for access policies, you can [create your access policies](#create-a-new-policy).
-
-## Disable policies
-
-To disable access policies for a source, resource group, or subscription, a user needs to either be a data source **Owner** or an Azure Purview **Data source admin**. Once you have those permissions follow these steps:
-
-1. Remove the source from any currently existing access policies. If the source is listed in any current policies, you won't be able to disable it.
-
-1. Then, to disable the source, select the **Data map** tab in the left menu.
-
-1. Select the **Sources** tab in the left menu.
-
-1. Select the source you want to disable access policies for.
-
-1. At the top of the source page, select **Edit source**.
-
-1. Enable the data source for access policies in Azure Purview by setting the **Data use governance** toggle to **Disabled**, as shown in the image below.
-
->[!NOTE]
-> Disabling **Data use governance** for a subscription will disable it also for all assets registered in that subscription.
+1. Your source needs to already be registered to Azure Purview. To register a resource, follow the **Prerequisites** and **Register** sections of the [source pages](azure-purview-connector-overview.md) for your resources.
+1. [Enable data use governance on your resource](how-to-enable-data-use-governance.md#enable-data-use-governance).
+1. Follow any policy-specific prerequisites for your source. Check the [Azure Purview supported data sources table](azure-purview-connector-overview.md#azure-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Policy section.
 
 ## Create a new policy
 
@@ -185,7 +99,7 @@ Steps to create a new policy in Azure Purview are as follows.
 
 ## Publish the policy
 
-A newly created policy is in the draft state. The process of publishing associates the new policy with one or more data sources under governance. This is called "binding" a policy to a data source.
+A newly created policy is in the **draft** state. The process of publishing associates the new policy with one or more data sources under governance. This is called "binding" a policy to a data source.
 
 The steps to publish a policy are as follows
 
@@ -206,20 +120,9 @@ The steps to publish a policy are as follows
 >[!Note]
 > After making changes to a policy, there is no need to publish it again for it to take effect if the data source(s) continues to be the same.
 
-## Data use governance best practices
-
-- We highly encourage registering data sources for *Data use governance* and managing all associated access policies in a single Azure Purview account.
-- Should you have multiple Azure Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *Data use governance* in a single Azure Purview account. That Azure Purview account can be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
-  - **Case 1** shows a valid configuration where a Storage account is registered in an Azure Purview account in the same subscription.
-  - **Case 2** shows a valid configuration where a Storage account is registered in an Azure Purview account in a different subscription.
-  - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Azure Purview accounts. In that case, the *Data use governance* toggle will only work in the Azure Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
-
-    :::image type="content" source="./media/access-policies-common/valid-and-invalid-configurations.png" alt-text="Diagram shows valid and invalid configurations when using multiple Azure Purview accounts to manage policies.":::
-
 ## Next steps
 
-Check blog, demo and related tutorials
+Check blog, demo and related tutorials:
 
-- [Demo of data owner access policies for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
 - [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./tutorial-data-owner-policies-resource-group.md)
 - [Enable Azure Purview data owner policies on an Azure Storage account](./tutorial-data-owner-policies-storage.md)
