@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: What is Azure public MEC?
             url: overview.md
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: Considerations for deployment in Azure public MEC
             url: considerations-for-deployment.md
