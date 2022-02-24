@@ -108,7 +108,7 @@ There are two ways to provide access:
 
 * Create an Azure Storage service endpoint in your cache subnet.
 
-  Read [Add a virtual network subnet](..azure/virtual-network/virtual-network-manage-subnet.md#add-a-subnet) for instructions to add a storage service endpoint.
+  Read [Add a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) for instructions to add a storage service endpoint.
 
 * Individually configure access to the Azure storage queue service domain in your network security group or other firewalls.
 
