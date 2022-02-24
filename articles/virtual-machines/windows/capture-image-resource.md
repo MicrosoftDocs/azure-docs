@@ -17,7 +17,7 @@ ms.collection: windows
 **Applies to:** :heavy_check_mark: Windows VMs 
 
 
-A managed image resource can be created from a generalized virtual machine (VM) that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. For information on how managed images are billed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
+Managed images are helpful in development and test environments where you need a consistent baseline VM. A managed image resource can be created from a generalized virtual machine (VM) that is stored as either a managed disk or an unmanaged disk in a storage account. The image can then be used to create multiple VMs. For information on how managed images are billed, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 One managed image supports up to 20 simultaneous deployments. Attempting to create more than 20 VMs concurrently, from the same managed image, may result in provisioning timeouts due to the storage performance limitations of a single VHD. To create more than 20 VMs concurrently, use an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery) image configured with 1 replica for every 20 concurrent VM deployments.
 
@@ -25,7 +25,7 @@ One managed image supports up to 20 simultaneous deployments. Attempting to crea
 
 You need a [generalized](../generalize.md) VM in order to create an image.
 
-## Create a managed image in the portal 
+## Create a managed image from a VM using the portal 
 
 1. Go to the [Azure portal](https://portal.azure.com). Search for and select **Virtual machines**.
 
@@ -46,7 +46,7 @@ After the image is created, you can find it as an **Image** resource in the list
 
 
 
-## Create an image of a VM using PowerShell
+## Create a managed image of a VM using PowerShell
 
 Creating an image directly from the VM ensures that the image includes all of the disks associated with the VM, including the OS disk and any data disks. This example shows how to create a managed image from a VM that uses managed disks.
 
@@ -135,7 +135,7 @@ If you want to create an image of only the OS disk, specify the managed disk ID 
     ```	
 
 
-## Create an image from a snapshot using PowerShell
+## Create a managed image from a snapshot using PowerShell
 
 You can create a managed image from a snapshot of a generalized VM by following these steps:
 
@@ -168,7 +168,7 @@ You can create a managed image from a snapshot of a generalized VM by following 
     ```	
 
 
-## Create an image from a VM that uses a storage account
+## Create a managed image from a VM that uses a storage account
 
 To create a managed image from a VM that doesn't use managed disks, you need the URI of the OS VHD in the storage account, in the following format: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. In this example, the VHD is in *mystorageaccount*, in a container named *vhdcontainer*, and the VHD filename is *vhdfilename.vhd*.
 
@@ -204,3 +204,4 @@ To create a managed image from a VM that doesn't use managed disks, you need the
 	
 ## Next steps
 - [Create a VM from a managed image](create-vm-generalized-managed.md).	
+- Learn more about using an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery)
