@@ -54,7 +54,7 @@ This change provides users who are signing into Azure Active Directory on iOS, A
 
 [1424495](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1424495&triage=true&fullScreen=false&_a=edit)
 
-### Downloadable access review history report
+### General Availability- Downloadable access review history report
 
 **Type:** New feature  
 **Service category:** Access Reviews  
