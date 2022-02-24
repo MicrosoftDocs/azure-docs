@@ -23,7 +23,7 @@ This release is published February 24, 2022.
 
 ### Image tag
 
-`v1.3.0_2022-02-2x`
+`v1.4.0_2022-02-25`
 
 For complete release version information, see [Version log](version-log.md).
 
