@@ -8,27 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 02/24/2022
 ms.author: lajanuar
 ---
 
 # Use Translator in sovereign (national) clouds
 
- Azure sovereign clouds are isolated in-country platforms with independent authentication, storage, and compliance requirements. Sovereign clouds are often used within geographical boundaries where there's a strict data residency requirement. Azure Active Directory (Azure AD) is currently deployed in the following sovereign clouds:
+ Azure sovereign clouds are isolated in-country platforms with independent authentication, storage, and compliance requirements. Sovereign clouds are often used within geographical boundaries where there's a strict data residency requirement. Translator is currently deployed in the following sovereign clouds:
 
 |Cloud | Region identifier |
 |---|--|
 | [Azure US Government](../../azure-government/documentation-government-welcome.md)|<ul><li>`usgovarizona` (US Gov Arizona)</li><li>`usgovvirginia` (US Gov Virginia)</li></ul>|
 | [Azure China 21 Vianet](/azure/china/overview-operations) |<ul><li>`chinaeast2` (East China 2)</li><li>`chinanorth` (China North)</li></ul>|
 
->[!NOTE]
-> Azure Germany [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Learn more about [Azure Germany migration](/azure/active-directory/develop/authentication-sovereign-cloud#azure-germany-microsoft-cloud-deutschland).
-
-## Sovereign cloud instances
-
-Individual sovereign clouds are cloud instances. Each cloud instance is separate from the others and has its own environment and endpoints. Cloud-specific endpoints include OAuth 2.0 access token and OpenID Connect ID token request endpoints, and URLs for app management and deployment. Use the endpoints for the cloud instance where you'll deploy your application.
-
-## Sovereign cloud endpoints
+## Azure portal endpoints
 
 The following table lists the base URLs for the Azure AD endpoints used to register an application for each sovereign cloud.
 
@@ -63,6 +56,13 @@ https://portal.azure.us
 
 **Authorization token**
 
+Replace the `<region-identifier>` parameter with your sovereign cloud identifier:
+
+|Cloud | Region identifier |
+|---|--|
+| Azure US Government|<ul><li>`usgovarizona` (US Gov Arizona)</li><li>`usgovvirginia` (US Gov Virginia)</li></ul>|
+| Azure China 21 Vianet|<ul><li>`chinaeast2` (East China 2)</li><li>`chinanorth` (China North)</li></ul>|
+
 ```http
 https://<region-identifier>.api.cognitive.microsoft.us/sts/v1.0/issueToken
 ```
@@ -74,6 +74,8 @@ https://api.cognitive.microsofttranslator.us/
 ```
 
 **Document Translation custom endpoint**
+
+Replace the `<your-custom-domain>` parameter with your [custom domain endpoint](document-translation/get-started-with-document-translation#what-is-the-custom-domain-endpoint)
 
 ```http
 https://<your-custom-domain>.cognitiveservices.azure.us/
@@ -87,12 +89,12 @@ https://portal.customtranslator.azure.us/
 
 ### Example API translation request
 
-This example shows how to translate a single sentence from English to Simplified Chinese.
+Translate a single sentence from English to Simplified Chinese.
 
 **Request**
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version=3.0?&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: <region-identifier>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'你好, 你叫什么名字？'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version=3.0?&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <subscription key>" -H "Ocp-Apim-Subscription-Region: chinanorth" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'你好, 你叫什么名字？'}]"
 ```
 
 **Response body**
@@ -108,7 +110,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version
 ```
 
 > [!div class="nextstepaction"]
-> [Azure Government: Translator text reference](translator-overview.md#translator-features-and-development-options)
+> [Azure Government: Translator text reference](treference/rest-api-guide.md)
 
 ### [Azure China 21 Vianet](#tab/china)
 
@@ -116,7 +118,7 @@ The Azure China cloud is a physical and logical network-isolated instance of clo
 
 |Azure China 21 Vianet | Availability
 |---|---|
-|Azure portal |<ul><li>[Azure China 21 Vianet Portal](https://portal.azure.us/)</li></ul>|
+|Azure portal |<ul><li>[Azure China 21 Vianet Portal](https://portal.azure.cn/)</li></ul>|
 |Regions <br></br>The region-identifier is a required header when using a multi-service resource. | <ul><li>`chinanorth` </li><li> `chinaeast2`</li></ul>|
 |Supported Feature|[Text Translation](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)|
 |Supported Languages| _See_ [Translator language support.](https://docs.azure.cn/cognitive-services/translator/language-support)|
