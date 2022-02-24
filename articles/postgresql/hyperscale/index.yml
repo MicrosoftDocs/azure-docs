@@ -92,6 +92,20 @@ landingContent:
             url: howto-troubleshoot-read-only.md
 
   # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Overview of functionality
+            url: reference-overview.md
+          - text: SQL API functions
+            url: reference-functions.md
+          - text: Server parameters
+            url: reference-parameters.md
+          - text: System tables
+            url: reference-metadata.md
+
+  # Card
   - title: Scale
     linkLists:
       - linkListType: concept
@@ -112,17 +126,3 @@ landingContent:
             url: howto-modify-distributed-tables.md
           - text: Create alerts on metrics
             url: howto-alert-on-metric.md
-
-  # Card
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Overview of functionality
-            url: reference-overview.md
-          - text: SQL API functions
-            url: reference-functions.md
-          - text: Server parameters
-            url: reference-parameters.md
-          - text: System tables
-            url: reference-metadata.md
