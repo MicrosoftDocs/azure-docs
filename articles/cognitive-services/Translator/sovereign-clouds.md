@@ -75,7 +75,7 @@ https://api.cognitive.microsofttranslator.us/
 
 **Document Translation custom endpoint**
 
-Replace the `<your-custom-domain>` parameter with your [custom domain endpoint](document-translation/get-started-with-document-translation#what-is-the-custom-domain-endpoint)
+Replace the `<your-custom-domain>` parameter with your [custom domain endpoint](document-translation/get-started-with-document-translation.md#what-is-the-custom-domain-endpoint)
 
 ```http
 https://<your-custom-domain>.cognitiveservices.azure.us/
@@ -110,7 +110,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.us/translate?api-version
 ```
 
 > [!div class="nextstepaction"]
-> [Azure Government: Translator text reference](treference/rest-api-guide.md)
+> [Azure Government: Translator text reference](reference/rest-api-guide.md)
 
 ### [Azure China 21 Vianet](#tab/china)
 
