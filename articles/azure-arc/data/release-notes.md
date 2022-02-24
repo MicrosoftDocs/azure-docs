@@ -7,7 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 02/24/2022
+ms.date: 02/25/2022
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
@@ -19,7 +19,7 @@ This article highlights capabilities, features, and enhancements recently releas
 
 ## February 2022
 
-This release is published February 24, 2022.
+This release is published February 25, 2022.
 
 ### Image tag
 
@@ -29,8 +29,16 @@ For complete release version information, see [Version log](version-log.md).
 
 ### SQL Managed Instance
 
-- Backup recovery support for multiple replica contained availability group.
+- Support for readable secondary replicas:
+    - To set readable secondary replicas use `--readable-secondaries` when you create or update an Arc-enabled SQL Managed Instance deployment. 
+    - `--readable-secondaries` only applies Business Critical tier. 
+    - Set `--readable secondaries` to any value between 0 and the number of replicas minus 1.
 - Billing support when using multiple read replicas.
+- RWX capable storage class is required for backups, for both General Purpose and Business Critical service tiers.
+- Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
+
+> [!NOTE]
+> Business Critical service tier is available for preview.
 
 ### Azure Data Studio improvements
 
