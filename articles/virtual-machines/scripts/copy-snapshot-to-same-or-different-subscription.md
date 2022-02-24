@@ -34,7 +34,15 @@ This script copies a snapshot of a managed disk to same or different subscriptio
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.sh" range 3-36":::
+
+## Clean up resources
+
+Run the following command to remove the resource group, VM, and all related resources.
+
+```azurecli-interactive
+az group delete --name mySourceResourceGroupName
+```
 
 ## Sample reference
 

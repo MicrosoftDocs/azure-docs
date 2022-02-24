@@ -37,9 +37,9 @@ This script creates a virtual machine by attaching an existing managed disk as O
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-vm-attach-existing-managed-os-disk/create-vm-attach-existing-managed-os-disk.sh":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-vm-attach-existing-managed-os-disk/create-vm-attach-existing-managed-os-disk.sh" range 3-26":::
 
-## Clean up deployment
+## Clean up resources
 
 Run the following command to remove the resource group, VM, and all related resources.
 

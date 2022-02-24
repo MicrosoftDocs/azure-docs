@@ -27,7 +27,15 @@ This script copies a managed disk to same or different subscription but in the s
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh" range 3-32":::
+
+## Clean up resources
+
+Run the following command to remove the resource group, VM, and all related resources.
+
+```azurecli-interactive
+az group delete --name sourceResourceGroupName
+```
 
 ## Sample reference
 

@@ -33,9 +33,9 @@ This script creates a virtual machine from a snapshot of an OS disk.
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh":::
+:::code language="azurecli" source="~/azure_cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh" range 3-39":::
 
-## Clean up deployment
+## Clean up resources
 
 Run the following command to remove the resource group, VM, and all related resources.
 
