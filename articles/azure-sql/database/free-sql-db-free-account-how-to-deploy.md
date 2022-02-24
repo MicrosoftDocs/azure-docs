@@ -131,16 +131,11 @@ To track usage, follow these steps:
 
     :::image type="content" source="media/free-sql-db-free-account-how-to-deploy/free-services-tracking.png" alt-text="Screenshot that shows the View and track usage information blade on Azure Portal for all free services.":::
 
+The values on the page are: 
 
-The following table describes the values found on the track usage page: 
-
-| **Category** | **Description**| 
-| ----     | ---------- | 
-| **Meter**    | Identifies the unit of measure for the service being consumed.| 
-|**SQL Database, Single Standard, S0 DTUs**| The meter for Azure SQL Database that tracks the number of S0 databases used per day </br> Monthly limit: 1| 
-| **Usage/Limit** | The usage of the meter for the current month, and the limit for the meter. | 
-| **Status** | The current status of your usage of the service defined by the meter. 
-|  |  | 
+- **Meter**: Identifies the unit of measure for the service being consumed. For example, the meter for Azure SQL Database is *SQL Database, Single Standard, S0 DTUs*, which tracks the number of S0 databases used per day, and has a monthly limit of 1. 
+- **Usage/limit**: The usage of the meter for the current month, and the limit for the meter.
+- **Status**: The current status of your usage of the service defined by the meter. 
 
 The following table describes the possible values for **Status**: 
 
