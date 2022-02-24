@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/03/2021
 ms.author: ryanwi
-ms.reviewer: paulgarn, hirsin
+ms.reviewer: paulgarn, ludwignick
 ms.custom: aaddev
 ---
 

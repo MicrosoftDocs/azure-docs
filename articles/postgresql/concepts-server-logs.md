@@ -54,7 +54,7 @@ Azure Database for PostgreSQL is integrated with Azure Monitor diagnostic settin
 
 ### Configure diagnostic settings
 
-You can enable diagnostic settings for your Postgres server using the Azure portal, CLI, REST API, and Powershell. The log category to select is **PostgreSQLLogs**. (There are other logs you can configure if you are using [Query Store](concepts-query-store.md).)
+You can enable diagnostic settings for your Postgres server using the Azure portal, CLI, REST API, and PowerShell. The log category to select is **PostgreSQLLogs**. (There are other logs you can configure if you are using [Query Store](concepts-query-store.md).)
 
 To enable resource logs using the Azure portal:
 
@@ -65,7 +65,7 @@ To enable resource logs using the Azure portal:
    5. Select the log type **PostgreSQLLogs**.
    7. Save your setting.
 
-To enable resource logs using Powershell, CLI, or REST API, visit the [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) article.
+To enable resource logs using PowerShell, CLI, or REST API, visit the [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) article.
 
 ### Access resource logs
 

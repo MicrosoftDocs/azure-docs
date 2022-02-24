@@ -31,13 +31,12 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 This scenario looks at the classic legacy application using HTTP authorization headers to control access to protected content.
 
-Being legacy, the application lacks any form of modern protocols to support a direct integration with Azure AD. Modernizing the app is also costly, requires careful planning, and introduces risk of potential downtime. 
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. 
 
-One option would be to consider [Azure AD Application Proxy](../app-proxy/application-proxy.md), to gate remote access to the application.
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and headers-based SSO, significantly improving the overall security posture of the application.
 
-Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC), as it too provides the protocol transitioning required to bridge legacy applications to the modern ID control plane.
-
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for both remote and local access.
+> [!NOTE] 
+> Organizations can also gain remote access to this type of application with [Azure AD Application Proxy](../app-proxy/application-proxy.md)
 
 ## Scenario architecture
 
@@ -144,7 +143,7 @@ You can now access the Easy Button functionality that provides quick configurati
 
    ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
-5. Review the list of configuration steps and select Next
+5. Review the list of configuration steps and select **Next**
   
    ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
@@ -164,7 +163,7 @@ Consider the **Azure Service Account Details** be the BIG-IP client application 
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** you noted down during tenant registration
+3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** you noted when registering the Easy Button client in your tenant.
 
 4. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**
 
