@@ -31,9 +31,10 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
----
-
 ## February 2022
+ 
+
+---
  
 
 [1776632](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1776632&triage=true&fullScreen=false&_a=edit)
@@ -61,6 +62,24 @@ This change provides users who are signing into Azure Active Directory on iOS, A
  
 
 With Azure Active Directory (Azure AD) Access Reviews, you can create a downloadable review history to help your organization gain more insight. The report pulls the decisions that were taken by reviewers when a report is created. These reports can be constructed to include specific access reviews, for a specific time frame, and can be filtered to include different review types and review results.[Learn more](../governance/access-reviews-downloadable-review-history.md)
+ 
+
+---
+
+
+---
+ 
+
+[1309010](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1309010&triage=true&fullScreen=false&_a=edit)
+
+### Public Preview of Identity Protection for Workload Identities
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection  
+ 
+
+Azure AD Identity Protection is extending its core capabilities of detecting, investigating, and remediating identity-based risk to workload identities. This allows organizations to better protect their applications, service principals, and managed identities. We are also extending Conditional Access so you can block at-risk workload identities. [Learn more](../identity-protection/concept-workload-identity-risk.md)
  
 
 ---
@@ -113,7 +132,6 @@ In February 2022 we added the following 20 new applications in our App gallery w
 You can also find the documentation of all the applications from here: [https://aka.ms/AppsTutorial](https://aka.ms/AppsTutorial),
 
 For listing your application in the Azure AD app gallery, please read the details here: [https://aka.ms/AzureADAppRequest](https://aka.ms/AzureADAppRequest)
-
 
 
  
@@ -171,6 +189,8 @@ We have improved the Privileged Identity management (PIM) time to role activatio
  
 
 ---
+
+ 
  
 
 
