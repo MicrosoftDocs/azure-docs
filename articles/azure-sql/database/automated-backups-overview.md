@@ -40,7 +40,7 @@ For Azure SQL Database, backup storage redundancy can be configured at the time 
 
 
 > [!IMPORTANT]
-> Backup storage redundancy for Hyperscale databases and databases in Azure SQL Managed Instance can only be set during database creation. This setting cannot be modified once the resource is provisioned. The [database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database.
+> Backup storage redundancy for Hyperscale can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) can be used to update the backup storage redundancy settings for an existing Hyperscale database.
 
 > [!IMPORTANT]
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 

@@ -254,7 +254,7 @@ Once the **EXTERNAL-IP** address changes from *pending* to an actual public IP a
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-To see the Azure Vote app in action, open a web browser to the external IP address of you
+To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
 :::image type="content" source="media/container-service-kubernetes-walkthrough/azure-voting-application.png" alt-text="Image of browsing to Azure Vote sample application":::
 
