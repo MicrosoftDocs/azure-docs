@@ -4,7 +4,7 @@ description: Understand how to develop functions by using JavaScript.
 
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 02/24/2022
 ms.devlang: javascript
 ms.custom: devx-track-js
 ---
@@ -725,123 +725,16 @@ In version 1.x, setting `languageWorkers:node:arguments` will not work. The debu
 > [!NOTE]
 > You can only configure `languageWorkers:node:arguments` when running the function app locally.
 
-## JavaScript in VS Code
+## Testing JavaScript functions
 
-The following example describes how to create a JavaScript Function app in VS Code and run and tests with [Jest](https://jestjs.io). This procedure uses the [VS Code Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to create Azure Functions.
+Testing an Azure Function includes:
 
-![Testing Azure Functions with JavaScript in VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
+* **HTTP end-to-end**: To test an Azure Function from the HTTP endpoint, you can use any tool that can make an HTTP request such as cURL, Postman, or JavaScript's fetch method. 
+* **Integration testing**: Integration test includes the Function layer. This testing means you need to control the parameters into the function including the request and the context. The context is unique to each kind of trigger and means you need to know the incoming and outgoing bindings for that [trigger type](functions-triggers-bindings.md?tabs=python#supported-bindings). For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package is not immediately available, be sure to install it via your `requirements.txt` file as described in the [package management](#package-management) section above. 
 
-### Setup
+    Learn more about integration testing and mocking the context layer with an experimental GitHub repo, [https://github.com/anthonychu/azure-functions-test-utils](https://github.com/anthonychu/azure-functions-test-utils).
 
-To set up your environment, initialize a new Node.js app in an empty folder by running `npm init`.
-
-```bash
-npm init -y
-```
-
-Next, install Jest by running the following command:
-
-```bash
-npm i jest
-```
-
-Now update _package.json_ to replace the existing test command with the following command:
-
-```bash
-"scripts": {
-    "test": "jest"
-}
-```
-
-### Create test modules
-
-With the project initialized, you can create the modules used to run the automated tests. Begin by creating a new folder named *testing* to hold the support modules.
-
-In the *testing* folder add a new file, name it **defaultContext.js**, and add the following code:
-
-```javascript
-module.exports = {
-    log: jest.fn()
-};
-```
-
-This module mocks the *log* function to represent the default execution context.
-
-Next, add a new file, name it **defaultTimer.js**, and add the following code:
-
-```javascript
-module.exports = {
-    IsPastDue: false
-};
-```
-
-This module implements the `IsPastDue` property to stand is as a fake timer instance. Timer configurations like NCRONTAB expressions are not required here as the test harness is simply calling the function directly to test the outcome.
-
-Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](/azure/developer/javascript/tutorial-vscode-serverless-node-01) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
-
-```javascript
-const httpFunction = require('./index');
-const context = require('../testing/defaultContext')
-
-test('Http trigger should return known text', async () => {
-
-    const request = {
-        query: { name: 'Bill' }
-    };
-
-    await httpFunction(context, request);
-
-    expect(context.log.mock.calls.length).toBe(1);
-    expect(context.res.body).toEqual('Hello Bill');
-});
-```
-
-The HTTP function from the template returns a string of "Hello" concatenated with the name provided in the query string. This test creates a fake instance of a request and passes it to the HTTP function. The test checks that the *log* method is called once and the returned text equals "Hello Bill".
-
-Next, use the VS Code Functions extension to create a new JavaScript Timer Function and name it *TimerTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
-
-```javascript
-const timerFunction = require('./index');
-const context = require('../testing/defaultContext');
-const timer = require('../testing/defaultTimer');
-
-test('Timer trigger should log message', () => {
-    timerFunction(context, timer);
-    expect(context.log.mock.calls.length).toBe(1);
-});
-```
-
-The timer function from the template logs a message at the end of the body of the function. This test ensures the *log* function is called once.
-
-### Run tests
-
-To run the tests, press **CTRL + ~** to open the command window, and run `npm test`:
-
-```bash
-npm test
-```
-
-![Testing Azure Functions with JavaScript in VS Code](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
-
-### Debug tests
-
-To debug your tests, add the following configuration to your *launch.json* file:
-
-```json
-{
-  "type": "node",
-  "request": "launch",
-  "name": "Jest Tests",
-  "disableOptimisticBPs": true,
-  "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
-  "args": [
-      "-i"
-  ],
-  "internalConsoleOptions": "openOnSessionStart"
-}
-```
-
-Next, set a breakpoint in your test and press **F5**.
+* **Unit testing**: Unit testing is within the Function app. You can use any tool that can test JavaScript such as Jest or Mocha. 
 
 ## TypeScript
 
