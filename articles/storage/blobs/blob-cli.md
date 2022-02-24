@@ -423,12 +423,12 @@ containerName="demo-container"
 
 while read line
 do
- #echo $line
- 
+  
 #Set Tag values 
 if echo "$line" | grep -q "<Venue";then
     name=`echo "$line" | cut -d'"' -f 2`
     type=`echo "$line" | cut -d'"' -f 4`
+    tags="name=\"$name\" type=$type"
 fi
 
 #Add tags to blobs
@@ -438,9 +438,9 @@ if echo "$line" | grep -q "<File ";then
     az storage blob tag set \
         --container-name $containerName \
         --name $blobName \
-        --accountName shaasstorageaccount \
+        --account-name $storageAccount \
         --auth-mode login \
-        --tags name=\"$name\" type=$type"
+        --tags $tags
 fi
 
 done < /mnt/c/temp/bloblist.xml
