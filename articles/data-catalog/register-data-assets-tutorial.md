@@ -178,7 +178,7 @@ With comparison operators, you can use comparisons other than equality for prope
 
 1. Confirm that you see the **Product**, **ProductCategory**, and **ProductDescription** tables and the SQL database you registered in search results.
 
-   :::image type="content" source="media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png" alt-text="In the search bar `last Registered Time : > "06/09/2016"` has been entered. The tables Product, Product Category, Product Description have been returned. The S Q L database has also been returned.":::
+   :::image type="content" source="media/register-data-assets-tutorial/data-catalog-comparison-operator-results.png" alt-text="In the search bar last Registered Time : > 06/09/2016 has been entered. The tables Product, Product Category, Product Description have been returned. The S Q L database has also been returned.":::
 
 See [How to discover data assets](data-catalog-how-to-discover.md) for detailed information about discovering data assets. For more information on search syntax, see [Data Catalog Search syntax reference](/rest/api/datacatalog/#search-syntax-reference).
 
