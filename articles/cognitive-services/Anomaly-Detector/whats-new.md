@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 06/23/2021
+ms.date: 01/16/2022
 ---
 
 # What's new in Anomaly Detector
@@ -14,6 +14,11 @@ Learn what's new in the service. These items include release notes, videos, blog
 We've also added links to some user-generated content. Those items will be marked with **[UGC]** tag. Some of them are hosted on websites that are external to Microsoft and Microsoft is not responsible for the content there. Use discretion when you refer to these resources. Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.
 
 ## Release notes
+
+### January 2022
+* **Multivariate Anomaly Detector API v1.1-preview.1 public preview on 1/18.** In this version, Multivariate Anomaly Detector supports synchronous API for inference and added new fields in API output interpreting the correlation change of variables. 
+* Univariate Anomaly Detector added new fields in API output. 
+
 
 ### November 2021
 * Multivariate Anomaly Detector available in six more regions: UAE North, France Central, North Central US, Switzerland North, South Africa North, Jio India West. Now in total 26 regions are supported.

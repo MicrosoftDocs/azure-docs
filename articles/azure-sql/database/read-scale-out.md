@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
-ms.date: 11/5/2021
+ms.date: 1/20/2022
 ---
 # Use read-only replicas to offload read-only query workloads
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -39,7 +39,7 @@ If you wish to ensure that the application connects to the primary replica regar
 
 ## Data consistency
 
-Data changes made on the primary replica propagate to read-only replicas asynchronously. Within a session connected to a read-only replica, reads are always transactionally consistent. However, because data propagation latency is variable, different replicas can return data at slightly different points in time relative to the primary and each other. If a read-only replica becomes unavailable and the session reconnects, it may connect to a replica that is at a different point in time than the original replica. Likewise, if an application changes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest changes are not immediately visible on the read-only replica.
+Data changes made on the primary replica are persisted on read-only replicas synchronously or asynchronously depending on replica type. However, for all replica types, reads from a read-only replica are always asynchronous with respect to the primary. Within a session connected to a read-only replica, reads are always transactionally consistent. Because data propagation latency is variable, different replicas can return data at slightly different points in time relative to the primary and each other. If a read-only replica becomes unavailable and a session reconnects, it may connect to a replica that is at a different point in time than the original replica. Likewise, if an application changes data using a read-write session on the primary and immediately reads it using a read-only session on a read-only replica, it is possible that the latest changes will not be immediately visible.
 
 Typical data propagation latency between the primary replica and read-only replicas varies in the range from tens of milliseconds to single-digit seconds. However, there is no fixed upper bound on data propagation latency. Conditions such as high resource utilization on the replica can increase latency substantially. Applications that require guaranteed data consistency across sessions, or require committed data to be readable immediately should use the primary replica.
 

@@ -53,6 +53,12 @@ The following chart shows how requests are handled locally.
 
 - **Responses** from all services are returned to the browser as if they were all a single application.
 
+The following article details the steps for running a node-based application, but the process is the same for any language or environment. Once you start the UI and the Azure Functions API apps independently, then start the Static Web Apps CLI and point it to the running apps using the following command:
+
+```console
+swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071
+```
+
 ## Prerequisites
 
 - **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter app.
@@ -157,7 +163,7 @@ For more information on different debugging scenarios, with guidance on how to c
 
 ### Sample debugging configuration
 
-Visual Studio Code uses a file to enable debugging sessions in the editor. If Visual Studio Code doesn't generate a *launch.json* file for you, you can place the the following configuration in *.vscode/launch.json*.
+Visual Studio Code uses a file to enable debugging sessions in the editor. If Visual Studio Code doesn't generate a *launch.json* file for you, you can place the following configuration in *.vscode/launch.json*.
 
 ```json
 {

@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 11/02/2021
+ms.date: 01/26/2022
 ms.author: duau
 ---
 
@@ -41,7 +41,7 @@ No. Azure Route Server only exchanges BGP routes with your NVA and then propagat
 
 ### Why does Azure Route Server require a public IP address?
 
-Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, as such a public IP address is required. 
+Azure Router Server needs to ensure connectivity to the backend service that manages the Route Server configuration, as such a public IP address is required. This public IP address doesn't constitute a security exposure of your virtual network.
 
 ### Does Azure Route Server support IPv6?
 

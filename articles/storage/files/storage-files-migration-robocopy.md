@@ -33,7 +33,7 @@ RoboCopy, as a trusted, Windows-based copy tool, has the home-turf advantage whe
 
 AzCopy, on the other hand, has only recently expanded to support file copy with some fidelity and added the first features needed to be considered as a migration tool. However, there are still gaps and there can easily be misunderstandings of functionality when comparing AzCopy flags to RoboCopy flags.
 
-An example: *RoboCopy /MIR* will mirror source to target - that means added, changed, and deleted files are considered. An important difference to *AzCopy -sync* is that deleted files on the source will not be removed on the target. That makes for an incomplete differential-copy feature set. AzCopy will continue to evolve. At this time AzCopy is not a recommended tool for migration scenarios with Azure file shares as the target. 
+An example: *RoboCopy /MIR* will mirror source to target - that means added, changed, and deleted files are considered. An important difference in using *AzCopy -sync* is that deleted files on the source are not removed on the target. That makes for an incomplete differential-copy feature set. AzCopy will continue to evolve. At this time, AzCopy is not a recommended tool for migration scenarios with Azure file shares as the target. 
 
 ## Migration goals
 

@@ -114,11 +114,11 @@ You can manage your service principals with Azure CLI using the [az ad sp](/cli/
 1. Create a new service principal.
 
      ```azurecli-interactive
-     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret"
+     az ad sp create-for-rbac --name "ServicePrincipalName" --password "My-AAD-client-secret" --role Contributor
      ```
 3.  The appId returned is the Azure AD ClientID used in other commands. It's also the SPN you'll use for az keyvault set-policy. The password is the client secret that you should use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately.
 
-### Set up an Azure AD app and service principal though the Azure portal
+### Set up an Azure AD app and service principal through the Azure portal
 Use the steps from the [Use portal to create an Azure Active Directory application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md) article to create an Azure AD application. Each step listed below will take you directly to the article section to complete.
 
 1. [Verify required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)

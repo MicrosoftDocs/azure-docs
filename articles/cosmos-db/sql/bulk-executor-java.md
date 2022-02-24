@@ -17,10 +17,9 @@ ms.custom: devx-track-java
 
 This tutorial provides instructions on using the Azure Cosmos DB's bulk executor Java library to import, and update Azure Cosmos DB documents. To learn about bulk executor library and how it helps you use massive throughput and storage, see [bulk executor Library overview](../bulk-executor-overview.md) article. In this tutorial, you build a Java application that generates random documents and they are bulk imported into an Azure Cosmos container. After importing, you will bulk update some properties of a document.
 
-> [!NOTE]
-> The [Azure Cosmos DB Java V4 SDK](sql-api-sdk-java-v4.md) comes with the bulk executor library built-in to the SDK. If you are using an older version of Java SDK, it's recommended to [migrate to the latest version](migrate-java-v4-sdk.md).
-
-Currently, the bulk executor library is supported only by Azure Cosmos DB SQL API and Gremlin API accounts. This article describes how to use bulk executor Java library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](../graph/bulk-executor-graph-dotnet.md). The bulk executor library described is available is only available for the [Azure Cosmos DB Java sync SDK v2](sql-api-sdk-java.md) and it is the current recommended solution for Java bulk support. It is currently not available for the 3.x, 4.x or other higher SDK versions.
+> [!IMPORTANT]
+> The [Azure Cosmos DB Java V4 SDK](sql-api-sdk-java-v4.md) comes with the bulk executor library built-in to the SDK. If you are using an older version of Java SDK, it's recommended to [migrate to the latest version](migrate-java-v4-sdk.md). Azure Cosmos DB Java V4 SDK is the current recommended solution for Java bulk support. Currently, the bulk executor library is supported only by Azure Cosmos DB SQL API and Gremlin API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](../graph/bulk-executor-graph-dotnet.md).
+>
 
 ## Prerequisites
 

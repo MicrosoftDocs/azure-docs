@@ -1,5 +1,5 @@
 ---
-title: vCore purchase model
+title: vCore purchasing model
 description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price for Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -8,39 +8,49 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: kendralittle, sashan, moslake, mathoma
-ms.date: 09/10/2021
+ms.date: 02/02/2022
 ms.custom: references_regions, ignite-fall-2021
 ---
-# vCore purchase model overview - Azure SQL Database 
+# vCore purchasing model - Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article reviews the vCore purchase model for [Azure SQL Database](sql-database-paas-overview.md). For more information on choosing between the vCore and DTU purchase models, see [Choose between the vCore and DTU purchasing models](purchasing-models.md).
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](service-tiers-sql-database-vcore.md)
+> * [Azure SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md)
 
-The virtual core (vCore) purchase model used by Azure SQL Database provides several benefits over the DTU purchase model:
+This article reviews the [vCore purchasing model](service-tiers-vcore.md) for [Azure SQL Database](sql-database-paas-overview.md). For help choosing between the vCore and DTU purchasing models, see the [differences between the vCore and DTU purchasing models](purchasing-models.md).
+
+## Overview
+
+[!INCLUDE [vcore-overview](../includes/vcore-overview.md)]
+
+The vCore purchasing model used by Azure SQL Database provides several benefits over the DTU purchasing model:
 
 - Higher compute, memory, I/O, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](../azure-hybrid-benefit.md).
 - Greater transparency in the hardware details that power the compute, that facilitates planning for migrations from on-premises deployments.
-- [Reserved instance pricing](reserved-capacity-overview.md) is only available for vCore purchase model. 
+- [Reserved instance pricing](reserved-capacity-overview.md) is only available for vCore purchasing model. 
+- Higher scaling granularity with multiple compute sizes available.
+
 
 ## Service tiers
 
-Service tier options in the vCore purchase model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and I/O limits, and business continuity options related to availability and disaster recovery.
+Service tier options in the vCore purchasing model include General Purpose, Business Critical, and Hyperscale. The service tier generally service tier defines hardware, storage type and IOPS, high availability and disaster recovery options, and other features like memory-optimized object types.
+
+For greater details, review resource limits for [logical server](resource-limits-logical-server.md), [single databases](resource-limits-vcore-single-databases.md), and [pooled databases](resource-limits-vcore-elastic-pools.md). 
 
 |**Use case**|**General Purpose**|**Business Critical**|**Hyperscale**|
 |---|---|---|---|
-|Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
-|Storage|Uses remote storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB|Uses local SSD storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB|Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
-|IOPS and throughput (approximate)|**SQL Database**: See resource limits for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).|See resource limits for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS and throughput will depend on the workload.|
-|Availability|1 replica, no read-scale replicas, <br/>zone-redundant high availability (HA) (preview)|3 replicas, 1 [read-scale replica](read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](read-scale-out.md)|
-|Backups|A choice of geo-redundant, zone-redundant\*, or locally-redundant\* backup storage, 1-35 day retention (default 7 days)|A choice of geo-redundant, zone-redundant\*, or locally-redundant\* backup storage, 1-35 day retention (default 7 days)|A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 7 day retention.<p>Snapshot-based backups in Azure remote storage. Restores use snapshots for fast recovery. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours).|
-|In-memory|Not supported|Supported|Partial support. Memory-optimized table types, table variables, and natively compiled modules are supported.|
-|||
+|**Best for**|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
+|**Availability**|1 replica, no read-scale replicas, <br/>zone-redundant high availability (HA) (preview)|3 replicas, 1 [read-scale replica](read-scale-out.md),<br/>zone-redundant high availability (HA)|
+|**Pricing/billing**  | [vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged. |[vCore, reserved storage, and backup storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS is not charged. |  [vCore for each replica and used storage](https://azure.microsoft.com/pricing/details/sql-database/single/) are charged. <br/>IOPS not yet charged. |
+|**Discount models**| [Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions  | [Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|
+| | |
 
-\* In preview
 
-\*\* In preview, for new Hyperscale databases only
+> [!NOTE]
+> For more information on the Service Level Agreement (SLA), see [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) 
 
 ### Choosing a service tier
 
@@ -50,21 +60,16 @@ For information on selecting a service tier for your particular workload, see th
 - [When to choose the Business Critical service tier](service-tier-business-critical.md#when-to-choose-this-service-tier)
 - [When to choose the Hyperscale service tier](service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
+## Resource limits
+
+For vCore resource limits, see [logical servers](resource-limits-logical-server.md), [single databases](resource-limits-vcore-single-databases.md), [pooled databases](resource-limits-vcore-elastic-pools.md). 
 
 ## Compute tiers
 
-Compute tier options in the vCore model include the provisioned and serverless compute tiers.
+Compute tier options in the vCore model include the provisioned and [serverless](serverless-tier-overview.md) compute tiers.
 
-
-### Provisioned compute
-
-The provisioned compute tier provides a specific amount of compute resources that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour.
-
-
-### Serverless compute
-
-The [serverless compute tier](serverless-tier-overview.md) auto-scales compute resources based on workload activity, and bills for the amount of compute used per second.
-
+- While the **provisioned compute tier** provides a specific amount of compute resources that are continuously provisioned independent of workload activity, the **serverless compute tier** auto-scales compute resources based on workload activity. 
+- While the **provisioned compute tier** bills for the amount of compute provisioned at a fixed price per hour, the **serverless compute tier** bills for the amount of compute used, per second.
 
 
 ## Hardware generations
@@ -113,20 +118,6 @@ DC-series is only supported for the Provisioned compute (Serverless is not suppo
 
 To access DC-series, the subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  For a complete list of Azure offer types supported by DC-series, see [current offers without spending limits](https://azure.microsoft.com/support/legal/offer-details).
 
-### Compute and memory specifications
-
-
-|Hardware generation  |Compute  |Memory  |
-|:---------|:---------|:---------|
-|Gen4     |- Intel&reg; E5-2673 v3 (Haswell) 2.4-GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
-|Gen5     |**Provisioned compute**<br>- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz, Intel&reg; SP-8160 (Skylake)\*, and Intel&reg; 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz and Intel&reg; SP-8160 (Skylake)* processors<br>- Auto-scale up to 40 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 120 GB max|
-|Fsv2-series     |- Intel&reg; 8168 (Skylake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision up to 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision up to 136 GB|
-|M-series     |- Intel&reg; E7-8890 v3 2.5 GHz and Intel&reg; 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision up to 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision up to 3.7 TB|
-|DC-series     | - Intel XEON E-2288G processors<br>- Featuring Intel Software Guard Extension (Intel SGX))<br>- Provision up to 8 vCores (1 vCore = 1 physical core) | 4.5 GB per vCore |
-
-\* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, while hardware generation for databases using Intel&reg; 8272CL (Cascade Lake) appears as Gen7. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
-
-For more information on resource limits, see [Resource limits for single databases (vCore)](resource-limits-vcore-single-databases.md), or [Resource limits for elastic pools (vCore)](resource-limits-vcore-elastic-pools.md).
 
 ### Selecting a hardware generation
 
@@ -211,6 +202,23 @@ If you need DC-series in a currently unsupported region, [submit a support ticke
 1. For **Problem subtype**, select **Always Encrypted**.
 
 :::image type="content" source="./media/service-tiers-vcore/request-dc-series.png" alt-text="Request DC-series in a new region" loc-scope="azure-portal":::
+
+## Compute and memory 
+
+The following table compares compute and memory between the different generations and compute tiers: 
+
+|Hardware generation  |Compute  |Memory  |
+|:---------|:---------|:---------|
+|Gen4     |- Intel&reg; E5-2673 v3 (Haswell) 2.4-GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
+|Gen5     |**Provisioned compute**<br>- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz, Intel&reg; SP-8160 (Skylake)\*, and Intel&reg; 8272CL (Cascade Lake) 2.5 GHz\* processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel&reg; E5-2673 v4 (Broadwell) 2.3-GHz and Intel&reg; SP-8160 (Skylake)* processors<br>- Auto-scale up to 40 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 120 GB max|
+|Fsv2-series     |- Intel&reg; 8168 (Skylake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision up to 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision up to 136 GB|
+|M-series     |- Intel&reg; E7-8890 v3 2.5 GHz and Intel&reg; 8280M 2.7 GHz (Cascade Lake) processors<br>- Provision up to 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision up to 3.7 TB|
+|DC-series     | - Intel XEON E-2288G processors<br>- Featuring Intel Software Guard Extension (Intel SGX))<br>- Provision up to 8 vCores (1 vCore = 1 physical core) | 4.5 GB per vCore |
+
+\* In the [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) dynamic management view, hardware generation for databases using Intel&reg; SP-8160 (Skylake) processors appears as Gen6, hardware generation for databases using Intel&reg; 8272CL (Cascade Lake) appears as Gen7 and hardware generation for databases using Intel Xeon&reg; Platinum 8307C (Ice Lake) appear as Gen8. Resource limits for all Gen5 databases are the same regardless of processor type (Broadwell, Skylake, or Cascade Lake).
+
+For more information on vCore resource limits, review [single databases](resource-limits-vcore-single-databases.md), or [pooled databases](resource-limits-vcore-elastic-pools.md).
+
 
 ## Next steps
 

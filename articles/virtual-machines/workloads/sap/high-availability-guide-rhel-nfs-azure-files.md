@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/22/2021
+ms.date: 01/24/2022
 ms.author: radeltch
 
 ---
@@ -440,7 +440,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
       --group g-NW1_ASCS
    
     sudo pcs resource create vip_NW1_ASCS IPaddr2 \
-      ip=10.90.90.10 cidr_netmask=24 \
+      ip=10.90.90.10 \
       --group g-NW1_ASCS
    
     sudo pcs resource create nc_NW1_ASCS azure-lb port=62000 \
@@ -496,7 +496,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      --group g-NW1_AERS
    
     sudo pcs resource create vip_NW1_AERS IPaddr2 \
-      ip=10.90.90.9 cidr_netmask=24 \
+      ip=10.90.90.9 \
      --group g-NW1_AERS
    
     sudo pcs resource create nc_NW1_AERS azure-lb port=62101 \

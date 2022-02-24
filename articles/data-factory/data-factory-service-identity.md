@@ -6,7 +6,7 @@ author: nabhishek
 ms.service: data-factory
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 01/27/2022
 ms.author: abnarain 
 ms.custom: devx-track-azurepowershell, synapse
 ---
@@ -30,9 +30,9 @@ There are two types of supported managed identities:
 
 Managed identity provides the below benefits:
 
-- [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case managed identity is used for Azure Key Vault authentication.
+- [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case-managed identity is used for Azure Key Vault authentication.
 - Access data stores or computes using managed identity authentication, including Azure Blob storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks activity, Web activity, and more. Check the connector and activity articles for details.
-- Managed identity is also used to encrypt/decrypt data and metadata using the customer managed key stored in Azure Key Vault, providing double encryption. 
+- Managed identity is also used to encrypt/decrypt data and metadata using the customer-managed key stored in Azure Key Vault, providing double encryption. 
 
 ## System-assigned managed identity 
 
@@ -286,7 +286,18 @@ You can retrieve the managed identity from Azure portal or programmatically. The
 
 #### Retrieve system-assigned managed identity using Azure portal
 
+# [Azure Data Factory](#tab/data-factory)
 You can find the managed identity information from Azure portal -> your data factory or Synapse workspace -> Properties.
+
+:::image type="content" source="media/data-factory-service-identity/system-managed-identity-in-portal.png" alt-text="Shows the Azure portal with the system-managed identity object ID and Identity Tenant for an Azure Data Factory." lightbox="media/data-factory-service-identity/system-managed-identity-in-portal.png":::
+
+# [Synapse Analytics](#tab/synapse-analytics)
+
+You can find the managed identity information from Azure portal -> your data factory or Synapse workspace -> Properties.
+
+:::image type="content" source="media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png" alt-text="Shows the Azure portal with the system-managed identity object ID for a Synapse workspace."  lightbox="media/data-factory-service-identity/system-managed-identity-in-portal-synapse.png":::
+
+---
 
 - Managed Identity Object ID
 - Managed Identity Tenant (only applicable for Azure Data Factory)
@@ -354,7 +365,7 @@ Call below API in the request:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Response**: You will get response like shown in below example. The "identity" section is populated accordingly.
+**Response**: You’ll get response like shown in below example. The "identity" section is populated accordingly.
 
 ```json
 {

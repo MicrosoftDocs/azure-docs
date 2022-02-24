@@ -19,11 +19,13 @@ Azure Static Web Apps provides a streamlined authentication experience. By defau
 - Users are assigned custom roles using the built-in [invitations](#invitations) system.
 - Users can be programmatically assigned custom roles at login by an API function.
 - All authentication providers are enabled by default.
-  - To restrict an authentication provider, [block access](#block-an-authorization-provider) with a custom route rule.
+  - To restrict an authentication provider, [block access](#block-an-authentication-provider) with a custom route rule. Configuring a custom provider also disables pre-configured providers.
 - Pre-configured providers include:
-  - Azure Active Directory
+  - Azure Active Directory<sup>1</sup>
   - GitHub
   - Twitter
+
+<sup>1</sup> The preconfigured Azure Active Directory provider allows any Microsoft Account to sign in. To restrict login to a specific Active Directory tenant, configure a [custom Azure Active Directory provider](authentication-custom.md?tabs=aad).
 
 The subjects of authentication and authorization significantly overlap with routing concepts, which are detailed in the [application configuration guide](configuration.md#routes).
 
@@ -89,11 +91,11 @@ You can use a [route rule](./configuration.md#routes) to map a friendly route li
 
 If you want a user to return to a specific page after logout, provide a URL in `post_logout_redirect_uri` query string parameter.
 
-## Block an authorization provider
+## Block an authentication provider
 
-You may want to restrict your app from using an authorization provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
+You may want to restrict your app from using an authentication provider. For instance, your app may want to standardize only on [providers that expose email addresses](#provider-user-details).
 
-To block a provider, you can create [route rules](configuration.md#routes) to return a 404 for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
+To block a provider, you can create [route rules](configuration.md#routes) to return a 404 status code for requests to the blocked provider-specific route. For example, to restrict Twitter as provider, add the following route rule.
 
 ```json
 {
@@ -214,7 +216,7 @@ To configure Static Web Apps to use an API function as the role assignment funct
 
 After defining the `rolesSource` property in your app's configuration, add an [API function](apis.md) in your static web app at the path you specified. You can use a managed function app or a bring your own function app.
 
-Each time a user successfully authenticates with an identity provider, the specified function is called. The function is passed a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
+Each time a user successfully authenticates with an identity provider, the specified function is called via the POST method. The function is passed a JSON object in the request body that contains the user's information from the provider. For some identity providers, the user information also includes an `accessToken` that the function can use to make API calls using the user's identity.
 
 This is an example payload from Azure Active Directory:
 
@@ -312,5 +314,3 @@ See the [Quotas article](quotas.md) for general restrictions and limitations.
 
 > [!div class="nextstepaction"]
 > [Access user authentication and authorization data](user-information.md)
-
-<sup>1</sup> Pending external certification.

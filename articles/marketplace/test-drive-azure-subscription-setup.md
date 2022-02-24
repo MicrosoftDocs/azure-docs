@@ -95,7 +95,7 @@ This article explains how to set up an Azure Marketplace subscription and **Dyna
 
          :::image type="content" source="./media/test-drive/sign-in-to-account.png" alt-text="Signing in to your account.":::
 
-6. Create a new Security Group and add it to Canvas App (Power Apps). This step is only applicable to Dynamics 365 for Customer Engagement & PowerApps offers with the Canvas Apps option.
+6. Create a new Security Group and add it to Canvas App (Power Apps). This step is only applicable to Dynamics 365 for Customer Engagement & Power Apps offers with the Canvas Apps option.
     1. Create a new Security Group.
         1. Go to **Azure Active Directory**.
         1. Under **Manage**, select **Groups**.

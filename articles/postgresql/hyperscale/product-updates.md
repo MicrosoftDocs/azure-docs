@@ -35,14 +35,6 @@ Here are the features currently available for preview:
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
-* **[Private access](concepts-private-access.md)**.
-  Allow hosts on a virtual network (VNet) to securely access a
-  Hyperscale (Citus) server group over a private endpoint.
-
-> [!NOTE]
->
-> Private access is available for preview in only [certain
-> regions](concepts-limits.md#regions).
 
 ## Contact us
 
@@ -50,4 +42,4 @@ Let us know about your experience using preview features, by emailing [Ask
 Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com).
 (This email address isn't a technical support channel. For technical problems,
 open a [support
-request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).)
+request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).)

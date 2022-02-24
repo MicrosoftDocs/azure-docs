@@ -34,16 +34,18 @@
     href: standard-premium/overview.md
   - name: Caching
     href: front-door-caching.md
+  - name: Traffic acceleration
+    href: front-door-traffic-acceleration.md?pivots=front-door-classic
   - name: Routing
     items:
     - name: Routing architecture
-      href: front-door-routing-architecture.md
+      href: front-door-routing-architecture.md?pivots=front-door-classic
     - name: Route matching
       href: front-door-route-matching.md
+    - name: Backend selection
+      href: front-door-routing-methods.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
-  - name: Load balancing method
-    href: front-door-routing-methods.md
   - name: Health probes
     href: front-door-health-probes.md
   - name: Wildcard domain
@@ -52,9 +54,9 @@
     items:  
     - name: Rules Engine architecture
       href: front-door-rules-engine.md
-    - name: Rules Match Conditions
+    - name: Rules match conditions
       href: rules-match-conditions.md
-    - name: Rules Actions
+    - name: Rules actions
       href: front-door-rules-engine-actions.md
   - name: URL rewrite
     href: front-door-url-rewrite.md

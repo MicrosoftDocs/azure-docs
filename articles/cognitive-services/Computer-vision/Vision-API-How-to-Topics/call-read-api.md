@@ -8,8 +8,8 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
-ms.date: 03/31/2021
+ms.topic: how-to
+ms.date: 02/05/2022
 ms.author: pafarley
 ---
 
@@ -29,10 +29,11 @@ When using the Read operation, use the following values for the optional `model-
 
 |Value| Model used |
 |:-----|:----|
-| Not provided | latest GA model and languages |
-| latest | latest GA model and languages|
-| 2021-09-30-preview | Preview model with the additional preview languages and features. Includes any enhancements to the previous GA model.
-| 2021-04-12 | date-specific GA, presently same as latest |
+| 2022-01-30-preview | Latest preview model with additonal Hindi, Arabic and other Devanagari and Arabic script languages and enhancements to the previous preview.
+| 2021-09-30-preview | Previous preview model with addiitonal Russian and Cyrillic languages and enhancements to the GA previous model.
+| 2021-04-12 | most recent GA model |
+| Not provided | most recent GA model |
+| latest | most recent GA model|
 
 ### Input language
 

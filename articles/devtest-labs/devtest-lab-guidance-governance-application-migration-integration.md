@@ -45,18 +45,7 @@ Another factor is the frequency of changes to your software package. If you run 
 
 ## Use custom organizational images
 
-### Question
-How can I set up an easily repeatable process to bring my custom organizational images into a DevTest Labs environment?
-
-### Answer
-See [this video on Image Factory pattern](./devtest-lab-faq.yml#blog-post). This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
-
-Using DevTest Labs to create a custom image pipeline in Azure Pipelines:
-
-- [Introduction: Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs](./devtest-lab-faq.yml#blog-post)
-- [Image Factory – Part 2! Setup Azure Pipelines and Factory Lab to Create VMs](./devtest-lab-faq.yml#blog-post)
-- [Image Factory – Part 3: Save Custom Images and Distribute to Multiple Labs](./devtest-lab-faq.yml#blog-post)
-- [Video: Custom Image Factory with Azure DevTest Labs](./devtest-lab-faq.yml#blog-post)
+This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
 
 ## Patterns to set up network configuration
 

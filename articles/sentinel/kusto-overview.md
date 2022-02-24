@@ -21,7 +21,7 @@ Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azur
 - data created by Microsoft Sentinel itself, resulting from the analyses it creates and performs - for example, alerts, incidents, and UEBA-related information.
 - data uploaded to Microsoft Sentinel to assist with detection and analysis - for example, threat intelligence feeds and watchlists.
 
-[Kusto Query Language](/data-explorer/kusto/query/) was developed as part of the [Azure Data Explorer](/data-explorer/) service, and it’s therefore optimized for searching through big-data stores in a cloud environment. Inspired by famed undersea explorer Jacques Cousteau (and pronounced accordingly "koo-STOH"), it’s designed to help you dive deep into your oceans of data and explore their hidden treasures. 
+[Kusto Query Language](/azure/data-explorer/kusto/query/) was developed as part of the [Azure Data Explorer](/azure/data-explorer/) service, and it’s therefore optimized for searching through big-data stores in a cloud environment. Inspired by famed undersea explorer Jacques Cousteau (and pronounced accordingly "koo-STOH"), it’s designed to help you dive deep into your oceans of data and explore their hidden treasures. 
 
 Kusto Query Language is also used in Azure Monitor (and therefore in Microsoft Sentinel), including some additional Azure Monitor features, to retrieve, visualize, analyze, and parse data in Log Analytics data stores. In Microsoft Sentinel, you're using tools based on Kusto Query Language whenever you’re visualizing and analyzing data and hunting for threats, whether in existing rules and workbooks, or in building your own.
 
@@ -29,7 +29,7 @@ Because Kusto Query Language is a part of nearly everything you do in Microsoft 
 
 ## What is a query?
 
-A Kusto Query Language query is a read-only request to process data and return results – it doesn’t write any data. Queries operate on data that's organized into a hierarchy of [databases](/data-explorer/kusto/query/schema-entities/databases), [tables](/data-explorer/kusto/query/schema-entities/tables), and [columns](/data-explorer/kusto/query/schema-entities/columns), similar to SQL.
+A Kusto Query Language query is a read-only request to process data and return results – it doesn’t write any data. Queries operate on data that's organized into a hierarchy of [databases](/azure/data-explorer/kusto/query/schema-entities/databases), [tables](/azure/data-explorer/kusto/query/schema-entities/tables), and [columns](/azure/data-explorer/kusto/query/schema-entities/columns), similar to SQL.
 
 Requests are stated in plain language and use a data-flow model designed to make the syntax easy to read, write, and automate. We'll see this in detail.
 
