@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 02/24/2022
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL – Hyperscale (Citus)
 
