@@ -1,12 +1,12 @@
 ---
 title: Connect to your Azure Purview and scan data sources privately and securely
-description: This article describes how you can set up a private endpoint to connect to your Purview account and scan data sources from restricted network for an end to end isolation
+description: This article describes how you can set up a private endpoint to connect to your Azure Purview account and scan data sources from restricted network for an end to end isolation
 author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 01/12/2022
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account to access purview account and scan data sources from restricted network.
 ---
 
@@ -37,15 +37,15 @@ Using one of the deployment options explained further in this guide, you can dep
    - Deploy new Azure DNS zones using the steps explained further in this guide.
    - Add required DNS records to existing Azure DNS zones using the steps explained further in this guide.
    - After completing the steps in this guide, add required DNS A records in your existing DNS servers manually.
-3. Deploy a [new Purview account](#option-1---deploy-a-new-azure-purview-account-with-account-portal-and-ingestion-private-endpoints) with account, portal and ingestion private endpoints, or deploy private endpoints for an [existing Purview account](#option-2---enable-account-portal-and-ingestion-private-endpoint-on-existing-azure-purview-accounts).
+3. Deploy a [new Azure Purview account](#option-1---deploy-a-new-azure-purview-account-with-account-portal-and-ingestion-private-endpoints) with account, portal and ingestion private endpoints, or deploy private endpoints for an [existing Azure Purview account](#option-2---enable-account-portal-and-ingestion-private-endpoint-on-existing-azure-purview-accounts).
 4. [Enable access to Azure Active Directory](#enable-access-to-azure-active-directory) if your private network has network security group rules set to deny for all public internet traffic.
-5. Deploy and register [Self-hosted integration runtime](#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources) inside the same VNet where Azure Purview ingestion private endpoints are deployed.
+5. Deploy and register [Self-hosted integration runtime](#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources) inside the same VNet or a peered VNet where Azure Purview account and ingestion private endpoints are deployed.
 6. After completing this guide, adjust DNS configurations if needed.
 7. Validate your network and name resolution between management machine, self-hosted IR VM and data sources to Azure Purview. 
 
 ## Option 1 - Deploy a new Azure Purview account with _account_, _portal_ and _ingestion_ private endpoints
 
-1. Go to the [Azure portal](https://portal.azure.com), and then go to the **Purview accounts** page. Select **+ Create** to create a new Azure Purview account.
+1. Go to the [Azure portal](https://portal.azure.com), and then go to the **Azure Purview accounts** page. Select **+ Create** to create a new Azure Purview account.
 
 2. Fill in the basic information, and on the **Networking** tab, set the connectivity method to **Private endpoint**. Set enable private endpoint to **Account, Portal and ingestion**.
 
@@ -53,7 +53,7 @@ Using one of the deployment options explained further in this guide, you can dep
 
    :::image type="content" source="media/catalog-private-link/purview-pe-deploy-end-to-end.png" alt-text="Screenshot that shows create private endpoint end-to-end page selections.":::
 
-4. On the **Create a private endpoint** page, for **Purview sub-resource**, choose your location, provide a name for _account_ private endpoint and select **account**. Under **networking**, select your virtual network and subnet, and optionally, select **Integrate with private DNS zone** to create a new Azure Private DNS zone. 
+4. On the **Create a private endpoint** page, for **Azure Purview sub-resource**, choose your location, provide a name for _account_ private endpoint and select **account**. Under **networking**, select your virtual network and subnet, and optionally, select **Integrate with private DNS zone** to create a new Azure Private DNS zone. 
 
    :::image type="content" source="media/catalog-private-link/purview-pe-deploy-account.png" alt-text="Screenshot that shows create account private endpoint page.":::
 
@@ -64,7 +64,7 @@ Using one of the deployment options explained further in this guide, you can dep
    
 6. Under **Account and portal** wizard, again select **+Add** again to add _portal_ private endpoint. 
   
-7. On the **Create a private endpoint** page, for **Purview sub-resource**,choose your location, provide a name for _portal_ private endpoint and select **portal**. Under **networking**, select your virtual network and subnet, and optionally, select **Integrate with private DNS zone** to create a new Azure Private DNS zone. 
+7. On the **Create a private endpoint** page, for **Azure Purview sub-resource**,choose your location, provide a name for _portal_ private endpoint and select **portal**. Under **networking**, select your virtual network and subnet, and optionally, select **Integrate with private DNS zone** to create a new Azure Private DNS zone. 
 
    :::image type="content" source="media/catalog-private-link/purview-pe-deploy-portal.png" alt-text="Screenshot that shows create portal private endpoint page.":::
    
@@ -169,7 +169,7 @@ Once you deploy ingestion private endpoints for your Azure Purview, you need to 
 
 - All on-premises source types like Microsoft SQL Server, Oracle, SAP, and others are currently supported only via self-hosted IR-based scans. The self-hosted IR must run within your private network and then be peered with your virtual network in Azure. 
    
-- For all Azure source types like Azure Blob Storage and Azure SQL Database, you must explicitly choose to run the scan by using a self-hosted integration runtime that is deployed in the same VNet as Azure Purview account and ingestion private endpoints. 
+- For all Azure source types like Azure Blob Storage and Azure SQL Database, you must explicitly choose to run the scan by using a self-hosted integration runtime that is deployed in the same VNet or a peered VNet where Azure Purview account and ingestion private endpoints are deployed. 
 
 Follow the steps in [Create and manage a self-hosted integration runtime](manage-integration-runtimes.md) to set up a self-hosted IR. Then set up your scan on the Azure source by choosing that self-hosted IR in the **Connect via integration runtime** dropdown list to ensure network isolation.
     

@@ -4,7 +4,7 @@ description: Migrate Azure Data Lake Storage from Gen1 to Gen2, which is built o
 author: normesta
 ms.topic: how-to
 ms.author: normesta
-ms.date: 07/13/2021
+ms.date: 12/16/2021
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
@@ -54,7 +54,7 @@ To migrate to Gen2, we recommend the following approach.
 
    Take this opportunity to clean up data sets that you no longer use. Unless you plan to migrate all of your data at one time, Take this time to identify logical groups of data that you can migrate in phases.
 
-   Perform an [Ageing Analysis](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Utilities/Ageing%20Analysis) (or similar) on your Gen1 account to identify which files or folders stay in inventory for a long time or are perhaps becoming obsolete.
+   Perform an [Ageing Analysis](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Utilities/Ageing%20Analysis) (or similar) on your Gen1 account to identify which files or folders stay in inventory for a long time or are perhaps becoming obsolete.
 
 2. Determine the impact that a migration will have on your business.
 
@@ -73,6 +73,19 @@ Migrate data, workloads, and applications by using the pattern that you prefer. 
 2. Migrate your data.
 
 3. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to your Gen2 endpoint.
+
+   For HDInsight clusters, you can add storage account configuration settings to the %HADOOP_HOME%/conf/core-site.xml file. If you plan to migrate external Hive tables from Gen1 to Gen2, then make sure to add storage account settings to the %HIVE_CONF_DIR%/hive-site.xml file as well.
+
+   You can modify the settings each file by using [Apache Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md). To find storage account settings, see [Hadoop Azure Support: ABFS — Azure Data Lake Storage Gen2](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html). This example uses the `fs.azure.account.key` setting to enable Shared Key authorization:
+
+   ```xml
+   <property>
+     <name>fs.azure.account.key.abfswales1.dfs.core.windows.net</name>
+     <value>your-key-goes-here</value>
+   </property>
+   ```
+ 
+   For links to articles that help you configure HDInsight, Azure Databricks, and other Azure services to use Gen2, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
 
 4. Update applications to use Gen2 APIs. See these guides:
 
@@ -105,7 +118,7 @@ This table compares the capabilities of Gen1 to that of Gen2.
 |---|---|---|
 |Data organization|[Hierarchical namespace](data-lake-storage-namespace.md)<br>File and folder support|[Hierarchical namespace](data-lake-storage-namespace.md)<br>Container, file and folder support |
 |Geo-redundancy| [LRS](../common/storage-redundancy.md#locally-redundant-storage)| [LRS](../common/storage-redundancy.md#locally-redundant-storage), [ZRS](../common/storage-redundancy.md#zone-redundant-storage), [GRS](../common/storage-redundancy.md#geo-redundant-storage), [RA-GRS](../common/storage-redundancy.md#read-access-to-data-in-the-secondary-region) |
-|Authentication|[AAD managed identity](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Service principals](../../active-directory/develop/app-objects-and-service-principals.md)|[AAD managed identity](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Service principals](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Shared Access Key](/rest/api/storageservices/authorize-with-shared-key)|
+|Authentication|[Azure Active Directory (Azure AD) managed identity](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Service principals](../../active-directory/develop/app-objects-and-service-principals.md)|[Azure AD managed identity](../../active-directory/managed-identities-azure-resources/overview.md)<br>[Service principals](../../active-directory/develop/app-objects-and-service-principals.md)<br>[Shared Access Key](/rest/api/storageservices/authorize-with-shared-key)|
 |Authorization|Management - [Azure RBAC](../../role-based-access-control/overview.md)<br>Data - [ACLs](data-lake-storage-access-control.md)|Management - [Azure RBAC](../../role-based-access-control/overview.md)<br>Data -  [ACLs](data-lake-storage-access-control.md), [Azure RBAC](../../role-based-access-control/overview.md) |
 |Encryption - Data at rest|Server side - with [Microsoft-managed](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [customer-managed](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) keys|Server side - with [Microsoft-managed](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [customer-managed](../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) keys|
 |VNET Support|[VNET Integration](../../data-lake-store/data-lake-store-network-security.md)|[Service Endpoints](../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Private Endpoints](../common/storage-private-endpoints.md)|
@@ -140,7 +153,7 @@ This is the simplest pattern.
 
 4. Decommission Gen1.
 
-Check out our sample code for the lift and shift pattern in our [Lift and Shift migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Lift%20and%20Shift/README.md).
+Check out our sample code for the lift and shift pattern in our [Lift and Shift migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Lift%20and%20Shift).
 
 > [!div class="mx-imgBorder"]
 > ![lift and shift pattern](./media/data-lake-storage-migrate-gen1-to-gen2/lift-and-shift.png)
@@ -166,7 +179,7 @@ Check out our sample code for the lift and shift pattern in our [Lift and Shift 
 
 4. Decommission Gen1.
 
-Check out our sample code for the incremental copy pattern in our [Incremental copy migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Incremental/README.md).
+Check out our sample code for the incremental copy pattern in our [Incremental copy migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Incremental).
 
 > [!div class="mx-imgBorder"]
 > ![Incremental copy pattern](./media/data-lake-storage-migrate-gen1-to-gen2/incremental-copy.png)
@@ -189,7 +202,7 @@ Check out our sample code for the incremental copy pattern in our [Incremental c
 
 4. Stop all writes to Gen1 and then decommission Gen1.
 
-Check out our sample code for the dual pipeline pattern in our [Dual Pipeline migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
+Check out our sample code for the dual pipeline pattern in our [Dual Pipeline migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Dual%20pipeline).
 
 > [!div class="mx-imgBorder"]
 > ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
@@ -210,7 +223,7 @@ Check out our sample code for the dual pipeline pattern in our [Dual Pipeline mi
 
 4. Decommission Gen1.
 
-Check out our sample code for the bidirectional sync pattern in our [Bidirectional Sync migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Bi-directional/README.md).
+Check out our sample code for the bidirectional sync pattern in our [Bidirectional Sync migration sample](https://github.com/Azure/adlsgen1togen2migration/tree/main/3-Migrate/Bi-directional).
 
 > [!div class="mx-imgBorder"]
 > ![Bidirectional pattern](./media/data-lake-storage-migrate-gen1-to-gen2/bidirectional-sync.png)

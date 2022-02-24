@@ -1,5 +1,5 @@
 ---
-title: AI compositions in Azure Video Analyzer
+title: AI compositions 
 description: This article gives a high-level overview of Azure Video Analyzer support for three kinds of AI composition. The topic also provides scenario explanation for each kind of AI composition.
 ms.topic: conceptual
 ms.date: 11/04/2021

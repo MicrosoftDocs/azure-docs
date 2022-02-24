@@ -3,12 +3,12 @@ title: Assign Azure AD roles to users - Azure Active Directory
 description: Learn how to grant access to users in Azure Active Directory by assigning Azure AD roles.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 07/15/2021
+ms.date: 02/16/2022
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -21,7 +21,7 @@ To grant access to users in Azure Active Directory (Azure AD), you assign Azure 
 
 ## Prerequisites
 
-- Privileged Role Administrator or Global Administrator
+- Privileged Role Administrator or Global Administrator. To know who your Privileged Role Administrator or Global Administrator is, see [List Azure AD role assignments](view-assignments.md)
 - Azure AD Premium P2 license when using Privileged Identity Management (PIM)
 - AzureADPreview module when using PowerShell
 - Admin consent when using Graph explorer for Microsoft Graph API
@@ -166,11 +166,11 @@ In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6
 
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **POST** as the HTTP method from the dropdown. 
-3. Select the API version to **beta**.
-4. Use the [roleAssignments](/graph/api/rbacapplication-post-roleassignments) API to assign roles. Add following details to the URL and Request Body and select **Run query**.
+3. Select the API version to **v1.0**.
+4. Use the [Create unifiedRoleAssignment](/graph/api/rbacapplication-post-roleassignments) API to assign roles. Add following details to the URL and Request Body and select **Run query**.
 
-```HTTP
-POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+```http
+POST https://graph.microsoft.com/v1.0/roleManagement/directory/roleAssignments
 Content-type: application/json
 
 { 
@@ -188,11 +188,10 @@ In this example, a security principal with objectID `f8ca5a85-489a-49a0-b555-0a6
 1. Sign in to the [Graph Explorer](https://aka.ms/ge).
 2. Select **POST** as the HTTP method from the dropdown. 
 3. Select the API version to **beta**.
-4. Add following details to the URL and Request Body and select **Run query**.
+4. Use the [Create unifiedRoleEligibilityScheduleRequest](/graph/api/unifiedroleeligibilityschedulerequest-post-unifiedroleeligibilityschedulerequests) API to assign roles using PIM. Add following details to the URL and Request Body and select **Run query**.
 
-```HTTP
+```http
 POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests
-
 Content-type: application/json
 
 {
@@ -209,14 +208,12 @@ Content-type: application/json
         }
     }
 }
-
 ```
 
 In the following example, a security principal is assigned a permanent eligible role assignment to Billing Administrator.
 
-```HTTP
+```http
 POST https://graph.microsoft.com/beta/rolemanagement/directory/roleEligibilityScheduleRequests
-
 Content-type: application/json
 
 {
@@ -232,14 +229,12 @@ Content-type: application/json
         }
     }
 }
-
 ```
 
-To activate the role assignment, use the following API.
+To activate the role assignment, use the [Create unifiedRoleAssignmentScheduleRequest](/graph/api/unifiedroleassignmentschedulerequest-post-unifiedroleassignmentschedulerequests) API.
 
-```HTTP
+```http
 POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignmentScheduleRequests
-
 Content-type: application/json
 
 {
@@ -249,7 +244,6 @@ Content-type: application/json
     "directoryScopeId": "/",
     "principalId": "f8ca5a85-489a-49a0-b555-0a6d81e56f0d"
 }
-
 ```
 
 ## Next steps

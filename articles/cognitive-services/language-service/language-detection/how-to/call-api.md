@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.topic: sample
+ms.topic: how-to
 ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-language-detection, ignite-fall-2021
@@ -28,11 +28,7 @@ The Language Detection feature can detect a wide range of languages, variants, d
 
 ### Specify the language detection model
 
-By default, language detection will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform language detection operations.
-
-| Supported Versions | latest version |
-|--|--|
-|  `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05` | `2021-01-05`   |
+By default, language detection will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
 
 ### Input languages
 

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: uc-msft
 ms.author: umajay
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 10/18/2021
 ---
 # Getting started with JSON features in Azure SQL Database and Azure SQL Managed Instance

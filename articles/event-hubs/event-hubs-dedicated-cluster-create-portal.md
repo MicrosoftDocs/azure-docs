@@ -2,8 +2,8 @@
 title: Create an Event Hubs dedicated cluster using the Azure portal
 description: In this quickstart, you learn how to create an Azure Event Hubs cluster using Azure portal.
 ms.topic: quickstart
-ms.date: 09/28/2021
-ms.custom: mode-portal
+ms.date: 02/10/2022
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a dedicated Event Hubs cluster using Azure portal 
@@ -26,7 +26,7 @@ To complete this quickstart, make sure that you have:
 ## Create an Event Hubs Dedicated Cluster
 An Event Hubs cluster provides a unique scoping container in which you can create one or more namespaces. In this Preview phase of the portal self-serve experience, you can create 1 CU clusters in select regions. If you need a cluster larger than 1 CU, you can submit an Azure support request to scale up your cluster after its creation.
 
-> [!IMPORTANT]
+> [!WARNING]
 > You won't be able to delete the cluster for at least 4 hours after you create it. Therefore, you will be charged for a minimum 4 hours of usage of the cluster. For more information on pricing, see [Event Hubs - Pricing](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
 To create a cluster in your resource group using the Azure portal, complete the following steps:

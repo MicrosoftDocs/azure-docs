@@ -4,12 +4,11 @@ description: Learn how to configure geo-replication for an SQL database using th
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
-ms.devlang: 
+ms.custom: sqldbrb=1, devx-track-azurecli
 ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 08/20/2021
 ---
 # Tutorial: Configure active geo-replication and failover (Azure SQL Database)

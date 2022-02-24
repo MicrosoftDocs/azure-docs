@@ -9,7 +9,7 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 05/25/2021
 ms.author: inhenkel

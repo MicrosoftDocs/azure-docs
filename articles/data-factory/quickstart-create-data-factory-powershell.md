@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.devlang: powershell
 ms.topic: quickstart
-ms.date: 04/10/2020
+ms.date: 01/26/2022
 ms.author: jingwang
 ms.custom: devx-track-azurepowershell, mode-api
 ---

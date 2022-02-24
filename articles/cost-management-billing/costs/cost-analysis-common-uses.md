@@ -1,9 +1,10 @@
 ---
-title: Common cost analysis uses in Azure Cost Management
+title: Common cost analysis uses in Cost Management
+titleSuffix: Azure Cost Management + Billing
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/02/2021
+ms.date: 12/20/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -142,6 +143,9 @@ The Pricing Model dimension is also used to view on demand and reservation charg
 ## View your reservation charges
 
 Reserved instances provide a way for you to save money with Azure. With reservations, you spend money up front for a given number of resources over time. Cost analysis shows the charges as they appear on your bill. The charges are shown as actual costs or amortized over the course of your reservation period.
+
+> [!NOTE]
+> Although you can buy a reservation with a pay-as-you-go (MS-AZR-0003P) subscription, Cost Analysis doesn't support viewing amortized reservation costs. If you try to view costs with the **Amortized cost** metric, you'll see the same results as **Actual Cost**.
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example, **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Add a filter for **Pricing Model: Reservation**.

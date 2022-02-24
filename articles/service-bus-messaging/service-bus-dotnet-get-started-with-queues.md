@@ -4,7 +4,8 @@ description: This tutorial shows you how to send messages to and receive message
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
-ms.custom: contperf-fy22q2, mode-other
+ms.devlang: csharp
+ms.custom: contperf-fy22q2, mode-api
 ---
 
 # Get started with Azure Service Bus queues (.NET)
@@ -301,7 +302,7 @@ In this section, you'll add code to retrieve messages from the queue.
         string body = args.Message.Body.ToString();
         Console.WriteLine($"Received: {body}");
 
-        // complete the message. messages is deleted from the queue. 
+        // complete the message. message is deleted from the queue. 
         await args.CompleteMessageAsync(args.Message);
     }
 

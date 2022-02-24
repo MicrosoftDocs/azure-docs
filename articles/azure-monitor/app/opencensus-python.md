@@ -4,9 +4,8 @@ description: Provides instructions to wire up OpenCensus Python with Azure Monit
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.reviewer: mbullwin
+ms.devlang: python
 ms.custom: devx-track-python
-author: lzchen
-ms.author: lechen
 ---
 
 # Set up Azure Monitor for your Python application
@@ -524,6 +523,10 @@ Each exporter accepts the same arguments for configuration, passed through the c
 - `max_batch_size`: Specifies the maximum size of telemetry that's exported at once.
 - `proxies`: Specifies a sequence of proxies to use for sending data to Azure Monitor. For more information, see [proxies](https://requests.readthedocs.io/en/master/user/advanced/#proxies).
 - `storage_path`: A path to where the local storage folder exists (unsent telemetry). As of `opencensus-ext-azure` v1.0.3, the default path is the OS temp directory + `opencensus-python` + `your-ikey`. Prior to v1.0.3, the default path is $USER + `.opencensus` + `.azure` + `python-file-name`.
+
+## Integrate with Azure Functions
+
+Users who want to capture custom telemetry in Azure Functions environments are encouraged to used the OpenCensus Python Azure Functions [extension](https://github.com/census-ecosystem/opencensus-python-extensions-azure/tree/main/extensions/functions#opencensus-python-azure-functions-extension). More details can be found in this [document](../../azure-functions/functions-reference-python.md#log-custom-telemetry).
 
 ## Authentication (preview)
 > [!NOTE]

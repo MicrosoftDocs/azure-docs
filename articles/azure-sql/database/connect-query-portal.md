@@ -6,25 +6,27 @@ keywords: connect to sql database,query sql database, azure portal, portal, quer
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=1, contperf-fy21q3-portal, mode-other
+ms.custom: sqldbrb=1, contperf-fy21q3-portal, mode-ui
 ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
-ms.reviewer: mathoma
-ms.date: 03/01/2021
+ms.reviewer: kendralittle, mathoma
+ms.date: 02/18/2022
 ---
 # Quickstart: Use the Azure portal's query editor (preview) to query an Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-The query editor is a tool in the Azure portal for running SQL queries against your database in Azure SQL Database or data warehouse in Azure Synapse Analytics.
+The query editor is a tool in the Azure portal to run SQL queries against your database in Azure SQL Database or data warehouse in Azure Synapse Analytics.
 
 In this quickstart, you'll use the query editor to run Transact-SQL (T-SQL) queries against a database.
 
 ## Prerequisites
 
+Completing this quickstart requires the AdventureWorksLT sample database. You may optionally wish to set an Azure Active Directory (Azure AD) admin for your [server](logical-servers.md).
+
 ### Create a database with sample data
 
-Completing this quickstart requires the AdventureWorksLT sample database. If you don't have a working copy of the AdventureWorksLT sample database in SQL Database, the following quickstart helps you quickly create one:
+If you don't have a working copy of the AdventureWorksLT sample database in SQL Database, the following quickstart helps you quickly create one:
 
 [Quickstart: Create a database in Azure SQL Database using the Azure portal, PowerShell, or Azure CLI](single-database-create-quickstart.md)
 
@@ -50,7 +52,7 @@ This process is optional, you can instead use SQL authentication to connect to t
 
 5. Back in the SQL Server **Active Directory admin** page toolbar, select **Save**.
 
-## Using SQL Query Editor
+## Use the SQL Query Editor
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the database you want to query.
 
@@ -153,7 +155,7 @@ Run the following [DELETE](/sql/t-sql/statements/delete-transact-sql/) T-SQL sta
 2. Select **Run** to delete the specified row in the `Product` table. The **Messages** pane displays **Query succeeded: Affected rows: 1**.
 
 
-## Troubleshooting and considerations
+## Troubleshooting
 
 There are a few things to know when working with the query editor.
 
@@ -163,32 +165,32 @@ If you get one of the following errors in the query editor:
  - *Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings*
  - *A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings*
 
-This is because the query editor uses port 443 and 1443 to communicate. You will need to ensure you have enabled outbound HTTPS traffic on these ports. The instructions below will walk you through how to do this, depending on your Operating System. You might need to work with your corporate IT to grant approval to open this connection on your local network.
+These errors occur because the query editor uses port 443 and 1443 to communicate. You will need to ensure you have enabled outbound HTTPS traffic on these ports. The instructions below will walk you through how to do this, depending on your Operating System. You might need to work with your corporate IT to grant approval to open this connection on your local network.
 
 #### Steps for Windows
 
-1. Open **Windows Defender Firewall**
-2. On the left-side menu, select **Advanced settings**
+1. Open **Windows Defender Firewall**.
+2. On the left-side menu, select **Advanced settings**.
 3. In **Windows Defender Firewall with Advanced Security**, select **Outbound rules** on the left-side menu.
-4. Select **New Rule...** on the right-side menu
+4. Select **New Rule...** on the right-side menu.
 
 In the **New outbound rule wizard** follow these steps:
 
-1. Select **port** as the type of rule you want to create. Select **Next**
-2. Select **TCP**
-3. Select **Specific remote ports** and enter "443, 1443". Then select **Next**
-4. Select "Allow the connection if it is secure"
-5. Select **Next** then select **Next** again
-5. Keep "Domain", "Private", and "Public" all selected
-6. Give the rule a name, for example "Access Azure SQL query editor" and optionally a description. Then select **Finish**
+1. Select **port** as the type of rule you want to create. Select **Next**.
+2. Select **TCP**.
+3. Select **Specific remote ports** and enter "443, 1443". Then select **Next**.
+4. Select "Allow the connection if it is secure".
+5. Select **Next** then select **Next** again.
+5. Keep "Domain", "Private", and "Public" all selected.
+6. Give the rule a name, for example "Access Azure SQL query editor" and optionally a description. Then select **Finish**.
 
 #### Steps for Mac
 1. Open **System Preferences** (Apple menu > System Preferences).
-2. Click **Security & Privacy**.
-3. Click **Firewall**.
-4. If Firewall is off, select **Click the lock to make changes** at the bottom and select **Turn on Firewall**
-4. Click **Firewall Options**.
-5. In the **Security & Privacy** window select this option: "Automatically allow signed software to receive incoming connections."
+2. Select **Security & Privacy**.
+3. Select **Firewall**.
+4. If Firewall is off, select **Click the lock to make changes** at the bottom and select **Turn on Firewall**.
+4. Select **Firewall Options**.
+5. In the **Security & Privacy** window select this option: 'Automatically allow signed software to receive incoming connections'.
 
 #### Steps for Linux
 Run these commands to update iptables
@@ -199,31 +201,33 @@ Run these commands to update iptables
 
 ### Connection considerations
 
-* For public connections to query editor, you  need to [add your outbound IP address to the server's allowed firewall rules](firewall-create-server-level-portal-quickstart.md) to access your databases and data warehouses.
+- For public connections to query editor, you  need to [add your outbound IP address to the server's allowed firewall rules](firewall-create-server-level-portal-quickstart.md) to access your databases and data warehouses.
+- If you have a Private Link connection set up on the server and you are connecting to query editor from an IP in the private Virtual Network, the Query Editor works without needing to add the Client IP address into the SQL database server firewall rules.
+- The most basic role-based access control (RBAC) permissions needed to use the query editor are 'Read access to the server and database'. Anyone with this level of access can access the query editor feature. To limit access to particular users, you must prevent them from being able to sign in to the query editor with Azure Active Directory or SQL authentication credentials. If they cannot assign themselves as the AAD admin for the server or access/add a SQL administrator account, they should not be able to use query editor.
+- If you see the error message "The X-CSRF-Signature header could not be validated", take the following action to resolve the issue:
+    - Verify that your computer's clock is set to the right time and time zone. You can also try to match your computer's time zone with Azure by searching for the time zone for the location of your instance, such as East US, Pacific, and so on.
+    - If you are on a proxy network, make sure that the request header “X-CSRF-Signature” is not being modified or dropped.
 
-* If  you have a Private Link connection set up on the server and you are connecting to query editor from an IP in the private Virtual Network, the Query Editor works without needing to add the Client IP address into the SQL database server firewall rules.
 
-* The most basic RBAC permissions needed to use query editor are Read access to the server and database. Anyone with this level of access can access the query editor feature. To limit access to particular users, you must prevent them from being able to sign in to the query editor with Azure Active Directory or SQL authentication credentials. If they cannot assign themselves as the AAD admin for the server or access/add a SQL administrator account, they should not be able to use query editor.
+## Limitations
 
-* Query editor doesn't support connecting to the `master` database.
-
-* Query editor cannot connect to a replica database with `ApplicationIntent=ReadOnly`
-
-* If you saw this error message "The X-CSRF-Signature header could not be validated", take the following action to resolve the issue:
-
-    * Make sure your computer's clock is set to the right time and time zone. You can also try to match your computer's time zone with Azure by searching for the time zone for the location of your instance, such as East US, Pacific, and so on.
-    * If you are on a proxy network, make sure that the request header “X-CSRF-Signature” is not being modified or dropped.
-
-### Other considerations
-
-* Pressing **F5** refreshes the query editor page and any query being worked on is lost.
-
-* There's a 5-minute timeout for query execution.
-
-* The query editor only supports cylindrical projection for geography data types.
-
-* There's no support for IntelliSense for database tables and views, but the editor does support autocomplete on names that have already been typed.
+- Query editor doesn't support connecting to the `master` database. To connect to the `master` database, explore one or more clients in [Next steps](#next-steps).
+- Query editor cannot connect to a [replica database](read-scale-out.md) with `ApplicationIntent=ReadOnly`. To connect in this way from a rich client, you can connect using SQL Server Management Studio and specify `ApplicationIntent=ReadOnly` in the 'Additional Connection Parameters' [tab in connection options](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover#ConnectToSecondary).
+- Query editor has a 5-minute timeout for query execution. To run longer queries, explore one or more clients in [Next steps](#next-steps).
+- Query editor only supports cylindrical projection for geography data types.
+- Query editor does not support IntelliSense for database tables and views, but does support autocomplete on names that have already been typed. For IntelliSense support, explore one or more clients in [Next steps](#next-steps).
+- Pressing **F5** refreshes the query editor page. Any query being worked on will be lost.
 
 ## Next steps
 
-To learn more about the Transact-SQL (T-SQL) supported in Azure SQL Database, see [Resolving Transact-SQL differences during migration to SQL Database](transact-sql-tsql-differences-sql-server.md).
+You can query a database in Azure SQL Database with a variety of clients, including:
+
+- [Use SSMS to connect to and query Azure SQL Database or Azure SQL Managed Instance](connect-query-ssms.md).
+- [Use Visual Studio Code to connect and query](connect-query-vscode.md).
+- [Use Azure Data Studio to connect and query Azure SQL database](/sql/azure-data-studio/quickstart-sql-database).
+
+Learn more about Azure SQL Database in the following articles:
+
+- [Learn more about the Transact-SQL (T-SQL) supported in Azure SQL Database](transact-sql-tsql-differences-sql-server.md).
+- [Azure SQL glossary of terms](../glossary-terms.md).
+- [What is Azure SQL?](../azure-sql-iaas-vs-paas-what-is-overview.md)

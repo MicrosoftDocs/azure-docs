@@ -11,10 +11,9 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 10/25/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Create an on-demand snapshot for a volume
 

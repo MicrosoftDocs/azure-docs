@@ -7,7 +7,6 @@ documentationcenter: virtual-network
 author: genlin
 manager: dcscontentpm
 ms.service: virtual-network
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure

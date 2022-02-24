@@ -8,7 +8,7 @@ ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/08/2021
-ms.custom: devx-track-js, mode-other
+ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index using the JavaScript SDK
@@ -21,7 +21,7 @@ ms.custom: devx-track-js, mode-other
 > * [REST](search-get-started-rest.md)
 
 
-Use the [Javascript/Typscript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme) to create a Node.js application in JavaScript that creates, loads, and queries a search index.
+Use the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme) to create a Node.js application in JavaScript that creates, loads, and queries a search index.
 
 This article demonstrates how to create the application step by step. Alternatively, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/v11) and run the application from the command line.
 
@@ -31,7 +31,7 @@ Before you begin, have the following tools and services:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
++ An Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
 
 + [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com)
 
@@ -74,7 +74,7 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
     ```
      Accept the default values, except for the License, which you should set to "MIT". 
 
-3. Install `@azure/search-documents`, the [Javascript/Typscript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme).
+3. Install `@azure/search-documents`, the [JavaScript/TypeScript SDK for Azure Cognitive Search](/javascript/api/overview/azure/search-documents-readme).
 
     ```cmd
     npm install @azure/search-documents
@@ -145,7 +145,7 @@ Most of the functionality in the SDK is asynchronous so we make our main functio
 
 ```javascript
 async function main() {
-    console.log(`Running Azure Cognitive Search Javascript quickstart...`);
+    console.log(`Running Azure Cognitive Search JavaScript quickstart...`);
     if (!endpoint || !apiKey) {
         console.log("Make sure to set valid values for endpoint and apiKey with proper authorization.");
         return;

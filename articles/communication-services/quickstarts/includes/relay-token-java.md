@@ -13,7 +13,7 @@ ms.author: rahulva
 ---
 
 > [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/access-token-quickstart)
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/get-relay-config-quickstart)
 
 ## Prerequisites for Java
 

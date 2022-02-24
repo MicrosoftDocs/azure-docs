@@ -15,7 +15,7 @@ ms.custom: mode-other
 ---
 # Quickstart: Set up and manage access tokens for Teams users
 
-In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving an Azure Active Directory (Azure AD) user token. You'll then exchange that token for an access token of Teams user with the Azure Communication Services Identity SDK. The access token for Teams user can then be used by the Communication Services Calling SDK to build a custom Teams endpoint.
+In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving a Microsoft Azure Active Directory (Azure AD) user token. You'll then exchange that token for an access token of Teams user with the Azure Communication Services Identity SDK. The access token for Teams user can then be used by the Communication Services Calling SDK to build a custom Teams endpoint.
 
 > [!NOTE]
 > When you're in a production environment, we recommend that you implement this exchange mechanism in back-end services, because requests for an exchange are signed with a secret.
@@ -23,12 +23,11 @@ In this quickstart, you'll build a .NET console application to authenticate a Mi
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active Azure Communication Services resource and connection string. For more information, see [Create an Azure Communication Services resource](./create-communication-resource.md).
-- Enable a custom Teams endpoint experience by [completing and submitting this form](https://forms.office.com/r/B8p5KqCH19).
 - An Azure Active Directory instance with users that have a Teams license.
 
 ## Introduction
 
-Teams identities are bound to tenants in Azure Active Directory. Your application can be used by users from the same or another tenant. In this quickstart, you'll work through a multitenant use case with multiple actors: users, developers, and administrators from fictional companies Contoso and Fabrikam. In this use case, Contoso is a company that's building a software as a service (SaaS) solution for Fabrikam. 
+Teams identities are bound to tenants in Azure Active Directory. Your application can be used by users from the same or another tenant. In this quickstart, you'll work through a multitenant use case with multiple actors: users, developers, and administrators from fictional companies Contoso and Fabrikam. In this use case, Contoso is a company that's building software as a service (SaaS) for Fabrikam. 
 
 The following sections will guide you through the steps for administrators, developers, and users. The diagrams demonstrate the multitenant use case. If you're working with a single tenant, execute all steps from Contoso and Fabrikam in a single tenant.
 
@@ -62,18 +61,18 @@ On the **Authentication** pane of your application, you can see a configured pla
 
 ### Step 3: Add the Communication Services permissions in the application
 
-The application must declare Teams.ManageCalls permission to have access to Teams calling capabilities in the Tenant. End-user would be requesting an AAD user token with this permission for token exchange. 
+The application must declare Teams.ManageCalls permission to have access to Teams calling capabilities in the Tenant. Teams user would be requesting an Azure AD user token with this permission for token exchange. 
 
-1.Navigate to your AAD app in the Azure portal and select **API permissions**
+1.Navigate to your Azure AD app in the Azure portal and select **API permissions**
 1. Select **Add Permissions**
-1. In the **Add Permissions** menu select **Azure Communication Services**
-1. Select the permission **Teams.ManageCalls** and click **Add permissions**
+1. In the **Add Permissions** menu, select **Azure Communication Services**
+1. Select the permission **Teams.ManageCalls** and select **Add permissions**
 
 ![Add Teams.ManageCalls permission to the Azure Active Directory application created in previous step](./media/active-directory-permissions.png)
 
 ### Step 4: Create or select a Communication Services resource
 
-Your Communication Services resource is used to authenticate all requests for exchanging Azure AD user token for an access token of Teams user. You can trigger this exchange by using the Communication Services Identity SDK, which you can authenticate with an access key, or by using Azure role-based access control (RBAC). You can get the access key either in the Azure portal or by configuring Azure RBAC on the **Access control (IAM)** pane by Communication Services resource.
+Your Communication Services resource is used to authenticate all requests for exchanging Azure AD user token for an access token of Teams user. You can trigger this exchange by using the Communication Services Identity SDK, which you can authenticate with an access key, or by using Azure role-based access control (Azure RBAC). You can get the access key either in the Azure portal or by configuring Azure RBAC on the **Access control (IAM)** pane by Communication Services resource.
 
 If you want to create a new Communication Services resource, see [Create and manage Communication Services resources](./create-communication-resource.md).
 
@@ -81,12 +80,12 @@ If you want to create a new Communication Services resource, see [Create and man
 
 Azure Active Directory tenant can be configured, to require Azure AD administrator consent for the Teams.ManageCalls permission of the application. In such a case, the Azure AD Administrator must grant permission to the Contoso application for Communication Services Teams.ManageCalls. The Fabrikam Azure AD Administrator provides consent via a unique URL. 
 
-To construct an Administrator consent URL, the Fabrikam Azure AD Administrator does the following:
+To construct an Administrator consent URL, the Fabrikam Azure AD Administrator does the following steps:
 
 1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam tenant ID, and replaces {Application_ID} with the Contoso Application ID.
 1. The Administrator logs in and grants permissions on behalf of the organization.
 
-The service principal of the Contoso application in the Fabrikam tenant is created if consent is granted. The Fabrikam Administrator can review the consent in Azure AD by doing the following:
+The service principal of the Contoso application in the Fabrikam tenant is created if consent is granted. The Fabrikam Administrator can review the consent in Azure AD by doing the following steps:
 
 1. Sign in to the Azure portal as an administrator.
 1. Go to Azure Active Directory.

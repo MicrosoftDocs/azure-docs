@@ -9,10 +9,11 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 10/06/2021
 ms.author: ergreenl
-ms.reviewer: ergreenl
+ms.reviewer: davidmu
 ms.collection: M365-identity-device-management
+ms.custom: contperf-fy22q2
 #customer intent: As an admin, I want to configure the admin consent workflow.
 ---
 
@@ -29,7 +30,7 @@ To approve requests, a reviewer must be a global administrator, cloud applicatio
 To configure the admin consent workflow, you need:
 
 - An Azure account. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
+- You must be a global administrator to turn on the workflow.
 
 ## Enable the admin consent workflow
 
@@ -40,7 +41,7 @@ To enable the admin consent workflow and choose reviewers:
 1. Select **Enterprise applications**.
 1. Under **Manage**, select **User settings**.
 Under **Admin consent requests**,  select **Yes** for **Users can request admin consent to apps they are unable to consent to** .
-   :::image type="content" source="media/configure-admin-consent-workflow/admin-consent-requests-settings.png" alt-text="Configure admin consent workflow settings":::
+   :::image type="content" source="media/configure-admin-consent-workflow/enable-admin-consent-workflow.png" alt-text="Configure admin consent workflow settings":::
 1. Configure the following settings:
 
    - **Select users to review admin consent requests** - Select reviewers for this workflow from a set of users that have the global administrator, cloud application administrator, or application administrator roles. You can also add groups and roles that can configure an admin consent workflow. You must designate at least one reviewer before the workflow can be enabled.

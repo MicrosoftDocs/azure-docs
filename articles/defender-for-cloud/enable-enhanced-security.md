@@ -18,7 +18,7 @@ For the purpose of the Defender for Cloud quickstarts and tutorials you must ena
 
 You can protect an entire Azure subscription with Defender for Cloud's enhanced security features and the protections will be inherited by all resources within the subscription.
 
-A free 30-day trial is available. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+A free 30-day trial is available. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
 
 ## Enable enhanced security features from the Azure portal
 

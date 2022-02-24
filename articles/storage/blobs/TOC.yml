@@ -46,14 +46,10 @@ items:
           href: storage-quickstart-blobs-python-legacy.md
       - name: JavaScript
         items:
-        - name: JavaScript (v12 SDK for Node.js)
+        - name: JavaScript for Node.js
           href: storage-quickstart-blobs-nodejs.md
-        - name: JavaScript (v10 SDK for Node.js)
-          href: storage-quickstart-blobs-nodejs-legacy.md
-        - name: JavaScript (v12 SDK for browser)
+        - name: JavaScript for browser
           href: quickstart-blobs-javascript-browser.md
-        - name: JavaScript (v10 SDK for browser)
-          href: storage-quickstart-blobs-javascript-client-libraries-legacy.md
       - name: C++ (v12 SDK)
         href: quickstart-blobs-c-plus-plus.md
       - name: Go
@@ -320,6 +316,10 @@ items:
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
+      - name: Manage containers (CLI)
+        href: blob-containers-cli.md      
+      - name: Manage containers (PowerShell)
+        href: blob-containers-powershell.md
       - name: Create or delete a container (.NET)
         href: storage-blob-container-create.md
       - name: List containers (.NET)
@@ -328,6 +328,8 @@ items:
         href: storage-blob-container-properties-metadata.md
     - name: Create and manage blobs
       items:
+      - name: Manage blobs (PowerShell)
+        href: blob-powershell.md
       - name: List blobs (SDK)
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)

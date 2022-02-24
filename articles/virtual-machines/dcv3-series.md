@@ -24,7 +24,7 @@ These machines are powered by the latest 3rd Generation Intel® Xeon Scalable pr
 With this generation, CPU Cores have increased 6x (up to a maximum of 48 physical cores), Encrypted Memory (EPC) has increased 1500x to 256GB, Regular Memory has increased 12x to 384GB. All these changes substantially improve the performance gen-on-gen and unlock new entirely new scenarios. 
 
 > [!NOTE]
-> Hyperthreading is disabled for added security posture. Pricing is based on the superior performance of physical vs virtual cores, as well as the unique security capabilities of DC-series.
+> Hyperthreading is disabled for added security posture. Pricing is the same as Dv5 and Dsv5-series per physical core.
 
 We are offering two variants dependent on whether the workload benefits from a local disk or not. Whether you choose a VM with a local disk or not, you can attach remote persistent disk storage to all VMs. Remote disk options (such as for the VM boot disk) are billed separately from the VMs in any case, as always. 
 
@@ -42,8 +42,10 @@ Base All-Core Frequency: 2.8 GHz<br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Trusted Launch](trusted-launch.md): Coming Soon<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 [Dedicated Host](dedicated-hosts.md): Coming Soon<br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
 
 ## DCsv3-series Technical specifications
 

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: guide
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer:
+ms.reviewer: mathoma
 ms.date: 07/29/2019
 ---
 # Getting started with single databases in Azure SQL Database

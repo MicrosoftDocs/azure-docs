@@ -1,11 +1,12 @@
 ---
 title: 'Tutorial: Build a Blazor Server chat app - Azure SignalR'
 description: In this tutorial, you learn how to build and modify a Blazor Server app with Azure SignalR Service.
-author: JialinXin
+author: vicancy
 ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
-ms.author: jixin
+ms.author: lianwei
+ms.devlang: csharp
 ---
 
 # Tutorial: Build a Blazor Server chat app

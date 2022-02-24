@@ -5,7 +5,7 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 ---
 
 # Bring your own Machine Learning (ML) into Microsoft Sentinel
@@ -95,7 +95,7 @@ To build custom ML models based on your own data in Microsoft Sentinel, you will
 
 For this example, you need to have your training data for File Share Access log in the Azure blob storage. The format of the data is documented in the notebook and libraries.
 
-You can automatically export your data from Log Analytics using the [Azure Command Line Interface (CLI)](/cli/azure/monitor/log-analytics). 
+You can automatically export your data from Log Analytics using the [Azure CLI](/cli/azure/monitor/log-analytics). 
 
 You must be assigned the **Contributor** role in your Log Analytics workspace, your Storage account, and your EventHub resource in order to run the commands. 
 

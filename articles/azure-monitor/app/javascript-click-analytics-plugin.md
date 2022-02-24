@@ -6,8 +6,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
-author: mattmccleary
-ms.author: mmcc
+ms.devlang: javascript
 ---
 
 # Click Analytics Auto-collection plugin for Application Insights JavaScript SDK

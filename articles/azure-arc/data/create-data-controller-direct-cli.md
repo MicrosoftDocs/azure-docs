@@ -200,14 +200,18 @@ From the terminal, run the below command to list the custom locations, and valid
 az customlocation list -o table
 ```
 
+## Create certificates for logs and metrics UI dashboards
+
+Optionally, you can specify certificates for logs and metrics UI dashboards. See [Provide certificates for monitoring](monitor-certificates.md) for examples. The December, 2021 release introduces this option.
+
 ## Create the Azure Arc data controller
 
 After the extension and custom location are created, proceed to deploy the Azure Arc data controller as follows.
 
 ```azurecli
-az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --profile-name <profile name>  --auto-upload-logs true --auto-upload-metrics true --custom-location <name of custom location>
+az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --profile-name <profile name>  --auto-upload-logs true --auto-upload-metrics true --custom-location <name of custom location> --storage-class <storageclass>
 # Example
-az arcdata dc create --name arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --profile-name azure-arc-aks-premium-storage  --auto-upload-logs true --auto-upload-metrics true --custom-location mycustomlocation
+az arcdata dc create --name arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --profile-name azure-arc-aks-premium-storage  --auto-upload-logs true --auto-upload-metrics true --custom-location mycustomlocation --storage-class mystorageclass
 ```
 
 If you want to create the Azure Arc data controller using a custom configuration template, follow the steps described in [Create custom configuration profile](create-custom-configuration-template.md) and provide the path to the file as follows:
@@ -224,7 +228,7 @@ az arcdata dc create --name arc-dc1 --resource-group my-resource-group --locatio
 The deployment status of the Arc data controller on the cluster can be monitored as follows:
 
 ```console
-kubectl get datacontrollers --name arc
+kubectl get datacontrollers --namespace arc
 ```
 
 ## Next steps

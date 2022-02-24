@@ -3,7 +3,7 @@ title: Known issues for application provisioning in Azure Active Directory
 description: Learn about known issues when you work with automated application provisioning in Azure Active Directory.
 author: kenwith
 ms.author: kenwith
-manager: karenh444
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -91,6 +91,10 @@ When a group is in scope and a member is out of scope, the group will be provisi
 
 If a user and their manager are both in scope for provisioning, the service provisions the user and then updates the manager. If on day one the user is in scope and the manager is out of scope, we'll provision the user without the manager reference. When the manager comes into scope, the manager reference won't be updated until you restart provisioning and cause the service to reevaluate all the users again. 
 
+#### Global reader
+
+The global reader role is unable to read the provisioning configuration. Please create a custom role with the `microsoft.directory/applications/synchronization/standard/read` permission in order to read the provisioning configuration from the Azure Portal. 
+
 ## On-premises application provisioning
 The following information is a current list of known limitations with the Azure AD ECMA Connector Host and on-premises application provisioning.
 
@@ -116,7 +120,7 @@ The following attributes and objects aren't supported:
    - Groups.
    - Complex anchors (for example, ObjectTypeName+UserName).
    - Binary attributes.
-   - On-premises applications are sometimes not federated with Azure AD and require local passwords. The on-premises provisioning preview does not support password synchronization. Provisioning initial one-time passwords is supported. Please ensure that you are using the [Redact](/azure/active-directory/app-provisioning/functions-for-customizing-application-data#redact) function to redact the passwords from the logs. In the SQL and LDAP connectors, the passwords are not exported on the initial call to the application, but rather a second call with set password.   
+   - On-premises applications are sometimes not federated with Azure AD and require local passwords. The on-premises provisioning preview does not support password synchronization. Provisioning initial one-time passwords is supported. Please ensure that you are using the [Redact](./functions-for-customizing-application-data.md#redact) function to redact the passwords from the logs. In the SQL and LDAP connectors, the passwords are not exported on the initial call to the application, but rather a second call with set password.   
 
 #### SSL certificates
    The Azure AD ECMA Connector Host currently requires either an SSL certificate to be trusted by Azure or the provisioning agent to be used. The certificate subject must match the host name the Azure AD ECMA Connector Host is installed on.

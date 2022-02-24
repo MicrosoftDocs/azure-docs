@@ -1,5 +1,5 @@
 ---
-title: Analyze Live Video with Computer Vision for Spatial Analysis - Azure
+title: Analyze Live Video with Computer Vision for Spatial Analysis
 description: This tutorial shows you how to use Azure Video Analyzer together with Computer Vision spatial analysis AI feature from Azure Cognitive Services to analyze a live video feed from a (simulated) IP camera.
 author: Juliako
 ms.author: juliako

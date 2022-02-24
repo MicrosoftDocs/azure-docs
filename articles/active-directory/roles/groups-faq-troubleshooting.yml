@@ -4,18 +4,17 @@ metadata:
   description: Learn some common questions and troubleshooting tips for assigning roles to groups in Azure Active Directory.
   services: active-directory
   author: rolyon
-  manager: daveba
+  manager: karenhoran
   ms.service: active-directory
   ms.workload: identity
   ms.subservice: roles
-  ms.topic: article
+  ms.topic: faq
   ms.date: 11/05/2020
   ms.author: rolyon
   ms.reviewer: vincesm
   ms.custom: it-pro
   
   ms.collection: M365-identity-device-management
-    
 title: Troubleshoot Azure AD roles assigned to groups
 summary: Here are some common questions and troubleshooting tips for assigning Azure Active Directory (Azure AD) roles to Azure AD groups.
 
