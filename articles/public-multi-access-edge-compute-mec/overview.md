@@ -11,9 +11,9 @@ ms.custom: template-overview
 
 # What is Azure public MEC Preview?
 
-Azure public multi-access edge compute (MEC) Preview sites are small-footprint extensions of Azure. They're placed in or near mobile operators' data centers in metro areas, and are designed to run workloads that require ultra-low latency while being attached to the mobile network.  Azure public MEC is offered in partnership with the operators. The placement of the infrastructure offers lower latency for applications that are accessed from mobile devices connected to the 5G Mobile network.
+Azure public multi-access edge compute (MEC) Preview sites are small-footprint extensions of Azure. They're placed in or near mobile operators' data centers in metro areas, and are designed to run workloads that require ultra-low latency while being attached to the mobile network.  Azure public MEC is offered in partnership with the operators. The placement of the infrastructure offers lower latency for applications that are accessed from mobile devices connected to the 5G mobile network.
 
-Azure public MEC provides secure, reliable, high-bandwidth connectivity between applications that run close to the user while being served by the Microsoft global network. Azure public MEC offers a set of Azure services like Azure Virtual Machines, Azure Load Balancer, and Azure Kubernetes for Edge, with the ability to leverage and connect to Azure services available in the Azure region.
+Azure public MEC provides secure, reliable, high-bandwidth connectivity between applications that run close to the user while being served by the Microsoft global network. Azure public MEC offers a set of Azure services like Azure Virtual Machines, Azure Load Balancer, and Azure Kubernetes for Edge, with the ability to leverage and connect to other Azure services available in the Azure region.
 
 Some of the industries and use cases where Azure public MEC can provide benefits are:
 
@@ -64,14 +64,14 @@ The following diagram explains how services are deployed at the Azure public MEC
 
 ## Partnership with operators
 
-Azure public MEC solutions is available in partnership with mobile network operators. The current operator partnerships are as follows:
+Azure public MEC solutions are available in partnership with mobile network operators. The current operator partnerships are as follows:
 
 - AT&T: Atlanta, Dallas (more sites to follow)
 - Singtel: Singapore.
 
 ## Next steps
 
-To learn about considerations for deployment in the Azure public MEC, advance to the following article:
+To learn about important concepts for Azure public MEC, advance to the following article:
 
 > [!div class="nextstepaction"]
-> [Considerations for deployment in the Azure public MEC](considerations-for-deployment.md)
+> [Key concepts for Azure public MEC](key-concepts.md)

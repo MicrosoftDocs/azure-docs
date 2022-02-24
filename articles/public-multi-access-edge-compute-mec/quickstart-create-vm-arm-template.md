@@ -331,7 +331,7 @@ In this quickstart, you learn how to use an Azure Resource Manager (ARM) templat
     ```
 
     > [!NOTE]
-    > Each Azure public MEC site is associated with an Azure region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate region value for the `--location` parameter. For more information, see [Regions and availability zones](/azure/availability-zones/az-overview).
+    > Each Azure public MEC site is associated with an Azure region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate region value for the `--location` parameter. For more information, see [Key concepts for Azure public MEC](key-concepts.md).
 
 1. Deploy the ARM template in the resource group with the [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) command.
 
@@ -415,7 +415,7 @@ az group delete \--name myResourceGroup \--yes
 
 ## Next steps
 
-To deploy resources in Azure public MEC using the Go SDK, advance to the following article:
+To deploy a virtual machine in Azure public MEC using Azure CLI, advance to the following article:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy a virtual machine in Azure public MEC using Azure CLI](quickstart-create-vm-cli.md)

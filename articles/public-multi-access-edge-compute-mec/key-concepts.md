@@ -99,7 +99,7 @@ By default, all services running in the Azure public MEC use the DNS infrastruct
 
 ## Next steps
 
-To deploy a virtual machine in Azure public MEC using an ARM template, advance to the following article:
+To learn about considerations for deployment in the Azure public MEC, advance to the following article:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template](quickstart-create-vm-arm-template.md)
+> [Considerations for deployment in the Azure public MEC](considerations-for-deployment.md)

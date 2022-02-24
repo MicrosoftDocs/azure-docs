@@ -83,7 +83,7 @@ A trade-off exists between availability and latency. Failing over the applicatio
 
 ## Next steps
 
-To learn about important concepts for Azure public MEC, advance to the following article:
+To deploy a virtual machine in Azure public MEC using an ARM template, advance to the following article:
 
 > [!div class="nextstepaction"]
-> [Key concepts for Azure public MEC](key-concepts.md)
+> [Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template](quickstart-create-vm-arm-template.md)

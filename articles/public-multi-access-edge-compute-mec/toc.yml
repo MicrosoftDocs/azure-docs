@@ -6,10 +6,13 @@ items:
   items:
   - name: What is Azure public MEC?
     href: overview.md
-  - name: Considerations for deployment
-    href: considerations-for-deployment.md    
+- name: Concepts
+  expanded: true
+  items:
   - name: Key concepts
-    href: key-concepts.md   
+    href: key-concepts.md
+  - name: Considerations for deployment
+    href: considerations-for-deployment.md
 - name: Quickstarts
   expanded: true
   items:
@@ -22,12 +25,10 @@ items:
   items:
   - name: Create VM using Go SDK
     href: tutorial-create-vm-using-go-sdk.md
-  - name: Create VM Python SDK
+  - name: Create VM using Python SDK
     href: tutorial-create-vm-using-python-sdk.md
 - name: Resources
   items:
-  - name: Azure public MEC product page
-    href: https://go.microsoft.com/fwlink/?linkid=2186926
   - name: Azure Marketplace
     href: https://azuremarketplace.microsoft.com/marketplace/
   - name: Azure Roadmap

@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure public multi-access-edge compute documentation # < 60 chars
-summary: Learn how to use Azure public multi-access-edge compute (MEC) to develop and deploy latency-sensitive workloads at the 5G network edge integrated with Azure compute. # < 160 chars
+summary: Learn how to use Azure public multi-access-edge compute (MEC) to develop and deploy latency-sensitive workloads, integrated with Azure compute, at the 5G network edge. # < 160 chars
 
 metadata:
   title: Azure public multi-access-edge compute documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Learn how to use Azure public multi-access-edge compute (MEC) to develop and deploy latency-sensitive workloads at the 5G network edge integrated with Azure compute. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn how to use Azure public multi-access-edge compute (MEC) to develop and deploy latency-sensitive workloads, integrated with Azure compute, at the 5G network edge. # Required; article description that is displayed in search results. < 160 chars.
   ms.service: public-multi-access-edge-compute-mec # Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   author: reemas-new # Required; your GitHub user alias, with correct capitalization.
@@ -27,10 +27,10 @@ landingContent:
             url: overview.md
       - linkListType: concept
         links:
+          - text: Key concepts for Azure public MEC
+            url: key-concepts.md        
           - text: Considerations for deployment in Azure public MEC
             url: considerations-for-deployment.md
-          - text: Key concepts for Azure public MEC
-            url: key-concepts.md
 
   # Card
   - title: Get started

@@ -230,7 +230,7 @@ In this tutorial, you created a VM in Azure public MEC by using the Python SDK. 
 
 ## Next steps
 
-To deploy a virtual machine in Azure public MEC using Python SDK, advance to the following article:
+To deploy a virtual machine in Azure public MEC using the Python SDK, advance to the following article:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Deploy a virtual machine in Azure public MEC using Python SDK](tutorial-create-vm-using-python-sdk.md)
+> [Tutorial: Deploy a virtual machine in Azure public MEC using the Python SDK](tutorial-create-vm-using-python-sdk.md)

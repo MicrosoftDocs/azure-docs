@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a virtual machine in Azure public MEC Preview using Python SDK'
+title: 'Tutorial: Deploy a virtual machine in Azure public MEC Preview using the Python SDK'
 description: This tutorial demonstrates how to use Azure SDK management libraries in a Python script to create a resource group in Azure public multi-access edge compute (MEC) that contains a Linux virtual machine.
 author: reemas-new
 ms.author: reemas
@@ -9,7 +9,7 @@ ms.date: 02/24/2022
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
-# Tutorial: Deploy a virtual machine in Azure public MEC Preview using Python SDK
+# Tutorial: Deploy a virtual machine in Azure public MEC Preview using the Python SDK
 
 In this tutorial, you use Python SDK to deploy resources in Azure public multi-access edge compute (MEC) Preview. The tutorial provides Python code to deploy a virtual machine (VM) and its dependencies in Azure public MEC.
 
@@ -228,7 +228,7 @@ In this tutorial, you learn how to:
    | PASSWORD | Password to use to sign in to the VM |
 
    > [!NOTE]
-   > Each Azure public MEC site is associated with an Azure region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate region value for the resource group to be created. For more information, see [Regions and availability zones](/azure/availability-zones/az-overview).
+   > Each Azure public MEC site is associated with an Azure region. Based on the Azure public MEC location where the resource needs to be deployed, select the appropriate region value for the resource group to be created. For more information, see [Key concepts for Azure public MEC](key-concepts.md).
 
 ## Run the script in your development environment
 
@@ -266,13 +266,13 @@ To use SSH to connect to the VM in the Azure public MEC, the best method is to d
 
 ## Access the VMs
 
-1. Use SSH to connect to the jump box VM deployed in the region with the IP address noted in the previous section.
+1. Use SSH to connect to the jump box VM you deployed in the region with its IP address you noted previously.
 
    ```bash
    ssh  azureuser@<python-example-ip>
    ```
 
-1. From the jump box, use SSH to connect to the VM created in the Azure public MEC with the IP address noted in step 3.
+1. From the jump box, use SSH to connect to the VM you created in the Azure public MEC with its IP address you noted previously.
 
    ```bash
    ssh azureuser@<python-example-ip-edge>
