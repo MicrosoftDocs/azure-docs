@@ -23,45 +23,51 @@ This article describes the properties that you can configure for an enterprise a
 
 If this option is set to **Yes**, then assigned users are able to sign in to the application from the My Apps portal, the User access URL, or by navigating to the application URL directly. If assignment is required, then only users who are assigned to the application are able to sign-in. If assignment is required, applications must be assigned to be granted a token.
 
-If this option is set to **No**, then no users are able to sign in to the application, even if they are assigned to it. Tokens aren't issued for the application.  
+If this option is set to **No**, then no users are able to sign in to the application, even if they're assigned to it. Tokens aren't issued for the application.  
 
 ## Name 
 
-This is the name of the application that users see on the My Apps portal. Administators see the name when managing access to the application. Other tenants see the name when integrating the application into their directory. 
+This property is the name of the application that users see on the My Apps portal. Administrators see the name when they manage access to the application. Other tenants see the name when integrating the application into their directory. 
 
-It is recommended that you choose a name that users can understand when making the application visible in the various portals, such as My Apps and O365 Launcher. 
+It's recommended that you choose a name that users can understand. This is important because this name is visible in the various portals, such as My Apps and O365 Launcher. 
 
 ## Homepage URL 
 
-If the application is custom-developed, the homepage URL is the URL that a user can use to sign in to the application. For example, it is the URL that is launched when the application is clicked in the My Apps portal. If this is a pre-integrated application from the Azure AD Gallery, this is the URL where you can go to learn more about the application or its vendor. 
+If the application is custom-developed, the homepage URL is the URL that a user can use to sign in to the application. For example, it's the URL that is launched when the application is selected in the My Apps portal. If this application is from the Azure AD Gallery, this URL is where you can go to learn more about the application or its vendor. 
 
 The homepage URL can't be edited within enterprise applications. The homepage URL must be edited on the application object. 
 
 ## Logo 
 
-This is the application logo that users see on the My Apps portal, in the Office 365 application launcher, and when administrators view the application in the application gallery.
+This is the application logo that users see on the My Apps portal and the Office 365 application launcher. Administrators also see the logo in the Azure AD gallery.
 
-Custom logos must be exactly 215x215 pixels in size and be in the PNG format. It is recommended that you use a solid color background with no transparency in your application logo so that it appears best to users. The central image dimensions should be 94x94 pixels and the logo file size cannot be over 100 KB.
+Custom logos must be exactly 215x215 pixels in size and be in the PNG format. You should use a solid color background with no transparency in your application logo. The central image dimensions should be 94x94 pixels and the logo file size can't be over 100 KB.
 
 ## Application ID 
 
-This is the unique identifier for the application in your directory. You can use this application ID if you ever need help from Microsoft Support, or if you want to perform operations against this specific instance of the application using the Microsoft Graph APIs or the Microsoft Graph PowerShell SDK.
+This property is the unique identifier for the application in your directory. You can use this application ID if you ever need help from Microsoft Support. You can also use the identifier to perform operations using the Microsoft Graph APIs or the Microsoft Graph PowerShell SDK.
 
 ## Object ID 
 
-This is the unique identifier of the service principal object associated with the application. This ID can be useful when performing management operations against this application using PowerShell or other programmatic interfaces. This is a different identifier than the ID for the application object. 
+This is the unique identifier of the service principal object associated with the application. This identifier can be useful when performing management operations against this application using PowerShell or other programmatic interfaces. This identifier is different than the identifier for the application object. 
 
-The ID is used to update information for the local instance of the application, such as assigning users and groups to the application, updating the properties of the enterprise application, or configuring single-sign on. 
+The identifier is used to update information for the local instance of the application, such as assigning users and groups to the application. The identifier can also be used to update the properties of the enterprise application or to configure single-sign on. 
 
 ## Assignment required 
 
-This option doesn't affect whether or not an application appears on the My Apps portal. To show the application there, assign an appropriate user or group to the application. This option has no effect on users' access to the application when it is configured for any of the other single sign-on modes. 
+This option doesn't affect whether or not an application appears on the My Apps portal. To show the application there, assign an appropriate user or group to the application. This option has no effect on users' access to the application when it's configured for any of the other single sign-on modes. 
 
 If this option is set to **Yes**, then users and other applications or services must first be assigned this application before being able to access it. 
  
 If this option is set to **No**, then all users are able to sign in, and other applications and services are able to obtain an access token to the application. 
  
-This option only applies to the following types of applications and services: applications using SAML, OpenID Connect, OAuth 2.0, or WS-Federation for user sign-in, Application Proxy applications with Azure AD pre-authentication enabled, and applications or services for which other applications or service are requesting access tokens. 
+This option only applies to the following types of applications and services: 
+- Applications using SAML
+- OpenID Connect
+- OAuth 2.0
+- WS-Federation for user sign
+- Application Proxy applications with Azure AD pre-authentication enabled
+- Applications or services for which other applications or service are requesting access tokens 
 
 ## Visible to users 
 

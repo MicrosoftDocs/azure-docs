@@ -20,7 +20,7 @@ Application management in Azure Active Directory (Azure AD) is the process of cr
 
 In this article, you learn these important aspects of managing the lifecycle of an application:
 
-- **Develop, add, or connect** – You take different paths depending on whether you are developing your own application, using a pre-integrated application, or connecting to an on-premises application.
+- **Develop, add, or connect** – You take different paths depending on whether you're developing your own application, using a pre-integrated application, or connecting to an on-premises application.
 - **Manage access** – Access can be managed by using single sign-on (SSO), assigning resources, defining the way access is granted and consented to, and using automated provisioning.
 - **Configure properties** – Configure the requirements for signing into the application and how the application is represented in user portals.
 - **Secure the application** – Manage configuration of permissions, multifactor authentication (MFA), conditional access, tokens, and certificates.
@@ -128,7 +128,7 @@ Your Azure AD reporting and monitoring solution depends on your legal, security,
 
 ## Clean up
 
-You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it is no longer needed for the organization. For a simple example of how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
+You can clean up access to applications. For example, [removing a user’s access](methods-for-removing-user-access.md). You can also [disable how a user signs in](disable-user-sign-in-portal.md). And finally, you can delete the application if it's no longer needed for the organization. For a simple example of how to delete an enterprise application from your Azure AD tenant, see [Quickstart: Delete an enterprise application](delete-application-portal.md).
 
 ## Next steps
 
