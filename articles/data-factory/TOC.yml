@@ -297,6 +297,8 @@ items:
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
+    - name: Cross-tenant connections to Azure how-to-develop-azure-ssis-ir-licensed-components.md
+      href: cross-tenant-connections-to-azure-devops.md
     - name: Continuous integration and delivery
       items:
       - name: Overview
