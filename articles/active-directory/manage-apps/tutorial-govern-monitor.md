@@ -16,7 +16,7 @@ ms.date: 02/24/2022
 
 The IT administrator at Fabrikam has added and configured an application from the [Azure Active Directory (Azure AD) application gallery](overview-application-gallery.md). They also made sure that access can be managed and that the application is secure by using the information in [Tutorial: Manage application access and security](tutorial-manage-access-security.md). They now need to understand the resources that are available to govern and monitor the application.
 
-By using the information in this tutorial, an administrator of the application learns how to:
+Using the information in this tutorial, an administrator of the application learns how to:
 
 > [!div class="checklist"]
 > * Create an access review
@@ -92,7 +92,7 @@ To access the sign-in logs report, select **Sign-ins** from the **Monitoring** s
 ## Send logs to Azure Monitor
 
 The Azure AD activity logs only store information for a maximum of 30 days. Depending on your needs, you may require extra storage to back up the activity logs data. Using the Azure Monitor, you can archive the audit and sign logs to an Azure storage account to retain the data for a longer time. 
-The Azure Monitor is also useful for rich visualization, monitoring and alerting of data. To learn more about the Azure Monitor and the cost considerations for additional storage, see [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
+The Azure Monitor is also useful for rich visualization, monitoring and alerting of data. To learn more about the Azure Monitor and the cost considerations for extra storage, see [Azure AD activity logs in Azure Monitor](../reports-monitoring/concept-activity-logs-azure-monitor.md).
 
 To send logs to your logs analytics workspace:
 

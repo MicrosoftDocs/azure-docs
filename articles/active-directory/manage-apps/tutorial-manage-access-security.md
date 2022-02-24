@@ -16,7 +16,7 @@ ms.date: 02/24/2022
 # Tutorial: Manage application access and security
 
 The IT administrator at Fabrikam has added and configured an application from the Azure Active Directory (Azure AD) application gallery. They now need to understand the features that are available to manage access to the application and make sure the application is secure.
-By using the information in this tutorial an administrator learns how to:
+Using the information in this tutorial, an administrator learns how to:
 
 > [!div class="checklist"]
 
@@ -45,7 +45,7 @@ For the application that the administrator added to their tenant, they want to s
 
 ## Create a Conditional Access policy
 
-The administrator wants to make sure that only the people they assign to the application can securely sign in. To do this they can configure a conditional access policy for a group of users that enforces multi-factor authentication (MFA). For more information, see [What is Conditional Access?](../conditional-access/overview.md).
+The administrator wants to make sure that only the people they assign to the application can securely sign in. To do this, they can configure a conditional access policy for a group of users that enforces multi-factor authentication (MFA). For more information, see [What is Conditional Access?](../conditional-access/overview.md).
 
 ### Create a group
 
@@ -123,7 +123,7 @@ The My Apps portal enables administrators and users to manage the applications u
 1. Select the **Applications** tab. Select **+ Add application**, and then in the Add applications page, select all the applications you want to add to the collection, or use the Search box to find applications.
 1. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the arrows to change the order of applications in the list.
 1. Select the **Owners** tab. Select **+ Add users and groups**, and then in the Add users and groups page, select the users or groups you want to assign ownership to. When you're finished selecting users and groups, choose **Select**.
-1. Select the **Users and groups** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign the collection to. Or use the Search box to find users or groups. When you're finished selecting users and groups, choose Select.
+1. Select the **Users and groups** tab. Select **+ Add users and groups**, and then in the **Add users and groups** page, select the users or groups you want to assign the collection to. Or use the Search box to find users or groups. When you're finished selecting users and groups, choose **Select**.
 1. Select **Review + Create**, and then select **Create**. The properties for the new collection appear.
 
 ## Clean up resources
