@@ -38,14 +38,14 @@ This article provides guidance on how to configure your NAT gateway to ensure ou
 Check the following configurations to ensure that NAT gateway can be used to direct traffic outbound:
 1. At least one public IP address or one public IP prefix is attached to NAT gateway. At least one public IP address must be associated with the NAT gateway for it to provide outbound connectivity. 
 2. At least one subnet is attached to a NAT gateway. You can attach multiple subnets to a NAT gateway for going outbound, but those subnets must exist within the same virtual network. NAT gateway cannot span beyond a single virtual network. 
-3. No [NSG rules](/azure/virtual-network/network-security-groups-overview#outbound) or [UDRs](#udr-supersedes-nat-gateway-for-going-outbound) are blocking NAT gateway from directing traffic outbound to the internet.
+3. No [NSG rules](../network-security-groups-overview.md#outbound) or [UDRs](#udr-supersedes-nat-gateway-for-going-outbound) are blocking NAT gateway from directing traffic outbound to the internet.
 
 ### How to validate connectivity
 
-[Virtual Network NAT gateway](/azure/virtual-network/nat-gateway/nat-overview#vnet-nat-basics) supports IPv4 UDP and TCP protocols. ICMP is not supported and is expected to fail. 
+[Virtual Network NAT gateway](./nat-overview.md#vnet-nat-basics) supports IPv4 UDP and TCP protocols. ICMP is not supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
-1. Validate that your [NAT gateway public IP address is being used](/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal#test-nat-gateway).
+1. Validate that your [NAT gateway public IP address is being used](./tutorial-create-nat-gateway-portal.md#test-nat-gateway).
 2. Conduct TCP connection tests and UDP-specific application layer tests.
 3. Look at NSG flow logs to analyze outbound traffic flows from NAT gateway.
 
@@ -57,21 +57,21 @@ Refer to the table below for which tools to use to validate NAT gateway connecti
 | Windows | [PsPing](/sysinternals/downloads/psping) | PowerShell [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) | application specific |
 
 To analyze outbound traffic from NAT gateway, use NSG flow logs.
-* To learn more about NSG flow logs, see [NSG flow log overview](/azure/network-watcher/network-watcher-nsg-flow-logging-overview).
-* For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#enabling-nsg-flow-logs).
-* For guides on how to read NSG flow logs, see [Working with NSG flow logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#working-with-flow-logs).
+* To learn more about NSG flow logs, see [NSG flow log overview](../../network-watcher/network-watcher-nsg-flow-logging-overview.md).
+* For guides on how to enable NSG flow logs, see [Enabling NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#enabling-nsg-flow-logs).
+* For guides on how to read NSG flow logs, see [Working with NSG flow logs](../../network-watcher/network-watcher-nsg-flow-logging-overview.md#working-with-flow-logs).
 
 ## Configuration issues with subnets and virtual networks using NAT gateway
 
 ### Basic SKU resources cannot exist in the same subnet as NAT gateway
 
 NAT gateway is not compatible with basic resources, such as Basic Load Balancer or Basic Public IP. Basic resources must be placed on a subnet not associated with a NAT Gateway. Basic Load Balancer and Basic Public IP can be upgraded to standard to work with NAT gateway. 
-* To upgrade a basic load balancer to standard, see [upgrade from basic public to standard public load balancer](/azure/load-balancer/upgrade-basic-standard).
-* To upgrade a basic public IP to standard, see [upgrade from basic public to standard public IP](/azure/virtual-network/ip-services/public-ip-upgrade-portal).
+* To upgrade a basic load balancer to standard, see [upgrade from basic public to standard public load balancer](../../load-balancer/upgrade-basic-standard.md).
+* To upgrade a basic public IP to standard, see [upgrade from basic public to standard public IP](../ip-services/public-ip-upgrade-portal.md).
 
 ### NAT gateway cannot be attached to a gateway subnet
 
-NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway subnets for VPN connections between site-to-site Azure virtual networks and local networks or between two Azure virtual networks. See [VPN gateway overview](/azure/vpn-gateway-about-vpngateways) to learn more about how gateway subnets are used.
+NAT gateway cannot be deployed in a gateway subnet. VPN gateway uses gateway subnets for VPN connections between site-to-site Azure virtual networks and local networks or between two Azure virtual networks. See [VPN gateway overview](/azure/vpn-gateway/vpn-gateway-about-vpngateways) to learn more about how gateway subnets are used.
 
 ### IPv6 coexistence
 
@@ -124,16 +124,16 @@ The table below describes two common scenarios in which outbound connectivity ma
 
 ### Azure App Service regional Virtual network integration turned off
 
-NAT gateway can be used with Azure app services to allow applications to make outbound calls from a virtual network. To use this integration between Azure app services and NAT gateway, regional virtual network integration must be enabled. See [how regional virtual network integration works](/azure/app-service/overview-vnet-integration#how-regional-virtual-network-integration-works) to learn more.
+NAT gateway can be used with Azure app services to allow applications to make outbound calls from a virtual network. To use this integration between Azure app services and NAT gateway, regional virtual network integration must be enabled. See [how regional virtual network integration works](../../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works) to learn more.
 
 To use NAT gateway with Azure App services, follow these steps: 
-1. Ensure that your application(s) have virtual network integration configured, see [Enable virtual network integration](/azure/app-service/configure-vnet-integration-enable). 
-2. Ensure that **Route All** is enabled for your virtual network integration, see [Configure virtual network integration routing](/azure/app-service/configure-vnet-integration-routing).
+1. Ensure that your application(s) have virtual network integration configured, see [Enable virtual network integration](../../app-service/configure-vnet-integration-enable.md). 
+2. Ensure that **Route All** is enabled for your virtual network integration, see [Configure virtual network integration routing](../../app-service/configure-vnet-integration-routing.md).
 3. Create a NAT gateway resource. 
 4. Create a new public IP address or attach an existing public IP address in your network to NAT gateway.
 5. Assign NAT gateway to the same subnet being used for Virtual network integration with your application(s). 
 
-To see step-by-step instructions on how to configure NAT gateway with virtual network integration, see [Configuring NAT gateway integration](/azure/app-service/networking/nat-gateway-integration#configuring-nat-gateway-integration)
+To see step-by-step instructions on how to configure NAT gateway with virtual network integration, see [Configuring NAT gateway integration](../../app-service/networking/nat-gateway-integration.md#configuring-nat-gateway-integration)
 
 A couple important notes about the NAT gateway and Azure App Services integration: 
 * Virtual network integration does not provide inbound private access to your app from the virtual network. 
@@ -167,9 +167,9 @@ The order of precedence for internet routing configurations is as follows:
 UDR >> NAT gateway >> default system 
 
 Test and resolve issues with a UDR configured to your virtual network by: 
-1. [Testing that the NAT gateway public IP](/azure/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a UDR, follow the remaining steps on how to check for and remove UDRs.
-2. Check for UDRs in the virtual network’s route table, refer to [view route tables](/azure/virtual-network/manage-route-table#view-route-tables).
-3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](/azure/virtual-network/manage-route-table#change-a-route-table).
+1. [Testing that the NAT gateway public IP](./tutorial-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a UDR, follow the remaining steps on how to check for and remove UDRs.
+2. Check for UDRs in the virtual network’s route table, refer to [view route tables](../manage-route-table.md#view-route-tables).
+3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](../manage-route-table.md#change-a-route-table).
 
 Once the UDR is removed from the routing table, the NAT gateway public IP should now take precedence in routing outbound traffic to the internet. 
 

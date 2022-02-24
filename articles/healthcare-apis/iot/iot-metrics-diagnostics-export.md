@@ -51,7 +51,7 @@ In this article, you'll learn how to configure the diagnostic setting for IoT co
 6. Select **AllMetrics**.
 
    > [!Note]
-   > To view a complete list of IoT connector metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisworkspacesiotconnectors). 
+   > To view a complete list of IoT connector metrics associated with **AllMetrics**, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisworkspacesiotconnectors). 
 
 7. Select **Save**.
 

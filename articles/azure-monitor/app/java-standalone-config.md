@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 11/04/2020
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Configuration options - Azure Monitor Application Insights for Java
@@ -556,10 +554,6 @@ you can configure Application Insights Java 3.x to use an HTTP proxy:
 
 Application Insights Java 3.x also respects the global `https.proxyHost` and `https.proxyPort` system properties
 if those are set (and `http.nonProxyHosts` if needed).
-
-Starting from 3.2.6, authenticated proxies are supported. You can add `"user"` and `"password"` under `"proxy"` in
-the json above (or if you are using the system properties above, you can add `https.proxyUser` and `https.proxyPassword`
-system properties).
 
 ## Self-diagnostics
 

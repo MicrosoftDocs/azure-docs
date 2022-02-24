@@ -5,7 +5,8 @@ author: juliakm
 ms.topic: conceptual
 ms.date: 12/08/2021
 ms.author: jukullam
-ms.custom: "devx-track-csharp, devx-track-python"
+ms.custom: "devx-track-csharp, devx-track-python, devx-track-azurecli" 
+ms.devlang: azurecli
 ---
 
 # Continuous delivery with Azure Pipelines
@@ -354,7 +355,7 @@ Use the option **Deploy to Slot** in the **Azure Function App Deploy** task to s
 ---
 ## Create a pipeline with Azure CLI
 
-To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az_functionapp_devops_pipeline_create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
+To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
 
 - If your code is in GitHub:
 
