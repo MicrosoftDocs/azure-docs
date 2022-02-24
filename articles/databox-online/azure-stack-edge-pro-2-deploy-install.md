@@ -315,43 +315,29 @@ Each of these configurations is described in the following sections. For more in
 
 #### Switchless
 
-Use this configuration when high speed switches aren't available for storage and clustering traffic:
+This configuration is used when high speed switches are not available.
 
-#### Connect Port 1 and Port 2 via switches
+Cable your device as shown in the following diagram:
 
-Use this configuration when you need port level redundancy through teaming.
+![Diagram showing cabling scheme for Switchless network topology.](./media/azure-stack-edge-pro-2-deploy-install/switchless-initial-1.png)
 
-Port 3 and Port 4 via 100 GB DAC cable
-Port 1 device configuration via static to laptop
-Port 3 and Port 4 are in the same subnet
-Port 2 of both device are in the same subnet
+1. Connect Port 1 on each node to a computer using a crossover cable or a USB Ethernet adapter for the initial configuration of the device.
+1. Connect Port 2 on each node to a 1-GbE switch via a 1-GbE RJ-45 network cable. If available, a 10-GbE switch can also be used. 
+1. Connect Port 3 and Port 4 directly to the Port 3 and Port 4, respectively, on the other node. Use a QSFP28 passive direct attached cable (tested in-house) for the connection.
 
+#### Using external switches
 
-Port 3 and Port 4 are used for NFM deployments
+This configuration is used for Network Function Manager (NFM) workload deployments and requires high speed switches.
 
+Cable your device as shown in the following diagram:
 
-External switches
-
-Switchless
-
+![Diagram showing cabling scheme when using network topology with external switches.](./media/azure-stack-edge-pro-2-deploy-install/external-switches-initial-1.png)
 
 
+1. Connect Port 1 on each node to a computer using a crossover cable or a USB Ethernet adapter for the initial configuration of the device.
+1. Connect Port 2 on each node to a 10-GbE high-speed switch via a 10-GbE RJ-45 network cable. A high speed switch must be used.
+1. Port 3 and Port 4 are reserved for NFM workload deployments and must be connected accordingly.
 
-1. Connect the 10/1-GbE network interface Port 1 to the computer that's used to configure the physical device. Port 1 serves as the management interface for the initial configuration of the device.
-    
-    > [!NOTE]
-    > If connecting the computer directly to your device (without going through a switch), use a crossover cable or a USB Ethernet adapter.
-
-1. Connect one or more of Port 2, Port 3, Port 4 to the datacenter network/internet.
-
-    - If connecting Port 2, use the 1-GbE RJ-45 network cable.
-    - For the 100-GbE network interfaces, use the QSFP28 passive direct attached cable (tested in-house).
-    
-    The back plane of a cabled device would be as follows: 
-
-    ![Back plane of a cabled device](./media/azure-stack-edge-pro-2-deploy-install/cabled-backplane-1.png)
-
-<!-- How should we change this ASE Pro2 -- For Network Function Manager deployments, make sure that PORT 5 and PORT 6 are connected. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge (Preview)](../network-function-manager/deploy-functions.md).-->
 
 ::: zone-end
 

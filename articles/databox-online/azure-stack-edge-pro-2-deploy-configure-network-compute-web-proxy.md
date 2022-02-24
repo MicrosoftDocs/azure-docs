@@ -250,12 +250,12 @@ Follow these steps to reconfigure Port 1:
 
     1. Switchless
 
-        ![Cabling diagram for Port 1.]()
+        ![Cabling diagram with Port 1 reconfigured.]()
 
 
     1. Using external switches
 
-        ![Cabling diagram for Port 1.]()
+        ![Cabling diagram for Port 1 reconfigured.]()
   
  
 1. Go to the **Network** page for the first node.
