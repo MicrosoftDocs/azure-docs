@@ -162,7 +162,7 @@ The following code is an HTTP trigger
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
-[!INCLUDE [functions-test-csharp.md](../../../includes/functions-test-csharp.md)]
+[!INCLUDE [functions-test-csharp.md](../../includes/functions-test-csharp.md)]
 
 ## Logging
 

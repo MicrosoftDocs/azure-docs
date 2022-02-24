@@ -336,7 +336,7 @@ namespace ServiceBusCancellationToken
 }
 ```
 
-[!INCLUDE [functions-test-csharp.md](../../../includes/functions-test-csharp.md)]
+[!INCLUDE [functions-test-csharp.md](../../includes/functions-test-csharp.md)]
 
 ## Logging
 
