@@ -107,7 +107,7 @@ For example, the following queries provide the same functionality:
 
 ```kql
 print d=dynamic({"a":123, "b":"hello", "c":[1,2,3], "d":{}})
-    ```
+```
 
 ```kql
 print d=parse_json('{"a":123, "b":"hello", "c":[1,2,3], "d":{}}')
