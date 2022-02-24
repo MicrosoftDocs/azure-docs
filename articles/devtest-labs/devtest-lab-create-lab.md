@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create a lab in the Azure portal
+title: 'Quickstart: Create a lab in the Azure portal'
 description: Learn how to quickly create a lab in Azure DevTest Labs by using the Azure portal.
 ms.topic: quickstart
 ms.date: 02/23/2022
@@ -23,7 +23,7 @@ An Azure account with an active subscription. If you don't have one, [create an 
    - **Resource group**: Select an existing resource group from the dropdown list, or create a new resource group for the lab so it's easy to delete later.
    - **Location**: If you're creating a new resource group, select an Azure region for the resource group and lab.
    - **Lab Name**: Enter a name for the lab.
-   - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm#enable-public-environments-when-you-create-a-lab).
+   - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#enable-public-environments-when-you-create-a-lab).
 1. Optionally, select the [Auto-shutdown](#auto-shutdown-tab), [Networking](#networking-tab), or [Tags](#tags-tab) tabs at the top of the page, and customize those settings. You can also apply or change most of these settings after lab creation.
 1. After you complete all settings, select **Review + create** at the bottom of the page.
 1. If the settings are valid, **Succeeded** appears at the top of the page. Review the settings, and then select **Create**.

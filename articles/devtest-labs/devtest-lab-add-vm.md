@@ -11,11 +11,12 @@ This article describes how to create Azure virtual machines (VMs) in a lab in Az
 
 ## Prerequisite
 
-- At least user access to a lab in DevTest Labs.
+- At least user access to a lab in DevTest Labs. To create a lab, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
 
+<a name="create-and-add-virtual-machines"></a>
 ## Configure basic settings
 
-1. In the [Azure portal](https://portal.azure.com), go to the **Overview** page for your lab.
+1. In the [Azure portal](https://portal.azure.com), go to the **Overview** page for the lab.
 
 1. On the lab **Overview** page, select **Add**.
 
@@ -75,12 +76,13 @@ When the deployment is complete, you can see your VM listed under **My virtual m
 
 :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-creation-status.png" alt-text="Lab VM creation status page.":::
 
+<a name="add-artifacts-after-installation"></a>
 ## Next steps
 
 - Add artifacts to VMs after creation. See [Add artifacts to DevTest Labs VMs](add-artifact-vm.md#add-artifacts-to-vms-from-the-azure-portal).
 - Create DevTest Labs VMs by using [PowerShell](devtest-lab-vm-powershell.md), [Azure CLI](devtest-lab-vmcli.md), an [ARM template](devtest-lab-use-resource-manager-template.md), or from a [shared image gallery](add-vm-use-shared-image.md).
 - Learn how to [create custom artifacts](devtest-lab-artifact-author.md) for DevTest Labs VMs.
-- Learn how to [create and claim claimable VMs](devtest-lab-add-claimable-vm) in a lab.
+- Learn how to [create and claim claimable VMs](devtest-lab-add-claimable-vm.md) in a lab.
 - Connect to a lab VM by selecting **Connect** on the VM's **Overview** page. Or [connect to your lab VMs through a browser](connect-virtual-machine-through-browser.md).
 - Explore the DevTest Labs public repositories of [artifacts], [environments](https://github.com/Azure/azure-devtestlab/Environments), and [QuickStart ARM templates](https://github.com/Azure/azure-devtestlab/samples/DevTestLabs/QuickStartTemplates).
 
