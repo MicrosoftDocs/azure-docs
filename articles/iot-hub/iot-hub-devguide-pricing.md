@@ -73,11 +73,11 @@ A device sends one 100-KB device-to-cloud message every hour. It also updates it
 The device consumes:
 
 * 25 (100 KB / 4 KB) messages * 24 hours for device-to-cloud messages.
-* Two messages (1 KB / 0.5 KB) * six times per day for device twin updates.
+* Two messages (1 KB / 0.5 KB) * six times per day for device twin updates. **REVIEWER: WHY IS THE CHUNK SIZE .5KB ON THIS LINE?**
 
 This calculation gives a total of 612 messages per day.
 
-The solution back end consumes 28 messages (14 KB / 0.5 KB) to read the device twin, plus one message to update it, for a total of 29 messages.
+The solution back end consumes 28 messages (14 KB / 0.5 KB) to read the device twin, plus one message to update it, for a total of 29 messages. **REVIEWER: WHY IS THE CHUNK SIZE .5KB ON THIS LINE?**
 
 In total, the device and the solution back end consume 641 messages per day.
 
