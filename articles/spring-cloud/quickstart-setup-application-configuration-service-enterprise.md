@@ -28,7 +28,7 @@ This quickstart shows you how to set up Application Configuration Service for VM
 
 ## Use Application Configuration Service for Tanzu
 
-To use Application Configuration Service, follow these steps.
+To use Application Configuration Service for Tanzu, follow these steps.
 
 ### [Portal](#tab/azure-portal)
 
@@ -59,6 +59,7 @@ To use Application Configuration Service, follow these steps.
        --uri https://github.com/Azure-Samples/spring-petclinic-microservices-config.git \
        --label master
    ```
+
 ---
 
 ## Next steps

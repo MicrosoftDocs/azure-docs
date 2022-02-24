@@ -41,11 +41,12 @@ To create apps on Azure Spring Cloud, follow these steps:
    az spring-cloud app create --name customers-service --instance-count 1 --memory 2Gi
    ```
 
-## Bind apps to Application Configuration Service and Service Registry
+## Bind apps to Application Configuration Service for Tanzu and Tanzu Service Registry
 
-To bind apps to Application Configuration Service and Service Registry, follow these steps.
+To bind apps to Application Configuration Service for VMware Tanzu® and VMware Tanzu® Service Registry, follow these steps.
 
 ### [Portal](#tab/azure-portal)
+
 1. Select **Application Configuration Service**.
 1. Select **App binding**, then select **Bind app**.
 1. Choose one app in the dropdown and select **Apply** to bind the application to Application Configuration Service for Tanzu.
@@ -54,7 +55,7 @@ To bind apps to Application Configuration Service and Service Registry, follow t
 
 A list under **App name** shows the apps bound with Application Configuration Service for Tanzu, as shown in the following screenshot:
 
-   ![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
+![Azure portal screenshot of Azure Spring Cloud with Application Configuration Service page and 'App binding' section with app list showing.](./media/enterprise/getting-started-enterprise/config-service-app-bind.png)
 
 1. In the Azure portal, select **Service Registry**.
 1. Select **App binding**, then select **Bind app**.
@@ -140,3 +141,6 @@ Access the `api gateway` and `customers service` applications from the browser u
    ```
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Quickstart: Set up a Log Analytics workspace](quickstart-setup-log-analytics.md)
