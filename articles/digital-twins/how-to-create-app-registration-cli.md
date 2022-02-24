@@ -5,9 +5,10 @@ titleSuffix: Azure Digital Twins
 description: Learn how to create an Azure AD app registration, as an authentication option for client apps, using the CLI.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/24/2022
+ms.date: 2/24/2022
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy22q3
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
