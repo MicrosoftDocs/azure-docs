@@ -36,7 +36,7 @@ items:
   - name: Diagnostic logging
     expanded: true
     items: 
-    - name: Enable diagnostic dogging in the DICOM service
+    - name: Enable diagnostic logging in the DICOM service
       href: enable-diagnostic-logging.md
   - name: Operations
     expanded: true

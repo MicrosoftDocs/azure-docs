@@ -6,7 +6,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 02/24/2022
 ms.author: aersoy
 ---
 
@@ -22,13 +22,14 @@ The version of the REST API should be explicitly specified in the request URL as
 
 `<service_url>/v<version>/studies`
 
-Currently routes without a version are still supported. For example, `<service_url>/studies` has the same behavior as specifying the version as v1.0-prerelease. However, we strongly recommended that you specify the version in all requests via the URL.
+Currently routes without a version are still supported. For example, `<service_url>/studies` has the same behavior as specifying the version as v1.0-prerelease. However, we strongly recommend that you specify the version in all requests via the URL as routes without a version won't be supported after the General Availability release of the DICOM service.
 
 ## Supported versions
 
 Currently the supported versions are:
 
 * v1.0-prerelease
+* v1
 
 The OpenApi Doc for the supported versions can be found at the following url:
  
@@ -40,7 +41,7 @@ An API version with the label "prerelease" indicates that the version isn't read
 
 ## How versions are incremented
 
-We currently only increment the major version whenever there's a breaking change, which is considered to be not backwards compatible. All minor versions are implied to be 0. All versions are in the format `Major.0`.
+We currently only increment the major version whenever there's a breaking change, which is considered to be not backwards compatible. 
 
 Below are some examples of breaking changes (Major version is incremented):
 
@@ -67,9 +68,16 @@ ReportApiVersions is turned on, which means we'll return the headers api-support
 
 Example:
 
-ApiVersion("1.0")
+```
+[ApiVersion("1")]
+[ApiVersion("1.0-prerelease", Deprecated = true)]
+```
 
-ApiVersion("1.0-prerelease", Deprecated = true)
+[ ![Screenshot of the API supported and deprecated versions.](media/api-supported-deprecated-versions.png) ](media/api-supported-deprecated-versions.png#lightbox)
 
-[ ![API supported and deprecated versions.](media/api-supported-deprecated-versions.png) ](media/api-supported-deprecated-versions.png#lightbox)
+## Next steps
 
+In this article, you learned about the API version policies for the DICOM service. For more information about the DICOM service, see 
+
+>[!div class="nextstepaction"]
+>[Overview of the DICOM service](dicom-services-overview.md)
