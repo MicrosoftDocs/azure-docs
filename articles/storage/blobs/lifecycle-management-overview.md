@@ -158,7 +158,7 @@ The run conditions are based on age. Current versions use the last modified time
 |--|--|--|
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for current version actions |
 | daysAfterCreationGreaterThan | Integer value indicating the age in days | The condition for previous version and blob snapshot actions |
-| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for current version when access tracking is enabled |
+| daysAfterLastAccessTimeGreaterThan | Integer value indicating the age in days | The condition for a current version of a blob when access tracking is enabled |
 
 ## Examples of lifecycle policies
 
