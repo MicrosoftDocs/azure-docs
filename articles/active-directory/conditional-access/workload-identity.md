@@ -56,7 +56,7 @@ Create a location based Conditional Access policy that applies to service princi
 
 ### Create a risk-based Conditional Access policy
 
-Use this sample JSON for a risk-based policy using the [Microsoft Graph beta endpoint](..resources/conditionalaccesspolicy.md). 
+Use this sample JSON for a risk-based policy using the [Microsoft Graph beta endpoint](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-1.0&preserve-view=true). 
 
 > [!NOTE]
 > Report-only mode doesn't report account risk on a risky workload identity.
