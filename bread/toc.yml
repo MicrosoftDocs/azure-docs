@@ -604,7 +604,7 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
-  - name: Healthcare APIs
+  - name: Health Data Services
     tocHref: /azure/healthcare-apis/
     topicHref: /azure/healthcare-apis/
     items:
