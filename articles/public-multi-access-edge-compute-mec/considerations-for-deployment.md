@@ -33,7 +33,7 @@ For Azure public MEC, follow these best practices:
 
 ## Azure public MEC architecture
 
-Deploy application components that require ultra-low latencies in the Azure public MEC, and components that are non-latency sensitive in the Azure region.
+Deploy application components that require low latencies in the Azure public MEC, and components that are non-latency sensitive in the Azure region.
 
 ### Azure region
 
