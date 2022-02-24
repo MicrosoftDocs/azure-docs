@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Windows Authentication for Azur AD principals on Azure SQL Managed Instance
+title: Troubleshoot Windows Authentication for Azure AD principals on Azure SQL Managed Instance
 titleSuffix: Azure SQL Managed Instance
 description: Learn to troubleshoot Azure Active Directory Kerberos authentication for Azure SQL Managed Instance.
 services: sql-database
@@ -16,11 +16,49 @@ ms.date: 01/31/2022
 
 # Troubleshoot Windows Authentication for Azure AD principals on Azure SQL Managed Instance
 
+This article contains troubleshooting steps for use when implementing [Windows Authentication for Azure AD principals](winauth-azuread-overview.md).
+
+## Verify tickets are getting cached
+
+```dos
+klist get krbtgt/kerberos.microsoftonline.com
+```
+
+This command should return a ticket from the on-prem Active Directory realm.
+
+```dos
+klist get MSSQLSvc/<miname>.<dnszone>.database.windows.net:1433
+```
+
+This command should return a ticket from kerberos.microsoftonline.com realm with SPN to MSSQLSvc/<miname>.<dnszone>.database.windows.net:1433
+
+Here are some well known error codes:
+
+- **0x6fb: SQL SPN not found** - Check that you’ve entered valid SPN. If you've implemented the incoming trust-based authentication flow, revisit steps to [create and configure the Azure AD Kerberos Trusted Domain Object](winauth-azuread-setup-incoming-trust-based-flow.md#create-and-configure-the-azure-ad-kerberos-trusted-domain-object) to validate that you’ve performed all the configuration steps.
+- **0x51f** - This error is likely related to a conflict with the Fiddler tool. Turn on Fiddler to mitigate the issue.
+
+## Investigate message flow failures
+
+Use Wireshark, or the network traffic analyzer of your choice, to monitor traffic between the client and on-prem Kerberos Key Distribution Center (KDC).
+
+When using Wireshark the following is expected:
+
+- AS-REQ: Client => on-prem KDC => returns on-prem TGT
+- TGS-REQ: Client => on-prem KDC => returns referral to kerberos.microsoftonline.com
+
+
+## Collect logs for troubleshooting
+
+1.	Use the logsminer application at [aka.ms/logsminer](https://aka.ms/logsminer) to search for traces.
+2.	Collect Windows Event Trace Logs (ETL traces) from the client.
 
 
 ## Next steps
 
 Learn more about implementing Windows Authentication for Azure AD principals on Azure SQL Managed Instance:
 
-- TODO: add link for announcement blog post
-- TODO: add links to related articles in this set after titles and filenames are finalized
+- [What is Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance? (Preview)](winauth-azuread-overview.md)
+- [How to set up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)](winauth-azuread-setup.md)
+- [How Windows Authentication for Azure SQL Managed Instance is implemented with Azure Active Directory and Kerberos (Preview)](winauth-implementation-aad-kerberos.md)
+- [How to set up Windows Authentication for Azure Active Directory with the modern interactive flow (Preview)](winauth-azuread-setup-modern-interactive-flow.md)
+- [How to set up Windows Authentication for Azure AD with the incoming trust-based flow (Preview)](winauth-azuread-setup-incoming-trust-based-flow.md)
