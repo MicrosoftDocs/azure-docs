@@ -5,7 +5,6 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: backup-restore
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.devlang: azurecli
 ms.topic: how-to
 author: SudhirRaparla 
 ms.author: nvraparl 

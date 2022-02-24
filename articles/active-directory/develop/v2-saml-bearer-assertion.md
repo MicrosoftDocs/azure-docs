@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/11/2022
 ms.author: marsma
-ms.reviewer: hpsin, jelledruyts, paulgarn
+ms.reviewer: nickludwig, jelledruyts, paulgarn
 ---
 
 # Exchange a SAML token issued by AD FS for a Microsoft Graph access token

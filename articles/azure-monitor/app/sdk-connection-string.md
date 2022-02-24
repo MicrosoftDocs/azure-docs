@@ -2,8 +2,6 @@
 title: Connection strings in Azure Application Insights | Microsoft Docs
 description: How to use connection strings.
 ms.topic: conceptual
-author: CourtGoodson
-ms.author: cogoodson
 ms.date: 01/17/2020
 ms.custom: "devx-track-js, devx-track-csharp"
 ms.reviewer: mbullwin
@@ -96,22 +94,6 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 
 
 ## Connection string examples
-
-
-### Minimal valid connection string
-
-`InstrumentationKey=00000000-0000-0000-0000-000000000000;`
-
-In this example, only the Instrumentation Key has been set.
-
-- Authorization scheme defaults to "ikey" 
-- Instrumentation Key: 00000000-0000-0000-0000-000000000000
-- The regional service URIs are based on the [SDK defaults](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs) and will connect to the public global Azure:
-   - Ingestion: `https://dc.services.visualstudio.com/`
-   - Live metrics: `https://rt.services.visualstudio.com/`
-   - Profiler: `https://profiler.monitor.azure.com/`
-   - Debugger: `https://snapshot.monitor.azure.com/`
-
 
 
 ### Connection string with endpoint suffix
@@ -215,7 +197,7 @@ You can set the connection string in the `applicationinsights.json` configuratio
 }
 ```
 
-See [connection string configuration](./java-standalone-config.md#connection-string) for more details.
+For more information, [connection string configuration](./java-standalone-config.md#connection-string).
 
 For Application Insights Java 2.x, you can set the connection string in the `ApplicationInsights.xml` configuration file:
 

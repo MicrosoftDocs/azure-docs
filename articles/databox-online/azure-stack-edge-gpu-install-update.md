@@ -31,7 +31,7 @@ The current update is Update 2202. This update installs two updates, the device 
 
 For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2202-release-notes.md).
 
-**To apply 2202 update, your device must be running 2106.** 
+**To apply 2202 update, your device must be running 2106 or later.** 
 
 - If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*. 
 - You can update to 2106 from an older version and then install 2202.
@@ -43,7 +43,7 @@ The procedure to update an Azure Stack Edge is the same whether it is a single-n
 
 - **Single node** - For a single node device, installing an update or hotfix is disruptive and will restart your device. Your device will experience a downtime for the entire duration of the update.
 
-- **Two-node** - For a two-node cluster, this is an optimized update. The two-node cluster may experience short, intermittent disruptions while the update is in progress. We recommend that you shouldn't perform any operations on the other node when update is in progress on the first node of the cluster. 
+- **Two-node** - For a two-node cluster, this is an optimized update. The two-node cluster may experience short, intermittent disruptions while the update is in progress. We recommend that you shouldn't perform any operations on the device node when update is in progress. 
 
     The Kubernetes worker VMs will go down when a node goes down. The Kubernetes master VM will fail over to the other node. Workloads will continue to run. For more information, see [Kubernetes failover scenarios for Azure Stack Edge](azure-stack-edge-gpu-kubernetes-failover-scenarios.md).
 

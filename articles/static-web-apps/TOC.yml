@@ -130,6 +130,10 @@
       href: front-door-manual.md
     - name: Set user roles programmatically
       href: assign-roles-microsoft-graph.md
+- name: Samples
+  items:
+    - name: Serverless app with Azure SQL
+      href: https://github.com/Azure-Samples/azure-sql-db-fullstack-serverless-kickstart
 - name: Reference
   items:
     - name: Azure CLI
