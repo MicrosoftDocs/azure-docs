@@ -46,7 +46,7 @@ The NVadsA10v5-series virtual machines are powered by [Nvidia A10](https://www.n
 
 To take advantage of the GPU capabilities of Azure NVadsA10v5-series VMs, Nvidia GPU drivers must be installed.
 
-To install Nvidia GPU drivers manually, see [N-series GPU driver setup for Windows](./windows/n-series-driver-setup.md) or [N-series GPU driver setup for Linux](./linux/n-series-driver-setup.md) for supported operating systems, drivers, installation, and verification steps.
+During preview you need to manually isntall the GPU-P driver for Nvidia. We will release updated drivers before GA and include it in extensions and all the standard documentation pages.
 
 
 
