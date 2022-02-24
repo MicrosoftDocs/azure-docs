@@ -95,6 +95,11 @@ The value of the *CacheConnection* secret is accessed using the Secret Manager c
 
 A recommended best practice when calling methods on `ConnectionMultiplexer` is to attempt to resolve `RedisConnectionException` and `SocketException` exceptions automatically by closing and reestablishing the connection.
 
+:::code language="csharp" source="samples-cache/quickstart/dotnet-core/RedisConnection.cs":::
+
+<!-- :::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-partial.png" alt-text="Console app partial"::: -->
+
+<!-- https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core -->
 ```csharp
 using StackExchange.Redis;
 using System;
