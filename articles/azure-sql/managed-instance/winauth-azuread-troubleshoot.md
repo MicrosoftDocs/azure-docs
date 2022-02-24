@@ -43,13 +43,13 @@ Use Wireshark, or the network traffic analyzer of your choice, to monitor traffi
 
 When using Wireshark the following is expected:
 
-- AS-REQ: Client => on-prem KDC => returns on-prem TGT
-- TGS-REQ: Client => on-prem KDC => returns referral to kerberos.microsoftonline.com
+- AS-REQ: Client => on-prem KDC => returns on-prem TGT.
+- TGS-REQ: Client => on-prem KDC => returns referral to `kerberos.microsoftonline.com`.
 
 ## Collect logs for troubleshooting
 
-1.	Use the logsminer application at [aka.ms/logsminer](https://aka.ms/logsminer) to search for traces.
-2.	Collect Windows Event Trace Logs (ETL traces) from the client.
+1. Use the logsminer application at [aka.ms/logsminer](https://aka.ms/logsminer) to search for traces.
+1. Collect Windows Event Trace Logs (ETL traces) from the client.
 
 
 ## Next steps
