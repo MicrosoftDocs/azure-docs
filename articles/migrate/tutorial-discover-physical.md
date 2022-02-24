@@ -269,7 +269,7 @@ Set up the appliance for the first time.
 1. On the new tab, paste the device code and sign-in using your Azure username and password. Sign-in with a PIN isn't supported.
 1. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
 1. After you have successfully logged in, go back to the previous tab with the appliance configuration manager.
-1. If the Azure user account used for logging has the right [permissions]() on the Azure resources created during key generation, the appliance registration will be initiated.
+1. If the Azure user account used for logging has the right permissions on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
 ## Start continuous discovery
