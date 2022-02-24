@@ -61,7 +61,7 @@ To migrate to Azure Machine Learning, we recommend the following approach:
 1. Align an actionable Azure Machine Learning adoption plan to business outcomes.
 1. Prepare people, processes, and environments for change.
 
-Please work with your Cloud Solution Architect to define your stragety. 
+Please work with your Cloud Solution Architect to define your strategy. 
 
 See the [Azure Machine Learning Adoption Framework](https://aka.ms/mlstudio-classic-migration-repo) for planning resources including a planning doc template. 
 
