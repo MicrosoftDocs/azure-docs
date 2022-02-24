@@ -24,6 +24,7 @@ Use the Face REST API to:
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="Create a Face resource"  target="_blank">create a Face resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You'll need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
@@ -42,7 +43,9 @@ Make the following changes:
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Optionally change the URL in the body of the request to point to a different image.
 
-Once you've made your changes, open a command prompt and enter the new command. 
+Once you've made your changes, open a command prompt and enter the new command. The code will process the following remote image.
+
+![An older man and woman](../../media/quickstarts/lillian-gish.jpg)
 
 ### Examine the results
 
@@ -88,13 +91,6 @@ The returned face information now includes face attributes. For example:
         "pitch": 0,
         "roll": 0.1,
         "yaw": -32.9
-      },
-      "gender": "female",
-      "age": 22.9,
-      "facialHair": {
-        "moustache": 0,
-        "beard": 0,
-        "sideburns": 0
       },
       "glasses": "NoGlasses",
       "emotion": {
@@ -182,6 +178,8 @@ Finally, detect the single source face that you'll use for matching, and save it
 
 :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_matcher":::
 
+![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
+
 ### Find matches
 
 Copy the following command to a text editor.
@@ -201,7 +199,7 @@ Use the following JSON content for the `body` value:
 
 ### Examine the results
 
-You'll receive a JSON response that lists the IDs of the faces that match your query face.
+You'll receive a JSON response that lists the IDs of the faces that match your query face. 
 
 ```json
 [
@@ -212,6 +210,10 @@ You'll receive a JSON response that lists the IDs of the faces that match your q
     ...
 ] 
 ```
+
+In this program, the face detected in this image should be returned as the face that's similar to the source image face.
+
+![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
 
 ## Clean up resources
 

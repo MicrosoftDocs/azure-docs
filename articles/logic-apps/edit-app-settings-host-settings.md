@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 05/25/2021
+ms.date: 08/18/2021
+ms.custom: fasttrack-edit
 ---
 
 # Edit host and app settings for logic apps in single-tenant Azure Logic Apps
@@ -18,7 +19,7 @@ Your logic app also has *host settings*, which specify the runtime configuration
 
 ## App settings, parameters, and deployment
 
-In *multi-tenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In *multi-tenant* Azure Logic Apps, deployment depends on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both logic apps and infrastructure. This design poses a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In *single-tenant* Azure Logic Apps, deployment becomes easier because you can separate resource provisioning between apps and infrastructure. You can use *parameters* to abstract values that might change between environments. By defining parameters to use in your workflows, you can first focus on designing your workflows, and then insert your environment-specific variables later. You can call and reference your environment variables at runtime by using app settings and parameters. That way, you don't have to redeploy as often.
 
@@ -40,7 +41,7 @@ For more information about setting up your logic apps for deployment, see the fo
 
 In Visual Studio Code, at your logic app project's root level, the **local.settings.json** file contain global configuration options that affect *all workflows* in that logic app while running in your local development environment. When your workflows run locally, these settings are accessed as local environment variables, and their values can often change between the various environments where you run your workflows. To view and manage these settings, review [Manage app settings - local.settings.json](#manage-app-settings).
 
-App settings in Azure Logic Apps work similarly to app settings in Azure Functions or Azure Web Apps. If you've used these other services before, you might already be familiar with app settings. For more information, review [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) and [Work with Azure Functions Core Tools - Local settings file](../azure-functions/functions-run-local.md#local-settings-file).
+App settings in Azure Logic Apps work similarly to app settings in Azure Functions or Azure Web Apps. If you've used these other services before, you might already be familiar with app settings. For more information, review [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md) and [Work with Azure Functions Core Tools - Local settings file](../azure-functions/functions-develop-local.md#local-settings-file).
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
@@ -50,6 +51,7 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating an Azure-hosted connection. |
 | `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
+| `ServiceProviders.Sql.QueryExecutionTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
 ||||
 
 <a name="manage-app-settings"></a>
@@ -147,6 +149,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobTriggersQueue` | `1` job queue | Sets the number of job queues monitored by job dispatchers for jobs to process. This value also affects the number of storage partitions where job queues exist. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobDefinitionsTable` | `4` job partitions | Sets the number of job partitions in the job definition table. This value controls how much execution throughput is affected by partition storage limits. |
+| `Jobs.StuckJobThreshold` | `00:60:00` <br>(60 minutes) | Sets the time duration before a job is declared as stuck. If you have an action that requires more than 60 minutes to run, you might need to increase this setting's default value and also the [`functionTimeout` property](../azure-functions/functions-scale.md#timeout) value in the same **host.json** file to the same value. |
 ||||
 
 <a name="run-duration-history"></a>
@@ -157,6 +160,15 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 |---------|---------------|-------------|
 | `Runtime.FlowRetentionThreshold` | `90.00:00:00` <br>(90 days) | Sets the amount of time to keep workflow run history after a run starts. |
 | `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <p><p>**Important**: Make sure this value is less than or equal to the `Runtime.FlowRetentionThreshold` value. Otherwise, run histories can get deleted before the associated jobs are complete. |
+||||
+   
+<a name="run-actions"></a>
+
+### Run actions
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the amount of time for a workflow action job to run before timing out and retrying. |
 ||||
 
 <a name="inputs-outputs"></a>
@@ -229,7 +241,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.DefaultAppendArrayItemsLimit` | `100000` <br>(100K array items) | Sets the maximum number of items in a variable with the Array type. |
-| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters <p><p>Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store. |
+| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateful workflow. |
+| `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateless workflow. |
 ||||
 
 <a name="http-webhook"></a>
@@ -275,21 +288,13 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.FunctionOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for Azure Functions actions. |
 ||||
 
-<a name="built-in-sql"></a>
-
-### Built-in SQL operations
-
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `Runtime.ServiceProviders.Sql.QueryExecutionTimeout` | `00:00:30` <br>(30 sec) | Sets the request timeout value for SQL service provider operations. |
-||||
-
 <a name="built-in-service-bus"></a>
 
 ### Built-in Azure Service Bus operations
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
+| `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` | `00:01:00` <br>(1 min) | Sets the timeout for sending messages with the built-in Service Bus operation. |
 | `Runtime.ServiceProviders.ServiceBus.MessageSenderPoolSizePerProcessorCount` | `64` message senders | Sets the number of Azure Service Bus message senders per processor core to use in the message sender pool. |
 ||||
 

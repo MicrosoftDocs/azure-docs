@@ -2,13 +2,12 @@
 metadata:
   title: Azure SignalR Service frequently asked questions
   description: Get answers to frequently asked questions about Azure SignalR Service, including troubleshooting and typical usage scenarios.
-  author: sffamily
+  author: vicancy
   ms.service: signalr
-  ms.topic: overview
+  ms.topic: faq
   ms.custom: devx-track-dotnet
   ms.date: 11/13/2019
-  ms.author: zhshang
-    
+  ms.author: lianwei
 title: Azure SignalR Service FAQ
 summary: |
 
@@ -48,11 +47,9 @@ sections:
       - question: |
           Can I configure the transports available in Azure SignalR Service on the server side with ASP.NET Core SignalR? For example, can I disable WebSocket transport?
         answer: |
-          No.
+          Yes. See [Transport Configuration](https://github.com/Azure/azure-signalr/blob/dev/docs/advanced-topics/transport-configuration.md) for how to configure.
           
-          Azure SignalR Service provides all three transports that ASP.NET Core SignalR supports by default. It's not configurable. Azure SignalR Service will handle connections and transports for all client connections.
-          
-          You can configure client-side transports as documented in [ASP.NET Core SignalR configuration](/aspnet/core/signalr/configuration#configure-allowed-transports-1).
+          You can also configure client-side transports as documented in [ASP.NET Core SignalR configuration](/aspnet/core/signalr/configuration#configure-allowed-transports-1).
           
       - question: |
           What is the meaning of metrics like message count or connection count shown in the Azure portal? Which kind of aggregation type should I choose?

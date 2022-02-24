@@ -1,8 +1,8 @@
 ---
 title: Azure Percept speech module interface workflow
 description: Describes the workflow and available methods for the Azure Percept speech module 
-author: mimcco
-ms.author: mimcco
+author: nkhuyent
+ms.author: tsampige
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 7/19/2021
@@ -18,7 +18,7 @@ This article describes how the Azure Percept speech module interacts with IoT Hu
 - IoT Hub can send control requests to speech module via the Module method.
 - IoT Hub can get speech module status via the Module method.
 
-For more details, please refer to [Understand and use module twins in IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins).
+For more details, please refer to [Understand and use module twins in IoT Hub](../iot-hub/iot-hub-devguide-module-twins.md).
 
 
 ## Speech module states

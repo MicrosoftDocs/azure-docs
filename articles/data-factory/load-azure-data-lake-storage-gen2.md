@@ -4,6 +4,7 @@ description: 'Use Azure Data Factory to copy data into Azure Data Lake Storage G
 ms.author: jianleishen
 author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/22/2021
@@ -27,14 +28,14 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 ## Prerequisites
 
 * Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, [create an account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
+* Azure Storage account with Data Lake Storage Gen2 enabled: If you don't have a Storage account, [create an account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * AWS account with an S3 bucket that contains data: This article shows how to copy data from Amazon S3. You can use other data stores by following similar steps.
 
 ## Create a data factory
 
 1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
    
-   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Data Factory selection in the &quot;New&quot; pane":::
 
 2. In the **New data factory** page, provide values for following fields:
  
@@ -58,11 +59,11 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 2. In the **Properties** page, choose **Built-in copy task** under **Task type**, and choose **Run once now** under **Task cadence or task schedule**, then select **Next**.
 
-    ![Properties page](./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/copy-data-tool-properties-page.png" alt-text="Properties page":::
 3. In the **Source data store** page, complete the following steps:
     1. Select **+ New connection**. Select **Amazon S3** from the connector gallery, and select **Continue**.
 	
-    	![Source data store s3 page](./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png)
+    	:::image type="content" source="./media/load-azure-data-lake-storage-gen2/source-data-store-page-s3.png" alt-text="Source data store s3 page":::
 	
     1. In the **New connection (Amazon S3)** page, do the following steps:
 
@@ -70,7 +71,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
         1. Specify the **Secret Access Key** value.
         1. Select **Test connection** to validate the settings, then select **Create**.
     
-          ![Specify Amazon S3 account](./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png)
+          :::image type="content" source="./media/load-azure-data-lake-storage-gen2/specify-amazon-s3-account.png" alt-text="Specify Amazon S3 account":::
 
     1. In the **Source data store** page, ensure that the newly created Amazon S3 connection is selected in the **Connection** block. 
     1. In the **File or folder** section, browse to the folder and file that you want to copy over. Select the folder/file, and then select **OK**.
@@ -81,11 +82,11 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 4. In the **Destination data store** page, complete the following steps.
     1. Select **+ New connection**, and then select **Azure Data Lake Storage Gen2**, and select **Continue**.
 
-        ![Destination data store page](./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png)
+        :::image type="content" source="./media/load-azure-data-lake-storage-gen2/destination-data-storage-page.png" alt-text="Destination data store page":::
     
     1. In the **New connection (Azure Data Lake Storage Gen2)** page, select your Data Lake Storage Gen2 capable account from the "Storage account name" drop-down list, and select **Create** to create the connection. 
 
-        ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png)
+        :::image type="content" source="./media/load-azure-data-lake-storage-gen2/specify-azure-data-lake-storage.png" alt-text="Specify Azure Data Lake Storage Gen2 account":::
 
     1. In the **Destination data store** page, select the newly created connection in the **Connection** block. Then under **Folder path**, enter **copyfroms3** as the output folder name, and select **Next**. ADF will create the corresponding ADLS Gen2 file system and subfolders during copy if it doesn't exist.
 
@@ -93,23 +94,23 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
     
 5. In the **Settings** page, specify **CopyFromAmazonS3ToADLS** for the **Task name** field, and select **Next** to use the default settings.
 
-    ![Settings page](./media/load-azure-data-lake-storage-gen2/copy-settings.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/copy-settings.png" alt-text="Settings page":::
 
 6. In the **Summary** page, review the settings, and select **Next**.
 
-    ![Summary page](./media/load-azure-data-lake-storage-gen2/copy-summary.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/copy-summary.png" alt-text="Summary page":::
 
 7. On the **Deployment page**, select **Monitor** to monitor the pipeline (task). 
  
 8. When the pipeline run completes successfully, you see a pipeline run that is triggered by a manual trigger. You can use links under the **Pipeline name** column to view activity details and to rerun the pipeline.
 
-    ![Monitor pipeline runs](./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/monitor-pipeline-runs.png" alt-text="Monitor pipeline runs":::
 
 9. To see activity runs associated with the pipeline run, select the **CopyFromAmazonS3ToADLS** link under the **Pipeline name** column. For details about the copy operation, select the **Details** link (eyeglasses icon) under the **Activity name** column. You can monitor details like the volume of data copied from the source to the sink, data throughput, execution steps with corresponding duration, and used configuration.
  
-    ![Monitor activity runs](./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/monitor-activity-runs.png" alt-text="Monitor activity runs":::
     
-    ![Monitor activity run details](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
+    :::image type="content" source="./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png" alt-text="Monitor activity run details":::
 
 10. To refresh the view, select **Refresh**. Select **All pipeline runs** at the top to go back to the "Pipeline runs" view.
 

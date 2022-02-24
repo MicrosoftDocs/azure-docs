@@ -14,7 +14,7 @@ ms.date: 02/16/2021
 
 # Create a Translator resource
 
-In this article, you'll learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-info-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **subscription key** for authenticating access.
+In this article, you'll learn how to create a Translator resource in the Azure portal. [Azure Translator](translator-overview.md) is a cloud-based machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs. Azure resources are instances of services that you create. All API requests to Azure services require an **endpoint** URL and a read-only **subscription key** for authenticating access.
 
 ## Prerequisites
 
@@ -27,20 +27,20 @@ The Translator service can be accessed through two different resource types:
 * **Single-service** resource types enable access to a single service API key and endpoint.  
 
 * **Multi-service** resource types enable access to multiple Cognitive Services using a single API key and endpoint. The Cognitive Services resource is currently available for the following services:
-  * Language ([Translator](../translator/translator-info-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Text Analytics](../text-analytics/overview.md))  
+  * Language ([Translator](../translator/translator-overview.md), [Language Understanding (LUIS)](../luis/what-is-luis.md), [Language service](../text-analytics/overview.md))  
   * Vision ([Computer Vision](../computer-vision/overview.md)), ([Face](../face/overview.md))  
   * Decision ([Content Moderator](../content-moderator/overview.md))  
 
 ## Create your resource
 
-* Navigate directly to the [**Create Translator**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) page in the Azure portal to complete your project details.
+* Navigate directly to the [**Create Translator**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) page in the Azure portal to complete your project details.
 
-* Navigate directly to the [**Create Cognitive Services**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) page in the Azure portal to complete your project details.
+* Navigate directly to the [**Create Cognitive Services**](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) page in the Azure portal to complete your project details.
 
 >[!TIP]
 >If you prefer, you can start on the Azure Portal home page to begin the **Create** process as follows:
 >
-> 1. Navigate to the [**Azure Portal**](https://ms.portal.azure.com/#home) home page.
+> 1. Navigate to the [**Azure Portal**](https://portal.azure.com/#home) home page.
 > 1. Select ➕**Create a resource**  from the Azure services menu.
 >1. In the **Search the Marketplace** search box, enter and select **Translator** (single-service resource) or **Cognitive Services** (multi-service resource).  *See* [Choose your resource type](#create-your-resource), above.
 > 1. Select **Create** and you will be taken to the project details page.

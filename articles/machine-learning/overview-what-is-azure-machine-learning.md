@@ -25,7 +25,7 @@ You can create a model in Azure Machine Learning or use a model built from an op
 
 Azure Machine Learning is for individuals and teams implementing MLOps within their organization to bring machine learning models into production in a secure and auditable production environment.
 
-Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Application developers will find tools for integrating models into applications or services. Platform developers will find a robust set of tools, backed by durable Azure Resource Manager (ARM) APIs, for building advanced ML tooling.
+Data scientists and ML engineers will find tools to accelerate and automate their day-to-day workflows. Application developers will find tools for integrating models into applications or services. Platform developers will find a robust set of tools, backed by durable Azure Resource Manager APIs, for building advanced ML tooling.
 
 Enterprises working in the Microsoft Azure cloud will find familiar security and role-based access control (RBAC) for infrastructure. You can set up a project to deny access to protected data and select operations.
 
@@ -42,12 +42,12 @@ Machine learning projects often require a team with varied skillsets to build an
 Developers find familiar interfaces in Azure Machine Learning, such as:
 
 - [Python SDK](/python/api/overview/azure/ml/)
-- [Azure Resource Manager (ARM) REST APIs (preview)](/rest/api/azureml/)
+- [Azure Resource Manager REST APIs (preview)](/rest/api/azureml/)
 - [CLI v2 (preview)](/cli/azure/ml)
 
 ### Studio UI 
 
-The Azure Machine Learning studio is a graphical user interface for a project workspace. In the studio, you can:
+The [Azure Machine Learning studio](https://ml.azure.com) is a graphical user interface for a project workspace. In the studio, you can:
 
 - View runs, metrics, logs, outputs, and so on.
 - Author and edit notebooks and files.
@@ -61,9 +61,11 @@ The Azure Machine Learning studio is a graphical user interface for a project wo
 
 Plus, the designer has a drag-and-drop interface where you can train and deploy models. 
 
+If you're a ML Studio (classic) user, [learn about Studio (classic) deprecation and the difference between it and Azure Machine Learning studio](overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio).
+
 ## Enterprise-readiness and security
 
-Azure Machine Learning integrates with te Azure cloud platform to add security to ML projects. 
+Azure Machine Learning integrates with the Azure cloud platform to add security to ML projects. 
 
 Security integrations include:
 
@@ -82,14 +84,20 @@ Other integrations with Azure services support a machine learning project from e
 - Storage and database options, such as Azure SQL Database, Azure Storage Blobs, and so on
 - Azure App Service allowing you to deploy and manage ML-powered apps
 
+> [!Important]
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
+>
+
 
 ## Machine learning project workflow
 
 Typically models are developed as part of a project with an objective and goals. Projects often involve more than one person. When experimenting with data, algorithms, and models, development is iterative. 
 
-While the project lifecycle will vary by project, it may often look like this:
+### Project lifecycle
 
-![Machine learning project lifecycle diagram](./media/overview-what-is-azure-machine-learning/placeholder-ml-development-cycle.png)
+While the project lifecycle can vary by project, it will often look like this:
+
+![Machine learning project lifecycle diagram](./media/overview-what-is-azure-machine-learning/overview-ml-development-lifecycle.png)
 
 A workspace organizes a project and allows for collaboration for many users all working toward a common objective. Users in a workspace can easily share the results of their runs from experimentation in the studio user interface or use versioned assets for jobs like environments and storage references.
 
@@ -98,8 +106,6 @@ For more information, see [Manage Azure Machine Learning workspaces](how-to-mana
 When a project is ready for operationalization, users' work can be automated in a machine learning pipeline and triggered on a schedule or HTTPS request.
 
 Models can be deployed to the managed inferencing solution, for both real-time and batch deployments, abstracting away the infrastructure management typically required for deploying models.
-
-
 
 ## Train models
 
@@ -195,6 +201,6 @@ Also, Azure Machine Learning includes features for monitoring and auditing:
 ## Next steps
 
 Start using Azure Machine Learning:
-- [Set up an Azure Machine Learning workspace](/quickstart-create-resources.md)
+- [Set up an Azure Machine Learning workspace](quickstart-create-resources.md)
 - [Tutorial: Build a first machine learning project](tutorial-1st-experiment-hello-world.md)
 - [Preview: Run model training jobs with the v2 CLI](how-to-train-cli.md)

@@ -58,7 +58,7 @@ A new Cloud Service (extended support) can be deployed directly in Azure Resourc
 The platform supported migration provides following key benefits:
 
 - Enables seamless platform orchestrated migration with no downtime for most scenarios. Learn more about [supported scenarios](in-place-migration-technical-details.md).  
-- Migrates existing cloud services in three simple steps: validate, prepare, commit (or abort). Learn more about how the [migration tool works]in-place-migration-overview.md#migration-steps).
+- Migrates existing cloud services in three simple steps: validate, prepare, commit (or abort). Learn more about how the [migration tool works](in-place-migration-overview.md#migration-steps).
 - Provides the ability to test migrated deployments after successful preparation. Commit and finalize the migration while abort rolls back the migration.
 
 The migration tool utilizes the same APIs and has the same experience as the [Virtual Machine (classic) migration](../virtual-machines/migration-classic-resource-manager-overview.md). 
@@ -80,7 +80,7 @@ To perform this migration, you must be added as a coadministrator for the subscr
 5. Check the status of your registration. Registration can take a few minutes to complete. 
 
     ```powershell
-    Get-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute 
+    Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate 
     ```
 
 ## How is migration for Cloud Services (classic) different from Virtual Machines (classic)?
@@ -122,7 +122,6 @@ For more information, see [Overview of Platform-supported migration of IaaS reso
 - 	Dynamic Public IP addresses
 - 	DNS Name 
 - 	Network Traffic Rules
-- 	Hypernet virtual network
 
 ## Supported configurations / migration scenarios
 These are top scenarios involving combinations of resources, features, and Cloud Services. This list is not exhaustive.
@@ -130,7 +129,7 @@ These are top scenarios involving combinations of resources, features, and Cloud
 | Service |	Configuration | Comments | 
 |---|---|---|
 | [Azure AD Domain Services](../active-directory-domain-services/migrate-from-classic-vnet.md) | Virtual networks that contain Azure Active Directory Domain services. | Virtual network containing both Cloud Service deployment and Azure AD Domain services is supported. Customer first needs to separately migrate Azure AD Domain services and then migrate the virtual network left only with the Cloud Service deployment |
-| Cloud Service | Cloud Service with a deployment in a single slot only. | Cloud Services containing either a prod or staging slot deployment can be migrated |
+| Cloud Service | Cloud Service with a deployment in a single slot only. | Cloud Services containing a prod slot deployment can be migrated. It is not reccomended to migrate staging slot as this can result in issues with retaining service FQDN |
 | Cloud Service | Deployment not in a publicly visible virtual network (default virtual network deployment) | A Cloud Service can be in a publicly visible virtual network, in a hidden virtual network or not in any virtual network.  Cloud Services in a hidden virtual network and publicly visible virtual networks are supported for migration. Customer can use the Validate API to tell if a deployment is inside a default virtual network or not and thus determine if it can be migrated. |
 |Cloud Service | XML extensions (BGInfo, Visual Studio Debugger, Web Deploy, and Remote Debugging). | All xml extensions are supported for migration 
 | Virtual Network | Virtual network containing multiple Cloud Services.	| Virtual network contain multiple cloud services is supported for migration. The virtual network and all the Cloud Services within it will be migrated together to Azure Resource Manager. |

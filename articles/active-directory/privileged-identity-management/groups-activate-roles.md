@@ -4,15 +4,15 @@ description: Learn how to activate your privileged access group roles in Azure A
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2021
+ms.date: 02/02/2022
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -25,7 +25,7 @@ This article is for eligible members who want to activate their privileged acces
 
 ## Activate a role
 
-When you need to take on an privileged access group role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
+When you need to take on a privileged access group role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
 
 1. [Sign in to Azure AD portal](https://aad.portal.azure.com) with Global Administrator or group Owner permissions.
 
@@ -78,6 +78,10 @@ If you do not require activation of a role that requires approval, you can cance
 1. For the role that you want to cancel, select the **Cancel** link.
 
     When you select **Cancel**, the request will be canceled. To activate the role again, you will have to submit a new request for activation.
+
+## Deactivate a role assignment
+
+When a role assignment is activated, you'll see a **Deactivate** option in the PIM portal for the role assignment. When you select **Deactivate**, there's a short time lag before the role is deactivated. Also, you can't deactivate a role assignment within five minutes after activation.
 
 ## Troubleshoot
 

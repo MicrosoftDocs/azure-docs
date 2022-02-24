@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Create an iOS app'
 description: Learn to create an iOS app using Azure Spatial Anchors programmatically in either Swift or Objective-C.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref, devx-track-azurecli
+ms.custom: has-adal-ref, devx-track-azurecli, mode-other
 ---
 # Quickstart: Create an iOS app with Azure Spatial Anchors, in either Swift or Objective-C
 

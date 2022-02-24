@@ -1,8 +1,8 @@
---- 
+---
 title: Expand Azure VMware Solution by CloudSimple Private Cloud
 description: Describes how to expand an existing CloudSimple Private Cloud to add capacity in an existing or new cluster
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 06/06/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

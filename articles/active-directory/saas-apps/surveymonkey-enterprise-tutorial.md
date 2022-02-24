@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SurveyMonkey Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with SurveyMonkey Enterprise'
 description: Learn how to configure single sign-on between Azure Active Directory and SurveyMonkey Enterprise.
 services: active-directory
 author: jeevansd
@@ -9,11 +9,11 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/11/2021
+ms.date: 01/27/2022
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SurveyMonkey Enterprise
+# Tutorial: Azure AD SSO integration with SurveyMonkey Enterprise
 
 In this tutorial, you'll learn how to integrate SurveyMonkey Enterprise with Azure Active Directory (Azure AD). When you integrate SurveyMonkey Enterprise with Azure AD, you can:
 
@@ -27,6 +27,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SurveyMonkey Enterprise single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -131,8 +134,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the SurveyMonkey Enterprise for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the SurveyMonkey Enterprise tile in the My Apps, you should be automatically signed in to the SurveyMonkey Enterprise for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the SurveyMonkey Enterprise tile in the My Apps, you should be automatically signed in to the SurveyMonkey Enterprise for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure SurveyMonkey Enterprise you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure SurveyMonkey Enterprise you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

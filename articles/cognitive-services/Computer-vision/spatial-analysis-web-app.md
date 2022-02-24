@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/08/2021
 ms.author: pafarley
 ---
@@ -73,7 +73,7 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
 "EULA": { 
     "value": "accept"
 },
-"ENDPOINT":{ 
+"BILLING":{ 
     "value": "<Use a key from your Computer Vision resource>"
 },
 "APIKEY":{

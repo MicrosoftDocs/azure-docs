@@ -5,9 +5,9 @@ metadata:
   services: active-directory
   documentationcenter: ''
   author: rolyon
-  manager: daveba
+  manager: karenhoran
   ms.service: active-directory
-  ms.topic: how-to
+  ms.topic: faq
   ms.subservice: roles
   ms.workload: identity
   ms.date: 11/04/2020
@@ -15,7 +15,6 @@ metadata:
   ms.reviewer: anandy
   ms.custom: oldportal;it-pro;
   ms.collection: M365-identity-device-management
-    
 title: "Azure AD administrative units: Troubleshooting and FAQ"
 summary: |
   For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units).
@@ -36,7 +35,7 @@ sections:
       - question: |
           I just added (or removed) a member of the administrative unit. Why is the member not showing up (or still showing up) on the user interface?
         answer: |
-          Sometimes, the addition or removal of one or more members of an administrative unit might take a few minutes to be reflected on the **Administrative units** pane. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about users and groups in administrative units, see [View a list of administrative units for a user](admin-units-add-manage-users.md) and [View a list of administrative units for a group](admin-units-add-manage-groups.md).
+          Sometimes, the addition or removal of one or more members of an administrative unit might take a few minutes to be reflected on the **Administrative units** pane. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about users and groups in administrative units, see [List users or groups in an administrative unit](admin-units-members-list.md).
           
       - question: |
           I am a delegated Password Administrator on an administrative unit. Why am I unable to reset a specific user's password?
@@ -84,5 +83,5 @@ additionalContent: |
   ## Next steps
   
   - [Restrict scope for roles by using administrative units](administrative-units.md)
-  - [Manage administrative units](admin-units-manage.md)
+  - [Create or delete administrative units](admin-units-manage.md)
   

@@ -6,11 +6,10 @@ metadata:
   ms.service: virtual-machines
   ms.subservice: disks
   ms.collection: windows
-  ms.topic: conceptual
+  ms.topic: faq
   ms.author: mbaldwin
   ms.date: 11/01/2019
   ms.custom: seodec18
-    
 title: Azure Disk Encryption for Windows virtual machines FAQ
 summary: |
   This article provides answers to frequently asked questions (FAQ) about Azure Disk Encryption for Windows VMs. For more information about this service, see [Azure Disk Encryption overview](disk-encryption-overview.md).
@@ -82,12 +81,19 @@ sections:
           To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
           
           >[!WARNING]
-          > - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-windows-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can't use Azure Disk Encryption on this encrypted VM as this isn't a supported scenario, meaning switching away from AAD application for this encrypted VM isn't supported yet.
+          > - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-windows-aad.md) by specifying Azure AD credentials to encrypt this VM, you must continue to use this option. Using Azure Disk Encryption without AAD on a VM that's been encrypted using Azure Disk Encryption with Azure AD is not yet a supported scenario.
           
       - question: |
-          How do I add or remove a key encryption key if I didn't originally use one?
+          How do I add or remove a key encryption key (KEK) if I didn't originally use one?
         answer: |
           To add a key encryption key, call the enable command again passing the key encryption key parameter. To remove a key encryption key, call the enable command again without the key encryption key parameter.
+
+      - question: |
+          What size should I use for my key encryption key (KEK)?
+        answer: |
+          Windows Server 2022 includes a newer version of BitLocker and currently does not work with RSA 2048 bit Key Encryption Keys. Until this is resolved, use an RSA 3072 or RSA 4096 bit keys, as described in [Supported operating systems](disk-encryption-overview.md#supported-operating-systems). 
+
+          For earlier version of Windows, you may instead use RSA 2048 Key Encryption Keys.
 
       - question: |
           Does Azure Disk Encryption allow you to bring your own key (BYOK)?
@@ -152,9 +158,9 @@ sections:
           To determine Windows OS version, run the 'winver' tool in your virtual machine.
           
       - question: |
-          Can I backup and restore an encrypted VM? 
+          Can I back up and restore an encrypted VM? 
         answer: |
-          Azure Backup provides a mechanism to backup and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](../../backup/backup-azure-vms-encryption.md).  Restoring an encrypted VM to a different region is not currently supported.  
+          Azure Backup provides a mechanism to back up and restore encrypted VM's within the same subscription and region.  For instructions, please see [Back up and restore encrypted virtual machines with Azure Backup](../../backup/backup-azure-vms-encryption.md).  Restoring an encrypted VM to a different region is not currently supported.  
           
       - question: |
           Where can I go to ask questions or provide feedback?

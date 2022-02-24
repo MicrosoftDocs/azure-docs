@@ -5,9 +5,10 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 09/12/2017
+ms.date: 01/27/2022
 ---
 
 # PowerShell script - transform data in cloud using Azure Data Factory

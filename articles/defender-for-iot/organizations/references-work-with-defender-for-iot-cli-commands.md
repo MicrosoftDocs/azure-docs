@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT CLI commands
 description: This article describes Defender for IoT CLI commands for sensors and on-premises management consoles.  
-ms.date: 05/20/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
@@ -12,6 +12,7 @@ This article describes CLI commands for sensors and on-premises management conso
 - Administrator
 - CyberX 
 - Support
+- cyberx_host
 
 To start working in the CLI, connect using a terminal. For example, terminal name `Putty`, and `Support` user. 
 
@@ -96,7 +97,7 @@ The attribute that you can define within the command is the IP address of the NT
 
 ## Network configuration
 
-The following table describes the commands available to configure your network options for Azure Defender for IoT:
+The following table describes the commands available to configure your network options for Microsoft Defender for IoT:
 
 |Name|Command|Description|
 |-----------|-------|-----------|

@@ -1,15 +1,13 @@
 ---
 title: Azure SignalR Service serverless quickstart - Python
 description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using Python.
-author: anthonychu
-ms.author: antchu
+author: vicancy
+ms.author: lianwei
 ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
-ms.custom:
-  - devx-track-python
-  - mode-api
+ms.custom: devx-track-python, mode-api
 ---
 # Quickstart: Create an App showing GitHub star count with Azure Functions and SignalR Service using Python
 
@@ -59,7 +57,30 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         ```bash
         func new -n index -t HttpTrigger
         ```
-        
+        Open `index/function.json` and copy the following json codes:
+
+        ```json
+        {
+          "bindings": [
+            {
+              "authLevel": "anonymous",
+              "type": "httpTrigger",
+              "direction": "in",
+              "name": "req",
+              "methods": [
+                "get",
+                "post"
+              ]
+            },
+            {
+              "type": "http",
+              "direction": "out",
+              "name": "res"
+            }
+          ]
+        }
+        ```
+
         Open `index/__init__.py` and copy the following codes.
 
         ```javascript
@@ -76,7 +97,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     2. Create a `negotiate` function for clients to get access token.
     
         ```bash
-        func new -n negotiate -t SignalRNegotiateHTTPTrigger
+        func new -n negotiate -t HttpTrigger
         ```
         
         Open `negotiate/function.json` and copy the following json codes:
@@ -86,7 +107,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
           "scriptFile": "__init__.py",
           "bindings": [
             {
-              "authLevel": "function",
+              "authLevel": "anonymous",
               "type": "httpTrigger",
               "direction": "in",
               "name": "req",
@@ -127,9 +148,9 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         # install requests
         pip install requests
         ```
-    
+
         Open `broadcast/function.json` and copy the following codes.
-    
+
         ```json
         {
           "scriptFile": "__init__.py",
@@ -159,19 +180,28 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
         
         import azure.functions as func
         
+        etag = ''
+        start_count = 0
         
         def main(myTimer: func.TimerRequest, signalRMessages: func.Out[str]) -> None:
-            headers = {'User-Agent': 'serverless'}
+            global etag
+            global start_count
+            headers = {'User-Agent': 'serverless', 'If-None-Match': etag}
             res = requests.get('https://api.github.com/repos/azure/azure-signalr', headers=headers)
-            jres = res.json()
+            if res.headers.get('ETag'):
+                etag = res.headers.get('ETag')
         
+            if res.status_code == 200:
+                jres = res.json()
+                start_count = jres['stargazers_count']
+            
             signalRMessages.set(json.dumps({
                 'target': 'newMessage',
-                'arguments': [ 'Current star count of https://github.com/Azure/azure-signalr is: ' + str(jres['stargazers_count']) ]
+                'arguments': [ 'Current star count of https://github.com/Azure/azure-signalr is: ' + str(start_count) ]
             }))
         ```
 
-3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory. And copy the following content.
+3. The client interface of this sample is a web page. Considered we read HTML content from `content/index.html` in `index` function, create a new file `index.html` in `content` directory under your project root folder. And copy the following content.
 
     ```html
     <html>
@@ -205,14 +235,14 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
 
         ![Search for the SignalR Service instance](media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-search-instance.png)
 
-    1. Select **Keys** to view the connection strings for the SignalR Service instance.
+    2. Select **Keys** to view the connection strings for the SignalR Service instance.
     
         ![Screenshot that highlights the primary connection string.](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-    1. Copy the primary connection string. And execute the command below.
+    3. Copy the primary connection string. And execute the command below.
     
         ```bash
-        func settings add AzureSignalRConnectionString '<signalr-connection-string>'
+        func settings add AzureSignalRConnectionString "<signalr-connection-string>"
         ```
     
 5. Run the Azure Function in local:
@@ -221,7 +251,7 @@ Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.
     func start
     ```
 
-    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current start count. And if you star or unstar in the GitHub, you will get a start count refreshing every few seconds.
+    After Azure Function running locally. Use your browser to visit `http://localhost:7071/api/index` and you can see the current star count. And if you star or unstar in the GitHub, you will get a star count refreshing every few seconds.
 
     > [!NOTE]
     > SignalR binding needs Azure Storage, but you can use local storage emulator when the Function is running locally.

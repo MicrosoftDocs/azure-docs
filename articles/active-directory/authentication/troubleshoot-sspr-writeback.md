@@ -6,18 +6,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
-ms.date: 07/26/2021
+ms.date: 02/22/2022
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
 # Troubleshoot self-service password reset writeback in Azure Active Directory
 
-Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users reset their passwords in the cloud. Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time.
+Azure Active Directory (Azure AD) self-service password reset (SSPR) lets users reset their passwords in the cloud. Password writeback is a feature enabled with [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) or [cloud sync](tutorial-enable-cloud-sync-sspr-writeback.md) that allows password changes in the cloud to be written back to an existing on-premises directory in real time.
 
 If you have problems with SSPR writeback, the following troubleshooting steps and common errors may help. If you can't find the answer to your problem, [our support teams are always available](#contact-microsoft-support) to assist you further.
 
@@ -46,6 +46,18 @@ Azure [GOV endpoints](../../azure-government/compare-azure-government-global-azu
 * *\*.servicebus.usgovcloudapi.net*
 
 If you need more granularity, see the [list of Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This list is updated every Wednesday and goes into effect the next Monday.
+
+To determine if access to a URL and port are restricted in an environment, run the following cmdlet:
+
+```powershell
+Test-NetConnection -ComputerName ssprdedicatedsbprodscu.servicebus.windows.net -Port 443
+```
+
+Or run the following:
+
+```powershell
+Invoke-WebRequest -Uri https://ssprdedicatedsbprodscu.servicebus.windows.net -Verbose
+```
 
 For more information, see the [connectivity prerequisites for Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 

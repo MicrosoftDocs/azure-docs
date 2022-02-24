@@ -1,40 +1,37 @@
 ---
-title: 'Troubleshooting issues with the ECMA Connector Host and Azure AD'
+title: 'Troubleshooting issues with provisioning to on-premises applications'
 description: Describes how to troubleshoot various issues you might encounter when you install and use the ECMA Connector Host.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/02/2021
+ms.date: 02/03/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
-# Troubleshoot ECMA Connector Host issues
-
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
+# Troubleshoot on-premises application provisioning
 
 ## Troubleshoot test connection issues
-After you configure the ECMA host and provisioning agent, it's time to test connectivity from the Azure Active Directory (Azure AD) provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. When the test connection fails, try the following troubleshooting steps:
+After you configure the provisioning agent and ECMA host, it's time to test connectivity from the Azure Active Directory (Azure AD) provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. When the test connection fails, try the following troubleshooting steps:
 
  1. Check that the agent and ECMA host are running:
      1. On the server with the agent installed, open **Services** by going to **Start** > **Run** > **Services.msc**.
-     1. Under **Services**, make sure the **Microsoft Azure AD Connect Agent Updater**, **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*.
+     2. Under **Services**, make sure the **Microsoft Azure AD Connect Provisioning Agent**, and **Microsoft ECMA2Host** services are present and their status is *Running*.
     
         ![Screenshot that shows that the ECMA service is running.](./media/on-premises-ecma-troubleshoot/tshoot-1.png)
 
- 1. Go to the folder where the ECMA host was installed by selecting **Troubleshooting** > **Scripts** > **TestECMA2HostConnection**. Run the script. This script sends a SCIM GET or POST request to validate that the ECMA Connector Host is operating and responding to requests. It should be run on the same computer as the ECMA Connector Host service itself.
- 1. Ensure that the agent is active by going to your application in the Azure portal, selecting **admin connectivity**, selecting the agent dropdown list, and ensuring your agent is active.
- 1. Check if the secret token provided is the same as the secret token on-premises. Go to on-premises, provide the secret token again, and then copy it into the Azure portal.
- 1. Ensure that you've assigned one or more agents to the application in the Azure portal.
- 1. After you assign an agent, you need to wait 10 to 20 minutes for the registration to complete. The connectivity test won't work until the registration completes.
- 1. Ensure that you're using a valid certificate. Go to the **Settings** tab of the ECMA host to generate a new certificate.
- 1. Restart the provisioning agent by going to the taskbar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right-click **Stop**, and then select **Start**.
- 1. When you provide the tenant URL in the Azure portal, ensure that it follows the following pattern. You can replace `localhost` with your host name, but it isn't required. Replace `connectorName` with the name of the connector you specified in the ECMA host.
+ 2. Go to the folder where the ECMA host was installed by selecting **Troubleshooting** > **Scripts** > **TestECMA2HostConnection**. Run the script. This script sends a SCIM GET or POST request to validate that the ECMA Connector Host is operating and responding to requests. It should be run on the same computer as the ECMA Connector Host service itself.
+ 3. Ensure that the agent is active by going to your application in the Azure portal, selecting **admin connectivity**, selecting the agent dropdown list, and ensuring your agent is active.
+ 4. Check if the secret token provided is the same as the secret token on-premises. Go to on-premises, provide the secret token again, and then copy it into the Azure portal.
+ 5. Ensure that you've assigned one or more agents to the application in the Azure portal.
+ 6. After you assign an agent, you need to wait 10 to 20 minutes for the registration to complete. The connectivity test won't work until the registration completes.
+ 7. Ensure that you're using a valid certificate. Go to the **Settings** tab of the ECMA host to generate a new certificate.
+ 8. Restart the provisioning agent by going to the taskbar on your VM by searching for the Microsoft Azure AD Connect provisioning agent. Right-click **Stop**, and then select **Start**.
+ 9. When you provide the tenant URL in the Azure portal, ensure that it follows the following pattern. You can replace `localhost` with your host name, but it isn't required. Replace `connectorName` with the name of the connector you specified in the ECMA host. The error message 'invalid resource' generally indicates that the URL does not follow the expected format.
  
     ```
     https://localhost:8585/ecma2host_connectorName/scim
@@ -59,7 +56,7 @@ To resolve the following issues, run the ECMA host as an admin:
 
 ## Turn on verbose logging 
 
-By default, `switchValue` for the ECMA Connector Host is set to `Error`. This setting means it will only log events that are errors. To enable verbose logging for the ECMA host service or wizard, set `switchValue` to `Verbose` in both locations as shown.
+By default, `switchValue` for the ECMA Connector Host is set to `Verbose`. This will emit detailed logging that will help you troubleshoot issues. You can change the verbosity to `Error` if you would like to limit the number of logs emitted to only errors. Wen using the SQL connector without Windows Integrated Auth, we recommend setting the `switchValue` to `Error` as it will ensure that the connection string is not emitted in the logs. In order to change the verbosity to error, please update the `switchValue` to "Error" in both places as shown below.
 
 The file location for verbose service logging is C:\Program Files\Microsoft ECMA2Host\Service\Microsoft.ECMA2Host.Service.exe.config.
   ```
@@ -73,7 +70,7 @@ The file location for verbose service logging is C:\Program Files\Microsoft ECMA
       </appSettings> 
       <system.diagnostics> 
         <sources> 
-      <source name="ConnectorsLog" switchValue="Verbose"> 
+      <source name="ConnectorsLog" switchValue="Error"> 
             <listeners> 
               <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
                 <filter type=""/> 
@@ -81,14 +78,14 @@ The file location for verbose service logging is C:\Program Files\Microsoft ECMA
             </listeners> 
           </source> 
           <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
-          <source name="ECMA2Host" switchValue="Verbose"> 
+          <source name="ECMA2Host" switchValue="Error"> 
             <listeners>  
               <add initializeData="ECMA2Host" type="System.Diagnos
   ```
 
-The file location for verbose wizard logging is C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config.
+The file location for wizard logging is C:\Program Files\Microsoft ECMA2Host\Wizard\Microsoft.ECMA2Host.ConfigWizard.exe.config.
   ```
-        <source name="ConnectorsLog" switchValue="Verbose"> 
+        <source name="ConnectorsLog" switchValue="Error"> 
           <listeners> 
             <add initializeData="ConnectorsLog" type="System.Diagnostics.EventLogTraceListener, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ConnectorsLog" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack"> 
               <filter type=""/> 
@@ -96,7 +93,7 @@ The file location for verbose wizard logging is C:\Program Files\Microsoft ECMA2
           </listeners> 
         </source> 
         <!-- Choose one of the following switchTrace:  Off, Error, Warning, Information, Verbose --> 
-        <source name="ECMA2Host" switchValue="Verbose"> 
+        <source name="ECMA2Host" switchValue="Error"> 
           <listeners> 
             <add initializeData="ECMA2Host" type="System.Diagnostics.EventLogTraceListener, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" name="ECMA2HostListener" traceOutputOptions="LogicalOperationStack, DateTime, Timestamp, Callstack" /> 
   ```
@@ -125,7 +122,7 @@ After the ECMA Connector Host schema mapping has been configured, start the serv
 | Error      | Resolution |
 | ----------- | ----------- |
 | Could not load file or assembly 'file:///C:\Program Files\Microsoft ECMA2Host\Service\ECMA\Cache\8b514472-c18a-4641-9a44-732c296534e8\Microsoft.IAM.Connector.GenericSql.dll' or one of its dependencies. Access is denied.      | Ensure that the network service account has 'full control' permissions over the cache folder. |
-| Invalid LDAP style of object's DN. DN: username@domain.com"   | Ensure the 'DN is Anchor' checkbox is not checked in the 'connectivity' page of the ECMA host. Ensure the 'autogenerated' checkbox is selected in the 'object types' page of the ECMA host.|
+| Invalid LDAP style of object's DN. DN: username@domain.com"   | Ensure the 'DN is Anchor' checkbox is not checked in the 'connectivity' page of the ECMA host. Ensure the 'autogenerated' checkbox is selected in the 'object types' page of the ECMA host.  See [About anchor attributes and distinguished names](on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names) for more information.|
 
 ## Understand incoming SCIM requests
 
@@ -147,10 +144,10 @@ This problem is typically caused by a group policy that prevented permissions fr
 
 To resolve this problem:
 
-1. Sign in to the server with an administrator account.
-1. Open **Services** by either navigating to it or by going to **Start** > **Run** > **Services.msc**.
-1. Under **Services**, double-click **Microsoft Azure AD Connect Provisioning Agent**.
-1. On the **Log On** tab, change **This account** to a domain admin. Then restart the service. 
+ 1. Sign in to the server with an administrator account.
+ 2. Open **Services** by either navigating to it or by going to **Start** > **Run** > **Services.msc**.
+ 3. Under **Services**, double-click **Microsoft Azure AD Connect Provisioning Agent**.
+ 4. On the **Log On** tab, change **This account** to a domain admin. Then restart the service. 
 
 This test verifies that your agents can communicate with Azure over port 443. Open a browser, and go to the previous URL from the server where the agent is installed.
 
@@ -183,7 +180,7 @@ You might get an error message when you install the cloud provisioning agent.
 
 This problem is typically caused by the agent being unable to execute the PowerShell registration scripts because of local PowerShell execution policies.
 
-To resolve this problem, change the PowerShell execution policies on the server. You need to have Machine and User policies set as *Undefined* or *RemoteSigned*. If they're set as *Unrestricted*, you'll see this error. For more information, see [PowerShell execution policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+To resolve this problem, change the PowerShell execution policies on the server. You need to have Machine and User policies set as *Undefined* or *RemoteSigned*. If they're set as *Unrestricted*, you'll see this error. For more information, see [PowerShell execution policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### Log files
 
@@ -191,8 +188,8 @@ By default, the agent emits minimal error messages and stack trace information. 
 
 To gather more information for troubleshooting agent-related problems:
 
-1. Install the AADCloudSyncTools PowerShell module as described in [AADCloudSyncTools PowerShell Module for Azure AD Connect cloud sync](../../active-directory/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
-1. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information. Use the following switches to fine-tune your data collection. Use:
+ 1. Install the AADCloudSyncTools PowerShell module as described in [AADCloudSyncTools PowerShell Module for Azure AD Connect cloud sync](../../active-directory/cloud-sync/reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
+ 2. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information. Use the following switches to fine-tune your data collection. Use:
 
       - **SkipVerboseTrace** to only export current logs without capturing verbose logs (default = false).
       - **TracingDurationMins** to specify a different capture duration (default = 3 mins).
@@ -214,10 +211,13 @@ By using Azure AD, you can monitor the provisioning service in the cloud and col
 
   ```
 
+### I am getting an Invalid LDAP style DN error when trying to configure the ECMA Connector Host with SQL
+By default, the genericSQL connector expects the DN to be populated using the LDAP style (when the 'DN is anchor' attribute is left unchecked in the first connectivity page). In the error message above, you can see that the DN is a UPN, rather than an LDAP style DN that the connector expects. 
+
+To resolve this, ensure that **Autogenerated** is selected on the object types page when you configure the connector.
+
+See [About anchor attributes and distinguished names](on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names) for more information.
 
 ## Next steps
 
-- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
-- [Generic SQL connector](on-premises-sql-connector-configure.md)
 - [Tutorial: ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)

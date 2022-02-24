@@ -8,9 +8,10 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: yluiu
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -29,7 +30,7 @@ If you aren't sure whether you should use the latest model, skip to the [Evaluat
 You should be familiar with the concept of AI face detection. If you aren't, see the face detection conceptual guide or how-to guide:
 
 * [Face detection concepts](../concepts/face-detection.md)
-* [How to detect faces in an image](HowtoDetectFacesinImage.md)
+* [Call the detect API](HowtoDetectFacesinImage.md)
 
 ## Detect faces with specified model
 
@@ -109,7 +110,6 @@ In this article, you learned how to specify the detection model to use with diff
 
 * [Face .NET SDK](../quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)
 * [Face Python SDK](../quickstarts/client-libraries.md?pivots=programming-language-python%253fpivots%253dprogramming-language-python)
-* [Face Go SDK](../quickstarts/client-libraries.md?pivots=programming-language-go%253fpivots%253dprogramming-language-go)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

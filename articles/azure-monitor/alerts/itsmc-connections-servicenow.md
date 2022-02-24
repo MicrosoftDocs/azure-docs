@@ -2,9 +2,7 @@
 title: Connect ServiceNow with IT Service Management Connector
 description: Learn how to connect ServiceNow with the IT Service Management Connector (ITSMC) in Azure Monitor to centrally monitor and manage ITSM work items.
 ms.topic: conceptual
-author: nolavime
-ms.author: v-jysur
-ms.date: 12/21/2020
+ms.date: 2/23/2022
 
 ---
 
@@ -31,12 +29,11 @@ ServiceNow admins must generate a client ID and client secret for their ServiceN
 - [Set up OAuth for Quebec](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Paris](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
-- [Set up OAuth for New York](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 
 As a part of setting up OAuth, we recommend:
 
-1. [Create an endpoint for clients to access the instance](https://docs.servicenow.com/bundle/newyork-platform-administration/page/administer/security/task/t_CreateEndpointforExternalClients.html).
+1. [Create an endpoint for clients to access the instance](https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/security/task/t_CreateEndpointforExternalClients.html).
 
 1. Update the lifespan of the refresh token:
 

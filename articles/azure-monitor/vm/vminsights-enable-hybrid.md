@@ -38,8 +38,8 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.9.15340 | 3F34A36CF569724A5C83B1C8DFEC54263B7ABCFEAC9EB9BB40AF822A31265AF7  |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.9.15340 | 0B0566A11A9B218FA6E44B057E7BA93986B8D6539B928C6D36D97D13A2F8B8A6 |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.10.13.19190 | 0882504FE5828C4C4BA0A869BD9F6D5B0020A52156DDBD21D55AAADA762923C4    |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.10.13.19190 | 7D90A2A7C6F1D7FB2BCC274ADC4C5D6C118E832FF8A620971734AED4F446B030  |
 
 
 ## Install the Dependency agent on Windows

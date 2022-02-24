@@ -3,15 +3,15 @@ title: Manage emergency access admin accounts - Azure AD
 description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) organization. 
 services: active-directory 
 author: markwahl-msft
-manager: daveba
+manager: karenhoran
 ms.author: rolyon
-ms.date: 11/05/2020
+ms.date: 02/18/2022
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: markwahl-msft
+ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
 
@@ -36,12 +36,42 @@ An organization might need to use an emergency access account in the following s
 
 Create two or more emergency access accounts. These accounts should be cloud-only accounts that use the \*.onmicrosoft.com domain and that are not federated or synchronized from an on-premises environment.
 
+### How to create an emergency access account
+
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) as an existing Global Administrator.
+
+1. Select **Azure Active Directory** > **Users**.
+
+1. Select **New user**.
+
+1. Select **Create user**.
+
+1. Give the account a **User name**.
+
+1. Give the account a **Name**.
+
+1. Create a long and complex password for the account.
+
+1. Under **Roles**, assign the **Global Administrator** role.
+
+1. Under **Usage location**, select the appropriate location.
+
+    :::image type="content" source="./media/security-emergency-access/create-emergency-access-account-azure-ad.png" alt-text="Creating an emergency access account in Azure AD." lightbox="./media/security-emergency-access/create-emergency-access-account-azure-ad.png":::
+
+1. Select **Create**.
+
+1. [Store account credentials safely](#store-account-credentials-safely).
+
+1. [Monitor sign-in and audit logs](#monitor-sign-in-and-audit-logs).
+
+1. [Validate accounts regularly](#validate-accounts-regularly).
+
 When configuring these accounts, the following requirements must be met:
 
 - The emergency access accounts should not be associated with any individual user in the organization. Make sure that your accounts are not connected with any employee-supplied mobile phones, hardware tokens that travel with individual employees, or other employee-specific credentials. This precaution covers instances where an individual employee is unreachable when the credential is needed. It is important to ensure that any registered devices are kept in a known, secure location that has multiple means of communicating with Azure AD.
-- The authentication mechanism used for an emergency access account should be distinct from that used by your other administrative accounts, including other emergency access accounts.  For example, if your normal administrator sign-in is via on-premises MFA, then Azure AD MFA would be a different mechanism.  However if Azure AD MFA is your primary part of authentication for your administrative accounts, then consider a different approach for these, such as using Conditional Access with a third-party MFA provider via Custom controls.
+- Use strong authentication for your emergency access accounts and make sure it doesn’t use the same authentication methods as your other administrative accounts. For example, if your normal administrator account uses the Microsoft Authenticator app for strong authentication, use a FIDO2 security key for your emergency accounts. Consider the [dependencies of various authentication methods](../fundamentals/resilience-in-credentials.md), to avoid adding external requirements into the authentication process.
 - The device or credential must not expire or be in scope of automated cleanup due to lack of use.  
-- You should make the Global Administrator role assignment permanent for your emergency access accounts. 
+- In Azure AD Privileged Identity Management, you should make the Global Administrator role assignment permanent rather than eligible for your emergency access accounts. 
 
 ### Exclude at least one account from phone-based multi-factor authentication
 
@@ -51,11 +81,11 @@ However, at least one of your emergency access accounts should not have the same
 
 ### Exclude at least one account from Conditional Access policies
 
-During an emergency, you do not want a policy to potentially block your access to fix an issue. At least one emergency access account should be excluded from all Conditional Access policies.
+During an emergency, you do not want a policy to potentially block your access to fix an issue. If you use Conditional Access, at least one emergency access account needs to be excluded from all Conditional Access policies.
 
 ## Federation guidance
 
-Some organizations use AD Domain Services and ADFS or similar identity provider to federate to Azure AD. [There should be no on-premises accounts with administrative privileges](../fundamentals/protect-m365-from-on-premises-attacks.md). Mastering and or sourcing authentication for  accounts with administrative privilege outside Azure AD adds unnecessary risk in the event of an outage or compromise of those system(s).
+Some organizations use AD Domain Services and AD FS or similar identity provider to federate to Azure AD. The emergency access for on-premises systems and the emergency access for cloud services should be kept distinct, with no dependency of one on the other. Mastering and or sourcing authentication for accounts with emergency access privileges from other systems adds unnecessary risk in the event of an outage of those system(s).
 
 ## Store account credentials safely
 
@@ -73,7 +103,8 @@ Organizations should monitor sign-in and audit log activity from the emergency a
 
 ### Obtain Object IDs of the break glass accounts
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with an account assigned to the User Administrator role.
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com) with an account assigned to the User Administrator role.
+
 1. Select **Azure Active Directory** > **Users**.
 1. Search for the break-glass account and select the user’s name.
 1. Copy and save the Object ID attribute so that you can use it later.
@@ -91,7 +122,29 @@ Organizations should monitor sign-in and audit log activity from the emergency a
     1. Under **Search query**, enter the following query, inserting the object IDs of the two break glass accounts.
         > [!NOTE]
         > For each additional break glass account you want to include, add another "or UserId == "ObjectGuid"" to the query.
-
+                
+        Sample queries:
+        ```kusto
+        // Search for a single Object ID (UserID)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448"
+        ```
+        
+        ```kusto
+        // Search for multiple Object IDs (UserIds)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448" or UserId == "0383eb26-1cbc-4be7-97fd-e8a0d8f4e62b"
+        ```
+        
+        ```kusto
+        // Search for a single UserPrincipalName
+        SigninLogs
+        | project UserPrincipalName 
+        | where UserPrincipalName == "user@yourdomain.onmicrosoft.com"
+        ```
+        
         ![Add the object IDs of the break glass accounts to an alert rule](./media/security-emergency-access/query-image1.png)
 
     1. Under **Alert logic**, enter the following:
@@ -152,4 +205,4 @@ These steps should be performed at regular intervals and for key changes:
 - [Sign up for Azure AD Premium](../fundamentals/active-directory-get-started-premium.md), if you haven’t signed up already
 - [How to require two-step verification for a user](../authentication/howto-mfa-userstates.md)
 - [Configure additional protections for Global Administrators in Microsoft 365](/office365/enterprise/protect-your-global-administrator-accounts), if you are using Microsoft 365
-- [Start an access review of Global Administrators](../privileged-identity-management/pim-how-to-start-security-review.md) and [transition existing Global Administrators to more specific administrator roles](permissions-reference.md)
+- [Start an access review of Global Administrators](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) and [transition existing Global Administrators to more specific administrator roles](permissions-reference.md)

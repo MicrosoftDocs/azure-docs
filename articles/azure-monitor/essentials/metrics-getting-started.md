@@ -5,7 +5,7 @@ author: vgorbenko
 services: azure-monitor
 
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 02/21/2022
 ms.author: vitalyg
 ---
 
@@ -24,16 +24,16 @@ Azure Monitor metrics explorer is a component of the Microsoft Azure portal that
 
 To create a metric chart, from your resource, resource group, subscription, or Azure Monitor view, open the **Metrics** tab and follow these steps:
 
-1. Click on the "Select a scope" button to open the resource scope picker. This will allow you to select the resource(s) you want to see metrics for. The resource should already be populated if you opened metrics explorer from the resource's menu. To learn how to view metrics across multiple resources, [read this article](./metrics-dynamic-scope.md).
+1. Select the "Select a scope" button to open the resource scope picker. This allows you to select the resource(s) you want to see metrics for. The resource should already be populated if you opened metrics explorer from the resource's menu. To learn how to view metrics across multiple resources, [read this article](./metrics-dynamic-scope.md).
     > ![Select a resource](./media/metrics-getting-started/scope-picker.png)
 
-2. For some resources, you must pick a namespace. The namespace is just a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing Files, Tables, Blobs, and Queues metrics. Many resource types only have one namespace.
+1. For some resources, you must pick a namespace. The namespace is just a way to organize metrics so that you can easily find them. For example, storage accounts have separate namespaces for storing Files, Tables, Blobs, and Queues metrics. Many resource types only have one namespace.
 
-3. Select a metric from a list of available metrics.
+1. Select a metric from a list of available metrics.
 
     > ![Select a metric](./media/metrics-getting-started/metrics-dropdown.png)
 
-4. Optionally, you can [change the metric aggregation](../essentials/metrics-charts.md#aggregation). For example, you might want your chart to show minimum, maximum, or average values of the metric.
+1. Optionally, you can [change the metric aggregation](../essentials/metrics-charts.md#aggregation). For example, you might want your chart to show minimum, maximum, or average values of the metric.
 
 > [!TIP]
 > Use the **Add metric** button and repeat these steps if you want to see multiple metrics plotted in the same chart. For multiple charts in one view, select the **Add chart** button on top.
@@ -61,22 +61,27 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 See [examples of the charts](../essentials/metric-chart-samples.md) that have filtering and splitting applied. The article shows the steps were used to configure the charts.
 
 ## Share your metric chart
-There are currently two ways to share your metric chart. Below are the instructions on how to share information from your metrics charts through Excel and a link.
+There are three ways to share your metric chart. See the instructions below on how to share information from your metrics charts using Excel, a link and a workbook.
  
 ### Download to Excel
-Click "Share" and select "Download to Excel". Your download should start immediately.
+Select "Share" and "Download to Excel". Your download should start immediately.
 
-![screenshot on how to share metric chart via excel](./media/metrics-getting-started/share-excel.png)
+:::image type="content" source="media/metrics-getting-started/share-excel.png" alt-text="screenshot how to share metric chart using excel":::
 
 ### Share a link
-Click "Share" and select "Copy link". You should get a notification that the link was copied successfully.
+Select "Share" and "Copy link". You should get a notification that the link was copied successfully.
 
-![screenshot on how to share metric chart via link](./media/metrics-getting-started/share-link.png)
+:::image type="content" source="media/metrics-getting-started/share-link.png" alt-text="screenshot how to share metric chart using a link":::
+
+### Send to workbook
+Select "Share" and "Send to Workbook". The **Send to Workbook** window opens for you to send the metric chart to a new or existing workbook.
+
+:::image type="content" source="media/metrics-getting-started/share-workbook.png" alt-text="screenshot how to share metric chart to a workbook":::
 
 
 ## Advanced chart settings
 
-You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard to save your work. You can also configure metrics alerts. Follow [product documentation](../essentials/metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.
+You can customize chart style, title, and modify advanced chart settings. When done with customization, pin it to a dashboard  or save to a workbook to save your work. You can also configure metrics alerts. Follow [product documentation](../essentials/metrics-charts.md) to learn about these and other advanced features of Azure Monitor metrics explorer.
 
 ## Next steps
 

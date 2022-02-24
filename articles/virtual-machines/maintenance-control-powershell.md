@@ -3,7 +3,7 @@ title: Maintenance control for Azure virtual machines using PowerShell
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and PowerShell.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 11/19/2020
@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Control updates with Maintenance Control and Azure PowerShell
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Maintenance control lets you decide when to apply platform updates to the host infrastructure of your isolated VMs and Azure dedicated hosts. This topic covers the Azure PowerShell options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
 

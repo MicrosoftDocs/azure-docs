@@ -4,11 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Run machine learning workflows with machine learning pipelines and the Azure Machine Learning SDK for Python. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.reviewer: sgilley
-ms.author: laobri
-author: lobrien
-ms.date: 8/25/2020
+ms.subservice: mlops
+ms.author: nibaccam
+author: nibaccam
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
 

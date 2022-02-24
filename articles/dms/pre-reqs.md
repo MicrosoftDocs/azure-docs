@@ -40,9 +40,9 @@ Azure Database Migration Service prerequisites that are common across all suppor
     > "Microsoft.Resources/subscriptions/resourceGroups/read"
     >
     > $writerActions = `
-    > "Microsoft.DataMigration/services/*/write", `
-    > "Microsoft.DataMigration/services/*/delete", `
-    > "Microsoft.DataMigration/services/*/action", `
+    > "Microsoft.DataMigration/*/write", `
+    > "Microsoft.DataMigration/*/delete", `
+    > "Microsoft.DataMigration/*/action", `
     > "Microsoft.Network/virtualNetworks/subnets/join/action", `
     > "Microsoft.Network/virtualNetworks/write", `
     > "Microsoft.Network/virtualNetworks/read", `
