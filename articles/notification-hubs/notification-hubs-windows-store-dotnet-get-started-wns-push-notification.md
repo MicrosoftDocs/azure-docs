@@ -12,7 +12,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: csharp
 ms.topic: tutorial
 ms.custom: "mvc, ms.custom: devx-track-csharp"
-ms.date: 02/22/2022
+ms.date: 02/24/2022
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 12/04/2019
@@ -69,8 +69,19 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 
     ![WNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-page.png)
 
-    >[!WARNING]
-    >The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+    > [!WARNING]
+    > The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+
+5. Under **Essentials**, select **Client credentials: Add a certificate or secret**.
+
+    :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/hub-azure-portal.png" alt-text="Notification Hub settings on Azure portal":::
+
+6. On the **Certificates & secrets** page, under **Client secrets**, select **New client secret**. After you create a client secret, take note of it before you leave the page.
+
+   > [!WARNING]
+   > You can only view client secret values immediately after creating them. Make sure to save the secret before leaving the page.
+
+    :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/new-client-secret.png" alt-text="Client secret on portal":::
 
 ## Create a Notification Hub
 
