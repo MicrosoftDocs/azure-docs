@@ -28,8 +28,8 @@ This article describes how to onboard a Google Cloud Platform (GCP) project on C
 
 ## Prerequisites
 
-- To enable the CloudKnox **Feature highlights** tile in the Azure AD portal, [select this link to run the script in your browser](http://aka.ms/ciem-prod).
-- To use the CloudKnox public preview, we encourage you to fill out a consent form that provides additional terms and conditions for the public preview product. To open the form, select [CloudKnox Permissions Management Public Preview: Terms and Conditions](http://aka.ms/ciem-terms).
+- To enable the CloudKnox **Feature highlights** tile in the Azure AD portal, [select this link to run the script in your browser](https://aka.ms/ciem-prod).
+- To use the CloudKnox public preview, we encourage you to fill out a consent form that provides other terms and conditions for the public preview product. To open the form, select [CloudKnox Permissions Management Public Preview: Terms and Conditions](https://aka.ms/ciem-terms).
 
 ## Onboard a GCP project
 
