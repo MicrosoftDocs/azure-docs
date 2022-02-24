@@ -1,8 +1,8 @@
 ---
 title: Considerations for deployment in Azure public MEC Preview
 description: Learn about considerations for customers to plan for before they deploy applications in an Azure public multi-access edge compute (MEC) solution.
-author: reemas-new
-ms.author: reemas
+author: m0nikama
+ms.author: monikama
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: conceptual
 ms.date: 02/24/2022
@@ -11,7 +11,7 @@ ms.custom: template-concept
 
 # Considerations for deployment in Azure public MEC Preview
 
-Azure public multi-access edge compute (MEC) Preview sites are small-footprint extensions of Azure. They're placed in or near mobile operators' data centers in metro areas, and are designed to run workloads that require ultra-low latency while being attached to the mobile network. This article focuses on the considerations that customers should plan for before they deploy applications in the Azure public MEC.
+Azure public multi-access edge compute (MEC) Preview sites are small-footprint extensions of Azure. They're placed in or near mobile operators' data centers in metro areas, and are designed to run workloads that require low latency while being attached to the mobile network. This article focuses on the considerations that customers should plan for before they deploy applications in the Azure public MEC.
 
 ## Prerequisites
 
@@ -76,8 +76,8 @@ Applications you deploy in the Azure public MEC can be made available and resili
   - Actively replicates VMs from the Azure public MEC to the parent region and makes them available to fail over and fail back if there's an outage.
   - Backs up VMs to prevent data corruption or lost data.
 
-> [!NOTE]
-> The Azure Azure backup and disaster recover solution for Azure public MEC supports only Azure Virtual Machines.
+   > [!NOTE]
+   > The Azure Azure backup and disaster recover solution for Azure public MEC supports only Azure Virtual Machines.
 
 A trade-off exists between availability and latency. Failing over the application from the Azure public MEC to the Azure region ensures that the application is available, but might increase the latency to the application.
 

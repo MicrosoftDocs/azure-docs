@@ -29,6 +29,8 @@ items:
     href: tutorial-create-vm-using-python-sdk.md
 - name: Resources
   items:
+  - name: Azure public MEC product page
+    href: https://go.microsoft.com/fwlink/?linkid=2186926
   - name: Azure Marketplace
     href: https://azuremarketplace.microsoft.com/marketplace/
   - name: Azure Roadmap

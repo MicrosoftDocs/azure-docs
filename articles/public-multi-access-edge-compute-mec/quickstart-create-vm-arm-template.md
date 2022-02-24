@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Deploy a virtual machine in Azure public MEC Preview using an ARM template'
 description: In this quickstart, learn how to deploy a virtual machine in Azure public multi-access edge compute (MEC) by using an Azure Resource Manager template.
-author: reemas-new
-ms.author: reemas
+author: kunaltelang
+ms.author: kutelang
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: quickstart
 ms.date: 02/24/2022
@@ -30,7 +30,7 @@ In this quickstart, you learn how to use an Azure Resource Manager (ARM) templat
 
 1. Review the following example ARM template.
 
-   Every resource you deploy in Azure public MEC has an extra attribute named `extendedLocation`, which Azure adds to the resource provider. The following example ARM template deploys these resources:
+   Every resource you deploy in Azure public MEC has an extra attribute named `extendedLocation`, which Azure adds to the resource provider. The example ARM template deploys these resources:
 
    - Virtual network
    - Public IP address

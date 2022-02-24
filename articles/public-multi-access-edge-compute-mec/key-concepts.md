@@ -1,8 +1,8 @@
 ---
 title: Key concepts for Azure public MEC Preview
 description: Learn about important concepts for Azure public multi-access edge compute (MEC). 
-author: reemas-new
-ms.author: reemas
+author: moushumig
+ms.author: moghosal
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: conceptual
 ms.date: 02/24/2022
