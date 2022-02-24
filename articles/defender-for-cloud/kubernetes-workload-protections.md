@@ -123,7 +123,7 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
     | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | **Yes**                |
     | Container images should be deployed only from trusted registries            | Remediate vulnerabilities                | **Yes**                |
     | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
-    | Overriding or disabling of containers AppArmor profile should be restricted | Remediate security configurations        | **Yes**                |
+    | Containers should only use allowed AppArmor profiles | Remediate security configurations        | **Yes**                |
     | Services should listen on allowed ports only                                | Restrict unauthorized network access     | **Yes**                |
     | Usage of host networking and ports should be restricted                     | Restrict unauthorized network access     | **Yes**                |
     | Usage of pod HostPath volume mounts should be restricted to a known list    | Manage access and permissions            | **Yes**                |
