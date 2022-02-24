@@ -71,13 +71,13 @@ Restore for any label starting with v1. to a specific point in time.
 az appconfig kv restore --name <app-config-store-name> --label v1.* --datetime "2019-05-01T11:24:12Z"
 ```
 
-For more more examples and optional parameters, go to the [Azure CLI documentation](/cli/azure/appconfig/kv?view=azure-cli-latest).
+For more more examples and optional parameters, go to the [Azure CLI documentation](/cli/azure/appconfig/kv).
 
 ---
 
 ## Access the history of a key-value pair
 
-### [Portal](#tab/history-azure-portal)
+### [Portal](#tab/azure-portal)
 
 You can also access the revision history of a specific key-value pair in the portal.
 
@@ -94,7 +94,7 @@ You can also access the revision history of a specific key-value pair in the por
    > [!TIP]
    > This method is convenient if you have no more than a couple of changes to make, as Configuration explorer only lets you make changes key by key. If you need to restore multiple key-value pairs at once, use the **Restore** menu instead.
 
-### [Azure CLI](#tab/history-azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 Use the Azure CLI as explained below to retrieve and restore a single key-value pair. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -130,7 +130,7 @@ Retrieve the last 10 recorded changes for the key `color` at a specific point-in
 az appconfig revision list --name <app-config-store-name> --key color --top 10 --datetime "2019-05-01T11:24:12Z" 
 ```
 
-For more more examples and optional parameters, go to the [Azure CLI documentation](/cli/azure/appconfig/revision?view=azure-cli-latest).
+For more more examples and optional parameters, go to the [Azure CLI documentation](/cli/azure/appconfig/revision).
 
 ---
 
