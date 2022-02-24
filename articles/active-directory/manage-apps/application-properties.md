@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
-ms.reviewer: ergreenlz
+ms.reviewer: ergreenl
 #Customer intent: As an administrator of an Azure AD tenant, I want to learn more about the properties of an enterprise application that I can configure.
 ---
 
@@ -21,7 +21,7 @@ This article describes the properties that you can configure for an enterprise a
 
 ## Enabled for users to sign-in? 
 
-If this option is set to **Yes**, then assigned users are able to sign in to the application from the My Apps portal, the User access URL, or by navigating to the application URL directly. If assignment is required, then only users who are assigned to the application are able to sign-in.
+If this option is set to **Yes**, then assigned users are able to sign in to the application from the My Apps portal, the User access URL, or by navigating to the application URL directly. If assignment is required, then only users who are assigned to the application are able to sign-in. If assignment is required, applications must be assigned to be granted a token.
 
 If this option is set to **No**, then no users are able to sign in to the application, even if they are assigned to it. Tokens aren't issued for the application.  
 
@@ -71,7 +71,7 @@ If this option is set to **Yes**, then assigned users see the application on the
 
 If this option is set to **No**, then no users see this application on their My Apps portal and O365 launcher. 
 
-Make sure that a homepage URL is included or else the application can't be launched from the application.
+Make sure that a homepage URL is included or else the application can't be launched from the My Apps portal.
 
 Regardless of whether assignment is required or not, only assigned users are able to see this application in the My Apps portal. If you want certain users to see the application in the My Apps portal, but everyone to be able to access it, assign the users in the **Users and Groups** tab, and set assignment required to **No**. 
 

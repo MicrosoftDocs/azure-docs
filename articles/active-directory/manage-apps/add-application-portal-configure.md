@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
-ms.reviewer: ergreenlz
+ms.reviewer: ergreenl
 #Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
 ---
 
