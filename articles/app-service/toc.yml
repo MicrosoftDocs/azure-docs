@@ -83,7 +83,7 @@
               - name: .NET
                 href: scenario-secure-app-access-storage.md
               - name: JavaScript
-                href: scenario-secure-app-access-storage-javascript.md
+                href: tutorial-connect-app-access-storage-javascript.md
           - name: Connect to Microsoft Graph
             items: 
               - name: .NET
