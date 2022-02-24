@@ -23,13 +23,13 @@ java -javaagent:path/to/applicationinsights-agent-3.2.7.jar -jar <myapp.jar>
 
 ## Spring Boot via Docker entry point
 
-If you are using the *exec* form, add the parameter `"-javaagent:path/to/applicationinsights-agent-3.2.7.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
+If you're using the *exec* form, add the parameter `"-javaagent:path/to/applicationinsights-agent-3.2.7.jar"` to the parameter list somewhere before the `"-jar"` parameter, for example:
 
 ```
 ENTRYPOINT ["java", "-javaagent:path/to/applicationinsights-agent-3.2.7.jar", "-jar", "<myapp.jar>"]
 ```
 
-If you are using the *shell* form, add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.2.7.jar` somewhere before `-jar`, for example:
+If you're using the *shell* form, add the JVM arg `-javaagent:path/to/applicationinsights-agent-3.2.7.jar` somewhere before `-jar`, for example:
 
 ```
 ENTRYPOINT java -javaagent:path/to/applicationinsights-agent-3.2.7.jar -jar <myapp.jar>
@@ -66,7 +66,7 @@ Locate the file `<tomcat>/bin/catalina.bat`.  Create a new file in the same dire
 set CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.2.7.jar
 ```
 
-Quotes are not necessary, but if you want to include them, the proper placement is:
+Quotes aren't necessary, but if you want to include them, the proper placement is:
 
 ```
 set "CATALINA_OPTS=%CATALINA_OPTS% -javaagent:path/to/applicationinsights-agent-3.2.7.jar"
