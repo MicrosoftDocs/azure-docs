@@ -70,7 +70,7 @@ You can now register data assets from the database sample by using Azure Data Ca
 
    1. Select the **move-selected arrow** (**>**). This action moves all selected objects into the **Objects to be registered** list.
 
-      :::image type="content" source="media/register-data-assets-tutorial/data-catalog-server-hierarchy.png" alt-text="In the Server Hierarchy, Sales L T is selected. Then in the Available Objects list, the product, product category, product description, product model, and produce model produce description objects are all hilighted. Then the move-selected > is selected.":::
+      :::image type="content" source="media/register-data-assets-tutorial/data-catalog-server-hierarchy.png" alt-text="In the Server Hierarchy, Sales L T is selected. Then in the Available Objects list, the product, product category, product description, product model, and produce model produce description objects are all highlighted. Then the move-selected > is selected.":::
 
    1. Select **Include a Preview** to include a snapshot preview of the data. The snapshot includes up to 20 records from each table, and it's copied into the catalog.
 
@@ -80,11 +80,11 @@ You can now register data assets from the database sample by using Azure Data Ca
 
    1. Specify the name of an **expert** on this data (optional).
 
-      :::image type="content" source="media/register-data-assets-tutorial/data-catalog-objects-register.png" alt-text="In the objects to be registered list, these names are shown: product, product category, product description, product model, and product model product description. Then the 'Include preview' and 'Include data profile' options are selected. Then three tags are added to to the tag feild: sales, product, and azure S Q L.":::
+      :::image type="content" source="media/register-data-assets-tutorial/data-catalog-objects-register.png" alt-text="In the objects to be registered list, these names are shown: product, product category, product description, product model, and product model product description. Then the 'Include preview' and 'Include data profile' options are selected. Then three tags are added to the tag field: sales, product, and azure S Q L.":::
 
    1. Select **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from your database sample are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently stays. Data remains under the control of the administrators and policies of the origin system.
 
-      :::image type="content" source="media/register-data-assets-tutorial/data-catalog-registered-objects.png" alt-text="In the Microsoft Azure Data Catalog window, all the newly registered objects are shown in the Objects to be registered list. At the top of the window there is a notification stating that the process to register the selected objects is finished. Then the View Portal button is selected.":::
+      :::image type="content" source="media/register-data-assets-tutorial/data-catalog-registered-objects.png" alt-text="In the Microsoft Azure Data Catalog window, all the newly registered objects are shown in the Objects to be registered list. At the top of the window there's a notification stating that the process to register the selected objects is finished. Then the View Portal button is selected.":::
 
    1. To see your registered data source objects, select **View Portal**. In the Azure Data Catalog portal, confirm that you see all four tables and the database in the grid view (verify that the search bar is clear).
 
@@ -144,7 +144,7 @@ Property scoping helps you discover data assets where the search term is matched
 
 1. Confirm that you see the tables and the database in the results.  
 
-   :::image type="content" source="media/register-data-assets-tutorial/data-catalog-property-scoping-results.png" alt-text="'Tags : product' is intered in the search bar, and the Object Type filter shows 'Table' has been selected.":::
+   :::image type="content" source="media/register-data-assets-tutorial/data-catalog-property-scoping-results.png" alt-text="'Tags : product' is entered in the search bar, and the Object Type filter shows 'Table' has been selected.":::
 
 ### Save the search
 
@@ -237,7 +237,7 @@ In this exercise, you open data assets in an integrated client tool (Excel) and 
 
 1. In the **Microsoft Excel Security Notice** window, select **Enable**.
 
-   :::image type="content" source="media/register-data-assets-tutorial/data-catalog-excel-security-popup.png" alt-text="In the Microsoft Excel Security Notice pop up, the Enable button is selected.":::
+   :::image type="content" source="media/register-data-assets-tutorial/data-catalog-excel-security-popup.png" alt-text="In the Microsoft Excel Security Notice pop-up, the Enable button is selected.":::
 
 1. Keep the defaults in the **Import Data** dialog box and select **OK**.
 
@@ -301,7 +301,7 @@ In Azure Data Catalog, you can delete an individual asset or delete multiple ass
 
    If you're using the list view, the check box is to the left of the item as shown in the following image:
 
-   :::image type="content" source="media/register-data-assets-tutorial/data-catalog-delete-list-item.png" alt-text="In list view, the selection box is to the left of the seach result item. The Product asset is selected and the delete button is selected in the upper toolbar.":::
+   :::image type="content" source="media/register-data-assets-tutorial/data-catalog-delete-list-item.png" alt-text="In list view, the selection box is to the left of the search result item. The Product asset is selected and the delete button is selected in the upper toolbar.":::
 
    You can also select multiple data assets and delete them as shown in the following image:
 
