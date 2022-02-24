@@ -5,7 +5,7 @@ author: reemas-new
 ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 02/24/2022
 ms.custom: template-concept
 ---
 
@@ -74,9 +74,10 @@ Applications you deploy in the Azure public MEC can be made available and resili
 
 - Use the [Azure backup and disaster recover solution](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) and Azure Backup features. This solution:
   - Actively replicates VMs from the Azure public MEC to the parent region and makes them available to fail over and fail back if there's an outage.
-  - Backs up VMs to prevent data corruption or lost.
+  - Backs up VMs to prevent data corruption or lost data.
 
->[!NOTE] The Azure Azure backup and disaster recover solution for Azure public MEC supports only Azure Virtual Machines.
+> [!NOTE]
+> The Azure Azure backup and disaster recover solution for Azure public MEC supports only Azure Virtual Machines.
 
 A trade-off exists between availability and latency. Failing over the application from the Azure public MEC to the Azure region ensures that the application is available, but might increase the latency to the application.
 

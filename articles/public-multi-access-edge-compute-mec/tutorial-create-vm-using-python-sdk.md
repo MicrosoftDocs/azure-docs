@@ -5,7 +5,7 @@ author: reemas-new
 ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: tutorial
-ms.date: 02/18/2022
+ms.date: 02/24/2022
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
@@ -293,4 +293,4 @@ az group delete --name PythonAzureExample-VM-rg --yes
 To contact the Azure public MEC product team:
 
 > [!div class="nextstepaction"]
-> [Azure public MEC product team](aka.ms/azurepublicmec)
+> [Azure public MEC product team](https://aka.ms/azurepublicmec)

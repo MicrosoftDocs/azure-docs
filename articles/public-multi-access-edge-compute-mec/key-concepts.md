@@ -5,7 +5,7 @@ author: reemas-new
 ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 02/24/2022
 ms.custom: template-concept
 ---
 
@@ -15,7 +15,7 @@ This document describes important concepts for Azure public multi-access edge co
 
 ## ExtendedLocation
 
-All resource providers provide an additional field called [extendedLocation](/javascript/api/@azure/arm-compute/extendedlocation?view=azure-node-latest), which you use to deploy resources in the Azure public MEC.
+All resource providers provide an additional field called [extendedLocation](/javascript/api/@azure/arm-compute/extendedlocation), which you use to deploy resources in the Azure public MEC.
 
 ### Azure Edge Zone ID
 
@@ -23,7 +23,7 @@ Every Azure public MEC site has an Azure Edge Zone ID. This ID is one of the att
 
 ### Azure CLI and SDKs
 
-SDKs for services supported in Azure public MEC have been updated. You can follow the [Python](tutotrial-create-vm-using-python-sdk.md), [Go](Tutorial-Crete-VM-using-GoSdk.md) and [Azure CLI](quickstart-create-vm-cli.md) documents that provide a guide on how to use them for deployments.
+SDKs for services supported in Azure public MEC have been updated. For information about how to use these SDK for deployment, see [Tutorial: Deploy resources in Azure public MEC using the Go SDK](tutorial-create-vm-using-go-sdk.md), [Tutorial: Deploy a virtual machine in Azure public MEC using Python SDK](tutorial-create-vm-using-python-sdk.md), and [Quickstart: Deploy a virtual machine in Azure public MEC using Azure CLI](quickstart-create-vm-cli.md).
 
 ### ARM templates
 
@@ -72,7 +72,7 @@ Azure Bastion is a service you deploy that lets you connect to a virtual machine
 
 ### Azure Load Balancer
 
-The Azure public MEC supports the "Standard" Load Balancer SKU.
+The Azure public MEC supports the Standard Load Balancer SKU.
 
 ### Network Security Groups
 
@@ -88,10 +88,10 @@ Azure public MEC only supports creating Standard SSD Managed DiskS. All other st
 
 ### Default outbound access
 
-Because [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) isn't supported on the public MEC, use a method in the following table to manage your outbound connectivity:
+Because [default outbound access](/azure/virtual-network/ip-services/default-outbound-access) isn't supported on the public MEC, manage your outbound connectivity by using a method in the following table:
 
 \# | Method
---- | -----
+-- | ------
 1 | Use the frontend IP addresses of a Load Balancer for outbound via outbound rules.
 2 | Assign a public IP to the VM.
 
@@ -104,4 +104,4 @@ By default, all services running in the Azure public MEC use the DNS infrastruct
 To deploy a virtual machine in Azure public MEC using an ARM template, advance to the following article:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template](quickstart-create-vm-using-go.md)
+> [Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template](quickstart-create-vm-using-go-sdk.md)

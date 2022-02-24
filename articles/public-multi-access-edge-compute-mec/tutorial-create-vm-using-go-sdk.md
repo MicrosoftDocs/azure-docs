@@ -5,7 +5,7 @@ author: reemas-new
 ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: tutorial
-ms.date: 02/18/2022
+ms.date: 02/24/2022
 ms.custom: template-tutorial
 ---
 

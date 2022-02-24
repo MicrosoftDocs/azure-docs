@@ -5,7 +5,7 @@ author: reemas-new
 ms.author: reemas
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: overview
-ms.date: 02/23/2022
+ms.date: 02/24/2022
 ms.custom: template-overview
 ---
 
@@ -59,7 +59,7 @@ The following key services are available in Azure public MEC:
 
 The following diagram explains how services are deployed at the Azure public MEC location. With this capability, enterprises and developers can deploy the customer workloads closer to their users.
 
-:::image type="content" source="./media/overview/azure-public-mec_service-deployment.png" alt-text="Diagram showing Azure public MEC service deployment.":::  
+:::image type="content" source="./media/overview/azure-public-mec-service-deployment.png" alt-text="Diagram showing Azure public MEC service deployment.":::  
 
 Partnership with operators
 Azure public MEC solutions will be available in partnership with mobile network operators. The current operator partnerships are as follows:
