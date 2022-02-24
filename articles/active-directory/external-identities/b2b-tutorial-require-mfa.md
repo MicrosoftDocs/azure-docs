@@ -132,7 +132,7 @@ To complete the scenario in this tutorial, you need:
 
     ![Screenshot showing the More information required message](media/tutorial-mfa/mfa-required.png)
 
-Note: You can also configure [Cross Tenant Access Settings](https://docs.microsoft.com/en-us/azure/active-directory/external-identities/cross-tenant-access-overview) to trust the MFA from the Azure AD home tenant. This will allow External Azure AD users to use the MFA registered in their own tenant rather than register in the resource tenant.
+Note: You can also configure [cross-tenant access settings](cross-tenant-access-overview.md) to trust the MFA from the Azure AD home tenant. This will allow external Azure AD users to use the MFA registered in their own tenant rather than register in the resource tenant.
 
 1. Sign out.
 
