@@ -27,7 +27,7 @@ Before you disconnect your Azure Stack Edge device from the network that allows 
 
 - To ensure most of the Azure Stack Edge features function in this disconnected mode, you'll activate your device via the Azure portal and deploy containerized and non-containerized workloads such as Kerberos, virtual machines (VMs), and IoT Edge use cases while you have an internet connection. 
 
-During offline use, you won't have access to the Azure portal to manage workloads; all management will be performed via operations local control plane operations. For a list of Azure endpoints that can't be reached during offline use, see [URL patterns for firewall rules](azure-stack-edge-gpu-system-requirements.md#url-patterns-for-firewall-rules).
+   During offline use, you won't have access to the Azure portal to manage workloads; all management will be performed via operations local control plane operations. For a list of Azure endpoints that can't be reached during offline use, see [URL patterns for firewall rules](azure-stack-edge-gpu-system-requirements.md#url-patterns-for-firewall-rules).
  
 - For an IoT Edge and Kubernetes deployment, you'll complete these tasks before you disconnect:
 
