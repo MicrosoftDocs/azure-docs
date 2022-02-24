@@ -17,7 +17,7 @@ ms.custom: has-adal-ref, synapse
 
 This article provides suggestions to troubleshoot common problems with the Google AdWords connector in Azure Data Factory and Azure Synapse.
 
-## Migrate to the new version of Google AdWords API
+## Migrate to the new version of Google Ads API
 
 - **Symptoms**
 
@@ -25,7 +25,7 @@ This article provides suggestions to troubleshoot common problems with the Googl
 
 - **Cause** 
 
-    Due to the sunset of Google AdWords API by April 27, 2022, you are recommended to migrate to the new version of Google Ads API before the date **April 27, 2022**, and connection will start to fail because of the deprecation of Google AdWords API (see this [link](https://ads-developers.googleblog.com/2021/04/upgrade-to-google-ads-api-from-adwords.html)). Migration steps:
+    Due to the sunset of Google AdWords API by April 27, 2022, you are recommended to migrate to the new version of Google Ads API before **April 27, 2022**, and connection will start to fail because of the deprecation of Google AdWords API (see this [link](https://ads-developers.googleblog.com/2021/04/upgrade-to-google-ads-api-from-adwords.html)). Migration steps:
     
     1. Open your Google AdWords connector linked service configuration page.
     2. Edit the linked service and choose the new API version (select **Google Ads**).
@@ -36,18 +36,18 @@ This article provides suggestions to troubleshoot common problems with the Googl
 
 - **Known issues and recommendations**  
 
-    1. The new Google AdWords API doesn't provide a migration plan for below reports/tables:
-        a. AD_CUSTOMIZERS_FEED_ITEM_REPORT
-        b. CAMPAIGN_GROUP_PERFORMANCE_REPORT
-        c. CAMPAIGN_NEGATIVE_KEYWORDS_PERFORMANCE_REPORT
-        d. CAMPAIGN_NEGATIVE_LOCATIONS_REPORT
-        e. CAMPAIGN_NEGATIVE_PLACEMENTS_PERFORMANCE_REPORT
-        f. CREATIVE_CONVERSION_REPORT
-        g. CRITERIA_PERFORMANCE_REPORT
-        h. FINAL_URL_REPORT
-        i. KEYWORDLESS_CATEGORY_REPORT
-        j. MARKETPLACE_PERFORMANCE_REPORT
-        k. TOP_CONTENT_PERFORMANCE_REPORT
+    1. The new Google Ads API doesn't provide a migration plan for below reports/tables:  
+        a. AD_CUSTOMIZERS_FEED_ITEM_REPORT  
+        b. CAMPAIGN_GROUP_PERFORMANCE_REPORT  
+        c. CAMPAIGN_NEGATIVE_KEYWORDS_PERFORMANCE_REPORT  
+        d. CAMPAIGN_NEGATIVE_LOCATIONS_REPORT  
+        e. CAMPAIGN_NEGATIVE_PLACEMENTS_PERFORMANCE_REPORT  
+        f. CREATIVE_CONVERSION_REPORT  
+        g. CRITERIA_PERFORMANCE_REPORT  
+        h. FINAL_URL_REPORT  
+        i. KEYWORDLESS_CATEGORY_REPORT  
+        j. MARKETPLACE_PERFORMANCE_REPORT  
+        k. TOP_CONTENT_PERFORMANCE_REPORT  
 
     2. The syntax for Google Ads query language is similar to AWQL from the AdWords API, but not identical. You can refer this [document](https://developers.google.com/google-ads/api/docs/migration/querying) for more details.  
 
