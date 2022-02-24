@@ -78,7 +78,7 @@ Organizations can export data by configurating [diagnostic settings in Azure AD]
 
 ## Enforce access controls with risk-based Conditional Access
 
-Using [Conditional Access for workload identities](../conditional-access/workload-identity.md) you can block access for specific accounts you choose when Identity Protection marks them “at risk”. Policy can be applied to single tenant service principals that have been registered in your tenant. Third-party SaaS, multi-tenanted apps and managed identities are out of scope.
+Using [Conditional Access for workload identities](../conditional-access/workload-identity.md), you can block access for specific accounts you choose when Identity Protection marks them "at risk." Policy can be applied to single-tenant service principals that have been registered in your tenant. Third-party SaaS, multi-tenanted apps, and managed identities are out of scope.
 
 ## Investigate risky workload identities
 
