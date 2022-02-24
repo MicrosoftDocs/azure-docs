@@ -14,7 +14,7 @@ zone_pivot_groups: iot-develop-toolset
 #  prompt: Choose a build environment
 #  - id: iot-toolset-mplab
 #    title: MPLAB
-ms.custom: mode-other
+ms.custom: mode-other, contperf-fy22q3
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
@@ -255,7 +255,7 @@ Keep Termite open to monitor device output in the following steps.
 
 * IAR Embedded Workbench for ARM (EW for ARM). You can download and install a  [14-day free trial of IAR EW for ARM](https://www.iar.com/products/architectures/arm/iar-embedded-workbench-for-arm/).
 
-* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_IAR_Samples_2021_11_03.zip) file and extract it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the Microchip ATSAME54-XPRO IAR sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -380,7 +380,7 @@ Keep Termite open to monitor device output in the following steps.
 
 * [MPLAB XC32/32++ Compiler 2.4.0 or later](https://www.microchip.com/mplab/compilers).
 
-* Download the [Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2020_10_10.zip](https://github.com/azure-rtos/samples/releases/download/v6.1_rel/Azure_RTOS_6.1_ATSAME54-XPRO_MPLab_Samples_2021_11_03.zip) file and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
+* Download the Microchip ATSAME54-XPRO MPLab sample from [Azure RTOS samples](https://github.com/azure-rtos/samples/), and unzip it to a working directory. Choose a directory with a short path to avoid compiler errors when you build.
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 

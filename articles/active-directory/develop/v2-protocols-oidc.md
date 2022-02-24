@@ -3,7 +3,7 @@ title: Microsoft identity platform and OpenID Connect protocol | Azure
 titleSuffix: Microsoft identity platform
 description: Build web applications by using the Microsoft identity platform implementation of the OpenID Connect authentication protocol.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +11,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/19/2021
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev, identityplatformtop40
 ---
 
@@ -278,7 +278,7 @@ When you have an authorization code and an ID token, you can sign the user in an
 
 ### Calling the UserInfo endpoint
 
-Review the [UserInfo documentation](userinfo.md#calling-the-api) to look over how the call the UserInfo endpoint with this token.
+Review the [UserInfo documentation](userinfo.md#calling-the-api) to look over how to call the UserInfo endpoint with this token.
 
 ## Send a sign-out request
 

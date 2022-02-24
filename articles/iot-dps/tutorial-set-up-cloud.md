@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Set up cloud for Azure IoT Hub Device Provisioning Service in portal
 description: This tutorial shows how you can set up the cloud resources for device provisioning in the [Azure portal](https://portal.azure.com) using the IoT Hub Device Provisioning Service (DPS)
-author: wesmc7777
-ms.author: wesmc
+author: kgremban
+ms.author: kgremban
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps

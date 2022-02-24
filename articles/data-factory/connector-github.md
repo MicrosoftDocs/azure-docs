@@ -51,6 +51,6 @@ The following properties are supported for the GitHub linked service.
 | userName | GitHub username | yes |
 | password | GitHub password | yes |
 
-## Next Steps
+## Next steps
 
 Create a [source dataset](data-flow-source.md) in mapping data flow.

@@ -22,7 +22,7 @@ If you want Personalizer to select the best content for more than one content ar
 
 Create a Personalizer resource for each feedback loop.
 
-1. Sign in to [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). The previous link takes you to the **Create** page for the Personalizer service.
+1. Sign in to [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). The previous link takes you to the **Create** page for the Personalizer service.
 1. Enter your service name, select a subscription, location, pricing tier, and resource group.
 
     > [!div class="mx-imgBorder"]
