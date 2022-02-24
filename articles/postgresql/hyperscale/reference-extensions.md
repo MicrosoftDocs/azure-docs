@@ -53,7 +53,7 @@ The versions of each extension installed in a server group sometimes differ base
 > | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | Provides a data type for hierarchical tree-like structures. | 1.1 | 1.1 | 1.2 | 1.2 |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | Data type for representing line segments or floating-point intervals. | 1.3 | 1.3 | 1.3 | 1.4 |
 > | [tdigest](https://github.com/tvondra/tdigest) | Data type for on-line accumulation of rank-based statistics such as quantiles and trimmed means. | 1.2.0 | 1.0 | 1.2.0 | 1.2.0 |
-> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.3.1 | 2.3.1 | 2.4.0 | 2.4.0 |
+> | [topn](https://github.com/citusdata/postgresql-topn/) | Type for top-n JSONB. | 2.4.0 | 2.3.1 | 2.4.0 | 2.4.0 |
 
 ### Full-text search extensions
 
