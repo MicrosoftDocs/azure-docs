@@ -140,23 +140,6 @@ The following table describes the values on the track usage page:
 | **Status**| The current status of your usage of the service defined by the meter. The possible values for status are: </br> **Not in use**: You haven't used the meter or the usage for the meter hasn't reached the billing system. </br> **Exceeded on \<Date\>**: You've exceeded the limit for the meter on \<Date\>. </br> **Unlikely to Exceed**: You're unlikely to exceed the limit for the meter. </br>**Exceeds on \<Date\>**: You're likely to exceed the limit for the meter on \<Date\>. | 
 | | | 
 
-
-Previous: 
-
-|Meter    |Description    |Monthly Limit  |
-|---------|---------|---------|
-|SQL Database, Single Standard, S0 DTUs | Tracks number of S0 SQL databases used per day  | 1 |    
-
-
-- Meter: Identifies the unit of measure for the service being consumed.
-- Usage/Limit: Current month's usage and limit for the meter.
-- Status: Usage status of the service. Based on your usage, you can have one of the following statutes:
-- Not in use: You haven't used the meter or the usage for the meter hasn't reached the billing system.
-- Exceeded on \<Date\>: You've exceeded the limit for the meter on \<Date\>.
-- Unlikely to Exceed: You're unlikely to exceed the limit for the meter.
-- Exceeds on \<Date\>: You're likely to exceed the limit for the meter on \<Date\>.
-    
-
 >[!IMPORTANT]
 > - With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage of the service beyond the free monthly amount is deducted from this credit.
 > - At the end of your first 30 days or after you spend your $200 credit (whichever comes first), you'll only pay for what you use beyond the free monthly amount of services. To keep getting free services after 30 days, move to pay-as-you-go pricing. If you don't move to pay as you go, you can't purchase Azure services beyond your $200 credit and eventually your account and services will be disabled.
