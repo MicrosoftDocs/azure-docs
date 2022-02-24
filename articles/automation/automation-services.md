@@ -46,13 +46,13 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 - Azure Blueprints to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements.
 - [Learn more](/azure/azure-resource-manager/bicep/overview?tabs=bicep).
 
-# [Scenarios](#tab/scenarios_deploy)
+# [Scenarios](#tab/scenarios-deploy)
 - Create, manage, and update infrastructure resources, such as virtual machines, networks, storage account, containers etc.
 - Deploy apps, add tags, assign policies, assign role-based access control all declaratively as code and integrated with your CI\CD tools. 
 - Manage multiple environments like production, non-production and disaster recovery.
 - Deploy resources consistently and reliably at a scale.
 
-# [Users](#tab/users_deploy)
+# [Users](#tab/users-deploy)
 - Application Developers\Infrastructure Admins\DevOps Engineers using Azure for the first time or using Azure as their primary cloud.
 - IT Engineer\Cloud Architect responsible for cloud infrastructure deployment.
 
