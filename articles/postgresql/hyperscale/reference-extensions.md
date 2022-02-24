@@ -106,10 +106,8 @@ The versions of each extension installed in a server group sometimes differ base
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
-> | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | Administrative functions for PostgreSQL. | 2.0 | 2.0 | 2.1 | 2.1 |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | Functions for verifying relation integrity. | 1.1 | 1.2 | 1.2 | 1.3 |
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. See the "dblink and postgres_fdw" section for information about this extension. | 1.2 | 1.2 | 1.2 | 1.2 |
-> | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | Foreign-data wrapper for flat file access. | 1.0 | 1.0 | 1.0 | 1.0 |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | Inspect the contents of database pages at a low level. | 1.7 | 1.7 | 1.8 | 1.9 |
 > | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | Provides a means for examining what's happening in the shared buffer cache in real time. | 1.3 | 1.3 | 1.3 | 1.3 |
 > | [pg\_cron](https://github.com/citusdata/pg_cron) | Job scheduler for PostgreSQL. | 1.4 | 1.3 | 1.3 | 1.4 |
@@ -131,10 +129,9 @@ The versions of each extension installed in a server group sometimes differ base
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** | **PG 11** | **PG 12** | **PG 13** | **PG 14** |
 > |---|---|---|---|---|
-> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.3 | 3.0.3 | 3.1.4 |
-> | address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.3 | 3.0.3 | 3.1.4 |
+> | [PostGIS](https://www.postgis.net/) | Spatial and geographic objects for PostgreSQL. | 2.5.5 | 3.0.3 | 3.0.3 | 3.1.4 |
+> | address\_standardizer | Used to parse an address into constituent elements. Used to support geocoding address normalization step. | 2.5.5 | 3.0.3 | 3.0.3 | 3.1.4 |
 > | postgis\_sfcgal | PostGIS SFCGAL functions. | 2.5.5 | 3.0.3 | 3.0.3 | 3.1.4 |
-> | postgis\_tiger\_geocoder | PostGIS tiger geocoder and reverse geocoder. | 2.5.5 | 3.0.3 | 3.0.3 | 3.1.4 |
 > | postgis\_topology | PostGIS topology spatial types and functions. | 2.5.5 | 3.0.3 | 3.0.3 | 3.1.4 |
 
 
