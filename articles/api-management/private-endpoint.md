@@ -1,6 +1,6 @@
 ---
-title: Set up private endpoint with Private Link
-description: Learn how to restrict access to an API Management instance by using an Azure private endpoint and Azure Private Link.
+title: Set up private endpoint for Azure API Management
+description: Learn how to restrict access to an Azure API Management instance by using an Azure private endpoint and Azure Private Link.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
