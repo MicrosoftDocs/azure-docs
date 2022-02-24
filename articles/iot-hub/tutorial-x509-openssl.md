@@ -203,9 +203,9 @@ subjectKeyIdentifier     = hash
 
 ## Step 6 - Create a subordinate CA
 
-This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and subordinate CAs issue client certificates. Enter the following commands in the *subca* directory.
+This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and subordinate CAs issue client certificates.
 
-Use the configuration file to generate a private key and a certificate signing request (CSR).
+From the *subca* directory, use the configuration file to generate a private key and a certificate signing request (CSR).
 
 ```bash
   openssl req -new -config subca.conf -out subca.csr -keyout private/subca.key
