@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: minxia
 author: mx-iao
-ms.date: 09/28/2020
+ms.date: 02/23/2022
 ms.topic: how-to
 
 # Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
@@ -28,7 +28,7 @@ Run this code on either of these environments:
  - Azure Machine Learning compute instance - no downloads or installation necessary
 
      - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
+    - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > tensorflow > train-hyperparameter-tune-deploy-with-tensorflow** folder.
  
  - Your own Jupyter Notebook server
 
@@ -127,6 +127,7 @@ For more information on compute targets, see the [what is a compute target](conc
 To define the Azure ML [Environment](concept-environments.md) that encapsulates your training script's dependencies, you can either define a custom environment or use an Azure ML curated environment.
 
 #### Use a curated environment
+
 Azure ML provides prebuilt, curated environments if you don't want to define your own environment. Azure ML has several CPU and GPU curated environments for TensorFlow corresponding to different versions of TensorFlow. For more info, see [Azure ML Curated Environments](resource-curated-environments.md).
 
 If you want to use a curated environment, you can run the following command instead:
@@ -228,7 +229,9 @@ The [Run object](/python/api/azureml-core/azureml.core.run%28class%29) provides 
 run = Experiment(workspace=ws, name='Tutorial-TF-Mnist').submit(src)
 run.wait_for_completion(show_output=True)
 ```
+
 ### What happens during run execution
+
 As the run is executed, it goes through the following stages:
 
 - **Preparing**: A docker image is created according to the environment defined. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress. If a curated environment is specified instead, the cached image backing that curated environment will be used.
