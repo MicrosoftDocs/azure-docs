@@ -1,18 +1,15 @@
 ---
-title: Configuration options – Hyperscale (Citus) - Azure Database for PostgreSQL
-description: Options for a Hyperscale (Citus) server group, including node compute, storage, and regions.
+title: Compute and storage – Hyperscale (Citus) - Azure Database for PostgreSQL
+description: Options for a Hyperscale (Citus) server group, including node compute and storage
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.custom: references_regions
-ms.date: 02/02/2022
+ms.date: 02/23/2022
 ---
 
-# Azure Database for PostgreSQL – Hyperscale (Citus) configuration options
-
-## Compute and storage
+# Azure Database for PostgreSQL – Hyperscale (Citus) compute and storage
  
 You can select the compute and storage settings independently for
 worker nodes and the coordinator node in a Hyperscale (Citus) server
@@ -23,7 +20,7 @@ and worker nodes in your Hyperscale (Citus) server group. The storage
 includes  database files, temporary files, transaction logs, and
 the Postgres server logs.
 
-### Standard tier
+## Standard tier
  
 | Resource              | Worker node           | Coordinator node      |
 |-----------------------|-----------------------|-----------------------|
@@ -78,7 +75,7 @@ following values:
 | 19           | 29,184              | 58,368            | 116,812           |
 | 20           | 30,720              | 61,440            | 122,960           |
 
-### Basic tier
+## Basic tier
 
 The Hyperscale (Citus) [basic tier](concepts-tiers.md) is a server
 group with just one node.  Because there isn't a distinction between
@@ -111,54 +108,7 @@ available to the basic tier node.
 | 256               | 768          |
 | 512               | 1,536        |
 
-## Regions
-Hyperscale (Citus) server groups are available in the following Azure regions:
-
-* Americas:
-	* Brazil South
-	* Canada Central
-	* Central US
-	* East US
-	* East US 2
-	* North Central US
-	* South Central US
-	* West Central US
-	* West US
-	* West US 2
-* Asia Pacific:
-	* Australia East
-	* Central India
-	* East Asia
-	* Japan East
-	* Japan West
-	* Korea Central
-	* Southeast Asia
-* Europe:
-	* France Central
-	* Germany West Central
-	* North Europe
-	* Switzerland North
-	* UK South
-	* West Europe
-
-Some of these regions may not be initially activated on all Azure
-subscriptions. If you want to use a region from the list above and don't see it
-in your subscription, or if you want to use a region not on this list, open a
-[support
-request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-
-## Pricing
-For the most up-to-date pricing information, see the service
-[pricing page](https://azure.microsoft.com/pricing/details/postgresql/).
-To see the cost for the configuration you want, the
-[Azure portal](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)
-shows the monthly cost on the **Configure** tab based on the options you
-select. If you don't have an Azure subscription, you can use the Azure pricing
-calculator to get an estimated price. On the
-[Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-website, select **Add items**, expand the **Databases** category, and choose
-**Azure Database for PostgreSQL – Hyperscale (Citus)** to customize the
-options.
- 
 ## Next steps
-Learn how to [create a Hyperscale (Citus) server group in the portal](quickstart-create-portal.md).
+
+* Learn how to [create a Hyperscale (Citus) server group in the portal](quickstart-create-portal.md)
+* Change [compute quotas](howto-compute-quota.md) for a subscription and region
