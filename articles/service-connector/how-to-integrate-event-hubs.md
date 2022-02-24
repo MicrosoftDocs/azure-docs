@@ -50,7 +50,7 @@ This page shows the supported authentication types and client types of Azure Eve
 | Default environment variable name      | Description          | Sample value                                 |
 | -------------------------------------- | -------------------- | -------------------------------------------- |
 | AZURE_EVENTHUB_FULLYQUALIFIEDNAMESPACE | Event Hubs namespace | `{EventHubNamespace}.servicebus.windows.net` |
-| AZURE_EVENTHUB_CLIENTID                | Your client ID       | `28011635-0dea-4326-896c-3b746a2d90a4`       |
+| AZURE_EVENTHUB_CLIENTID                | Your client ID       | `{yourClientID}`                             |
 
 #### Service principal
 
@@ -81,16 +81,16 @@ This page shows the supported authentication types and client types of Azure Eve
 | Default environment variable name     | Description          | Sample value                                 |
 | ------------------------------------- | -------------------- | -------------------------------------------- |
 | spring.cloud.azure.eventhub.namespace | Event Hubs namespace | `{EventHubNamespace}.servicebus.windows.net` |
-| spring.cloud.azure.client-id          | Your client ID       | `28011635-0dea-4326-896c-3b746a2d90a4`       |
+| spring.cloud.azure.client-id          | Your client ID       | `{yourClientID}`                             |
 
 #### Spring Boot service principal
 
 | Default environment variable name     | Description          | Sample value                                 |
 | ------------------------------------- | -------------------- | -------------------------------------------- |
 | spring.cloud.azure.eventhub.namespace | Event Hubs namespace | `{EventHubNamespace}.servicebus.windows.net` |
-| spring.cloud.azure.client-id          | Your client ID       | `28011635-0dea-4326-896c-3b746a2d90a4`       |
+| spring.cloud.azure.client-id          | Your client ID       | `{yourClientID}`                             |
 | spring.cloud.azure.tenant-id          | Your client secret   | `******`                                     |
-| spring.cloud.azure.client-secret      | Your tenant ID       | `72f988bf-86f1-41af-91ab-2d7cd011db47`       |
+| spring.cloud.azure.client-secret      | Your tenant ID       | `{yourTenantID}`                             |
 
 ## Next step
 
