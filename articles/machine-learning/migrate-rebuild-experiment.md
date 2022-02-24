@@ -94,7 +94,7 @@ To give a trained model a meaningful name, you can register the output of **Trai
 
 ![Screenshot showing how to save trained model.](./media/migrate-rebuild-experiment/save-model.png)
 
-You can find the trained model in "Dataset" category in the component list or seach it by name. Then connect the trained model to a **Score Model** component to use it for prediction. 
+You can find the trained model in "Dataset" category in the component list or search it by name. Then connect the trained model to a **Score Model** component to use it for prediction. 
 
 ![Screenshot showing how to find trained model.](./media/migrate-rebuild-experiment/search-model-in-list.png)
 
