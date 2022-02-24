@@ -17,7 +17,7 @@ The NVadsA10v5-series virtual machines are powered by [Nvidia A10](https://www.n
 
 <br>
 
-[ACU](acu.md): 230-260<br>
+[ACU](acu.md): Not Available<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Premium Storage caching](premium-storage-performance.md): Supported<br>
 [Ultra Disks](disks-types.md#ultra-disks): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage and performance) <br>
