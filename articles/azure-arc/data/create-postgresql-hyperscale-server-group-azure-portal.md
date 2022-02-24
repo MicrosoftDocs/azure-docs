@@ -90,7 +90,7 @@ Be aware of the following considerations when you're deploying:
   |A simple instance of Azure Arc-enabled PostgreSQL Hyperscale that is ready to scale out when you need it.   |One instance of Azure Arc-enabled PostgreSQL Hyperscale. It isn't yet aware of the semantic for coordinator and worker. To scale it out after deployment, edit the configuration, increase the number of worker nodes, and distribute the data.   |*0*.   |The Citus extension that provides the Hyperscale capability is present on your deployment, but isn't yet loaded.   |
   |   |   |   |   |
 
-  This table an also be visualized as:
+  This table can also be visualized as:
 
   :::image type="content" source="media/postgres-hyperscale/postgresql-hyperscale-deployment-parameters.png" alt-text="Postgres Hyperscale worker node parameter and associated Architecture":::
 
