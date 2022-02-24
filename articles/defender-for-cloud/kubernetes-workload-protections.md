@@ -2,7 +2,7 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 02/24/2022
 ---
 
 # Protect your Kubernetes workloads
@@ -122,7 +122,6 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
     | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | **Yes**                |
     | Container images should be deployed only from trusted registries            | Remediate vulnerabilities                | **Yes**                |
-    | Containers should listen on allowed ports only                              | Restrict unauthorized network access     | **Yes**                |
     | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
     | Overriding or disabling of containers AppArmor profile should be restricted | Remediate security configurations        | **Yes**                |
     | Services should listen on allowed ports only                                | Restrict unauthorized network access     | **Yes**                |
