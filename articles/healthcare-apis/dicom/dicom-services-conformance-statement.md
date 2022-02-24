@@ -6,13 +6,13 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 02/24/2022
 ms.author: aersoy
 ---
 
 # DICOM Conformance Statement
 
-The **Azure API for DICOM service** supports a subset of the DICOMweb&trade; Standard. This support includes:
+The **DICOM service within Azure Health Data Services** supports a subset of the DICOMweb&trade; Standard. This support includes:
 
 * [Store (STOW-RS)](#store-stow-rs)
 * [Retrieve (WADO-RS)](#retrieve-wado-rs)
