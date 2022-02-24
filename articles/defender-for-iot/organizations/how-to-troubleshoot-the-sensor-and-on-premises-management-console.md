@@ -102,67 +102,7 @@ Sometimes ICS devices are configured with external IP addresses. These ICS devic
 1. Generate a new data-mining report for internet connections.
 1. In the data-mining report, enter the administrator mode and delete the IP addresses of your ICS devices.
 
-### Tweak the sensor's Quality of Service (QoS)
-
-To save your network resources, you can limit the interface bandwidth that the sensor uses for day-to-day procedures.
-
-To limit the interface bandwidth, use the `cyberx-xsense-limit-interface` CLI tool that needs to be run with sudo permissions. The tool gets the following arguments:
-
-- `* -i`: interfaces (example: eth0).
-
-- `* -l`: limit (example: 30 kbit / 1 mbit). You can use the following bandwidth units: kbps, mbps, kbit, mbit, or bps.
-
-- `* -c`: clear (to clear the interface bandwidth limitation).
-
-**To tweak the Quality of Service (QoS)**:
-
-1. Sign in to the sensor CLI as a Defender for IoT user, and enter `sudo cyberx-xsense-limit-interface-I eth0 -l value`.
-
-   For example: `sudo cyberx-xsense-limit-interface -i eth0 -l 30kbit`
-
-   > [!NOTE]
-   > For a physical appliance, use the em1 interface.
-
-1. To clear interface limitation, enter `sudo cyberx-xsense-limit-interface -i eth0 -l 1mbps -c`.
-
-
-## Export sensor information
-
-In addition to tools for monitoring and analyzing your network, you can export logs for further investigation.
-
-- When you export logs, the sensor will automatically generate a one-time password (OTP), unique for the exported logs, in a separate text file.
-- The exported logs are added to the **Archived Logs** list.
-- Send the OTP to the support team in a separate message and medium from the exported logs. The support team will be able to extract exported logs only by using the unique OTP that's used to encrypt the logs.
-- The list of archived logs can contain up to five items. If the number of items in the list goes beyond that number, the earliest item is deleted.
-
-Export logs as follows:
-
-1. On the left pane, select **System Settings**.
-1. Under **Sensor management**, select **Backup & Restore**.
-1. In **File Name**, type the name you want to use for the log export. The default is the current date.
-1. You can export all data, all system data to investigate system state, or select specific logs. After selecting the data you want to export, select **Export**.
-
-**Export category** | **Description** 
---- | ---
-**Core Application Logs** | Select this option to export data about the core application configuration and operation.
-**Communication with CM logs** | Select this option if there are continuous problems or interruptions of connection with the management console.
-**SNMP Logs** | Select this option to receive SNMP health check information.
-**System Sanity Output** | Select this option to check system performance.
-**Dissection Logs** | Select this option to check protocol logs.
-**Database Logs** | Select this option to export logs from the system database. Investigating system logs helps identify system problems. 
-**Operating System Logs** | Select this option to get information about the operating system state.
-**OS Kernel Dumps** | Select this option to export your kernel memory dump. A kernel memory dump contains all the memory that the kernel is using at the time of the problem that occurred in this kernel. The size of the dump file is smaller than the complete memory dump. Typically, the dump file is around one-third the size of the physical memory on the system.
-**Configuration** | Select this option to export information about all the configurable parameters to make sure everything was configured correctly.
-**Web Application Logs** | Select this option to get information about all the requests sent from the application's web interface.
-**Forwarding logs** | Select this option for investigation of the forwarding rules.
-**Installation/Upgrade logs** | Select this option for investigation of the installation and upgrade configuration parameters.
-**Dissection Statistics** | Select this option to allow advanced inspection of protocol statistics.
-**Profiling Service Log** | Select this option to allow advanced inspection of protocol statistics.
-
-
-
-
-## Troubleshoot the on-premises console
+## On-premises management console troubleshooting tools
 
 ### Investigate a lack of expected alerts on the management console
 

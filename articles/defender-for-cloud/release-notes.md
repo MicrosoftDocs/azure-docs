@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 02/17/2022
+ms.date: 02/22/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -22,12 +22,25 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 Updates in February include:
 
 - [Kubernetes workload protection for Arc enabled K8s clusters](#kubernetes-workload-protection-for-arc-enabled-k8s-clusters)
+- [Native CSPM for GCP and threat protection for GCP compute instances](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances)
 
 ### Kubernetes workload protection for Arc enabled K8s clusters 
 
 Defender for Containers for Kubernetes workloads previously only protected AKS. We have now extended the protective coverage to include Azure Arc enabled Kubernetes clusters.
 
 Learn how to [set up your Kubernetes workload protection](kubernetes-workload-protections.md#set-up-your-workload-protection) for AKS and Azure Arc enabled Kubernetes clusters.
+
+### Native CSPM for GCP and threat protection for GCP compute instances
+
+The new automated onboarding of GCP environments allows you to protect GCP workloads with Microsoft Defender for Cloud. Defender for Cloud protects your resources with the following plans:
+
+- **Defender for Cloud's CSPM** features extend to your GCP resources. This agentless plan assesses your GCP resources according to the GCP-specific security recommendations which are provided with Defender for Cloud. GCP recommendations are included in your secure score, and the resources will be assessed for compliance with the built-in GCP CIS standard. Defender for Cloud's asset inventory page is a multi-cloud enabled feature helping you manage your resources across Azure, AWS, and GCP.
+
+- **Microsoft Defender for servers** brings threat detection and advanced defenses to your GCP compute instances. This plan includes the integrated license for Microsoft Defender for Endpoint, vulnerability assessment scanning, and more.
+
+    For a full list of available features, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds.md). Automatic onboarding capabilities will allow you to easily connect any existing, and new compute instances discovered in your environment.
+
+Learn how to protect, and [connect your GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
 
 ## January 2022
 
