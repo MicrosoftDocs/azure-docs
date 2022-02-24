@@ -5,11 +5,10 @@ metadata:
   services: azure-app-configuration
   author: AlexandraKemperMS
   ms.service: azure-app-configuration
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 02/19/2020
   ms.author: alkemper
   ms.custom: references_regions
-    
 title: Azure App Configuration FAQ
 summary: This article answers frequently asked questions about Azure App Configuration.
 

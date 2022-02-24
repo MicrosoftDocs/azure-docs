@@ -9,7 +9,7 @@ ms.date: 02/16/2022
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure Azure Storage firewalls and virtual networks

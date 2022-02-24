@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 02/11/2022
+ms.date: 02/22/2022
 ---
 
 # Compare Azure Government and global Azure
@@ -76,6 +76,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure SQL Database|database.windows.net|database.usgovcloudapi.net||
 |**Identity**|Azure AD|login.microsoftonline.com|login.microsoftonline.us||
 |||certauth.login.microsoftonline.com|certauth.login.microsoftonline.us||
+|||passwordreset.microsoftonline.com|passwordreset.microsoftonline.us||
 |**Integration**|Service Bus|servicebus.windows.net|servicebus.usgovcloudapi.net||
 |**Internet of Things**|Azure IoT Hub|azure-devices.net|azure-devices.us||
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
