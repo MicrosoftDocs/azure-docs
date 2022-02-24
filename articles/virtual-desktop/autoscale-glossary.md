@@ -20,7 +20,7 @@ The autoscale feature is Azure Virtual Desktop’s native scaling service that t
 
 ## Scaling tool
 
-Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic Apps to scale the number of VMs in a host pool based on the number of sessions per CPU core during [peak](#peak) and [off-peak](#off-peak) hours.
+Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic Apps to scale the VMs in a host pool based on how many sessions per CPU core are active during peak and off-peak hours.
 
 ## Scaling plan
 
@@ -36,7 +36,7 @@ The ramp-up phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is us
 
 ## Peak
 
-The phase of the schedule where your host pool reaches the maximum number of [active user sessions](#active-user-session) for the day. In this phase, the number of active sessions usually holds steady until the peak ends. New active user sessions can be established during this phase, but usually at a slower rate than the ramp-up phase.
+The peak phase of a [scaling plan](#scaling-plan) [schedule](#schedule) is when your host pool reaches the maximum number of [active user sessions](#active-user-session) for the day. In this phase, the number of active sessions usually holds steady until the peak phase ends. New active user sessions can be established during this phase, but usually at a slower rate than the ramp-up phase.
 
 ## Ramp down
 
@@ -48,7 +48,7 @@ The off-peak phase of the [scaling plan](#scaling-plan) [schedule](#schedule) is
 
 ## Available session host
 
-Available session hosts are session hosts that are turned on and therefore available for users to start their sessions in.
+Available session hosts are session hosts that have passed all Azure Virtual Desktop agent health checks and have VM objects that are powered on, making them available for users to start their user sessions on.
 
 ## Capacity threshold
 
@@ -57,11 +57,11 @@ The capacity threshold is the percentage of a [host pool's capacity](#host-pool-
 For example:
 
 - If the [used host pool capacity](#used-host-pool-capacity) is below the capacity threshold and the autoscale feature can turn off virtual machines (VMs) without going over the capacity threshold, then the feature will turn the VMs off.
-- If the [host pool capacity](#host-pool-capacity) goes over the capacity threshold, then the autoscale feature will turn more VMs on until the host pool capacity goes below the capacity threshold.
+- If the used host pool capacity goes over the capacity threshold, then the autoscale feature will turn more VMs on until the used host pool capacity goes below the capacity threshold.
 
 ## Host pool capacity
 
-Host pool capacity is how many [active sessions](#active-user-session) a host pool can host based on the number of active session hosts. The host pool capacity is the host pool's maximum session limit multiplied by the number of [available session hosts](#available-session-host) in the host pool.
+Host pool capacity is how many user sessions a host pool can host based on the number of [available session hosts](#available-session-host). The host pool capacity is the host pool's maximum session limit multiplied by the number of [available session hosts](#available-session-host) in the host pool.
 
 In other words:
 
@@ -89,15 +89,15 @@ A user session is considered "active" when the user signs in and connects to the
 
 ## Disconnected user session
 
-A disconnected user session is an inactive session that the user hasn't signed out of yet. When a user reconnects to their remote resources, they'll be redirected to their disconnected session on the session host they were working in. At this point, the disconnected session becomes an [active session](#active-user-session) again.
+A disconnected user session is an inactive session that the user hasn't signed out of yet. When a user closes the remote session window without signing out, the session becomes disconnected. When a user reconnects to their remote resources, they'll be redirected to their disconnected session on the session host they were working on. At this point, the disconnected session becomes an [active session](#active-user-session) again.
 
-## Force sign-out ("logoff")
+## Force sign-out ("force logoff")
 
-A forced sign-out (sometimes called a "logoff" in the user interface) is when the service ends an [active user session](#active-user-session) or a [disconnected user session](#disconnected-user-session) without the user's consent.
+A forced sign-out (called a "force logoff" in the user interface) is when the service ends an [active user session](#active-user-session) or a [disconnected user session](#disconnected-user-session) without the user's consent.
 
 ## Exclusion tag
 
-An exclusion tag is a propterty of a scaling plan that's a tag name you can apply to VMs to exclude them from [scaling actions](#scaling-action). [The autoscale feature](#autoscale) only performs scaling actions on VMs without tag names that match the exclusion tag.
+An exclusion tag is a property of a [scaling plan](#scaling-plan) that's a tag name you can apply to VMs to exclude them from [scaling actions](#scaling-action). [The autoscale feature](#autoscale) only performs scaling actions on VMs without tag names that match the exclusion tag.
 
 ## Next steps
 
