@@ -23,8 +23,8 @@ The following prerequisites are required to configure a managed instance for Win
 
 |Prerequisite  | Description  |
 |---------|---------|
-|Az.Sql PowerShell module | This PowerShell module provides management cmdlets for Azure SQL resources. Install this module by running the following PowerShell command: `Install-Module -Name Az.Sql`   |
-|Azure Active Directory PowerShell Module  | This module provides management cmdlets for Azure AD administrative tasks such as user and service principal management. Install this module by running the following PowerShell command: `Install-Module –Name AzureAD`  |
+|Az.Sql PowerShell module | This PowerShell module provides management cmdlets for Azure SQL resources.<BR/><BR/> Install this module by running the following PowerShell command: `Install-Module -Name Az.Sql`   |
+|Azure Active Directory PowerShell Module  | This module provides management cmdlets for Azure AD administrative tasks such as user and service principal management.<BR/><BR/> Install this module by running the following PowerShell command: `Install-Module –Name AzureAD`  |
 | A managed instance | You may [create a new managed instance](../../azure-arc/data/create-sql-managed-instance.md) or use an existing managed instance. You must [enable Azure AD authentication](../database/authentication-aad-configure.md) on the managed instance. |
 
 ## Configure Azure AD Authentication for Azure SQL Managed Instance
@@ -36,11 +36,10 @@ To enable a system assigned service principal for a managed instance:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your managed instance
-1. Select **Identity**
+1. Select **Identity**.
 1. Set **System assigned service principal** to **On**.
+    :::image type="content" source="media/winauth-azuread/azure-portal-managed-instance-identity-enable-system-assigned-service-principal.png" alt-text="Screenshot of the identity pane for a managed instance in the Azure portal. Under 'System assigned service principal' the radio button next to the 'Status' label has been set to 'On'."  lightbox="media/winauth-azuread/azure-portal-managed-instance-identity-enable-system-assigned-service-principal.png":::
 1. Select **Save**.
-
-TODO: add screenshot
 
 ### Grant admin consent to a system assigned service principal
 
@@ -49,9 +48,9 @@ TODO: add screenshot
 1. Select **App registrations**.
 1. Select **All applications**.
 1. Find the application with the name matching your Managed Instance. The name will be in the format: `<managedinstancename> principal`
+1. Grant **admin consent** to the application.
 
-
-TODO: Insufficient privileges to view applications, so I can't tell what the step is or generate a new screenshot -- do they click the check mark? Do they need to click save?
+    :::image type="content" source="media/winauth-azuread/azure-portal-configure-permissions-admin-consent.png" alt-text="Screenshot from the Azure portal of the configured permissions for applications. The status for the example application is 'Granted for aadsqlmi'."  lightbox="media/winauth-azuread/azure-portal-configure-permissions-admin-consent.png":::
 
 ## Connect to the managed instance with Windows Authentication
 
@@ -59,11 +58,12 @@ If you have already implemented either the incoming trust-based authentication f
 
 To test the connection with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS), follow the steps in [Quickstart: Use SSMS to connect to and query Azure SQL Database or Azure SQL Managed Instance](../database/connect-query-ssms.md). Select **Windows Authentication** as your authentication type.
 
-TODO: insert screenshot
+:::image type="content" source="media/winauth-azuread/winauth-connect-to-managed-instance.png" alt-text="Dialog box from SQL Server Management Studio with a managed instance name in the 'Server Name' area and 'Authentication' set to 'Windows Authentication'."  lightbox="media/winauth-azuread/winauth-connect-to-managed-instance.png":::
 
 ## Next steps
 
 Learn more about implementing Windows Authentication for Azure AD principals on Azure SQL Managed Instance:
 
-- TODO: add link for announcement blog post
-- TODO: add links to related articles in this set after titles and filenames are finalized
+- [Troubleshoot Windows Authentication for Azure AD principals on Azure SQL Managed Instance](winauth-azuread-troubleshoot.md)
+- [What is Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance? (Preview)](winauth-azuread-overview.md)
+- [How to set up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)](winauth-azuread-setup.md)
