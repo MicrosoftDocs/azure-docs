@@ -31,7 +31,7 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 
 ![Diagram that illustrates the Azure AD Verifiable Credentials architecture.](media/verifiable-credentials-configure-tenant/verifiable-credentials-architecture.png)
 
-See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) of setting up the Azure AD Verifiable Credential service, including all prerequisites, like Azure AD and an Azure subscription.
+See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) going over the setup of the Azure AD Verifiable Credential service.
 
 ## Prerequisites
 
@@ -110,7 +110,7 @@ A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) def
         
     :::image type="content" source="media/verifiable-credentials-configure-tenant/request-service-key-vault-access-policy.png" alt-text="Screenshot that demonstrates how to add an access policy for the Verifiable Credential Issuer Service." :::
 
-The access policies for the Verifiable Credentials Issuer service should be added automatically. In the event that **Verifiable Credential Issuer Service** doesn't appear in the list of access policies, take the following steps to manually add access policies to the service.
+The access policies for the Verifiable Credentials Issuer service should be added automatically. If the **Verifiable Credential Issuer Service** doesn't appear in the list of access policies, take the following steps to manually add access policies to the service.
 
 1. Select **+ Add Access Policy** to add permission to the service principal of the **Verifiable Credential Issuer Service**.
 
@@ -182,7 +182,7 @@ To set up Azure AD Verifiable Credentials, follow these steps:
 
     1. **Organization name**: Enter a name to reference your business within Verifiable Credentials. Your customers don't see this name.
 
-    1. **Domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.   
+    1. **Domain**: Enter a domain that's added to a service endpoint in your decentralized identity (DID) document. The domain is what binds your DID to something tangible that the user might know about your business. Microsoft Authenticator and other digital wallets use this information to validate that your DID is linked to your domain. If the wallet can verify the DID, it displays a verified symbol. If the wallet can't verify the DID, it informs the user that the credential was issued by an organization it couldn't validate.
             
         >[!IMPORTANT]
         > The domain can't be a redirect. Otherwise, the DID and domain can't be linked. Make sure to use HTTPS for the domain. For example: `https://contoso.com`.
