@@ -10,7 +10,7 @@ ms.topic: overview
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, urmilano, wiassaf, kendralittle
-ms.date: 01/31/2022
+ms.date: 03/01/2022
 ---
 
 # What is Windows Authentication for Azure Active Directory principals on Azure SQL Managed Instance? (Preview)
