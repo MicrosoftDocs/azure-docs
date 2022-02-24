@@ -29,8 +29,21 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## February 2022
 
+- [View MITRE support coverage (Public preview)](#view-mitre-support-coverage-public-preview)
 - [View Azure Purview data in Microsoft Sentinel](#view-azure-purview-data-in-microsoft-sentinel-public-preview)
 - [Manually run playbooks based on the incident trigger (Public preview)](#manually-run-playbooks-based-on-the-incident-trigger-public-preview)
+
+### View MITRE support coverage (Public preview)
+
+Microsoft Sentinel now provides a new **MITRE** page, which highlights the MITRE tactic and technique coverage you currently have, and can configure, for your organization.
+
+Select items from the **Active** and **Simulated** menus at the top of the page to view the detections currently active in your workspace, and the simulated detections available for you to configure.
+
+For example:
+
+:::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
+
+For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
 - [Search across long time spans in large datasets (public preview)](#search-across-long-time-spans-in-large-datasets-public-preview)
 - [Restore archived logs from search (public preview)](#restore-archived-logs-from-search-public-preview)
 
