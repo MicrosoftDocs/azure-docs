@@ -713,5 +713,5 @@ The supported values are:
 
 ## Next steps
 
-* Another form of configuration, besides server parameters, are the resource [configuration options](concepts-configuration-options.md) in a Hyperscale (Citus) server group.
+* Another form of configuration, besides server parameters, are the resource [configuration options](resources-compute.md) in a Hyperscale (Citus) server group.
 * The underlying PostgreSQL data base also has [configuration parameters](http://www.postgresql.org/docs/current/static/runtime-config.html).
