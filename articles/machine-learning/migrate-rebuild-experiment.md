@@ -83,7 +83,7 @@ After the run finishes, you can check the results of each module:
     - **View Log**: View driver and system logs. Use the **70_driver_log** to see information related to your user-submitted script such as errors and exceptions.
 
 > [!IMPORTANT]
-> Designer components use open source Python packages to implement machine learning algorithms. However Studio(classic) use a Microsoft internal C# library. As a result, prediction result may vary between the designer and Studio (classic). 
+> Designer components use open source Python packages to implement machine learning algorithms. However Studio (classic) uses a Microsoft internal C# library. Therefore, prediction result may vary between the designer and Studio (classic). 
 
 
 ## Save trained model to use in another pipeline
