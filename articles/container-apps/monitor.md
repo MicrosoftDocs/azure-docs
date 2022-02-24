@@ -101,4 +101,4 @@ my-container-app      listening on port 80  PrimaryResult  2021-10-23T02:11:43.1
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure your container app](secure-app.md)
+> [Manage secrets](manage-secrets.md)

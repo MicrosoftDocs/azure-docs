@@ -55,8 +55,6 @@
       href: resource-group-control.md
     - name: Add support info to a lab
       href: devtest-lab-internal-support-message.md
-    - name: Set policies and schedules
-      href: devtest-lab-set-lab-policy.md
     - name: Configure lab identity 
       href: configure-lab-identity.md
     - name: Configure a lab to use a remote desktop gateway
@@ -67,7 +65,11 @@
       href: enable-browser-connection-lab-virtual-machines.md
     - name: Configure cost management
       href: devtest-lab-configure-cost-management.md
-    - name: Set auto startup for lab virtual machines
+    - name: Set lab policies and schedules
+      href: devtest-lab-set-lab-policy.md
+    - name: Configure auto-shutdown of lab VMs
+      href: devtest-lab-auto-shutdown.md
+    - name: Set auto startup for lab VMs
       href: devtest-lab-auto-startup-vm.md
     - name: Scale your lab
       href: devtest-lab-scale-lab.md
@@ -129,8 +131,6 @@
       href: devtest-lab-resize-vm.md
     - name: Redeploy a VM
       href: devtest-lab-redeploy-vm.md
-    - name: Configure autoshutdown of compute and lab VMs
-      href: devtest-lab-auto-shutdown.md
     - name: Create and manage claimable VMs
       href: devtest-lab-add-claimable-vm.md
     - name: Configure secrets

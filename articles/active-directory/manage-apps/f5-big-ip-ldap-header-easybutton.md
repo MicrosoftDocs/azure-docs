@@ -182,7 +182,7 @@ Consider the **Azure Service Account Details** be the BIG-IP client application 
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** you noted down during tenant registration
+3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** you noted when registering the Easy Button client in your tenant.
 
 5. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**
 
