@@ -31,6 +31,16 @@ Pricing is calculated using variety of criteria. The following guide explains bi
 
 Billing is split up into *minimum equilibrium* and *minimum overrun* modes.
 
+active vs idle
+
+container, when running, is either charged active or idle rate
+
+charged for 2 things
+vCPU & memory - always being charged, when a container is running
+in a given seconds - look at pod, second of active, second of idle, etc.
+
+all external http requests, incur one request charge
+
 ### Minimum equilibrium
 
 When the number of pods is equal to the `minReplicas` value, then prices are calculated using the following criteria.
