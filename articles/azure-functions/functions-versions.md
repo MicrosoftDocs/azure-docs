@@ -206,7 +206,7 @@ The main differences between versions when running .NET class library functions 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-* Output bindings assigned through `context.done` or return values now behave the same as setting in `context.bindings`.
+* Output bindings assigned through 1.x `context.done` or return values now behave the same as setting in 2.x+ `context.bindings`.
 
 * Timer trigger object is camelCase instead of PascalCase
 

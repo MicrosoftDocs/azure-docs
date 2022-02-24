@@ -86,7 +86,6 @@ az eventgrid event-subscription list --source-resource-id $SOURCE_RESOURCE_ID
 The following example output shows you're subscribed to events from the *MyAKS* cluster and those events are delivered to the *MyEventGridHub* event hub:
 
 ```output
-$ az eventgrid event-subscription list --source-resource-id $SOURCE_RESOURCE_ID
 [
   {
     "deadLetterDestination": null,
