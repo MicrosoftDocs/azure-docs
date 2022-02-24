@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Create an app registration (portal)
+title: Create an app registration with Azure Digital Twins access (portal)
 titleSuffix: Azure Digital Twins
-description: Learn how to create an Azure AD app registration, as an authentication option for client apps, using the Azure portal.
+description: Use the Azure portal to create an Azure AD app registration that can access Azure Digital Twins resources.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/24/2022
+ms.date: 2/24/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 [!INCLUDE [digital-twins-create-app-registration-selector.md](../../includes/digital-twins-create-app-registration-selector.md)]
 
-This article describes how to create an app registration to use with Azure Digital Twins using the Azure portal. It includes instructions for creating the app registration, collecting important values, providing Azure Digital Twins API permission, verifying success, and other possible steps that your organization may require.
+This article describes how to create an app registration to use with Azure Digital Twins using the Azure portal. It includes instructions for creating the app registration in the Azure portal, collecting important values, providing Azure Digital Twins API permission, verifying success, and other possible steps that your organization may require.
 
 When working with an Azure Digital Twins instance, it's common to interact with that instance through client applications, such as the custom client app built in [Code a client app](tutorial-code.md). Those applications need to authenticate with Azure Digital Twins to interact with it, and some of the [authentication mechanisms](how-to-authenticate-client.md) that apps can use involve an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) **app registration**.
 
