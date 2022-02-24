@@ -13,7 +13,7 @@ ms.author: vikancha
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The NVadsA10v5-series virtual machines are powered by [Nvidia A10](https://www.nvidia.com/en-us/data-center/products/a10-gpu/) GPUs and AMD EPYC 74F3V(Milan) CPUs with a base frequency of 3.4GHz, all-cores peak frequency of 4.0GHz. With NVadsA10v5-series Azure is introducing virtual machines with partial Nvidia GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/6th of a GPU with 4 GiB frame buffer to a full A10 GPU with 24 GiB frame buffer.
+The NVadsA10v5-series virtual machines are powered by [Nvidia A10](https://www.nvidia.com/en-us/data-center/products/a10-gpu/) GPUs and AMD EPYC 74F3V(Milan) CPUs with a base frequency of 3.4 GHz, all-cores peak frequency of 4.0 GHz. With NVadsA10v5-series Azure is introducing virtual machines with partial Nvidia GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/6th of a GPU with 4-GiB frame buffer to a full A10 GPU with 24-GiB frame buffer.
 
 <br>
 
@@ -46,7 +46,7 @@ The NVadsA10v5-series virtual machines are powered by [Nvidia A10](https://www.n
 
 To take advantage of the GPU capabilities of Azure NVadsA10v5-series VMs, Nvidia GPU drivers must be installed.
 
-During preview you need to manually isntall the Nvidia GPU-P driver for [Linux]("https://download.microsoft.com/download/4/3/9/439aea00-a02d-4875-8712-d1ab46cf6a73/NVIDIA-Linux-x86_64-510.47.03-grid-azure.run") and [Windows]("https://download.microsoft.com/download/8/d/2/8d228f28-56e2-4e60-bdde-a1dccfe94869/511.65_grid_win10_win11_server2016_server2019_server2022_64bit_Azure_swl.exe"). We will release updated drivers before GA and include it in extensions and all the standard documentation pages. 
+During preview you need to manually install the Nvidia GPU-P driver for [Linux]("https://download.microsoft.com/download/4/3/9/439aea00-a02d-4875-8712-d1ab46cf6a73/NVIDIA-Linux-x86_64-510.47.03-grid-azure.run") and [Windows]("https://download.microsoft.com/download/8/d/2/8d228f28-56e2-4e60-bdde-a1dccfe94869/511.65_grid_win10_win11_server2016_server2019_server2022_64bit_Azure_swl.exe"). We'll release updated drivers before GA and include it in extensions and all the standard documentation pages. 
 
 
 
@@ -61,7 +61,7 @@ During preview you need to manually isntall the Nvidia GPU-P driver for [Linux](
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 
-Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+Pricing Calculator: [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
