@@ -19,7 +19,6 @@ The IT administrator at Fabrikam has added and configured an application from th
 Using the information in this tutorial, an administrator learns how to:
 
 > [!div class="checklist"]
-
 > * Grant consent for the application on behalf of all users
 > * Enable multi-factor authentication to make sign-in more secure
 > * Communicate a term of use to users of the application
