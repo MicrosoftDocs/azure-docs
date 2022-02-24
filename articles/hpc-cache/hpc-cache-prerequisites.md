@@ -4,7 +4,7 @@ description: Prerequisites for using Azure HPC Cache
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 02/24/2022
 ms.author: rohogue
 ---
 
@@ -102,25 +102,24 @@ More tips for NTP access:
 
 The cache must be able to securely access the [Azure Queue Storage service](../storage/queues/storage-queues-introduction.md) from inside its dedicated subnet. Azure HPC Cache uses the queues service when communicating configuration and state information.
 
-If the cache can't access the queue service, you might see a `CacheConnectivityError` message when creating the cache.
+If the cache can't access the queue service, you might see a CacheConnectivityError message when creating the cache.
 
 There are two ways to provide access:
 
 * Create an Azure Storage service endpoint in your cache subnet.
-
-  Read [Add a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) for instructions to add a storage service endpoint.
+  Read [Add a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) for instructions to add the **Microsoft.Storage** service endpoint.
 
 * Individually configure access to the Azure storage queue service domain in your network security group or other firewalls.
 
   Add rules to permit access on these ports:
 
-  * TCP port 443 for secure traffic to any host in the domain `queue.core.windows.net` (`*.queue.core.windows.net`).
+  * TCP port 443 for secure traffic to any host in the domain queue.core.windows.net (`*.queue.core.windows.net`).
 
   * TCP port 80 - used for verification of the server-side certificate. This is sometimes referred to as certificate revocation list (CRL) checking and online certificate status protocol (OCSP) communications. All of *.queue.core.windows.net uses the same certificate, and thus the same CRL/OCSP servers. The hostname is stored in the server-side SSL certificate.
 
   Refer to the security rule tips in [NTP access](#ntp-access) for more information.
 
-  This command lists the CRL and OSCP ervers that need to be permitted access. These servers must be resolvable by DNS and reachable on port 80 from the cache subnet.
+  This command lists the CRL and OSCP servers that need to be permitted access. These servers must be resolvable by DNS and reachable on port 80 from the cache subnet.
 
   ```bash
 
