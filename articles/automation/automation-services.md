@@ -76,40 +76,162 @@ There are multiple Azure services that can fulfill the above requirements. Each 
 - Infrastructure Admins managing on-prem infrastructure using scripts or executing long running jobs like month-end operations on servers running on-prem. 
 
 ---
+#### Azure Automation based in-guest management
 
-#### Azure Automanage for machine configuration management
-- A service that eliminates the need to discover, know how to onboard, and how to configure certain services in Azure that would benefit your virtual machine. [Learn more](/azure/automanage/automanage-virtual-machines#overview).
+**Configuration management** 
+- Collect inventory & track changes in your environment. [Learn more](/azure/automation/change-tracking/overview).
+- Configure desired state of your machines and discover\correct configuration drift. [Learn more](/azure/automation/automation-dsc-overview).
+
+**Update management** 
+- Assess compliance of servers.
+- Schedule update installation. [Learn more](/azure/automation/update-management/overview)
+
+# [Scenarios](#tab/scenarios-inguest)
+- Detect and alert on software, services, file & registry changes to your machines, know what's installed in your servers. 
+- **Patch management** -  assess and install updates on your servers.
+- Configure desired state of your servers and ensure they stay complaint. 
+
+# [Users](#tab/users-inguest)
+- Central IT\Infrastructure Admins\Auditors looking for regulatory requirements at scale & ensuring end state of severs looks as desired, patched and audited.
+
+
+#### Azure Automanage (Preview)
+- Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy , steady state of VM is equal to hands free management.
+
+**Linux and Windows support** 
+- Intelligently onboards virtual machines to select best practices Azure services
+- Automatically configures each service per Azure best practices
+- Supports customization of best practice services through VM Best practices template for Dev\Test and Production workload.
+- Monitors for drift and corrects for it when detected
+- Provides a simple experience (point, click, set, forget)
+- [Learn more](/azure/automanage/automanage-virtual-machines).
 
 # [Scenarios](#tab/scenarios-automanage)
-- Replaces repetitive, day-to-day operational tasks with an exception-only management model, where a healthy, steady state of VM is equal to hands free management. 
-- It supports Windows and Linux operating systems. 
-- Provides VM best practices template for Dev/Test and Production workload. 
-- It has a point and click onboarding portal experience. 
+- Automatically configure guest operating system per Microsoft baseline configuration.
+- Automatically detects for drift and corrects for it across a VM’s entire lifecycle.
+- Aims at a hands free management of machines. 
+
 
 # [Users](#tab/users-automanage)
-- The IT Admins/Infra Admins/IT Operations Admins who are responsible for managing server workload, day to day admin tasks like backup, disaster recovery, security updates, responding to security threats, etc. across Azure and on-premise. 
+- The IT Admins/Infra Admins/IT Operations Admins who are responsible for managing server workload, day to day admin tasks like backup, disaster recovery, security updates, responding to security threats, etc. across Azure and on-premise.
 - Developers who do not wish to manage servers or spend the time on less priority tasks.
 
 ---
 
-
-
 ### Respond
 
-**Services** | **Description** | **Features** | **Audience**
---- | --- |--- | --- |
-  **Configuration Management** | Allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) configurations for nodes in any cloud or on-premises datacenter. [Learn more](/azure/automation/automation-dsc-overview).| You can collect inventory & track changes in your environment. </br></br> By configuring the desired state of your machines, you can discover and correct configuration drift. |
-  **Update Management** | Allows you to manage operating system updates for your Windows and Linux virtual machines in Azure, physical or VMs in on-premises environments, and in other cloud environments. [Learn more](/azure/automation/update-management/overview). | You can assess the compliance of servers and schedule the update installation. </br></br> You can know what is installed in your servers, detect and configure alerts on software services, file and registry changes on your various machines. </br></br> You can assess and install updates on your servers. </br></br> To stay compliant, you can configure the desired state of your servers.|
- **Azure Automation State Configuration** | Allows you to create, import and compile configurations, enable machines to manage, and view reports. [Learn more](/azure/automation/automation-dsc-getting-started).|
- **Azure Policy** | | You can apply policies for the audit settings inside servers including the machines running in Azure and Arc connected machines. </br></br>You can check for the harmful apps, protocols, and the installed applications – the certificates, admin privileges, health of agents and so on.</br></br>You can set Windows server as per Group policy baseline. | The Central IT/Infrastructure Admins/Auditors (Cloud custodian) who are working towards the regulatory requirements at scale,and ensure that end state of servers looks as desired. </br></br> The application teams validating compliance before releasing change.|
- **Azure Functions**  |  |Deliver event based automation where you can compute on demand to react to critical events. </br></br> Language choice so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific piece of code. </br></br> Orchestrate complex workflows through durable functions. </br></br> Set scheduled tasks such as set a pattern to stop and start a VM at a specific time, read blob storage content at regular intervals etc. </br></br> Process Azure alerts – you can send team’s event when the CPU activity spikes to 90%. | The Application Developers who are skilled in coding languages like C#, F#, PHP, Java, JavaScript, PowerShell, or Python. </br></br> Cloud Architects who build serverless Micro-services based applications.  
+#### Azure Policy based Guest Configuration
+- Next iteration of [Azure Automation State Configuration](/azure/automation/automation-dsc-overview).
+- Azure Policy's guest configuration feature provides native capability to audit or configure operating system settings as code, both for machines running in Azure and hybrid [Arc-enabled machines] (/azure/azure-arc/servers/overview). The feature can be used directly per-machine, or at-scale orchestrated by Azure Policy.
+- What is installed, check for known-bad apps, protocols
+- Certificates, admin privileges, health of agents
+- Customer-authored content [Learn more](/azure/governance/policy/concepts/guest-configuration-policy-effects)
 
+# [Scenarios](#tab/scenarios-guestconfig)
+- Obtain compliance data that may include : 
+   - The configuration of the operating system – files, registry, and services
+   - Application configuration or presence
+   - Check environment settings
+- Audit or deploy settings to all machines (Set) in scope either reactively to existing machines or proactively to new machines as they are deployed.
+- Respond to policy events to provide [remediation on demand or continuous remediation.](/azure/governance/policy/concepts/guest-configuration-policy-effects#remediation-on-demand-applyandmonitor)
+
+# [Users](#tab/users-guestconfig)
+- The Central IT/Infrastructure Admins/Auditors (Cloud custodian) who are working towards the regulatory requirements at scale,and ensure that end state of servers looks as desired.
+- The application teams validating compliance before releasing change.
+
+---
+
+#### Azure Automation (Process Automation)
+
+- Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment.
+- Provides persistent shared assets including variables, connections, objects, which allows orchestration of complex jobs.
+- Invoke a runbook on the basis of [Azure Monitor alert](/azure/automation/automation-create-alert-triggered-runbook) or through a [webhook](/azure/automation/automation-webhooks). 
+
+# [Scenarios](#tab/scenarios-pa)
+- Respond to alerts such as system alerts, service alerts, high CPU/memory alerts, create ServiceNow tickets, etc.
+- Hybrid automation scenarios where you can manage, automate on-premises servers like SQL server, Active Directory etc on the basis of an external event. 
+- Azure resource life-cycle management and governance which includes Resource provisioning, deprovisioning, adding correct tags, locks, NSGs etc on the basis of Azure monitor alerts. 
+
+# [Users](#tab/users-pa)
+- IT admins, System admins, IT operations admins who are skilled at using PowerShell or Python based scripting.
+
+---
+
+### Azure Functions
+
+- Provides a serverless automation platform that allows you to write code to react to critical events, without having to worry about the underlying platform. 
+- Provides a variety of Languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific piece of code.
+- Orchestrate complex workflows through durable functions. [Learn more](/azure/azure-functions/functions-overview)
+
+# [Scenarios](#tab/scenarios-functions)
+- Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc.
+- Set scheduled tasks such as set a pattern to stop and start a VM at a specific time, read blob storage content at regular intervals etc.
+- Process Azure alerts – you can send team’s event when the CPU activity spikes to 90%.
+- Orchestrate with external systems such as M365.
+- Respond to database changes.
+
+# [Users](#tab/users-functions)
+- The Application Developers who are skilled in coding languages like C#, F#, PHP, Java, JavaScript, PowerShell, or Python.
+- Cloud Architects who build serverless Micro-services based applications.
+
+---
 
 ### Orchestrate
 
-**Services** | **Description** | **Features** | **Audience**
---- | --- |--- | --- |
-**Azure Logic Apps** | A cloud-based platform for creating and running automated workflows that integrate your apps, data, services, and systems. [Learn more](/azure/logic-apps/logic-apps-overview).| Build "Smart" Integrations between 1st party and 3rd party apps, services, and systems running across on-premises, hybrid, and cloud native. </br></br> Use managed connectors from a 450+ and growing Azure connectors ecosystem to use in your workflows. </br></br> Provide first-class support for enterprise integration and B2B scenarios.</br></br> Visually create and edit workflows with low Code/no code approach | The Pro integrators and developers, IT professionals who would want to use low code/no code option for Advanced integration scenarios to external systems or APIs.| 
+#### Azure logic apps
+- Logic apps is a platform for creating and running complex orchestration workflows that integrate your apps, data, services, and systems. [Learn more](/azure/logic-apps/logic-apps-overview).
+  - Build “Smart” Integrations between 1st party and 3rd party apps, services and systems running across on-premises, hybrid and cloud native.
+  - Use managed connectors from a 450+ and growing Azure connectors ecosystem to use in your workflows.
+  - First-class support for enterprise integration and B2B scenarios.
+  - Visually create and edit workflows - Low Code\no code approach 
+  - Runs only in the cloud.
+  - Provides a large collection of ready made actions and triggers.
 
+# [Scenarios](#tab/scenarios-logic)
+- Schedule and send email notifications using Office 365 when a specific event happens, for example, a new file is uploaded.
+- Route and process customer orders across on-premises systems and cloud services
+- Move uploaded files from an SFTP or FTP server to Azure Storage.
+- Monitor tweets, analyze the sentiment, and create alerts or tasks for items that need review.
 
+# [Users](#tab/users-logic)
+- The Pro integrators and developers, IT professionals who would want to use low code/no code option for Advanced integration scenarios to external systems or APIs.
 
+---
+
+#### Azure Automation - Process Automation
+- Orchestrates repetitive processes using graphical, PowerShell, and Python runbooks in the cloud or hybrid environment.
+- Provides persistent shared assets including variables, connections, objects, which allows orchestration of complex jobs. [Learn more](/azure/automation/overview)
+
+# [Scenarios](#tab/scenarios-apa)
+
+- Azure resource life-cycle management and governance which includes Resource provisioning, deprovisioning, adding correct tags, locks, NSGs etc. through runbooks that get triggered from ITSM alerts.
+- Use hybrid worker as a bridge from cloud to on-premises enabling resource\user management on-premise.
+- Executes complex disaster recovery workflows through Automation runbooks.
+- Executes automation runbooks as part of Logic apps workflow through Azure Automation Connector. 
+
+# [Users](#tab/users-apa)
+- IT admins, System admins, IT operations admins who are skilled at using PowerShell or Python based scripting.
+- Infrastructure Admins managing on-prem infrastructure using scripts or executing long running jobs like month-end operations on servers running on-prem.
+
+---
+
+#### Azure Functions
+
+- Provides a serverless automation platform that allows you to write code to react to critical events, without having to worry about the underlying platform.[Learn more](/azure/azure-functions/functions-overview).
+- Provides a variety of Languages so that you can write functions in a language of your choice such as C#, Java, JavaScript, PowerShell, or Python and focus on specific piece of code.
+- Orchestrate complex workflows through [durable functions](/azure-functions/durable/durable-functions-overview?tabs=csharp).
+
+# [Scenarios](#tab/scenarios-afunctions)
+- Respond to events on resources : such as add tags to resource group basis cost center, when VM is deleted etc.
+- Set scheduled tasks such as set a pattern to stop and start a VM at a specific time, read blob storage content at regular intervals etc.
+- Process Azure alerts – you can send team’s event when the CPU activity spikes to 90%.
+- Orchestrate with external systems such as M365
+- Executes Azure Function as part of Logic apps workflow through Azure Function Connector.
+
+# [Users](#tab/users-afunctions)
+- The Application Developers who are skilled in coding languages like C#, F#, PHP, Java, JavaScript, PowerShell, or Python.
+- Cloud Architects who build serverless Micro-services based applications.
+
+---
+
+## Next steps
