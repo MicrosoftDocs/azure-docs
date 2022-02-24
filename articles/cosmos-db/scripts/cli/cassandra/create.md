@@ -13,7 +13,7 @@ ms.date: 02/21/2022
 
 [!INCLUDE [appliesto-cassandra-api](../../../includes/appliesto-cassandra-api.md)]
 
-The script in this articles demonstrates creating an Azure Cosmos DB account, keyspace, and table for Cassandra API.
+The script in this article demonstrates creating an Azure Cosmos DB account, keyspace, and table for Cassandra API.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../../includes/quickstarts-free-trial-note.md)]
 
