@@ -20,9 +20,6 @@ This document covers a step-by-step guide for configuring Azure DevOps account i
 
 - You need to have an Azure DevOps account in another tenant than your Azure Data Factory. 
 - You should have a project in the above Azure DevOps tenant. 
-- Use feature flag **&feature.enableCrossTenantAdo=true**. Append this into the existing Azure Data Factory url. 
-
-  Example: https://adf.azure.com/en-us/management/git?factory=%2Fsubscriptions%xxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx%2FresourceGroups%2Fadf-rg%2Fproviders%2FMicrosoft.DataFactory%2Ffactories%2Fcontoso-developer<b>&feature.enableCrossTenantAdo=true</b>
 
 ## Step-by-step guide
 
@@ -33,9 +30,6 @@ This document covers a step-by-step guide for configuring Azure DevOps account i
 1. Select the _Cross tenant sign in_ option.
 
    :::image type="content" source="media/cross-tenant-connections-to-azure-devops/cross-tenant-sign-in.png" alt-text="Shows the repository configuration dialog with cross tenant sign in checked.":::
-
-   > [!NOTE]
-   > If you do not see this option then you may not have enabled the feature flag correctly.
 
 1. Select **OK** in the _Cross tenant sign in_ dialog.
 
@@ -60,7 +54,3 @@ While opening the Azure Data Factory in another tab or a new browser, use the fi
 You should see a dialog with the message _You do not have access to the VSTS repo associated with this factory._  Click **OK** to sign in with the cross-tenant account to gain access to Git through the Azure Data Factory.
 
 :::image type="content" source="media/cross-tenant-connections-to-azure-devops/sign-in-with-account-with-repository-access.png" alt-text="Shows the sign-in prompt to associate a VSTS repo with a cross-tenant Azure Data Factory.":::
-
-If you see _Invalid Git configuration_ then please make sure the feature flag described in the [prerequisites section](#prerequisites) is appended onto the URL.
-
-:::image type="content" source="media/cross-tenant-connections-to-azure-devops/invalid-git-configuration.png" alt-text="Shows the Invalid Git configuration warning dialog.":::
