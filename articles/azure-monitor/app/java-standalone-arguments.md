@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 04/16/2020
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Tips for updating your JVM args - Azure Monitor Application Insights for Java
