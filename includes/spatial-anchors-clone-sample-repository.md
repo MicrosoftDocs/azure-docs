@@ -1,9 +1,9 @@
 ---
-author: msftradford
+author: pamistel
 ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/20/2020
-ms.author: parkerra
+ms.author: pamistel
 ---
 Clone the [samples repository](https://github.com/Azure/azure-spatial-anchors-samples) by running the following commands:
 
