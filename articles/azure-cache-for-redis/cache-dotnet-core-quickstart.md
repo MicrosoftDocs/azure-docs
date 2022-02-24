@@ -31,9 +31,9 @@ Make a note of the **HOST NAME** and the **Primary** access key. You will use th
 
 ## Add Secret Manager to the project
 
-In this section, you will add the [Secret Manager tool](/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
+In this section, you add the [Secret Manager tool](/aspnet/core/security/app-secrets) to your project. The Secret Manager tool stores sensitive data for development work outside of your project tree. This approach helps prevent the accidental sharing of app secrets within source code.
 
-Open your *Redistest.csproj* file. Add a `DotNetCliToolReference` element to include *Microsoft.Extensions.SecretManager.Tools*. Also add a `UserSecretsId` element as shown below, and save the file.
+Open your *Redistest.csproj* file. See the `DotNetCliToolReference` element that includes *Microsoft.Extensions.SecretManager.Tools*. Also, observe the `UserSecretsId` element as shown below, and save the file.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -50,13 +50,13 @@ Open your *Redistest.csproj* file. Add a `DotNetCliToolReference` element to inc
 
 Execute the following command to add the *Microsoft.Extensions.Configuration.UserSecrets* package to the project:
 
-```
+```dos
 dotnet add package Microsoft.Extensions.Configuration.UserSecrets
 ```
 
 Execute the following command to restore your packages:
 
-```
+```dos
 dotnet restore
 ```
 
@@ -327,10 +327,7 @@ dotnet run
 
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-![Console app partial](./media/cache-dotnet-core-quickstart/cache-console-app-partial.png)
-
-
-
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-partial.png" alt-text="Console app partial":::
 
 ## Work with .NET objects in the cache
 
@@ -384,7 +381,7 @@ Run the app with the following command to test serialization of .NET objects:
 dotnet run
 ```
 
-![Console app completed](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed":::
 
 ## Clean up resources
 
@@ -400,7 +397,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and select **Resource gr
 
 In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-![Delete](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-delete-resource-group.png" alt-text="Delete":::
 
 You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 

@@ -819,6 +819,13 @@
       "branch": "main",
       "branch_mapping": {}
     }
+    {
+      "path_to_root": "samples-cache",
+      "url": "https://github.com/Azure-Samples/azure-cache-redis-samples",
+      "branch": "main",
+      "branch_mapping": {}
+    }
+
   ],
   "branch_target_mapping": {
     "live": [
