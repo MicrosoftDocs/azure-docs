@@ -15,7 +15,8 @@ ms.date: 03/01/2022
 > [!IMPORTANT]
 > The NC A100 v4-series of Azure virtual machines (VMs) is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> To use this preview feature, [sign up for the NC A100 v4 series preview](https://aka.ms/AzureNCA100v4Signup).```
+> To use this preview feature, [sign up for the NC A100 v4 series preview](https://aka.ms/AzureNCA100v4Signup).  
+
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The NC A100 v4 series virtual machine (VM) is a new addition to the Azure GPU family. You can use this series for real-world Azure Applied AI training and batch inference workloads. 
@@ -37,28 +38,19 @@ These VMs are ideal for real-world Applied AI workloads, such as:
 
 To get started with NC A100 v4 VMs, refer to [HPC Workload Configuration and Optimization](./workloads/hpc/configure.md) for steps including driver and network configuration.
 
-Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9 images are supported.
+Due to increased GPU memory I/O footprint, the NC A100 v4 requires the use of [Generation 2 VMs](./generation-2.md) and marketplace images. The [Azure HPC images](./workloads/hpc/configure.md) are strongly recommended. Azure HPC Ubuntu 18.04, 20.04 and Azure HPC CentOS 7.9 images are supported. Windows Service 2019 and Windows Service 2022 images are supported.
+ 
+Key Features:    
+- [Premium Storage](premium-storage-performance.md)             
+- [Premium Storage caching](premium-storage-performance.md)      
+- [Ultra Disks](disks-types.md#ultra-disks)                      
+- [VM Generation 2](generation-2.md)   
+- [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md) 
+- [Ephemeral OS Disks](ephemeral-os-disks.md)  
+- NVIDIA NVLink Interconnect  
 
+These features are not supported:[Live Migration](maintenance-and-updates.md), [Memory Preserving Updates](maintenance-and-updates.md) and [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) . 
 
-[Premium Storage](premium-storage-performance.md): Supported<br>
-[Premium Storage caching](premium-storage-performance.md): Supported<br>
-[Ultra Disks](disks-types.md#ultra-disks): Supported ([Learn more](https://techcommunity.microsoft.com/t5/azure-compute/ultra-disk-storage-for-hpc-and-gpu-vms/ba-p/2189312) about availability, usage, and performance) <br>
-[Live Migration](maintenance-and-updates.md): Not Supported<br>
-[Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
-[VM Generation Support](generation-2.md): Generation 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Not Supported<br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
-InfiniBand: Not Supported<br>
-Nvidia NVLink Interconnect: Supported<br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Not Supported <br>
-
-<br>
-The NC A100 v4 series supports the following kernel versions: <br>
-Ubuntu 18.04: 5.4.0-1043-azure <br>
-Ubuntu 20.04: 5.4.0-1046-azure <br>
-CentOS 7.9 HPC: 3.10.0-1160.24.1.el7.x86_64 <br>
-Windows Service 2019 <br>
-<br>
 
 > [!IMPORTANT]
 > This VM series is currently in preview. These specifications are subject to change.
