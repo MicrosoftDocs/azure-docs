@@ -1,10 +1,10 @@
 ---
 title: Connect to Office 365 Outlook
-description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps
+description: Automate tasks and workflows that manage email, contacts, and calendars in Office 365 Outlook by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/11/2021
 tags: connectors
 ---
