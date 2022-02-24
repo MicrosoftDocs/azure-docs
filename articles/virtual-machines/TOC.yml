@@ -265,6 +265,8 @@
         href: nvv3-series.md
       - name: NVv4-series
         href: nvv4-series.md
+      - name: NVadsA10_v5-series
+        href: nva10v5-series.md
       - name: Setup NVIDIA GPU drivers
         items:
         - name: Linux
