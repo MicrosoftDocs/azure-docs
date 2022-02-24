@@ -42,7 +42,7 @@ The following table lists the base URLs for Azure sovereign cloud endpoints:
 | Available regions</br></br>The region-identifier is a required header when using Translator for the government cloud. | <ul><li>`usgovarizona` </li><li> `usgovvirginia`</li></ul>|
 |Available pricing tiers|<ul><li>Free (F0) and Standard (S0). See [Translator pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator/)</li></ul>|
 |Supported Features | <ul><li>Text Translation</li><li>Document Translation</li><li>Custom Translation</li></ul>|
-|Supported Languages| _See_ [Translator language support](language-support.md).|
+|Supported Languages| <ul><li>[Translator language support](language-support.md)</li></ul>|
 
 <!-- markdownlint-disable MD036 -->
 
@@ -122,8 +122,8 @@ The Azure China cloud is a physical and logical network-isolated instance of clo
 |---|---|
 |Azure portal |<ul><li>[Azure China 21 Vianet Portal](https://portal.azure.cn/)</li></ul>|
 |Regions <br></br>The region-identifier is a required header when using a multi-service resource. | <ul><li>`chinanorth` </li><li> `chinaeast2`</li></ul>|
-|Supported Feature|[Text Translation](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)|
-|Supported Languages| _See_ [Translator language support.](https://docs.azure.cn/cognitive-services/translator/language-support)|
+|Supported Feature|<ul><li>[Text Translation](https://docs.azure.cn/cognitive-services/translator/reference/v3-0-reference)</li></ul>|
+|Supported Languages|<ul><li>[Translator language support.](https://docs.azure.cn/cognitive-services/translator/language-support)</li></ul>|
 
 <!-- markdownlint-disable MD036 -->
 <!-- markdownlint-disable MD024 -->
