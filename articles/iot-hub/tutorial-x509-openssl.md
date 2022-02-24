@@ -203,16 +203,7 @@ subjectKeyIdentifier     = hash
 
 ## Step 6 - Create a subordinate CA
 
-From the *subca* directory, create a new serial number in the *rootca/db/serial* file for the subordinate CA certificate.
-
-```bash
-  openssl rand -hex 16 > ../rootca/db/serial
-```
-
->[!IMPORTANT]
->You must create a new serial number for every subordinate CA certificate and every device certificate that you create. Different certificates cannot have the same serial number.
-
-This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and subordinate CAs issue client certificates.
+This example shows you how to create a subordinate or registration CA. Because you can use the root CA to sign certificates, creating a subordinate CA isn’t strictly necessary. Having a subordinate CA does, however, mimic real world certificate hierarchies in which the root CA is kept offline and subordinate CAs issue client certificates. Enter the following commands in the *subca* directory.
 
 Use the configuration file to generate a private key and a certificate signing request (CSR).
 
