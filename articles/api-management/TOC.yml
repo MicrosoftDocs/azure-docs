@@ -126,6 +126,8 @@
               href: how-to-configure-service-fabric-backend.md
             - name: Import SAP OData metadata
               href: sap-api.md
+            - name: Configure API for SSE
+              href: how-to-server-sent-events.md
       - name: Provision and scale
         items:
             - name: Capacity metric
@@ -181,6 +183,8 @@
               href: api-management-using-with-internal-vnet.md
             - name: Integrate Application Gateway in an internal virtual network
               href: api-management-howto-integrate-internal-vnet-appgateway.md
+            - name: Connect privately using private endpoint
+              href: private-endpoint.md
             - name: Mutual Certificate authentication
               href: api-management-howto-mutual-certificates.md
             - name: Manage CA certificates

@@ -40,13 +40,13 @@ az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s
 ### [Directly connected mode](#tab/directly)
 
 ```azurecli
-az sql mi-arc create --name <name> --resource-group <group>  --location <Azure location> –subscription <subscription>  --custom-location <custom-location>
+az sql mi-arc create --name <name> --resource-group <group>  --location <Azure location> -–subscription <subscription>  --custom-location <custom-location>
 ```
 
 Example:
 
 ```azurecli
-az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 -–subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx  --custom-location private-location
 ```
 
 ---

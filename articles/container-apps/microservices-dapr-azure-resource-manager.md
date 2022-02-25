@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 01/31/2022
 ms.author: aawislan
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, devx-track-azurecli
 zone_pivot_groups: container-apps
 ---
 
@@ -145,6 +145,9 @@ az extension add `
 ---
 
 Now that the extension is installed, register the `Microsoft.Web` namespace.
+
+> [!NOTE]
+> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 

@@ -5,7 +5,6 @@ description: Learn how to migrate from an existing Bing Speech subscription to t
 services: cognitive-services
 author: wsturman
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
@@ -84,9 +83,3 @@ For Speech service, SDK, and API support, visit the Speech service [support page
 * [Try out Speech service for free](overview.md#try-the-speech-service-for-free)
 * [Get started with speech-to-text](get-started-speech-to-text.md)
 * [Get started with text-to-speech](get-started-text-to-speech.md)
-
-## See also
-
-* [Speech service release notes](releasenotes.md)
-* [What is the Speech service](overview.md)
-* [Speech service and Speech SDK documentation](speech-sdk.md#get-the-speech-sdk)

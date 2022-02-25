@@ -107,11 +107,10 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ## Create the health probe and place in variable. ##
 $probe = @{
     Name = 'myHealthProbe'
-    Protocol = 'http'
+    Protocol = 'tcp'
     Port = '80'
     IntervalInSeconds = '360'
     ProbeCount = '5'
-    RequestPath = '/'
 }
 $healthprobe = New-AzLoadBalancerProbeConfig @probe
 
@@ -491,11 +490,10 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ## Create the health probe and place in variable. ##
 $probe = @{
     Name = 'myHealthProbe'
-    Protocol = 'http'
+    Protocol = 'tcp'
     Port = '80'
     IntervalInSeconds = '360'
     ProbeCount = '5'
-    RequestPath = '/'
 }
 $healthprobe = New-AzLoadBalancerProbeConfig @probe
 
