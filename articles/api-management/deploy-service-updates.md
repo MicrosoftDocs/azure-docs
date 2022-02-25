@@ -10,7 +10,7 @@ ms.author: danlep
 
 # Deploy service updates safely to your API Management instances 
 
-*"One of the value propositions of the cloud is that it’s continually improving, delivering new capabilities and features, as well as security and reliability enhancements. But since the platform is continuously evolving, change is inevitable."* - Mark Russinovich, CTO, Azure*
+*"One of the value propositions of the cloud is that it’s continually improving, delivering new capabilities and features, as well as security and reliability enhancements. But since the platform is continuously evolving, change is inevitable." - Mark Russinovich, CTO, Azure*
 
 Microsoft uses a *safe deployment practices framework* to thoroughly test, monitor, and validate service updates, and then deploy them to Azure regions using a phased approach. Even so, service updates that reach your API Management instances could introduce unanticipated risks to your production workloads and disrupt your API consumers. Learn how you can apply our safe deployment approach to reduce risks by validating the updates before they reach your production API Management environments.
 
