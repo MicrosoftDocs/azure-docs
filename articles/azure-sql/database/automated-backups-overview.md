@@ -491,7 +491,7 @@ Hyperscale supports configurable storage redundancy. When creating a Hyperscale 
 
 ### Consider storage redundancy carefully when you create a Hyperscale database
 
-Backup storage redundancy for Hyperscale databases and databases in Azure SQL Managed Instance can only be set during database creation. This setting cannot be modified once the resource is provisioned. The [database copy](database-copy.md) process can be used to update the storage redundancy settings for an existing Hyperscale database. Copying a database to a different storage type will be a size-of-data operation.
+Backup storage redundancy for Hyperscale databases can only be set during database creation. This setting cannot be modified once the resource is provisioned. The [database copy](database-copy.md) process can be used to update the storage redundancy settings for an existing Hyperscale database. Copying a database to a different storage type will be a size-of-data operation. Find example code in [configure backup storage redundancy](#configure-backup-storage-redundancy).
 
 ### Restoring a Hyperscale database to a different region
 
