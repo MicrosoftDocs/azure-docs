@@ -9,8 +9,7 @@ ms.author: cynthn
 ms.date: 10/28/2021
 ms.topic: how-to  
 ms.reviewer: jushiman
-ms.custom: devx-track-azurepowershell
-
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 # Preview: Run scripts in your Windows VM by using managed Run Commands
 
@@ -59,7 +58,7 @@ az vm run-command list --name "myVM" --resource-group "myRG"
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```azurecli-interactive
-az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --expand
+az vm run-command show --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --instance-view
 ```
 
 ### Delete RunCommand resource from the VM

@@ -1,16 +1,18 @@
 ---
-author: v-jaswel
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/09/2020
-ms.author: v-jawe
+ms.date: 02/14/2022
+author: eur
 ---
+
+[!INCLUDE [Header](../../common/rest.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
 ## Convert text to speech
 

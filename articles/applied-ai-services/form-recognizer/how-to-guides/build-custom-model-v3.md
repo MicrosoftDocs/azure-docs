@@ -8,10 +8,10 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/16/2022
-ms.author: vikurpad
+ms.author: lajanuar
 ---
 
-# Build your training data set for a custom model
+# Build your training dataset for a custom model
 
 Form Recognizer models require as few as five training documents to get started. If you have at least five documents, you can get started training a custom model. You can train either a [custom template model (custom form)](../concept-custom-template.md) or a [custom neural model (custom document)](../concept-custom-neural.md). The training process is identical for both models and this document walks you through the process of training either model.
 
@@ -83,7 +83,7 @@ You now have all the documents in your dataset labeled. If you look at the stora
 
 With your dataset labeled, you're now ready to train your model. Select the train button in the upper-right corner.
 
-1. On the train model dialog, provide a unique model ID and, optionally, a description.
+1. On the train model dialog, provide a unique model ID and, optionally, a description. The model ID accepts a string data type.
 
 1. For the build mode, select the type of model you want to train. Learn more about the [model types and capabilities](../concept-custom.md).
 

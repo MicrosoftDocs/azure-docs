@@ -212,8 +212,8 @@ Compiling the project takes 5-10 minutes. Once completed, you should have indivi
 1. Create the 2 core Spring applications for PetClinic: API gateway and customers-service.
 
    ```azurecli
-   az spring-cloud app create --name api-gateway --instance-count 1 --memory 2 --assign-endpoint
-   az spring-cloud app create --name customers-service --instance-count 1 --memory 2
+   az spring-cloud app create --name api-gateway --instance-count 1 --memory 2Gi --assign-endpoint
+   az spring-cloud app create --name customers-service --instance-count 1 --memory 2Gi
    ```
 
 1. Deploy the JAR files built in the previous step.
@@ -258,9 +258,9 @@ Access the app gateway and customers service from browser with the **Public Url*
 To get the PetClinic app functioning with all features like Admin Server, Visits and Veterinarians, you can deploy the other apps with following commands:
 
 ```azurecli
-az spring-cloud app create --name admin-server --instance-count 1 --memory 2 --assign-endpoint
-az spring-cloud app create --name vets-service --instance-count 1 --memory 2
-az spring-cloud app create --name visits-service --instance-count 1 --memory 2
+az spring-cloud app create --name admin-server --instance-count 1 --memory 2Gi --assign-endpoint
+az spring-cloud app create --name vets-service --instance-count 1 --memory 2Gi
+az spring-cloud app create --name visits-service --instance-count 1 --memory 2Gi
 az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
 az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
 az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"

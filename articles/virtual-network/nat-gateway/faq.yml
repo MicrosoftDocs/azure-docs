@@ -2,6 +2,7 @@
 metadata:
   title: Virtual Network NAT frequently asked questions
   description: Answers to common questions about using Azure Virtual Network NAT.
+  ms.topic: faq
 
 title: Frequently asked questions for Azure Virtual Network NAT
 summary: |
@@ -36,6 +37,10 @@ sections:
       - question: Can a VNet NAT gateway public IP connect directly to a private IP address over the internet?
         answer: |
           No. A public IP address of NAT gateway cannot connect directly to a private IP over the internet. 
+      
+      - question: If NAT gateway has multiple public IP addresses, can one of those IPs be assigned to a specific VM to use explicitly for going outbound?
+        answer: |
+          No. Explicit IP assignment to specific VM instances in a NAT gateway configured subnet cannot be done.
       
       - question: Are basic SKU resources (Basic Load Balancer and Basic public IP addresses) compatible with VNet NAT gateway?
         answer: |

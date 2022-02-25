@@ -4,10 +4,8 @@ description: "This tutorial shows how to use GitOps with Flux v2 to manage confi
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
-ms.date: 1/24/2022
+ms.date: 2/22/2022
 ms.topic: tutorial
-author: csand-msft
-ms.author: csand
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
@@ -17,7 +15,10 @@ GitOps with Flux v2 can be enabled in Azure Kubernetes Service (AKS) managed clu
 
 This tutorial describes how to use GitOps in a Kubernetes cluster. Before you dive in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
-General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both Azure Arc-enabled Kubernetes and AKS. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
+General availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both AKS and Azure Arc-enabled Kubernetes. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
+
+>[!IMPORTANT]
+>GitOps with Flux v2 is in public preview. In preparation for general availability, features are still being added to the preview. One important feature, multi-tenancy, could be a breaking change for some users.  To prepare yourself for the release of multi-tenancy, [please review these details](#multi-tenancy).
 
 ## Prerequisites
 
@@ -839,7 +840,7 @@ Learn more about using a local Kubernetes secret with these authentication metho
 * [Bucket static authentication](https://fluxcd.io/docs/components/source/buckets/#static-authentication)
 
 >[!NOTE]
->If you need Flux to access the source through your proxy, you'll need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md?tabs=azure-cli#connect-using-an-outbound-proxy-server).
+>If you need Flux to access the source through your proxy, you'll need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md?tabs=azure-cli-connect-using-an-outbound-proxy-server).
 
 ### Git implementation
 
@@ -993,6 +994,114 @@ spec:
 ```
 
 By using this annotation, the HelmRelease that is deployed will be patched with the reference to the configured source. Note that only GitRepository source is supported for this currently.
+
+## Multi-tenancy
+
+Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
+
+>[!NOTE]
+>This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects.  It [may also be a breaking change](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default) if you use a Kubernetes version less than 1.20.6. To prepare for the release of this multi-tenancy feature, take these actions:
+>
+>* Upgrade to Kubernetes version 1.20.6 or greater.
+>* In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
+>    * If you need time to update your manifests, you can opt-out of multi-tenancy. However, you still need to upgrade your Kubernetes version.
+
+### Update manifests for multi-tenancy
+
+Let’s say we deploy a `fluxConfiguration` to one of our Kubernetes clusters in the **cluster-config** namespace with cluster scope. We configure the source to sync the https://github.com/fluxcd/flux2-kustomize-helm-example repo. This is the same sample Git repo used in the tutorial earlier in this doc. After Flux syncs the repo, it will deploy the resources described in the manifests (yamls). Two of the manifests describe HelmRelease and HelmRepository objects.
+
+```yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: nginx
+spec:
+  releaseName: nginx-ingress-controller
+  chart:
+    spec:
+      chart: nginx-ingress-controller
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: flux-system
+      version: "5.6.14"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
+  values:
+    service:
+      type: NodePort
+```
+
+```yaml
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: bitnami
+  namespace: flux-system
+spec:
+  interval: 30m
+  url: https://charts.bitnami.com/bitnami
+```
+
+By default, the Flux extension will deploy the `fluxConfigurations` by impersonating the **flux-applier** service account that is deployed only in the **cluster-config** namespace. Using the above manifests, when multi-tenancy is enabled the HelmRelease would be blocked. This is because the HelmRelease is in the **nginx** namespace and is referencing a HelmRepository in the **flux-system** namespace. Also, the Flux helm-controller cannot apply the HelmRelease, because there is no **flux-applier** service account in the **nginx** namespace.
+
+To work with multi-tenancy, the correct approach is to deploy all Flux objects into the same namespace as the `fluxConfigurations`. This avoids the cross-namespace reference issue, and allows the Flux controllers to get the permissions to apply the objects. Thus, for a GitOps configuration created in the **cluster-config** namespace, the above manifests would change to these:
+
+```yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nginx
+  namespace: cluster-config 
+spec:
+  releaseName: nginx-ingress-controller
+  targetNamespace: nginx
+  chart:
+    spec:
+      chart: nginx-ingress-controller
+      sourceRef:
+        kind: HelmRepository
+        name: bitnami
+        namespace: cluster-config
+      version: "5.6.14"
+  interval: 1h0m0s
+  install:
+    remediation:
+      retries: 3
+  # Default values
+  # https://github.com/bitnami/charts/blob/master/bitnami/nginx-ingress-controller/values.yaml
+  values:
+    service:
+      type: NodePort
+```
+
+```yaml
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: bitnami
+  namespace: cluster-config
+spec:
+  interval: 30m
+  url: https://charts.bitnami.com/bitnami
+```
+
+### Opt out of multi-tenancy
+
+Multi-tenancy will be enabled by default to assure security by default in your clusters.  However, if you need to disable multi-tenancy, you can opt out by creating or updating the `microsoft.flux` extension in your clusters with "--configuration-settings multiTenancy.enforce=false".
+
+```console
+az k8s-extension create --extension-type microsoft.flux --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
+
+or
+
+az k8s-extension update --configuration-settings multiTenancy.enforce=false -c CLUSTER_NAME -g RESOURCE_GROUP -n flux -t <managedClusters or connectedClusters>
+```
 
 ## Migrate from Flux v1
 

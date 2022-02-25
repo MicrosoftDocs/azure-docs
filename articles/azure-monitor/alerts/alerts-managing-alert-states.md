@@ -3,7 +3,7 @@ title: Manage alert and smart group states
 description: Managing the states of the alert and smart group instances
 ms.topic: conceptual
 author: anantr
-ms.date: 09/24/2018
+ms.date: 2/23/2022
 
 ---
 

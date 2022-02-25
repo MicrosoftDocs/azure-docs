@@ -43,7 +43,7 @@ The secure hybrid access solution for this scenario is made up of several compon
 
 **Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP.
 
-**BIG-IP APM:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the Oracle service.
+**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the Oracle service.
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
@@ -146,9 +146,9 @@ Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP
 
 ### Configuration Properties
 
-The **Configuration Properties** tab creates up a new application config and SSO object. Consider **Azure Service Account Details** section to be the client application you registered in your Azure AD tenant earlier. These settings allow a BIG-IP to programmatically register a SAML application directly in your tenant, along with the properties you would normally configure manually. Easy Button does this for every BIG-IP APM service being enabled for SHA.
+The **Configuration Properties** tab creates a new application config and SSO object. Consider **Azure Service Account Details** section to be the client application you registered in your Azure AD tenant earlier. These settings allow a BIG-IP to programmatically register a SAML application directly in your tenant, along with the properties you would normally configure manually. Easy Button does this for every BIG-IP APM service being enabled for SHA.
 
-Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
+Some of these are global settings can be re-used for publishing more applications, further reducing deployment time and effort.
 
 1. Provide a unique **Configuration Name** that enables an admin to easily distinguish between Easy Button configurations
 
@@ -156,7 +156,7 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted down from your registered application
 
-4. Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
+4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
 
    ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-oracle-jde/configuration-general-and-service-account-properties.png)
    
