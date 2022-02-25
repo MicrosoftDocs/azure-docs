@@ -734,7 +734,7 @@ Testing your functions includes:
 
     Learn more about integration testing and mocking the context layer with an experimental GitHub repo, [https://github.com/anthonychu/azure-functions-test-utils](https://github.com/anthonychu/azure-functions-test-utils).
 
-* **Unit testing**: Unit testing is within the Function app. You can use any tool that can test JavaScript such as Jest or Mocha. 
+* **Unit testing**: Unit testing is performed within the function app. You can use any tool that can test JavaScript, such as Jest or Mocha. 
 
 ## TypeScript
 
