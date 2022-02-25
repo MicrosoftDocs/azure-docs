@@ -10,7 +10,7 @@ ms.date: 02/24/2022
 ---
 # Asset certification in the Azure Purview data catalog
 
-As an Azure Purview data catalog grows in size, it becomes important for data consumers to understand what assets meet their organization's quality standards and can be regarded as reliable. Azure Purview allows data stewards to manually endorse assets to indicate that they are ready to use across an organization or business unit. This article describes how data stewards can certify assets and data consumers can view certification labels.
+As an Azure Purview data catalog grows in size, it becomes important for data consumers to understand what assets they can trust. Data consumers must know if an asset meet their organization's quality standards and can be regarded as reliable. Azure Purview allows data stewards to manually endorse assets to indicate that they're ready to use across an organization or business unit. This article describes how data stewards can certify assets and data consumers can view certification labels.
 
 ## How to certify an asset
 
@@ -29,7 +29,7 @@ To certify an asset, you must be a **data curator** for the collection containin
     :::image type="content" source="media/how-to-certify-assets/view-certified-asset.png" alt-text="An asset with a certified label" border="true":::
 
 > [!NOTE]
-> PowerBI assets can only be certified in a PowerBI workspace. PowerBI endorsement labels are displayed in Azure Purview's search and browse experiences. [Learn more](https://docs.microsoft.com/power-bi/collaborate-share/service-endorse-content).
+> PowerBI assets can only be [certified in a PowerBI workspace](https://docs.microsoft.com/power-bi/collaborate-share/service-endorse-content). PowerBI endorsement labels are displayed in Azure Purview's search and browse experiences.
 
 ### Certify assets in bulk
 
@@ -54,7 +54,7 @@ All assets selected will have the "Certified" label.
 
 ## Viewing certification labels in Search
 
-When search or browsing the data catalog, you will see a certification label on any asset that it is certified. Certified assets will also be boosted in search results, helping data consumers discover them easily.
+When search or browsing the data catalog, you'll see a certification label on any asset that it's certified. Certified assets will also be boosted in search results, helping data consumers discover them easily.
 
 :::image type="content" source="media/how-to-certify-assets/search-certified-assets.png" alt-text="Search results with certified assets" border="true":::
 
