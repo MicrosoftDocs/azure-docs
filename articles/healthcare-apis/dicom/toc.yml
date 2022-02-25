@@ -55,6 +55,8 @@ items:
       href: dicom-cast-overview.md
     - name: DICOM Change Feed Overview
       href: dicom-change-feed-overview.md
+    - name: DICOM Extended Query Tags overview
+      href: dicom-extended-query-tags-overview.md
     - name: Using DICOMweb Standard APIs with DICOM service
       href: dicomweb-standard-apis-with-dicom-services.md  
 - name: Resources
