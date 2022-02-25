@@ -72,7 +72,7 @@ items:
   expanded: true
   items:
     - name: DICOM service open-source projects
-      href: references-for-dicom-service
+      href: references-for-dicom-service.md
 
 
 
