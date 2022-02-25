@@ -37,8 +37,6 @@
       href: azure-stack-edge-pro-2-system-requirements.md
     - name: Understand limits
       href: azure-stack-edge-pro-2-limits.md 
-    - name: Security overview
-      href: azure-stack-edge-pro-r-security.md
     - name: Review specifications
       href: azure-stack-edge-pro-2-technical-specifications-compliance.md
     - name: Clustering (Preview)
