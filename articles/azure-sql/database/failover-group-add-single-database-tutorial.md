@@ -20,7 +20,7 @@ ms.date: 01/26/2022
 > * [Azure SQL Managed Instance](../managed-instance/failover-group-add-instance-tutorial.md)
 
 
-A [failover group](auto-failover-group-sqldb.md) is a declarative abstraction layer that allows you to group multiple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database and test failover using either the Azure portal, PowerShell, or the Azure CLI.  In this tutorial, you'll learn how to:
+A [failover group](auto-failover-group-sql-db.md) is a declarative abstraction layer that allows you to group multiple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database and test failover using either the Azure portal, PowerShell, or the Azure CLI.  In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 >
