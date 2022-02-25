@@ -248,12 +248,12 @@ Follow these steps to reconfigure Port 1:
 1. Sign in to the local web UI by providing the device password.
 1. Connect the Port 1 via an appropriate cable. Use one of the following options corresponding to the supported network topologies.
 
-    1. Switchless
+    - **Switchless**
 
         ![Cabling diagram with Port 1 reconfigured.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/switchless-final-1.png)
 
 
-    1. Using external switches
+    - **Using external switches**
 
         ![Cabling diagram for Port 1 reconfigured.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/switches-final-1.png)
   
