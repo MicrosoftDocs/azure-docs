@@ -81,6 +81,10 @@ az webapp create
     --resource-group msdocs-core-sql
 ```
 
+### [Visual Studio](#tab/vs-win)
+
+In Visual Studio we provision new Azure App Services as part of step #4 - Deploy to the App Service. You can safely skip to that step now.
+
 ---
 
 ## 3 - Create the Database
@@ -89,7 +93,7 @@ Next let's create the Azure SQL Database that will manage the data in our app.
 
 ### [Azure portal](#tab/azure-portal)
 
-Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
+Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure SQL Database.
 
 | Instructions    | Screenshot |
 |:----------------|-----------:|
@@ -136,6 +140,10 @@ az sql server firewall-rule create
     --end-ip-address 0.0.0.0
 ```
 
+### [Visual Studio](#tab/vs-win)
+
+In Visual Studio we create new Azure SQL Database as part of step #5 - Connect the App to the Database.
+
 ---
 
 ## 4 - Deploy to the App Service
@@ -149,8 +157,8 @@ We're now ready to deploy our .NET app to the App Service.
 | [!INCLUDE [Deploy app service step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-01-240px.png" alt-text="A screenshot showing the publish dialog in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-01.png"::: |
 | [!INCLUDE [Deploy app service step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-02-240px.png" alt-text="A screenshot showing the how to select the deployment target in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-02.png"::: |
 | [!INCLUDE [Deploy app service step 3](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-03.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-03-240px.png" alt-text="A screenshot showing the sign in to Azure dialog in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-03.png"::: |
-| [!INCLUDE [Deploy app service step 4](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-04-240px.png" alt-text="A screenshot showing the dialog to select the App Service instance to deploy to in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-04.png"::: |
-| [!INCLUDE [Deploy app service step 5](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-05.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-05-240px.png" alt-text="A screenshot showing the publishing profile summary dialog in Visual Studio and the location of the publish button used to publish the app." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-05.png"::: |
+| [!INCLUDE [Deploy app service step 6](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-06.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-06-240px.png" alt-text="A screenshot showing the dialog to select the App Service instance to deploy to in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-06.png"::: |
+| [!INCLUDE [Deploy app service step 7](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-07.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-07-240px.png" alt-text="A screenshot showing the publishing profile summary dialog in Visual Studio and the location of the publish button used to publish the app." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-deploy-app-service-07.png"::: |
 
 ### [Deploy using Visual Studio Code](#tab/visual-studio-code-deploy)
 
