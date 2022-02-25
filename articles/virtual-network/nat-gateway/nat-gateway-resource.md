@@ -53,11 +53,11 @@ NAT is recommended for outbound scenarios for all production workloads where you
 
 :::image type="content" source="./media/nat-overview/flow-direction2.png" alt-text="Diagram that depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of VMs and a virtual machine scale set.":::
 
-*Figure: Virtual Network NAT and VM with instance level Public IP*
+*Figure: Virtual Network NAT and VM with an instance level public IP*
 
 | Direction | Resource |
 |:---:|:---:|
-| Inbound | VM with instance-level Public IP |
+| Inbound | VM with instance-level public IP |
 | Outbound | NAT gateway |
 
 VM will use NAT gateway for outbound. Inbound originated isn't affected.
@@ -66,7 +66,7 @@ VM will use NAT gateway for outbound. Inbound originated isn't affected.
 
 :::image type="content" source="./media/nat-overview/flow-direction3.png" alt-text="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer.":::
 
-*Figure: Virtual Network NAT and VM with standard public load balancer*
+*Figure: Virtual Network NAT and VM with a standard public load balancer*
 
 | Direction | Resource |
 |:---:|:---:|
@@ -79,7 +79,7 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 
 :::image type="content" source="./media/nat-overview/flow-direction4.png" alt-text="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public I P and a public load balancer.":::
 
-*Figure: Virtual Network NAT and VM with instance-level public IP and a standard public load balancer*
+*Figure: Virtual Network NAT and VM with an instance-level public IP and a standard public load balancer*
 
 | Direction | Resource |
 |:---:|:---:|
@@ -120,7 +120,7 @@ In the table below the VM is making connections to destination IP 65.52.0.1 from
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
 
-When NAT gateway is configured with public IP address 65.52.1.1, the source IPs are SNATed into NAT gateway's public IP address as shown below:
+When NAT gateway is configured with public IP address 65.52.1.1, the source IPs are SNAT'd into NAT gateway's public IP address as shown below:
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -128,7 +128,7 @@ When NAT gateway is configured with public IP address 65.52.1.1, the source IPs 
 | 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-The source IP address and port of each flow is SNATed to the public IP address 65.52.1.1 (source tuple after SNAT) and to a different port for each new connection going to the same destination endpoint. The act of NAT gateway replacing all of the source ports and IPs with the public IP and port before connecting to the internet is known as *IP masquerading* or *port masquerading*. Multiple private sources are masqueraded behind a public IP.
+The source IP address and port of each flow is SNAT'd to the public IP address 65.52.1.1 (source tuple after SNAT) and to a different port for each new connection going to the same destination endpoint. The act of NAT gateway replacing all of the source ports and IPs with the public IP and port before connecting to the internet is known as *IP masquerading* or *port masquerading*. Multiple private sources are masqueraded behind a public IP.
 
 #### Source (SNAT) port reuse
 
