@@ -9,6 +9,7 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 02/24/2022
 ms.author: alkohli
+zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
 ---
 # Tutorial: Install Azure Stack Edge Pro 2
@@ -210,7 +211,6 @@ Before you start cabling your device, you need the following things:
 - Access to one power distribution unit.
 - At least one 100-GbE network switch to connect a 10/1-GbE or a 100-GbE network interface to the internet for data. 
 
-
 ::: zone-end
 
 ::: zone pivot="two-node"
@@ -287,6 +287,7 @@ Follow these steps to cable your device for power:
 1. Attach the power cords from the two devices to two different power distribution units (PDU). 
 1. Press the power buttons on the front panels to turn on both the devices.
 
+::: zone-end
 
 ### Network cabling
 
