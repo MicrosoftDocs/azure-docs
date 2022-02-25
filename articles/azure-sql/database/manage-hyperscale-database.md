@@ -149,9 +149,9 @@ Prerequisite checks will occur before a reverse migration starts. If prerequisit
 
 ### Backup policies
 
-You will be [billed using the regular pricing](automated-backups-overview.md?tabs=single-database#backup-storage-costs) for all existing database backups within the [configured retention period](automated-backups-overview.md#backup-retention). You will be billed for the Hyperscale backup storage snapshots and for size-of-data storage blobs that must be retained to be able to restore the backup: although the database has been moved to a different tier, the Hyperscale database is treated as deleted for backup billing and retention purposes.
+You will be [billed using the regular pricing](automated-backups-overview.md?tabs=single-database#backup-storage-costs) for all existing database backups within the [configured retention period](automated-backups-overview.md#backup-retention). You will be billed for the Hyperscale backup storage snapshots and for size-of-data storage blobs that must be retained to be able to restore the backup.
 
-You can migrate a database to Hyperscale and reverse migrate back to General Purpose multiple times. Only backups from the current and once-previous tier of your database will be available for restore. If you have moved from the General Purpose service tier to Hyperscale and back to General Purpose, the only backups available are the ones from the current General Purpose database and the immediately previous Hyperscale database. Any previous tiers tried won't have backups available and will not be billed.
+You can migrate a database to Hyperscale and reverse migrate back to General Purpose multiple times. Only backups from the current and once-previous tier of your database will be available for restore. If you have moved from the General Purpose service tier to Hyperscale and back to General Purpose, the only backups available are the ones from the current General Purpose database and the immediately previous Hyperscale database. These retained backups are billed as per Azure SQL Database billing. Any previous tiers tried won't have backups available and will not be billed.
 
 For example, you could migrate between Hyperscale and non-Hyperscale service tiers:
 
@@ -162,7 +162,7 @@ For example, you could migrate between Hyperscale and non-Hyperscale service tie
 1. Migrate to Hyperscale
 1. Reverse migrate to General Purpose
 
-In this case, the only backups available would be from steps five and six of the timeline, if they are still within the [configured retention period](automated-backups-overview.md#backup-retention). Any backups from previous steps would be unavailable.
+In this case, the only backups available would be from steps 5 and 6 of the timeline, if they are still within the [configured retention period](automated-backups-overview.md#backup-retention). Any backups from previous steps would be unavailable. This should be a careful consideration when attempting multiple reverse migrations from Hyperscale to the General Purpose tier.
 
 ### How to reverse migrate a Hyperscale database to the General Purpose service tier
 
