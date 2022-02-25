@@ -35,56 +35,49 @@ Follow these steps to create a new console application and install the Speech SD
 1. Replace the contents of `main.cpp` with the following code:
     
     ```cpp
-    #include "stdafx.h"
     #include <iostream> 
     #include <speechapi_cxx.h>
-    
-    using namespace std;
+
     using namespace Microsoft::CognitiveServices::Speech;
     using namespace Microsoft::CognitiveServices::Speech::Audio;
-    
+
     auto YourSubscriptionKey = "YourSubscriptionKey";
     auto YourServiceRegion = "YourServiceRegion";
-    
-    void recognizeFromMicrophone()
+
+    int main()
     {
         auto speechConfig = SpeechConfig::FromSubscription(YourSubscriptionKey, YourServiceRegion);
         speechConfig->SetSpeechRecognitionLanguage("en-US");
 
-        //To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
-        //auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
+        // To recognize speech from an audio file, use `FromWavFileInput` instead of `FromDefaultMicrophoneInput`:
+        // auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
         auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
-        auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);    
-    
-        cout << "Speak into your microphone.\n";
+        auto recognizer = SpeechRecognizer::FromConfig(speechConfig, audioConfig);
+
+        std::cout << "Speak into your microphone.\n";
         auto result = recognizer->RecognizeOnceAsync().get();
-    
+
         if (result->Reason == ResultReason::RecognizedSpeech)
         {
-            cout << "RECOGNIZED: Text=" << result->Text << std::endl;
+            std::cout << "RECOGNIZED: Text=" << result->Text << std::endl;
         }
         else if (result->Reason == ResultReason::NoMatch)
         {
-            cout << "NOMATCH: Speech could not be recognized." << std::endl;
+            std::cout << "NOMATCH: Speech could not be recognized." << std::endl;
         }
         else if (result->Reason == ResultReason::Canceled)
         {
             auto cancellation = CancellationDetails::FromResult(result);
-            cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
-    
+            std::cout << "CANCELED: Reason=" << (int)cancellation->Reason << std::endl;
+
             if (cancellation->Reason == CancellationReason::Error)
             {
-                cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
-                cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
-                cout << "CANCELED: Double check the speech resource key and region" << std::endl;
+                std::cout << "CANCELED: ErrorCode=" << (int)cancellation->ErrorCode << std::endl;
+                std::cout << "CANCELED: ErrorDetails=" << cancellation->ErrorDetails << std::endl;
+                std::cout << "CANCELED: Double check the speech resource key and region" << std::endl;
             }
         }
-    }
-    
-    int main()
-    {
-    	recognizeFromMicrophone();
-    }                    
+    }             
     ```
 
 1. In `main.cpp`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region. 
