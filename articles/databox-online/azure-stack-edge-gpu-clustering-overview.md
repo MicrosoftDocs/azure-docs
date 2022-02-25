@@ -59,7 +59,7 @@ Based on the use-case and workloads, you can select how the two Azure Stack Edge
 
 The supported network topologies for each of the device types are described here.
 
-### [Azure Stack Edge Pro GPU](#tab/pro-gpu) 
+### [Azure Stack Edge Pro GPU](#tab/1) 
 
 On your Azure Stack Edge Pro GPU device node: 
 
@@ -87,7 +87,7 @@ The following network topologies are available:
 For more information, see how to [Choose a network topology for your device node](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-network).
 
 
-### [Azure Stack Edge Pro 2](#tab/pro-2) 
+### [Azure Stack Edge Pro 2](#tab/2) 
 
 On your Azure Stack Edge Pro 2 device node: 
 
@@ -142,7 +142,7 @@ Before you configure clustering on your device, you must cable the devices as pe
 
 ![Azure Stack Edge clustering deployment](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
 
-### [Azure Stack Edge Pro GPU](#tab/pro-gpu) 
+### [Azure Stack Edge Pro GPU](#tab/1) 
 
 1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
@@ -157,7 +157,7 @@ Before you configure clustering on your device, you must cable the devices as pe
 For more information, see the two-node device deployment tutorials starting with [Get deployment configuration checklist](azure-stack-edge-gpu-deploy-checklist.md).
 
 
-### [Azure Stack Edge Pro 2](#tab/pro-2) 
+### [Azure Stack Edge Pro 2](#tab/2) 
 
 1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-pro-2-deploy-prep.md#create-a-new-resource).
 1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-pro-2-deploy-install.md#cable-the-device).
