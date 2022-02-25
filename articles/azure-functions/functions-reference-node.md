@@ -730,7 +730,7 @@ In version 1.x, setting `languageWorkers:node:arguments` won't work. The debug p
 Testing your functions includes:
 
 * **HTTP end-to-end**: To test a function from its HTTP endpoint, you can use any tool that can make an HTTP request such as cURL, Postman, or JavaScript's fetch method. 
-* **Integration testing**: Integration test includes the function app layer. This testing means you need to control the parameters into the function including the request and the context. The context is unique to each kind of trigger and means you need to know the incoming and outgoing bindings for that [trigger type](functions-triggers-bindings.md?tabs=javascript#supported-bindings). For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class.
+* **Integration testing**: Integration test includes the function app layer. This testing means you need to control the parameters into the function including the request and the context. The context is unique to each kind of trigger and means you need to know the incoming and outgoing bindings for that [trigger type](functions-triggers-bindings.md?tabs=javascript#supported-bindings).
 
     Learn more about integration testing and mocking the context layer with an experimental GitHub repo, [https://github.com/anthonychu/azure-functions-test-utils](https://github.com/anthonychu/azure-functions-test-utils).
 
