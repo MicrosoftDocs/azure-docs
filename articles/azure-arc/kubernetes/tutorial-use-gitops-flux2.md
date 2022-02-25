@@ -997,13 +997,14 @@ By using this annotation, the HelmRelease that is deployed will be patched with 
 
 ## Multi-tenancy
 
-Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
+Flux v2 supports [multi-tenancy](https://github.com/fluxcd/flux2-multi-tenancy) in [version 0.26](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default). This capability will be integrated into Azure GitOps with Flux v2 prior to general availability.
 
 >[!NOTE]
->This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects. To prepare for the release of this multi-tenancy feature, take one of these actions:
+>This will be a breaking change if you have any cross-namespace sourceRef for HelmRelease, Kustomization, ImagePolicy, or other objects.  It [may also be a breaking change](https://fluxcd.io/blog/2022/01/january-update/#flux-v026-more-secure-by-default) if you use a Kubernetes version less than 1.20.6. To prepare for the release of this multi-tenancy feature, take these actions:
 >
->* (Recommended) Assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
->* If you need time to migrate, you can opt-out of multi-tenancy.
+>* Upgrade to Kubernetes version 1.20.6 or greater.
+>* In your Kubernetes manifests assure that all sourceRef are to objects within the same namespace as the GitOps configuration.
+>    * If you need time to update your manifests, you can opt-out of multi-tenancy. However, you still need to upgrade your Kubernetes version.
 
 ### Update manifests for multi-tenancy
 
