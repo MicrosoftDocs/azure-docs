@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2022
+ms.date: 02/24/2022
 ms.author: v-ydequadros
 ---
 
@@ -28,15 +28,22 @@ This article describes how to enable CloudKnox Permissions Management (CloudKnox
 
 ## Prerequisites
 
-To enable CloudKnox in your organization, you must:
+To enable CloudKnox in your organization:
 
-- Have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
-- Be eligible for or have an active assignment to the global administrator role as a user in that tenant.
+- You must have an Azure AD tenant. If you don't already have one, [create a free account](https://azure.microsoft.com/free/).
+- You must be eligible for or have an active assignment to the global administrator role as a user in that tenant.
+- To enable the CloudKnox **Feature highlights** tile in the Azure AD portal, [select this link to run the script in your browser](https://aka.ms/ciem-prod).
+- To use the CloudKnox public preview, we encourage you to fill out a consent form that provides other terms and conditions for the public preview product. To open the form, select [CloudKnox Permissions Management Public Preview: Terms and Conditions](https://aka.ms/ciem-terms).
 
 > [!NOTE]
 > During public preview, CloudKnox doesn't perform a license check.
 
-## Enable CloudKnox on your Azure AD tenant
+## View a training video on enabling CloudKnox
+
+To view a video on how to enable CloudKnox in your Azure AD tenant, select
+[Enable CloudKnox in your Azure AD tenant](https://www.youtube.com/watch?v=-fkfeZyevoo).
+
+## How to enable CloudKnox on your Azure AD tenant
 
 1. In your browser:
     1. Go to [Azure services](https://portal.azure.com) and use your credentials to sign in to [Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview). 
