@@ -11,12 +11,11 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 06/09/2020
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-    
 title: "Azure Active Directory Pass-through Authentication: Frequently asked questions"
 summary: This article addresses frequently asked questions about Azure Active Directory (Azure AD) Pass-through Authentication. Keep checking back for updated content.
 

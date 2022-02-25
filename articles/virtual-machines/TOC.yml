@@ -1374,17 +1374,21 @@
     - name: CLI
       items:
       - name: Create managed disk from a VHD
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd
+        href: ./scripts/create-managed-disk-from-vhd.md
       - name: Create a managed disk from a snapshot
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd
+        href: ./scripts/create-managed-disk-from-snapshot.md
       - name: Copy a managed disk to the same or different subscription
-        href: https://github.com/Azure-Samples/azure-cli-samples/blob/master/virtual-machine/copy-managed-disks-to-same-or-different-subscription/copy-managed-disks-to-same-or-different-subscription.sh
-      - name: Copy a snapshot to the same or different subscription
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription
+        href: ./scripts/copy-managed-disks-to-same-or-different-subscription.md
       - name: Export a snapshot as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
+        href: ./scripts/copy-snapshot-to-storage-account.md
       - name: Export a managed disk as a VHD to a storage account
-        href: /previous-versions/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account
+        href: ./scripts/copy-managed-disks-vhd-to-storage-account.md
+      - name: Copy a snapshot to the same or different subscription
+        href: ./scripts/copy-snapshot-to-same-or-different-subscription.md
+      - name: Create virtual machine from snapshot
+        href: ./scripts/create-vm-from-snapshot.md
+      - name: Create virtual machine from existing managed OS disk
+        href: ./scripts/create-vm-from-managed-os-disks.md
     - name: PowerShell
       items:
       - name: Create managed disk from a VHD
@@ -1489,6 +1493,8 @@
     - name: Portal
       displayName: port nsg network security group
       href: ./windows/nsg-quickstart-portal.md
+  - name: Migrate a virtual machine public IP address
+    href: ../virtual-network/nat-gateway/tutorial-migrate-ilip-nat.md?toc=/azure/virtual-machines/toc.json
   - name: Assign public IP address
     href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Use a custom domain name

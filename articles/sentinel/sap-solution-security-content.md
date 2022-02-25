@@ -1,11 +1,11 @@
 ---
 title: Microsoft Sentinel SAP solution - security content reference | Microsoft Docs
 description: Learn about the built-in security content provided by the Microsoft Sentinel SAP solution.
-author: batamig
-ms.author: bagol
+author: MSFTandrelom
+ms.author: andrelom
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 02/22/2022
 ---
 
 # Microsoft Sentinel SAP solution: security content reference (public preview)
@@ -46,7 +46,8 @@ The following tables list the built-in [analytics rules](sap-deploy-solution.md#
 |---------|---------|---------|---------|
 |**SAP - High - Login from unexpected network**     |   Identifies a sign-in from an unexpected network. <br><br>Maintain networks in the [SAP - Networks](#networks) watchlist.    |    Sign in to the backend system from an IP address that is not assigned to one of the networks. <br><br>**Data sources**: SAPcon - Audit Log    |   Initial Access      |
 |**SAP - High - SPNego Attack**     | Identifies SPNego Replay Attack.       |  **Data sources**: SAPcon -  Audit Log | Impact, Lateral Movement  |
-|**SAP - Medium - Brute force attacks**     |     Identifies brute force attacks on the SAP system, according to failed sign-in attempts for the backend system.    |   Attempt to sign in from the same IP address to several systems/clients within the scheduled time interval. <br><br>**Data sources**: SAPcon - Audit Log      | Credential Access        |
+|**SAP - High- Dialog logon attempt from a privileged user**     | Identifies dialog sign-in attempts, with the **AUM** type, by privileged users in a SAP system. For more information, see the [SAPUsersGetPrivileged](sap-solution-log-reference.md#sapusersgetprivileged).      |  Attempt to sign in from the same IP to several systems or clients within the scheduled time interval<br><br>**Data sources**: SAPcon -  Audit Log | Impact, Lateral Movement  |
+|**SAP - Medium - Brute force attacks**     |     Identifies brute force attacks on the SAP system using RFC logons | Attempt to login from the same IP to several systems/clients within the scheduled time interval using RFC<br><br>**Data sources**: SAPcon - Audit Log      | Credential Access        |
 |**SAP - Medium - Multiple Logons from the same IP**     |  Identifies the sign-in of several users from same IP address within a scheduled time interval.   <br><br>**Sub-use case**: [Persistency](#built-in-sap-analytics-rules-for-persistency)    |    Sign in using several users through the same IP address. <br><br>**Data sources**: SAPcon - Audit Log | Initial Access        |
 |**SAP - Medium - Multiple Logons by User**     | Identifies sign-ins of the same user from several terminals within scheduled time interval.  <br><br>Available only via the Audit SAL method, for SAP versions 7.5 and higher.      |   Sign in using the same user, using different IP addresses.   <br><br>**Data sources**: SAPcon - Audit Log   |  PreAttack, Credential Access, Initial Access, Collection <br><br>**Sub-use case**: [Persistency](#built-in-sap-analytics-rules-for-persistency)      |
 |**SAP - Informational - Lifecycle - SAP Notes were implemented in system**     |   Identifies SAP Note implementation in the system. | Implement an SAP Note using SNOTE/TCI. <br><br>**Data sources**: SAPcon -  Change Requests      | -  |
