@@ -282,7 +282,7 @@ This quickstart created a container and blob on the Azure cloud. You can also us
 1. When you're done with this quickstart, delete the `blob-quickstart-v12` directory.
 1. If you're done using your Azure Storage resource, remove your resource group using either method:
     * Use the [Azure CLI to remove the Storage resource](storage-quickstart-blobs-cli.md#clean-up-resources)
-    * Use the [Azure portal to remove the resource](storage-quickstart-blobs-portal#clean-up-resources). 
+    * Use the [Azure portal to remove the resource](storage-quickstart-blobs-portal.md#clean-up-resources). 
 
 ## Next steps
 
