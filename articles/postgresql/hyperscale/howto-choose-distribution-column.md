@@ -15,6 +15,8 @@ Choosing each table's distribution column is one of the most important modeling 
 
 The correct choice groups related data together on the same physical nodes, which makes queries fast and adds support for all SQL features. An incorrect choice makes the system run slowly and won't support all SQL features across nodes.
 
+## Example scenarios
+
 This article gives distribution column tips for the two most common Hyperscale (Citus) scenarios.
 
 ### Multi-tenant apps
