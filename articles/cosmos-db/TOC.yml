@@ -1098,6 +1098,8 @@
           href: cassandra/troubleshoot-nohostavailable-exception.md
         - name: Monitor using Diagnostics Logs
           href: cassandra/diagnostic-queries-cassandra.md
+        - name: Monitor using Log Analytics
+          href: cassandra/cassandra-log-analytics.md
         - name: Cassandra and Spark
           items:
             - name: Introduction
