@@ -75,7 +75,7 @@ VM will use NAT gateway for outbound. Inbound originated isn't affected.
 
 Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Inbound originated isn't affected.
 
-#### NAT and VM with an instance-level public IP and standard public load balancer
+#### NAT and VM with an instance-level public IP and a standard public load balancer
 
 :::image type="content" source="./media/nat-overview/flow-direction4.png" alt-text="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public I P and a public load balancer.":::
 
@@ -110,7 +110,7 @@ NAT gateway SNATs the private IP address and source port of a virtual machine (o
 
 ### Fundamentals
 
-Let's look at some example flows to explain the basic concept of SNAT and how it works with NAT gateway. 
+The following example flows explain the basic concept of SNAT and how it works with NAT gateway. 
 
 In the table below the VM is making connections to destination IP 65.52.0.1 from the following source tuples (IPs and ports):
 
