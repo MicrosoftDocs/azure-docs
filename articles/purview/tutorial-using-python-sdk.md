@@ -1,7 +1,7 @@
 ---
-title: "How to use Azure Purview Python SDK"
+title: "Tutorial: How to use Azure Purview Python SDK"
 description: This tutorial describes how to use the Azure Purview Python SDK to scan data and search the catalog.
-author: raoufaliouat
+author: raliouat
 ms.author: raoufaliouat
 ms.service: purview
 ms.subservice: purview-data-scanning
@@ -11,19 +11,18 @@ ms.date: 01/10/2022
 # Customer intent: I can use the scanning and catalog Python SDKs to perform CRUD operations on data sources and scans, trigger scans and also to search the catalog.
 ---
 
-
-
 # Tutorial: Use the Azure Purview Python SDK
 
 The aim of this tutorial is to introduce you to the use of the Azure Purview Python SDK to programmatically do the most common operations you can find in Azure Purview Studio.
 
 In this tutorial, you will learn how to:
 
-*   Grant the required rights to work programmatically with Azure Purview
-*   Register a Blob Storage container as a data source in Azure Purview
-*   Define and run a scan
-*   Search the catalog
-*   Delete a data source
+> [!div class="checklist"]
+>*   Grant the required rights to work programmatically with Azure Purview
+>*   Register a Blob Storage container as a data source in Azure Purview
+>*   Define and run a scan
+>*   Search the catalog
+>*   Delete a data source
 
 ## Prerequisites
 
@@ -55,7 +54,8 @@ You can then select **Review + Assign**. Azure Purview now has the required read
 
 
 ## Grant your application the access to your Azure Purview account
-1. First, you need a [service principal with a secret with an App Registration](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
+
+1. First, you need a [service principal with a secret with an App Registration](../active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal).
 Get the following information from your service principal and secret, they will be needed later:
     *    Client ID (or Application ID)
     *    Tenant ID (or Directory ID)
@@ -72,7 +72,9 @@ Get the following information from your service principal and secret, they will 
     Select the collection you want to work with, and go on the **Role assignments** tab. Add the service principal in the following roles: Collection admins, Data source admins, Data curators, Data readers. For to each role, select the **Add** button and add the service principal by searching its name as shown below:  
 
     :::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="Screenshot that shows how to access Azure Purview collections"::: 
+
 ## Install the Python packages
+
 1.	Open a new command prompt or terminal
 1.	Install the Azure identity package for authentication:
     ```bash
@@ -91,12 +93,13 @@ Get the following information from your service principal and secret, they will 
     pip install azure-core
     ```
 
-## Instantiate a Scanning and a Catalog client 
+## Instantiate a Scanning and a Catalog client
+
 In this section, you learn how to instantiate:
 *    A scanning client useful to registering data sources, creating and managing scan rules, triggering a scan, etc. 
 *    A catalog client useful to interact with the catalog through searching, browsing the discovered assets, identifying the sensitivity of your data, etc.
 
-First you need to authenticate to your Azure Active Directory. In this tutorial, you will use the [client secret you created](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).
+First you need to authenticate to your Azure Active Directory. In this tutorial, you will use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).
 
 
 1.	Start with required import statements:
@@ -142,6 +145,7 @@ First you need to authenticate to your Azure Active Directory. In this tutorial,
 You are now able to do several operations in a similar fashion.
 
 ## Register a data source
+
 In this section, you register your Blob Storage. For the sake of this tutorial, you will register it in the root collection of Azure Purview.
 1.	First you need to define the following information to be able to register the Blob storage programmatically:
     ```python
@@ -196,6 +200,7 @@ In this section, you register your Blob Storage. For the sake of this tutorial, 
 In the following sections, you will scan the data source you just registered, and search the catalog. The code structure will be very similar.  
 
 ### Full code
+
 ```python
 from azure.purview.scanning import PurviewScanningClient
 from azure.purview.catalog import PurviewCatalogClient
@@ -234,7 +239,6 @@ try:
 except HttpResponseError as e:
     print(e)
 ```
-
 
 ## Scan the data source
 
@@ -291,6 +295,7 @@ Now let's scan the data source you registered above.
         print(e)
     ```
 ## Search catalog
+
 Once a scan is complete, it is very likely that assets have been discovered and even classified. In this section, you use the Azure Purview Catalog client to search the whole catalog.
 1. This time you need to instantiate the **catalog** client instead of the scanning one:
     ```python
@@ -319,6 +324,7 @@ Once a scan is complete, it is very likely that assets have been discovered and 
     ```
 
 ## Delete a data source
+
 In this section, you learn how to delete the data source you register earlier. This operation is fairly simple, and is done with the scanning client:
 
 ```python
@@ -335,6 +341,5 @@ In this section, you learn how to delete the data source you register earlier. T
 
 > [!div class="nextstepaction"]
 > [Learn more about the Python Azure Purview Scanning Client](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-purview-scanning/1.0.0b2/index.html)
-
 > [Learn more about the Python Azure Purview Catalog Client](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-purview-catalog/1.0.0b2/index.html)
 
