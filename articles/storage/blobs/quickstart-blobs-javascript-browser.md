@@ -78,7 +78,7 @@ The following table describes each CORS setting and explains the values used to 
 | **EXPOSED HEADERS** | * | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header. |
 | **MAX AGE** | **86400** | The maximum amount of time the browser caches the preflight OPTIONS request in seconds. A value of *86400* allows the cache to remain for a full day. |
 
-After you fill in the fields with the values from this table, click the **Save** button.
+After you fill in the fields with the values from this table, select the **Save** button.
 
 > [!IMPORTANT]
 > Ensure any settings you use in production expose the minimum amount of access necessary to your storage account to maintain secure access. The CORS settings described here are appropriate for a quickstart as it defines a lenient security policy. These settings, however, are not recommended for a real-world context.
@@ -174,7 +174,7 @@ From the project directory:
 1. Create a new file named `index.js`.
 1. Add the Azure Storage npm package. 
 
-    :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
+    :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" range="19":::
 
 ## Declare fields for UI elements
 
@@ -199,29 +199,29 @@ Create [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient
 
 ## Create and delete a storage container
 
-Create and delete the storage container when you click the corresponding button on the web page. Add the following code to the end of the *index.js* file.
+Create and delete the storage container when you select the corresponding button on the web page. Add the following code to the end of the *index.js* file.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_CreateDeleteContainer":::
 
-### List blobs
+## List blobs
 
-List the contents of the storage container when you click the **List files** button. Add the following code to the end of the *index.js* file.
+List the contents of the storage container when you select the **List files** button. Add the following code to the end of the *index.js* file.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ListBlobs":::
 
 This code calls the [ContainerClient.listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) function, then uses an iterator to retrieve the name of each [BlobItem](/javascript/api/@azure/storage-blob/blobitem) returned. For each `BlobItem`, it updates the **Files** list with the [name](/javascript/api/@azure/storage-blob/blobitem#name) property value.
 
-## Upload blobs
+## Upload blobs to a container
 
-Upload files to the storage container when you click the **Select and upload files** button. Add the following code to the end of the *index.js* file.
+Upload files to the storage container when you select the **Select and upload files** button. Add the following code to the end of the *index.js* file.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_UploadBlobs":::
 
 This code connects the **Select and upload files** button to the hidden `file-input` element. The button `click` event triggers the file input `click` event and displays the file picker. After you select files and close the dialog box, the `input` event occurs and the `uploadFiles` function is called. This function creates a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object, then calls the browser-only [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) function for each file you selected. Each call returns a `Promise`. Each `Promise` is added to a list so that they can all be awaited together, causing the files to upload in parallel.
 
-### Delete blobs
+## Delete blobs
 
-Delete files from the storage container when you click the **Delete selected files** button. Add the following code to the end of the *index.js* file.
+Delete files from the storage container when you select the **Delete selected files** button. Add the following code to the end of the *index.js* file.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_DeleteBlobs":::
 
@@ -246,12 +246,12 @@ This code calls the [ContainerClient.deleteBlob](/javascript/api/@azure/storage-
 ## Step 1 - Create a container
 
 1. In the web app, select **Create container**. The status indicates that a container was created.
-2. In the Azure portal, verify you container was created. Select your storage account. Under **Blob service**, select **Containers**. Verify that the new container appears. (You may need to select **Refresh**.)
+2. In the Azure portal, verify your container was created. Select your storage account. Under **Blob service**, select **Containers**. Verify that the new container appears. (You may need to select **Refresh**.)
 
 ## Step 2 - Upload a blob to the container
 
 1. On your local computer, create and save a test file, such as *test.txt*.
-2. In the web app, click **Select and upload files**.
+2. In the web app, select **Select and upload files**.
 3. Browse to your test file, and then select **Open**. The status indicates that the file was uploaded, and the file list was retrieved.
 4. In the Azure portal, select the name of the new container that you created earlier. Verify that the test file appears.
 

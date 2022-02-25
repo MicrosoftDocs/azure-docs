@@ -21,7 +21,7 @@ When the sample application makes a request to Azure Storage, it must be authori
     ![Screenshot that shows where the access key settings are in the Azure portal](./media/storage-access-keys-portal/portal-access-key-settings.png)
  
 1. In the **Access keys** pane, select **Show keys**.
-1. In the **key1** section, locate the **Connection string** value. Select the **Copy to clipboard** icon to copy the connection string. You will add the connection string value to an environment variable in the next section.
+1. In the **key1** section, locate the **Connection string** value. Select the **Copy to clipboard** icon to copy the connection string. You'll add the connection string value to an environment variable in the next section.
 
     ![Screenshot showing how to copy a connection string from the Azure portal](./media/storage-copy-connection-string-portal/portal-connection-string.png)
 
@@ -37,13 +37,7 @@ setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 
 After you add the environment variable in Windows, you must start a new instance of the command window.
 
-# [Linux](#tab/environment-variable-linux)
-
-```bash
-export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
-```
-
-# [macOS](#tab/environment-variable-macos)
+# [Linux and macOS](#tab/environment-variable-linux)
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
