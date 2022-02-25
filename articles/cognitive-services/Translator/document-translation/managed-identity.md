@@ -15,7 +15,7 @@ ms.author: lajanuar
 
 > [!IMPORTANT]
 >
-> * Managed identities for Azure resources are currently not supported for Document Translation service in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
+> * Currently, Document Translation doesn't support managed identity in the global region. If you intend to use managed identities for Document Translation operations, [create your Translator resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in a non-global Azure region.
 >
 > * Document Translation is **only** available in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
