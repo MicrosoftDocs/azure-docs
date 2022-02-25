@@ -62,6 +62,7 @@ For scenarios where _ingestion_ private endpoint is used in your Azure Purview a
 |SQL Server | Self-Hosted IR| SQL Authentication|
 |Azure Synapse Analytics | Self-Hosted IR| Service Principal|
 |Azure Synapse Analytics | Self-Hosted IR| SQL Authentication|
+|Power BI tenant (Same tenant) |Self-Hosted IR| Delegated Auth|
 
 ## Frequently Asked Questions  
 

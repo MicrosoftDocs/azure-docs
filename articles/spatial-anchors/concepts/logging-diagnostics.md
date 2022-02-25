@@ -1,11 +1,11 @@
 ---
 title: Logging and diagnostics
 description: In-depth explanation of how to generate and retrieve logging and diagnostics in Azure Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.service: azure-spatial-anchors

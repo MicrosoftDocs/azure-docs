@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 02/10/2022
+ms.date: 2/23/2022
 ms.author: dukek
 ms.custom: references_regions
 ---
