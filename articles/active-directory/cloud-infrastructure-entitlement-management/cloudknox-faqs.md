@@ -28,7 +28,7 @@ CloudKnox is a cloud infrastructure entitlement management (CIEM) solution that 
 
 ## What are the prerequisites to use CloudKnox?
 
-CloudKnox supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have an Azure Active Directory (Azure AD) account to use CloudKnox, however, an Azure subscription or Azure AD P1 or P2 license aren't required to use CloudKnox for AWS or GCP.
+CloudKnox supports data collection from AWS, GCP, and/or Microsoft Azure. For data collection and analysis, customers are required to have an Azure Active Directory (Azure AD) account to use CloudKnox.
 
 ## Can a customer use CloudKnox if they have other identities with access to their IaaS platform that aren’t yet in Azure AD (for example, if part of their business has Okta or AWS Identity & Access Management (IAM))?
 

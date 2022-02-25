@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 02/18/2022
+ms.date: 02/23/2022
 ms.devlang: csharp
 ---
 
@@ -76,6 +76,7 @@ The following are some of the main class name changes:
 |`Microsoft.Azure.Documents.Client.FeedOptions`|`Microsoft.Azure.Cosmos.QueryRequestOptions`|
 |`Microsoft.Azure.Documents.Client.StoredProcedure`|`Microsoft.Azure.Cosmos.StoredProcedureProperties`|
 |`Microsoft.Azure.Documents.Client.Trigger`|`Microsoft.Azure.Cosmos.TriggerProperties`|
+|`Microsoft.Azure.Documents.SqlQuerySpec`|`Microsoft.Azure.Cosmos.QueryDefinition`|
 
 ### Classes replaced on .NET v3 SDK
 
@@ -634,6 +635,11 @@ private static async Task ReadAllItems(DocumentClient client)
 ---
 
 ### Query items
+#### Changes to SqlQuerySpec (QueryDefinition in v3.0 SDK)
+
+The `SqlQuerySpec` class in SDK v2 has now been renamed to `QueryDefinition` in the SDK v3.
+
+`SqlParameterCollection` and `SqlParameter` has been removed. Parameters are now added to the `QueryDefinition` with a builder model using `QueryDefinition.WithParameter`. Users can access the parameters with `QueryDefinition.GetQueryParameters`
 
 # [.NET SDK v3](#tab/dotnet-v3)
 

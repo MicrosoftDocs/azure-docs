@@ -147,6 +147,8 @@
       href: resource-context-rbac.md
   - name: Migrate to Microsoft Sentinel
     href: migration.md
+  - name: Understand MITRE ATT&CK coverage
+    href: mitre-coverage.md
   - name: Manage Microsoft Sentinel content
     items:
     - name: Discover and deploy out-of-the-box content

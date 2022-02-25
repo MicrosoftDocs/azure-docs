@@ -20,7 +20,7 @@ configuration options for:
 * automating timeseries partitioning
 * parallelizing query execution across shards
 
-## SQL Functions
+## SQL functions
 
 ### Sharding
 
