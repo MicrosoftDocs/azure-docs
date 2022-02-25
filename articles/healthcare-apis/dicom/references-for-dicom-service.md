@@ -36,7 +36,13 @@ This article describes our open-source projects on GitHub that provide source co
 * [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md): After you provision a DICOM service, FHIR service and synchronizing imaging study for a given patient via DICOM cast, you can use FHIR to Synapse Sync Agent to perform Analytics and Machine Learning on imaging study data by moving FHIR data to Azure Data Lake in near real time and making it available to a Synapse workspace.
 
 ## Next steps
-Learn how to deploy DICOM service in the Azure portal
+
+For more information about using the DICOM service, see
 
 >[!div class="nextstepaction"]
 >[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
+
+For more information about DICOM cast, see
+
+>[!div class="nextstepaction"]
+>[DICOM cast overview](dicom-cast-overview.md)

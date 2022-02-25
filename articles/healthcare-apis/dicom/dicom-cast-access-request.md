@@ -62,5 +62,7 @@ This article described the steps for creating an Azure support ticket to request
 >[!div class="nextstepaction"]
 >[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
 
+For more information about DICOM cast, see
+
 >[!div class="nextstepaction"]
->[Using DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
+>[DICOM cast overview](dicom-cast-overview.md)
