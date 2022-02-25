@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob storage library v12 - JavaScript"
 description: In this quickstart, you learn how to use the Azure Blob storage blob package version 12 for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: normesta
 ms.author: normesta
-ms.date: 09/17/2020
+ms.date: 02/25/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -81,10 +81,10 @@ Create a JavaScript application named *blob-quickstart-v12*.
 
 ## Install the npm package for blob storage
 
-Install the Azure Storage package:
+Install the Azure Storage package and other dependencies for this quickstart:
 
 ```console
-npm install @azure/storage-blob
+npm install @azure/storage-blob uuid dotenv
 ```
 
 ## Create JavaScript file
@@ -97,6 +97,7 @@ From the project directory:
     ```javascript
     const { BlobServiceClient } = require('@azure/storage-blob');
     const { v1: uuidv1} = require('uuid');
+    require('dotenv').config()
     
     async function main() {
         console.log('Azure Blob storage v12 - JavaScript quickstart sample');
@@ -105,7 +106,9 @@ From the project directory:
 
     }
 
-    main().then(() => console.log('Done')).catch((ex) => console.log(ex.message));
+    main()
+    .then(() => console.log('Done'))
+    .catch((ex) => console.log(ex.message));
     ```
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
@@ -116,15 +119,7 @@ The code below retrieves the connection string for the storage account from the 
 
 Add this code inside the `main` function:
 
-```javascript
-// Retrieve the connection string for use with the application. The storage
-// connection string is stored in an environment variable on the machine
-// running the application called AZURE_STORAGE_CONNECTION_STRING. If the
-// environment variable is created after the application is launched in a
-// console or with Visual Studio, the shell or application needs to be closed
-// and reloaded to take the environment variable into account.
-const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STRING;
-```
+:::code language="javascript" source="{source}" range="{range}":::
 
 ## Create a container
 
