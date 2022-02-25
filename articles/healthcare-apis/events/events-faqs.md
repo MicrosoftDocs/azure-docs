@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/23/2022
+ms.date: 02/24/2022
 ms.author: jasteppe
 ---
 
@@ -61,7 +61,7 @@ Yes. Event Grid supports customer's Health Insurance Portability and Accountabil
 
  ### What is the expected time to receive an Events message?
 
-You should receive your event within 1 second after a successful HTTP request on average. 99.99% of the events should be delivered within 5 seconds unless the limitation has been met.
+You should receive your event message within one second after a successful HTTP request on average. 99.99% of the event messages should be delivered within 5 seconds unless the limitation of either FHIR service or [Event Grid](../../event-grid/quotas-limits.md) has been met.
 
 ### Is it possible to receive duplicate Events message?
 
