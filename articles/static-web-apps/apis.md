@@ -38,7 +38,7 @@ The following table contrasts the differences between using managed and existing
 | API functions available outside Azure Static Web Apps | ✕ | ✔ |
 | [Key Vault references](../app-service/app-service-key-vault-references.md) | ✕ | ✔ |
 
-<sup>1</sup> To specify the runtime version in managed functions, add a configuration file to your frontend app and set the [`apiRuntime` property](configuration.md). Support is subject to the [Azure Functions language runtime support policy](../azure-functions/language-support-policy.md).
+<sup>1</sup> To specify the runtime version in managed functions, add a configuration file to your frontend app and set the [`apiRuntime` property](configuration.md#platform). Support is subject to the [Azure Functions language runtime support policy](../azure-functions/language-support-policy.md).
 
 ## Configuration
 
