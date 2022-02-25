@@ -35,8 +35,6 @@ After you copy the connection string, write it to a new environment variable on 
 setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 ```
 
-After you add the environment variable in Windows, you must start a new instance of the command window.
-
 # [Linux and macOS](#tab/environment-variable-linux)
 
 ```bash
@@ -44,6 +42,8 @@ export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
 ---
+
+After you add the environment variable in Windows, you must start a new instance of the command window.
 
 #### Restart programs
 

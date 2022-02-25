@@ -272,7 +272,7 @@ This code calls the [ContainerClient.deleteBlob](/javascript/api/@azure/storage-
 
 This quickstart created a container and blob on the Azure cloud. You can also use the Azure Blob storage npm package to create these resources locally on the [Azure Storage emulator](/azure/storage/common/storage-use-emulator) for development and testing. 
 
-### Clean up resources
+## Clean up resources
 
 1. When you're done with this quickstart, delete the `blob-quickstart-v12` directory.
 1. If you're done using your Azure Storage resource, remove your resource group using either method:
