@@ -77,17 +77,12 @@ Azure Monitor provides the following metrics.  These metrics are available for e
 
 ### Alerts
 
-What are alerts?
+What are alerts?  Are there any alerts outside of metrics and log analytics?
 
 ## Log Analytics
 
 Each Container Apps environment must include a Log Analytics workspace with provides a common log space for each container app in the environment.  
 <!-- can Azure Event Hubs we used to forward outside of Azure?  Does Container Apps create Activity, Resource and Platform Logs?  If so what operations are logged?   -->
-
-### Application Insights
-
-With [Application Insights](/azure/azure-monitor/app/app-insights-overview) you can instrument your application to help you continuously improve performance of your web app or background application.  
-
 
 ## Observability throughout the application lifecycle
 
@@ -108,7 +103,6 @@ You can monitor the performance and resources utilization and be notified of imp
 * Azure Monitor 
 * Metrics
 * Log Analytics
-* Application Insights
 * Events
 
 ### Updates and Revisions
