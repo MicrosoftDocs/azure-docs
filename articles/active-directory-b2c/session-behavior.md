@@ -107,36 +107,37 @@ To configure the session behavior in your custom policy, follow these steps:
 1. Open the relying party (RP) file, for example *SignUpOrSignin.xml*
 1. If it doesn't already exist, add the following `<UserJourneyBehaviors>` element to the `<RelyingParty>` element. It must be located immediately after `<DefaultUserJourney ReferenceId="UserJourney Id"/>`.
 
-  ```xml
-  <UserJourneyBehaviors>
-    <SingleSignOn Scope="Application" />
-    <SessionExpiryType>Absolute</SessionExpiryType>
-    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
-  </UserJourneyBehaviors>
-  ```
-  
-  After you add the user journey behavior elements, the `RelyingParty` element should look like the following example:
-
-  ```xml
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+    ```xml
     <UserJourneyBehaviors>
       <SingleSignOn Scope="Application" />
       <SessionExpiryType>Absolute</SessionExpiryType>
       <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
     </UserJourneyBehaviors>
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="OpenIdConnect" />
-      <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        ...
-      </OutputClaims>
-      <SubjectNamingInfo ClaimType="sub" />
-    </TechnicalProfile>
-  </RelyingParty>
-  ```
+    ```
+    
+    After you add the user journey behavior elements, the `RelyingParty` element should look like the following example:
+    
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <UserJourneyBehaviors>
+        <SingleSignOn Scope="Application" />
+        <SessionExpiryType>Absolute</SessionExpiryType>
+        <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
+      </UserJourneyBehaviors>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          ...
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+    
 
 1. Change the value of the `Scope` attribute to one of the possible value: `Suppressed`, `Tenant`, `Application`, or `Policy`. For more information, check out the [RelyingParty](relyingparty.md) reference article.
 1. Set the `SessionExpiryType` element to `Rolling` or `Absolute`. For more information, check out the [RelyingParty](relyingparty.md) reference article.
