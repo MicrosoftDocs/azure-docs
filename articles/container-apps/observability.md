@@ -1,5 +1,5 @@
 ---
-title: 'Observabilty'
+title: 'Observability'
 description: Observability in Container Apps
 services: container-apps
 author: cebundy
@@ -11,8 +11,7 @@ ms.author: v-bcatherine
 
 # Observability in Container Apps
 
-Azure Container Apps together with Azure Monitor and Log Analytics holistic view of the behavior and health of your container apps.  This information helps you understand how your applications are performing and proactively identify issues affecting them and the resources they depend on. 
-
+Observability features in Azure Container Apps provide a holistic view of the behavior and health of your container apps.  This information helps you understand how your applications are performing so you proactively identify and address issues. 
 
 <!-- Diagram here -->
 
@@ -45,7 +44,7 @@ The details for each container app and individual container are available via th
 
 ## Console
 
-You can access your container apps console via bash or sh providing you have them installed in your image.  This allows you to work in your container app environment to test and debug your application.  You can connect the to connect to the console of each running container replica and revision via the Azure portal.
+You can access your container apps console via bash or sh providing you have them installed in your image.  Console access allows you to work in your container app environment to test and debug your application.  You can connect to the console of each running container revision and replica via the Azure portal.
 
 > [!NOTE] insert image of the port page here
 > Add instructions for connecting to and logging into the console.
@@ -86,19 +85,19 @@ Each Container Apps environment must include a Log Analytics workspace with prov
 
 ## Observability throughout the application lifecycle
 
-Container Aps provides continuous monitoring across each phase of our DevOps and IT operations life cycle.  This help to continuously ensure the health, performance, and reliability  of your application and infrastructure as it moves from development to production.  Done through Azure Monitor, the unified monitoring solution that provides full-stack observability across applications and infrastructure. 
+Container Apps provides continuous monitoring across each phase of our DevOps and IT operations life cycle.  This help to continuously ensure the health, performance, and reliability  of your application and infrastructure as it moves from development to production.  Azure Monitor, the unified monitoring solution, provides full-stack observability across applications and infrastructure. 
 
 ### Development and Test
 
 During development and test these observability features are key your DevOps experience.
 
-* Console access via the Azure Portal
+* Console access via the Azure portal
 * Log streaming
 * Log Analytics
 
 ### Deployment and Runtime
 
-You can monitor the performance and resources utilization and be notified of important events for your application via  features such as:
+You can monitor the performance and resource utilization and be set up notifications for  important events for your application via:
 
 * Azure Monitor 
 * Metrics
