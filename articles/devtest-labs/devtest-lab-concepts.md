@@ -92,3 +92,6 @@ In DevTest Labs, an environment is a collection of Azure platform-as-a-service (
 
 - [What is Azure DevTest Labs?](devtest-lab-overview.md)
 - [DevTest Labs FAQ](devtest-lab-faq.yml)
+
+[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+

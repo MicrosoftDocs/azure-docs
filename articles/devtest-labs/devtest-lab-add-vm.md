@@ -11,7 +11,7 @@ This article describes how to create Azure virtual machines (VMs) in a lab in Az
 
 ## Prerequisite
 
-- At least user access to a lab in DevTest Labs. To create a lab, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
+- At least user access to a lab in DevTest Labs. For more information about creating labs, see [Create a lab in the Azure portal](devtest-lab-create-lab.md).
 
 <a name="create-and-add-virtual-machines"></a>
 ## Configure basic settings
@@ -22,9 +22,7 @@ This article describes how to create Azure virtual machines (VMs) in a lab in Az
 
    :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-add-vm.png" alt-text="Lab overview page showing add button.":::
 
-1. On the **Choose a base** page, select an image for the VM. You can choose Marketplace images, custom images, or formulas that the lab owner makes available.
-
-   The following instructions use Windows 11 Pro. Some bases might have different settings.
+1. On the **Choose a base** page, select an image for the VM. You can choose Marketplace images, custom images, or formulas that the lab owner made available. The following instructions use Windows 11 Pro. Some bases might have different settings.
 
 1. On the **Basics Settings** tab of the **Create lab resource** screen, provide the following information:
 
@@ -42,7 +40,9 @@ This article describes how to create Azure virtual machines (VMs) in a lab in Az
 <a name="add-artifacts-during-installation"></a>
 ## Add optional artifacts
 
-You can add artifacts to VMs from the [DevTest Labs public artifact repository](https://github.com/Azure/azure-devtestlab/Artifacts) or private artifact repositories. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md). To add artifacts during VM creation:
+You can add artifacts to VMs from the [DevTest Labs public artifact repository](https://github.com/Azure/azure-devtestlab/Artifacts), or from private artifact repositories connected to the lab. For more information, see [Add artifacts to DevTest Labs VMs](add-artifact-vm.md).
+
+To add or modify artifacts during VM creation:
 
 1. On the **Basic Settings** tab of the **Create lab resource** screen, select **Add or Remove Artifacts**.
 
@@ -62,8 +62,8 @@ Optionally, select the **Advanced Settings** tab on the **Create lab resource** 
 - **Subnet**: If necessary, select a different subnet from the dropdown list.
 - **IP address**: Leave at **Shared**, or select **Public** or **Private**. For more information, see [Understand shared IP addresses in Azure DevTest Labs](devtest-lab-shared-ip.md).
 - **Expiration date**: Leave at **Will not expire**, or set an expiration date and time for the VM. For more information, see [Set VM expiration date](devtest-lab-use-resource-manager-template.md#set-vm-expiration-date).
-- **Make this machine claimable**: Leave at **No** to keep yourself as the owner of the VM. To make the VM claimable by any lab user after creation, select **Yes**. For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).
-- **Number of instances**: To create more than one VM with this configuration, enter a number other than 1.
+- **Make this machine claimable**: Leave at **No** to keep yourself as the owner of the VM. Select **Yes** to make the VM claimable by any lab user after creation. For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).
+- **Number of instances**: To create more than one VM with this configuration, enter the number of VMs to create.
 - **View ARM Template**: Select to view and save the VM configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to [deploy new VMs with Azure PowerShell](../azure-resource-manager/templates/overview.md).
 
 :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-advanced-settings.png" alt-text="Virtual machine advanced settings page.":::
@@ -74,9 +74,9 @@ After you configure all settings, on the **Basic Settings** tab of the **Create 
 
 During VM deployment, you can select the **Notifications** icon at the top of the screen to see progress. Creating a VM takes a while.
 
-When the deployment is complete, you can see your VM listed under **My virtual machines** on the lab **Overview** page. To connect to the VM, select it from the list, and then select **Connect** on the VM's **Overview** page.
+When the deployment is complete, if you kept yourself as VM owner, the VM appears under **My virtual machines** on the lab **Overview** page. To connect to the VM, select it from the list, and then select **Connect** on the VM's **Overview** page.
 
-Or, if you chose **Make this machine claimable** during VM creation, select **Claimable virtual machines** in the left navigation to see the VM listed on the **Claimable virtual machines** page. Select **Refresh** if your VM doesn't appear. To claim ownership of a VM in the list, see [Use a claimable VM](devtest-lab-add-claimable-vm.md#use-a-claimable-vm).
+Or, if you chose **Make this machine claimable** during VM creation, select **Claimable virtual machines** in the left navigation to see the VM listed on the **Claimable virtual machines** page. Select **Refresh** if your VM doesn't appear. To take ownership of a VM in the claimable list, see [Use a claimable VM](devtest-lab-add-claimable-vm.md#use-a-claimable-vm).
 
 :::image type="content" source="./media/devtest-lab-add-vm/portal-lab-vm-creation-status.png" alt-text="Lab VM creation status page.":::
 
