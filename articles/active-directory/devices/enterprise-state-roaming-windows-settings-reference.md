@@ -52,39 +52,12 @@ Settings that don't roam or sync won't belong to a group.
 | --- | --- |
 | Keyboard: turn on toggle keys (off by default) | sync |
 | App data: individual apps can sync data | sync backup |
-| Microsoft Edge browser: ask me what to do with each download <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: block pop-up windows <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: cookies preference <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: favorites | sync |
-| Microsoft Edge browser: favorites bar settings <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: let sites save protected media licenses on my device <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: offer to save passwords <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: reading list | sync |
-| Microsoft Edge browser: save form entries <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: screen reader setting <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: send do not track requests <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: show search and site suggestions as I type <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: show the home button <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: top sites <sup>[[1]](#footnote-1)</sup> | sync |
-| Microsoft Edge browser: typed URLs <sup>[[1]](#footnote-1)</sup> | sync |
-| Internet Explorer: browsing history | sync |
-| Internet Explorer: domain suggestions | sync |
-| Internet Explorer: excluded URLs | sync |
-| Internet Explorer: favorites | sync |
-| Internet Explorer: home pages | sync |
-| Internet Explorer: open tabs (URL and title) | sync |
-| Internet Explorer: reading list | sync |
-| Internet Explorer: typed URLs | sync |
 | Date, Time, and Region: automatic time (Internet time sync) | sync |
 | Date, Time, and Region: country/region | sync |
 | Date, Time, and Region: region format (locale) | sync |
 | Language: language profile | sync |
 | Language: list of keyboards | sync |
 | Wi-Fi: Wi-Fi profiles (only WPA) | sync |
-
-## Footnote 1
-
-<sup>[1]</sup>Minimum supported OS version of Windows Creators Update (Build 15063). 
 
 ## Next steps
 
