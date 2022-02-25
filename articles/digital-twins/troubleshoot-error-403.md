@@ -82,7 +82,7 @@ Next, select **API permissions** from the menu bar to verify that this app regis
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in [Create an app registration](./how-to-create-app-registration-portal.md).
+If any of this appears differently than described, follow the instructions on how to set up an app registration in [Create an app registration with Azure Digital Twins access](./how-to-create-app-registration-portal.md).
 
 ## Next steps
 
