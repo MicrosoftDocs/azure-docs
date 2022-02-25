@@ -5,7 +5,7 @@ services: storage
 author: twooley
 ms.service: storage
 ms.topic: include
-ms.date: 07/23/2021
+ms.date: 02/25/2022
 ms.author: twooley
 ms.custom: include file
 ---
@@ -29,7 +29,7 @@ When the sample application makes a request to Azure Storage, it must be authori
 
 After you copy the connection string, write it to a new environment variable on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<yourconnectionstring>` with your actual connection string.
 
-#### Windows
+# [Windows](#tab/environment-variable-windows)
 
 ```cmd
 setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
@@ -37,17 +37,19 @@ setx AZURE_STORAGE_CONNECTION_STRING "<yourconnectionstring>"
 
 After you add the environment variable in Windows, you must start a new instance of the command window.
 
-#### Linux
+# [Linux](#tab/environment-variable-linux)
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
 
-#### macOS
+# [macOS](#tab/environment-variable-macos)
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="<yourconnectionstring>"
 ```
+
+---
 
 #### Restart programs
 
