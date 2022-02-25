@@ -13,6 +13,8 @@ ms.author: alkohli
 
 # Clustering on your Azure Stack Edge Pro GPU device
 
+[!INCLUDE [applies-to-gpu-and-pro-2-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-2-sku.md)]
+
 This article provides a brief overview of clustering on your Azure Stack Edge device.  
 
 ## About failover clustering

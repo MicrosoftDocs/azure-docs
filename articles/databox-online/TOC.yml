@@ -34,17 +34,21 @@
     - name: Ready safety
       href: azure-stack-edge-pro-2-safety.md
     - name: Review requirements
-      items:
-      - name: For Azure Stack Edge
-        href: azure-stack-edge-pro-2-system-requirements.md
-      - name: For Azure Stack Edge Blob storage
-        href: azure-stack-edge-placeholder.md
+      href: azure-stack-edge-pro-2-system-requirements.md
     - name: Understand limits
       href: azure-stack-edge-pro-2-limits.md 
     - name: Security overview
       href: azure-stack-edge-pro-r-security.md
     - name: Review specifications
       href: azure-stack-edge-pro-2-technical-specifications-compliance.md
+    - name: Clustering (Preview)
+      items:
+      - name: What is clustering?
+        href: azure-stack-edge-gpu-clustering-overview.md
+      - name: Cluster witness
+        href: azure-stack-edge-gpu-cluster-witness-overview.md
+      - name: Kubernetes failover on clustered device
+        href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
         
 - name: Azure Stack Edge Pro - GPU
   items:
