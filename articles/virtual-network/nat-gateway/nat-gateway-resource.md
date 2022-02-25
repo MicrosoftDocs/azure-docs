@@ -151,7 +151,9 @@ Don't take a dependency on the specific way source ports are assigned in the abo
 SNAT provided by NAT is different from SNAT provided by a [load balancer](../../load-balancer/load-balancer-outbound-connections.md) in several aspects, including:
 
 - NAT gateway dynamically allocates SNAT ports across all VMs within a NAT gateway configured subnet whereas Load Balancer pre-allocates a fixed number of SNAT ports to each VM.
+
 - NAT gateway selects source ports at random for outbound traffic flow whereas Load Balancer selects ports sequentially.
+
 - NAT gateway doesn't reuse a SNAT port until no other SNAT ports are available to make new connections, whereas Load Balancer looks to select the lowest available SNAT port in sequential order.
 
 ### On-demand
@@ -163,7 +165,6 @@ NAT provides on-demand SNAT ports for new outbound traffic flows. All available 
 *Figure: Virtual Network NAT on-demand outbound SNAT*
 
 Any IP configuration of a virtual machine can create outbound flows on-demand as needed. Pre-allocation of SNAT ports to each virtual machine isn't required.
-
 
 :::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram that depicts the inventory of all available SNAT ports used by any VM on subnets configured with NAT with an exhaustion threshold.":::
 
@@ -208,21 +209,28 @@ The following timers indicate how long a connection is maintained before closing
 
 After a SNAT port is no longer in use, it's available for reuse to the same destination IP address and port after 5 seconds.
 
-#### Timer Considerations
+#### Timer considerations
 
-Here are some design recommendations for configuring timers:
+Design recommendations for configuring timers:
+
 - In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it will not be impacted by the idle timer.
-- TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+
+- TCP keep alives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keep alives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
 ## Limitations
 
 - Basic load balancers and basic public IP addresses aren't compatible with NAT. Use standard SKU load balancers and public IPs instead.
+  
   - To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
+  
   - To upgrade a basic public IP address too standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
+
 - IP fragmentation isn't available for NAT gateway.
 
 ## Next steps
 
 - Review [virtual network NAT](nat-overview.md).
+
 - Learn about [metrics and alerts for NAT gateway](nat-metrics.md).
+
 - Learn how to [troubleshoot NAT gateway](troubleshoot-nat.md).
