@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 02/24/2022
+ms.date: 02/25/2022
 ms.author: alkohli
 ---
 
@@ -17,9 +17,9 @@ This article describes review and follow-up for errors that occasionally prevent
 
 The error notification and Azure portal options are different depending on whether the error can be fixed in the current upload or will require a new order:
 
-- **Retryable errors** - You can fix many types of copy error and resume the upload. The data is then successfully uploaded in your current order. ADD EXAMPLE. This type of error is referred to as a *retryable error* in the discussion that follows.
+- **Retryable errors** - You can fix many types of copy error and resume the upload. The data is then successfully uploaded in your current order. *ADD EXAMPLE.* This type of error is referred to as a *retryable error* in the discussion that follows.
 
-- **Non-retryable errors** - Other errors can't be fixed. For those errors, the upload pauses to give you a chance to review the errors. But the order completes without the data that failed to upload, and the data is secure erased from the device. You'll need to create a new order after you resolve the issues in your data. ADD EXAMPLE. This type of error is referred to as a *non-retryable error* in the discussion that follows.
+- **Non-retryable errors** - Other errors can't be fixed. For those errors, the upload pauses to give you a chance to review the errors. But the order completes without the data that failed to upload, and the data is secure erased from the device. You'll need to create a new order after you resolve the issues in your data. *ADD EXAMPLE.* This type of error is referred to as a *non-retryable error* in the discussion that follows.
 
 > [!NOTE]
 > The information in this article applies to import orders only.
@@ -92,11 +92,11 @@ Review the summary tables on the **Retryable errors** tab or the **Non-retryable
 
 # [Retryable errors](#tab/retryable-errors)
 
-The following retryable errors result in a notification. Each table entry links to a detailed error description.
+When the following errors occur, you can resolve the errors and include the files in the current data upload.
 
-| Error message | Error description | Recommended action |
-|---------------|-------------------|--------------------|
-|Large file share not enabled on account |Large file shares aren’t enabled on one or more storage accounts. Resolve the error and resume data copy, or skip to data erasure and complete the order. | TBD.<!--Get recommended action for this error.--> |
+|Error message  |Error description |Error resolution |
+|---------------|------------------|-----------------|
+|Large file share not enabled on account |Large file shares aren’t enabled on one or more storage accounts. Resolve the error and resume data copy, or skip to data erasure and complete the order. |  |
 |Storage account deleted or moved|One or more storage accounts were moved or deleted. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts deleted or moved**<br>Storage accounts: <*list of storage accounts*> were either deleted, or moved to a different subscription or resource group. Recover or re-create the storage accounts with the original set of properties, and then confirm to resume data copy.<br>[Learn more on how to recover a storage account](../storage/common/storage-account-recover.md). |
 |Storage account location changed|One or more storage accounts were moved to a different region. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts location changed**<br>Storage accounts: <*list of storage accounts*> were moved to a different region. Restore the account to the original destination region and then confirm to resume data copy.<br>[Learn more on how to move storage accounts](../storage/common/storage-account-move.md). |
 |Virtual network restriction on storage account|One or more storage accounts are behind a virtual network and have restricted access. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts behind virtual network**<br>Storage accounts: `<*list of storage accounts*> were moved behind a virtual network. Add Data Box to the list of trusted services to allow access and then confirm to resume data copy.<br>[Learn more about trusted first party access](../storage/common/storage-network-security.md#exceptions). |
@@ -114,7 +114,7 @@ The following retryable errors result in a notification. Each table entry links 
 
 For more information about the data copy log's contents, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
 
-Other REST API errors might occur during data uploads. For more information, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes). <!--Are the retryable errors also REST API errors? Does this note apply? If so, share.-->
+Other REST API errors might occur during data uploads. For more information, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes). <!--Final two paragraphs should be shared, after (or before) tabs?-->
 
 
 # [Non-retryable errors](#tab/non-retryable-errors)
