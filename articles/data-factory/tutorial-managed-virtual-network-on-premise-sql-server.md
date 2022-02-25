@@ -219,7 +219,7 @@ the page.
     <FQDN/IP> is your target SQL Server IP.<br/>
     
     > [!Note] 
-    > The above script runs only once. In order to ensure that that port forwarding is enabled every time the machine starts, it should be configured as a startup service.
+    > The above script runs only once. In order to ensure that the port forwarding is enabled every time the machine restarts, it should be configured as a startup service.
     
     > [!Note] 
     > FQDN doesn't work for on-premises SQL Server unless you add a record in Azure DNS zone.
