@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Closed Captions overview
+# Bring your own storage (BYOS) overview
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
