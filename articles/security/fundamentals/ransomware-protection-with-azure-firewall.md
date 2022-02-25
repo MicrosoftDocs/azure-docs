@@ -12,7 +12,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/24/22
+ms.date: 02/24/2022
 ms.author: terrylan
 ---
 # Improve your security defenses for ransomware attacks with Azure Firewall Premium
