@@ -270,9 +270,9 @@ Follow these steps to reconfigure Port 1:
 1. In the **Advanced networking** page, choose the topology for cluster and the storage traffic between nodes from the following options: 
 
     - **Use external switches, Port 1 and Port 2 in the same subnet**
-    - Use external switches, Port 1 and Port 2 in different subnet
-    - Switchless, Port 1 and Port 2 in the same subnet
-    - Switchless, Port 1 and Port 2 in different subnet
+    - **Use external switches, Port 1 and Port 2 in different subnet**
+    - **Switchless, Port 1 and Port 2 in the same subnet**
+    - **Switchless, Port 1 and Port 2 in different subnet**
 
     ![Local web UI "Advanced networking" page with "Use external switches" option selected](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-topology-1.png)
 
