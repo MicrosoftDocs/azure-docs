@@ -166,8 +166,13 @@ Create a JavaScript application named *blob-quickstart-v12*.
 
     :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/package.json" range="9-11":::
 
+## Create the HTML file
 
-## Create JavaScript file
+1. Create `index.html` and add the following HTML code:
+
+    :::code language="html" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.html":::
+
+## Create the JavaScript file
 
 From the project directory:
 
@@ -176,11 +181,13 @@ From the project directory:
 
     :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
-1. Add DOM elements for user interaction:
+## Declare fields for UI elements
 
-    :::code language="html" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.html" id="snippet_DeclareVariables":::
+Add DOM elements for user interaction:
 
-    This code declares fields for each HTML element and implements a `reportStatus` function to display output.
+  :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_DeclareVariables":::
+
+  This code declares fields for each HTML element and implements a `reportStatus` function to display output.
 
 
 ## Add your storage account info
