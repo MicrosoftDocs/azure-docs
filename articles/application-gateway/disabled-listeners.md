@@ -20,6 +20,15 @@ A disabled listener doesn’t affect the traffic for other operational listeners
 
 ![An illustration showing affected listeners.](../application-gateway/media/disabled-listeners/affected-listener.png)
 
+## Periodic checks and its impact on Listeners
+
+Understanding the behavior of the Application Gateway’s periodic check and its potential impact on the state of a key vault-based listener could help you to preempt such occurrences or resolve them much faster.
+
+### How does the periodic check work?
+1. Application Gateway instances periodically poll the key vault resource to obtain a new certificate version.
+1. During this activity, if the instances instead detect a broken access to the key vault resource or a missing certificate object, the listener(s) associated with that key vault will go in a disabled state. The instances are updated with this disabled status of the listener(s) within 60 secs to provide a consistent data plane behavior.
+1. After the issue is resolved by the customer, the same four-hour periodic poll verifies the access to key vault certificate object and automatically re-enables listeners on all instances of that gateway.
+
 ## Ways to identify a disabled listener
 
 1. The clients will observe the error "ERR_SSL_UNRECOGNIZED_NAME_ALERT" if any request is made to a disabled listener of your Application Gateway.
@@ -40,14 +49,4 @@ You can narrow down to the exact cause and find steps to resolve the problem by 
 
 > [!NOTE]
 > The disabled listener(s) are automatically enabled if Application Gateway resource detects the underlying problem is resolved. This check occurs every four-hour interval. You can expedite it by performing any minor change to Application Gateway (for HTTP Setting, Resource Tags, etc.) that will force a check against the Key Vault.
-
-## Periodic checks and its impact on Listeners
-
-Understanding the behavior of the Application Gateway’s periodic check and its potential impact on the state of a key vault-based listener could help you to preempt such occurrences or resolve them much faster.
-
-### How does the periodic check work?
-1. Application Gateway instances periodically poll the key vault resource to obtain a new certificate version.
-1. During this activity, if the instances instead detect a broken access to the key vault resource or a missing certificate object, the listener(s) associated with that key vault will go in a disabled state. The instances are updated with this disabled status of the listener(s) within 60 secs to provide a consistent data plane behavior.
-1. After the issue is resolved by the customer, the same four-hour periodic poll verifies the access to key vault certificate object and automatically re-enables listeners on all instances of that gateway.
-
 
