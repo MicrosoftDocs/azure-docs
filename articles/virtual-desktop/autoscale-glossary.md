@@ -52,28 +52,28 @@ Available session hosts are session hosts that have passed all Azure Virtual Des
 
 ## Capacity threshold
 
-The capacity threshold is the percentage of a [host pool's capacity](#host-pool-capacity) that, when reached, triggers a [scaling action](#scaling-action) to happen.
+The capacity threshold is the percentage of a [host pool's capacity](#available-host-pool-capacity) that, when reached, triggers a [scaling action](#scaling-action) to happen.
 
 For example:
 
 - If the [used host pool capacity](#used-host-pool-capacity) is below the capacity threshold and the autoscale feature can turn off virtual machines (VMs) without going over the capacity threshold, then the feature will turn the VMs off.
 - If the used host pool capacity goes over the capacity threshold, then the autoscale feature will turn more VMs on until the used host pool capacity goes below the capacity threshold.
 
-## Host pool capacity
+## Available host pool capacity
 
-Host pool capacity is how many user sessions a host pool can host based on the number of [available session hosts](#available-session-host). The host pool capacity is the host pool's maximum session limit multiplied by the number of [available session hosts](#available-session-host) in the host pool.
+Available host pool capacity is how many user sessions a host pool can host based on the number of [available session hosts](#available-session-host). The available host pool capacity is the host pool's maximum session limit multiplied by the number of [available session hosts](#available-session-host) in the host pool.
 
 In other words:
 
-Host pool maximum session limit × number of available session hosts = host pool capacity.
+Host pool maximum session limit × number of available session hosts = available host pool capacity.
 
 ## Used host pool capacity
 
-The used host pool capacity is the amount of [host pool capacity](#host-pool-capacity) that's currently taken up by active and disconnected user sessions.
+The used host pool capacity is the amount of [host pool capacity](#available-host-pool-capacity) that's currently taken up by active and disconnected user sessions.
 
 In other words:
 
-The number of [active](#active-user-session) and [disconnected user sessions](#disconnected-user-session) ÷ [the host pool capacity](#host-pool-capacity) = used host pool capacity.
+The number of [active](#active-user-session) and [disconnected user sessions](#disconnected-user-session) ÷ [the host pool capacity](#available-host-pool-capacity) = used host pool capacity.
 
 ## Scaling action
 
