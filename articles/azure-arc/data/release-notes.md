@@ -31,22 +31,21 @@ For complete release version information, see [Version log](version-log.md).
 
 - Support for readable secondary replicas:
     - To set readable secondary replicas use `--readable-secondaries` when you create or update an Arc-enabled SQL Managed Instance deployment. 
-    - `--readable-secondaries` only applies Business Critical tier. 
     - Set `--readable secondaries` to any value between 0 and the number of replicas minus 1.
-- Billing support when using multiple read replicas.
-- RWX capable storage class is required for backups, for both General Purpose and Business Critical service tiers.
+    - `--readable-secondaries` only applies to Business Critical tier. 
 - Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
+- RWX capable storage class is required for backups, for both General Purpose and Business Critical service tiers.
+- Billing support when using multiple read replicas.
 
-> [!NOTE]
-> Business Critical service tier is available for preview.
+For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).
 
-### Azure Data Studio improvements
+### User experience improvements
+
+The following improvements are available in [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 
 - Azure Arc and Azure CLI extensions now generally available. 
 - Changed edit commands for SQL Managed Instance for Azure Arc dashboard to use `update`, reflecting Azure CLI changes. This works in indirect or direct mode. 
 - Data controller deployment wizard step for connectivity mode is now earlier in the process.
-- SQL MI deployment wizard now reflects the exact wording of the experience in Azure portal.
-- SQL MI deployment wizard now has fields in the same order as Azure portal.
 - Removed an extra backups field in SQL MI deployment wizard.
 
 ## January 2022
