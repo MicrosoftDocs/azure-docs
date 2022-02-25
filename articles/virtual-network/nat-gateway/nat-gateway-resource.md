@@ -2,17 +2,12 @@
 title: Design virtual networks with NAT gateway
 titleSuffix: Azure Virtual Network NAT
 description: Learn how to design virtual networks that use Network Address Translation (NAT) gateway resources.
-services: virtual-network
-documentationcenter: na
 author: asudbring
-manager: KumudD
 ms.service: virtual-network
 ms.subservice: nat
-# Customer intent: As an IT administrator, I want to learn more about how to design virtual networks with NAT gateway resources.
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/11/2021
+ms.date: 02/25/2022
 ms.author: allensu
 ---
 
@@ -20,9 +15,7 @@ ms.author: allensu
 
 NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP addresses, public IP prefixes, or both. If a public IP prefix is used, all IP addresses of the entire public IP prefix are consumed by a NAT gateway. A NAT gateway can use a total of up to 16 static IP addresses from either.
 
-<p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" alt="Diagram that depicts a NAT gateway resource that consumes all I P addresses for a public I P prefix and directs that traffic to and from two subnets of V Ms and a virtual machine scale set." width="256" title="Virtual Network NAT for flows outbound to the internet">
-</p>
+:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram that depicts a NAT gateway resource that consumes all I P addresses for a public I P prefix and directs that traffic to and from two subnets of VMs and a virtual machine scale set.":::
 
 *Figure: Virtual Network NAT for outbound to internet*
 
@@ -56,11 +49,9 @@ Private Link lets you access services in Azure from your private network without
 
 NAT is recommended for outbound scenarios for all production workloads where you need to connect to a public endpoint. The following scenarios are examples of how to ensure coexistence of inbound with NAT gateway for outbound.
 
-#### NAT and VM with instance-level Public IP
+#### NAT and VM with an instance-level public IP
 
-<p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public I P." width="300" title="Virtual Network NAT and VM with an instance-level public IP">
-</p>
+:::image type="content" source="./media/nat-overview/flow-direction2.png" alt-text="Diagram that depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of VMs and a virtual machine scale set.":::
 
 *Figure: Virtual Network NAT and VM with instance level Public IP*
 
@@ -71,32 +62,28 @@ NAT is recommended for outbound scenarios for all production workloads where you
 
 VM will use NAT gateway for outbound. Inbound originated isn't affected.
 
-#### NAT and VM with Standard Public Load Balancer
+#### NAT and VM with a standard public load balancer
 
-<p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Virtual Network NAT and VM with a standard public load balancer">
-</p>
+:::image type="content" source="./media/nat-overview/flow-direction3.png" alt-text="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer.":::
 
-*Figure: Virtual Network NAT and VM with Standard Public Load Balancer*
+*Figure: Virtual Network NAT and VM with standard public load balancer*
 
 | Direction | Resource |
 |:---:|:---:|
-| Inbound | Standard Public Load Balancer |
+| Inbound | Standard public load balancer |
 | Outbound | NAT gateway |
 
 Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. Inbound originated isn't affected.
 
-#### NAT and VM with instance-level Public IP and Standard Public Load Balancer
+#### NAT and VM with an instance-level public IP and standard public load balancer
 
-<p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public I P and a public load balancer." width="425" title="Virtual Network NAT and VM with instance-level public IP and standard public load balancer">
-</p>
+:::image type="content" source="./media/nat-overview/flow-direction4.png" alt-text="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public I P and a public load balancer.":::
 
-*Figure: Virtual Network NAT and VM with instance-level public IP and Standard Public Load Balancer*
+*Figure: Virtual Network NAT and VM with instance-level public IP and a standard public load balancer*
 
 | Direction | Resource |
 |:---:|:---:|
-| Inbound | VM with instance-level Public IP and Standard Public Load Balancer |
+| Inbound | VM with instance-level public IP and a standard public load balancer |
 | Outbound | NAT gateway |
 
 Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. The VM will also use NAT gateway for outbound. Inbound originated isn't affected.
@@ -120,8 +107,6 @@ NAT gateway can be attached to up to 16 public IP addresses. Each NAT gateway ca
 Source Network Address Translation (SNAT) rewrites the source of a flow to originate from a different IP address and/or port. Typically, SNAT is used when a private network needs to connect to a public host over the internet. SNAT allows multiple compute resources within the private VNet to use the same single Public IP address or set of IP addresses (prefix) to connect to the internet.
 
 NAT gateway SNATs the private IP address and source port of a virtual machine (or other compute resource) to a static public IP address before going outbound to the internet from a virtual network. 
-
-<a id="source-network-address-translation"></a>
 
 ### Fundamentals
 
@@ -173,21 +158,18 @@ SNAT provided by NAT is different from SNAT provided by a [load balancer](../../
 
 NAT provides on-demand SNAT ports for new outbound traffic flows. All available SNAT ports in inventory can be used by any virtual machine on subnets configured with NAT:
 
-<p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Diagram that depicts the inventory of all available SNAT ports used by any V M on subnets configured with NAT." width="550" title="Virtual Network NAT on-demand for outbound SNAT">
-</p>
+:::image type="content" source="./media/nat-overview/lb-vnnat-chart.png" alt-text="Diagram that depicts the inventory of all available SNAT ports used by any VM on subnets configured with NAT.":::
 
 *Figure: Virtual Network NAT on-demand outbound SNAT*
 
 Any IP configuration of a virtual machine can create outbound flows on-demand as needed. Pre-allocation of SNAT ports to each virtual machine is not required.
 
-<p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Diagram that depicts the inventory of all available SNAT ports used by any V M on subnets configured with NAT with an exhaustion threshold." width="550" title="Differences in exhaustion scenarios">
-</p>
+
+:::image type="content" source="./media/nat-overview/exhaustion-threshold.png" alt-text="Diagram that depicts the inventory of all available SNAT ports used by any VM on subnets configured with NAT with an exhaustion threshold.":::
 
 *Figure: Differences in exhaustion scenarios*
 
-After a SNAT port is released, it's available for use by any VM on subnets configured with NAT. On-demand allocation allows dynamic and divergent workloads on subnets to use SNAT ports as needed. As long as SNAT ports are available, SNAT flows will succeed. SNAT port hotspots benefit from a larger inventory. SNAT ports aren't left unused for VMs not actively needing them.
+After a SNAT port is released, it's available for use by any VM on subnets configured with NAT. On-demand allocation allows dynamic and divergent workloads on subnets to use SNAT ports as needed. As long as SNAT ports are available, SNAT flows will succeed. SNAT port hot spots benefit from a larger inventory. SNAT ports aren't left unused for VMs not actively needing them.
 
 ### Scale NAT
 
@@ -234,7 +216,7 @@ Here are some design recommendations for configuring timers:
 
 ## Limitations
 
-- Basic load balancers and basic Public IP addresses are not compatible with NAT. Use standard SKU load balancers and Public IPs instead.
+- Basic load balancers and basic public IP addresses are not compatible with NAT. Use standard SKU load balancers and public IPs instead.
   - To upgrade a basic load balancer to standard, see [Upgrade Azure Public Load Balancer](../../load-balancer/upgrade-basic-standard.md)
   - To upgrade a basic public IP address to standard, see [Upgrade a public IP address](../ip-services/public-ip-upgrade-portal.md)
 - IP fragmentation isn't available for NAT gateway.
