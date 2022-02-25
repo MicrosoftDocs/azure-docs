@@ -218,6 +218,9 @@ items:
     href: custom-translator/faq.md
 - name: Resources
   items:
+  - name: Sovereign Clouds
+    displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+    href: sovereign-clouds.md
   - name: Compliance and certification
     href: https://www.microsoft.com/translator/business/notrace/
   - name: Code samples on GitHub
