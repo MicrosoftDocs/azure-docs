@@ -26,7 +26,7 @@ List of settings that can be configured to sync in recent Windows versions. Thes
 | Settings | Windows 10 (21H1 or newer) |
 | --- | --- |
 | Keyboard: turn on toggle keys (off by default) | sync |
-| App data: individual apps can sync data | sync backup |
+| App data: Backup list of installed apps | sync |
 | Date, Time, and Region: automatic time (Internet time sync) | sync |
 | Date, Time, and Region: country/region | sync |
 | Date, Time, and Region: region format (locale) | sync |
