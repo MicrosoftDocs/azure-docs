@@ -33,7 +33,7 @@ The table below lists the [user resource type](/graph/api/resources/user) attrib
 - Attribute description
 - If the attribute is available in the Azure portal
 - If the attribute can be used in a user flow
-- If the attribute can be used in a custom policy [Azure AD technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
+- If the attribute can be used in a custom policy [Azure AD technical profile](active-directory-technical-profile.md) and in which section (&lt;InputClaims&gt;, &lt;DisplayClaims&gt, &lt;OutputClaims&gt;, or &lt;PersistedClaims&gt;)
 
 |Name     |Type     |Description|Azure portal|User flows|Custom policy|
 |---------|---------|----------|------------|----------|-------------|
