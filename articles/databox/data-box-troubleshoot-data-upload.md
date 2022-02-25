@@ -15,7 +15,7 @@ ms.author: alkohli
 
 This article describes review and follow-up for errors that occasionally prevent files from uploading to the Azure cloud from an Azure Data Box or Azure Data Box Heavy device.
 
-The error notification and Azure portal options are different depending on whether the error can be fixed in the current upload or will require a new order:
+The error notification and options vary depending on whether you can fix the error in the current upload:
 
 - **Retryable errors** - You can fix many types of copy error and resume the upload. The data is then successfully uploaded in your current order. *ADD EXAMPLE.* This type of error is referred to as a *retryable error* in the discussion that follows.
 
@@ -39,7 +39,7 @@ When a file upload fails because of an error, you'll receive a notification in t
 
 You can't fix these errors. The upload has completed with errors. The notification lets you know about any configuration issues you need to fix before you try another upload via network transfer or a new import order.
 
-After you review the errors and confirm that you're ready to proceed, the data will be secure erased from the device. If you don't respond to the notification, the order is completed automatically after 14 days. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
+After you review the errors and confirm you're ready to proceed, the data is secure erased from the device. If you don't respond to the notification, the order is completed automatically after 14 days. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
 
 
 ## Review errors and proceed
@@ -129,7 +129,7 @@ The following non-retryable errors result in a notification:
 |UploadErrorCloudHttp              |409        |The total provisioned capacity of the shares cannot exceed the account maximum size limit. [Learn more](#the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit).|
 |UploadErrorCloudHttp              |409        |The blob type is invalid for this operation. [Learn more](#the-blob-type-is-invalid-for-this-operation).|
 |UploadErrorCloudHttp              |409        |There is currently a lease on the blob and no lease ID was specified in the request. [Learn more](#there-is-currently-a-lease-on-the-blob-and-no-lease-id-was-specified-in-the-request).|
-|UploadErrorManagedConversionError |409        |The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. [Learn more](#the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib)|
+|UploadErrorManagedConversionError |409        |The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20,971,520 Bytes and 8,192 GiB. [Learn more](#the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib)|
 
 For more information about the data copy log's contents, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
 
@@ -219,7 +219,7 @@ Other REST API errors might occur during data uploads. For more information, see
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, ensure that the listed blobs do not have an active lease. For more information, see [Pessimistic concurrency for blobs](../storage/blobs/concurrency-manage.md?tabs=dotnet#pessimistic-concurrency-for-blobs).
 
 
-### The size of the blob being imported is invalid. The blob size is `<blob-size>` Bytes. Supported sizes are between 20971520 Bytes and 8192 GiB.
+### The size of the blob being imported is invalid. The blob size is `<blob-size>` Bytes. Supported sizes are between 20,971,520 Bytes and 8,192 GiB.
 
 **Error category:** UploadErrorManagedConversionError
 
