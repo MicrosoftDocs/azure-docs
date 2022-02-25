@@ -1,6 +1,6 @@
 ---
-title: Configure Dynamics 365 Operations Apps offer listing details on Microsoft AppSource (Azure Marketplace)
-description: Configure Dynamics 365 Operations Apps offer listing details on Microsoft AppSource (Azure Marketplace).
+title: Configure Dynamics 365 for Operations Apps offer listing details on Microsoft AppSource (Azure Marketplace)
+description: Configure Dynamics 365 for Operations Apps offer listing details on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: vamahtan
 ms.date: 12/03/2021
 ---
 
-# Configure Dynamics 365 Operations Apps offer listing details
+# Configure Dynamics 365 for Operations Apps offer listing details
 
 This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
 
