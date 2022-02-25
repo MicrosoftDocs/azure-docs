@@ -77,7 +77,7 @@
     },
     {
       "path_to_root": "azure_storage-snippets",
-      "url": "Azure-Samples/AzureStorageSnippets",
+      "url": "https://github.com/Azure-Samples/AzureStorageSnippets",
       "branch": "master",
       "branch_mapping": {}
     },
