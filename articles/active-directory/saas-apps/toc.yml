@@ -153,7 +153,7 @@
         href: appraisd-tutorial.md
       - name: AppRemo
         href: appremo-tutorial.md
-      - name: AppSec Flow SSO
+      - name: Conviso Platform SSO
         href: appsec-flow-sso-tutorial.md
       - name: Apptio
         href: apptio-tutorial.md
@@ -2372,7 +2372,7 @@
         href: workgrid-tutorial.md
       - name: Workpath
         href: workpath-tutorial.md
-      - name: Workplace by Facebook
+      - name: Workplace by Meta
         href: workplacebyfacebook-tutorial.md
       - name: Workrite
         href: workrite-tutorial.md
@@ -2863,6 +2863,8 @@
         href: tableau-online-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md
+      - name: Tap App Security
+        href: tap-app-security-provisioning-tutorial.md
       - name: Taskize Connect
         href: taskize-connect-provisioning-tutorial.md
       - name: Teamgo

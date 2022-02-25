@@ -24,7 +24,7 @@ Virtual machine scale sets are an Azure compute resource that you can use to dep
 >
 >
 > [!NOTE]
-> If using an OS Image "-with-containers” memory metrics from Azure Monitor will not be available.
+> If using Windows OS image with Hyper-V role enabled, ie. the VM will be configured for nested virtualization, the Available Memory Metric will not be available, since the dynamic memory driver within the VM will be in a stopped state.
 >
 >
 
