@@ -252,7 +252,7 @@ Use [az network lb frontend-ip update](/cli/azure/network/lb/frontend-ip#az_netw
 
 ```
 
-## Chain VM (NIC IP configuration) to Gateway Load Balancer
+## Chain virtual machine to Gateway Load Balancer
 
 Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer. 
 
