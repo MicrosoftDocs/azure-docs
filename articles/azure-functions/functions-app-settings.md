@@ -167,7 +167,7 @@ Dictates whether editing in the Azure portal is enabled. Valid values are "readw
 
 ## FUNCTIONS\_EXTENSION\_VERSION
 
-The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, "~3"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "3.0.12345"). Default is "~3". A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` lets you run a preview version Azure Functions to use the .NET 6.0 preview. To learn more, see the [Azure Functions v4 early preview](https://aka.ms/functions-dotnet6earlypreview-wiki) page.
+The version of the Functions runtime that hosts your function app. A tilde (`~`) with major version means use the latest version of that major version (for example, "~3"). When new versions for the same major version are available, they are automatically installed in the function app. To pin the app to a specific version, use the full version number (for example, "3.0.12345"). Default is "~3". A value of `~1` pins your app to version 1.x of the runtime. For more information, see [Azure Functions runtime versions overview](functions-versions.md). A value of `~4` means that your app runs on version 4.x of the runtime, which supports .NET 6.0.
 
 |Key|Sample value|
 |---|------------|
@@ -330,7 +330,7 @@ The above sample value of `1800` sets a timeout of 30 minutes. To learn more, se
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md#windows).
+Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -350,7 +350,7 @@ Supported on [Premium](functions-premium-plan.md) and [Dedicated (App Service) p
 
 ## WEBSITE\_CONTENTSHARE
 
-The file path to the function app code and configuration in an event-driven scaling plan on Windows. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md#windows).
+The file path to the function app code and configuration in an event-driven scaling plan on Windows. Used with WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. Default is a unique string that begins with the function app name. See [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
@@ -358,7 +358,7 @@ The file path to the function app code and configuration in an event-driven scal
 
 Only used when deploying to a Premium plan or to a Consumption plan running on Windows. Not supported for Consumptions plans running Linux. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
-When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md#windows).
+When using an Azure Resource Manager template to create a function app during deployment, don't include WEBSITE_CONTENTSHARE in the template. This slot setting is generated during deployment. To learn more, see [Automate resource deployment for your function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 ## WEBSITE\_DNS\_SERVER
 

@@ -194,7 +194,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Wait until the build is complete. This can take about 15 minutes.
+Wait until the build is complete.
 
 If you encounter any errors, please review these [troubleshooting](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors) steps.
 

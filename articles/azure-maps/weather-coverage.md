@@ -227,8 +227,8 @@ The following table refers to the *Other* column and provides a list containing 
 | Bouvet Island                          |            ✓             |                              |                       |   ✓   |
 | Burkina Faso                           |            ✓             |                              |                       |   ✓   |
 | Burundi                                |            ✓             |                              |                       |   ✓   |
-| Cabo Verde                             |            ✓             |                              |                       |   ✓   |
 | Cameroon                               |            ✓             |                              |                       |   ✓   |
+| Cape Verde                             |            ✓             |                              |                       |   ✓   |
 | Central African Republic               |            ✓             |                              |                       |   ✓   |
 | Chad                                   |            ✓             |                              |                       |   ✓   |
 | Comoros                                |            ✓             |                              |                       |   ✓   |

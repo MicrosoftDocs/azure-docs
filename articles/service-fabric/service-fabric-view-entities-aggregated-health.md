@@ -1149,7 +1149,7 @@ Read more about the [Service Fabric application upgrade](service-fabric-applicat
 ## Use health evaluations to troubleshoot
 Whenever there is an issue with the cluster or an application, look at the cluster or application health to pinpoint what is wrong. The unhealthy evaluations provide details about what triggered the current unhealthy state. If you need to, you can drill down into unhealthy child entities to identify the root cause.
 
-For example, consider an application unhealthy because there is an error report on one of its replicas. The following Powershell cmdlet shows the unhealthy evaluations:
+For example, consider an application unhealthy because there is an error report on one of its replicas. The following PowerShell cmdlet shows the unhealthy evaluations:
 
 ```powershell
 PS D:\ServiceFabric> Get-ServiceFabricApplicationHealth fabric:/WordCount -EventsFilter None -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics

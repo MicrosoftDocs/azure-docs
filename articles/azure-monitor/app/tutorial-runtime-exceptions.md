@@ -3,7 +3,6 @@ title: Diagnose run-time exceptions using Azure Application Insights | Microsoft
 description: Tutorial to find and diagnose run-time exceptions in your application using Azure Application Insights.
 ms.topic: tutorial
 ms.date: 09/19/2017
-
 ms.custom: mvc
 ---
 

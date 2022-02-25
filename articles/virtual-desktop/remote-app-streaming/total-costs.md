@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 02/04/2022
 ms.author: helohr
 manager: femila
 ---
@@ -80,7 +80,7 @@ You can use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/c
 3. Enter the values for your deployment into the fields to estimate your monthly Azure bill based on your expected compute, storage, and networking usage.
 
 >[!NOTE]
->Currently, the Azure Pricing Calculator Azure Virtual Desktop module can only estimate consumption costs for session host VMs and the aggregate additional storage of any optional Azure Virtual Desktop features requiring storage that you choose to deploy. However, you can add estimates for other Azure Virtual Desktop features in separate modules within the same Azure Pricing calculator page to get a more complete or modular cost estimate.
+>Currently, the Azure Pricing Calculator Azure Virtual Desktop module can only estimate consumption costs for session host VMs and the aggregate additional storage of any optional Azure Virtual Desktop features requiring storage that you choose to deploy. Your total cost may also include egress network traffic to Microsoft 365 services, such as OneDrive for Business or Exchange Online. However, you can add estimates for other Azure Virtual Desktop features in separate modules within the same Azure Pricing calculator page to get a more complete or modular cost estimate.
 >
 >You can add extra Azure Pricing Calculator modules to estimate the cost impact of other components of your deployment, including but not limited to:
 >

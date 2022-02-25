@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 02/11/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ This topic covers how to improve the security of user sign-in by adding applicat
 
 ## Prerequisites
 
-Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API. 
+Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API.
 
 >[!NOTE]
 >Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
@@ -187,6 +187,10 @@ To enable additional context in the Azure AD portal, complete the following step
 1. Select the **Authentication mode**, and then for **Show additional context in notifications (Preview)**, click **Enable**, and then click **Done**.
 
    ![Screenshot of enabling additional context.](media/howto-authentication-passwordless-phone/enable-additional-context.png)
+
+## Known issues
+
+Additional context is not supported for Network Policy Server (NPS). 
 
 ## Next steps
 

@@ -1,7 +1,6 @@
 ---
 title: Score machine learning models with PREDICT
 description: Learn how to score machine learning models using the T-SQL PREDICT function in dedicated SQL pool.
-services: synapse-analytics
 author: WilliamDAssafMSFT
 manager: craigg
 ms.service: synapse-analytics
