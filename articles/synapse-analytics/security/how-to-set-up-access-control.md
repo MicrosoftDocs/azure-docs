@@ -247,7 +247,9 @@ To grant access to a **single** dedicated SQL pool database, follow these steps 
     ```sql
     --Create user in the database
     CREATE USER [<alias@domain.com>] FROM EXTERNAL PROVIDER;
+    -- For Service Principals you would need just the display name and @domain.com is not required
     ```
+    
 
 2. Grant the user a role to access the database:
 
