@@ -42,7 +42,7 @@ From the Azure portal, follow these steps:
 
 6. Optionally, select a **Label**. Labels can be assigned to keys to define different values for the same key. Leave blank to import all keys without a label, or enter a label. [Learn more about labels](howto-labels-aspnet-core.md).
     > [!IMPORTANT]
-       > If the keys you want to import have labels, do select the corresponding labels. If you don't select a label, only keys without labels will be imported. You may need create several imports to get all the desired data, according to the labels you need.
+    > If the keys you want to import have labels, do select the corresponding labels. If you don't select a label, only keys without labels will be imported. You may need create several imports to get all the desired data, according to the labels you need.
 7. Select **Apply** to finish the import.
 
     :::image type="content" source="./media/import-file-complete.png" alt-text="Screenshot of the Azure portal, file import completed":::
