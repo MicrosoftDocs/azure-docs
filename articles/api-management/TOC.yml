@@ -95,8 +95,6 @@
         href: devops-api-development-templates.md
       - name: Compute platform
         href: compute-infrastructure.md
-      - name: Validate service updates
-        href: deploy-service-updates.md
 - name: How-to guides
   items:
       - name: Define APIs
@@ -339,6 +337,8 @@
               href: soft-delete.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
+            - name: Validate service updates
+              href: deploy-service-updates.md
             - name: Self-hosted gateway
               items:
               - name: Guidance for running on Kubernetes
