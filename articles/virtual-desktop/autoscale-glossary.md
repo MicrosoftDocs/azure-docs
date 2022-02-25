@@ -97,7 +97,7 @@ A force logoff, or forced sign-out, is when the service ends an [active user ses
 
 ## Exclusion tag
 
-An exclusion tag is a property of a [scaling plan](#scaling-plan) that's a tag name you can apply to VMs to exclude them from [scaling actions](#scaling-action). [The autoscale feature](#autoscale) only performs scaling actions on VMs without tag names that match the exclusion tag.
+An exclusion tag is a property of a [scaling plan](#scaling-plan) that's a tag name you can apply to VMs that you want to exclude from [scaling actions](#scaling-action). [The autoscale feature](#autoscale) only performs scaling actions on VMs without tag names that match the exclusion tag.
 
 ## Next steps
 
