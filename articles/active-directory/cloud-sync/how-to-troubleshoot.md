@@ -12,55 +12,43 @@ ms.technology: identity-adfs
 
 # Cloud sync troubleshooting
 
-Cloud sync touches many different things and has many different dependencies. This broad scope can give rise to various problems. This article helps you troubleshoot these problems. It introduces the typical areas for you to focus on, how to gather additional information, and the various techniques you can use to track down problems.
-
-
-## Common troubleshooting areas
-
-|Name|Description|
-|-----|-----|
-|[Agent problems](#agent-problems)|Verify that the agent was installed correctly and that it communicates with Azure Active Directory (Azure AD).|
-|[Object synchronization problems](#object-synchronization-problems)|Use provisioning logs to troubleshoot object synchronization problems.|
-|[Provisioning quarantined problems](#provisioning-quarantined-problems)|Understand provisioning quarantine problems and how to fix them.|
-|[Password writeback](#password-writeback)|Understand common password writeback issues and how to fix them.|
-
+Cloud sync has many different dependencies and interactions, which can give rise to various problems. This article helps you troubleshoot these problems. It introduces the typical areas for you to focus on, how to gather additional information, and the various techniques you can use to track down problems.
 
 ## Agent problems
-Some of the first things that you want to verify with the agent are:
 
--  Is it installed?
--  Is the agent running locally?
--  Is the agent in the portal?
--  Is the agent marked as healthy?
+When you troubleshoot agent problems, you verify that the agent was installed correctly, and that it communicates with Azure Active Directory (Azure AD). In particular, some of the first things that you want to verify with the agent are:
 
-These items can be verified in the Azure portal and on the local server that's running the agent.
+- Is it installed?
+- Is the agent running locally?
+- Is the agent in the portal?
+- Is the agent marked as healthy?
+
+You can verify these items in the Azure portal and on the local server that's running the agent.
 
 ### Azure portal agent verification
 
-To verify that the agent is seen by Azure and is healthy, follow these steps.
+To verify that Azure detects the agent, and that the agent is healthy, follow these steps:
 
 1. Sign in to the Azure portal.
 1. On the left, select **Azure Active Directory** > **Azure AD Connect**. In the center, select **Manage sync**.
 1. On the **Azure AD Connect cloud sync** screen, select **Review all agents**.
 
-   ![Review all agents](media/how-to-install/install-7.png)</br>
- 
-1. On the **On-premises provisioning agents** screen, you see the agents you've installed. Verify that the agent in question is there and is marked *Healthy*.
+   ![Screenshot that shows the option to review all agents.](media/how-to-install/install-7.png)
 
-   ![On-premises provisioning agents screen](media/how-to-install/install-8.png)</br>
+1. On the **On-premises provisioning agents** screen, you see the agents you've installed. Verify that the agent in question is there. If all is well, you will see the *active* (green) status for the agent.
+
+   ![Screenshot that shows the installed agent, and its status.](media/how-to-install/install-8.png)
 
 ### Verify the required open ports
 
-Verify that Azure AD Connect Provisioning agent is able to communicate successfully with Azure data centers. If there's a firewall in the path, make sure that the following ports to outbound traffic are open.
-
-Open the following ports to **outbound** traffic.
+Verify that the Azure AD Connect provisioning agent is able to communicate successfully with Azure datacenters. If there's a firewall in the path, make sure that the following ports to outbound traffic are open:
 
 | Port number | How it's used |
 | ----------- | ------------------------------------------------------------ |
-| 80          | Downloading certificate revocation lists (CRLs) while validating the TLS/SSL certificate |
-| 443         | All outbound communication with the Application Proxy service |
+| 80          | Downloading certificate revocation lists (CRLs), while validating the TLS/SSL certificate. |
+| 443         | Handling all outbound communication with the Application Proxy service. |
 
-If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a Network Service.
+If your firewall enforces traffic according to originating users, also open ports 80 and 443 for traffic from Windows services that run as a network service.
 
 ### Allow access to URLs
 
@@ -68,51 +56,53 @@ Allow access to the following URLs:
 
 | URL | Port | How it's used |
 | --- | --- | --- |
-| `*.msappproxy.net` <br> `*.servicebus.windows.net` | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
+| `*.msappproxy.net` <br> `*.servicebus.windows.net` | 443/HTTPS | Communication between the connector and the Application Proxy cloud service. |
 | `crl3.digicert.com` <br> `crl4.digicert.com` <br> `ocsp.digicert.com` <br> `crl.microsoft.com` <br> `oneocsp.microsoft.com` <br> `ocsp.msocsp.com`<br> | 80/HTTP   | The connector uses these URLs to verify certificates.        |
 | `login.windows.net` <br> `secure.aadcdn.microsoftonline-p.com` <br> `*.microsoftonline.com` <br> `*.microsoftonline-p.com` <br> `*.msauth.net` <br> `*.msauthimages.net` <br> `*.msecnd.net` <br> `*.msftauth.net` <br> `*.msftauthimages.net` <br> `*.phonefactor.net` <br> `enterpriseregistration.windows.net` <br> `management.azure.com` <br> `policykeyservice.dc.ad.msft.net` <br> `ctldl.windowsupdate.com` <br> `www.microsoft.com/pkiops` | 443/HTTPS | The connector uses these URLs during the registration process. |
 | `ctldl.windowsupdate.com` | 80/HTTP | The connector uses this URL during the registration process. |
 
-You can allow connections to `*.msappproxy.net`, `*.servicebus.windows.net`, and other URLs above if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
+You can allow connections to `*.msappproxy.net`, `*.servicebus.windows.net`, and other of the preceding URLs, if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and service tags - public cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
 
 > [!IMPORTANT]
-> Avoid all forms of inline inspection and termination on outbound TLS communications between Azure AD Application Proxy connectors and Azure AD Application Proxy Cloud services.
+> Avoid all forms of inline inspection and termination on outbound TLS communications between Azure AD Application Proxy connectors and Azure AD Application Proxy cloud services.
 
 ### DNS name resolution for Azure AD Application Proxy endpoints
 
-Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy Connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`. However, during the name resolution the CNAME records might contain DNS records with different host names and suffixes. Due to this, you must ensure that the device (depending on your setup - connector server, firewall, outbound proxy) can resolve all the records in the chain and allows connection to the resolved IP addresses. Since the DNS records in the chain might be changed from time to time, we cannot provide you with any list DNS records.
+Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records, pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy Connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`.
+
+However, during the name resolution, the CNAME records might contain DNS records with different host names and suffixes. Due to this, you must ensure that the device can resolve all the records in the chain, and allows connection to the resolved IP addresses. Because the DNS records in the chain might be changed from time to time, we can't provide you with any list DNS records.
 
 ### On the local server
 
-To verify that the agent is running, follow these steps.
+To verify that the agent is running, follow these steps:
 
-1. On the server with the agent installed, open **Services** by either navigating to it or by going to **Start** > **Run** > **Services.msc**.
-1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there and their status is *Running*.
+1. On the server with the agent installed, open **Services**. Do this by going to **Start** > **Run** > **Services.msc**.
+1. Under **Services**, make sure **Microsoft Azure AD Connect Agent Updater** and **Microsoft Azure AD Connect Provisioning Agent** are there. Also confirm that their status is *Running*.
 
-   ![Services screen](media/how-to-troubleshoot/troubleshoot-1.png)
+   ![Screenshot of local services and their status.](media/how-to-troubleshoot/troubleshoot-1.png)
 
 ### Common agent installation problems
 
-The following sections describe some common agent installation problems and typical resolutions.
+The following sections describe some common agent installation problems, and typical resolutions of those problems.
 
 #### Agent failed to start
 
 You might receive an error message that states:
 
-**Service 'Microsoft Azure AD Connect Provisioning Agent' failed to start. Verify that you have sufficient privileges to start the system services.** 
+*Service 'Microsoft Azure AD Connect Provisioning Agent' failed to start. Verify that you have sufficient privileges to start the system services.* 
 
-This problem is typically caused by a group policy that prevented permissions from being applied to the local NT Service log-on account created by the installer (NT SERVICE\AADConnectProvisioningAgent). These permissions are required to start the service.
+This problem is typically caused by a group policy. The policy prevented permissions from being applied to the local NT Service sign-in account created by the installer (`NT SERVICE\AADConnectProvisioningAgent`). These permissions are required to start the service.
 
-To resolve this problem, follow these steps.
+To resolve this problem, follow these steps:
 
 1. Sign in to the server with an administrator account.
-1. Open **Services** by either navigating to it or by going to **Start** > **Run** > **Services.msc**.
+1. Open **Services** by going to **Start** > **Run** > **Services.msc**.
 1. Under **Services**, double-click **Microsoft Azure AD Connect Provisioning Agent**.
 1. On the **Log On** tab, change **This account** to a domain admin. Then restart the service. 
 
-   ![Log On tab](media/how-to-troubleshoot/troubleshoot-3.png)
+   ![Screenshot that shows options available from the log on tab.](media/how-to-troubleshoot/troubleshoot-3.png)
 
-#### Agent times out or certificate is invalid
+#### Agent times out or certificate isn't valid
 
 You might get the following error message when you attempt to register the agent.
 
@@ -270,3 +260,13 @@ The following information is important to keep in mind with regard to enabling a
 
 - [Known limitations](how-to-prerequisites.md#known-limitations)
 - [Error codes](reference-error-codes.md)
+
+
+## Common troubleshooting areas
+
+|Name|Description|
+|-----|-----|
+|[Agent problems](#agent-problems)|Verify that the agent was installed correctly and that it communicates with Azure Active Directory (Azure AD).|
+|[Object synchronization problems](#object-synchronization-problems)|Use provisioning logs to troubleshoot object synchronization problems.|
+|[Provisioning quarantined problems](#provisioning-quarantined-problems)|Understand provisioning quarantine problems and how to fix them.|
+|[Password writeback](#password-writeback)|Understand common password writeback issues and how to fix them.|
