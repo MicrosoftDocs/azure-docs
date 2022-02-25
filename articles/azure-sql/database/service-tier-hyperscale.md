@@ -129,12 +129,6 @@ The log service accepts transaction log records from the primary compute replica
 
 Azure Storage contains all data files in a database. Page servers keep data files in Azure Storage up to date. This storage is used for backup purposes, as well as for replication between Azure regions. Backups are implemented using storage snapshots of data files. Restore operations using snapshots are fast regardless of data size. A database can be restored to any point in time within its backup retention period.
 
-## Backup and restore
-
-Backup and restore operations for Hyperscale databases are file-snapshot based. This enables these operations to be nearly instantaneous. Since Hyperscale architecture utilizes the storage layer for backup and restore, processing burden and performance impact to compute replicas are significantly reduced. Learn more in [Hyperscale backups and storage redundancy](automated-backups-overview.md#hyperscale-backups-and-storage-redundancy).
-
-For geo-restore of Hyperscale databases, see [restoring a Hyperscale database to a different region](automated-backups-overview.md#restoring-a-hyperscale-database-to-a-different-region).
-
 ## Scale and performance advantages
 
 With the ability to rapidly spin up/down additional read-only compute nodes, the Hyperscale architecture allows significant read scale capabilities and can also free up the primary compute node for serving more write requests. Also, the compute nodes can be scaled up/down rapidly due to the shared-storage architecture of the Hyperscale architecture.
@@ -176,13 +170,15 @@ As in all other service tiers, Hyperscale guarantees data durability for committ
 
 For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database).
 
+## Backup and restore
+
+Backup and restore operations for Hyperscale databases are file-snapshot based. This enables these operations to be nearly instantaneous. Since Hyperscale architecture utilizes the storage layer for backup and restore, processing burden and performance impact to compute replicas are significantly reduced. Learn more in [Hyperscale backups and storage redundancy](automated-backups-overview.md#hyperscale-backups-and-storage-redundancy).
+
 ## Disaster recovery for Hyperscale databases
 
-You can restore Hyperscale databases to [the same region](automated-backups-overview.md#hyperscale-backups-and-storage-redundancy) or to a different region.
+If you need to restore a Hyperscale database in Azure SQL Database to a region other than the one it's currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database. Geo-restore is only available when geo-redundant storage (RA-GRS) has been chosen for storage redundancy.
 
-### Restoring a Hyperscale database to a different region
-
-If you need to restore a Hyperscale database in Azure SQL Database to a region other than the one it's currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database. Learn more in [restoring a Hyperscale database to a different region](automated-backups-overview.md#restoring-a-hyperscale-database-to-a-different-region).
+Learn more in [restoring a Hyperscale database to a different region](automated-backups-overview.md#restoring-a-hyperscale-database-to-a-different-region).
 
 ## <a name=regions></a>Available regions
 

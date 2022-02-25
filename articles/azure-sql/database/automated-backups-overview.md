@@ -32,6 +32,8 @@ Both Azure SQL Database and Azure SQL Managed Instance use SQL Server technology
 
 When you restore a database, the service determines which full, differential, and transaction log backups need to be restored.
 
+Hyperscale databases use [snapshot backup technology](#hyperscale-backups-and-storage-redundancy).
+
 ### Backup storage redundancy
 
 By default, Azure SQL Database and Azure SQL Managed Instance store data in geo-redundant [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md). Geo-redundancy helps to protect against outages impacting backup storage in the primary region and allows you to restore your server to a different region in the event of a disaster. 
@@ -51,7 +53,7 @@ You can use these backups to:
 - **Point-in-time restore of deleted database** - [Restore a deleted database to the time of deletion](recovery-using-backups.md#deleted-database-restore) or to any point in time within the retention period. The deleted database can be restored only on the same server or managed instance where the original database was created. When deleting a database, the service takes a final transaction log backup before deletion, to prevent any data loss.
 - **Geo-restore** - [Restore a database to another geographic region](recovery-using-backups.md#geo-restore). Geo-restore allows you to recover from a geographic disaster when you cannot access your database or backups in the primary region. It creates a new database on any existing server or managed instance, in any Azure region.
    > [!IMPORTANT]
-   > Geo-restore is available only for databases in Azure SQL Database or managed instances configured with geo-redundant backup storage.
+   > Geo-restore is available only for databases in Azure SQL Database or managed instances configured with geo-redundant backup storage. If you are not currently using geo-replicated backups for a database, you can change this by [configuring backup storage redundancy](#configure-backup-storage-redundancy).
 - **Restore from long-term backup** - [Restore a database from a specific long-term backup](long-term-retention-overview.md) of a single database or pooled database, if the database has been configured with a long-term retention policy (LTR). LTR allows you to [restore an old version of the database](long-term-backup-retention-configure.md) by using the Azure portal, Azure CLI, or Azure PowerShell to satisfy a compliance request or to run an old version of the application. For more information, see [Long-term retention](long-term-retention-overview.md).
 
 > [!NOTE]
@@ -473,7 +475,7 @@ For more information, see [Backup Retention REST API](/rest/api/sql/backupshortt
 
 Hyperscale databases in Azure SQL Database use a [unique architecture](service-tier-hyperscale.md#distributed-functions-architecture) with highly scalable storage and compute performance tiers.
 
-Hyperscale backups are file-snapshot based, hence they're nearly instantaneous. Other databases in Azure SQL Database and Azure SQL Managed Instance leverage different technology for backup and restore operations. For this reason, the backup and restore considerations described in the previous sections of this article do not apply to Hyperscale databases.
+Hyperscale backups are snapshot based and are nearly instantaneous. Log generated is stored in long term Azure storage for the backup retention period. Hyperscale architecture does not use full database backups or log backups and the backup and restore considerations described in the previous sections of this article do not apply.
 
 ### Backup and restore performance for Hyperscale databases
 
@@ -491,7 +493,7 @@ Hyperscale supports configurable storage redundancy. When creating a Hyperscale 
 
 ### Consider storage redundancy carefully when you create a Hyperscale database
 
-Backup storage redundancy for Hyperscale databases can only be set during database creation. This setting cannot be modified once the resource is provisioned. The [database copy](database-copy.md) process can be used to update the storage redundancy settings for an existing Hyperscale database. Copying a database to a different storage type will be a size-of-data operation. Find example code in [configure backup storage redundancy](#configure-backup-storage-redundancy).
+Backup storage redundancy for Hyperscale databases can only be set during database creation. This setting cannot be modified once the resource is provisioned. Geo-restore is only available when geo-redundant storage (RA-GRS) has been chosen for backup storage redundancy. The [database copy](database-copy.md) process can be used to update the storage redundancy settings for an existing Hyperscale database. Copying a database to a different storage type will be a size-of-data operation. Find example code in [configure backup storage redundancy](#configure-backup-storage-redundancy).
 
 > [!IMPORTANT]
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
@@ -505,6 +507,8 @@ If you need to restore a Hyperscale database in Azure SQL Database to a region o
 
 > [!NOTE]
 > Because the source and target are in separate regions, the database cannot share snapshot storage with the source database as in non-geo restores, which complete quickly regardless of database size. In the case of a geo-restore of a Hyperscale database, it will be a size-of-data operation, even if the target is in the paired region of the geo-replicated storage. Therefore, a geo-restore will take time proportional to the size of the database being restored. If the target is in the paired region, data transfer will be within a region, which will be significantly faster than a cross-region data transfer, but it will still be a size-of-data operation.
+
+If you prefer, you can copy the database to a different region as well. Learn about [Database Copy for Hyperscale](database-copy.md#database-copy-for-azure-sql-hyperscale).
 
 ## Configure backup storage redundancy
 
