@@ -249,6 +249,13 @@ Properties: {"propertyList":[{"key":"iothub-ack","value":"none"},{"key":"method-
 > [!NOTE]
 > The default time-to-live for offline commands is 24 hours, after which the message expires.
 
+## Commands for Unassigned devices
+This section shows how to run commands on Unassigned devices. This feature enables users to interact with the device without having to first model the device.
+The following screenshot shows the details of how to run the command for Unassigned devices. The command can be run by entering the *Method Name* and the request payload.
+If the command is an Offline command use the toggle to set it.
+
+:::image type="content" source="media/howto-use-commands/unassigned-commands.png" alt-text="Screenshot that shows the UI for commands on unassigned devices":::
+
 ## Next steps
 
 Now that you've learned how to use commands in your Azure IoT Central application, see [Payloads](concepts-telemetry-properties-commands.md) to learn more about command parameters and [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) to see complete code samples in different languages.
