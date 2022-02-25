@@ -5,7 +5,7 @@ author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 02/25/2022
 ms.author: aersoy
 ---
 
