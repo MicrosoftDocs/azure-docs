@@ -136,15 +136,14 @@ Access the `api gateway` and `customers service` applications from the browser u
 
 ## Clean up resources
 
-1. Open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home), then delete the service instance as in the following screenshot.
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
 
-   ![Delete an instance image](./media/enterprise/getting-started-enterprise/service-instance-delete-instance.png)
-
-1. Run the following command to remove the preview version of the Azure CLI extension.
-
-   ```azurecli
-   az extension remove --name spring-cloud
-   ```
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
+```
 
 ## Next steps
 
