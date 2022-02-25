@@ -80,7 +80,7 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-* [SSL certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS
+* An [SSL web certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs whilst testing 
 
 * An existing Oracle JDE environment
 
@@ -227,6 +227,11 @@ You can include additional Azure AD attributes if necessary, but the Oracle JDE 
 #### Additional User Attributes
 
 The **Additional User Attributes** tab can support a variety of distributed systems requiring attributes stored in other directories for session augmentation. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc. 
+
+   ![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
+
+>[!NOTE] 
+>This feature has no correlation to Azure AD but is another source of attributes.
 
 #### Conditional Access Policy
 
