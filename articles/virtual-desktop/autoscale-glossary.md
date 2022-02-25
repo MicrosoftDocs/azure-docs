@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/14/2022
+ms.date: 02/25/2022
 ms.author: helohr
 manager: femila
 ---
@@ -91,9 +91,9 @@ A user session is considered "active" when the user signs in and connects to the
 
 A disconnected user session is an inactive session that the user hasn't signed out of yet. When a user closes the remote session window without signing out, the session becomes disconnected. When a user reconnects to their remote resources, they'll be redirected to their disconnected session on the session host they were working on. At this point, the disconnected session becomes an [active session](#active-user-session) again.
 
-## Force sign-out ("force logoff")
+## Force logoff
 
-A forced sign-out (called a "force logoff" in the user interface) is when the service ends an [active user session](#active-user-session) or a [disconnected user session](#disconnected-user-session) without the user's consent.
+A force logoff, or forced sign-out, is when the service ends an [active user session](#active-user-session) or a [disconnected user session](#disconnected-user-session) without the user's consent.
 
 ## Exclusion tag
 
