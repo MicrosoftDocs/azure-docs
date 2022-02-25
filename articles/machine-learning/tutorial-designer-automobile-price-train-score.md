@@ -67,8 +67,8 @@ You need an Azure Machine Learning workspace to use the designer. The workspace 
 A pipeline runs on a compute target, which is a compute resource that's attached to your workspace. After you create a compute target, you can reuse it for future runs.
 
 
-    > [!Important]
-    > Attached compute is not supported, use cmopute instance or clusters instead.
+> [!Important]
+> Attached compute is not supported, use cmopute instance or clusters instead.
 
 You can set a **Default compute target** for the entire pipeline, which will tell every component to use the same compute target by default. However, you can specify compute targets on a per-module basis.
 
