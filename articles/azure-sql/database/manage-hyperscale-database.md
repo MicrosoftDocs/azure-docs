@@ -114,7 +114,7 @@ You can [monitor operations for a Hyperscale database](#monitor-operations-for-a
 
 ---
 
-## Reverse migrate from Hyperscale (Preview)
+## Reverse migrate from Hyperscale (preview)
 
 Reverse migration provides an "insurance policy" for customers who have recently migrated an existing database in Azure SQL Database to the Hyperscale service tier.
 
