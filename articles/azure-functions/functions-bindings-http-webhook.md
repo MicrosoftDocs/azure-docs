@@ -49,7 +49,7 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 # [Functions v2.x+](#tab/functionsv2/isolated-process)
 
-Add the extension to your project by installing the [NuGet package], version 3.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http), version 3.x.
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
@@ -124,3 +124,6 @@ Functions 1.x apps automatically have a reference to the extension.
 
 - [Run a function from an HTTP request](./functions-bindings-http-webhook-trigger.md)
 - [Return an HTTP response from a function](./functions-bindings-http-webhook-output.md)
+
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[Update your extensions]: ./functions-bindings-register.md

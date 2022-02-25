@@ -29,6 +29,8 @@ For more information about HTTP bindings, see the [overview](./functions-binding
 
 ::: zone pivot="programming-language-csharp"
 
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
 The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
 # [In-process](#tab/in-process)    
@@ -504,7 +506,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 # [In-process](#tab/in-process)
 
-In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAttribute` supports the following properties:
+In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAttribute` supports the following parameters:
 
 | Parameters | Description|
 |---------|----------------------|
@@ -515,7 +517,7 @@ In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAt
 
 # [Isolated process](#tab/isolated-process)
 
-In [isolated process](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following properties:
+In [isolated process](dotnet-isolated-process-guide.md) function apps, the `HttpTriggerAttribute` supports the following parameters:
 
 | Parameters | Description|
 |---------|----------------------|
@@ -545,11 +547,11 @@ The following table explains the trigger configuration properties that you set i
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) annotation, which supports the following settings:
 
-+ [authLevel](/java/api/com.microsoft.azure.functions.annotation.httptrigger.authlevel)
-+ [dataType](/java/api/com.microsoft.azure.functions.annotation.httptrigger.datatype)
-+ [methods](/java/api/com.microsoft.azure.functions.annotation.httptrigger.methods)
-+ [name](/java/api/com.microsoft.azure.functions.annotation.httptrigger.name)
-+ [route](/java/api/com.microsoft.azure.functions.annotation.httptrigger.route)
+    + [authLevel](/java/api/com.microsoft.azure.functions.annotation.httptrigger.authlevel)
+    + [dataType](/java/api/com.microsoft.azure.functions.annotation.httptrigger.datatype)
+    + [methods](/java/api/com.microsoft.azure.functions.annotation.httptrigger.methods)
+    + [name](/java/api/com.microsoft.azure.functions.annotation.httptrigger.name)
+    + [route](/java/api/com.microsoft.azure.functions.annotation.httptrigger.route)
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
