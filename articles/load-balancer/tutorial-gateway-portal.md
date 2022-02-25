@@ -265,7 +265,9 @@ You'll add the frontend to the frontend IP of an existing load balancer in your 
 
 ## Chain virtual machine to Gateway Load Balancer
 
-Instead of chaining a load balancer frontend to the gateway load balancer, chain a virtual machine's NIC configuration to the gateway load balancer. To chain the NIC configuration, add the configuration to the gateway load balancer frontend.
+Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer.
+
+You'll add the gateway load balancer's frontend to an existing VM's NIC IP configuration.
 
 > [!IMPORTANT]
 > A virtual machine must have a public IP address assigned before attempting to chain the NIC configuration to the frontend of the gateway load balancer.
