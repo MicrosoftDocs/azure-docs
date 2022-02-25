@@ -4,7 +4,6 @@ description: This tutorial describes how to use the Azure Purview Python SDK to 
 author: raliouat
 ms.author: raoufaliouat
 ms.service: purview
-ms.subservice: purview-data-scanning
 ms.topic: tutorial
 ms.date: 02/25/2022
 
@@ -30,9 +29,9 @@ For this tutorial, you'll need:
 *   [Python 3.6 or higher](https://www.python.org/downloads/) 
 *   An active Azure Subscription. [If you don't have one, you can create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 *   An Azure Active Directory tenant associated with your subscription.
-*   An Azure Storage account. If you don't already have one, you can [follow our quickstart guide to create one](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
+*   An Azure Storage account. If you don't already have one, you can [follow our quickstart guide to create one](../storage/common/storage-account-create.md).
 *   An Azure Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
-* A [service principal](../active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal) with a [client secret](../active-directory/develop/howto-create-service-principal-portal#authentication-two-options).
+* A [service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) with a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
 >[!IMPORTANT]
 >Get the following information from your service principal and secret, they'll be needed later:
@@ -69,18 +68,18 @@ Azure Purview now has the required reading right to scan your Blob Storage.
 1. First, you'll need the Client ID, Tenant ID, and Client secret from your service principal. To find this information, select your **Azure Active Directory**. From **App registrations** select your application and locate the required information:
    *    Client ID (or Application ID)
    *    Tenant ID (or Directory ID)
-          :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Screenshot that shows how to find the info to authenticate to the service principal"::: 
-   *    [Client secret](../active-directory/develop/howto-create-service-principal-portal#authentication-two-options)
+          :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Service principal with the Client ID and Tenant ID highlighted."::: 
+   *    [Client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
           :::image type="content" source="media/tutorial-using-python-sdk/get-service-principal-secret.png" alt-text="Service principal, with the Certificates & secrets tab selected, showing the available client certificates and secrets."::: 
     
 2. You now need to give the relevant Azure Purview roles to your service principal. To do so, access the Azure Purview instance. Select **Open Purview Studio** or open [Azure Purview's home page](https://web.purview.azure.com/) and choose the instance that you deployed.
 
     Inside Purview Studio, go to the collections:
-    :::image type="content" source="media/tutorial-using-python-sdk/purview-collections.png" alt-text="Screenshot that shows how to access Azure Purview collections"::: 
+    :::image type="content" source="media/tutorial-using-python-sdk/purview-collections.png" alt-text="The data map tab is selected, then the collections tab is selected."::: 
 
     Select the collection you want to work with, and go on the **Role assignments** tab. Add the service principal in the following roles: Collection admins, Data source admins, Data curators, Data readers. For to each role, select the **Add** button and add the service principal by searching its name as shown below:  
 
-    :::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="Screenshot that shows how to access Azure Purview collections"::: 
+    :::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="The add user button is select next to the Collection admins tab. The add or remove collection admins pane is shown, with a search for the service principal in the text box."::: 
 
 ## Install the Python packages
 
@@ -108,7 +107,7 @@ In this section, you learn how to instantiate:
 *    A scanning client useful to registering data sources, creating and managing scan rules, triggering a scan, etc. 
 *    A catalog client useful to interact with the catalog through searching, browsing the discovered assets, identifying the sensitivity of your data, etc.
 
-First you need to authenticate to your Azure Active Directory. In this tutorial, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret).
+First you need to authenticate to your Azure Active Directory. In this tutorial, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 
 
 1.	Start with required import statements:
