@@ -62,7 +62,7 @@ Learn about significant changes to the Azure SQL Database documentation.
 
 | Changes | Details |
 | --- | --- |
-| **Hyperscale reverse migration** | Reverse migration provides an "insurance policy" for customers who have recently migrated an existing database in Azure SQL Database to the Hyperscale service tier. Learn how to [reverse migrate from Hyperscale](manage-hyperscale-database.md#reverse-migrate-from-hyperscale). |
+| **Hyperscale reverse migration** | Reverse migration is now in preview. Reverse migration provides an "insurance policy" for customers who have recently migrated an existing database in Azure SQL Database to the Hyperscale service tier. Learn how to [reverse migrate from Hyperscale](manage-hyperscale-database.md#reverse-migrate-from-hyperscale). |
 | **New Hyperscale articles** | We have reorganized some existing content into new articles and added new content for Hyperscale. Learn about [Hyperscale distributed functions architecture](hyperscale-architecture.md), [how to manage a Hyperscale database](manage-hyperscale-database.md), and how to [create a Hyperscale database](hyperscale-database-create-quickstart.md). |
 | **Free Azure SQL Database** | Try Azure SQL Database for free using the Azure free account. To learn more, review [Try SQL Database for free](free-sql-db-free-account-how-to-deploy.md).|
 ||| 
