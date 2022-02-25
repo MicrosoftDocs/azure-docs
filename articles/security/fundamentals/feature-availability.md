@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 12/14/2021
+ms.date: 12/30/2021
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -218,6 +218,8 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Microsoft 365 Defender incident integration](../../sentinel/microsoft-365-defender-sentinel-integration.md#incident-integration) |Public Preview |Public Preview|
 | - [Microsoft Teams integrations](../../sentinel/collaborate-in-microsoft-teams.md) |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
+|- [Search large datasets](../../sentinel/investigate-large-datasets.md) | Public Preview | Not Available |
+|- [Restore historical data](../../sentinel/investigate-large-datasets.md) | Public Preview | Not Available |
 | **Notebooks** | | |
 |- [Notebooks](../../sentinel/notebooks.md) | GA | GA |
 | - [Notebook integration with Azure Synapse](../../sentinel/notebooks-with-synapse.md) | Public Preview | Not Available|
@@ -226,7 +228,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | **Hunting** | | |
 | - [Hunting](../../sentinel/hunting.md) | GA | GA |
 | **Content  and content management** | | |
-| - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public preview | Not Available|
+| - [Content hub](../../sentinel/sentinel-solutions.md) and [solutions](../../sentinel/sentinel-solutions-catalog.md) | Public preview | Public preview |
 | - [Repositories](../../sentinel/ci-cd.md?tabs=github)  | Public preview | Not Available |
 | **Data collection** | | |
 | - [Advanced SIEM Information Model (ASIM)](../../sentinel/normalization.md) | Public Preview | Not Available |
@@ -246,18 +248,22 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Anomalous RDP Login Detection](../../sentinel/data-connectors-reference.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | **Domain solution content** | | |
-| - [Apache Log4j Vulnerability Detection](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available |
-| - [Cybersecurity Maturity Model Certification (CMMC)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available  |
-| - [IoT/OT Threat Monitoring with Defender for IoT](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available |
-| - [Maturity Model for Event Log Management M2131](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available |
-| - [Microsoft Insider Risk Management (IRM)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available  |
-| - [Microsoft Sentinel Deception](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available  |
-| - [Zero Trust (TIC3.0)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Not Available  |
+| - [Apache Log4j Vulnerability Detection](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
+| - [Cybersecurity Maturity Model Certification (CMMC)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview  |
+| - [IoT/OT Threat Monitoring with Defender for IoT](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
+| - [Maturity Model for Event Log Management M2131](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview |
+| - [Microsoft Insider Risk Management (IRM)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview  |
+| - [Microsoft Sentinel Deception](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview  |
+| - [Zero Trust (TIC3.0)](../../sentinel/sentinel-solutions-catalog.md#domain-solutions)	| Public Preview | Public Preview  |
 | **Azure service connectors** |  |  |
 | - [Azure Activity Logs](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
+| - [Azure Purview](../../sentinel/data-connectors-reference.md#azure-purview) | Public Preview | Not Available |
+| - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
+| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
+| - [Microsoft Insider Risk Management](/azure/sentinel/sentinel-solutions-catalog#domain-solutions) | Public Preview | Not Available |
 | - [Azure Firewall ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
 | - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection-preview) | Public Preview | Not Available |
 | - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |

@@ -42,7 +42,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
   - When you're using ARM templates for provisioning or configuration changes for HA enabled servers, if a single deployment is made to enable/disable HA and along with other server properties like backup redundancy, storage etc. then deployment would fail. You can mitigate it by submitting the deployment request separately for to enable\disable and configuration changes. You wouldn’t have issue with Portal or Azure CLI as these are request already separated.
 
-  - When you're viewing automated backups for a HA enabled server in Backup and Restore blade, if at some point in time HA has been disabled for the server and then enabled, you will lose viewing rights to the server's backups on the blade though the flexible server is successfully taking daily automated backups for the server in the backend.  
+  - When you're viewing automated backups for a HA enabled server in Backup and Restore blade, if at some point in time a forced or automatic failover is performed, you may lose viewing rights to the server's backups on the Backup and Restore blade. Despite the invisibility of information regarding backups on the portal, the flexible server is successfully taking daily automated backups for the server in the backend and the server can be restored to any point in time within the retention period.  
 
 ## November 2021
 

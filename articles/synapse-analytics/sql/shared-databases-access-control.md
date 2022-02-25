@@ -1,7 +1,6 @@
 ---
 title: How to set up access control on synchronized objects in serverless SQL pool
 description: Authorize shared databases access to non-privileged Azure AD users in serverless SQL pool.
-services: synapse-analytics
 author: Stralle
 reviewer: vvasic-msft, jovanpop-msft, WilliamDAssafMSFT 
 ms.service: synapse-analytics

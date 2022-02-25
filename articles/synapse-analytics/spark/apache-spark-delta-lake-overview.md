@@ -1,7 +1,6 @@
 ---
 title: Overview of how to use Linux Foundation Delta Lake in Apache Spark for Azure Synapse Analytics
 description: Learn how to use Delta Lake in Apache Spark for Azure Synapse Analytics, to create, and use tables with ACID properties.
-services: synapse-analytics
 author: juluczni
 ms.author: juluczni
 ms.service:  synapse-analytics
