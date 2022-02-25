@@ -70,9 +70,9 @@ A base image is a VM image that can have software and settings preinstalled and 
 
 ### Claimable VMs
 
-Lab owners or admins can prepare VMs with specific base images and artifacts, and save them to a shared pool. These claimable VMs appear in the lab's **Claimable virtual machines** list. A claimable lab VM is available to any lab user. Any lab user can claim a VM from the claimable pool when they need a VM with that configuration. After a lab user claims a VM, the VM moves to that user's **My virtual machines** list and is no longer claimable by other users.
+Lab owners or admins can prepare VMs with specific base images and artifacts, and save them to a shared pool. These claimable VMs appear in the lab's **Claimable virtual machines** list. Any lab user can claim a VM from the claimable pool when they need a VM with that configuration.
 
-For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).
+After a lab user claims a VM, the VM moves to that user's **My virtual machines** list, and the user becomes the owner of the VM. The VM is no longer claimable or configurable by other users. For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).
 
 ### Custom images and formulas
 
@@ -86,7 +86,7 @@ For more information about the differences between custom images and formulas, s
 
 ## Environments
 
-In DevTest Labs, an environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or SharePoint farm. You can create environments in labs by using ARM templates. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md). For more information about ARM template structure and properties, see [Template format](../azure-resource-manager/templates/syntax.md#template-format).
+In DevTest Labs, an environment is a collection of Azure platform-as-a-service (PaaS) resources, such as an Azure Web App or a SharePoint farm. You can create environments in labs by using ARM templates. For more information, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md). For more information about ARM template structure and properties, see [Template format](../azure-resource-manager/templates/syntax.md#template-format).
 
 ## Next steps
 

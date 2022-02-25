@@ -12,7 +12,7 @@ This quickstart walks you through creating a lab in Azure DevTest Labs by using 
 
 ## Prerequisite
 
-Access to an Azure subscription with at least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role.
+- At least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) access to an Azure subscription.
 
 ## Create a lab
 
@@ -21,8 +21,8 @@ Access to an Azure subscription with at least [Contributor](/azure/role-based-ac
 1. On the **Basic Settings** tab, provide the following information:
    - **Subscription**: Change the subscription if you want to use a different subscription for the lab.
    - **Resource group**: Select an existing resource group from the dropdown list, or select **Create new** to create a new resource group for the lab so it's easy to delete later.
-   - **Location**: If you're creating a new resource group, select an Azure region for the resource group and lab.
    - **Lab Name**: Enter a name for the lab.
+   - **Location**: If you're creating a new resource group, select an Azure region for the resource group and lab.
    - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#enable-public-environments-when-you-create-a-lab).
 
    :::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
@@ -45,7 +45,7 @@ Auto-shutdown helps save lab costs by shutting down all lab VMs at a certain tim
    - **Send notification before auto-shutdown**: Select **Yes** or **No** for the option to post or send a notification 30 minutes before the auto-shutdown time.
    - **Webhook URL** and **Email address**: If you choose to send notifications, enter a webhook URL endpoint or semicolon-separated list of email addresses where you want the notification to post or be sent. For more information, see [Configure auto shutdown for labs and VMs](devtest-lab-auto-shutdown.md).
 
-:::image type="content" source="./media/devtest-lab-create-lab/portal-create-auto-shutdown.png" alt-text="Screenshot of the Auto-shutdown tab in the Create DevTest Labs form.":::
+   :::image type="content" source="./media/devtest-lab-create-lab/portal-create-auto-shutdown.png" alt-text="Screenshot of the Auto-shutdown tab in the Create DevTest Labs form.":::
 
 ### Networking tab
 
@@ -54,8 +54,8 @@ Azure DevTest Labs creates a new default virtual network for each lab. If you ha
 To configure networking:
 
 1. On the **Create DevTest Lab** page, select the **Networking** tab.
-1. For **Virtual Network**, select a virtual network from the dropdown list. For **Subnet**, if necessary, select a subnet from the dropdown list.
-1. For **Isolate lab resources**, select **Yes** to completely isolate the lab resources to the selected network. For more information, see [Network isolation in DevTest Labs](network-isolation.md).
+1. For **Virtual Network**, select a different virtual network from the dropdown list. For **Subnet**, if necessary, select a subnet from the dropdown list.
+1. For **Isolate lab resources**, select **Yes** to completely isolate lab resources to the selected network. For more information, see [Network isolation in DevTest Labs](network-isolation.md).
 
 :::image type="content" source="./media/devtest-lab-create-lab/portal-create-networking.png" alt-text="Screenshot of the Networking tab in the Create DevTest Labs form.":::
 
