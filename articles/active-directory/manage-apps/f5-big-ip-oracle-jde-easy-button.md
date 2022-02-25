@@ -80,7 +80,7 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-* [SSL certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS
+* An [SSL web certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs whilst testing 
 
 * An existing Oracle JDE environment
 
