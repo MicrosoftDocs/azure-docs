@@ -216,6 +216,16 @@ az webapp config connection-string set
 
 ```
 
+### [Visual Studio](#tab/vs-win)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Connect to database step 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-connect-database-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-01-240px.png" alt-text="A screenshot showing where in the Publish page to find the Configure button for the database connection." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-01.png"::: |
+| [!INCLUDE [Connect to database step 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-connect-database-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-02-240px.png" alt-text="A screenshot offering the choice between SQL Server on-prem and Azure SQL Database." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-02.png"::: |
+| [!INCLUDE [Connect to database step 3](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-connect-database-03.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-03-240px.png" alt-text="A screenshot showing the location of the button used for creating new Azure SQL Databases." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-03.png"::: |
+| [!INCLUDE [Connect to database step 4](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-connect-database-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-04-240px.png" alt-text="A screenshot showing the dialog used for creating new Azure SQL Databases." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-04.png"::: |
+| [!INCLUDE [Connect to database step 5](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-connect-database-05.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-05-240px.png" alt-text="A screenshot showing selecting the newly created Azure SQL Database." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-05.png"::: |
+| [!INCLUDE [Connect to database step 6](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-connect-database-06.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-06-240px.png" alt-text="A screenshot showing the connection string value for Azure SQL Database just created." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-connect-sql-db-06.png"::: |
 ---
 
 ## 6 - Generate the Database Schema
