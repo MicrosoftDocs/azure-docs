@@ -187,7 +187,7 @@ Add DOM elements for user interaction:
 
 ## Add your storage account info
 
-1. Add the following code at the end of the *index.js* file to access your storage account. Replace the `<placeholder>` with your Blob service SAS URL that you generated earlier. Add the following code to the end of the *index.js* file.
+Add the following code at the end of the *index.js* file to access your storage account. Replace the `<placeholder>` with your Blob service SAS URL that you generated earlier. Add the following code to the end of the *index.js* file.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_StorageAcctInfo":::
 
