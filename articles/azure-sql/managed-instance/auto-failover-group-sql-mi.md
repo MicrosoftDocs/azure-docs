@@ -1,5 +1,5 @@
 ---
-title: Auto-failover groups overview
+title: Auto-failover groups overview & best practices
 description: Auto-failover groups let you manage geo-replication and automatic / coordinated failover of all user databases on a managed instance in Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
@@ -12,7 +12,7 @@ ms.reviewer: kendralittle, mathoma
 ms.date: 02/24/2022
 ---
 
-# Auto-failover groups overview (Azure SQL Managed Instance)
+# Auto-failover groups overview & best practices (Azure SQL Managed Instance)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ There is some overlap of content in the following articles, be sure to make chan
 [!INCLUDE [auto-failover-group-terminology](../includes/auto-failover-group-terminology.md)]  
 
 
-## Failover groups with SQL MI
+## Failover group architecture
 
 The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All user databases in the instance will be replicated to the secondary instance. System databases like _master_ and _msdb_ will not be replicated.
 
@@ -85,7 +85,7 @@ If your application uses SQL Managed Instance as the data tier, follow the gener
 > [!IMPORTANT]
 > If you deploy auto-failover groups in a hub-and-spoke network topology cross-region, replication traffic should go directly between the two managed instance subnets rather than directed through the hub networks.
 
-### Initial seeding 
+## Initial seeding 
 
 When adding managed instances to a failover group, there is an initial seeding phase before data replication starts. The initial seeding phase is the longest and most expensive operation. Once initial seeding completes, data is synchronized, and then only subsequent data changes are replicated. The time it takes for the initial seeding to complete depends on the size of your data, number of replicated databases, the load on primary databases, and the speed of the link between the primary and secondary. Under normal circumstances, possible seeding speed is up to 360 GB an hour for SQL Managed Instance. Seeding is performed for all databases in parallel.
 

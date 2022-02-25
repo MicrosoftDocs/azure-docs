@@ -1,5 +1,5 @@
 ---
-title: Auto-failover groups overview
+title: Auto-failover groups overview & best practice 
 description: Auto-failover groups let you manage geo-replication and automatic / coordinated failover of a group of databases on a server for both single and pooled database in Azure SQL Database. 
 services: sql-database
 ms.service: sql-database
@@ -12,7 +12,7 @@ ms.reviewer: kendralittle, mathoma
 ms.date: 02/24/2022
 ---
 
-# Auto-failover groups overview (Azure SQL Database)
+# Auto-failover groups overview & best practices (Azure SQL Database)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!div class="op_single_selector"]
@@ -87,7 +87,7 @@ There is some overlap of content in the following articles, be sure to make chan
 
 [!INCLUDE [auto-failover-group-terminology](../includes/auto-failover-group-terminology.md)]
 
-## Failover groups with SQL DB 
+## Failover group architecture
 
 A failover group in Azure SQL Database can include one or multiple databases, typically used by the same application. When you are using auto-failover groups with automatic failover policy, an outage that impacts one or several of the databases in the group will result in an automatic geo-failover. 
 
@@ -100,7 +100,7 @@ When designing a service with business continuity in mind, follow the general gu
 For information about using point-in-time restore with failover groups, see [Point in Time Recovery (PITR)](recovery-using-backups.md#point-in-time-restore).
 
 
-### Initial seeding 
+## Initial seeding 
 
 When adding databases or elastic pools to a failover group, there is an initial seeding phase before data replication starts. The initial seeding phase is the longest and most expensive operation. Once initial seeding completes, data is synchronized, and then only subsequent data changes are replicated. The time it takes for the initial seeding to complete depends on the size of your data, number of replicated databases, the load on primary databases, and the speed of the link between the primary and secondary. Under normal circumstances, possible seeding speed is up to 500 GB an hour for SQL Database. Seeding is performed for all databases in parallel.
 
