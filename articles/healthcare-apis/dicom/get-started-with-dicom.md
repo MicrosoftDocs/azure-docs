@@ -69,7 +69,7 @@ You can find more details on DICOMweb standard APIs and change feed in the [DICO
 
 #### DICOMCast
 
-DICOM cast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project, and it's under private preview as a managed service. To enable DICOM cast as a managed service for your Azure subscription, please request access to the DICOM cast managed service by opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket.
+DICOM cast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project, and it's under private preview as a managed service. To enable DICOM cast as a managed service for your Azure subscription, please request access to the DICOM cast managed service by creating an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 ## Next steps
 
