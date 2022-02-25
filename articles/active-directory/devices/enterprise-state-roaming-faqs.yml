@@ -7,7 +7,7 @@ metadata:
   ms.service: active-directory
   ms.subservice: devices
   ms.topic: troubleshooting
-  ms.date: 02/15/2022
+  ms.date: 02/25/2022
   ms.author: joflore
   author: MicrosoftGuyJFlo
   manager: karenhoran
@@ -33,7 +33,7 @@ sections:
           * Windows settings will always roam with the primary account.
           * App data will be tagged with the account used to acquire the app. Only apps tagged with the primary account will sync. App ownership tagging is determined when an app is side-loaded through the Windows Store or mobile device management (MDM).
           
-          If an application owner can’t be identified, it will roam with the primary account. If a device is upgraded from Windows 8 or Windows 8.1 to Windows 10, all the apps will be tagged as acquired by the Microsoft account. This is because most users acquire apps through the Windows Store, and there was no Windows Store support for Azure AD accounts prior to Windows 10. If an app is installed via an offline license, the app will be tagged using the primary account on the device.
+          If an application owner can't be identified, it will roam with the primary account. If a device is upgraded from Windows 8 or Windows 8.1 to Windows 10, all the apps will be tagged as acquired by the Microsoft account. This is because most users acquire apps through the Windows Store, and there was no Windows Store support for Azure AD accounts prior to Windows 10. If an app is installed via an offline license, the app will be tagged using the primary account on the device.
           
           > [!NOTE]
           > Windows 10 or newer devices that are enterprise-owned and are connected to Azure AD can no longer connect their Microsoft accounts to a domain account. The ability to connect a Microsoft account to a domain account and have all the user's data sync to the Microsoft account (that is, the Microsoft account roaming via the connected Microsoft account and Active Directory functionality) is removed from Windows 10 devices that are joined to a connected Active Directory or Azure AD environment.
