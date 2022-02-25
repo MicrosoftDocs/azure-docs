@@ -160,9 +160,9 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted down from your registered application
+3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted when registering the Easy Button client in your tenant.
 
-4. Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
+4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
 
    ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
 

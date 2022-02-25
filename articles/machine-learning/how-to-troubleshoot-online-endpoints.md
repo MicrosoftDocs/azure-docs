@@ -10,7 +10,7 @@ ms.author:  petrodeg
 ms.reviewer: laobri
 ms.date: 11/03/2021
 ms.topic: troubleshooting
-ms.custom: devplatv2
+ms.custom: devplatv2, devx-track-azurecli
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Migration overview - Speech service
+title: Migration to neural voice - Speech service
 titleSuffix: Azure Cognitive Services
 description: This document summarizes the benefits of migration from non-neural voice to neural voice.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 11/12/2021
 ms.author: v-baolianzou
 ---
 
-# Migration overview
+# Migration to neural voice
 
 We're retiring two features from [Text-to-Speech](index-text-to-speech.yml) capabilities as detailed below.
 
