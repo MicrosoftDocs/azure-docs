@@ -135,7 +135,7 @@ az keyvault set-policy \
 
 ## Create Application Gateway
 
-#### [CLI](##tab/azure-CLI)
+### [CLI](#tab/azure-cli)
 
 Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Make sure to use the user-assigned Managed Identity and to point to the certificate in Key Vault using the certificate's Secret ID. Then update the HTTP setting using `az network application-gateway http-settings update` to use the public host name.
 
@@ -164,7 +164,7 @@ az network application-gateway create \
 
 It can take up to 30 minutes for Azure to create the application gateway.
 
-#### [Azure Portal](#tab/azure-portal)
+### [Azure Portal](#tab/azure-portal)
 
 Create an Application Gateway using the following steps to enable SSL termination at Application Gateway.
 
@@ -189,11 +189,11 @@ Create an Application Gateway using the following steps to enable SSL terminatio
       1. Select the managed Identity created earlier.
       1. Select the right Key Vault and Certificate which are added to Key Vault earlier.
 
-         ![Create a routing rule](media/spring-cloud-access-app-gateway/create-routingrule-with-http-listener.png)
+         :::image type="content" source="media/spring-cloud-access-app-gateway/create-routingrule-with-http-listener.png" alt-text="Azure portal screenshot of 'Add a routing rule' page." lightbox="media/spring-cloud-access-app-gateway/create-routingrule-with-http-listener.png":::
 
    1. Select the **Backend targets** tab
 
-      ![Create a routing rule](media/spring-cloud-access-app-gateway/create-backend-http-settings.png)
+      :::image type="content" source="media/spring-cloud-access-app-gateway/create-backend-http-settings.png" alt-text="Azure portal screenshot of 'Add a HTTP setting' page." lightbox="media/spring-cloud-access-app-gateway/create-backend-http-settings.png":::
 
 Review and Create the Application Gateway. It can take up to 30 minutes for Azure to create the application gateway.
 
@@ -261,7 +261,11 @@ You can now access the application using the public domain name.
 
 ## Clean up resources
 
+If you plan to continue working with subsequent articles, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following command:
 
+```azurecli
+az group delete --name $RESOURCE_GROUP
+```
 
 ## Next steps
 

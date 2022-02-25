@@ -78,4 +78,4 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 ## Next steps
 
 - [Access your application in a private network](access-app-virtual-network.md)
-- [Expose applications to the internet using Application Gateway](expose-apps-gateway.md)
+- [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md)

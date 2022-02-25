@@ -1,17 +1,17 @@
 ---
-title:  "Expose applications to the internet using Application Gateway"
+title: Expose applications with end-to-end TLS in a virtual network using Application Gateway
 titleSuffix: Azure Spring Cloud
-description: How to expose applications to internet using Application Gateway
+description: How to expose applications to the internet using Application Gateway
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 02/28/2022
 ms.custom: devx-track-java, devx-track-azurecli 
-ms.devlang: azurecli
+ms.devlang: java, azurecli
 ---
 
-# Exposing applications with end-to-end TLS in a virtual network
+# Expose applications with end-to-end TLS in a virtual network
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
