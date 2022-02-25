@@ -18,7 +18,7 @@ Azure Database for PostgreSQL is a managed service that you use to run, manage, 
 Before you start back up of Azure PostgreSQL database:
 
 - Identify or [create a Backup Vault](tutorial-postgresql-backup.md#create-a-backup-vault) in the same region where you want to back up the Azure Database for PostgreSQL server instance.
-- Check that Azure Database for PostgreSQL server is named in accordance with naming guidelines for Azure Backup.
+- Check that Azure Database for PostgreSQL server is named in accordance with naming guidelines for Azure Backup. [Learn more](../postgresql/tutorial-design-database-using-azure-portal.md#create-an-azure-database-for-postgresql)
 - [Create secrets in the key vault](backup-azure-database-postgresql.md#create-secrets-in-the-key-vault).
 - [Grant privileges to database users using PowerShell scripts](backup-azure-database-postgresql.md#run-powershell-script-to-grant-privileges-to-database-users).
 - [Allow access permissions for the relevant key vault](backup-azure-database-postgresql-overview.md#access-permissions-on-the-azure-key-vault-associated-with-the-postgresql-server).
@@ -129,5 +129,6 @@ To trigger an on-demand backup (that's not in the schedule specified in the poli
    
 ## Next steps
 
-- [Restore Azure Database for PostgreSQL server](restore-azure-database-postgresql.md)
-- [Manage Azure Database for PostgreSQL server](manage-azure-database-postgresql.md)
+> [!div class="nextstepaction"]
+> [Restore Azure Database for PostgreSQL server](restore-azure-database-postgresql.md)
+> [Manage Azure Database for PostgreSQL server](manage-azure-database-postgresql.md)
