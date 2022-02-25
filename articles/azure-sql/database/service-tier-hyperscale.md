@@ -123,7 +123,7 @@ Page servers are systems representing a scaled-out storage engine.  Each page se
 
 ### Log service
 
-The log service accepts transaction log records from the primary compute replica, persists them in a durable cache, and forwards the log records to the rest of compute replicas (so they can update their caches) as well as the relevant page server(s), so that the data can be updated there. In this way, all data changes from the primary compute replica are propagated through the log service to all the secondary compute replicas and page servers. Finally, transaction log records are pushed out to long-term storage in Azure Storage, which is a virtually infinite storage repository. This mechanism removes the need for frequent log truncation. The log service also has local memory and SSD caches to speed up access to log records. The log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1TB of log. Additionally , if using [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server), at most 1TB of log can be generated since the start of the  oldest active transaction. It is recommended to avoid unnecessarily large transactions to stay below this limit.
+The log service accepts transaction log records from the primary compute replica, persists them in a durable cache, and forwards the log records to the rest of compute replicas (so they can update their caches) as well as the relevant page server(s), so that the data can be updated there. In this way, all data changes from the primary compute replica are propagated through the log service to all the secondary compute replicas and page servers. Finally, transaction log records are pushed out to long-term storage in Azure Storage, which is a virtually infinite storage repository. This mechanism removes the need for frequent log truncation. The log service also has local memory and SSD caches to speed up access to log records. The log on hyperscale is practically infinite, with the restriction that a single transaction cannot generate more than 1 TB of log. Additionally, if using [Change Data Capture](/sql/relational-databases/track-changes/about-change-data-capture-sql-server), at most 1 TB of log can be generated since the start of the  oldest active transaction. It is recommended to avoid unnecessarily large transactions to stay below this limit.
 
 ### Azure storage
 
@@ -131,9 +131,9 @@ Azure Storage contains all data files in a database. Page servers keep data file
 
 ## Backup and restore
 
-Backups are file-snapshot based and hence they're nearly instantaneous. Storage and compute separation enables pushing down the backup/restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backup doesn't impact performance of the primary compute node. Similarly, point in time recovery (PITR) is done by reverting to file snapshots, and as such is not a size of data operation. Restore of a Hyperscale database in the same Azure region is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup also takes advantage of this feature: creating database copies for development or testing purposes, even of multi-terabyte databases, is doable in minutes.
+Backup and restore operations for Hyperscale databases are file-snapshot based. This enables these operations to be nearly instantaneous. Since Hyperscale architecture utilizes the storage layer for backup and restore, processing burden and performance impact to compute replicas are significantly reduced. Learn more in [Hyperscale backups and storage redundancy](automated-backups-overview.md#hyperscale-backups-and-storage-redundancy).
 
-For geo-restore of Hyperscale databases, see [Restoring a Hyperscale database to a different region](#restoring-a-hyperscale-database-to-a-different-region).
+For geo-restore of Hyperscale databases, see [restoring a Hyperscale database to a different region](automated-backups-overview.md#restoring-a-hyperscale-database-to-a-different-region).
 
 ## Scale and performance advantages
 
@@ -178,15 +178,11 @@ For Hyperscale SLA, see [SLA for Azure SQL Database](https://azure.microsoft.com
 
 ## Disaster recovery for Hyperscale databases
 
+You can restore Hyperscale databases to [the same region](automated-backups-overview.md#hyperscale-backups-and-storage-redundancy) or to a different region.
+
 ### Restoring a Hyperscale database to a different region
 
-If you need to restore a Hyperscale database in Azure SQL Database to a region other than the one it's currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database. This involves exactly the same steps as what you would use to restore any other database in SQL Database to a different region:
-
-1. Create a [server](logical-servers.md) in the target region if you don't already have an appropriate server there.  This server should be owned by the same subscription as the original (source) server.
-2. Follow the instructions in the [geo-restore](./recovery-using-backups.md#geo-restore) topic of the page on restoring a database in Azure SQL Database from automatic backups.
-
-> [!NOTE]
-> Because the source and target are in separate regions, the database cannot share snapshot storage with the source database as in non-geo restores, which complete quickly regardless of database size. In the case of a geo-restore of a Hyperscale database, it will be a size-of-data operation, even if the target is in the paired region of the geo-replicated storage. Therefore, a geo-restore will take time proportional to the size of the database being restored. If the target is in the paired region, data transfer will be within a region, which will be significantly faster than a cross-region data transfer, but it will still be a size-of-data operation.
+If you need to restore a Hyperscale database in Azure SQL Database to a region other than the one it's currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database. Learn more in [restoring a Hyperscale database to a different region](automated-backups-overview.md#restoring-a-hyperscale-database-to-a-different-region).
 
 ## <a name=regions></a>Available regions
 
