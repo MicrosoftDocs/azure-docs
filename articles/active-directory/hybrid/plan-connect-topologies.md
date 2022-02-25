@@ -46,7 +46,7 @@ The most common topology is a single on-premises forest, with one or multiple do
 ### Single forest, multiple sync servers to one Azure AD tenant
 ![Unsupported, filtered topology for a single forest](./media/plan-connect-topologies/singleforestfilteredunsupported.png)
 
-Having multiple Azure AD Connect sync servers connected to the same Azure AD tenant is not supported, except for a [staging server](#staging-server). It's unsupported even if these servers are configured to synchronize with a mutually exclusive set of objects. You might have considered this topology if you can't reach all domains in the forest from a single server, or if you want to distribute load across several servers.
+Having multiple Azure AD Connect sync servers connected to the same Azure AD tenant is not supported, except for a [staging server](#staging-server). It's unsupported even if these servers are configured to synchronize with a mutually exclusive set of objects. You might have considered this topology if you can't reach all domains in the forest from a single server, or if you want to distribute load across several servers.  (Note:  No errors occur when a new AAD Sync Server is configured for a new AAD forest and a new verified child domain) 
 
 ## Multiple forests, single Azure AD tenant
 ![Topology for multiple forests and a single tenant](./media/plan-connect-topologies/multiforestsingledirectory.png)
@@ -78,7 +78,7 @@ You can find more details in [Understanding the default configuration](concept-a
 
 Having more than one Azure AD Connect sync server connected to a single Azure AD tenant is not supported. The exception is the use of a [staging server](#staging-server).
 
-This topology differs from the one below in that **multiple sync servers** connected to a single Azure AD tenant is not supported.
+This topology differs from the one below in that **multiple sync servers** connected to a single Azure AD tenant is not supported.  (Note:  While not supported this still works)
 
 ### Multiple forests, single sync server, users are represented in only one directory
 ![Option for representing users only once across all directories](./media/plan-connect-topologies/multiforestusersonce.png)
@@ -142,8 +142,8 @@ We recommend having a single tenant in Azure AD for an organization. Before you 
 
 This topology implements the following use cases:
 
-* AADConnect can synchronize the same users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. 
-*	The same Source Anchor can be used for a single object in separate tenants (but not for multiple objects in the same tenant)
+* AADConnect can synchronize the users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. See https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-plan-identity for more details on options.
+*	The same Source Anchor can be used for a single object in separate tenants (but not for multiple objects in the same tenant)  (Note, the verified domain cannot be the same in two tenants, more details are needed to enable the same object to have two UPNs)
 *	You will need to deploy an AADConnect server for every Azure AD tenant you want to synchronize to - one AADConnect server cannot synchronize to more than one Azure AD tenant.
 *	It is supported to have different sync scopes and different sync rules for different tenants.
 *	Only one Azure AD tenant sync can be configured to write back to Active Directory for the same object. This includes device and group writeback as well as Hybrid Exchange configurations – these features can only be configured in one tenant. The only exception here is Password Writeback – see below.
