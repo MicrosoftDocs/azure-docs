@@ -263,7 +263,7 @@ You'll add the frontend to the frontend IP of an existing load balancer in your 
 
     :::image type="content" source="./media/tutorial-gateway-portal/select-gateway-load-balancer.png" alt-text="Screenshot of addition of gateway load balancer to frontend IP." border="true":::
 
-## Chain a virtual machine NIC configuration to the gateway load balancer
+## Chain virtual machine to Gateway Load Balancer
 
 Instead of chaining a load balancer frontend to the gateway load balancer, chain a virtual machine's NIC configuration to the gateway load balancer. To chain the NIC configuration, add the configuration to the gateway load balancer frontend.
 
