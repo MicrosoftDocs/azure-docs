@@ -21,10 +21,13 @@ This article shares two options to run a trace against a managed instance: you c
 To use Windows Authentication to connect to and run a trace against a managed instance, you must first meet the following prerequisites:
 
 - [Set up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)](winauth-azuread-setup.md).
-- [Configure a public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md) or [configure an Azure VM to connect to Azure SQL Managed Instance].(connect-vm-instance-configure.md)
 - Install [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)(SSMS) on the client that is connecting to the managed instance. The SSMS installation includes SQL Server Profiler and built-in components to create and run extended events traces.
-- To create or modify extended events sessions, ensure that your account has the [server permission](/sql/t-sql/statements/grant-server-permissions-transact-sql) of ALTER ANY EVENT SESSION.
-- To create or modify traces in SQL Server Profiler, ensure that your account has the [server permission](/sql/t-sql/statements/grant-server-permissions-transact-sql) of ALTER TRACE.
+- Enable tooling on your client machine to connect to the managed instance. This may be done by any of the following:
+    - [Configure an Azure VM to connect to Azure SQL Managed Instance](connect-vm-instance-configure.md).
+    - [Configure a point-to-site connection to Azure SQL Managed Instance from on-premises](point-to-site-p2s-configure.md).
+    - [Configure a public endpoint in Azure SQL Managed Instance](public-endpoint-configure.md).
+- To create or modify extended events sessions, ensure that your account has the [server permission](/sql/t-sql/statements/grant-server-permissions-transact-sql) of ALTER ANY EVENT SESSION on the managed instance.
+- To create or modify traces in SQL Server Profiler, ensure that your account has the [server permission](/sql/t-sql/statements/grant-server-permissions-transact-sql) of ALTER TRACE on the managed instance.
 
 If you have not yet enabled Windows authentication for Azure AD principals against your managed instance, you may run a trace against a managed instance using an [Azure AD Authentication](/azure/azure-sql/database/authentication-aad-overview.md) option, including:
 
