@@ -37,13 +37,14 @@ This device has one power supply unit (PSU) with high-performance fans. The foll
 | Maximum output power    | 550 W                      |
 | Heat dissipation (maximum)    | 550 W                  |
 | Voltage range selection | 100-127 V AC, 47-63 Hz, 7.1 A |
-Voltage range selection | 200-240V AC, 47-63 Hz, 3.4 A |
+| Voltage range selection | 200-240V AC, 47-63 Hz, 3.4 A |
 | Hot pluggable           | No                   |
 
 
 ## Network interface specifications
 
 Your Azure Stack Edge Pro 2 device has four network interfaces, Port 1 - Port 4.
+
 * **2 X 10 GBase-T/1000Base-T(10/1 GbE) interfaces** 
     * Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. The other interface 
     * Port 2 is user configurable, can be used for data transfer, and is DHCP by default. These 10/1-GbE interfaces can also operate as 10-GbE interfaces.
@@ -60,16 +61,16 @@ Here are the details for the Mellanox card:
 
 | Parameter           | Description                 |
 |-------------------------|----------------------------|
-| Model    | ConnectX®-6 Dx network interface card                     |
-| Model Description               | 100 GbE dual-port QSFP56 |
-| Device Part Number | MCX623106AC-CDAT, with crypto or <!--or or and?--> with secure boot |
+| Model              | ConnectX®-6 Dx network interface card             |
+| Model Description  | 100 GbE dual-port QSFP56 |
+| Device Part Number | MCX623106AC-CDAT, with crypto or with secure boot |
 
 ## Storage specifications
 
 The following table lists the storage capacity of the device.
 
-|     Specification                          |     Value             |
-|--------------------------------------------|-----------------------|
+|     Specification                         |     Value             |
+|-------------------------------------------|-----------------------|
 |    Number of data disks                   |    4 Micron 5200 MTFDDAK960TDD SATA SSDs [See for details.](https://www.micron.com/solutions/technical-briefs/micron-5200-series-of-sata-ssds)|
 |    Single data disk capacity              |    960 GB             |
 |    Boot disk    |    1  NVMe SSD                |
@@ -109,19 +110,18 @@ The following table lists the dimensions of the shipping package in millimeters 
 |        |                                                                                    |            |
 | 2      | Shipping weight, with 4-post mount                                                 | 35.3       |
 | 3      | Model 642GT install handling, 4-post (without bezel and with inner rails attached) | 20.4       |
+| 4      | 4-post in box                                                                      | 6.28       |
 |        |                                                                                    |            |
-| 4      | Shipping weight, with 2-post mount                                                 | 32.1       |
-| 5      | Model 642GT install handling, 2-post (without bezel and with inner rails attached) | 20.4       |
+| 5      | Shipping weight, with 2-post mount                                                 | 32.1       |
+| 6      | Model 642GT install handling, 2-post (without bezel and with inner rails attached) | 20.4       |
+| 7      | 2-post in box                                                                      | 3.08       |
 |        |                                                                                    |            |
-| 6      | Shipping weight with wall mount                                                    | 31.1       |
-| 7      | Model 642GT install handling without bezel                                         | 19.8       |
-|        |                                                                                    |            |
-| 8      | 4 post in box                                                                      | 6.28       |
-| 9      | 2 post in box                                                                      | 3.08       |
-| 10     | Wall mount as packaged                                                             | 2.16       |
+| 7      | Shipping weight with wall mount                                                    | 31.1       |
+| 8      | Model 642GT install handling without bezel                                         | 19.8       |
+| 9      | Wallmount as packaged                                                              | 2.16       |
 
 
 
 ## Next steps
 
-[Deploy your Azure Stack Edge Pro 2](azure-stack-edge-placeholder.md)
+[Deploy your Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-prep.md)
