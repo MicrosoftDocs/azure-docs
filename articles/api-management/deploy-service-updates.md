@@ -39,7 +39,7 @@ Deployment phases include:
 
 ## How do I safely deploy updates to my API Management instances? 
 
-As an Azure customer, you're not able to control when to apply service updates to your API Management instances - updates are applied automatically. However, to minimize risk, you can use a strategy to deploy your noncritical instances to regions that receive updates before the regions running your production instances. See example strategies to [create and use a canary deployment of API Management](#create-and-use-a-canary-deployment), later in this article.
+As an Azure customer, you're not able to control when to apply service updates to your API Management instances - updates are applied automatically. However, to minimize risk, you can use a strategy to deploy your noncritical instances to regions that receive updates before the regions running your production instances.
 
 * The instance that receives updates first is effectively your canary deployment. 
 
@@ -49,6 +49,8 @@ As an Azure customer, you're not able to control when to apply service updates t
     > If your canary instance experiences issues associated with the update process, please open an Azure support request as soon as possible.
 
 * After you validate the canary deployment, you have greater confidence in updates that come later to your production instances.
+
+See [example strategies](#canary-deployment-strategies) to create and use a canary deployment of API Management, later in this article.
 
 ## Know when your instances are receiving updates 
 
