@@ -67,7 +67,7 @@ You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, o
 
 You can find more details on DICOMweb standard APIs and change feed in the [DICOM service](dicom-services-overview.md) documentation.
 
-#### DICOMCast
+#### DICOM cast
 
 DICOM cast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project, and it's under private preview as a managed service. To enable DICOM cast as a managed service for your Azure subscription, please request access to the DICOM cast managed service by creating an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 
