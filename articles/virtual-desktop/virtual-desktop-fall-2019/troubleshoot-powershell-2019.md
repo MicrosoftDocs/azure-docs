@@ -13,7 +13,7 @@ manager: femila
 > [!IMPORTANT]
 > This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../troubleshoot-powershell.md).
 
-Use this article to resolve errors and issues when using PowerShell with Azure Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Azure Virtual Desktop Powershell](/powershell/windows-virtual-desktop/overview).
+Use this article to resolve errors and issues when using PowerShell with Azure Virtual Desktop. For more information on Remote Desktop Services PowerShell, see [Azure Virtual Desktop PowerShell](/powershell/windows-virtual-desktop/overview).
 
 ## Provide feedback
 
