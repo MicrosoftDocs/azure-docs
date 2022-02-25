@@ -7,8 +7,8 @@ ms.service: cache
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc, mode-other
-ms.date: 06/18/2020
-#Customer intent: As a .NET developer, new to Azure Cache for Redis, I want to create a new .NET app that uses Azure Cache for Redis.
+ms.date: 02/24/2022
+
 ---
 # Quickstart: Use Azure Cache for Redis in .NET Framework
 
@@ -16,7 +16,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a .NET Framework 
 
 ## Skip to the code on GitHub
 
-If you want to skip straight to the code, see the [.NET Framework quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) on GitHub.
+Go straight to the code, see the [.NET Framework quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet) on GitHub.
 
 ## Prerequisites
 
@@ -25,6 +25,7 @@ If you want to skip straight to the code, see the [.NET Framework quickstart](ht
 - [.NET Framework 4 or higher](https://dotnet.microsoft.com/download/dotnet-framework), which is required by the StackExchange.Redis client.
 
 ## Create a cache
+
 [!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
@@ -436,9 +437,9 @@ At the bottom of `Main()` procedure in *Program.cs*, and before the call to `Clo
     Console.WriteLine("\tEmployee.Age  : " + e007FromCache.Age + "\n");
 ```
 
-Press **Ctrl+F5** to build and run the console app to test serialization of .NET objects. 
+Press **Ctrl+F5** to build and run the console app to test serialization of .NET objects.
 
-![Console app completed](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed":::
 
 
 ## Clean up resources
