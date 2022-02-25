@@ -46,4 +46,4 @@ Depending on whether egress lockdown is enabled or disabled, you'll see one of t
 
 ## Next steps
 
-For more information on controlling egress traffic on your Azure Red Hat OpenShift cluster, see [Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)](howto-restrict-egress).
+For more information on controlling egress traffic on your Azure Red Hat OpenShift cluster, see [Control egress traffic for your Azure Red Hat OpenShift (ARO) cluster (preview)](howto-restrict-egress.md).
