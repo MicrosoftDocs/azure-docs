@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
+
 # Connect to Azure Cosmos database (SQL API) in Azure Purview
 
 This article outlines the process to register an Azure Cosmos database (SQL API) in Azure Purview including instructions to authenticate and interact with the Azure Cosmos database source
@@ -15,8 +16,8 @@ This article outlines the process to register an Azure Cosmos database (SQL API)
 ## Supported capabilities
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
-|---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)|No| Limited** | No |
+|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[No](#scan) | [Yes](#scan)|[Yes](#scan)|No|No** | No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 

@@ -6,13 +6,21 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 2/2/2022
+ms.date: 2/22/2022
 ms.custom:
 ---
 
 # Authoring and publishing data owner access policies (preview)
-
 This tutorial describes how a data owner can create, update and publish access policies in Azure Purview.
+
+## Prerequisites
+The following actions are needed before authoring access policies in Azure Purview:
+1. Configure permissions in the data source and in Azure Purview
+1. Register the data source in Azure Purview for Data Use Governance
+
+These tutorials list the pre-requisites of supported data sources
+- [Azure Storage](./tutorial-data-owner-policies-storage.md#configuration)
+- [Resource Groups and Subscriptions](./tutorial-data-owner-policies-resource-group.md#configuration)
 
 ## Create a new policy
 

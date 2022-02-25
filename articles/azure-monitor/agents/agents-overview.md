@@ -44,12 +44,12 @@ The following tables provide a quick comparison of the Azure Monitor agents for 
 
 ## Azure Monitor agent
 
-The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace the Log Analytics agent, Azure Diagnostic extension and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
+The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace the Log Analytics agent, Azure Diagnostic extension and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
 
 Use the Azure Monitor agent if you need to:
 
 - Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
-- Manage data collection configuration centrally, using [data collection rules](./data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall.
+- Manage data collection configuration centrally, using [data collection rules](../essentials/data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall.
 - Send data to Azure Monitor Logs and Azure Monitor Metrics (preview) for analysis with Azure Monitor. 
 - Use Windows event filtering or multi-homing for logs on Windows and Linux.
 

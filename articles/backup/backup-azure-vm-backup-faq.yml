@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 11/09/2021
+  ms.date: 02/22/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -189,7 +189,7 @@ sections:
         answer: Yes, you can cancel the restore job till the data transfer phase. Once it enters VM creation phase, you can't cancel the restore job.
 
       - question: Why is my restore operation taking long time to complete?
-        answer: The total restore time depends on the input/output operations per second (IOPS) speed and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve the speed of restore operation, select a storage account that isn't loaded with other application data.
+        answer: The total restore time depends on the input/output operations per second (IOPS) speed and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve the speed of restore operation, select a storage account that isn't loaded with other application data. Learn about the [best practices for Azure VM backup and restore](backup-azure-vms-introduction.md#best-practices).
 
       - question: How do we handle "Create New Virtual Machine"-restore type conflicts with governance policies?
         answer: |
