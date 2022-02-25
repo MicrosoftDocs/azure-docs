@@ -2,7 +2,7 @@
 title: Back up Azure Database for PostgreSQL with long-term-retention using Azure CLI
 description: Learn how to back up Azure Database for PostgreSQL using Azure CLI.
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 02/25/2022
 ms.custom: devx-track-azurecli
 author: v-amallick
 ms.service: backup
@@ -318,122 +318,124 @@ az dataprotection backup-instance create --resource-group testBkpVaultRG --vault
 
 You have to specify a retention rule while you trigger backup. To view the retention rules in policy, navigate through the policy JSON file for retention rules. In the following example, there are two retention rules with names **Default** and **Monthly**. We'll use the **Monthly** rule for the on-demand backup.
 
-  ```azurecli
-    az dataprotection backup-policy show  -g ossdemorg --vault-name ossdemovault-1 --subscription e3d2d341-4ddb-4c5d-9121-69b7e719485e --name osspol5
-    {
-      "id": "/subscriptions/e3d2d341-4ddb-4c5d-9121-69b7e719485e/resourceGroups/ossdemorg/providers/Microsoft.DataProtection/backupVaults/ossdemovault-1/backupPolicies/osspol5",
-      "name": "osspol5",
-      "properties": {
-        "datasourceTypes": [
-          "Microsoft.DBforPostgreSQL/servers/databases"
-        ],
-        "objectType": "BackupPolicy",
-        "policyRules": [
-          {
-            "backupParameters": {
-              "backupType": "Full",
-              "objectType": "AzureBackupParams"
+```azurecli
+az dataprotection backup-policy show  -g ossdemorg --vault-name ossdemovault-1 --subscription e3d2d341-4ddb-4c5d-9121-69b7e719485e --name osspol5
+{
+  "id": "/subscriptions/e3d2d341-4ddb-4c5d-9121-69b7e719485e/resourceGroups/ossdemorg/providers/Microsoft.DataProtection/backupVaults/ossdemovault-1/backupPolicies/osspol5",
+  "name": "osspol5",
+  "properties": {
+    "datasourceTypes": [
+      "Microsoft.DBforPostgreSQL/servers/databases"
+    ],
+    "objectType": "BackupPolicy",
+    "policyRules": [
+      {
+        "backupParameters": {
+          "backupType": "Full",
+          "objectType": "AzureBackupParams"
+        },
+        "dataStore": {
+          "dataStoreType": "VaultStore",
+          "objectType": "DataStoreInfoBase"
+        },
+        "name": "BackupWeekly",
+        "objectType": "AzureBackupRule",
+        "trigger": {
+          "objectType": "ScheduleBasedTriggerContext",
+          "schedule": {
+            "repeatingTimeIntervals": [
+              "R/2020-04-04T20:00:00+00:00/P1W",
+              "R/2020-04-01T20:00:00+00:00/P1W"
+            ],
+            "timeZone": "UTC"
+          },
+          "taggingCriteria": [
+            {
+              "criteria": [
+                {
+                  "absoluteCriteria": [
+                    "FirstOfMonth"
+                  ],
+                  "daysOfMonth": null,
+                  "daysOfTheWeek": null,
+                  "monthsOfYear": null,
+                  "objectType": "ScheduleBasedBackupCriteria",
+                  "scheduleTimes": null,
+                  "weeksOfTheMonth": null
+                }
+              ],
+              "isDefault": false,
+              "tagInfo": {
+                "eTag": null,
+                "id": "Monthly_",
+                "tagName": "Monthly"
+              },
+              "taggingPriority": 15
             },
-            "dataStore": {
+            {
+              "criteria": null,
+              "isDefault": true,
+              "tagInfo": {
+                "eTag": null,
+                "id": "Default_",
+                "tagName": "Default"
+              },
+              "taggingPriority": 99
+            }
+          ]
+        }
+      },
+      {
+        "isDefault": false,
+        "lifecycles": [
+          {
+            "deleteAfter": {
+              "duration": "P10Y",
+              "objectType": "AbsoluteDeleteOption"
+            },
+            "sourceDataStore": {
               "dataStoreType": "VaultStore",
               "objectType": "DataStoreInfoBase"
             },
-            "name": "BackupWeekly",
-            "objectType": "AzureBackupRule",
-            "trigger": {
-              "objectType": "ScheduleBasedTriggerContext",
-              "schedule": {
-                "repeatingTimeIntervals": [
-                  "R/2020-04-04T20:00:00+00:00/P1W",
-                  "R/2020-04-01T20:00:00+00:00/P1W"
-                ],
-                "timeZone": "UTC"
-              },
-              "taggingCriteria": [
-                {
-                  "criteria": [
-                    {
-                      "absoluteCriteria": [
-                        "FirstOfMonth"
-                      ],
-                      "daysOfMonth": null,
-                      "daysOfTheWeek": null,
-                      "monthsOfYear": null,
-                      "objectType": "ScheduleBasedBackupCriteria",
-                      "scheduleTimes": null,
-                      "weeksOfTheMonth": null
-                    }
-                  ],
-                  "isDefault": false,
-                  "tagInfo": {
-                    "eTag": null,
-                    "id": "Monthly_",
-                    "tagName": "Monthly"
-                  },
-                  "taggingPriority": 15
-                },
-                {
-                  "criteria": null,
-                  "isDefault": true,
-                  "tagInfo": {
-                    "eTag": null,
-                    "id": "Default_",
-                    "tagName": "Default"
-                  },
-                  "taggingPriority": 99
-                }
-              ]
-            }
-          },
-          {
-            "isDefault": false,
-            "lifecycles": [
-              {
-                "deleteAfter": {
-                  "duration": "P10Y",
-                  "objectType": "AbsoluteDeleteOption"
-                },
-                "sourceDataStore": {
-                  "dataStoreType": "VaultStore",
-                  "objectType": "DataStoreInfoBase"
-                },
-                "targetDataStoreCopySettings": []
-              }
-            ],
-            "name": "Monthly",
-            "objectType": "AzureRetentionRule"
-          },
-          {
-            "isDefault": true,
-            "lifecycles": [
-              {
-                "deleteAfter": {
-                  "duration": "P1Y",
-                  "objectType": "AbsoluteDeleteOption"
-                },
-                "sourceDataStore": {
-                  "dataStoreType": "VaultStore",
-                  "objectType": "DataStoreInfoBase"
-                },
-                "targetDataStoreCopySettings": []
-              }
-            ],
-            "name": "Default",
-            "objectType": "AzureRetentionRule"
+            "targetDataStoreCopySettings": []
           }
-        ]
+        ],
+        "name": "Monthly",
+        "objectType": "AzureRetentionRule"
       },
-      "resourceGroup": "ossdemorg",
-      "systemData": null,
-      "type": "Microsoft.DataProtection/backupVaults/backupPolicies"
-    }
-  ```
+      {
+        "isDefault": true,
+        "lifecycles": [
+          {
+            "deleteAfter": {
+              "duration": "P1Y",
+              "objectType": "AbsoluteDeleteOption"
+            },
+            "sourceDataStore": {
+              "dataStoreType": "VaultStore",
+              "objectType": "DataStoreInfoBase"
+            },
+            "targetDataStoreCopySettings": []
+          }
+        ],
+        "name": "Default",
+        "objectType": "AzureRetentionRule"
+      }
+    ]
+  },
+  "resourceGroup": "ossdemorg",
+  "systemData": null,
+  "type": "Microsoft.DataProtection/backupVaults/backupPolicies"
+}
+```
 
-To trigger an on-demand backup, use the [az dataprotection backup-instance adhoc-backup](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_adhoc_backup) command.
+### Trigger an on-demand backup using command
 
-  ```azurecli
-    az dataprotection backup-instance adhoc-backup --name "ossrg-empdb11" --rule-name "Monthly" --resource-group testBkpVaultRG --vault-name TestBkpVault
-  ```
+Trigger an on-demand backup using the [az dataprotection backup-instance adhoc-backup](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_adhoc_backup) command.
+
+```azurecli
+az dataprotection backup-instance adhoc-backup --name "ossrg-empdb11" --rule-name "Monthly" --resource-group testBkpVaultRG --vault-name TestBkpVault
+```
 
 ## Track jobs
 
@@ -441,9 +443,9 @@ Track all jobs using the [az dataprotection job list](/cli/azure/dataprotection/
 
 You can also use _Az.ResourceGraph_ to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az_dataprotection_job_list_from_resourcegraph) command to fetch the relevant jobs that are across Backup vaults.
 
-  ```azurecli
-    az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL --status Completed
-  ```
+```azurecli
+az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL --status Completed
+```
 
 ## Next steps
 
