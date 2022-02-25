@@ -9,7 +9,7 @@ ms.date: 02/01/2022
 ms.author: vikancha
 ---
 
-# NVadsA10 v5-series 
+# NVadsA10 v5-series (Preview)
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
