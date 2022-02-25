@@ -2863,6 +2863,8 @@
         href: tableau-online-provisioning-tutorial.md
       - name: Talentech
         href: talentech-provisioning-tutorial.md
+      - name: Tap App Security
+        href: tap-app-security-provisioning-tutorial.md
       - name: Taskize Connect
         href: taskize-connect-provisioning-tutorial.md
       - name: Teamgo
