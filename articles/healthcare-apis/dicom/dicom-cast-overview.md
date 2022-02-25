@@ -19,7 +19,8 @@ DICOM cast offers customers the ability to synchronize the data from a DICOM ser
 
 ## Architecture
 
-![Architecture diagram of DICOM cast](media/dicom-cast-architecture.png#lightbox)
+[ ![Architecture diagram of DICOM cast](media/dicom-cast-architecture.png) ](media/dicom-cast-architecture.png#lightbox)
+
 
 1. **Poll for batch of changes**: DICOM cast polls for any changes via the [Change Feed](dicom-change-feed-overview.md), which captures any changes that occur in your Medical Imaging Server for DICOM.
 1. **Fetch corresponding FHIR resources, if any**: If any DICOM service changes and correspond to FHIR resources, DICOM cast will fetch the related FHIR resources. DICOM cast synchronizes DICOM tags to the FHIR resource types *Patient* and *ImagingStudy*.
