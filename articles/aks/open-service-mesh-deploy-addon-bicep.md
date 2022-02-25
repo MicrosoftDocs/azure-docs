@@ -160,7 +160,7 @@ First, query the add-on profiles of the cluster to check the enabled state of th
 az aks list -g <my-osm-aks-cluster-rg> -o json | jq -r '.[].addonProfiles.openServiceMesh.enabled'
 ```
 
-The following `kubectl` commands will report the status of the OSM controller:
+The following `kubectl` commands will report the status of *osm-controller*:
 
 ```azurecli-interactive
 kubectl get deployments -n kube-system --selector app=osm-controller
@@ -170,7 +170,7 @@ kubectl get services -n kube-system --selector app=osm-controller
 
 ## Access the OSM add-on configuration
 
-You can configure the OSM controller via the OSM MeshConfig resource, and you can view the OSM controller configuration settings via the Azure CLI. Use the `kubectl get` command as shown in the following example:
+You can configure the OSM controller via the OSM MeshConfig resource, and you can view the OSM controller's configuration settings via the Azure CLI. Use the `kubectl get` command as shown in the following example:
 
 ```azurecli-interactive
 kubectl get meshconfig osm-mesh-config -n kube-system -o yaml
