@@ -22,13 +22,15 @@ ms.date: 01/10/2022
 
 Database backups are an essential part of any business continuity and disaster recovery strategy, because they protect your data from corruption or deletion. These backups enable database restore to a point in time within the configured retention period. If your data protection rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](long-term-retention-overview.md) for both single and pooled databases.
 
+## Backup and restore essentials
+
+Databases in Azure SQL Managed instance and non-Hyperscale databases in Azure SQL Database use SQL Server engine technology to back up and restore data. Hyperscale databases have a unique architecture and leverage a different technology for backup and restore: see [backups for Hyperscale databases](#backups-for-hyperscale-databases).
+
 ### Backup frequency
 
 Both Azure SQL Database and Azure SQL Managed Instance use SQL Server technology to create [full backups](/sql/relational-databases/backup-restore/full-database-backups-sql-server) every week, [differential backups](/sql/relational-databases/backup-restore/differential-backups-sql-server) every 12-24 hours, and [transaction log backups](/sql/relational-databases/backup-restore/transaction-log-backups-sql-server) every 5 to 10 minutes. The frequency of transaction log backups is based on the compute size and the amount of database activity.
 
 When you restore a database, the service determines which full, differential, and transaction log backups need to be restored.
-
-Hyperscale databases in Azure SQL Database are an exception to this backup model: Hyperscale databases [use file-snapshot based backups](service-tier-hyperscale.md#backup-and-restore).
 
 ### Backup storage redundancy
 
@@ -36,15 +38,10 @@ By default, Azure SQL Database and Azure SQL Managed Instance store data in geo-
 
 The option to configure backup storage redundancy provides the flexibility to choose between locally redundant, zone-redundant, or geo-redundant storage blobs. To ensure that your data stays within the same region where your managed instance or database in Azure SQL Database is deployed, you can change the default geo-redundant backup storage redundancy and configure either locally redundant or zone-redundant storage blobs for backups. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. The configured backup storage redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR). 
 
-For Azure SQL Database, backup storage redundancy can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only. After the backup storage redundancy of an existing database is updated, it may take up to 48 hours for the changes to be applied. Geo-restore is disabled as soon as a database is updated to use local or zone redundant storage. For Hyperscale databases, the selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy.
-
-
-> [!IMPORTANT]
-> Backup storage redundancy for Hyperscale can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) can be used to update the backup storage redundancy settings for an existing Hyperscale database.
+For Azure SQL Database, backup storage redundancy can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only. After the backup storage redundancy of an existing database is updated, it may take up to 48 hours for the changes to be applied. Geo-restore is disabled as soon as a database is updated to use local or zone redundant storage. For Hyperscale databases, the selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy. Learn more in [Backups for Hyperscale databases](#backups-for-hyperscale-databases).
 
 > [!IMPORTANT]
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
-
 
 ### Backup usage
 
@@ -219,7 +216,7 @@ Backup storage redundancy impacts backup costs in the following way:
 For more details about backup storage pricing visit [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) and [Azure SQL Managed Instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 > [!IMPORTANT]
-> Backup storage redundancy for Hyperscale can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
+> Backup storage redundancy for Hyperscale can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database.  Learn more in [Backups for Hyperscale databases](#backups-for-hyperscale-databases).
 
 ### Monitor costs
 
@@ -472,16 +469,48 @@ For more information, see [Backup Retention REST API](/rest/api/sql/backupshortt
 
 ---
 
+## Hyperscale backups and storage redundancy
+
+Hyperscale databases in Azure SQL Database use a [unique architecture](service-tier-hyperscale.md#distributed-functions-architecture) with highly scalable storage and compute performance tiers.
+
+Hyperscale backups are file-snapshot based, hence they're nearly instantaneous. Other databases in Azure SQL Database and Azure SQL Managed Instance leverage different technology for backup and restore operations. For this reason, the backup and restore considerations described in the previous sections of this article do not apply to Hyperscale databases.
+
+### Backup and restore performance for Hyperscale databases
+
+Storage and compute separation enables Hyperscale to push down backup and restore operation to the storage layer to reduce the processing burden on the primary compute replica. As a result, database backups don't impact performance of the primary compute node. 
+
+Backup and restore operations for Hyperscale databases are fast regardless of data size due to the use of storage snapshots. A database can be restored to any point in time within its backup retention period. Point in time recovery (PITR) is achieved by reverting to file snapshots, and as such is not a size of data operation. Restore of a Hyperscale database within the same Azure region is a constant-time operation, and even multiple-terabyte databases can be restored in minutes instead of hours or days. Creation of new databases by restoring an existing backup or copying the database also takes advantage of this feature: creating database copies for development or testing purposes, even of multi-terabyte databases, is doable in minutes within the same region when the same storage type is used.
+
+### Hyperscale backup retention
+
+Hyperscale backup retention is currently seven days; long-term retention policies aren't yet supported.
+
+### Hyperscale storage redundancy applies to both data storage and backup storage
+
+Hyperscale supports configurable storage redundancy. When creating a Hyperscale database, you can choose your preferred storage type: read-access geo-redundant storage (RA-GRS), zone-redundant storage (ZRS), or locally redundant storage (LRS) Azure standard storage. The selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy.
+
+### Consider storage redundancy carefully when you create a Hyperscale database
+
+Backup storage redundancy for Hyperscale databases can only be set during database creation. This setting cannot be modified once the resource is provisioned. The [database copy](database-copy.md) process can be used to update the storage redundancy settings for an existing Hyperscale database. Copying a database to a different storage type will be a size-of-data operation. Find example code in [configure backup storage redundancy](#configure-backup-storage-redundancy).
+
+### Restoring a Hyperscale database to a different region
+
+If you need to restore a Hyperscale database in Azure SQL Database to a region other than the one it's currently hosted in, as part of a disaster recovery operation or drill, relocation, or any other reason, the primary method is to do a geo-restore of the database. This involves exactly the same steps as what you would use to restore any other database in SQL Database to a different region:
+
+1. Create a [server](logical-servers.md) in the target region if you don't already have an appropriate server there.  This server should be owned by the same subscription as the original (source) server.
+2. Follow the instructions in the [geo-restore](./recovery-using-backups.md#geo-restore) section of the page on restoring a database in Azure SQL Database from automatic backups.
+
+> [!NOTE]
+> Because the source and target are in separate regions, the database cannot share snapshot storage with the source database as in non-geo restores, which complete quickly regardless of database size. In the case of a geo-restore of a Hyperscale database, it will be a size-of-data operation, even if the target is in the paired region of the geo-replicated storage. Therefore, a geo-restore will take time proportional to the size of the database being restored. If the target is in the paired region, data transfer will be within a region, which will be significantly faster than a cross-region data transfer, but it will still be a size-of-data operation.
+
 ## Configure backup storage redundancy
 
-Backup storage redundancy for databases in Azure SQL Database can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only.
-
-Hyperscale databases are an exception to this rule: backup storage redundancy for Hyperscale databases can only be specified only during the creation process. Once the resource is provisioned, you can't change the backup storage redundancy option. The default value is geo-redundant storage. For differences in pricing between locally redundant, zone-redundant and geo-redundant backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+Backup storage redundancy for databases in Azure SQL Database can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only. The default value is geo-redundant storage. For differences in pricing between locally redundant, zone-redundant and geo-redundant backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/). Storage redundancy for Hyperscale databases is unique: learn more in [backups for Hyperscale databases](#backups-for-hyperscale-databases).
 
 For Azure SQL Managed Instance, backup storage redundancy is set at the instance level, and it is applied for all belonging managed databases. It can be configured at the time of an instance creation or updated for existing instances; the backup storage redundancy change would trigger then a new full backup per database and the change will apply for all future backups. The default storage redundancy type is geo-redundancy (RA-GRS).
 
 > [!NOTE]
-> Backup storage redundancy change for SQL Managed Instance is currently available only for the Public cloud via Azure Portal. 
+> Backup storage redundancy change for SQL Managed Instance is currently available only for the Public cloud via Azure Portal.
 
 ### Configure backup storage redundancy by using the Azure portal
 
@@ -524,7 +553,9 @@ az sql db create \
     --backup-storage-redundancy Local
 ```
 
-Carefully consider the configuration option for `--backup-storage-redundancy` when creating a Hyperscale database. Storage redundancy can only be specified during the database creation process for Hyperscale databases. The selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy. Existing databases can migrate to different storage redundancy using [database copy](database-copy.md) or point in time restore: sample code to copy a Hyperscale database follows in this section.
+Carefully consider the configuration option for `--backup-storage-redundancy` when creating a Hyperscale database. Storage redundancy can only be specified during the database creation process for Hyperscale databases. The selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy.  Learn more in [Backups for Hyperscale databases](#backups-for-hyperscale-databases). 
+
+Existing Hyperscale databases can migrate to different storage redundancy using [database copy](database-copy.md) or point in time restore: sample code to copy a Hyperscale database follows in this section.
 
 This example creates a database in the [Hyperscale](service-tier-general-purpose.md) service tier with Zone redundancy:
 
@@ -586,7 +617,9 @@ This example creates a database in the [General Purpose](service-tier-general-pu
 New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database03" -Edition "GeneralPurpose" -Vcore 2 -ComputeGeneration "Gen5" -BackupStorageRedundancy Local
 ```
 
-Carefully consider the configuration option for `--backup-storage-redundancy` when creating a Hyperscale database. Storage redundancy can only be specified during the database creation process for Hyperscale databases. The selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy. Existing databases can migrate to different storage redundancy using [database copy](database-copy.md) or point in time restore: sample code to copy a Hyperscale database follows in this section.
+Carefully consider the configuration option for `--backup-storage-redundancy` when creating a Hyperscale database. Storage redundancy can only be specified during the database creation process for Hyperscale databases. The selected storage redundancy option will be used for the lifetime of the database for both data storage redundancy and backup storage redundancy.  Learn more in [Backups for Hyperscale databases](#backups-for-hyperscale-databases).
+
+Existing databases can migrate to different storage redundancy using [database copy](database-copy.md) or point in time restore: sample code to copy a Hyperscale database follows in this section.
 
 This example creates a database in the [Hyperscale](service-tier-general-purpose.md) service tier with Zone redundancy:
 
