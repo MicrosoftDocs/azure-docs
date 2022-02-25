@@ -10,12 +10,14 @@
   - name: Release notes
     href: release-notes.md
     displayName: Release Notes, notes, updates, announcements, deprecations
-  - name: Compliance and regulatory
-    href: compliance-concept.md
-    displayName: compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR
-  - name: Compliance, privacy and security
-    href: media-services-compliance.md
-    displayName: compliance, security, privacy
+  - name: Compliance
+    items:
+    - name: Regulatory compliance
+      href: compliance-concept.md
+      displayName: compliance, regulatory, FedRamp, DOD CC SRG IL2, DOD CC SG IL 4, GDPR
+    - name: Privacy and security compliance
+      href: media-services-compliance.md
+      displayName: compliance, security, privacy
   - name: FAQs
     items:
       - name: Frequently asked questions
@@ -289,10 +291,7 @@
     items:
     - name: Dynamic encryption and key delivery
       displayName: content protection, access control, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, AES, AES-128,custom, DRM, CENC, CBCS, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000
-      href: drm-content-protection-concept.md  
-    - name: Design of multi-DRM system 
-      displayName: drm, access control, content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, AES, AES-128,custom, DRM, CENC, CBCS, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000
-      href: architecture-design-multi-drm-system.md  
+      href: drm-content-protection-concept.md
     - name: DRM licenses
       items:
       - name: PlayReady license template

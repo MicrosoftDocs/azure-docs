@@ -60,10 +60,10 @@ Next, create an App Service plan using the [az appservice plan create](/cli/azur
 
 ```azurecli-interactive
 
- # Change 123 to any three characters to form a unique name across Azure
-az appservice plan create
-    --name msdocs-core-sql-plan-123 
-    --resource-group msdocs-core-sql
+ # Change 123 to any three characters to form a unique name
+az appservice plan create \
+    --name msdocs-core-sql-plan-123 \
+    --resource-group msdocs-core-sql \
     --sku F1
 ```
 
@@ -74,10 +74,10 @@ Finally, create the App Service web app using the [az webapp create](/cli/azure/
 
 ```azurecli-interactive
 
-az webapp create
-    --name <your-app-service-name>
-    --runtime "DOTNET|6.0"
-    --plan <your-app-service-plan-name>  
+az webapp create \
+    --name <your-app-service-name> \
+    --runtime "DOTNET|6.0" \
+    --plan <your-app-service-plan-name> \
     --resource-group msdocs-core-sql
 ```
 
@@ -108,31 +108,31 @@ To create an Azure SQL database, we first must create a SQL Server to host it. A
 Replace the *server-name* placeholder with a unique SQL Database name. This name is used as the part of the globally unique SQL Database endpoint. Also, replace *db-username* and *db-username* with a username and password of your choice.
 
 ```azurecli-interactive
-az sql server create 
-    --location eastus
-    --resource-group msdocs-core-sql
-    --name <server-name>
-    --admin-user <db-username>
+az sql server create \
+    --location eastus \
+    --resource-group msdocs-core-sql \
+    --name <server-name> \
+    --admin-user <db-username> \
     --admin-password <db-password>
 ```
 
 Provisioning a SQL Server may take a few minutes.  Once the resource is available, we can create a database with the [az sql db create](/cli/azure/sql/db#az_sql_db_create) command.
 
 ```azurecli-interactive
-az sql db create 
-    --resource-group msdocs-core-sql
-    --server <server-name>
+az sql db create \
+    --resource-group msdocs-core-sql \
+    --server <server-name> \
     --name coreDb
 ```
 
 We also need to add the following firewall rule to our database server to allow other Azure resources to access it.
 
 ```azurecli-interactive
-az sql server firewall-rule create 
-    --resource-group msdocs-core-sql
-    --server <server-name> 
-    --name AzureAccess
-    --start-ip-address 0.0.0.0 
+az sql server firewall-rule create \
+    --resource-group msdocs-core-sql \
+    --server <server-name> \
+    --name AzureAccess \
+    --start-ip-address 0.0.0.0 \
     --end-ip-address 0.0.0.0
 ```
 
@@ -187,9 +187,9 @@ Azure CLI commands can be run in the [Azure Cloud Shell](https://shell.azure.com
 We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db#az_sql_db_show_connection_string) command.  This command allows us to add the Connection String to our App Service configuration settings. Copy this Connection String value for later use.
 
 ```azurecli-interactive
-az sql db show-connection-string 
-    --client ado.net 
-    --name coreDb 
+az sql db show-connection-string \
+    --client ado.net \
+    --name coreDb \
     --server <your-server-name>
 ```
 
@@ -198,10 +198,10 @@ Next, let's assign the Connection String to our App Service using the command be
 Make sure to replace the username and password in the connection string with your own before running the command.
 
 ```azurecli-interactive
-az webapp config connection-string set 
-    -g msdocs-core-sql
-    -n <your-app-name> 
-    -t SQLServer 
+az webapp config connection-string set \
+    -g msdocs-core-sql \
+    -n <your-app-name> \
+    -t SQLServer \
     --settings MyDbConnection=<your-connection-string>
 
 ```
@@ -247,8 +247,8 @@ Next we need to update the appsettings.json file in our local app code with the 
 Finally, run the commands below to install the necessary CLI tools for Entity Framework Core, create an initial database migration file, and apply those changes to update the database.
 
 ```dotnetcli
-dotnet tool install -g dotnet-ef
-dotnet ef migrations add InitialCreate
+dotnet tool install -g dotnet-ef \
+dotnet ef migrations add InitialCreate \
 dotnet ef database update
 ```
 

@@ -95,7 +95,7 @@ IoT Hub Device Twin sample
                     "state": 0,
                     "workflow": {
                         "action": 3,
-                        "id": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01"
+                        "id": "11b6a7c3-6956-4b33-b5a9-87fdd79d2f01",
                         "retryTimestamp": "2022-01-26T11:33:29.9680598Z"
                     },
                     "installedUpdateId": "{\"provider\":\"Contoso\",\"name\":\"Virtual-Vacuum\",\"version\":\"5.0\"}"
