@@ -44,7 +44,7 @@ The SHA solution for this scenario is made up of the following:
 
 **Application:** BIG-IP published service to be protected by and Azure AD SHA. The application host is domain-joined and so is integrated with Active Directory (AD).
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP.
 
 **KDC:** Key Distribution Center (KDC) role on a Domain Controller (DC), issuing Kerberos tickets.
 
