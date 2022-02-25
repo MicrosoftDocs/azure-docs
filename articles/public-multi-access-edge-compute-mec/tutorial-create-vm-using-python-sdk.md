@@ -232,7 +232,7 @@ In this tutorial, you learn how to:
 
 ## Run the script in your development environment
 
-1. Run the python script you copied from the previous section.
+1. Run the Python script you copied from the previous section.
 
    ```python
    python provision_vm_edge.py
@@ -278,7 +278,7 @@ To use SSH to connect to the VM in the Azure public MEC, the best method is to d
    ssh azureuser@<python-example-ip-edge>
    ```
 
-1. Ensure the Azure network security groups allow port 22 access to the VMs you create
+1. Ensure the Azure network security groups allow port 22 access to the VMs you create.
 
 ## Clean up resources
 

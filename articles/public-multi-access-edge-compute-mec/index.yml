@@ -38,7 +38,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create VM using ARM template
-            url: quickstart-create-vm-arm-template.md
+            url: quickstart-create-vm-azure-resource-manager-template.md
           - text: Create VM using Azure CLI
             url: quickstart-create-vm-cli.md
      
@@ -47,7 +47,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create VM using GO SDK
+          - text: Create VM using Go SDK
             url: tutorial-create-vm-using-go-sdk.md
           - text: Create VM using Python SDK
             url: tutorial-create-vm-using-python-sdk.md

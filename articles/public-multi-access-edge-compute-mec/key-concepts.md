@@ -27,7 +27,7 @@ SDKs for services supported in Azure public MEC have been updated. For informati
 
 ## ARM templates
 
-You can use ARM Templates to deploy resources in the Azure public MEC. Here's' an example of how `extendedLocation` is used in an Azure Resource Manager (ARM) template to deploy a virtual machine (VM):
+You can use ARM Templates to deploy resources in the Azure public MEC. Here's an example of how `extendedLocation` is used in an Azure Resource Manager (ARM) template to deploy a virtual machine (VM):
 
 ```json
 {
@@ -84,7 +84,7 @@ Resource Groups should  be created in the parent Azure region, and then can be a
 
 ### Storage Services
 
-Azure public MEC only supports creating Standard SSD Managed DiskS. All other storage services are currently not supported in the public MEC.
+Azure public MEC only supports creating Standard SSD Managed Disks. All other storage services are currently not supported in the public MEC.
 
 ### Default outbound access
 

@@ -226,7 +226,7 @@ func main() {
 
 ## Clean up resources
 
-In this tutorial, you created a VM in Azure public MEC by using the Python SDK. If you don't expect to need these resources in the future, use the Azure portal to delete the resource group that you created.
+In this tutorial, you created a VM in Azure public MEC by using the Go SDK. If you don't expect to need these resources in the future, use the Azure portal to delete the resource group that you created.
 
 ## Next steps
 

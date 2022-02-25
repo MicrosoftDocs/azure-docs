@@ -17,7 +17,7 @@ items:
   expanded: true
   items:
   - name: Create VM using ARM template
-    href: quickstart-create-vm-arm-template.md
+    href: quickstart-create-vm-azure-resource-manager-template.md
   - name: Create VM using Azure CLI
     href: quickstart-create-vm-cli.md
     displayName: az login, az account, az group, az vm, az network, jump server, SSH, Azure Virtual Network, VNet

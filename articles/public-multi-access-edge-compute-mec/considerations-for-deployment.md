@@ -72,18 +72,18 @@ Applications you deploy in the Azure public MEC can be made available and resili
 
 - Deploy resources in active/standby, with primary resources in the Azure public MEC and standby resources in the parent Azure region. If there's a failure in the Azure public MEC, the resources in the parent region become active.
 
-- Use the [Azure backup and disaster recover solution](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) and Azure Backup features. This solution:
+- Use the [Azure backup and disaster recovery solution](/azure/architecture/framework/resiliency/backup-and-recovery), which provides [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) and Azure Backup features. This solution:
   - Actively replicates VMs from the Azure public MEC to the parent region and makes them available to fail over and fail back if there's an outage.
   - Backs up VMs to prevent data corruption or lost data.
 
    > [!NOTE]
-   > The Azure Azure backup and disaster recover solution for Azure public MEC supports only Azure Virtual Machines.
+   > The Azure backup and disaster recovery solution for Azure public MEC supports only Azure Virtual Machines.
 
 A trade-off exists between availability and latency. Failing over the application from the Azure public MEC to the Azure region ensures that the application is available, but might increase the latency to the application.
 
 ## Next steps
 
-To deploy a virtual machine in Azure public MEC using an ARM template, advance to the following article:
+To deploy a virtual machine in Azure public MEC using an Azure Resource Manager template, advance to the following article:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template](quickstart-create-vm-arm-template.md)
+> [Quickstart: Deploy a virtual machine in Azure public MEC using an Azure Resource Manager template](quickstart-create-vm-azure-resource-manager-template.md)
