@@ -82,7 +82,7 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
 
 ## Pricing and SLA
 
-For pricing details, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network). NAT data path is at least 99.9% available.
+For pricing details, see [Virtual network pricing](https://azure.microsoft.com/pricing/details/virtual-network). For SLA details, see [Service-level agreements](https://azure.microsoft.com/support/legal/sla/).
 
 ## Next steps
 
