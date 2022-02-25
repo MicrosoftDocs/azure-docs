@@ -547,7 +547,7 @@ name. The translation is useful to determine the distribution column of a
 distributed table.
 
 For a more detailed discussion, see [choosing a distribution
-column](concepts-choose-distribution-column.md).
+column](howto-choose-distribution-column.md).
 
 #### Arguments
 
