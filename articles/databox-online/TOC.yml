@@ -39,7 +39,7 @@
       href: azure-stack-edge-pro-2-limits.md 
     - name: Review specifications
       href: azure-stack-edge-pro-2-technical-specifications-compliance.md
-    - name: Clustering (Preview)
+    - name: Clustering (preview)
       items:
       - name: What is clustering?
         href: azure-stack-edge-gpu-clustering-overview.md
@@ -100,7 +100,7 @@
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: FAQ - Billing model
       href: azure-stack-edge-gpu-faq-billing-model.yml
-    - name: Clustering (Preview)
+    - name: Clustering (preview)
       items:
       - name: What is clustering?
         href: azure-stack-edge-gpu-clustering-overview.md
@@ -153,7 +153,7 @@
       href: azure-stack-edge-gpu-deploy-configure-compute.md
   - name: How to
     items:
-    - name: Configure VPN (Preview)
+    - name: Configure VPN (preview)
       items:
       - name: Configure via Azure PowerShell
         href: azure-stack-edge-mini-r-configure-vpn-powershell.md 
@@ -200,7 +200,7 @@
       href: azure-stack-edge-gpu-deploy-configure-compute.md 
   - name: How to
     items:
-    - name: Configure VPN (Preview)
+    - name: Configure VPN (preview)
       items:
       - name: Configure via Azure PowerShell
         href: azure-stack-edge-mini-r-configure-vpn-powershell.md 
@@ -269,7 +269,7 @@
           href: azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md 
       - name: Deploy
         items:
-        - name: VMs - Azure portal (Preview)
+        - name: VMs - Azure portal (preview)
           href: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
         - name: VMs - templates
           href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md

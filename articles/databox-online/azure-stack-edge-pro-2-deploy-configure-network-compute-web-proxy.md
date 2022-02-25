@@ -180,12 +180,12 @@ Follow these steps to configure advanced network settings such as creating a swi
 1. In the local UI for one of the devices, go to the **Get started** page.
 1. In the **Set up a 2-node cluster** tile, select **Start**.
 
-    ![Local web UI "Set up a 2-node cluster" on "Get started" page](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/setup-type-two-node-1.png) 
+    ![Screenshot of the local web UI "Set up a 2-node cluster" on "Get started" page.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/setup-type-two-node-1.png) 
 
 1. In the local UI for the second device, go to the **Get started** page.
 1. In the **Prepare a node** tile, select **Start**.
 
-    ![Local web UI "Prepare a node" on "Get started" page](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/setup-type-prepare-node-1.png) 
+    ![Screenshot of the local web UI "Prepare a node" on "Get started" page.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/setup-type-prepare-node-1.png) 
 
 
 ## Configure network, topology

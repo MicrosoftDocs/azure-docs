@@ -88,25 +88,6 @@ The following network topologies are available:
 
 For more information, see how to [Choose a network topology for your device node](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-network).
 
-## Cluster deployment  
-
-Before you configure clustering on your device, you must cable the devices as per one of the supported network topologies that you intend to configure. To deploy a two-node infrastructure cluster on your Azure Stack Edge devices, follow these high-level steps:
-
-![Azure Stack Edge clustering deployment](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
-
-1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
-1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
-1. Start cluster creation on the first node. Choose the network topology that conforms to the cabling across the two nodes. The chosen topology would dictate the storage and clustering traffic between the nodes. See detailed steps in [Configure network and web proxy on your device](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
-1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Get the authentication token on this node.
-1. Use the authentication token from the prepared node and join this node to the first node to form a cluster.
-1. Set up a cloud witness using an Azure Storage account or a local witness on an SMB fileshare.
-1. Assign a virtual IP to provide an endpoint for Azure Consistent Services or when using NFS. 
-1. Assign compute or management intents to the virtual switches created on the network interfaces. You may also configure Kubernetes node IPs and Kubernetes service IPs here for the network interface enabled for compute.
-1. Optionally configure web proxy, set up device settings, configure certificates and then finally, activate the device.
-
-For more information, see the two-node device deployment tutorials starting with [Get deployment configuration checklist](azure-stack-edge-gpu-deploy-checklist.md).
-
-
 ### [Azure Stack Edge Pro 2](#tab/2) 
 
 On your Azure Stack Edge Pro 2 device node: 
@@ -116,22 +97,22 @@ On your Azure Stack Edge Pro 2 device node:
 
 The following network topologies are available:
 
-1. **Switchless** - Use this option when you don't have high speed switches available in the environment for storage and cluster traffic. There are further sub-options:
+- **Switchless** - Use this option when you don't have high speed switches available in the environment for storage and cluster traffic. There are further sub-options:
 
-    1. **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
+    - **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
     
-    1. **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet.
+    - **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet.
 
     In each case, Port 3 and Port 4 are connected back-to-back directly without a switch. These ports are dedicated to storage and Azure Stack Edge cluster traffic and aren't available for workload traffic. 
 
 
-1. **Using external switches** - Use this option when you have high speed switches (10 GbE switches) available for use with your device nodes for storage and cluster traffic. There are further sub-options:
+- **Using external switches** - Use this option when you have high speed switches (10 GbE switches) available for use with your device nodes for storage and cluster traffic. There are further sub-options:
 
-    1. **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
+    - **With Port 1 and Port 2 in separate subnets** - This is the default option. In this case, Port 1 and Port 2 have separate virtual switches and are connected to separate subnets.
     
-    1. **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet.
+    - **With Port 1 and Port 2 in same subnets** - In this case, Port 1 and Port 2 have a teamed virtual switch and both the ports are in the same subnet.
 
-    In each case, Port 3 and Port 4 are reserved for Private Multi-Access Edge Computing workload deployment. 
+    In each case, Port 3 and Port 4 are reserved for Private Multi-Access Edge Computing workload deployments. 
 
 The pros and cons for each of the above supported topologies can be summarized as follows:
 
@@ -156,11 +137,34 @@ The pros and cons for each of the above supported topologies can be summarized a
 |                                                                | Clients do not need to   reconnect.                                      |                                                                       |
 
 
-## Cluster deployment  
+---
+
+## Cluster deployment
+
+### [Azure Stack Edge Pro GPU](#tab/1)   
 
 Before you configure clustering on your device, you must cable the devices as per one of the supported network topologies that you intend to configure. To deploy a two-node infrastructure cluster on your Azure Stack Edge devices, follow these high-level steps:
 
-![Azure Stack Edge clustering deployment](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
+![Figure showing the steps in the deployment of a two-node Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
+
+1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md#cable-the-device).
+1. Start cluster creation on the first node. Choose the network topology that conforms to the cabling across the two nodes. The chosen topology would dictate the storage and clustering traffic between the nodes. See detailed steps in [Configure network and web proxy on your device](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Get the authentication token on this node.
+1. Use the authentication token from the prepared node and join this node to the first node to form a cluster.
+1. Set up a cloud witness using an Azure Storage account or a local witness on an SMB fileshare.
+1. Assign a virtual IP to provide an endpoint for Azure Consistent Services or when using NFS. 
+1. Assign compute or management intents to the virtual switches created on the network interfaces. You may also configure Kubernetes node IPs and Kubernetes service IPs here for the network interface enabled for compute.
+1. Optionally configure web proxy, set up device settings, configure certificates and then finally, activate the device.
+
+For more information, see the two-node device deployment tutorials starting with [Get deployment configuration checklist](azure-stack-edge-gpu-deploy-checklist.md).
+
+
+### [Azure Stack Edge Pro 2](#tab/2) 
+
+Before you configure clustering on your device, you must cable the devices as per one of the supported network topologies that you intend to configure. To deploy a two-node infrastructure cluster on your Azure Stack Edge devices, follow these high-level steps:
+
+![Figure showing the steps in the deployment of a two-node Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
 
 1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-pro-2-deploy-prep.md#create-a-new-resource).
 1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-pro-2-deploy-install.md#cable-the-device).
@@ -173,6 +177,7 @@ Before you configure clustering on your device, you must cable the devices as pe
 1. Optionally configure web proxy, set up device settings, configure certificates and then finally, activate the device.
 
 For more information, see the two-node device deployment tutorials starting with [Get deployment configuration checklist](azure-stack-edge-pro-2-deploy-checklist.md).
+
 ---
 
 ## Clustering workloads
