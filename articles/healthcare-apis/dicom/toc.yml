@@ -68,7 +68,12 @@ items:
       href: api-versioning-dicom-service.md
     - name: DICOM Conformance Statement
       href: dicom-services-conformance-statement.md
- 
+- name: References
+  expanded: true
+  items:
+    - name: DICOM service open-source projects
+      href: references-for-dicom-service
+
 
 
 
