@@ -90,9 +90,12 @@ Follow these steps to connect to Azure:
 
      ![Set default cluster configuration](./media/vscode-tool-synapse/set-default-cluster-configuration.png)
 
-## Submit interactive Synapse PySpark queries to Spark pool (Not supported currently)
+## Submit interactive Synapse PySpark queries to Spark pool (Not supported anymore)
 
-For Synapse Pyspark interactive, since its dependency will not be maintained anymore by other team, it will not be maintained anymore.  If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
+> [!NOTE]
+>
+>For Synapse Pyspark interactive, since its dependency will not be maintained anymore by other team, this will not be maintained anymore as well. If you trying to use Synapse Pyspark interactive, please switch to use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/en-us/) instead. And it's a long term change.
+> 
 
 Users can perform Synapse PySpark interactive on Spark pool in the following ways:
 
@@ -302,7 +305,9 @@ You can perform different operations in Azure Explorer within Spark & Hive tools
 
 ![known issues](./media/vscode-tool-synapse/known-issue.png)
 
- For Synapse PySpark installation error, since its dependency will not be maintained anymore by other team, it will not be maintained anymore. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
+### Not supported submit interactive Synapse PySpark queries to Spark pool anymore
+
+For Synapse Pyspark interactive, since its dependency will not be maintained anymore by other team, this will not be maintained anymore as well. If you trying to use Synapse Pyspark interactive, please switch to use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/en-us/) instead. And it's a long term change.
 
 ## Next steps
 

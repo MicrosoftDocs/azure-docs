@@ -39,10 +39,6 @@ After you meet the prerequisites, you can install Spark & Hive Tools for Visual 
 
 5. Select **Reload** when necessary.
 
-> [!Note]
->
-> **Synapse PySpark installation error** is an [known issue](#known-issues).
-
 ## Open a work folder
 
 To open a work folder and to create a file in Visual Studio Code, follow these steps:
@@ -168,7 +164,7 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
    - **MESSAGES** panel: When you select a **Line** number, it jumps to the first line of the running script.
 
-## Submit interactive PySpark queries
+## Submit interactive PySpark queries (Not supported Synapse PySpark interactive anymore)
 
 Users can perform PySpark interactive in the following ways:
 
@@ -264,9 +260,8 @@ The tool also supports the **Spark SQL** query:
 
 > [!NOTE]
 >
-> 1. [ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension](#known-issues) is a known issue. Please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
+> [For Synapse PySpark installation error](#known-issues), since its dependency will not be maintained anymore by other team, this will not be maintained anymore as well. If you trying to use Synapse Pyspark interactive, please switch to use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/en-us/) instead. And it's a long term change.
 >
-> 2. [For Synapse PySpark installation error](#known-issues), since it's dependency will not be maintained anymore by other team, it will not be maintained any more. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
 
 ## Submit PySpark batch job
 
@@ -491,22 +486,9 @@ From the menu bar, go to **View** > **Command Palette**, and then enter **Azure:
 
 ### Synapse PySpark installation error.
 
- For Synapse PySpark installation error, since its dependency will not be maintained anymore by other team, it will not be maintained anymore. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead.
+ For Synapse PySpark installation error, since its dependency will not be maintained anymore by other team, it will not be maintained anymore. If you trying to use Synapse Pyspark interactive, please use [Azure Synapse Analytics](https://ms.web.azuresynapse.net/) instead. And it's a long term change.
 
    ![synapse pyspark installation error](./media/hdinsight-for-vscode/known-issue.png)
-
-
-### ms-toolsai.jupyter >2021.3.684299474 version is not supported on this extension, please using Synapse kernel by sticking to Microsoft Jupyter 2021.3.684299474.
-
- 1. Disable auto updating extension.
-
-      ![disable auto updating extension](./media/hdinsight-for-vscode/disable-auto-updating-extension.png)
-
-2. Install a selected version of Microsoft Jupyter.
-
-      ![selected version of microsoft jupyter](./media/hdinsight-for-vscode/selected-version-of-microsoft-jupyter.png)
-
-3. Install  Microsoft Jupyter version 2021.3.684299474
 
 
 ## Next steps
