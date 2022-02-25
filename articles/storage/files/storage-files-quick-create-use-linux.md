@@ -4,16 +4,16 @@ description: This tutorial covers how to create and use an Azure file share in t
 author: khdownie
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/22/2022
+ms.date: 02/25/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: mode-ui
-#Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
+#Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
 
 # Tutorial: Create and manage Azure file shares with Linux virtual machines via the Azure portal
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). In this tutorial, you will learn a few ways you can use an Azure file share in a Linux virtual machine (VM) using the NFS protocol.
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). In this tutorial, you'll learn how to create an Azure file share using the NFS protocol and connect it to a Linux virtual machine (VM).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -139,7 +139,43 @@ Now you're ready to create an NFS file share.
 
 ## Deploy a Linux VM
 
-Next, create an Azure VM with Linux to represent the on-premises server.
+Next, create an Azure VM running Linux to represent the on-premises server.
+
+1. Select **Home**, and then select **Virtual machines** under **Azure services**.
+
+1. Select **+ Create** and then **+ Virtual machine**.
+
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription and resource group are selected. Under **Instance details**, type *myVM* for the **Virtual machine name**, and select the same region as your storage account. Choose the default Ubuntu Server version for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing is dependent on your region and subscription.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-project-instance-details.png" alt-text="Screenshot showing how to enter the project and instance details to create a new VM." lightbox="media/storage-files-quick-create-use-linux/create-vm-project-instance-details.png" border="true":::
+
+1. Under **Administrator account**, select **SSH public key**. Leave the rest of the defaults. 
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-admin-account.png" alt-text="Screenshot showing how to configure the administrator account and create an SSH key pair for a new VM." lightbox="media/storage-files-quick-create-use-linux/create-vm-admin-account.png" border="true":::
+
+1. Under **Inbound port rules > Public inbound ports**, choose **Allow selected ports** and then select **SSH (22) and HTTP (80)** from the drop-down.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" alt-text="Screenshot showing how to configure the inbound port rules for a new VM." lightbox="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" border="true":::
+
+   > [!IMPORTANT]
+   > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.  
+
+1. Select the **Review + create** button at the bottom of the page.
+
+1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. You may be asked for additional information, such as a preferred phone number for your Azure subscription. When you are ready, select **Create**.
+
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it in a later step.
+
+1. When the deployment is finished, select **Go to resource**.
+
+1. On the page for your new VM, select the public IP address and copy it to your clipboard. You'll need it to connect to your VM.
+
+    :::image type="content" source="media/storage-files-quick-create-use-linux/ip-address.png" alt-text="Screenshot showing how to find the public IP address for your new VM and copy it to your clipboard.":::
+
+## Connect to your VM
+
+
+
 
 ## Clean up resources
 
