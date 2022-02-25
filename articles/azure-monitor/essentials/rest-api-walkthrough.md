@@ -16,11 +16,8 @@ The Azure Monitor API makes it possible to programmatically retrieve the availab
 
 Besides working with various metric data points, the Monitor API also makes it possible to list alert rules, view activity logs, and much more. For a full list of available operations, see the [Microsoft Azure Monitor REST API Reference](/rest/api/monitor/).
 
-<note><para>The Azure Active Directory is in the process of being depreicated.  We now recommend the use of the [Microsoft Authentication Library (MSAL)](/active-directory/develop/msal-overview.md)</para></note>
-
-## Authenticating Azure Monitor requests
-
-The first step is to authenticate the request.
+## Authenticating Azure Monitor requests  
+   
 
 All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](/powershell/azure/create-azure-service-principal-azureps). It is also possible to [create a service principal via the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md).
 
