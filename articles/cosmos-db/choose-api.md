@@ -11,7 +11,7 @@ ms.date: 12/08/2021
 # Choose an API in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-📺 [Video: Explore Azure Cosmos DB APIs](https://aka.ms/cosmos-db-video-explore-cosmos-db-apis)
+📺 <B><a href="https://aka.ms/cosmos-db-video-explore-cosmos-db-apis" target="_blank">Video: Explore Azure Cosmos DB APIs</a></b>
 
 Azure Cosmos DB is a fully managed NoSQL database for modern app development. Azure Cosmos DB takes database administration off your hands with automatic management, updates, and patching. It also handles capacity management with cost-effective serverless and automatic scaling options that respond to application needs to match capacity with demand.
 

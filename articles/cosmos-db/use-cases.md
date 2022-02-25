@@ -11,7 +11,7 @@ ms.date: 05/21/2019
 # Common Azure Cosmos DB use cases
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-📺 [Video: Explore top Azure Cosmos DB use cases](https://aka.ms/cosmos-db-video-top-cosmos-db-use-cases)
+📺 <B><a href="https://aka.ms/cosmos-db-video-top-cosmos-db-use-cases" target="_blank">Video: Top Azure Cosmos DB use cases</a></b>
 
 This article provides an overview of several common use cases for Azure Cosmos DB.  The recommendations in this article serve as a starting point as you develop your application with Cosmos DB.
 
