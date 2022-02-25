@@ -34,11 +34,11 @@ Therefore, pricing is determined with the following criteria:
 
 Each calendar month, the following items are included for free<sup>1</sup>, per subscription:
 
-    | Metric | Quantity |
-    |--|--|
-    | Requests | ?? |
-    | vCPU seconds | ?? |
-    | GiB-seconds | ?? |
+| Metric | Quantity |
+|--|--|
+| Requests | ?? |
+| vCPU seconds | ?? |
+| GiB-seconds | ?? |
   
 <sup>1</sup> The free grant applies to the total resources consumed when replicas are in either in an active or idle state.
 
