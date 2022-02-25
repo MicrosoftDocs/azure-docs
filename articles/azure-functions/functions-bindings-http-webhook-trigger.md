@@ -547,11 +547,11 @@ The following table explains the trigger configuration properties that you set i
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) annotation, which supports the following settings:
 
-    + [authLevel](/java/api/com.microsoft.azure.functions.annotation.httptrigger.authlevel)
-    + [dataType](/java/api/com.microsoft.azure.functions.annotation.httptrigger.datatype)
-    + [methods](/java/api/com.microsoft.azure.functions.annotation.httptrigger.methods)
-    + [name](/java/api/com.microsoft.azure.functions.annotation.httptrigger.name)
-    + [route](/java/api/com.microsoft.azure.functions.annotation.httptrigger.route)
++ [authLevel](/java/api/com.microsoft.azure.functions.annotation.httptrigger.authlevel)
++ [dataType](/java/api/com.microsoft.azure.functions.annotation.httptrigger.datatype)
++ [methods](/java/api/com.microsoft.azure.functions.annotation.httptrigger.methods)
++ [name](/java/api/com.microsoft.azure.functions.annotation.httptrigger.name)
++ [route](/java/api/com.microsoft.azure.functions.annotation.httptrigger.route)
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  

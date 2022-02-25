@@ -18,7 +18,7 @@ This is reference information for Azure Functions developers. If you're new to A
     * [C# script](../articles/azure-functions/functions-reference-csharp.md)
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-* [Create your first function](../articles/azure-functions/create-first-function-vs-code-node). 
+* [Create your first function](../articles/azure-functions/create-first-function-vs-code-node.md). 
 
 * [JavaScript developer reference](../articles/azure-functions/functions-reference-node.md).
 ::: zone-end

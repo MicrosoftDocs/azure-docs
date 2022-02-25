@@ -2,12 +2,12 @@
 title: Azure Functions Twilio binding
 description: Understand how to use Twilio bindings with Azure Functions.
 author: ggailey777
-
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.devlang: csharp, java, javascript, python
 ms.custom: "devx-track-csharp, H1Hack27Feb2017"
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Twilio binding for Azure Functions
@@ -397,7 +397,7 @@ The following table explains the binding configuration properties that you set i
 
 # [Functions v2.x+](#tab/functionsv2)
  
-| function.json property | |Description|
+| function.json property | Description|
 |---------|------------------------|
 |**type**| must be set to `twilioSms`.|
 |**direction**| must be set to `out`.|
