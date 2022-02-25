@@ -823,6 +823,9 @@ items:
     href: concepts/model-lifecycle.md
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
+  - name: Service limits
+    href: concepts/data-limits.md
+    displayName: Data limits, maximum
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
