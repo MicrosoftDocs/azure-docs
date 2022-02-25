@@ -276,6 +276,12 @@ After the migration completes, your Azure SQL database will have the correct sch
 
 If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
 
+### [Visual Studio](#tab/vs-win)
+
+Visual Studio does not currently have UI gestures for Entity Framework migrations. Please follow the instructions under the **Azure CLI** tab.
+
+---
+
 ## 7 - Browse the Deployed Application and File Directory
 
 Navigate back to your web app in the browser. You can always get back to your site by clicking the **Browse** link at the top of the App Service overview page. If you refresh the page, you can now create todos and see them displayed on the home page. Congratulations!
@@ -341,6 +347,13 @@ Refresh the home page in the app or attempt other requests to generate some log 
 2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.Routing.Matching.DfaMatcher: 1 candidate(s) found for the request path '/'
 2022-01-06 22:37:16.195 +00:00 [Debug] Microsoft.AspNetCore.Routing.Matching.DfaMatcher: Endpoint 'DotNetCoresql-db.Controllers.TodosController.Index (DotNetCoresql-db)' with route pattern '{controller=Todos}/{action=Index}/{id?}' is valid for the request path '/'
 ```
+
+### [Visual Studio](#tab/vs-win)
+
+| Instructions    | Screenshot |
+|:----------------|-----------:|
+| [!INCLUDE [Stream logs from Visual Studio 1](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-stream-logs-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-stream-logs-1-240px.png" alt-text="A screenshot showing how to enable streaming logging for the web app in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-stream-logs-1.png"::: |
+| [!INCLUDE [Stream logs from Visual Studio 2](<./includes/tutorial-dotnetcore-sqldb-app/visual-studio-stream-logs-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/visual-studio-stream-logs-2-240px.png" alt-text="A screenshot showing application logs in Visual Studio." lightbox="./media/tutorial-dotnetcore-sqldb-app/visual-studio-stream-logs-2.png"::: |
 
 ---
 
