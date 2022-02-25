@@ -129,8 +129,6 @@ You can install this version of the extension in your function app by registerin
 
 # [Functions 1.x](#tab/functionsv1)
 
-Functions 1.x apps automatically have a reference to the extension.
-
 The Event Grid output binding is only available for Functions 2.x and higher.
 
 ---
