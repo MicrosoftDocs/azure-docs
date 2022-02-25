@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Azure Blob storage library v12 - JavaScript"
-description: In this quickstart, you learn how to use the Azure Blob storage blob package version 12 for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+description: In this quickstart, you learn how to use the Azure Blob storage blob npm package version 12 for JavaScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: normesta
 ms.author: normesta
 ms.date: 02/25/2022
@@ -24,20 +24,19 @@ These example code snippets show you how to perform the following with the Azure
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
 
-More resources:
+* [GitHub sample code](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/quickstarts/JavaScript/V12/nodejs)
 
-- [API reference documentation](/javascript/api/@azure/storage-blob)
-- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
-- [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob)
-- [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Additional resources:
+
+[API reference documentation](/javascript/api/@azure/storage-blob) |
+[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
 - [Node.js LTS](https://nodejs.org/en/download/).
-- [Visual Studio Code](https://code.visualstudio.com/) as an optional IDE
-
+- [Microsoft Visual Studio Code](https://code.visualstudio.com)
 
 ## Object model
 
@@ -79,13 +78,25 @@ Create a JavaScript application named *blob-quickstart-v12*.
     npm init -y
     ```
 
+1. Open the project in Visual Studio Code:
+
+    ```console
+    code .
+    ```
+
 ## Install the npm package for blob storage
 
-Install the Azure Storage package and other dependencies for this quickstart:
+1. Install the Azure Storage npm package:
 
-```console
-npm install @azure/storage-blob uuid dotenv
-```
+    ```console
+    npm install @azure/storage-blob
+    ```
+    
+1. Install other dependencies used in this quickstart:
+
+    ```console
+    npm install uuid dotenv
+    ```
 
 ## Create JavaScript file
 
@@ -172,7 +183,7 @@ The preceding code cleans up the resources the app created by removing the entir
 
 ## Run the code
 
-1. From a console prompt, run the app.
+1. From a Visual Studio Code terminal, run the app.
 
     ```console
     node index.js
@@ -200,6 +211,10 @@ The preceding code cleans up the resources the app created by removing the entir
     ```
 
 Step through the code in your debugger and check your [Azure portal](https://portal.azure.com) throughout the process. Check to see that the container is being created. You can open the blob inside the container and view the contents.
+
+## Use the storage emulator
+
+This quickstart created a container and blob on the Azure cloud. You can also use the Azure Blob storage npm package to create these resources locally on the [Azure Storage emulator](/azure/storage/common/storage-use-emulator) for development and testing. 
 
 ## Clean up 
 
