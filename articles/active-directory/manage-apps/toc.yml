@@ -16,8 +16,6 @@
       href: add-application-portal-assign-users.md
     - name: Enable single sign-on
       href: add-application-portal-setup-sso.md
-    - name: Configure properties
-      href: add-application-portal-configure.md
     - name: View applications
       href: view-applications-portal.md
     - name: Delete applications
@@ -47,6 +45,8 @@
       href: overview-application-gallery.md
     - name: Application ownership
       href: overview-assign-app-owners.md
+    - name: Application properties
+      href: application-properties.md
     - name: Application security
       items:
       - name: App access options
@@ -88,10 +88,12 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: List of app integration tutorials
+    - name: Application integration guidance
       href: ../saas-apps/tutorial-list.md
     - name: Assign owners
       href: assign-app-owners.md
+    - name: Configure properties
+      href: add-application-portal-configure.md
     - name: Manage access
       items:
       - name: Manage consent and permissions
