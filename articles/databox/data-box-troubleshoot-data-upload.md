@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 02/23/2022
+ms.date: 02/24/2022
 ms.author: alkohli
 ---
 
@@ -29,11 +29,11 @@ The error notification and Azure portal options are different depending on wheth
 
 When a file upload fails because of an error, you'll receive a notification in the Azure portal. You can tell whether the error can be fixed by the status and options in the order overview.
 
-If you can fix the error in the current order, the notification looks similar to the following one. The **pane** tells how to resolve the error. After resolving all errors, you'll resume the upload. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
+**Retryable errors**: If you can fix the error in the current order, the notification looks similar to the following one. The current order status is **Data copy halted**. You can either choose to resolve the error or proceed with data erasure without making any change. If you select **Resolve error**, a **Resolve error** screen will tell you how to resolve each error. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
 
 ![Screenshot of a Data Box order with retryable upload errors. The Data Copy Halted status and notification are highlighted.](media/data-box-troubleshoot-data-upload/data-box-retryable-errors-01.png)
  
-If the error can't be fixed, the notification looks similar to the following one. The errors are listed in the data copy log, which you can open using the **DATA COPY PATH**. For guidance on resolving the errors, see [Summary of non-retryable upload errors](#summary-of-non-retryable-upload-errors).
+**Non-retryable errors:** If the error can't be fixed in the current order, the notification looks similar to the following one. The current order status is **Data copy completed with errors. Device pending data erasure**. The errors are listed in the data copy log, which you can open using the **DATA COPY PATH**. For guidance on resolving the errors, see [Summary of upload errors](#summary-of-upload-errors).
 
 ![Screenshot of a Data Box order with retryable upload errors. TELL WHAT IS HIGHLIGHTED.](media/data-box-troubleshoot-data-upload/copy-completed-with-errors-notification-01.png)
 
@@ -44,7 +44,7 @@ After you review the errors and confirm that you're ready to proceed, the data w
 
 ## Review errors and proceed
 
-INTRO
+How you proceed with an upload depends on whether the errors can be fixed and the current upload resumed (see **Retryable errors** tab), or the errors can't be fixed in the current order (see the **Non-retryable errors** tab).
 
 # [Retryable errors](#tab/retryable-errors)
 
@@ -88,7 +88,7 @@ The order will be completed automatically after 14 days. By acting on the notifi
 
 ## Summary of upload errors
 
-INTRO
+Review the summary tables on the **Retryable errors** tab or the **Non-retryable errors** tab to find out how to resolve or follow up on data copy errors that occurred during your upload.
 
 # [Retryable errors](#tab/retryable-errors)
 
@@ -96,11 +96,11 @@ The following retryable errors result in a notification. Each table entry links 
 
 | Error message | Error description | Recommended action |
 |---------------|-------------------|--------------------|
-|Large file share not enabled on account |Large file shares aren’t enabled on one or more storage accounts. Resolve the error and resume data copy, or skip to data erasure and complete the order. | TBD. |
-|Storage account deleted or moved|One or more storage accounts were moved or deleted. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts deleted or moved**<br>Storage accounts: SA1, SA2, SA3 were either deleted, or moved to a different subscription or resource group. Recover or re-create the storage accounts with the original set of properties, and then confirm to resume data copy.<br>[Learn more on how to recover a storage account](../storage/common/storage-account-recover.md). |
-|Storage account location changed|One or more storage accounts were moved to a different region. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts location changed**<br>Storage accounts: SA1, SA2, SA3 were moved to a different region. Restore the account to the original destination region and then confirm to resume data copy.<br>[Learn more on how to move storage accounts](../storage/common/storage-account-move.md). |
-|Virtual network restriction on storage account|One or more storage accounts are behind a virtual network and have restricted access. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts behind virtual network**<br>Storage accounts: SA1, SA2, SA3 were moved behind a virtual network. Add Data Box to the list of trusted services to allow access and then confirm to resume data copy.<br>[Learn more about trusted first party access](../storage/common/storage-network-security.md#exceptions). |
-|Storage account owned by a different tenant|One or more storage accounts were moved under a different tenant. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts moved to a different tenant**<br>Storage accounts: SA1, SA2, SA3 were moved to a different tenant. Restore the account to the original tenant and then confirm to resume data copy.<br>[Learn more on how to move storage accounts](../storage/common/storage-account-recover.md#recover-a-deleted-account-via-a-support-ticket). |
+|Large file share not enabled on account |Large file shares aren’t enabled on one or more storage accounts. Resolve the error and resume data copy, or skip to data erasure and complete the order. | TBD.<!--Get recommended action for this error.--> |
+|Storage account deleted or moved|One or more storage accounts were moved or deleted. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts deleted or moved**<br>Storage accounts: `<*list of storage accounts*>` were either deleted, or moved to a different subscription or resource group. Recover or re-create the storage accounts with the original set of properties, and then confirm to resume data copy.<br>[Learn more on how to recover a storage account](../storage/common/storage-account-recover.md). |
+|Storage account location changed|One or more storage accounts were moved to a different region. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts location changed**<br>Storage accounts: `<*list of storage accounts*>` were moved to a different region. Restore the account to the original destination region and then confirm to resume data copy.<br>[Learn more on how to move storage accounts](../storage/common/storage-account-move.md). |
+|Virtual network restriction on storage account|One or more storage accounts are behind a virtual network and have restricted access. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts behind virtual network**<br>Storage accounts: `<*list of storage accounts*>` were moved behind a virtual network. Add Data Box to the list of trusted services to allow access and then confirm to resume data copy.<br>[Learn more about trusted first party access](../storage/common/storage-network-security.md#exceptions). |
+|Storage account owned by a different tenant|One or more storage accounts were moved under a different tenant. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts moved to a different tenant**<br>Storage accounts: `<*list of storage accounts*>` were moved to a different tenant. Restore the account to the original tenant and then confirm to resume data copy.<br>[Learn more on how to move storage accounts](../storage/common/storage-account-recover.md#recover-a-deleted-account-via-a-support-ticket). |
 |Kek user identity not found|The user identity that has access to the customer-managed key wasn’t found in the active directory. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**User identity not found**<br>Applied a customer-managed key but the user assigned identity that has access to the key was not found in the active directory.<br>This error may occur if a user identity is deleted from Azure.<br>Try adding another user-assigned identity to your key vault to enable access to the customer-managed key. For more information, see how to [Enable the key](data-box-customer-managed-encryption-key-portal.md#enable-key).<br>Confirm to resume data copy after the error is resolved. |
 |Cross tenant identity access not allowed|Managed identity couldn’t access the customer-managed key. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Cross tenant identity access not allowed**<br>Managed identity couldn’t access the customer-managed key.<br>This error may occur if a subscription is moved to a different tenant. To resolve this error, manually move the identity to the new tenant.<br>Try adding another user-assigned identity to your key vault to enable access to the customer-managed key. For more information, see how to [Enable the key](data-box-customer-managed-encryption-key-portal.md#enable-key).<br>Confirm to resume data copy after the error is resolved. |
 |Key details not found|Couldn’t fetch the passkey as the customer-managed key wasn’t found. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Key details not found**<br>If you deleted the key vault, you can't recover the customer-managed key. If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](../key-vault/general/move-subscription.md). If you deleted the key vault and it is still in the purge-protection duration, use the steps at [Recover a key vault](../key-vault/general/key-vault-recovery.md?tabs=azure-powershell#key-vault-powershell).<br>If the key vault was migrated to a different tenant, use one of the following steps to recover the vault:<ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity` = `None` and then set the value back to `Identity` = `SystemAssigned`. This deletes and recreates the identity after the new identity is created. Enable `Get`, `WrapKey`, and `UnwrapKey` permissions for the new identity in the key vault's access policy.</li></ol> |
@@ -130,7 +130,6 @@ The following non-retryable errors result in a notification:
 |UploadErrorCloudHttp              |409        |The blob type is invalid for this operation. [Learn more](#the-blob-type-is-invalid-for-this-operation).|
 |UploadErrorCloudHttp              |409        |There is currently a lease on the blob and no lease ID was specified in the request. [Learn more](#there-is-currently-a-lease-on-the-blob-and-no-lease-id-was-specified-in-the-request).|
 |UploadErrorManagedConversionError |409        |The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. [Learn more](#the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib)|
-<!--Temporarily removed from table: Bad Request (file property failure for Azure Files)-->
 
 For more information about the data copy log's contents, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
 
