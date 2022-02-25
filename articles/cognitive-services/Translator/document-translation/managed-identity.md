@@ -24,12 +24,12 @@ Managed identities for Azure resources are service principals that create an Azu
 
 * You can use managed identities to grant access to any resource that supports Azure AD authentication, including your own applications. Managed identities eliminate the need for you to include shared access signature tokens (SAS) with your HTTP requests.
 
-* To grant access to an Azure resource, assign an Azure role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md).
+* To grant access to an Azure resource, you'll assign an Azure role to a managed identity using [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/overview.md).
 
 * There's no added cost to use managed identities in Azure.
 
 > [!TIP]
-> Managed identities are a safer way to grant access to data without having SAS tokens in your code.
+> Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
 
 ## Prerequisites
 
@@ -118,7 +118,7 @@ The **Storage Blob Data Contributor** role gives Translator (represented by the 
 
     :::image type="content" source="../media/managed-identities/assigned-roles-window.png" alt-text="Screenshot: Azure role assignments window.":::
 
- Great! You've completed the steps to enable a system-assigned managed identity. With managed identity and Azure RBAC, you granted Translator specific access rights to your storage resource without having to include SAS tokens with your HTTP requests.
+## HTTP requests
 
 A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. The translated documents will appear in your target container.
 
@@ -223,6 +223,8 @@ The following headers are included with each Document Translator API request:
     ]
 }
 ```
+
+ Great! You've learned how to enable and use a system-assigned managed identity. With managed identity and Azure RBAC, you granted Translator specific access rights to your storage resource without having to include SAS tokens with your HTTP requests.
 
 ## Next steps
 

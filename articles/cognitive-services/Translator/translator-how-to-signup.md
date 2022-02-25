@@ -52,7 +52,7 @@ The Translator service can be accessed through two different resource types:
 
 1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-1. **Resource Region**. Choose **Global** unless your business or application requires a specific region or you plan to use shared access signature (SAS) tokens for authentication. If you are planning on using a [system-assigned managed identity](managed-identity.md) you **must** choose a non-global region.
+1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you are planning on using the Document Translation feature with managed identity authentication, choose a non-global region.
 
 1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 
@@ -64,7 +64,7 @@ The Translator service can be accessed through two different resource types:
    * Each subscription has a free tier.
    * The free tier has the same features and functionalities as paid plans and doesn't expire.
    * Only have one free subscription per account is allowed.
-   * Document Translation is not supported in the free tier. Select Standard S1 to try the service.
+   * Document Translation is not supported in the free tier. Select Standard S1 to try that feture.
 
 1. If you have created a multi-service resource, you will need to confirm additional usage details via the check boxes.
 

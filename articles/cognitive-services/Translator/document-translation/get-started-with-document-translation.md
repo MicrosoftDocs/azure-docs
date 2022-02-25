@@ -24,7 +24,7 @@ ms.custom: mode-other
 >
 > * Generally, when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key or a single-service subscription key. However, Document Translation is currently supported in the Translator (single-service) resource only, and is **not** included in the Cognitive Services (multi-service) resource.
 >
-> * Document Translation is **only** available in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
+> * Document Translation is **only** supported in the S1 Standard Service Plan (Pay-as-you-go) or in the D3 Volume Discount Plan. _See_ [Cognitive Services pricing—Translator](https://azure.microsoft.com/pricing/details/cognitive-services/translator/).
 >
 
 To get started, you'll need:
@@ -35,13 +35,13 @@ To get started, you'll need:
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
-  **Project and instance details**
+  **Translator project and instance details**
 
   1. **Subscription**. Select one of your available Azure subscriptions.
 
   1. **Resource Group**. You can create a new resource group or add your resource to a pre-existing resource group that shares the same lifecycle, permissions, and policies.
 
-  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region or you plan to use shared access signature (SAS) tokens for authentication. If you're planning on using a [system-assigned managed identity](managed-identity.md) you **must** choose a non-global region.
+  1. **Resource Region**. Choose **Global** unless your business or application requires a specific region. If you're planning on using a [system-assigned managed identity](managed-identity.md) for authentication, choose a **non-global** region.
 
   1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 
@@ -110,11 +110,11 @@ The `sourceUrl` , `targetUrl` , and optional `glossaryUrl`  must include a Share
 >
 > * If you're translating **multiple** files (blobs) in an operation, **delegate SAS access at the  container level**.
 > * If you're translating a **single** file (blob) in an operation, **delegate SAS access at the blob level**.
-> * You can use a [**system-assigned managed identity**](managed-identity.md) as an alternative to using SAS tokens for authentication.
+> * As an alternative to SAS tokens, you can use a [**system-assigned managed identity**](managed-identity.md) for authentication.
 
 ## HTTP requests
 
-A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. The translated documents will appear in your target container.
+A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. The translated documents will be listed in your target container.
 
 ### HTTP headers
 
@@ -160,8 +160,8 @@ The following headers are included with each Document Translator API request:
 
 ### Translate a specific document in a container
 
-* Ensure you've specified "storageType": "File"
-* Ensure you have created source URL & SAS token for the specific blob/document (not for the container)
+* Specify `"storageType": "File"`
+* If you aren't using a [**system-assigned managed identity**](managed-identity.md) for authentication, make sure you've created source URL & SAS token for the specific blob/document (not for the container)
 * Ensure you've specified the target filename as part of the target URL – though the SAS token is still for the container.
 * Sample request below shows a single document getting translated into two target languages
 
