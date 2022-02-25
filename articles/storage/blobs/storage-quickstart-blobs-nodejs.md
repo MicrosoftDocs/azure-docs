@@ -15,7 +15,7 @@ ms.custom: devx-track-js, mode-api
 
 In this quickstart, you learn to manage blobs by using Node.js. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. 
 
-These example code snippets show you how to perform the following with the Azure Blob storage package library for JavaScript:
+These [**example code**](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/quickstarts/JavaScript/V12/nodejs) snippets show you how to perform the following with the Azure Blob storage package library for JavaScript:
 
 - [Get the connection string](#get-the-connection-string)
 - [Create a container](#create-a-container)
@@ -24,12 +24,10 @@ These example code snippets show you how to perform the following with the Azure
 - [Download blobs](#download-blobs)
 - [Delete a container](#delete-a-container)
 
-* [GitHub sample code](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/quickstarts/JavaScript/V12/nodejs)
-
 Additional resources:
 
-[API reference documentation](/javascript/api/@azure/storage-blob) |
-[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API reference](/javascript/api/@azure/storage-blob) |
+[Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 

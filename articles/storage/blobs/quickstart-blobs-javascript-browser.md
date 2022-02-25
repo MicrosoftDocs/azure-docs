@@ -16,7 +16,7 @@ ms.custom: devx-track-js, mode-api
 
 Azure Blob storage is optimized for storing large amounts of unstructured data. Blobs are objects that can hold text or binary data, including images, documents, streaming media, and archive data. In this quickstart, you learn to manage blobs by using JavaScript in a browser. You'll upload and list blobs, and you'll create and delete containers.
 
-The example code shows you how to accomplish the following tasks with the Azure Blob storage client library for JavaScript:
+The [**example code**](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser) shows you how to accomplish the following tasks with the Azure Blob storage client library for JavaScript:
 
 - [Declare fields for UI elements](#declare-fields-for-ui-elements)
 - [Add your storage account info](#add-your-storage-account-info)
@@ -26,11 +26,9 @@ The example code shows you how to accomplish the following tasks with the Azure 
 - [Upload blobs](#upload-blobs)
 - [Delete blobs](#delete-blobs)
 
-* [GitHub sample code](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser)
-
 Additional resources:
 
-[API reference documentation](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API reference](/javascript/api/@azure/storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
@@ -38,10 +36,7 @@ Additional resources:
 - [An Azure Storage account](../common/storage-account-create.md)
 - [Node.js LTS](https://nodejs.org/en/download/)
 - [Microsoft Visual Studio Code](https://code.visualstudio.com)
-- A Visual Studio Code extension for browser debugging, such as:
-  - [Debugger for Microsoft Edge](https://devblogs.microsoft.com/visualstudio/debug-javascript-in-microsoft-edge-from-visual-studio/)
-  - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
-  - [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
+
 
 ## Object model
 
@@ -61,7 +56,7 @@ In this quickstart, you'll use the following JavaScript classes to interact with
 - [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
 - [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): The `BlockBlobClient` class allows you to manipulate Azure Storage blobs.
 
-## Configure storage account for access from a browser
+## Configure storage account for browser access
 
 To programmatically access your storage account from a web browser, you need to configure CORS access and create an SAS connection string.
 
