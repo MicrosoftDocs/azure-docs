@@ -34,7 +34,7 @@ Once you find the asset you are looking for, you can view all of its details, ed
 - **Schema** - The schema of the asset including column names, data types, column level classifications, terms, and descriptions are represented in the schema tab.
 - **Lineage** - This tab contains lineage graph details for assets where it is available.
 - **Contacts** - Every asset can have an assigned owner and expert that can be viewed and managed from the contacts tab.
-- **Related** - This tab lets you navigate through the technical hierarchy of to see assets that are related to the current asset you are viewing.
+- **Related** - This tab lets you navigate through the technical hierarchy of assets that are related to the current asset you are viewing.
 
 ## Asset overview
 The overview section of the asset details gives you a summarized view of an asset. The sections that follow explains the different parts of the overview page.
