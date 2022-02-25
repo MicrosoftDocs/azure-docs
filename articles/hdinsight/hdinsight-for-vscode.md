@@ -312,7 +312,7 @@ You can follow the normal steps to sign in to Azure subscription to connect to y
 
 For run a hive job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive Hive queries and Hive batch scripts](#submit-interactive-hive-queries-and-hive-batch-scripts) for more instructions.
 
-For run an interactive PySpark job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive PySpark queries](#submit-interactive-pyspark-queries) for more instructions.
+For run an interactive PySpark job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit interactive PySpark queries](#submit-interactive-pyspark-queries-not-supported-synapse-pyspark-interactive-anymore) for more instructions.
 
 For run a PySpark batch job, you can follow the normal steps to submit job to HDInsight ESP cluster with ID Broker (HIB). Refer to [Submit PySpark batch job](#submit-pyspark-batch-job) for more instructions.
 
