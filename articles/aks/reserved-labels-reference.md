@@ -10,7 +10,7 @@ Since [Release 2021-08-19][aks-release-2021-gh], Azure Kubernetes Service (AKS) 
 
 ## Reserved system labels
 
-The following lists of labels are reserved for use by AKS. Virtual node usage specifies if these labels could be a supported system feature on virtual nodes. 
+The following lists of labels are reserved for use by AKS. *Virtual node usage* specifies if these labels could be a supported system feature on virtual nodes. 
 
 Some properties that these system features change aren't available on the virtual nodes, because they require modifying the host.
 
