@@ -68,7 +68,7 @@ A pipeline runs on a compute target, which is a compute resource that's attached
 
 
 > [!Important]
-> Attached compute is not supported, use cmopute instance or clusters instead.
+> Attached compute is not supported, use [compute instances or clusters](concept-compute-target.md#azure-machine-learning-compute-managed) instead.
 
 You can set a **Default compute target** for the entire pipeline, which will tell every component to use the same compute target by default. However, you can specify compute targets on a per-module basis.
 
