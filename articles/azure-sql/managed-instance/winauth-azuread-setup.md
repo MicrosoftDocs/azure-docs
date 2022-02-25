@@ -101,7 +101,11 @@ See [Configure Azure SQL Managed Instance for Windows Authentication for Azure A
 
 The following limitations apply to Windows Authentication for Azure AD principals on Azure SQL Managed Instance:
 
-###	 Azure AD cached logon
+###	Not available for Linux clients
+
+Windows Authentication for Azure AD principals is currently supported only for client machines running Windows.
+
+###	Azure AD cached logon
 
 Windows limits how often it connects to Azure AD, so there is a potential for user accounts to not have a refreshed Kerberos Ticket Granting Ticket (TGT) within 4 hours of an upgrade or fresh deployment of a client machine.  User accounts who do not have a refreshed TGT results in failed ticket requests from Azure AD.  
 

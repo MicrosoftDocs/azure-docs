@@ -34,7 +34,7 @@ This command should return a ticket from the `kerberos.microsoftonline.com` real
 
 Here are some well known error codes:
 
-- **0x6fb: SQL SPN not found** - Check that you’ve entered valid SPN. If you've implemented the incoming trust-based authentication flow, revisit steps to [create and configure the Azure AD Kerberos Trusted Domain Object](winauth-azuread-setup-incoming-trust-based-flow.md#create-and-configure-the-azure-ad-kerberos-trusted-domain-object) to validate that you’ve performed all the configuration steps.
+- **0x6fb: SQL SPN not found** - Check that you’ve entered a valid SPN. If you've implemented the incoming trust-based authentication flow, revisit steps to [create and configure the Azure AD Kerberos Trusted Domain Object](winauth-azuread-setup-incoming-trust-based-flow.md#create-and-configure-the-azure-ad-kerberos-trusted-domain-object) to validate that you’ve performed all the configuration steps.
 - **0x51f** - This error is likely related to a conflict with the Fiddler tool. Turn on Fiddler to mitigate the issue.
 
 ## Investigate message flow failures
