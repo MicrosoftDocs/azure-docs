@@ -1,20 +1,20 @@
 ---
-title: SSH into Azure Kubernetes Service (AKS) cluster nodes
-description: Learn how to create an SSH connection with Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
+title: Connect to Azure Kubernetes Service (AKS) cluster nodes
+description: Learn how to connect to Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 services: container-service
 ms.topic: article
-ms.date: 05/17/2021
+ms.date: 02/25/2022
 
 ms.custom: contperf-fy21q4
 
-#Customer intent: As a cluster operator, I want to learn how to use SSH to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
+#Customer intent: As a cluster operator, I want to learn how to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
-# Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting
+# Connect to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting
 
-Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access AKS nodes using SSH, including Windows Server nodes. You can also [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp]. For security purposes, the AKS nodes aren't exposed to the internet. To SSH to the AKS nodes, you use `kubectl debug` or the private IP address.
+Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access AKS nodes using SSH, including Windows Server nodes. You can also [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp]. For security purposes, the AKS nodes aren't exposed to the internet. To connect to the AKS nodes, you use `kubectl debug` or the private IP address.
 
-This article shows you how to create an SSH connection with an AKS node.
+This article shows you how to create a connection to an AKS node.
 
 ## Before you begin
 
@@ -24,9 +24,9 @@ This article also assumes you have an SSH key. You can create an SSH key using [
 
 You also need the Azure CLI version 2.0.64 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Create the SSH connection to a Linux node
+## Create an interactive shell connection to a Linux node
 
-To create an SSH connection to an AKS node, use `kubectl debug` to run a privileged container on your node. To list your nodes, use `kubectl get nodes`:
+To create an interactive shell connection to a Linux node, use `kubectl debug` to run a privileged container on your node. To list your nodes, use `kubectl get nodes`:
 
 ```output
 $ kubectl get nodes -o wide
@@ -40,13 +40,13 @@ aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.
 Use `kubectl debug` to run a container image on the node to connect to it.
 
 ```azurecli-interactive
-kubectl debug node/aks-nodepool1-12345678-vmss000000 -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+kubectl debug node/aks-nodepool1-12345678-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
 ```
 
-This command starts a privileged container on your node and connects to it over SSH.
+This command starts a privileged container on your node and connects to it.
 
 ```output
-$ kubectl debug node/aks-nodepool1-12345678-vmss000000 -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+$ kubectl debug node/aks-nodepool1-12345678-vmss000000 -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
 Creating debugging pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx with container debugger on node aks-nodepool1-12345678-vmss000000.
 If you don't see a command prompt, try pressing enter.
 root@aks-nodepool1-12345678-vmss000000:/#
@@ -59,9 +59,9 @@ This privileged container gives access to the node.
 
 ## Create the SSH connection to a Windows node
 
-At this time, you can't connect to a Windows Server node using SSH directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster, then connect to the Windows Server node from that node using SSH. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH.
+At this time, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster, then connect to the Windows Server node from that node using SSH. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH.
 
-To connect to another node in the cluster, use `kubectl debug`. For more information, see [Create the SSH connection to a Linux node][ssh-linux-kubectl-debug].
+To connect to another node in the cluster, use `kubectl debug`. For more information, see [Create an interactive shell connection to a Linux node][ssh-linux-kubectl-debug].
 
 To create the SSH connection to the Windows Server node from another node, use the SSH keys provided when you created the AKS cluster and the internal IP address of the Windows Server node.
 
@@ -127,7 +127,11 @@ The above example connects to port 22 on the Windows Server node through port 20
 
 ## Remove SSH access
 
-When done, `exit` the SSH session, stop any port forwarding, and then `exit` the interactive container session. After the interactive container session closes, the pod used for SSH access from the AKS cluster is deleted.
+When done, `exit` the SSH session, stop any port forwarding, and then `exit` the interactive container session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`
+
+```output
+kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
+```
 
 ## Next steps
 
@@ -143,4 +147,4 @@ If you need more troubleshooting data, you can [view the kubelet logs][view-kube
 [aks-windows-rdp]: rdp.md
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
-[ssh-linux-kubectl-debug]: #create-the-ssh-connection-to-a-linux-node
+[ssh-linux-kubectl-debug]: #create-an-interactive-shell-connection-to-a-linux-node
