@@ -373,6 +373,10 @@ You can delete the resource group you created by using the [az group delete](/cl
 az group delete --name msdocs-core-sql
 ```
 
+### [Visual Studio](#tab/vs-win)
+
+Visual Studio does not currently offer a way to delete Azure resources from within the IDE. Please follow the instructions provided for the **Azure portal** or the **Azure CLI**.
+
 ---
 
 ## Next steps
