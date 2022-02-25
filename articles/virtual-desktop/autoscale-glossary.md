@@ -20,7 +20,7 @@ The autoscale feature is Azure Virtual Desktop’s native scaling service that t
 
 ## Scaling tool
 
-Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic Apps to scale the VMs in a host pool based on how many sessions per CPU core are active during peak and off-peak hours.
+Azure Virtual Desktop’s scaling tool uses Azure Automation and Azure Logic Apps to scale the VMs in a host pool based on how many user sessions per CPU core there are during peak and off-peak hours.
 
 ## Scaling plan
 
@@ -28,7 +28,7 @@ A scaling plan is an Azure Virtual Desktop Azure Resource Manager object that de
 
 ## Schedule
 
-Schedules are sub-resources of scaling plans that specify the start time, capacity threshold, minimum percentage of hosts, load-balancing algorithm, and other configuration settings for the different phases of the day.
+Schedules are sub-resources of [scaling plans](#scaling-plan) that specify the start time, capacity threshold, minimum percentage of hosts, load-balancing algorithm, and other configuration settings for the different phases of the day.
 
 ## Ramp up
 
