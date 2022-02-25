@@ -727,7 +727,7 @@ In version 1.x, setting `languageWorkers:node:arguments` won't work. The debug p
 
 ## Testing 
 
-Testing an Azure Function includes:
+Testing your functions includes:
 
 * **HTTP end-to-end**: To test an Azure Function from the HTTP endpoint, you can use any tool that can make an HTTP request such as cURL, Postman, or JavaScript's fetch method. 
 * **Integration testing**: Integration test includes the Function layer. This testing means you need to control the parameters into the function including the request and the context. The context is unique to each kind of trigger and means you need to know the incoming and outgoing bindings for that [trigger type](functions-triggers-bindings.md?tabs=python#supported-bindings). For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package isn't immediately available, be sure to install it via your `requirements.txt` file as described in the [package management](#package-management) section above. 
