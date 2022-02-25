@@ -13,16 +13,16 @@ Due to an increasing number of deployments or to run a larger workload, you may 
 
 > AKS agent nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (usually prefixed with MC_*). You cannot do any direct customizations to these nodes using the IaaS APIs or resources. Any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot.
 
-This also includes the resize operation, thus, resizing AKS instances is in this manner is not supported. In this how-to guide, you'll learn the recommended method to address this scenario.
+This lack of persistence also applies to the resize operation, thus, resizing AKS instances is in this manner isn't supported. In this how-to guide, you'll learn the recommended method to address this scenario.
 
 > [!IMPORTANT]
 > This method is specific to virtual machine scale set-based AKS clusters. When using virtual machine availability sets, you are limited to only one node pool per cluster.
 
 ## Example resources
 
-Suppose you want to resize an existing node pool, called `nodepool1`, from SKU size Standard_DS2_v2 to Standard_DS3_v2. To accomplish this, you will need to create a new node pool using Standard_DS3_v2, move workloads from `nodepool1` to the new node pool, and remove `nodepool1`. In this example, we will call this new node pool `mynodepool`.
+Suppose you want to resize an existing node pool, called `nodepool1`, from SKU size Standard_DS2_v2 to Standard_DS3_v2. To accomplish this task, you'll need to create a new node pool using Standard_DS3_v2, move workloads from `nodepool1` to the new node pool, and remove `nodepool1`. In this example, we'll call this new node pool `mynodepool`.
 
-:::image type="content" source="./media/resize-node-pool/node-pool-ds2.png" alt-text="The Azure Portal page for the cluster, navigated to Settings > Node pools. One node pool, named nodepool1 is shown.":::
+:::image type="content" source="./media/resize-node-pool/node-pool-ds2.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named nodepool1 is shown.":::
 
 ```bash
 kubectl get nodes
@@ -61,7 +61,7 @@ kube-system   metrics-server-774f99dbf4-h52hn       1/1     Running   1         
 
 ## Create a new node pool with the desired SKU
 
-Use the [az aks nodepool add][az-aks-nodepool-add] command to create a new node pool called `mynodepool` with 3 nodes using the `Standard_DS3_v2` VM SKU:
+Use the [az aks nodepool add][az-aks-nodepool-add] command to create a new node pool called `mynodepool` with three nodes using the `Standard_DS3_v2` VM SKU:
 
 ```azurecli-interactive
 az aks nodepool add \ 
@@ -77,11 +77,11 @@ az aks nodepool add \
 > [!NOTE]
 > Every AKS cluster must contain at least one system node pool with at least one node. In the below example, we are using a `--mode` of `System`, as the cluster is assumed to have only one node pool, necessitating a `System` node pool to replace it. A node pool's mode can be [updated at any time][update-node-pool-mode].
 
-When resizing, be sure to consider other requirements and configure your node pool accordingly. You may need to modify the above command. For a full list of the configuration options, please see the [az aks nodepool add][az-aks-nodepool-add] reference page.
+When resizing, be sure to consider other requirements and configure your node pool accordingly. You may need to modify the above command. For a full list of the configuration options, see the [az aks nodepool add][az-aks-nodepool-add] reference page.
 
 After a few minutes, the new node pool has been created:
 
-:::image type="content" source="./media/resize-node-pool/node-pool-both.png" alt-text="The Azure Portal page for the cluster, navigated to Settings > Node pools. Two node pools, named nodepool1 and mynodepool, respectively, are shown.":::
+:::image type="content" source="./media/resize-node-pool/node-pool-both.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. Two node pools, named nodepool1 and mynodepool, respectively, are shown.":::
 
 ```bash
 kubectl get nodes
@@ -97,7 +97,7 @@ aks-nodepool1-31721111-vmss000002    Ready    agent   10d   v1.21.9
 
 ## Cordon the existing nodes
 
-Cordoning marks specified nodes as unschedulable and prevents any additional pods from being added to the nodes.
+Cordoning marks specified nodes as unschedulable and prevents any more pods from being added to the nodes.
 
 First, obtain the names of the nodes you'd like to cordon with `kubectl get nodes`. Your output should look similar to the following:
 
@@ -113,8 +113,6 @@ Next, using `kubectl cordon <node-names>`, specify the desired nodes in a space-
 ```bash
 kubectl cordon aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002
 ```
-
-Your output should look similar to the following:
 
 ```bash
 node/aks-nodepool1-31721111-vmss000000 cordoned
@@ -132,26 +130,13 @@ Draining nodes will cause pods running on them to be evicted and recreated on th
 To drain nodes, use `kubectl drain <node-names> --ignore-daemonsets --delete-emptydir-data`, again using a space-separated list of node names:
 
 > [!IMPORTANT]
-> Using `--delete-emptydir-data` is required to evict the AKS-created `coredns` and `metrics-server` pods. If this flag isn't used, an error is expected. Please see the [documentation on emptydir][empty-dir] for more information.
+> Using `--delete-emptydir-data` is required to evict the AKS-created `coredns` and `metrics-server` pods. If this flag isn't used, an error is expected. For more information, see the [documentation on emptydir][empty-dir].
 
 ```bash
 kubectl drain aks-nodepool1-31721111-vmss000000 aks-nodepool1-31721111-vmss000001 aks-nodepool1-31721111-vmss000002 --ignore-daemonsets --delete-emptydir-data
 ```
 
-### Troubleshooting
-
-You may see an error like the following:
-> error when evicting pods/<podname> -n <namespace> (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
-
-By default, your cluster has AKS_managed pod disruption budgets (such as `coredns-pdb` or `konnectivity-agent`) with a `MinAvailable` of 1. If, for example, there are two `coredns` pods running, while one of them is getting recreated and is unavailable, the other is unable to be affected due to the pod disruption budget. This resolves itself after the initial `coredns` pod is scheduled and running, allowing the second pod to be properly evicted and recreated.
-
-> [!TIP]
-> Consider draining nodes one-by-one for a smoother eviction experience and to avoid throttling. For more information, see:
-> * [Plan for availability using a pod disruption budget][pod-disruption-budget].
-> * [Specifying a Disruption Budget for your Application][specify-disruption-budget]
-> * [Disruptions][disruptions]
-
-After the drain operation finishes, all pods other than those controlled by daemonsets are running on the new nodepool:
+After the drain operation finishes, all pods other than those controlled by daemon sets are running on the new node pool:
 
 ```bash
 kubectl get pods -o wide -A
@@ -191,9 +176,22 @@ kube-system   kube-proxy-zn77s                      1/1     Running   0         
 kube-system   metrics-server-774f99dbf4-2x6x8       1/1     Running   0          16m     10.244.4.4   aks-mynodepool-20823458-vmss000002   <none>           <none>
 ```
 
+### Troubleshooting
+
+You may see an error like the following:
+> Error when evicting pods/[podname] -n [namespace] (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+
+By default, your cluster has AKS_managed pod disruption budgets (such as `coredns-pdb` or `konnectivity-agent`) with a `MinAvailable` of 1. If, for example, there are two `coredns` pods running, while one of them is getting recreated and is unavailable, the other is unable to be affected due to the pod disruption budget. This resolves itself after the initial `coredns` pod is scheduled and running, allowing the second pod to be properly evicted and recreated.
+
+> [!TIP]
+> Consider draining nodes one-by-one for a smoother eviction experience and to avoid throttling. For more information, see:
+> * [Plan for availability using a pod disruption budget][pod-disruption-budget].
+> * [Specifying a Disruption Budget for your Application][specify-disruption-budget]
+> * [Disruptions][disruptions]
+
 ## Remove the existing node pool
 
-To delete the existing node pool, use the Azure Portal or the [az aks delete][az-aks-delete] command:
+To delete the existing node pool, use the Azure portal or the [az aks delete][az-aks-delete] command:
 
 ```bash
 kubectl delete nodepool /
@@ -204,7 +202,7 @@ kubectl delete nodepool /
 
 After completion, the final result is the AKS cluster having a single, new node pool with the new, desired SKU size and all the applications and pods properly running:
 
-:::image type="content" source="./media/resize-node-pool/node-pool-ds3.png" alt-text="The Azure Portal page for the cluster, navigated to Settings > Node pools. One node pool, named mynodepool is shown.":::
+:::image type="content" source="./media/resize-node-pool/node-pool-ds3.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named mynodepool is shown.":::
 
 ```bash
 kubectl get nodes
@@ -222,7 +220,7 @@ After resizing a node pool by cordoning and draining, learn more about [using mu
 <!-- LINKS -->
 [az-aks-nodepool-add]: /cli/azure/nodepool#az_aks_nodepool_add
 [az-aks-delete]: /cli/azure/nodepool#az_aks_delete
-[aks-support-policies]: https://docs.microsoft.com/en-us/azure/aks/support-policies#user-customization-of-agent-nodes
+[aks-support-policies]: support-policies.md#user-customization-of-agent-nodes
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
 [pod-disruption-budget]: operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets
 [empty-dir]: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
