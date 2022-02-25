@@ -42,7 +42,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 ### How to validate connectivity
 
-[Virtual Network NAT gateway](./nat-overview.md#vnet-nat-basics) supports IPv4 UDP and TCP protocols. ICMP is not supported and is expected to fail. 
+[Virtual Network NAT gateway](./nat-overview.md#virtual-network-nat-basics) supports IPv4 UDP and TCP protocols. ICMP is not supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
 1. Validate that your [NAT gateway public IP address is being used](./tutorial-create-nat-gateway-portal.md#test-nat-gateway).
