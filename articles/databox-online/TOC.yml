@@ -213,7 +213,7 @@
     - name: Use Wi-Fi profiles
       href: azure-stack-edge-mini-r-use-wifi-profiles.md
 
-- name: Shared features - Pro GPU, Pro R, Mini R
+- name: Shared features - Pro 2, Pro GPU, Pro R, Mini R
   items:
     - name: Local Azure Resource Manager
       items:
