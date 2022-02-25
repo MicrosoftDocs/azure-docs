@@ -1082,4 +1082,4 @@
     items:
     - name: Enterprise tier
       tocHref: /azure/spring-cloud/enterprise
-      topicHref: /azure/spring-cloud/enterprise/index
+      topicHref: /azure/spring-cloud/overview#enterprise-tier-overview
