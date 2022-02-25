@@ -8,27 +8,28 @@ ms.custom: mode-ui
 
 # Quickstart: Create a lab in the Azure portal
 
-This quickstart walks you through the process of creating an Azure DevTest Labs lab in the Azure portal. [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) is a service for easily creating, using, and managing infrastructure-as-a-service (IaaS) virtual machines (VMs) and platform-as-a-service (PaaS) environments in a lab context.
+This quickstart walks you through creating a lab in Azure DevTest Labs by using the Azure portal. [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab) is a service for easily creating, using, and managing infrastructure-as-a-service (IaaS) virtual machines (VMs) and platform-as-a-service (PaaS) environments in a lab context.
 
 ## Prerequisite
 
-An Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You must have at least **Contributor** role in the Azure subscription to create a lab.
+Access to an Azure subscription with at least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role.
 
-## Create a basic lab
+## Create a lab
 
 1. In the [Azure portal](https://portal.azure.com), search for and select *devtest labs*.
 1. On the **DevTest Labs** page, select **Create**. The **Create DevTest Lab** page appears.
 1. On the **Basic Settings** tab, provide the following information:
    - **Subscription**: Change the subscription if you want to use a different subscription for the lab.
-   - **Resource group**: Select an existing resource group from the dropdown list, or create a new resource group for the lab so it's easy to delete later.
+   - **Resource group**: Select an existing resource group from the dropdown list, or select **Create new** to create a new resource group for the lab so it's easy to delete later.
    - **Location**: If you're creating a new resource group, select an Azure region for the resource group and lab.
    - **Lab Name**: Enter a name for the lab.
    - **Public environments**: Leave **On** for access to the [DevTest Labs public environment repository](https://github.com/Azure/azure-devtestlab/Environments). Set to **Off** to disable access. For more information, see [Enable public environments when you create a lab](devtest-lab-create-environment-from-arm.md#enable-public-environments-when-you-create-a-lab).
+
+   :::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
+
 1. Optionally, select the [Auto-shutdown](#auto-shutdown-tab), [Networking](#networking-tab), or [Tags](#tags-tab) tabs at the top of the page, and customize those settings. You can also apply or change most of these settings after lab creation.
 1. After you complete all settings, select **Review + create** at the bottom of the page.
-1. If the settings are valid, **Succeeded** appears at the top of the page. Review the settings, and then select **Create**.
-
-:::image type="content" source="./media/devtest-lab-create-lab/portal-create-basic-settings.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
+1. If the settings are valid, **Succeeded** appears at the top of the **Review + create** page. Review the settings, and then select **Create**.
 
 > [!TIP]
 > Select the **Download a template for automation** link at the bottom of the page to view and download the lab configuration as an Azure Resource Manager (ARM) template. You can use the ARM template to create more labs.
@@ -91,7 +92,7 @@ When you're done using the lab, delete it and its resources to avoid further cha
 
 1. On the **Are you sure you want to delete it** page, enter the lab name, and then select **Delete**.
 
-During the deletion, you can select **Notifications** at the top of your screen to view progress. Deleting the lab takes a while.
+   During the deletion process, you can select **Notifications** at the top of your screen to view progress. Deleting the lab takes a while.
 
 If you created a resource group for the lab, you can now delete the resource group. You can't delete a resource group that has a lab in it. Deleting the resource group that contained the lab deletes all resources in the resource group.
 

@@ -11,10 +11,11 @@ This article lists key [Azure DevTest Labs](https://azure.microsoft.com/services
 
 ## Labs
 
-A lab is the infrastructure that encompasses a group of resources such as virtual machines (VMs). To manage lab resources, you can:
+A lab is the infrastructure that encompasses a group of resources such as virtual machines (VMs). In a lab, you can:
 
 - Add and configure users.
-- Create claimable VMs for lab users.
+- Create ready-made VMs for lab users to claim and use.
+- Let users create and configure their own lab VMs and environments.
 - Connect artifact and template repositories to the lab.
 - Specify allowed VM limits, sizes, and configurations.
 - Set auto-shutdown and auto-startup policies.
@@ -22,13 +23,13 @@ A lab is the infrastructure that encompasses a group of resources such as virtua
 
 ### Policies
 
-Policies help control lab costs and waste. For example, policies can automatically shut down lab VMs based on a defined schedule, or limit the number or sizes of VMs per user or lab. For more information, see [Manage lab policies to control costs](devtest-lab-set-lab-policy.md).
+Policies help control lab costs and reduce waste. For example, policies can automatically shut down lab VMs based on a defined schedule, or limit the number or sizes of VMs per user or lab. For more information, see [Manage lab policies to control costs](devtest-lab-set-lab-policy.md).
 
 ### Repositories
 
-Lab users can use artifacts and templates from public and private Git repositories to create lab VMs and environments. The [DevTest Labs public GitHub repositories](https://github.com/Azure/azure-devtestlab) have many ready-to-use artifacts and Azure Resource Manager (ARM) templates.
+Lab users can use artifacts and templates from public and private Git repositories to create lab VMs and environments. The [DevTest Labs public GitHub repositories](https://github.com/Azure/azure-devtestlab) offer many ready-to-use artifacts and Azure Resource Manager (ARM) templates.
 
-Lab owners can also create custom artifacts and ARM templates, store them in private Git repositories, and connect the repositories to their labs. Lab users and automated processes can then use the templates and artifacts. You can add your repositories to multiple labs in your organization, promoting consistency, reuse, and sharing.
+Lab owners can also create custom artifacts and ARM templates, store them in private Git repositories, and connect the repositories to their labs. Lab users and automated processes can then use the templates and artifacts. You can add the same repositories to multiple labs in your organization, promoting consistency, reuse, and sharing.
 
 For more information, see [Add an artifact repository to a lab](add-artifact-repository.md) and [Add template repositories to labs](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs).
 
@@ -39,12 +40,14 @@ For more information, see [Add an artifact repository to a lab](add-artifact-rep
 - Lab Owners can do all lab tasks, such as reading or writing to lab resources, managing users, setting policies and configurations, and adding repositories and base images.
   - Because Azure subscription owners have access to all resources in a subscription, which include labs, virtual networks, and VMs, a subscription owner automatically inherits the lab Owner role.
   - Lab Owners can also create custom DevTest Labs roles. For more information, see [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
+
 - Contributors can do everything that owners can, except manage users.
+
 - DevTest Labs Users can view all lab resources and policies, and create and modify their own VMs and environments.
   - Users automatically have Owner permissions on their own VMs.
   - Users can't modify lab policies, or change any VMs that other users own.
 
-For more information, see [Add lab owners, contributors, and users](devtest-lab-add-devtest-user.md).
+For more information about access and roles, see [Add lab owners, contributors, and users](devtest-lab-add-devtest-user.md).
 
 ## Virtual machines
 
@@ -67,7 +70,9 @@ A base image is a VM image that can have software and settings preinstalled and 
 
 ### Claimable VMs
 
-A claimable lab VM is available to any lab user. Lab owners or admins can prepare VMs with specific base images and artifacts, and save them to a shared pool. These claimable VMs appear in the lab's **Claimable virtual machines** list. Lab users can claim a VM from the claimable pool when they need a VM with that configuration. After a lab user claims a VM, the VM moves to that user's **My virtual machines** list and is no longer claimable by other users. For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).
+Lab owners or admins can prepare VMs with specific base images and artifacts, and save them to a shared pool. These claimable VMs appear in the lab's **Claimable virtual machines** list. A claimable lab VM is available to any lab user. Any lab user can claim a VM from the claimable pool when they need a VM with that configuration. After a lab user claims a VM, the VM moves to that user's **My virtual machines** list and is no longer claimable by other users.
+
+For more information, see [Create and manage claimable VMs](devtest-lab-add-claimable-vm.md).
 
 ### Custom images and formulas
 
