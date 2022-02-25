@@ -19,7 +19,7 @@ This article shows you how to deploy the Open Service Mesh (OSM) add-on to Azure
 ## Prerequisites
 
 - Azure CLI version 2.20.0 or later
-- OSM version v0.11.1 or later
+- OSM version 0.11.1 or later
 - An SSH public key used for deploying AKS
 - [Visual Studio Code](https://code.visualstudio.com/) with a Bash terminal
 - The Visual Studio Code [Bicep extension](../azure-resource-manager/bicep/install.md)
