@@ -123,11 +123,11 @@ A possible mitigation is to check if there are unused deployments that can be de
 #### Disk quota
 
 This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try a SKU with more disk space.
-* Try a [SKU](https://docs.microsoft.com/en-us/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list) with more disk space
+* Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more disk space
 * Try reducing image and model size
 
 #### Memory quota
-This issue happens when the memory footprint of the model is larger than the available memory. Try a [SKU](https://docs.microsoft.com/en-us/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list) with more memory.<br>
+This issue happens when the memory footprint of the model is larger than the available memory. Try a [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md) with more memory.<br>
 
 #### Role assignment quota
 
