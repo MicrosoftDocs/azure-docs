@@ -23,7 +23,7 @@ The [**example code**](https://github.com/Azure-Samples/AzureStorageSnippets/tre
 - [Create client objects](#create-client-objects)
 - [Create and delete a storage container](#create-and-delete-a-storage-container)
 - [List blobs](#list-blobs)
-- [Upload blobs](#upload-blobs)
+- [Upload blobs](#upload-blobs-to-a-container)
 - [Delete blobs](#delete-blobs)
 
 Additional resources:
