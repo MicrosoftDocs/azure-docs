@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 
 # Bring your own storage (BYOS) overview
 
-[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include.md)]
+[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
 In many applications end-users may want to store their Call Recording files long-term. Some of the common scenarios are compliance, quality assurance, assessment, post call analysis, training, and coaching. Now with the BYOS (bring your own storage) being available, end-users will have an option to store their files long term and manage the files in a way they need. The end user will be responsible for legal regulations about storing the data. BYOS simplifies downloading of the files from Azure Communication Services (ACS) and minimizes the number of support request if customer was unable to download recording in 48 hours. Data will be transferred securely from Microsoft Azure blob storage to a customer Azure blob storage. 
 Here are a few examples:
