@@ -15,7 +15,7 @@ ms.author: allensu
 
 NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP addresses, public IP prefixes, or both. If a public IP prefix is used, all IP addresses of the entire public IP prefix are consumed by a NAT gateway. A NAT gateway can use a total of up to 16 static IP addresses from either.
 
-:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram that depicts a NAT gateway resource that consumes all I P addresses for a public I P prefix and directs that traffic to and from two subnets of VMs and a virtual machine scale set.":::
+:::image type="content" source="./media/nat-overview/flow-direction1.png" alt-text="Diagram depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs traffic to and from two subnets of VMs and a virtual machine scale set.":::
 
 *Figure: Virtual Network NAT for outbound to internet*
 
@@ -215,7 +215,7 @@ Design recommendations for configuring timers:
 
 - In an idle connection scenario, NAT gateway holds onto SNAT ports until the connection idle times out. Because long idle timeout timers can unnecessarily increase the likelihood of SNAT port exhaustion, it isn't recommended to increase the idle timeout duration to longer than the default time of 4 minutes. If a flow never goes idle, then it will not be impacted by the idle timer.
 
-- TCP keep alives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keep alives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
+- TCP keepalives can be used to provide a pattern of refreshing long idle connections and endpoint liveness detection. TCP keepalives appear as duplicate ACKs to the endpoints, are low overhead, and invisible to the application layer.
 
 ## Limitations
 
