@@ -6,8 +6,8 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
+ms.author: lajanuar
 ms.date: 02/25/2022
-ms.author: moelghaz
 ms.topic: overview
 ---
 # Custom Translator for beginners | Preview
