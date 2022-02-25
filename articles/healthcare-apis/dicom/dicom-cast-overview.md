@@ -91,7 +91,7 @@ DICOM has different date time VR types. Some tags (like Study and Series) have t
 
 ## Summary
 
-In this concept, we reviewed the architecture and mappings of DICOM cast. This feature is currently under private preview. To enable DICOM cast for your Azure subscription, please request access for DICOM cast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOM cast, see ``[DICOM cast request access]``. 
+In this concept, we reviewed the architecture and mappings of DICOM cast. This feature is currently under private preview. To enable DICOM cast for your Azure subscription, please request access for DICOM cast by opening an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/). For more information about requesting access to DICOM cast, see [DICOM cast request access](dicom-cast-access-request.md). 
 
 > [!IMPORTANT]
 > Ensure that you include the **resource IDs** of your DICOM service and FHIR service when you submit a support ticket. 
