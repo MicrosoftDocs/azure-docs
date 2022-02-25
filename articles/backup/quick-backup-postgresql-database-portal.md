@@ -147,6 +147,5 @@ Azure Backup service creates a job for scheduled backups or if you trigger on-de
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> - [Restore Azure Database for PostgreSQL server](restore-azure-database-postgresql.md)
-> - [Manage Azure Database for PostgreSQL server](manage-azure-database-postgresql.md)
+- [Restore Azure Database for PostgreSQL server](restore-azure-database-postgresql.md)
+- [Manage Azure Database for PostgreSQL server](manage-azure-database-postgresql.md)
