@@ -29,7 +29,7 @@ Every PostgreSQL connection (even idle ones) uses at least 10 MB of memory, so
 it's important to limit simultaneous connections. Here are the limits we chose
 to keep nodes healthy:
 
-* Maximum connections
+* Maximum connections per node
    * 300 for 0-3 vCores
    * 500 for 4-15 vCores
    * 1000 for 16+ vCores
@@ -38,7 +38,8 @@ The connection limits above are for *user* connections (`max_connections` -
 `superuser_reserved_connections`). We reserve additional connections for
 administration and recovery.
 
-Attempts to connect beyond these limits will fail with an error.
+The limits apply to both worker nodes and the coordinator node. Attempts to
+connect beyond these limits will fail with an error.
 
 #### Connection pooling
 
