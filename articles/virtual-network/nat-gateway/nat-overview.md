@@ -28,11 +28,11 @@ With NAT, individual VMs (or other compute resources) don't need public IP addre
 
 ### Resiliency 
 
-NAT is a fully managed and distributed service. It doesn't depend on any individual compute instances such as VMs or a single physical gateway device. It uses software defined networking making it highly resilient. 
+NAT is a fully managed and distributed service. It doesn't depend on any individual compute instances such as VMs or a single physical gateway device. NAT uses software defined networking making it highly resilient. 
 
 ### Scalability
 
-NAT can be associated to a subnet and can be used by all compute resources in that subnet. Further, all subnets in a VNet can use the same resource. When associated to a public IP prefix, it will automatically scale to the number of IP addresses needed for outbound.
+NAT can be associated to a subnet and can be used by all compute resources in that subnet. Further, all subnets in a virtual network can use the same resource. When associated to a public IP prefix, it automatically scales to the number of IP addresses needed for outbound.
 
 ### Performance
 
@@ -76,7 +76,7 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
 
 * NAT can’t be deployed in a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub)
 
-* The private side of NAT (virtual machine instances or other compute resources) sends TCP reset packets for attempts to communicate on a TCP connection that doesn't exist. One example is connections that have reached idle timeout. The next packet received will return a TCP Reset to the private IP address to signal and force connection closure. The public side of NAT doesn't generate TCP reset packets or any other traffic. Only traffic produced by the customer's virtual network is emitted.
+* The private side of NAT (virtual machine instances or other compute resources) sends TCP reset packets for attempts to communicate on a TCP connection that doesn't exist. One example is connections that have reached idle timeout. The next packet received will return a TCP reset to the private IP address to signal and force connection closure. The public side of NAT doesn't generate TCP reset packets or any other traffic. Only traffic produced by the customer's virtual network is emitted.
 
 * A default TCP idle timeout of 4 minutes is used and can be increased to up to 120 minutes. Any activity on a flow can also reset the idle timer, including TCP keepalives.
 
