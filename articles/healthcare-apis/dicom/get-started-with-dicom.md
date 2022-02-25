@@ -14,7 +14,7 @@ ms.custom: mode-api
 
 This article outlines the basic steps to get started with the DICOM service in [Azure Health Data Services](../healthcare-apis-overview.md). 
 
-As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and to deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts. You'll need a workspace to provision a DICOM service. A FHIR service is optional and is only needed if you connect imaging data with electronic health records of the patient by way of DICOM cast.
+As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and to deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts. You'll need a workspace to provision a DICOM service. A FHIR service is optional and is needed only if you connect imaging data with electronic health records of the patient via DICOM cast.
 
 [![Get Started with DICOM](media/get-started-with-dicom.png)](media/get-started-with-dicom.png#lightbox)
 
