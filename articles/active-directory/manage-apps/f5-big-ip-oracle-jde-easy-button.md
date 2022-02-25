@@ -228,6 +228,11 @@ You can include additional Azure AD attributes if necessary, but the Oracle JDE 
 
 The **Additional User Attributes** tab can support a variety of distributed systems requiring attributes stored in other directories for session augmentation. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc. 
 
+   ![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
+
+>[!NOTE] 
+>This feature has no correlation to Azure AD but is another source of attributes.
+
 #### Conditional Access Policy
 
 Conditional Access policies are enforced post Azure AD pre-authentication, to control access based on device, application, location, and risk signals.
