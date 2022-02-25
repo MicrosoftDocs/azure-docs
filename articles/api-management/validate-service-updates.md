@@ -1,6 +1,6 @@
 ---
-title: Safely deploy Azure API Management service updates
-description: Apply the Azure safe deployment approach with your Azure API Management instances to validate service updates before they reach your production environments.
+title: Validate Azure API Management service updates
+description: Apply the Azure safe deployment approach with your Azure API Management instances to validate service updates and avoid disruptions to your production environments.
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
@@ -8,17 +8,17 @@ ms.date: 02/25/2022
 ms.author: danlep
 ---
 
-# Deploy service updates safely to your API Management instances 
+# Validate service updates to avoid disruption to your production API Management instances 
 
 *"One of the value propositions of the cloud is that it’s continually improving, delivering new capabilities and features, as well as security and reliability enhancements. But since the platform is continuously evolving, change is inevitable." - Mark Russinovich, CTO, Azure*
 
-Microsoft uses a *safe deployment practices framework* to thoroughly test, monitor, and validate service updates, and then deploy them to Azure regions using a phased approach. Even so, service updates that reach your API Management instances could introduce unanticipated risks to your production workloads and disrupt your API consumers. Learn how you can apply our safe deployment approach to reduce risks by validating the updates before they reach your production API Management environments.
+Microsoft uses a safe deployment practices framework*\ to thoroughly test, monitor, and validate service updates, and then deploy them to Azure regions using a phased approach. Even so, service updates that reach your API Management instances could introduce unanticipated risks to your production workloads and disrupt your API consumers. Learn how you can apply our safe deployment approach to reduce risks by validating the updates before they reach your production API Management environments.
 
 ## What is the Azure safe deployment practices framework? 
 
 Azure deploys updates for a given service in a series of pre-production and production steps using a [safe deployment practices (SDP) framework](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). This framework is shown in simplified form in the following image:
 
-:::image type="content" source="media/deploy-service-updates/azure-sdp-framework.png" alt-text="Safe deployment practices framework":::
+:::image type="content" source="media/validate-service-updates/azure-sdp-framework.png" alt-text="Safe deployment practices framework":::
 
 Deployment phases include:
 
@@ -60,7 +60,7 @@ As a first step, ensure that you know about service updates that are expected or
 
 * Monitor service updates that are taking place in your API Management instance by using the Azure [Activity log](../azure-monitor/essentials/activity-log.md). The "Scheduled maintenance" event is emitted when an update begins.
 
-    :::image type="content" source="media/deploy-service-updates/scheduled-maintenance.png" alt-text="Scheduled maintenance event in Activity log":::
+    :::image type="content" source="media/validate-service-updates/scheduled-maintenance.png" alt-text="Scheduled maintenance event in Activity log":::
 
     To receive notifications automatically, [set up an alert](../azure-monitor/alerts/alerts-activity-log.md) on the Activity log.
 
