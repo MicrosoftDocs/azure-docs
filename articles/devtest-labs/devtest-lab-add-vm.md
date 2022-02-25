@@ -7,7 +7,7 @@ ms.date: 02/24/2022
 
 # Create lab virtual machines in Azure DevTest Labs
 
-This article describes how to create Azure virtual machines (VMs) in a lab in Azure DevTest Labs by using the Azure portal.
+This article describes how to create Azure virtual machines (VMs) in Azure DevTest Labs by using the Azure portal.
 
 ## Prerequisite
 
