@@ -5,13 +5,21 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: reference
-ms.date: 02/02/2022
+ms.date: 02/25/2022
 
 ---
 
 # What's New in Azure Cache for Redis
 
 ## February 2022
+
+### TLS Certificate Change
+
+As of May 2022, Azure Cache for Redis rolls over to TLS certificates issued by DigiCert Global G2 CA Root. The current Baltimore CyberTrust Root expires in May 2025, requiring this change.
+
+We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), which is known as *certificate pinning*.
+
+Review this blog for instructions on how to check whether your client application is affected. We recommend taking actions recommended in the blog to avoid cache connectivity loss.
 
 ### Active geo-replication for Azure Cache For Redis Enterprise GA
 
@@ -23,7 +31,7 @@ Active geo-replication is a powerful tool that enables Azure Cache for Redis clu
 
 ### Support for managed identity in Azure Cache for Redis
 
-Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Azure Active Directory, and both system-assigned and user-assigned identities are supported. This further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
+Azure Cache for Redis now supports authenticating storage account connections using managed identity. Identity is established through Azure Active Directory, and both system-assigned and user-assigned identities are supported. Support for managed identity further allows the service to establish trusted access to storage for uses including data persistence and importing/exporting cache data.
 
 For more information, see [Managed identity with Azure Cache for Redis (Preview)](cache-managed-identity.md).
 
@@ -46,7 +54,7 @@ Get started with Azure Cache for Redis 6.0, today, and select Redis 6.0 during c
 
 ### Diagnostics for connected clients
 
-Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users can route these logs to a destination of their choice, such as a storage account or Event Hub.
+Azure Cache for Redis now integrates with Azure diagnostic settings to log information on all client connections to your cache. Logging and then analyzing this diagnostic setting helps you understand who is connecting to your caches and the timestamp of those connections. This data could be used to identify the scope of a security breach and for security auditing purposes. Users can route these logs to a destination of their choice, such as a storage account or Event Hubs.
 
 For more information, see [Monitor Azure Cache for Redis data using diagnostic settings](cache-monitor-diagnostic-settings.md).
 
@@ -73,7 +81,7 @@ Microsoft is updating Azure services to use TLS server certificates from a diffe
 
 We expect that most Azure Cache for Redis customers aren't affected by the change. Your application may be impacted if it explicitly specifies a list of acceptable certificates, a practice known as “certificate pinning”. If it's pinned to an intermediate or leaf certificate instead of the Baltimore CyberTrust Root, you should **take immediate actions** to change the certificate configuration.
 
-The following table provides information about the certificates that are being rolled. Depending on which certificate your application uses, you may need to update it to prevent loss of connectivity to your Azure Cache for Redis instance.
+The following table provides information about the certificates that are being rolled. Depending on which certificate your application uses, you might need to update it to prevent loss of connectivity to your Azure Cache for Redis instance.
 
 | CA Type | Current | Post Rolling (Oct 12, 2020) | Action |
 | ----- | ----- | ----- | ----- |
