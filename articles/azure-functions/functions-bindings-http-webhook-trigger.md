@@ -504,7 +504,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotn
 
 # [In-process](#tab/in-process)
 
-In [in-process functions](../articles/azure-functions/functions-dotnet-class-library.md), the `HttpTriggerAttribute` supports the following properties:
+In [in-process functions](functions-dotnet-class-library.md), the `HttpTriggerAttribute` supports the following properties:
 
 | Parameters | Description|
 |---------|----------------------|
@@ -545,8 +545,11 @@ The following table explains the trigger configuration properties that you set i
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) annotation, which supports the following settings:
 
-
-
++ [authLevel](/java/api/com.microsoft.azure.functions.annotation.httptrigger.authlevel)
++ [dataType](/java/api/com.microsoft.azure.functions.annotation.httptrigger.datatype)
++ [methods](/java/api/com.microsoft.azure.functions.annotation.httptrigger.methods)
++ [name](/java/api/com.microsoft.azure.functions.annotation.httptrigger.name)
++ [route](/java/api/com.microsoft.azure.functions.annotation.httptrigger.route)
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
@@ -584,6 +587,8 @@ The following table explains the binding configuration properties that you set i
 
 ---
 
+::: zone-end 
+
 ## Usage
 
 This section details how to configure your HTTP trigger function binding.
@@ -591,7 +596,7 @@ This section details how to configure your HTTP trigger function binding.
 ::: zone pivot="programming-language-java"  
 The [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) annotation should be applied to a method parameter of one of the following types:
 
-+ [HttpRequestMessage<T>](/java/api/com.microsoft.azure.functions.httprequestmessage).
++ [HttpRequestMessage\<T\>](/java/api/com.microsoft.azure.functions.httprequestmessage).
 + Any native Java types such as int, String, byte[].
 + Nullable values using Optional.
 + Any plain-old Java object (POJO) type.
@@ -858,7 +863,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
     return;
 }
 ```
-# [In-process](#tab/in-process)
+# [Isolated process](#tab/isolated-process)
 
 The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 

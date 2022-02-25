@@ -300,9 +300,9 @@ The following table explains the binding configuration properties for C# script 
 
 The `RabbitMQOutput` annotation allows you to create a function that runs when a RabbitMQ message is created.
 
-The annotation supports the following configuration options:
+The annotation supports the following configuration settings:
 
-|Parameter | Description|
+|Setting | Description|
 |---------|----------------------|
 |**queueName**| Name of the queue from which to receive messages. |
 |**hostName**|Hostname of the queue, such as 10.26.45.210. Ignored when using `ConnectStringSetting`.|

@@ -7,7 +7,7 @@ ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
-
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Functions SendGrid bindings

@@ -65,7 +65,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 ```
 # [Isolated process](#tab/isolated-process)
 
-The following example shows a [C# function](dotnet-isolated-process-guide.md) that is triggered based on an event hub, where the input message string is written to the logs:
+The following example shows a [C# function](../articles/azure-functions/dotnet-isolated-process-guide.md) that is triggered based on an event hub, where the input message string is written to the logs:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="12-23":::
 
@@ -290,7 +290,7 @@ public void eventHubProcessor(
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file.
+Both [in-process](../articles/azure-functions/functions-dotnet-class-library.md) and [isolated process](../articles/azure-functions/dotnet-isolated-process-guide.md) C# libraries use attribute to configure the trigger. C# script instead uses a function.json configuration file.
 
 # [In-process](#tab/in-process)
 
@@ -377,7 +377,7 @@ The following table explains the trigger configuration properties that you set i
 
 ## Usage
 
-To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Event Hubs scaling](../articles/azure-functions/event-driven-scaling.md#event-hubs-scaling).
+To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Event Hubs trigger](../articles/azure-functions/event-driven-scaling.md#event-hubs-trigger).
 
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 
