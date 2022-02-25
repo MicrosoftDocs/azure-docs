@@ -83,7 +83,7 @@ A trade-off exists between availability and latency. Failing over the applicatio
 
 ## Next steps
 
-To deploy a virtual machine in Azure public MEC using an Azure Resource Manager template, advance to the following article:
+To deploy a virtual machine in Azure public MEC using an Azure Resource Manager (ARM) template, advance to the following article:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Deploy a virtual machine in Azure public MEC using an Azure Resource Manager template](quickstart-create-vm-azure-resource-manager-template.md)
+> [Quickstart: Deploy a virtual machine in Azure public MEC using an ARM template](quickstart-create-vm-azure-resource-manager-template.md)
