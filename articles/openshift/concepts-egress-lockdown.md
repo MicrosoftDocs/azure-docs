@@ -23,7 +23,7 @@ Egress lockdown doesn't rely on customer internet access for Azure Red Hat OpenS
 The following image displays the architecture changes that encompass egress lockdown.
 
 
-[ ![Diagram of architecture for Azure Red Hat OpenShift egress lockdown components.](./media/concepts-networking/190-azure-red-hat-openshift-network-architecture-0921)](./media/concepts-networking/190-azure-red-hat-openshift-network-architecture-0921#lightbox)
+[ ![Diagram of architecture for Azure Red Hat OpenShift egress lockdown components.](./media/concepts-networking/190-azure-red-hat-openshift-network-architecture-0921.png)](./media/concepts-networking/190-azure-red-hat-openshift-network-architecture-0921.png#lightbox)
 
 A well-known subset of domains (that the Azure Red Hat OpenShift clusters need to function) validates the destination of the cluster traffic. Finally, the traffic passes through the Azure Red Hat OpenShift service to connect to these URLs and endpoints.
 
