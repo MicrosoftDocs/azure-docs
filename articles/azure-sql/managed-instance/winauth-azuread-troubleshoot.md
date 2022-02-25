@@ -20,6 +20,8 @@ This article contains troubleshooting steps for use when implementing [Windows A
 
 ## Verify tickets are getting cached
 
+Use the [klist](/windows-server/administration/windows-commands/klist) command to display a list of currently cached Kerberos tickets.
+
 ```dos
 klist get krbtgt/kerberos.microsoftonline.com
 ```
