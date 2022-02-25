@@ -89,7 +89,7 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 You can find _InstallFont.ps1_ in the **CustomFontSample** project. It's a simple script that installs the font. You can find a more complex version of the script in the [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
 
 > [!NOTE]
-> To test the Windows container locally, ensure that the Docker is started on your local machine.
+> To test the Windows container locally, ensure that Docker is started on your local machine.
 >
 
 ## Publish to Azure Container Registry
@@ -255,7 +255,7 @@ git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --conf
 
 Ensure that you include the `--config core.autocrlf=input` argument to guarantee proper line endings in files that are used inside the Linux container:
 
-Then, go into the folder:
+Then, navigate to the folder:
 
 ```terminal
 cd docker-django-webapp-linux
