@@ -47,10 +47,13 @@ To enable a system assigned service principal for a managed instance:
 1. Open Azure Active Directory.
 1. Select **App registrations**.
 1. Select **All applications**.
-1. Find the application with the name matching your Managed Instance. The name will be in the format: `<managedinstancename> principal`
-1. Grant **admin consent** to the application.
+    :::image type="content" source="media/winauth-azuread/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. App applications is highlighted in the right pane."  lightbox="media/winauth-azuread/azure-portal-azuread-app-registrations.png":::
+1. Select the application with the display name matching your Managed Instance. The name will be in the format: `<managedinstancename> principal`.
+1. Select **API permissions**.
+1. Select **Grant admin consent**.
 
     :::image type="content" source="media/winauth-azuread/azure-portal-configure-permissions-admin-consent.png" alt-text="Screenshot from the Azure portal of the configured permissions for applications. The status for the example application is 'Granted for aadsqlmi'."  lightbox="media/winauth-azuread/azure-portal-configure-permissions-admin-consent.png":::
+1. Select **Yes** on the prompt to **Grant admin consent confirmation**.
 
 ## Connect to the managed instance with Windows Authentication
 

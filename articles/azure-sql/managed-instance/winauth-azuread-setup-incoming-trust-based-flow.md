@@ -182,7 +182,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
     CloudTrustDisplay   : Microsoft.AzureAD.Kdc.Service.TrustDisplay
     ```
 
-## Configure the Group Policy Object (GPO) or local group policy
+## Configure the Group Policy Object (GPO) 
 
 1. Identify your [Azure AD tenant ID](/azure/active-directory/fundamentals/active-directory-how-to-find-tenant.md).
 

@@ -19,7 +19,7 @@ This article describes how to implement the modern interactive authentication fl
 
 Enabling the modern interactive authentication flow is one step in [setting up Windows Authentication for Azure SQL Managed Instance using Azure Active Directory and Kerberos (Preview)](winauth-azuread-setup.md). The [incoming trust-based flow (Preview)](winauth-azuread-setup-incoming-trust-based-flow.md) is available for AD joined clients running Windows 10 / Windows Server 2012 and higher.
 
-With this preview, Azure AD is now its own independent Kerberos realm. Windows 10 21H1 clients are already enlightened and will redirect clients to access Azure AD Kerberos to request a Kerberos ticket. The capability for clients to access Azure AD Kerberos is switched off by default and can be enabled by modifying group policy or local policy. Group policy can be used to deploy this feature in a staged manner by choosing specific clients you want to pilot on and then expanding it to all the clients across your environment.
+With this preview, Azure AD is now its own independent Kerberos realm. Windows 10 21H1 clients are already enlightened and will redirect clients to access Azure AD Kerberos to request a Kerberos ticket. The capability for clients to access Azure AD Kerberos is switched off by default and can be enabled by modifying group policy. Group policy can be used to deploy this feature in a staged manner by choosing specific clients you want to pilot on and then expanding it to all the clients across your environment.
 
 ## Prerequisites
 
@@ -35,11 +35,11 @@ There is no AD to Azure AD set up required for enabling software running on Azur
 | | |
 
 
-## Configure group or local policy
+## Configure group policy
 
-Enable the following group policy or local policy setting `Administrative Templates\System\Kerberos\Allow retrieving the cloud Kerberos ticket during the logon`:
+Enable the following group policy setting `Administrative Templates\System\Kerberos\Allow retrieving the cloud Kerberos ticket during the logon`:
 
-1. Open the group policy editor or local group policy editor.
+1. Open the group policy editor.
 1. Navigate to `Administrative Templates\System\Kerberos\`.
 1. Select the **Allow retrieving the cloud kerberos ticket during the logon** setting.
 
