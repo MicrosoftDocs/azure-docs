@@ -405,6 +405,8 @@
   items:
   - name: Use Service Fabric managed clusters
     items:
+    - name: Add Azure AD configuration to use Azure AD for client access
+      href: how-to-add-Azure-AD-configuration-to-use-Azure-AD-for-client-access.md    
     - name: Configure your managed cluster
       href: how-to-managed-cluster-configuration.md
     - name: Connect to your managed cluster
