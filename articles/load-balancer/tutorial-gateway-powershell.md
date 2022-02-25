@@ -236,7 +236,7 @@ New-AzLoadBalancer @lb
 ## Add network virtual appliances to the Gateway Load Balancer backend pool
 Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
-## Chain load balancer frontend to gateway load balancer
+## Chain load balancer frontend to Gateway Load Balancer
 
 In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
 
@@ -279,7 +279,7 @@ $config | Set-AzLoadBalancer
 
 ```
 
-## Chain VM (NIC IP configuration) to Gateway Load Balancer
+## Chain virtual machine to Gateway Load Balancer
 
 Alternatively, you can chain a VM's NIC IP configuration to the gateway load balancer. 
 
