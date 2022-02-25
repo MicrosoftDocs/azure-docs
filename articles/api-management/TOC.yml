@@ -338,7 +338,7 @@
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
             - name: Validate service updates
-              href: deploy-service-updates.md
+              href: validate-service-updates.md
             - name: Self-hosted gateway
               items:
               - name: Guidance for running on Kubernetes
