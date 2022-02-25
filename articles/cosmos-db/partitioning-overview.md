@@ -12,7 +12,7 @@ ms.date: 02/08/2022
 # Partitioning and horizontal scaling in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-📺 [Video: Data partitioning best practices](https://aka.ms/cosmos-db-video-data-partitioning-best-practices)
+📺 <B><a href="https://aka.ms/cosmos-db-video-data-partitioning-best-practices" target="_blank">Video: Data partitioning best practices</a></b>
 
 Azure Cosmos DB uses partitioning to scale individual containers in a database to meet the performance needs of your application. In partitioning, the items in a container are divided into distinct subsets called *logical partitions*. Logical partitions are formed based on the value of a *partition key* that is associated with each item in a container. All the items in a logical partition have the same partition key value.
 
