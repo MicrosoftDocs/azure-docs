@@ -19,6 +19,11 @@ Event-driven architecture (EDA) is a common data integration pattern that involv
 > [!NOTE]
 > The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more information, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the `Microsoft.EventGrid/eventSubscriptions/` action. This action is part of the [EventGrid EventSubscription Contributor](../role-based-access-control/built-in-roles.md#eventgrid-eventsubscription-contributor) built-in role.
 
+
+> [!IMPORTANT]
+> If you are using this feature in Azure Synapse Analytics, please ensure that your subscription is also registered with Data Factory resource provider, or otherwise you will get an error stating that _the creation of an "Event Subscription" failed_.
+
+
 If you combine pipeline parameters and a custom event trigger, you can parse and reference custom `data` payloads in pipeline runs. Because the `data` field in a custom event payload is a free-form, JSON key-value structure, you can control event-driven pipeline runs.
 
 > [!IMPORTANT]

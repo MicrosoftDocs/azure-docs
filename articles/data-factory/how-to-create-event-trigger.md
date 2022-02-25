@@ -20,12 +20,11 @@ This article describes the Storage Event Triggers that you can create in your Da
 
 Event-driven architecture (EDA) is a common data integration pattern that involves production, detection, consumption, and reaction to events. Data integration scenarios often require customers to trigger pipelines based on events happening in storage account, such as the arrival or deletion of a file in Azure Blob Storage account. Data Factory and Synapse pipelines natively integrate with [Azure Event Grid](https://azure.microsoft.com/services/event-grid/), which lets you trigger pipelines on such events.
 
-For a ten-minute introduction and demonstration of this feature, watch the following video:
-
-> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
-
 > [!NOTE]
 > The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more info, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the *Microsoft.EventGrid/eventSubscriptions/** action. This action is part of the EventGrid EventSubscription Contributor built-in role.
+
+> [!IMPORTANT]
+> If you are using this feature in Azure Synapse Analytics, please ensure that your subscription is also registered with Data Factory resource provider, or otherwise you will get an error stating that _the creation of an "Event Subscription" failed_.
 
 > [!NOTE]
 > If the blob storage account resides behind a [private endpoint](../storage/common/storage-private-endpoints.md) and blocks public network access, you need to configure network rules to allow communications from blob storage to Azure Event Grid. You can either grant storage access to trusted Azure services, such as Event Grid, following [Storage documentation](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services), or configure private endpoints for Event Grid that map to VNet address space, following [Event Grid documentation](../event-grid/configure-private-endpoints.md)
