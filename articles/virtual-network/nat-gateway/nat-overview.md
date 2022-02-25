@@ -2,15 +2,14 @@
 
 title: What is Azure Virtual Network NAT?
 titlesuffix: Azure Virtual Network
-description: Overview of Virtual Network NAT features, resources, architecture, and implementation. Learn how Virtual Network NAT works and how to use NAT gateway resources in the cloud.
+description: Overview of Virtual Network NAT features, resources, architecture, and implementation. Learn how Virtual Network NAT works and how to use NAT gateway resources in Azure.
 services: virtual-network
 author: asudbring
 ms.service: virtual-network
 ms.subservice: nat
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 02/25/2022
 ms.author: allensu
-# Customer intent: As an IT administrator, I want to learn more about Virtual Network NAT, its NAT gateway resources, and what I can use them for. 
 ---
 
 # What is Virtual Network NAT?
@@ -25,7 +24,7 @@ Virtual Network NAT is a fully managed and highly resilient Network Address Tran
 
 ### Security
 
-With NAT, individual VMs (or other compute resources) don't need public IP addresses and can remain fully private. Such resources without a public IP address can still reach external sources outside the VNet. You can also associate a public IP prefix to ensure that a contiguous set of IPs will be used for outbound. Destination firewall rules can be configured based on this predictable IP list.
+With NAT, individual VMs (or other compute resources) don't need public IP addresses and can remain fully private. Resources without a public IP address can still reach external sources outside the virtual network. You can associate a public IP prefix to ensure that a contiguous set of IPs will be used for outbound. Destination firewall rules can be configured based on this predictable IP list.
 
 ### Resiliency 
 
