@@ -59,7 +59,6 @@ These features are not supported:[Live Migration](maintenance-and-updates.md), [
 | Size | vCPU | Memory: GiB | Temp Storage (with NVMe): GiB | GPU | GPU Memory: GiB | Max data disks | Max uncached disk throughput: IOPS / MBps | Max NICs/network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_NC24ads_A100_v4   | 24  | 220 | 1123  | 1 | 80 | 12 | 20000/200 | 4/20,000  |
-| Standard_NC48ads_A100_v4   | 48 | 440 | 2246 | 2 | 160 | 24 | 40000/400 | 8/40,000  | 
 | Standard_NC96ads_A100_v4   | 96 | 880 | 4492 | 4 | 320 | 32 | 80000/800 | 8/80,000  |
 
 1 GPU = one A100 card
