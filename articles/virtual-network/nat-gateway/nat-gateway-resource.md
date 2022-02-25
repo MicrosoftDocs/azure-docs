@@ -113,13 +113,13 @@ For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](../../ne
 
 Each NAT gateway can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
 
-Each NAT gateway can support 64,000 flows each for TCP and UDP per assigned outbound IP address. Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
+NAT gateway can be attached to up to 16 public IP addresses. Each NAT gateway can support up to 50,000 concurrent connections per public IP address to the same destination endpoint over the internet for TCP and UDP. Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
 
 ## Source Network Address Translation
 
 Source Network Address Translation (SNAT) rewrites the source of a flow to originate from a different IP address and/or port. Typically, SNAT is used when a private network needs to connect to a public host over the internet. SNAT allows multiple compute resources within the private VNet to use the same single Public IP address or set of IP addresses (prefix) to connect to the internet.
 
-NAT gateway uses SNAT to rewrite the source IP address and source port of a virtual machine (or other compute resource) to a static public IP address. NAT gateway can be assigned up to 16 public IP addresses, with each IP having 64,000 available ports.
+NAT gateway SNATs the private IP address and source port of a virtual machine (or other compute resource) to a static public IP address before going outbound to the internet from a virtual network. 
 
 <a id="source-network-address-translation"></a>
 
@@ -135,7 +135,7 @@ In the table below the VM is making connections to destination IP 65.52.0.1 from
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
 
-When NAT gateway is configured with public IP address 65.52.1.1, the source IPs are SNATed into the public IP address as shown below:
+When NAT gateway is configured with public IP address 65.52.1.1, the source IPs are SNATed into NAT gateway's public IP address as shown below:
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -143,11 +143,11 @@ When NAT gateway is configured with public IP address 65.52.1.1, the source IPs 
 | 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-The destination will now see the source of the flows as 65.52.1.1 (source tuple after SNAT), with the assigned port shown. The act of NAT gateway replacing all of the source ports and IPs with the public IP and port before connecting to the internet is known as *IP masquerading* or *port masquerading*. Multiple private sources are masqueraded behind a public IP.
+The source IP address and port of each flow is SNATed to the public IP address 65.52.1.1 (source tuple after SNAT) as well as to a different port for each new connection going to the same destination endpoint. The act of NAT gateway replacing all of the source ports and IPs with the public IP and port before connecting to the internet is known as *IP masquerading* or *port masquerading*. Multiple private sources are masqueraded behind a public IP.
 
 #### Source (SNAT) port reuse
 
-An inventory of ports are available to any virtual machine within a subnet that is attached to NAT gateway. NAT gateway selects a port at random out of the available inventory of ports for the virtual machine to use. NAT gateway will also opportunistically reuse source (SNAT) ports. 
+Azure provides ~64,000 SNAT ports per public IP address. For each public IP address attached to NAT gateway, the entire inventory of ports provided by those IPs is made available to any virtual machine instance within a subnet that is also attached to NAT gateway. NAT gateway selects a port at random out of the available inventory of ports for a virtual machine to use. Each time a new connection is made to the same destination endpoint over the internet, a new source port is used. As mentioned in the [Performance](#performance) section, NAT gateway supports up to 50,000 concurrent connections per public IP address to the same destination endpoint over the internet. NAT gateway will continue to select a new source port at random to go to the same destination endpoint until no more SNAT ports are availble for use. If NAT gateway does not find any available SNAT ports, only then will it reuse a SNAT port. A port can be reused so long as it is going to a different destination endpoint.  
 
 The following flow illustrates this concept with a VM flowing to destination IP 65.52.0.2 after flows 1 - 3 from the above tables have already taken place.
 
@@ -155,7 +155,7 @@ The following flow illustrates this concept with a VM flowing to destination IP 
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway will translate flow 4 to a port that may have been recently used for other destinations as well. See [Scale NAT](#scale-nat) for more discussion on correctly sizing your IP address provisioning.
+A NAT gateway will translate flow 4 to a source port that may have been recently used for a different destination endpoint. See [Scale NAT](#scale-nat) for more discussion on correctly sizing your IP address provisioning.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -165,9 +165,9 @@ Don't take a dependency on the specific way source ports are assigned in the abo
 
 SNAT provided by NAT is different from SNAT provided by a [load balancer](../../load-balancer/load-balancer-outbound-connections.md) in several aspects, including:
 
-- NAT gateway selects source ports at random for outbound traffic flow whereas Load Balancer selects ports sequentially.
 - NAT gateway dynamically allocates SNAT ports across all VMs within a NAT gateway configured subnet whereas Load Balancer pre-allocates a fixed number of SNAT ports to each VM.
-- NAT gateway does not require manual configuration of SNAT ports to VMs in your VNet, whereas Load Balancer can be manually configured to allow fixed amounts of SNAT ports per VM.
+- NAT gateway selects source ports at random for outbound traffic flow whereas Load Balancer selects ports sequentially.
+- NAT gateway does not reuse a SNAT port until no other SNAT ports are available to make new connections, whereas Load Balancer looks to select the lowest available SNAT port in sequential order.
 
 ### On-demand
 
@@ -179,7 +179,7 @@ NAT provides on-demand SNAT ports for new outbound traffic flows. All available 
 
 *Figure: Virtual Network NAT on-demand outbound SNAT*
 
-Any IP configuration of a virtual machine can create outbound flows on-demand as needed. Pre-allocation or per-instance planning including per-instance worst-case over-provisioning isn't required.
+Any IP configuration of a virtual machine can create outbound flows on-demand as needed. Pre-allocation of SNAT ports to each virtual machine is not required.
 
 <p align="center">
   <img src="media/nat-overview/exhaustion-threshold.svg" alt="Diagram that depicts the inventory of all available SNAT ports used by any V M on subnets configured with NAT with an exhaustion threshold." width="550" title="Differences in exhaustion scenarios">
@@ -196,7 +196,7 @@ Scaling NAT is primarily a function of managing the shared, available SNAT port 
 > [!NOTE]
 > If you assign a public IP prefix, the entire public IP prefix is used. You can't assign a public IP prefix and then break out individual IP addresses to assign to other resources. If you want to assign individual IP addresses from a public IP prefix to multiple resources, you need to create individual public IP addresses and assign them as needed instead of using the public IP prefix itself.
 
-SNAT maps private addresses to one or more public IP addresses, rewriting the source address and source port in the process. A NAT gateway uses 64,000 ports (SNAT ports) per configured public IP address for this translation. A single NAT gateway can scale up to 16 IP addresses and 1 million SNAT ports. If a public IP prefix is provided, each IP address within the prefix provides SNAT port inventory. Adding more public IP addresses increases the available inventory of SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway.
+SNAT maps private addresses to one or more public IP addresses, rewriting the source address and source port in the process. A single NAT gateway can scale up to 16 IP addresses. If a public IP prefix is provided, each IP address within the prefix provides SNAT port inventory. Adding more public IP addresses increases the available inventory of SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway.
 
 NAT gateway opportunistically reuses source (SNAT) ports. When you scale your workload, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then provision IP addresses quantities accordingly.
 
