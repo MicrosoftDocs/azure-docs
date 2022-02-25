@@ -14,6 +14,8 @@ ms.custom: references_regions
 # Continuous backup with point-in-time restore in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
+📺 [Video: Learn more about continuous backup and point-in-time restore](https://aka.ms/cosmos-db-video-continuous-backup-restore-intro)
+
 Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such as the following:
 
 * To recover from an accidental write or delete operation within a container.

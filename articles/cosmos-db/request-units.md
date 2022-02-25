@@ -12,6 +12,8 @@ ms.custom: "seo-nov-2020"
 # Request Units in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
+📺 [Video: What is a Request Unit?](https://aka.ms/cosmos-db-video-what-is-request-unit)
+
 Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request unit is a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.

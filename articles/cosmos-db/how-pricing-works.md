@@ -11,6 +11,8 @@ ms.date: 12/07/2021
 # Pricing model in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
+📺 [Video: Overview of Azure Cosmos DB pricing options](https://aka.ms/cosmos-db-video-overview-pricing-options)
+
 The pricing model of Azure Cosmos DB simplifies the cost management and planning. With Azure Cosmos DB, you pay for the operations you perform against the database and for the storage consumed by your data.
 
 - **Database operations**: The way you get charged for your database operations depends on the type of Azure Cosmos account you are using.

@@ -13,6 +13,8 @@ ms.date: 02/15/2022
 # Data modeling in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
+📺 [Video: Data modeling best practices](https://aka.ms/cosmos-db-video-data-modeling-best-practices)
+
 While schema-free databases, like Azure Cosmos DB, make it super easy to store and query unstructured and semi-structured data, you should spend some time thinking about your data model to get the most of the service in terms of performance and scalability and lowest cost.
 
 How is data going to be stored? How is your application going to retrieve and query data? Is your application read-heavy, or write-heavy?
