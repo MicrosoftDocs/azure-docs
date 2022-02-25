@@ -55,7 +55,7 @@ The infrastructure cluster on your device provides persistent storage and is sho
 
 ## Supported networking topologies
 
-Based on the use-case and workloads, you can select how the two Azure Stack Edge device nodes will be connected. The networking topologies available will differ depending on whether you use an Azure Stack Edge Pro GPU device or an Azure Stack Edge Pro  device.
+Based on the use-case and workloads, you can select how the two Azure Stack Edge device nodes will be connected. The networking topologies available will differ depending on whether you use an Azure Stack Edge Pro GPU device or an Azure Stack Edge Pro 2 device.
 
 The supported network topologies for each of the device types are described here.
 
@@ -170,7 +170,6 @@ For more information, see the two-node device deployment tutorials starting with
 1. Optionally configure web proxy, set up device settings, configure certificates and then finally, activate the device.
 
 For more information, see the two-node device deployment tutorials starting with [Get deployment configuration checklist](azure-stack-edge-pro-2-deploy-checklist.md).
-
 ---
 
 ## Clustering workloads
