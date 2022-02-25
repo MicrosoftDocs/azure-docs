@@ -145,32 +145,20 @@ The Easy Button client must also be registered in Azure AD, before it is allowed
 
 ## Configure Easy Button
 
-Next, step through the Easy Button configurations to federate and publish the EBS application. Start by provisioning your BIG-IP with an X509 certificate that Azure AD can use to sign SAML tokens and claims issued for SHA enabled services.
+Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
-1. From a browser, sign-in to the F5 BIG-IP management console
-2. Navigate to **System > Certificate Management > Traffic Certificate Management  SSL Certificate List > Import**
-3. Select **PKCS 12 (IIS)** and import your certificate along with its private key
-   
-   Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
-
-
-   ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
-
-4. Navigate to **Access > Guided Configuration > Microsoft Integration** and select  **Azure AD Application**
-   
-   You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
    ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
-5. Review the list of configuration steps and select **Next**
+2. Review the list of configuration steps and select **Next**
 
    ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
-## Configuration steps
+3. Follow the sequence of steps required to publish your application.
 
-The **Easy Button** template will display the sequence of steps required to publish your application.
+   ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
 
-   ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png)
 
 ### Configuration Properties
 
