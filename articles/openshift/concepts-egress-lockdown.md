@@ -1,5 +1,5 @@
 ---
-title: Overview of egress lockdown
+title:Overview of egress lockdown for Azure Red Hat OpenShift clusters
 description: Overview of egress lockdown for Azure Red Hat OpenShift clusters
 author: rahulm23
 ms.author: rahulmehta
@@ -10,7 +10,7 @@ ms.date: 02/28/2022
 #Customer intent: I need to understand how egress lockdown provides access to URLs and endpoints that a Red Hat OpenShift cluster needs to function efficiently.
 ---
 
-# Overview of egress lockdown
+# Overview of egress lockdown for Azure Red Hat OpenShift clusters
 
 Egress lockdown provides access to the URLs and endpoints an Azure Red Hat OpenShift cluster needs to function effectively.
 
@@ -22,7 +22,8 @@ Egress lockdown doesn't rely on customer internet access for Azure Red Hat OpenS
 
 The following image displays the architecture changes that encompass egress lockdown.
 
-![Azure Red Hat OpenShift architectural diagram with egress lockdown components](./media/concepts-networking/190_OpenShift_Azuer_network_arch_0921.png)
+
+[ ![Diagram of architecture for Azure Red Hat OpenShift egress lockdown components.](./media/concepts-networking/190-azure-red-hat-openshift-network-architecture-0921)](./media/concepts-networking/190-azure-red-hat-openshift-network-architecture-0921#lightbox)
 
 A well-known subset of domains (that the Azure Red Hat OpenShift clusters need to function) validates the destination of the cluster traffic. Finally, the traffic passes through the Azure Red Hat OpenShift service to connect to these URLs and endpoints.
 
@@ -30,7 +31,7 @@ A well-known subset of domains (that the Azure Red Hat OpenShift clusters need t
 
 In order to function, egress lock down relies on the Server Name Indication (SNI) extension to the Transport Layer Security (TLS). All customer workloads that communicate with the well-known subset of domains must have SNI enabled. 
 
-Egress lockdown is enabled by default for new cluster creation. However, to enable egress lockdown on existing clusters, you must have SNI enabled on the customer workloads. To enable egress lockdown on your existing clusters, submit a support case to either [Microsoft Support](https://support.microsoft.com/en-us) or [Red Hat Support](https://www.redhat.com/en/services/support).
+Egress lockdown is enabled by default for new cluster creation. However, to enable egress lockdown on existing clusters, you must have SNI enabled on the customer workloads. To enable egress lockdown on your existing clusters, submit a support case to either [Microsoft Support](https://support.microsoft.com) or [Red Hat Support](https://www.redhat.com/en/services/support).
 
 ## Verify egress lockdown is enabled on a cluster
 
