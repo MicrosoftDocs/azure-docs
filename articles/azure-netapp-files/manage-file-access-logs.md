@@ -20,7 +20,7 @@ ms.author: anfdocs
 
 File access logs provide file access logging for individual volumes, capturing file system operations on selected volumes. Standard file system operations will be captured in the logs. File access logs are provided on top of the platform logging captured in [Azure Activity Logs](../azure-monitor/essentials/activity-log.md). This article describes how to manage file access logs using Azure NetApp Files. 
 
-File access logs supports SMB, NFSv4.1, and dual protocols.
+**File access logs supports SMB3, NFSv4.1, and dual protocols.**
 
 ## Considerations
 
