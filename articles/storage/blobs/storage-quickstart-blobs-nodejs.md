@@ -119,7 +119,7 @@ The code below retrieves the connection string for the storage account from the 
 
 Add this code inside the `main` function:
 
-:::code language="javascript" source="{source}" range="{range}":::
+:::code language="javascript" source="~/azure_storage-snippets//blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_StorageAcctInfo":::
 
 ## Create a container
 
@@ -129,23 +129,7 @@ Add this code inside the `main` function:
 
 1. Add this code to the end of the `main` function:
 
-    ```javascript
-    // Create the BlobServiceClient object which will be used to create a container client
-    const blobServiceClient = BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
-    
-    // Create a unique name for the container
-    const containerName = 'quickstart' + uuidv1();
-    
-    console.log('\nCreating container...');
-    console.log('\t', containerName);
-    
-    // Get a reference to a container
-    const containerClient = blobServiceClient.getContainerClient(containerName);
-    
-    // Create the container
-    const createContainerResponse = await containerClient.create();
-    console.log("Container was created successfully. requestId: ", createContainerResponse.requestId);
-    ```
+    :::code language="javascript" source="~/azure_storage-snippets//blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_CreateContainer":::
 
     The preceding code creates an instance of the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class by calling the [fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-) method. Then, call the [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) method to get a reference to a container. Finally, call [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-) to actually create the container in your storage account.
 
@@ -153,36 +137,16 @@ Add this code inside the `main` function:
 
 Copy the following code to the end of the `main` function to upload a text string to a blob:
 
-```javascript
-// Create a unique name for the blob
-const blobName = 'quickstart' + uuidv1() + '.txt';
-
-// Get a block blob client
-const blockBlobClient = containerClient.getBlockBlobClient(blobName);
-
-console.log('\nUploading to Azure storage as blob:\n\t', blobName);
-
-// Upload data to the blob
-const data = 'Hello, World!';
-const uploadBlobResponse = await blockBlobClient.upload(data, data.length);
-console.log("Blob was uploaded successfully. requestId: ", uploadBlobResponse.requestId);
-```
+:::code language="javascript" source="~/azure_storage-snippets//blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_UploadBlobs":::
 
 The preceding code gets a reference to a [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) object by calling the [getBlockBlobClient](/javascript/api/@azure/storage-blob/containerclient#getblockblobclient-string-) method on the [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) from the [Create a container](#create-a-container) section.
 The code uploads the text string data to the blob by calling the [upload](/javascript/api/@azure/storage-blob/blockblobclient#upload-httprequestbody--number--blockblobuploadoptions-) method.
 
 ## List the blobs in a container
 
-Add the following code to the end of the `main` function to list the blobs in the container 
+Add the following code to the end of the `main` function to list the blobs in the container. 
 
-```javascript
-console.log('\nListing blobs...');
-
-// List the blob(s) in the container.
-for await (const blob of containerClient.listBlobsFlat()) {
-    console.log('\t', blob.name);
-}
-```
+:::code language="javascript" source="~/azure_storage-snippets//blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_ListBlobs":::
 
 The preceding code calls the [listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
@@ -190,46 +154,19 @@ The preceding code calls the [listBlobsFlat](/javascript/api/@azure/storage-blob
 
 1. Add the following code to the end of the `main` function to download the previously created blob into the app runtime.
 
-    ```javascript
-    // Get blob content from position 0 to the end
-    // In Node.js, get downloaded data by accessing downloadBlockBlobResponse.readableStreamBody
-    // In browsers, get downloaded data by accessing downloadBlockBlobResponse.blobBody
-    const downloadBlockBlobResponse = await blockBlobClient.download(0);
-    console.log('\nDownloaded blob content...');
-    console.log('\t', await streamToString(downloadBlockBlobResponse.readableStreamBody));
-    ```
+    :::code language="javascript" source="~/azure_storage-snippets//blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_DownloadBlobs":::
 
     The preceding code calls the [download](/javascript/api/@azure/storage-blob/blockblobclient#download-undefined---number--undefined---number--blobdownloadoptions-) method. 
 
 2. Copy the following code *after* the `main` function to convert a stream back into a string.
 
-    ```javascript
-    // A helper function used to read a Node.js readable stream into a string
-    async function streamToString(readableStream) {
-      return new Promise((resolve, reject) => {
-        const chunks = [];
-        readableStream.on("data", (data) => {
-          chunks.push(data.toString());
-        });
-        readableStream.on("end", () => {
-          resolve(chunks.join(""));
-        });
-        readableStream.on("error", reject);
-      });
-    }
-    ```
+    :::code language="javascript" source="~/azure_storage-snippets//blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_ConvertStreamToText":::
 
 ## Delete a container
 
 Add this code to the end of the `main` function to delete the container and all its blobs:
 
-```javascript
-console.log('\nDeleting container...');
-
-// Delete container
-const deleteContainerResponse = await containerClient.delete();
-console.log("Container was deleted successfully. requestId: ", deleteContainerResponse.requestId);
-```
+:::code language="javascript" source="~/azure_storage-snippets//blobs/quickstarts/JavaScript/V12/nodejs/index.js" id="snippet_DeleteContainer":::
 
 The preceding code cleans up the resources the app created by removing the entire container using the [​delete](/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-) method. You can also delete the local files, if you like.
 
