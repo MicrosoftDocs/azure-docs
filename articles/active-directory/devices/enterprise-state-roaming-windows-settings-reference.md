@@ -19,22 +19,9 @@ ms.collection: M365-identity-device-management
 
 The following is a list of the settings that will be roamed or backed up in Windows 10 or newer. 
 
-For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
-
-Microsoft Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Microsoft Edge browser Settings menu option.
-
-![Account](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
-
-For Windows 10 version 1803 or later, Internet Explorer setting group (favorites, typed URLs) syncing can be enabled or disabled by end users through Internet Explorer Settings menu option. 
-
-![Settings](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
-
 ## Windows Settings details
 
-In the following table, Other entries in the Settings Group column refer to settings that can be disabled by going to Settings > Accounts > Sync your settings > Other Windows settings. 
-
-Internal entries in the Settings Group column refer to settings and apps that can only be disabled from syncing within the app itself or by disabling sync for the entire device using mobile device management (MDM) or Group Policy settings.
-Settings that don't roam or sync won't belong to a group.
+List of settings that can be configured to sync in recent Windows versions. These can be found in Windows 10 under **Settings** > **Accounts** > **Sync your settings** or **Settings** > **Accounts** > **Windows backup** > **Remember my preferences** on Windows 11.
 
 | Settings | Windows 10 (21H1 or newer) |
 | --- | --- |
@@ -46,6 +33,18 @@ Settings that don't roam or sync won't belong to a group.
 | Language: language profile | sync |
 | Language: list of keyboards | sync |
 | Wi-Fi: Wi-Fi profiles (only WPA) | sync |
+
+## Browser settings
+
+For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+
+Microsoft Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Microsoft Edge browser Settings menu option.
+
+![Account](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
+
+For Windows 10 version 1803 or later, Internet Explorer setting group (favorites, typed URLs) syncing can be enabled or disabled by end users through Internet Explorer Settings menu option. 
+
+![Settings](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## Next steps
 
