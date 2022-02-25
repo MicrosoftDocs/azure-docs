@@ -41,7 +41,7 @@ The secure hybrid access solution for this scenario is made up of several compon
 
 **Oracle JDE Application:** BIG-IP published service to be protected by Azure AD SHA.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
 
 **BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the Oracle service.
 
@@ -80,7 +80,7 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-* An [SSL web certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs whilst testing 
+* An [SSL Web certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs while testing
 
 * An existing Oracle JDE environment
 
@@ -164,7 +164,7 @@ Some of these are global settings can be re-used for publishing more application
 
 The **Service Provider** settings define the SAML SP properties for the APM instance representing the application protected through SHA.
 
-1. Enter **Host**. This is the public FQDN of the application being secured. You need a corresponding DNS record for clients to resolve this address, but using a localhost record is fine during testing
+1. Enter **Host**. This is usually the FQDN that will be used for the applications external URL
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
@@ -220,7 +220,7 @@ This section defines all properties that you would normally use to manually conf
 
 When a user successfully authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims** tab shows the default claims to issue for the new application. It also lets you configure more claims.
 
-![Screenshot for Azure configuration – User attributes & claims](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
+   ![Screenshot for user attributes and claims](./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
 
 You can include additional Azure AD attributes if necessary, but the Oracle JDE scenario only requires the default attributes.
 
@@ -258,7 +258,7 @@ To select a policy to be applied to the application being published:
 
 A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
 
-1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP.
+1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing.
 
 2. Enter **Service Port** as *443* for HTTPS
 
