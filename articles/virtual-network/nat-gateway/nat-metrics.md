@@ -28,7 +28,7 @@ Azure Virtual Network NAT gateway resources provide multi-dimensional metrics. Y
 
 NAT gateway resources provide the following multi-dimensional metrics in Azure Monitor:
 
-| Metric | Description | Recommended Aggregation | Dimensions |
+| Metric | Description | Recommended aggregation | Dimensions |
 |---|---|---|---|
 | Bytes | Bytes processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
 | Packets | Packets processed inbound and outbound | Sum | Direction (In; Out), Protocol (6 TCP; 17 UDP) |
@@ -43,7 +43,7 @@ Alerts for metrics can be configured in Azure Monitor for each of the preceding 
 
 ## Limitations
 
-Resource Health isn't supported.
+Resource health isn't supported.
 
 ## Next steps
 
