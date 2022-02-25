@@ -125,6 +125,12 @@ Any of following RBAC settings works for storage event trigger:
 * Contributor role to the storage account
 * _Microsoft.EventGrid/EventSubscriptions/Write_ permission to storage account _/subscriptions/####/resourceGroups/####/providers/Microsoft.Storage/storageAccounts/storageAccountName_
 
+
+Specifically,
+
+- When authoring in the data factory (in the development environment for instance), the Azure account signed in needs to have the above permission
+- When publishing through [CI/CD](continuous-integration-delivery.md), the account used to publish the ARM template into the testing or production factory needs to have the above permission.
+
 In order to understand how the service delivers the two promises, let's take back a step and take a peek behind the scenes. Here are the high-level work flows for integration between Azure Data Factory/Azure Synapse, Storage, and Event Grid.
 
 ### Create a new Storage Event Trigger
