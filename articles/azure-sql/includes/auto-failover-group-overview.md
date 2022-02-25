@@ -5,7 +5,7 @@ ms.topic: include
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: kendralittle, emlisa, mlandzic
-ms.date: 03/10/2022
+ms.date: 03/01/2022
 ---
 
 The auto-failover groups feature allows you to manage the replication and failover of a group of databases on a server or all user databases in a managed instance to another Azure region. It is a declarative abstraction on top of the [active geo-replication](../database/active-geo-replication-overview.md) feature, designed to simplify deployment and management of geo-replicated databases at scale. 

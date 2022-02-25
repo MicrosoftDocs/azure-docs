@@ -11,10 +11,10 @@ ms.devlang:
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
-ms.date: 03/10/2022
+ms.date: 03/01/2022
 zone_pivot_groups: azure-sql-deployment-option-single-elastic
 ---
-# Configure a auto-failover group for Azure SQL Database
+# Configure an auto-failover group for Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!div class="op_single_selector"]

@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
-ms.date: 02/24/2022
+ms.date: 03/01/2022
 ---
 
 # Auto-failover groups overview & best practices (Azure SQL Database)

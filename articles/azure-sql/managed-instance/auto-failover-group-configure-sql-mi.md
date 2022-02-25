@@ -10,9 +10,9 @@ ms.devlang:
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: kendralittle, mathoma
-ms.date: 03/10/2022
+ms.date: 03/01/2022
 ---
-# Configure a auto-failover group for Azure SQL Managed Instance
+# Configure an auto-failover group for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 > [!div class="op_single_selector"]

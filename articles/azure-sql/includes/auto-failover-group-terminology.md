@@ -5,7 +5,7 @@ ms.topic: include
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: kendralittle, emlisa, mlandzic
-ms.date: 03/10/2022
+ms.date: 03/01/2022
 ---
 
 - **Automatic failover policy**
