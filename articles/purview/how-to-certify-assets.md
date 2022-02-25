@@ -54,7 +54,7 @@ All assets selected will have the "Certified" label.
 
 ## Viewing certification labels in Search
 
-When search or browsing the data catalog, you'll see a certification label on any asset that it's certified. Certified assets will also be boosted in search results, helping data consumers discover them easily.
+When search or browsing the data catalog, you'll see a certification label on any asset that is certified. Certified assets will also be boosted in search results to help data consumers discover them easily.
 
 :::image type="content" source="media/how-to-certify-assets/search-certified-assets.png" alt-text="Search results with certified assets" border="true":::
 
