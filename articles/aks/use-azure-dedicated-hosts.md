@@ -129,7 +129,7 @@ az identity create -g <Resource Group> -n <Managed Identity name>
 Assign Managed Identity
 
 ```azurecli-interactive
-az role assignment create --assignee <id> --role "Storage Account Key Operator Service Role" --scope <Resource id>
+az role assignment create --assignee <id> --role "Contributor" --scope <Resource id>
 ```
 
 ## Create an AKS cluster using the Host Group
