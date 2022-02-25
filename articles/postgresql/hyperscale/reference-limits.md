@@ -35,7 +35,7 @@ to keep nodes healthy:
    * 1000 for 16+ vCores
 
 The connection limits above are for *user* connections (`max_connections` -
-`superuser_reserved_connections`). We reserve additional connections for
+`superuser_reserved_connections`). We reserve extra connections for
 administration and recovery.
 
 The limits apply to both worker nodes and the coordinator node. Attempts to
