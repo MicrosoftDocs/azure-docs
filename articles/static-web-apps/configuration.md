@@ -178,10 +178,12 @@ The following example configuration blocks anonymous access and redirects all un
 
 ```json
 {
-  "routes": {
-    "route": "/*",
-    "allowedRoles": ["authenticated"]
-  },
+  "routes": [
+    {
+      "route": "/*",
+      "allowedRoles": ["authenticated"]
+    }
+  ],
   "responseOverrides": {
     "401": {
       "statusCode": 302,
