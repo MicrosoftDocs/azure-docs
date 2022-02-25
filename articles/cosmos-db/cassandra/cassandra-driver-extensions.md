@@ -1,6 +1,8 @@
 ---
 title: Azure Cosmos DB Extension Driver Recommended settings
-description: Learn about Azure Cosmos DB Cassandra API extension driver and the recommended settings. 
+description: Learn about Azure Cosmos DB Cassandra API extension driver and the recommended settings.
+ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 author: iriaosara
 ms.author: iriaosara
 ms.topic: how-to
