@@ -69,7 +69,7 @@ The following prerequisites are required to implement the incoming trust-based a
 |Prerequisite  |Description  |
 |---------|---------|
 |Client must run Windows 10, Windows Server 2012, or a higher version of Windows. |         |
-|Clients must be joined to AD. |  You can determine if this prerequisite is met by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
+|Clients must be joined to AD. The domain must have a functional level of Windows Server 2012 or higher. |  You can determine if the client is joined to AD by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd.md): `dsregcmd.exe /status`  |
 |Azure AD Hybrid Authentication Management Module. | This PowerShell module provides management features for on-premises setup. |
 |Azure tenant.  |         |
 |Azure subscription under the same Azure AD tenant you plan to use for authentication.|         |
