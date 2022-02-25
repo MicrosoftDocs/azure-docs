@@ -7,7 +7,7 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 12/10/2021
 ms.author: mbaldwin
-ms.devlang: javascript, azurecli
+ms.devlang: javascript
 ms.custom: mvc, devx-track-js, devx-track-azurecli
 
 # Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.

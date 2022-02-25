@@ -40,6 +40,10 @@ items:
     href: tutorial-using-rest-apis.md
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
+  - name: Data owner policies on resource groups or subscriptions
+    href: tutorial-access-policies-resource-group.md
+  - name: Integrate with Microsoft Sentinel
+    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Use Azure Purview Studio
@@ -112,6 +116,8 @@ items:
     - name: Manage credentials
       href: manage-credentials.md
       displayName: Create and manage credentials
+    - name: Manage integration runtimes
+      href: manage-integration-runtimes.md
     - name: Create Service Principal
       href: create-service-principal-azure.md
   - name: Sources
@@ -196,8 +202,6 @@ items:
       href: create-a-scan-rule-set.md
     - name: Resource set pattern rules
       href: how-to-resource-set-pattern-rules.md
-    - name: Manage integration runtimes
-      href: manage-integration-runtimes.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
   - name: Data discovery

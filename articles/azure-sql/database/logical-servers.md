@@ -6,7 +6,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: devx-track-azurecli
-ms.devlang: azurecli
 ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
