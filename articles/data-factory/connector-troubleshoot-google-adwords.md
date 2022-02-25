@@ -25,7 +25,7 @@ This article provides suggestions to troubleshoot common problems with the Googl
 
 - **Cause** 
 
-    Due to the sunset of Google AdWords API by April 27, 2022, you are recommended to migrate to the new version of Google Ads API before **April 27, 2022**, and connection will start to fail because of the deprecation of Google AdWords API (see this [link](https://ads-developers.googleblog.com/2021/04/upgrade-to-google-ads-api-from-adwords.html)). Migration steps:
+    Due to the sunset of Google AdWords API by **April 27, 2022**, you are recommended to migrate your existing linked service to the new version of Google Ads API before the date. Starting **April 27, 2022**, connection will start to fail because of the deprecation of Google AdWords API (see this [link](https://ads-developers.googleblog.com/2021/04/upgrade-to-google-ads-api-from-adwords.html)). Migration steps:
     
     1. Open your Google AdWords connector linked service configuration page.
     2. Edit the linked service and choose the new API version (select **Google Ads**).
