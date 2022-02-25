@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 02/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -19,19 +19,7 @@ ms.collection: M365-identity-device-management
 
 The following is a list of the settings that will be roamed or backed up in Windows 10 or newer. 
 
-## Windows Settings overview
-
-The following settings groups are available for end users to enable/disable settings sync on Windows 10 or newer devices.
-
-- Ease of Access
-- Internet Explorer Settings
-- Language Preferences
-- Microsoft Edge browser setting
-- Other Windows Settings
-- Passwords
-
-> [!NOTE]
-> This article applies to the Microsoft Edge Legacy HTML-based browser launched with Windows 10 in July 2015. The article does not apply to the new Microsoft Edge Chromium-based browser released on January 15, 2020. For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
+For more information on the Sync behavior for the new Microsoft Edge, see the article [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
 Microsoft Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Microsoft Edge browser Settings menu option.
 
