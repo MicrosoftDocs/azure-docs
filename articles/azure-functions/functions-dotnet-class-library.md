@@ -336,8 +336,6 @@ namespace ServiceBusCancellationToken
 }
 ```
 
-[!INCLUDE [functions-test-csharp.md](../../includes/functions-test-csharp.md)]
-
 ## Logging
 
 In your function code, you can write output to logs that appear as traces in Application Insights. The recommended way to write to the logs is to include a parameter of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), which is typically named `log`. Version 1.x of the Functions runtime used `TraceWriter`, which also writes to Application Insights, but doesn't support structured logging. Don't use `Console.Write` to write your logs, since this data isn't captured by Application Insights. 
@@ -570,6 +568,7 @@ Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll s
 
 Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
 
+[!INCLUDE [functions-test-csharp.md](../../includes/functions-test-csharp.md)]
 
 ## Environment variables
 
