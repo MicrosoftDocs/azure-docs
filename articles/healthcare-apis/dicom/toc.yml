@@ -51,10 +51,12 @@ items:
 - name: Concepts
   expanded: true
   items:
-    - name: Using DICOMweb Standard APIs with DICOM service
-      href: dicomweb-standard-apis-with-dicom-services.md
+    - name: DICOM cast overview
+      href: dicom-cast-overview.md
     - name: DICOM Change Feed Overview
       href: dicom-change-feed-overview.md
+    - name: Using DICOMweb Standard APIs with DICOM service
+      href: dicomweb-standard-apis-with-dicom-services.md  
 - name: Resources
   expanded: true
   items:
