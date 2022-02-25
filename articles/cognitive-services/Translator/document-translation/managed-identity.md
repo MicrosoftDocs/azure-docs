@@ -57,7 +57,7 @@ To get started, you'll need:
 
 ## Managed identity assignments
 
-There are two types of managed identities: **system-assigned** and **user-assigned**.  Currently, Document Translation supports system-assigned managed identities:
+There are two types of managed identities: **system-assigned** and **user-assigned**.  Currently, Document Translation supports **system-assigned managed identity**:
 
 * A system-assigned managed identity is **enabled** directly on a service instance. It isn't enabled by default; you must go to your resource and update the identity setting.
 
@@ -120,7 +120,13 @@ The **Storage Blob Data Contributor** role gives Translator (represented by the 
 
 ## HTTP requests
 
-A batch Document Translation request is submitted to your Translator service endpoint via a POST request. If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. The translated documents will appear in your target container.
+* A batch Document Translation request is submitted to your Translator service endpoint via a POST request.
+
+* With managed identity and Azure RBAC, you'll no longer need to include SAS URLs.
+
+* If successful, the POST method returns a `202 Accepted`  response code and the batch request is created by the service. 
+
+* The translated documents will appear in your target container.
 
 ### Headers
 
@@ -133,9 +139,9 @@ The following headers are included with each Document Translator API request:
 
 ### POST request body
 
-* The POST request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
+* The request URL is POST `https://<NAME-OF-YOUR-RESOURCE>.cognitiveservices.azure.com/translator/text/batch/v1.0/batches`
 
-* The POST request body is a JSON object named `inputs`.
+* The request body is a JSON object named `inputs`.
 * The `inputs` object contains both  `sourceURL` and `targetURL`  container addresses for your source and target language pairs
 * The `prefix` and `suffix` fields (optional) are used to filter documents in the container including folders.
 * A value for the  `glossaries`  field (optional) is applied when the document is being translated.
@@ -167,10 +173,8 @@ The following headers are included with each Document Translator API request:
 
 ### Translate a specific document in a container
 
-* Ensure you've specified "storageType": "File"
-* Ensure you have created source URL & SAS token for the specific blob/document (not for the container)
-* Ensure you've specified the target filename as part of the target URL – though the SAS token is still for the container.
-* Sample request below shows a single document getting translated into two target languages
+* **Required**: "storageType": "File"
+* The sample request below shows a single document getting translated into two target languages
 
 ```json
 {
@@ -224,7 +228,7 @@ The following headers are included with each Document Translator API request:
 }
 ```
 
- Great! You've learned how to enable and use a system-assigned managed identity. With managed identity and Azure RBAC, you granted Translator specific access rights to your storage resource without having to include SAS tokens with your HTTP requests.
+ Great! You've learned how to enable and use a system-assigned managed identity. With managed identity for Azure Resources and Azure RBAC, you granted Translator specific access rights to your storage resource without including SAS tokens with your HTTP requests.
 
 ## Next steps
 

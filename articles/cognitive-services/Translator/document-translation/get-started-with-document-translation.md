@@ -35,7 +35,7 @@ To get started, you'll need:
 
 * A [**single-service Translator resource**](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**not** a multi-service Cognitive Services resource):
 
-  **Translator project and instance details**
+  **Complete the Translator project and instance details fields as follows:**
 
   1. **Subscription**. Select one of your available Azure subscriptions.
 
