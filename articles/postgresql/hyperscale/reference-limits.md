@@ -34,7 +34,7 @@ to keep nodes healthy:
    * 500 for 4-15 vCores
    * 1000 for 16+ vCores
 
-The connection limits above are for *user* connections (`max_connections` -
+The connection limits above are for *user* connections (`max_connections` minus
 `superuser_reserved_connections`). We reserve extra connections for
 administration and recovery.
 
