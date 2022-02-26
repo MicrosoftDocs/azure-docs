@@ -42,7 +42,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Configure Bastion from VM settings
+          - text: Deploy Bastion from VM settings
             url: quickstart-host-portal.md
       - linkListType: how-to-guide
         links:
