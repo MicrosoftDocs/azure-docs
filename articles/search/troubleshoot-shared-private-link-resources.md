@@ -13,11 +13,9 @@ ms.date: 02/26/2022
 
 # Troubleshooting common issues with Shared Private Links
 
-A shared private link allows Azure Cognitive Search to make secure outbound connections over a private endpoint when accessing customer resources in a virtual network. This article can help you resolve errors that might occur. A shared private link is created in the search service control plane using either the portal or a [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update).
+A shared private link allows Azure Cognitive Search to make secure outbound connections over a private endpoint when accessing customer resources in a virtual network. This article can help you resolve errors that might occur. 
 
-Errors can occur immediately when initiating [a shared private link](search-indexer-howto-access-private.md) if the service doesn't meet tier requirements of Basic and above. Errors can also occur during validation when the search [resource provider](../azure-resource-manager/management/overview.md#terminology) validates the request. Validation takes time. You can query the status of the operation in the portal or through the Management API.
-
-During provisioning, the state of the request is "Updating". After the operation completes successfully, status is "Succeeded". A private endpoint, along with any DNS zones and mappings, is created.
+Creating a shared private link is search service control plane operation. You can [create a shared private link](search-indexer-howto-access-private.md) using either the portal or a [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update). During provisioning, the state of the request is "Updating". After the operation completes successfully, status is "Succeeded". A private endpoint to the resource, along with any DNS zones and mappings, is created. This endpoint is used exclusively by your search service instance and is managed through Azure Cognitive Search.
 
 ![Steps involved in creating shared private link resources ](media\troubleshoot-shared-private-link-resources\shared-private-link-states.png)
 
@@ -62,7 +60,7 @@ Some common errors that occur during the creation phase are listed below.
 
 + Quota limit enforcement: Search services have quotas imposed on the distinct number of shared private link resources that can be created and the number of various target resource types that are being used (based on `groupId`). These are documented in the [Shared private link resource limits section](search-limits-quotas-capacity.md#shared-private-link-resource-limits) of the Azure Cognitive Search service limits page.
 
-## Azure Resource Manager deployment failures
+## Deployment failures
 
 A search service initiates the request to create a shared private link, but Azure Resource Manager performs the actual work. You can [check the deployment's status](search-indexer-howto-access-private.md#check-endpoint-status) in the portal or by query, and address any errors that might occur.
 
@@ -75,7 +73,7 @@ Shared private link resources that have failed Azure Resource Manager deployment
 | Target resource not found | Existence of the target resource specified in `privateLinkResourceId` is checked only during the commencement of the Azure Resource Manager deployment. If the target resource is no longer available, then the deployment will fail. | Customer should ensure that the target resource is present in the specified subscription and resource group and is not moved/deleted |
 | Transient/other errors | The Azure Resource Manager deployment can fail if there is an infrastructure outage or because of other unexpected reasons. This should be rare and usually indicates a transient state. | Retry creating this resource at a later time. If the problem persists reach out to Azure Support. |
 
-## Resource stuck in "Updating" or "Incomplete" state
+## Resource stalled in an "Updating" or "Incomplete" state
 
 Typically, a shared private link resource should go a terminal state (`Succeeded` or `Failed`) in a few minutes after the request has been accepted by the search RP.
 

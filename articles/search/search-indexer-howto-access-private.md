@@ -37,20 +37,18 @@ When setting up a shared private link resource, make sure the **Group ID** value
 
 | Azure resource | Group ID |
 | --- | --- |
-| Azure Storage - Blob | `blob`|
+| Azure Storage - Blob | `blob` <sup>1</sup> |
 | Azure Storage - Data Lake Storage Gen2 | `dfs` and `blob` |
-| Azure Storage - Tables | `table`|
+| Azure Storage - Tables | `table` <sup>1,</sup> <sup>2</sup> |
 | Azure Cosmos DB - SQL API | `Sql`|
 | Azure SQL Database | `sqlServer`|
 | Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault for [customer-managed keys](search-security-manage-encryption-keys.md) | `vault` |
 | Azure Functions (preview) | `sites` |
 
-For search features that use Azure Storage for storing customer data:
+<sup>1</sup> If enabled [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) and the connection to Azure Blob Storage is through a private endpoint, make sure there is a shared private link of type `blob`.
 
-+ An [enrichment cache](cognitive-search-incremental-indexing-conceptual.md) connection needs a shared private link with `blob`.
-
-+ A [knowledge store](knowledge-store-concept-intro.md) connection that makes full use of all types of projections (object, file, table) needs `blob` and `table`.
+<sup>2</sup> If you're projecting data to a [knowledge store](knowledge-store-concept-intro.md) and the connection to Azure Blob Storage and Azure Table Storage is through a private endpoint, make sure there are two shared private links of type `blob` and `table`, respectively.
 
 > [!TIP]
 > Query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
@@ -60,7 +58,7 @@ For search features that use Azure Storage for storing customer data:
 The following section describes how to create a shared private link resource either using the Azure portal or the Azure CLI.
 
 > [!NOTE]
-> Azure portal only supports creating a shared private link resource using **Group ID** values that are generally available. For **[MySQL Private Link (Preview)](../mysql/concepts-data-access-security-private-link.md)** and **[Azure Functions Private Link (Preview)](../azure-functions/functions-networking-options.md)**, use the Azure CLI steps described in **Option 2**, which follows.
+> Azure portal only supports creating a shared private link resource using **Group ID** values that are generally available. For [MySQL Private Link (Preview)](../mysql/concepts-data-access-security-private-link.md) and [Azure Functions Private Link (Preview)](../azure-functions/functions-networking-options.md), use Azure CLI.
 
 ### [**Azure portal**](#tab/portal-create)
 
@@ -219,10 +217,12 @@ The steps for restricting access vary by resource. The following scenarios show 
 
 ## 6 - Configure the indexer to run in the private environment
 
-> [!NOTE]
-> You can perform this step before the private endpoint connection is approved. However, until the private endpoint connection shows as approved, any indexer that tries to communicate with a secure resource (such as the storage account) will end up in a transient failure state and new indexers will fail to be created.
+[Indexer execution](search-indexer-securing-resources.md#indexer-execution-environment) occurs in either a private environment that's specific to the search service, or a multi-tenant environment that's used internally to offload expensive skillset processing. The execution environment is usually transparent, but once you start building firewall rules or establishing private connections, you'll have to take indexer execution into account. In the case of private endpoints, you'll need to ensure that indexer execution always occurs in the private environment. 
 
-The following steps show how to configure the indexer to run in the private environment using the REST API. You can also set the execution environment using the JSON editor in the portal.
+This step shows you how to configure the indexer to run in the private environment using the REST API. You can also set the execution environment using the JSON editor in the portal.
+
+> [!NOTE]
+> You can perform this step before the private endpoint connection is approved. However, until the private endpoint connection shows as approved, any existing indexer that tries to communicate with a secure resource (such as the storage account) will end up in a transient failure state and new indexers will fail to be created.
 
 1. Create the data source definition, index, and skillset (if you're using one) as you would normally. There are no properties in any of these definitions that vary when using a shared private endpoint.
 
