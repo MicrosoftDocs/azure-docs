@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle JDE
 
-In this article, learn to secure Oracle JD Edwards using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+In this article, learn to secure Oracle JD Edwards (JDE) using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
@@ -37,7 +37,7 @@ Having a BIG-IP in front of the app enables us to overlay the service with Azure
 
 ## Scenario architecture
 
-The secure hybrid access solution for this scenario is made up of several components:
+The SHA solution for this scenario is made up of several components:
 
 **Oracle JDE Application:** BIG-IP published service to be protected by Azure AD SHA.
 
@@ -168,7 +168,7 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
-   Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-oracle-jde/service-provider-settings.png)
+   ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-oracle-jde/service-provider-settings.png)
 
    Next, under optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides  assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
@@ -202,7 +202,7 @@ This section defines all properties that you would normally use to manually conf
 
 2. In the **Sign On URL (optional)** enter the public FQDN of the JDE application being secured.
 
-    Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-oracle-jde/azure-configuration-add-display-info.png)
+    ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-oracle-jde/azure-configuration-add-display-info.png)
 
 3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
 
