@@ -2737,7 +2737,7 @@
         href: mypolicies-provisioning-tutorial.md
     - name: N - S
       items:
-      - name: Netpresenter
+      - name: Netpresenter Next
         href: netpresenter-provisioning-tutorial.md
       - name: Netskope User Authentication
         href: netskope-administrator-console-provisioning-tutorial.md
