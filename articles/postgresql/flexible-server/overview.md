@@ -4,6 +4,7 @@ description: Provides an overview of Azure Database for PostgreSQL - Flexible Se
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: overview
 ms.date: 02/17/2022
 ms.custom: "mvc, references_regions"

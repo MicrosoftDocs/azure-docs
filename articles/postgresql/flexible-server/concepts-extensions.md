@@ -4,6 +4,7 @@ description: Learn about the available PostgreSQL extensions in Azure Database f
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---

@@ -4,6 +4,7 @@ description: This article describes how to use firewall rules to connect to Azur
 author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---

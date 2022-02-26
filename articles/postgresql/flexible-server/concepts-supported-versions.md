@@ -4,6 +4,7 @@ description: Describes the supported PostgreSQL major and minor versions in Azur
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 11/30/2021
 ---
