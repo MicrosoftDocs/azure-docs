@@ -322,7 +322,7 @@ The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth
 | name           | The name of the API or operation for which the quota applies.                                             | Yes                                                              | N/A     |
 | bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite. | Yes                                                              | N/A     |
+| renewal-period | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.<br/><br/>This attribute cannot be set when an `api` or `operation` element is specified. | Yes                                                              | N/A     |
 
 ### Usage
 
