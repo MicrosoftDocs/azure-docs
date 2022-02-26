@@ -202,7 +202,7 @@ This section defines all properties that you would normally use to manually conf
 
 2. In the **Sign On URL (optional)** enter the public FQDN of the JDE application being secured.
 
-    Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-oracle-jde/azure-configuration-add-display-info.png)
+    ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-oracle-jde/azure-configuration-add-display-info.png)
 
 3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
 
