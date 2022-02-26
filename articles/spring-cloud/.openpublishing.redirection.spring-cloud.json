@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path": "quickstart-setup-service-registry-enterprise.md",
+            "redirect_url": "/azure/spring-cloud/quickstart-deploy-apps-enterprise",
+            "redirect_document_id": false
+        }
+    ]
+}
