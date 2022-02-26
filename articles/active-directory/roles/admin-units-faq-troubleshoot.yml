@@ -7,7 +7,7 @@ metadata:
   author: rolyon
   manager: karenhoran
   ms.service: active-directory
-  ms.topic: how-to
+  ms.topic: faq
   ms.subservice: roles
   ms.workload: identity
   ms.date: 01/28/2022
@@ -15,7 +15,6 @@ metadata:
   ms.reviewer: anandy
   ms.custom: oldportal;it-pro;
   ms.collection: M365-identity-device-management
-    
 title: "Azure AD administrative units: Troubleshooting and FAQ"
 summary: |
   For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units. For sample PowerShell scripts for common tasks, see [Work with administrative units](/powershell/azure/active-directory/working-with-administrative-units).

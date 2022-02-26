@@ -251,7 +251,7 @@ Access permissions could be revoked at any given time. Once revoked, any search 
 
 1. Still in the Azure portal, open your key vault **Overview** page. 
 
-1. Select the **Access policies** on the left, and select **+ Create**.
+1. Select the **Access policies** on the left, and select **+ Create** to start the **Create an access policy** wizard.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Create an access policy." border="true":::
 

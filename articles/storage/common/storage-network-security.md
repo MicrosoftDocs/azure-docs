@@ -5,11 +5,11 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2021
+ms.date: 02/16/2022
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure Azure Storage firewalls and virtual networks
@@ -18,7 +18,7 @@ Azure Storage provides a layered security model. This model enables you to secur
 
 Storage accounts have a public endpoint that is accessible through the internet. You can also create [Private Endpoints for your storage account](storage-private-endpoints.md), which assigns a private IP address from your VNet to the storage account, and secures all traffic between your VNet and the storage account over a private link. The Azure storage firewall provides access control for the public endpoint of your storage account. You can also use the firewall to block all access through the public endpoint when using private endpoints. Your storage firewall configuration also enables select trusted Azure platform services to access the storage account securely.
 
-An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token.
+An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token. When a blob container is configured for anonymous public access, requests to read data in that container are not authorized, but the firewall rules remain in effect and will block anonymous traffic.
 
 > [!IMPORTANT]
 > Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
@@ -132,7 +132,7 @@ To apply a virtual network rule to a storage account, the user must have the app
 Storage account and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through Powershell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 ### Available virtual network regions
 
@@ -238,7 +238,7 @@ You can manage virtual network rules for storage accounts through the Azure port
     > [!NOTE]
     > If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
-    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , Powershell, CLI or REST APIs.
+    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , PowerShell, CLI or REST APIs.
     > 
     > Even if you registered the `AllowGlobalTagsForStorageOnly` feature, subnets in regions other than the region of the storage account or its paired region aren't shown for selection. If you want to enable access to your storage account from a virtual network/subnet in a different region, use the instructions in the PowerShell or Azure CLI tabs.
 

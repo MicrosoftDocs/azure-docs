@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX

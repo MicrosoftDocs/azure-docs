@@ -3,7 +3,7 @@ title: Integrate Azure Cache for Redis and Azure Cache Redis Enterprise with Ser
 description: Integrate Azure Cache for Redis and Azure Cache Redis Enterprise into your application with Service Connector
 author: shizn
 ms.author: xshi
-ms.service: serviceconnector
+ms.service: service-connector
 ms.topic: how-to
 ms.date: 1/3/2022
 ---
