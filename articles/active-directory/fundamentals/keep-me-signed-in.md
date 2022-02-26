@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 06/05/2020
 ms.author: celested
-ms.reviewer: asteen, jlu, hirsin
+ms.reviewer: asteen, jlu, ludwignick
 ms.collection: M365-identity-device-management
 ---
 

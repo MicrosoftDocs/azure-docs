@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 01/31/2022
 ms.service: app-service
 ms.role: developer
-ms.devlang: javascript, azurecli
+ms.devlang: javascript
 ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devx-track-azurecli
 ---
 
 # Deploy a Node.js + MongoDB web app to Azure
 
-In this tutorial, you'll deploy a sample **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service which supports hosting Node.js apps in both Linux (Node versions 12, 14, and 16) and Windows (versions 12 and 14) server environments. The MongoDB database will be hosted in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](/azure/cosmos-db/mongodb/mongodb-introduction).
+In this tutorial, you'll deploy a sample **Express.js** app using a **MongoDB** database to Azure.  The Express.js app will be hosted in Azure App Service which supports hosting Node.js apps in both Linux (Node versions 12, 14, and 16) and Windows (versions 12 and 14) server environments. The MongoDB database will be hosted in Azure Cosmos DB, a cloud native database offering a [100% MongoDB compatible API](../cosmos-db/mongodb/mongodb-introduction.md).
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/app-diagram.png" alt-text="A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB." lightbox="./media/tutorial-nodejs-mongodb-app/app-diagram-large.png":::
 
@@ -214,7 +214,7 @@ The contents of the App Service diagnostic logs can be reviewed in the Azure por
 
 ## 7 - Inspect deployed files using Kudu
 
-Azure App Service provides a web-based diagnostics console named [Kudu](/azure/app-service/resources-kudu) that allows you to examine the server hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application, and even open an SSH session into the hosting environment.
+Azure App Service provides a web-based diagnostics console named [Kudu](./resources-kudu.md) that allows you to examine the server hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application, and even open an SSH session into the hosting environment.
 
 To access Kudu, navigate to one of the following URLs. You will need to sign into the Kudu site with your Azure credentials.
 
@@ -266,4 +266,4 @@ Follow these steps while signed-in to the Azure portal to delete a resource grou
 > [JavaScript on Azure developer center](/azure/developer/javascript)
 
 > [!div class="nextstepaction"]
-> [Configure Node.js app in App Service](/azure/app-service/configure-language-nodejs)
+> [Configure Node.js app in App Service](./configure-language-nodejs.md)

@@ -16,6 +16,8 @@ ms.devlang: azurecli
 
 # Deploy a TensorFlow model served with TF Serving using a custom container in an online endpoint (preview)
 
+[!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
 Learn how to deploy a custom container as an online endpoint in Azure Machine Learning.
 
 Custom container deployments can use web servers other than the default Python Flask server used by Azure Machine Learning. Users of these deployments can still take advantage of Azure Machine Learning's built-in monitoring, scaling, alerting, and authentication.

@@ -5,7 +5,6 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
-ms.devlang: azurecli
 ms.topic: tutorial
 author: emlisa
 ms.author: emlisa

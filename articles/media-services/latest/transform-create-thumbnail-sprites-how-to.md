@@ -21,7 +21,9 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-How do I create thumbnail sprites? You can create a transform for a job that will generate thumbnail sprites for your videos.  This article shows you how with the Media Services 2020-05-01 v3 API.
+This article shows you how with the Media Services 2020-05-01 v3 API.
+
+You can use Media Encoder Standard to generate a thumbnail sprite, which is a JPEG file that contains multiple small resolution thumbnails stitched together into a single (large) image, together with a VTT file. This VTT file specifies the time range in the input video that each thumbnail represents, together with the size and coordinates of that thumbnail within the large JPEG file. Video players use the VTT file and sprite image to show a 'visual' seekbar, providing a viewer with visual feedback when scrubbing back and forward along the video timeline.
 
 Add the code snippets for your preferred development language.
 

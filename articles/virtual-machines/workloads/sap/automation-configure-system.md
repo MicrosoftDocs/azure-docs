@@ -1,6 +1,6 @@
 ---
 title: Configure SAP system parameters for automation
-description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters JSON file.
+description: Define the SAP system properties for the SAP deployment automation framework on Azure using a parameters file.
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
