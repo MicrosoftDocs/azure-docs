@@ -19,46 +19,45 @@ Private endpoints created through Azure Cognitive Search APIs are referred to as
 
 To create a shared private link, use the Azure portal or the [Create Or Update Shared Private Link](/rest/api/searchmanagement/2020-08-01/shared-private-link-resources/create-or-update) operation in the Azure Cognitive Search Management REST API.
 
-If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to create the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
-
 ## Prerequisites
 
 + The Azure resource that provides content or code must be previously registered with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
 
 + The search service must be Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
++ If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to create the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
+
 <a name="group-ids"></a>
 
-## Supported resources and Group IDs
+## Supported resources and group IDs
 
 The following table lists Azure resources for which you can create managed private endpoints from within Azure Cognitive Search.
 
-When setting up a shared private link resource, make sure the **Group ID** value is exact. Values are case-sensitive and must be identical to those shown in the following table. Notice that for several resources and features, you'll need to set two IDs.
+When setting up a shared private link resource, make sure the group ID value is exact. Values are case-sensitive and must be identical to those shown in the following table. Notice that for several resources and features, you'll need to set two IDs.
 
 | Azure resource | Group ID |
 | --- | --- |
-| Azure Storage - Blob | `blob` <sup>1</sup> |
+| Azure Storage - Blob | `blob` <sup>1,</sup> <sup>2</sup>  |
 | Azure Storage - Data Lake Storage Gen2 | `dfs` and `blob` |
-| Azure Storage - Tables | `table` <sup>1,</sup> <sup>2</sup> |
+| Azure Storage - Tables | `table` <sup>2</sup> |
 | Azure Cosmos DB - SQL API | `Sql`|
 | Azure SQL Database | `sqlServer`|
 | Azure Database for MySQL (preview) | `mysqlServer`|
 | Azure Key Vault for [customer-managed keys](search-security-manage-encryption-keys.md) | `vault` |
 | Azure Functions (preview) | `sites` |
 
-<sup>1</sup> If enabled [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) and the connection to Azure Blob Storage is through a private endpoint, make sure there is a shared private link of type `blob`.
+<sup>1</sup> If you enabled [enrichment caching](cognitive-search-incremental-indexing-conceptual.md) and the connection to Azure Blob Storage is through a private endpoint, make sure there is a shared private link of type `blob`.
 
 <sup>2</sup> If you're projecting data to a [knowledge store](knowledge-store-concept-intro.md) and the connection to Azure Blob Storage and Azure Table Storage is through a private endpoint, make sure there are two shared private links of type `blob` and `table`, respectively.
 
 > [!TIP]
-> Query the Azure resources for which outbound private endpoint connections are supported by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
+> You can query for the list of supported resources and group IDs by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
 ## 1 - Create a shared private link
 
 The following section describes how to create a shared private link resource either using the Azure portal or the Azure CLI.
 
-> [!NOTE]
-> Azure portal only supports creating a shared private link resource using **Group ID** values that are generally available. For [MySQL Private Link (Preview)](../mysql/concepts-data-access-security-private-link.md) and [Azure Functions Private Link (Preview)](../azure-functions/functions-networking-options.md), use Azure CLI.
+Azure portal only supports creating a shared private link resource using group ID values that are generally available. For [MySQL Private Link (Preview)](../mysql/concepts-data-access-security-private-link.md) and [Azure Functions Private Link (Preview)](../azure-functions/functions-networking-options.md), use Azure CLI.
 
 ### [**Azure portal**](#tab/portal-create)
 
@@ -70,19 +69,19 @@ The following section describes how to create a shared private link resource eit
 
 1. On the blade that opens on the right, select either **Connect to an Azure resource in my directory** or **Connect to an Azure resource by resource ID or alias**.
 
-1. If you select the first option (recommended), the blade helps you pick the appropriate Azure resource and fills in other properties, such as the **Group ID** of the resource and the resource type.
+1. If you select the first option (recommended), the blade helps you pick the appropriate Azure resource and fills in other properties, such as the group ID of the resource and the resource type.
 
-  ![Screenshot of the "Add Shared Private Access" pane, showing a guided experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource.png)
+   ![Screenshot of the "Add Shared Private Access" pane, showing a guided experience for creating a shared private link resource. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource.png)
 
-1. If you select the second option, enter the Azure resource ID manually and choose the appropriate **Group ID** from the list at the beginning of this article.
+1. If you select the second option, enter the Azure resource ID manually and choose the appropriate group ID from the list at the beginning of this article.
 
-  ![Screenshot of the "Add Shared Private Access" pane, showing the manual experience for creating a shared private link resource.](media\search-indexer-howto-secure-access\new-shared-private-link-resource-manual.png)
+   ![Screenshot of the "Add Shared Private Access" pane, showing the manual experience for creating a shared private link resource.](media\search-indexer-howto-secure-access\new-shared-private-link-resource-manual.png)
 
 ### [**Azure CLI**](#tab/cli-create)
 
 You can use the Management REST API with Azure PowerShell, or the [Azure CLI](/cli/azure/) as shown in this example.
 
-Remember to use the preview API version, either 2020-08-01-preview or 2021-04-01-preview, if you're using a **Group ID** that's in preview. For example, *sites* and *mysqlServer* are in preview and require you to use the preview API.
+Remember to use the preview API version, either 2020-08-01-preview or 2021-04-01-preview, if you're using a group ID that's in preview. For example, *sites* and *mysqlServer* are in preview and require you to use the preview API.
 
 ```dotnetcli
 az rest --method put --uri https://management.azure.com/subscriptions/<search service subscription ID>/resourceGroups/<search service resource group name>/providers/Microsoft.Search/searchServices/<search service name>/sharedPrivateLinkResources/<shared private endpoint name>?api-version=2020-08-01 --body @create-pe.json
@@ -105,9 +104,9 @@ A `202 Accepted` response is returned on success. The process of creating an out
 
 + A private endpoint, allocated with a private IP address in a `"Pending"` state. The private IP address is obtained from the address space that's allocated to the virtual network of the execution environment for the search service-specific private indexer. Upon approval of the private endpoint, any communication from Azure Cognitive Search to the Azure resource originates from the private IP address and a secure private link channel.
 
-+ A private DNS zone for the type of resource, based on the **Group ID**. By deploying this resource, you ensure that any DNS lookup to the private resource utilizes the IP address that's associated with the private endpoint.
++ A private DNS zone for the type of resource, based on the group ID. By deploying this resource, you ensure that any DNS lookup to the private resource utilizes the IP address that's associated with the private endpoint.
 
-Be sure to specify the correct **Group ID** for the type of resource for which you're creating the private endpoint. Any mismatch will result in a non-successful response message.
+Be sure to specify the correct group ID for the type of resource for which you're creating the private endpoint. Any mismatch will result in a non-successful response message.
 
 ---
 
@@ -115,18 +114,17 @@ Be sure to specify the correct **Group ID** for the type of resource for which y
 
 ## 2 - Check the status of the private endpoint creation
 
-In this step, confirm that the provisioning state of the resource changes to "Succeeded".
+In this step, confirm that the provisioning state of the resource changes to "Succeeded". 
+
+You can use the portal to check provisioning state for both generally available and preview resources.
 
 ### [**Azure portal**](#tab/portal-status)
 
-> [!NOTE]
-> The "Provisioning State" will be visible in the Azure portal for **Group ID** that are both generally available and Preview.
-
-The portal will show you the state of the shared private endpoint. In the following example, the status is "Updating".
+The portal shows you the state of the shared private endpoint. In the following example, the status is "Updating".
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the resource creation in progress. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-progress.png)
 
-Once the resource is successfully created, you'll receive a portal notification and the provisioning state of the resource will change to "Succeeded".
+Once the resource is successfully created, you'll receive a portal notification and the provisioning state of the resource changes to "Succeeded".
 
 ![Screenshot of the "Add Shared Private Access" pane, showing the resource creation completed. ](media\search-indexer-howto-secure-access\new-shared-private-link-resource-success.png)
 
@@ -150,9 +148,9 @@ In this section, you use the Azure portal for the approval flow of a private end
 
 Other providers, such as Azure Cosmos DB or Azure SQL Server, offer similar resource provider REST APIs for managing private endpoint connections.
 
-1. In the Azure portal, navigate to the Azure resource that you're connecting to and select the **Networking** tab.
+1. In the Azure portal, find the Azure resource that you're connecting to and open the **Networking** page.
 
-1. Navigate to the section that lists the private endpoint connections. Following is an example for a storage account. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
+1. Find the section that lists the private endpoint connections. Following is an example for a storage account. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
 
    ![Screenshot of the Azure portal, showing the "Private endpoint connections" pane.](media\search-indexer-howto-secure-access\storage-privateendpoint-approval.png)
 
@@ -166,7 +164,7 @@ After the private endpoint connection request is approved, traffic is *capable* 
 
 ## 4 - Query the status of the shared private link resource
 
-To confirm that the shared private link resource has been updated after approval, revisit the "Shared Private Access" blade of the search service on the Azure portal and check the "Connection State".
+To confirm that the shared private link resource has been updated after approval, revisit the "Shared Private Access" blade of the search service **Networking** page on the Azure portal and check the "Connection State".
 
    ![Screenshot of the Azure portal, showing an "Approved" shared private link resource.](media\search-indexer-howto-secure-access\new-shared-private-link-resource-approved.png)
 
@@ -217,7 +215,7 @@ The steps for restricting access vary by resource. The following scenarios show 
 
 ## 6 - Configure the indexer to run in the private environment
 
-[Indexer execution](search-indexer-securing-resources.md#indexer-execution-environment) occurs in either a private environment that's specific to the search service, or a multi-tenant environment that's used internally to offload expensive skillset processing. The execution environment is usually transparent, but once you start building firewall rules or establishing private connections, you'll have to take indexer execution into account. In the case of private endpoints, you'll need to ensure that indexer execution always occurs in the private environment. 
+[Indexer execution](search-indexer-securing-resources.md#indexer-execution-environment) occurs in either a private environment that's specific to the search service, or a multi-tenant environment that's used internally to offload expensive skillset processing for multiple customers. The execution environment is usually transparent, but once you start building firewall rules or establishing private connections, you'll have to take indexer execution into account. In the case of private endpoints, you'll need to ensure that indexer execution always occurs in the private environment. 
 
 This step shows you how to configure the indexer to run in the private environment using the REST API. You can also set the execution environment using the JSON editor in the portal.
 
@@ -263,7 +261,7 @@ After the indexer is created successfully, it should connect to the Azure resour
 
 + If indexers fail consistently or intermittently, check the [`executionEnvironment` property](/rest/api/searchservice/update-indexer) on the indexer. The value should be set to `private`. If you didn't set this property, and indexer runs succeeded in the past, it's because the search service used a private environment of its own accord. A search service will move processing out of the standard environment if the system is under load.
 
-+ In the portal, it's expected to get a "No Access" error when viewing the search private endpoint on your data source's **Networking** page. If you want to manage the shared private link for search in the portal, use the **Networking** page of your search service.
++ In the portal, it's expected to get "No Access" when viewing the search private endpoint on your data source's **Networking** page. If you want to manage the shared private link for search in the portal, use the **Networking** page of your search service.
 
 + If you get an error when creating a shared private link, check [service limits](search-limits-quotas-capacity.md) to verify that you're under the quota for your tier.
 
