@@ -262,7 +262,7 @@ getAuthenticatedClient = (accessToken) => {
 
 ## Clean up resources
 
-If you're finished with this tutorial and no longer need the web app or associated resources, [clean up the resources you created](scenario-secure-app-clean-up-resources.md).
+[!INCLUDE [clean up resources](./includes/scenario-secure-app-clean-up-resources.md)]
 
 ## Next steps
 

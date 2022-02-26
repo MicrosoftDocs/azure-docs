@@ -84,16 +84,18 @@
           items: 
           - name: Connect to Cognitive Services
             href: tutorial-connect-msi-key-vault.md
-    - name: Securely connect to Azure resources on behalf of user
+    - name: Securely connect to Azure resources on behalf of
       items:
-        - name: Overview
-          href: scenario-secure-app-overview.md
         - name: Set up App Service authentication
           href: scenario-secure-app-authentication-app-service.md
         - name: Access Microsoft Graph as the user
-          href: scenario-secure-app-access-microsoft-graph-as-user.md
-        - name: Clean up resources
-          href: scenario-secure-app-clean-up-resources.md
+          items: 
+            - name: .NET
+              href: scenario-secure-app-access-microsoft-graph-as-user.md
+            - name: JavaScript
+              href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
+        - name: Access another App Service as the app
+          href: tutorial-auth-aad?pivots=platform-windows.md
     - name: Isolate network traffic
       href: tutorial-networking-isolate-vnet.md
     - name: Host a RESTful API
