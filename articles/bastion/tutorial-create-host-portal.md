@@ -1,16 +1,16 @@
 ---
-title: 'Tutorial: Create an Azure Bastion host: Windows VM: portal'
-description: Learn how to create an Azure Bastion host and connect to a Windows VM.
+title: 'Tutorial: Deploy Bastion using manual settings: Azure portal'
+description: Learn how to deploy Bastion using manual settings using the Azure portal.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/12/2021
+ms.date: 02/25/2022
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
 
-# Tutorial: Configure Bastion and connect to a Windows VM
+# Tutorial: Deploy Bastion using manual settings: Azure portal
 
 This tutorial shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In this tutorial, using the Azure portal, you deploy Bastion to your virtual network. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. When you use Bastion to connect, the VM does not need a public IP address or special software. After deploying Bastion, you can remove the public IP address from your VM if it is not needed for anything else. Next, you connect to a VM via its private IP address using the Azure portal. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
 
@@ -26,7 +26,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 
 * A [virtual network](../virtual-network/quick-create-portal.md).
-* A Windows virtual machine in the virtual network. If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
+* A Windows virtual machine in the virtual network. This VM is not a part of the Bastion configuration. You connect to this VM later via Bastion.  If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
 * The following required roles for your resources:
    * Required VM roles:
      * Reader role on the virtual machine.
@@ -35,9 +35,6 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 * Ports: To connect to the Windows VM, you must have the following ports open on your Windows VM:
   * Inbound ports: RDP (3389)
 
- >[!IMPORTANT]
- >For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work, but we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
- >
 
  >[!NOTE]
  >The use of Azure Bastion with Azure Private DNS Zones is not supported at this time. Before you begin, please make sure that the virtual network where you plan to deploy your Bastion resource is not linked to a private DNS zone.
@@ -71,6 +68,10 @@ You can use the following example values when creating this configuration, or yo
 | Public IP address name | VNet1-ip  |
 | Public IP address SKU |  Standard  |
 | Assignment  | Static |
+
+ >[!IMPORTANT]
+ >For Azure Bastion resources deployed on or after November 2, 2021, the minimum AzureBastionSubnet size is /26 or larger (/25, /24, etc.). All Azure Bastion resources deployed in subnets of size /27 prior to this date are unaffected by this change and will continue to work, but we highly recommend increasing the size of any existing AzureBastionSubnet to /26 in case you choose to take advantage of [host scaling](./configure-host-scaling.md) in the future.
+ >
 
 ## <a name="createhost"></a>Create a bastion host
 
