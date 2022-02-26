@@ -147,7 +147,9 @@ For more information about managing egress traffic, see the [Azure NAT gateway](
 [az-group-create]: /cli/azure/group#az_group_create
 [az-container-create]: /cli/azure/container#az_container_create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
+[az-network-public-ip-create]: /cli/azure/network/public-ip/#az_network_public_ip_create
 [az-network-public-ip-show]: /cli/azure/network/public-ip/#az_network_public_ip_show
+[az-network-nat-gateway-create]: /cli/azure/network/nat-gateway/#az_network_nat_gateway_create
 [az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_update
 [az-container-exec]: /cli/azure/container#az_container_exec
 [azure-cli-install]: /cli/azure/install-azure-cli
