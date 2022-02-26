@@ -275,7 +275,7 @@ The **Application Pool tab** details the services behind a BIG-IP that are repre
 
 2. Choose the **Load Balancing Method** as *Round Robin*
 
-3. Update **Pool Servers**. Select an existing node or specify an IP and port for the server hosting the header-based application
+3. For **Pool Servers** select an existing node or specify an IP and port for the server hosting the header-based application
 
    ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
 
@@ -345,9 +345,7 @@ At that point, changes via the wizard UI are no longer possible, but all BIG-IP 
 
 ## Troubleshooting
 
-You can fail to access the SHA protected application due to any number of factors, including a misconfiguration.
-
-BIG-IP logs are a great source of information for isolating all sorts of authentication & SSO issues. When troubleshooting you should increase the log verbosity level.
+Failure to access a SHA protected application can be due to any number of factors. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
 
 1. Navigate to **Access Policy > Overview > Event Logs > Settings**
 
@@ -355,15 +353,18 @@ BIG-IP logs are a great source of information for isolating all sorts of authent
 
 3. Select **Debug** from the SSO list then **OK**
 
-Reproduce your issue before looking at the logs but remember to switch this back when finished. If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
+
+If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
 
 1. Navigate to **Access > Overview > Access reports**
-2. Run the report for the last hour to see logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
+
+2. Run the report for the last hour to see if the logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
 
 If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
 
-1. In which case you should head to **Access Policy > Overview > Active Sessions** and select the link for your active session
+1. In which case head to **Access Policy > Overview > Active Sessions** and select the link for your active session
 
-2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes
+2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes from Azure AD or another source
 
 For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
