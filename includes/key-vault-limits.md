@@ -10,11 +10,6 @@ Azure Key Vault service supports two resource types: Vaults and Managed HSMs. Th
 
 ### Resource type: vault
 
-This section describes service limits for resource type `vaults` for Public cloud. 
-> [!NOTE]
-> For Azure US Government cloud and Azure China, the limits are half from what is documented below.
-> 
-
 #### Key transactions (maximum transactions allowed in 10 seconds, per vault per region<sup>1</sup>):
 
 |Key type|HSM key<br>CREATE key|HSM key<br>All other transactions|Software key<br>CREATE key|Software key<br>All other transactions|
