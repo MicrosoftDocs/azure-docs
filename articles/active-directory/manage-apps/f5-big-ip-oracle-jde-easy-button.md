@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle JDE
 
-In this article, learn to secure Oracle JD Edwards using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+In this article, learn to secure Oracle JD Edwards (JDE) using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
@@ -37,7 +37,7 @@ Having a BIG-IP in front of the app enables us to overlay the service with Azure
 
 ## Scenario architecture
 
-The secure hybrid access solution for this scenario is made up of several components:
+The SHA solution for this scenario is made up of several components:
 
 **Oracle JDE Application:** BIG-IP published service to be protected by Azure AD SHA.
 
