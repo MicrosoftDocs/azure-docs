@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 This tutorial shows you how to deploy Azure Bastion to your virtual network from the Azure portal using manual settings that you specify. After you deploy Bastion, the RDP/SSH experience is available to all of the virtual machines in the virtual network. Azure Bastion is a PaaS service that is maintained for you. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
-In this tutorial, you deploy Bastion using the Standard SKU tier and adjust host scaling (instance count). After the deployment is complete, you connect to your VM via private IP address using the Azure portal. When you connect to the VM, it doesn't need a public IP address, client software, agent, or a special configuration. If your VM has a public IP address that you don't need for anything else, you can remove it.
+In this tutorial, you deploy Bastion using the Standard SKU tier and adjust host scaling (instance count). After the deployment is complete, you connect to your VM via private IP address. The VM you connect to doesn't need a public IP address, client software, agent, or a special configuration. If your VM has a public IP address that you don't need for anything else, you can remove it.
 
 In this tutorial, you'll learn how to:
 
@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* A [virtual network](../virtual-network/quick-create-portal.md).
+* A [virtual network](../virtual-network/quick-create-portal.md). This will be the VNet to which you deploy Bastion.
 * A Windows virtual machine in the virtual network. This VM isn't a part of the Bastion configuration. You connect to this VM later via Bastion.  If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
 * The following required roles for your resources:
    * Required VM roles:
@@ -81,8 +81,8 @@ This section helps you create the bastion object in your VNet. This is required 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Type **Bastion** into the search.
-1. Under services, click **Bastions**.
-1. On the Bastions page, click **+ Create** to open the **Create a Bastion** page.
+1. Under services, select **Bastions**.
+1. On the Bastions page, select **+ Create** to open the **Create a Bastion** page.
 1. On the **Create a Bastion** page, configure a new Bastion resource.
 
    :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Screenshot of Create a Bastion portal page." lightbox="./media/tutorial-create-host-portal/create.png":::
@@ -111,7 +111,7 @@ This section helps you create the bastion object in your VNet. This is required 
 
 #### Manage subnet configuration
 
-In most cases, you will not already have an AzureBastionSubnet configured. To configure the bastion subnet: 
+In most cases, you won't already have an AzureBastionSubnet configured. To configure the bastion subnet: 
 
 1. Select **Manage subnet configuration**. This takes you to the **Subnets** page.
 
