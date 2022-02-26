@@ -8,24 +8,16 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 02/26/2022
 ---
 
 # Troubleshooting common issues with Shared Private Links
 
-A shared private link allows Azure Cognitive Search to make secure outbound connections when accessing customer resources in a virtual network. This article can help you resolve errors that might occur.
+A shared private link allows Azure Cognitive Search to make secure outbound connections over a private endpoint when accessing customer resources in a virtual network. This article can help you resolve errors that might occur. A shared private link is created in the search service control plane using either the portal or a [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update).
 
-## How a shared private link is created
+Errors can occur immediately when initiating [a shared private link](search-indexer-howto-access-private.md) if the service doesn't meet tier requirements of Basic and above. Errors can also occur during validation when the search [resource provider](../azure-resource-manager/management/overview.md#terminology) validates the request. Validation takes time. You can query the status of the operation in the portal or through the Management API.
 
-There are four distinct steps involved in [creating a shared private link](search-indexer-howto-access-private.md):
-
-1. Create a shared private link in the search service control plane using either the portal or a [Management REST API](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/create-or-update).
-
-2. The search [resource provider](../azure-resource-manager/management/overview.md#terminology) validates the request and  commences an asynchronous Azure Resource Manager operation to create the shared private link.
-
-3. This operation usually takes a few minutes. You can query the status of the operation in the portal or through the Management API. During provisioning, the state of the request is "Updating".
-
-4. After the operation completes successfully, status is "Succeeded". A private endpoint, along with any DNS zones and mappings, is created.
+During provisioning, the state of the request is "Updating". After the operation completes successfully, status is "Succeeded". A private endpoint, along with any DNS zones and mappings, is created.
 
 ![Steps involved in creating shared private link resources ](media\troubleshoot-shared-private-link-resources\shared-private-link-states.png)
 
@@ -43,30 +35,30 @@ Some common errors that occur during the creation phase are listed below.
 
 + Invalid group ID: Group IDs are case-sensitive and must be one of the values from the table below:
 
-| Azure resource | Group ID | First available API version |
-| --- | --- | --- |
-| Azure Storage - Blob (or) ADLS Gen 2 | `blob`| `2020-08-01` |
-| Azure Storage - Tables | `table`| `2020-08-01` |
-| Azure Cosmos DB - SQL API | `Sql`| `2020-08-01` |
-| Azure SQL Database | `sqlServer`| `2020-08-01` |
-| Azure Database for MySQL (preview) | `mysqlServer`| `2020-08-01-Preview` |
-| Azure Key Vault | `vault` | `2020-08-01` |
-| Azure Functions (preview) | `sites` | `2020-08-01-Preview` |
+  | Azure resource | Group ID | First available API version |
+  | --- | --- | --- |
+  | Azure Storage - Blob (or) ADLS Gen 2 | `blob`| `2020-08-01` |
+  | Azure Storage - Tables | `table`| `2020-08-01` |
+  | Azure Cosmos DB - SQL API | `Sql`| `2020-08-01` |
+  | Azure SQL Database | `sqlServer`| `2020-08-01` |
+  | Azure Database for MySQL (preview) | `mysqlServer`| `2020-08-01-Preview` |
+  | Azure Key Vault | `vault` | `2020-08-01` |
+  | Azure Functions (preview) | `sites` | `2020-08-01-Preview` |
 
-Resources marked with "(preview)" are only available in preview management plane API versions and are not generally available yet. Any other `groupId` (or a `groupId` used in an API version that does not support it) will fail validation.
+  Resources marked with "(preview)" must be created using a preview version of the Management REST API versions.
 
 + `privateLinkResourceId` type validation: Similar to `groupId`, Azure Cognitive Search validates that the "correct" resource type is specified in the `privateLinkResourceId`. The following are valid resource types:
 
-| Azure resource | Resource type | First available API version |
-| --- | --- | --- |
-| Azure Storage | `Microsoft.Storage/storageAccounts`| `2020-08-01` |
-| Azure Cosmos DB | `Microsoft.DocumentDb/databaseAccounts`| `2020-08-01` |
-| Azure SQL Database | `Microsoft.Sql/servers`| `2020-08-01` |
-| Azure Database for MySQL (preview) | `Microsoft.DBforMySQL/servers`| `2020-08-01-Preview` |
-| Azure Key Vault | `Microsoft.KeyVault/vaults` | `2020-08-01` |
-| Azure Functions (preview) | `Microsoft.Web/sites` | `2020-08-01-Preview` |
+  | Azure resource | Resource type | First available API version |
+  | --- | --- | --- |
+  | Azure Storage | `Microsoft.Storage/storageAccounts`| `2020-08-01` |
+  | Azure Cosmos DB | `Microsoft.DocumentDb/databaseAccounts`| `2020-08-01` |
+  | Azure SQL Database | `Microsoft.Sql/servers`| `2020-08-01` |
+  | Azure Database for MySQL (preview) | `Microsoft.DBforMySQL/servers`| `2020-08-01-Preview` |
+  | Azure Key Vault | `Microsoft.KeyVault/vaults` | `2020-08-01` |
+  | Azure Functions (preview) | `Microsoft.Web/sites` | `2020-08-01-Preview` |
 
-In addition, the specified `groupId` needs to be valid for the specified resource type. For example, `groupId` "blob" is valid for type "Microsoft.Storage/storageAccounts", it cannot be used with any other resource type. For a given search management API version, customers can find out the supported `groupId` and resource type details by utilizing the [List supported API](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
+  In addition, the specified `groupId` needs to be valid for the specified resource type. For example, `groupId` "blob" is valid for type "Microsoft.Storage/storageAccounts", it cannot be used with any other resource type. For a given search management API version, customers can find out the supported `groupId` and resource type details by utilizing the [List supported API](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
 
 + Quota limit enforcement: Search services have quotas imposed on the distinct number of shared private link resources that can be created and the number of various target resource types that are being used (based on `groupId`). These are documented in the [Shared private link resource limits section](search-limits-quotas-capacity.md#shared-private-link-resource-limits) of the Azure Cognitive Search service limits page.
 
@@ -105,11 +97,11 @@ Customers can delete an existing shared private link resource via the [Delete AP
 
 1. Customer requests search RP to delete the shared private link resource.
 
-2. Search RP validates that the resource exists and is in a state valid for deletion. If so, it initiates an Azure Resource Manager delete operation to remove the resource.
+1. Search RP validates that the resource exists and is in a state valid for deletion. If so, it initiates an Azure Resource Manager delete operation to remove the resource.
 
-3. Search queries for the completion of the operation (which usually takes a few minutes). At this point, the shared private link resource would have a provisioning state of "Deleting".
+1. Search queries for the completion of the operation (which usually takes a few minutes). At this point, the shared private link resource would have a provisioning state of "Deleting".
 
-4. Once the operation completes successfully, the backing private endpoint and any associated DNS mappings are removed. The resource will not show up as part of [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) operation and attempting a [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) operation on this resource will result in a 404 Not Found.
+1. Once the operation completes successfully, the backing private endpoint and any associated DNS mappings are removed. The resource will not show up as part of [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) operation and attempting a [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) operation on this resource will result in a 404 Not Found.
 
 ![Steps involved in deleting shared private link resources ](media\troubleshoot-shared-private-link-resources\shared-private-link-delete-states.png)
 
