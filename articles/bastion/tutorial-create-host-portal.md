@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Tutorial: Deploy Bastion using manual settings: Azure portal
 
-This tutorial shows you how to deploy Azure Bastion to your virtual network from the Azure portal using manual settings that you specify. After you deploy Bastion, the RDP/SSH experience is available to all of the virtual machines in the virtual network. Azure Bastion is a PaaS service that is maintained for you. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
+This tutorial shows you how to deploy Azure Bastion to your virtual network from the Azure portal using manual settings that you specify. While you can [deploy Bastion using VM settings](quickstart-host-portal.md), deploying Bastion using manual settings lets you specify granular settings for the bastion host. After you deploy Bastion, the RDP/SSH experience is available to all of the virtual machines in the virtual network. Azure Bastion is a PaaS service that is maintained for you, not a bastion host that you install on one of your VMs. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md)
 
 In this tutorial, you deploy Bastion using the Standard SKU tier and adjust host scaling (instance count). After the deployment is complete, you connect to your VM via private IP address. The VM you connect to doesn't need a public IP address, client software, agent, or a special configuration. If your VM has a public IP address that you don't need for anything else, you can remove it.
 
@@ -20,15 +20,15 @@ In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create a bastion host for your VNet.
-> * Remove the public IP address from a virtual machine.
 > * Connect to a Windows virtual machine.
+> * Remove the public IP address from a virtual machine.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 * A [virtual network](../virtual-network/quick-create-portal.md). This will be the VNet to which you deploy Bastion.
-* A Windows virtual machine in the virtual network. This VM isn't a part of the Bastion configuration. You connect to this VM later via Bastion.  If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
+* A Windows virtual machine in the virtual network. This VM isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later via Bastion. If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
 * The following required roles for your resources:
    * Required VM roles:
      * Reader role on the virtual machine.
@@ -146,13 +146,13 @@ The public IP address of the Bastion resource on which RDP/SSH will be accessed 
 1. At the bottom of the page, select **Create**.
 1. You'll see a message letting you know that your deployment is underway. Status will display on this page as the resources are created. It takes about 5 minutes for the Bastion resource to be created and deployed.
 
-## Remove VM public IP address
-
-[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
-
 ## Connect to a VM
 
 [!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
+
+## Remove VM public IP address
+
+[!INCLUDE [Remove a public IP address from a VM](../../includes/bastion-remove-ip.md)]
 
 ## Clean up resources
 
