@@ -42,6 +42,14 @@ Make sure that the firewall on your network and local computer allows outgoing c
 
 Also, you need to allow outgoing communication on UDP port 53 for Synapse Studio. To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433.
 
+## Managing Synapse workspace firewall 
+
+For more information on managing the firewall, see [the Azure SQL documentation to manage server-level firewalls](../../azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules.md). Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
+
+For more information on the methods to manage the firewall programmatically, see: 
+- [API](/rest/api/synapse/ip-firewall-rules)
+- [PowerShell](/powershell/module/az.synapse/new-azsynapsefirewallrule)
+- [Azure CLI](/cli/azure/sql/server/firewall-rule)
 
 ## Next steps
 
