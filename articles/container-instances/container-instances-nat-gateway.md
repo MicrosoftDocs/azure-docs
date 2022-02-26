@@ -20,17 +20,20 @@ You then validate egress from example container groups through the NAT gateway.
 
 > [!NOTE]
 > The ACI service recommends integrating with a NAT gateway for containerized workoads that have static egress but not static ingress requirements. For ACI architecture that supports both static ingress and egress, please see the following tutorial: [Use Azure Firewall for ingress and egress](container-instances-egress-ip-address.md)
+## Before you begin
+You must satisfy the following requirements to complete this tutorial:
+
+**Azure CLI**: You must have Azure CLI version installed on your local computer. If you need to install or upgrade, see [Install the Azure CLI][azure-cli-install]
+
+**Azure resource group**: If you don't have an Azure resource group already, create an resource group with the [az group create][az-group-create] command. Below is an example.
+```azurecli
+az group create --name myResourceGroup --location eastus
+```
 ## Deploy ACI in a virtual network
 
 In a typical case, you might already have an Azure virtual network in which to deploy a container group. For demonstration purposes, the following commands create a virtual network and subnet when the container group is created. The subnet is delegated to Azure Container Instances. 
 
 The container group runs a small web app from the `aci-helloworld` image. As shown in other articles in the documentation, this image packages a small web app written in Node.js that serves a static HTML page.
-
-If you need one, first create an Azure resource group with the [az group create][az-group-create] command. For example:
-
-```azurecli
-az group create --name myResourceGroup --location eastus
-```
 
 > [!TIP]
 > To simplify the following command examples, use an environment variable for the resource group's name:
@@ -147,3 +150,4 @@ For more information about managing egress traffic, see the [Azure NAT gateway](
 [az-network-public-ip-show]: /cli/azure/network/public-ip/#az_network_public_ip_show
 [az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_update
 [az-container-exec]: /cli/azure/container#az_container_exec
+[azure-cli-install]: /cli/azure/install-azure-cli
