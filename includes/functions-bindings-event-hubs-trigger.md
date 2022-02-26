@@ -14,7 +14,7 @@ Use the function trigger to respond to an event sent to an event hub event strea
 
 # [In-process](#tab/in-process)
 
-The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that logs the message body of the event hub trigger.
+The following example shows a [C# function](../articles/azure-functions/functions-dotnet-class-library.md) that logs the message body of the Event Hubs trigger.
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -71,7 +71,7 @@ The following example shows a [C# function](../articles/azure-functions/dotnet-i
 
 # [C# Script](#tab/csharp-script)
 
-The following example shows an event hub trigger binding in a *function.json* file and a [C# script function](../articles/azure-functions/functions-reference-csharp.md) that uses the binding. The function logs the message body of the event hub trigger.
+The following example shows an Event Hubs trigger binding in a *function.json* file and a [C# script function](../articles/azure-functions/functions-reference-csharp.md) that uses the binding. The function logs the message body of the Event Hubs trigger.
 
 The following examples show Event Hubs binding data in the *function.json* file for Functions runtime version 2.x and later versions. 
 
@@ -140,7 +140,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 
-The following example shows an event hub trigger binding in a *function.json* file and a [JavaScript function](../articles/azure-functions/functions-reference-node.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
+The following example shows an Event Hubs trigger binding in a *function.json* file and a [JavaScript function](../articles/azure-functions/functions-reference-node.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
 
 The following example shows an Event Hubs binding data in the *function.json* file, which is different for version 1.x of the Functions runtime compared to later versions. 
 
@@ -235,7 +235,7 @@ Complete PowerShell examples are pending.
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
 
-The following example shows an event hub trigger binding in a *function.json* file and a [Python function](../articles/azure-functions/functions-reference-python.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
+The following example shows an Event Hubs trigger binding in a *function.json* file and a [Python function](../articles/azure-functions/functions-reference-python.md) that uses the binding. The function reads [event metadata](#event-metadata) and logs the message.
 
 The following examples show Event Hubs binding data in the *function.json* file.
 
@@ -270,7 +270,7 @@ def main(event: func.EventHubEvent):
 ::: zone-end
 ::: zone pivot="programming-language-java"
 
-The following example shows an Event Hub trigger binding which logs the message body of the Event Hub trigger.
+The following example shows an Event Hubs trigger binding which logs the message body of the Event Hubs trigger.
 
 ```java
 @FunctionName("ehprocessor")
