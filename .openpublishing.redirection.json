@@ -25030,11 +25030,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/spring-cloud/expose-apps-gateway.md",
-      "redirect_url": "/azure/spring-cloud/expose-apps-gateway-end-to-end-tls",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/spring-cloud/expose-apps-gateway-azure-firewall.md",
       "redirect_url": "/azure/spring-cloud/expose-apps-gateway",
       "redirect_document_id": false
