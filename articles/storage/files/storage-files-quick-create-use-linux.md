@@ -13,7 +13,7 @@ ms.custom: mode-ui
 
 # Tutorial: Create and manage Azure file shares with Linux virtual machines via the Azure portal
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). In this tutorial, you'll learn how to create an Azure file share using the NFS protocol and connect it to a Linux virtual machine (VM).
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure Linux virtual machines (VMs). In this tutorial, you'll learn how to create an Azure file share using the NFS protocol and connect it to a Linux VM.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 > * Deploy a VM
 > * Connect to a VM
 > * Mount an Azure file share to your VM
-> * Create and delete a share snapshot??
+> * Create and delete a share snapshot [In Azure, yes - but OS level snapshots are not available]
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -164,16 +164,24 @@ Next, create an Azure VM running Linux to represent the on-premises server.
 
 1. On the **Create a virtual machine** page, you can see the details about the VM you are about to create. You may be asked for additional information, such as a preferred phone number for your Azure subscription. When you are ready, select **Create**.
 
-1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it in a later step.
-
-1. When the deployment is finished, select **Go to resource**.
-
-1. On the page for your new VM, select the public IP address and copy it to your clipboard. You'll need it to connect to your VM.
-
-    :::image type="content" source="media/storage-files-quick-create-use-linux/ip-address.png" alt-text="Screenshot showing how to find the public IP address for your new VM and copy it to your clipboard.":::
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. Your key file will be download as **myKey.pem**. Make sure you know where the .pem file was downloaded, because you'll need the path to it to connect to your VM.
 
 ## Connect to your VM
 
+Create an SSH connection with the VM.
+
+1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt.
+
+1. At your prompt, open an SSH connection to your VM. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
+
+```console
+ssh -i .\Downloads\myVM_key.pem azureuser@10.111.12.123
+```
+
+> [!TIP]
+> The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
+
+## Mount the NFS share
 
 
 
