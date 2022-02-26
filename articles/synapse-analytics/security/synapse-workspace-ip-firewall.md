@@ -16,7 +16,7 @@ This article will explain IP firewall rules and teach you how to configure them 
 
 ## IP firewall rules
 
-IP firewall rules grant or deny access to your Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (dedicated SQL pools, serverless SQL pool, and development).
+IP firewall rules grant or deny access to your Azure Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (dedicated SQL pools, serverless SQL pool, and development).
 
 ## Create and manage IP firewall rules
 
@@ -34,7 +34,7 @@ You can also add IP firewall rules to a Synapse workspace after the workspace is
 
 :::image type="content" source="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-firewalls-add-client-ip.png" lightbox="./media/synpase-workspace-ip-firewall/azure-synapse-workspace-networking-firewalls-add-client-ip.png" alt-text="Screenshot of the Networking page of a Synapse Workspace, highlighting the Add client IP button and rules fields.":::
 
-## Connect to Synapse from your own network
+## Connect to Azure Synapse from your own network
 
 You can connect to your Synapse workspace using Synapse Studio. You can also use SQL Server Management Studio (SSMS) to connect to the SQL resources (dedicated SQL pools and serverless SQL pool) in your workspace.
 
@@ -42,7 +42,7 @@ Make sure that the firewall on your network and local computer allows outgoing c
 
 Also, you need to allow outgoing communication on UDP port 53 for Synapse Studio. To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433.
 
-## Managing Synapse workspace firewall 
+## Manage the Azure Synapse workspace firewall 
 
 For more information on managing the firewall, see [the Azure SQL documentation to manage server-level firewalls](../../azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules.md). Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
