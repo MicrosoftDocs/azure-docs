@@ -111,6 +111,8 @@ This code requires `using Microsoft.Extensions.DependencyInjection;`. To learn m
 The [ConfigureFunctionsWorkerDefaults] extension method has an overload that lets you register your own middleware, as you can see in the following example.  
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
+ 
+The middleware is registered in dependency injection as a singleton. Scoped dependency that is injected into middleware constructor will behave as singleton.
 
 For a more complete example of using custom middleware in your function app, see the [custom middleware reference sample](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/CustomMiddleware).
 
