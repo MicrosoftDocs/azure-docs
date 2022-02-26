@@ -12,18 +12,15 @@ ms.date: 11/11/2021
 
 ## Introduction
 
-This article contains guidance to help you implement security measures on IoT devices that you build using Azure RTOS, and that you connect to Azure IoT services like Azure IoT Hub and Azure IoT Hub Device Provisioning Service (DPS). Azure RTOS is a real-time operating system that includes a networking stack and middleware. It is designed to help you connect your application to the cloud either directly over the internet or indirectly through IoT gateway/edge devices. It incorporates many features that can help you build more secure devices. Ultimately, the security of your application and devices will depend heavily on your choice of hardware and your application’s implementation and use of security features. There's no one-size-fits-all answer to security, so this document should serve only as a starting point for further investigation. Hopefully, it provides enough detail to know which questions to start asking when developing your Azure IoT RTOS applications. The measures in this article are primarily meant for devices that connect directly to the cloud over the public internet. Still, many of the concepts apply to any device, whether connected or not.
+This article offers guidance on implementing security for IoT devices that run Azure RTOS, and connect to Azure IoT services. Azure RTOS is a real-time operating system for embedded devices. It includes a networking stack and middleware, and helps you securely connect your application to the cloud.
+
+The security of an IoT application depends on your choice of hardware, and how your application implements and uses security features. We recommend that you use this article as an starting point to understand the main issues for further investigation.
+
+## Microsoft security principles
 
 Microsoft recommends an approach based on the principle of *Zero Trust* when designing IoT devices. We highly recommend reading the [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper as a prerequisite to this article. This brief paper outlines several categories that should be considered when implementing security across an IoT ecosystem with an emphasis on device security.
 
-For devices, the categories for Zero Trust are:
- - Strong identity
- - Least-privileged access
- - Device health
- - Continual updates
- - Security monitoring and response
-
-Following are brief discussions of these categories.
+The following sections overview the key components for cryptographic security.
 
 - **Strong identity**
 
@@ -42,11 +39,7 @@ Following are brief discussions of these categories.
 
 ## Embedded Security Components - Cryptography
 
-Cryptography topics in this section:
- - True random hardware-based entropy source
- - True random hardware-based entropy sourceReal-time capability
- - Use approved cryptographic routines with strong key sizes
- - Hardware-based cryptography acceleration
+The following sections overview the key components for cryptographic security.
 
 Cryptography is a foundation of security in networked devices. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public internet. A secure IoT device that connects to a server or cloud service using Transport Layer Security (TLS) or similar protocols requires strong cryptography with protection for keys and secrets that are based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device.
 
@@ -125,12 +118,9 @@ Combining hardware cryptography acceleration that implements secure cipher modes
 
 ## Embedded Security Components – Device Identity
 
-Device Identity topics in this section:
- - Unique verifiable device identifier
- - Certificate management
- - Attestation
+The following sections overview the key security components for device identity.
 
-In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device to steal data, send fraudulent information, or tamper with device functionality. Therefore, you should make certain that each IoT device that connects to a cloud service has a way to identify itself that's not easily bypassed.
+In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device to steal data, send fraudulent information, or tamper with device functionality. Confirm that each IoT device that connects to a cloud service identifies itself in a way that can't be easily bypassed.
 
 ### Unique verifiable device identifier
 
@@ -184,13 +174,8 @@ Device status in attestation scenarios can include information like firmware ver
 
 ## Embedded Security Components – Memory Protection
 
-Memory Protection topics in this section:
- - Protection against reading/writing memory
- - Application Memory Isolation
- - Protection against execution from RAM
- - Memory buffer checking
- - Enable runtime stack checking
- 
+The following sections overview the key security components for memory protection.
+
 Many successful hacking attacks utilize buffer overflow errors to gain access to privileged information or even to execute arbitrary code on a device. Numerous technologies and languages have been created to battle overflow problems, but the fact remains that system-level embedded development requires low-level programming. As a result, most embedded development is done using C or assembly language. These languages lack modern memory protection schemes but allow for less restrictive memory manipulation. Given the lack of built-in protection, the Azure RTOS developer must be vigilant about memory corruption. The following recommendations leverage functionality provided by some MCU platforms and Azure RTOS itself to help mitigate the impact of overflow errors on security.
 
 ### Protection against reading/writing memory
@@ -248,11 +233,7 @@ Preventing stack overflow is a primary security concern for any application. Azu
 
 ## Embedded Security Components – Secure Boot and Firmware Update
 
-Secure Boot and Firmware Update topics in this section:
- - Secure boot
- - Firmware or OTA update
- - Rollback or downgrade protection
- - Code signing
+The following sections overview the key security components for secure boot and firmware update.
 
  An IoT device, unlike a traditional embedded device, will often be connected over the internet to a cloud service for monitoring and data gathering. As a result, it's nearly certain that the device will be probed in some way, which could lead to an attack if a vulnerability is found. A successful attack may result in the discovery of an unknown vulnerability that further compromises the device and, more importantly, other devices of the same kind. For this reason, it's critical that an IoT device can be updated quickly and easily. This means that the firmware image itself must be verified, because if an attacker can load a compromised image onto a device then that device is lost. The solution is to pair a secure boot mechanism with remote firmware update (also called Over the Air, or OTA, update) capability. Secure boot verifies that a firmware image is valid and trusted, while an OTA update mechanism allows updates to be quickly and securely deployed to the device.
 
@@ -303,12 +284,7 @@ Make use of any features for signing and verifying code or credential updates. C
 
 ## Embedded Security Components – Protocols
 
-Protocol topics in this section:
- - Use the latest version of TLS possible for connectivity
- - Use X.509 Certificates for TLS authentication
- - Use strongest cryptographic options and cipher suites for TLS
- - TLS mutual certificate authentication
- - Only use TLS-based MQTT
+The following sections overview the key security components for protocols.
 
 ### Use the latest version of TLS possible for connectivity
 
@@ -373,14 +349,7 @@ If your device uses MQTT for cloud communication, only use MQTT over TLS.
 
 ## Embedded Security Components – Application Design and Development
 
-Application Design and Development topics in this section:
- - Disable debugging features
- - Watchdog timers
- - Remote error logging
- - Disable unused protocols and features
- - Use all possible complier and linker security features when building your application
- - Make sure memory access alignment is correct
- - Runtime security monitoring and threat detection
+The following sections overview the key security components for application design and development.
 
 ### Disable debugging features
 
@@ -545,7 +514,7 @@ The previous sections detailed specific design considerations with descriptions 
 
   Whenever possible, try to use accepted security protocols like TLS when securing your application.
 
-## Next steps
+## Recommended security resources
 
 - The [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper provides an overview of Microsoft's approach to security across all aspects of an IoT ecosystem, with an emphasis on devices.
 
