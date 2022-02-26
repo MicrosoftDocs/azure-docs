@@ -69,7 +69,7 @@ Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160,000 IOPS
 
 The current maximum limit for IOPS for a single VM in generally available sizes is 80,000. Ultra disks with greater IOPS can be used as shared disks to support multiple VMs.
 
-The minimum guaranteed IOPS per disk are 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provisioned a 4 GiB ultra disk, the minimum IOPS for that disk is 100, instead of eight.
+The minimum guaranteed IOPS per disk are 1 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you provisioned a 4 GiB ultra disk, the minimum IOPS for that disk is 100, instead of four.
 
 For more information about IOPS, see [Virtual machine and disk performance](disks-performance.md).
 
