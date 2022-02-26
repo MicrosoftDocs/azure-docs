@@ -2,7 +2,7 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 11/14/2021
+ms.date: 02/24/2022
 ---
 
 # Microsoft Defender for Cloud's enhanced security features
@@ -77,7 +77,7 @@ You can use any of the following ways to enable enhanced security for your subsc
 ### Can I enable Microsoft Defender for servers on a subset of servers in my subscription?
 No. When you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) on a subscription, all the machines in the subscription will be protected by Defender for servers.
 
-An alternative is to enable Microsoft Defender for servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include just-in-time VM access, network detections, regulatory compliance, adaptive network hardening, adaptive application control, and more. 
+An alternative is to enable Microsoft Defender for servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include Microsoft Defender for Endpoint, VA solution (TVM/ Qualys), just-in-time VM access, and more. 
 
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Defender for servers?
 If you've already got a license for **Microsoft Defender for Endpoint for Servers**, you won't have to pay for that part of your Microsoft Defender for servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
@@ -85,6 +85,7 @@ If you've already got a license for **Microsoft Defender for Endpoint for Server
 To request your discount, [contact Defender for Cloud's support team](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint for servers licenses applied for machines in the given workspace.
 
 The discount will be effective starting from the approval date, and won't take place retroactively.
+
 ### My subscription has Microsoft Defender for servers enabled, do I pay for not-running servers? 
 No. When you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) on a subscription, you won't be charged for any machines that are in the deallocated power state while they're in that state. Machines are billed according to their power state as shown in the following table:
 

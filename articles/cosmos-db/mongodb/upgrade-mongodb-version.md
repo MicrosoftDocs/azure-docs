@@ -4,7 +4,7 @@ description: How to upgrade the MongoDB wire-protocol version for your existing 
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 02/23/2022
 author: gahl-levy
 ms.author: gahllevy
 
@@ -18,9 +18,14 @@ This article describes how to upgrade the API version of your Azure Cosmos DB's 
 When upgrading to a new API version, start with development/test workloads before upgrading production workloads. It's important to upgrade your clients to a version compatible with the API version you are upgrading to before upgrading your Azure Cosmos DB API for MongoDB account.
 
 >[!Note]
-> At this moment, only qualifying accounts using the server version 3.2 can be upgraded to version 3.6 or 4.0. If your account doesn't show the upgrade option, please [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> At this moment, only qualifying accounts using the server version 3.2 can be upgraded to version 3.6 and higher. If your account doesn't show the upgrade option, please [file a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Upgrading to 4.0 or 3.6
+## Upgrading to 4.2, 4.0, or 3.6
+### Benefits of upgrading to version 4.2:
+- Several major improvements to the aggregation pipeline such as support for `$merge`, Trigonometry, arithmetic expressions, and more.
+- Support for client side field encyption which further secures your database by enabling individual fields to be selectively encrypted and maintaining privacy of the encrypted data from database users and hosting providers.
+
+
 
 ### Benefits of upgrading to version 4.0
 
@@ -77,7 +82,7 @@ When upgrading from 3.2 to newer versions, [compound indexes](mongodb-indexing.m
 
     :::image type="content" source="./media/upgrade-mongodb-version/upgrade-server-version.png" alt-text="Open the Features blade and upgrade your account." border="true":::
 
-1. Review the information displayed about the upgrade. Select `Set server version to 4.0` (or 3.6 depending upon your current version).
+1. Review the information displayed about the upgrade. Select `Set server version to 4.2` (or 4.0 or 3.6 depending upon your current version).
 
     :::image type="content" source="./media/upgrade-mongodb-version/select-upgrade.png" alt-text="Review upgrade guidance and select upgrade." border="true":::
 
@@ -91,12 +96,13 @@ When upgrading from 3.2 to newer versions, [compound indexes](mongodb-indexing.m
 
 ## How to downgrade
 
-You may also downgrade your account from 4.0 to 3.6 via the same steps in the 'How to Upgrade' section.
+You may also downgrade your account to 4.0 or 3.6 via the same steps in the 'How to Upgrade' section.
 
-If you upgraded from 3.2 to (4.0 or 3.6) and wish to downgrade back to 3.2, you can simply switch back to using your previous (3.2) connection string with the host `accountname.documents.azure.com` which remains active post-upgrade running version 3.2.
+If you upgraded from 3.2 to and wish to downgrade back to 3.2, you can simply switch back to using your previous (3.2) connection string with the host `accountname.documents.azure.com` which remains active post-upgrade running version 3.2.
 
 ## Next steps
 
+- Learn about the supported and unsupported [features of MongoDB version 4.2](feature-support-42.md).
 - Learn about the supported and unsupported [features of MongoDB version 4.0](feature-support-40.md).
 - Learn about the supported and unsupported [features of MongoDB version 3.6](feature-support-36.md).
 - For further information check [Mongo 3.6 version features](https://devblogs.microsoft.com/cosmosdb/azure-cosmos-dbs-api-for-mongodb-now-supports-server-version-3-6/)

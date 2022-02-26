@@ -146,7 +146,26 @@ ApiHandle<RenderingSession> session = ...;
 session->GetGraphicsBinding()->SetPoseMode(PoseMode::Local); // set local pose mode
 ```
 
-The mode can be changed anytime the graphics binding object is available.
+In general, the mode can be changed anytime the graphics binding object is available. There is an important distinction for `GraphicsBindingSimD3D11`: the pose mode can only be changed to `PoseMode.Remote`, if it has been initialized with proxy textures. If this isn't the case, `PoseMode.Local` is forced until the graphics binding is reinitialized. See the two overloads of `GraphicsBindingSimD3d11.InitSimulation`, which take either native pointers to [ID3D11Texture2D](/windows/win32/api/d3d11/nn-d3d11-id3d11texture2d) objects (proxy path) or the `width` and `height` of the desired user viewport (non-proxy path).
+
+### Desktop Unity runtime considerations
+
+Due to the technical background of `GraphicsBindingSimD3D11` and the fact of how offscreen rendering works in Unity, the ARR Unity runtime requires the user to specify the desired pose mode on startup of `RemoteManagerUnity` as follows:
+
+```cs
+public static void InitRemoteManager(Camera camera)
+{
+    RemoteUnityClientInit clientInit = new RemoteUnityClientInit(camera, PoseMode.Remote);
+    RemoteManagerUnity.InitializeManager(clientInit);
+}
+```
+
+If `PoseMode.Remote` is specified, the graphics binding will be initialized with offscreen proxy textures and all rendering will be redirected from the Unity scene's main camera to a proxy camera. This code path is only recommended for usage if runtime pose mode changes are required.
+
+> [!WARNING]
+> The proxy camera redirection might be incompatible with other Unity extensions, which expect scene rendering to take place with the main camera. The proxy camera can be retrieved via the `RemoteManagerUnity.ProxyCamera` property if it needs to be queried or registered elsewhere.
+
+If `PoseMode.Local` is used instead, the graphics binding will not be initialized with offscreen proxy textures and a fast path using the Unity scene's main camera to render will be used. This means that if the respective use case requires pose mode changes at runtime, `PoseMode.Remote` should be specified on `RemoteManagerUnity` initialization. It is strongly recommended to only use local pose mode and thus the non-proxy rendering path.
 
 ## Next steps
 

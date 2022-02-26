@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 01/20/2022
-ms.author: moelghaz
+ms.author: lajanuar
 ms.topic: how-to
 ---
 

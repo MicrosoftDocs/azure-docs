@@ -5,10 +5,9 @@ metadata:
   services: load-balancer
   author: erichrt
   ms.service: load-balancer
-  ms.topic: article
+  ms.topic: faq
   ms.date: 04/22/2020
   ms.author: errobin
-    
 title: Load Balancer frequently asked questions
 summary: |
 

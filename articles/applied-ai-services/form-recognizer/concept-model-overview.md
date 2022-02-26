@@ -28,6 +28,7 @@ Azure Form Recognizer prebuilt models enable you to add intelligent document pro
 | [Invoice](#invoice)  | Extract key information from English and Spanish invoices.  |
 | [Receipt](#receipt)  | Extract key information from English receipts.  |
 | [ID document](#id-document)  | Extract key information from US driver licenses and international passports.  |
+| 🆕[W-2 (preview)](#w-2-preview) | Extract employee, employer, wage information, etc. from US W-2 forms.  |
 | [Business card](#business-card)  | Extract key information from English business cards.  |
 | [Custom](#custom) |  Extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases. |
 
@@ -113,6 +114,19 @@ The ID document model analyzes and extracts key information from U.S. Driver's L
 > [!div class="nextstepaction"]
 > [Learn more: identity document model](concept-id-document.md)
 
+### W-2 (preview)
+
+:::image type="content" source="media/studio/w2.png" alt-text="Screenshot: Studio W-2 icon.":::
+
+The W-2 model analyzes and extracts key information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including both single form and multiple forms (copy A, B, C, D, 1, 2) on one page. 
+
+***Sample W-2 document processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=tax.us.w2)***:
+
+:::image type="content" source="./media/studio/w-2.png" alt-text="Screenshot of a sample W-2.":::
+
+> [!div class="nextstepaction"]
+> [Learn more: W-2 model](concept-w2.md)
+
 ### Business card
 
 :::image type="content" source="media/studio/business-card.png" alt-text="Screenshot: Studio business card icon.":::
@@ -148,7 +162,8 @@ The custom model analyzes and extracts data from forms and documents specific to
   | Layout  | ✓  |   || ✓  | ✓  |   |
   | Invoice  | ✓ | ✓  |✓| ✓  | ✓ ||
   |Receipt  | ✓  |   ✓ |✓|   |  ||
-  | ID document | ✓  |   ✓  |✓|   |   ||
+  | ID document | ✓  |  ✓ |✓|   |   ||
+  |🆕W-2 | ✓  |  ✓  | ✓ | ✓ | ✓ ||
   | Business card    | ✓  |   ✓ | ✓|  |   ||
   | Custom             |✓  |  ✓ || ✓  | ✓  | ✓  |
 
@@ -178,6 +193,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 * [**General document (preview)**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
 * [**Receipt (preview)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (preview)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**W-2 (preview)**](concept-w2.md) model supports employee, employer, wage information, etc. from US W-2 forms.
 * [**Custom model API (preview)**](concept-custom.md) supports signature detection for custom forms.
 
 ### Version migration

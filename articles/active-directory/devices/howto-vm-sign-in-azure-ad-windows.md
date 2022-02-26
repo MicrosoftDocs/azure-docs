@@ -72,9 +72,9 @@ For Azure China
 - `https://login.chinacloudapi.cn` - For authentication flows.
 - `https://pas.chinacloudapi.cn` - For Azure RBAC flows.
 
-## Enabling Azure AD login in for Windows VM in Azure
+## Enabling Azure AD login for Windows VM in Azure
 
-To use Azure AD login in for Windows VM in Azure, you need to first enable Azure AD login option for your Windows VM and then you need to configure Azure role assignments for users who are authorized to login in to the VM.
+To use Azure AD login for Windows VM in Azure, you need to first enable Azure AD login option for your Windows VM and then you need to configure Azure role assignments for users who are authorized to login in to the VM.
 There are multiple ways you can enable Azure AD login for your Windows VM:
 
 - Using the Azure portal experience when creating a Windows VM
@@ -299,11 +299,11 @@ This Exit code translates to `DSREG_AUTOJOIN_DISC_FAILED` because the extension 
 
 1. Verify the required endpoints are accessible from the VM using PowerShell:
 
-   - `curl https://login.microsoftonline.com/ -D -`
-   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   - `curl https://enterpriseregistration.windows.net/ -D -`
-   - `curl https://device.login.microsoftonline.com/ -D -`
-   - `curl https://pas.windows.net/ -D -`
+   - `curl https://login.microsoftonline.com// -D`
+   - `curl https://login.microsoftonline.com/<TenantID>// -D`
+   - `curl https://enterpriseregistration.windows.net// -D`
+   - `curl https://device.login.microsoftonline.com// -D`
+   - `curl https://pas.windows.net// -D`
    
    > [!NOTE]
    > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription. If you need to find the tenant ID, you can hover over your account name to get the directory / tenant ID, or select **Azure Active Directory > Properties > Directory ID** in the Azure portal.<br/>`enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
