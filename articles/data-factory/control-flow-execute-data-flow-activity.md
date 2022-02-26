@@ -90,7 +90,7 @@ The Core Count and Compute Type properties can be set dynamically to adjust to t
 
 Choose which Integration Runtime to use for your Data Flow activity execution. By default, the service will use the auto-resolve Azure Integration runtime with four worker cores. This IR has a general purpose compute type and runs in the same region as your service instance. For operationalized pipelines, it is highly recommended that you create your own Azure Integration Runtimes that define specific regions, compute type, core counts, and TTL for your data flow activity execution.
 
-A minimum compute type of General Purpose (compute optimized is not recommended for large workloads) with an 8+8 (16 total v-cores) configuration and a 10-minute is the minimum recommendation for most production workloads. By setting a small TTL, the Azure IR can maintain a warm cluster that will not incur the several minutes of start time for a cold cluster. You can speed up the execution of your data flows even more by select "Quick re-use" on the Azure IR data flow configurations. For more information, see [Azure integration runtime](concepts-integration-runtime.md).
+A minimum compute type of General Purpose with an 8+8 (16 total v-cores) configuration and a 10-minute Time to live (TTL) is the minimum recommendation for most production workloads. By setting a small TTL, the Azure IR can maintain a warm cluster that will not incur the several minutes of start time for a cold cluster. For more information, see [Azure integration runtime](concepts-integration-runtime.md).
 
 :::image type="content" source="media/data-flow/ir-new.png" alt-text="Azure Integration Runtime":::
 
