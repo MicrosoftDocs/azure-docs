@@ -103,16 +103,16 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to Netpresenter Next in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in Netpresenter Next for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the Netpresenter Next API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-    |Attribute|Type|Supported for filtering
-    |---|---|---|
-    |userName|String|&check;
-    |externalId|String|&check;
-    |emails[type eq "work"].value|String|&check;
-    |active|Boolean|
-    |name.givenName|String|
-    |name.familyName|String|
-    |phoneNumbers[type eq "work"].value|String|
-    |phoneNumbers[type eq "mobile"].value|String|
+    |Attribute|Type|Supported for filtering|Required by Netpresenter Next
+    |---|---|---|---|
+    |userName|String|&check;|&check;
+    |externalId|String|&check;|&check;
+    |emails[type eq "work"].value|String|&check;|&check;
+    |active|Boolean||
+    |name.givenName|String||
+    |name.familyName|String||
+    |phoneNumbers[type eq "work"].value|String||
+    |phoneNumbers[type eq "mobile"].value|String||
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
