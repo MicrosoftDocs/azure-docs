@@ -4,11 +4,14 @@ ms.topic: include
 ms.date: 02/27/2022
 ---
 
-## Enable Microsoft Defender for Cloud on a connected GCP project
+## Protect Google Kubernetes Engine (GKE) clusters
+
+> [!IMPORTANT]
+> If you haven't already connected a GCP project, do so now using the instructions in [Connect your GCP projects to Microsoft Defender for Cloud](../quickstart-onboard-gcp.md).
 
 To protect your GKE clusters, you will need to enable the Containers plan on the relevant GCP project.
 
-**To enable the Containers plan on the relevant GCP project**:
+**To protect Google Kubernetes Engine (GKE) clusters**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
@@ -36,13 +39,11 @@ To protect your GKE clusters, you will need to enable the Containers plan on the
 
 The connector will update after the script executes. This process can take up to 6-8 hours up to complete.
 
-## Deploy the solution to specific clusters
+### Deploy the solution to specific clusters
 
-To get the full security value out of Defender for Containers, Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension, all of these extensions should be installed on each GKE cluster.
- 
-These extensions can be manually deployed through the Recommendations page. You will only need to manually deploy these extensions if you disabled any of the default auto provisioning configurations.
+If you disabled any of the default auto provisioning configurations to Off, during the [GCP connector onboarding process](../quickstart-onboard-gcp.md#configure-the-containers-plan), or afterwards. You will need to manually install Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extensions to each of your your GKE clusters to get the full security value out of Defender for Containers.
 
-There are 2 dedicated Defender for Cloud recommendation for deploying the extensions (and Arc if necessary):
+There are 2 dedicated Defender for Cloud recommendations you can use to install the extensions (and Arc if necessary):
 -	`GKE clusters should have Microsoft Defender's extension for Azure Arc installed`
 -	`GKE clusters should have the Azure Policy extension installed`
 
@@ -52,14 +53,17 @@ There are 2 dedicated Defender for Cloud recommendation for deploying the extens
 
 1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
 
-1. Search for either `GKE clusters should have Microsoft Defender's extension for Azure Arc installed`, or `GKE clusters should have the Azure Policy extension installed`.
+1. From Defender for Cloud's **Recommendations** page, search for one of the recommendations by name.
 
     :::image type="content" source="../media/defender-for-containers-enable-plan-gke/recommmendation-search.png" alt-text="Screenshot showing the results of searching for either recommendation.":::
 
-1. Select a recommendation whose Resource Health is low.
+1. Select an unhealthy GKE cluster.
 
-    > [!Note]
-    > You must select the clusters one at a time. Don't select the clusters by their hyperlinked names, instead select any other area in the relevant row.
+    > [!IMPORTANT]
+    > You must select the clusters one at a time.
+    >
+    > Don't select the clusters by their hyperlinked names: select anywhere else in the relevant row.
+
 
 1. Select the **Fix** button.
 
@@ -71,7 +75,9 @@ There are 2 dedicated Defender for Cloud recommendation for deploying the extens
 
     :::image type="content" source="../media/defender-for-containers-enable-plan-gke/fix-recommendation.png" alt-text="Screenshot that shows how to fix, and download the remediation logic." lightbox="../media/defender-for-containers-enable-plan-gke/fix-recommendation-expanded.png":::
 
-1. Run the generated script.
+1. Run the generated script on your cluster.
+
+1. Repeat steps *3 through 8* for the second recommendation.
 
 ## View your GKE cluster alerts
 

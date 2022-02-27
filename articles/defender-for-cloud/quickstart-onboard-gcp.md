@@ -122,7 +122,7 @@ Follow the steps below to create your GCP cloud connector.
 
 1. Select the **Create**. 
 
-After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled agent auto-provisioning, Arc agent installation will occur automatically for each new resource detected.
+After creating a connector, a scan will start on your GCP environment. New recommendations will appear in Defender for Cloud after up to 6 hours. If you enabled auto-provisioning, Azure Arc, and any enabled extensions will install automatically for each new resource detected.
 
 ## (Optional) Configure selected plans
 
@@ -165,11 +165,19 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     > [!Note]
     > If Azure Arc is toggled **Off**, you will need to follow the manual installation process mentioned above. 
 
-1. Select **Save**.
+1. Select **Save**. 
+
+1. Continue from step number 8, of the [Connect your GCP projects](#connect-your-gcp-projects) instructions. 
 
 ### Configure the Containers plan
 
-To get the full security value out of Defender for Containers, and to fully protect GCP clusters all plans should be left toggled to `On`.
+Microsoft Defender for Containers brings threat detection, and advanced defences to your GCP GKE Standard clusters. To get the full security value out of Defender for Containers, and to fully protect GCP clusters, ensure you have the following requirements configured:
+
+- **Kubernetes audit logs to Defender for Cloud** - Enabled by default. This configuration is available at a GCP Project level only. This provides agentless collection of the audit log data through [GCP Cloud Logging](https://cloud.google.com/logging/) to the Microsoft Defender for Cloud backend for further analysis.
+- **Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension** - Enabled by default. You can install Azure Arc-enabled Kubernetes and its extensions on your GKE clusters in 3 different ways:
+    - **(Recommended)** Enable the Defender for Container auto-provisioning at the project level as explained in the instructions below. 
+    - Defender for Cloud recommendations, for per cluster installation, which will appear on the Microsoft Defender for Cloud's Recommendations page. Learn how to [deploy the solution to specific clusters](includes/defender-for-containers-enable-plan-gke.md#deploy-the-solution-to-specific-clusters).
+    - Manual installation for [Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md), and [extensions](../azure-arc/kubernetes/extensions.md).
 
 **To configure the Containers plan**:
 
@@ -179,11 +187,13 @@ To get the full security value out of Defender for Containers, and to fully prot
 
     :::image type="content" source="media/quickstart-onboard-gcp/containers-configure.png" alt-text="Screenshot showing where to click to configure the Containers plan.":::
 
-1. On the Auto provisioning screen, toggle the switches on, or off depending on your need.
+1. On the Auto provisioning screen, toggle the switches **On**.
 
     :::image type="content" source="media/quickstart-onboard-gcp/containers-configuration.png" alt-text="Screenshot showing the toggle switches for the Containers plan.":::
 
 1. Select **Save**.
+
+1. Continue from step number 8, of the [Connect your GCP projects](#connect-your-gcp-projects) instructions. 
 
 ::: zone-end
 
