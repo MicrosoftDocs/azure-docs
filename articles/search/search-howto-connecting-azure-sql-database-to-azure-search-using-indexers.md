@@ -19,21 +19,15 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Prerequisites
 
-* Data originates from a single table or view. If the data is scattered across multiple tables, you can create a single view of the data. A drawback to using view is that you won’t be able to use SQL Server integrated change detection to refresh an index with incremental changes. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below.
++ An [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md) with data in a single table or view. Use a table if you want the ability to [update a search index with new and updated rows](#CaptureChangedRows) using SQL's native change detection capabilities.
 
-* Data types must compatible. Most but not all the SQL types are supported in a search index. For a list, see [Mapping data types](#TypeMapping).
++ Read permissions. Azure Cognitive Search supports SQL Server authentication, where the username and password are provided on the connection string. Alternatively, you can set up a managed identity and use Azure roles to omit credentials on the connection. For more information, see [Set up an indexer connection using a managed identity](search-howto-managed-identities-sql.md).
 
-* Connections to a SQL Managed Instance must be over a public endpoint. For more information, see [Indexer connections through a public endpoint](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md).
+<!-- Real-time data synchronization must not be an application requirement. An indexer can reindex your table at most every five minutes. If your data changes frequently, and those changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-get-started-dotnet.md) to push updated rows directly.
 
-* Connections to SQL Server on an Azure virtual machine requires manual set up of a security certificate. For more information, see [Indexer connections to a SQL Server on an Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
+Incremental indexing is possible. If you have a large data set and plan to run the indexer on a schedule, Azure Cognitive Search must be able to efficiently identify new, changed, or deleted rows. Non-incremental indexing is only allowed if you're indexing on demand (not on schedule), or indexing fewer than 100,000 rows. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below. -->
 
-Real-time data synchronization must not be an application requirement. An indexer can reindex your table at most every five minutes. If your data changes frequently, and those changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-get-started-dotnet.md) to push updated rows directly.
-
-Incremental indexing is possible. If you have a large data set and plan to run the indexer on a schedule, Azure Cognitive Search must be able to efficiently identify new, changed, or deleted rows. Non-incremental indexing is only allowed if you're indexing on demand (not on schedule), or indexing fewer than 100,000 rows. For more information, see [Capturing Changed and Deleted Rows](#CaptureChangedRows) below.
-
-Azure Cognitive Search supports SQL Server authentication, where the username and password are provided on the connection string. Alternatively, you can set up a managed identity and use Azure roles to omit credentials on the connection. For more information, see [Set up an indexer connection using a managed identity](search-howto-managed-identities-sql.md).
-
-## Create an Azure SQL Indexer
+## Define the data source
 
 1. Create the data source:
 
@@ -54,9 +48,13 @@ Azure Cognitive Search supports SQL Server authentication, where the username an
     1. You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
     1. A managed identity connection string that does not include an account key with the following format: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`. To use this connection string, follow the instructions for [Setting up an indexer connection to an Azure SQL Database using a managed identity](search-howto-managed-identities-sql.md).
 
-2. Create the target Azure Cognitive Search index if you don’t have one already. You can create an index using the [portal](https://portal.azure.com) or the [Create Index API](/rest/api/searchservice/Create-Index). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure Cognitive search data types](#TypeMapping).
+## Add search fields to an index
 
-3. Create the indexer by giving it a name and referencing the data source and target index:
+Create the target Azure Cognitive Search index if you don’t have one already. You can create an index using the [portal](https://portal.azure.com) or the [Create Index API](/rest/api/searchservice/Create-Index). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure Cognitive search data types](#TypeMapping).
+
+## Configure and run the Azure SQL indexer
+
+Create the indexer by giving it a name and referencing the data source and target index:
 
    ```http
     POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
