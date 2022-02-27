@@ -45,7 +45,7 @@ Your machine must meet the following requirements:
 - **Operating system**
 
     - CentOS 7 and 8 (not 6), including minor versions (64-bit/32-bit)
-    - Amazon Linux 2017.09 and 2 (64-bit only)
+    - Amazon Linux 2017.09 and Amazon Linux 2 (64-bit only)
     - Oracle Linux 7, 8 (64-bit/32-bit)
     - Red Hat Enterprise Linux (RHEL) Server 7 and 8 (not 6), including minor versions (64-bit/32-bit)
     - Debian GNU/Linux 8 and 9 (64-bit/32-bit)
