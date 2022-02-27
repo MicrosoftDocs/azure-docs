@@ -1,13 +1,13 @@
 ---
-title: Enable Microsoft Defender for Cosmos DB
-description: Learn how to enable Microsoft Defender for Cosmos DB's enhanced security features.
+title: Enable Microsoft Defender for Azure Cosmos DB
+description: Learn how to enable Microsoft Defender for Azure Cosmos DB's enhanced security features.
 ms.topic: quickstart
-ms.date: 02/07/2022
+ms.date: 02/27/2022
 ---
 
-# Quickstart: Enable Microsoft Defender for Cosmos DB
+# Quickstart: Enable Microsoft Defender for Azure Cosmos DB
 
- Microsoft Defender for Cosmos DB protection is available at both the [Subscription level](#enable-database-protection-at-the-subscription-level), and resource level. You can enable Microsoft Defender for Cloud on your subscription to protect all database types on your subscription including Microsoft Defender for Cosmos DB(recommended). You can also choose to enable Microsoft Defender for Cosmos DB at the [Resource level](#enable-defender-for-cosmos-db-at-the-resource-level) to protect a specific Azure Cosmos DB account.
+ Microsoft Defender for Azure Cosmos DB protection is available at both the [Subscription level](#enable-database-protection-at-the-subscription-level), and resource level. You can enable Microsoft Defender for Cloud on your subscription to protect all database types on your subscription including Microsoft Defender for Azure Cosmos DB(recommended). You can also choose to enable Microsoft Defender for Azure Cosmos DB at the [Resource level](#enable-defender-for-cosmos-db-at-the-resource-level) to protect a specific Azure Cosmos DB account.
 
 ## Prerequisites
 
@@ -19,7 +19,7 @@ The subscription level enablement, enables Microsoft Defender for Cloud protecti
 
 You can enable Microsoft Defender for Cloud protection on your subscription in order to protect all database types, for example, Azure Cosmos DB, Azure SQL Database, Azure SQL servers on machines, and OSS RDBs. You can also select specific resource types to protect when you configure your plan. 
  
-When you enable Microsoft Defender for Cloud's enhanced security features on your subscription, Microsoft Defender for Cosmos DB is automatically enabled for all of your Azure Cosmos DB accounts.  
+When you enable Microsoft Defender for Cloud's enhanced security features on your subscription, Microsoft Defender for Azure Cosmos DB is automatically enabled for all of your Azure Cosmos DB accounts.  
 
 **To enable database protection at the subscription level**:
 
@@ -49,7 +49,7 @@ When you enable Microsoft Defender for Cloud's enhanced security features on you
 
 1. Select **Confirm**.
 
-## Enable Defender for Cosmos DB at the resource level
+## Enable Microsoft Defender for Azure Cosmos DB at the resource level
 
 You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB account through the Azure portal, PowerShell, or the Azure CLI.
 
@@ -75,7 +75,7 @@ You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB accoun
     Enable-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<Your subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDb/databaseAccounts/myCosmosDBAccount/" 
     ```
 
-1.  Verify the Microsoft Defender for Cosmos DB setting for your storage account through the PowerShell call [Get-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection) command.
+1.  Verify the Microsoft Defender for Azure Cosmos DB setting for your storage account through the PowerShell call [Get-AzSecurityAdvancedThreatProtection](/powershell/module/az.security/get-azsecurityadvancedthreatprotection) command.
 
     ```powershell
     Get-AzSecurityAdvancedThreatProtection -ResourceId "/subscriptions/<Your subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDb/databaseAccounts/myCosmosDBAccount/" 
@@ -83,17 +83,17 @@ You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB accoun
 
 ### [ARM template](#tab/arm-template)
 
-Use an Azure Resource Manager template to deploy an Azure Storage account with Microsoft Defender for Storage enabled. For more information, see [Create an Azure Cosmos DB account with Defender for Cosmos DB enabled](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
+Use an Azure Resource Manager template to deploy an Azure Storage account with Microsoft Defender for Storage enabled. For more information, see [Create an Azure Cosmos DB account with Microsoft Defender for Azure Cosmos DB enabled](https://azure.microsoft.com/resources/templates/cosmosdb-advanced-threat-protection-create-account/).
 
 ---
 
-## Simulate security alerts from Microsoft Defender for Cosmos DB
+## Simulate security alerts from Microsoft Defender for Azure Cosmos DB
 
 A full list of [supported alerts](alerts-reference.md) is available in the reference table of all Defender for Cloud security alerts. 
 
-You can use sample Defender for Cosmos DB alerts to evaluate their value, and capabilities. Sample alerts will also validate any configurations you've made for your security alerts (such as SIEM integrations, workflow automation, and email notifications). 
+You can use sample Microsoft Defender for Azure Cosmos DB alerts to evaluate their value, and capabilities. Sample alerts will also validate any configurations you've made for your security alerts (such as SIEM integrations, workflow automation, and email notifications). 
 
-**To create sample alerts from Microsoft Defender for Cosmos DB**: 
+**To create sample alerts from Microsoft Defender for Azure Cosmos DB**: 
 
 1. Sign in to the  [Azure portal](https://portal.azure.com/) as a Subscription Contributor user.
 
@@ -113,7 +113,7 @@ After a few minutes, the alerts will appear in the security alerts page. Alerts 
 
 ## Next Steps
 
-In this article, you learned how to enable Microsoft Defender for Cosmos DB, and how to simulate security alerts.
+In this article, you learned how to enable Microsoft Defender for Azure Cosmos DB, and how to simulate security alerts.
 
 > [!div class="nextstepaction"]
 > [Automate responses to Microsoft Defender for Cloud triggers](workflow-automation.md).
