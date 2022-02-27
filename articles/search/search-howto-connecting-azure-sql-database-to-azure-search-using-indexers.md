@@ -19,9 +19,9 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Prerequisites
 
-+ An [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md) with data in a single table or view. Use a table if you want the ability to [update a search index with new and updated rows](#CaptureChangedRows) using SQL's native change detection capabilities.
++ An [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md) with data in a single table or view. Use a table if you want the ability to [index data updates](#CaptureChangedRows) using SQL's native change detection capabilities.
 
-+ Read permissions. Azure Cognitive Search supports SQL Server authentication, where the username and password are provided on the connection string. Alternatively, you can set up a managed identity and use Azure roles to omit credentials on the connection. For more information, see [Set up an indexer connection using a managed identity](search-howto-managed-identities-sql.md).
++ Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md) to omit credentials on the connection. 
 
 <!-- Real-time data synchronization must not be an application requirement. An indexer can reindex your table at most every five minutes. If your data changes frequently, and those changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-get-started-dotnet.md) to push updated rows directly.
 
@@ -146,13 +146,19 @@ For more information about defining indexer schedules see [How to schedule index
 
 <a name="CaptureChangedRows"></a>
 
-## Capture new, changed, and deleted rows
+## Indexing new, changed, and deleted rows
 
-Azure Cognitive Search uses **incremental indexing** to avoid having to reindex the entire table or view every time an indexer runs. Azure Cognitive Search provides two change detection policies to support incremental indexing. 
+If your SQL database supports [change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server), a search indexer can pick up just the new and updated content on subsequent indexer runs. Azure Cognitive Search provides two change detection policies to support incremental indexing. 
+
+Within an indexer definition, you can specify a change detection policies that tells the indexer which change tracking mechanism is used on your table or view. There are two policies to choose from:
+
++ "SqlIntegratedChangeTrackingPolicy" (applies to tables only)
+
++ "HighWaterMarkChangeDetectionPolicy" (works for tables and views)
 
 ### SQL Integrated Change Tracking Policy
 
-If your SQL database supports [change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server), we recommend using **SQL Integrated Change Tracking Policy**. This is the most efficient policy. In addition, it allows Azure Cognitive Search to identify deleted rows without you having to add an explicit "soft delete" column to your table.
+We recommend using **SQL Integrated Change Tracking Policy** for its efficiency and its ability to identify deleted rows.
 
 #### Requirements 
 
