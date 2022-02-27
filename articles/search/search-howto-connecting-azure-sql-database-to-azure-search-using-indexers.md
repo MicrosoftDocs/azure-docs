@@ -133,7 +133,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
-An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers) or [put it on a schedule](search-howto-schedule-indexers). 
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md). 
 
 ## Check indexer status
 
