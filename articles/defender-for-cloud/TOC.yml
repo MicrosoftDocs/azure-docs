@@ -41,7 +41,7 @@
     - name: Connect AWS accounts
       displayName: hybrid, multicloud, multi-cloud, amazon, arc
       href: quickstart-onboard-aws.md
-    - name: Connect GCP accounts
+    - name: Connect GCP projetcs
       displayName: hybrid, multicloud, multi-cloud, google
       href: quickstart-onboard-gcp.md
   - name: 4. Configure auto provisioning
