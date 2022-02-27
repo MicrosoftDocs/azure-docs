@@ -51,7 +51,7 @@ You can enable database protection on your subscription, or exclude specific dat
     
     :::image type="content" source="media/quickstrat-enable-database-protections/resource-type.png" alt-text="Screenshot showing the types of resources available.":::
 
-    1. Select **Save**.
+    1. Select **Continue**.
 
 ## Next steps
 
