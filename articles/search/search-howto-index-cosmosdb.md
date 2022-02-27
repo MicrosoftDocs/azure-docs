@@ -12,9 +12,9 @@ ms.date: 02/15/2022
 
 # Index data from Azure Cosmos DB using the SQL API
 
-This article shows you how to configure an Azure Cosmos DB [indexer](search-indexer-overview.md) to extract content and make it searchable in Azure Cognitive Search. This workflow creates an Azure Cognitive Search index and loads it with existing text extracted from Azure Cosmos DB using the [SQL API](../cosmos-db/choose-api.md#coresql-api).
+This article shows you how to configure an [indexer](search-indexer-overview.md) that imports content from Azure Cosmos DB and make it searchable in Azure Cognitive Search. This workflow creates a search index and loads it with text extracted from Azure Cosmos DB using the [SQL API](../cosmos-db/choose-api.md#coresql-api).
 
-Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
+Because terminology can be confusing, it's worth noting that [Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
 
 Although Cosmos DB indexing is easiest with the [Import data wizard](search-import-data-portal.md), this article uses the REST APIs to explain concepts and steps. 
 
