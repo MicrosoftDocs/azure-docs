@@ -99,34 +99,43 @@ In a [search index](search-what-is-an-index.md), add fields to accept values fro
 | uniqueidentifer |Edm.String | |
 | geography |Edm.GeographyPoint |Only geography instances of type POINT with SRID 4326 (which is the default) are supported |
 | rowversion |Not applicable |Row-version columns cannot be stored in the search index, but they can be used for change tracking |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/A |Not supported |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |Not applicable |Not supported |
 
 ## Configure and run the Azure SQL indexer
 
-Create the indexer by giving it a name and referencing the data source and target index:
+Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-   ```http
-    POST https://myservice.search.windows.net/indexers?api-version=2020-06-30
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index.
+
+    ```http
+    POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     Content-Type: application/json
-    api-key: admin-key
-
+    api-key: [search service admin key]
     {
-        "name" : "myindexer",
-        "dataSourceName" : "myazuresqldatasource",
-        "targetIndexName" : "target index name"
+        "name" : "[my-sqldb-indexer]",
+        "dataSourceName" : "[my-sqldb-ds]",
+        "targetIndexName" : "[my-search-index]",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+        "batchSize": null,
+        "maxFailedItems": 0,
+        "maxFailedItemsPerBatch": 0,
+        "base64EncodeKeys": false,
+        "configuration": {}
+        },
+        "fieldMappings": [],
+        "encryptionKey": null
     }
-   ```
+    ```
 
-An indexer created in this way doesn’t have a schedule. It automatically runs once when it’s created. You can run it again at any time using a **run indexer** request:
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
-```http
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2020-06-30
-    api-key: admin-key
-```
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
-You can customize several aspects of indexer behavior, such as batch size and how many documents can be skipped before an indexer execution fails. For more information, see [Create Indexer API](/rest/api/searchservice/Create-Indexer).
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md). 
 
-You may need to allow Azure services to connect to your database. See [Connecting From Azure](../azure-sql/database/firewall-configure.md) for instructions on how to do that.
+## Check indexer status
 
 To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request:
 
@@ -172,26 +181,6 @@ The response should look similar to the following:
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response).
 Additional information about the response can be found in [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
-
-## Run indexers on a schedule
-
-You can also arrange the indexer to run periodically on a schedule. To do this, add the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update the indexer:
-
-```http
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2020-06-30
-    Content-Type: application/json
-    api-key: admin-key
-
-    {
-        "dataSourceName" : "myazuresqldatasource",
-        "targetIndexName" : "target index name",
-        "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
-    }
-```
-
-The **interval** parameter is required. The interval refers to the time between the start of two consecutive indexer executions. The smallest allowed interval is 5 minutes; the longest is one day. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.
-
-For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
