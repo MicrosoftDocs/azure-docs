@@ -297,6 +297,8 @@ items:
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
+    - name: Cross-tenant connections to Azure how-to-develop-azure-ssis-ir-licensed-components.md
+      href: cross-tenant-connections-to-azure-devops.md
     - name: Continuous integration and delivery
       items:
       - name: Overview
@@ -833,6 +835,10 @@ items:
         - name: Diagnostic tool for self-hosted integration runtime
           href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
+        - name: Monitoring self-hosted intgegration runtime in Azure
+          href: monitor-shir-in-azure.md
+        - name: Configuring self-hosted integration runtime for log analytics collection
+          href: how-to-configure-shir-for-log-analytics-collection.md
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
       items:
@@ -1045,6 +1051,8 @@ items:
         href: connector-troubleshoot-dynamics-dataverse.md
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
+      - name: Google AdWords
+        href: connector-troubleshoot-google-adwords.md          
       - name: Hive
         href: connector-troubleshoot-hive.md  
       - name: Oracle
