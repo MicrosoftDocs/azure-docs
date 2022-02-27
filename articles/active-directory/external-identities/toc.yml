@@ -51,8 +51,6 @@
       href: claims-mapping.md
     - name: B2B user token
       href: user-token.md
-    - name: B2B collaboration and Office 365 external sharing
-      href: o365-external-user.md
     - name: B2B collaboration for hybrid organizations
       href: hybrid-organizations.md
   - name: Self-service sign-up

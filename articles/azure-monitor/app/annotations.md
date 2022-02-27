@@ -3,7 +3,6 @@ title: Release annotations for Application Insights | Microsoft Docs
 description: Learn how to create annotations to track deployment or other significant events with Application Insights.
 ms.topic: conceptual
 ms.date: 07/20/2021
-
 ---
 
 # Release annotations for Application Insights

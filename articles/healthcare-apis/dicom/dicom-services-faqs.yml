@@ -6,10 +6,9 @@ metadata:
   author: stevewohl
   ms.service: healthcare-apis
   ms.subservice: fhir
-  ms.topic: reference
+  ms.topic: faq
   ms.date: 08/04/2021
   ms.author: aersoy
-    
 title: Frequently asked questions about the DICOM service
 summary: |
 

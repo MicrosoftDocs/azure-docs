@@ -1,30 +1,21 @@
 ---
-title: Index data from Azure SQL
+title: Azure SQL indexer
 titleSuffix: Azure Cognitive Search
-description: Set up an Azure SQL indexer to automate indexing of content and metadata for full text search in Azure Cognitive Search.
+description: Set up a search indexer to index data stored in Azure SQL Database for full text search in Azure Cognitive Search.
 
 manager: nitinme
-author: mgottein 
-ms.author: magottei
-ms.devlang: rest-api
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 06/26/2021
+ms.topic: how-to
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure SQL
 
-This article shows you how to configure an Azure SQL indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure SQL Database and Azure SQL managed instances.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure SQL and makes it searchable in Azure Cognitive Search. The workflow creates a search index and loads it with text extracted from Azure SQL Database and Azure SQL managed instances.
 
-This article covers the mechanics of using [indexers](search-indexer-overview.md), but also describes features only available with Azure SQL Database or SQL Managed Instance (for example, integrated change tracking).
-
-You can set up an Azure SQL indexer by using any of these clients:
-
-* [Azure portal](https://portal.azure.com)
-* Azure Cognitive Search [REST API](/rest/api/searchservice/Indexer-operations)
-* Azure Cognitive Search [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
-
-This article uses the REST APIs. 
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information about settings that are specific to Azure SQL. You can create indexers using the [Azure portal](https://portal.azure.com), [Search REST APIs](/rest/api/searchservice/Indexer-operations) or an Azure SDK. This article uses REST to explain each step.
 
 ## Prerequisites
 
@@ -178,7 +169,7 @@ If your SQL database supports [change tracking](/sql/relational-databases/track-
 
 To use this policy, create or update your data source like this:
 
-```
+```http
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -215,7 +206,7 @@ This change detection policy relies on a "high water mark" column capturing the 
 
 To use a high water mark policy, create or update your data source like this:
 
-```
+```http
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
@@ -244,7 +235,7 @@ If you're using a [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) da
 
 To enable this feature, create or update the indexer with the following configuration:
 
-```
+```http
     {
       ... other indexer definition properties
      "parameters" : {
@@ -258,7 +249,7 @@ To enable this feature, create or update the indexer with the following configur
 
 If you encounter timeout errors, you can use the `queryTimeout` indexer configuration setting to set the query timeout to a value higher than the default 5-minute timeout. For example, to set the timeout to 10 minutes, create or update the indexer with the following configuration:
 
-```
+```http
     {
       ... other indexer definition properties
      "parameters" : {
@@ -272,7 +263,7 @@ If you encounter timeout errors, you can use the `queryTimeout` indexer configur
 
 You can also disable the `ORDER BY [High Water Mark Column]` clause. However, this is not recommended because if the indexer execution is interrupted by an error, the indexer has to re-process all rows if it runs later - even if the indexer has already processed almost all the rows by the time it was interrupted. To disable the `ORDER BY` clause, use the `disableOrderByHighWaterMarkColumn` setting in the indexer definition:  
 
-```
+```http
     {
      ... other indexer definition properties
      "parameters" : {
@@ -281,13 +272,14 @@ You can also disable the `ORDER BY [High Water Mark Column]` clause. However, th
 ```
 
 ### Soft Delete Column Deletion Detection policy
+
 When rows are deleted from the source table, you probably want to delete those rows from the search index as well. If you use the SQL integrated change tracking policy, this is taken care of for you. However, the high water mark change tracking policy doesn’t help you with deleted rows. What to do?
 
 If the rows are physically removed from the table, Azure Cognitive Search has no way to infer the presence of records that no longer exist.  However, you can use the “soft-delete” technique to logically delete rows without removing them from the table. Add a column to your table or view and mark rows as deleted using that column.
 
 When using the soft-delete technique, you can specify the soft delete policy as follows when creating or updating the data source:
 
-```
+```http
     {
         …,
         "dataDeletionDetectionPolicy" : {
@@ -329,7 +321,7 @@ SQL indexer exposes several configuration settings:
 
 These settings are used in the `parameters.configuration` object in the indexer definition. For example, to set the query timeout to 10 minutes, create or update the indexer with the following configuration:
 
-```
+```http
     {
       ... other indexer definition properties
      "parameters" : {
@@ -346,14 +338,6 @@ Yes. However, you need to allow your search service to connect to your database.
 **Q: Can I use Azure SQL indexer with SQL databases running on-premises?**
 
 Not directly. We do not recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
-
-**Q: Can I use Azure SQL indexer with databases other than SQL Server running in IaaS on Azure?**
-
-No. We don’t support this scenario, because we haven’t tested the indexer with any databases other than SQL Server.  
-
-**Q: Can I create multiple indexers running on a schedule?**
-
-Yes. However, only one indexer can be running on one node at one time. If you need multiple indexers running concurrently, consider scaling up your search service to more than one search unit.
 
 **Q: Does running an indexer affect my query workload?**
 

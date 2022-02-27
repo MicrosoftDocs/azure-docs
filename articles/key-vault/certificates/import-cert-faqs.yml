@@ -8,10 +8,9 @@ metadata:
   
   ms.service: key-vault
   ms.subservice: certificates
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 07/20/2020
   ms.author: sebansal
-    
 title: Importing Azure Key Vault certificates FAQ
 summary: This article answers frequently asked questions about importing Azure Key Vault certificates.
 
