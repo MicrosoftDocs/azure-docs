@@ -2,7 +2,7 @@
 title: Enable database protection for your subscription
 description: Learn how to enable Microsoft Defender for Cloud for all of your database types for your entire subscription. 
 ms.topic: quickstart
-ms.date: 02/03/2022
+ms.date: 02/27/2022
 ---
 
 # Quickstart: Microsoft Defender for Cloud database protection
@@ -18,7 +18,7 @@ The types of protected databases are:
 - Azure SQL Databases 
 - SQL servers on machines 
 - Open-source relational databases (OSS RDB) 
-- Azure Cosmos DB
+- Microsoft Defender for Azure Cosmos DB
 
 Database provides protection to engines, and data types, with different attack surface, and security risks. Security detections are made for the specific attack surface of each DB type.  
 
@@ -61,5 +61,5 @@ In this article, you learned how to enable Microsoft Defender for Cloud for all 
 > [Microsoft Defender for Azure SQL](defender-for-sql-introduction.md)
 
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
-- [Microsoft Defender for Cosmos](concept-defender-for-cosmos.md)
+- [Microsoft Defender for Azure Cosmos](concept-defender-for-cosmos.md)
 - [Microsoft Defender for servers](defender-for-sql-usage.md)
