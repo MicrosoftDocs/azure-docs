@@ -19,7 +19,7 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 ## Prerequisites
 
-+ An [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md) with data in a single table or view. Use a table if you want the ability to [index data updates](#CaptureChangedRows) using SQL's native change detection capabilities.
++ An [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md) with data in a single table or view. Use a table if you want the ability to [index incremental updates](#CaptureChangedRows) using SQL's native change detection capabilities.
 
 + Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md) to omit credentials on the connection. 
 
@@ -50,7 +50,56 @@ Incremental indexing is possible. If you have a large data set and plan to run t
 
 ## Add search fields to an index
 
-Create the target Azure Cognitive Search index if you don’t have one already. You can create an index using the [portal](https://portal.azure.com) or the [Create Index API](/rest/api/searchservice/Create-Index). Ensure that the schema of your target index is compatible with the schema of the source table - see [mapping between SQL and Azure Cognitive search data types](#TypeMapping).
+In a [search index](search-what-is-an-index.md), add fields to accept values from corresponding fields in the SQL database. Ensure that the search index schema is compatible with source schema, with [equivalent data types](#TypeMapping).
+
+1. [Create or update an index](/rest/api/searchservice/create-index) to define search fields that will store data:
+
+    ```http
+    POST https://[service name].search.windows.net/indexes?api-version=2020-06-30
+    Content-Type: application/json
+    api-key: [Search service admin key]
+    {
+        "name": "mysearchindex",
+        "fields": [{
+            "name": "id",
+            "type": "Edm.String",
+            "key": true,
+            "searchable": false
+        }, 
+        {
+            "name": "description",
+            "type": "Edm.String",
+            "filterable": false,
+            "searchable": true,
+            "sortable": false,
+            "facetable": false,
+            "suggestions": true
+        }
+      ]
+    }
+    ```
+
+1. Create a document key field ("key": true) that uniquely identifies each search document. This is the only field that's required. Typically, the table's primary key is mapped to the index key field. The document key must be unique and non-null. The values can be numeric in source data, but in a search index, a key is always a string.
+
+1. Create additional fields for more searchable content. See [Create an index](search-how-to-create-search-index.md) for details.
+
+<a name="TypeMapping"></a>
+
+### Mapping data types
+
+| SQL data type | Cognitive Search field types | Notes |
+| ------------- | -------------------------------- | --- |
+| bit |Edm.Boolean, Edm.String | |
+| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
+| bigint |Edm.Int64, Edm.String | |
+| real, float |Edm.Double, Edm.String | |
+| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search does not support converting decimal types into Edm.Double because this would lose precision |
+| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |A SQL string can be used to populate a Collection(Edm.String) field if the string represents a JSON array of strings: `["red", "white", "blue"]` |
+| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
+| uniqueidentifer |Edm.String | |
+| geography |Edm.GeographyPoint |Only geography instances of type POINT with SRID 4326 (which is the default) are supported |
+| rowversion |Not applicable |Row-version columns cannot be stored in the search index, but they can be used for change tracking |
+| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/A |Not supported |
 
 ## Configure and run the Azure SQL indexer
 
@@ -297,23 +346,6 @@ When using the soft-delete technique, you can specify the soft delete policy as 
 The **softDeleteMarkerValue** must be a string in the JSON representation of your data source. Use the string representation of your actual value. For example, if you have an integer column where deleted rows are marked with the value 1, use `"1"`. If you have a BIT column where deleted rows are marked with the Boolean true value, use the string literal `"True"` or `"true"`, the case doesn't matter.
 
 If you are setting up a soft delete policy from the Azure portal, don't add quotes around the soft delete marker value. The field contents are already understood as a string and will be translated automatically into a JSON string for you. In the examples above, simply type `1`, `True` or `true` into the portal's field.
-
-<a name="TypeMapping"></a>
-
-## Mapping between SQL and Azure Cognitive Search data types
-| SQL data type | Allowed target index field types | Notes |
-| --- | --- | --- |
-| bit |Edm.Boolean, Edm.String | |
-| int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
-| bigint |Edm.Int64, Edm.String | |
-| real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric |Edm.String |Azure Cognitive Search does not support converting decimal types into Edm.Double because this would lose precision |
-| char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |A SQL string can be used to populate a Collection(Edm.String) field if the string represents a JSON array of strings: `["red", "white", "blue"]` |
-| smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
-| uniqueidentifer |Edm.String | |
-| geography |Edm.GeographyPoint |Only geography instances of type POINT with SRID 4326 (which is the default) are supported |
-| rowversion |N/A |Row-version columns cannot be stored in the search index, but they can be used for change tracking |
-| time, timespan, binary, varbinary, image, xml, geometry, CLR types |N/A |Not supported |
 
 ## Configuration Settings
 SQL indexer exposes several configuration settings:
