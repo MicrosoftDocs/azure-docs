@@ -105,7 +105,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept values fro
 
 Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -118,43 +118,48 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "disabled": null,
         "schedule": null,
         "parameters": {
-        "batchSize": null,
-        "maxFailedItems": 0,
-        "maxFailedItemsPerBatch": 0,
-        "base64EncodeKeys": false,
-        "configuration": {}
+           "batchSize": null,
+           "maxFailedItems": 0,
+           "maxFailedItemsPerBatch": 0,
+           "base64EncodeKeys": false,
+           "configuration": {
+              "queryTimeout": "00:05:00",
+              "disableOrderByHighWaterMarkColumn": false
+            }
         },
         "fieldMappings": [],
         "encryptionKey": null
     }
     ```
 
+1. Under parameter configuration, you can set a timeout for SQL query execution. In the example above, the timeout is 5 minutes. The second configuration setting is "disableOrderByHighWaterMarkColumn". It causes the SQL query used by the [high water mark policy](#HighWaterMarkPolicy) to omit the ORDER BY clause.
+
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
-An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md). 
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
 
 ## Check indexer status
 
-To monitor the indexer status and execution history (number of items indexed, failures, etc.), use an **indexer status** request:
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
 
 ```http
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
-    api-key: admin-key
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
-The response should look similar to the following:
+The response includes status and the number of items processed. It should look similar to the following example:
 
 ```json
     {
-        "@odata.context":"https://myservice.search.windows.net/$metadata#Microsoft.Azure.Search.V2015_02_28.IndexerExecutionInfo",
         "status":"running",
         "lastResult": {
             "status":"success",
             "errorMessage":null,
-            "startTime":"2015-02-21T00:23:24.957Z",
-            "endTime":"2015-02-21T00:36:47.752Z",
+            "startTime":"2022-02-21T00:23:24.957Z",
+            "endTime":"2022-02-21T00:36:47.752Z",
             "errors":[],
             "itemsProcessed":1599501,
             "itemsFailed":0,
@@ -166,8 +171,8 @@ The response should look similar to the following:
             {
                 "status":"success",
                 "errorMessage":null,
-                "startTime":"2015-02-21T00:23:24.957Z",
-                "endTime":"2015-02-21T00:36:47.752Z",
+                "startTime":"2022-02-21T00:23:24.957Z",
+                "endTime":"2022-02-21T00:36:47.752Z",
                 "errors":[],
                 "itemsProcessed":1599501,
                 "itemsFailed":0,
@@ -179,8 +184,7 @@ The response should look similar to the following:
     }
 ```
 
-Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order (so that the latest execution comes first in the response).
-Additional information about the response can be found in [Get Indexer Status](/rest/api/searchservice/get-indexer-status)
+Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
 
 <a name="CaptureChangedRows"></a>
 
@@ -335,24 +339,6 @@ When using the soft-delete technique, you can specify the soft delete policy as 
 The **softDeleteMarkerValue** must be a string in the JSON representation of your data source. Use the string representation of your actual value. For example, if you have an integer column where deleted rows are marked with the value 1, use `"1"`. If you have a BIT column where deleted rows are marked with the Boolean true value, use the string literal `"True"` or `"true"`, the case doesn't matter.
 
 If you are setting up a soft delete policy from the Azure portal, don't add quotes around the soft delete marker value. The field contents are already understood as a string and will be translated automatically into a JSON string for you. In the examples above, simply type `1`, `True` or `true` into the portal's field.
-
-## Configuration Settings
-SQL indexer exposes several configuration settings:
-
-| Setting | Data type | Purpose | Default value |
-| --- | --- | --- | --- |
-| queryTimeout |string |Sets the timeout for SQL query execution |5 minutes ("00:05:00") |
-| disableOrderByHighWaterMarkColumn |bool |Causes the SQL query used by the high water mark policy to omit the ORDER BY clause. See [High Water Mark policy](#HighWaterMarkPolicy) |false |
-
-These settings are used in the `parameters.configuration` object in the indexer definition. For example, to set the query timeout to 10 minutes, create or update the indexer with the following configuration:
-
-```http
-    {
-      ... other indexer definition properties
-     "parameters" : {
-            "configuration" : { "queryTimeout" : "00:10:00" } }
-    }
-```
 
 ## FAQ
 
