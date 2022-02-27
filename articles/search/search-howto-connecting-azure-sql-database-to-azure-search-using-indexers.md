@@ -29,7 +29,9 @@ Incremental indexing is possible. If you have a large data set and plan to run t
 
 ## Define the data source
 
-1. Create the data source:
+The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
+
+1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
    ```http
     POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
@@ -44,9 +46,15 @@ Incremental indexing is possible. If you have a large data set and plan to run t
     }
    ```
 
-   The connection string can follow either of the below formats:
-    1. You can get the connection string from the [Azure portal](https://portal.azure.com); use the `ADO.NET connection string` option.
-    1. A managed identity connection string that does not include an account key with the following format: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`. To use this connection string, follow the instructions for [Setting up an indexer connection to an Azure SQL Database using a managed identity](search-howto-managed-identities-sql.md).
+1. Set "type" to `"azuresql"` (required).
+
+1. Set "credentials" to a connection string:
+
+   + You can get the connection string from the [Azure portal](https://portal.azure.com). Use the `ADO.NET connection string` option.
+
+   + You can specify a managed identity connection string that does not include database secrets with the following format: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;`.
+
+    To use this connection string, follow the instructions for [Setting up an indexer connection to an Azure SQL Database using a managed identity](search-howto-managed-identities-sql.md).
 
 ## Add search fields to an index
 
@@ -200,34 +208,33 @@ Within an indexer definition, you can specify a change detection policies that t
 
 ### SQL Integrated Change Tracking Policy
 
-We recommend using **SQL Integrated Change Tracking Policy** for its efficiency and its ability to identify deleted rows.
+We recommend using "SqlIntegratedChangeTrackingPolicy" for its efficiency and its ability to identify deleted rows.
 
-#### Requirements 
+Database requirements:
 
-+ Database version requirements:
-  * SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs.
-  * Azure SQL Database or SQL Managed Instance.
-+ Tables only (no views). 
-+ On the database, [enable change tracking](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table. 
-+ No composite primary key (a primary key containing more than one column) on the table.  
++ SQL Server 2012 SP3 and later, if you're using SQL Server on Azure VMs
++ Azure SQL Database or SQL Managed Instance
++ Tables only (no views).
++ On the database, [enable change tracking](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) for the table
++ No composite primary key (a primary key containing more than one column) on the table
 
-#### Usage
-
-To use this policy, create or update your data source like this:
+Change detection policies are added to data source definitions. To use this policy, create or update your data source like this:
 
 ```http
+POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
+Content-Type: application/json
+api-key: admin-key
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
         "credentials" : { "connectionString" : "connection string" },
-        "container" : { "name" : "table or view name" },
+        "container" : { "name" : "table name" },
         "dataChangeDetectionPolicy" : {
-           "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
-      }
+            "@odata.type" : "#Microsoft.Azure.Search.SqlIntegratedChangeTrackingPolicy"
     }
 ```
 
-When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy - this policy has built-in support for identifying deleted rows. However, for the deletes to be detected "automagically", the document key in your search index must be the same as the primary key in the SQL table. 
+When using SQL integrated change tracking policy, do not specify a separate data deletion detection policy. The SQL integrated change tracking policy has built-in support for identifying deleted rows. However, for the deletes to be detected automatically, the document key in your search index must be the same as the primary key in the SQL table. 
 
 > [!NOTE]  
 > When using [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql) to remove a large number of rows from a SQL table, the indexer needs to be [reset](/rest/api/searchservice/reset-indexer) to reset the change tracking state to pick up row deletions.
@@ -236,39 +243,38 @@ When using SQL integrated change tracking policy, do not specify a separate data
 
 ### High Water Mark Change Detection policy
 
-This change detection policy relies on a "high water mark" column capturing the version or time when a row was last updated. If you're using a view, you must use a high water mark policy. The high water mark column must meet the following requirements.
+This change detection policy relies on a "high water mark" column in your table or view that captures the version or time when a row was last updated. If you're using a view, you must use a high water mark policy. 
 
-#### Requirements 
+The high water mark column must meet the following requirements:
 
-* All inserts specify a value for the column.
-* All updates to an item also change the value of the column.
-* The value of this column increases with each insert or update.
-* Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
++ All inserts specify a value for the column.
++ All updates to an item also change the value of the column.
++ The value of this column increases with each insert or update.
++ Queries with the following WHERE and ORDER BY clauses can be executed efficiently: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
-> [!IMPORTANT] 
+> [!NOTE]
 > We strongly recommend using the [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) data type for the high water mark column. If any other data type is used, change tracking is not guaranteed to capture all changes in the presence of transactions executing concurrently with an indexer query. When using **rowversion** in a configuration with read-only replicas, you must point the indexer at the primary replica. Only a primary replica can be used for data sync scenarios.
 
-#### Usage
-
-To use a high water mark policy, create or update your data source like this:
+Change detection policies are added to data source definitions. To use this policy, create or update your data source like this:
 
 ```http
+POST https://myservice.search.windows.net/datasources?api-version=2020-06-30
+Content-Type: application/json
+api-key: admin-key
     {
         "name" : "myazuresqldatasource",
         "type" : "azuresql",
         "credentials" : { "connectionString" : "connection string" },
         "container" : { "name" : "table or view name" },
         "dataChangeDetectionPolicy" : {
-           "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
-           "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
-      }
+            "@odata.type" : "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+            "highWaterMarkColumnName" : "[a rowversion or last_updated column name]"
+        }
     }
 ```
 
-> [!WARNING]
+> [!NOTE]
 > If the source table does not have an index on the high water mark column, queries used by the SQL indexer may time out. In particular, the `ORDER BY [High Water Mark Column]` clause requires an index to run efficiently when the table contains many rows.
->
->
 
 <a name="convertHighWaterMarkToRowVersion"></a>
 
