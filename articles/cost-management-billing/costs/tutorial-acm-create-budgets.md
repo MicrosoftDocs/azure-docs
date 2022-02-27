@@ -174,7 +174,7 @@ install-module -name Az
 The following example commands create a budget.
 
 ```azurepowershell-interactive
-#Sign into Azure Powershell with your account
+#Sign into Azure PowerShell with your account
 
 Connect-AzAccount
 

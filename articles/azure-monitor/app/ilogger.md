@@ -36,7 +36,7 @@ By default, ASP.NET Core applications have an Application Insights logging provi
 
    ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.17.0" />
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.19.0" />
     </ItemGroup>
    ```
 

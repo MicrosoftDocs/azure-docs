@@ -65,7 +65,7 @@ landingContent:
       - linkListType: sample
         links:
           - text: Azure Functions samples
-            url: https://docs.microsoft.com/samples/browse/?expanded=azure&&products=azure-functions
+            url: /samples/browse/?expanded=azure&products=
           - text: Azure Serverless Community Library
             url: https://www.serverlesslibrary.net/
           - text: Azure Resource Manager templates

@@ -10,7 +10,8 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: fryu
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Set a blob's access tier

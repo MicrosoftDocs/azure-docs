@@ -1,11 +1,11 @@
 ---
 title: How to troubleshoot Azure Data Catalog
 description: This article describes common troubleshooting concerns for Azure Data Catalog resources. 
-author: JasonWHowell
-ms.author: jasonh
+author: ChandraKavya
+ms.author: kchandra
 ms.service: data-catalog
 ms.topic: troubleshooting
-ms.date: 08/01/2019
+ms.date: 02/10/2022
 ---
 
 # Troubleshooting Azure Data Catalog
@@ -16,13 +16,13 @@ This article describes common troubleshooting concerns for Azure Data Catalog re
 
 ## Functionality limitations
 
-When using Azure Data Catalog, the following functionality is limited:
+In Azure Data Catalog, the following functionality is limited:
 
-- Accounts with type **Guest Role** are not supported. You cannot add guest accounts as users of Azure Data Catalog, and guest users cannot use the portal at [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
+- Accounts with type **Guest Role** aren't supported. You can't add guest accounts as users of Azure Data Catalog, and guest users can't use the portal at [https://www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
-- Creating Azure Data Catalog resources using Azure Resource Manager Templates or Azure PowerShell commands is not supported.
+- Creating Azure Data Catalog resources using Azure Resource Manager Templates or Azure PowerShell commands isn't supported.
 
-- The Azure Data Catalog resource cannot be moved between Azure Tenants.
+- The Azure Data Catalog resource can't be moved between Azure Tenants.
 
 ## Azure Active Directory policy configuration
 
@@ -34,7 +34,7 @@ With the global authentication policy, you can enable authentication separately 
 
  ![Azure Active Directory global authentication policy](./media/troubleshoot-policy-configuration/global-auth-policy.png)
 
-For more information, see [Configuring authentication policies](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486781(v=ws.11)).
+For more information, see [the article for configuring authentication policies](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486781(v=ws.11)).
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-author: anthonychu
+author: vicancy
 ms.service: signalr
 ms.topic: include
 ms.date: 09/14/2018
-ms.author: antchu
+ms.author: lianwei
 ms.custom: include file
 ---
 ## Create an Azure SignalR Service instance
@@ -22,9 +22,9 @@ Your application will connect to a SignalR Service instance in Azure.
 
     | Setting      | Suggested value  | Description                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Resource name** | Globally unique name | Name that identifies your new SignalR Service instance. Valid characters are `a-z`, `0-9`, and `-`.  | 
-    | **Subscription** | Your subscription | The subscription under which this new SignalR Service instance is created. | 
-    | **[Resource Group](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group in which to create your SignalR Service instance. | 
+    | **Resource name** | Globally unique name | Name that identifies your new SignalR Service instance. Valid characters are `a-z`, `0-9`, and `-`.  |
+    | **Subscription** | Your subscription | The subscription under which this new SignalR Service instance is created. |
+    | **[Resource Group](../../azure-resource-manager/management/overview.md)** |  myResourceGroup | Name for the new resource group in which to create your SignalR Service instance. |
     | **Location** | West US | Choose a [region](https://azure.microsoft.com/regions/) near you. |
     | **Pricing tier** | Free | Try Azure SignalR Service for free. |
     | **Unit count** |  Not applicable | Unit count specifies how many connections your SignalR Service instance can accept. It is only configurable in the Standard tier. |
