@@ -35,6 +35,9 @@ Being legacy, the application lacks modern protocols to support a direct integra
 
 Having a BIG-IP in front of the app enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
+> [!NOTE]
+> Organizations can also gain remote access to this type of application with [Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy).
+
 ## Scenario architecture
 
 The secure hybrid access solution for this scenario is made up of several components:
@@ -166,7 +169,7 @@ Some of these are global settings can be re-used for publishing more application
 
 The **Service Provider** settings define the SAML SP properties for the APM instance representing the application protected through SHA.
 
-1. Enter **Host**. This is the public FQDN of the application being secured. You’ll need a corresponding DNS record for clients to resolve this address, but using a localhost record is fine during testing
+1. Enter **Host**. This is the public FQDN of the application being secured.
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
