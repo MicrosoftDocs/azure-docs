@@ -1,17 +1,17 @@
 ---
 title: Configure ingestion-time data transformation for Microsoft Sentinel
 description: Learn about how to configure Azure Monitor's ingestion-time data transformation for use with Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
-ms.date: 02/01/2022
+ms.date: 02/27/2022
 ---
 
 # Configure ingestion-time data transformation for Microsoft Sentinel
 
-This article describes how to configure ingestion-time data transformation for use in Microsoft Sentinel.
+This article describes how to configure [ingestion-time data transformation](data-transformation.md) for use in Microsoft Sentinel.
 
-Ingestion-time data transformation provides customers with more control over the ingested data. Instead of relying on pre-configured, hardcoded workflows that create standardized tables, ingestion time-transformation supports the ability to filter and enrich the output tables, even before running any queries. Data collection rules (DCRs) provide extra support for creating customized output tables, including specific column names and types.
+Ingestion-time data transformation provides customers with more control over the ingested data. Supplementing the pre-configured, hardcoded workflows that create standardized tables, ingestion time-transformation adds the capability to filter and enrich the output tables, even before running any queries. Data collection rules (DCRs) provide extra support for creating customized output tables, including specific column names and types.
 
 Ingestion-time data transformation is configured using Data Collection Rules (DCRs), either in the Log Analytics portal, or via API or ARM template.
 

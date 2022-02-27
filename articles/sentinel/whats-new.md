@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 02/27/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -54,8 +54,8 @@ For more information, see:
 
 **Before you start**:
 
-- [Data collection rule transformations in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-transformations)
-- [Ingestion-time Transformation in Azure Monitor Logs](/azure/azure-monitor/logs/custom-logs-v2-ingestion-time-transform-tut)
+- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
+- [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
 
 **In Microsoft Sentinel**:
 

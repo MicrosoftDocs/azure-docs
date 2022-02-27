@@ -4,7 +4,7 @@ description: Learn about how Azure Monitor's ingestion-time data transformation 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 02/27/2022
 ---
 
 # Data transformation in Microsoft Sentinel
@@ -64,11 +64,17 @@ Support for DCRs in Microsoft Sentinel includes:
 
 - *Workspace transformation DCRs*, for workflows that don't currently support standard DCRs.
 
-    A single *workspace transformation DCR* serves all the workflows in a workspace that aren't served by standard DCRs. A workspace can have only one *workspace transformation DCR*, but that DCR contains separate transformations for each input stream. Default DCRs are also supported for specific tables only.
+    A single *workspace transformation DCR* serves all the workflows in a workspace that aren't served by standard DCRs. A workspace can have only one *workspace transformation DCR*, but that DCR contains separate transformations for each input stream. Also, workspace transformation DCRs are supported only for a specific set of tables.
 
-    Workspace transformation DCRs can be created using the Log Analytics portal, but once created, they can be edited only using the Log Analytics API or ARM template.
+Microsoft Sentinel's support for ingestion-time transformation depends on the type of data connector you're using. For more in-depth information on ingestion-time transformation and data collection rules, see the following articles in the Azure Monitor documentation:
 
-Microsoft Sentinel's support for ingestion-time transformation depends on the type of data connector you're using.
+- [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
+- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
+- [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
+- [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
+- [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
+
+### DCR support for Microsoft Sentinel data connectors
 
 The following table describes DCR support for Microsoft Sentinel data connector types:
 
@@ -76,47 +82,55 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 | ------------------- | ----------- |
 | [**AMA standard logs**](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections), such as: <li>[Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)<li>[Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview)<li>[CEF data](connect-common-event-format.md)<li>[Syslog data](connect-syslog.md)   | Standard DCRs |
 | [**MMA standard logs**](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections), such as <li>[Syslog data](connect-syslog.md)<li>[CommonSecurityLog](connect-azure-windows-microsoft-services.md) | Workspace transformation DCRs |
-| [**Diagnostic settings-based connections**](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)               | Workspace transformation DCRs, based on the specific data connector's output tables   |
-| **Built-in, service-to-service data connectors**, <li>such as [Amazon S3](connect-aws.md)                                                  | Workspace transformation DCRs, based on the specific data connector's output tables   |
-| **Custom, [direct API](connect-rest-api-template.md) or [Logstash](connect-logstash.md)-based data connectors**                              | Standard DCRs                                         |
+| [**Diagnostic settings-based connections**](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)               | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors   |
+| **Built-in, service-to-service data connectors**, <li>such as [Amazon S3](connect-aws.md)                                                  | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors   |
+| **Custom or [direct API](connect-rest-api-template.md)-based data connectors**                              | Standard DCRs                                         |
 | **Built-in, API-based data connectors**, such as: <li>[Codeless data connectors](create-codeless-connector.md)<li>[Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported        |
+| **[Logstash](connect-logstash.md)-based data connectors** | Not currently supported |
 |            |         |
 
 ## Data transformation support for custom data connectors
 
-If you've created custom data connectors for Microsoft Sentinel, you can still use DCRs to configure how the data will be parsed and stored in your workspace.
+If you've created custom data connectors for Microsoft Sentinel, you can use DCRs to configure how the data will be parsed and stored in Log Analytics in your workspace.
 
-Only the following tables are currently supported for custom log ingestion: **WindowsEvent**, **SecurityEvent**, **CommonSecurityLog**, and **Syslog**
+Only the following tables are currently supported for custom log ingestion:
+- [**WindowsEvent**](/azure/azure-monitor/reference/tables/windowsevent)
+- [**SecurityEvent**](/azure/azure-monitor/reference/tables/securityevent)
+- [**CommonSecurityLog**](/azure/azure-monitor/reference/tables/commonsecuritylog)
+- [**Syslog**](/azure/azure-monitor/reference/tables/syslog)
+- **ASIMDnsActivityLog**
 
 ## Known issues
 
 Ingestion-time data transformation currently has the following known issues for Microsoft Sentinel data connectors:
 
-- Data transformations with default DCRs are supported only per table, and not per connector.
+- Data transformations using *workspace transformation DCRs* are supported only per table, and not per connector.
 
-    For example, consider a DCR transformation for an MMA-based data connector sending data to a Syslog table. The same DCR is used for all other MMA connectors sending data for Syslog tables.
+    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. However, if you have two different MMA-based data connectors sending data to the *Syslog* table, they will both have to use the same input stream configuration in the DCR.
 
-- While you can create your first default DCR using the Log Analytics portal, you can only edit it via API or ARM template.
+- *Workspace transformation DCRs* can be created using the Log Analytics portal, but once created, they can be edited *only* using the Log Analytics API or ARM template.
 
-    So this means, for example, that if you create a DCR to transform Syslog data for a specific MMA-based data connector, and you'd like to modify it to support another MMA-based data connector, you'll need to use API calls to make that modification.
+    For example, if you create a DCR to transform Syslog data for a specific MMA-based data connector, and later you want to modify it to support another MMA-based data connector, you'll need to use API calls to make that modification.
 
 - The following configurations are supported only via API:
 
-    - Standard DCRs, for AMA-based connectors like [Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama) and [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview), are supported only via API.
+    - Standard DCRs for AMA-based connectors like [Windows Security Events](data-connectors-reference.md#windows-security-events-via-ama) and [Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview).
 
-    - Data transformation configuration for custom log ingestion to a standard table
+    - Standard DCRs for custom log ingestion to a standard table.
 
 - It make take up to 60 minutes for the data transformation configurations to apply.
 
-- KQL syntax: Not all operators are supported. For more information, see [Supported KQL features](/azure/azure-monitor/essentials/data-collection-rule-transformations#supported-kql-features) in the Azure Monitor documentation.
-
-- Custom logs can currently be sent only to the following tables: **WindowsEvent**, **SecurityEvent**, **CommonSecurityLog**, and **Syslog**
+- KQL syntax: Not all operators are supported. For more information, see [**KQL limitations** and **Supported KQL features**](../azure-monitor/essentials/data-collection-rule-transformations.md#kql-limitations) in the Azure Monitor documentation.
 
 ## Next steps
 
-Learn more about ingestion-time data transformation. For more information, see [Configure ingestion-time data transformation for Microsoft Sentinel](configure-data-transformation.md).
+For more in-depth information on ingestion-time transformation and data collection rules, see the following articles in the Azure Monitor documentation:
 
-Link to LA docs
+- [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
+- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
+- [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
+- [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
+- [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
 
 Learn more about Microsoft Sentinel data connector types. For more information, see:
 
