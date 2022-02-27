@@ -41,7 +41,7 @@
     - name: Connect AWS accounts
       displayName: hybrid, multicloud, multi-cloud, amazon, arc
       href: quickstart-onboard-aws.md
-    - name: Connect GCP projetcs
+    - name: Connect GCP projects
       displayName: hybrid, multicloud, multi-cloud, google
       href: quickstart-onboard-gcp.md
   - name: 4. Configure auto provisioning
@@ -304,7 +304,7 @@
       - name: Export to a SIEM, SOAR, or ITSM
         displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
         href: export-to-siem.md
-      - name: Export to a Log Analytics workspace or Azure Event Hub
+      - name: Export to a Log Analytics workspace or Azure Event Hubs
         displayName: continuous
         href: continuous-export.md
       - name: Download a CSV report of all alerts

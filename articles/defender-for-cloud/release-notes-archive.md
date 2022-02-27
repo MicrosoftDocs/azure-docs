@@ -1066,7 +1066,7 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Connecting your AWS or GCP projectss integrates their native security tools like AWS Security Hub and GCP Security Command Center into Azure Security Center.
+Connecting your AWS or GCP projects integrates their native security tools like AWS Security Hub and GCP Security Command Center into Azure Security Center.
 
 This capability means that Security Center provides visibility and protection across all major cloud environments. Some of the benefits of this integration:
 
