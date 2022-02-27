@@ -306,6 +306,157 @@ During deployment, the SAML federation metadata for the published application is
 
  But for this to be truly effective, the APM should also know when a user signs-out, See PeopleSoft Single Logout in the next section.
 
-## Summary
+### Summary
 
 This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of Enterprise applications. Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals.
+ 
+## Configure PeopleSoft
+ 
+Oracle Access Manager provides identity and access management across PeopleSoft applications. See [Integrating PeopleSoft with Oracle Access Manager](https://docs.oracle.com/cd/E12530_01/oam.1014/e10356/people.htm) for more info. 
+
+### Configure Oracle Access Manager SSO
+
+For this scenario, you will configure Oracle Access Manager to accept SSO from the BIG-IP. 
+
+1.	Sign into the PeopleSoft console with admin credentials
+ <<Image>>
+ 
+2. Navigate to **PeopleTools > Security > User Profiles > User Profiles** and create a new user profile
+ 
+3.	Enter **User ID** as **OAMPSFT**
+ 
+4.	Assign **User Role** as *Peoplesoft User* and select **Save**
+ <<Image>>
+ 
+5.	Navigate to **People Tools** > **Web Profile** to select the web profile being used 
+
+6.	Select the **Security** tab and in the **Public Users** section check **Allow Public Access** 
+
+7.	Enter **User ID** as *OAMPSFT* along with the accounts **Password**
+ <<Image>>
+ 
+8.	Leave the Peoplesoft console and launch the **PeopleTools Application Designer** 
+
+9.	Right-click the **LDAPAUTH** field and select **View People Code**
+<<Image>>
+ 
+10.	When the **LDAPAUTH** code windows opens, locate the **OAMSSO_AUTHENTICATION** function
+ 
+11.	Replace the value that is assigned to the default **&defaultUserId** with **OAMPSFT**. that was defined in the web profile
+<<Image>>
+ 
+12.	Save the record and navigate to **PeopleTools > Security > Security Objects > Signon PeopleCode** 
+
+13.	Enable the **OAMSSO_AUTHENTICATION** function
+<<Image>>
+ 
+### PeopleSoft Single Logout
+
+PeopleSoft SLO is initiated when you sign out of the Microsoft MyApps portal, which in turn calls the BIG-IP SLO endpoint. 
+
+**BIG-IP needs instructions to perform SLO on behalf of the application**. One way is to modify the applications sign-out function to call the BIG-IP SLO endpoint, but this isn’t possible with Peoplesoft. Have the BIG-IP listen for when users perform a sign-out request to PeopleSoft, to trigger SLO.
+
+To add SLO support for all PeopleSoft users
+
+1.	Obtain the correct logout URL for PeopleSoft portal
+ 
+2.	Open the portal through a web browser with debug tools enabled. Find the element with the **PT_LOGOUT_MENU** id and save the URL path with the query parameters. In this example, we have: /psp/ps/?cmd=logout
+ 
+Next, create a BIG-IP iRule for redirecting users to the SAML SP logout endpoint: /my.logout.php3
+ 
+1.	Navigate to **Local Traffic > iRules List > Create** and provide a name for your rule
+ 
+2.	Enter the following command lines and then select **Finished:**
+ 
+```when HTTP_REQUEST {
+   switch -glob -- [HTTP::uri] {
+      "/psp/ps/?cmd=logout" {
+             HTTP::redirect "/my.logout.php3"
+        }
+    }
+} ```
+To assign this iRule to the BIG-IP Virtual Server
+ 
+1. Navigate to **Access > Guided Configuration**
+ 
+2.	Select the configuration link for your PeopleSoft application
+<<Image>>
+ 
+3.	From the top navigation bar, select **Virtual Server** and enable **Advanced Settings**
+<<Image>>
+
+4.	Scroll down to the bottom and add the iRule you just created.  
+<<Image>>
+ 
+5.	Select **Save and Next** and continue to deploy your new settings. 
+ 
+For more details, refer to the F5 knowledge article [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
+
+### Default to PeopleSoft landing page
+ 
+While it’s best having an application redirect user to its landing page, you can also create a similar iRule to achieve this on the BIG-IP. In this scenario, redirect all user requests from the root (“/”) to the external PeopleSoft portal which is usually located here: “/psc/ps/EXTERNAL/HRMS/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL”
+ 
+1.	Navigate to **Local Traffic > iRule**, select **iRule_PeopleSoft** and add these command lines:
+ 
+```when HTTP_REQUEST {
+   switch -glob -- [HTTP::uri] {
+"/" {
+         HTTP::redirect "/psc/ps/EXTERNAL/HRMS/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL"
+      }
+      "/psp/ps/?cmd=logout" {
+             HTTP::redirect "/my.logout.php3"
+        }
+    }
+}```
+ 
+2.	To assign the iRule to the BIG-IP Virtual Server, navigate to **Access > Guided Configuration** and select the configuration link for your PeopleSoft application
+<<Image>>
+ 
+3.	From the top navigation bar, select **Virtual Server** and enable **Advanced Settings**
+<<Image>>
+ 
+4.	Scroll down to the bottom and add the iRule you just created.
+<<Image>>
+ 
+## Next steps
+ 
+From a browser, connect to the **PeopleSoft** application’s external URL or select the application’s icon in the [Microsoft MyApps portal](https://myapps.microsoft.com/). After authenticating to Azure AD, you’ll be redirected to the BIG-IP virtual server for the application and automatically signed in through SSO.
+
+For increased security, organizations using this pattern could also consider blocking all direct access to the application, thereby forcing a strict path through the BIG-IP.
+
+## Advanced deployment
+
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+
+You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
+
+![Screenshot for Configure Easy Button - Strict Management](./media/f5-big-ip-oracle/strict-mode-padlock.png)
+
+At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
+
+> [!NOTE] 
+> Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+ 
+## Troubleshooting
+
+Failure to access a SHA protected application can be due to any number of factors. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
+
+1. Navigate to **Access Policy > Overview > Event Logs > Settings**
+
+2. Select the row for your published application then **Edit > Access System Logs**
+
+3. Select **Debug** from the SSO list then **OK**
+
+Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+
+1. Navigate to **Access > Overview > Access reports**
+
+2. Run the report for the last hour to see if the logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
+
+If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
+
+1. In which case head to **Access Policy > Overview > Active Sessions** and select the link for your active session
+
+2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes from session variables
+
+See [BIG-IP APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
