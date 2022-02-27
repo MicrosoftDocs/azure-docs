@@ -149,13 +149,8 @@
     displayName: connections, Purdue, zoom, delete device, authorized, unauthorized, programming, filter, groups, custom, zoom, connection, important device, IT network
   - name: Work with alerts detected by a sensor
     items:
-    - name: Understand sensor alerts
-      href: how-to-work-with-alerts-on-your-sensor.md
-    - name: Filter and manage alerts from the Alerts page 
+    - name: View alerts details on the Alerts page 
       href: how-to-view-alerts.md
-    - name: About alert messages
-      href: how-to-view-information-provided-in-alerts.md
-      displayName: PCAP, metadata, alerts, link, device map,  
     - name: Alert types and descriptions
       href: alert-engine-messages.md
       displayName: alert, alerts, description, engine, anomaly, protocol, policy, malware, violation, operational, severity, minor, major, critical, warning, alerts list, security alerts, 
@@ -168,6 +163,9 @@
     - name: Forward alert information
       href: how-to-forward-alert-information-to-partners.md
       displayName: integration, 3rd party, partners, vendor, Syslog server, NetWitness, CEF, LEEF, email, SOC, SIEM, SOAR, incident response
+  - name: Manage cloud alerts
+    href: how-to-manage-cloud-alerts.md
+    displayName: MITRE ATT&CK, remediation, severity, status, alert exclusion, learn, important, mute, new, active, close
   - name: Gain insight into global, regional, and local threats
     href: how-to-gain-insight-into-global-regional-and-local-threats.md
     displayName: site, business unit, region, map
@@ -190,6 +188,9 @@
     - name: Create trends and statistics reports
       href: how-to-create-trends-and-statistics-reports.md
       displayName: widgets, charts      
+  - name: Analyze programming details and changes
+    displayName: programming, unauthorized 
+    href: how-to-analyze-programming-details-changes.md
   - name: Enrich device information
     items: 
     - name: Work with device notifications

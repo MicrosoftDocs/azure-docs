@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 ms.devlang: csharp
 ms.custom: contperf-fy21q1
-
 ---
 
 # Configure Application Insights for your ASP.NET website

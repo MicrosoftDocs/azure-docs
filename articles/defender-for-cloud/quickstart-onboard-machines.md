@@ -2,7 +2,7 @@
 title: Connect your non-Azure machines to Microsoft Defender for Cloud
 description: Learn how to connect your non-Azure machines to Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 11/09/2021
+ms.date: 02/27/2022
 zone_pivot_groups: non-azure-machines
 ms.custom: mode-other
 ---
@@ -20,7 +20,7 @@ You can connect your non-Azure computers in any of the following ways:
 Each of these is described on this page.
 
 > [!TIP]
-> If you're connecting machines from other cloud providers, see [Connect your AWS accounts](quickstart-onboard-aws.md) or [Connect your GCP accounts](quickstart-onboard-gcp.md).
+> If you're connecting machines from other cloud providers, see [Connect your AWS accounts](quickstart-onboard-aws.md) or [Connect your GCP projects](quickstart-onboard-gcp.md).
 
 ::: zone pivot="azure-arc"
 

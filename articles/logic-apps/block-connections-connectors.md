@@ -1,10 +1,10 @@
 ---
 title: Block connections for specific API connectors
-description: Restrict creating and using API connections in Azure Logic Apps
+description: Restrict creating and using API connections in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, logicappspm
-ms.topic: conceptual
+ms.reviewer: deli, estfan, azla
+ms.topic: how-to
 ms.date: 07/23/2020
 ---
 
@@ -16,7 +16,7 @@ This topic shows how to set up a policy that blocks specific connections by usin
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/) before you start.
+* An Azure account and subscription. If you don't have a subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * The reference ID for the connector that you want to block. For more information, see [Find the connector reference ID](#connector-reference-ID).
 
