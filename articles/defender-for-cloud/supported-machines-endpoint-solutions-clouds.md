@@ -2,7 +2,7 @@
 title: Microsoft Defender for Cloud's features according to OS, machine type, and cloud
 description: Learn about the availability of Microsoft Defender for Cloud features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 02/10/2022
+ms.date: 02/27/2022
 ms.custom: references_regions
 ---
 
@@ -158,7 +158,7 @@ For information about when recommendations are generated for each of these solut
 | - [Regulatory compliance dashboard & reports](./regulatory-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                                | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Endpoint deployment and integrated license](./integration-defender-for-endpoint.md)                                                 | GA             | GA                             | Not Available                  |
 | - [Connect AWS account](./quickstart-onboard-aws.md)                                                                                                          | GA             | Not Available                  | Not Available                  |
-| - [Connect GCP account](./quickstart-onboard-gcp.md)                                                                                                          | GA             | Not Available                  | Not Available                  |
+| - [Connect GCP project](./quickstart-onboard-gcp.md)                                                                                                          | GA             | Not Available                  | Not Available                  |
 |                                                                                                                                                               |                |                                |                                |
 
 <sup><a name="footnote1"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
