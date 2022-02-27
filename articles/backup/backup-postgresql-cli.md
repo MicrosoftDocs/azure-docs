@@ -429,9 +429,7 @@ az dataprotection backup-policy show  -g ossdemorg --vault-name ossdemovault-1 -
 }
 ```
 
-### Trigger an on-demand backup using command
-
-Trigger an on-demand backup using the [az dataprotection backup-instance adhoc-backup](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_adhoc_backup) command.
+To trigger an on-demand backup, use the [az dataprotection backup-instance adhoc-backup](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_adhoc_backup) command.
 
 ```azurecli
 az dataprotection backup-instance adhoc-backup --name "ossrg-empdb11" --rule-name "Monthly" --resource-group testBkpVaultRG --vault-name TestBkpVault
