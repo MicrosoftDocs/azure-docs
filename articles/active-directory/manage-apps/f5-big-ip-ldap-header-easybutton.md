@@ -29,15 +29,11 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 ## Scenario description
 
-This scenario looks at the classic legacy application using HTTP authorization headers to control access to protected content.
+This scenario looks at the classic legacy application using **HTTP authorization headers** sourced from LDAP diretcory attributes, to manage access to protected content.
 
-Being legacy, the application lacks any form of modern protocols to support a direct integration with Azure AD. Modernizing the app is also costly, requires careful planning, and introduces risk of potential downtime. 
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
 
-One option would be to consider [Azure AD Application Proxy](../app-proxy/application-proxy.md), to gate remote access to the application.
-
-Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC), as it too provides the protocol transitioning required to bridge legacy applications to the modern ID control plane.
-
-Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application for both remote and local access.
+Having a BIG-IP in front of the app enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
 ## Scenario architecture
 
