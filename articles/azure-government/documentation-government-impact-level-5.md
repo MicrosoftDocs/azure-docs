@@ -83,6 +83,8 @@ For AI and machine learning services availability in Azure Government, see [Prod
 
 - Configure encryption at rest of content in the Language Understanding service by [using customer-managed keys in Azure Key Vault](../cognitive-services/luis/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
 
+Cognitive Services Language Understanding (LUIS) is part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml).
+
 ### [Cognitive Services: Personalizer](../cognitive-services/personalizer/index.yml)
 
 - Configure encryption at rest of content in Cognitive Services Personalizer [using customer-managed keys in Azure Key Vault](../cognitive-services/personalizer/encrypt-data-at-rest.md#customer-managed-keys-with-azure-key-vault).
@@ -90,6 +92,8 @@ For AI and machine learning services availability in Azure Government, see [Prod
 ### [Cognitive Services: QnA Maker](../cognitive-services/qnamaker/index.yml)
 
 - Configure encryption at rest of content in Cognitive Services QnA Maker [using customer-managed keys in Azure Key Vault](../cognitive-services/qnamaker/encrypt-data-at-rest.md).
+
+Cognitive Services QnA Maker is part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml).
 
 ### [Cognitive Services: Speech](../cognitive-services/speech-service/index.yml)
 

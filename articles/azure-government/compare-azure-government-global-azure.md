@@ -154,7 +154,7 @@ The following Language Understanding **features are not currently available** in
 - Speech Requests
 - Prebuilt Domains
 
-Cognitive Services: Language Understanding (LUIS) is part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml))
+Cognitive Services Language Understanding (LUIS) is part of [Cognitive Services for Language](../cognitive-services/language-service/index.yml).
 
 ### [Cognitive Services: Speech](../cognitive-services/speech-service/index.yml)
 

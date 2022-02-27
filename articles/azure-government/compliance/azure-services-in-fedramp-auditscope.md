@@ -354,12 +354,12 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cognitive Services Containers](../../cognitive-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | | | |
 | [Cognitive Services: Custom Vision](../../cognitive-services/custom-vision-service/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Face](../../cognitive-services/face/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Cognitive Services: Language Understanding (LUIS)](../../cognitive-services/luis/index.yml) </br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Cognitive Services: Language Understanding (LUIS)](../../cognitive-services/luis/index.yml) (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Personalizer](../../cognitive-services/personalizer/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Cognitive Services: QnA Maker](../../cognitive-services/qnamaker/index.yml) </br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Speech](../../cognitive-services/speech-service/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) </br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Cognitive Services: Text Analytics](../../cognitive-services/language-service/concepts/migrate.md#do-i-need-to-migrate-to-the-language-service-if-i-am-using-text-analytics) </br> (part of [Cognitive Services for Language](../../cognitive-services/language-service/index.yml)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Translator](../../cognitive-services/translator/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Container Instances](../../container-instances/index.yml)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Container Registry](../../container-registry/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
