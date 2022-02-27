@@ -10,6 +10,8 @@
  ms.custom: include file
 ---
 
+* In addition to the limits below, there is a [composite limit on the number of routing rules, front-end domains, protocols, and paths](TODO).
+
 | Resource | Limit |
 | --- | --- |
 | Azure Front Door resources per subscription | 100 |
@@ -34,7 +36,8 @@
 
 ### Azure Front Door Standard/Premium (Preview) Service Limits
 
-*** *Maximum **500** total Standard and Premium profiles per subscription.*
+* Maximum **500** total Standard and Premium profiles per subscription.
+* In addition to the limits below, there is a [composite limit on the number of routes, domains, protocols, and paths](TODO).
 
 | Resource | Standard SKU Limit | Premium SKU Limit |
 | --- | --- | --- |
