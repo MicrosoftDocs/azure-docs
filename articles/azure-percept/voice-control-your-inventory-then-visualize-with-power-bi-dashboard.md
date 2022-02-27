@@ -1,7 +1,7 @@
 ---
 title: Voice control your inventory with Azure Percept Audio 
 description: This article will give detailed instructions for building the main components of the solution and deploying the edge speech AI.
-author: leannhuang
+author: nkhuyent
 ms.author: leannhuang
 ms.service: azure-percept 
 ms.topic: tutorial 
