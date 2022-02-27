@@ -103,7 +103,7 @@ Microsoft finds leaked credentials in various places, including:
 - Law enforcement agencies.
 - Other groups at Microsoft doing dark web research.
 
-#### Why are not I seeing any leaked credentials?
+#### Why am I not seeing any leaked credentials?
 
 Leaked credentials are processed anytime Microsoft finds a new, publicly available batch. Because of the sensitive nature, the leaked credentials are deleted shortly after processing. Only new leaked credentials found after you enable password hash synchronization (PHS) will be processed against your tenant. Verifying against previously found credential pairs is not done. 
 
