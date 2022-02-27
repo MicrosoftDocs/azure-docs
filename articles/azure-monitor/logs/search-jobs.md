@@ -1,8 +1,6 @@
 ---
 title: Search jobs in Azure Monitor (Preview)
 description: Search jobs are asynchronous log queries in Azure Monitor that make results available as a table for further analytics.
-author: bwren
-ms.author: bwren
 ms.topic: conceptual
 ms.date: 01/27/2022
 

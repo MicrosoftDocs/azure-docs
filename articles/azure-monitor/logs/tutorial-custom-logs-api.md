@@ -1,7 +1,6 @@
 ---
 title: Tutorial - Send custom logs to Azure Monitor Logs using resource manager templates
 description: Tutorial on how to send custom logs to a Log Analytics workspace in Azure Monitor using resource manager templates.
-ms.subservice: logs
 ms.topic: tutorial
 ms.date: 01/19/2022
 ---
