@@ -63,7 +63,7 @@ items:
 - name: Resources
   items:
   - name: Azure private MEC documentation
-    href: https://docs.microsoft.com/en-us/azure/private-multi-access-edge-compute-mec/
+    href: https://docs.microsoft.com/azure/private-multi-access-edge-compute-mec/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
