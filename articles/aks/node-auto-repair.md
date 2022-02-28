@@ -46,7 +46,7 @@ If AKS finds multiple unhealthy nodes during a health check, each node is repair
 
 In these cases Node Autodrain will attempt to cordon and drain the node, providing a graceful reschedule of your workloads.  
 
-Along with Scheduled Maintenance events, and Preempt, other VM events are now surfaced into the node events:
+The following table shows the node events, and the actions they cause for AKS node autodrain.
 
 | Event | Description |   Action   |
 | --- | --- | --- |
