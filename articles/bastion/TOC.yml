@@ -7,7 +7,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Bastion from VM settings
+  - name: Deploy Bastion with default settings
     href: quickstart-host-portal.md
 - name: Tutorials
   items:
