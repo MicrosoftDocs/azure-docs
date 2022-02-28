@@ -74,7 +74,7 @@ Other options available to you:
     - Check your email for a message from the CloudKnox Customer Success Team. This email contains a link to: 
         - The **Role Policy Details** report in CSV format.
         - The **Reports** dashboard where you can configure how and when you can automatically receive reports.
-- **Create Policy**: Select this option to create a new policy. For more information, see [Create a role/policy](cloudknox-howto-create-role-policy.md).
+- **Create Role/Policy**: Select this option to create a new policy. For more information, see [Create a role/policy](cloudknox-howto-create-role-policy.md).
 
 
 ## Add filters to permissions
