@@ -8,8 +8,7 @@ metadata:
   ms.author: pamistel
   ms.date: 11/20/2020
   ms.topic: overview
-  ms.service: spatial-anchors
-
+  ms.service: azure-spatial-anchors
   #Customer intent: Address frequently asked questions regarding Azure Spatial Anchors.
     
 title: Frequently asked questions about Azure Spatial Anchors

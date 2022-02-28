@@ -8,8 +8,7 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 01/28/2021
 ms.topic: conceptual
-ms.service: spatial-anchors
-
+ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
 ---
 # Coarse relocalization

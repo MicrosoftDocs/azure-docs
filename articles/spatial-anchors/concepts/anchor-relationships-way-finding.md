@@ -8,8 +8,7 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: conceptual
-ms.service: spatial-anchors
-
+ms.service: azure-spatial-anchors
 ---
 # Anchor relationships and way-finding in Azure Spatial Anchors
 

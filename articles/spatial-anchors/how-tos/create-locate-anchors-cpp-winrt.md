@@ -8,8 +8,7 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: tutorial
-ms.service: spatial-anchors
-
+ms.service: azure-spatial-anchors
 ---
 # How to create and locate anchors using Azure Spatial Anchors in C++/WinRT
 

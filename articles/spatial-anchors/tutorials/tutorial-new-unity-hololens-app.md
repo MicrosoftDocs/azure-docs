@@ -8,8 +8,7 @@ services: azure-spatial-anchors
 ms.author: pamistel
 ms.date: 2/3/2021
 ms.topic: tutorial
-ms.service: spatial-anchors
-
+ms.service: azure-spatial-anchors
 ---
 # Tutorial: Step-by-step instructions to create a new HoloLens Unity app using Azure Spatial Anchors
 
