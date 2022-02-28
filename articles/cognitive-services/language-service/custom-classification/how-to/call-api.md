@@ -34,12 +34,7 @@ See the [application development lifecycle](../overview.md#project-development-l
 If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
 
 > [!TIP]
-> You can test your model in Language Studio by sending samples of text for it to classify. 
-> 1. Select **Test model** from the menu on the left side of your project in Language Studio.
-> 2. Select the model you want to test.
-> 3. Add your text to the textbox, you can also upload a `.txt` file. 
-> 4. Click on **Run the test**.
-> 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab.
+> You can [test your model in Language Studio](../quickstart.md?pivots=language-studio#test-your-model) by sending samples of text for it to classify. 
 
 ## Send a text classification request to your model
 
