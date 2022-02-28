@@ -1,8 +1,9 @@
 ---
 title: Enable Microsoft Defender for Azure Cosmos DB
 description: Learn how to enable Microsoft Defender for Azure Cosmos DB's enhanced security features.
+titleSuffix: Microsoft Defender for Azure Cosmos DB
 ms.topic: quickstart
-ms.date: 02/27/2022
+ms.date: 02/28/2022
 ---
 
 # Quickstart: Enable Microsoft Defender for Azure Cosmos DB
@@ -31,7 +32,7 @@ When you enable Microsoft Defender for Cloud's enhanced security features on you
 
 1. Locate Databases and toggle the switch to **On**.
 
-    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/protection-type.png" alt-text="Screenshot showing the available protections you can enable.":::
+    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/protection-type.png" alt-text="Screenshot showing the available protections you can enable." lightbox="media/quickstart-enable-defender-for-cosmos/protection-type-expanded.png":::
 
 1. Select **Save**.
 
