@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli
 
 ## Configure PHP app
 
-1. Clone the sample repository locally and deploy the sample application to App Service. Replace *\<app-name>* with a unique name.
+Clone the sample repository locally and deploy the sample application to App Service. Replace *\<app-name>* with a unique name.
 
 ```azurecli-interactive
 # Clone and prepare sample application

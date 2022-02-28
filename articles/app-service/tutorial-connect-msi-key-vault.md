@@ -16,18 +16,18 @@ ms.custom: devx-track-azurecli
 
 ## Configure .NET app
 
-1. Clone the sample repository locally and deploy the sample application to App Service. Replace *\<app-name>* with a unique name.
+Clone the sample repository locally and deploy the sample application to App Service. Replace *\<app-name>* with a unique name.
 
-    ```azurecli-interactive
-    # Save app name as variable for convenience
-    appName=<app-name>
+```azurecli-interactive
+# Save app name as variable for convenience
+appName=<app-name>
 
-    # Clone sample application
-    git clone https://github.com/Azure-Samples/app-service-language-detector.git
-    cd app-service-language-detector/dotnet
-    
-    az webapp up --sku F1 --resource-group $groupName --name $appName --plan $appName --location $region
-    ```
+# Clone sample application
+git clone https://github.com/Azure-Samples/app-service-language-detector.git
+cd app-service-language-detector/dotnet
+
+az webapp up --sku F1 --resource-group $groupName --name $appName --plan $appName --location $region
+```
 
 ## Configure secrets as app settings
 
