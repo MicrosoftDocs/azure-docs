@@ -106,13 +106,13 @@ To resolve this problem, follow these steps:
 
 You might get the following error message when you attempt to register the agent.
 
-![Time-out error message](media/how-to-troubleshoot/troubleshoot-4.png)
+![Screenshot that shows a time-out error message.](media/how-to-troubleshoot/troubleshoot-4.png)
 
-This problem is usually caused by the agent being unable to connect to the Hybrid Identity Service and requires you to configure an HTTP proxy. To resolve this problem, configure an outbound proxy. 
+This problem is usually caused by the agent being unable to connect to the hybrid identity service. To resolve this problem, configure an outbound proxy. 
 
-The provisioning agent supports use of an outbound proxy. You can configure it by editing the agent config file *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
-Add the following lines into it, toward the end of the file just before the closing `</configuration>` tag.
-Replace the variables `[proxy-server]` and `[proxy-port]` with your proxy server name and port values.
+The provisioning agent supports the use of an outbound proxy. You can configure it by editing the following agent .config file: *C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe.config*.
+
+Add the following lines into it, toward the end of the file, just before the closing `</configuration>` tag. Replace the variables `[proxy-server]` and `[proxy-port]` with your proxy server name and port values.
 
 ```xml
     <system.net>
@@ -128,74 +128,63 @@ Replace the variables `[proxy-server]` and `[proxy-port]` with your proxy server
 
 #### Agent registration fails with security error
 
-You might get an error message when you install the cloud provisioning agent.
+You might get an error message when you install the cloud provisioning agent. This problem is typically caused by the agent being unable to run the PowerShell registration scripts, due to local PowerShell execution policies.
 
-This problem is typically caused by the agent being unable to execute the PowerShell registration scripts due to local PowerShell execution policies.
-
-To resolve this problem, change the PowerShell execution policies on the server. You need to have Machine and User policies set as *Undefined* or *RemoteSigned*. If they're set as *Unrestricted*, you'll see this error. For more information, see [PowerShell execution policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
+To resolve this problem, change the PowerShell execution policies on the server. You need to have machine and user policies set as `Undefined` or `RemoteSigned`. If they're set as `Unrestricted`, you'll see this error. For more information, see [PowerShell execution policies](/powershell/module/microsoft.powershell.core/about/about_execution_policies). 
 
 ### Log files
 
-By default, the agent emits minimal error messages and stack trace information. You can find these trace logs in the folder **C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace**.
+By default, the agent emits minimal error messages and stack trace information. You can find these trace logs in the following folder: *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
 
 To gather additional details for troubleshooting agent-related problems, follow these steps.
 
-1.  Install the AADCloudSyncTools PowerShell module as described [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
-2. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information.  You can use the following switches to fine tune your data collection.
-      - SkipVerboseTrace to only export current logs without capturing verbose logs (default = false)
-      - TracingDurationMins to specify a different capture duration (default = 3 mins)
-      - OutputPath to specify a different output path (default = User’s Documents)
-
+1. [Install the AADCloudSyncTools PowerShell module](reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
+1. Use the `Export-AADCloudSyncToolsLogs` PowerShell cmdlet to capture the information. You can use the following options to fine-tune your data collection.
+      - `SkipVerboseTrace` to only export current logs without capturing verbose logs (default = false).
+      - `TracingDurationMins` to specify a different capture duration (default = 3 minutes).
+      - `OutputPath` to specify a different output path (default = user’s Documents folder).
 
 ## Object synchronization problems
 
-The following section contains information on troubleshooting object synchronization.
+In the Azure portal, you can use provisioning logs to help track down and troubleshoot object synchronization problems. To view the logs, select **Logs**.
 
-### Provisioning logs
-
-In the Azure portal, provisioning logs can be used to help track down and troubleshoot object synchronization problems. To view the logs, select **Logs**.
-
-![Logs button](media/how-to-troubleshoot/log-1.png)
+![Screenshot that shows the logs button.](media/how-to-troubleshoot/log-1.png)
 
 Provisioning logs provide a wealth of information on the state of the objects being synchronized between your on-premises Active Directory environment and Azure.
 
-![Provisioning Logs screen](media/how-to-troubleshoot/log-2.png)
+![Screenshot that shows information about provisioning logs.](media/how-to-troubleshoot/log-2.png)
 
-You can use the drop-down boxes at the top of the page to filter the view to zero in on specific problems, such as dates. Double-click an individual event to see additional information.
+You can filter the view to zero in on specific problems, such as dates. Double-click an individual event to see additional information.
 
-![Provisioning Logs drop-down box information](media/how-to-troubleshoot/log-3.png)
+![Screenshot that shows the provisioning logs dropdown list information.](media/how-to-troubleshoot/log-3.png)
 
 This information provides detailed steps and where the synchronization problem is occurring. In this way, you can pinpoint the exact spot of the problem.
 
-
 ## Provisioning quarantined problems
 
-Cloud sync monitors the health of your configuration and places unhealthy objects in a quarantine state. If most or all of the calls made against the target system consistently fail because of an error, for example, invalid admin credentials, the sync job is marked as in quarantine.
+Cloud sync monitors the health of your configuration, and places unhealthy objects in a quarantine state. If most or all of the calls made against the target system consistently fail because of an error (for example, invalid admin credentials), the sync job is marked as in quarantine.
 
-![Quarantine status](media/how-to-troubleshoot/quarantine-1.png)
+![Screenshot that shows the quarantine status.](media/how-to-troubleshoot/quarantine-1.png)
 
 By selecting the status, you can see additional information about the quarantine. You can also obtain the error code and message.
 
 ![Screenshot that shows additional information about the quarantine.](media/how-to-troubleshoot/quarantine-2.png)
 
-Right-clicking on the status will bring up additional options:
+Right-clicking on the status will bring up additional options to:
 
-- view provisioning logs
-- view agent
-- clear quarantine
+- View the provisioning logs.
+- View the agents.
+- Clear the quarantine.
 
 ![Screenshot that shows the right-click menu options.](media/how-to-troubleshoot/quarantine-4.png)
 
 ### Resolve a quarantine
 
-There are two different ways to resolve a quarantine. They are:
+There are two different ways to resolve a quarantine. You can clear the quarantine, or you can restart the provisioning job.
 
-- clear quarantine - clears the watermark and runs a delta sync
-- restart the provisioning job - clears the watermark and runs an initial sync
+#### Clear the quarantine
 
-#### Clear quarantine
-
-To clear the watermark and run a delta sync on the provisioning job once you have verified it, simply right-click on the status and select **clear quarantine**.
+To clear the watermark and run a delta sync on the provisioning job after you have verified it, simply right-click on the status and select **Clear quarantine**.
 
 You should see a notice that the quarantine is clearing.
 
@@ -203,70 +192,57 @@ You should see a notice that the quarantine is clearing.
 
 Then you should see the status on your agent as healthy.
 
-![Quarantine status information](media/how-to-troubleshoot/quarantine-6.png)
+![Screenshot that shows the agent status is healthy.](media/how-to-troubleshoot/quarantine-6.png)
 
 #### Restart the provisioning job
 
-Use the Azure portal to restart the provisioning job. On the agent configuration page, select **Restart provisioning**.
+Use the Azure portal to restart the provisioning job. On the agent configuration page, select **Restart sync**.
 
-  ![Restart provisioning](media/how-to-troubleshoot/quarantine-3.png)
+  ![Screenshot that shows options on the agent configuration page.](media/how-to-troubleshoot/quarantine-3.png)
 
-- Use Microsoft Graph to [restart the provisioning job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). You'll have full control over what you restart. You can choose to clear:
+Alternatively, you can use Microsoft Graph to [restart the provisioning job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). You have full control over what you restart. You can choose to clear:
 
-  - Escrows, to restart the escrow counter that accrues toward quarantine status.
-  - Quarantine, to remove the application from quarantine.
-  - Watermarks. 
+- Escrows, to restart the escrow counter that accrues toward quarantine status.
+- Quarantine, to remove the application from quarantine.
+- Watermarks. 
   
-  Use the following request:
+Use the following request:
  
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
-## Repairing the the Cloud Sync service account
+## Repair the Cloud Sync service account
 
-If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.
+If you need to repair the cloud sync service account, you can use the `Repair-AADCloudSyncToolsAccount` command.
 
-   1. Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
+   1. [Install the AADCloudSyncTools PowerShell module](reference-powershell.md#install-the-aadcloudsynctools-powershell-module).
 
-   2. From a PowerShell session with administrative privileges, type or copy and paste the following:
+   1. From a PowerShell session with administrative privileges, type, or copy and paste, the following:
 
       ```powershell
       Connect-AADCloudSyncTools
       ```
 
-   3. Enter your Azure AD global admin credentials.
+   1. Enter your Azure AD global admin credentials.
 
-   4. Type or copy and paste the following:
+   1. Type, or copy and paste, the following:
 
       ```powershell
       Repair-AADCloudSyncToolsAccount
       ```
 
-   5. Once this completes it should say that the account was repaired successfully.
+   1. After this completes, it should say that the account was repaired successfully.
 
 ## Password writeback
-The following information is important to keep in mind with regard to enabling and using password writeback with cloud sync.
 
-- If you need to update the [gMSA permissions](how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions), it may take up to an hour or more for these permissions to replicate to all the objects in your directory. If you don't assign these permissions, writeback may appear to be configured correctly, but users may encounter errors when they update their on-premises passwords from the cloud. Permissions must be applied to “This object and all descendant objects” for **Unexpire Password** to appear. 
-- If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
-- Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. If you are testing this feature and want to reset passwords for users more than once per day, the group policy for Minimum password age must be set to 0. This setting can be found under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies** within **gpmc.msc**. 
-     - If you update the group policy, wait for the updated policy to replicate, or use the gpupdate /force command. 
-     - For passwords to be changed immediately, Minimum password age must be set to 0. However, if users adhere to the on-premises policies, and the Minimum password age is set to a value greater than zero, password writeback will not work after the on-premises policies are evaluated. 
+To enable and use password writeback with cloud sync, keep the following in mind:
 
-
-
-
+- If you need to update the [gMSA permissions](how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions), it might take an hour or more for these permissions to replicate to all the objects in your directory. If you don't assign these permissions, writeback can appear to be configured correctly, but users might encounter errors when they update their on-premises passwords from the cloud. Permissions must be applied to **This object and all descendant objects** for **Unexpire Password** to appear. 
+- If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-premises Active Directory Domain Services (AD DS) environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
+- Password policies in the on-premises AD DS environment might prevent password resets from being correctly processed. If you're testing this feature and want to reset passwords for users more than once per day, the group policy for the minimum password age must be set to 0. You can find this setting in the following location: **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies**, within **gpmc.msc**. 
+     - If you update the group policy, wait for the updated policy to replicate, or use the `gpupdate /force` command. 
+     - For passwords to be changed immediately, the minimum password age must be set to 0. However, if users adhere to the on-premises policies, and the minimum password age is set to a value greater than zero, password writeback doesn't work after the on-premises policies are evaluated. 
 
 ## Next steps 
 
 - [Known limitations](how-to-prerequisites.md#known-limitations)
 - [Error codes](reference-error-codes.md)
-
-
-## Common troubleshooting areas
-
-|Name|Description|
-|-----|-----|
-|[Agent problems](#agent-problems)|Verify that the agent was installed correctly and that it communicates with Azure Active Directory (Azure AD).|
-|[Object synchronization problems](#object-synchronization-problems)|Use provisioning logs to troubleshoot object synchronization problems.|
-|[Provisioning quarantined problems](#provisioning-quarantined-problems)|Understand provisioning quarantine problems and how to fix them.|
-|[Password writeback](#password-writeback)|Understand common password writeback issues and how to fix them.|
