@@ -6,7 +6,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/24/2022
+ms.date: 02/28/2022
 ms.author: zxue
 ---
 
@@ -15,54 +15,75 @@ ms.author: zxue
 Private Link enables you to access Azure Health Data Services over a private endpoint. Private Link is a network interface that connects you privately and securely using a private IP address from your virtual network. With Private Link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your Private Endpoint for Azure Health Data Services.
 
 >[!Note]
->Neither Private Link nor Azure Health Data Services can be moved from one resource group or subscription to another once Private Link is enabled. To make a move, delete the Private Link first, and then move Azure Health Data Services. Create a new Private Link after the move is complete. Next, assess potential security ramifications before deleting the Private Link.
+> Neither Private Link nor Azure Health Data Services can be moved from one resource group or subscription to another once Private Link is enabled. To make a move, delete the Private Link first, and then move Azure Health Data Services. Create a new Private Link after the move is complete. Next, assess potential security ramifications before deleting the Private Link.
 >
 >If you're exporting audit logs and metrics that are enabled, update the export setting through **Diagnostic Settings** from the portal.
 
 ## Prerequisites
 
-Before creating a Private Endpoint, the following Azure resources need to be created first:
+Before creating a private endpoint, the following Azure resources must be created first:
 
-- **Resource Group** – The Azure resource group that will contain the virtual network and Private Endpoint.
-- **Azure Health Data Services** – The resource that you want to put behind a Private Endpoint.
-- **Virtual Network** – The VNet to which your client services and Private Endpoint will be connected.
+- **Resource Group** – The Azure resource group that will contain the virtual network and private endpoint.
+- **Workspace** – This is a logical container for FHIR and DICOM service instances.
+- **Virtual Network** – The VNet to which your client services and private endpoint will be connected.
 
 For more information, see [Private Link Documentation](./../private-link/index.yml).
 
-## Create Private Endpoint
+## Create private endpoint
 
-To create a Private Endpoint, a developer with Role-based access control (RBAC) permissions on the Azure resource can use the Azure portal, [Azure PowerShell](./../private-link/create-private-endpoint-powershell.md), or [Azure CLI](./../private-link/create-private-endpoint-cli.md). This article will guide you through the steps on using Azure portal. Using the Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. For more information, see [Private Link Quick Start Guides](./../private-link/create-private-endpoint-portal.md).
+To create a private endpoint, a user with Role-based access control (RBAC) permissions on the workspace or the resource group where the workspace is located can use the Azure portal. Using the Azure portal is recommended as it automates the creation and configuration of the Private DNS Zone. For more information, see [Private Link Quick Start Guides](./../private-link/create-private-endpoint-portal.md).
 
-There are two ways to create a Private Endpoint. Auto approval flow allows a user that has RBAC permissions on the Azure resource to create a private endpoint without a need for approval. Manual approval flow allows a user without permissions on the resource to request a Private Endpoint to be approved by owners of the Azure resource.
+Private link is configured at the workspace level, and is automatically configured for all FHIR and DICOM services within the workspace.
+
+There are two ways to create a private endpoint. Auto Approval flow allows a user that has RBAC permissions on the workspace to create a private endpoint without a need for approval. Manual Approval flow allows a user without permissions on the workspace to request a private endpoint to be approved by owners of the workspace or resource group.
 
 > [!NOTE]
-> When an approved Private Endpoint is created for Azure Health Data Services, public traffic to it is automatically disabled. 
+> When an approved private endpoint is created for Azure Health Data Services, public traffic to it is automatically disabled. 
 
 ### Auto approval
 
-Ensure the region for the new private endpoint is the same as the region for your virtual network. The region for your Azure resource can be different.
+Ensure the region for the new private endpoint is the same as the region for your virtual network. The region for the workspace can be different.
 
-![Image of the Azure portal Basics Tab.](media/private-link/private-link-portal2.png#lightbox)
+[ ![Screen image of the Azure portal Basics Tab.](media/private-link/private-link-basics.png) ](media/private-link-basics.png#lightbox)
 
-For the resource type, search and select **Microsoft.HealthcareApis/services**. For the resource, select the Azure resource. For the target sub resource, select **FHIR**.
+For the resource type, search and select **Microsoft.HealthcareApis/services** from the drop-down list. For the resource, select the workspace in the resource group. The target sub-resource, **healthcareworkspace**, is automatically populated.
 
-![Screen image of the Azure portal Resource Tab](media/private-link/private-link-portal1.png#lightbox)
+[ ![Screen image of the Azure portal Resource tab.](media/private-link/private-link-resource.png) ](media/private-link/private-link-resource.png#lightbox)
 
-If you don’t have an existing Private DNS Zone set up, select **(New)privatelink.azurehealthcareapis.com**. If you already have your Private DNS Zone configured, you can select it from the list. It must be in the format of **privatelink.azurehealthcareapis.com**.
+For the virtual network, search, and select the VNet from the list. For Private IP configuration, select **Dynamically allocate IP address**. Optionally, you can select **Statically allocate IP address** and provide specific IP addresses. Keep the default option, **Integrate with private DNS zone**. You can also utilize your own DNS server by selecting the **No** option. Notice that a new resource group is specified automatically.
 
-![Screen image of the Azure portal Configuration Tab.](media/private-link/private-link-portal3.png#lightbox)
-
-After the deployment is complete, you can go back to **Private endpoint connections** tab of which you’ll notice **Approved** as the connection state.
+[ ![Screen image of the portal Vnet tab.](media/private-link/private-link-vnet.png) ](media/private-link/private-link-vnet.png#lightbox)
 
 ### Manual Approval
 
-For manual approval, select the second option under Resource, "Connect to an Azure resource by resource ID or alias". For Target sub resource, enter "FHIR" as in Auto Approval.
+For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subcriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target sub-resource, enter **healthcareworkspace** as in Auto Approval.
 
-![Screen image of the Manual Approval Resources tab.](media/private-link/private-link-manual.png#lightbox)
+[ ![Screen image of the Manual Approval Resources tab.](media/private-link/private-link-resource-id.png) ](media/private-link/private-link-resource-id.png#lightbox)
 
-After the deployment is complete, you can go back and select **Private endpoint connections** tab. You can either **Approve**, **Reject**, or **Remove** your connection.
+### Private Link DNS Configuration
 
-![Screen image of the Connections method options.](media/private-link/private-link-options.png#lightbox)
+After the deployment is complete, select the Private Link resource in the resource group. Open **DNS configuration** from the settings menu. You can find the DNS records and private IP addresses for the workspace, and FHIR and DICOM services.
+
+[ ![Screen image of the Azure portal DNS Configuration.](media/private-link/private-link-dns-configuration.png) ](media/private-link/private-link-dns-configuration.png#lightbox)
+
+### Private Link Mapping
+
+After the deployment is complete, browse to the new resource group that is created as part of the deployment. You'll see two private DNS zone records and one for each service. If you have more FHIR and DICOM services in the workspace, additional DNS zone records will be created for them.
+
+[![Screen image of Private Link FHIR Mapping.](media/private-link/private-link-fhir-mapping.png) ](media/private-link/private-link-fhir-mapping.png#lightbox)
+
+Select **Virtual network links** from the **Settings**. You'll notice the FHIR service is linked to the virtual network.
+
+[ ![Screen image of Private Link VNet Link FHIR.](media/private-link/private-link-vnet-link-fhir.png) ](media/private-link/private-link-vnet-link-fhir.png#lightbox)
+
+
+Similarly, you can see the private link mapping for the DICOM service.
+
+[ ![Screen image of Private Link DICOM Mapping.](media/private-link/private-link-dicom-mapping.png) ](media/private-link/private-link-dicom-mapping.png#lightbox)
+
+Also, you can see the DICOM service is linked to the virtual network.
+
+[ ![Screen image of Private Link VNet Link DICOM](media/private-link/private-link-vnet-link-dicom.png) ](media/private-link/private-link-vnet-link-dicom.png#lightbox)
 
 ## Test private endpoint
 
@@ -93,7 +114,7 @@ Private endpoints can only be deleted from the Azure portal from the **Overview*
 
 ## Next steps
 
-In this article, you learned how to create, test, and manage your Private Endpoint for Azure Health Data Services. For more information about Azure Health Data Services, see
+In this article, you've learned how to configure Private Link for Azure Health Data Services. Private Link is configured at the workspace level and all sub-resources, such as FHIR services and DICOM services with the workspace, are linked to the Private Link and the virtual network. For more information about Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[Overview of Azure Health Data Services](healthcare-apis-overview.md)
