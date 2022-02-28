@@ -18,7 +18,7 @@ Before you begin checking off the prerequisites, verify the following actions ha
 
 ## Prerequisites 
 
-The following items are needed to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution.
+The following items are needed to ensure you're set up to begin the onboarding process to deploy Arc for Azure VMware Solution (Preview).
 
 - A jump box virtual machine (VM) with network access to the Azure VMware Solution vCenter. 
     - From the jump-box VM, verify you have access to [vCenter and NSX-T portals](/azure/azure-vmware/tutorial-configure-networking). 
@@ -274,7 +274,7 @@ The guest management must be enabled on the VMware virtual machine (VM) before y
 - The machine must be running a [Supported operating system](/azure/azure-arc/servers/agent-overview).
 - The machine needs to connect through the firewall to communicate over the Internet. Make sure the [URLs](/azure/azure-arc/servers/agent-overview) listed aren't blocked.
 - The machine can't be behind a proxy, it's not supported yet.
-- If you're using Linux VM, the account must not prompt for sign-in on pseudo commands.
+- If you're using Linux VM, the account must not prompt to sign in on pseudo commands.
     
     Avoid pseudo commands by following these steps:
     
@@ -324,6 +324,21 @@ Required parameters
 The following command invokes the set credential for the specified appliance resource.
 
 ` az arcappliance setcredential <provider> --kubeconfig <kubeconfig>`
+
+## Manual appliance upgrade
+
+Use the following steps to perform a manual upgrade for Arc appliance virtual machine (VM).
+
+1. Log into vCenter
+1. Locate the arc appliance VM, which should be in the resource pool that was configured during onboarding.
+    1. Power off the VM.
+    1. Delete the VM.
+1. Delete the download template corresponding to the VM.
+1. Get the previous script `Config_avs` file and add the following configuration item:
+    1. `"register":false`
+1. Rerun the onboarding script wit the changes from the jump box VM, without changing other config items.
+
+
 
 ## Off board from Azure Arc-enabled Azure VMware Solution
 
