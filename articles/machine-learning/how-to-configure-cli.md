@@ -106,6 +106,9 @@ You can show your current defaults using `--list-defaults/-l`:
 
 The `ml` CLI extension for Azure Machine Learning sends data for _all operations_ over the _public internet_. This includes operations that may potentially contain sensitive data, such as job submissions or deploying models. For example, when using the [az ml job](/cli/azure/ml/job) commands, the YAML parameter file is sent over the public internet.
 
+> [!TIP]
+> Data stored in a data store that is secured in a virtual network is _not_ sent over the public internet. For example, if your training data is secured on the default storage account for the workspace, and the storage account is in the virtual network.
+
 If you don't want your data sent over the public internet, you can use the following steps:
 
 1. [Secure your Azure Machine Learning workspace inside a virtual network using a private endpoint](how-to-configure-private-link.md).
