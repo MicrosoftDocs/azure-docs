@@ -1325,7 +1325,7 @@ groups:
   - id: defender-for-container-aks
     title: Azure (AKS)
   - id: defender-for-container-arc
-    title: On-premises / IaaS
+    title: On-premises / IaaS (Arc)
   - id: defender-for-container-eks
     title: AWS (EKS)
   - id: defender-for-container-gke
