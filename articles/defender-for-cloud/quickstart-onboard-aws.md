@@ -133,7 +133,7 @@ Additional extensions should be enabled on Arc-connected machines. These extensi
 1. By default the **Containers** plan is set to **On**. This is necessary to have Defender for Containers protect your AWS EKS clusters. 
 
     > [!Note] 
-    > Azure Arc-enabled Kubernetes, the Defender Arc extension, and the Azure Policy Arc extension should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](includes/defender-for-containers-enable-plan-eks.md).
+    > Azure Arc-enabled Kubernetes, the Defender Arc extension, and the Azure Policy Arc extension should be installed. Use the dedicated Defender for Cloud recommendations to deploy the extensions (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-containers-enable.md?tabs=defender-for-container-eks).
 
 1. Select **Next: Configure access**.
 
