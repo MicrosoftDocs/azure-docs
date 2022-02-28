@@ -54,7 +54,7 @@ The following table shows the node events, and the actions they cause for AKS no
 | Reboot | The VM is scheduled for reboot. The VM's non-persistent memory is lost. | No action | 
 | Redeploy | The VM is scheduled to move to another node. The VM's ephemeral disks are lost. | Cordon and drain |
 | Preempt | The spot VM is being deleted. The VM's ephemeral disks are lost. | Cordon and drain |
-| Terminate | The virtual machine is scheduled to be deleted.| Cordon & Drain |
+| Terminate | The VM is scheduled to be deleted.| Cordon and drain |
 
 
 
