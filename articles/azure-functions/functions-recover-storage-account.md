@@ -85,6 +85,18 @@ You can also use the portal from a computer that's connected to the virtual netw
 
 For more information about inbound rule configuration, see the "Network Security Groups" section of [Networking considerations for an App Service Environment](../app-service/environment/network-info.md#network-security-groups).
 
+## App container has conflicting ports
+
+Your function app might be in an unresponsive state due to conflicting port assignment upon startup. This can happen because:
+
+* Your function app has separate services running where one or more are attempting to bind to the same port as another service.
+
+* You have added an Azure Hybrid Connection that shares the same port value as a service within the function.
+
+The Azure function app container uses port `:80` by default. If the default port is not modified and other services within its container attempt to use port `:80`, the function app will fail to start.
+
+To troubleshoot and verify whether the function app is encountering port conflicts, enable container logs and monitoring for your function app. [Monitor Azure Functions](../azure-functions/functions-monitoring.md)
+
 ## Next steps
 
 Learn about monitoring your function apps:
