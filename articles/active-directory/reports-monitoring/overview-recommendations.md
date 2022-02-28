@@ -131,14 +131,14 @@ Accidentally dismissed, completed, or postponed a recommendation or resource. Ma
 
 ## Common tasks
 
-### Turn on the preview
+### Enable recommendations
 
-To turn on the preview:
+To enable your Azure AD recommendations:
 
 1. Navigate to the **[Preview features](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PreviewHub)** page.
 2. Set the **State** to **On**.
 
-    ![Enable Azure AD recommendations](./media/overview-recommendations/enable-azure-ad-recommendations.png)
+    ![Turn Azure AD recommendations on](./media/overview-recommendations/enable-azure-ad-recommendations.png)
 
 
 
