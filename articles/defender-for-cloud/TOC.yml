@@ -195,7 +195,7 @@
     items:
     - name: Enable protection on all of your databases
       href: quickstart-enable-database-protections.md
-    - name: Microsoft Defender for Azure SQL database
+    - name: Microsoft Defender for Azure SQL databases
       items: 
       - name: Overview of Defender for SQL
         displayName: database
