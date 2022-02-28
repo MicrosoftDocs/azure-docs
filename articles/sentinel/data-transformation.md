@@ -36,7 +36,7 @@ Ingestion-time data transformation supports [multiple-workspace scenarios](exten
 
 ### Enrichment and tagging
 
-Ingestion-time transformation also lets you improve analytics by enriching your data with extra columns. Extra columns might include parsed or calculated data from existing columns, or data taken from data structures created on-the-fly, and added to the configured KQL transformation.
+Ingestion-time transformation also lets you improve analytics by enriching your data with extra columns added to the configured KQL transformation. Extra columns might include parsed or calculated data from existing columns, or data taken from data structures created on-the-fly.
 
 For example, you could add extra information such as external HR data, an expanded event description, or classifications that depend on the user, location, or activity type.
 
@@ -48,7 +48,7 @@ Ingestion-time transformations can also be used to mask or remove personal infor
 
 The following image shows where ingestion-time data processing enters the data ingestion flow into Microsoft Sentinel.
 
-Microsoft Sentinel data connectors collect data into the Log Analytics workspace, where it's processed using some combination of hardcoded workflows, ingestion-time transformations, and DCR-based custom logs, and then stored in both standard and custom tables accessible from Microsoft Sentinel.
+Microsoft Sentinel data connectors collect data into the Log Analytics workspace, where it's processed using some combination of hardcoded workflows, ingestion-time transformations, and DCR-based custom logs, and then stored in either standard or custom tables.
 
 :::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture.":::
 
