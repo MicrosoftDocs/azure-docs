@@ -109,7 +109,7 @@ The `ml` CLI extension for Azure Machine Learning sends data for _all operations
 > [!TIP]
 > Data stored in a data store that is secured in a virtual network is _not_ sent over the public internet. For example, if your training data is secured on the default storage account for the workspace, and the storage account is in the virtual network.
 
-If you don't want your data sent over the public internet, you can use the following steps:
+If you don't want your CLI/YAML parameter data sent over the public internet, you can use the following steps:
 
 1. [Secure your Azure Machine Learning workspace inside a virtual network using a private endpoint](how-to-configure-private-link.md).
 2. [Create a Private Link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal). 
