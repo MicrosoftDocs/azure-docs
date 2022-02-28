@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 This following table lists Azure AD feature availability in Azure Government.
 
 
-|       | Feature | Availability |
+|Area      | Feature | Availability |
 |:------|---------|:------------:|
 |**Authentication, single sign-on, and MFA**|||
 ||Cloud authentication (Pass-through authentication, password hash synchronization) | &#x2705; |
