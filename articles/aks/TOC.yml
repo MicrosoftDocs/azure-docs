@@ -474,7 +474,7 @@
         - name: Common issues
           href: troubleshooting.md
         - name: Node access
-          href: ssh.md
+          href: node-access.md
         - name: Linux performance tools
           href: troubleshoot-linux.md
         - name: Check for Resource Health events (preview)

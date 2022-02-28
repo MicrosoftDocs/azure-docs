@@ -57,6 +57,14 @@ This privileged container gives access to the node.
 > [!NOTE]
 > You can interact with the node session by running `chroot /host` from the privileged container.
 
+### Remove Linux node access
+
+When done, `exit` the interactive shell session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
+
+```output
+kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
+```
+
 ## Create the SSH connection to a Windows node
 
 At this time, you can't connect to a Windows Server node directly by using `kubectl debug`. Instead, you need to first connect to another node in the cluster, then connect to the Windows Server node from that node using SSH. Alternatively, you can [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp] instead of using SSH.
@@ -125,9 +133,9 @@ The above example connects to port 22 on the Windows Server node through port 20
 >  ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' -o PreferredAuthentications=password azureuser@10.240.0.67
 > ```
 
-## Remove SSH access
+### Remove SSH access
 
-When done, `exit` the SSH session, stop any port forwarding, and then `exit` the interactive container session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
+When done, `exit` the SSH session, stop any port forwarding, and then `exit` the interactive container session. After the interactive container session closes, delete the pod used for SSH access with `kubectl delete pod`.
 
 ```output
 kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
