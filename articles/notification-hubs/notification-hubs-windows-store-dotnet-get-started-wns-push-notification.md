@@ -65,23 +65,24 @@ To send push notifications to UWP apps, associate your app to the Windows Store.
 3. Expand **Product management**, and then select **Product Identity**. Take note of the **Package SID**, **Package/Identity/Name**, **Package/Identity/Publisher**, and **Package/Properties/PublisherDisplayName** values.
 
     :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/product-identity.png" alt-text="Partner center apps":::
-4. Under **Product management**, select **WNS/MPNS**, and then select **App Registration portal**. Sign in to your Microsoft account. The application registration page opens in a new tab. Take note of the **Application Secret** password.
+4. Under **Product management**, select **WNS/MPNS**, and then select **App Registration portal**. Sign in to your Microsoft account. The application registration page opens in a new tab.
 
     ![WNS page](./media/notification-hubs-windows-store-dotnet-get-started/wns-page.png)
-
-    > [!WARNING]
-    > The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
 
 5. Under **Essentials**, select **Client credentials: Add a certificate or secret**.
 
     :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/hub-azure-portal.png" alt-text="Notification Hub settings on Azure portal":::
 
-6. On the **Certificates & secrets** page, under **Client secrets**, select **New client secret**. After you create a client secret, take note of it before you leave the page.
+6. On the **Certificates & secrets** page, under **Client secrets**, select **New client secret**. After you create a client secret (also called an application secret), take note of it before you leave the page.
 
    > [!WARNING]
-   > You can only view client secret values immediately after creating them. Make sure to save the secret before leaving the page.
+   > You can only view client secret (application secret) values immediately after creating them. Make sure to save the secret before leaving the page.
 
     :::image type="content" source="media/notification-hubs-windows-store-dotnet-get-started/new-client-secret.png" alt-text="Client secret on portal":::
+
+   > [!WARNING]
+   > The application secret and package SID are important security credentials. Do not share these values with anyone or distribute them with your app.
+
 
 ## Create a Notification Hub
 
@@ -161,7 +162,7 @@ Your notification hub is now configured to work with WNS. You have the connectio
 
     This action guarantees that the channel URI is registered in your notification hub each time the application launches.
 
-12. Right-click `Package.appxmanifest` and select **View Code (F7)**. Locate  `<Identity .../>` and replace the **Name** value with the **Package/Identity/Name**, and replace its **Publisher** value with the **Package/Identity/Publisher** value from the WNS you created [earlier](#create-an-app-in-windows-store).
+12. Right-click `Package.appxmanifest` and select **View Code (F7)**. Locate  `<Identity .../>` and replace the **Name** value with the **Package/Identity/Name**, and replace its **Publisher** value with the **Package/Identity/Publisher** value from the app you created [earlier](#create-an-app-in-windows-store).
 
 13. To run the app, press the keyboard's **F5** key. A dialog box containing the registration key will display. To close the dialog, click **OK**.
 
