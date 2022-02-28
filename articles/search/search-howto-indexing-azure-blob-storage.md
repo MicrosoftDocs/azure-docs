@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Blob Storage
@@ -350,3 +350,4 @@ You can now control how you [run the indexer](search-howto-run-reset-indexers.md
 
 + [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
 + [Index large data sets](search-howto-large-index.md)
++ [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)
