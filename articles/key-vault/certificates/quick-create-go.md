@@ -149,6 +149,7 @@ func updateCert(client *azcertificates.Client) {
 	if err != nil {
 		panic(err)
 	}
+	fmt.Println("Updated certificate properites: Enabled=false, Expires=72h, Tags=SRE")
 }
 
 func deleteCert(client *azcertificates.Client) {
