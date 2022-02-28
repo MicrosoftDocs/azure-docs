@@ -46,13 +46,13 @@ Ensure the region for the new private endpoint is the same as the region for you
 
 [ ![Screen image of the Azure portal Basics Tab.](media/private-link/private-link-basics.png) ](media/private-link/private-link-basics.png#lightbox)
 
-For the resource type, search and select **Microsoft.HealthcareApis/services** from the drop-down list. For the resource, select the workspace in the resource group. The target sub-resource, **healthcareworkspace**, is automatically populated.
+For the resource type, search and select **Microsoft.HealthcareApis/services** from the drop-down list. For the resource, select the workspace in the resource group. The target subresource, **healthcareworkspace**, is automatically populated.
 
 [ ![Screen image of the Azure portal Resource tab.](media/private-link/private-link-resource.png) ](media/private-link/private-link-resource.png#lightbox)
 
 ### Manual Approval
 
-For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subcriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target sub-resource, enter **healthcareworkspace** as in Auto Approval.
+For manual approval, select the second option under Resource, **Connect to an Azure resource by resource ID or alias**. For the resource ID, enter **subscriptions/{subcriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.HealthcareApis/workspaces/{workspacename}**. For the Target subresource, enter **healthcareworkspace** as in Auto Approval.
 
 [ ![Screen image of the Manual Approval Resources tab.](media/private-link/private-link-resource-id.png) ](media/private-link/private-link-resource-id.png#lightbox)
 
@@ -110,7 +110,7 @@ Private endpoints can only be deleted from the Azure portal from the **Overview*
 
 ## Next steps
 
-In this article, you've learned how to configure Private Link for Azure Health Data Services. Private Link is configured at the workspace level and all sub-resources, such as FHIR services and DICOM services with the workspace, are linked to the Private Link and the virtual network. For more information about Azure Health Data Services, see
+In this article, you've learned how to configure Private Link for Azure Health Data Services. Private Link is configured at the workspace level and all subresources, such as FHIR services and DICOM services with the workspace, are linked to the Private Link and the virtual network. For more information about Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[Overview of Azure Health Data Services](healthcare-apis-overview.md)
