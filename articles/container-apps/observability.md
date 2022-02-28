@@ -22,7 +22,7 @@ You can observe:
 * Console
 * Events
 * Azure Monitor and metrics
-* Alerts: User managed setting to receive notifications based on logged events and system thresholds
+* Alerts: User managed setting to receive notifications based on logged events and system metrics
 * Log Analytics
 
 ## Observability features
@@ -79,7 +79,7 @@ To access the metrics page:
 1. Navigate to your container app in the Azure portal.
 1. Select **Metrics** in the left side menu.
  
-:::image type="content" source="/media/observability/metirc-main-page.png" alt-text="Container Apps metrics main page.":::
+:::image type="content" source="/media/observability/metric-main-page.png" alt-text="Container Apps metrics main page.":::
 
 The Metric page allows you to select the metric, filter and split the information by revision and replica.  You can view metrics across multiple container apps to get a holistic view of the resource utilization over your entire application.  Visit [Getting started with Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
