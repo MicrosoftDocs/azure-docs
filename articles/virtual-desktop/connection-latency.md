@@ -13,18 +13,18 @@ Azure Virtual Desktop helps users host client sessions on their session hosts ru
 
 There are three ways you can analyze connection quality in your Azure Virtual Desktop deployment: Azure Log Analytics, the Azure Virtual Desktop Experience Estimator tool, and Azure Front Door. This article will describe how to use each method to optimize latency and improve end-user experience.
 
->[!NOTE]
->Azure Virtual Desktop currently only supports network data in commercial clouds.
 
 ## Measure connection quality with Azure Log Analytics
 
+>[!NOTE]
+> Azure Log Analytics currently only supports Azure Virtual Desktop connection network data in commercial clouds.
 If you're already using [Azure Log Analytics](diagnostics-log-analytics.md), you can monitor network data with the connection network data diagnostics. The data Log Analytics collects can help you discover areas that impact your end-user's graphical experience. The service collects data for reports about every two minutes. Log Analytics reports have the following advantages over RemoteFX network performance counters:
 
 - Each record is connection-specific and includes the correlation ID of the connection that can be tied back to the user.
 
 - The round trip time measured in this table is protocol-agnostic and will record the measured latency for Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) connections.
 
-To start collecting this data, you’ll need to make sure you have diagnostics and the Network Data table enabled in your your Azure Virtual Desktop host pools.
+To start collecting this data, you’ll need to make sure you have diagnostics and the **NetworkData** table enabled in your Azure Virtual Desktop host pools.
 
 To check and modify your diagnostics settings in the Azure Portal:
 
@@ -34,21 +34,21 @@ To check and modify your diagnostics settings in the Azure Portal:
 
 3. Select **Diagnostic settings**, then create a new setting if you haven't configured your diagnostic settings yet. If you've already configured your diagnostic settings, select **Edit setting**.
 
-4. Select **allLogs**, then select the names of the diagnostics tables you want to collect data for, including **NetworkData**. The *allLogs* parameter will automatically add new tables to your data table in the future.
+4. Select **allLogs**, or select the names of the diagnostics tables you want to collect data for, including **NetworkData**. The *allLogs* parameter will automatically add new tables to your data table in the future.
+5. Select a destination to send data. Azure Virtual Desktop Insights users should select a Log Analytics workspace. 
+6. Select **Save** to apply your changes.
 
-5. Select **Save** to apply your changes.
-
-6. Repeat this process for all other host pools you want to measure.
-
+7. Repeat this process for all other host pools you want to measure.
+8. Verify data is flowing by returning to the host pool's resource page, select **Logs**, and run one of the sample queries below. There must be users actively connecting in the host pool to generate data, and data can take up to 15 minutes to show up in the Azure Portal.
 ### Connection network data
 
 The network data you collect for your data tables includes the following information:
 
 - The **estimated available bandwidth (kilobytes per second)** is the average estimated available network bandwidth during each connection time interval.
 
-- The **estimated round trip time (milliseconds)** is how long it takes for a network request to go between the client and the session host. Each time interval is measured by how long it takes for the network request to go from the end-user's device over the network to the session host, then return to the device.
+- The **estimated round trip time (milliseconds)** is the average estimated round trip time during each connection time interval. Round trip time is how long it takes a network request takes to go from the end-user's device over the network to the session host, then return to the device.
 
-- The **Correlation ID** is the activity ID of a specific Azure Virtual Desktop connection that's assigned to every diagnostic task within that connection.
+- The **Correlation ID** is the activity ID of a specific Azure Virtual Desktop connection that's assigned to every diagnostic within that connection.
 
 - The **source system** is name of the compute or cloud provider. Source systems can be from Azure or elsewhere.
 
@@ -114,7 +114,7 @@ WVDConnections
 | render columnchart  
 ```
 
-To look up the top 10 users with the highest round trip time and their connecting region:
+To look up the top 10 users with the highest round trip time:
 
 ```kusto
 WVDConnectionNetworkData
