@@ -43,7 +43,7 @@ The new automated onboarding of GCP environments allows you to protect GCP workl
 
 Learn how to protect, and [connect your GCP projects](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
 
-### Microsoft Defender for Cosmos DB plan released for preview
+### Microsoft Defender for Azure Cosmos DB plan released for preview
 
 We have extended Microsoft Defender for Cloud’s database coverage. You can now enable protection for your Cosmos DB databases. 
 
