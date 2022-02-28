@@ -95,7 +95,6 @@
         href: devops-api-development-templates.md
       - name: Compute platform
         href: compute-infrastructure.md
-
 - name: How-to guides
   items:
       - name: Define APIs
@@ -126,6 +125,8 @@
               href: how-to-configure-service-fabric-backend.md
             - name: Import SAP OData metadata
               href: sap-api.md
+            - name: Configure API for SSE
+              href: how-to-server-sent-events.md
       - name: Provision and scale
         items:
             - name: Capacity metric
@@ -336,6 +337,8 @@
               href: soft-delete.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
+            - name: Validate service updates
+              href: validate-service-updates.md
             - name: Self-hosted gateway
               items:
               - name: Guidance for running on Kubernetes
