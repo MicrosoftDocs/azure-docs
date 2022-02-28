@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 02/02/2022
+ms.date: 02/28/2022
 ms.author: aahi
 ms.custom: 
 ---
