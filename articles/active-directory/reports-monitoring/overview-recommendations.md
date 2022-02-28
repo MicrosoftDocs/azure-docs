@@ -138,7 +138,7 @@ To enable your Azure AD recommendations:
 1. Navigate to the **[Preview features](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PreviewHub)** page.
 2. Set the **State** to **On**.
 
-    ![Turn Azure AD recommendations on](./media/overview-recommendations/enable-azure-ad-recommendations.png)
+    ![Enable Azure AD recommendations](./media/overview-recommendations/enable-azure-ad-recommendations.png)
 
 
 
@@ -150,7 +150,7 @@ To manage your Azure AD recommendations:
 
 2. On the Azure AD overview page, in the toolbar, click **Recommendations (Preview)**.
   
-    ![Enable Azure AD recommendations](./media/overview-recommendations/manage-azure-ad-recommendations.png)
+    ![Manage Azure AD recommendations](./media/overview-recommendations/manage-azure-ad-recommendations.png)
 
 
 
