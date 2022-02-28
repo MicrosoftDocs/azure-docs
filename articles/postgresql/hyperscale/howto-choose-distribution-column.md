@@ -24,8 +24,7 @@ choice makes the system run slowly.
 Here are four criteria for choosing the ideal distribution column for your
 distributed tables.
 
-* **Criterion 1: Pick a column that is a central piece in the application
-  workload.**
+1. **Pick a column that is a central piece in the application workload.**
 
   You might think of this column as the "heart," "central piece," or "natural dimension"
   for partitioning data.
@@ -37,8 +36,8 @@ distributed tables.
   * `user_id` in user analytics
   * `tenant_id` for a multi-tenant SaaS application
 
-* **Criterion 2: Pick a column with decent cardinality, and an even statistical
-  distribution.**
+2. **Pick a column with decent cardinality, and an even statistical
+   distribution.**
 
   The column should have many values, and distribute thoroughly and evenly
   between all shards.
@@ -53,7 +52,7 @@ distributed tables.
     isolation](reference-functions.md#isolate_tenant_to_new_shard) to create a
     dedicated shard to handle the tenant.
 
-* **Criterion 3: Pick a column that benefits your existing queries.**
+3. **Pick a column that benefits your existing queries.**
 
   For a transactional or operational workload (where most queries take only a
   few milliseconds), pick a column that appears as a filter in `WHERE` clauses
@@ -65,8 +64,7 @@ distributed tables.
   these columns are in `GROUP BY` clauses, or in `WHERE` clauses that don't
   filter by strict equality.
 
-* **Criterion 4: Pick a column that is present in the majority of large
-  tables.**
+4. **Pick a column that is present in the majority of large tables.**
 
   Tables over 50 GB should be distributed. Picking the same distribution column
   for all of them enables you to co-locate data for that column on worker nodes.
