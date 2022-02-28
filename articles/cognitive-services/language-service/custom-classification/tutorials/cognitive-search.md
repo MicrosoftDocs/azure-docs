@@ -61,9 +61,11 @@ In this tutorial, you will learn how to:
 
 ## Deploy your model
 
-1. Select **Deploy model** from the left side menu.
+To deploy your model, go to your project in [Language Studio](https://aka.ms/custom-classification). You can also use the [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob).
 
-2. Select the model you want to deploy and from the top menu click on **Deploy model**. If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
+[!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
+
+If you deploy your model through Language Studio, your `deployment-name` will be `prod`.
 
 ## Use CogSvc language utilities tool for Cognitive search integration
  

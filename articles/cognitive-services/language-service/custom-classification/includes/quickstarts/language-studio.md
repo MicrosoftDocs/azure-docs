@@ -58,9 +58,7 @@ Generally after training a model you would review it's [evaluation details](../.
 
 After your model is trained, you can deploy it. Deploying your model lets you start using it to classify text, using [Analyze API](https://aka.ms/ct-runtime-swagger).
 
-1. Select **Deploy model** from the left side menu.
-
-2. Select the model you want to deploy, then select **Deploy model**.
+[!INCLUDE [Deploy a model using Language Studio](../deploy-model-language-studio.md)]
 
 ## Test your model
 
