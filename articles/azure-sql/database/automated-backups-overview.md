@@ -63,19 +63,19 @@ You can use these backups to:
 
 This table summarizes the capabilities and features of [point in time restore (PITR)](recovery-using-backups.md#point-in-time-restore), [geo-restore](recovery-using-backups.md#geo-restore), and [long-term retention backups](long-term-retention-overview.md).
 
-| **Backup Properties** | Point in time recovery (PITR) | Geo-restore | Long-term backup restore |           
-|----|--|--|--|
-| **Types of SQL backup** | Full, Differential, Log | Replicated copies of PITR backups | Only the full backups | 
+| **Backup Properties** | Point in time recovery (PITR) | Geo-restore | Long-term backup restore |
+|--|--|--|--|
+| **Types of SQL backup** | Full, Differential, Log | Replicated copies of PITR backups | Only the full backups |
 | **Recovery Point Objective (RPO)** |  5-10 minutes, based on compute size and amount of database activity. | Up to 1 hour, based on geo-replication.\*  |  One week (or user's policy).|
-| **Recovery Time Objective (RTO)** | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | 
-| **Retention** | 7 days by default, Up to 35 days |  Enabled by default, same as source.\*\* | Not enabled by default, Retention Up to 10 years. |     
+| **Recovery Time Objective (RTO)** | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). | Restore usually takes <12 hours, but could take longer dependent on size and activity. See [Recovery](recovery-using-backups.md#recovery-time). |
+| **Retention** | 7 days by default, Up to 35 days |  Enabled by default, same as source.\*\* | Not enabled by default, Retention Up to 10 years. |
 | **Azure storage**  | Geo-redundant by default. Can optionally configure zone or locally redundant storage. | Available when PITR backup storage redundancy is set to Geo-redundant. Not available when PITR backup store is zone or locally redundant storage. | Geo-redundant by default. Can configure zone or locally redundant storage. | 
 | **Use to create new database in same region** | Supported | Supported | Supported |
 | **Use to create new database in another region** | Not Supported | Supported in any Azure region | Supported in any Azure region |
-| **Use to create new database in another Subscription** |  Not Supported  |  Not Supported\*\*\* | Not Supported\*\*\*  | 
+| **Use to create new database in another Subscription** |  Not Supported  |  Not Supported\*\*\* | Not Supported\*\*\*  |
 | **Restore via Azure portal**|Yes|Yes|Yes|
-| **Restore via PowerShell** |Yes|Yes|Yes| 
-| **Restore via Azure CLI** |Yes|Yes|Yes| 
+| **Restore via PowerShell** |Yes|Yes|Yes|
+| **Restore via Azure CLI** |Yes|Yes|Yes|
 | | | | |
 
 \* For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](auto-failover-group-overview.md). 
@@ -485,7 +485,7 @@ Backup and restore operations for Hyperscale databases are fast regardless of da
 
 ### Hyperscale backup retention
 
-Hyperscale backup retention is currently seven days; long-term retention policies aren't yet supported.
+Hyperscale backup retention is currently seven days; long-term retention policies aren't currently supported.
 
 ### Hyperscale storage redundancy applies to both data storage and backup storage
 
