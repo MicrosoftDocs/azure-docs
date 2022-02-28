@@ -1,6 +1,6 @@
 ---
 title: Quickstart – Azure Key Vault Go client library - Manage certificates
-description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Python client library
+description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
 ms.date: 02/17/2022
