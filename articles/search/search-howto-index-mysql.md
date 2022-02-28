@@ -10,7 +10,7 @@ manager: nitinme
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Database for MySQL
@@ -279,7 +279,5 @@ The following table maps the MySQL database to Cognitive Search equivalents. See
 
 ## Next steps
 
-This article explained how to integrate Azure Database for MySQL with Azure Cognitive Search using an indexer. Now that you have a search index that contains your searchable content, run some full text queries using Search explorer in the Azure portal.
-
-> [!div class="nextstepaction"]
-> [Search explorer](search-explorer.md)
++ [Index large data sets](search-howto-large-index.md)
++ [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)
