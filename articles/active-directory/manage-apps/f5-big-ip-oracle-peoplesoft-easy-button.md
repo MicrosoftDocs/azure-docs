@@ -100,7 +100,7 @@ With the **Easy Button**, admins no longer go back and forth between Azure AD an
 
 Before a client or service can access Microsoft Graph, it must be trusted by the [Microsoft identity platform](../develop/quickstart-register-app.md). 
 
-A BIG-IP must also be registered as a client in Azure AD, before it is allowed to establish a trust in between each SAML SP instance of a BIG-IP published application, and Azure AD as the SAML IdP.
+This first step creates a tenant app registration that will be used to authorize the **Easy Button** access to Graph. Throught these permissions, the BIG-IP will be allowed to push the configurations required to establish a trust between a SAML SP instance for published application, and Azure AD as the SAML IdP.
 
 1. Sign in to the [Azure AD portal](https://portal.azure.com/) with Application Administrative rights
 
@@ -114,9 +114,8 @@ A BIG-IP must also be registered as a client in Azure AD, before it is allowed t
 
 6. Select **Register** to complete the initial app registration
 
-7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
+7. Navigate to **API permissions** and authorize the following Microsoft Graph **Application permissions**:
 
-   * Application.Read.All
    * Application.ReadWrite.All
    * Application.ReadWrite.OwnedBy
    * Directory.Read.All
@@ -151,7 +150,9 @@ Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP
    
 ### Configuration Properties
 
-The **Configuration Properties** tab creates a new application config and SSO object. Consider **Azure Service Account Details** section to be the client application you registered in your Azure AD tenant earlier. These settings allow a BIG-IP to programmatically register a SAML application directly in your tenant, along with the properties you would normally configure manually. Easy Button does this for every BIG-IP APM service being enabled for SHA.
+The **Configuration Properties** tab creates a new application config and SSO object. 
+
+Consider the **Azure Service Account Details** section to represent the client you registered in your Azure AD tenant earlier, as an application. These settings allow a BIG-IP's OAuth client to individually register a SAML SP directly in your tenant, along with the SSO properties you would normally configure manually. Easy Button does this for every BIG-IP service being published and enabled for SHA.
 
 Some of these are global settings can be re-used for publishing more applications, further reducing deployment time and effort.
 
