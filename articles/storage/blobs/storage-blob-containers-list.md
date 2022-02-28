@@ -50,5 +50,6 @@ The following example asynchronously lists the containers in a storage account t
 
 ## See also
 
+- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
 - [List Containers](/rest/api/storageservices/list-containers2)
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)

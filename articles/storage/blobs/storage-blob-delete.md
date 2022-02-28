@@ -116,6 +116,7 @@ public static void RestoreBlobsWithVersioning(BlobContainerClient container, Blo
 
 ## See also
 
+- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
 - [Delete Blob](/rest/api/storageservices/delete-blob) (REST API)
 - [Soft delete for blobs](soft-delete-blob-overview.md)
 - [Undelete Blob](//rest/api/storageservices/undelete-blob) (REST API)

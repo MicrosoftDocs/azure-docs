@@ -60,6 +60,7 @@ Then, read the values, as shown in the example below.
 
 ## See also
 
+- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
 - [Get Container Properties operation](/rest/api/storageservices/get-container-properties)
 - [Set Container Metadata operation](/rest/api/storageservices/set-container-metadata)
 - [Get Container Metadata operation](/rest/api/storageservices/get-container-metadata)

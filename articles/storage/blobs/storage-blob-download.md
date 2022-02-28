@@ -85,5 +85,6 @@ public static async Task DownloadfromStream(BlobClient blobClient, string localF
 
 ## See also
 
+- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
 - [DownloadStreaming](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadstreaming) / [DownloadStreamingAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadstreamingasync)
 - [Get Blob](/rest/api/storageservices/get-blob) (REST API)

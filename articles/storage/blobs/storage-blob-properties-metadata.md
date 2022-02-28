@@ -61,8 +61,6 @@ To retrieve metadata, call the [GetProperties](/dotnet/api/azure.storage.blobs.s
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Metadata.cs" id="Snippet_ReadBlobMetadata":::
 
-[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
-
 ## See also
 
 - [Set Blob Properties operation](/rest/api/storageservices/set-blob-properties)

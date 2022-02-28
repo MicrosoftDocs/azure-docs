@@ -211,10 +211,15 @@ Get started with any of the articles listed in this **See Also** section below.
 
 ## See also
 
-- [Manage blob containers using .NET](blob-containers-dotnet.md)
-- [Manage block blobs with .NET](blob-dotnet.md)
-- [Process change feed in Azure Blob Storage](storage-blob-change-feed-how-to.md)
-- [Specify a customer-provided key on a request to Blob storage with .NET](storage-blob-customer-provided-key.md)
-- [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../common/storage-client-side-encryption.md)
-- [Create and manage a blob snapshot in .NET](snapshots-manage-dotnet.md)
-- [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md)
+- [Create a container in Azure Storage with .NET](storage-blob-container-create.md)
+- [Delete and restore a container in Azure Storage with .NET](storage-blob-container-delete.md)
+- [List blob containers with .NET](storage-blob-containers-list.md)
+- [Manage container properties and metadata with .NET](storage-blob-container-properties-metadata.md)
+- [Create and manage blob container leases with .NET](storage-blob-container-lease.md)
+- [Upload a blob to Azure Storage by using the .NET client library](storage-blob-upload.md)
+- [Append data to a blob in Azure Storage using the .NET client library](storage-blob-append.md)
+- [Copy a blob with Azure Storage using the .NET client library](storage-blob-copy.md)
+- [List blobs using the Azure Storage client library for .NET](storage-blobs-list.md)
+- [Delete and restore a blob in your Azure Storage account using the .NET client library](storage-blob-delete.md)
+- [Use blob index tags to manage and find data in Azure Blob Storage (.NET)](storage-blob-tags.md)
+- [Manage blob properties and metadata with .NET](storage-blob-properties-metadata.md)

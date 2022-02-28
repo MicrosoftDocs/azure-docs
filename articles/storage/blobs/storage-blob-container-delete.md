@@ -74,6 +74,7 @@ public static async Task RestoreContainer(BlobServiceClient client, string conta
 
 ## See also
 
+- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
 - [Soft delete for containers](soft-delete-container-overview.md)
 - [Enable and manage soft delete for containers](soft-delete-container-enable.md)
 - [Restore Container](/en-us/rest/api/storageservices/restore-container)

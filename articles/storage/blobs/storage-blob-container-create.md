@@ -58,5 +58,6 @@ The following example creates the root container synchronously:
 
 ## See also
 
+- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
 - [Create Container operation](/rest/api/storageservices/create-container)
 - [Delete Container operation](/rest/api/storageservices/delete-container)

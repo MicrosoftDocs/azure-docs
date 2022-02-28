@@ -132,4 +132,5 @@ public static async Task BreakLease(BlobContainerClient containerClient)
 
 ## See also
 
+- [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)
 - [Managing Concurrency in Blob storage](concurrency-manage.md)
