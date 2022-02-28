@@ -116,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To set up single sign-on on the RolePoint side, you need to work with the [RolePoint support team](mailto:info@rolepoint.com). Send this team the Federation Metadata XML file and the URLs that you got from the Azure portal. They'll configure RolePoint to ensure the SAML SSO connection is set properly on both sides.
 
-### Create a RolePoint test user
+### Create RolePoint test user
 
 Next, you need to create a user named Britta Simon in RolePoint. Work with the [RolePoint support team](mailto:info@rolepoint.com) to add users to RolePoint. Users need to be created and activated before you can use single sign-on.
 
