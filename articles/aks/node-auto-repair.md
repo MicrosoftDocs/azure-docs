@@ -50,7 +50,7 @@ The following table shows the node events, and the actions they cause for AKS no
 
 | Event | Description |   Action   |
 | --- | --- | --- |
-| Freeze | The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files  | No action |
+| Freeze | The VM is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files  | No action |
 | Reboot | The VM is scheduled for reboot. The VM's non-persistent memory is lost. | No action | 
 | Redeploy | The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). | Cordon & Drain |
 | Preempt | The Spot Virtual Machine is being deleted (ephemeral disks are lost). | Cordon & Drain |
