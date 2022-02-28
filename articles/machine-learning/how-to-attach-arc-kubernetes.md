@@ -315,7 +315,6 @@ Otherwise, if a user-assigned managed identity is specified in Azure Machine Lea
 
 The Azure Service Bus and Azure Relay resource are created under the same Resource Group as the Arc cluster.
 
-### Attach the cluster
 ### [Studio](#tab/studio)
 
 Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your workspace for training.
