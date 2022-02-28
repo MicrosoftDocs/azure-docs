@@ -2,7 +2,7 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 02/28/2022
 ---
 
 # Protect your Kubernetes workloads
@@ -135,6 +135,7 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
     | Kubernetes clusters should not use the default namespace                    | Implement security best practices        | No                     |
     | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
+    | Kubernetes clusters should not grant CAPSYSADMIN security capabilities | Manage access and permissions | No |
     ||||
 
 For recommendations with parameters that need to be customized, you will need to set the parameters:
