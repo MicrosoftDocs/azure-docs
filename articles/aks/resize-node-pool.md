@@ -13,7 +13,7 @@ Due to an increasing number of deployments or to run a larger workload, you may 
 
 > AKS agent nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (usually prefixed with MC_*). You cannot do any direct customizations to these nodes using the IaaS APIs or resources. Any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot.
 
-This lack of persistence also applies to the resize operation, thus, resizing AKS instances is in this manner isn't supported. In this how-to guide, you'll learn the recommended method to address this scenario.
+This lack of persistence also applies to the resize operation, thus, resizing AKS instances in this manner isn't supported. In this how-to guide, you'll learn the recommended method to address this scenario.
 
 > [!IMPORTANT]
 > This method is specific to virtual machine scale set-based AKS clusters. When using virtual machine availability sets, you are limited to only one node pool per cluster.
