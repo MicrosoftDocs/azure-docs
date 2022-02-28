@@ -1,5 +1,5 @@
 ---
-title: Azure Automation security guidelines
+title: Azure Automation security guidelines, security best practices Automation.
 description: This article helps you with the guidelines that Azure Automation offers to ensure data privacy and data security.
 services: automation
 ms.subservice: shared-capabilities
