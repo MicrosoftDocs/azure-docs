@@ -94,6 +94,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up OpenLearning** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+	
+1. OpenLearning application expects to enable token encryption in order to make SSO work. To activate token encryption, go to the **Azure Active Directory** > **Enterprise applications** and select **Token encryption**. For more information, please refer this [link](../manage-apps/howto-saml-token-encryption.md).
+
+    ![Screenshot shows the activation of Token Encryption.](./media/openlearning-tutorial/token.png "Token Encryption")
 
 ### Create an Azure AD test user
 
