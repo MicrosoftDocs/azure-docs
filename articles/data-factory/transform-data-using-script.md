@@ -202,8 +202,8 @@ Logging options:
 - _Disable_ - No execution output is logged.
 - _Activity output_ – The script execution output is appended to the activity output. It can be consumed by downstream activities. The output size is limited to 2MB.  
 - _External storage_ – Persists output to storage.  Use this option if the output size is greater than 2MB or you would like to explicitly persist the output on your storage account.
-- 
-- > [!NOTE]
+ 
+> [!NOTE]
 > **Billing** - The Script activity will be billed as **Pipeline activities**.
 
 ## Next steps
