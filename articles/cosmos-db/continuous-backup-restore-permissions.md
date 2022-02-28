@@ -76,6 +76,9 @@ Assign the `CosmosRestoreOperator` built-in role at subscription level
 az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope /subscriptions/<subscriptionId>
 ```
 
+### Assign capability to restore from a specific account
+This operation is currently not supported.
+
 ### Assign capability to restore from any source account in a resource group.
 This operation is currently not supported.
 
