@@ -24,7 +24,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
   - Added TLS 1.2 check
   - Azure Arc network endpoints are now required, onboarding will abort if they are not accessible
   - New `--skip-network-check` flag to override the new network check behavior
-- [Proxy bypass]() is now available for customers using private endpoints. This allows you to send AAD and ARM traffic through a proxy server, but skip the proxy server for the Azure Arc network endpoints which may be routed through your VPN or Express Route connection.
+- [Proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) is now available for customers using private endpoints. This allows you to send Azure Active Directory and Azure Resource Manager traffic through a proxy server, but skip the proxy server for traffic that should stay on the local network to reach private endpoints.
 
 ### Fixed
 
