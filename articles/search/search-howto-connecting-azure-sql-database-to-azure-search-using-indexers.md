@@ -111,7 +111,7 @@ In a [search index](search-what-is-an-index.md), add fields to accept values fro
 
 ## Configure and run the Azure SQL indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
@@ -126,13 +126,13 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "disabled": null,
         "schedule": null,
         "parameters": {
-           "batchSize": null,
-           "maxFailedItems": 0,
-           "maxFailedItemsPerBatch": 0,
-           "base64EncodeKeys": false,
-           "configuration": {
-              "queryTimeout": "00:05:00",
-              "disableOrderByHighWaterMarkColumn": false
+            "batchSize": null,
+            "maxFailedItems": 0,
+            "maxFailedItemsPerBatch": 0,
+            "base64EncodeKeys": false,
+            "configuration": {
+                "queryTimeout": "00:05:00",
+                "disableOrderByHighWaterMarkColumn": false
             }
         },
         "fieldMappings": [],
