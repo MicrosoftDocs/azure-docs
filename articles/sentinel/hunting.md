@@ -150,7 +150,7 @@ For more information, see [Use bookmarks in hunting](bookmarks.md).
 
 When your hunting and investigations become more complex, use Azure Sentinel notebooks to enhance your activity with machine learning, visualizations, and data analysis.
 
-Notebooks provide a kind of virtual sandbox, complete with it own kernel, where you can carry out a complete investigation. Your notebook can include the raw data, the code you run on that data, the results, and their visualizations. Save your notebooks so that you can share it with others to reuse in your organization.
+Notebooks provide a kind of virtual sandbox, complete with their own kernel, where you can carry out a complete investigation. Your notebook can include the raw data, the code you run on that data, the results, and their visualizations. Save your notebooks so that you can share it with others to reuse in your organization.
 
 Notebooks may be helpful when your hunting or investigation becomes too large to remember easily, view details, or when you need to save queries and results. To help you create and share notebooks, Azure Sentinel provides [Jupyter Notebooks](https://jupyter.org), an open-source, interactive development and data manipulation environment, integrated directly in the Azure Sentinel **Notebooks** page.
 
