@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 02/25/2022
 ms.custom: ignite-fall-2021
 ---
 
