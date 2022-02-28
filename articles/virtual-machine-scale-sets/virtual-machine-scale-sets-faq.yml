@@ -4,11 +4,12 @@ metadata:
   description: Get answers to the most frequently asked questions about virtual machine scale sets in Azure.
   author: mimckitt
   ms.author: mimckitt
-  ms.topic: conceptual
+  ms.topic: faq
   ms.service: virtual-machine-scale-sets
   ms.date: 06/30/2020
   ms.reviewer: jushiman
-  ms.custom: mimckitt
+  ms.custom: mimckitt, devx-track-azurecli
+  ms.devlang: azurecli
 
 
 title: FAQ for Azure virtual machine scale sets

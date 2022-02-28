@@ -112,6 +112,10 @@ You can view near to real-time availability of BGP (Layer-3 connectivity) across
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg" alt-text="BGP availability per peer":::
 
+>[!NOTE]
+>During maintenance between the Microsoft edge and core network, BGP availability will appear down even if the BGP session between the customer edge and Microsoft edge remains up. For information about maintenance between the Microsoft edge and core network, make sure to have your [maintenance alerts turned on and configured](./maintenance-alerts.md).
+>
+
 ### <a name = "arp"></a>ARP Availability - Split by Peering  
 
 Aggregation type: *Avg*

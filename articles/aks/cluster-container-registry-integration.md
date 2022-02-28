@@ -5,7 +5,8 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 06/10/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Authenticate with Azure Container Registry from Azure Kubernetes Service
