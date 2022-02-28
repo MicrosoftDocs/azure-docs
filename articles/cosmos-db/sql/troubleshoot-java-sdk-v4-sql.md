@@ -34,7 +34,7 @@ Start with this list:
 * Review the [performance tips](performance-tips-java-sdk-v4-sql.md) for Azure Cosmos DB Java SDK v4, and follow the suggested practices.
 * Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there is an option to add tags to your GitHub issue, add a *cosmos:v4-item* tag.
 
-## Capture the diagnostics {.tabset}
+### Capture the diagnostics
 
 Database, container, item, and query responses in the Java V4 SDK have a Diagnostics property. This property records all the information related to the single request, including if there were retries or any transient failures.
 
@@ -45,7 +45,7 @@ The following code sample shows how to read diagnostic logs using the .NET SDK:
 > [!IMPORTANT]
 > You must be running version 4.1.0 or higher of the Java V4 SDK for Azure Cosmos DB for Database, container, and item diagnostics. Version 4.6.0 or higher is required for query diagnostics. 
 
-### sync
+### [Sync](#tab/sync)
 
 * Database Operations:
     ```Java      
@@ -100,7 +100,7 @@ The following code sample shows how to read diagnostic logs using the .NET SDK:
                 });
     ``` 
 
-### async
+### [Async](#tab/async)
 
 * Database Operations:
     ```Java
