@@ -78,10 +78,10 @@ var (
 
 func getClient() *azcertificates.Client {
 
-  keyVaultName := os.Getenv("KEY_VAULT_NAME")
-  if keyVaultName == "" {
-    panic("KEY_VAULT_NAME environment variable not set")
-  }
+	keyVaultName := os.Getenv("KEY_VAULT_NAME")
+	if keyVaultName == "" {
+		panic("KEY_VAULT_NAME environment variable not set")
+	}
 	keyVaultUrl := fmt.Sprintf("https://%s.vault.azure.net/", keyVaultName)
 
 	cred, err := azidentity.NewDefaultAzureCredential(nil)
