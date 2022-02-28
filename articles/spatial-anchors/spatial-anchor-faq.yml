@@ -7,9 +7,10 @@ metadata:
   services: azure-spatial-anchors
   ms.author: pamistel
   ms.date: 11/20/2020
-  ms.topic: faq
+  ms.topic: overview
   ms.service: azure-spatial-anchors
-#Customer intent: Address frequently asked questions regarding Azure Spatial Anchors.  
+  #Customer intent: Address frequently asked questions regarding Azure Spatial Anchors.
+    
 title: Frequently asked questions about Azure Spatial Anchors
 summary: |
   Azure Spatial Anchors is a managed cloud service and developer platform that enables multi-user, spatially aware mixed reality experiences across HoloLens, iOS, and Android devices.
