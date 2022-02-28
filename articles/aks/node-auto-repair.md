@@ -70,4 +70,5 @@ Use [Availability Zones][availability-zones] to increase high availability with 
 <!-- LINKS - Internal -->
 [availability-zones]: ./availability-zones.md
 [vm-updates]: ../virtual-machines/maintenance-and-updates.md
-[scheduled-events]: ../virtual-machines/linux/scheduled-events
+[scheduled-events]: ../virtual-machines/linux/scheduled-events.md
+[spot-node-pools]: spot-node-pool.md
