@@ -62,6 +62,8 @@ items:
       href: how-to-integrate-key-vault.md
     - name: Azure Cache for Redis
       href: how-to-integrate-redis-cache.md
+    - name: Azure Service Bus
+      href: how-to-integrate-service-bus.md
     - name: Azure SignalR Service
       href: how-to-integrate-signalr.md
     - name: Apache Kafka on Confluent Cloud

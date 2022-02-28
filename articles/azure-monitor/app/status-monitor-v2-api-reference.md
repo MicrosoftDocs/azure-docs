@@ -2,10 +2,7 @@
 title: Azure Application Insights .Net Agent API reference
 description: Application Insights Agent API reference. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: yingqunpku
-ms.author: quying
 ms.date: 04/23/2019
-
 ---
 
 # Azure Monitor Application Insights Agent API Reference
