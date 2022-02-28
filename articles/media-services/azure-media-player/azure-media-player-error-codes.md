@@ -68,6 +68,7 @@ Describe details of the error, bits 27-20 provide a high level, bits 19-0 provid
 | srcErrParseSegment | 0x0400002 | Segment parse error |
 | srcErrUnsupportedPresentation | 0x0400003 | Presentation not supported |
 | srcErrInvalidSegment | 0x0400004 | Invalid segment |
+| srcErrLiveNoSegments | 0x0400005 | Segments not available yet |
 | **MEDIA_ERR_ENCRYPTED errors start value(0x0500000 - 0x05FFFFF)** | | |
 | encryptErrUnknown | 0x0500000 | Generic encrypted error | 
 | encryptErrDecrypterNotFound | 0x0500001 | Decrypter not found |
