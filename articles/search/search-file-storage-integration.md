@@ -7,7 +7,7 @@ author: mattmsft
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 02/21/2022
 ---
 
 # Index data from Azure Files
@@ -105,7 +105,7 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
           { "name": "metadata_storage_name", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true  },
           { "name": "metadata_storage_path", "type": "Edm.String", "searchable": false, "filterable": true, "sortable": true },
           { "name": "metadata_storage_size", "type": "Edm.Int64", "searchable": false, "filterable": true, "sortable": true  },
-          { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true },        
+          { "name": "metadata_storage_content_type", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true }        
       ]
     }
     ```
@@ -139,7 +139,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
     {
-      "name" : "my-file-indexer,
+      "name" : "my-file-indexer",
       "dataSourceName" : "my-file-datasource",
       "targetIndexName" : "my-search-index",
       "parameters": {
@@ -147,7 +147,7 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "maxFailedItems": null,
         "maxFailedItemsPerBatch": null,
         "base64EncodeKeys": null,
-        "configuration:" {
+        "configuration": {
             "indexedFileNameExtensions" : ".pdf,.docx",
             "excludedFileNameExtensions" : ".png,.jpeg" 
         }
