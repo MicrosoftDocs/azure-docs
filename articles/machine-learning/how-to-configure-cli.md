@@ -104,7 +104,7 @@ You can show your current defaults using `--list-defaults/-l`:
 
 ## Secure communications
 
-The `ml` CLI extension for Azure Machine Learning sends data for _all operations_ over the _public internet_. This includes operations that may potentially contain sensitive data, such as job submissions or deploying models. For example, when using the [az ml job](/cli/azure/ml/job?view=azure-cli-latest) commands, the YAML parameter file is sent over the public internet.
+The `ml` CLI extension for Azure Machine Learning sends data for _all operations_ over the _public internet_. This includes operations that may potentially contain sensitive data, such as job submissions or deploying models. For example, when using the [az ml job](/cli/azure/ml/job) commands, the YAML parameter file is sent over the public internet.
 
 If you don't want your data sent over the public internet, you can use the following steps:
 
@@ -116,7 +116,7 @@ If you don't want your data sent over the public internet, you can use the follo
     >
     > To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
 
-3. Perform CLI operations from a client that is connected to the virtual network. For example, using an Azure VPN gateway, ExpressRoute, or from a virtual machine (jumpbox) inside the virtual network. For more information, see [How to connect to a secure workspace](how-to-secure-workspace-vnet.md#Securely-connect-to-your-workspace).
+3. Perform CLI operations from a client that is connected to the virtual network. For example, using an Azure VPN gateway, ExpressRoute, or from a virtual machine (jumpbox) inside the virtual network. For more information, see [How to connect to a secure workspace](how-to-secure-workspace-vnet.md#securely-connect-to-your-workspace).
 
 
 > [!NOTE]
