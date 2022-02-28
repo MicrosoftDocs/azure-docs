@@ -138,7 +138,6 @@ To turn on the preview:
 1. Navigate to the **[Preview features](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PreviewHub)** page.
 2. Set the **State** to **On**.
 
-![Display available preview features](./media/overview-recommendations/available-preview-feautures.png)
 
 
 
@@ -147,7 +146,6 @@ To turn on the preview:
 
 To update the status of a resource, you have to right click a resource to bring up the edit menu. 
 
-![Update resource status](./media/overview-recommendations/update-resource-status.png)
 
 
 ## Next steps
