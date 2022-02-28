@@ -8,7 +8,7 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/20/2022
+ms.date: 02/28/2022
 ---
 
 # Index large data sets in Azure Cognitive Search
@@ -17,47 +17,20 @@ Azure Cognitive Search supports [two basic approaches](search-what-is-data-impor
 
 As data volumes grow or processing needs change, you might find that simple or default indexing strategies are no longer practical. For Azure Cognitive Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
 
-The same techniques also apply to long-running processes. In particular, the steps outlined in [parallel indexing](#parallel-indexing) are helpful for computationally intensive indexing, such as image analysis or natural language processing in an [AI enrichment pipeline](cognitive-search-concept-intro.md).
+The same techniques also apply to long-running processes. In particular, the steps outlined in [parallel indexing](#run-indexers-in-parallel) are helpful for computationally intensive indexing, such as image analysis or natural language processing in an [AI enrichment pipeline](cognitive-search-concept-intro.md).
 
-The following sections explain techniques for indexing large amounts of data using both the push API and indexers. For more information and code samples that illustrate push model indexing, see [Tutorial: Optimize indexing speeds](tutorial-optimize-indexing-push-api.md).
+The following sections explain techniques for indexing large amounts of data using both the push API and indexers. You should also review [Tips for improving performance](search-performance-tips.md) for more best practices.
 
-## General tips
+For a C# tutorial and code sample, see [Tutorial: Optimize indexing speeds](tutorial-optimize-indexing-push-api.md). 
 
-When you're indexing a large volume of data, there are a few simple tips that can make a difference regardless of how the indexing is being done.
+## Indexing large datasets with the "push" API
 
-### Simplify the index schema
+When pushing large data volumes into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (.NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), batching documents and managing threads are two techniques that improve indexing speed.
 
-The schema of your index plays an important role in indexing data. The more fields you have, and the more properties you set (such as *searchable*, *facetable*, or *filterable*), all contribute to increased indexing time.
-
-To keep document size down, avoid adding non-queryable data to an index. Every field that you add to an index should be there for a reason. If you need to integrate non-queryable data such as images into search results, you should define a non-searchable field that stores a URL reference to the resource.
-
-### Check data location
-
-Network data transfer speeds can be a limiting factor when indexing data. Indexing data from within your Azure environment is an easy way to speed up indexing.
-
-### Check service capacity and partitions
-
-1. Review the characteristics and [limits](search-limits-quotas-capacity.md) of the tier at which you provisioned the service. Service tiers differ by the size and speed of partitions, which has a direct impact on indexing speed. If the tier is insufficient for the workload, upgrading might be the easiest and most effective solution for increasing indexing throughput.
-
-1. [Increase the number of partitions](search-capacity-planning.md#add-or-reduce-replicas-and-partitions), even if only on a temporary basis. Partition allocation can be readjusted downwards after an initial indexing run to reduce the overall cost of running the service.
-
-Adding more replicas may also increase indexing speeds but it isn't guaranteed. On the other hand, additional replicas will increase the query volume your search service can handle. Because indexing does not run in the background, increasing query capacity should help overall performance.
-
-> [!NOTE]
-> When [adding partition and replicas](search-capacity-planning.md#add-or-reduce-replicas-and-partitions), or provisioning a service at a higher tier, consider the monetary cost and allocation time. Adding partitions can significantly increase indexing speed, but adding and removing them can take anywhere from 15 minutes to several hours.
->
-
-## Indexing with the "push" API
-
-When pushing data into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (.NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), there are several key considerations that impact indexing speed. Those factors are outlined in the section below, and range from setting service capacity to code optimizations.
-
-+ [Index schema](#review-index-schema)
-+ [Data location and transfer speed](#check-data-location)
-+ [Batch multiple documents per request](#check-the-batch-size)
-+ [Service capacity](#check-service-capacity-and-partitions)
++ [Batch multiple documents per request](#batch-multiple-documents-per-request)
 + [Manage threads](#add-threads-and-a-retry-strategy)
 
-### Check the batch size
+### Batch multiple documents per request
 
 One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you're using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method](/dotnet/api/azure.search.documents.searchclient.indexdocuments) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
 
@@ -70,7 +43,7 @@ Because the optimal batch size depends on your index and your data, the best app
 
 ### Add threads and a retry strategy
 
-In contrast with indexer APIs, when you are using the push APIs to index documents, your application code should ensure there are sufficient threads to make full use of the available capacity. 
+In contrast with indexer APIs, when you're using the push APIs to index documents, your application code should ensure there are sufficient threads to make full use of the available capacity. 
 
 1. [Increase the number of threads](tutorial-optimize-indexing-push-api.md#use-multiple-threadsworkers) in your client code. As you increase the tier of your search service or increase the partitions, you should also increase the number of concurrent threads so that you can take full advantage of the new capacity.
 
@@ -84,13 +57,13 @@ In contrast with indexer APIs, when you are using the push APIs to index documen
 
 The Azure .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy.
 
-## Indexer-based "pull" indexing 
+## Indexing large datasets with indexers and the "pull" APIs
 
-[Indexers](search-indexer-overview.md) crawl [supported data sources](search-indexer-overview.md#supported-data-sources) for searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
+[Indexers](search-indexer-overview.md) connect to [supported data sources](search-indexer-overview.md#supported-data-sources) for indexing searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
 
-+ Schedules allow you to parcel out indexing at regular intervals so that you can spread it out over time.
++ Indexer schedules allow you to parcel out indexing at regular intervals so that you can spread it out over time.
 
-+ Scheduled indexing can resume at the last known stopping point. If a data source is not fully crawled within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
++ Scheduled indexing can resume at the last known stopping point. If a data source isn't fully scanned within a 24-hour window, the indexer will resume indexing on day two at wherever it left off.
 
 + Partitioning data into smaller individual data sources enables parallel processing. You can break up source data into smaller components, such as into multiple containers in Azure Blob Storage, create a [data source](/rest/api/searchservice/create-data-source) for each partition, and then run multiple indexers in parallel. 
 
@@ -128,13 +101,13 @@ The number of indexing jobs that can run simultaneously varies for text-based an
 
 1. Schedule the indexers. Review indexer status and execution history for confirmation.
 
-Although multiple indexer-data-source sets can target the same index, be careful of indexer runs that can overwrite existing values in the index. If a second indexer-data-source targets the same documents and fields, any values from the first run will be overwritten. Field values are replaced in full; an indexer cannot merge values from multiple runs into the same field.
+Although multiple indexer-data-source sets can target the same index, be careful of indexer runs that can overwrite existing values in the index. If a second indexer-data-source targets the same documents and fields, any values from the first run will be overwritten. Field values are replaced in full; an indexer can't merge values from multiple runs into the same field.
 
-If you are pulling from different data source types, a challenge for this scenario lies in designing an index schema that works for all incoming data, and a document key structure that is uniform in the search index. Natively, the values that uniquely identify a document are metadata_storage_path in a blob container and a primary key in a SQL table. You can imagine that one or both sources must be amended to provide key values in a common format, regardless of content origin. For this scenario, you should expect to perform some level of pre-processing to homogenize the data so that it can be pulled into a single index.  
+If you're pulling from different data source types, a challenge for this scenario lies in designing an index schema that works for all incoming data, and a document key structure that is uniform in the search index. Natively, the values that uniquely identify a document are metadata_storage_path in a blob container and a primary key in a SQL table. You can imagine that one or both sources must be amended to provide key values in a common format, regardless of content origin. For this scenario, you should expect to perform some level of pre-processing to homogenize the data so that it can be pulled into a single index.  
 
 ## See also
 
-+ [Indexer overview](search-indexer-overview.md)
-+ [Create an indexer](search-howto-create-indexers.md)
-+ [Monitor indexer status](search-howto-monitor-indexers.md)
++ [Tips for improving performance](search-performance-tips.md)
 + [Performance analysis](search-performance-analysis.md)
++ [Indexer overview](search-indexer-overview.md)
++ [Monitor indexer status](search-howto-monitor-indexers.md)
