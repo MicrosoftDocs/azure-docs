@@ -102,7 +102,7 @@ You can show your current defaults using `--list-defaults/-l`:
 > [!TIP]
 > Combining with `--output/-o` allows for more readable output formats.
 
-## Security
+## Secure communications
 
 The `ml` CLI extension for Azure Machine Learning sends data for _all operations_ over the _public internet_. This includes operations that may potentially contain sensitive data, such as job submissions or deploying models. For example, when using the [az ml job](/cli/azure/ml/job?view=azure-cli-latest) commands, the YAML parameter file is sent over the public internet.
 
