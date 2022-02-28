@@ -8,9 +8,10 @@ manager: martinco
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 02/28/2022
 ms.author: gasinh
 ms.subservice: B2C
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Configure BindID with Azure Active Directory B2C for passwordless authentication
