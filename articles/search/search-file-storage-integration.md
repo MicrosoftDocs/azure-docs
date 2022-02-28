@@ -132,9 +132,9 @@ In the [search index](search-what-is-an-index.md), add fields to accept the cont
 
 ## Configure and run the file indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. Under "configuration", you can specify which files are indexed by file type or by properties on the files themselves.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -143,11 +143,11 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
       "dataSourceName" : "my-file-datasource",
       "targetIndexName" : "my-search-index",
       "parameters": {
-        "batchSize": null,
-        "maxFailedItems": null,
-        "maxFailedItemsPerBatch": null,
-        "base64EncodeKeys": null,
-        "configuration": {
+         "batchSize": null,
+         "maxFailedItems": null,
+         "maxFailedItemsPerBatch": null,
+         "base64EncodeKeys": null,
+         "configuration": {
             "indexedFileNameExtensions" : ".pdf,.docx",
             "excludedFileNameExtensions" : ".png,.jpeg" 
         }
@@ -166,6 +166,8 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
    In file indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
 
 ## Check indexer status
 

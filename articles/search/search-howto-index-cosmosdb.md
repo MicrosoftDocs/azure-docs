@@ -203,9 +203,9 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 ## Configure and run the Cosmos DB indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -218,12 +218,12 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "disabled": null,
         "schedule": null,
         "parameters": {
-        "batchSize": null,
-        "maxFailedItems": 0,
-        "maxFailedItemsPerBatch": 0,
-        "base64EncodeKeys": false,
-        "configuration": {}
-        },
+            "batchSize": null,
+            "maxFailedItems": 0,
+            "maxFailedItemsPerBatch": 0,
+            "base64EncodeKeys": false,
+            "configuration": {}
+            },
         "fieldMappings": [],
         "encryptionKey": null
     }
