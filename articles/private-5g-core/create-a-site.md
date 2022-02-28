@@ -75,6 +75,6 @@ In this step, you'll create the **Mobile Network Site** resource representing th
 
 ## Next steps
 
-If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply Quality of Service (QoS) characteristics to traffic. You can also block or limit certain flows.
+If you haven't already done so, you should now design the policy control configuration for your private mobile network. This allows you to customize how your packet core instances apply quality of service (QoS) characteristics to traffic. You can also block or limit certain flows.
 
 - [Learn more about designing the policy control configuration for your private mobile network](policy-control.md)

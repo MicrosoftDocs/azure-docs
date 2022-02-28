@@ -1,7 +1,6 @@
 ---
 title: Overview of ingestion-time transformations in Azure Monitor Logs
 description: This article describes ingestion-time transformations which allow you to filter and transform data before it's stored in a Log Analytics workspace in Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 ms.date: 01/19/2022
 ---

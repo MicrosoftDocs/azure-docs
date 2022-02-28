@@ -22,14 +22,34 @@ Once your support representative has confirmed your access, register the Mobile 
 
 ## Allocate subnets and IP addresses
 
-The following table shows the networks to which a site will connect. For each network, allocate a subnet and then identify the IP addresses in the **Required IP addresses** column. If you're deploying multiple sites, you'll need to collect this information for each site.
+For each of the following networks, allocate a subnet and then identify the listed IP addresses. If you're deploying multiple sites, you'll need to collect this information for each site.
 
-| Network | Required IP addresses |
-|--|--|
-| Management network | <ul><li>Network address in Classless Inter-Domain Routing (CIDR) notation.</li><li>Default gateway.</li><li>One IP address for the Azure Stack Edge Pro device's management port.</li><li>Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.</li><li>One IP address for accessing local monitoring tools for the packet core instance.</li> </ul> |
-| Access network | <ul><li>Network address in CIDR notation.</li><li>Default gateway.</li><li>One IP address for port 5 on the Azure Stack Edge Pro device.</li><li>One IP address for the packet core instance's N2 signaling interface.</li><li>One IP address for the packet core instance's N3 interface.</li></ul> |
-| Data network | <ul><li>Network address in CIDR notation.</li><li>Default gateway.</li><li>One IP address for port 6 on the Azure Stack Edge Pro device.</li><li>One IP address for the packet core instance's N6 interface.</li></ul> |
-| User Equipment (UE) IP address pool | <ul><li>IP address pool in CIDR notation. This should contain IP addresses for each UE that will be served by the private mobile network.</li></ul> |
+### Management network
+
+- Network address in Classless Inter-Domain Routing (CIDR) notation. 
+-  Default gateway. 
+- One IP address for the Azure Stack Edge Pro device's management port. 
+- Three sequential IP addresses for the Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster nodes.
+- One IP address for accessing local monitoring tools for the packet core instance.
+
+### Access network
+
+- Network address in CIDR notation. 
+- Default gateway. 
+- One IP address for port 5 on the Azure Stack Edge Pro device. 
+- One IP address for the packet core instance's N2 signaling interface. 
+- One IP address for the packet core instance's N3 interface.
+
+### Data network
+
+- Network address in CIDR notation.
+- Default gateway.
+- One IP address for port 6 on the Azure Stack Edge Pro device.
+- One IP address for the packet core instance's N6 interface.
+
+### User Equipment (UE) IP address pool
+
+- IP address pool in CIDR notation. This should contain IP addresses for each UE that will be served by the private mobile network.
 
 ## Order and set up your Azure Stack Edge Pro device(s)
 
@@ -38,14 +58,14 @@ You must do the following for each site you want to add to your private mobile n
 | Step No. | Description | Detailed instructions |
 |--|--|--|
 | 1. | Order and prepare your Azure Stack Edge Pro device. | [Tutorial: Prepare to deploy Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-prep?tabs=azure-portal) |
-| 2. | <p>Rack and cable your Azure Stack Edge Pro device.</p><p>When carrying out this procedure, you must ensure that the device has its ports connected as follows:</p><ul><li>Port 5 - access network</li><li>Port 6 - data network</li></ul><p>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4.</p> | [Tutorial: Install Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-install) |
+| 2. | Rack and cable your Azure Stack Edge Pro device. </br></br>When carrying out this procedure, you must ensure that the device has its ports connected as follows:</br></br>- Port 5 - access network</br>- Port 6 - data network</br></br>Additionally, you must have a port connected to your management network. You can choose any port from 2 to 4. | [Tutorial: Install Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-install) |
 | 3. | Connect to your Azure Stack Edge Pro device using the local web UI. | [Tutorial: Connect to Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-connect) |
 | 4. | Configure the network for your Azure Stack Edge Pro device. When carrying out the *Enable compute network* step of this procedure, ensure you use the port you've connected to your management network. | [Tutorial: Configure network for Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy) |
 | 5. | Configure a name, Domain Name System (DNS) name, and (optionally) time settings. | [Tutorial: Configure the device settings for Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-set-up-device-update-time) |
 | 6. | Configure certificates for your Azure Stack Edge Pro device. | [Tutorial: Configure certificates for your Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-configure-certificates) |
 | 7. | Activate your Azure Stack Edge Pro device. | [Tutorial: Activate Azure Stack Edge Pro with GPU](/azure/databox-online/azure-stack-edge-gpu-deploy-activate) |
-| 8. | <p>Run the diagnostics tests for the Azure Stack Edge Pro device in the local web UI, and verify they all pass.</p><p>You may see a warning about a disconnected, unused port. You should fix the issue if the warning relates to any of these ports:</p><ul><li>Port 5.</li><li>Port 6.</li><li>The port you chose to connect to the management network in Step 2.</li></ul><p>For all other ports, you can ignore the warning.</p><p>If there are any errors, resolve them before continuing with the remaining steps. This includes any errors related to invalid gateways on unused ports. In this case, either delete the gateway IP address or set it to a valid gateway for the subnet. | [Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues](/azure/databox-online/azure-stack-edge-gpu-troubleshoot)</p> |
-| 9. | <p>Deploy an Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your Azure Stack Edge Pro device. At the end of this step, the Kubernetes cluster will be connected to Azure Arc and ready to host a packet core instance. During this step, you'll need to use the information you collected in [Allocate subnets and IP addresses](#allocate-subnets-and-ip-addresses).</p> | Contact your support representative for detailed instructions. |
+| 8. | Run the diagnostics tests for the Azure Stack Edge Pro device in the local web UI, and verify they all pass. </br></br>You may see a warning about a disconnected, unused port. You should fix the issue if the warning relates to any of these ports:</br></br>- Port 5.</br>- Port 6.</br>- The port you chose to connect to the management network in Step 2.</br></br>For all other ports, you can ignore the warning.</br></br>If there are any errors, resolve them before continuing with the remaining steps. This includes any errors related to invalid gateways on unused ports. In this case, either delete the gateway IP address or set it to a valid gateway for the subnet. | [Run diagnostics, collect logs to troubleshoot Azure Stack Edge device issues](/azure/databox-online/azure-stack-edge-gpu-troubleshoot) |
+| 9. | Deploy an Azure Kubernetes Service on Azure Stack HCI (AKS-HCI) cluster on your Azure Stack Edge Pro device. At the end of this step, the Kubernetes cluster will be connected to Azure Arc and ready to host a packet core instance. During this step, you'll need to use the information you collected in [Allocate subnets and IP addresses](#allocate-subnets-and-ip-addresses). | Contact your support representative for detailed instructions. |
 
 
 ## Next steps

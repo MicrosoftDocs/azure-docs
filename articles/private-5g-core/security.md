@@ -20,13 +20,13 @@ Azure Private 5G Core consists of two main components that interact with each ot
 
 ## Secure platform
 
-Azure Private 5G Core requires deployment of packet core instances onto a secure platform, Azure Stack Edge. For more information on Azure Stack Edge security, see [Azure Stack Edge security and data protection](/databox-online/azure-stack-edge-security).
+Azure Private 5G Core requires deployment of packet core instances onto a secure platform, Azure Stack Edge. For more information on Azure Stack Edge security, see [Azure Stack Edge security and data protection](../databox-online/azure-stack-edge-security.md).
 
 ## Encryption at rest
 
-The Azure Private 5G Core service stores all data securely at rest, including SIM credentials. It provides [encryption of data at rest](/security/fundamentals/encryption-overview) using platform-managed encryption keys, managed by Microsoft.
+The Azure Private 5G Core service stores all data securely at rest, including SIM credentials. It provides [encryption of data at rest](../security/fundamentals/encryption-overview.md) using platform-managed encryption keys, managed by Microsoft.
 
-Azure Private 5G Core packet core instances are deployed on Azure Stack Edge devices, which handle [protection of data](/databox-online/azure-stack-edge-security#protect-your-data). 
+Azure Private 5G Core packet core instances are deployed on Azure Stack Edge devices, which handle [protection of data](../databox-online/azure-stack-edge-security.md#protect-your-data). 
 
 ## Write-only SIM credentials
 
