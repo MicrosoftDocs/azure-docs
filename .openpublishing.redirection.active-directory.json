@@ -801,6 +801,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/external-identities/o365-external-user.md",
+            "redirect_url": "/azure/active-directory/external-identities/what-is-b2b",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/active-directory-b2b-current-preview-limitations.md",
             "redirect_url": "/azure/active-directory/active-directory-b2b-current-limitations",
             "redirect_document_id": false
@@ -7908,6 +7913,11 @@
         {
             "source_path_from_root": "/articles/active-directory/saas-apps/cisco-spark-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/saas-apps/active-and-thriving-perth-airport-tutorial.md",
+            "redirect_url": "/azure/active-directory/saas-apps/active-and-thriving-tutorial",
             "redirect_document_id": false
         },
         {

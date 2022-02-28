@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.custom: devx-track-python, devx-track-azurepowershell, synapse
+ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-azurecli
 ---
 
 # Create a trigger that runs a pipeline on a schedule
@@ -252,31 +252,31 @@ This section shows you how to use Azure CLI to create, start, and monitor a sche
     - The trigger is associated with the **Adfv2QuickStartPipeline** pipeline. To associate multiple pipelines with a trigger, add more **pipelineReference** sections.
     - The pipeline in the Quickstart takes two **parameters** values: **inputPath** and **outputPath**. And you pass values for these parameters from the trigger.
 
-1. Create a trigger by using the [az datafactory trigger create](/cli/azure/datafactory/trigger#az_datafactory_trigger_create) command:
+1. Create a trigger by using the [az datafactory trigger create](/cli/azure/datafactory/trigger#az-datafactory-trigger-create) command:
 
     ```azurecli
     az datafactory trigger create --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory"  --name "MyTrigger" --properties @MyTrigger.json  
     ```
 
-1. Confirm that the status of the trigger is **Stopped** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
+1. Confirm that the status of the trigger is **Stopped** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az-datafactory-trigger-show) command:
 
     ```azurecli
     az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
     ```
 
-1. Start the trigger by using the [az datafactory trigger start](/cli/azure/datafactory/trigger#az_datafactory_trigger_start) command:
+1. Start the trigger by using the [az datafactory trigger start](/cli/azure/datafactory/trigger#az-datafactory-trigger-start) command:
 
     ```azurecli
     az datafactory trigger start --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
     ```
 
-1. Confirm that the status of the trigger is **Started** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az_datafactory_trigger_show) command:
+1. Confirm that the status of the trigger is **Started** by using the [az datafactory trigger show](/cli/azure/datafactory/trigger#az-datafactory-trigger-show) command:
 
     ```azurecli
     az datafactory trigger show --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --name "MyTrigger" 
     ```
 
-1. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az_datafactory_trigger_run_query_by_factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and  **last-updated-before** values to match the values in your trigger definition:
+1. Get the trigger runs in Azure CLI by using the [az datafactory trigger-run query-by-factory](/cli/azure/datafactory/trigger-run#az-datafactory-trigger-run-query-by-factory) command. To get information about the trigger runs, execute the following command periodically. Update the **last-updated-after** and  **last-updated-before** values to match the values in your trigger definition:
 
     ```azurecli
     az datafactory trigger-run query-by-factory --resource-group "ADFQuickStartRG" --factory-name "ADFTutorialFactory" --filters operand="TriggerName" operator="Equals" values="MyTrigger" --last-updated-after "2017-12-08T00:00:00" --last-updated-before "2017-12-08T01:00:00"

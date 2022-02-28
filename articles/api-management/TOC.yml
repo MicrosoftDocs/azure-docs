@@ -95,7 +95,6 @@
         href: devops-api-development-templates.md
       - name: Compute platform
         href: compute-infrastructure.md
-
 - name: How-to guides
   items:
       - name: Define APIs
@@ -126,6 +125,8 @@
               href: how-to-configure-service-fabric-backend.md
             - name: Import SAP OData metadata
               href: sap-api.md
+            - name: Configure API for SSE
+              href: how-to-server-sent-events.md
       - name: Provision and scale
         items:
             - name: Capacity metric
@@ -181,6 +182,8 @@
               href: api-management-using-with-internal-vnet.md
             - name: Integrate Application Gateway in an internal virtual network
               href: api-management-howto-integrate-internal-vnet-appgateway.md
+            - name: Connect privately using private endpoint
+              href: private-endpoint.md
             - name: Mutual Certificate authentication
               href: api-management-howto-mutual-certificates.md
             - name: Manage CA certificates
@@ -334,6 +337,8 @@
               href: soft-delete.md
             - name: Use managed identities for Azure resources
               href: api-management-howto-use-managed-service-identity.md
+            - name: Validate service updates
+              href: validate-service-updates.md
             - name: Self-hosted gateway
               items:
               - name: Guidance for running on Kubernetes
