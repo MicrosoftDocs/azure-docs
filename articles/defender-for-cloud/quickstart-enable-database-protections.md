@@ -58,9 +58,7 @@ You can enable database protection on your subscription, or exclude specific dat
 
 In this article, you learned how to enable Microsoft Defender for Cloud for all database types on your subscription. Next, read more about each of the resource types.
 
-> [!div class="nextstepaction"]
-> [Microsoft Defender for Azure SQL](defender-for-sql-introduction.md)
-
+- [Microsoft Defender for Azure SQL](defender-for-sql-introduction.md)
 - [Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md)
 - [Microsoft Defender for Azure Cosmos](concept-defender-for-cosmos.md)
 - [Microsoft Defender for servers](defender-for-sql-usage.md)

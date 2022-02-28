@@ -60,11 +60,13 @@ You can enable Microsoft Defender for Cloud on a specific Azure Cosmos DB accoun
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to **Storage account** > **`Your account`** > **Security + networking** > **Security**.
+1. Navigate to **your Azure Cosmos DB account** > **Settings**.
 
-1. Select **Enable Microsoft Defender for Storage**.
+1. Select **Microsoft Defender for Cloud**.
 
-    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/enable-storage.png" alt-text="Screenshot of the option to enable Microsoft Defender for Storage on your specified Azure Cosmos DB account.":::
+1. Select **Enable Microsoft Defender for Azure Cosmos DB**.
+
+    :::image type="content" source="media/quickstart-enable-defender-for-cosmos/enable-storage.png" alt-text="Screenshot of the option to enable Microsoft Defender for Azure Cosmos DB on your specified Azure Cosmos DB account.":::
 
 ### [PowerShell](#tab/azure-powershell)
 
