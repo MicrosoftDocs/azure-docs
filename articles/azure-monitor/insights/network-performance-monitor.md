@@ -119,7 +119,7 @@ The script creates registry keys required by the solution. It also creates Windo
 
 ### Configure the solution 
 
-1. Add the Network Performance Monitor solution to your workspace from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). You also can use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md). 
+1. Add the Network Performance Monitor solution to your workspace from the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md#install-a-monitoring-solution). This is required if you want to work with Non-Azure endpoints within Connection Monitor.
 2. Open your Log Analytics workspace, and select the **Overview** tile. 
 3. Select the **Network Performance Monitor** tile with the message *Solution requires additional configuration*.
 
@@ -288,11 +288,11 @@ Notifications are charged separately as per [Notifications pricing in Azure Moni
 
 ## Pricing
 
-Information on pricing is available [online](network-performance-monitor-pricing-faq.md).
+Information on pricing is available [online](network-performance-monitor-pricing-faq.yml).
 
 ## Provide feedback 
 
-* **UserVoice:** You can post your ideas for Network Performance Monitor features that you want us to work on. Visit the [UserVoice page](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
+* **UserVoice:** You can post your ideas for Network Performance Monitor features that you want us to work on. Visit the [UserVoice page](https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0?c=611733d4-1b25-ec11-b6e6-000d3a4f09d0). 
 
 * **Join our cohort:** We're always interested in having new customers join our cohort. As part of it, you get early access to new features and an opportunity to help us improve Network Performance Monitor. If you're interested in joining, fill out this [quick survey](https://aka.ms/npmcohort). 
 

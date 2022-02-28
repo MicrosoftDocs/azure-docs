@@ -5,13 +5,13 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma, v-masebo
+ms.reviewer: kendralittle, mathoma, v-masebo
 ms.date: 05/19/2021
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js, mode-api
 ---
 # Quickstart: Use Node.js to query a database in Azure SQL Database or Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -111,29 +111,30 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
     
     /* 
         //Use Azure VM Managed Identity to connect to the SQL database
-        const connection = new Connection({
-        server: process.env["db_server"],
-        authentication: {
-            type: 'azure-active-directory-msi-vm',
-        },
-        options: {
-            database: process.env["db_database"],
-            encrypt: true,
-            port: 1433
-        }
-    });
+        const config = {
+            server: process.env["db_server"],
+            authentication: {
+                type: 'azure-active-directory-msi-vm',
+            },
+            options: {
+                database: process.env["db_database"],
+                encrypt: true,
+                port: 1433
+            }
+        };
+        
         //Use Azure App Service Managed Identity to connect to the SQL database
-        const connection = new Connection({
-        server: process.env["db_server"],
-        authentication: {
-            type: 'azure-active-directory-msi-app-service',
-        },
-        options: {
-            database: process.env["db_database"],
-            encrypt: true,
-            port: 1433
-        }
-    });
+        const config = {
+            server: process.env["db_server"],
+            authentication: {
+                type: 'azure-active-directory-msi-app-service',
+            },
+            options: {
+                database: process.env["db_database"],
+                encrypt: true,
+                port: 1433
+            }
+        });
 
     */
 
@@ -179,7 +180,7 @@ Open a command prompt and create a folder named *sqltest*. Open the folder you c
     ```
 
 > [!NOTE]
-> For more information about using managed identity for authentication, complete the tutorial to [access data via managed identity](../../app-service/app-service-web-tutorial-connect-msi.md).
+> For more information about using managed identity for authentication, complete the tutorial to [access data via managed identity](../../app-service/tutorial-connect-msi-sql-database.md).
 
 > [!NOTE]
 > The code example uses the **AdventureWorksLT** sample database in Azure SQL Database.

@@ -1,25 +1,18 @@
 ---
-title: Automate incident handling in Azure Sentinel | Microsoft Docs
+title: Automate incident handling in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to use automation rules to automate incident handling, in order to maximize your SOC's efficiency and effectiveness in response to security threats.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2021
+ms.date: 11/09/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
-# Automate incident handling in Azure Sentinel with automation rules
 
-This article explains what Azure Sentinel automation rules are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, increasing your SOC's effectiveness and saving you time and resources.
+# Automate incident handling in Microsoft Sentinel with automation rules
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+This article explains what Microsoft Sentinel automation rules are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, increasing your SOC's effectiveness and saving you time and resources.
 
 > [!IMPORTANT]
 >
@@ -27,7 +20,7 @@ This article explains what Azure Sentinel automation rules are, and how to use t
 
 ## What are automation rules?
 
-Automation rules are a new concept in Azure Sentinel. This feature allows users to centrally manage the automation of incident handling. Besides letting you assign playbooks to incidents (not just to alerts as before), automation rules also allow you to automate responses for multiple analytics rules at once, automatically tag, assign, or close incidents without the need for playbooks, and control the order of actions that are executed. Automation rules will streamline automation use in Azure Sentinel and will enable you to simplify complex workflows for your incident orchestration processes.
+Automation rules are a new concept in Microsoft Sentinel. This feature allows users to centrally manage the automation of incident handling. Besides letting you assign playbooks to incidents (not just to alerts as before), automation rules also allow you to automate responses for multiple analytics rules at once, automatically tag, assign, or close incidents without the need for playbooks, and control the order of actions that are executed. Automation rules will streamline automation use in Microsoft Sentinel and will enable you to simplify complex workflows for your incident orchestration processes.
 
 ## Components
 
@@ -37,7 +30,7 @@ Automation rules are made up of several components:
 
 Automation rules are triggered by the creation of an incident. 
 
-To review – incidents are created from alerts by analytics rules, of which there are four types, as explained in the tutorial [Detect threats with built-in analytics rules in Azure Sentinel](tutorial-detect-threats-built-in.md).
+To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in the tutorial [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
 ### Conditions
 
@@ -49,7 +42,7 @@ Actions can be defined to run when the conditions (see above) are met. You can d
 
 - Changing the status of an incident, keeping your workflow up to date.
 
-  - When changing to “closed,” specifying the [closing reason](tutorial-investigate-cases.md#closing-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce [false positives](false-positives.md).
+  - When changing to “closed,” specifying the [closing reason](investigate-cases.md#closing-an-incident) and adding a comment. This helps you keep track of your performance and effectiveness, and fine-tune to reduce [false positives](false-positives.md).
 
 - Changing the severity of an incident – you can reevaluate and reprioritize based on the presence, absence, values, or attributes of entities involved in the incident.
 
@@ -57,7 +50,7 @@ Actions can be defined to run when the conditions (see above) are met. You can d
 
 - Adding a tag to an incident – this is useful for classifying incidents by subject, by attacker, or by any other common denominator.
 
-Also, you can define an action to run a [playbook](tutorial-respond-threats-playbook.md), in order to take more complex response actions, including any that involve external systems. Only playbooks activated by the [incident trigger](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) are available to be used in automation rules. You can define an action to include multiple playbooks, or combinations of playbooks and other actions, and the order in which they will run.
+Also, you can define an action to [**run a playbook**](tutorial-respond-threats-playbook.md), in order to take more complex response actions, including any that involve external systems. **Only** playbooks activated by the [**incident trigger**](automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts) are available to be used in automation rules. You can define an action to include multiple playbooks, or combinations of playbooks and other actions, and the order in which they will run.
 
 ### Expiration date
 
@@ -77,14 +70,14 @@ Until now, only alerts could trigger an automated response, through the use of p
 
 ### Trigger playbooks for Microsoft providers
 
-Automation rules provide a way to automate the handling of Microsoft security alerts by applying these rules to incidents created from the alerts. The automation rules can call playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)) and pass the incidents to them with all their details, including alerts and entities. In general, Azure Sentinel best practices dictate using the incidents queue as the focal point of security operations.
+Automation rules provide a way to automate the handling of Microsoft security alerts by applying these rules to incidents created from the alerts. The automation rules can call playbooks ([special permissions are required](#permissions-for-automation-rules-to-run-playbooks)) and pass the incidents to them with all their details, including alerts and entities. In general, Microsoft Sentinel best practices dictate using the incidents queue as the focal point of security operations.
 
 Microsoft security alerts include the following:
 
-- Microsoft Cloud App Security (MCAS)
+- Microsoft Defender for Cloud Apps
 - Azure AD Identity Protection
-- Azure Defender (ASC)
-- Defender for IoT (formerly ASC for IoT)
+- Microsoft Defender for Cloud
+- Defender for IoT (formerly Azure Security Center for IoT)
 - Microsoft Defender for Office 365 (formerly Office 365 ATP)
 - Microsoft Defender for Endpoint (formerly MDATP)
 - Microsoft Defender for Identity (formerly Azure ATP)
@@ -117,26 +110,48 @@ You can automatically add free-text tags to incidents to group or classify them 
 
 Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
 
-For playbook actions, there is a two-minute delay between the beginning of the playbook action and the next action on the list.
+Playbook actions within an automation rule may be treated differently under some circumstances, according to the following criteria:
+
+| Playbook run time | Automation rule advances to the next action... |
+| ----------------- | --------------------------------------------------- |
+| Less than a second | Immediately after playbook is completed |
+| Less than two minutes | Up to two minutes after playbook began running,<br>but no more than 10 seconds after the playbook is completed |
+| More than two minutes | Two minutes after playbook began running,<br>regardless of whether or not it was completed |
+|
 
 ### Permissions for automation rules to run playbooks
 
-When an Azure Sentinel automation rule runs a playbook, it uses a special Azure Sentinel service account specifically authorized for this action. The use of this account (as opposed to your user account) increases the security level of the service.
+When a Microsoft Sentinel automation rule runs a playbook, it uses a special Microsoft Sentinel service account specifically authorized for this action. The use of this account (as opposed to your user account) increases the security level of the service.
 
 In order for an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
 
-When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Azure Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant Azure Sentinel permission to the playbooks' resource groups on the spot by selecting the **Manage playbook permissions** link.
+When you're configuring an automation rule and adding a **run playbook** action, a drop-down list of playbooks will appear. Playbooks to which Microsoft Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant Microsoft Sentinel permission to the playbooks' resource groups on the spot by selecting the **Manage playbook permissions** link.
 
-> [!NOTE]
-> **Permissions in a multi-tenant architecture**
->
-> Automation rules fully support cross-workspace and multi-tenant deployments (in the case of multi-tenant, using [Azure Lighthouse](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse)).
->
-> Therefore, if your Azure Sentinel deployment uses a multi-tenant architecture (If you're an MSSP, for example), you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
+#### Permissions in a multi-tenant architecture
+
+Automation rules fully support cross-workspace and [multi-tenant deployments](extend-sentinel-across-workspaces-tenants.md#managing-workspaces-across-tenants-using-azure-lighthouse) (in the case of multi-tenant, using [Azure Lighthouse](../lighthouse/index.yml)).
+
+Therefore, if your Microsoft Sentinel deployment uses a multi-tenant architecture, you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
+
+In the specific case of a Managed Security Service Provider (MSSP), where a service provider tenant manages a Microsoft Sentinel workspace in a customer tenant, there are two particular scenarios that warrant your attention:
+
+- **An automation rule created in the customer tenant is configured to run a playbook located in the service provider tenant.** 
+
+    This approach is normally used to protect intellectual property in the playbook. Nothing special is required for this scenario to work. When defining a playbook action in your automation rule, and you get to the stage where you grant Microsoft Sentinel permissions on the relevant resource group where the playbook is located (using the **Manage playbook permissions** panel), you'll see the resource groups belonging to the service provider tenant among those you can choose from. [See the whole process outlined here](tutorial-respond-threats-playbook.md#respond-to-incidents).
+
+- **An automation rule created in the customer workspace (while signed into the service provider tenant) is configured to run a playbook located in the customer tenant**.
+
+    This configuration is used when there is no need to protect intellectual property. For this scenario to work, permissions to execute the playbook need to be granted to Microsoft Sentinel in ***both tenants***. In the customer tenant, you grant them in the **Manage playbook permissions** panel, just like in the scenario above. To grant the relevant permissions in the service provider tenant, you need to add an additional Azure Lighthouse delegation that grants access rights to the **Azure Security Insights** app, with the **Microsoft Sentinel Automation Contributor** role, on the resource group where the playbook resides.
+
+    The scenario looks like this:
+
+    :::image type="content" source="./media/automate-incident-handling-with-automation-rules/automation-rule-multi-tenant.png" alt-text="Multi-tenant automation rule architecture":::
+
+    See [our instructions](tutorial-respond-threats-playbook.md#permissions-to-run-playbooks) for setting this up.
 
 ## Creating and managing automation rules
 
-You can create and manage automation rules from different points in the Azure Sentinel experience, depending on your particular need and use case.
+You can create and manage automation rules from different points in the Microsoft Sentinel experience, depending on your particular need and use case.
 
 - **Automation blade**
 
@@ -171,7 +186,7 @@ SecurityIncident
 
 ## Next steps
 
-In this document, you learned how to use automation rules to manage your Azure Sentinel incidents queue and implement some basic incident-handling automation.
+In this document, you learned how to use automation rules to manage your Microsoft Sentinel incidents queue and implement some basic incident-handling automation.
 
-- To learn more about advanced automation options, see [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md).
-- For help in implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
+- To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
+- For help in implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).

@@ -2,16 +2,18 @@
 title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
-ms.date: 05/11/2021
+ms.date: 11/02/2021
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Create an App Service app on Azure Arc (Preview)
 
-In this quickstart, you create an [App Service app to an Azure Arc enabled Kubernetes cluster](overview-arc-integration.md) (Preview). This scenario supports Linux apps only, and you can use a built-in language stack or a custom container.
+In this quickstart, you create an [App Service app to an Azure Arc-enabled Kubernetes cluster](overview-arc-integration.md) (Preview). This scenario supports Linux apps only, and you can use a built-in language stack or a custom container.
 
 ## Prerequisites
 
-- [Set up your Azure Arc enabled Kubernetes to run App Service](manage-create-arc-environment.md).
+- [Set up your Azure Arc-enabled Kubernetes to run App Service](manage-create-arc-environment.md).
 
 [!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
@@ -22,18 +24,6 @@ Run the following command.
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus 
 ```
-
-<!-- ## 2. Create an App Service plan
-
-Run the following command and replace `<environment-name>` with the name of the App Service Kubernetes environment (see [Prerequisites](#prerequisites)).
-
-```azurecli-interactive
-az appservice plan create --resource-group myResourceGroup --name myAppServicePlan --custom-location <environment-name> --kube-sku K1
-``` 
-
-Currently does not work
-
--->
 
 ## 2. Get the custom location
 
@@ -71,7 +61,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 > [!NOTE]
 > To use Log Analytics, you should've previously enabled it when [installing the App Service extension](manage-create-arc-environment.md#install-the-app-service-extension). If you installed the extension without Log Analytics, skip this step.
 
-Navigate to the [Log Analytics workspace that's configured with your App Service extension](manage-create-arc-environment.md#install-the-app-service-extension), then click Logs in the left navigation. Run the following sample query to show logs over the past 72 hours. Replace `<app-name>` with your web app name. 
+Navigate to the [Log Analytics workspace that's configured with your App Service extension](manage-create-arc-environment.md#install-the-app-service-extension), then click Logs in the left navigation. Run the following sample query to show logs over the past 72 hours. Replace `<app-name>` with your web app name. If there's an error when running a query, try again in 10-15 minutes (there may be a delay for Log Analytics to start receiving logs from your application). 
 
 ```kusto
 let StartTime = ago(72h);
@@ -89,12 +79,12 @@ You can learn more about log queries in [getting started with Kusto](../azure-mo
 
 ## (Optional) Deploy a custom container
 
-To create a custom container app, run [az webapp create](/cli/azure/webapp#az_webapp_create) with `--deployment-container-image-name`. For a private repository, add `--docker-registry-server-user` and `--docker-registry-server-password`.
+To create a custom containerized app, run [az webapp create](/cli/azure/webapp#az_webapp_create) with `--deployment-container-image-name`. For a private repository, add `--docker-registry-server-user` and `--docker-registry-server-password`.
 
 For example, try:
 
 ```azurecli-interactive
-az webapp create 
+az webapp create \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \

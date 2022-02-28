@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/28/2021
-ms.custom: contperf-fy21q4
+ms.date: 07/12/2021
+ms.custom: contperf-fy21q4, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # How to create and manage LUIS resources
@@ -42,7 +43,7 @@ You can use the [v3.0-preview LUIS Endpoint API](https://westus.dev.cognitive.mi
 
 ## Create LUIS resources
 
-To create LUIS resources, you can use the LUIS portal, [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne), or Azure CLI. After you've created your resources, you will need to assign them to your apps to be used by them.
+To create LUIS resources, you can use the LUIS portal, [Azure portal](https://portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne), or Azure CLI. After you've created your resources, you will need to assign them to your apps to be used by them.
 
 # [LUIS portal](#tab/portal)
 
@@ -65,9 +66,9 @@ To create LUIS resources, you can use the LUIS portal, [Azure portal](https://ms
 
 [!INCLUDE [Create LUIS Prediction resource in LUIS portal](./includes/add-prediction-resource-portal.md)]
 
-# [Azure CLI](#tab/cli)
+# [Without LUIS portal](#tab/without-portal)
 
-### Create LUIS resources in the Azure CLI
+### Create LUIS resources without using the LUIS portal
 
 Use the [Azure CLI](/cli/azure/install-azure-cli) to create each resource individually.
 
@@ -126,9 +127,9 @@ The following procedure assigns a resource to a specific app.
 1. On the **Prediction resource** or **Authoring resource** tab, select the **Add prediction resource** or **Add authoring resource** button.
 1. Use the fields in the form to find the correct resource, and then select **Save**.
 
-# [Azure CLI](#tab/cli)
+# [Without LUIS portal](#tab/without-portal)
 
-## Assign prediction resource programmatically 
+## Assign prediction resource without using the LUIS portal
 
 For automated processes like CI/CD pipelines, you can automate the assignment of a LUIS resource to a LUIS app with the following steps:
 
@@ -177,9 +178,9 @@ When you unassign a resource, it's not deleted from Azure. It's only unlinked fr
 1. Go to **Manage** > **Azure Resources**.
 1. Select the **Unassign resource** button for the resource.
 
-# [Azure CLI](#tab/cli)
+# [Without LUIS portal](#tab/without-portal)
 
-## Unassign prediction resource programmatically
+## Unassign prediction resource without using the LUIS portal
 
 1. Get an [Azure Resource Manager token](https://resources.azure.com/api/token?plaintext=true) which is an alphanumeric string of characters. This token does expire, so use it right away. You can also use the following Azure CLI command.
 

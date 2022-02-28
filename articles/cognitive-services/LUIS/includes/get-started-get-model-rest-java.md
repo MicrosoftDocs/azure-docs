@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 
 ## Prerequisites
 
-* [JDK SE](/azure/developer/java/fundamentals/java-jdk-long-term-support)  (Java Development Kit, Standard Edition)
+* [JDK SE](/azure/developer/java/fundamentals/java-support-on-azure)  (Java Development Kit, Standard Edition)
 * [Visual Studio Code](https://code.visualstudio.com/) or your favorite IDE
 
 ## Example utterances JSON file
@@ -154,5 +154,4 @@ When you are finished with this quickstart, delete the project folder from the f
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Best practices for an app](../luis-concept-best-practices.md)
+[Best practices for an app](../luis-concept-best-practices.md)

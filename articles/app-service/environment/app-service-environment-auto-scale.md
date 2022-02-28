@@ -1,19 +1,19 @@
 ---
 title: Autoscaling v1
 description: Autoscaling and App Service Environment v1. This doc is provided only for customers who use the legacy v1 ASE.
-author: btardif
+author: madsd
 
 ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
 
 ---
 # Autoscaling and App Service Environment v1
 
 > [!NOTE]
-> This article is about the App Service Environment v1.  There is a newer version of the App Service Environment that is easier  to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App  Service Environment](intro.md).
+> This article is about the App Service Environment v1. There is a newer version of the App Service Environment that is easier  to use and runs on more powerful infrastructure. To learn more about the new version start with the [Introduction to the App  Service Environment](intro.md).
 > 
 
 Azure App Service environments support *autoscaling*. You can autoscale individual worker pools based on metrics or schedule.

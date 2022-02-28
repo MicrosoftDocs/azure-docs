@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Use your own data"
+title: "Tutorial: Upload data and train a model"
 titleSuffix: Azure Machine Learning
-description: Part 3 of the Azure Machine Learning get-started series shows how to use your own data in a remote training run.
+description: How to upload and use your own data in a remote training run. This is part 3 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,19 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 04/29/2021
-ms.custom: tracking-python, contperf-fy21q3
+ms.date: 12/21/2021
+ms.custom: tracking-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
-# Tutorial: Use your own data (part 3 of 3)
+# Tutorial: Upload data and train a model (part 3 of 3)
 
-This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning.
+This tutorial shows you how to upload and use your own data to train machine learning models in Azure Machine Learning. This tutorial is *part 3 of a three-part tutorial series*.  
 
-This tutorial is *part 3 of a three-part tutorial series* in which you learn the fundamentals of Azure Machine Learning and complete jobs-based machine learning tasks in Azure. This tutorial builds on the work you completed in [Part 1: Run "Hello World!"](tutorial-1st-experiment-hello-world.md), and [Part 2: Train a model](tutorial-1st-experiment-sdk-train.md).
-
-In [Part 2: Train a model](tutorial-1st-experiment-sdk-train.md), data was downloaded through the inbuilt `torchvision.datasets.CIFAR10` method in the PyTorch API. However, in many cases you'll want to use your own data in a remote training run. This article shows the workflow that you can use to work with your own data in Azure Machine Learning.
+In [Part 2: Train a model](tutorial-1st-experiment-sdk-train.md), you trained a model in the cloud, using sample data from `PyTorch`.  You also downloaded that data through the `torchvision.datasets.CIFAR10` method in the PyTorch API. In this tutorial, you'll use the downloaded data to learn the workflow for working with your own data in Azure Machine Learning.
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Configure a training script to use data in a local directory.
-> * Test the training script locally.
 > * Upload data to Azure.
 > * Create a control script.
 > * Understand the new Azure Machine Learning concepts (passing parameters, datasets, datastores).
@@ -160,9 +156,6 @@ optimizer = optim.SGD(
 )
 ```
 
-> [!div class="nextstepaction"]
-> [I adjusted the training script](?success=adjust-training-script#upload) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=adjust-training-script)
-
 
 ## <a name="upload"></a> Upload the data to Azure
 
@@ -203,9 +196,6 @@ To run this script in Azure Machine Learning, you need to make your training dat
     Uploaded 9 files
     ```
 
-> [!div class="nextstepaction"]
-> [I uploaded the data](?success=upload-data#control-script) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=upload-data)
-
 ## <a name="control-script"></a> Create a control script
 
 As you've done previously, create a new Python control script called *run-pytorch-data.py* in the **get-started** folder:
@@ -235,8 +225,11 @@ if __name__ == "__main__":
             '--momentum', 0.92],
     )
 
-    # use curated pytorch environment 
-    env = ws.environments['AzureML-PyTorch-1.6-CPU']
+    # set up pytorch environment
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='pytorch-env.yml'
+    )
     config.run_config.environment = env
 
     run = experiment.submit(config)
@@ -270,21 +263,18 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
    :::column-end:::
 :::row-end:::
 
-> [!div class="nextstepaction"]
-> [I created the control script](?success=control-script#submit-to-cloud) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=control-script)
-
 ## <a name="submit-to-cloud"></a> Submit the run to Azure Machine Learning
 
 Select **Save and run script in terminal**  to run the *run-pytorch-data.py* script.  This run will train the model on the compute cluster using the data you uploaded.
 
 This code will print a URL to the experiment in the Azure Machine Learning studio. If you go to that link, you'll be able to see your code running.
 
-> [!div class="nextstepaction"]
-> [I resubmitted the run](?success=submit-to-cloud#inspect-log) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=submit-to-cloud)
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
+
 
 ### <a name="inspect-log"></a> Inspect the log file
 
-In the studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `70_driver_log.txt` file. Scroll down through the log file until you see the following output:
+In the studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `std_log.txt` file. Scroll down through the log file until you see the following output:
 
 ```txt
 Processing 'input'.
@@ -323,8 +313,6 @@ Notice:
 - Azure Machine Learning has mounted Blob Storage to the compute cluster automatically for you.
 - The ``dataset.as_named_input('input').as_mount()`` used in the control script resolves to the mount point.
 
-> [!div class="nextstepaction"]
-> [I inspected the log file](?success=inspect-log#clean-up-resources) [I ran into an issue](https://www.research.net/r/7C6W7BQ?issue=inspect-log)
 
 ## Clean up resources
 
@@ -354,4 +342,5 @@ You saw how to modify your training script to accept a data path via the command
 
 Now that you have a model, learn:
 
-* How to [deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
+> [!div class="nextstepaction"]
+> [How to deploy models with Azure Machine Learning](how-to-deploy-and-where.md).

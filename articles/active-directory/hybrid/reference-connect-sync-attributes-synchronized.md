@@ -4,13 +4,12 @@ description: Lists the attributes that are synchronized to Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 04/15/2020
 ms.subservice: hybrid
@@ -50,7 +49,6 @@ In this case, start with the list of attributes in this topic and identify those
 | Attribute Name | User | Contact | Group | Comment |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Defines if an account is enabled. |
-| assistant |X |X | | |
 | altRecipient |X | | |Requires Azure AD Connect build 1.1.552.0 or after. |
 | authOrig |X |X |X | |
 | c |X |X | | |

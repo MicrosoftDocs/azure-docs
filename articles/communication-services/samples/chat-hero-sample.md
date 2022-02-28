@@ -1,21 +1,19 @@
 ---
-title: Group Chat Hero Sample
+title: Chat Hero Sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of chat hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample and learn how to modify it.
 author: ddematheu2
-manager: nimag
+manager: chpalm
 services: azure-communication-services
 
 ms.author: dademath
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-
+ms.subservice: chat
 ---
 
-# Get started with the group chat hero sample
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include-chat.md)]
+# Get started with the chat hero sample
 
 > [!IMPORTANT]
 > [This sample is available **on GitHub**.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
@@ -38,9 +36,9 @@ When you press the "Start a Chat" button, the web application fetches a user acc
 
 :::image type="content" source="./media/chat/pre-chat.png" alt-text="Screenshot showing the application's pre-chat screen.":::
 
-Once your configure your display name and emoji, you can join the chat session. Now you will see the main chat canvas where the core chat experience lives.
+Once you configure your display name and emoji, you can join the chat session. Now you will see the main chat canvas where the core chat experience lives.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Screenshot showing showing the main screen of the sample application.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Screenshot showing the main screen of the sample application.":::
 
 Components of the main chat screen:
 
@@ -56,7 +54,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 - [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
 - [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploying the service & client app
 
@@ -71,8 +69,8 @@ You can test the sample locally by opening multiple browser sessions with the UR
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
-3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
-4. Once you get the `Connection String`, Add the connection string to the **Chat/appsettings.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
+3. Get the `Connection String` and `Endpoint URL` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Services resources](../quickstarts/create-communication-resource.md)
+4. Once you get the `Connection String` and `Endpoint URL`, Add both values to the **Server/appsettings.json** file found under the Chat Hero Sample folder. Input your connection string in the variable: `ResourceConnectionString` and endpoint URL in the variable: `EndpointUrl`.
 
 ### Local run
 
@@ -104,7 +102,7 @@ For more information, see the following articles:
 
 - Learn about [chat concepts](../concepts/chat/concepts.md)
 - Familiarize yourself with our [Chat SDK](../concepts/chat/sdk-features.md)
-- Review the [Contoso Med App](https://github.com/Azure-Samples/communication-services-contoso-med-app) sample
+- Check out the chat components in the [UI Library](https://azure.github.io/communication-ui-library/)
 
 ## Additional reading
 

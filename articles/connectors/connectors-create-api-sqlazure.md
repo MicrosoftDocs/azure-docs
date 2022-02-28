@@ -1,15 +1,15 @@
 ---
 title: Connect to SQL Server, Azure SQL Database, or Azure SQL Managed Instance
-description: Automate tasks for SQL databases on premises or in the cloud by using Azure Logic Apps
+description: Automate tasks for SQL databases on premises or in the cloud using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm, azla
-ms.topic: conceptual
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 03/24/2021
 tags: connectors
 ---
 
-# Automate workflows for a SQL database by using Azure Logic Apps
+# Connect to a SQL database from Azure Logic Apps
 
 This article shows how you can access data in your SQL database from inside a logic app with the SQL Server connector. That way, you can automate tasks, processes, or workflows that manage your SQL data and resources by creating logic apps. The SQL Server connector works for [SQL Server](/sql/sql-server/sql-server-technical-documentation) as well as [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) and [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
@@ -19,7 +19,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An [SQL Server database](/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md), or [Azure SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
 
@@ -73,6 +73,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
    |----------------|-------------|
    | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid identity in Azure Active Directory (Azure AD) that has access to your database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](../azure-sql/database/authentication-aad-overview.md) |
    | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid user name and strong password that are created and stored in your database. <p>For more information, see these topics: <p>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | **Managed Identity** | - Supports both the non-ISE and ISE SQL Server connector. <p><p>- Requires a valid managed identity that has [access to your database](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md), **SQL DB Contributor** role access to the SQL Server resource, and **Contributor** access to the resource group that includes the SQL Server resource. <p>For more information, see [SQL - Server-Level Roles](/sql/relational-databases/security/authentication-access/server-level-roles).
    |||
 
    This example continues with **Azure AD Integrated**:

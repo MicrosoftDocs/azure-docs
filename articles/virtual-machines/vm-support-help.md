@@ -20,7 +20,7 @@ Here are suggestions for where you can get help when developing your Azure Virtu
 
 Various articles explain how to determine, diagnose, and fix issues that you might encounter when using Azure Virtual Machines. Use these articles to troubleshoot deployment failures, unexpected restarts, connection issues and more. 
 
-For a full list of self help troubleshooting content, see [Azure Virtual Machine troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
+For a full list of self help troubleshooting content, see [Azure Virtual Machine troubleshooting documentation](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 
 
 ## Post a question on Microsoft Q&A
@@ -37,13 +37,13 @@ If you can't find an answer to your problem using search, submit a new question 
 | Area | Tag |
 |-------|----------------------|
 | [Azure Virtual Machines](./linux/overview.md) | [azure-virtual-machines](/answers/topics/azure-virtual-machines.html) | 
-| [Azure SQL Virtual Machines](https://docs.microsoft.com/azure/azure-sql/virtual-machines/) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
+| [Azure SQL Virtual Machines](../azure-sql/virtual-machines/index.yml) | [azure-sql-virtual-machines](/answers/topics/azure-sql-virtual-machines.html)| 
 | [Azure Virtual Machine backup](backup-recovery.md) | [azure-virtual-machine-backup](/answers/questions/36892/azure-virtual-machine-backups.html) | 
 | [Azure Virtual Machine extension](./extensions/overview.md) | [azure-virtual-machine-extension](/answers/topics/azure-virtual-machines-extension.html)| 
 | [Azure Virtual Machine Images](shared-image-galleries.md) | [azure-virtual-machine-images](/answers/topics/azure-virtual-machines-images.html) | 
 | [Azure Virtual Machine migration](classic-vm-deprecation.md) | [azure-virtual-machine-migration](/answers/topics/azure-virtual-machines-migration.html) | 
 | [Azure Virtual Machine monitoring](../azure-monitor/vm/monitor-vm-azure.md) | [azure-virtual-machine-monitoring](/answers/topics/azure-virtual-machines-monitoring.html) |
-| [Azure Virtual Machine networking](network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
+| [Azure Virtual Machine networking](../virtual-network/network-overview.md) | [azure-virtual-machine-networking](/answers/topics/azure-virtual-machines-networking.html) | 
 | [Azure Virtual Machine storage](managed-disks-overview.md) | [azure-virtual-machine-storage](/answers/topics/azure-virtual-machines-storage.html) | 
 | [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md) | [azure-virtual-machine-scale-set](/answers/topics/azure-virtual-machines-scale-set.html) | 
 
@@ -82,19 +82,6 @@ If you need help with the language and tools used to develop and manage Azure Vi
 | Ansible | https://github.com/Azure/Ansible/issues | 
 
 
-
-## Submit feature requests on Azure Feedback
-
-<div class='icon is-large'>
-    <img alt='UserVoice' src='./media/logos/azure-feedback-logo.png'>
-</div>
-
-To request new features, post them on Azure Feedback. Share your ideas for improving Azure Virtual Machines.
-
-| Service                       | Azure Feedback URL |
-|-------------------------------|---------------|
-| Azure Virtual Machines  | https://feedback.azure.com/forums/216843-virtual-machines 
-
 ## Stay informed of updates and new releases
 
 <div class='icon is-large'>
@@ -108,4 +95,4 @@ News and information about Azure Virtual Machines is shared at the [Azure blog](
 
 ## Next steps
 
-Learn more about [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/)
+Learn more about [Azure Virtual Machines](./index.yml)

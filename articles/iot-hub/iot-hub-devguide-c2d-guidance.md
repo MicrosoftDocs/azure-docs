@@ -2,7 +2,7 @@
 title: Azure IoT Hub cloud-to-device options | Microsoft Docs
 description: Developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages for cloud-to-device communications. 
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -21,7 +21,7 @@ IoT Hub provides three options for device apps to expose functionality to a back
 
 * [Cloud-to-device messages](iot-hub-devguide-messages-c2d.md) for one-way notifications to the device app.
 
-To learn how [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) uses these options to control IoT Plug and Play devices, see [IoT Plug and Play service developer guide](../iot-pnp/concepts-developer-guide-service.md).
+To learn how [Azure IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) uses these options to control IoT Plug and Play devices, see [IoT Plug and Play service developer guide](../iot-develop/concepts-developer-guide-service.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -39,6 +39,6 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 
-* [Use direct methods](quickstart-control-device-node.md)
+* [Use direct methods](quickstart-control-device.md)
 * [Use desired properties to configure devices](tutorial-device-twins.md) 
 * [Send cloud-to-device messages](iot-hub-node-node-c2d.md)

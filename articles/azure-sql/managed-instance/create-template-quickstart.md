@@ -4,8 +4,7 @@ description: Learn how to create an Azure SQL Managed Instance by using an Azure
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: subject-armqs, devx-track-azurepowershell
-ms.devlang:
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
@@ -29,7 +28,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/sqlmi-new-vnet/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.sql/sqlmi-new-vnet/azuredeploy.json":::
 
@@ -47,7 +46,7 @@ More template samples can be found in [Azure Quickstart Templates](https://azure
 Select **Try it** from the following PowerShell code block to open Azure Cloud Shell.
 
 > [!IMPORTANT]
-> Deploying a managed instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [SQL Managed Instance management operations](sql-managed-instance-paas-overview.md#management-operations).
+> Deploying a managed instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [SQL Managed Instance management operations](management-operations-overview.md#duration).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -102,7 +101,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 # [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az group delete --name $resourceGroupName

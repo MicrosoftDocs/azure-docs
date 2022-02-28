@@ -3,9 +3,9 @@ title: Monitor normalized RU/s for an Azure Cosmos container or an account
 description: Learn how to monitor the normalized request unit usage of an operation in Azure Cosmos DB. Owners of an Azure Cosmos DB account can understand which operations are consuming more request units. 
 ms.service: cosmos-db
 ms.topic: how-to
-author: kanshiG   
-ms.author: govindk
-ms.date: 01/07/2021
+ms.author: esarroyo
+author: StefArroyo 
+ms.date: 02/17/2022
 
 ---
 
@@ -15,7 +15,7 @@ ms.date: 01/07/2021
 Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly.
 
 The **Normalized RU Consumption** metric is used to see how well saturated the  partition key ranges are  with respect to the traffic. Azure Cosmos DB distributes the throughput equally across all the partition key ranges. This metric provides a per second view of the maximum throughput utilization for partition key range. Use this metric to calculate the RU/s usage across partition key range for given container. By using this metric, if you see high percentage of request units utilization across all partition key ranges in Azure monitor, you should increase the throughput to meet the needs of your workload. 
-Example - Normalized utilization is defined as the max of the RU/s utilization across all partition key ranges. For example, suppose your max throughput is 20,000 RU/s and you have two   partition key ranges, P_1 and P_2, each capable of scaling to 10,000 RU/s. In a given second, if P_1 has used 6000 RUs, and P_2 8000 RUs, the normalized utilization is MAX(6000 RU / 10,000 RU, 8000 RU / 10,000 RU) = 0.8.
+Example - Normalized utilization is defined as the max of the RU/s utilization across all partition key ranges. For example, suppose your max throughput is 24,000 RU/s and you have three partition key ranges, P_1, P_2, and P_3 each capable of scaling to 8,000 RU/s. In a given second, if P_1 has used 6000 RUs, P_2 7000 RUs, and P_3 5000 RUs the normalized utilization is MAX(6000 RU / 8000 RU, 7000 RU / 8000 RU, 5000 RU / 8000 RU) = 0.875.
 
 ## What to expect and do when normalized RU/s is higher
 
@@ -35,17 +35,17 @@ In summary, the **Normalized RU Consumption** metric is  used to see which parti
 
 2. Select **Monitor** from the left-hand navigation bar, and select **Metrics**.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Metrics pane in Azure Monitor":::
+   :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Metrics pane in Azure Monitor" border="true":::
 
 3. From the **Metrics** pane > **Select a resource** > choose the required **subscription**, and **resource group**. For the **Resource type**, select **Azure Cosmos DB accounts**, choose one of your existing Azure Cosmos accounts, and select **Apply**.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Choose an Azure Cosmos account to view metrics":::
+   :::image type="content" source="./media/monitor-account-key-updates/select-account-scope.png" alt-text="Select the account scope to view metrics" border="true":::
 
 4. Next you can select a metric from the list of available metrics. You can select metrics specific to request units, storage, latency, availability, Cassandra, and others. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let’s select **Normalized RU Consumption** metric and **Max** as the aggregation value.
 
    In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter.
 
-   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Choose a metric from the Azure portal":::
+   :::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-metric.png" alt-text="Choose a metric from the Azure portal" border="true":::
 
 ### Filters for normalized request unit consumption
 
@@ -55,7 +55,7 @@ You can group metrics by using the **Apply splitting** option. For shared throug
 
 The normalized request unit consumption metric for each container is displayed as shown in the following image:
 
-:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Apply filters to normalized request unit consumption metric":::
+:::image type="content" source="./media/monitor-normalized-request-units/normalized-request-unit-usage-filters.png" alt-text="Apply filters to normalized request unit consumption metric" border="true":::
 
 ## Next steps
 

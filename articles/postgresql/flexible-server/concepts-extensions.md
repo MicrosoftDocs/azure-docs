@@ -1,22 +1,33 @@
 ---
 title: Extensions - Azure Database for PostgreSQL - Flexible Server
-description: Learn about the available Postgres extensions in Azure Database for PostgreSQL - Flexible Server
+description: Learn about the available PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 11/30/2021
 ---
 
 # PostgreSQL extensions in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions bundle multiple related SQL objects together in a single package that can be loaded or removed from your database with a command. After being loaded in the database, extensions function like built-in features.
 
+
 ## How to use PostgreSQL extensions
-PostgreSQL extensions must be installed in your database before you can use them. To install a particular extension, run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
+Before you can install extensions in Azure Database for PostgreSQL - Flexible Server, you will need to allow-list these extensions for use. 
+
+Using the [Azure portal](https://portal.azure.com):
+
+   1. Select your Azure Database for PostgreSQL - Flexible Server.
+   2. On the sidebar, select **Server Parameters**.
+   3. Search for the `azure.extensions` parameter.
+   4. Select extensions you wish to allow-list.
+     :::image type="content" source="./media/concepts-extensions/allow-list.png" alt-text=" Screenshot showing Azure Database for PostgreSQL - allow-listing extensions for installation ":::
+  
+After extensions are allow-listed, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
+
 
 Azure Database for PostgreSQL supports a subset of key extensions as listed below. This information is also available by running `SHOW azure.extensions;`. Extensions not listed in this document are not supported on Azure Database for PostgreSQL - Flexible Server. You cannot create or load your own extension in Azure Database for PostgreSQL.
 
@@ -27,8 +38,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.1.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.1.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/13/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
 > |[bloom](https://www.postgresql.org/docs/13/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/13/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -44,6 +55,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[intagg](https://www.postgresql.org/docs/13/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/13/intarray.html)                     | 1.3             | functions, operators, and index support for 1-D arrays of integers|
 > |[isn](https://www.postgresql.org/docs/13/isn.html)                          | 1.2             | data types for international product numbering standards|
+> |[lo](https://www.postgresql.org/docs/13/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/13/ltree.html)                        | 1.2             | data type for hierarchical tree-like structures|
 > |[pageinspect](https://www.postgresql.org/docs/13/pageinspect.html)                        | 1.8             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/13/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
@@ -55,8 +67,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_trgm](https://www.postgresql.org/docs/13/pgtrgm.html)                      | 1.5             | text similarity measurement and index searching based on trigrams|
 > |[pg_visibility](https://www.postgresql.org/docs/13/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.5             | provides auditing functionality|
-> |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.3           | PostgreSQL logical replication|
+> |[pgcrypto](https://www.postgresql.org/docs/13/pgcrypto.html)                     | 1.3             | cryptographic functions| 
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
 > |[pgrowlocks](https://www.postgresql.org/docs/13/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/13/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/13/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
@@ -79,8 +91,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 3.0.0           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 3.0.0           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | functions for verifying relation integrity|
 > |[bloom](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -93,9 +105,11 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[earthdistance](https://www.postgresql.org/docs/12/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/12/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
 > |[hstore](https://www.postgresql.org/docs/12/hstore.html)                       | 1.6             | data type for storing sets of (key, value) pairs|
+> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.2             | extension adding support for hypothetical indexes |
 > |[intagg](https://www.postgresql.org/docs/12/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/12/intarray.html)                     | 1.2             | functions, operators, and index support for 1-D arrays of integers|
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | data types for international product numbering standards|
+> |[lo](https://www.postgresql.org/docs/12/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
@@ -108,7 +122,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.2           | PostgreSQL logical replication|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
@@ -131,8 +145,8 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > [!div class="mx-tableFixed"]
 > | **Extension**| **Extension version** | **Description** |
 > |---|---|---|
-> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
-> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
+> |[address_standardizer](http://postgis.net/docs/manual-2.5/Address_Standardizer.html)         | 2.5.1           | Used to parse an address into constituent elements. |
+> |[address_standardizer_data_us](http://postgis.net/docs/manual-2.5/Address_Standardizer.html) | 2.5.1           | Address Standardizer US dataset example|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1.1             | functions for verifying relation integrity|
 > |[bloom](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | bloom access method - signature file based index|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | support for indexing common datatypes in GIN|
@@ -145,9 +159,11 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | data type for storing sets of (key, value) pairs|
+> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.1.2            | extension adding support for hypothetical indexes |
 > |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | functions, operators, and index support for 1-D arrays of integers|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data types for international product numbering standards|
+> |[lo](https://www.postgresql.org/docs/11/lo.html)                            | 1.1             | large object maintenance |
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | data type for hierarchical tree-like structures|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | inspect the contents of database pages at a low level|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | examine the shared buffer cache|
@@ -160,7 +176,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examine the visibility map (VM) and page-level visibility info|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | provides auditing functionality|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | cryptographic functions|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                     | 2.3.2           | PostgreSQL logical replication|
+>|[pglogical](https://github.com/2ndQuadrant/pglogical)       | 2.3.2                | Logical streaming replication |
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | show row-level locking information|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | show tuple-level statistics|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL procedural language|
@@ -207,6 +223,8 @@ To unschedule all tasks from pg_cron
 ```
 SELECT cron.unschedule(jobid) FROM cron.job;
 ```
+> [!NOTE]
+> pg_cron extension is preloaded in every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security.
 
 ## pg_stat_statements
 
@@ -218,4 +236,4 @@ There is a tradeoff between the query execution information pg_stat_statements p
 
 ## Next steps
 
-If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback requests in our [feedback forum](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).

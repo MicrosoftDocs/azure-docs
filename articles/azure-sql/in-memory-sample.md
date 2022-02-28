@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: sample
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: mathoma
+author: srinia
+ms.author: srinia
+ms.reviewer: mathoma, kendralittle
 ms.date: 12/18/2018
 ---
 # In-Memory sample

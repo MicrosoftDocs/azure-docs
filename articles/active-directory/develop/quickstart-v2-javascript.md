@@ -3,17 +3,15 @@ title: "Quickstart: Sign in users in JavaScript single-page apps | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how a JavaScript app can call an API that requires access tokens issued by the Microsoft identity platform.
 services: active-directory
-author: navyasric
+author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 04/11/2019
-ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-
+ms.author: marsma
+ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:JavaScript", devx-track-js, mode-api
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
@@ -54,7 +52,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. Under **Manage**, select **Authentication**.
 > 1. Under **Platform Configurations** > **Add a platform**. Select **Web**.
-> 1. Set the **Redirect URI** value to `http://localhost:3000/`. 
+> 1. Set the **Redirect URI** value to `http://localhost:3000/`.
 > 1. Select **Access Tokens** and **ID Tokens** under the **Implicit grant and hybrid flows**  .
 > 1. Select **Configure**.
 
@@ -237,7 +235,7 @@ myMSALObj.loginPopup(loginRequest)
 |---------|---------|
 | `scopes`   | (Optional) Contains scopes that are being requested for user consent at sign-in time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom web APIs (that is, `api://<Application ID>/access_as_user`). |
 
-Alternatively, you might want to use the `loginRedirect` method to redirect the current page to the sign-in page instead of a popup window.
+Alternatively, you might want to use the `loginRedirect` method to redirect the current page to the sign-in page instead of a pop-up window.
 
 ### Request tokens
 
@@ -275,7 +273,7 @@ There are situations where you force users to interact with the Microsoft identi
 
 The usual recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception, and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-Calling the `acquireTokenPopup` results in a popup window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
+Calling the `acquireTokenPopup` results in a pop-up window for signing in. (Or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform). In that window, users need to interact by confirming their credentials, giving the consent to the required resource, or completing the two-factor authentication.
 
 ```javascript
 // Add here scopes for access token to be used at MS Graph API endpoints.
@@ -293,7 +291,7 @@ myMSALObj.acquireTokenPopup(requestObj)
 ```
 
 > [!NOTE]
-> This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods with Microsoft Internet Explorer, because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the handling of popup windows by Internet Explorer.
+> This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods with Microsoft Internet Explorer, because of a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to the handling of pop-up windows by Internet Explorer.
 
 ## Next steps
 

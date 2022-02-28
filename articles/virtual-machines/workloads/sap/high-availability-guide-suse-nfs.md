@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/12/2021
+ms.date: 01/24/2022
 ms.author: radeltch
 
 ---
@@ -40,9 +40,9 @@ ms.author: radeltch
 [sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
 [suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
 
-[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
-[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
-[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
+[template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-converged-md%2Fazuredeploy.json
+[template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
@@ -51,7 +51,7 @@ This guide describes how to set up a highly available NFS server that is used by
 
 
 > [!NOTE]
-> This article contains references to the terms *slave* and *master*, terms that Microsoft no longer uses. When the terms are removed from the software, we’ll remove them from this article.
+> This article contains references to the terms *slave* and *master*, terms that Microsoft no longer uses. When the terms are removed from the software, we'll remove them from this article.
 
 Read the following SAP Notes and papers first
 
@@ -518,9 +518,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params directory="/srv/nfs/<b>NW1</b>" \
      options="rw,no_root_squash,crossmnt" clientspec="*" fsid=1 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
-   sudo crm configure primitive vip_<b>NW1</b>_nfs \
-     IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> op monitor interval=10 timeout=20
+   sudo crm configure primitive vip_<b>NW1</b>_nfs IPaddr2 \
+     params ip=<b>10.0.0.4</b> op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_nfs azure-lb port=<b>61000</b>
    
@@ -561,9 +560,8 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      params directory="/srv/nfs/<b>NW2</b>" \
      options="rw,no_root_squash,crossmnt" clientspec="*" fsid=2 wait_for_leasetime_on_stop=true op monitor interval="30s"
    
-   sudo crm configure primitive vip_<b>NW2</b>_nfs \
-     IPaddr2 \
-     params ip=<b>10.0.0.5</b> cidr_netmask=<b>24</b> op monitor interval=10 timeout=20
+   sudo crm configure primitive vip_<b>NW2</b>_nfs IPaddr2 \
+     params ip=<b>10.0.0.5</b> op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW2</b>_nfs azure-lb port=<b>61001</b>
    

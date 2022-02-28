@@ -6,7 +6,7 @@ author: asudbring
 ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
-ms.date: 10/13/2020
+ms.date: 1/6/2022
 ms.author: allensu
 ---
 
@@ -17,7 +17,7 @@ Outbound rules allow you to explicitly define SNAT(source network address transl
 This configuration enables:
 
 * IP masquerading
-* Simplifying your allow lists.
+* Simplifying your allowlists.
 * Reduces the number of public IP resources for deployment.
 
 With outbound rules, you have full declarative control over outbound internet connectivity. Outbound rules allow you to scale and tune this ability to your specific needs. 
@@ -60,7 +60,7 @@ Use multiple IP addresses to plan for large-scale scenarios. Use outbound rules 
 
 You can also use a [public IP prefix](./load-balancer-outbound-connections.md#outboundrules) directly with an outbound rule. 
 
-A public IP prefix increases scaling of your deployment. The prefix can be added to the allow list of flows originating from your Azure resources. You can configure a frontend IP configuration within the load balancer to reference a public IP address prefix.  
+A public IP prefix increases scaling of your deployment. The prefix can be added to the allowlist of flows originating from your Azure resources. You can configure a frontend IP configuration within the load balancer to reference a public IP address prefix.  
 
 The load balancer has control over the public IP prefix. The outbound rule will automatically use all public IP addresses contained within the public IP prefix for outbound connections. 
 
@@ -117,7 +117,7 @@ If an NSG blocks health probe requests from the AZURE_LOADBALANCER default tag, 
 #### Details
 
 
-Use this scenario to tailor outbound connections to originate from a set of public IP addresses. Add public IPs or prefixes to an allow or deny list based on origination.
+Use this scenario to tailor outbound connections to originate from a set of public IP addresses. Add public IPs or prefixes to an allow or blocklist based on origination.
 
 
 This public IP or prefix can be the same as used by a load-balancing rule. 
@@ -157,26 +157,23 @@ Load balancer gives [SNAT](load-balancer-outbound-connections.md) ports in multi
 If you attempt to give more [SNAT](load-balancer-outbound-connections.md) ports than are available based on the number of public IP addresses, the configuration operation is rejected. For example, if you give 10,000 ports per VM and seven VMs in a backend pool share a single public IP, the configuration is rejected. Seven multiplied by 10,000 exceeds the 64,000 port limit. Add more public IP addresses to the frontend of the outbound rule to enable the scenario. 
 
 
-Revert to the [default port allocation](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for the number of ports. The first 50 VM instances will get 1024 ports, 51-100 VM instances will get 512 up to the maximum instances. For more information on default SNAT port allocation, see [SNAT ports allocation table](./load-balancer-outbound-connections.md#preallocatedports).
+Revert to the [default port allocation](load-balancer-outbound-connections.md#preallocatedports) by specifying 0 for the number of ports. For more information on default SNAT port allocation, see [SNAT ports allocation table](./load-balancer-outbound-connections.md#preallocatedports).
 
 
 ### <a name="scenario3out"></a>Scenario 3: Enable outbound only
 
-
 #### Details
-
 
 Use a public standard load balancer to provide outbound NAT for a group of VMs. In this scenario, use an outbound rule by itself, without any additional rules configured.
 
-
 > [!NOTE]
-> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) for more information.
 
 ### <a name="scenario4out"></a>Scenario 4: Outbound NAT for VMs only (no inbound)
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines without the need for a load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) for more information.
 
 #### Details
 
@@ -194,7 +191,7 @@ Azure Load Balancer outbound rules and Virtual Network NAT are options available
 
 
 
-Use a prefix or public IP to scale [SNAT](load-balancer-outbound-connections.md) ports. Add the source of outbound connections to an allow or deny list.
+Use a prefix or public IP to scale [SNAT](load-balancer-outbound-connections.md) ports. Add the source of outbound connections to an allow or blocklist.
 
 
 
@@ -202,7 +199,7 @@ Use a prefix or public IP to scale [SNAT](load-balancer-outbound-connections.md)
 
 
 > [!NOTE]
-> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines utilizing an internal standard load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-overview.md) for more information.
+> **Azure Virtual Network NAT** can provide outbound connectivity for virtual machines utilizing an internal standard load balancer. See [What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) for more information.
 
 #### Details
 
@@ -251,4 +248,4 @@ When only inbound NAT rules are used, no outbound NAT is provided.
 ## Next steps
 
 - Learn more about [Azure Standard Load Balancer](load-balancer-overview.md)
-- See our [frequently asked questions about Azure Load Balancer](load-balancer-faqs.md)
+- See our [frequently asked questions about Azure Load Balancer](load-balancer-faqs.yml)

@@ -3,14 +3,14 @@ title: Understand Azure Active Directory Application Proxy connectors
 description: Learn about the Azure Active Directory Application Proxy connectors.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Understand Azure AD Application Proxy connectors
@@ -25,10 +25,10 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 
 To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a machine running Windows Server 2012 R2 or later. The connector needs to communicate with the Application Proxy service and the on-premises applications that you publish.
 
-### Windows server
+### Windows Server
 You need a server running Windows Server 2012 R2 or later on which you can install the Application Proxy connector. The server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you're publishing.
 
-The windows server needs to have TLS 1.2 enabled before you install the Application Proxy connector. To enable TLS 1.2 on the server:
+The server needs to have TLS 1.2 enabled before you install the Application Proxy connector. To enable TLS 1.2 on the server:
 
 1. Set the following registry keys:
 
@@ -70,7 +70,7 @@ You may experience downtime when your connector updates if:
 - You only have one connector we recommend you install a second connector and [create a connector group](application-proxy-connector-groups.md). This will avoid downtime and provide higher availability.  
 - A connector was in the middle of a transaction when the update began. Although the initial transaction is lost, your browser should automatically retry the operation or you can refresh your page. When the request is resent, the traffic is routed to a backup connector.
 
-To see information about previously released versions and what changes they include, see [Application Proxy- Version Release History](../manage-apps/application-proxy-release-version-history.md).
+To see information about previously released versions and what changes they include, see [Application Proxy- Version Release History](./application-proxy-release-version-history.md).
 
 ## Creating connector groups
 
@@ -106,7 +106,7 @@ Connectors can be installed anywhere on the network that allows them to send req
 
 Connectors only send outbound requests. The outbound traffic is sent to the Application Proxy service and to the published applications. You don't have to open inbound ports because traffic flows both ways once a session is established. You also don't have to configure inbound access through your firewalls.
 
-For more information about configuring outbound firewall rules, see [Work with existing on-premises proxy servers](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md).
+For more information about configuring outbound firewall rules, see [Work with existing on-premises proxy servers](./application-proxy-configure-connectors-with-proxy-servers.md).
 
 ## Performance and scalability
 
@@ -128,7 +128,7 @@ For more information about optimizing your network, see [Network topology consid
 
 ## Domain joining
 
-Connectors can run on a machine that is not domain-joined. However, if you want single sign-on (SSO) to applications that use Integrated Windows Authentication (IWA), you need a domain-joined machine. In this case, the connector machines must be joined to a domain that can perform [Kerberos](https://web.mit.edu/kerberos) Constrained Delegation on behalf of the users for the published applications.
+Connectors can run on a machine that is not domain-joined. However, if you want single sign-on (SSO) to applications that use integrated Windows authentication (IWA), you need a domain-joined machine. In this case, the connector machines must be joined to a domain that can perform [Kerberos](https://web.mit.edu/kerberos) Constrained Delegation on behalf of the users for the published applications.
 
 Connectors can also be joined to domains in forests that have a partial trust, or to read-only domain controllers.
 
@@ -160,7 +160,7 @@ Register-AppProxyConnector -EnvironmentName "AzureCloud"
 
 For government, use `-EnvironmentName "AzureUSGovernment"`. For more details, see [Install Agent for the Azure Government Cloud](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud).
 
-To learn more about how to verify the certificate and troubleshoot problems see [Verify Machine and backend components support for Application Proxy trust certificate](../manage-apps/application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
+To learn more about how to verify the certificate and troubleshoot problems see [Verify Machine and backend components support for Application Proxy trust certificate](./application-proxy-connector-installation-problem.md#verify-machine-and-backend-components-support-for-application-proxy-trust-certificate).
 
 ## Under the hood
 
@@ -183,6 +183,6 @@ You can examine the state of the service in the Services window. The connector i
 ## Next steps
 
 - [Publish applications on separate networks and locations using connector groups](application-proxy-connector-groups.md)
-- [Work with existing on-premises proxy servers](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
-- [Troubleshoot Application Proxy and connector errors](../manage-apps/application-proxy-troubleshoot.md)
-- [How to silently install the Azure AD Application Proxy Connector](../manage-apps/application-proxy-register-connector-powershell.md)
+- [Work with existing on-premises proxy servers](./application-proxy-configure-connectors-with-proxy-servers.md)
+- [Troubleshoot Application Proxy and connector errors](./application-proxy-troubleshoot.md)
+- [How to silently install the Azure AD Application Proxy Connector](./application-proxy-register-connector-powershell.md)

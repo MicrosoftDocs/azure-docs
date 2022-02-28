@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ---
 # Query storage files with serverless SQL pool in Azure Synapse Analytics
 
@@ -113,7 +113,7 @@ SELECT * FROM
 OPENROWSET( BULK N'https://myaccount.dfs.core.windows.net/mycontainer/mysubfolder/data.parquet', FORMAT = 'PARQUET') 
 ```
 
-Make sure [appropriate inferred data types](best-practices-sql-on-demand.md#check-inferred-data-types) are used for optimal performance. 
+Make sure [appropriate inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types) are used for optimal performance. 
 
 ## Query multiple files or folders
 

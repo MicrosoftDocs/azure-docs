@@ -5,12 +5,12 @@ description: Connect to Azure SQL Managed Instance using SQL Server Management S
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: 
+ms.custom: mode-other
 ms.devlang: 
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, jovanpop
+ms.reviewer: mathoma, bonova, jovanpop
 ms.date: 03/13/2019
 ---
 # Quickstart: Configure a point-to-site connection to Azure SQL Managed Instance from on-premises

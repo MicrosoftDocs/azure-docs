@@ -179,7 +179,7 @@ A LUIS app in LUDown format is human readable, which supports the communication 
 
 ## Versioning
 
-An application consists of multiple components that might include things such as a bot running in [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech service](../speech-service/overview.md), and more. To achieve the goal of loosely coupled applications, use [version control](/azure/devops/learn/git/what-is-version-control) so that each component of an application is versioned independently, allowing developers to detect breaking changes or updates just by looking at the version number. It's easier to version your LUIS app independently from other components if you maintain it in its own repo.
+An application consists of multiple components that might include things such as a bot running in [Azure Bot Service](/azure/bot-service/bot-service-overview-introduction), [QnA Maker](https://www.qnamaker.ai/), [Azure Speech service](../speech-service/overview.md), and more. To achieve the goal of loosely coupled applications, use [version control](/devops/develop/git/what-is-version-control) so that each component of an application is versioned independently, allowing developers to detect breaking changes or updates just by looking at the version number. It's easier to version your LUIS app independently from other components if you maintain it in its own repo.
 
 The LUIS app for the main branch should have a versioning scheme applied. When you merge updates to the `.lu` for a LUIS app into main, you'll then import that updated source into a new version in the LUIS app for the main branch.
 
@@ -191,7 +191,7 @@ Each update the version number is incremented at the last digit.
 
 The major / minor version can be used to indicate the scope of the changes to the LUIS app functionality:
 
-* Major Version: A significant change, such as support for a new [Intent](./luis-concept-intent.md) or [Entity](./luis-concept-entity-types.md)
+* Major Version: A significant change, such as support for a new [Intent](./luis-concept-intent.md) or [Entity](concepts/entities.md)
 * Minor Version: A backwards-compatible minor change, such as after significant new training
 * Build: No functionality change, just a different build.
 
@@ -210,4 +210,4 @@ When your changes in your PR are merged into main, that is when the versioning s
 ## Next steps
 
 * Learn about [testing for LUIS DevOps](luis-concept-devops-testing.md)
-* Learn how to [implement DevOps for LUIS with GitHub](luis-how-to-devops-with-github.md)
+* Learn how to [implement DevOps for LUIS with GitHub](./luis-concept-devops-automation.md)

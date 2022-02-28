@@ -1,32 +1,31 @@
 ---
-title: Grant role-based access for users
+title: Grant role-based access for users in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: Use role-based access control to grant users authorization to Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/17/2020
+ms.date: 06/21/2021
 ms.topic: include
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+
+custom.ms: subject-rbac-steps
 ---
 
 ## Grant role-based access for users to Azure Maps
 
-You grant *Azure role-based access control (Azure RBAC)* by assigning either an Azure AD group or security principals to one or more Azure Maps role definitions. To view Azure role definitions that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*.
+You can grant *Azure role-based access control (Azure RBAC)* by assigning an Azure AD group or security principal to one or more Azure Maps role definitions.
 
-* To efficiently manage a large amount of users' access to Azure Maps, see [Azure AD Groups](../../active-directory/fundamentals/active-directory-manage-groups.md).
-* For users to be allowed to authenticate to the application, the users must be created in Azure AD. See [Add or Delete users using Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+To view the available Azure role definitions for Azure Maps, see [View built-in Azure Maps role definitions](../how-to-manage-authentication.md#view-built-in-azure-maps-role-definitions).
 
-Read more on [Azure AD](../../active-directory/fundamentals/index.yml) to effectively manage a directory for users.
+For detailed steps about how to assign an available Azure Maps role to the created managed identity or the service principal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
 
-1. Go to your **Azure Maps Account**. Select **Access control (IAM)** > **Role assignment**.
+To efficiently manage the Azure Maps app and resource access of a large amount of users, see [Azure AD Groups](../../active-directory/fundamentals/active-directory-manage-groups.md).
 
-    ![Grant access using Azure RBAC](../media/how-to-manage-authentication/how-to-grant-rbac.png)
+>[!IMPORTANT]
+>For users to be allowed to authenticate to an application, the users must first be created in Azure AD. For more information, see [Add or delete users using Azure AD](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
-2. On the **Role assignments** tab, under **Role**, select a built in Azure Maps role definition such as **Azure Maps Data Reader** or **Azure Maps Data Contributor**. Under **Assign access to**, select **Azure AD user, group, or service principal**. Select the principal by name. Then select **Save**.
-
-   * See details on [Assign Azure roles](../../role-based-access-control/role-assignments-portal.md).
+To learn about how to effectively manage a large directory for users, see [Azure AD](../../active-directory/fundamentals/index.yml).
 
 > [!WARNING]
-> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs for users to a minimum, see [create a custom role definition and assign users](../../role-based-access-control/custom-roles.md) to the custom role definition. This will enable users to have the least privilege necessary for the application.
+> Azure Maps built-in role definitions provide a very large authorization access to many Azure Maps REST APIs. To restrict APIs access to a minimum, see [create a custom role definition and assign the system-assigned identity](../../role-based-access-control/custom-roles.md) to the custom role definition. This enables the least privilege necessary for the application to access Azure Maps.

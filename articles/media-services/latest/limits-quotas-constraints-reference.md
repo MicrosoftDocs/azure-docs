@@ -3,14 +3,14 @@ title: Quotas and limits in Azure Media Services
 description: This topic describes quotas and limits in Microsoft Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: IngridAtMicrosoft
+author: jiayali-ms
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/23/2020
+ms.date: 08/25/2021
 ms.author: inhenkel
 ---
 
@@ -38,22 +38,15 @@ This article lists some of the most common Microsoft Azure Media Services limits
 
 ## Storage limits
 
-| Resource | Default Limit | 
-| --- | --- | 
-| File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>(1)</sup> |
-| [Storage accounts](storage-account-concept.md) | 100<sup>(2)</sup> (fixed) |
+Azure Storage block blog limits apply to storage accounts used with Media Services.  See [Azure Blob Storage limits](/azure/azure-resource-manager/management/azure-subscription-service-limits.md#azure-blob-storage-limits).
 
-<sup>1</sup> The maximum size supported for a single blob is currently up to 5 TB in Azure Blob Storage. Additional limits apply in Media Services based on the VM sizes that are used by the service. The size limit applies to the files that you upload and also the files that get generated as a result of Media Services processing (encoding or analyzing). If your source file is larger than 260-GB, your Job will likely fail. 
+These limit includes the total stored data storage size of the files that you upload for encoding and the file sizes of the encoded files.  The limit for file size for encoding is a different limit. See [File size for encoding](#file-size-for-encoding-limit).
 
-The following table shows the limits on the media reserved units S1, S2, and S3. If your source file is larger than the limits defined in the table, your encoding job fails. If you encode 4K resolution sources of long duration, you're required to use S3 media reserved units to achieve the performance needed. If you have 4K content that's larger than the 260-GB limit on the S3 media reserved units, open a support ticket.
+### Storage account limit
+You can have up to 100 storage accounts. All storage accounts must be in the same Azure subscription.
 
-|Media reserved unit type|Maximum input size (GB)|
-|---|---|
-|S1 |    26|
-|S2    | 60|
-|S3    |260|
-
-<sup>2</sup> The storage accounts must be from the same Azure subscription.
+## File size for encoding limit
+An individual file that you upload to be encoded should be no larger than 260 GB.
 
 ## Jobs (encoding & analyzing) limits
 
@@ -78,7 +71,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | Live Outputs per Live Event |3 <sup>(5)</sup> |
 | Max Live Output duration | [Size of the DVR window](live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> For detailed information about Live Event limits, see [Live Event types comparison and limits](live-event-types-comparison-reference.md).
+<sup>4</sup> For detailed information about Live Event limits, see [Live Event types comparison and limits](live-event-types-comparison-reference.md). Depending on your streaming use case and regional datacenter of choice, AMS is able to accommodate more than 5 Live Events per Media Services account. Please file a support request to increase your account quota.
 
 <sup>5</sup> Live Outputs start on creation and stop when deleted.
 

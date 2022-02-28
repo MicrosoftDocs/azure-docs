@@ -3,7 +3,7 @@ title: How to use device commands in an Azure IoT Central solution
 description: How to use device commands in Azure IoT Central solution. This tutorial shows you how to use device commands in client app to your Azure IoT Central application. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/07/2021 
+ms.date: 12/27/2021 
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -36,7 +36,7 @@ The following table shows the configuration settings for a command capability:
 
 | Field             |Description|
 |-------------------|-----------|
-|Display Name       |The command value used on dashboards and forms.|
+|Display Name       |The command value used on dashboard tiles and device forms.|
 | Name            | The name of the command. IoT Central generates a value for this field from the display name, but you can choose your own value if necessary. This field needs to be alphanumeric. The device code uses this **Name** value.|
 | Capability Type | Command.|
 | Queue if offline | Whether to make this command an *offline* command. |
@@ -157,7 +157,7 @@ The following screenshot shows how the successful command response displays in t
 
 ## Long-running commands
 
-This section shows you how a device can delay sending a confirmation that the command competed.
+This section shows you how a device can delay sending a confirmation that the command completed.
 
 The following code snippet shows how a device can implement a long-running command:
 

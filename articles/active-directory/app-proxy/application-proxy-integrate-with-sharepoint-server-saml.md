@@ -3,14 +3,14 @@ title: Publish an on-premises SharePoint farm with Azure Active Directory Applic
 description: Covers the basics about how to integrate an on-premises SharePoint farm with Azure Active Directory Application Proxy for SAML.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Integrate Azure Active Directory Application Proxy with SharePoint (SAML)
@@ -32,7 +32,7 @@ This process requires two Enterprise Applications. One is a SharePoint on-premis
 
 To complete this configuration, you need the following resources:
  - A SharePoint 2013 farm or newer. The SharePoint farm must be [integrated with Azure AD](../saas-apps/sharepoint-on-premises-tutorial.md).
- - An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+ - An Azure AD tenant with a plan that includes Application Proxy. Learn more about [Azure AD plans and pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
  - A [custom, verified domain](../fundamentals/add-custom-domain.md) in the Azure AD tenant. The verified domain must match the SharePoint URL suffix.
  - An SSL certificate is required. See the details in [custom domain publishing](./application-proxy-configure-custom-domain.md).
  - On-premises Active Directory users must be synchronized with Azure AD Connect, and must be configure to [sign in to Azure](../hybrid/plan-connect-user-signin.md). 

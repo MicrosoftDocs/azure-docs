@@ -4,7 +4,8 @@ description: Learn how to configure a PHP app in the native Windows instances, o
 
 ms.devlang: php
 ms.topic: article
-ms.date: 06/02/2020
+ms.date: 06/02/2020 
+ms.custom: devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 
 ---
@@ -59,20 +60,20 @@ az webapp list-runtimes --linux | grep PHP
 
 ::: zone pivot="platform-windows"  
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.4:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.0:
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 7.4
+az webapp config set --resource-group <resource-group-name> --name <app-name> --php-version 8.0
 ```
 
 ::: zone-end
 
 ::: zone pivot="platform-linux"
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 7.2:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the PHP version to 8.0:
 
 ```azurecli-interactive
-az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|7.2"
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PHP|8.0"
 ```
 
 ::: zone-end
@@ -116,11 +117,11 @@ if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
 fi
 ```
 
-Commit all your changes and deploy your code using Git, or Zip deploy with build automation enabled. Composer should now be running as part of deployment automation.
+Commit all your changes and deploy your code using Git, or Zip deploy [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). Composer should now be running as part of deployment automation.
 
 ## Run Grunt/Bower/Gulp
 
-If you want App Service to run popular automation tools at deployment time, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service runs this script when you deploy with Git, or with [Zip deployment](deploy-zip.md) with build automation enabled. 
+If you want App Service to run popular automation tools at deployment time, such as Grunt, Bower, or Gulp, you need to supply a [custom deployment script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script). App Service runs this script when you deploy with Git, or with [Zip deployment](deploy-zip.md) with [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy). 
 
 To enable your repository to run these tools, you need to add them to the dependencies in *package.json.* For example:
 
@@ -203,7 +204,7 @@ fi
 
 ## Customize build automation
 
-If you deploy your app using Git or zip packages with build automation turned on, the App Service build automation steps through the following sequence:
+If you deploy your app using Git, or using zip packages [with build automation enabled](deploy-zip.md#enable-build-automation-for-zip-deploy), the App Service build automation steps through the following sequence:
 
 1. Run custom script if specified by `PRE_BUILD_SCRIPT_PATH`.
 1. Run `php composer.phar install`.
@@ -276,7 +277,7 @@ If you would rather not use *.htaccess* rewrite, you can deploy your Laravel app
 
 ## Detect HTTPS session
 
-In App Service, [SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
+In App Service, [TLS/SSL termination](https://wikipedia.org/wiki/TLS_termination_proxy) happens at the network load balancers, so all HTTPS requests reach your app as unencrypted HTTP requests. If your app logic needs to check if the user requests are encrypted or not, inspect the `X-Forwarded-Proto` header.
 
 ```php
 if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') {
@@ -476,7 +477,7 @@ When a working PHP app behaves differently in App Service or has errors, try the
     - Depending on your *composer.json*, different packages may be installed for production mode (`require` vs. `require-dev`).
     - Certain web frameworks may deploy static files differently in production mode.
     - Certain web frameworks may use custom startup scripts when running in production mode.
-- Run your app in App Service in debug mode. For example, in [Laravel](https://meanjs.org/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](configure-common.md#configure-app-settings).
+- Run your app in App Service in debug mode. For example, in [Laravel](https://laravel.com/), you can configure your app to output debug messages in production by [setting the `APP_DEBUG` app setting to `true`](configure-common.md#configure-app-settings).
 
 ::: zone pivot="platform-linux"
 
@@ -492,6 +493,10 @@ When a working PHP app behaves differently in App Service or has errors, try the
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [App Service Linux FAQ](faq-app-service-linux.md)
+> [App Service Linux FAQ](faq-app-service-linux.yml)
 
 ::: zone-end
+
+Or, see additional resources:
+
+[Environment variables and app settings reference](reference-app-settings.md)

@@ -2,12 +2,15 @@
 title: Declare resources in templates
 description: Describes how to declare resources to deploy in an Azure Resource Manager template (ARM template).
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 01/19/2022
 ---
 
 # Resource declaration in ARM templates
 
 To deploy a resource through an Azure Resource Manager template (ARM template), you add a resource declaration. Use the `resources` array in a JSON template.
+
+> [!TIP]
+> For an improved authoring experience, you can use Bicep rather than JSON to develop templates. For more information about Bicep syntax, see [resource declaration](../bicep/resource-declaration.md).
 
 ## Set resource type and version
 
@@ -124,4 +127,4 @@ Use intellisense or [template reference](/azure/templates/) to determine which p
 ## Next steps
 
 * To conditionally deploy a resource, see [Conditional deployment in ARM templates](conditional-resource-deployment.md).
-* To set resource dependencies, see [Define the order for deploying resources in ARM templates](define-resource-dependency.md).
+* To set resource dependencies, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).

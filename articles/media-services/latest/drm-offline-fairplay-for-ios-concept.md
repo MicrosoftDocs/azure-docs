@@ -5,6 +5,7 @@ services: media-services
 author: willzhan
 manager: femila
 ms.service: media-services
+ms.devlang: csharp
 ms.topic: how-to
 ms.date: 05/25/2021
 ms.author: inhenkel
@@ -195,4 +196,4 @@ With either the version 3 or version 4 sample of the FPS Server SDK, if a master
 
 ## Offline Fairplay questions
 
-See [offline fairplay questions](questions-collection.md#why-does-only-audio-play-but-not-video-during-offline-mode).
+See [offline fairplay questions in the FAQ](frequently-asked-questions.yml).

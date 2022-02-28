@@ -24,10 +24,19 @@ This article lists limits in different areas of Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-autoscale.md)]
 
+## Custom logs
+
+[!INCLUDE [custom-logs](../../includes/azure-monitor-limits-custom-logs.md)]
 
 ## Data collection rules
 
 [!INCLUDE [data-collection-rules](../../includes/azure-monitor-limits-data-collection-rules.md)]
+
+## Diagnostic Settings
+
+[!INCLUDE [diagnostic-settings](../../includes/azure-monitor-limits-diagnostic-settings.md)]
+
+
 ## Log queries and language
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]

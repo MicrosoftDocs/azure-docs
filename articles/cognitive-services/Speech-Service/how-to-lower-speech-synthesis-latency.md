@@ -7,7 +7,7 @@ author: yulin-li
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2021
 ms.author: yulili
 ms.custom: references_regions
@@ -15,9 +15,6 @@ zone_pivot_groups: programming-languages-set-nineteen
 ---
 
 # Lower speech synthesis latency using Speech SDK
-
-> [!NOTE]
-> This article requires Speech SDK 1.17.0 or later.
 
 The synthesis latency is critical to your applications.
 In this article, we will introduce the best practices to lower the latency and bring the best performance to your end users.
@@ -330,15 +327,15 @@ See [How to configure OpenSSL for Linux](how-to-configure-openssl-linux.md#certi
 
 ### Use latest Speech SDK
 
-We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application.
-For example, we fixed a `TCP_NODELAY` setting issue in [1.16.0](releasenotes.md#speech-sdk-1160-2021-march-release), which reduced extra one route trip time.
+We keep improving the Speech SDK's performance, so try to use the latest Speech SDK in your application. 
 
 ## Load test guideline
 
 You may use load test to test the speech synthesis service capacity and latency.
 Here are some guidelines.
 
- - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test. [See this article](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) for more details.
+ - The speech synthesis service has the ability to autoscale, but takes time to scale out. If the concurrency is increased in a short time, the client may get long latency or `429` error code (too many requests). So, we recommend you increase your concurrency step by step in load test. [See this article](speech-services-quotas-and-limits.md#general-best-practices-to-mitigate-throttling-during-autoscaling) for more details, especially [this example of workload patterns](speech-services-quotas-and-limits.md#example-of-a-workload-pattern-best-practice).
+ - You can leverage our sample using object pool ([C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/java/jre/console/src/com/microsoft/cognitiveservices/speech/samples/console/SpeechSynthesisScenarioSamples.java)) for load test and getting the latency numbers. You can modify the test turns and concurrency in the sample to meet your target concurrency.
  - The service has quota limitation based on the real traffic, therefore, if you want to perform load test with the concurrency much higher than your real traffic, connect before your test.
 
 ## Next steps

@@ -1,41 +1,42 @@
 ---
-title: Create automated ML classification models
+title: 'Tutorial: AutoML- train no-code classification models'
 titleSuffix: Azure Machine Learning
-description: Train & deploy classification models without writing code, using Azure Machine Learning's automated machine learning (automated ML) interface.
+description: Train a classification model without writing a single line of code using Azure Machine Learning automated ML in the studio UI.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 12/21/2020
-ms.custom: automl
+ms.date: 10/21/2021
+ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
+
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
-# Tutorial: Create a classification model with automated ML in Azure Machine Learning
+# Tutorial: Train a classification model with no-code AutoML in the Azure Machine Learning studio
 
-Learn how to create a [simple classification model](concept-automated-ml.md#classification) without writing a single line of code using automated machine learning in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
+Learn how to train a classification model with no-code AutoML using Azure Machine Learning automated ML in the Azure Machine Learning studio. This classification model predicts if a client will subscribe to a fixed term deposit with a financial institution.
 
-With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
+With automated ML, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
 You won't write any code in this tutorial, you'll use the studio interface to perform training.  You'll learn how to do the following tasks:
 
 > [!div class="checklist"]
 > * Create an Azure Machine Learning workspace.
 > * Run an automated machine learning experiment.
-> * View experiment details.
-> * Deploy the model.
+> * Explore model details.
+> * Deploy the recommended model.
 
 Also try automated machine learning for these other model types:
 
 * For a no-code example of forecasting, see [Tutorial: Demand forecasting & AutoML](tutorial-automated-ml-forecast.md).
-* For a code first example of a regression model, see the [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md).
+* For a code first example of a regression model, see the [Tutorial: Regression model with AutoML](tutorial-auto-train-models.md).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 * Download the [**bankmarketing_train.csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial. 
 
@@ -80,15 +81,13 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. On the **Datastore and file selection** form, select the default datastore that was automatically set up during your workspace creation, **workspaceblobstore (Azure Blob Storage)**. This is where you'll upload your data file to make it available to your workspace.
 
-    1. Select **Browse**.
+    1. Select **Upload files** from the **Upload** drop-down.
     
     1. Choose the **bankmarketing_train.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
-    1. Give your dataset a unique name and provide an optional description. 
-
     1. Select **Next** on the bottom left, to  upload it to the default container that was automatically set up during your workspace creation.  
     
-       When the upload is complete, the Settings and preview form is pre-populated based on the file type. 
+       When the upload is complete, the **Settings and preview** form is pre-populated based on the file type. 
        
     1. Verify that the **Settings and preview** form is populated as follows and select **Next**.
         
@@ -123,12 +122,15 @@ After you load and configure your data, you can set up your experiment. This set
 
     1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
     
-    1. Select **+Create a new compute** and configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
-        1. Populate the **Virtual Machine** form to set up your compute.
+    1. Select **compute cluster** as your compute type. 
+    
+    1.  **+New** to configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
+        1. Populate the **Select virtual machine** form to set up your compute.
 
             Field | Description | Value for tutorial
             ----|---|---
-            Virtual&nbsp;machine&nbsp;priority |Select what priority your experiment should have| Dedicated
+            Location | Your region that you'd like to run the machine from |West US 2
+            Virtual&nbsp;machine&nbsp;tier |Select what priority your experiment should have| Dedicated
             Virtual&nbsp;machine&nbsp;type| Select the virtual machine type for your compute.|CPU (Central Processing Unit)
             Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute. A list of recommended sizes is provided based on your data and experiment type. |Standard_DS12_V2
         
@@ -151,7 +153,7 @@ After you load and configure your data, you can set up your experiment. This set
 
     1. Select **Next**.
 
-1. On the **Task type and settings** form, complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
+1. On the **Select task and settings** form, complete the setup for your automated ML experiment by specifying the machine learning task type and configuration settings.
     
     1.  Select **Classification** as the machine learning task type.
 
@@ -162,13 +164,18 @@ After you load and configure your data, you can set up your experiment. This set
         Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
         Explain best model| Automatically shows explainability on the best model created by automated ML.| Enable
         Blocked algorithms | Algorithms you want to exclude from the training job| None
+        Additional&nbsp;classification settings | These settings help improve the accuracy of your model |Positive class label: None
         Exit criterion| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time (hours): 1 <br> Metric&nbsp;score&nbsp;threshold: None
-        Validation | Choose a cross-validation type and number of tests.|Validation type:<br>&nbsp;k-fold&nbsp;cross-validation <br> <br> Number of validations: 2
         Concurrency| The maximum number of parallel iterations executed per iteration| Max&nbsp;concurrent&nbsp;iterations: 5
         
         Select **Save**.
+    1. Select **Next**.
     
-1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio, to inform you of the status of your experiment.
+1. On the **[Optional] Validate and test** form, 
+    1. Select k-fold cross-validation as your **Validation type**.
+    1.  Select 2 as your **Number of cross validations**.
+
+1. Select **Finish** to run the experiment. The **Run Detail**  screen opens with the **Run status** at the top as the experiment preparation begins. This status updates as the experiment progresses. Notifications also appear in the top right corner of the studio to inform you of the status of your experiment.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.

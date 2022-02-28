@@ -2,10 +2,7 @@
 title: Azure Application Insights Agent detailed instructions | Microsoft Docs
 description: Detailed instructions for getting started with Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.topic: conceptual
-author: TimothyMothra
-ms.author: tilee
 ms.date: 04/23/2019
-
 ---
 
 # Application Insights Agent (formerly named Status Monitor v2): Detailed instructions
@@ -212,7 +209,7 @@ When you monitor a computer on your private intranet, you'll need to route HTTP 
 The PowerShell commands to download and install Az.ApplicationMonitor from the PowerShell Gallery support a `-Proxy` parameter.
 Review the preceding instructions when you write your installation scripts.
 
-The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [Application Insights FAQ: Proxy passthrough](../faq.md#proxy-passthrough).
+The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [Application Insights FAQ: Proxy passthrough](../faq.yml).
 
 
 ## Enable monitoring

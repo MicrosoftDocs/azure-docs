@@ -3,8 +3,8 @@ title: "Known issues: Online migrations from PostgreSQL to Azure Database for Po
 titleSuffix: Azure Database Migration Service
 description: Learn about known issues and migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL using the Azure Database Migration Service.
 services: database-migration
-author: arunkumarthiags
-ms.author: arthiaga
+author: rothja
+ms.author: jroth
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -37,45 +37,12 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 
 - The user must have the REPLICATION role on the server hosting the source database.
 - The source and target database schemas must match.
-- The schema in the target Azure Database for PostgreSQL-Single server must not have foreign keys. Use the following query to drop foreign keys:
-
-    ```
-                  SELECT Queries.tablename
-           ,concat('alter table ', Queries.tablename, ' ', STRING_AGG(concat('DROP CONSTRAINT ', Queries.foreignkey), ',')) as DropQuery
-                ,concat('alter table ', Queries.tablename, ' ', 
-                                                STRING_AGG(concat('ADD CONSTRAINT ', Queries.foreignkey, ' FOREIGN KEY (', column_name, ')', 'REFERENCES ', foreign_table_name, '(', foreign_column_name, ')' ), ',')) as AddQuery
-        FROM
-        (SELECT
-        tc.table_schema, 
-        tc.constraint_name as foreignkey, 
-        tc.table_name as tableName, 
-        kcu.column_name, 
-        ccu.table_schema AS foreign_table_schema,
-        ccu.table_name AS foreign_table_name,
-        ccu.column_name AS foreign_column_name 
-    FROM 
-        information_schema.table_constraints AS tc 
-        JOIN information_schema.key_column_usage AS kcu
-          ON tc.constraint_name = kcu.constraint_name
-          AND tc.table_schema = kcu.table_schema
-        JOIN information_schema.constraint_column_usage AS ccu
-          ON ccu.constraint_name = tc.constraint_name
-          AND ccu.table_schema = tc.table_schema
-    WHERE constraint_type = 'FOREIGN KEY') Queries
-      GROUP BY Queries.tablename;
-    
-    ```
-
-    Run the drop foreign key (which is the second column) in the query result.
-
-- The schema in target Azure Database for PostgreSQL-Single server must not have any triggers. Use the following to disable triggers in target database:
-
-     ```
-    SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';
-     ```
 
 ## Size limitations
-- You can migrate up to 2 TB of data from PostgreSQL to Azure DB for PostgreSQL using a single DMS service.
+
+- You can migrate up to 1 TB of data from PostgreSQL to Azure DB for PostgreSQL using a single DMS service.
+- The number of tables you can migrate in one DMS activity is limited based on the number of characters in your table names. An upper limit of 7,500 characters applies to the combined length of the schema_name.table_name. If the combined length of the schema_name.table_name exceeds this limit, you likely will see the error *(400) Bad Request.Entity too large*. To avoid this error, try to migrate your tables by using multiple DMS activities, with each activity adhering to the 7,500-character limit.
+
 ## Datatype limitations
 
   **Limitation**: If there's no primary key on tables, changes may not be synced to the target database.

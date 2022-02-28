@@ -4,7 +4,7 @@ description: This article provides information on Web Application Firewall reque
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/20/2020
+ms.date: 02/10/2022
 ms.author: victorh
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
@@ -18,7 +18,11 @@ The Azure Application Gateway Web Application Firewall (WAF) provides protection
 
 ![Request size limits](../media/application-gateway-waf-configuration/waf-policy.png)
 
-WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. Once an attribute is added to the WAF exclusion list, it isn't considered by any configured and active WAF rule. Exclusion lists are global in scope.
+Sometimes Web Application Firewall (WAF) might block a request that you want to allow for your application. WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. The rest of the request is evaluated as normal.
+
+For example, Active Directory inserts tokens that are used for authentication. When used in a request header, these tokens can contain special characters that may trigger a false positive from the WAF rules. By adding the header to an exclusion list, you can configure WAF to ignore the header, but WAF still evaluates the rest of the request.
+
+Exclusion lists are global in scope.
 
 The following attributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are (see Example 1 below, the value of the User-Agent header is excluded from WAF evaluation). The exclusion lists remove inspection of the field's value.
 
@@ -85,14 +89,19 @@ So if the URL `http://www.contoso.com/?user%281%29=fdafdasfda` is passed to the 
 
 Web Application Firewall allows you to configure request size limits within lower and upper bounds. The following two size limits configurations are available:
 
-- The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. This field has a minimum value of 1 KB and a maximum value of 128 KB. The default value for request body size is 128 KB.
+- The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. This field has a minimum value of 8 KB and a maximum value of 128 KB. The default value for request body size is 128 KB.
 - The file upload limit field is specified in MB and it governs the maximum allowed file upload size. This field can have a minimum value of 1 MB and the following maximums:
 
    - 100 MB for v1 Medium WAF gateways
    - 500 MB for v1 Large WAF gateways
    - 750 MB for v2 WAF gateways 
 
- The default value for file upload limit is 100 MB.
+The default value for file upload limit is 100 MB.
+
+For CRS 3.2 (on the WAF_v2 SKU) and newer, these limits are as follows when using a WAF Policy for Appplication Gateway:
+   
+   - 2MB request body size limit
+   - 4GB file upload limit 
 
 WAF also offers a configurable knob to turn the request body inspection on or off. By default, the request body inspection is enabled. If the request body inspection is turned off, WAF doesn't evaluate the contents of HTTP message body. In such cases, WAF continues to enforce WAF rules on headers, cookies, and URI. If the request body inspection is turned off, then maximum request body size field isn't applicable and can't be set. Turning off the request body inspection allows for messages larger than 128 KB to be sent to WAF, but the message body isn't inspected for vulnerabilities.
 

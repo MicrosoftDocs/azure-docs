@@ -13,9 +13,13 @@ This article describes the drivers and management tools that are compatible with
 
 ## MariaDB Drivers
 
-Azure Database for MariaDB uses the community edition of MariaDB server. Therefore, it is compatible with a wide variety of programming languages and drivers. MariaDB's API and protocol are compatible with those used by MySQL. This means that connectors that work with MySQL should also work with MariaDB.
+Azure Database for MariaDB uses the community edition of MariaDB server. Therefore, it is compatible with a wide variety of programming languages and drivers. The MariaDB API and protocol are compatible with those used by MySQL. This means that connectors that work with MySQL should also work with MariaDB.
 
 The goal is to support the three most recent versions MariaDB drivers, and efforts with authors from the open source community to constantly improve the functionality and usability of MariaDB drivers continue. A list of drivers that have been tested and found to be compatible with Azure Database for MariaDB 10.2 is provided in the following table:
+
+> [!WARNING]
+> The MySQL 8.0.27 client is incompatible with Azure Database for MariaDB - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27).
+
 
 **Driver** | **Links** | **Compatible Versions** | **Incompatible Versions** | **Notes**
 ---|---|---|---|---

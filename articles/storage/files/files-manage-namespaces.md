@@ -28,6 +28,13 @@ You can see an example of how to use DFS Namespaces with your Azure Files deploy
 
 If you already have a DFS Namespace in place, no special steps are required to use it with Azure Files and File Sync. If you're accessing your Azure file share from on-premises, normal networking considerations apply; see [Azure Files networking considerations](./storage-files-networking-overview.md) for more information.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Namespace types
 DFS Namespaces provides two main namespace types:
 
@@ -185,7 +192,7 @@ In the DFS Management console, select the namespace you just created and select 
 
 ![A screenshot of the **New Folder** dialog.](./media/files-manage-namespaces/dfs-folder-targets.png)
 
-In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. If you are adding a UNC path to an Azure file share, you may receive a message reporting that the server `storageaccount.file.core.windows.net` cannot be contacts. This is expected; select **Yes** to continue. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
+In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. If you are adding a UNC path to an Azure file share, you may receive a message reporting that the server `storageaccount.file.core.windows.net` cannot be contacted. This is expected; select **Yes** to continue. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
 
 # [PowerShell](#tab/azure-powershell)
 ```PowerShell

@@ -1,7 +1,6 @@
 ---
 title: Table data types in Synapse SQL
 description: Recommendations for defining table data types in Synapse SQL. 
-services: synapse-analytics
 author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
@@ -9,17 +8,17 @@ ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: 
 ---
 
 # Table data types in Synapse SQL
 
-In this article, you'll find recommendations for defining table data types in Synapse SQL. 
+In this article, you'll find recommendations for defining table data types in Synapse SQL Dedicated Pool. 
 
 ## Data types
 
-Synapse SQL supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true) in the CREATE TABLE statement. 
+Synapse SQL Dedicated Pool supports the most commonly used data types. For a list of the supported data types, see [data types](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes&preserve-view=true) in the CREATE TABLE statement. For Synapse SQL Serverless please refer to article [Query storage files with serverless SQL pool in Azure Synapse Analytics](./query-data-storage.md) and [How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics](./develop-openrowset.md)
 
 ## Minimize row length
 
@@ -28,6 +27,7 @@ Minimizing the size of data types shortens the row length, which leads to better
 - Avoid defining character columns with a large default length. For example, if the longest value is 25 characters, then define your column as VARCHAR(25).
 - Avoid using [NVARCHAR][NVARCHAR] when you only need VARCHAR.
 - When possible, use NVARCHAR(4000) or VARCHAR(8000) instead of NVARCHAR(MAX) or VARCHAR(MAX).
+- Avoid using floats and decimals with 0 (zero) scale.  These should be TINYINT, SMALLINT, INT or BIGINT.
 
 > [!NOTE]
 > If you are using PolyBase external tables to load your Synapse SQL tables, the defined length of the table row cannot exceed 1 MB. When a row with variable-length data exceeds 1 MB, you can load the row with BCP, but not with PolyBase.
@@ -42,7 +42,7 @@ FROM sys.tables  t
 JOIN sys.columns c on t.[object_id]    = c.[object_id]
 JOIN sys.types   y on c.[user_type_id] = y.[user_type_id]
 WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','sql_variant','xml')
- AND  y.[is_user_defined] = 1;
+ OR  y.[is_user_defined] = 1;
 ```
 
 ## <a name="unsupported-data-types"></a>Workarounds for unsupported data types

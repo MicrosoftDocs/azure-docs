@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 05/14/2021
+ms.date: 02/15/2022
 ms.topic: sample
 ms.custom: generated
 ---
@@ -51,9 +51,21 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-azure-active-directory](../../../../includes/policy/reference/bycat/policies-azure-active-directory.md)]
 
+## Azure Arc
+
+[!INCLUDE [azure-policy-reference-policies-azure-arc](../../../../includes/policy/reference/bycat/policies-azure-arc.md)]
+
 ## Azure Data Explorer
 
 [!INCLUDE [azure-policy-reference-policies-azure-data-explorer](../../../../includes/policy/reference/bycat/policies-azure-data-explorer.md)]
+
+## Azure Edge Hardware Center
+
+[!INCLUDE [azure-policy-reference-policies-azure-edge-hardware-center](../../../../includes/policy/reference/bycat/policies-azure-edge-hardware-center.md)]
+
+## Azure Purview
+
+[!INCLUDE [azure-policy-reference-policies-azure-purview](../../../../includes/policy/reference/bycat/policies-azure-purview.md)]
 
 ## Azure Stack Edge
 
@@ -131,6 +143,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-hdinsight](../../../../includes/policy/reference/bycat/policies-hdinsight.md)]
 
+## Healthcare APIs
+
+[!INCLUDE [azure-policy-reference-policies-healthcare-apis](../../../../includes/policy/reference/bycat/policies-healthcare-apis.md)]
+
 ## Internet of Things
 
 [!INCLUDE [azure-policy-reference-policies-internet-of-things](../../../../includes/policy/reference/bycat/policies-internet-of-things.md)]
@@ -199,6 +215,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-signalr](../../../../includes/policy/reference/bycat/policies-signalr.md)]
 
+## Site Recovery
+
+[!INCLUDE [azure-policy-reference-policies-site-recovery](../../../../includes/policy/reference/bycat/policies-site-recovery.md)]
+
 ## SQL
 
 [!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
@@ -219,9 +239,21 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
 
+## Update Management Center
+
+[!INCLUDE [azure-policy-reference-policies-update-management-center](../../../../includes/policy/reference/bycat/policies-update-management-center.md)]
+
+## Video Analyzers
+
+[!INCLUDE [azure-policy-reference-policies-video-analyzers](../../../../includes/policy/reference/bycat/policies-video-analyzers.md)]
+
 ## VM Image Builder
 
 [!INCLUDE [azure-policy-reference-policies-vm-image-builder](../../../../includes/policy/reference/bycat/policies-vm-image-builder.md)]
+
+## Web PubSub
+
+[!INCLUDE [azure-policy-reference-policies-web-pubsub](../../../../includes/policy/reference/bycat/policies-web-pubsub.md)]
 
 ## Next steps
 

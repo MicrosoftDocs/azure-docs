@@ -1,7 +1,7 @@
 ---
 title: Prepare a Windows VHD to upload to Azure
 description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
-author: glimoli
+author: genlin
 manager: dcscontentpm
 ms.service: virtual-machines
 ms.subservice: disks
@@ -13,6 +13,8 @@ ms.author: genli
 ---
 
 # Prepare a Windows VHD or VHDX to upload to Azure
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the
 virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in
@@ -488,6 +490,10 @@ In particular, Sysprep requires the drives to be fully decrypted before executio
 ### Generalize a VHD
 
 >[!NOTE]
+> If you're creating a generalized image from an existing Azure VM, we recommend to remove the VM extensions 
+> before running the sysprep.
+
+>[!NOTE]
 > After you run `sysprep.exe` in the following steps, turn off the VM. Don't turn it back on until
 > you create an image from it in Azure.
 
@@ -518,6 +524,9 @@ generalized disk, see
 > [additionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 ## Convert the virtual disk to a fixed size VHD
+
+> [!NOTE]
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) will perform it for you.
 
 Use one of the methods in this section to convert and resize your virtual disk to the required format for Azure:
 
@@ -563,6 +572,9 @@ Use one of the methods in this section to convert and resize your virtual disk t
 You can convert a virtual disk using the [Convert-VHD](/powershell/module/hyper-v/convert-vhd)
 cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).
 
+> [!NOTE]
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) will perform it for you.
+
 The following example converts the disk from VHDX to VHD. It also converts the disk from a
 dynamically expanding disk to a fixed-size disk.
 
@@ -576,6 +588,9 @@ disk.
 
 ### Use Hyper-V Manager to resize the disk
 
+> [!NOTE]
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) will perform it for you.
+
 1. Open Hyper-V Manager and select your local computer on the left. In the menu above the computer
    list, select **Action** > **Edit Disk**.
 1. On the **Locate Virtual Hard Disk** page, select your virtual disk.
@@ -584,6 +599,9 @@ disk.
 1. Select **Finish**.
 
 ### Use PowerShell to resize the disk
+
+> [!NOTE]
+> If you're going to use Azure PowerShell to [upload your disk to Azure](disks-upload-vhd-to-managed-disk-powershell.md) and you have [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview) enabled, this step is optional. [Add-AzVHD](/powershell/module/az.compute/add-azvhd?view=azps-7.1.0&viewFallbackFrom=azps-5.4.0) will perform it for you.
 
 You can resize a virtual disk using the [Resize-VHD](/powershell/module/hyper-v/resize-vhd)
 cmdlet in PowerShell. If you need information about installing this cmdlet see [Install the Hyper-V role](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server).

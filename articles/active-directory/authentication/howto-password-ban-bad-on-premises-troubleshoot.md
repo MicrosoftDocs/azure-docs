@@ -10,7 +10,7 @@ ms.date: 11/21/2019
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: jsimmons
 
 ms.collection: M365-identity-device-management
@@ -323,7 +323,7 @@ The Test-AzureADPasswordProtectionDCAgentHealth cmdlet supports several health t
 
 ### Basic DC agent health tests
 
-The following tests can all be run individually and do not accept. A brief description
+The following tests can all be run individually and do not accept parameters. A brief description of each test is listed in the following table.
 
 |DC agent health test|Description|
 | --- | :---: |

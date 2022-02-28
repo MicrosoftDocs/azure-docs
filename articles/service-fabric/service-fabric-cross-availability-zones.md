@@ -62,46 +62,46 @@ To enable the `zones` property on a virtual machine scale set resource, the load
 
 ```json
 {
-    "apiVersion": "2018-11-01",
-    "type": "Microsoft.Network/publicIPAddresses",
-    "name": "[concat('LB','-', parameters('clusterName')]",
-    "location": "[parameters('computeLocation')]",
-    "sku": {
-        "name": "Standard"
-    }
+  "apiVersion": "2018-11-01",
+  "type": "Microsoft.Network/publicIPAddresses",
+  "name": "[concat('LB','-', parameters('clusterName')]",
+  "location": "[parameters('computeLocation')]",
+  "sku": {
+    "name": "Standard"
+  }
 }
 ```
 
 ```json
 {
-    "apiVersion": "2018-11-01",
-    "type": "Microsoft.Network/loadBalancers",
-    "name": "[concat('LB','-', parameters('clusterName')]", 
-    "location": "[parameters('computeLocation')]",
-    "dependsOn": [
-        "[concat('Microsoft.Network/networkSecurityGroups/', concat('nsg', parameters('subnet0Name')))]"
-    ],
-    "properties": {
-        "addressSpace": {
-            "addressPrefixes": [
-                "[parameters('addressPrefix')]"
-            ]
-        },
-        "subnets": [
-        {
-            "name": "[parameters('subnet0Name')]",
-            "properties": {
-                "addressPrefix": "[parameters('subnet0Prefix')]",
-                "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat('nsg', parameters('subnet0Name')))]"
-              }
-            }
-          }
-        ]
+  "apiVersion": "2018-11-01",
+  "type": "Microsoft.Network/loadBalancers",
+  "name": "[concat('LB','-', parameters('clusterName')]",
+  "location": "[parameters('computeLocation')]",
+  "dependsOn": [
+    "[concat('Microsoft.Network/networkSecurityGroups/', concat('nsg', parameters('subnet0Name')))]"
+  ],
+  "properties": {
+    "addressSpace": {
+      "addressPrefixes": [
+        "[parameters('addressPrefix')]"
+      ]
     },
-    "sku": {
-        "name": "Standard"
-    }
+    "subnets": [
+      {
+        "name": "[parameters('subnet0Name')]",
+        "properties": {
+          "addressPrefix": "[parameters('subnet0Prefix')]",
+          "networkSecurityGroup": {
+            "id": "[resourceId('Microsoft.Network/networkSecurityGroups', concat('nsg', parameters('subnet0Name')))]"
+          }
+        }
+      }
+    ]
+  },
+  "sku": {
+    "name": "Standard"
+  }
 }
 ```
 
@@ -114,44 +114,44 @@ The inbound network address translation (NAT) rules for the load balancer should
 
 ```json
 {
-"inboundNatPools": [
+  "inboundNatPools": [
     {
-        "name": "LoadBalancerBEAddressNatPool0",
-        "properties": {
-            "backendPort": "3389",
-            "frontendIPConfiguration": {
-                "id": "[variables('lbIPConfig0')]"
-            },
-            "frontendPortRangeEnd": "50999",
-            "frontendPortRangeStart": "50000",
-            "protocol": "tcp"
-        }
+      "name": "LoadBalancerBEAddressNatPool0",
+      "properties": {
+        "backendPort": "3389",
+        "frontendIPConfiguration": {
+          "id": "[variables('lbIPConfig0')]"
+        },
+        "frontendPortRangeEnd": "50999",
+        "frontendPortRangeStart": "50000",
+        "protocol": "tcp"
+      }
     },
     {
-        "name": "LoadBalancerBEAddressNatPool1",
-        "properties": {
-            "backendPort": "3389",
-            "frontendIPConfiguration": {
-                "id": "[variables('lbIPConfig0')]"
-            },
-            "frontendPortRangeEnd": "51999",
-            "frontendPortRangeStart": "51000",
-            "protocol": "tcp"
-        }
+      "name": "LoadBalancerBEAddressNatPool1",
+      "properties": {
+        "backendPort": "3389",
+        "frontendIPConfiguration": {
+          "id": "[variables('lbIPConfig0')]"
+        },
+        "frontendPortRangeEnd": "51999",
+        "frontendPortRangeStart": "51000",
+        "protocol": "tcp"
+      }
     },
     {
-        "name": "LoadBalancerBEAddressNatPool2",
-        "properties": {
-            "backendPort": "3389",
-            "frontendIPConfiguration": {
-                "id": "[variables('lbIPConfig0')]"
-            },
-            "frontendPortRangeEnd": "52999",
-            "frontendPortRangeStart": "52000",
-            "protocol": "tcp"
-        }
+      "name": "LoadBalancerBEAddressNatPool2",
+      "properties": {
+        "backendPort": "3389",
+        "frontendIPConfiguration": {
+          "id": "[variables('lbIPConfig0')]"
+        },
+        "frontendPortRangeEnd": "52999",
+        "frontendPortRangeStart": "52000",
+        "protocol": "tcp"
+      }
     }
-    ]
+  ]
 }
 ```
 
@@ -191,15 +191,15 @@ You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
 
 ```json
 {
-    "apiVersion": "2018-10-01",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    "name": "[parameters('vmNodeType1Name')]",
-    "location": "[parameters('computeLocation')]",
-    "zones": ["1", "2", "3"],
-    "properties": {
-        "singlePlacementGroup": "true",
-        "zoneBalance": true
-    }
+  "apiVersion": "2018-10-01",
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "[parameters('vmNodeType1Name')]",
+  "location": "[parameters('computeLocation')]",
+  "zones": [ "1", "2", "3" ],
+  "properties": {
+    "singlePlacementGroup": true,
+    "zoneBalance": true
+  }
 }
 ```
 
@@ -229,27 +229,28 @@ The Service Fabric node type must be enabled to support multiple Availability Zo
 >[!IMPORTANT]
 >The Service Fabric cluster resource API version should be 2020-12-01-preview or later.
 >
->The cluster code version should be 7.2.445 or later.
+>The cluster code version should be atleast 8.1.321 or later.
 
 ```json
 {
-    "apiVersion": "2020-12-01-preview",
-    "type": "Microsoft.ServiceFabric/clusters",
-    "name": "[parameters('clusterName')]",
-    "location": "[parameters('clusterLocation')]",
-    "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-    ],
-    "properties": {
-        "reliabilityLevel": "Platinum",
-        "SFZonalUpgradeMode": "Hierarchical",
-        "VMSSZonalUpgradeMode": "Parallel",
-        "nodeTypes": [
-          {
-                "name": "[parameters('vmNodeType0Name')]",
-                "multipleAvailabilityZones": true,
-          }
-        ]
+  "apiVersion": "2020-12-01-preview",
+  "type": "Microsoft.ServiceFabric/clusters",
+  "name": "[parameters('clusterName')]",
+  "location": "[parameters('clusterLocation')]",
+  "dependsOn": [
+    "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
+  ],
+  "properties": {
+    "reliabilityLevel": "Platinum",
+    "sfZonalUpgradeMode": "Hierarchical",
+    "vmssZonalUpgradeMode": "Parallel",
+    "nodeTypes": [
+      {
+        "name": "[parameters('vmNodeType0Name')]",
+        "multipleAvailabilityZones": true
+      }
+    ]
+  }
 }
 ```
 
@@ -299,39 +300,45 @@ To enable a zone on a virtual machine scale set, include the following three val
 
 ```json
 {
-    "apiVersion": "2018-10-01",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    "name": "[parameters('vmNodeType1Name')]",
-    "location": "[parameters('computeLocation')]",
-    "zones": ["1"],
-    "properties": {
-        "singlePlacementGroup": "true",
-    },
-    "virtualMachineProfile": {
+  "apiVersion": "2018-10-01",
+  "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "name": "[parameters('vmNodeType1Name')]",
+  "location": "[parameters('computeLocation')]",
+  "zones": [
+    "1"
+  ],
+  "properties": {
+    "singlePlacementGroup": true
+  },
+  "virtualMachineProfile": {
     "extensionProfile": {
-    "extensions": [
-    {
-    "name": "[concat(parameters('vmNodeType1Name'),'_ServiceFabricNode')]",
-    "properties": {
-        "type": "ServiceFabricNode",
-        "autoUpgradeMinorVersion": false,
-        "publisher": "Microsoft.Azure.ServiceFabric",
-        "settings": {
-            "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-            "nodeTypeRef": "[parameters('vmNodeType1Name')]",
-            "dataPath": "D:\\\\SvcFab",
-            "durabilityLevel": "Silver",
-            "certificate": {
+      "extensions": [
+        {
+          "name": "[concat(parameters('vmNodeType1Name'),'_ServiceFabricNode')]",
+          "properties": {
+            "type": "ServiceFabricNode",
+            "autoUpgradeMinorVersion": false,
+            "publisher": "Microsoft.Azure.ServiceFabric",
+            "settings": {
+              "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+              "nodeTypeRef": "[parameters('vmNodeType1Name')]",
+              "dataPath": "D:\\\\SvcFab",
+              "durabilityLevel": "Silver",
+              "certificate": {
                 "thumbprint": "[parameters('certificateThumbprint')]",
                 "x509StoreName": "[parameters('certificateStoreValue')]"
-            },
-            "systemLogUploadSettings": {
+              },
+              "systemLogUploadSettings": {
                 "Enabled": true
+              },
+              "faultDomainOverride": "az1"
             },
-            "faultDomainOverride": "az1"
-        },
-        "typeHandlerVersion": "1.0"
+            "typeHandlerVersion": "1.0"
+          }
+        }
+      ]
     }
+  }
 }
 ```
 
@@ -341,57 +348,57 @@ To set one or more node types as primary in a cluster resource, set the `isPrima
 
 ```json
 {
-    "reliabilityLevel": "Platinum",
-    "nodeTypes": [
+  "reliabilityLevel": "Platinum",
+  "nodeTypes": [
     {
-        "name": "[parameters('vmNodeType0Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt0applicationEndPort')]",
-            "startPort": "[parameters('nt0applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt0ephemeralEndPort')]",
-            "startPort": "[parameters('nt0ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+      "name": "[parameters('vmNodeType0Name')]",
+      "applicationPorts": {
+        "endPort": "[parameters('nt0applicationEndPort')]",
+        "startPort": "[parameters('nt0applicationStartPort')]"
+      },
+      "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
+      "durabilityLevel": "Silver",
+      "ephemeralPorts": {
+        "endPort": "[parameters('nt0ephemeralEndPort')]",
+        "startPort": "[parameters('nt0ephemeralStartPort')]"
+      },
+      "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
+      "isPrimary": true,
+      "vmInstanceCount": "[parameters('nt0InstanceCount')]"
     },
     {
-        "name": "[parameters('vmNodeType1Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt1applicationEndPort')]",
-            "startPort": "[parameters('nt1applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt1fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt1ephemeralEndPort')]",
-            "startPort": "[parameters('nt1ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt1fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt1InstanceCount')]"
+      "name": "[parameters('vmNodeType1Name')]",
+      "applicationPorts": {
+        "endPort": "[parameters('nt1applicationEndPort')]",
+        "startPort": "[parameters('nt1applicationStartPort')]"
+      },
+      "clientConnectionEndpointPort": "[parameters('nt1fabricTcpGatewayPort')]",
+      "durabilityLevel": "Silver",
+      "ephemeralPorts": {
+        "endPort": "[parameters('nt1ephemeralEndPort')]",
+        "startPort": "[parameters('nt1ephemeralStartPort')]"
+      },
+      "httpGatewayEndpointPort": "[parameters('nt1fabricHttpGatewayPort')]",
+      "isPrimary": true,
+      "vmInstanceCount": "[parameters('nt1InstanceCount')]"
     },
     {
-        "name": "[parameters('vmNodeType2Name')]",
-        "applicationPorts": {
-            "endPort": "[parameters('nt2applicationEndPort')]",
-            "startPort": "[parameters('nt2applicationStartPort')]"
-        },
-        "clientConnectionEndpointPort": "[parameters('nt2fabricTcpGatewayPort')]",
-        "durabilityLevel": "Silver",
-        "ephemeralPorts": {
-            "endPort": "[parameters('nt2ephemeralEndPort')]",
-            "startPort": "[parameters('nt2ephemeralStartPort')]"
-        },
-        "httpGatewayEndpointPort": "[parameters('nt2fabricHttpGatewayPort')]",
-        "isPrimary": true,
-        "vmInstanceCount": "[parameters('nt2InstanceCount')]"
+      "name": "[parameters('vmNodeType2Name')]",
+      "applicationPorts": {
+        "endPort": "[parameters('nt2applicationEndPort')]",
+        "startPort": "[parameters('nt2applicationStartPort')]"
+      },
+      "clientConnectionEndpointPort": "[parameters('nt2fabricTcpGatewayPort')]",
+      "durabilityLevel": "Silver",
+      "ephemeralPorts": {
+        "endPort": "[parameters('nt2ephemeralEndPort')]",
+        "startPort": "[parameters('nt2ephemeralStartPort')]"
+      },
+      "httpGatewayEndpointPort": "[parameters('nt2fabricHttpGatewayPort')]",
+      "isPrimary": true,
+      "vmInstanceCount": "[parameters('nt2InstanceCount')]"
     }
-    ],
+  ]
 }
 ```
 
@@ -465,20 +472,19 @@ Reference the new load balancer and IP in the new cross-Availability Zone node t
 
 1. Finally, update the DNS name and public IP.
 
-   ```powershell
-   $oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
-   $primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
-   $primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
+ ```powershell
+ $oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
+ $primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
+ $primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
 
-   Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
-   Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+ Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
+ Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
 
-   $PublicIP = Get-AzureRmPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
-   $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
-   $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
-   Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
- 
-   ```
+ $PublicIP = Get-AzureRmPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
+ $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
+ $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
+ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
+ ```
 
 [sf-architecture]: ./media/service-fabric-cross-availability-zones/sf-cross-az-topology.png
 [sf-multi-az-arch]: ./media/service-fabric-cross-availability-zones/sf-multi-az-topology.png

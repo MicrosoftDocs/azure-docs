@@ -6,7 +6,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/19/2021
+ms.date: 12/21/2021
 ms.topic: how-to
 
 # Administrator
@@ -50,7 +50,7 @@ To deploy the device bridge to your subscription:
 
 1. Use the **Deploy to Azure** button below to open the custom Resource Manager template that deploys the function app to your subscription. Use the **ID Scope** and **Primary key** from the previous step:
 
-    [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json)
+    [![Deploy to Azure Button](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fiotc-device-bridge%2Fmaster%2Fazuredeploy.json)
 
 After the deployment is completed, you need to install the NPM packages the function requires:
 
@@ -89,13 +89,13 @@ Each key in the `measurements` object must match the name of a telemetry type in
 
 You can include a `timestamp` field in the body to specify the UTC date and time of the message. This field must be in ISO 8601 format. For example, `2020-06-08T20:16:54.602Z`. If you don't include a timestamp, the current date and time is used.
 
-You can include a `modelId` field in the body. Use this field to associate the device with a device template during provisioning. This functionality is only supported by [V3 applications](howto-get-app-info.md).
+You can include a `modelId` field in the body. Use this field to associate the device with a device template during provisioning. This functionality is only supported by [V3 applications](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 The `deviceId` must be alphanumeric, lowercase, and may contain hyphens.
 
-If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassociated device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices.md).
+If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassociated device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
 
-In [V2 applications](howto-get-app-info.md), the new device appears on the **Device Explorer > Unassociated devices** page. Select **Associate** and choose a device template to start receiving incoming telemetry from the device.
+In [V2 applications](howto-faq.yml#how-do-i-get-information-about-my-application-), the new device appears on the **Device Explorer > Unassociated devices** page. Select **Associate** and choose a device template to start receiving incoming telemetry from the device.
 
 > [!NOTE]
 > Until the device is associated to a template, all HTTP calls to the function return a 403 error status.
@@ -266,12 +266,16 @@ function Decoder(bytes, port) {
 After you define the integration, add the following code before the call to `handleMessage` in line 21 of the *IoTCIntegration/index.js* file of your function app. This code translates the body of your HTTP integration to the expected format.
 
 ```javascript
-device: {
-    deviceId: req.body.hardware_serial.toLowerCase()
-},
-measurements: req.body.payload_fields
+req.body = {
+  device: {
+    deviceId: req.body.end_device_ids.device_id.toLowerCase()
+  },
+  measurements: req.body.uplink_message.decoded_payload
 };
 ```
+
+> [!NOTE]
+> The previous snippet uses the human-friendly device ID. The Things Network message also includes a technical ID that you can access using `req.body.dev_eui.toLowerCase()`. To learn more, see [The Things Network - Data Formats](https://www.thethingsindustries.com/docs/reference/data-formats/).
 
 ## Limitations
 
@@ -281,4 +285,4 @@ The device bridge only forwards messages to IoT Central, and doesn't send messag
 Now that you've learned how to deploy the IoT Central device bridge, here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Manage your devices](howto-manage-devices.md)
+> [Manage your devices](howto-manage-devices-individually.md)

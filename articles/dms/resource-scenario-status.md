@@ -40,20 +40,20 @@ The following table shows Azure Database Migration Service support for offline m
 | Target  | Source | Support | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
 | **Azure SQL DB** | SQL Server | ✔ | GA |
-|   | RDS SQL | X |  |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | X |  |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure SQL VM** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL - Single Server** | MySQL | ✔ | Public Preview  |
-|   | RDS MySQL | ✔ | Public Preview  |
-|   | Azure DB for MySQL* | ✔ | Public Preview  |
-| **Azure DB for MySQL - Flexible Server** | MySQL | ✔ | Public Preview  |
-|   | RDS MySQL | ✔ | Public Preview  |
-|   | Azure DB for MySQL* | ✔ | Public Preview  |
+| **Azure DB for MySQL - Single Server** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB for MySQL* | ✔ | GA  |
+| **Azure DB for MySQL - Flexible Server** | MySQL | ✔ | GA  |
+|   | RDS MySQL | ✔ | GA  |
+|   | Azure DB for MySQL* | ✔ | GA  |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | X |
 |  | RDS PostgreSQL | X |   |
 | **Azure DB for PostgreSQL - Flexible server** | PostgreSQL | X |
@@ -71,13 +71,13 @@ The following table shows Azure Database Migration Service support for online mi
 |   | RDS SQL | X |  |
 |   | Oracle | X |  |
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
-|   | RDS SQL | X |  |
+|   | RDS SQL | ✔ | GA |
 |   | Oracle | X |  |
 | **Azure SQL VM** | SQL Server | X |   |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **Azure DB for MySQL** | MySQL | ✔ | GA |
-|   | RDS MySQL | ✔ | GA |
+| **Azure DB for MySQL** | MySQL | X |  |
+|   | RDS MySQL | X |  |
 | **Azure DB for PostgreSQL - Single server** | PostgreSQL | ✔ | GA |
 |   | Azure DB for PostgreSQL - Single server* | ✔ | GA |
 |   | RDS PostgreSQL | ✔ | GA |

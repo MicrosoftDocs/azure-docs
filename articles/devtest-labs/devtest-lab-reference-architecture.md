@@ -1,7 +1,7 @@
 ---
-title: Enterprise reference architecture for Azure DevTest Labs
+title: Enterprise reference architecture
 description: This article provides reference architecture guidance for Azure DevTest Labs in an enterprise. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ---
@@ -41,7 +41,7 @@ Although DevTest Labs doesn’t have built-in quotas or limits, other Azure reso
     - **Using Shared Public IPs**: All VMs of the same size and region go into the same resource group. This configuration is a "middle ground" between resource group quotas and resource-type-per-resource-group quotas, if the virtual machines are allowed to have public IP addresses.
 - **Resources per resource group per resource type**: The default limit for [resources per resource group per resource type is 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  When you use the *all VMs go to the same resource group* configuration, users hit this subscription limit much sooner, especially if the VMs have many extra disks.
 - **Storage accounts**: A lab in DevTest Labs comes with a storage account. The Azure quota for [number of storage accounts per region per subscription is 250](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). The maximum number of DevTest Labs in the same region is also 250.
-- **Role assignments**: A role assignment is how you give a user or principal access to a resource (owner, resource, permission level). In Azure, there's a [limit of 2,000 role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits). By default, the DevTest Labs service creates a resource group for each VM. The owner is granted *owner* permission for the DevTest Labs VM and *reader* permission to the resource group. In this way, each new VM that you create uses two role assignments in addition to the assignments that are used when you give users permission to the lab.
+- **Role assignments**: A role assignment is how you give a user or principal access to a resource (owner, resource, permission level). In Azure, there's a [limit of 2,000 role assignments per subscription](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits). By default, the DevTest Labs service creates a resource group for each VM. The owner is granted *owner* permission for the DevTest Labs VM and *reader* permission to the resource group. In this way, each new VM that you create uses two role assignments in addition to the assignments that are used when you give users permission to the lab.
 - **API reads/writes**: There are various ways to automate Azure and DevTest Labs, including REST APIs, PowerShell, Azure CLI, and Azure SDK. Through automation, you might hit another limit on API requests: Each subscription allows up to [12,000 read requests and 1,200 write requests per hour](../azure-resource-manager/management/request-limits-and-throttling.md). Be aware of this limit when you automate DevTest Labs.
 
 ## Manageability considerations
@@ -52,7 +52,7 @@ DevTest Labs has a great administrative user interface for working with a single
 - **Restrict changes to a lab setting**: Often, a particular setting must be restricted (such as allowing use of marketplace images). You can use Azure Policy to prevent changes to a resource type. Or you can create a custom role, and grant users that role instead of the *owner* role for the lab. You can do this for most settings in the lab (internal support, lab announcement, allowed VM sizes, and so on).
 - **Require VMs to follow a naming convention**: Managers commonly want to easily identify VMs that are part of a cloud-based development and testing environment. You can do this by using [Azure Policy](https://github.com/Azure/azure-policy/tree/master/samples/TextPatterns/allow-multiple-name-patterns).
 
-It’s important to note that DevTest Labs uses underlying Azure resources that are managed the same way: networking, disks, compute, and so on. For example, Azure Policy applies to virtual machines that are created in a lab. Azure Security Center can report on VM compliance. And the Azure Backup service can provide regular backups for the VMs in the lab.
+It’s important to note that DevTest Labs uses underlying Azure resources that are managed the same way: networking, disks, compute, and so on. For example, Azure Policy applies to virtual machines that are created in a lab. Microsoft Defender for Cloud can report on VM compliance. And the Azure Backup service can provide regular backups for the VMs in the lab.
 
 ## Security considerations
 Azure DevTest Labs uses existing resources in Azure (compute, networking, and so on). So it automatically benefits from the security features that are built into the platform. For example, to require incoming remote desktop connections to originate only from the corporate network, simply add a network security group to the virtual network on the remote desktop gateway. The only additional security consideration is the level of permissions that you grant to team members who use the labs on a day-to-day basis. The most common permissions are [*owner* and *user*](devtest-lab-add-devtest-user.md). For more information about these roles, see [Add owners and users in Azure DevTest Labs](devtest-lab-add-devtest-user.md).

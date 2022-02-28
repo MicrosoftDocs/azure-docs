@@ -1,33 +1,37 @@
 ---
-title: Migrate a database from SQL Server to Azure Arc enabled SQL Managed Instance
-description: Migrate database from SQL Server to Azure Arc enabled SQL Managed Instance
+title: Migrate a database from SQL Server to Azure Arc-enabled SQL Managed Instance
+description: Migrate database from SQL Server to Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Migrate: SQL Server to Azure Arc enabled SQL Managed Instance
+# Migrate: SQL Server to Azure Arc-enabled SQL Managed Instance
 
 This scenario walks you through the steps for migrating a database from a SQL Server instance to Azure SQL managed instance in Azure Arc via two different backup and restore methods.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Use Azure blob storage
 
-Use Azure blob storage for migrating to Azure Arc enabled SQL Managed Instance.
+Use Azure blob storage for migrating to Azure Arc-enabled SQL Managed Instance.
 
 This method uses Azure Blob Storage as a temporary storage location that you can back up to and then restore from.
 
 ### Prerequisites
 
 - [Install Azure Data Studio](install-client-tools.md)
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - [Install Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 - Azure subscription
+
+
 
 ### Step 1: Provision Azure blob storage
 
@@ -69,10 +73,19 @@ In this step, we will connect to the source SQL Server and create the backup fil
 1. Similarly, prepare the **BACKUP DATABASE** command as follows to create a backup file to the blob container.  Once you have substituted the values, run the query.
 
    ```sql
-   BACKUP DATABASE <database name> TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>'
+   BACKUP DATABASE <database name> TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>.bak'
    ```
 
 1. Open Azure Storage Explorer and validate that the backup file created in previous step is visible in the Blob container
+
+Learn more about backup to URL here:
+
+- [SQL Server Backup and Restore with Azure Blob Storage](/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service)
+
+- [Back up to URL docs](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
+
+- [Back up to URL using SQL Server Management Studio (SSMS)](/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service)
+
 
 ### Step 4: Restore the database from Azure blob storage to SQL Managed Instance - Azure Arc
 
@@ -98,7 +111,7 @@ In this step, we will connect to the source SQL Server and create the backup fil
 1. Prepare and run the **RESTORE DATABASE** command as follows to restore the backup file to a database on SQL Managed Instance - Azure Arc
 
    ```sql
-   RESTORE DATABASE <database name> FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>'
+   RESTORE DATABASE <database name> FROM URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>/<file name>.bak'
    WITH MOVE 'Test' to '/var/opt/mssql/data/<file name>.mdf'
    ,MOVE 'Test_log' to '/var/opt/mssql/data/<file name>.ldf'
    ,RECOVERY  
@@ -106,12 +119,6 @@ In this step, we will connect to the source SQL Server and create the backup fil
    ,STATS = 5;  
    GO
    ```
-
-Learn more about backup to URL here:
-
-[Backup to URL docs](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
-
-[Backup to URL using SQL Server Management Studio (SSMS)](/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service)
 
 -------
 
@@ -130,7 +137,7 @@ Backup the SQL Server database to your local file path like any typical SQL Serv
 
 ```sql
 BACKUP DATABASE Test
-TO DISK = 'c:\tmp\test.bak'
+TO DISK = 'C:\Backupfiles\test.bak'
 WITH FORMAT, MEDIANAME = 'Test' ;
 GO
 ```
@@ -184,8 +191,8 @@ GO
 
 ## Next steps
 
-[Learn more about Features and Capabilities of Azure Arc enabled SQL Managed Instance](managed-instance-features.md)
+[Learn more about Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
 
-[Start by creating a Data Controller](create-data-controller.md)
+[Start by creating a Data Controller](create-data-controller-indirect-cli.md)
 
-[Already created a Data Controller? Create an Azure Arc enabled SQL Managed Instance](create-sql-managed-instance.md)
+[Already created a Data Controller? Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)

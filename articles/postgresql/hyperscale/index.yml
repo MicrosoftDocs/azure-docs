@@ -5,7 +5,7 @@ metadata:
   description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: jonels-msft
   ms.author: jonels
-  ms.date: 09/27/2020
+  ms.date: 02/22/2022
   ms.service: postgresql
   ms.subservice: hyperscale-citus
   ms.topic: landing-page
@@ -16,54 +16,54 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Hyperscale (Citus)?
+            url: overview.md
       - linkListType: quickstart
         links:
-          - text: Create server group using the Azure Portal
-            url: ../quickstart-create-hyperscale-portal.md
+          - text: Create a server group
+            url: quickstart-create-portal.md
+          - text: Connect with psql
+            url: quickstart-connect-psql.md
+          - text: Model and load data
+            url: quickstart-distribute-tables.md
+          - text: Run queries
+            url: quickstart-run-queries.md
       - linkListType: concept
         links:
-          - text: Server group nodes and tables
-            url: ../concepts-hyperscale-nodes.md
-      - linkListType: tutorial
+          - text: Nodes and distributed tables
+            url: concepts-nodes.md
+          - text: Sharding data on worker nodes
+            url: tutorial-shard.md
+          - text: Regions
+            url: resources-regions.md
+      - linkListType: how-to-guide
         links:
-          - text: Design a multi-tenant database
-            url: ../tutorial-design-database-hyperscale-multi-tenant.md
-          - text: Design a real-time analytics dashboard
-            url: ../tutorial-design-database-hyperscale-realtime.md
+          - text: Choose distribution column
+            url: howto-choose-distribution-column.md
+          - text: Choosing a server group size
+            url: howto-scale-initial.md
+      - linkListType: video
+        links:
+          - text: How Citus distributes PostgreSQL
+            url: https://www.youtube.com/watch?v=JwjjUT8K7po
 
   # Card
   - title: Connect and query
     linkLists:
-      - linkListType: concept
+      - linkListType: how-to-guide
         links:
-          - text: Understand the firewall
-            url: ../concepts-hyperscale-firewall-rules.md
+          - text: Public access
+            url: howto-manage-firewall-using-portal.md
+          - text: Private access
+            url: howto-private-access.md
           - text: Configure TLS
-            url: ../concepts-hyperscale-ssl-connection-security.md
+            url: howto-ssl-connection-security.md
       - linkListType: how-to-guide
         links:
-          - text: Firewall rules
-            url: ../howto-hyperscale-manage-firewall-using-portal.md
           - text: Troubleshoot connection issues
-            url: ../howto-hyperscale-troubleshoot-common-connection-issues.md
-
-  # Card
-  - title: Scale
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Nodes and tables
-            url: ../concepts-hyperscale-nodes.md
-          - text: Choose distribution columns
-            url: ../concepts-hyperscale-choose-distribution-column.md
-      - linkListType: how-to-guide
-        links:
-          - text: Scale server group
-            url: ../howto-hyperscale-scale-grow.md
-          - text: Distribute tables
-            url: ../howto-hyperscale-modify-distributed-tables.md
-          - text: Create alerts on metrics
-            url: ../howto-hyperscale-alert-on-metric.md
+            url: howto-troubleshoot-common-connection-issues.md
 
   # Card
   - title: Administer
@@ -71,30 +71,58 @@ landingContent:
       - linkListType: concept
         links:
           - text: Backup and restore
-            url: ../concepts-hyperscale-backup.md
+            url: concepts-backup.md
           - text: Monitor and tune
-            url: ../concepts-hyperscale-monitoring.md
+            url: concepts-monitoring.md
           - text: High availability
-            url: ../concepts-hyperscale-high-availability.md
+            url: concepts-high-availability.md
           - text: Reserved capacity
-            url: ../concepts-hyperscale-reserved-pricing.md
+            url: concepts-reserved-pricing.md
       - linkListType: how-to-guide
         links:
           - text: Create database users
-            url: ../howto-hyperscale-create-users.md
+            url: howto-create-users.md
           - text: Configure high availability
-            url: ../howto-hyperscale-high-availability.md
+            url: howto-high-availability.md
           - text: Access database logs
-            url: ../howto-hyperscale-logging.md
+            url: howto-logging.md
+          - text: Useful diagnostic queries
+            url: howto-useful-diagnostic-queries.md
+          - text: Troubleshoot read-only access
+            url: howto-troubleshoot-read-only.md
 
   # Card
   - title: Reference
     linkLists:
       - linkListType: reference
         links:
+          - text: Overview of functionality
+            url: reference-overview.md
           - text: SQL API functions
-            url: ../reference-hyperscale-functions.md
+            url: reference-functions.md
           - text: Server parameters
-            url: ../reference-hyperscale-parameters.md
+            url: reference-parameters.md
           - text: System tables
-            url: ../reference-hyperscale-metadata.md
+            url: reference-metadata.md
+
+  # Card
+  - title: Scale
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Table colocation
+            url: concepts-colocation.md
+          - text: Connection pooling
+            url: concepts-connection-pool.md
+          - text: Columnar table storage
+            url: concepts-columnar.md
+          - text: Limits and limitations
+            url: reference-limits.md
+      - linkListType: how-to-guide
+        links:
+          - text: Scale server group
+            url: howto-scale-grow.md
+          - text: Distribute tables
+            url: howto-modify-distributed-tables.md
+          - text: Create alerts on metrics
+            url: howto-alert-on-metric.md

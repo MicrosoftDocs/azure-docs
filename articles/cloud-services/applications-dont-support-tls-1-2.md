@@ -2,22 +2,18 @@
 title: Troubleshooting issues caused by applications that don't support TLS 1.2 | Microsoft Docs
 description: Troubleshooting issues caused by applications that don't support TLS 1.2
 services: cloud-services
-documentationcenter: ''
-author: tanmaygore
+author: hirenshah1
+ms.author: hirshah
 tags: top-support-issue
-ms.assetid: 
 ms.service: cloud-services
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/16/2020
-ms.author: tagore
 ---
 
 # Troubleshooting applications that don't support TLS 1.2
 
-> [!IMPORTANT]
-> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 This article describes how to enable the older TLS protocols (TLS 1.0 and 1.1) as well as applying legacy cipher suites to support the additional protocols on the Windows Server 2019 cloud service web and worker roles.
 

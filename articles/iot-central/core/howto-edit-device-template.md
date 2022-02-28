@@ -3,7 +3,7 @@ title: Edit a device template in your Azure IoT Central application | Microsoft 
 description: Iterate over your device templates without impacting your live connected devices
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/26/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -111,6 +111,6 @@ You can create multiple versions of the device template. Over time, you'll have 
 
 ## Next steps
 
-If you're an operator or solution builder, a suggested next step is to learn [how to manage your devices](./howto-manage-devices.md).
+If you're an operator or solution builder, a suggested next step is to learn [how to manage your devices](./howto-manage-devices-individually.md).
 
 If you're a device developer, a suggested next step is to read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md).

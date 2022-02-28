@@ -1,13 +1,8 @@
 ---
 title: Live stream analysis using Azure Video Analyzer for Media (formerly Video Indexer)
-titleSuffix: Azure Media Services
 description: This article shows how to perform a live stream analysis using Azure Video Analyzer for Media (formerly Video Indexer).
-services: media-services
-author: Juliako
-manager: femila
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/13/2019
-ms.author: juliako
 ---
 
 # Live stream analysis with Video Analyzer for Media

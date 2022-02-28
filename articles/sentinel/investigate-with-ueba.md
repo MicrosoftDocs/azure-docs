@@ -1,29 +1,30 @@
 ---
 title: Investigate incidents with UEBA data | Microsoft Docs
-description:  Learn how to use UEBA data while investigating to gain greater context to potentially malicious activity occurring in your organization.
-services: sentinel
-documentationcenter: na
+description: Learn how to use UEBA data while investigating to gain greater context to potentially malicious activity occurring in your organization.
 author: batamig
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/09/2021
+ms.date: 11/09/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
-# Investigate incidents with UEBA data
+
+# Tutorial: Investigate incidents with UEBA data
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods and sample procedures for using [user entity behavior analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md) in your regular investigation workflows.
 
+> [!IMPORTANT]
+>
+> Noted features in this article are currently in  **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
+> [!NOTE]
+> This tutorial provides scenario-based procedures for a top customer task: investigating with UEBA data. For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
+>
 ## Prerequisites
 
-Before you can use UEBA data in your investigations, you must [enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel](enable-entity-behavior-analytics.md). 
+Before you can use UEBA data in your investigations, you must [enable User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](enable-entity-behavior-analytics.md).
 
 Start looking for machine powered insights about one week after enabling UEBA.
 
@@ -31,7 +32,7 @@ Start looking for machine powered insights about one week after enabling UEBA.
 
 We recommend running regular, proactive searches through user activity to create leads for further investigation.
 
-You can use the Azure Sentinel [User and Entity Behavior Analytics workbook](identify-threats-with-entity-behavior-analytics.md#hunting-queries-and-exploration-queries) to query your data, such as for:
+You can use the Microsoft Sentinel [User and Entity Behavior Analytics workbook](identify-threats-with-entity-behavior-analytics.md#hunting-queries-and-exploration-queries) to query your data, such as for:
 
 - **Top risky users**, with anomalies or attached incidents
 - **Data on specific users**, to determine whether subject has indeed been compromised, or whether there is an insider threat due to action deviating from the user's profile.
@@ -61,7 +62,7 @@ Use the data found in the **User and Entity Behavior Analytics** workbook to det
 
 Sometimes, an incident captured in an investigation is a false positive.
 
-A common example of a false positive is when impossible travel activity is detected, such as a user who signed into an application or portal from both New York and London within the same hour. While Azure Sentinel notes the impossible travel as an anomaly, an investigation with the user might clarify that a VPN was used with an alternative location to where the user actually was.
+A common example of a false positive is when impossible travel activity is detected, such as a user who signed into an application or portal from both New York and London within the same hour. While Microsoft Sentinel notes the impossible travel as an anomaly, an investigation with the user might clarify that a VPN was used with an alternative location to where the user actually was.
 
 ### Analyze a false positive
 
@@ -71,13 +72,46 @@ For example:
 
 [ ![Open an incident's user entity page.](media/ueba/open-entity-pages.png) ](media/ueba/open-entity-pages.png#lightbox)
 
-The user entity page is also linked from the [incident page](tutorial-investigate-cases.md#how-to-investigate-incidents) itself and the [investigation graph](tutorial-investigate-cases.md#use-the-investigation-graph-to-deep-dive).
+The user entity page is also linked from the [incident page](investigate-cases.md#how-to-investigate-incidents) itself and the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
 > [!TIP]
-> After confirming the data on the user entity page for the specific user associated with the incident, go to the Azure Sentinel **Hunting** area to understand whether the user's peers usually connect from the same locations as well. If so, this knowledge would make an even stronger case for a false positive.
+> After confirming the data on the user entity page for the specific user associated with the incident, go to the Microsoft Sentinel **Hunting** area to understand whether the user's peers usually connect from the same locations as well. If so, this knowledge would make an even stronger case for a false positive.
 >
-> In the **Hunting** area, run the **Anomalous Geo Location Logon** query. For more information, see [Hunt for threats with Azure Sentinel](hunting.md).
+> In the **Hunting** area, run the **Anomalous Geo Location Logon** query. For more information, see [Hunt for threats with Microsoft Sentinel](hunting.md).
 >
+
+### Embed IdentityInfo data in your analytics rules (Public Preview)
+
+As attackers often use the organization's own user and service accounts, data about those user accounts, including the user identification and privileges, are crucial for the analysts in the process of an investigation.
+
+Embed data from the **IdentityInfo table** to fine-tune your analytics rules to fit your use cases, reducing false positives, and possibly speeding up your investigation process.
+
+For example:
+
+- To correlate security events with the **IdentityInfo** table in an alert that's triggered if a server is accessed by someone outside the **IT** department:
+
+    ```kusto
+    SecurityEvent
+    | where EventID in ("4624","4672")
+    | where Computer == "My.High.Value.Asset"
+    | join kind=inner  (
+        IdentityInfo
+        | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.SubjectUserSid == $right.AccountSID
+    | where Department != "IT"
+    ```
+
+- To correlate Azure AD sign-in logs with the **IdentityInfo** table in an alert that's triggered if an application is accessed by someone who isn't a member of a specific security group:
+
+    ```kusto
+    SigninLogs
+    | where AppDisplayName == "GithHub.Com"
+    | join kind=inner  (
+        IdentityInfo
+        | summarize arg_max(TimeGenerated, *) by AccountObjectId) on $left.UserId == $right.AccountObjectId
+    | where GroupMembership !contains "Developers"
+    ```
+
+The **IdentityInfo** table synchronizes with your Azure AD workspace to create a snapshot of your user profile data, such as user metadata, group information, and Azure AD roles assigned to each user. For more information, see [IdentityInfo table](ueba-enrichments.md#identityinfo-table-public-preview) in the UEBA enrichments reference.
 
 ## Identify password spray and spear phishing attempts
 
@@ -101,11 +135,31 @@ For example, to investigate a password spray incident with UEBA insights, you mi
 > You can also run the **Anomalous Failed Logon** [hunting query](hunting.md) to monitor all of an organization's anomalous failed logins. Use the results from the query to start investigations into possible password spray attacks.
 >
 
+## URL detonation (Public preview)
+
+When there are URLs in the logs ingested into Microsoft Sentinel, those URLs are automatically detonated to help accelerate the triage process. 
+
+The Investigation graph includes a node for the detonated URL, as well as the following details:
+
+- **DetonationVerdict**. The high-level, Boolean determination from detonation. For example, **Bad** means that the side was classified as hosting malware or phishing content.
+- **DetonationFinalURL**. The final, observed landing page URL, after all redirects from the original URL.
+- **DetonationScreenshot**. A screenshot of what the page looked like at the time that the alert was triggered. Select the screenshot to enlarge.
+
+For example:
+
+:::image type="content" source="media/investigate-with-ueba/url-detonation-example.png" alt-text="Sample URL detonation shown in the Investigation graph.":::
+
+> [!TIP]
+> If you don't see URLs in your logs, check that URL logging, also known as threat logging, is enabled for your secure web gateways, web proxies, firewalls, or legacy IDS/IPS.
+>
+> You can also create custom logs to channel specific URLs of interest into Microsoft Sentinel for further investigation.
+>
+
 ## Next steps
 
 Learn more about UEBA, investigations, and hunting:
 
-- [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Azure Sentinel](identify-threats-with-entity-behavior-analytics.md)
-- [Azure Sentinel UEBA enrichments reference](ueba-enrichments.md)
-- [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md)
-- [Hunt for threats with Azure Sentinel](hunting.md)
+- [Identify advanced threats with User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel](identify-threats-with-entity-behavior-analytics.md)
+- [Microsoft Sentinel UEBA enrichments reference](ueba-enrichments.md)
+- [Tutorial: Investigate incidents with Microsoft Sentinel](investigate-cases.md)
+- [Hunt for threats with Microsoft Sentinel](hunting.md)

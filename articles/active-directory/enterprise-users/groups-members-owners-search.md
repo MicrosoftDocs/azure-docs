@@ -4,74 +4,59 @@ description: Search and filter groups members and owners in the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 10/22/2021
 ms.author: curtand
-ms.reviewer: krbain
+ms.reviewer: jodah
 
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Search groups and members (preview) in Azure Active Directory
+# Search groups and members in Azure Active Directory
 
-This article tells you how to search for members and owners of a group and how to use search filters as part of the groups improvement preview in the Azure Active Directory (Azure AD) portal. There are lots of improvements in the groups experiences to help you manage your groups, including members and owners, quickly and easily. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article tells you how to search for members and owners of a group and how to use search filters the Azure Active Directory (Azure AD) portal. Search functions for groups include:
 
-Changes in this preview include:
+- Groups search capabilities, such as substring search in group names
+- Filtering and sorting options on member and owner lists
+- Search capabilities for member and owner lists
 
-- New groups search capabilities, such as substring search in group names
-- New filtering and sorting options on member and owner lists
-- New search capabilities for member and owner lists
-- More accurate group counts for large groups
+## Group search and sort
 
-## Enabling and managing the preview
+On the **All groups** page, when you enter a search string, you can now toggle between "contains" and "starts with" searches on the **All groups** page only. The substring search is done only on whole words, and any special characters are searched for also as an ANDed search. For example, searching for -Name starts a search for the substring "Name" and a search for "-". Substring search is case-sensitive. Object ID or mailNickname properties are also searched.
 
-We’ve made it easy to join the preview:
+![new substring searches on the All Groups page](./media/groups-members-owners-search/members-list.png)
 
-  1. Sign in to the [Azure AD portal](https://portal.azure.com), and select **Groups**.
-  2. From the Groups – All groups page, select the banner at the top of the page to join the preview.
+For example, a search for “policy” returns both "MDM policy – West" and "Policy group." A group named "New_policy" wouldn't be returned. You can sort the **All groups** list by name in ascending or descending order.
 
-You can also check out the the latest features and improvements by selecting **Preview info** on the **All groups** page. After you join the preview, you can see the preview tag on all groups pages that have improvements and are part of the preview. Not every groups page has been updated as part of this preview.
-
-If you are having any issues, you can switch back the legacy experience by selecting the banner at the top of the **All groups** page. We appreciate your feedback so that we can improve our experience.
-
-## Group search and sorting
-
-The groups list search has been enhanced so that when you can enter a search string, the search automatically perform a `startswith` and substring search on the list of group names. The substring search is performed only on whole words, and doesn't include special characters. Substring search is case-sensitive.
-
-![new substring searches on the All Groups page](./media/groups-members-owners-search/groups-search-preview.png)
-
-For example, a search for “policy” will now return both "MDM policy – West" and "Policy group." A group named "New_policy" wouldn't be returned.
-
-- You can perform the same search on group membership lists as well.
-- You can now sort the groups list by name using the arrows to the right of the name column heading to sort the list in ascending or descending order.
-
-## Group member search and filtering
+## Group member search and filter
 
 ### Search group member and owner lists
 
-You can now search the members of a specific group by name, and perform the same search on the list of a the group's owners as well. In the new experience, if you enter a string in the search box, a startswith search will automatically performed. For example, a search for “Scott” will return Scott Wilkinson.
+You can search the members or owners of a specific group by name, and when you enter a search string, a `contains` search is automatically done. For example, a search for “Scott” returns both Scott Wilkinson and Maya Scott.
 
-![new substring searches on the group members and owners lists](./media/groups-members-owners-search/members-list.png)
+![new substring searches on the group members and owners lists](./media/groups-members-owners-search/groups-search-preview.png)
 
-### Filter member and owners list
+### Filter member and owner lists
 
-In addition to search, now you can filter the member and owner lists by user type. This is the information found in the User Type column of the list. So, you can filter the list by members and guests to determine if there are any guests in the group.
+You can also filter the group members and owners lists by user type. This information is found in the **User Type** column in the members or owners list. You can filter the list to see only members or guests.
 
-### View and manage membership
+The **Members** page includes all the unique members of group including anyone who inherits their group membership from another group.
 
-In addition to viewing the direct members of a specific group, you can now view the list of all members of the group within the Members page. The members list includes all the unique members of group including any transitive members.
+You can also search and filter the lists individually. Filtering the all members list doesn't affect filters that are applied to the direct members list.
 
-You can also search and filter the direct members list and the all members list individually. Filtering the all members list does not affect the filters that are applied on the direct members list.
+## Group memberships
 
-## Improved group member counts
+You can also view group memberships for a group on the **Group memberships** page. The **Group memberships** page supports search, sort, and filter operations that are similar to the other Groups pages.
 
-We’ve improved the group **Overview** page to provide group member counts for groups of all sizes. You can see the member counts even for groups with more than 1,000 members. You can now see the total number of direct members for a group and the total membership count (all the unique members of group including transitive members) on the **Overview** page.
+## Group member counts
+
+The group **Overview** page provides member counts for groups. You can see the total number of direct members for a group and the total membership count (all the unique members of group including inherited memberships) on the **Overview** page.
 
 ![Higher accuracy in group membership counts](./media/groups-members-owners-search/member-numbers.png)
 

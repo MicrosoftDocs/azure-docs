@@ -3,15 +3,13 @@ title: Quickstart - Send telemetry to Azure IoT Hub (CLI) quickstart
 description: This quickstart shows developers new to IoT Hub how to get started by using the Azure CLI to create an IoT hub,  send telemetry, and view messages between a device and the hub.
 ms.service: iot-hub
 ms.topic: quickstart
-ms.custom: [iot-send-telemetry-cli, iot-p0-scenario,'Role: Cloud Development', devx-track-azurecli]
+ms.custom: [iot-send-telemetry-cli, iot-p0-scenario, "Role: Cloud Development", devx-track-azurecli, mode-api]
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
 ---
 
 # Quickstart: Send telemetry from a device to an IoT hub and monitor it with the Azure CLI
-
-[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you use the Azure CLI to create an IoT Hub and a simulated device, send device telemetry to the hub, and send a cloud-to-device message. You also use the Azure portal to visualize device metrics. This is a basic workflow for developers who use the CLI to interact with an IoT Hub application.
 
@@ -191,5 +189,7 @@ In this quickstart, you used the Azure CLI to create an IoT hub, create a simula
 
 If you are a device developer, the suggested next step is to see the telemetry quickstart that uses the Azure IoT Device SDK for C. Optionally, see one of the available Azure IoT Hub telemetry quickstart articles in your preferred language or SDK.
 
+To learn how to control your simulated device from a back-end application, continue to the next quickstart.
+
 > [!div class="nextstepaction"]
-> [Quickstart: Send telemetry from a device to an IoT hub (C)](quickstart-send-telemetry-c.md)
+> [Quickstart: Control a device connected to an IoT hub](quickstart-control-device.md)

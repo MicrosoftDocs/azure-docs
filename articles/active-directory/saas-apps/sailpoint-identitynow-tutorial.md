@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SailPoint IdentityNow | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with SailPoint IdentityNow'
 description: Learn how to configure single sign-on between Azure Active Directory and SailPoint IdentityNow.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/31/2021
+ms.date: 01/27/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SailPoint IdentityNow
+# Tutorial: Azure AD SSO integration with SailPoint IdentityNow
 
 In this tutorial, you'll learn how to integrate SailPoint IdentityNow with Azure Active Directory (Azure AD). When you integrate SailPoint IdentityNow with Azure AD, you can:
 
@@ -27,7 +27,10 @@ In this tutorial, you'll learn how to integrate SailPoint IdentityNow with Azure
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* SailPoint IdentityNow active subscription.  If you do not have IdentityNow, please contact [SailPoint IdentityNow support team](mailto:support@sailpoint.com).
+* SailPoint IdentityNow active subscription. If you do not have IdentityNow, please contact [SailPoint IdentityNow support team](mailto:support@sailpoint.com).
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -35,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SailPoint IdentityNow supports **SP and IDP** initiated SSO.
 
-## Adding SailPoint IdentityNow from the gallery
+## Add SailPoint IdentityNow from the gallery
 
 To configure the integration of SailPoint IdentityNow into Azure AD, you need to add SailPoint IdentityNow from the gallery to your list of managed SaaS apps.
 
@@ -139,8 +142,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the SailPoint IdentityNow tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the SailPoint IdentityNow tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the SailPoint IdentityNow for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure SailPoint IdentityNow you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure SailPoint IdentityNow you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

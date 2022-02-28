@@ -1,13 +1,13 @@
 ---
 title: Connect to a secure storage account from your Azure Synapse workspace 
 description: This article will teach you how to connect to a secure storage account from your Azure Synapse workspace
-author: RonyMSFT 
+author: ashinMSFT 
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
 ms.date: 02/10/2021 
-ms.author: ronytho
-ms.reviewer: jrasnick
+ms.author: seshin
+ms.reviewer: sngun
 ---
 
 # Connect to a secure Azure storage account from your Synapse workspace
@@ -24,7 +24,13 @@ When you create a Synapse workspace, you can choose to enable a Managed virtual 
 ## Access a secured storage account
 Synapse operates from networks that cannot be included in your network rules. The following needs to be done to enable access from your workspace to your secure storage account.
 
-* Create an Azure Synapse workspace with a managed virtual network associated with it and create managed private endpoints from it to the secure storage account
+* Create an Azure Synapse workspace with a managed virtual network associated with it and create managed private endpoints from it to the secure storage account. 
+
+    If you use Azure Portal to create your workspace, you can enable managed virtual network under the **Networking** tab as shown below. If you enable managed virtual network or Synapse determines that the  primary storage account is a secure storage account, then you have the option to create a managed private endpoint connection request to the secure storage account as shown below. The storage account owner will need to approve the connection request to establish the private link. Alternatively, Synapse will approve this connection request if the user creating an Apache Spark pool in the workspace has sufficient privileges to approve the connection request.
+![Enable Managed VNet and Managed private endpoint](./media/connect-to-a-secure-storage-account/enable-managed-virtual-network-managed-private-endpoint.png) 
+    
+
+
 * Grant your Azure Synapse workspace access to your secure storage account as a trusted Azure service. As a trusted service, Azure Synapse will then use strong authentication to securely connect to your storage account.   
 
 ### Create a Synapse workspace with a managed virtual network and create managed private endpoints to your storage account

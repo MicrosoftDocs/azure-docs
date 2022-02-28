@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 06/28/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
@@ -31,7 +31,7 @@ To make sure you understand the functionality and effects before you enable the 
 To enable combined registration, complete these steps:
 
 1. Sign in to the Azure portal as a user administrator or global administrator.
-2. Go to **Azure Active Directory** > **User settings** > **Manage user feature preview settings**.
+2. Go to **Azure Active Directory** > **User settings** > **Manage user feature settings**.
 3. Under **Users can use the combined security information registration experience**, choose to enable for a **Selected** group of users or for **All** users.
 
    ![Enable the combined security info experience for users](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)
@@ -44,6 +44,7 @@ To enable combined registration, complete these steps:
 If you have configured the *Site to Zone Assignment List* in Internet Explorer, the following sites have to be in the same zone:
 
 * *[https://login.microsoftonline.com](https://login.microsoftonline.com)*
+* *[https://Login.windows.net](https://login.windows.net)*
 * *[https://mysignins.microsoft.com](https://mysignins.microsoft.com)*
 * *[https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)*
 

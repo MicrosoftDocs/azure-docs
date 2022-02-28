@@ -5,14 +5,13 @@ services: active-directory
 keywords: what is Azure AD Connect, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 08/13/2019
+ms.date: 01/21/2022
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -31,7 +30,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 
 ## SSO via primary refresh token vs. Seamless SSO
 
-For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via primary refresh token (PRT). For windows 7 and 8.1 it’s recommended to use Seamless SSO.
+For Windows 10, Windows Server 2016 and later versions, it’s recommended to use SSO via primary refresh token (PRT). For Windows 7 and Windows 8.1, it’s recommended to use Seamless SSO.
 Seamless SSO needs the user's device to be domain-joined, but it is not used on Windows 10 [Azure AD joined devices](../devices/concept-azure-ad-join.md) or [hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md). SSO on Azure AD joined, Hybrid Azure AD joined, and Azure AD registered devices works based on the [Primary Refresh Token (PRT)](../devices/concept-primary-refresh-token.md)
 
 SSO via PRT works once devices are registered with Azure AD for hybrid Azure AD joined, Azure AD joined or personal registered devices via Add Work or School Account. 
@@ -79,13 +78,13 @@ For more information on how SSO works with Windows 10 using PRT, see: [Primary R
 
 \*\*\*Requires [additional configuration](how-to-connect-sso-quick-start.md#browser-considerations).
 
-\*\*\*\*Microosft Edge based on Chromium
+\*\*\*\*Microsoft Edge based on Chromium
 
 ## Next steps
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
 - [**Deployment Plan**](../manage-apps/plan-sso-deployment.md) - Step-by-step deployment plan.
 - [**Technical Deep Dive**](how-to-connect-sso-how-it-works.md) - Understand how this feature works.
-- [**Frequently Asked Questions**](how-to-connect-sso-faq.md) - Answers to frequently asked questions.
+- [**Frequently Asked Questions**](how-to-connect-sso-faq.yml) - Answers to frequently asked questions.
 - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
+- [**UserVoice**](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) - For filing new feature requests.

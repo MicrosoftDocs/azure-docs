@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 11/12/2021
 
 ms.author: justinha
 author: justinha
-manager: daveba
+manager: karenhoran
 ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
@@ -26,14 +26,14 @@ This document focuses on enabling security key based passwordless authentication
 - [Azure AD Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Enable [Combined security information registration](concept-registration-mfa-sspr-combined.md)
 - Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys)
-- WebAuthN requires Windows 10 version 1903 or higher**
+- WebAuthN requires Windows 10 version 1903 or higher
 
 To use security keys for logging in to web apps and services, you must have a browser that supports the WebAuthN protocol. 
 These include Microsoft Edge, Chrome, Firefox, and Safari.
 
 ## Prepare devices
 
-For Azure AD joined devices the best experience is on Windows 10 version 1903 or higher.
+For Azure AD joined devices, the best experience is on Windows 10 version 1903 or higher.
 
 Hybrid Azure AD joined devices must run Windows 10 version 2004 or higher.
 
@@ -52,6 +52,9 @@ Registration features for passwordless authentication methods rely on the combin
    1. **Target** - All users or Select users
 1. **Save** the configuration.
 
+   >[!NOTE]
+   >If you see an error when you try to save, the cause might be due to the number of users or groups being added. As a workaround, replace the users and groups you are trying to add with a single group, in the same operation, and then click **Save** again.
+
 
 ### FIDO Security Key optional settings 
 
@@ -62,7 +65,7 @@ There are some optional settings for managing security keys per tenant.
 **General**
 
 - **Allow self-service set up** should remain set to **Yes**. If set to no, your users will not be able to register a FIDO key through the MySecurityInfo portal, even if enabled by Authentication Methods policy.  
-- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
+- **Enforce attestation** setting to **Yes** requires the FIDO security key metadata to be published and verified with the FIDO Alliance Metadata Service, and also pass Microsoft’s additional set of validation testing. For more information, see [What is a Microsoft-compatible security key?](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)
 
 **Key Restriction Policy**
 

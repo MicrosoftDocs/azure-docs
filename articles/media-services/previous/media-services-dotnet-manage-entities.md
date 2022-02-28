@@ -10,7 +10,7 @@ ms.assetid: 1bd8fd42-7306-463d-bfe5-f642802f1906
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
@@ -26,8 +26,7 @@ ms.custom: devx-track-csharp
 > 
 > 
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 This topic shows how to manage Azure Media Services entities with .NET.
 

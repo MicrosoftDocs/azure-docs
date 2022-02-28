@@ -7,9 +7,10 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: tchladek
-ms.date: 03/10/2021
+ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: identity
 ---
 
 # Identity model
@@ -71,7 +72,7 @@ If you want to remove a user's ability to access specific functionality, revoke 
 
 In Azure Communication Services, a rotation of access keys revokes all active access tokens that were created by using a former access key. All identities lose access to Azure Communication Services, and they must issue new access tokens.
 
-We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is that issuing requires an access key or a managed identity. For security reasons, sharing access keys with the client's application isn't recommended.
+We recommend issuing access tokens in your server-side service and not in the client's application. The reasoning is that issuing requires an access key or Azure AD authentication. Sharing secrets with the client's application isn't recommended for security reasons.
 
 The client application should use a trusted service endpoint that can authenticate your clients. The endpoint should issue access tokens on their behalf. For more information, see [Client and server architecture](./client-and-server-architecture.md).
 
@@ -82,3 +83,4 @@ If you cache access tokens to a backing store, we recommend using encryption. An
 * For an introduction to access token management, see [Create and manage access tokens](../quickstarts/access-tokens.md).
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
 * For an introduction to data residency and privacy, see [Region availability and data residency](./privacy.md).
+* To learn how to quickly create identities for testing, see the [quick-create identity quickstart](../quickstarts/identity/quick-create-identity.md).

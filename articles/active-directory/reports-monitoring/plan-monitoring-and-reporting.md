@@ -4,7 +4,7 @@ title: Plan reports & monitoring deployment - Azure AD
 description: Describes how to plan and execute implementation of reporting and monitoring.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: martinco
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
@@ -53,7 +53,7 @@ With Azure AD monitoring, you can route logs to:
 
 You'll need an Azure AD premium license to access the Azure AD sign in logs.
 
-For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 To deploy Azure AD monitoring and reporting you'll need a user who is a global administrator or security administrator for the Azure AD tenant.
 
@@ -172,7 +172,7 @@ Depending on the decisions you have made earlier using the design guidance above
 
 [Analyze Azure AD activity logs with Azure Monitor logs](./howto-analyze-activity-logs-log-analytics.md)
 
-* [Interpret audit logs schema in Azure Monitor](./reference-azure-monitor-audit-log-schema.md)
+* [Interpret audit logs schema in Azure Monitor](./overview-reports.md)
 
 * [Interpret sign in logs schema in Azure Monitor](./reference-azure-monitor-sign-ins-log-schema.md)
 

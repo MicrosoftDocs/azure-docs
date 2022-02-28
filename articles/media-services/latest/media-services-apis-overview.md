@@ -22,9 +22,11 @@ ms.custom: seodec18
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-As a developer, you can use Media Services [REST API](/rest/api/media/) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
+As a developer, you can use client libraries for (.NET, Python, Node.js, Java, Go, and Ruby) that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
 This article discusses rules that apply to entities and APIs when you develop with Media Services v3.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
 
 ## Accessing the Azure Media Services API
 
@@ -64,12 +66,11 @@ see [Access Azure Media Services API](./access-api-howto.md).
 ### Samples
 
 See the following samples that show how to connect with Azure AD service principal:
-
-* [Connect with REST](setup-postman-rest-how-to.md)  
-* [Connect with Java](configure-connect-java-howto.md)
 * [Connect with .NET](configure-connect-dotnet-howto.md)
 * [Connect with Node.js](configure-connect-nodejs-howto.md)
 * [Connect with Python](configure-connect-python-howto.md)
+* [Connect with Java](configure-connect-java-howto.md)
+* [Connect with REST](setup-postman-rest-how-to.md)  
 
 ## Naming conventions
 
@@ -124,7 +125,7 @@ Only one long-running operation is supported for a given Live Event or any of it
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET ref](/dotnet/api/overview/azure/mediaservices/management)|
 |[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java ref](/java/api/overview/azure/mediaservices/management)|
 |[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python ref](/python/api/overview/azure/mediaservices/management)|
-|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js ref](/javascript/api/overview/azure/mediaservices/management)| 
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js ref](/javascript/api/overview/azure/arm-mediaservices-readme)| 
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go ref](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
@@ -141,7 +142,7 @@ AMSE is an Open Source project, support is provided by the community (issues can
 
 ## Filtering, ordering, paging of Media Services entities
 
-See [Filtering, ordering, paging of Azure Media Services entities](filter-order-page-entitites-how-to.md).
+See [Filtering, ordering, paging of Azure Media Services entities](filter-order-page-entities-how-to.md).
 
 ## Ask questions, give feedback, get updates
 

@@ -1,11 +1,11 @@
 ---
 title: Understand the Azure HPC Cache aggregated namespace
 description: How to plan the virtual namespace for your Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 09/30/2020
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Plan the aggregated namespace
@@ -43,7 +43,7 @@ To allow easy access through the cache, consider creating storage targets with t
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
 | sourcecollection                        | /source/               |
 
-An NFS storage target can have multiple virtual namespace paths, as long as each one references a unique export path. (Read [NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) to learn the recommended maximum number of namespace paths per NFS storage target.)
+An NFS storage target can have multiple virtual namespace paths, as long as each one references a unique export path. (Read [NFS namespace paths](add-namespace-paths.md#nfs-namespace-paths) to learn more about using multiple namespace paths with an NFS storage target.)
 
 Because the NFS source paths are subdirectories of the same export, you will need to define multiple namespace paths from the same storage target.
 

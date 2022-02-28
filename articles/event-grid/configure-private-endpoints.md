@@ -2,7 +2,7 @@
 title: Configure private endpoints for Azure Event Grid topics or domains
 description: This article describes how to configure private endpoints for Azure Event Grid topics or domain. 
 ms.topic: how-to
-ms.date: 11/18/2020 
+ms.date: 07/22/2021 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -210,8 +210,8 @@ topicName = "<TOPIC NAME>"
 connectionName="<ENDPOINT CONNECTION NAME>"
 endpointName=<ENDPOINT NAME>
 
-# resource ID of the topic. replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, and <TOPIC NAME>
-topicResourceID="/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>"
+# resource ID of the topic. replace <SUBSCRIPTION ID>, <RESOURCE GROUP NAME>, and <TOPIC NAME> 
+# topicResourceID="/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<TOPIC NAME>"
 
 # select subscription
 az account set --subscription $subscriptionID
@@ -251,7 +251,7 @@ az eventgrid topic show \
     --name $topicName
 
 # create private endpoint for the topic you created
-az network private-endpoint create 
+az network private-endpoint create \
     --resource-group $resourceGroupName \
     --name $endpointName \
     --vnet-name $vNetName \

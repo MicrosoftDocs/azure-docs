@@ -3,6 +3,7 @@ title: Application Insights API for custom events and metrics | Microsoft Docs
 description: Insert a few lines of code in your device or desktop app, webpage, or service, to track usage and diagnose issues.
 ms.topic: conceptual
 ms.date: 05/11/2020
+ms.devlang: csharp, java, javascript, vb
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -174,7 +175,7 @@ To send a single metric value:
 *JavaScript*
 
 ```javascript
-appInsights.trackMetric("queueLength", 42.0);
+appInsights.trackMetric({name: "queueLength", average: 42});
 ```
 
 *C#*
@@ -182,7 +183,7 @@ appInsights.trackMetric("queueLength", 42.0);
 ```csharp
 var sample = new MetricTelemetry();
 sample.Name = "queueLength";
-sample.Value = 42.3;
+sample.Sum = 42.3;
 telemetryClient.TrackMetric(sample);
 ```
 
@@ -394,7 +395,7 @@ try
 }
 catch (ex)
 {
-    appInsights.trackException(ex);
+    appInsights.trackException({exception: ex});
 }
 ```
 
@@ -1086,7 +1087,6 @@ If you set any of these values yourself, consider removing the relevant line fro
   * **ID**: A generated value that correlates different events, so that when you inspect any event in Diagnostic Search, you can find related items.
   * **Name**: An identifier, usually the URL of the HTTP request.
   * **SyntheticSource**: If not null or empty, a string that indicates that the source of the request has been identified as a robot or web test. By default, it is excluded from calculations in Metrics Explorer.
-* **Properties**: Properties that are sent with all telemetry data. It can be overridden in individual Track* calls.
 * **Session**: The user's session. The ID is set to a generated value, which is changed when the user has not been active for a while.
 * **User**: User information.
 
@@ -1125,4 +1125,4 @@ To determine how long data is kept, see [Data retention and privacy](./data-rete
 ## <a name="next"></a>Next steps
 
 * [Search events and logs](./diagnostic-search.md)
-* [Troubleshooting](../faq.md)
+* [Troubleshooting](../faq.yml)

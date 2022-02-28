@@ -6,16 +6,18 @@ services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/05/2021
-ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 # Prebuilt question answering
 
 Prebuilt question answering provides user the capability to answer question over a passage of text  without having to create knowledgebases, maintain question and answer pairs or incurring cost for underutilized infrastructure. This functionality is provided as an API and can be used to meet question and answering needs without having to learn the details about QnA Maker or additional storage.
 
-Given a user query and a block of text/passage the API will return an answer and precise answer (if available). 
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the Prebuilt API with the latest release consult the [question answering prebuilt API article](../../language-service/question-answering/how-to/prebuilt.md).
+
+Given a user query and a block of text/passage the API will return an answer and precise answer (if available).
 
 <a name="qna-entity"></a>
 
@@ -94,7 +96,7 @@ We see that multiple answers are received as part of the API response. Each answ
 
 ## Prebuilt API Limits 
 
-Visit the [Prebuilt API Limits](https://docs.microsoft.com/azure/cognitive-services/qnamaker/limits?#prebuilt-question-answering-limits) documentation 
+Visit the [Prebuilt API Limits](../limits.md#prebuilt-question-answering-limits) documentation 
 
 ## Prebuilt API reference
-Visit the [Prebuilt API reference](https://docs.microsoft.com/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) documentation to understand the input and output parameters required for calling the API.
+Visit the [Prebuilt API reference](/rest/api/cognitiveservices-qnamaker/qnamaker5.0preview2/prebuilt/generateanswer) documentation to understand the input and output parameters required for calling the API.

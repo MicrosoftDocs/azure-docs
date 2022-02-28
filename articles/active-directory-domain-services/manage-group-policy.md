@@ -2,24 +2,31 @@
 title: Create and manage group policy in Azure AD Domain Services | Microsoft Docs
 description: Learn how to edit the built-in group policy objects (GPOs) and create your own custom policies in an Azure Active Directory Domain Services managed domain.
 author: justinha
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/26/2021
 ms.author: justinha
 
 ---
 # Administer Group Policy in an Azure Active Directory Domain Services managed domain
 
-Settings for user and computer objects in Azure Active Directory Domain Services (Azure AD DS) are often managed using Group Policy Objects (GPOs). Azure AD DS includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Azure AD DC administrators* group have Group Policy administration privileges in the Azure AD DS domain, and can also create custom GPOs and organizational units (OUs). More more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
+Settings for user and computer objects in Azure Active Directory Domain Services (Azure AD DS) are often managed using Group Policy Objects (GPOs). Azure AD DS includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Azure AD DC administrators* group have Group Policy administration privileges in the Azure AD DS domain, and can also create custom GPOs and organizational units (OUs). For more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
 
 In a hybrid environment, group policies configured in an on-premises AD DS environment aren't synchronized to Azure AD DS. To define configuration settings for users or computers in Azure AD DS, edit one of the default GPOs or create a custom GPO.
 
 This article shows you how to install the Group Policy Management tools, then edit the built-in GPOs and create custom GPOs.
+
+If you are interested in server management strategy, including machines in Azure and
+[hybrid connected](../azure-arc/servers/overview.md),
+consider reading about the
+[guest configuration](../governance/policy/concepts/guest-configuration.md)
+feature of
+[Azure Policy](../governance/policy/overview.md).
 
 ## Before you begin
 
@@ -39,8 +46,6 @@ To complete this article, you need the following resources and privileges:
 > You can use Group Policy Administrative Templates by copying the new templates to the management workstation. Copy the *.admx* files into `%SYSTEMROOT%\PolicyDefinitions` and copy the locale-specific *.adml* files to `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, where `Language-CountryRegion` matches the language and region of the *.adml* files.
 >
 > For example, copy the English, United States version of the *.adml* files into the `\en-us` folder.
->
-> Alternatively, you can centrally store your Group Policy Administrative Template on the domain controllers that are part of the managed domain. For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## Install Group Policy Management tools
 

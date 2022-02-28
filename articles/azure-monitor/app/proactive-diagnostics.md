@@ -3,7 +3,6 @@ title: Smart detection in Azure Application Insights | Microsoft Docs
 description: Application Insights performs automatic deep analysis of your app telemetry and warns you of potential problems.
 ms.topic: conceptual
 ms.date: 02/07/2019
-
 ---
 
 # Smart detection in Application Insights
@@ -48,11 +47,6 @@ All smart detection rules, except for rules marked as _preview_, are configured 
 Configuring email notifications for a specific smart detection rule can be done by opening the smart detection **Settings** blade and selecting the rule, which will open the **Edit rule** blade.
 
 Alternatively, you can change the configuration using Azure Resource Manager templates. For more information, see [Manage Application Insights smart detection rules using Azure Resource Manager templates](./proactive-arm-config.md) for more details.
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
-
 
 
 ## Next steps

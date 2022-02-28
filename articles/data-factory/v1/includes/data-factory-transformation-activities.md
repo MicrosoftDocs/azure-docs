@@ -1,9 +1,10 @@
 ---
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: jingwang
+ms.date: 10/22/2021
+ms.author: jianleishen
 ---
 Azure Data Factory supports the following transformation activities that can be added to pipelines either individually or chained with another activity.
 
@@ -14,7 +15,7 @@ Azure Data Factory supports the following transformation activities that can be 
 | [MapReduce](../data-factory-map-reduce.md) |HDInsight [Hadoop] |
 | [Hadoop Streaming](../data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
 | [Spark](../data-factory-spark.md) | HDInsight [Hadoop] |
-| [Azure Machine Learning Studio (classic) activities: Batch Execution and Update Resource](../data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
+| [ML Studio (classic) activities: Batch Execution and Update Resource](../data-factory-azure-ml-batch-execution-activity.md) |Azure VM |
 | [Stored Procedure](../data-factory-stored-proc-activity.md) |Azure SQL, Azure Synapse Analytics, or SQL Server |
 | [Data Lake Analytics U-SQL](../data-factory-usql-activity.md) |Azure Data Lake Analytics |
 | [DotNet](../data-factory-use-custom-activities.md) |HDInsight [Hadoop] or Azure Batch |

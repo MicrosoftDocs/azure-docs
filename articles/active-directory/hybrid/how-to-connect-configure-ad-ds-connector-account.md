@@ -3,11 +3,11 @@ title: 'Azure AD Connect: Configure AD DS Connector Account Permissions  | Micro
 description: This document details how to configure the AD DS Connector account with the new ADSyncConfig PowerShell module
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -32,7 +32,7 @@ The following table provides a summary of the permissions required on AD objects
 | Feature | Permissions |
 | --- | --- |
 | ms-DS-ConsistencyGuid feature |Read and Write permissions to the ms-DS-ConsistencyGuid attribute documented in [Design Concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
-| Password hash sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
+| Password hash sync |<li>Replicate Directory Changes - required for basic read only</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment |Read and Write permissions to the attributes documented in [Exchange hybrid writeback](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
 | Password writeback |Read and Write permissions to the attributes documented in [Getting started with password management](../authentication/tutorial-enable-sspr-writeback.md) for users. |
@@ -80,7 +80,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 
 Make sure to replace `<ADAccountName>`, `<ADDomainName>` and `<ADAccountDN>` with the proper values for your environment.
 
-In case you don’t want to modify permissions on the AdminSDHolder container, use the switch `-SkipAdminSdHolders`. 
+In case you want to modify permissions on the AdminSDHolder container, use the switch `-IncludeAdminSdHolders`. Note that this is not recommended.
 
 By default, all the set permissions cmdlets will try to set AD DS permissions on the root of each Domain in the Forest, meaning that the user running the PowerShell session requires Domain Administrator rights on each domain in the Forest.  Because of this requirement, it is recommended to use an Enterprise Administrator from the Forest root. If your Azure AD Connect deployment has multiple AD DS Connectors, it will be required to run the same cmdlet on each forest that has an AD DS Connector. 
 
@@ -142,6 +142,7 @@ This cmdlet will set the following permissions:
 |Allow |AD DS Connector Account |Read all properties |Descendant Group objects| 
 |Allow |AD DS Connector Account |Read all properties |Descendant User objects| 
 |Allow |AD DS Connector Account |Read all properties |Descendant Contact objects| 
+|Allow|AD DS Connector Account|Replicating Directory Changes|This object only (Domain root)|
 
  
 ### Configure MS-DS-Consistency-Guid Permissions 
@@ -249,7 +250,7 @@ This cmdlet will set the following permissions:
 |Allow |AD DS Connector Account |Read/Write all properties |Descendant Group objects| 
 |Allow |AD DS Connector Account |Read/Write all properties |Descendant Contact objects| 
 
-### Permissions for Exchange Mail Public Folders (Preview) 
+### Permissions for Exchange Mail Public Folders
 To set permissions for the AD DS Connector account when using Exchange Mail Public Folders feature, run: 
 
 ``` powershell

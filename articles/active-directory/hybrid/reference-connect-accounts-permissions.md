@@ -4,13 +4,12 @@ description: This topic describes the accounts used and created and permissions 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 06/02/2021
 ms.subservice: hybrid
@@ -194,7 +193,7 @@ Legend:
 - Local account - Local user account on the server
 - Domain account - Domain user account
 - sMSA - [standalone Managed Service account](../../active-directory/fundamentals/service-accounts-on-premises.md)
-- gMSA - [group Managed Service account](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
+- gMSA - [group Managed Service account](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Custom | Remote SQL</br>Custom |
 | --- | --- | --- | --- |
@@ -211,7 +210,7 @@ The VSA is intended to be used with scenarios where the sync engine and SQL are 
 This feature requires Windows Server 2008 R2 or later. If you install Azure AD Connect on Windows Server 2008, then the installation falls back to using a [user account](#user-account) instead.
 
 #### Group managed service account
-If you use a remote SQL server, then we recommend to using a **group managed service account**. For more information on how to prepare your Active Directory for Group Managed Service account, see [Group Managed Service Accounts Overview](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+If you use a remote SQL server, then we recommend to using a **group managed service account**. For more information on how to prepare your Active Directory for Group Managed Service account, see [Group Managed Service Accounts Overview](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
 
 To use this option, on the [Install required components](how-to-connect-install-custom.md#install-required-components) page, select **Use an existing service account**, and select **Managed Service Account**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  

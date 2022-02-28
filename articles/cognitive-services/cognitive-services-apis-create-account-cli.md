@@ -1,7 +1,7 @@
 ---
-title: Create a Cognitive Services resource using the Azure CLI
+title: Create a Cognitive Services resource via the Azure CLI
 titleSuffix: Azure Cognitive Services
-description: Get started with Azure Cognitive Services by creating and subscribing to a resource using the Azure command-line interface.
+description: Get started with Azure Cognitive Services by creating and subscribing to a resource via the Azure CLI.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,24 +10,28 @@ keywords: cognitive services, cognitive intelligence, cognitive solutions, ai se
 ms.topic: quickstart
 ms.date: 06/04/2021
 ms.author: aahi
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
-# Quickstart: Create a Cognitive Services resource using the Azure Command-Line Interface(CLI)
+# Quickstart: Create a Cognitive Services resource via the Azure CLI
 
-Use this quickstart to get started with Azure Cognitive Services using the [Azure Command Line Interface(CLI)](/cli/azure/install-azure-cli).
+Use this quickstart to get started with Azure Cognitive Services via the [Azure CLI](/cli/azure/install-azure-cli).
 
 Azure Cognitive Services are cloud-base services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
 
 Cognitive Services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications.
 
-In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription, Using the [Azure Command Line Interface(CLI)](/cli/azure/install-azure-cli). These services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md), which enable you to connect to one or more of the Azure Cognitive Services APIs.
+In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription via the [Azure CLI](/cli/azure/install-azure-cli). These services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md), which enable you to connect to one or more of the Azure Cognitive Services APIs.
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## Prerequisites
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/cognitive-services) for free.
-* The [Azure Command Line Interface(CLI)](/cli/azure/install-azure-cli)
+* The [Azure CLI](/cli/azure/install-azure-cli)
+* [!INCLUDE [contributor-requirement](./includes/quickstarts/contributor-requirement.md)]
+* [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
 
 ## Install the Azure CLI and sign in
 
@@ -73,51 +77,10 @@ az group create \
 
 When creating a new resource, you will need to know the "kind" of service you want to use, along with the [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/) (or sku) you want. You will use this and other information as parameters when creating the resource.
 
-### Multi-service
-
-| Service                    | Kind                      |
-|----------------------------|---------------------------|
-| Multiple services. See the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) page for more details.            | `CognitiveServices`     |
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 
-> [!NOTE]
-> Many of the Cognitive Services below have a free tier you can use to try the service. To use the free tier, use `F0` as the sku for your resource.
-
-### Vision
-
-| Service                    | Kind                      |
-|----------------------------|---------------------------|
-| Computer Vision            | `ComputerVision`          |
-| Custom Vision - Prediction | `CustomVision.Prediction` |
-| Custom Vision - Training   | `CustomVision.Training`   |
-| Face                       | `Face`                    |
-| Form Recognizer            | `FormRecognizer`          |
-| Ink Recognizer             | `InkRecognizer`           |
-
-### Speech
-
-| Service            | Kind                 |
-|--------------------|----------------------|
-| Speech Services    | `SpeechServices`     |
-| Speech Recognition | `SpeakerRecognition` |
-
-### Language
-
-| Service            | Kind                |
-|--------------------|---------------------|
-| Form Understanding | `FormUnderstanding` |
-| LUIS               | `LUIS`              |
-| QnA Maker          | `QnAMaker`          |
-| Text Analytics     | `TextAnalytics`     |
-| Text Translation   | `TextTranslation`   |
-
-### Decision
-
-| Service           | Kind               |
-|-------------------|--------------------|
-| Anomaly Detector  | `AnomalyDetector`  |
-| Content Moderator | `ContentModerator` |
-| Personalizer      | `Personalizer`     |
+[!INCLUDE [SKUs and pricing](./includes/quickstarts/sku-pricing.md)]
 
 You can find a list of available Cognitive Service "kinds" with the [az cognitiveservices account list-kinds](/cli/azure/cognitiveservices/account#az_cognitiveservices_account_list_kinds) command:
 

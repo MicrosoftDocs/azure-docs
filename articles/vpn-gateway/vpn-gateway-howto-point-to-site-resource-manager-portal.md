@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 08/19/2021
 ms.author: cherylmc
 
 ---
@@ -29,6 +29,8 @@ Verify that you have an Azure subscription. If you don't already have an Azure s
 
 You can use the following values to create a test environment, or refer to these values to better understand the examples in this article:
 
+**VNet**
+
 * **VNet Name:** VNet1
 * **Address space:** 10.1.0.0/16<br>For this example, we use only one address space. You can have more than one address space for your VNet.
 * **Subnet name:** FrontEnd
@@ -36,11 +38,19 @@ You can use the following values to create a test environment, or refer to these
 * **Subscription:** If you have more than one subscription, verify that you are using the correct one.
 * **Resource Group:** TestRG1
 * **Location:** East US
-* **GatewaySubnet:** 10.1.255.0/27<br>
+
+**Virtual network gateway**
+
 * **Virtual network gateway name:** VNet1GW
 * **Gateway type:** VPN
 * **VPN type:** Route-based
+* **SKU:** VpnGw2
+* **Generation:** Generation2
+* **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address name:** VNet1GWpip
+
+**Connection type and client address pool**
+
 * **Connection type:** Point-to-site
 * **Client address pool:** 172.16.201.0/24<br>VPN clients that connect to the VNet using this Point-to-Site connection receive an IP address from the client address pool.
 
@@ -62,7 +72,12 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
-[!INCLUDE [Create a gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
+[!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-portal-include.md)]
+[!INCLUDE [Configure PIP settings](../../includes/vpn-gateway-add-gw-pip-portal-include.md)]
+
+You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
+
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="generatecert"></a>Generate certificates
 
@@ -149,11 +164,11 @@ For steps to generate and install VPN client configuration files, see [Create an
 
 ### To connect from a Mac VPN client
 
-From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), and then select **Connect**.
+From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), and then select **Connect**. For detailed instructions, see [Generate and install VPN client configuration files - macOS](./point-to-site-vpn-client-configuration-azure-cert.md#installmac). 
 
-Check [Install - macOS](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) for detailed instructions. If you are having trouble connecting, verify that the virtual network gateway is not using a Basic SKU. Basic SKU is not supported for Mac clients.
+If you are having trouble connecting, verify that the virtual network gateway is not using a Basic SKU. The Basic SKU is not supported for Mac clients.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png" alt-text="Mac VPN client connection." border="false":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/select-connect.png" alt-text="Screenshot shows connect button." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/select-connect.png":::
 
 ## <a name="verify"></a>To verify your connection
 
@@ -218,6 +233,6 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 For frequently asked questions, see the [FAQ](vpn-gateway-vpn-faq.md#P2S).
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/network-overview.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-network/network-overview.md).
 
 For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

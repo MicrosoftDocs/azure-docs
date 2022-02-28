@@ -1,11 +1,11 @@
 ---
 title: Configure the Azure HPC Cache aggregated namespace
 description: How to create client-facing paths for back-end storage with Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/22/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Set up the aggregated namespace
@@ -96,7 +96,7 @@ Fill in these values for each namespace path:
 
 * **Export subdirectory** - If you want this path to mount a specific subdirectory of the export, enter it here. If not, leave this field blank.
 
-![screenshot of the portal namespace page with the edit page open at the right. The edit form shows settings for an nfs storage target namespace path](media/namespace-edit-nfs.png)
+![Screenshot of the portal namespace page with the edit page open at the right. The edit form shows settings for an N F S storage target namespace path.](media/namespace-edit-nfs.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -110,7 +110,7 @@ The options used for the update command are similar to the "create" command, exc
 
 ---
 
-### ADLS-NFS namespace paths (PREVIEW)
+### ADLS-NFS namespace paths
 
 Like a regular blob storage target, an ADLS-NFS storage target only has one export, so it can only have one namespace path.
 
