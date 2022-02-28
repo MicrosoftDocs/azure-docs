@@ -57,7 +57,9 @@ There's no impact on database performance when enabling the service, because Def
 
 Learn more at [Introduction to Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md).
 
-We're also introducing a new enablement experience for database security. You can now enable Microsoft Defender for Cloud protection on your subscription to protect all database types, such as, Azure Cosmos DB, Azure SQL Database, Azure SQL servers on machines, and OSS RDBs through one enablement process. Specific resource types can be included, or excluded by configuring your plan.  
+We're also introducing a new enablement experience for database security. You can now enable Microsoft Defender for Cloud protection on your subscription to protect all database types, such as, Azure Cosmos DB, Azure SQL Database, Azure SQL servers on machines, and Microsoft Defender for open-source relational databases through one enablement process. Specific resource types can be included, or excluded by configuring your plan.  
+
+Learn how to [enable your database security at the subscrition level](quickstart-enable-defender-for-cosmos.md#enable-database-protection-at-the-subscription-level).
 
 ## January 2022
 
