@@ -12,11 +12,11 @@ ms.date: 02/15/2022
 
 # Index data from Azure Cosmos DB using the SQL API
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Cosmos DB and makes it searchable in Azure Cognitive Search. The workflow creates a search index and loads it with text extracted from Azure Cosmos DB using the [SQL API](../cosmos-db/choose-api.md#coresql-api).
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Cosmos DB and makes it searchable in Azure Cognitive Search. 
+
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB [SQL API](../cosmos-db/choose-api.md#coresql-api). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 Because terminology can be confusing, it's worth noting that [Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
-
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information about settings that are specific to Cosmos DB SQL API. You can create indexers using the [Azure portal](https://portal.azure.com), [Search REST APIs](/rest/api/searchservice/Indexer-operations) or an Azure SDK. This article uses REST to explain each step.
 
 ## Prerequisites
 
@@ -25,6 +25,8 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 + An [automatic indexing policy](../cosmos-db/index-policy.md) on the Cosmos DB collection, set to [Consistent](../cosmos-db/index-policy.md#indexing-mode). This is the default configuration. Lazy indexing isn't recommended and may result in missing data.
 
 + Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
+
++ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
 
 ## Define the data source
 
