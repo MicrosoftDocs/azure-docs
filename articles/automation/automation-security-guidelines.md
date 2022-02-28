@@ -1,6 +1,6 @@
 ---
 title: Azure Automation security guidelines, security best practices Automation.
-description: This article helps you with the guidelines that Azure Automation offers to ensure data privacy and data security.
+description: This article helps you with the guidelines that Azure Automation offers to ensure a secured configuration of Automation account, Hybrid Runbook worker role, authentication certificate and identities, network isolation and policies.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/16/2022
