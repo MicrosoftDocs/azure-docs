@@ -1,6 +1,6 @@
 ---
-title: Secure key release policy grammar
-description: Secure key release policy grammar
+title: Secure key release policy grammar - Keys
+description: Secure key release policy grammar - Keys
 keywords: 
 services: key-vault
 author: msmbaldwin
