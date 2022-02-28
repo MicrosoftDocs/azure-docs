@@ -33,7 +33,7 @@ Depending on how you want to interact with external organizations and the types 
 
 ## B2B collaboration
 
-With B2B collaboration, you can invite anyone to sign in to your Azure AD organization using their own credentials so they can access the apps and resources you want to share with them. Use B2B collaboration when you need to let external users access your Office 365 apps, software-as-a-service (SaaS) apps, and line-of-business applications, especially when the partner doesn't use Azure AD. There are no credentials associated with B2B collaboration users. Instead, they authenticate with their home organization or identity provider, and then your organization checks the guest user’s eligibility for B2B collaboration.
+With [B2B collaboration](what-is-b2b.md), you can invite anyone to sign in to your Azure AD organization using their own credentials so they can access the apps and resources you want to share with them. Use B2B collaboration when you need to let external users access your Office 365 apps, software-as-a-service (SaaS) apps, and line-of-business applications, especially when the partner doesn't use Azure AD. There are no credentials associated with B2B collaboration users. Instead, they authenticate with their home organization or identity provider, and then your organization checks the guest user’s eligibility for B2B collaboration.
 
 There are various ways to add external users to your organization for B2B collaboration:
 
@@ -47,7 +47,15 @@ A user object is created for the B2B collaboration user in the same directory as
 
 You can use [cross-tenant access settings](cross-tenant-access-overview.md) to manage B2B collaboration with other Azure AD organizations. For B2B collaboration with non-Azure AD external users and organizations, use [external collaboration settings](external-collaboration-settings-configure.md).
 
-Learn more about [B2B collaboration in Azure AD](what-is-b2b.md).
+### Cross-cloud B2B collaboration (preview)
+
+Microsoft Azure cloud services are available in separate national clouds, which are physically isolated instances of Azure. Increasingly, organizations are finding the need to collaborate with organizations and users across global Azure cloud and national cloud boundaries. With cross-cloud access settings, you can establish mutual B2B collaboration between the following Microsoft Azure clouds:
+
+- Microsoft Azure global cloud
+- Microsoft Azure Government
+- Microsoft Azure China 21Vianet
+
+To set up B2B collaboration between tenants in different clouds, both tenants need to configure their cross-cloud settings to enable collaboration with the other cloud. Then each tenant must configure inbound and outbound cross-tenant access with the tenant in the other cloud. See [cross-cloud access settings](link) for details.
 
 ## Azure AD B2C
 
