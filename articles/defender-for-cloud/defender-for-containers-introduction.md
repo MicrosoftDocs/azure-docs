@@ -61,7 +61,7 @@ In the diagrams you'll see that the items received and analyzed by Defender for 
 - Workload configuration from Azure Policy 
 - Security signals and events from the node level
 
-### [**AKS cluster**](#tab/defender-for-container-arch-aks)
+### [**Azure (AKS)**](#tab/defender-for-container-arch-aks)
 
 ### Architecture diagram of Defender for Cloud and AKS clusters<a name="jit-asc"></a>
 
@@ -86,7 +86,7 @@ The **Azure Policy add-on for Kubernetes** collects cluster and workload configu
 
 \* resource limits are not configurable
 
-### [**Azure Arc-enabled Kubernetes**](#tab/defender-for-container-arch-arc)
+### [**On-premises / IaaS (Arc)**](#tab/defender-for-container-arch-arc)
 
 ### Architecture diagram of Defender for Cloud and Arc-enabled Kubernetes clusters
 
@@ -103,7 +103,7 @@ Workload configuration information is collected by an Azure Policy add-on. As ex
 
 
 
-### [**AWS EKS**](#tab/defender-for-container-arch-eks)
+### [**AWS (EKS)**](#tab/defender-for-container-arch-eks)
 
 ### Architecture diagram of Defender for Cloud and EKS clusters
 
@@ -122,7 +122,7 @@ The following describes the components neccessary in order to receive the full p
 
 :::image type="content" source="./media/defender-for-containers/architecture-eks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Amazon Web Services' EKS clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-eks-cluster.png":::
 
-### [**GKE**](#tab/defender-for-container-gke)
+### [**GCP (GKE)**](#tab/defender-for-container-gke)
 
 ### Architecture diagram of Defender for Cloud and GKE clusters<a name="jit-asc"></a>
 
