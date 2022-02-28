@@ -7,21 +7,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 02/08/2022
+ms.date: 02/28/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro GPU is and how it works so I can use it to process and transform data before sending to Azure.
 ---
 # What is Azure Stack Edge Pro 2?
 
-Azure Stack Edge Pro 2 is the next generation of an AI-enabled edge computing device that can transfer data over the network. This device is a part of the Hardware-as-a-service solution  offered by Microsoft. 
-
-This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
+Azure Stack Edge Pro 2 is a new generation of a AI-enabled edge computing device offered as a service from Microsoft. This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
 
 The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the Azure Stack Edge Pro series:
 
 - This series offers multiple models that closely align with your compute, storage, and memory needs. Depending on the model you choose, the compute acceleration could be via one or two Graphical Processing Units (GPU) on the device. 
 - This series has flexible form factors with multiple mounting options. These devices can be rack mounted, mounted on a wall, or even placed on a shelf in your office. 
-- These devices have low-acoustic emissions and meet the office noise requirements.
+- These devices have low acoustic emissions and meet the requirements for noise levels in an office environment. 
 
 
 ## Use cases
@@ -79,7 +77,7 @@ The Azure Stack Edge Pro GPU physical device, Azure resource, and target storage
 
 - **Resource availability** - For this release, the resource is available in East US, West EU, and South East Asia regions.
 
-- **Device availability** - You need to sign up for the preview. The Azure Stack Edge team will then enable your subscription. You should be able to see Azure Stack Edge Pro 2 as one of the available SKUs when placing the order. The countries where the device is available are: United States, Canada, Germany, Italy, Norway, Sweden, Denmark, and Japan. 
+- **Device availability** - You should be able to see Azure Stack Edge Pro 2 as one of the available SKUs when placing the order. 
 
     For a list of all the countries/regions where the Azure Stack Edge Pro GPU device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro GPU pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
