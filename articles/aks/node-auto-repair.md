@@ -53,7 +53,7 @@ The following table shows the node events, and the actions they cause for AKS no
 | Freeze | The VM is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files  | No action |
 | Reboot | The VM is scheduled for reboot. The VM's non-persistent memory is lost. | No action | 
 | Redeploy | The VM is scheduled to move to another node. The VM's ephemeral disks are lost. | Cordon and drain |
-| Preempt | The Spot Virtual Machine is being deleted (ephemeral disks are lost). | Cordon & Drain |
+| Preempt | The spot VM is being deleted. The VM's ephemeral disks are lost. | Cordon and drain |
 | Terminate | The virtual machine is scheduled to be deleted.| Cordon & Drain |
 
 
