@@ -14,9 +14,9 @@ ms.date: 02/11/2022
 
 # Index data from Azure Table Storage
 
-Configure a [search indexer](search-indexer-overview.md) to extract content from Azure Table Storage and make it searchable in Azure Cognitive Search. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Table Storage and makes it searchable in Azure Cognitive Search. Inputs to the indexer are your entities, in a single table. Output is a search index with searchable content and metadata stored in individual fields.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Azure Table Storage. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing from Azure Table Storage. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
@@ -25,6 +25,8 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 + Tables containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis.
 
 + Read permissions to access Azure Storage. A "full access" connection string includes a key that gives access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Data and Reader** permissions.
+
++ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer.
 
 ## Define the data source
 

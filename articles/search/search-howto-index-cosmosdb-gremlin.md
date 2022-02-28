@@ -17,13 +17,11 @@ ms.date: 02/15/2022
 > [!IMPORTANT]
 > The Gremlin API indexer is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Currently, there is no SDK support.
 
-This article shows you how to configure an Azure Cosmos DB indexer to extract content and make it searchable in Azure Cognitive Search. This workflow creates a search index on Azure Cognitive Search and loads it with existing content extracted from Azure Cosmos DB using the [Gremlin API](../cosmos-db/choose-api.md#gremlin-api).
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Cosmos DB and makes it searchable in Azure Cognitive Search. 
 
-Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](../cosmos-db/index-overview.md) and [Azure Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Cosmos DB [Gremlin API](../cosmos-db/choose-api.md#gremlin-api). It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
-By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make every vertex in your graph a document in the index. Edges will be ignored. Alternatively, you could set the query to only index the edges.
-
-Although Cosmos DB indexing is easiest with the [Import data wizard](search-import-data-portal.md), this article uses the REST APIs to explain concepts and steps. 
+Because terminology can be confusing, it's worth noting that [Cosmos DB indexing](../cosmos-db/index-overview.md) and [Cognitive Search indexing](search-what-is-an-index.md) are different operations. Indexing in Cognitive Search creates and loads a search index on your search service.
 
 ## Prerequisites
 
@@ -35,7 +33,7 @@ Although Cosmos DB indexing is easiest with the [Import data wizard](search-impo
 
 + Read permissions. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Cosmos DB Account Reader Role** permissions.
 
-Unfamiliar with indexers? See [**Create an indexer**](search-howto-create-indexers.md) before you get started.
++ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
 
 ## Define the data source
 
@@ -74,7 +72,9 @@ For this call, specify a [preview REST API version](search-api-preview.md) (2020
 
 1. Set "credentials" to a connection string.  The next section describes the supported formats.
 
-1. Set "container" to the collection. The "name" property is required and it specifies the ID of the graph. The "query" property is optional. The query default is `g.V()`. To index the edges, set the query to `g.E()`.
+1. Set "container" to the collection. The "name" property is required and it specifies the ID of the graph. 
+
+   The "query" property is optional. By default the Azure Cognitive Search Cosmos DB Gremlin API indexer will make every vertex in your graph a document in the index. Edges will be ignored. The query default is `g.V()`. Alternatively, you could set the query to only index the edges. To index the edges, set the query to `g.E()`.
 
 1. [Set "dataChangeDetectionPolicy"](#DataChangeDetectionPolicy) if data is volatile and you want the indexer to pick up just the new and updated items on subsequent runs. Incremental progress will be enabled by default using `_ts` as the high water mark column.
 

@@ -14,23 +14,23 @@ ms.date: 02/11/2022
 
 # Index data from Azure Data Lake Storage Gen2
 
-Configure a [search indexer](search-indexer-overview.md) to extract content and metadata from Azure Data Lake Storage (ADLS) Gen2 and make it searchable in Azure Cognitive Search. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Data Lake Storage (ADLS) Gen2 and makes it searchable in Azure Cognitive Search. Inputs to the indexer are your blobs, in a single container. Output is a search index with searchable content and metadata stored in individual fields.
 
-ADLS Gen2 is available through Azure Storage. When setting up a storage account, you have the option of enabling [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md), organizing files into a hierarchy of directories and nested subdirectories. By enabling a hierarchical namespace, you enable ADLS Gen2.
-
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from ADLS Gen2. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing from ADLS Gen2. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 For a code sample in C#, see [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) on GitHub.
 
 ## Prerequisites
 
-+ [ADLS Gen2](../storage/blobs/data-lake-storage-introduction.md) with [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md) enabled.
++ [ADLS Gen2](../storage/blobs/data-lake-storage-introduction.md) with [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md) enabled. ADLS Gen2 is available through Azure Storage. When setting up a storage account, you have the option of enabling [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md), organizing files into a hierarchy of directories and nested subdirectories. By enabling a hierarchical namespace, you enable ADLS Gen2.
 
 + [Access tiers](../storage/blobs/access-tiers-overview.md) for ADLS Gen2 include hot, cool, and archive. Only hot and cool can be accessed by search indexers.
 
 + Blobs containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis. Blob content cannot exceed the [indexer limits](search-limits-quotas-capacity.md#indexer-limits) for your search service tier.
 
 + Read permissions on Azure Storage. A "full access" connection string includes a key that grants access to the content, but if you're using Azure roles instead, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Storage Blob Data Reader** permissions.
+
++ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer.
 
 ## Access control
 
