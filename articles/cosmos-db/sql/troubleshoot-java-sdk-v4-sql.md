@@ -47,135 +47,122 @@ The following code sample shows how to read diagnostic logs using the .NET SDK:
 
 ### [Sync](#tab/sync)
 
-* Database Operations:
-    ```Java      
-        CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
-        CosmosDiagnostics diagnostics = databaseResponse.getDiagnostics();
-        logger.info("Create database diagnostics : {}", diagnostics); 
-    ``` 
-* Container Operations:
-    ```Java
-        CosmosContainerResponse containerResponse = database.createContainerIfNotExists(containerProperties,
-                    throughputProperties);
-        CosmosDiagnostics diagnostics = containerResponse.getDiagnostics();
-        logger.info("Create container diagnostics : {}", diagnostics);
-    ``` 
+#### Database Operations
 
-* Item Operations:
+```Java      
+CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
+CosmosDiagnostics diagnostics = databaseResponse.getDiagnostics();
+logger.info("Create database diagnostics : {}", diagnostics); 
+``` 
 
-    ```Java
-        // Write Item
-        CosmosItemResponse<Family> item = container.createItem(family, new PartitionKey(family.getLastName()),
+#### Container Operations
+
+```Java
+CosmosContainerResponse containerResponse = database.createContainerIfNotExists(containerProperties,
+                  throughputProperties);
+CosmosDiagnostics diagnostics = containerResponse.getDiagnostics();
+logger.info("Create container diagnostics : {}", diagnostics);
+``` 
+
+#### Item Operations
+
+```Java
+// Write Item
+CosmosItemResponse<Family> item = container.createItem(family, new PartitionKey(family.getLastName()),
                     new CosmosItemRequestOptions());
         
-        CosmosDiagnostics diagnostics = item.getDiagnostics();
-        logger.info("Create item diagnostics : {}", diagnostics);
+CosmosDiagnostics diagnostics = item.getDiagnostics();
+logger.info("Create item diagnostics : {}", diagnostics);
         
-        // Read Item
-        CosmosItemResponse<Family> familyCosmosItemResponse = container.readItem(documentId,
+// Read Item
+CosmosItemResponse<Family> familyCosmosItemResponse = container.readItem(documentId,
                     new PartitionKey(documentLastName), Family.class);
         
-        CosmosDiagnostics diagnostics = familyCosmosItemResponse.getDiagnostics();
-        logger.info("Read item diagnostics : {}", diagnostics);
-    ```
+CosmosDiagnostics diagnostics = familyCosmosItemResponse.getDiagnostics();
+logger.info("Read item diagnostics : {}", diagnostics);
+```
 
-* Query Operations :
+#### Query Operations
 
-    ```Java
-        String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
+```Java
+String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
         
-        CosmosPagedIterable<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(),
+CosmosPagedIterable<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(),
                     Family.class);
         
-        //  Add handler to capture diagnostics
-        filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
-                    logger.info("Query Item diagnostics through handler : {}", 
-                    familyFeedResponse.getCosmosDiagnostics());
-                });
+//  Add handler to capture diagnostics
+filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
+    logger.info("Query Item diagnostics through handler : {}", 
+    familyFeedResponse.getCosmosDiagnostics());
+});
         
-        //  Or capture diagnostics through iterableByPage() APIs.
-        filteredFamilies.iterableByPage().forEach(familyFeedResponse -> {
-        logger.info("Query item diagnostics through iterableByPage : {}",
-                    familyFeedResponse.getCosmosDiagnostics());
-                });
-    ``` 
+//  Or capture diagnostics through iterableByPage() APIs.
+filteredFamilies.iterableByPage().forEach(familyFeedResponse -> {
+    logger.info("Query item diagnostics through iterableByPage : {}",
+    familyFeedResponse.getCosmosDiagnostics());
+});
+``` 
 
 ### [Async](#tab/async)
 
-* Database Operations:
-    ```Java
-        Mono<CosmosDatabaseResponse> databaseResponseMono = client.createDatabaseIfNotExists(databaseName);
-        CosmosDatabaseResponse cosmosDatabaseResponse = databaseResponseMono.block();
+#### Database Operations
+
+```Java
+Mono<CosmosDatabaseResponse> databaseResponseMono = client.createDatabaseIfNotExists(databaseName);
+CosmosDatabaseResponse cosmosDatabaseResponse = databaseResponseMono.block();
         
-        CosmosDiagnostics diagnostics = cosmosDatabaseResponse.getDiagnostics();
-        logger.info("Create database diagnostics : {}", diagnostics);
-    ``` 
-* Container Operations:
-    ```Java
-        Mono<CosmosContainerResponse> containerResponseMono = database.createContainerIfNotExists(containerProperties,
+CosmosDiagnostics diagnostics = cosmosDatabaseResponse.getDiagnostics();
+logger.info("Create database diagnostics : {}", diagnostics);
+``` 
+
+#### Container Operations
+
+```Java
+Mono<CosmosContainerResponse> containerResponseMono = database.createContainerIfNotExists(containerProperties,
                     throughputProperties);
-        CosmosContainerResponse cosmosContainerResponse = containerResponseMono.block();
-        CosmosDiagnostics diagnostics = cosmosContainerResponse.getDiagnostics();
-        logger.info("Create container diagnostics : {}", diagnostics);
-    ``` 
+CosmosContainerResponse cosmosContainerResponse = containerResponseMono.block();
+CosmosDiagnostics diagnostics = cosmosContainerResponse.getDiagnostics();
+logger.info("Create container diagnostics : {}", diagnostics);
+``` 
 
-* Item Operations:
+#### Item Operations
 
-    ```Java
-        // Write Item
-        Mono<CosmosItemResponse<Family>> itemResponseMono = container.createItem(family,
+```Java
+// Write Item
+Mono<CosmosItemResponse<Family>> itemResponseMono = container.createItem(family,
                     new PartitionKey(family.getLastName()),
                     new CosmosItemRequestOptions());
         
-        CosmosItemResponse<Family> itemResponse = itemResponseMono.block();
-        CosmosDiagnostics diagnostics = itemResponse.getDiagnostics();
-        logger.info("Create item diagnostics : {}", diagnostics);        
+CosmosItemResponse<Family> itemResponse = itemResponseMono.block();
+CosmosDiagnostics diagnostics = itemResponse.getDiagnostics();
+logger.info("Create item diagnostics : {}", diagnostics);        
         
-        // Read Item
-        Mono<CosmosItemResponse<Family>> itemResponseMono = container.readItem(documentId,
+// Read Item
+Mono<CosmosItemResponse<Family>> itemResponseMono = container.readItem(documentId,
                     new PartitionKey(documentLastName), Family.class);
-        CosmosItemResponse<Family> familyCosmosItemResponse = itemResponseMono.block();
-        CosmosDiagnostics diagnostics = familyCosmosItemResponse.getDiagnostics();
-        logger.info("Read item diagnostics : {}", diagnostics);
-    ```
+CosmosItemResponse<Family> familyCosmosItemResponse = itemResponseMono.block();
+CosmosDiagnostics diagnostics = familyCosmosItemResponse.getDiagnostics();
+logger.info("Read item diagnostics : {}", diagnostics);
+```
 
-* Query Operations :
+#### Query Operations
 
-    ```Java
-        // ASYNC
-        String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
-        CosmosPagedFlux<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(),
+```Java
+String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
+CosmosPagedFlux<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(),
                     Family.class);
-        //  Add handler to capture diagnostics
-        filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
-                    logger.info("Query Item diagnostics through handler : {}",
-                    familyFeedResponse.getCosmosDiagnostics());
-                });
+//  Add handler to capture diagnostics
+filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
+  logger.info("Query Item diagnostics through handler : {}",
+  familyFeedResponse.getCosmosDiagnostics());
+});
         
-        //  Or capture diagnostics through byPage() APIs.
-        filteredFamilies.byPage().toIterable().forEach(familyFeedResponse -> {
-                    logger.info("Query item diagnostics through iterableByPage : {}",
-                        familyFeedResponse.getCosmosDiagnostics());
-                });
-        
-        // SYNC
-        String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
-        
-        CosmosPagedIterable<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(),
-                    Family.class);
-        
-        //  Add handler to capture diagnostics
-        filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
-                    logger.info("Query Item diagnostics through handler : {}", 
-                    familyFeedResponse.getCosmosDiagnostics());
-                });
-        
-        //  Or capture diagnostics through iterableByPage() APIs.
-        filteredFamilies.iterableByPage().forEach(familyFeedResponse -> {
-        logger.info("Query item diagnostics through iterableByPage : {}",
-                    familyFeedResponse.getCosmosDiagnostics());
-                });
-    ``` 
+//  Or capture diagnostics through byPage() APIs.
+filteredFamilies.byPage().toIterable().forEach(familyFeedResponse -> {
+  logger.info("Query item diagnostics through iterableByPage : {}",
+  familyFeedResponse.getCosmosDiagnostics());
+});  
+``` 
 
 ### Retry Logic <a id="retry-logics"></a>
 Cosmos DB SDK on any IO failure will attempt to retry the failed operation if retry in the SDK is feasible. Having a retry in place for any failure is a good practice but specifically handling/retrying write failures is a must. It's recommended to use the latest SDK as retry logic is continuously being improved.
