@@ -1,5 +1,5 @@
 ---
-title: Integrate Service Bus with Service Connector
+title: Integrate Azure Service Bus with Service Connector
 description: Integrate Service Bus into your application with Service Connector
 author: maud-lv
 ms.author: malev
