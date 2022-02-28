@@ -67,7 +67,7 @@ In many cases, AKS can determine if a node is unhealthy and attempt to repair th
 Use [Availability Zones][availability-zones] to increase high availability with your AKS cluster workloads.
 
 <!-- LINKS - External -->
-[scheduled-events]: https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events#event-properties
 <!-- LINKS - Internal -->
 [availability-zones]: ./availability-zones.md
 [vm-updates]: ../virtual-machines/maintenance-and-updates.md
+[scheduled-events]: ../virtual-machines/linux/scheduled-events
