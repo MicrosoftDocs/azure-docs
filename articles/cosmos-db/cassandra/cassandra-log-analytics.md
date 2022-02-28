@@ -38,27 +38,39 @@ We will be doing this using Azure Log Analytics, an Azure service that provides 
 ```kusto
 CDBCassandraRequests 
 | where DatabaseName startswith "azure"
-| project  DurationMs, TimeGenerated, RequestCharge, OperationName,
+| project TimeGenerated, RequestCharge, OperationName,
 requestType=split(split(PIICommandText,'"')[3], ' ')[0]
-| summarize max(DurationMs) by bin(TimeGenerated, 10m), RequestCharge, tostring(requestType);
+| summarize max(RequestCharge) by bin(TimeGenerated, 10m), tostring(requestType);
 ```
 
 - Using the right partition key strategy based on RU Charge and operation.
 ```kusto
 CDBPartitionKeyRUConsumption
 | where DatabaseName startswith "azure"
-| summarize TotalRequestCharge=sum(todouble(RequestCharge)) by OperationName, PartitionKey, PartitionKeyRangeId
+| summarize TotalRequestCharge=sum(todouble(RequestCharge)) by PartitionKey, PartitionKeyRangeId
 | order by TotalRequestCharge;
+
+CDBPartitionKeyRUConsumption
+| where DatabaseName startswith "azure"
+| summarize TotalRequestCharge=sum(todouble(RequestCharge)) by OperationName, PartitionKey
+| order by TotalRequestCharge;
+
+
+CDBPartitionKeyRUConsumption
+| where DatabaseName startswith "azure"
+| summarize TotalRequestCharge=sum(todouble(RequestCharge)) by bin(TimeGenerated, 1m), PartitionKey, PartitionKeyRangeId
+| render timechart;
 ```
-- What are the top queries impacting RU consumption.
+
+- What are the top queries impacting RU consumption?
 ```kusto
 let topRequestsByRUcharge = CDBDataPlaneRequests 
 | where TimeGenerated > ago(24h)
 | project  RequestCharge , TimeGenerated, ActivityId;
 CDBCassandraRequests
-| project ActivityId, DatabaseName, CollectionName
+| project ActivityId, DatabaseName, CollectionName, queryText=split(split(PIICommandText,'"')[3], ' ')[0]
 | join kind=inner topRequestsByRUcharge on ActivityId
-| project DatabaseName, CollectionName, RequestCharge, TimeGenerated
+| project DatabaseName, CollectionName, tostring(queryText), RequestCharge, TimeGenerated
 | order by RequestCharge desc
 | take 10;
 ```
@@ -77,26 +89,22 @@ CDBDataPlaneRequests
 | summarize maxResponseLength=max(ResponseLength) by bin(TimeGenerated, 10m), OperationName, ActivityId
 | join CDBCassandraRequests on ActivityId
 | project AccountName, DatabaseName, CollectionName, ErrorCode,OperationName,maxResponseLength;
-```
-- We highlight that payload sizes can have on RU consumption.
-```kusto
-CDBCassandraRequests
-| project RequestLength, ResponseLength,
-RequestCharge, DurationMs, TimeGenerated, OperationName,
-query=split(split(PIICommandText,'"')[3], ' ')[0]
-| summarize max(DurationMs) by bin(TimeGenerated, 10m), RequestCharge, tostring(query),
-RequestLength, OperationName
-| order by RequestLength, RequestCharge;
+
+// Write operations over a time period.
+CDBDataPlaneRequests
+| where OperationName in ("Create", "Update", "Delete", "Execute")
+| summarize maxResponseLength=max(ResponseLength) by bin(TimeGenerated, 1m), OperationName
+| render timechart;
 ```
 
-- RU consumption by physical and logical partition
+- RU consumption by physical and logical partition.
 ```kusto
 CDBPartitionKeyRUConsumption
 | where DatabaseName==”uprofile” and AccountName startswith “azure”
 | summarize totalRequestCharge=sum(RequestCharge) by PartitionKey, PartitionKeyRangeId;
 ```
 
-- Is there a high RU consumption because of having hot partition
+- Is there a high RU consumption because of having hot partition?
 ```kusto
 CDBPartitionKeyStatistics
 | where AccountName startswith “azure”
@@ -105,21 +113,21 @@ CDBPartitionKeyStatistics
 | order by StorageUsed desc
 ```
 
-- How does the partition key affect RU consumption
+- How does the partition key affect RU consumption?
 ```kusto
-let xyz = 
+let storageUtilizationPerPartitionKey = 
 CDBPartitionKeyStatistics
 | project AccountName=tolower(AccountName), PartitionKey, SizeKb;
 CDBCassandraRequests
 | project AccountName=tolower(AccountName),RequestCharge, ErrorCode, OperationName, ActivityId, DatabaseName, CollectionName, PIICommandText, RegionName
 | where DatabaseName != "<empty>"
-| join kind=inner xyz  on $left.AccountName==$right.AccountName
+| join kind=inner storageUtilizationPerPartitionKey  on $left.AccountName==$right.AccountName
 | where ErrorCode != -1 //successful
 | project AccountName, PartitionKey,ErrorCode,RequestCharge,SizeKb, OperationName, ActivityId, DatabaseName, CollectionName, PIICommandText, RegionName;
 ```
 
 ### Latency
-- Server side timeout due to high latency
+- Number of server-side timeouts (Status Code - 408) seen in the time window.
 ```kusto
 CDBDataPlaneRequests
 | where TimeGenerated >= now(-6h)
@@ -138,16 +146,27 @@ CDBDataPlaneRequests
 | render timechart
 ```
 
+- We highlight that payload sizes can have latency based application query.
+```kusto
+CDBCassandraRequests
+| project RequestLength, ResponseLength,
+RequestCharge, DurationMs, TimeGenerated, OperationName,
+query=split(split(PIICommandText,'"')[3], ' ')[0]
+| summarize max(DurationMs) by bin(TimeGenerated, 10m), RequestCharge, tostring(query),
+RequestLength, OperationName
+| order by RequestLength, RequestCharge;
+```
+
 ### Throttling
 - Is your application experiencing any throttling?
 ```kusto
 CDBCassandraRequests
 | where RetriedDueToRateLimiting != false and RateLimitingDelayMs > 0;
 ```
-- What queries are causing your application to throttle with a specified time period looking specifically at 429
+- What queries are causing your application to throttle with a specified time period looking specifically at 429.
 ```kusto
 let throttledRequests = CDBDataPlaneRequests
-| where StatusCode=="429"
+| where StatusCode==429
 | project  OperationName , TimeGenerated, ActivityId; 
 CDBCassandraRequests
 | project PIICommandText, ActivityId, DatabaseName , CollectionName
