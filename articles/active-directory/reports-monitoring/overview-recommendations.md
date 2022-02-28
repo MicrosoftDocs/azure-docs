@@ -142,6 +142,17 @@ To turn on the preview:
 
 
 
+### Manage recommendations
+
+To manage your Azure AD recommendations:
+
+1. Navigate to the [Azure AD overview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) page.
+
+2. On the Azure AD overview page, in the toolbar, click **Recommendations (Preview)**.
+  
+    ![Enable Azure AD recommendations](./media/overview-recommendations/manage-azure-ad-recommendations.png)
+
+
 
 
 ### Update the status of a resource 
