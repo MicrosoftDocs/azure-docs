@@ -136,7 +136,7 @@ This article explains the required dependencies and how to add them to the POM f
 
 ## Java Runtime version
 
-See the [supported Java Version](./faq.md?pivots=programming-language-java#Java-runtime-and-OS-versions) for details.
+See the [supported Java Version](./faq.md?pivots=programming-language-java#java-runtime-and-os-versions) for details.
 
 ## Spring Boot and Spring Cloud versions
 
