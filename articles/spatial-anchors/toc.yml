@@ -6,10 +6,8 @@ items:
   - name: About Spatial Anchors
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Run the sample app
-    expanded: true
     items:  
     - name: Unity
       expanded: true
@@ -23,6 +21,14 @@ items:
       - name: Unity - iOS
         href: quickstarts/get-started-unity-ios.md
         displayName: Azure CLI, az spatial-anchors-account
+    - name: Xamarin
+      items:
+      - name: Xamarin - Android
+        href: quickstarts/get-started-xamarin-android.md
+        displayName: Azure CLI, az spatial-anchors-account
+      - name: Xamarin -iOS
+        href: quickstarts/get-started-xamarin-ios.md
+        displayName: Azure CLI, az spatial-anchors-account
     - name: HoloLens (Native)
       href: quickstarts/get-started-hololens.md
       displayName: Azure CLI, az spatial-anchors-account
@@ -32,20 +38,12 @@ items:
     - name: iOS (Xcode)
       href: quickstarts/get-started-ios.md
       displayName: Azure CLI, az spatial-anchors-account
-    - name: Xamarin
-      items:
-      - name: Xamarin - Android
-        href: quickstarts/get-started-xamarin-android.md
-        displayName: Azure CLI, az spatial-anchors-account
-      - name: Xamarin -iOS
-        href: quickstarts/get-started-xamarin-ios.md
-        displayName: Azure CLI, az spatial-anchors-account
 - name: Tutorials
   items:
-  - name: Starting a new Unity HoloLens app
+  - name: Create your own HoloLens app (Unity)
     href: tutorials/tutorial-new-unity-hololens-app.md
     displayName: Azure CLI, az spatial-anchors-account
-  - name: Starting a new Android app
+  - name: Create your own Android app (Android Studio)
     href: tutorials/tutorial-new-android-app.md
     displayName: Azure CLI, az spatial-anchors-account
   - name: Sharing across sessions and devices
