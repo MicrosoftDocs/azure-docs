@@ -189,10 +189,6 @@ func main() {
 
 Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously.
 
-```bash
-
-```
-
 # [Bash](#tab/bash)
 
 ```bash
