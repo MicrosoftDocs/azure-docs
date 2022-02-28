@@ -51,7 +51,6 @@ Follow this guide to learn how to use the [azkeys](https://pkg.go.dev/github.com
 
     ```azurecli
     go mod init quickstart-keys
-    go get -u github.com/Azure/azure-sdk-for-go/sdk/azcore/to
     go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
     go get -u github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys
     ```
