@@ -2,7 +2,7 @@
 title: Back up Azure Database for PostgreSQL with long-term-retention using Azure CLI
 description: Learn how to back up Azure Database for PostgreSQL using Azure CLI.
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 02/25/2022
 ms.custom: devx-track-azurecli
 author: v-amallick
 ms.service: backup
@@ -429,9 +429,7 @@ az dataprotection backup-policy show  -g ossdemorg --vault-name ossdemovault-1 -
 }
 ```
 
-## Trigger an on-demand backup using command
-
-Trigger an on-demand backup using the [az dataprotection backup-instance adhoc-backup](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_adhoc_backup) command.
+To trigger an on-demand backup, use the [az dataprotection backup-instance adhoc-backup](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_adhoc_backup) command.
 
 ```azurecli
 az dataprotection backup-instance adhoc-backup --name "ossrg-empdb11" --rule-name "Monthly" --resource-group testBkpVaultRG --vault-name TestBkpVault
