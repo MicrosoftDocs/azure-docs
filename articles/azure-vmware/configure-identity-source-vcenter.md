@@ -66,7 +66,7 @@ You'll run the `Get-ExternalIdentitySources` cmdlet to list all external identit
 
 ## Add Active Directory over LDAP with SSL
 
-You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter. 
+You'll run the `New-LDAPSIdentitySource` cmdlet to add an AD over LDAP with SSL as an external identity source to use with SSO into vCenter. 
 
 1. Download the certificate for AD authentication and upload it to an Azure Storage account as blob storage. If multiple certificates are required, upload each certificate individually.  
 
@@ -75,13 +75,13 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
    >[!IMPORTANT]
    >Make sure to copy each SAS string, because they will no longer be available once you leave this page.  
    
-1. Select **Run command** > **Packages** > **New-AvsLDAPSIdentitySource**.
+1. Select **Run command** > **Packages** > **New-LDAPSIdentitySource**.
 
 1. Provide the required values or change the default values, and then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Name**  | User-friendly name of the external identity source, for example, **avslap.local**.  |
+   | **Name**  | User-friendly name of the external identity source, for example, **avslab.local**.  |
    | **DomainName**  | The FQDN of the domain.   |
    | **DomainAlias**  | For Active Directory identity sources, the domain's NetBIOS name. Add the NetBIOS name of the AD domain as an alias of the identity source if you're using SSPI authentications.     |
    | **PrimaryUrl**  | Primary URL of the external identity source, for example, **ldaps://yourserver:636**.  |
@@ -103,9 +103,9 @@ You'll run the `New-AvsLDAPSIdentitySource` cmdlet to add an AD over LDAP with S
 >[!NOTE]
 >We don't recommend this method. Instead, use the [Add Active Directory over LDAP with SSL](#add-active-directory-over-ldap-with-ssl) method.
 
-You'll run the `New-AvsLDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter. 
+You'll run the `New-LDAPIdentitySource` cmdlet to add AD over LDAP as an external identity source to use with SSO into vCenter. 
 
-1. Select **Run command** > **Packages** > **New-AvsLDAPIdentitySource**.
+1. Select **Run command** > **Packages** > **New-LDAPIdentitySource**.
 
 1. Provide the required values or change the default values, and then select **Run**.
    
