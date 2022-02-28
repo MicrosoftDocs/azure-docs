@@ -18,7 +18,7 @@ Microsoft uses a safe deployment practices framework to thoroughly test, monitor
 
 Azure deploys updates for a given service in a series of pre-production and production steps using a [safe deployment practices (SDP) framework](https://azure.microsoft.com/blog/advancing-safe-deployment-practices/). This framework is shown in simplified form in the following image:
 
-:::image type="content" source="media/validate-service-updates/azure-safe-deployment-practices-framework.png" alt-text="Safe deployment practices framework" source="media/validate-service-updates/azure-safe-deployment-practices-framework-expanded.png":::
+:::image type="content" source="media/validate-service-updates/azure-safe-deployment-practices-framework.png" alt-text="Safe deployment practices framework" lightbox="media/validate-service-updates/azure-safe-deployment-practices-framework-expanded.png":::
 
 Deployment phases include:
 
