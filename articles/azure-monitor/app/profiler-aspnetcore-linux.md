@@ -4,10 +4,7 @@ description: A conceptual overview and step-by-step tutorial on how to use Appli
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-author: cweining
-ms.author: cweining
 ms.date: 02/23/2018
-
 ms.reviewer: mbullwin
 ---
 

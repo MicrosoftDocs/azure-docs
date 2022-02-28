@@ -40,6 +40,10 @@ items:
     href: tutorial-using-rest-apis.md
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
+  - name: Data owner policies on resource groups or subscriptions
+    href: tutorial-access-policies-resource-group.md
+  - name: Integrate with Microsoft Sentinel
+    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Use Azure Purview Studio
@@ -200,7 +204,7 @@ items:
       href: how-to-resource-set-pattern-rules.md
     - name: Troubleshoot connection issues
       href: troubleshoot-connections.md
-  - name: Data discovery
+  - name: Search and manage data catalog
     items:
     - name: Browse Data Catalog
       href: how-to-browse-catalog.md
@@ -208,6 +212,10 @@ items:
       href: how-to-search-catalog.md
     - name: Manage catalog assets
       href: catalog-asset-details.md
+    - name: Bulk edit assets
+      href: how-to-bulk-edit-assets.md
+    - name: Asset certification
+      href: how-to-certify-assets.md
   - name: Lineage 
     items:
     - name: Lineage user guide
@@ -230,8 +238,6 @@ items:
       href: how-to-create-import-export-glossary.md
     - name: Manage term templates
       href: how-to-manage-term-templates.md  
-  - name: Bulk edit assets
-    href: how-to-bulk-edit-assets.md
   - name: Classify
     items: 
     - name: Create custom classifications
