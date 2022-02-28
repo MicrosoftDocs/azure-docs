@@ -7,7 +7,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Cosmos DB using the SQL API
@@ -373,3 +373,4 @@ You can now control how you [run the indexer](search-howto-run-reset-indexers.md
 
 + [Set up an indexer connection to a Cosmos DB database using a managed identity](search-howto-managed-identities-cosmos-db.md)
 + [Index large data sets](search-howto-large-index.md)
++ [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)
