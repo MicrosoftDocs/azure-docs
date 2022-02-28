@@ -1695,7 +1695,7 @@ If you are working with data that requires decimal precision, you will find the 
 To use the result of the decimal function and not lose precision, you should wrap any decimal output with the [string function](../logic-apps/workflow-definition-language-functions-reference.md#string) to ensure that the precision is captured. This is illustrated by the examples below where precision is lost if the decimal result is used as a number.
 
 > [!NOTE]
-> The decimal precision that is talked about in the context of this function and the Logic App Runtime is the same as the [.NET decimal precision](https://docs.microsoft.com/en-us/dotnet/api/system.decimal?view=netframework-4.7.1).
+> The decimal precision that is talked about in the context of this function and the Logic App Runtime is the same as the [.NET decimal precision](https://docs.microsoft.com/dotnet/api/system.decimal?view=netframework-4.7.1&preserve-view=true).
 
 ```
 decimal('<value>')
