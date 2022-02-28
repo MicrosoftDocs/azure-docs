@@ -41,7 +41,7 @@ Customers should first implement [Azure AD Connect](/azure/active-directory/hybr
 
 The following diagram shows eligibility and the core functionality of the modern interactive flow and the incoming trust-based flow:
 
-:::image type="complex" source="media/winauth-azuread/decision-authentication.svg" alt-text="A decision tree showing criteria to select authentication flows." lightbox="media/winauth-azuread/decision-authentication.svg":::
+:::image type="complex" source="media/winauth-azuread/decision-authentication.svg" alt-text="A decision tree showing criteria to select authentication flows." :::
 "A decision tree showing that the modern interactive flow is suitable for clients running Windows 10 20H1 or Windows Server 2022 or higher, where clients are Azure AD joined or Hybrid AD joined. The incoming trust-based flow is suitable for clients running Windows 10 or Windows Server 2012 or higher where clients are AD joined."
 :::image-end:::
 
