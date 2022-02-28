@@ -136,7 +136,7 @@ This first step creates a tenant app registration that will be used to authorize
 
 Initiate the APM Guided Configuration to launch the Easy Button template.
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
+1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**
 
    ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
@@ -144,7 +144,7 @@ Initiate the APM Guided Configuration to launch the Easy Button template.
 
    ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-easy-button-ldap/config-steps.png)
 
-3. Follow the sequence of steps required to publish your application.
+3. Follow the sequence of steps required to publish your application
 
    ![Configuration steps flow](./media/f5-big-ip-easy-button-ldap/config-steps-flow.png#lightbox)
    
@@ -154,7 +154,7 @@ The **Configuration Properties** tab creates a new application config and SSO ob
 
 Consider the **Azure Service Account Details** section to represent the client you registered in your Azure AD tenant earlier, as an application. These settings allow a BIG-IP's OAuth client to individually register a SAML SP directly in your tenant, along with the SSO properties you would normally configure manually. Easy Button does this for every BIG-IP service being published and enabled for SHA.
 
-Some of these are global settings can be re-used for publishing more applications, further reducing deployment time and effort.
+Some of these are global settings can be re-used for publishing more applications, further reducing deployment time and effort
 
 1. Provide a unique **Configuration Name** that enables an admin to easily distinguish between Easy Button configurations
 
@@ -162,7 +162,7 @@ Some of these are global settings can be re-used for publishing more application
 
 3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted down from your registered application
 
-4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
+4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant
 
     ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-oracle-peoplesoft/configuration-general-and-service-account-properties.png)
  
@@ -170,7 +170,7 @@ Some of these are global settings can be re-used for publishing more application
 
 The **Service Provider** settings define the SAML SP properties for the APM instance representing the application protected through SHA.
 
-1. Enter **Host**. This is the public FQDN of the application being secured.
+1. Enter **Host**. This is the public FQDN of the application being secured
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
@@ -184,7 +184,7 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 4. Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab 
 
-5. Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
+5. Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab
 
    ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-oracle/import-ssl-certificates-and-keys.png)
 
@@ -192,21 +192,23 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 7. If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM uses to decrypt Azure AD assertions
 
-8. If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP uploads to Azure AD for encrypting the issued SAML assertions.
+8. If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP uploads to Azure AD for encrypting the issued SAML assertions
 
    ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
  
 ### Azure Active Directory
 
-This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. In this example, select **Oracle PeopleSoft > Add**. This adds the template for Oracle PeopleSoft.
+This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. The Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. 
+
+For this scenario, select **Oracle PeopleSoft > Add**
 
 ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-oracle-peoplesoft/azure-configuration-add-big-ip-application.png)
 
 #### Azure Configuration
 
-1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users see on MyApps portal
+1. Enter **Display Name** for the app that the BIG-IP creates in your Azure AD tenant, and the icon that the users see on MyApps portal
 
-2. In the **Sign On URL (optional)** enter the public FQDN of the PeopleSoft application being secured.
+2. In the **Sign On URL (optional)** enter the public FQDN of the PeopleSoft application being secured
 
    ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-oracle-peoplesoft/azure-configuration-add-display-info.png)
 
@@ -218,7 +220,7 @@ This section defines all properties that you would normally use to manually conf
 
     ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
-6. **User and User Groups** are used to authorize access to the application. They are dynamically added from the tenant. **Add** a user or group that you can use later for testing, otherwise all access will be denied
+6. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. Add a user or group that you can use later for testing, otherwise all access will be denied
 
     ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
  
@@ -270,7 +272,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
 
-4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the prerequisites or leave the default if testing
+4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select **Client SSL Profile** you created as part of the prerequisites or leave the default if testing.
 
    ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
  
@@ -297,7 +299,7 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
 ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-oracle-peoplesoft/sso-and-http-headers.png)
 
 >[!NOTE] 
->APM session variables defined within curly brackets are CASE sensitive. If you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
+>APM session variables defined within curly brackets are CASE sensitive. For example, If you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
 
 ### Session Management
 
@@ -308,11 +310,11 @@ When the Easy Button deploys a SAML application to your Azure AD tenant, it also
  
 During deployment, the SAML federation metadata for the published application is imported from your tenant, providing the APM the SAML logout endpoint for Azure AD. This helps SP initiated sign-outs terminate the session between a client and Azure AD. 
 
- But for this to be truly effective, the APM should also know when a user signs-out, See PeopleSoft Single Logout in the next section.
+But for this to be truly effective, the APM should also know when a user signs-out of the application. See [PeopleSoft Single Logout](#peoplesoft-single-logout) in the next section.
 
 ### Summary
 
-This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of Enterprise applications. Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals.
+This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of Enterprise applications. Your application should then be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals.
  
 ## Configure PeopleSoft
  
