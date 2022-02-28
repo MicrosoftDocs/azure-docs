@@ -60,7 +60,7 @@ az container create \
 
 In the following sections, use the Azure CLI to deploy an Azure NAT gateway in the virtual network. For background, see [Tutorial: Create a NAT gateway using Azure CLI](../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md).
 
-First, use the [az network vnet public-ip create][az-network-public-ip-create] to create a public IP address for the NAT gateway. This will be used to access the Internet. You will receive a warning about an upcoming breaking change where Standard SKU IP addresses will be availability zone aware by default. You can learn more about the use of availability zones and public IP addresses [here](../virtual-network/ip-services/virtual-network--network-interface-addresses#sku). 
+First, use the [az network vnet public-ip create][az-network-public-ip-create] to create a public IP address for the NAT gateway. This will be used to access the Internet. You will receive a warning about an upcoming breaking change where Standard SKU IP addresses will be availability zone aware by default. You can learn more about the use of availability zones and public IP addresses [here](../virtual-network/ip-services/virtual-network-network-interface-addresses#sku). 
 
 ```azurecli
 az network public-ip create \
