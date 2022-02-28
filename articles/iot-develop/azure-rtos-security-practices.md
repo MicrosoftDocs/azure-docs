@@ -35,7 +35,7 @@ Microsoft recommends an approach based on the principle of *Zero Trust* when des
 - **Security monitoring and responses** A device should be able to proactively report the security postures for the solution builder to monitor the potential threats for a large number of devices. The [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders/concept-rtos-security-module) can be used for that purpose.
 
 
-## Embedded Security Components - Cryptography
+## Embedded security components - cryptography
 
 Cryptography is a foundation of security in networked devices. However, networking protocols such as TLS rely on cryptography to protect and authenticate information traveling over a network or the public internet. A secure IoT device that connects to a server or cloud service using Transport Layer Security (TLS) or similar protocols requires strong cryptography with protection for keys and secrets that are based in hardware. Most other security mechanisms provided by those protocols are built on cryptographic concepts. Therefore, having proper cryptographic support is the single most critical consideration in developing a secure connected IoT device. The following sections overview the key components for cryptographic security.
 
@@ -112,7 +112,7 @@ Combining hardware cryptography acceleration that implements secure cipher modes
 
 **Application**: Applications that require cryptographic operations should make use of all hardware-based cryptography that is available.
 
-## Embedded Security Components – Device Identity
+## Embedded security components – device identity
 
 
 In IoT systems, the notion that each endpoint represents a unique physical device challenges some of the assumptions that are built into the modern internet. As a result, a secure IoT device must be able to uniquely identify itself or an attacker could imitate a valid device to steal data, send fraudulent information, or tamper with device functionality. Confirm that each IoT device that connects to a cloud service identifies itself in a way that can't be easily bypassed. The following sections overview the key security components for device identity.
@@ -167,7 +167,7 @@ Device status in attestation scenarios can include information like firmware ver
 
 **Application**: The user application may be required to implement logic to tie the hardware features to whatever attestation the chosen cloud service(s) requires.
 
-## Embedded Security Components – Memory Protection
+## Embedded security components – memory protection
 
 Many successful hacking attacks utilize buffer overflow errors to gain access to privileged information or even to execute arbitrary code on a device. Numerous technologies and languages have been created to battle overflow problems, but the fact remains that system-level embedded development requires low-level programming. As a result, most embedded development is done using C or assembly language. These languages lack modern memory protection schemes but allow for less restrictive memory manipulation. Given the lack of built-in protection, the Azure RTOS developer must be vigilant about memory corruption. The following recommendations leverage functionality provided by some MCU platforms and Azure RTOS itself to help mitigate the impact of overflow errors on security. The following sections overview the key security components for memory protection.
 
@@ -181,7 +181,7 @@ An MCU may provide a latching mechanism that enables a tamper-resistant state, e
 
 **Application**: The application developer may be required to enable memory protection when the device is first booted – refer to secure boot documentation. For simple mechanisms (not MMU or MPU), the application may place sensitive data (for example, certificates) into the protected memory region and access it using the hardware platform APIs.
 
-### Application Memory Isolation
+### Application memory isolation
 
 If your hardware platform has a Memory Management Unit (MMU) or Memory Protection Unit (MPU), then those features can be utilized to isolate the memory spaces used by individual threads or processes. More sophisticated mechanisms also exist, such as TrustZone that provide additional protections above and beyond what a simple MPU can do. This isolation can thwart attackers from using a hijacked thread or process to corrupt or view memory in another thread or process.
 
@@ -224,7 +224,7 @@ Preventing stack overflow is a primary security concern for any application. Azu
 
 **Application**:  Certain compilers such as IAR also have “stack canary” support that helps to catch stack overflow conditions. Check your tools to see what options are available and enable them if possible.
 
-## Embedded Security Components – Secure Boot and Firmware Update
+## Embedded security components – secure boot and firmware update
 
  An IoT device, unlike a traditional embedded device, will often be connected over the internet to a cloud service for monitoring and data gathering. As a result, it's nearly certain that the device will be probed in some way, which could lead to an attack if a vulnerability is found. A successful attack may result in the discovery of an unknown vulnerability that further compromises the device and, more importantly, other devices of the same kind. For this reason, it's critical that an IoT device can be updated quickly and easily. This means that the firmware image itself must be verified, because if an attacker can load a compromised image onto a device then that device is lost. The solution is to pair a secure boot mechanism with remote firmware update (also called Over the Air, or OTA, update) capability. Secure boot verifies that a firmware image is valid and trusted, while an OTA update mechanism allows updates to be quickly and securely deployed to the device. The following sections overview the key security components for secure boot and firmware update.
 
@@ -273,7 +273,7 @@ Make use of any features for signing and verifying code or credential updates. C
 
 **Application** : Code signing can be is tied to secure boot and OTA update mechanisms to verify the integrity of downloaded firmware images.
 
-## Embedded Security Components – Protocols
+## Embedded security components – protocols
 
 The following sections overview the key security components for protocols.
 
@@ -294,7 +294,7 @@ Support current TLS versions:
 
 **Application**: To use TLS with cloud services, a certificate will be required. The certificate must be managed by the application.
 
-### Use X.509 Certificates for TLS authentication
+### Use X.509 certificates for TLS authentication
 
 X.509 certificates are used to authenticate a device to a server and a server to a device. A device certificate is used to prove the identity of a device to a server. Trusted root CA certificates are used by a device to authenticate a server or service to which it connects. The ability to update these certificates is critical as certificates can be compromised and have limited lifespans.
 
@@ -338,7 +338,7 @@ If your device uses MQTT for cloud communication, only use MQTT over TLS.
 
 **Application**: Applications using MQTT should only use TLS-based MQTT with mutual certificate authentication.
 
-## Embedded Security Components – Application Design and Development
+## Embedded security components – application design and development
 
 The following sections overview the key security components for application design and development.
 
@@ -420,7 +420,7 @@ Connected IoT devices may not have the necessary resources to implement all secu
 
 **Application**: The [Microsoft Defender for IOT micro-agent for Azure RTOS](/azure/defender-for-iot/device-builders/iot-security-azure-rtos) provides a comprehensive security solution for Azure RTOS devices. The module provides security services via a small software agent that is built into your device’s firmware and comes as part of Azure RTOS. The service includes detection of malicious network activities, device behavior baselining based on custom alerts, and recommendations that will help to improve the security hygiene of your devices. Whether you're using Azure RTOS in combination with Azure Sphere or not, the Microsoft Defender for IoT micro-agent provides an additional layer of security that is built right into the RTOS by default.
 
-## Azure RTOS IoT Application Security Checklist
+## Azure RTOS IoT application security checklist
 
 The previous sections detailed specific design considerations with descriptions of the necessary hardware, operating system, and application requirements to help mitigate security threats. This section provides a basic checklist of security-related issues to consider when designing and implementing IoT applications with Azure RTOS. This shortlist of measures is meant as a complement to, not a replacement for, the more detailed discussion in previous sections. Ultimately, a comprehensive analysis of the physical and cyber security threats posed by the environment your device will be deployed into coupled with careful consideration and rigorous implementation of the measures needed to mitigate those threats must be done to provide the highest possible level of security for your device.
 
