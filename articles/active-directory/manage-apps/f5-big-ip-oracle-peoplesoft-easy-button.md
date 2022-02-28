@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Easy Button for SSO to Oracle PeopleSoft
-description: Learn to implement SHA with header-based SSO to Oracle PeopleSoft using F5’s BIG-IP Easy Button guided configuration
+description: Learn to implement SHA with header-based SSO to Oracle PeopleSoft using F5 BIG-IP Easy Button guided configuration.
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
