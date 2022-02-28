@@ -19,7 +19,7 @@ In this article you use the Azure CLI to create the resources for this scenario:
 You then validate egress from example container groups through the NAT gateway.
 
 > [!NOTE]
-> The ACI service recommends integrating with a NAT gateway for containerized workoads that have static egress but not static ingress requirements. For ACI architecture that supports both static ingress and egress, please see the following tutorial: [Use Azure Firewall for ingress and egress](container-instances-egress-ip-address.md)
+> The ACI service recommends integrating with a NAT gateway for containerized workoads that have static egress but not static ingress requirements. For ACI architecture that supports both static ingress and egress, please see the following tutorial: [Use Azure Firewall for ingress and egress](container-instances-egress-ip-address.md).
 ## Before you begin
 You must satisfy the following requirements to complete this tutorial:
 
@@ -40,7 +40,7 @@ The container group runs a small web app from the `aci-helloworld` image. As sho
 > ```console
 > export RESOURCE_GROUP_NAME=myResourceGroup
 > ```
-
+> This tutorial will make use of the environment variable going forward. 
 Create the container group with the [az container create][az-container-create] command:
 
 ```azurecli
@@ -55,7 +55,7 @@ az container create \
 ```
 
 > [!NOTE]
-> Adjust the value of `--subnet address-prefix` for the IP address space you need in your subnet. The smallest supported subnet is /29, which provides eight IP addresses. Some IP addresses are reserved for use by Azure, which you can read more about [here](../virtual-network/ip-services/private-ip-addresses.md). This tutorial will make use of the environment variable going forward. 
+> Adjust the value of `--subnet address-prefix` for the IP address space you need in your subnet. The smallest supported subnet is /29, which provides eight IP addresses. Some >IP addresses are reserved for use by Azure, which you can read more about [here](../virtual-network/ip-services/private-ip-addresses.md). 
 ## Create a public IP address
 
 In the following sections, use the Azure CLI to deploy an Azure NAT gateway in the virtual network. For background, see [Tutorial: Create a NAT gateway using Azure CLI](../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md).
@@ -149,7 +149,7 @@ For more information about managing egress traffic, see the [Azure NAT gateway](
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_create
 [az-network-public-ip-create]: /cli/azure/network/public-ip/#az_network_public_ip_create
 [az-network-public-ip-show]: /cli/azure/network/public-ip/#az_network_public_ip_show
-[az-network-nat-gateway-create]: /cli/azure/network/nat-gateway/#az_network_nat_gateway_create
+[az-network-nat-gateway-create]: /cli/azure/network/nat/gateway/#az_network_nat_gateway_create
 [az-network-vnet-subnet-update]: /cli/azure/network/vnet/subnet#az_network_vnet_subnet_update
 [az-container-exec]: /cli/azure/container#az_container_exec
 [azure-cli-install]: /cli/azure/install-azure-cli
