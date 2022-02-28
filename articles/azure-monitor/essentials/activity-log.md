@@ -9,7 +9,7 @@ ms.author: bwren
 ---
 
 # Azure Activity log
-The Activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. Activity log includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity sign in the Azure portal or retrieve entries with PowerShell and CLI.   This article provides details on viewing the Activity log and sending it to different destinations.
+The Activity log is a [platform log](./platform-logs-overview.md) in Azure that provides insight into subscription-level events. Activity log includes such information as when a resource is modified or when a virtual machine is started. You can view the Activity log in the Azure portal or retrieve entries with PowerShell and CLI.   This article provides details on viewing the Activity log and sending it to different destinations.
 
 For more functionality, you should create a diagnostic setting to send the Activity log to one or more of these locations for the following reasons: 
 -	to [Azure Monitor Logs](../logs/data-platform-logs.md) for more complex querying and alerting, and longer retention (up to 2 years) 
@@ -67,8 +67,11 @@ You can also access Activity log events using the following methods:
 - No data ingestion charges for Activity log data stored in a Log Analytics workspace.
 - No data retention charges for the first 90 days for Activity log data stored in a Log Analytics workspace.
 
+ Select **Export Activity Logs**.
 
-[Create a diagnostic setting](./diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five workspaces. 
+   ![Export activity logs](media/activity-log/diagnostic-settings-export.png)
+
+to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five workspaces. 
 
 Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../logs/log-query-overview.md) in [Log Analytics](../logs/log-analytics-tutorial.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/azureactivity).
 

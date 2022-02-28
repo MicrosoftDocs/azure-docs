@@ -9,14 +9,14 @@ ms.author: magottei
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 01/19/2022
+ms.date: 02/11/2022
 ---
 
 # Index data from Azure Table Storage
 
 Configure a [search indexer](search-indexer-overview.md) to extract content from Azure Table Storage and make it searchable in Azure Cognitive Search. 
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Azure Table Storage.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing from Azure Table Storage. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
@@ -24,9 +24,11 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + Tables containing text. If you have binary data, you can include [AI enrichment](cognitive-search-concept-intro.md) for image analysis.
 
++ Read permissions to access Azure Storage. A "full access" connection string includes a key that gives access to the content, but if you're using Azure roles, make sure the [search service managed identity](search-howto-managed-identities-data-sources.md) has **Data and Reader** permissions.
+
 ## Define the data source
 
-The data source definition specifies the data source type, content path, and how to connect.
+The data source definition specifies the data to index, credentials, and policies for identifying changes in the data. A data source is defined as an independent resource so that it can be used by multiple indexers.
 
 1. [Create or update a data source](/rest/api/searchservice/create-data-source) to set its definition: 
 
@@ -55,15 +57,15 @@ A data source definition can also include [soft deletion policies](search-howto-
 
 Indexers can connect to a table using the following connections.
 
-| Managed identity connection string |
-|------------------------------------|
-|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
-|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-storage.md).|
-
 | Full access storage account connection string |
 |-----------------------------------------------|
 |`{ "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }` |
 | You can get the connection string from the Storage account page in Azure portal by selecting **Access keys** in the left navigation pane. Make sure to select a full connection string and not just a key. |
+
+| Managed identity connection string |
+|------------------------------------|
+|`{ "connectionString" : "ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;" }`|
+|This connection string does not require an account key, but you must have previously configured a search service to [connect using a managed identity](search-howto-managed-identities-data-sources.md).|
 
 | Storage account shared access signature** (SAS) connection string |
 |-------------------------------------------------------------------|

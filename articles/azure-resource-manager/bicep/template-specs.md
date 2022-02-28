@@ -2,7 +2,7 @@
 title: Create & deploy template specs in Bicep
 description: Describes how to create template specs in Bicep and share them with other users in your organization.
 ms.topic: conceptual
-ms.date: 01/19/2022
+ms.date: 02/01/2022
 ---
 
 # Azure Resource Manager template specs in Bicep
@@ -18,7 +18,12 @@ To deploy the template spec, you use standard Azure tools like PowerShell, Azure
 
 When designing your deployment, always consider the lifecycle of the resources and group the resources that share similar lifecycle into a single template spec. For instance, your deployments include multiple instances of Cosmos DB with each instance containing its own databases and containers. Given the databases and the containers don’t change much, you want to create one template spec to include a Cosmo DB instance and its underlying databases and containers. You can then use conditional statements in your Bicep along with copy loops to create multiple instances of these resources.
 
-The choice between template specs and [private module registries](./private-module-registry.md) is mostly a matter of preference. If you're deploying templates or Bicep files without other project artifacts, template specs are an easier option. If you're deploying project artifacts with the templates or Bicep files, you can integrate the private registry with your development work and then more easily deploy all of it from the registry.
+> [!TIP]
+> The choice between module registry and template specs is mostly a matter of preference. There are a few things to consider when you choose between the two:
+>
+> - Module registry is only supported by Bicep. If you are not yet using Bicep, use template specs.
+> - Content in the Bicep module registry can only be deployed from another Bicep file. Template specs can be deployed directly from the API, Azure PowerShell, Azure CLI, and the Azure portal. You can even use [`UiFormDefinition`](../templates/template-specs-create-portal-forms.md) to customize the portal deployment experience.
+> - Bicep has some limited capabilities for embedding other project artifacts (including non-Bicep and non-ARM-template files. For example, PowerShell scripts, CLI scripts and other binaries) by using the [`loadTextContent`](./bicep-functions-files.md#loadtextcontent) and [`loadFileAsBase64`](./bicep-functions-files.md#loadfileasbase64) functions. Template specs can't package these artifacts.
 
 ### Microsoft Learn
 

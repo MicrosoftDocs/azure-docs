@@ -1,5 +1,6 @@
 ---
-title: Set up AWS integration with Azure Cost Management
+title: Set up AWS integration with Cost Management
+titleSuffix: Azure Cost Management + Billing
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
 author: bandersmsft
 ms.author: banders
@@ -130,10 +131,10 @@ The policy JSON should resemble the following example. Replace `bucketname` with
             "Sid": "VisualEditor0",
             "Effect": "Allow",
             "Action": [
-   	    "organizations:ListAccounts",
-            "iam:ListRoles",
-            "ce:*",
-            "cur:DescribeReportDefinitions"
+                "organizations:ListAccounts",
+                "iam:ListRoles",
+                "ce:*",
+                "cur:DescribeReportDefinitions"
             ],
             "Resource": "*"
         },

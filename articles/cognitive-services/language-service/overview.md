@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 02/01/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -33,7 +33,7 @@ Azure Cognitive Service for Language provides the following features:
 > |Feature  |Description  | Deployment options| 
 > |---------|---------|---------|
 > | [Named Entity Recognition (NER)](named-entity-recognition/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories.        | * [Language Studio](language-studio.md) <br> * [REST API and client-library](named-entity-recognition/quickstart.md) |
-> | [Personally Identifiable Information (PII) detection](personally-identifiable-information/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories of sensitive information, such as account information.        | * [Language Studio](language-studio.md) <br> * [REST API and client-library](named-entity-recognition/quickstart.md) |
+> | [Personally Identifiable Information (PII) detection](personally-identifiable-information/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories of sensitive information, such as account information.        | * [Language Studio](language-studio.md) <br> * [REST API and client-library](personally-identifiable-information/quickstart.md) |
 > | [Key phrase extraction](key-phrase-extraction/overview.md)     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. | * [Language Studio](language-studio.md) <br> * [REST API and client-library](key-phrase-extraction/quickstart.md) <br> * [Docker container](key-phrase-extraction/how-to/use-containers.md)  |
 > |[Entity linking](entity-linking/overview.md)    | This pre-configured feature disambiguates the identity of an entity found in text and provides links to the entity on Wikipedia.        | * [Language Studio](language-studio.md) <br> * [REST API and client-library](entity-linking/quickstart.md) |
 > | [Text Analytics for health](text-analytics-for-health/overview.md)    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  | * [Language Studio](language-studio.md) <br> * [REST API and client-library](text-analytics-for-health/quickstart.md) <br> * [Docker container](text-analytics-for-health/how-to/use-containers.md) |

@@ -42,7 +42,7 @@ This script uses the commands outlined in the following table:
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
 | [az mariadb server create](/cli/azure/mariadb/server#az_mariadb_server_create) | Creates a MariaDB server that hosts the databases. |
-| [az network vnet list-endpoint-services](/cli/cli/azure/network/vnet#az-network-vnet-list-endpoint-services) | List which services support VNET service tunneling in a given region. |
+| [az network vnet list-endpoint-services](/cli/azure/network/vnet#az-network-vnet-list-endpoint-services) | List which services support VNET service tunneling in a given region. |
 | [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) | Creates a virtual network. |
 | [az network vnet subnet create](/cli/azure/network/vnet#az-network-vnet-subnet-create) | Create a subnet and associate an existing NSG and route table. |
 | [az network vnet subnet show](/cli/azure/network/vnet#az-network-vnet-subnet-show) | Shows details of a subnet. |

@@ -27,7 +27,7 @@ Get started with the QnA Maker client library. Follow these steps to install the
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [QnA Maker Javascript client library quickstart](../includes/quickstart-sdk-nodejs.md)]
+[!INCLUDE [QnA Maker JavaScript client library quickstart](../includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

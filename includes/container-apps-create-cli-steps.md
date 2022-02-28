@@ -1,6 +1,6 @@
 ---
 author: craigshoemaker
-ms.service: app-service
+ms.service: container-apps
 ms.topic: include
 ms.date: 01/26/2022
 ms.author: cshoe
@@ -43,6 +43,9 @@ az extension add `
 ---
 
 Now that the extension is installed, register the `Microsoft.Web` namespace.
+
+> [!NOTE]
+> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 
@@ -87,7 +90,7 @@ With these variables defined, you can create a resource group to organize the se
 ```azurecli
 az group create \
   --name $RESOURCE_GROUP \
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 # [PowerShell](#tab/powershell)
@@ -95,7 +98,7 @@ az group create \
 ```azurecli
 az group create `
   --name $RESOURCE_GROUP `
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 ---
