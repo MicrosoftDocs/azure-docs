@@ -371,7 +371,7 @@ To add SLO support for all PeopleSoft users
  
 2.	Open the portal through a web browser with debug tools enabled. Find the element with the **PT_LOGOUT_MENU** id and save the URL path with the query parameters. In this example, we have: /psp/ps/?cmd=logout
 
- ![Screenshot for PeopleSoft logout URL](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-logout-url.png)
+    ![Screenshot for PeopleSoft logout URL](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-logout-url.png)
  
 Next, create a BIG-IP iRule for redirecting users to the SAML SP logout endpoint: /my.logout.php3
  
@@ -387,15 +387,15 @@ To assign this iRule to the BIG-IP Virtual Server
  
 2.	Select the configuration link for your PeopleSoft application
 
-   ![Screenshot for link for your PeopleSoft application](./media/f5-big-ip-easy-button-oracle-peoplesoft/link-peoplesoft-application.png)
+    ![Screenshot for link for your PeopleSoft application](./media/f5-big-ip-easy-button-oracle-peoplesoft/link-peoplesoft-application.png)
  
 3.	From the top navigation bar, select **Virtual Server** and enable **Advanced Settings**
 
-   ![Screenshot for Enable Advanced settings](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
+    ![Screenshot for Enable Advanced settings](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
 
 4.	Scroll down to the bottom and add the iRule you just created
 
-   ![Screenshot for PeopleSoft irule](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
+    ![Screenshot for PeopleSoft irule](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
  
 5.	Select **Save and Next** and continue to deploy your new settings. 
  
