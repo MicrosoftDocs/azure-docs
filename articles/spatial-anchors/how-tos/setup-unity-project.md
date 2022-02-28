@@ -33,7 +33,7 @@ Before including the Azure Spatial Anchors SDK in your Unity project, be sure to
 [!INCLUDE [Import Unity Packages](../../../includes/spatial-anchors-unity-import-packages.md)]
 
 ### Extra Configurations
-If you are developing for Hololens or Android please follow the additional setup steps below
+If you are developing for HoloLens or Android please follow the additional setup steps below
 
 # [HoloLens](#tab/ExtraConfigurationsHoloLens)
 
