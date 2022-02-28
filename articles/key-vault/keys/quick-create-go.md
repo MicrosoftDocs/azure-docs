@@ -3,7 +3,7 @@ title: Quickstart - Azure Key Vault Go client library - manage keys
 description: Learn how to create, retrieve, and delete keys from an Azure key vault using the Go client library
 author: Duffney
 ms.author: jduffney
-ms.date: 02/11/2022
+ms.date: 02/28/2022
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
@@ -169,6 +169,9 @@ https://quickstart-kv.vault.azure.net/keys/new-rsa-key4
 Enabled set to: false
 Successfully deleted key https://quickstart-kv.vault.azure.net/keys/new-rsa-key4/f78fe1f34b064934bac86cc8c66a75c3
 ```
+
+> [!NOTE]
+> The output is for informational purposes only. Your returns values may vary based on your Azure subscription and Azure Key Vault.
 
 ## Code examples
 
