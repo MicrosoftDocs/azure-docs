@@ -44,14 +44,14 @@ If AKS finds multiple unhealthy nodes during a health check, each node is repair
 ## Node Autodrain
 There may be times where [Scheduled Events](scheduled-events) may take place on the underlying infrastructure of AKS nodes, and in the case of Spot instances, the underlying VM can be preempted and taken away.
 
-In these cases Node Autodrain will cordon and drain the node, providing a graceful reschedule of your workloads.
+In these cases Node Autodrain will attempt to cordon and drain the node, providing a graceful reschedule of your workloads.  
 
 Along with Scheduled Maintenance events, and Preempt, other VM events are now surfaced into the node events:
 
 | Event | Description |   Action   |
 | --- | --- | --- |
 | Freeze | The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files  | No action |
-| Reboot | The Virtual Machine is scheduled for reboot (non-persistent memory is lost). | Cordon & Drain | 
+| Reboot | The Virtual Machine is scheduled for reboot (non-persistent memory is lost). | No action | 
 | Redeploy | The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). | Cordon & Drain |
 | Preempt | The Spot Virtual Machine is being deleted (ephemeral disks are lost). | Cordon & Drain |
 | Terminate | The virtual machine is scheduled to be deleted.| Cordon & Drain |
