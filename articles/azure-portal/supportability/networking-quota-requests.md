@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Increase networking quotas
 
-This article shows how to request increases for VM-family vCPU quotas in the [Azure portal](https://portal.azure.com).
+This article shows how to request increases for networking quotas in the [Azure portal](https://portal.azure.com).
 
 To view your current networking usage and quota in the Azure portal, open your subscription, then select **Usage + quotas**. You can also use the following options to view your network usage and limits.
 

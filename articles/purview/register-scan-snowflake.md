@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 01/20/2022
+ms.date: 01/30/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -14,8 +14,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article outlines how to register Snowflake, and how to authenticate and interact with Snowflake in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-> [!IMPORTANT]
-> Snowflake as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 ## Supported capabilities
 
@@ -42,7 +41,7 @@ When scanning Snowflake source, Azure Purview supports:
 
 - Fetching static lineage on assets relationships among tables, views, and streams.
 
-When setting up scan, you can choose to scan an entire Snowflake database, or scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
+When setting up scan, you can choose to scan one or more Snowflake database(s) entirely, or further scope the scan to a subset of schemas matching the given name(s) or name pattern(s).
 
 ## Prerequisites
 
@@ -50,7 +49,7 @@ When setting up scan, you can choose to scan an entire Snowflake database, or sc
 
 * An active [Azure Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.11.7971.2.
 
@@ -62,9 +61,9 @@ When setting up scan, you can choose to scan an entire Snowflake database, or sc
 
 Azure Purview supports basic authentication (username and password) for scanning Snowflake. The default role of the given user will be used to perform the scan. The Snowflake user must have usage rights on a warehouse and the database(s) to be scanned, and read access to system tables in order to access advanced metadata.
 
-Here is a sample walkthrough to create a user specifically for Azure Purview scan and set up the permissions. If you choose to use an existing user, make sure it has adequate rights to the warehouse and database objects.
+Here's a sample walkthrough to create a user specifically for Azure Purview scan and set up the permissions. If you choose to use an existing user, make sure it has adequate rights to the warehouse and database objects.
 
-1. Set up a `purview_reader` role. You will need _ACCOUNTADMIN_ rights to do this.
+1. Set up a `purview_reader` role. You need _ACCOUNTADMIN_ rights to do this.
 
    ```sql
    USE ROLE ACCOUNTADMIN;
@@ -187,7 +186,7 @@ To create and run a new scan, do the following:
 
     1. **Warehouse**: Specify the name of the warehouse instance used to empower scan in capital case. The default role assigned to the user specified in the credential must have USAGE rights on this warehouse.
 
-    1. **Database**: Specify the name of the database instance to import in capital case. The default role assigned to the user specified in the credential must have adequate rights on the database objects.
+    1. **Databases**: Specify one or more database instance names to import in capital case. Separate the names in the list with a semi-colon (;). The default role assigned to the user specified in the credential must have adequate rights on the database objects.
 
     1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default.
         
@@ -221,10 +220,12 @@ After scanning your Snowflake source, you can [browse data catalog](how-to-brows
 Go to the asset -> lineage tab, you can see the asset relationship when applicable. Refer to the [supported capabilities](#supported-capabilities) section on the supported Snowflake lineage scenarios. For more information about lineage in general, see [data lineage](concept-data-lineage.md) and [lineage user guide](catalog-lineage-user-guide.md).
 
 :::image type="content" source="media/register-scan-snowflake/lineage.png" alt-text="Snowflake lineage view" border="true":::
-
+> [!NOTE]
+> If a view was created by tables from different databases, scan all databases simultaneously using the names in the semicolon (;) list.
+        
 ## Troubleshooting tips
 
-- Check your account identifer in the source registration step. Do not include `https://` part at the front.
+- Check your account identifer in the source registration step. Don't include `https://` part at the front.
 - Make sure the warehouse name and database name are in capital case on the scan setup page.
 - Check your key vault. Make sure there are no typos in the password.
 - Check the credential you set up in Azure Purview. The user you specify must have a default role with the necessary access rights to both the warehouse and the database you are trying to scan. See [Required permissions for scan](#required-permissions-for-scan). USE `DESCRIBE USER;` to verify the default role of the user you've specified for Azure Purview.

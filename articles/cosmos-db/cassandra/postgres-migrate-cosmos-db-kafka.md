@@ -1,12 +1,12 @@
 ---
 title: Migrate data from PostgreSQL to Azure Cosmos DB Cassandra API account using Apache Kafka
 description: Learn how to use Kafka Connect to synchronize data from PostgreSQL to Azure Cosmos DB Cassandra API in real time.
-author: abhirockzz
+author: rothja
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 01/05/2021
-ms.author: abhishgu
+ms.author: jroth
 ms.reviewer: abhishgu
 ---
 

@@ -111,7 +111,7 @@ Be careful to not send data to Logs because it would be redundant with the data 
 
 You can install an Azure Monitor agent on individual machines by using the same methods for Azure virtual machines and Azure Arc-enabled servers. These methods include onboarding individual machines with the Azure portal or Resource Manager templates or enabling machines at scale by using Azure Policy. For hybrid machines that can't use Azure Arc-enabled servers, install the agent manually.
 
-To create a DCR and deploy the Azure Monitor agent to one or more agents by using the Azure portal, see [Create rule and association in the Azure portal](../agents/data-collection-rule-azure-monitor-agent.md). Other installation methods are described at [Install the Azure Monitor agent](../agents/azure-monitor-agent-install.md). To create a policy that automatically deploys the agent and DCR to any new machines as they're created, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
+To create a DCR and deploy the Azure Monitor agent to one or more agents by using the Azure portal, see [Create rule and association in the Azure portal](../agents/data-collection-rule-azure-monitor-agent.md). Other installation methods are described at [Install the Azure Monitor agent](../agents/azure-monitor-agent-manage.md). To create a policy that automatically deploys the agent and DCR to any new machines as they're created, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## Next steps
 

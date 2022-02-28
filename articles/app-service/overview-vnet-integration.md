@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 01/26/2022
 ms.author: madsd
 
 ---
@@ -62,15 +62,17 @@ When you scale up or down in size, the required address space is doubled for a s
 
 Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required.
 
-When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the preexisting virtual network integration.
+When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing virtual network integration.
 
-You must have at least the following RBAC permissions on the subnet or at a higher level to configure regional virtual network integration through Azure portal, CLI or when setting the `virtualNetworkSubnetId` site property directly:
+You must have at least the following Role-based access control permissions on the subnet or at a higher level to configure regional virtual network integration through Azure portal, CLI or when setting the `virtualNetworkSubnetId` site property directly:
 
 | Action | Description |
 |-|-|
 | Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
+
+If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the Microsoft.Web resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it will also automatically be registered when creating the first web app in a subscription.
 
 ### Routes
 
@@ -88,6 +90,20 @@ When you configure application routing, you can either route all traffic or only
 Learn [how to configure application routing](./configure-vnet-integration-routing.md).
 
 We recommend that you use the **Route All** configuration setting to enable routing of all traffic. Using the configuration setting allows you to audit the behavior with [a built-in policy](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F33228571-70a4-4fa1-8ca1-26d0aba8d6ef). The existing WEBSITE_VNET_ROUTE_ALL app setting can still be used, and you can enable all traffic routing with either setting.
+
+#### Configuration routing
+
+When you are using virtual network integration, you can configure how parts of the configuration traffic is managed. By default, the mentioned configurations will go directly to the internet unless you actively configure it to be routed through the virtual network integration.
+
+##### Content storage
+
+Bringing you own storage for content in often used in Functions where [content storage](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
+
+To route content storage traffic through the virtual network integration, you need to add an app setting named `WEBSITE_CONTENTOVERVNET` with the value `1`. In addition to adding the app setting, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
+
+##### Container image pull
+
+When using custom containers for Linux, you can pull the container over the virtual network integration. To route the container pull traffic through the virtual network integration, you must add an app setting named `WEBSITE_PULL_IMAGE_OVER_VNET` with the value `true`.
 
 #### Network routing
 

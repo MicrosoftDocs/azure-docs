@@ -14,7 +14,7 @@ This article helps you use Azure Pipelines to set up continuous integration (CI)
 > [!NOTE]
 > For special considerations when deploying apps to Azure Government, see **[Deploy apps to Azure Government Cloud](/azure/devops/pipelines/library/government-cloud).**
 
-[Azure Pipelines](/azure/devops/pipelines/get-started/) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints) for Azure Government. 
+[Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints) for Azure Government. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -38,8 +38,8 @@ The following steps will set up a CD process to deploy to this Web App.
 Follow through one of the quickstarts below to set up a Build for your specific type of app: 
 
 - [ASP.NET 4 app](/azure/devops/pipelines/apps/aspnet/build-aspnet-4)
-- [ASP.NET Core app](/azure/devops/pipelines/languages/dotnet-core?tabs=yaml)
-- [Node.js app with Gulp](/azure/devops/pipelines/languages/javascript?tabs=yaml)
+- [ASP.NET Core app](/azure/devops/pipelines/ecosystems/dotnet-core)
+- [Node.js app with Gulp](/azure/devops/pipelines/ecosystems/javascript)
 
 ## Generate a service principal 
 

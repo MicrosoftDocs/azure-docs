@@ -135,7 +135,7 @@ Another important aspect to include in your production process is how classifica
 In Azure Purview, there are several areas where the Catalog Administrators need to ensure consistency and maintenance best practices over its life cycle:
 
 * **Data assets** – Data sources will need to be rescanned across environments. It’s not recommended to scan only in development and then regenerate them using APIs in Production. The main reason is that the Azure Purview scanners do a lot more “wiring” behind the scenes on the data assets, which could be complex to move them to a different Azure Purview instance. It’s much easier to just add the same data source in production and scan the sources again. The general best practice is to have documentation of all scans, connections, and authentication mechanisms being used.
-* **Scan rule sets** – This is your collection of rules assigned to specific scan such as file type and classifications to detect. If you don’t have that many scan rule sets, it’s possible to just re-create them manually again via Production. This will require an internal process and good documentation. However, if you rule sets change on the daily or weekly basis, this could be addressed by exploring the REST API route.
+* **Scan rule sets** – This is your collection of rules assigned to specific scan such as file type and classifications to detect. If you don’t have that many scan rule sets, it’s possible to just re-create them manually again via Production. This will require an internal process and good documentation. However, if your rule sets change on a daily or weekly basis, this could be addressed by exploring the REST API route.
 * **Custom classifications** – Your classifications may not also change on a regular basis. During the initial phase of deployment, it may take some time to understand various requirements to come up with custom classifications. However, once settled, this will require little change. So the recommendation here is to manually migrate any custom classifications over or use the REST API.
 * **Glossary** – It’s possible to export and import glossary terms via the UX. For automation scenarios, you can also use the REST API.
 * **Resource set pattern policies** – This functionality is very advanced for any typical organizations to apply. In some cases, your Azure Data Lake Storage has folder naming conventions and specific structure that may cause problems for Azure Purview to generate the resource set. Your business unit may also want to change the resource set construction with additional customizations to fit the business needs. For this scenario, it’s best to keep track of all changes via REST API, and document the changes through external versioning platform.
@@ -256,6 +256,48 @@ Additional hardening steps can be taken:
 * Fine-tune scope scan to improve scan performance
 * Use REST APIs to export critical metadata and properties for backup and recovery
 * Use workflow to automate ticketing and eventing to avoid human errors
+
+## Moving tenants
+
+If your Azure Subscription moves tenants while you have an Azure Purview account, there are some steps you should follow after the move.
+
+Currently your Azure Purview account's system assigned and user assigned managed identities will be cleared during the move to the new tenant. This is because your Azure tenant houses all authentication information, so these need to be updated for your Azure Purview account in the new tenant.
+
+After the move, follow the below steps to clear the old identities, and create new ones:
+
+1. If you're running locally, sign in to Azure through the Azure CLI.
+
+    ```azurecli-interactive
+      az login
+      ```
+    Alternatively, you can use the [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure Portal. 
+    Direct browser link: [https://shell.azure.com](https://shell.azure.com).
+
+1. Obtain an access token by using [az account get-access-token](/cli/azure/account#az_account_get_access_token).
+    ```azurecli-interactive
+    az account get-access-token
+    ```
+
+1. Run the following bash command to disable all managed identities (user and system assigned managed identities):
+
+    > [!IMPORTANT]
+    > Be sure to replace these values in the below commands:
+    > - \<Subscription_Id>: Your Azure Subscription ID
+    > - \<Resource_Group_Name>: Name of the resource group where your Azure Purview account is housed.
+    > - \<Account_Name>: Your Azure Purview account name
+    > - \<Access_Token>: The token from the first two steps.
+
+    ```bash
+    curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d'{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
+    ```
+
+1. To enable your new system managed assigned identity (SAMI), run the following bash command:
+  
+    ```bash
+    curl 'https://management.azure.com/subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Purview/accounts/<Account_Name>?api-version=2021-07-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H "Authorization:Bearer <Access_Token>"
+    ```
+
+1. If you had a user assigned managed identity (UAMI), to enable one on your new tenant, register your UAMI in Azure Purview as you did originally by following [the steps from the manage credentials article](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 ## Next steps
 

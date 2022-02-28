@@ -72,7 +72,7 @@ If you already have a private certificate from a third-party provider, you can u
 
 We recommend using Azure Key Vault to [manage your certificates](../key-vault/certificates/about-certificates.md) and setting them to `autorenew`.
 
-If you use Azure Key Vault to manage a custom domain TLS certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/createcertificate/createcertificate), not a _secret_.
+If you use Azure Key Vault to manage a custom domain TLS certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/certificates/create-certificate/create-certificate), not a _secret_.
 
 To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. 
 * When you use the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
@@ -141,7 +141,7 @@ Choose the steps according to the [domain certificate](#domain-certificate-optio
 1. Select **+Add**, or select an existing [endpoint](#endpoints-for-custom-domains) that you want to update.
 1. In the window on the right, select the **Type** of endpoint for the custom domain.
 1. In the **Hostname** field, specify the name you want to use. For example, `api.contoso.com`.
-1. Under **Certificate**, select **Managed** to enable a free certificate managed by API Management. Te managed certificate is available in preview for the Gateway endpoint only.
+1. Under **Certificate**, select **Managed** to enable a free certificate managed by API Management. The managed certificate is available in preview for the Gateway endpoint only.
 1. Copy the following values and use them to [configure DNS](#dns-configuration):
     * **TXT record**
     * **CNAME record**

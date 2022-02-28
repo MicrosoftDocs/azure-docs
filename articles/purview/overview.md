@@ -31,7 +31,7 @@ For more information, see our [introduction to Data Map](concept-elastic-data-ma
 ## Data Catalog
 
 With the Azure Purview Data Catalog, business and technical users alike can quickly & easily find relevant data using a search experience with filters based on various lenses like glossary terms, classifications, sensitivity labels and more. For subject matter experts, data stewards and officers, the Azure Purview Data Catalog provides data curation features like business glossary management and ability to automate tagging of data assets with glossary terms. Data consumers and producers can also visually trace the lineage of data assets starting from the operational systems on-premises, through movement, transformation & enrichment with various data storage & processing systems in the cloud to consumption in an analytics system like Power BI.
-For more information, see our [introduction to search using Data Catalog](concept-search.md).
+For more information, see our [introduction to search using Data Catalog](how-to-search-catalog.md).
 
 ## Data Insights
 With the Azure Purview data insights, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
@@ -80,7 +80,8 @@ Discovering and understanding data sources and their use is the primary purpose 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 
 ## In-region data residency
-For Azure Purview, certain table names, file paths, and object path information are stored in the United States. Subject to aforementioned exception, the capability to enable storing all other customer data in a single region is currently available in all Geos.
+For Azure Purview, customer content related to the metadata (e.g. blob uri path, table names and column names) stored in Azure Purview is Data Residency compliant with the exception of multi-cloud environments.
+For multi-cloud environments (AWS sources), the customer content will reside in the US region as a part of the global logs and will be data residency compliant in the next few months. 
 
 ## Next steps
 

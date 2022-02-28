@@ -4,7 +4,7 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 01/19/2022
 ms.custom: subject-rbac-steps
 ms.author: rohogue
 ---
@@ -27,9 +27,9 @@ Add storage targets after creating your cache. Follow this process:
 
 The procedure to add a storage target is slightly different depending on the type of storage it uses. Details for each are below.
 
-Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target from the Azure portal.
+<!-- Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target from the Azure portal.
 
-[![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
+[![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) -->
 
 ## Size your cache correctly to support your storage targets
 

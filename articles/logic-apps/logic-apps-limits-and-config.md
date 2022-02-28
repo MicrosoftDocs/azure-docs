@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 11/16/2021
+ms.date: 01/12/2022
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -30,6 +30,7 @@ The following tables list the values for a single workflow definition:
 | Name | Limit | Notes |
 | ---- | ----- | ----- |
 | Workflows per region per subscription | 1,000 workflows ||
+| Workflow - Maximum name length | 43 characters | Previously 80 characters |
 | Triggers per workflow | 10 triggers | This limit applies only when you work on the JSON workflow definition, whether in code view or an Azure Resource Manager (ARM) template, not the designer. |
 | Actions per workflow | 500 actions | To extend this limit, you can use nested workflows as necessary. |
 | Actions nesting depth | 8 actions | To extend this limit, you can use nested workflows as necessary. |
@@ -378,15 +379,9 @@ For more information, review the following documentation:
 
 | Name | Limit |
 |------|-------|
-| Managed identities per logic app | Either the system-assigned identity or 1 user-assigned identity |
+| Managed identities per logic app resource | - Consumption: Either the system-assigned identity *or* only one user-assigned identity <p>- Standard: The system-assigned identity *and* any number of user-assigned identities <p>**Note**: By default, a **Logic App (Standard)** resource has the system-assigned managed identity automatically enabled to authenticate connections at runtime. This identity differs from the authentication credentials or connection string that you use when you create a connection. If you disable this identity, connections won't work at runtime. To view this setting, on your logic app's menu, under **Settings**, select **Identity**. |
 | Number of logic apps that have a managed identity in an Azure subscription per region | 1,000 |
 |||
-
-> [!NOTE] 
-> By default, a Logic App (Standard) resource has its system-assigned managed identity automatically enabled to 
-> authenticate connections at runtime. This identity differs from the authentication credentials or connection 
-> string that you use when you create a connection. If you disable this identity, connections won't work at 
-> runtime. To view this setting, on your logic app's menu, under **Settings**, select **Identity**.
 
 <a name="integration-account-limits"></a>
 

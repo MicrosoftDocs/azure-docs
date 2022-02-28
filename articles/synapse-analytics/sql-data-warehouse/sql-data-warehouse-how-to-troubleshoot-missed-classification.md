@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: how-to  
 ms.subservice: sql-dw 
-ms.date: 10/01/2021
+ms.date: 01/24/2022
 ms.custom: template-how-to  
 ms.reviewer: wiassaf
 ---
@@ -21,7 +21,7 @@ Azure Synapse Analytics provides workload management capabilities like [classify
 However, in some scenarios, a combination of these capabilities can lead to workload classification that doesn't reflect user intent. This article lists such common scenarios and how to troubleshoot them. First, you should query basic information for troubleshooting misclassified workload scenarios.
 
 > [!NOTE]
-> This article does not apply to serverless SQL pools in Azure Synapse Analytics.
+> Classifying managed identities (MI) behavior differs between the dedicated SQL pool in Azure Synapse workspaces and the standalone dedicated SQL pool (formerly SQL DW). While the standalone dedicated SQL pool MI maintains the assigned identity, Azure Synapse workspaces adds MI to the **dbo** role. This cannot be changed. The dbo role, by default, is classified to smallrc. Creating a classifier for the dbo role allows for assigning requests to a workload group other than smallrc. If dbo alone is too generic for classification and has broader impacts, consider using label, session or time-based classification in conjunction with the dbo role classification.
 
 ## Basic troubleshooting information
 

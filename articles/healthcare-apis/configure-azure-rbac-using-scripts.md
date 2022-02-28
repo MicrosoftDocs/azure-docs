@@ -5,7 +5,7 @@ services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 12/10/2021
+ms.date: 01/06/2022
 ms.author: zxue
 ---
 
@@ -89,7 +89,7 @@ az role assignment create --assignee-object-id $spid --assignee-principal-type S
 Alternatively, you can send a Put request to the role assignment REST API directly. For more information, see [Assign Azure roles using the REST API](./../role-based-access-control/role-assignments-rest.md).
 
 >[!Note]
->The REST API scripts in this article are based on the [REST Client](using-rest-client.md) extension. You'll need to revise the variables if you are in a different environment.
+>The REST API scripts in this article are based on the [REST Client](./fhir/using-rest-client.md) extension. You'll need to revise the variables if you are in a different environment.
 
 The API requires the following values:
 
@@ -194,4 +194,4 @@ Now that you've granted proper permissions to the client application, you can ac
 In this article, you learned how to grant permissions to client applications using Azure CLI and REST API. For information on how to access Healthcare APIs, see 
 
 >[!div class="nextstepaction"]
->[Access using Rest Client](using-rest-client.md) 
+>[Access using Rest Client](./fhir/using-rest-client.md) 

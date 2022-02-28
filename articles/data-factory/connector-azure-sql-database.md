@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/14/2022
+ms.date: 02/23/2022
 ---
 
 # Copy and transform data in Azure SQL Database by using Azure Data Factory or Azure Synapse Analytics
@@ -91,9 +91,6 @@ These properties are supported for an Azure SQL Database linked service:
 | alwaysEncryptedSettings | Specify **alwaysencryptedsettings** information that's needed to enable Always Encrypted to protect sensitive data stored in SQL server by using either managed identity or service principal. For more information, see the JSON example following the table and [Using Always Encrypted](#using-always-encrypted) section. If not specified, the default always encrypted setting is disabled. |No |
 | credentials | Specify the user-assigned managed identity as the credential object. | Yes, when you use user-assigned managed identity authentication |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is located in a private network. If not specified, the default Azure integration runtime is used. | No |
-
-> [!NOTE]
-> Azure SQL Database [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is not supported in data flow. 
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
@@ -759,6 +756,18 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 
 **Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.
 
+> [!TIP]
+> The [common table expression (CTE)](/sql/t-sql/queries/with-common-table-expression-transact-sql?view=sql-server-ver15&preserve-view=true) in SQL is not supported in the mapping data flow **Query** mode, because the prerequisite of using this mode is that queries can be used in the SQL query FROM clause but CTEs cannot do this.
+>To use CTEs, you need to create a stored procedure using the following query:
+>```SQL
+> CREATE PROC CTESP @query nvarchar(max)
+> AS
+> BEGIN
+> EXECUTE sp_executesql @query;
+> END
+>```
+>Then use the **Stored procedure** mode in the source transformation of the mapping data flow and set the `@query` like example `with CTE as (select 'test' as a) select * from CTE`. Then you can use CTEs as expected.
+
 **Stored procedure**: Choose this option if you wish to generate a projection and source data from a stored procedure that is executed from your source database. You can type in the schema, procedure name, and parameters, or click on Refresh to ask the service to discover the schemas and procedure names. Then you can click on Import to import all procedure parameters using the form ``@paraName``.
 
 :::image type="content" source="media/data-flow/stored-procedure-2.png" alt-text="Stored procedure":::
@@ -777,6 +786,8 @@ Settings specific to Azure SQL Database are available in the **Source Options** 
 - None (ignore isolation level)
 
 :::image type="content" source="media/data-flow/isolationlevel.png" alt-text="Isolation Level":::
+
+**Enable incremental extract (preview)**: If your table has a timestamp column, you can enable incremental extract. ADF will prompt you to choose a timestamp field that will be used to query for changed rows from the last time the pipeline ran. ADF will handle storing the watermark and querying changed rows for you. This feature is currently in public preview.
 
 ### Sink transformation
 
@@ -881,7 +892,7 @@ To learn details about the properties, check [GetMetadata activity](control-flow
 
 ## Using Always Encrypted
 
-When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
+When you copy data from/to Azure SQL Database with [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), follow below steps: 
 
 1. Store the [Column Master Key (CMK)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-ver15&preserve-view=true) in an [Azure Key Vault](../key-vault/general/overview.md). Learn more on [how to configure Always Encrypted by using Azure Key Vault](../azure-sql/database/always-encrypted-azure-key-vault-configure.md?tabs=azure-powershell)
 
@@ -890,10 +901,13 @@ When you copy data from/to SQL Server with [Always Encrypted](/sql/relational-da
 3. Create linked service to connect to your SQL database and enable 'Always Encrypted' function by using either managed identity or service principal. 
 
 >[!NOTE]
->SQL Server [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) supports below scenarios: 
+> Azure SQL Database [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) supports below scenarios: 
 >1. Either source or sink data stores is using managed identity or service principal as key provider authentication type.
 >2. Both source and sink data stores are using managed identity as key provider authentication type.
 >3. Both source and sink data stores are using the same service principal as key provider authentication type.
+
+>[!NOTE]
+> Currently, Azure SQL Database [**Always Encrypted**](/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15&preserve-view=true) is only supported for source transformation in mapping data flows.
 
 ## Next steps
 
