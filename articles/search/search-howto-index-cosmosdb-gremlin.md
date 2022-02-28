@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Cosmos DB using the Gremlin API
@@ -367,3 +367,5 @@ Notice how the Output Field Mapping starts with `/document` and does not include
 + To learn more about Azure Cosmos DB Gremlin API, see the [Introduction to Azure Cosmos DB: Gremlin API](../cosmos-db/graph-introduction.md).
 
 + For more information about Azure Cognitive Search scenarios and pricing, see the [Search service page on azure.microsoft.com](https://azure.microsoft.com/services/search/).
+
++ To learn about network configuration for indexers, see the [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md).
