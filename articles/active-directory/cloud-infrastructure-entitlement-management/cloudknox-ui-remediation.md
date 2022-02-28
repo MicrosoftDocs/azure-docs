@@ -49,16 +49,16 @@ The **Role/Policies** subtab provides the following settings that you can use to
 
 - **Authorization System Type**: Displays a dropdown with authorization system types you can access, Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP).
 - **Authorization System**: Displays a list of authorization systems accounts you can access.
-- **Role/Policy Type**: A dropdown with available role/policy types. You can select **All**, **Custom**, **System**, or **CloudKnox Only**.
-- **Role/Policy Status**: A dropdown with available role/policy statuses. You can select **All**, **Assigned**, or **Unassigned**.
-- **Role/Policy Usage**: A dropdown with **All** or **Unused** roles/policies.
+- **Policy Type**: A dropdown with available role/policy types. You can select **All**, **Custom**, **System**, or **CloudKnox Only**.
+- **Policy Status**: A dropdown with available role/policy statuses. You can select **All**, **Assigned**, or **Unassigned**.
+- **Policy Usage**: A dropdown with **All** or **Unused** roles/policies.
 - **Apply**: Select this option to save the changes you've made.
 - **Reset Filter**: Select this option to discard the changes you've made.
 
-The **Role/Policies List** displays a list of existing roles/policies and the following information about each role/policy.
+The **Policy list** displays a list of existing roles/policies and the following information about each role/policy.
 
-- **Role/Policy Name**: The name of the roles/policies available to you.
-- **Role/Policy Type**: **Custom**, **System**, or **CloudKnox Only**
+- **Policy Name**: The name of the roles/policies available to you.
+- **Policy Type**: **Custom**, **System**, or **CloudKnox Only**
 - **Actions** 
     - Select **Clone** to create a duplicate copy of the role/policy.
     - Select **Modify** to change the existing role/policy.
@@ -138,7 +138,7 @@ Other options available to you:
     - **Request Date**
     - **Schedule**
     - **Submitted**
-    - **Reset to default**: Select this option to discard your settings.
+    - **Reset to Default**: Select this option to discard your settings.
 
 ### View pending requests
 
