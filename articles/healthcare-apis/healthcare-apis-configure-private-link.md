@@ -44,15 +44,11 @@ There are two ways to create a private endpoint. Auto Approval flow allows a use
 
 Ensure the region for the new private endpoint is the same as the region for your virtual network. The region for the workspace can be different.
 
-[ ![Screen image of the Azure portal Basics Tab.](media/private-link/private-link-basics.png) ](media/private-link-basics.png#lightbox)
+[ ![Screen image of the Azure portal Basics Tab.](media/private-link/private-link-basics.png) ](media/private-link/private-link-basics.png#lightbox)
 
 For the resource type, search and select **Microsoft.HealthcareApis/services** from the drop-down list. For the resource, select the workspace in the resource group. The target sub-resource, **healthcareworkspace**, is automatically populated.
 
 [ ![Screen image of the Azure portal Resource tab.](media/private-link/private-link-resource.png) ](media/private-link/private-link-resource.png#lightbox)
-
-For the virtual network, search, and select the VNet from the list. For Private IP configuration, select **Dynamically allocate IP address**. Optionally, you can select **Statically allocate IP address** and provide specific IP addresses. Keep the default option, **Integrate with private DNS zone**. You can also utilize your own DNS server by selecting the **No** option. Notice that a new resource group is specified automatically.
-
-[ ![Screen image of the portal Vnet tab.](media/private-link/private-link-vnet.png) ](media/private-link/private-link-vnet.png#lightbox)
 
 ### Manual Approval
 
