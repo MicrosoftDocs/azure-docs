@@ -70,6 +70,14 @@ For example:
 <a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
 ```
 
+Alternatively, if you want to redirect back to the referring page, you can use the `.referrer` token.
+
+For example:
+
+```html
+<a href="/.auth/login/github?post_login_redirect_uri=.referrer">Login</a>
+```
+
 ## Logout
 
 The `/.auth/logout` route logs users out from the website. You can add a link to your site navigation to allow the user to log out as shown in the following example.
