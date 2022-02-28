@@ -180,3 +180,4 @@ sections:
           What ports and protocols does Azure Spatial Anchors use?
         answer: |
           Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](../active-directory/index.yml), which communicates using HTTPS over port 443.
+          
