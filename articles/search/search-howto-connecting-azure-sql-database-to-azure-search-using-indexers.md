@@ -21,7 +21,9 @@ This article supplements [**Create an indexer**](search-howto-create-indexers.md
 
 + An [Azure SQL database](../azure-sql/database/sql-database-paas-overview.md) with data in a single table or view. Use a table if you want the ability to [index incremental updates](#CaptureChangedRows) using SQL's native change detection capabilities.
 
-+ Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md) to omit credentials on the connection. 
++ Read permissions. Azure Cognitive Search supports SQL Server authentication, where the user name and password are provided on the connection string. Alternatively, you can [set up a managed identity and use Azure roles](search-howto-managed-identities-sql.md) to omit credentials on the connection.
+
++ A REST client, such as [Postman](search-get-started-rest.md) or [Visual Studio Code with the extension for Azure Cognitive Search](search-get-started-vs-code.md) to send REST calls that create the data source, index, and indexer. 
 
 <!-- Real-time data synchronization must not be an application requirement. An indexer can reindex your table at most every five minutes. If your data changes frequently, and those changes need to be reflected in the index within seconds or single minutes, we recommend using the [REST API](/rest/api/searchservice/AddUpdate-or-Delete-Documents) or [.NET SDK](search-get-started-dotnet.md) to push updated rows directly.
 
@@ -200,7 +202,7 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 If your SQL database supports [change tracking](/sql/relational-databases/track-changes/about-change-tracking-sql-server), a search indexer can pick up just the new and updated content on subsequent indexer runs. Azure Cognitive Search provides two change detection policies to support incremental indexing. 
 
-Within an indexer definition, you can specify a change detection policies that tells the indexer which change tracking mechanism is used on your table or view. There are two policies to choose from:
+Within an indexer definition, you can specify a change detection policy that tells the indexer which change tracking mechanism is used on your table or view. There are two policies to choose from:
 
 + "SqlIntegratedChangeTrackingPolicy" (applies to tables only)
 
