@@ -27,7 +27,7 @@
     - name: 7 - Activate
       href: azure-stack-edge-pro-2-deploy-activate.md 
     - name: 8 - Configure compute
-      href: azure-stack-edge-gpu-deploy-configure-compute.md  
+      href: azure-stack-edge-pro-2-deploy-configure-compute.md  
       
   - name: Concepts
     items:
@@ -47,7 +47,16 @@
         href: azure-stack-edge-gpu-cluster-witness-overview.md
       - name: Kubernetes failover on clustered device
         href: azure-stack-edge-gpu-kubernetes-failover-scenarios.md
-        
+
+    - name: How to
+      items:
+      - name: Mount your device
+        items:
+        - name: Using a 2-post rackmount
+          href: azure-stack-edge-pro-2-two-post-rack-mounting.md
+        - name: Using wallmount
+          href: azure-stack-edge-pro-2-safety.md
+
 - name: Azure Stack Edge Pro - GPU
   items:
   - name: Overview
@@ -407,7 +416,7 @@
       - name: Troubleshoot blob storage issues
         href: azure-stack-edge-gpu-troubleshoot-blob-storage.md
 
-- name: Shared device - Pro GPU, Pro R, Mini R
+- name: Shared device - Pro 2, Pro GPU, Pro R, Mini R
   items:
   - name: Shared concepts
     items:
