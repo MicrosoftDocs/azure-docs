@@ -282,7 +282,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 2. Choose the **Load Balancing Method** as *Round Robin*
 
-3. Update **Pool Servers.** Select an existing server node or specify an IP and port for the backend node hosting the header-based application
+3. For **Pool Servers** select an existing server node or specify an IP and port for the backend node hosting the header-based application
 
    ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
 
@@ -424,25 +424,24 @@ You can navigate to **Access > Guided Configuration** and select the **small pad
 
 At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
-[!NOTE] Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
+>[!NOTE]
+>Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the advanced configuration method for production services.
 
 ## Troubleshooting
 
-You can fail to access the SHA protected application due to any number of factors, including a misconfiguration. 
-
-Consider the following points while troubleshooting any issue.
+Failure to access a SHA protected application can be due to any number of factors. If troubleshooting kerberos SSO issues, be aware of the following.
 
 * Kerberos is time sensitive, so requires that servers and clients be set to the correct time and where possible synchronized to a reliable time source
 
 * Ensure the hostname for the domain controller and web application are resolvable in DNS
 
-* Ensure there are no duplicate SPNs in your environment by executing the following query at the command line: setspn -q HTTP/my_target_SPN
+* Ensure there are no duplicate SPNs in your AD environment by executing the following query at the command line on a domain PC: setspn -q HTTP/my_target_SPN
 
 You can refer to our [App Proxy guidance](../app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md) to validate an IIS application is configured appropriately for KCD. F5’s article on [how the APM handles Kerberos SSO](https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html) is also a valuable resource.
 
 ### Log analysis
 
-BIG-IP logs are a great source of information for isolating all sorts of authentication & SSO issues. When troubleshooting you should increase the log verbosity level. 
+BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
 
 1. Navigate to **Access Policy > Overview > Event Logs > Settings**
 
@@ -450,7 +449,9 @@ BIG-IP logs are a great source of information for isolating all sorts of authent
 
 3. Select **Debug** from the SSO list, and then select **OK**. 
 
-Then reproduce your issue before looking at the logs but remember to switch this back when finished. If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
+
+If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
 
 1. Navigate to **Access > Overview > Access reports**
 
@@ -460,6 +461,6 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 
 1. Navigate to **Access Policy > Overview > Active Sessions**
 
-2. Select the link for your active session. The **View Variables** link in this location may also help determine root cause KCD issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers.
+2. Select the link for your active session. The **View Variables** link in this location may also help determine root cause KCD issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers from session variables.
 
 See [BIG-IP APM variable assign examples]( https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference]( https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.

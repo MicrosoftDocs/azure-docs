@@ -24,9 +24,9 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type    | 64 GB DDR4-2933Mhz 2Rx4 1.2v ECC UDIMM/SODIMM |
-| Memory: raw    | 128 GB RAM (2 x 64 GB)                                                      |
-| Memory: usable | 102 GB RAM                                                                  |
+| Memory type     | Model 64G2T: 64 GB |
+| Memory: raw   | Model 64G2T: 128 GB RAM (2 x 64 GB) |
+| Memory: usable | Model 64G2T: 102 GB RAM                                                                  |
 
 ## Power supply unit specifications
 
@@ -46,7 +46,7 @@ This device has one power supply unit (PSU) with high-performance fans. The foll
 Your Azure Stack Edge Pro 2 device has four network interfaces, Port 1 - Port 4.
 
 * **2 X 10 GBase-T/1000Base-T(10/1 GbE) interfaces** 
-    * Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. The other interface 
+    * Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. 
     * Port 2 is user configurable, can be used for data transfer, and is DHCP by default. These 10/1-GbE interfaces can also operate as 10-GbE interfaces.
 * **2 X 100-GbE interfaces** 
     * These data interfaces, Port 3 and Port 4, can be configured by user as DHCP (default) or static. 
@@ -71,13 +71,13 @@ The following table lists the storage capacity of the device.
 
 |     Specification                         |     Value             |
 |-------------------------------------------|-----------------------|
-|    Number of data disks                   |    4 Micron 5200 MTFDDAK960TDD SATA SSDs [See for details.](https://www.micron.com/solutions/technical-briefs/micron-5200-series-of-sata-ssds)|
-|    Single data disk capacity              |    960 GB             |
-|    Boot disk    |    1  NVMe SSD                |
-|    Boot disk capacity                       |    960 GB             |
-|    Total capacity                          |    ~ 4 TB             |
-|    Total usable capacity                   |    ~ 1.67 TB          |
-|    RAID configuration                      |    [Storage Spaces Direct with mirroring](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#mirroring) |
+|  Number of data disks     |    4 SATA SSDs         |
+| Single data disk capacity |    960 GB              |
+| Boot disk                 |    1  NVMe SSD         |
+|    Boot disk capacity     |    960 GB              |
+|    Total capacity         | Model 64G2T: ~ 4 TB    |
+|    Total usable capacity  | Model 64G2T: ~ 1.67 TB |
+|    RAID configuration     | [Storage Spaces Direct with mirroring](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#mirroring) |
 
 
 ## Enclosure dimensions and weight specifications
