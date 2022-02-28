@@ -29,7 +29,7 @@ You must satisfy the following requirements to complete this tutorial:
 
 **Azure CLI**: You must have Azure CLI version installed on your local computer. If you need to install or upgrade, see [Install the Azure CLI][azure-cli-install]
 
-**Azure resource group**: If you don't have an Azure resource group already, create an resource group with the [az group create][az-group-create] command. Below is an example.
+**Azure resource group**: If you don't have an Azure resource group already, create a resource group with the [az group create][az-group-create] command. Below is an example.
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
@@ -136,7 +136,7 @@ Output is similar to:
 ```console
 <html><head><title>Current IP Check</title></head><body>Current IP Address: 52.142.18.133</body></html>
 ```
-This IP address should match the public IP address created in the in the first step of the tutorial. 
+This IP address should match the public IP address created in the first step of the tutorial. 
 
 ```Bash
 echo $NG_PUBLIC_IP
