@@ -46,7 +46,7 @@ This device has one power supply unit (PSU) with high-performance fans. The foll
 Your Azure Stack Edge Pro 2 device has four network interfaces, Port 1 - Port 4.
 
 * **2 X 10 GBase-T/1000Base-T(10/1 GbE) interfaces** 
-    * Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. The other interface 
+    * Port 1 is used for initial setup and is static by default. After the initial setup is complete, you can use the interface for data with any IP address. However, on reset, the interface reverts back to static IP. 
     * Port 2 is user configurable, can be used for data transfer, and is DHCP by default. These 10/1-GbE interfaces can also operate as 10-GbE interfaces.
 * **2 X 100-GbE interfaces** 
     * These data interfaces, Port 3 and Port 4, can be configured by user as DHCP (default) or static. 

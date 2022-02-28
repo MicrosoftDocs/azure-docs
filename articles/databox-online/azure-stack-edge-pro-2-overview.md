@@ -13,9 +13,7 @@ ms.author: alkohli
 ---
 # What is Azure Stack Edge Pro 2?
 
-Azure Stack Edge Pro 2 is a new generation of a AI-enabled edge computing device offered as a service from Microsoft.  
-
-This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
+Azure Stack Edge Pro 2 is a new generation of a AI-enabled edge computing device offered as a service from Microsoft. This article provides you an overview of the Azure Stack Edge Pro 2 solution. The overview also details the benefits, key capabilities, and the scenarios where you can deploy this device.
 
 The Azure Stack Edge Pro 2 offers the following benefits over its precursor, the Azure Stack Edge Pro series:
 
@@ -79,7 +77,7 @@ The Azure Stack Edge Pro GPU physical device, Azure resource, and target storage
 
 - **Resource availability** - For this release, the resource is available in East US, West EU, and South East Asia regions.
 
-- **Device availability** - The Azure Stack Edge team will then enable your subscription. You should be able to see Azure Stack Edge Pro 2 as one of the available SKUs when placing the order. 
+- **Device availability** - You should be able to see Azure Stack Edge Pro 2 as one of the available SKUs when placing the order. 
 
     For a list of all the countries/regions where the Azure Stack Edge Pro GPU device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro GPU pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
