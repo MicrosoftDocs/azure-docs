@@ -162,7 +162,7 @@ az network application-gateway create \
 
 It can take up to 30 minutes for Azure to create the application gateway.
 
-### [Azure Portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
 Create an application gateway using the following steps to enable SSL termination at the application gateway.
 
@@ -170,7 +170,7 @@ Create an application gateway using the following steps to enable SSL terminatio
 1. Fill in the necessary parameters for creating the application gateway. Leave the default values as they are.
 1. Create a separate subnet for the application gateway in the VNET, as shown in the following screenshot.
 
-   :::image type="content" source="media/spring-cloud-access-app-gateway/create-application-gateway-basics.png" alt-text="Azure portal screenshot of 'Create application gateway' page.":::
+   :::image type="content" source="media/spring-cloud-access-app-gateway/create-application-gateway-basics.png" alt-text="Azure portal screenshot of 'Create application gateway' page." lightbox="media/spring-cloud-access-app-gateway/create-application-gateway-basics.png":::
 
 1. Create a public IP and assign it to Frontend of the application gateway, as shown in the following screenshot.
 
@@ -178,7 +178,7 @@ Create an application gateway using the following steps to enable SSL terminatio
 
 1. Create a backend pool for the application gateway. Select **Target** as your FQDN of the application deployed in Azure Spring Cloud.
 
-   ![Add a backend pool](media/spring-cloud-access-app-gateway/create-backend-pool.png)
+   :::image type="content" source="media/spring-cloud-access-app-gateway/create-backend-pool.png" alt-text="Azure portal screenshot of 'Add a backend pool' page.":::
 
 1. Create a routing rule with HTTP listener.
    1. Select the public IP that you created earlier.
