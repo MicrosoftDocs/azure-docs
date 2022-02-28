@@ -45,7 +45,7 @@ The following code sample shows how to read diagnostic logs using the Java V4 SD
 > [!IMPORTANT]
 > We recommend validating the minimum recommended version of the Java V4 SDK and ensure you are using this version or higher. You can check recommended version [here](/azure/cosmos-db/sql/sql-api-sdk-java-v4#recommended-version). 
 
-### [Sync](#tab/sync)
+# [Sync](#tab/sync)
 
 #### Database Operations
 
@@ -103,7 +103,7 @@ filteredFamilies.iterableByPage().forEach(familyFeedResponse -> {
 });
 ``` 
 
-### [Async](#tab/async)
+# [Async](#tab/async)
 
 #### Database Operations
 
@@ -163,6 +163,7 @@ filteredFamilies.byPage().toIterable().forEach(familyFeedResponse -> {
   familyFeedResponse.getCosmosDiagnostics());
 });  
 ``` 
+---
 
 ### Retry Logic <a id="retry-logics"></a>
 Cosmos DB SDK on any IO failure will attempt to retry the failed operation if retry in the SDK is feasible. Having a retry in place for any failure is a good practice but specifically handling/retrying write failures is a must. It's recommended to use the latest SDK as retry logic is continuously being improved.
