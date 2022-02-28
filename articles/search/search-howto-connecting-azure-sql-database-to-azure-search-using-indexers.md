@@ -13,7 +13,7 @@ ms.date: 02/28/2022
 
 # Index data from Azure SQL
 
-In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure SQL and makes it searchable in Azure Cognitive Search. 
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure SQL Database or an Azure SQL managed instance and makes it searchable in Azure Cognitive Search. 
 
 This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to Azure SQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
 
