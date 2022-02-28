@@ -1690,12 +1690,10 @@ And returns this result: `74`
 
 ### decimal
 
-If you are working with data that requires decimal precision, you will find the [decimal](../logic-apps/workflow-definition-language-functions-reference.md#decimal) function useful. This function can be used on numbers that require decimal precision and then can be used as an input to [logical comparison](../logic-apps/workflow-definition-language-functions-reference.md#logical-comparison-functions) and [math](../logic-apps/workflow-definition-language-functions-reference.md#math-functions) functions.
-
-To use the result of the decimal function and not lose precision, you should wrap any decimal output with the [string function](../logic-apps/workflow-definition-language-functions-reference.md#string) to ensure that the precision is captured. This is illustrated by the examples below where precision is lost if the decimal result is used as a number.
+Returns a decimal number in a string as a decimal number. You can use this function when you're working with data that requires decimal precision and also as input for [logical comparison functions](#logical-comparison-functions) and [math functions](#math-functions). To capture and preserve precision when you use the result from the **decimal()** function, wrap any decimal output with the [string function](#string). This usage is shown in the following examples below where you can lose precision if you use the decimal result as a number.
 
 > [!NOTE]
-> The decimal precision that is talked about in the context of this function and the Logic App Runtime is the same as the [.NET decimal precision](https://docs.microsoft.com/dotnet/api/system.decimal?view=netframework-4.7.1&preserve-view=true).
+> The decimal precision that's discussed in the context for this function and the Azure Logic Apps runtime is the same as the [.NET decimal precision](/dotnet/api/system.decimal?view=netframework-4.7.1&preserve-view=true).
 
 ```
 decimal('<value>')
@@ -1713,43 +1711,35 @@ decimal('<value>')
 
 *Example 1*
 
-This example creates a decimal and uses it as a number:
+This example creates a decimal that's used as a number:
 
 ```
-decimal('1.2345678912312131')
+decimal('1.2345678912312131') // Returns 1.23456789123121.
 ```
-
-And returns this result: `1.23456789123121`
 
 *Example 2*
 
-This example creates a decimal and then converts it to a string to ensure the precision is kept:
+This example creates a decimal and then converts the result to a string for precision preservation:
 
 ```
-decimal('1.2345678912312131')
+string(decimal('1.2345678912312131')) // Returns "1.2345678912312131".
 ```
-
-And returns this result: `"1.2345678912312131"`
 
 *Example 3*
 
 This example uses a math function on two decimal numbers and uses the result as a number:
 
 ```
-add(decimal('1.2345678912312131'), decimal('1.2345678912312131'))
+add(decimal('1.2345678912312131'), decimal('1.2345678912312131')) // Returns 2.469135782462426.
 ```
-
-And returns this result: `2.469135782462426`
 
 *Example 4*
 
-This example uses a math function on two decimal numbers and then converts it to a string to ensure the precision is kept:
+This example uses a math function on two decimal numbers and converts the result to a string for precision preservation:
 
 ```
-string(add(decimal('1.2345678912312131'), decimal('1.2345678912312131')))
+string(add(decimal('1.2345678912312131'), decimal('1.2345678912312131'))) // Returns "2.4691357824624262".
 ```
-
-And returns this result: `"2.4691357824624262"`
 
 <a name="decodeBase64"></a>
 
