@@ -87,8 +87,6 @@ Common SNAT exhaustion issues with NAT gateway typically have to do with the con
 
 NAT gateway resources have a default TCP idle timeout of 4 minutes.  If this setting is changed to a higher value, NAT gateway will hold on to flows longer and can cause [unnecessary pressure on SNAT port inventory](nat-gateway-resource.md#timers).
 
-UDP flows (for example DNS lookups) allocate SNAT ports for the duration of the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. 
-
 Check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to determine if SNAT port exhaustion is happening: 
 
 *Total SNAT Connection*
