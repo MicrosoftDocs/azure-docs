@@ -23,7 +23,7 @@ Updates in February include:
 
 - [Kubernetes workload protection for Arc enabled K8s clusters](#kubernetes-workload-protection-for-arc-enabled-k8s-clusters)
 - [Native CSPM for GCP and threat protection for GCP compute instances](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances)
-- [Microsoft Defender for Cosmos DB plan released for preview](#microsoft-defender-for-cosmos-db-plan-released-for-preview)
+- [Microsoft Defender for Azure Cosmos DB plan released for preview](#microsoft-defender-for-azure-cosmos-db-plan-released-for-preview)
 
 ### Kubernetes workload protection for Arc enabled K8s clusters 
 

@@ -2,7 +2,7 @@
 title: Reference table for all security alerts in Microsoft Defender for Cloud
 description: This article lists the security alerts visible in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 02/27/2022
+ms.date: 02/28/2022
 ---
 # Security alerts - a reference guide
 
@@ -511,7 +511,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 ## <a name="alerts-azurecosmos"></a>Alerts for Azure Cosmos DB (Preview)
 
-[Further details and notes](other-threat-protections.md#cosmos-db)
+[Further details and notes](concept-defender-for-cosmos.md)
 
 | Alert | Description | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |--|--|:-:|--|
