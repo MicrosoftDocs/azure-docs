@@ -29,7 +29,7 @@ To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD inte
 
 ## Scenario description
 
-This scenario looks at the classic **Oracle JDE application** using **HTTP authorization headers** to manage access to protected content.For this scenario, we have a **PeopleSoft application using HTTP authorization headers** to manage access to protected content.
+For this scenario, we have a **PeopleSoft application using HTTP authorization headers** to manage access to protected content.
 
 Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
 
