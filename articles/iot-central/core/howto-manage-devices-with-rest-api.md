@@ -229,6 +229,8 @@ The response to this request looks like the following example:
 }
 ```
 
+The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md)
+
 ### Use ODATA filters
 
 You can use ODATA filters to filter the results returned by the list devices API.
