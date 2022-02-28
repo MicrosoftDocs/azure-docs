@@ -322,6 +322,7 @@ Oracle Access Manager provides identity and access management across PeopleSoft 
 For this scenario, you will configure Oracle Access Manager to accept SSO from the BIG-IP. 
 
 1.	Sign into the PeopleSoft console with admin credentials
+
    ![Screenshot for PeopleSoft console](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-console.png)
  
 2. Navigate to **PeopleTools > Security > User Profiles > User Profiles** and create a new user profile
@@ -329,6 +330,7 @@ For this scenario, you will configure Oracle Access Manager to accept SSO from t
 3.	Enter **User ID** as **OAMPSFT**
  
 4.	Assign **User Role** as *Peoplesoft User* and select **Save**
+
    ![Screenshot for User Profiles](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-profiles.png)
  
 5.	Navigate to **People Tools** > **Web Profile** to select the web profile being used 
@@ -336,21 +338,25 @@ For this scenario, you will configure Oracle Access Manager to accept SSO from t
 6.	Select the **Security** tab and in the **Public Users** section check **Allow Public Access** 
 
 7.	Enter **User ID** as *OAMPSFT* along with the accounts **Password**
+
    ![Screenshot for Web Profile configuration](./media/f5-big-ip-easy-button-oracle-peoplesoft/web-profiles.png)
  
 8.	Leave the Peoplesoft console and launch the **PeopleTools Application Designer** 
 
 9.	Right-click the **LDAPAUTH** field and select **View People Code**
+
    ![Screenshot for Application Designer](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-designer.png)
  
 10.	When the **LDAPAUTH** code windows opens, locate the **OAMSSO_AUTHENTICATION** function
  
 11.	Replace the value that is assigned to the default **&defaultUserId** with **OAMPSFT**. that was defined in the web profile
+
     ![Screenshot for OAMSSO_AUTHENTICATION function](./media/f5-big-ip-easy-button-oracle-peoplesoft/oamsso-authentication-function.png)
  
 12.	Save the record and navigate to **PeopleTools > Security > Security Objects > Signon PeopleCode** 
 
 13.	Enable the **OAMSSO_AUTHENTICATION** function
+
     ![Screenshot for enabling Signon PeopleCode](./media/f5-big-ip-easy-button-oracle-peoplesoft/enabling-sign-on people-code.png)
  
 ### PeopleSoft Single Logout
@@ -380,12 +386,15 @@ To assign this iRule to the BIG-IP Virtual Server
 1. Navigate to **Access > Guided Configuration**
  
 2.	Select the configuration link for your PeopleSoft application
+
    ![Screenshot for link for your PeopleSoft application](./media/f5-big-ip-easy-button-oracle-peoplesoft/link-peoplesoft-application.png)
  
 3.	From the top navigation bar, select **Virtual Server** and enable **Advanced Settings**
+
    ![Screenshot for Enable Advanced settings](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
 
-4.	Scroll down to the bottom and add the iRule you just created.  
+4.	Scroll down to the bottom and add the iRule you just created
+
    ![Screenshot for PeopleSoft irule](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
  
 5.	Select **Save and Next** and continue to deploy your new settings. 
