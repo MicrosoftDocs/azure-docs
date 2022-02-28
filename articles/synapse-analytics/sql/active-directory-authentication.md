@@ -1,7 +1,6 @@
 ---
 title: Azure Active Directory
 description: Learn about how to use Azure Active Directory for authentication with SQL Database, Managed Instance, and Synapse SQL
-services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.subservice: sql

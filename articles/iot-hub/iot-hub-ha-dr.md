@@ -131,7 +131,7 @@ Time to recover = RTO [10 min - 2 hours for manual failover | 2 - 26 hours for M
 
 ## Disable disaster recovery
 
-IoT Hub provides Microsoft-Initiated Failover and Manual Failover by replicating data to the [paired region](/azure/availability-zones/cross-region-replication-azure) for each IoT hub. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating an IoT hub. The following regions support this feature:
+IoT Hub provides Microsoft-Initiated Failover and Manual Failover by replicating data to the [paired region](../availability-zones/cross-region-replication-azure.md) for each IoT hub. For some regions, you can avoid data replication outside of the region by disabling disaster recovery when creating an IoT hub. The following regions support this feature:
 
 - **Brazil South**; paired region, South Central US.
 - **Southeast Asia (Singapore)**; paired region, East Asia (Hong Kong).

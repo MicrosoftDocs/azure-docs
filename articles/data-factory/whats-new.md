@@ -21,6 +21,27 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## January 2022
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td rowspan=5><b>Data Flow</b></td><td>Quick re-use is now automatic in all Azure IRs that use a TTL</td><td>You will no longer need to manually specify “quick reuse”. ADF mapping data flows can now start-up subsequent data flow activities in under 5 seconds once you’ve set a TTL.<br><a href="concepts-integration-runtime-performance.md#time-to-live">Learn more</a></td></tr>
+ 
+<tr><td>Retrieve your custom Assert description</td><td>In the Assert transformation, you can define your own dynamic description message. We’ve added a new function called assertErrorMessage() that you can use to retrieve the row-by-row message and store it in your destination data.<br><a href="data-flow-expressions-usage.md#assertErrorMessages">Learn more</a></td></tr>
+  
+<tr><td>Automatic schema detection in Parse transformation</td><td>A new feature has been added to the Parse transformation to make it easy to automatically detect the schema of an embedded complex field inside a string column. Click on the <b>Detect schema</b> button to set your target schema automatically.<br><a href="data-flow-parse.md">Learn more</a></td></tr>
+  
+<tr><td>Support Dynamics 365 Connector as both sink and source</td><td>You can now connect directly to Dynamics 365 to transform your Dynamics data at scale using the new mapping data flow connector for Dynamics 365.<br><a href="connector-dynamics-crm-office-365.md?tabs=data-factory#mapping-data-flow-properties">Learn more</a></td></tr>
+
+<tr><td>Always Encrypted SQL connections now available in data flows</td><td>We’ve added support for Always Encrypted to source transformations in SQL Server, Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics when using data flows.<br><a href="connector-azure-sql-database.md?tabs=data-factory">Learn more</a></td></tr>
+  
+<tr><td rowspan=2><b>Data Movement</b></td><td>Azure Data Factory Databricks Delta Lake connector supports new authentication types</td><td>Azure Data Factory Databricks Delta Lake connector now supports two more authentication types: system-assigned managed identity authentication and user-assigned managed identity authentication.<br><a href="connector-azure-databricks-delta-lake.md">Learn more</a></td></tr>
+  
+<tr><td>Azure Data Factory Copy Activity Supports Upsert in several additional connectors</td><td>Azure Data Factory copy activity now supports upsert while sinks data to SQL Server, Azure SQL Database, Azure SQL Managed Instance and Azure Synapse Analytics.<br><a href="connector-overview.md">Learn more</a></td></tr>
+ 
+</table>
+
 ## December 2021
 <br>
 <table>

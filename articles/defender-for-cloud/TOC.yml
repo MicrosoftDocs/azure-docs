@@ -41,7 +41,7 @@
     - name: Connect AWS accounts
       displayName: hybrid, multicloud, multi-cloud, amazon, arc
       href: quickstart-onboard-aws.md
-    - name: Connect GCP accounts
+    - name: Connect GCP projects
       displayName: hybrid, multicloud, multi-cloud, google
       href: quickstart-onboard-gcp.md
   - name: 4. Configure auto provisioning
@@ -219,13 +219,7 @@
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
-    - name: Defender for Kubernetes (deprecated)
-      displayName: clusters, k8s, aks
-      href: defender-for-kubernetes-introduction.md
-    - name: Defender for container registries (deprecated)
-      displayName: ACR, registry, images
-      href: defender-for-container-registries-introduction.md
-    - name: Scan your registry images for vulnerabilities
+    - name: Vulnerability assessment
       displayName: ACR, registry, images, qualys
       href: defender-for-container-registries-usage.md
     - name: Scan images in your CI/CD workflows
@@ -234,6 +228,12 @@
     - name: Protect your Kubernetes workloads
       displayName: k8s, containers, aks
       href: kubernetes-workload-protections.md
+    - name: Defender for Kubernetes (deprecated)
+      displayName: clusters, k8s, aks
+      href: defender-for-kubernetes-introduction.md
+    - name: Defender for container registries (deprecated)
+      displayName: ACR, registry, images
+      href: defender-for-container-registries-introduction.md
   - name: Protect your Azure App Service web apps and APIs
     displayName: Azure Defender for App Service, defender for app
     href: defender-for-app-service-introduction.md
@@ -304,7 +304,7 @@
       - name: Export to a SIEM, SOAR, or ITSM
         displayName: continuous, SIEM, SOAR, Splunk, QRadar, ServiceNow, ArcSight, Monitor, Graph, Sentinel,
         href: export-to-siem.md
-      - name: Export to a Log Analytics workspace or Azure Event Hub
+      - name: Export to a Log Analytics workspace or Azure Event Hubs
         displayName: continuous
         href: continuous-export.md
       - name: Download a CSV report of all alerts

@@ -1,7 +1,6 @@
 ---
 title: Query JSON files using serverless SQL pool 
 description: This section explains how to read JSON files using serverless SQL pool in Azure Synapse Analytics.
-services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
