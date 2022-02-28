@@ -122,7 +122,7 @@ For example, this sample output shows that each minute, 30% of Create Document r
 
 #### Recommended solution
 ##### Use the Azure Cosmos DB capacity planner
-You can leverage the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to understand what is best provisioned throughput based on your workload (volume and type of operations and size of documents). You can customize further the calculations by providing sample data to get a more accurate estimation.
+You can leverage the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to understand what is the best provisioned throughput based on your workload (volume and type of operations and size of documents). You can customize further the calculations by providing sample data to get a more accurate estimation.
 
 ##### 429s on create, replace, or upsert document requests
 - By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](../index-policy.md) to only index the properties needed.
