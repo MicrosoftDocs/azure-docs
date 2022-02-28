@@ -109,20 +109,16 @@ The `ml` CLI extension for Azure Machine Learning sends data for _all operations
 If you don't want your data sent over the public internet, you can use the following steps:
 
 1. [Secure your Azure Machine Learning workspace inside a virtual network using a private endpoint](how-to-configure-private-link.md).
-2. [Create a private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
+2. [Create a Private Link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal). 
+3. [Create a private endpoint](/azure/azure-resource-manager/management/create-private-link-access-portal#create-private-endpoint) for the Private Link created in the previous step.
 
-    > [!IMPORTANT]
-    > When configuring the private link, you must create a private endpoint for the Azure Resource Manager in the Azure Virtual Network that contains your Azure Machine Learning workspace.
-    >
-    > To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
-
-3. Perform CLI operations from a client that is connected to the virtual network. For example, using an Azure VPN gateway, ExpressRoute, or from a virtual machine (jumpbox) inside the virtual network. For more information, see [How to connect to a secure workspace](how-to-secure-workspace-vnet.md#securely-connect-to-your-workspace).
-
+> [!IMPORTANT]
+> To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
 
 > [!NOTE]
 > In the previous extension (`azure-cli-ml`), if your workspace was [secured with a private endpoint](how-to-configure-private-link.md) operations such as job submission used the private endpoint and virtual network to securely pass data to the workspace. These operations directly connected to the Azure Machine Learning service. Create, update, delete, list, and show operations for the workspace and compute resources were sent over the public internet and connected to the Azure Resource Manager.
 >
-> In the `ml` extension, _all_ operations communicate with the Azure Resource Manager.
+> In the `ml` extension, _all_ operations communicate with the Azure Resource Manager. The communication defaults to the public internet unless you [Create a Private Link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal). 
 
 
 ## Next steps
