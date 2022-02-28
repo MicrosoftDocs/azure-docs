@@ -94,20 +94,6 @@ To ensure your Private Endpoint can send traffic to your server:
 2. Remote Desktop Protocols (RDP) into the VM.
 3. Access your FHIR server’s `/metadata` endpoint from the VM. You should receive the capability statement as a response.
 
-## Manage private endpoint
-
-### View
-
-Private endpoints and the associated network interface controller (NIC) are visible in Azure portal from the resource group they were created in.
-
-![View in resources](media/private-link/private-link-view.png#lightbox)
-
-### Delete
-
-Private endpoints can only be deleted from the Azure portal from the **Overview** blade or by selecting the **Remove** option under the **Networking Private endpoint connections** tab. Selecting **Remove** will delete the Private Endpoint and the associated NIC. If you delete all private endpoints to the FHIR resource and the public network, access is disabled and no request will make it to your FHIR server.
-
-![Screen image of the Delete Private Endpoint.](media/private-link/private-link-delete.png#lightbox)
-
 ## Next steps
 
 In this article, you've learned how to configure Private Link for Azure Health Data Services. Private Link is configured at the workspace level and all subresources, such as FHIR services and DICOM services with the workspace, are linked to the Private Link and the virtual network. For more information about Azure Health Data Services, see
