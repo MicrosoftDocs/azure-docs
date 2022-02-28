@@ -103,7 +103,7 @@ In a [search index](search-what-is-an-index.md), add search index fields that co
 
 If the primary key in the source table matches the document key (in this case, "ID"), the indexer will import the primary key as the document key.
 
-## Configure the MySQL indexer
+## Configure and run the MySQL indexer
 
 Once the index and data source have been created, you're ready to create the indexer.
 
@@ -150,6 +150,52 @@ api-key: [admin-key]
     }
 }
 ```
+
+## Check indexer status
+
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+
+```http
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+  Content-Type: application/json  
+  api-key: [admin key]
+```
+
+The response includes status and the number of items processed. It should look similar to the following example:
+
+```json
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2022-02-21T00:23:24.957Z",
+            "endTime":"2022-02-21T00:36:47.752Z",
+            "errors":[],
+            "itemsProcessed":1599501,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        },
+        "executionHistory":
+        [
+            {
+                "status":"success",
+                "errorMessage":null,
+                "startTime":"2022-02-21T00:23:24.957Z",
+                "endTime":"2022-02-21T00:36:47.752Z",
+                "errors":[],
+                "itemsProcessed":1599501,
+                "itemsFailed":0,
+                "initialTrackingState":null,
+                "finalTrackingState":null
+            },
+            ... earlier history items
+        ]
+    }
+```
+
+Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
 
 ## Capture new, changed, and deleted rows
 

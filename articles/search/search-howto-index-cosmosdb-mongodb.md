@@ -173,6 +173,52 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
 
+## Check indexer status
+
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+
+```http
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+  Content-Type: application/json  
+  api-key: [admin key]
+```
+
+The response includes status and the number of items processed. It should look similar to the following example:
+
+```json
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2022-02-21T00:23:24.957Z",
+            "endTime":"2022-02-21T00:36:47.752Z",
+            "errors":[],
+            "itemsProcessed":1599501,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        },
+        "executionHistory":
+        [
+            {
+                "status":"success",
+                "errorMessage":null,
+                "startTime":"2022-02-21T00:23:24.957Z",
+                "endTime":"2022-02-21T00:36:47.752Z",
+                "errors":[],
+                "itemsProcessed":1599501,
+                "itemsFailed":0,
+                "initialTrackingState":null,
+                "finalTrackingState":null
+            },
+            ... earlier history items
+        ]
+    }
+```
+
+Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
+
 <a name="DataChangeDetectionPolicy"></a>
 
 ## Indexing changed documents
