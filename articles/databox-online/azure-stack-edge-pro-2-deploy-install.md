@@ -87,15 +87,14 @@ The device must be installed on a standard 19-inch rack. Use the following proce
 
 - Before you begin, make sure to read the [Safety instructions](azure-stack-edge-pro-2-safety.md) for your device.
 - Begin installing the rails in the allotted space that is closest to the bottom of the rack enclosure.
-- For the rail mounting configuration:
-    -  You need to supply 10L M5 screws.
-    -  You need a flat-tipped screwdriver.
+- For the rail mounting configuration, you will need a Phillips-head screwdriver.
 
 ### Identify the rail kit contents
 
 Locate the components for installing the rail kit assembly:
 - Inner rails
 - Chassis of your device
+- 10L M5 screws
 
 ### Install rails 
 
@@ -120,11 +119,12 @@ Locate the components for installing the rail kit assembly:
 
 4. Insert the chassis to complete the installation. 
 
-    1. Pull the middle rail so that it is fully extended in lock position. Ensure the ball bearing retainer is located at the front of the middle rail.
-    1. Insert the chassis into the middle rail.
-    1. Once you hit a stop, pull and push the blue release tab on the inner rails.
+    1. Pull the middle rail so that it is fully extended in lock position. Ensure the ball bearing retainer is located at the front of the middle rail (reference diagrams 1 and 2).
+    1. Insert the chassis into the middle rail (reference diagram 3).
+    1. Once you hit a stop, pull and push the blue release tab on the inner rails (reference diagram 4).
+    1. Tighten the M5 screws of the chassis to the rail once the server is seated (reference diagram 5). 
 
-    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/4-post-insert-chassis.png" alt-text="Diagram showing how to insert the chassis.":::
+    :::image type="content" source="media/azure-stack-edge-pro-2-deploy-install/4-post-insert-chassis-new.png" alt-text="Diagram showing how to insert the chassis.":::
 
 ### Install the bezel
 
