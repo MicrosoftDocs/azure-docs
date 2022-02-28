@@ -14,6 +14,7 @@ ms.date: 12/10/2021
 Follow the steps to onboard a machine to Automanage Best Practices using an ARM template.
 
 ## Prerequisites
+* You must have an [Azure Automanage account](./automanage-account)
 * You must have necessary [Role-based access control permissions](./automanage-virtual-machines.md#required-rbac-permissions)
 * You must be in a supported region and supported VM image highlighted in these [prerequisites](./automanage-virtual-machines.md#prerequisites)
 
