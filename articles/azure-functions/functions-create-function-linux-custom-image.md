@@ -465,7 +465,7 @@ A function app on Azure manages the execution of your functions in your hosting 
     ```
     ---
     
-    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your DockerHub ID. NOTE: If you are using a custom container registry then the *deployment-container-image-name* parameter will refer to the registry URL.    
+    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your DockerHub ID. When deploying from a custom container registry, use the `deployment-container-image-name` parameter to indicate the URL of the registry.   
     
     > [!TIP]  
     > You can use the [`DisableColor` setting](functions-host-json.md#console) in the host.json file to prevent ANSI control characters from being written to the container logs. 
