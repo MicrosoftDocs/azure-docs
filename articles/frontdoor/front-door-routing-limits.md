@@ -21,7 +21,7 @@ Your Front Door profile's composite route metric is derived from the number of r
 The composite route metric for each Front Door profile can't exceed 5000.
 
 > [!TIP]
-> Most Front Door deployments don't approach the composite route limit. However, if you have a large Front Door deployment, consider whether you could exceed the limit and plan accordingly.
+> Most Front Door profiles don't approach the composite route limit. However, if you have a large Front Door profiles, consider whether you could exceed the limit and plan accordingly.
 
 ## Calculate your profile's composite route metric
 
