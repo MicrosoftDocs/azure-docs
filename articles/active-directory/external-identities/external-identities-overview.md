@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/23/2022
+ms.date: 03/01/2022
 ms.author: mimart
 author: msmimart
 manager: celestedg
@@ -24,7 +24,7 @@ With External Identities, external users can "bring their own identities." Wheth
 The following capabilities make up External Identities:
 
 - **B2B collaboration** - Collaborate with external users by letting them use their preferred identity to sign in to your Microsoft applications or other enterprise applications (SaaS apps, custom-developed apps, etc.). B2B collaboration users are represented in your directory, typically as guest users.
- 
+
 - **Azure AD B2C** - Publish modern SaaS apps or custom-developed apps (excluding Microsoft apps) to consumers and customers, while using Azure AD B2C for identity and access management.
 
 Depending on how you want to interact with external organizations and the types of resources you need to share, you can use a combination of these capabilities.
