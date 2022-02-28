@@ -1,10 +1,10 @@
 ---
 title: Diagnose and troubleshoot Azure Cosmos DB Java SDK v4
 description: Use features like client-side logging and other third-party tools to identify, diagnose, and troubleshoot Azure Cosmos DB issues in Java SDK v4.
-author: rothja
+author: TheovanKraay
 ms.service: cosmos-db
-ms.date: 02/03/2022
-ms.author: jroth
+ms.date: 02/28/2022
+ms.author: thvankra
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -33,6 +33,120 @@ Start with this list:
 * Look at the Java SDK in the Azure Cosmos DB central repo, which is available [open source on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos). It has an [issues section](https://github.com/Azure/azure-sdk-for-java/issues) that's actively monitored. Check to see if any similar issue with a workaround is already filed. One helpful tip is to filter issues by the *cosmos:v4-item* tag.
 * Review the [performance tips](performance-tips-java-sdk-v4-sql.md) for Azure Cosmos DB Java SDK v4, and follow the suggested practices.
 * Read the rest of this article, if you didn't find a solution. Then file a [GitHub issue](https://github.com/Azure/azure-sdk-for-java/issues). If there is an option to add tags to your GitHub issue, add a *cosmos:v4-item* tag.
+
+### Capture the diagnostics <a id="capture-diagnostic-logging"></a>
+
+Database, container, item, and query responses in the Java V4 SDK have a Diagnostics property. This property records all the information related to the single request, including if there were retries or any transient failures.
+
+The Diagnostics are returned as a string. The string changes with each version as it is improved to better troubleshooting different scenarios. With each version of the SDK, the string will have breaking changes to the formatting. Do not parse the string to avoid breaking changes. 
+
+The following code sample shows how to read diagnostic logs using the .NET SDK:
+
+> [!IMPORTANT]
+> You must be running version 4.1.0 or higher of the Java V4 SDK for Azure Cosmos DB for Database, container, and item diagnostics. Version 4.6.0 or higher is required for query diagnostics. 
+
+* Database Operations:
+    ```Java
+        // ASYNC
+        Mono<CosmosDatabaseResponse> databaseResponseMono = client.createDatabaseIfNotExists(databaseName);
+        CosmosDatabaseResponse cosmosDatabaseResponse = databaseResponseMono.block();
+        
+        CosmosDiagnostics diagnostics = cosmosDatabaseResponse.getDiagnostics();
+        logger.info("Create database diagnostics : {}", diagnostics);
+        
+        // SYNC
+        CosmosDatabaseResponse databaseResponse = client.createDatabaseIfNotExists(databaseName);
+        CosmosDiagnostics diagnostics = databaseResponse.getDiagnostics();
+        logger.info("Create database diagnostics : {}", diagnostics); 
+    ``` 
+* Container Operations:
+    ```Java
+        // ASYNC
+        Mono<CosmosContainerResponse> containerResponseMono = database.createContainerIfNotExists(containerProperties,
+                    throughputProperties);
+        CosmosContainerResponse cosmosContainerResponse = containerResponseMono.block();
+        CosmosDiagnostics diagnostics = cosmosContainerResponse.getDiagnostics();
+        logger.info("Create container diagnostics : {}", diagnostics);
+        
+        // SYNC
+        CosmosContainerResponse containerResponse = database.createContainerIfNotExists(containerProperties,
+                    throughputProperties);
+        CosmosDiagnostics diagnostics = containerResponse.getDiagnostics();
+        logger.info("Create container diagnostics : {}", diagnostics);
+    ``` 
+
+* Item Operations:
+
+    ```Java
+        // Write Item ASYNC
+        Mono<CosmosItemResponse<Family>> itemResponseMono = container.createItem(family,
+                    new PartitionKey(family.getLastName()),
+                    new CosmosItemRequestOptions());
+        
+        CosmosItemResponse<Family> itemResponse = itemResponseMono.block();
+        CosmosDiagnostics diagnostics = itemResponse.getDiagnostics();
+        logger.info("Create item diagnostics : {}", diagnostics);
+        
+        // Write Item SYNC
+        CosmosItemResponse<Family> item = container.createItem(family, new PartitionKey(family.getLastName()),
+                    new CosmosItemRequestOptions());
+        
+        CosmosDiagnostics diagnostics = item.getDiagnostics();
+        logger.info("Create item diagnostics : {}", diagnostics);
+        
+        // Read Item ASYNC
+        Mono<CosmosItemResponse<Family>> itemResponseMono = container.readItem(documentId,
+                    new PartitionKey(documentLastName), Family.class);
+        CosmosItemResponse<Family> familyCosmosItemResponse = itemResponseMono.block();
+        CosmosDiagnostics diagnostics = familyCosmosItemResponse.getDiagnostics();
+        logger.info("Read item diagnostics : {}", diagnostics);
+        
+        // Read Item SYNC
+        CosmosItemResponse<Family> familyCosmosItemResponse = container.readItem(documentId,
+                    new PartitionKey(documentLastName), Family.class);
+        
+        CosmosDiagnostics diagnostics = familyCosmosItemResponse.getDiagnostics();
+        logger.info("Read item diagnostics : {}", diagnostics);
+    ```
+
+* Query Operations:
+
+    ```Java
+        // ASYNC
+        String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
+        CosmosPagedFlux<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(),
+                    Family.class);
+        //  Add handler to capture diagnostics
+        filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
+                    logger.info("Query Item diagnostics through handler : {}",
+                    familyFeedResponse.getCosmosDiagnostics());
+                });
+        
+        //  Or capture diagnostics through byPage() APIs.
+        filteredFamilies.byPage().toIterable().forEach(familyFeedResponse -> {
+                    logger.info("Query item diagnostics through iterableByPage : {}",
+                        familyFeedResponse.getCosmosDiagnostics());
+                });
+        
+        // SYNC
+        String sql = "SELECT * FROM c WHERE c.lastName = 'Witherspoon'";
+        
+        CosmosPagedIterable<Family> filteredFamilies = container.queryItems(sql, new CosmosQueryRequestOptions(),
+                    Family.class);
+        
+        //  Add handler to capture diagnostics
+        filteredFamilies = filteredFamilies.handle(familyFeedResponse -> {
+                    logger.info("Query Item diagnostics through handler : {}", 
+                    familyFeedResponse.getCosmosDiagnostics());
+                });
+        
+        //  Or capture diagnostics through iterableByPage() APIs.
+        filteredFamilies.iterableByPage().forEach(familyFeedResponse -> {
+        logger.info("Query item diagnostics through iterableByPage : {}",
+                    familyFeedResponse.getCosmosDiagnostics());
+                });
+    ``` 
+
 
 ### Retry Logic <a id="retry-logics"></a>
 Cosmos DB SDK on any IO failure will attempt to retry the failed operation if retry in the SDK is feasible. Having a retry in place for any failure is a good practice but specifically handling/retrying write failures is a must. It's recommended to use the latest SDK as retry logic is continuously being improved.
