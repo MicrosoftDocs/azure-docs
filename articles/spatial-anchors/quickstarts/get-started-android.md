@@ -37,13 +37,7 @@ To complete this quickstart, make sure you have:
   - Additional device drivers may be required for your computer to communicate with your Android device. See [here](https://developer.android.com/studio/run/device.html) for additional information and instructions.
 - Your app must target ARCore **1.11.0**.
 
-## Create a Spatial Anchors Resource on Azure
-<details>
-  <summary>Click to expand</summary>
-  
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
-
-</details>
 
 ## Open the sample project
 
@@ -79,7 +73,7 @@ Select **Open an existing Android Studio project** and select the project locate
 
 ## Configure account identifier and key
 
-The next step is to configure the app to use your account identifier and account key. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource-on-azure).
+The next step is to configure the app to use your account identifier and account key. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
 
 # [Java](#tab/openproject-java)
 
