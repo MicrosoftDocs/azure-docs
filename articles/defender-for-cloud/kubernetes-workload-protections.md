@@ -123,7 +123,7 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
     | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | **Yes**                |
     | Container images should be deployed only from trusted registries            | Remediate vulnerabilities                | **Yes**                |
     | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
-    | Containers should only use allowed AppArmor profiles | Remediate security configurations        | **Yes**                |
+    | Containers should only use allowed AppArmor profiles                        | Remediate security configurations        | **Yes**                |
     | Services should listen on allowed ports only                                | Restrict unauthorized network access     | **Yes**                |
     | Usage of host networking and ports should be restricted                     | Restrict unauthorized network access     | **Yes**                |
     | Usage of pod HostPath volume mounts should be restricted to a known list    | Manage access and permissions            | **Yes**                |
@@ -133,9 +133,9 @@ You can manually configure the Kubernetes workload add-on, or extension protecti
     | Kubernetes clusters should be accessible only over HTTPS                    | Encrypt data in transit                  | No                     |
     | Kubernetes clusters should disable automounting API credentials             | Manage access and permissions            | No                     |
     | Kubernetes clusters should not use the default namespace                    | Implement security best practices        | No                     |
+    | Kubernetes clusters should not grant CAPSYSADMIN security capabilities      | Manage access and permissions            | No                     |
     | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
-    | Kubernetes clusters should not grant CAPSYSADMIN security capabilities | Manage access and permissions | No |
     ||||
 
 For recommendations with parameters that need to be customized, you will need to set the parameters:
