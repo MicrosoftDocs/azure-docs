@@ -885,6 +885,7 @@
     "articles/virtual-machines/.openpublishing.redirection.virtual-machines.json",
     "articles/virtual-machine-scale-sets/.openpublishing.redirection.virtual-machine-scale-sets.json",
     "articles/mysql/.openpublishing.redirection.mysql.json",
-    "articles/container-apps/.openpublishing.redirection.container-apps.json"
+    "articles/container-apps/.openpublishing.redirection.container-apps.json",
+    "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json"
   ]
 }
