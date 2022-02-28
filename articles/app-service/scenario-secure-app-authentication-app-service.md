@@ -72,6 +72,7 @@ For this tutorial, you need a web app deployed to App Service. You can use an ex
 * [Java](quickstart-java.md)
 
 Whether you use an existing web app or create a new one, take note of the following: 
+
 * **Web app name**.
 * **Resource group** that the web app is deployed to. 
 

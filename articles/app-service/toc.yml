@@ -95,7 +95,7 @@
             - name: JavaScript
               href: tutorial-connect-app-access-microsoft-graph-as-user-javascript.md
         - name: Access another App Service as the app
-          href: tutorial-auth-aad.md?pivots=platform-windows.md
+          href: tutorial-auth-aad.md
     - name: Isolate network traffic
       href: tutorial-networking-isolate-vnet.md
     - name: Host a RESTful API
