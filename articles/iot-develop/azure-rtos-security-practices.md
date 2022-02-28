@@ -502,22 +502,22 @@ The previous sections detailed specific design considerations with descriptions 
 
 ## Recommended security resources
 
-- The [Zero Trust: Cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper provides an overview of Microsoft's approach to security across all aspects of an IoT ecosystem, with an emphasis on devices.
+- The [Zero trust: cyber security for IoT](https://azure.microsoft.com/mediahandler/files/resourcefiles/zero-trust-cybersecurity-for-the-internet-of-things/Zero%20Trust%20Security%20Whitepaper_4.30_3pm.pdf) whitepaper provides an overview of Microsoft's approach to security across all aspects of an IoT ecosystem, with an emphasis on devices.
 
-- The [IoT Security Maturity Model (SMM)](https://www.iiconsortium.org/smm.htm) proposes a standard set of security domains, subdomains, and practices as well as an iterative process you can use to understand, target, and implement security measures important for your device. This set of standards is targeted to all levels of IoT stakeholders and provides a process framework for considering security in the context of a component’s interactions in an IoT system.
+- The [IoT Security maturity model (SMM)](https://www.iiconsortium.org/smm.htm) proposes a standard set of security domains, subdomains, and practices as well as an iterative process you can use to understand, target, and implement security measures important for your device. This set of standards is targeted to all levels of IoT stakeholders and provides a process framework for considering security in the context of a component’s interactions in an IoT system.
 
-- The [Seven Properties of Highly Secured Devices](https://www.microsoft.com/research/publication/seven-properties-2nd-edition/) whitepaper published by Microsoft Research provides an overview of security properties that must be addressed to produce highly secure devices: Hardware root of trust, Defense in depth, Small trusted computing base, Dynamic compartments, Password-less authentication, Error reporting, and Renewable security. These properties are applicable, depending on cost constraints and target application and environment, too many embedded devices.
+- The [Seven properties of highly secured devices](https://www.microsoft.com/research/publication/seven-properties-2nd-edition/) whitepaper published by Microsoft Research provides an overview of security properties that must be addressed to produce highly secure devices: Hardware root of trust, Defense in depth, Small trusted computing base, Dynamic compartments, Password-less authentication, Error reporting, and Renewable security. These properties are applicable, depending on cost constraints and target application and environment, too many embedded devices.
 
-- The [PSA Certified 10 Security Goals Explained](https://www.psacertified.org/blog/psa-certified-10-security-goals-explained/)
+- The [PSA certified 10 security goals explained](https://www.psacertified.org/blog/psa-certified-10-security-goals-explained/)
 ARM’s Platform Security Architecture provides a standardized framework for building secure embedded devices using ARM TrustZone technology. Microcontroller manufacturers can certify designs with ARM’s PSA Certified program giving a level of confidence about the security of applications built on ARM technologies.
 
-- [Common Criteria](https://www.commoncriteriaportal.org/)
+- [Common criteria](https://www.commoncriteriaportal.org/)
 The Common Criteria is an international agreement that provides standardized guidelines and an authorized laboratory program to evaluate products for IT security. Certification provides a level of confidence in the security posture of applications using devices that have been evaluated using the program guidelines.
 
 - [SESIP](https://globalplatform.org/sesip/)
 The Security Evaluation Standard for IoT Platforms is a standardized methodology for evaluating the security of connected IoT products and components.
 
-- [IoT Security Maturity Model](https://www.iiconsortium.org/smm.htm) 
+- [IoT Security maturity model](https://www.iiconsortium.org/smm.htm) 
 The SMM is a framework for building customized IoT security models, allowing IoT manufacturers to create detailed models to evaluate and measure the security posture of their products.
 
 - [ISO 27000 family](https://www.iso.org/isoiec-27001-information-security.html)
