@@ -16,7 +16,7 @@ ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---
 
-# Tutorial: Access Microsoft Graph from a secured .NET app as the user
+# Tutorial: Access Microsoft Graph from a secured JavaScript app as the user
 
 [!INCLUDE [clean up resources](./includes/scenario-secure-app-clean-up-resources.md)]
 

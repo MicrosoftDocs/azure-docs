@@ -13,4 +13,4 @@ In this tutorial, you learned how to:
 > * Call Microsoft Graph from a web app for a signed-in user.
 
 > [!div class="nextstepaction"]
-> [App service accesses Microsoft Graph as the app](../scenario-secure-app-access-microsoft-graph-as-app.md)
+> [App service accesses Microsoft Graph as the app](../../scenario-secure-app-access-microsoft-graph-as-app.md)
