@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/07/2022
+ms.date: 02/23/2022
 
 ms.author: mimart
 author: msmimart
@@ -91,21 +91,26 @@ The output is a summary of all available sign-in events for inbound and outbound
 
 ### Sign-in logs PowerShell script
 
-To determine your users' access to external Azure AD organizations, you can use the [Get-MgAuditLogSignIn](https://aka.ms/cross-tenant-log-ps) cmdlet in the Microsoft Graph PowerShell SDK to view data from your sign-in logs for the last 30 days. For example, run the following command:
+To determine your users' access to external Azure AD organizations, you can use the [Get-MgAuditLogSignIn](/powershell/module/microsoft.graph.reports/get-mgauditlogsignin) cmdlet in the Microsoft Graph PowerShell SDK to view data from your sign-in logs for the last 30 days. For example, run the following command:
 
 ```powershell
-Get-MgAuditLogSignIn ` 
--Filter “ResourceTenantID ne ‘your tenant id’” ` 
--all:$True| ` 
-group ResourceTenantId,AppDisplayName,UserPrincipalName| ` 
-select count, @{n=’Ext TenantID/App User Pair’;e={$_.name}}] 
+#Initial connection
+Connect-MgGraph -Scopes "AuditLog.Read.All"
+Select-MgProfile -Name "beta"
+
+#Get external access
+$TenantId = "<replace-with-your-tenant-ID>"
+
+Get-MgAuditLogSignIn -Filter "ResourceTenantId ne '$TenantID'" -All:$True |
+Group-Object ResourceTenantId,AppDisplayName,UserPrincipalName |
+Select-Object count,@{n='Ext TenantID/App User Pair';e={$_.name}}
 ```
 
 The output is a list of outbound sign-ins initiated by your users to apps in external tenants.
 
 ### Azure Monitor
 
-If your organization subscribes to the Azure Monitor service, you can use the [Cross-tenant access activity workbook](/reports-monitoring/workbook-cross-tenant-access-activity.md) (available in the Monitoring workbooks gallery in the Azure portal) to visually explore inbound and outbound sign-ins for longer time periods.
+If your organization subscribes to the Azure Monitor service, you can use the [Cross-tenant access activity workbook](../reports-monitoring/workbook-cross-tenant-access-activity.md) (available in the Monitoring workbooks gallery in the Azure portal) to visually explore inbound and outbound sign-ins for longer time periods.
 
 ### Security Information and Event Management (SIEM) Systems
 

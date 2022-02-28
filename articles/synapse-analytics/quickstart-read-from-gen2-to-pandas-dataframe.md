@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Read data from ADLS Gen2 to Pandas dataframe'
 description: Read data from an Azure Data Lake Storage Gen2 account into a Pandas dataframe using Python in Synapse Studio in Azure Synapse Analytics.
-services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart

@@ -11,12 +11,11 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.tgt_pltfrm: na
-  ms.topic: how-to
+  ms.topic: faq
   ms.date: 10/07/2019
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
-    
 title: 'Azure Active Directory Seamless Single Sign-On: Frequently asked questions'
 summary: In this article, we address frequently asked questions about Azure Active Directory Seamless Single Sign-On (Seamless SSO). Keep checking back for new content.
 
