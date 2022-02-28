@@ -23,27 +23,30 @@ The composite route metric for each Front Door profile can't exceed 5000.
 > [!TIP]
 > Most Front Door deployments don't approach the composite route limit. However, if you have a large Front Door deployment, consider whether you could exceed the limit and plan accordingly.
 
-## Calculate your composite route metric
+## Calculate your profile's composite route metric
 
-Use the following formula to calculate the composite route metric for your Front Door profile:
+Follow these steps to calculate the composite route metric for your Front Door profile:
 
-```
-Composite route metric = [Route1 [HTTP (#Domains * #Paths)] + Route1 [HTTPS (#Domains * #Paths)] + Route2 [HTTP (#Domains * #Paths)]+ HTTPS(#Domains * #Paths)] +… [RouteN [HTTP (#Domains * #Paths)]+ RouteN [HTTPS (#Domains * #Paths)]
-```
+1. Select a route from your profile.
+   1. Multiply the number of HTTP domains by the number of HTTP paths.
+   1. Multiply the number of HTTPS domains by the number of HTTPS paths.
+   1. Add the results of steps 1a and 1b together to give the composite route metric for this individual route.
+1. Repeat these steps for each route in your profile.
+
+Add together all of the composite route metrics for each route. This is your profile's composite route metric.
 
 ### Example
 
-Suppose you have have two routes in your Front Door profile. The routes are named *Route1* and *Route2*. You want to configure the routes as follows:
-* *Route1* will have 50 domains associated to it, and requires HTTPS for all inbound requests. *Route1* specifies 80 paths.
-* *Route2* will have 25 domains associated to it. *Route2* specifies 25 paths, and supports both the HTTP and HTTPS protocols.
+Suppose you have have two routes in your Front Door profile. The routes are named *Route 1* and *Route 2*. You plan to configure the routes as follows:
+* *Route 1* will have 50 domains associated to it, and requires HTTPS for all inbound requests. *Route 1* specifies 80 paths.
+* *Route 2* will have 25 domains associated to it. *Route 2* specifies 25 paths, and supports both the HTTP and HTTPS protocols.
 
 The following calculation illustrates how to determine the composite route metric for this scenario:
 
 ```
-= Route1 [HTTPS(50 Domains*80 Paths)] + Route2 [HTTP (25 Domains*25 Paths) + HTTPS(25 Domains*25 Paths)]
-
-= (50*80) + [(25*25) + (25*25)]
-
+Profile composite route metric = Route 1 composite route metric + Route 2 composite route metric
+= Route 1 [HTTPS (50 Domains * 80 Paths)] + Route 2 [HTTP (25 Domains * 25 Paths) + HTTPS(25 Domains * 25 Paths)]
+= [50 * 80] + [(25 * 25) + (25 * 25)]
 = 5250
 ```
 
