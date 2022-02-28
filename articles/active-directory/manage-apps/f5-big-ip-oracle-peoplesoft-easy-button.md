@@ -50,7 +50,7 @@ The secure hybrid access solution for this scenario is made up of several compon
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-<<Image Secure hybrid access - SP initiated flow>>
+![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-oracle-peoplesoft/sp-initiated-flow.png)
 
 | Steps| Description |
 | -------- |-------|
@@ -163,7 +163,7 @@ Some of these are global settings can be re-used for publishing more application
 
 4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
 
-   <<Image Screenshot for Configuration General and Service Account properties>>
+    ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-oracle-peoplesoft/configuration-general-and-service-account-properties.png)
  
 ### Service Provider
 
@@ -199,7 +199,7 @@ The **Service Provider** settings define the SAML SP properties for the APM inst
 
 This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. The Easy Button wizard provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. In this example, select **Oracle PeopleSoft > Add**. This adds the template for Oracle PeopleSoft.
 
-<<Image -Screenshot for Azure configuration add BIG-IP application>>
+![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-oracle-peoplesoft/azure-configuration-add-big-ip-application.png)
 
 #### Azure Configuration
 
@@ -207,7 +207,7 @@ This section defines all properties that you would normally use to manually conf
 
 2. In the **Sign On URL (optional)** enter the public FQDN of the PeopleSoft application being secured.
 
-    <<Image Screenshot for Azure configuration add display info>>
+   ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-oracle-peoplesoft/azure-configuration-add-display-info.png)
 
 3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
 
@@ -225,7 +225,7 @@ This section defines all properties that you would normally use to manually conf
 
 When a user successfully authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims** tab shows the default claims to issue for the new application. It also lets you configure more claims.The Easy Button template will display the pre-defined employee ID claim required by PeopleSoft.
 
-   <<Image Screenshot for user attributes and claims>>
+![Screenshot for user attributes and claims](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-attributes-claims.png)
  
 You can include additional Azure AD attributes, if necessary, but this sample PeopleSoft application only requires the pre-defined attributes.
 
@@ -233,7 +233,7 @@ You can include additional Azure AD attributes, if necessary, but this sample Pe
 
 The **Additional User Attributes** tab can support a variety of distributed systems requiring attributes stored in other directories for session augmentation. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc. 
 
-   ![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
+![Screenshot for additional user attributes](./media/f5-big-ip-easy-button-header/additional-user-attributes.png)
 
 >[!NOTE] 
 >This feature has no correlation to Azure AD but is another source of attributes.
@@ -283,7 +283,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 3. For **Pool Servers** select an existing node or specify an IP and port for the servers hosting the PeopleSoft application.
 
-   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-ldap/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-pool.png)
 
  #### Single Sign-On & HTTP Headers
 
@@ -293,7 +293,7 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
 * **Header Name:** PS_SSO_UID
 * **Header Value:** %{session.sso.token.last.username}
 
- <<Image screenshot for SSO and HTTP headers>>
+![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-oracle-peoplesoft/sso-and-http-headers.png)
 
 >[!NOTE] 
 >APM session variables defined within curly brackets are CASE sensitive. If you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
@@ -322,36 +322,36 @@ Oracle Access Manager provides identity and access management across PeopleSoft 
 For this scenario, you will configure Oracle Access Manager to accept SSO from the BIG-IP. 
 
 1.	Sign into the PeopleSoft console with admin credentials
- <<Image>>
+   ![Screenshot for PeopleSoft console](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-console.png)
  
 2. Navigate to **PeopleTools > Security > User Profiles > User Profiles** and create a new user profile
  
 3.	Enter **User ID** as **OAMPSFT**
  
 4.	Assign **User Role** as *Peoplesoft User* and select **Save**
- <<Image>>
+   ![Screenshot for User Profiles](./media/f5-big-ip-easy-button-oracle-peoplesoft/user-profiles.png)
  
 5.	Navigate to **People Tools** > **Web Profile** to select the web profile being used 
 
 6.	Select the **Security** tab and in the **Public Users** section check **Allow Public Access** 
 
 7.	Enter **User ID** as *OAMPSFT* along with the accounts **Password**
- <<Image>>
+   ![Screenshot for Web Profile configuration](./media/f5-big-ip-easy-button-oracle-peoplesoft/web-profiles.png)
  
 8.	Leave the Peoplesoft console and launch the **PeopleTools Application Designer** 
 
 9.	Right-click the **LDAPAUTH** field and select **View People Code**
-<<Image>>
+   ![Screenshot for Application Designer](./media/f5-big-ip-easy-button-oracle-peoplesoft/application-designer.png)
  
 10.	When the **LDAPAUTH** code windows opens, locate the **OAMSSO_AUTHENTICATION** function
  
 11.	Replace the value that is assigned to the default **&defaultUserId** with **OAMPSFT**. that was defined in the web profile
-<<Image>>
+    ![Screenshot for OAMSSO_AUTHENTICATION function](./media/f5-big-ip-easy-button-oracle-peoplesoft/oamsso-authentication-function.png)
  
 12.	Save the record and navigate to **PeopleTools > Security > Security Objects > Signon PeopleCode** 
 
 13.	Enable the **OAMSSO_AUTHENTICATION** function
-<<Image>>
+    ![Screenshot for enabling Signon PeopleCode](./media/f5-big-ip-easy-button-oracle-peoplesoft/enabling-sign-on people-code.png)
  
 ### PeopleSoft Single Logout
 
@@ -364,32 +364,29 @@ To add SLO support for all PeopleSoft users
 1.	Obtain the correct logout URL for PeopleSoft portal
  
 2.	Open the portal through a web browser with debug tools enabled. Find the element with the **PT_LOGOUT_MENU** id and save the URL path with the query parameters. In this example, we have: /psp/ps/?cmd=logout
+
+ ![Screenshot for PeopleSoft logout URL](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-logout-url.png)
  
 Next, create a BIG-IP iRule for redirecting users to the SAML SP logout endpoint: /my.logout.php3
  
 1.	Navigate to **Local Traffic > iRules List > Create** and provide a name for your rule
  
-2.	Enter the following command lines and then select **Finished:**
+2.	Enter the following command lines and then select **Finished**
  
-```when HTTP_REQUEST {
-   switch -glob -- [HTTP::uri] {
-      "/psp/ps/?cmd=logout" {
-             HTTP::redirect "/my.logout.php3"
-        }
-    }
-} ```
+   ```when HTTP_REQUEST {switch -glob -- [HTTP::uri] { "/psp/ps/?cmd=logout" {HTTP::redirect "/my.logout.php3" }}} ```
+
 To assign this iRule to the BIG-IP Virtual Server
  
 1. Navigate to **Access > Guided Configuration**
  
 2.	Select the configuration link for your PeopleSoft application
-<<Image>>
+   ![Screenshot for link for your PeopleSoft application](./media/f5-big-ip-easy-button-oracle-peoplesoft/link-peoplesoft-application.png)
  
 3.	From the top navigation bar, select **Virtual Server** and enable **Advanced Settings**
-<<Image>>
+   ![Screenshot for Enable Advanced settings](./media/f5-big-ip-easy-button-oracle-peoplesoft/enable-advanced-settings.png)
 
 4.	Scroll down to the bottom and add the iRule you just created.  
-<<Image>>
+   ![Screenshot for PeopleSoft irule](./media/f5-big-ip-easy-button-oracle-peoplesoft/peoplesoft-irule.png)
  
 5.	Select **Save and Next** and continue to deploy your new settings. 
  
@@ -401,25 +398,9 @@ While it’s best having an application redirect user to its landing page, you c
  
 1.	Navigate to **Local Traffic > iRule**, select **iRule_PeopleSoft** and add these command lines:
  
-```when HTTP_REQUEST {
-   switch -glob -- [HTTP::uri] {
-"/" {
-         HTTP::redirect "/psc/ps/EXTERNAL/HRMS/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL"
-      }
-      "/psp/ps/?cmd=logout" {
-             HTTP::redirect "/my.logout.php3"
-        }
-    }
-}```
+   ```when HTTP_REQUEST {switch -glob -- [HTTP::uri] {"/" {HTTP::redirect "/psc/ps/EXTERNAL/HRMS/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GB"/psp/ps/?cmd=logout" {HTTP::redirect "/my.logout.php3"} } }```
  
-2.	To assign the iRule to the BIG-IP Virtual Server, navigate to **Access > Guided Configuration** and select the configuration link for your PeopleSoft application
-<<Image>>
- 
-3.	From the top navigation bar, select **Virtual Server** and enable **Advanced Settings**
-<<Image>>
- 
-4.	Scroll down to the bottom and add the iRule you just created.
-<<Image>>
+2.	Assign the iRule to the BIG-IP Virtual Server as done in the steps above
  
 ## Next steps
  
