@@ -1,13 +1,13 @@
 ---
 title: Azure Functions SignalR Service input binding
 description: Learn to return a SignalR service endpoint URL and access token in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 ms.topic: reference
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
-
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # SignalR Service input binding for Azure Functions
@@ -20,7 +20,11 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Example
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+# [In-process](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
 
@@ -33,6 +37,16 @@ public static SignalRConnectionInfo Negotiate(
     return connectionInfo;
 }
 ```
+
+# [Isolated process](#tab/isolated-process)
+
+The following example shows a SignalR trigger that reads a message string from one hub using a SignalR trigger and writes it to a second hub using an output binding. The data required to connect to the output binding is obtained as a `MyConnectionInfo` object from an input binding defined using a `SignalRConnectionInfo` attribute. 
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="12-31":::
+
+The `MyConnectionInfo` and `MyMessage` classes are defined as follows:
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRFunction.cs" range="34-46":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -64,13 +78,13 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
 }
 ```
 
-# [JavaScript](#tab/javascript)
+---
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
-The following example shows a SignalR connection info input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding to return the connection information.
+The following example shows a SignalR connection info input binding in a *function.json* file and a function that uses the binding to return the connection information.
 
-Here's binding data in the *function.json* file:
-
-Example function.json:
+Here's binding data for the example in the *function.json* file:
 
 ```json
 {
@@ -81,6 +95,9 @@ Example function.json:
     "direction": "in"
 }
 ```
+
+::: zone-end
+::: zone pivot="programming-language-javascript"
 
 Here's the JavaScript code:
 
@@ -90,23 +107,14 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-# [Python](#tab/python)
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+ 
+Complete PowerShell examples are pending.
+::: zone-end 
+::: zone pivot="programming-language-python"  
 
 The following example shows a SignalR connection info input binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding to return the connection information.
-
-Here's binding data in the *function.json* file:
-
-Example function.json:
-
-```json
-{
-    "type": "signalRConnectionInfo",
-    "name": "connectionInfo",
-    "hubName": "chat",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "direction": "in"
-}
-```
 
 Here's the Python code:
 
@@ -121,7 +129,8 @@ def main(req: func.HttpRequest, connectionInfoJson: str) -> func.HttpResponse:
     )
 ```
 
-# [Java](#tab/java)
+::: zone-end 
+::: zone pivot="programming-language-java"
 
 The following example shows a [Java function](functions-reference-java.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
 
@@ -139,15 +148,19 @@ public SignalRConnectionInfo negotiate(
 }
 ```
 
----
+:::zone-end  
 
-## Authenticated tokens
+## Usage
 
-If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication](../app-service/overview-authentication-authorization.md).
+### Authenticated tokens
 
-App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively.
+When the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication](../app-service/overview-authentication-authorization.md).
 
-# [C#](#tab/csharp)
+App Service authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively.
+
+::: zone pivot="programming-language-csharp"
+
+# [In-process](#tab/in-process)
 
 You can set the `UserId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
 
@@ -163,6 +176,10 @@ public static SignalRConnectionInfo Negotiate(
     return connectionInfo;
 }
 ```
+
+# [Isolated process](#tab/isolated-process)
+
+Sample code not available for isolated process. 
 
 # [C# Script](#tab/csharp-script)
 
@@ -194,12 +211,19 @@ public static SignalRConnectionInfo Run(HttpRequest req, SignalRConnectionInfo c
     return connectionInfo;
 }
 ```
+---
 
-# [JavaScript](#tab/javascript)
+::: zone-end
+
+::: zone pivot="programming-language-java"
+SignalR trigger isn't currently supported for Java. 
+::: zone-end 
+ 
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
 You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
 
-Example function.json:
+Here's binding data in the *function.json* file:
 
 ```json
 {
@@ -212,6 +236,8 @@ Example function.json:
 }
 ```
 
+::: zone-end
+::: zone pivot="programming-language-javascript"  
 Here's the JavaScript code:
 
 ```javascript
@@ -222,22 +248,12 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-# [Python](#tab/python)
-
-You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
-
-Example function.json:
-
-```json
-{
-    "type": "signalRConnectionInfo",
-    "name": "connectionInfo",
-    "hubName": "chat",
-    "userId": "{headers.x-ms-client-principal-id}",
-    "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
-    "direction": "in"
-}
-```
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+ 
+Complete PowerShell examples are pending.
+::: zone-end 
+::: zone pivot="programming-language-python"  
 
 Here's the Python code:
 
@@ -254,7 +270,8 @@ def main(req: func.HttpRequest, connectionInfo: str) -> func.HttpResponse:
     )
 ```
 
-# [Java](#tab/java)
+::: zone-end 
+::: zone pivot="programming-language-java"
 
 You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
 
@@ -272,8 +289,79 @@ public SignalRConnectionInfo negotiate(
     return connectionInfo;
 }
 ```
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+## Attributes
+
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use attribute to define the function. C# script instead uses a function.json configuration file.
+
+# [In-process](#tab/in-process)
+
+The following table explains the properties of the `SignalRConnectionInfo` attribute:
+
+| Attribute property |Description|
+|---------|----------------------|
+**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated. |
+|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+# [Isolated process](#tab/isolated-process)
+
+The following table explains the properties of the `SignalRConnectionInfoInput` attribute:
+
+| Attribute property |Description|
+|---------|----------------------|
+**HubName**| This value must be set to the name of the SignalR hub for which the connection information is generated. |
+|**UserId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**ConnectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+# [C# Script](#tab/csharp-script)
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|--------|
+|**type**|  Must be set to `signalRConnectionInfo`.|
+|**direction**|  Must be set to `in`.|
+|**name**|  Variable name used in function code for connection info object. |
+|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**userId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
 
 ---
+
+::: zone-end 
+::: zone pivot="programming-language-java" 
+ 
+## Annotations
+
+The following table explains the supported settings for the `SignalRConnectionInfoInput` annotation.
+
+|Setting | Description|
+|---------|--------|
+|**name**|  Variable name used in function code for connection info object. |
+|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**userId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python" 
+## Configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Description|
+|---------|--------|
+|**type**|  Must be set to `signalRConnectionInfo`.|
+|**direction**|  Must be set to `in`.|
+|**name**|  Variable name used in function code for connection info object. |
+|**hubName**| This value must be set to the name of the SignalR hub for which the connection information is generated.|
+|**userId**| Optional: The value of the user identifier claim to be set in the access key token. |
+|**connectionStringSetting**| The name of the app setting that contains the SignalR Service connection string, which defaults to `AzureSignalRConnectionString`. |
+
+::: zone-end
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Azure Blob storage trigger for Azure Functions
 description: Learn how to run an Azure Function as Azure Blob storage data changes.
-author: craigshoemaker
+author: ggailey777
 ms.topic: reference
 ms.date: 11/30/2021
 ms.author: cshoe

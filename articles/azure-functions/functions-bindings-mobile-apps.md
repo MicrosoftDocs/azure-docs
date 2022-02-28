@@ -19,8 +19,6 @@ This article explains how to work with [Azure Mobile Apps](/previous-versions/az
 
 The Mobile Apps bindings let you read and update data tables in mobile apps.
 
-[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
-
 ## Packages - Functions 1.x
 
 Mobile Apps bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.MobileApps](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.MobileApps/) GitHub repository.

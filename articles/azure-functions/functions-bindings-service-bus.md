@@ -1,7 +1,7 @@
 ---
 title: Azure Service Bus bindings for Azure Functions
 description: Learn to send Azure Service Bus triggers and bindings in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 12/03/2021
@@ -47,13 +47,13 @@ You can install this version of the extension in your function app by registerin
 
 The functionality of the extension varies depending on the extension version:
 
-# [Extension v5.x](#tab/extensionv5/in-process)
+# [Extension 5.x+](#tab/extensionv5/in-process)
 
 Version 5.x of the Service Bus bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). This extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
 This extension version is available by installing the [NuGet package], version 5.x or later.
 
-# [Functions 2.x and higher](#tab/functionsv2/in-process)
+# [Functions 2.x+](#tab/functionsv2/in-process)
 
 Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install NuGet package, versions < 5.x. 
 
@@ -61,11 +61,11 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
 
-# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
+# [Extension 5.x+](#tab/extensionv5/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 5.x.
 
-# [Functions 2.x and higher](#tab/functionsv2/isolated-process)
+# [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ServiceBus), version 4.x.
 
@@ -73,7 +73,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 Functions version 1.x doesn't support isolated process.
 
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+# [Extension 5.x+](#tab/extensionv5/csharp-script)
 
 Version 5.x of the Service Bus bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). This extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
@@ -91,7 +91,7 @@ This extension version is available from the extension bundle v3 by adding the f
 
 To learn more, see [Update your extensions].
 
-# [Functions 2.x and higher](#tab/functionsv2/csharp-script)
+# [Functions 2.x+](#tab/functionsv2/csharp-script)
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
 
@@ -142,54 +142,9 @@ Functions 1.x apps automatically have a reference to the extension.
 
 ## host.json settings
 
-[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
+This section describes the configuration settings available for this binding, which depends on the runtime and extension version.
 
-> [!NOTE]
-> For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "serviceBus": {
-            "prefetchCount": 100,
-            "messageHandlerOptions": {
-                "autoComplete": true,
-                "maxConcurrentCalls": 32,
-                "maxAutoRenewDuration": "00:05:00"
-            },
-            "sessionHandlerOptions": {
-                "autoComplete": false,
-                "messageWaitTimeout": "00:00:30",
-                "maxAutoRenewDuration": "00:55:00",
-                "maxConcurrentSessions": 16
-            },
-            "batchOptions": {
-                "maxMessageCount": 1000,
-                "operationTimeout": "00:01:00",
-                "autoComplete": true
-            }
-        }
-    }
-}
-```
-
-If you have `isSessionsEnabled` set to `true`, the `sessionHandlerOptions` is honored.  If you have `isSessionsEnabled` set to `false`, the `messageHandlerOptions` is honored.
-
-|Property  |Default | Description |
-|---------|---------|---------|
-|prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
-|messageHandlerOptions.maxAutoRenewDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically.|
-|messageHandlerOptions.autoComplete|true|Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
-|messageHandlerOptions.maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
-|sessionHandlerOptions.maxConcurrentSessions|2000|The maximum number of sessions that can be handled concurrently per scaled instance.|
-|batchOptions.maxMessageCount|1000| The maximum number of messages sent to the function when triggered. |
-|batchOptions.operationTimeout|00:01:00| A time span value expressed in `hh:mm:ss`. |
-|batchOptions.autoComplete|true| See the above description for `messageHandlerOptions.autoComplete`. |
-
-### Additional settings for version 5.x+
-
-The example host.json file below contains only the settings for version 5.0.0 and higher of the Service Bus extension.
+# [Extension 5.x+](#tab/extensionv5)
 
 ```json
 {
@@ -218,32 +173,72 @@ The example host.json file below contains only the settings for version 5.0.0 an
 }
 ```
 
-When using service bus extension version 5.x and higher, the following global configuration settings are supported in addition to the 2.x settings in `ServiceBusOptions`.
+When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `true`, the `sessionHandlerOptions` is honored.  When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `false`, the `messageHandlerOptions` is honored.
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|prefetchCount|0|Gets or sets the number of messages that the message receiver can simultaneously request.|
-| transportType| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
-| webProxy| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
-|autoCompleteMessages|true|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
-|maxAutoLockRenewalDuration|00:05:00|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
-|maxConcurrentCalls|16|The maximum number of concurrent calls to the callback that the should be initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting only applies for functions that receive a single message at a time.|
-|maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance. This setting only applies for functions that receive a single message at a time.|
-|maxMessages|1000|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
-|sessionIdleTimeout|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session. This setting only applies for functions that receive a single message at a time.|
-|enableCrossEntityTransactions|false|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
+|**mode**|`Exponential`|The approach to use for calculating retry delays. The default exponential mode retries attempts with a delay based on a back-off strategy where each attempt increases the wait duration before retrying. The `Fixed` mode retries attempts at fixed intervals with each delay having a consistent duration.|
+|**tryTimeout**|`00:01:00`|The maximum duration to wait for an operation per attempt.|
+|**delay**|`00:00:00.80`|The delay or back-off factor to apply between retry attempts.|
+|**maxDelay**|`00:01:00`|The maximum delay to allow between retry attempts|
+|**maxRetries**|`3`|The maximum number of retry attempts before considering the associated operation to have failed.|
+|**prefetchCount**|`0`|Gets or sets the number of messages that the message receiver can simultaneously request.|
+| **transportType**| amqpTcp | The protocol and transport that is used for communicating with Service Bus. Available options: `amqpTcp`, `amqpWebSockets`|
+| **webProxy**| n/a | The proxy to use for communicating with Service Bus over web sockets. A proxy cannot be used with the `amqpTcp` transport. |
+|**autoCompleteMessages**|`true`|Determines whether or not to automatically complete messages after successful execution of the function and should be used in place of the `autoComplete` configuration setting.|
+|**maxAutoLockRenewalDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically. This setting only applies for functions that receive a single message at a time.|
+|**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that the should be initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently. This setting only applies for functions that receive a single message at a time.|
+|**maxConcurrentSessions**|`8`|The maximum number of sessions that can be handled concurrently per scaled instance. This setting only applies for functions that receive a single message at a time.|
+|**maxMessages**|`1000`|The maximum number of messages that will be passed to each function call. This setting only applies for functions that receive a batch of messages.|
+|**sessionIdleTimeout**|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session. This setting only applies for functions that receive a single message at a time.|
+|**enableCrossEntityTransactions**|`false`|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
 
-### Retry settings
+# [Functions 2.x+](#tab/functionsv2)
 
-In addition to the above configuration properties when using version 5.x and higher of the service bus extension, you can also configure `RetryOptions` from within the `ServiceBusOptions`. These settings determine whether a failed operation should be retried, and, if so, the amount of time to wait between retry attempts. The options also control the amount of time allowed for receiving messages and other interactions with the Service Bus service.
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "serviceBus": {
+            "prefetchCount": 100,
+            "messageHandlerOptions": {
+                "autoComplete": true,
+                "maxConcurrentCalls": 32,
+                "maxAutoRenewDuration": "00:05:00"
+            },
+            "sessionHandlerOptions": {
+                "autoComplete": false,
+                "messageWaitTimeout": "00:00:30",
+                "maxAutoRenewDuration": "00:55:00",
+                "maxConcurrentSessions": 16
+            },
+            "batchOptions": {
+                "maxMessageCount": 1000,
+                "operationTimeout": "00:01:00",
+                "autoComplete": true
+            }
+        }
+    }
+}
+```
+
+When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `true`, the `sessionHandlerOptions` is honored.  When you set the `isSessionsEnabled` property or attribute on [the trigger](functions-bindings-service-bus-trigger.md) to `false`, the `messageHandlerOptions` is honored.
 
 |Property  |Default | Description |
 |---------|---------|---------|
-|mode|Exponential|The approach to use for calculating retry delays. The default exponential mode will retry attempts with a delay based on a back-off strategy where each attempt will increase the duration that it waits before retrying. The `Fixed` mode will retry attempts at fixed intervals with each delay having a consistent duration.|
-|tryTimeout|00:01:00|The maximum duration to wait for an operation per attempt.|
-|delay|00:00:00.80|The delay or back-off factor to apply between retry attempts.|
-|maxDelay|00:01:00|The maximum delay to allow between retry attempts|
-|maxRetries|3|The maximum number of retry attempts before considering the associated operation to have failed.|
+|**prefetchCount**|`0`|Gets or sets the number of messages that the message receiver can simultaneously request.|
+|**maxAutoRenewDuration**|`00:05:00`|The maximum duration within which the message lock will be renewed automatically.|
+|**autoComplete**|`true`|Whether the trigger should automatically call complete after processing, or if the function code manually calls complete.<br><br>Setting to `false` is only supported in C#.<br><br>When set to `true`, the trigger completes the message, session, or batch automatically when the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message, session, or batch. When an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. |
+|**maxConcurrentCalls**|`16`|The maximum number of concurrent calls to the callback that the message pump should initiate per scaled instance. By default, the Functions runtime processes multiple messages concurrently.|
+|**maxConcurrentSessions**|`2000`|The maximum number of sessions that can be handled concurrently per scaled instance.|
+|**maxMessageCount**|`1000`| The maximum number of messages sent to the function when triggered. |
+|**operationTimeout**|`00:01:00`| A time span value expressed in `hh:mm:ss`. |
+
+# [Functions 1.x](#tab/functionsv1)
+
+For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
+
+---
 
 ## Next steps
 

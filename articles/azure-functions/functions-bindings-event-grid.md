@@ -1,13 +1,13 @@
 ---
 title: Azure Event Grid bindings for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 
 ms.topic: reference
 ms.date: 10/21/2021
 ms.author: cshoe
 ms.custom: fasttrack-edit
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Event Grid bindings for Azure Functions
@@ -99,13 +99,15 @@ The Event Grid output binding is only available for Functions 2.x and higher.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell,programming-language-typescript"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
 The Event Grid extension is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the Event Grid binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
 # [Bundle v3.x](#tab/extensionv3)
+
+This version of the extension supports updated Event Grid binding parameter types of [Azure.Messaging.CloudEvent](/dotnet/api/azure.messaging.cloudevent) and [Microsoft.Azure.EventGrid.Models.EventGridEvent](/dotnet/api/microsoft.azure.eventgrid.models.eventgridevent).
 
 You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
 
@@ -119,8 +121,6 @@ You can add this version of the extension from the extension bundle v3 by adding
 }
 ```
 
-[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
-
 To learn more, see [Update your extensions].
 
 # [Bundle v2.x](#tab/extensionv2)
@@ -128,8 +128,6 @@ To learn more, see [Update your extensions].
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
 
 # [Functions 1.x](#tab/functionsv1)
-
-Functions 1.x apps automatically have a reference to the extension.
 
 The Event Grid output binding is only available for Functions 2.x and higher.
 

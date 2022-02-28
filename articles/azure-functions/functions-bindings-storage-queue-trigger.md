@@ -1,7 +1,7 @@
 ---
 title: Azure Queue storage trigger for Azure Functions
 description: Learn to run an Azure Function as Azure Queue storage data changes.
-author: craigshoemaker
+author: ggailey777
 ms.topic: reference
 ms.date: 12/18/2021
 ms.author: cshoe
@@ -392,7 +392,7 @@ Access the message data by using a method parameter such as `string paramName`. 
 * `byte[]`
 * [QueueMessage]
 
-When binding to an object, the Functions runtime tries to deserializes the JSON payload into an instance of an arbitrary class defined in your code. For examples using [QueueMessage], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+When binding to an object, the Functions runtime tries to deserialize the JSON payload into an instance of an arbitrary class defined in your code. For examples using [QueueMessage], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
@@ -405,7 +405,7 @@ Access the message data by using a method parameter such as `string paramName`. 
 * `byte[]`
 * [CloudQueueMessage]
 
-When binding to an object, the Functions runtime tries to deserializes the JSON payload into an instance of an arbitrary class defined in your code.  If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md).
+When binding to an object, the Functions runtime tries to deserialize the JSON payload into an instance of an arbitrary class defined in your code.  If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md).
 
 [!INCLUDE [functions-bindings-storage-attribute](../../includes/functions-bindings-storage-attribute.md)]
 
@@ -426,7 +426,7 @@ Access the message data by using a method parameter such as `string paramName`. 
 * `byte[]`
 * [QueueMessage]
 
-When binding to an object, the Functions runtime tries to deserializes the JSON payload into an instance of an arbitrary class defined in your code. For examples using [QueueMessage], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+When binding to an object, the Functions runtime tries to deserialize the JSON payload into an instance of an arbitrary class defined in your code. For examples using [QueueMessage], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 
 # [Extension 2.x+](#tab/extensionv2/csharp-script)
@@ -438,7 +438,7 @@ Access the message data by using a method parameter such as `string paramName`. 
 * `byte[]`
 * [CloudQueueMessage]
 
-When binding to an object, the Functions runtime tries to deserializes the JSON payload into an instance of an arbitrary class defined in your code.  If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md).
+When binding to an object, the Functions runtime tries to deserialize the JSON payload into an instance of an arbitrary class defined in your code.  If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md).
 
 ---
 ::: zone-end  
@@ -521,7 +521,7 @@ The queue trigger automatically prevents a function from processing a queue mess
 
 ## host.json properties
 
-The [host.json](functions-host-json.md#queues) file contains settings that control queue trigger behavior. See the host.json settings](functions-bindings-storage-queue.md#host-json) section for details regarding available settings.
+The host.json file contains settings that control queue trigger behavior. See the [host.json settings](functions-bindings-storage-queue.md#host-json) section for details regarding available settings.
 
 ## Next steps
 

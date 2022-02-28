@@ -45,6 +45,8 @@ A new version of the Storage bindings extension is available in preview. It intr
 
 This extension version is available by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Queues), version 5.x.
 
+[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
+
 # [Functions 2.x+](#tab/functionsv2/in-process)
 
 <a name="functions-2x-and-higher"></a>
@@ -58,11 +60,13 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 # [Extension 5.x+](#tab/extensionv5/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/), version 5.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues), version 5.x.
+
+[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/), version 3.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage/), version 4.x.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
@@ -85,6 +89,8 @@ This extension version is available from the extension bundle v3 by adding the f
 To learn more, see [Update your extensions].
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 3.x.
+
+[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
 # [Functions 2.x+](#tab/functionsv2/csharp-script)
 
@@ -120,6 +126,8 @@ You can add this version of the extension from the preview extension bundle v3 b
 
 To learn more, see [Update your extensions].
 
+[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
+
 # [Bundle v2.x](#tab/extensionv2)
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 2.x.
@@ -131,8 +139,6 @@ Functions 1.x apps automatically have a reference to the extension.
 ---
 
 ::: zone-end
-
-[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
 ## <a name="host-json"></a>host.json settings
 
@@ -165,10 +171,6 @@ Functions 1.x apps automatically have a reference to the extension.
 |maxDequeueCount|5|The number of times to try processing a message before moving it to the poison queue.|
 |newBatchThreshold|N*batchSize/2|Whenever the number of messages being processed concurrently gets down to this number, the runtime retrieves another batch.<br><br>`N` represents the number of vCPUs available when running on App Service or Premium Plans. Its value is `1` for the Consumption Plan.|
 |messageEncoding|base64| This setting is only available in [extension version 5.0.0 and higher](#storage-extension-5x-and-higher). It represents the encoding format for messages. Valid values are `base64` and `none`.|
-
----
-
-::: zone-end
 
 ## Next steps
 

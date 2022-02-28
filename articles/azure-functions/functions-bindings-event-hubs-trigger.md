@@ -1,11 +1,12 @@
 ---
 title: Azure Event Hubs trigger for Azure Functions
 description: Learn to use Azure Event Hubs trigger in Azure Functions.
-author: craigshoemaker
+author: ggailey777
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Event Hubs trigger for Azure Functions
