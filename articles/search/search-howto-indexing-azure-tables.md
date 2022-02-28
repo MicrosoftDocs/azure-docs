@@ -203,6 +203,5 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure Storage:
 
-+ [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
 + [Index large data sets](search-howto-large-index.md)
 + [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)
