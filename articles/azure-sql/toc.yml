@@ -1146,7 +1146,32 @@
         href: managed-instance/public-endpoint-overview.md
       - name: Server trust groups
         href: managed-instance/server-trust-group-overview.md
-
+      - name: Windows Auth for Azure AD Principals
+        items:
+        - name: Overview
+          displayName: Windows Authentication for Azure AD Principals with Kerberos Overview
+          href: managed-instance/winauth-azuread-overview.md
+        - name: Implementation with Kerberos
+          displayName: Windows Authentication for Azure AD Principals Implementation with Kerberos
+          href: managed-instance\winauth-implementation-aad-kerberos.md
+        - name: Setup summary
+          displayName: Windows Authentication for Azure AD Principals with Kerberos Setup
+          href: managed-instance\winauth-azuread-setup.md
+        - name: Set up the modern interactive flow
+          displayName: Windows authentication for Azure AD with the modern interactive flow
+          href: managed-instance\winauth-azuread-setup-modern-interactive-flow.md
+        - name: Set up the incoming trust-based flow
+          displayName: Windows authentication for Azure AD with the incoming trust-based flow
+          href: managed-instance\winauth-azuread-setup-incoming-trust-based-flow.md
+        - name: Set up managed instances
+          displayName: Set up managed instances for Windows authentication for Azure AD using Kerberos
+          href: managed-instance\winauth-azuread-kerberos-managed-instance.md
+        - name: Run a trace using Windows Auth
+          displayName: Run a trace using Windows authentication for Azure AD with Kerberos
+          href: managed-instance\winauth-azuread-run-trace-managed-instance.md
+        - name: Troubleshoot
+          displayName: Troubleshoot Windows authentication for Azure AD with Kerberos
+          href: managed-instance\winauth-azuread-troubleshoot.md
   - name: How to
     items:
     - name: How-to documentation

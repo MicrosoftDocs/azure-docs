@@ -41,7 +41,7 @@ Windows Authentication for Azure Active Directory principals also enables the fo
 
 
 - **"Double hop" authentication**: Web applications use IIS identity impersonation to run queries against an instance in the security context of the end user.
-- **Traces using extended events and SQL Server Profiler** can be launched using Windows authentication, providing ease of use for database administrators and developers accustomed to this workflow. Learn how to [run a trace against Azure SQL Managed Instance using Windows Authentication for Azure Active Directory principals](winauth-azuread-run-a-trace-managed-instance.md).
+- **Traces using extended events and SQL Server Profiler** can be launched using Windows authentication, providing ease of use for database administrators and developers accustomed to this workflow. Learn how to [run a trace against Azure SQL Managed Instance using Windows Authentication for Azure Active Directory principals](winauth-azuread-run-trace-managed-instance.md).
 
 ### Modernize security infrastructure
 

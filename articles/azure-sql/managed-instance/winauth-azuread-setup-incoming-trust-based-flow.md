@@ -88,7 +88,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
     - When prompted by `Get-Credential`, enter an on-premises Active Directory administrator username and password.
     - Set the `$cloudUserName` parameter to the username of a Global Administrator privileged account for Azure AD cloud access.
 
-    > !NOTE: 
+    > [!NOTE] 
     > If you wish to use your current Windows login account for your on-premises Active Directory access, you can skip the step where credentials are assigned to the `$domainCred` parameter. If you take this approach, do not include the `-DomainCredential` parameter in the PowerShell commands following this step.
 
 

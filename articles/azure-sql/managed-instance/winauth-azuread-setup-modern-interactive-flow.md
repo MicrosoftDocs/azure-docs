@@ -50,7 +50,7 @@ Enable the following group policy setting `Administrative Templates\System\Kerbe
 
     :::image type="content" source="media/winauth-azuread/policy-enable-cloud-kerberos-ticket-during-logon-setting.png" alt-text="Screenshot of the 'Allow retrieving the cloud kerberos ticket during the logon' dialog. Select 'Enabled' and then 'OK' to enable the policy setting."  lightbox="media/winauth-azuread/policy-enable-cloud-kerberos-ticket-during-logon-setting.png":::
     
-## Refresh PRT (Optional)
+## Refresh PRT (optional)
 
 Users with existing logon sessions may need to refresh their Azure AD Primary Refresh Token (PRT) if they attempt to use this feature immediately after it has been enabled. It can take up to a few hours for the PRT to refresh on its own.
 

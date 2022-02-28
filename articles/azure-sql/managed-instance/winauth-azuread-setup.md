@@ -41,7 +41,9 @@ Customers should first implement [Azure AD Connect](/azure/active-directory/hybr
 
 The following diagram shows eligibility and the core functionality of the modern interactive flow and the incoming trust-based flow:
 
-:::image type="content" source="media/winauth-azuread/decision-authentication.svg" alt-text="A decision tree showing that the modern interactive flow is suitable for clients running Windows 10 20H1 or Windows Server 2022 or higher, where clients are Azure AD joined or Hybrid AD joined. The incoming trust-based flow is suitable for clients running Windows 10 or Windows Server 2012 or higher where clients are AD joined." lightbox="media/winauth-azuread/decision-authentication.svg":::
+:::image type="complex" source="media/winauth-azuread/decision-authentication.svg" alt-text="A decision tree showing criteria to select authentication flows." lightbox="media/winauth-azuread/decision-authentication.svg":::
+"A decision tree showing that the modern interactive flow is suitable for clients running Windows 10 20H1 or Windows Server 2022 or higher, where clients are Azure AD joined or Hybrid AD joined. The incoming trust-based flow is suitable for clients running Windows 10 or Windows Server 2012 or higher where clients are AD joined."
+:::image-end:::
 
 The modern interactive flow works with enlightened clients running Windows 10 21H1 and higher that are Azure AD or Hybrid Azure AD joined. In the modern interactive flow,  users can access Azure SQL Managed Instance without requiring a line of sight to Domain Controllers (DCs). There is no need for a trust object to be created in the customer's AD. To enable the modern interactive flow, an administrator will set group policy for Kerberos authentication tickets (TGT) to be used during login.
 
