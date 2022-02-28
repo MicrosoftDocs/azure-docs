@@ -173,8 +173,6 @@
     href: common-parameters-and-headers.md
   - name: Key vault versions 
     href: versions.md
-  - name: Secure key release policy grammar 
-    href: policy-grammar.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI
