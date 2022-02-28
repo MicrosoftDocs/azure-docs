@@ -160,9 +160,9 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 ## Configure and run the Cosmos DB indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -175,12 +175,12 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "disabled": null,
         "schedule": null,
         "parameters": {
-        "batchSize": null,
-        "maxFailedItems": 0,
-        "maxFailedItemsPerBatch": 0,
-        "base64EncodeKeys": false,
-        "configuration": {}
-        },
+            "batchSize": null,
+            "maxFailedItems": 0,
+            "maxFailedItemsPerBatch": 0,
+            "base64EncodeKeys": false,
+            "configuration": {}
+            },
         "fieldMappings": [],
         "encryptionKey": null
     }
@@ -189,6 +189,8 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
 
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
 
 ## Check indexer status
 
@@ -238,9 +240,13 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 <a name="DataChangeDetectionPolicy"></a>
 
-## Indexing changed documents
+## Indexing new and changed documents
 
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified in the data source definition as follows:
+Once an indexer has fully populated a search index, you might want subsequent indexer runs to incrementally index just the new and changed documents in your database.
+
+To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. For Cosmos DB, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
+
+The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
 ```http
 "dataChangeDetectionPolicy": {
@@ -248,8 +254,6 @@ The purpose of a data change detection policy is to efficiently identify changed
 "  highWaterMarkColumnName": "_ts"
 },
 ```
-
-Using this policy is highly recommended to ensure good indexer performance. 
 
 <a name="DataDeletionDetectionPolicy"></a>
 

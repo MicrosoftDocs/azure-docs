@@ -203,9 +203,9 @@ In a [search index](search-what-is-an-index.md), add fields to accept the source
 
 ## Configure and run the Cosmos DB indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -218,12 +218,12 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
         "disabled": null,
         "schedule": null,
         "parameters": {
-        "batchSize": null,
-        "maxFailedItems": 0,
-        "maxFailedItemsPerBatch": 0,
-        "base64EncodeKeys": false,
-        "configuration": {}
-        },
+            "batchSize": null,
+            "maxFailedItems": 0,
+            "maxFailedItemsPerBatch": 0,
+            "base64EncodeKeys": false,
+            "configuration": {}
+            },
         "fieldMappings": [],
         "encryptionKey": null
     }
@@ -283,9 +283,13 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 <a name="DataChangeDetectionPolicy"></a>
 
-## Indexing changed documents
+## Indexing new and changed documents
 
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified in the data source definition as follows:
+Once an indexer has fully populated a search index, you might want subsequent indexer runs to incrementally index just the new and changed documents in your database.
+
+To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. For Cosmos DB, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
+
+The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
 ```http
 "dataChangeDetectionPolicy": {
@@ -294,19 +298,15 @@ The purpose of a data change detection policy is to efficiently identify changed
 },
 ```
 
-Using this policy is highly recommended to ensure good indexer performance. 
-
-If you're using a custom query, make sure that the `_ts` property is projected by the query.
-
 <a name="IncrementalProgress"></a>
 
-### Incremental progress and custom queries
+### Incremental indexing and custom queries
 
-Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to reindex the entire collection from scratch. This is especially important when indexing large collections. 
+If you're using a [custom query to retrieve documents](#flatten-structures), make sure the query orders the results by the `_ts` column. This enables periodic check-pointing that Azure Cognitive Search uses to provide incremental progress in the presence of failures.
 
-To enable incremental progress when using a custom query, ensure that your query orders the results by the `_ts` column. This enables periodic check-pointing that Azure Cognitive Search uses to provide incremental progress in the presence of failures.   
+In some cases, even if your query contains an `ORDER BY [collection alias]._ts` clause, Azure Cognitive Search may not infer that the query is ordered by the `_ts`. You can tell Azure Cognitive Search that results are ordered by setting the `assumeOrderByHighWaterMarkColumn` configuration property. 
 
-In some cases, even if your query contains an `ORDER BY [collection alias]._ts` clause, Azure Cognitive Search may not infer that the query is ordered by the `_ts`. You can tell Azure Cognitive Search that results are ordered by using the `assumeOrderByHighWaterMarkColumn` configuration property. To specify this hint, create or update your indexer as follows: 
+To specify this hint, [create or update your indexer definition](#configure-and-run-the-cosmos-db-indexer) as follows: 
 
 ```http
 {

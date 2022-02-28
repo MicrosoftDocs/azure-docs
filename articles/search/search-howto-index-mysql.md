@@ -105,51 +105,34 @@ If the primary key in the source table matches the document key (in this case, "
 
 ## Configure and run the MySQL indexer
 
-Once the index and data source have been created, you're ready to create the indexer.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-[Create or Update Indexer](/rest/api/searchservice/create-indexer) specifies the predefined data source and search index.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
-```http
-POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30
-
-{
-    "name" : "hotels-mysql-idxr",
-    "dataSourceName" : "hotels-mysql-ds",
-    "targetIndexName" : "hotels-mysql-ix",
-    "disabled": null,
-    "schedule": null,
-    "parameters": {
-    "batchSize": null,
-    "maxFailedItems": null,
-    "maxFailedItemsPerBatch": null,
-    "base64EncodeKeys": null,
-    "configuration": { }
-    },
-    "fieldMappings" : [ ],
-    "encryptionKey": null
-}
-```
-
-By default, the indexer runs when it's created on the search service. You can set "disabled" to true if you want to run the indexer manually.
-
-You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). 
-
-To put the indexer on a schedule, set the "schedule" property when creating or updating the indexer. Here is an example of a schedule that runs every 15 minutes.
-
-```http
-PUT https://[search service name].search.windows.net/indexers/hotels-mysql-idxr?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin-key]
-
-{
-    "dataSourceName" : "hotels-mysql-ds",
-    "targetIndexName" : "hotels-mysql-ix",
-    "schedule" : { 
-        "interval" : "PT15M", 
-        "startTime" : "2022-01-01T00:00:00Z"
+    ```http
+    POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30
+    
+    {
+        "name" : "hotels-mysql-idxr",
+        "dataSourceName" : "hotels-mysql-ds",
+        "targetIndexName" : "hotels-mysql-ix",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+            "batchSize": null,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration": { }
+            },
+        "fieldMappings" : [ ],
+        "encryptionKey": null
     }
-}
-```
+    ```
+
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
 
 ## Check indexer status
 
