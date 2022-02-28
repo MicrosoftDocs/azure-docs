@@ -1198,6 +1198,8 @@ items:
         href: ../data-factory/update-machine-learning-models.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Stored procedure activity
         href: ../data-factory/transform-data-using-stored-procedure.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Script activity
+        href: ../data-factory/transform-data-using-script.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Compute linked services
         href: ../data-factory/compute-linked-services.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
     - name: Control flow
