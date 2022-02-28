@@ -64,7 +64,7 @@ Learn how to [enable your database security at the subscrition level](quickstart
 
 ### Threat protection for Google Kubernetes Engine (GKE) clusters
 
-Following our recent announcement [Native CSPM for GCP and threat protection for GCP compute instances and Google Kubernetes Engine (GKE) clusters](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances-and-google-kubernetes-engine-gke-clusters), Microsoft Defender for Containers has extended its Kubernetes threat protection, behavioral analytics, and built-in admission control policies to Google's Kubernetes Engine (GKE) Standard clusters. You can easily onboard any existing, or new GKE Standard clusters to your environment through our Automatic onboarding capabilities. Check out [Container security with Microsoft Defender for Cloud](defender-for-containers-introduction.md#vulnerability-assessment), for a full list of available features.
+Following our recent announcement [Native CSPM for GCP and threat protection for GCP compute instances](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances), Microsoft Defender for Containers has extended its Kubernetes threat protection, behavioral analytics, and built-in admission control policies to Google's Kubernetes Engine (GKE) Standard clusters. You can easily onboard any existing, or new GKE Standard clusters to your environment through our Automatic onboarding capabilities. Check out [Container security with Microsoft Defender for Cloud](defender-for-containers-introduction.md#vulnerability-assessment), for a full list of available features.
 
 ## January 2022
 
