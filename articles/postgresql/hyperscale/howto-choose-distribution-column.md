@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 02/28/2022
 ---
 
 # Choose distribution columns in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -15,9 +15,67 @@ Choosing each table's distribution column is one of the most important modeling 
 
 The correct choice groups related data together on the same physical nodes, which makes queries fast and adds support for all SQL features. An incorrect choice makes the system run slowly and won't support all SQL features across nodes.
 
-## Example scenarios
+## General tips
 
-This article gives distribution column tips for the two most common Hyperscale (Citus) scenarios.
+Here are four criteria for choosing the ideal distribution column for your
+distributed tables.
+
+* **Criterion 1: Pick a column that is a central piece in the application
+  workload.**
+
+  You might think of this column as the "heart," "central piece," or "natural dimension"
+  for partitioning data.
+
+  Examples:
+
+  * `device_id` in an IoT workload
+  * `security_id` for a financial app that tracks securities
+  * `user_id` in user analytics
+  * `tenant_id` for a multi-tenant SaaS application
+
+* **Criterion 2: Pick a column with decent cardinality, and an even statistical
+  distribution.**
+
+  The column should have many values, and distribute throroughly and evenly
+  between all shards.
+
+  Examples:
+
+  * Cardinality over 1000
+  * Don't pick a column which has the same value on a large percentage of rows
+    (data skew)
+  * In a SaaS workload, having one tenant much bigger than the rest can cause
+    data skew. For this situation, you can use [tenant
+    isolation](reference-functions.md#isolate_tenant_to_new_shard) to create a
+    dedicated shard to handle the tenant.
+
+* **Criterion 3: Pick a column that benefits your existing queries.**
+
+  For a transactional or operational workload (where most queries take only a
+  few milliseconds), pick a column that appears as a filter in `WHERE` clauses
+  for at least 80% of queries.  For instance, the `device_id` column in `SELECT *
+  FROM events WHERE device_id=1`.
+
+  For an analytical workload (where most queries take 1-2 seconds), pick a
+  column that enables queries to be parallelized across worker nodes. Typically,
+  these columns are in `GROUP BY` clauses, or in `WHERE` clauses that don't
+  filter by strict equality.
+
+* **Criterion 4: Pick a column that is present in the majority of large
+  tables.**
+
+  Tables over 50 GB should be distributed. Picking the same distribution column
+  for all of them enables you to co-locate data for that column on worker nodes.
+  Co-location makes it efficient to run JOINs and rollups, and enforce foreign
+  keys.
+
+  The other (smaller) tables can be local or reference tables. If the smaller
+  table needs to JOIN with distributed tables, make it a reference table.
+
+## Use-case examples
+
+We've seen general criteria for picking the distribution column. Now let's see
+how they apply to common use cases.
 
 ### Multi-tenant apps
 
