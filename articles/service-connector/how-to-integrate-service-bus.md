@@ -50,7 +50,7 @@ This page shows the supported authentication types and client types of Azure Ser
 | Default environment variable name        | Description           | Sample value                                   |
 | ---------------------------------------- | ----------------------| ---------------------------------------------- |
 | AZURE_SERVICEBUS_FULLYQUALIFIEDNAMESPACE | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
-| AZURE_SERVICEBUS_CLIENTID                | Your client ID        | `28011635-0dea-4326-896c-3b746a2d90a4`         |
+| AZURE_SERVICEBUS_CLIENTID                | Your client ID        | `{yourClientID}`                               |
 
 #### Service principal
 
@@ -81,16 +81,16 @@ This page shows the supported authentication types and client types of Azure Ser
 | Default environment variable name       | Description           | Sample value                                   |
 | --------------------------------------- | --------------------- | ---------------------------------------------- |
 | spring.cloud.azure.servicebus.namespace | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
-| spring.cloud.azure.client-id            | Your client ID        | `28011635-0dea-4326-896c-3b746a2d90a4`         |
+| spring.cloud.azure.client-id            | Your client ID        | `{yourClientID}                      `         |
 
 #### Spring Boot service principal
 
 | Default environment variable name       | Description           | Sample value                                   |
 | --------------------------------------- | --------------------- | ---------------------------------------------- |
 | spring.cloud.azure.servicebus.namespace | Service Bus namespace | `{ServiceBusNamespace}.servicebus.windows.net` |
-| spring.cloud.azure.client-id            | Your client ID        | `28011635-0dea-4326-896c-3b746a2d90a4`         |
+| spring.cloud.azure.client-id            | Your client ID        | `{yourClientID}`         |
 | spring.cloud.azure.tenant-id            | Your client secret    | `******`                                       |
-| spring.cloud.azure.client-secret        | Your tenant ID        | `72f988bf-86f1-41af-91ab-2d7cd011db47`         |
+| spring.cloud.azure.client-secret        | Your tenant ID        | `{yourTenantID}`         |
 
 ## Next step
 
