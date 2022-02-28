@@ -1,10 +1,10 @@
 ---
-title: Overview - Automate deployment for Azure Logic Apps
+title: Azure Resource Manager templates for Azure Logic Apps
 description: Learn about Azure Resource Manager templates to automate deployment for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2021
 ---
 
