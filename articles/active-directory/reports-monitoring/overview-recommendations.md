@@ -138,6 +138,8 @@ To turn on the preview:
 1. Navigate to the **[Preview features](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PreviewHub)** page.
 2. Set the **State** to **On**.
 
+    ![Enable Azure AD recommendations](./media/overview-recommendations/enable-azure-ad-recommendations.png)
+
 
 
 
