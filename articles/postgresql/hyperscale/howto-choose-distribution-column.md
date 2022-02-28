@@ -40,13 +40,13 @@ distributed tables.
 * **Criterion 2: Pick a column with decent cardinality, and an even statistical
   distribution.**
 
-  The column should have many values, and distribute throroughly and evenly
+  The column should have many values, and distribute thoroughly and evenly
   between all shards.
 
   Examples:
 
   * Cardinality over 1000
-  * Don't pick a column which has the same value on a large percentage of rows
+  * Don't pick a column that has the same value on a large percentage of rows
     (data skew)
   * In a SaaS workload, having one tenant much bigger than the rest can cause
     data skew. For this situation, you can use [tenant
@@ -107,7 +107,7 @@ To apply this design in your own schema, identify what constitutes a tenant in
 your application. Common instances include company, account, organization, or
 customer. The column name will be something like `company_id` or `customer_id`.
 Examine each of your queries and ask yourself, would it work if it had
-additional WHERE clauses to restrict all tables involved to rows with the same
+more WHERE clauses to restrict all tables involved to rows with the same
 tenant ID?  Queries in the multi-tenant model are scoped to a tenant. For
 instance, queries on sales or inventory are scoped within a certain store.
 
