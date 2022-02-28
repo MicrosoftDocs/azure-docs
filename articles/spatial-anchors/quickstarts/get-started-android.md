@@ -43,8 +43,6 @@ To complete this quickstart, make sure you have:
   
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
-
 </details>
 
 ## Open the sample project
@@ -81,7 +79,7 @@ Select **Open an existing Android Studio project** and select the project locate
 
 ## Configure account identifier and key
 
-The next step is to configure the app to use your account identifier and account key. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource).
+The next step is to configure the app to use your account identifier and account key. You copied them into a text editor when [setting up the Spatial Anchors resource](#create-a-spatial-anchors-resource-on-azure).
 
 # [Java](#tab/openproject-java)
 
