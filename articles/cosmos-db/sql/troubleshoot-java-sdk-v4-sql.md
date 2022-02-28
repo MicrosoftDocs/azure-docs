@@ -40,10 +40,10 @@ Database, container, item, and query responses in the Java V4 SDK have a Diagnos
 
 The Diagnostics are returned as a string. The string changes with each version as it is improved to better troubleshooting different scenarios. With each version of the SDK, the string will have breaking changes to the formatting. Do not parse the string to avoid breaking changes. 
 
-The following code sample shows how to read diagnostic logs using the .NET SDK:
+The following code sample shows how to read diagnostic logs using the Java V4 SDK:
 
 > [!IMPORTANT]
-> You must be running version 4.1.0 or higher of the Java V4 SDK for Azure Cosmos DB for Database, container, and item diagnostics. Version 4.6.0 or higher is required for query diagnostics. 
+> We recommend validating the minimum recommended version of the Java V4 SDK and ensure you are using this version or higher. You can check this by viewing the change log [here](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md). 
 
 ### [Sync](#tab/sync)
 
