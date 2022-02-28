@@ -74,7 +74,7 @@ This section describes the function app configuration settings available for fun
     "version": "2.0",
     "extensions": {
         "blobs": {
-            "maxDegreeOfParallelism": "4"
+            "maxDegreeOfParallelism": 4
         }
     }
 }
