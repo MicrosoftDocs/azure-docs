@@ -29,9 +29,10 @@ The score should be set according to your own observations of prediction scores,
 
 When exporting a project's JSON file, the None score threshold is defined in the _**"settings"**_ parameter of the JSON as the _**"confidenceThreshold"**_, which accepts a decimal value between 0.0 and 1.0.
 
-> [!NOTE]
-> The default score for Orchestration Workflow projects is set at **0.5** and regular conversation projects at **0.0** when creating new projects in the language studio. If you are importing a project and the "confidenceThreshold" setting is absent, the threshold is set at **0.0**.
+The default score for Orchestration Workflow projects is set at **0.5** and regular conversation projects at **0.0** when creating new projects in the language studio. If you are importing a project and the "confidenceThreshold" setting is absent, the threshold is set at **0.0**.
 
+> [!NOTE]
+> During model evaluation of your test set, the None score threshold is not applied.
 
 ## Adding examples to the None intent
 
