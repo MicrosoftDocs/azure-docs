@@ -188,7 +188,7 @@ if err != nil {
 }
 ```
 
-If you used a different Key Vault name, replace quickstart-kv with your vault's name.
+If you used a different Key Vault name, replace keyVaultName with your vault's name.
 
 **Create a key**
 
