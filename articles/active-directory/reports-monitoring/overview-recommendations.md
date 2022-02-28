@@ -42,12 +42,12 @@ This article gives you an overview of how you can use Azure AD recommendations.
 
 ## What it is 
 
-The [Azure Advisor](../../advisor/advisor-overview) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, Reliability (formerly called High availability), and security of your Azure resources.
+The [Azure Advisor](../../advisor/advisor-overview.md) is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, Reliability (formerly called High availability), and security of your Azure resources.
 
 Azure AD recommendations:
 
 - Is the Azure AD specific implementation of Azure Advisor. 
-- Supports you with the roll out and management of Microsoft's best practices for Azure AD tenants to keep your tenant in a secure and healthy state. 
+- Supports you with the roll-out and management of Microsoft's best practices for Azure AD tenants to keep your tenant in a secure and healthy state. 
  
 ## What is a recommendation object?
 
