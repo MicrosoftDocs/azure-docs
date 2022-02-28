@@ -44,15 +44,16 @@ First, follow these steps to create an example scope named `Employees.Read.All`:
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant containing your client app's registration.
 1. Select **Azure Active Directory** > **App registrations**, and then select your API's app registration.
-1. Select **Expose an API** > **Add a scope**.
+2. Select **Expose an API** and set **Application ID URI** if you haven't yet configured one.
+
+   The App ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://verifieddomain.com/api`.
+   
+   More information on valid app ID URI patterns is available in the [Azure AD app manifest reference](reference-app-manifest.md#identifieruris-attribute).
+3. Select **Add a scope** as shown in the image below:
 
     :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-expose-api.png" alt-text="An app registration's Expose an API pane in the Azure portal":::
 
-1. You're prompted to set an **Application ID URI** if you haven't yet configured one.
 
-   The App ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://contoso.com/api`.
-   
-   More information on valid app ID URI patterns is available in the [Azure AD app manifest reference](reference-app-manifest.md).
 
 1. Next, specify the scope's attributes in the **Add a scope** pane. For this walk-through, you can use the example values or specify your own.
 
