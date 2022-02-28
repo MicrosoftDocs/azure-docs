@@ -486,14 +486,6 @@ items:
           href: object-replication-prevent-cross-tenant-policies.md  
       - name: Manage concurrency
         href: concurrency-manage.md
-      - name: Use a storage emulator
-        items:
-        - name: Use the Azurite open-source emulator
-          href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Use Azurite to run automated tests
-          href: use-azurite-to-run-automated-tests.md
-        - name: Use the Azure Storage emulator (deprecated)
-          href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Host a static website
         items:
         - name: Host a static website
@@ -590,15 +582,21 @@ items:
             - name: List blobs
               href: storage-blobs-list.md
             - name: Delete and restore blobs
-              href: storage-blobs-delete.md
+              href: storage-blob-delete.md
             - name: Find blobs using tags
-              href: storage-blobs-tags.md
+              href: storage-blob-tags.md
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata.md
-            - name: Create and manage leases
-              href: storage-blob-lease.md
-          - name: iOS
-            href: storage-ios-how-to-use-blob-storage.md
+        - name: iOS
+          href: storage-ios-how-to-use-blob-storage.md
+      - name: Test with a storage emulator
+        items:
+        - name: Use the Azurite open-source emulator
+          href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Use Azurite to run automated tests
+          href: use-azurite-to-run-automated-tests.md
+        - name: Use the Azure Storage emulator (deprecated)
+          href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Monitor
       items:
       - name: Scenarios and best practices

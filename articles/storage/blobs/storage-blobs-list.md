@@ -1,6 +1,6 @@
 ---
-title: List blobs with Azure Storage APIs
-description: Learn how to list blobs in your storage account using the using the Azure Storage client libraries. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
+title: List blobs with .NET - Azure Storage
+description: Learn how to list blobs in your storage account using the using the Azure Storage client library for .NET. Code examples show how to list blobs in a flat listing, or how to list blobs hierarchically, as though they were organized into directories or folders.
 services: storage
 author: normesta
 
@@ -13,7 +13,7 @@ ms.devlang: csharp, python
 ms.custom: devx-track-csharp
 ---
 
-# List blobs with Azure Storage client libraries
+# List blobs using the Azure Storage client library for .NET
 
 When you list blobs from your code, you can specify a number of options to manage how results are returned from Azure Storage. You can specify the number of results to return in each set of results, and then retrieve the subsequent sets. You can specify a prefix to return blobs whose names begin with that character or string. And you can list blobs in a flat listing structure, or hierarchically. A hierarchical listing returns blobs as though they were organized into folders.
 

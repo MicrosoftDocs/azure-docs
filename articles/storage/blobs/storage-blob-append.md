@@ -1,6 +1,6 @@
 ---
-title: Append data to a blob with Azure Storage APIs
-description: Learn how to append data to a blob using the Azure Storage client libraries.
+title: Append data to a blob with .NET - Azure Storage
+description: Learn how to append data to a blob in Azure Storage by using the.NET client library. 
 services: storage
 author: normesta
 
@@ -13,7 +13,7 @@ ms.devlang: csharp, python
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
-# Append data to a blob with Azure Storage client libraries
+# Append data to a blob in Azure Storage using the .NET client library
 
 You can append data to a blob by creating an append blob. Append blobs are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
 
