@@ -134,7 +134,7 @@ This first step creates a tenant app registration that will be used to authorize
 
 ## Configure Easy Button
 
-Initiate the **Easy Button** configuration to set up a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+Initiate the APM Guided Configuration to launch the Easy Button template.
 
 1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select **Azure AD Application**.
 
