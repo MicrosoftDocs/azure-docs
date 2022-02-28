@@ -20,7 +20,7 @@ items:
     - name: Unity - iOS
       href: quickstarts/get-started-unity-ios.md
       displayName: Azure CLI, az spatial-anchors-account
-  - name: Native HoloLens
+  - name: HoloLens (Native)
     href: quickstarts/get-started-hololens.md
     displayName: Azure CLI, az spatial-anchors-account
   - name: Android (Android Studio)
