@@ -39,18 +39,18 @@ items:
       displayName: Azure CLI, az spatial-anchors-account
 - name: Tutorials
   items:
-  - name: Sharing across sessions and devices
-    href: tutorials/tutorial-share-anchors-across-devices.md
-    displayName: Azure CLI, az spatial-anchors-account
-    items:
-    - name: Persistent sharing with Azure Cosmos DB
-      href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
   - name: Starting a new Unity HoloLens app
     href: tutorials/tutorial-new-unity-hololens-app.md
     displayName: Azure CLI, az spatial-anchors-account
   - name: Starting a new Android app
     href: tutorials/tutorial-new-android-app.md
     displayName: Azure CLI, az spatial-anchors-account
+  - name: Sharing across sessions and devices
+    href: tutorials/tutorial-share-anchors-across-devices.md
+    displayName: Azure CLI, az spatial-anchors-account
+    items:
+    - name: Persistent sharing with Azure Cosmos DB
+      href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
 - name: How-to
   items:
   - name: Create an Azure Spatial Anchors account
