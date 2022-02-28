@@ -24,9 +24,9 @@ The Azure Stack Edge Pro 2 device has the following specifications for compute a
 | CPU type       | Intel® Xeon ® Gold 6209U CPU @ 2.10 GHz (Cascade Lake) CPU|
 | CPU: raw       | 20 total cores, 40 total vCPUs                                              |
 | CPU: usable    | 32 vCPUs                                                                    |
-| Memory type    | 64 GB DDR4-2933Mhz 2Rx4 1.2v ECC UDIMM/SODIMM |
-| Memory: raw    | 128 GB RAM (2 x 64 GB)                                                      |
-| Memory: usable | 102 GB RAM                                                                  |
+| Memory type     | Model 64G2T: 64 GB |
+| Memory: raw   | Model 64G2T: 128 GB RAM (2 x 64 GB) |
+| Memory: usable | Model 64G2T: 102 GB RAM                                                                  |
 
 ## Power supply unit specifications
 
@@ -71,13 +71,13 @@ The following table lists the storage capacity of the device.
 
 |     Specification                         |     Value             |
 |-------------------------------------------|-----------------------|
-|    Number of data disks                   |    4 Micron 5200 MTFDDAK960TDD SATA SSDs [See for details.](https://www.micron.com/solutions/technical-briefs/micron-5200-series-of-sata-ssds)|
-|    Single data disk capacity              |    960 GB             |
-|    Boot disk    |    1  NVMe SSD                |
-|    Boot disk capacity                       |    960 GB             |
-|    Total capacity                          |    ~ 4 TB             |
-|    Total usable capacity                   |    ~ 1.67 TB          |
-|    RAID configuration                      |    [Storage Spaces Direct with mirroring](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#mirroring) |
+|  Number of data disks     |    4 SATA SSDs         |
+| Single data disk capacity |    960 GB              |
+| Boot disk                 |    1  NVMe SSD         |
+|    Boot disk capacity     |    960 GB              |
+|    Total capacity         | Model 64G2T: ~ 4 TB    |
+|    Total usable capacity  | Model 64G2T: ~ 1.67 TB |
+|    RAID configuration     | [Storage Spaces Direct with mirroring](/windows-server/storage/storage-spaces/storage-spaces-fault-tolerance#mirroring) |
 
 
 ## Enclosure dimensions and weight specifications

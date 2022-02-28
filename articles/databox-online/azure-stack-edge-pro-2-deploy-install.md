@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/24/2022
+ms.date: 02/28/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro 2 in datacenter so I can use it to transfer data to Azure.  
@@ -67,7 +67,7 @@ Before you deploy a device:
 
 Before you begin:
 
-- Review the networking requirements for deploying Azure Stack Edge Pro, and configure the datacenter network per the requirements. For more information, see [Azure Stack Edge Pro 2 networking requirements](azure-stack-edge-system-requirements.md#networking-port-requirements).
+- Review the networking requirements for deploying Azure Stack Edge Pro 2, and configure the datacenter network per the requirements. For more information, see [Azure Stack Edge Pro 2 networking requirements](azure-stack-edge-system-requirements.md#networking-port-requirements).
 
 - Make sure that the minimum Internet bandwidth is 20 Mbps for optimal functioning of the device.
 
@@ -122,6 +122,8 @@ The device can be mounted using one of the following mounting accessory:
 - A wallmount.
 
 If you have received  4-post rackmount, use the following procedure to rack mount your device. For other mounting accessories, see [Racking using a 2-post rackmount](azure-stack-edge-pro-2-two-post-rack-mounting.md) or [Mounting the device on the wall](azure-stack-edge-pro-2-wall-mount.md).
+
+If you decide not to mount your device, you can also place it on a desk or a shelf.
 
 
 
@@ -365,6 +367,6 @@ In this tutorial, you learned how to:
 Advance to the next tutorial to learn how to connect to your device.
 
 > [!div class="nextstepaction"]
-> [Connect Azure Stack Edge Pro](./azure-stack-edge-pro-2-deploy-connect.md)
+> [Connect Azure Stack Edge Pro 2](./azure-stack-edge-pro-2-deploy-connect.md)
 
 
