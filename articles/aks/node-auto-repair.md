@@ -42,7 +42,7 @@ If AKS finds multiple unhealthy nodes during a health check, each node is repair
 
 
 ## Node Autodrain
-There may be times where [Scheduled Events](scheduled-events) may take place on the underlying infrastructure of AKS nodes, and in the case of Spot instances, the underlying VM can be preempted and taken away.
+[Scheduled Events][scheduled-events] can occur on the underlying virtual machines (VMs) in any of your node pools. For [spot node pools][spot-node-pools], scheduled events may cause a *preempt* node event for the node. Certain node events, such as  *preempt*, cause AKS node autodrain to attempt a cordon and drain of the affected node, which allows for a graceful reschedule of any affected workloads on that node.
 
 In these cases Node Autodrain will attempt to cordon and drain the node, providing a graceful reschedule of your workloads.  
 
