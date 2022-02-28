@@ -4,7 +4,7 @@ description: Learn how to get a .NET Core app working in Azure App Service, with
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 01/27/2022
+ms.date: 02/22/2022
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
