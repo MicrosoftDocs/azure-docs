@@ -127,7 +127,7 @@ The above example connects to port 22 on the Windows Server node through port 20
 
 ## Remove SSH access
 
-When done, `exit` the SSH session, stop any port forwarding, and then `exit` the interactive container session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`
+When done, `exit` the SSH session, stop any port forwarding, and then `exit` the interactive container session. After the interactive container session closes, delete the pod used for access with `kubectl delete pod`.
 
 ```output
 kubectl delete pod node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx
