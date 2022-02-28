@@ -4,7 +4,6 @@ description: Monitor system and custom .NET/.NET Core EventCounters in Applicati
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.custom: devx-track-csharp
-
 ---
 
 # EventCounters introduction

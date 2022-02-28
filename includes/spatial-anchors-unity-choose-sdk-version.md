@@ -1,7 +1,6 @@
 ---
 author: pamistel
-ms.service: spatial-anchors
-
+ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 11/12/2021
 ms.author: pamistel

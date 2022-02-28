@@ -3,7 +3,7 @@ title: Automate threat response with playbooks in Microsoft Sentinel | Microsoft
 description: This article explains automation in Microsoft Sentinel, and shows how to use playbooks to automate threat prevention and response.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 02/21/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -80,7 +80,7 @@ Azure Logic Apps communicates with other systems and services using connectors. 
 
 ### Permissions required
 
- To give your SecOps team the ability to use Logic Apps for Security Orchestration, Automation, and Response (SOAR) operations - that is, to create and run playbooks - in Microsoft Sentinel, you can assign Azure roles, either to specific members of your security operations team or to the whole team. The following describes the different available roles, and the tasks for which they should be assigned:
+ To give your SecOps team the ability to use Logic Apps to create and run playbooks in Microsoft Sentinel, assign Azure roles to your security operations team or to specific users on the team. The following describes the different available roles, and the tasks for which they should be assigned:
 
 #### Azure roles for Logic Apps
 
@@ -222,11 +222,11 @@ For playbooks that are triggered by incident creation and receive incidents as t
 - From the **Automation rules** tab in the **Automation** blade, create a new automation rule and specify the appropriate conditions and desired actions. This automation rule will be applied to any analytics rule that fulfills the specified conditions.
 
     > [!NOTE]
-    > **Microsoft Sentinel automation rules require permissions to run playbooks.**
+    > **Microsoft Sentinel requires permissions to run incident-trigger playbooks.**
     >
-    > To run a playbook from an automation rule, Microsoft Sentinel uses a service account specifically authorized to do so. The use of this account (as opposed to your user account) increases the security level of the service and enables the automation rules API to support CI/CD use cases.
+    > To run a playbook based on the incident trigger, whether manually or from an automation rule, Microsoft Sentinel uses a service account specifically authorized to do so. The use of this account (as opposed to your user account) increases the security level of the service and enables the automation rules API to support CI/CD use cases.
     >
-    > This account must be granted explicit permissions (taking the form of the **Microsoft Sentinel Automation Contributor** role) on the resource group where the playbook resides. At that point, any automation rule will be able to run any playbook in that resource group.
+    > This account must be granted explicit permissions (taking the form of the **Microsoft Sentinel Automation Contributor** role) on the resource group where the playbook resides. At that point, you will be able to run any playbook in that resource group, either manually or from any automation rule.
     >
     > When you add the **run playbook** action to an automation rule, a drop-down list of playbooks will appear for your selection. Playbooks to which Microsoft Sentinel does not have permissions will show as unavailable ("grayed out"). You can grant permission to Microsoft Sentinel on the spot by selecting the **Manage playbook permissions** link.
     >
@@ -248,7 +248,8 @@ For these and other reasons, Microsoft Sentinel allows you to **run playbooks ma
 
 In either of these panels, you'll see two tabs: **Playbooks** and **Runs**.
 
-- In the **Playbooks** tab, you'll see a list of all the playbooks that you have access to and that use the appropriate trigger - the **Microsoft Sentinel Incident** trigger for incident playbooks and the **Microsoft Sentinel Alert** trigger for alert playbooks. Each playbook in the list has a **Run** button which you select to run the playbook immediately.
+- In the **Playbooks** tab, you'll see a list of all the playbooks that you have access to and that use the appropriate trigger - the **Microsoft Sentinel Incident** trigger for incident playbooks and the **Microsoft Sentinel Alert** trigger for alert playbooks. Each playbook in the list has a **Run** button which you select to run the playbook immediately.  
+If you want to run an incident-trigger playbook that you don't see in the list, [see the note about Microsoft Sentinel permissions above](#incident-creation-automated-response).
 
 - In the **Runs** tab, you'll see a list of all the times any playbook has been run on the incident or alert you selected. It might take a few seconds for any just-completed run to appear in this list. Selecting a specific run will open the full run log in Logic Apps.
 

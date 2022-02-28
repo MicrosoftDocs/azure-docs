@@ -333,7 +333,7 @@ Now, if I had an author, I immediately know which books they've written, and con
 
 ## Hybrid data models
 
-We've now looked embedding (or denormalizing) and referencing (or normalizing) data, each have their upsides and each have compromises as we've seen.
+We've now looked at embedding (or denormalizing) and referencing (or normalizing) data which, each have their upsides and compromises as we've seen.
 
 It doesn't always have to be either or, don't be scared to mix things up a little.
 
