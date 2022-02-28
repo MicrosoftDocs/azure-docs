@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: how-to
-ms.date: 02/24/2022
+ms.date: 02/28/2022
 ms.author: lajanuar
 ---
 
@@ -29,10 +29,13 @@ Managed identities for Azure resources are service principals that create an Azu
 * There's no added cost to use managed identities in Azure.
 
 > [!TIP]
-> Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
+>
+> * When using managed identities, don't include a SAS token URL with your HTTP requests—your requests will fail.
+>
+> * Managed identities are a safer way to grant access to data without having SAS tokens included with your HTTP requests.
+
 
 ## Prerequisites
-
 To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/)—if you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
