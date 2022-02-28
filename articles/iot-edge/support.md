@@ -104,9 +104,9 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 | Windows 10 Enterprise | ![Windows 10 Enterprise + AMD64](./media/support/green-check.png) |  | ![Win 10 Enterprise + ARM64](./media/support/green-check.png)<sup>1</sup> |
 | Windows 10 IoT Enterprise | ![Windows 10 IoT Enterprise + AMD64](./media/support/green-check.png) |  | ![Win 10 IoT Enterprise + ARM64](./media/support/green-check.png)<sup>1</sup> |
 | Windows Server 2019 | ![Windows Server 2019 + AMD64](./media/support/green-check.png) |  |  |
-:::moniker-end
 
 <sup>1</sup> Support for this platform using IoT Edge for Linux on Windows is currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+:::moniker-end
 <!-- end 1.2 -->
 
 All Windows operating systems must be version 1809 (build 17763) or later.
