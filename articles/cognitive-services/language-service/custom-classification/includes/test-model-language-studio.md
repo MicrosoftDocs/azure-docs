@@ -20,4 +20,4 @@ ms.custom: language-service-custom-classification
 
 5. In the **Result** tab, you can see the predicted classes for your text. You can also view the JSON response under the **JSON** tab. 
 
-    :::image type="content" source="../media/test-model-results.png" alt-text="A screenshot showing model test results. The example is from CMU Movie Summary, CC BY-SA 3.0, modified by Microsoft" lightbox="../../media/test-model-results.png":::
+    :::image type="content" source="../media/test-model-results.png" alt-text="A screenshot showing model test results. The example is from CMU Movie Summary, CC BY-SA 3.0, modified by Microsoft" lightbox="../media/test-model-results.png":::
