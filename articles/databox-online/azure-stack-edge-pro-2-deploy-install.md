@@ -102,10 +102,11 @@ This device is shipped in two boxes. Complete the following steps to unpack your
     - One single enclosure Azure Stack Edge Pro 2 device
     - One power cord
     - One packaged bezel
+    - A pair of packaged Wi-Fi antennas in the accessory box
     - One packaged mounting accessory which could be:
         - A 4-post rack slide rail, or
         - A 2-post rack slide, or 
-        - A wall mount.
+        - A wall mount (may be packaged separately).
     - A safety, environmental, and regulatory information booklet
 
 
@@ -188,6 +189,7 @@ If deploying a two-node device cluster, make sure to mount both the devices on t
 
 ::: zone-end
 
+ 
 ## Cable the device
 
 Route the cables and then cable your device. The following procedures explain how to cable your Azure Stack Edge Pro 2 device for power and network.
@@ -201,6 +203,7 @@ Route the cables and then cable your device. The following procedures explain ho
 Before you start cabling your device, you need the following things:
 
 - Your Azure Stack Edge Pro 2 physical device, unpacked, and rack mounted.
+- 
 - One power cable (included in the device package).
 - At least one 1-GbE RJ-45 network cable to connect to the Port 1. There are two 1-GbE network interfaces, one used for initial configuration and one for data, on the device. These network interfaces can also act as 10-GbE interfaces.
 - One 100-GbE QSFP28 passive direct attached cable (tested in-house) for each data network interface Port 3 and Port 4 to be configured. At least one data network interface from among Port 2, Port 3, and Port 4 needs to be connected to the Internet (with connectivity to Azure). Here is an example QSFP28 DAC connector: 
@@ -210,6 +213,7 @@ Before you start cabling your device, you need the following things:
     For a full list of supported cables, modules, and switches, see [Connect-X6 DX adapter card compatible firmware](https://docs.nvidia.com/networking/display/ConnectX6DxFirmwarev22271016/Firmware+Compatible+Products). 
 - Access to one power distribution unit.
 - At least one 100-GbE network switch to connect a 10/1-GbE or a 100-GbE network interface to the internet for data. 
+- A pair of Wi-Fi antennas (included in the accessory box).
 
 ::: zone-end
 
@@ -218,6 +222,7 @@ Before you start cabling your device, you need the following things:
 Before you start cabling your device, you need the following things:
 
 - Your two Azure Stack Edge Pro 2 physical devices, unpacked, and rack mounted.
+- 
 - One power cable for each device.
 - Access to one power distribution unit for each device.
 - At least two 1-GbE RJ-45 network cable per device to connect to Port 1 and Port2. There are two 10/1-GbE network interfaces, one used for initial configuration and one for data, on the device. 
@@ -227,6 +232,7 @@ Before you start cabling your device, you need the following things:
 
     For a full list of supported cables, modules, and switches, see [Connect-X6 DX adapter card compatible firmware](https://docs.nvidia.com/networking/display/ConnectX6DxFirmwarev22271016/Firmware+Compatible+Products). 
 - At least one 100-GbE network switch to connect a 1-GbE or a 100-GbE network interface to the internet for data for each device.
+- - A pair of Wi-Fi antennas (included in the accessory box).
  
 ::: zone-end
 
@@ -249,19 +255,23 @@ The front panel on Azure Stack Edge Pro 2 device:
 
 - The back plane of Azure Stack Edge Pro 2 device has:
 
+    ![Ports on the back plane of a device](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
+
     -  Four network interfaces:
 
         - Two 1-Gbps interfaces, Port 1 and Port 2, that can also serve as 10-Gbps interfaces.
         - Two 100-Gbps interfaces, PORT 3 and PORT 4.
     
-    - A baseboard management controller (BMC).
-    
-        ![Ports on the back plane of a device](./media/azure-stack-edge-pro-2-deploy-install/backplane-ports-1.png)
+    - A baseboard management controller (BMC).      
 
     - One network card corresponding to two high-speed ports and two built-in 10/1-GbE ports:
 
         - **Intel Ethernet X722 network adapter** - Port 1, Port 2.
         - **Mellanox dual port 100 GbE ConnectX-6 Dx network adapter** - Port 3, Port 4. See a full list of [Supported cables, switches, and transceivers for ConnectX-6 Dx network adapters](https://docs.nvidia.com/networking/display/ConnectX6DxFirmwarev22271016/Firmware+Compatible+Products).
+        
+    - Two Wi-Fi Sub miniature version A (SMA) connectors located on the faceplate of PCIe card slot located below Port 3 and Port 4. The Wi-Fi antennas are installed on these connectors.
+    
+    
 
 ### Power cabling
 
@@ -288,6 +298,20 @@ Follow these steps to cable your device for power:
 1. Press the power buttons on the front panels to turn on both the devices.
 
 ::: zone-end
+
+### Wi-Fi antenna installation
+
+Follow these steps to install Wi-Fi antennas on your device: 
+
+1. Locate the two Wi-Fi SMA RF threaded connectors on the back plane of the device. These gold-colored connectors are located on the faceplate of PCIe card slot, right below Port 3 and Port 4.
+
+1. Use a clockwise motion to thread the antennas onto the SMA connectors. Secure them using only your fingers. Do not use a tool or wrench.
+
+    >[!NOTE]
+    > Tighten the connectors sufficiently so that the antenna's rotary joints can turn without causing the threaded connectors to become loose.
+
+1. To position the antennas as desired, articulate the hinge and turn the rotary joint.
+
 
 ### Network cabling
 
