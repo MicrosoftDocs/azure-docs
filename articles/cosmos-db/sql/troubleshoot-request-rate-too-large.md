@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix request rate too large exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/25/2021
+ms.date: 02/28/2022
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -121,6 +121,9 @@ For example, this sample output shows that each minute, 30% of Create Document r
 :::image type="content" source="media/troubleshoot-request-rate-too-large/throttled-requests-diagnostic-logs-results.png" alt-text="Requests with 429 in Diagnostic Logs.":::
 
 #### Recommended solution
+##### Use the Azure Cosmos DB capacity planner
+You can leverage the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to understand what is best provisioned throughput based on your workload (volume and type of operations and size of documents). You can customize further the calculations by providing sample data to get a more accurate estimation.
+
 ##### 429s on create, replace, or upsert document requests
 - By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](../index-policy.md) to only index the properties needed.
 This will lower the Request Units required per create document operation, which will reduce the likelihood of seeing 429s or allow you to achieve higher operations per second for the same amount of provisioned RU/s. 
