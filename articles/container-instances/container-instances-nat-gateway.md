@@ -9,7 +9,7 @@ ms.date: 02/04/2021
 
 Setting up a [container group](container-instances-container-groups.md) with an external-facing IP address allows external clients to use the IP address to access a container in the group. For example, a browser can access a web app running in a container. However, currently a container group uses a different IP address for outbound traffic. This egress IP address isn't exposed programmatically, which makes container group monitoring and configuration of client firewall rules more complex.
 
-This article provides steps to configure a container group in a [virtual network](container-instances-virtual-network-concepts.md) integrated with a [Network Address Translation (NAT) gateway](../virtual-network/nat-gateway/nat-gateway.md). By configuring a NAT gateway to SNAT a subnet address range delegated to Azure Container Instances (ACI), you can identify outbound traffic from your container groups. The container group egress traffic will use the public IP address of the NAT gateway. A single NAT gateway can be used by multiple container groups deployed in the virtual network's subnet delegated to ACI.
+This article provides steps to configure a container group in a [virtual network](container-instances-virtual-network-concepts.md) integrated with a [Network Address Translation (NAT) gateway](../virtual-network/nat-gateway/nat-overview.md). By configuring a NAT gateway to SNAT a subnet address range delegated to Azure Container Instances (ACI), you can identify outbound traffic from your container groups. The container group egress traffic will use the public IP address of the NAT gateway. A single NAT gateway can be used by multiple container groups deployed in the virtual network's subnet delegated to ACI.
 
 In this article you use the Azure CLI to create the resources for this scenario:
 
@@ -60,7 +60,7 @@ az container create \
 
 In the following sections, use the Azure CLI to deploy an Azure NAT gateway in the virtual network. For background, see [Tutorial: Create a NAT gateway using Azure CLI](../virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md).
 
-First, use the [az network vnet public-ip create][az-network-public-ip-create] to create a public IP address for the NAT gateway. This will be used to access the Internet. You will receive a warning about an upcoming breaking change where Standard SKU IP addresses will be availability zone aware by default. You can learn more about the use of availability zones and public IP addresses [here](../virtual-network/ip-services/public-ip-addresses#sku). 
+First, use the [az network vnet public-ip create][az-network-public-ip-create] to create a public IP address for the NAT gateway. This will be used to access the Internet. You will receive a warning about an upcoming breaking change where Standard SKU IP addresses will be availability zone aware by default. You can learn more about the use of availability zones and public IP addresses [here](../virtual-network/ip-services/virtual-network--network-interface-addresses#sku). 
 
 ```azurecli
 az network public-ip create \
@@ -142,7 +142,7 @@ echo $NG_PUBLIC_IP
 
 In this article, you set up container groups in a virtual network behind an Azure NAT gateway. By using this configuration, you set up a single, static IP address egress from Azure Container Instances container groups.
 
-For more information about managing egress traffic, see the [Azure NAT gateway](../nat-gateway/index.yml) documentation.
+For troubleshooting assistance, see the [Troubleshoot Azure Virtual Network NAT connectivity](../virtual-network/nat-gateway/troubleshoot-nat.md).
 
 [az-group-create]: /cli/azure/group#az_group_create
 [az-container-create]: /cli/azure/container#az_container_create
