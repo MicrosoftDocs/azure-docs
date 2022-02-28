@@ -12,6 +12,9 @@ ms.author: zxue
 
 # Configure Private Link for Azure Health Data Services
 
+>[!IMPORTANT]
+> Private Link for Azure Health Data Services will be available for use on April 28, 2022.
+
 Private Link enables you to access Azure Health Data Services over a private endpoint. Private Link is a network interface that connects you privately and securely using a private IP address from your virtual network. With Private Link, you can access our services securely from your VNet as a first party service without having to go through a public Domain Name System (DNS). This article describes how to create, test, and manage your Private Endpoint for Azure Health Data Services.
 
 >[!Note]
