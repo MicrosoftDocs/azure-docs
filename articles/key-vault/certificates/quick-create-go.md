@@ -113,7 +113,7 @@ func createCert(client *azcertificates.Client) {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(*pollerResp.ID)
+        fmt.Printf("Created certificate with ID: %s\n", *pollerResp.ID)
 }
 
 func getCert(client *azcertificates.Client) {
