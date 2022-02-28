@@ -17,7 +17,7 @@ ms.custom: seodec2018
 
 [!INCLUDE [Bing move notice](../Bing-Web-Search/includes/bing-move-notice.md)]
 
-Bing Statistics provides analytics for the Bing Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://ms.portal.azure.com) by navigating to your Azure resource and clicking **Enable Bing Statistics**.
+Bing Statistics provides analytics for the Bing Search APIs. These analytics include call volume, top query strings, geographic distribution, and more. You can enable Bing Statistics in the [Azure portal](https://portal.azure.com) by navigating to your Azure resource and clicking **Enable Bing Statistics**.
 
 > [!IMPORTANT]
 > * Bing Statistics is not available with resources on the free `F0` pricing tier.

@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Create and query a dedicated SQL pool (formerly SQL DW) (Azure portal)'
 description: Create and query a dedicated SQL pool (formerly SQL DW) using the Azure portal
-services: synapse-analytics
 author: pimorano
 ms.author: pimorano
 manager: craigg

@@ -22,7 +22,7 @@ ms.author: phjensen
 > PREVIEWS ARE PROVIDED "AS-IS," "WITH ALL FAULTS," AND "AS AVAILABLE," AND ARE EXCLUDED FROM THE SERVICE LEVEL AGREEMENTS AND LIMITED WARRANTY
 > ref:  https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
-This article provides a guide on setup and usage of the new features in preview for **AzAcSnap v5.1**.  These new features can be used with Azure NetApp Files, Azure BareMetal, and now Azure Managed Disk.  This guide should be read along with the documentation for the generally available version of AzAcSnap at [aka.ms/azacsnap](https://aka.ms/azacsnap).
+This article provides a guide on setup and usage of the new features in preview for **AzAcSnap v5.1**.  These new features can be used with Azure NetApp Files, Azure BareMetal, and now Azure Managed Disk.  This guide should be read along with the documentation for the generally available version of AzAcSnap at [aka.ms/azacsnap](./azacsnap-introduction.md).
 
 The four new preview features provided with AzAcSnap v5.1 are:
 - Oracle Database support
@@ -54,7 +54,7 @@ to this document for details on using the preview features.
 New database platforms and operating systems supported with this preview release.
 
 - **Databases**
-  - Oracle Database release 12 or later (refer to [Oracle VM images and their deployment on Microsoft Azure](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions) for details)
+  - Oracle Database release 12 or later (refer to [Oracle VM images and their deployment on Microsoft Azure](../virtual-machines/workloads/oracle/oracle-vm-solutions.md) for details)
 
 - **Operating Systems**
   - Oracle Linux 7+
@@ -70,9 +70,13 @@ This section explains how to enable communication with storage. Ensure the stora
 
 # [Oracle](#tab/oracle)
 
-The snapshot tools communicate with the Oracle database and need a user with appropriate permissions to enable/disable backup mode. The following example
-shows the setup of the Oracle database user, the use of `mkstore` to create an Oracle Wallet, and the `sqlplus` configuration files required for 
+The snapshot tools communicate with the Oracle database and need a user with appropriate permissions to enable/disable backup mode.  After putting the database in backup 
+mode, `azacsnap` will query the Oracle database to get a list of files which have backup-mode as active.  This file list is output into an external file which is in 
+the same location and basename as the log file, but with a ".protected-tables" extension (output filename detailed in the AzAcSnap log file). 
+
+The following examples show the setup of the Oracle database user, the use of `mkstore` to create an Oracle Wallet, and the `sqlplus` configuration files required for 
 communication to the Oracle database. 
+
 The following example commands set up a user (AZACSNAP) in the Oracle database, change the IP address, usernames, and passwords as appropriate:
 
 1. From the Oracle database installation

@@ -223,7 +223,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Specify the name of the record type that you'll be creating
 $LogType = "MyRecordType"
 
-# You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
+# Optional name of a field that includes the timestamp for the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
 $TimeStampField = ""
 
 
@@ -381,6 +381,13 @@ namespace OIAPIExample
 ```
 
 ### Python sample
+
+>[!NOTE]
+> If using Python 2, you may need to change the line:
+> `bytes_to_hash = bytes(string_to_hash, encoding="utf-8")`
+> to
+> `bytes_to_hash = bytes(string_to_hash).encode("utf-8")`
+
 ```python
 import json
 import requests

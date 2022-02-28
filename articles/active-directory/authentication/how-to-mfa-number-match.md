@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 02/23/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -36,6 +36,9 @@ Number matching is available for the following scenarios. When enabled, all scen
 - [Combined SSPR and MFA registration during Authenticator app set up](howto-registration-mfa-sspr-combined.md)
 - [AD FS adapter](howto-mfaserver-adfs-windows-server.md)
 - [NPS extension](howto-mfa-nps-extension.md)
+
+>[!NOTE]
+>For passwordless users, enabling number matching has no impact because it's already part of the passwordless experience. 
 
 ### Multifactor authentication
 
@@ -239,10 +242,6 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
    ![Screenshot of enabling number match.](media/howto-authentication-passwordless-phone/enable-number-matching.png)
 
-
-## Known issues
-
-- Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ## Next steps
 

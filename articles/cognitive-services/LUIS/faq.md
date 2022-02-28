@@ -101,7 +101,7 @@ LUIS has a monthly quota and a per-second quota, based on the pricing tier of th
 
 If your LUIS app request rate exceeds the allowed [quota rate](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/), you can:
 
-* Spread the load to more LUIS apps with the [same app definition](luis-concept-enterprise.md#use-multiple-apps-with-same-app-definition). This includes, optionally, running LUIS from a [container](/azure/cognitive-services/luis/luis-container-howto).
+* Spread the load to more LUIS apps with the [same app definition](luis-concept-enterprise.md#use-multiple-apps-with-same-app-definition). This includes, optionally, running LUIS from a [container](./luis-container-howto.md).
 * Create and [assign multiple keys](luis-concept-enterprise.md#assign-multiple-luis-keys-to-same-app) to the app.
 
 ## Can I Use multiple apps with same app definition?
@@ -112,7 +112,7 @@ To get the same top intent between all the apps, make sure the intent prediction
 
 When training these apps, make sure to [train with all data](luis-how-to-train.md#train-with-all-data).
 
-Designate a single main app. Any utterances that are suggested for review should be added to the main app, then moved back to all the other apps. This is either a full export of the app, or loading the labeled utterances from the main app to the other apps. Loading can be done from either the [LUIS](/azure/cognitive-services/luis/luis-reference-regions) website or the authoring API for a [single utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) or for a [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09).
+Designate a single main app. Any utterances that are suggested for review should be added to the main app, then moved back to all the other apps. This is either a full export of the app, or loading the labeled utterances from the main app to the other apps. Loading can be done from either the [LUIS](./luis-reference-regions.md) website or the authoring API for a [single utterance](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) or for a [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09).
 
 Schedule a periodic review, such as every two weeks, of [endpoint utterances](luis-how-to-review-endpoint-utterances.md) for active learning, then retrain and republish the app.
 
