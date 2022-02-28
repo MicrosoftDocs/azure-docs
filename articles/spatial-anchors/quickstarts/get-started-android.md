@@ -42,6 +42,9 @@ To complete this quickstart, make sure you have:
   <summary>Click to expand</summary>
   
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+
+[!INCLUDE [Create Spatial Anchors resource](../../../../includes/spatial-anchors-get-started-create-resource.md)]
+
 </details>
 
 ## Open the sample project
