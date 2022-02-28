@@ -37,7 +37,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
  
 
-[1776632](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1776632&triage=true&fullScreen=false&_a=edit)
 
 ### General Availability - France digital accessibility requirement
 
@@ -52,7 +51,6 @@ This change provides users who are signing into Azure Active Directory on iOS, A
 ---
  
 
-[1424495](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1424495&triage=true&fullScreen=false&_a=edit)
 
 ### General Availability - Downloadable access review history report
 
@@ -70,7 +68,6 @@ With Azure Active Directory (Azure AD) Access Reviews, you can create a download
 ---
  
 
-[1309010](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1309010&triage=true&fullScreen=false&_a=edit)
 
 ### Public Preview of Identity Protection for Workload Identities
 
@@ -85,7 +82,6 @@ Azure AD Identity Protection is extending its core capabilities of detecting, in
 ---
  
 
-[1213729](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1213729&triage=true&fullScreen=false&_a=edit)
 
 ### Public Preview - Cross-tenant access settings for B2B collaboration
 
@@ -101,7 +97,6 @@ Cross-tenant access settings enable you to control how users in your organizatio
 ---
  
 
-[1424498](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1424498&triage=true&fullScreen=false&_a=edit)
 
 ### Public preview - Create Azure AD access reviews with multiple stages of reviewers
 
@@ -115,8 +110,6 @@ Use multi-stage reviews to create Azure AD access reviews in sequential stages, 
 
 ---
  
-
-[1775818](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1775818&triage=true&fullScreen=false&_a=edit)
 
 ### New Federated Apps available in Azure AD Application gallery - February 2022
 
@@ -139,8 +132,6 @@ For listing your application in the Azure AD app gallery, please read the detail
 ---
  
 
-[1242804](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1242804&triage=true&fullScreen=false&_a=edit)
-
 ### Two new MDA detections in Identity Protection
 
 **Type:** New feature  
@@ -153,8 +144,6 @@ Identity Protection has added two new detections from Microsoft Defender for Clo
 
 ---
  
-
-[1780796](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1780796&triage=true&fullScreen=false&_a=edit)
 
 ### Public preview - New provisioning connectors in the Azure AD Application Gallery - February 2022
 
@@ -175,8 +164,6 @@ For more information about how to better secure your organization by using autom
 
 ---
  
-
-[1686037](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1686037&triage=true&fullScreen=false&_a=edit)
 
 ### General Availability - Privileged Identity Management (PIM) role activation for SharePoint Online enhancements
 
