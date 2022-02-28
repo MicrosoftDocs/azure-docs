@@ -183,7 +183,7 @@ Sample output:
 
 ### Inline script
 
-:::image type="content" source="../azure-monitor/app/media/annotations/inline-script.png" alt-text="Screenshot showing the UI to configure an inline script.":::
+:::image type="content" source="media/transform-data-using-script/inline-script.png" alt-text="Screenshot showing the UI to configure an inline script.":::
 
 Inline scripts integrate well with Pipeline CI/CD since the script is stored as part of the pipeline metadata.
 
