@@ -29,15 +29,15 @@ In the [Azure portal](https://portal.azure.com), select **Resource groups** from
 
 Select **Delete resource group** to delete the resource group and all the resources.
 
-:::image type="content" alt-text="Screenshot that shows deleting the resource group." source="./media/scenario-secure-app-clean-up-resources/delete-resource-group.png":::
+:::image type="content" alt-text="Screenshot that shows deleting the resource group." source="../media/scenario-secure-app-clean-up-resources/delete-resource-group.png":::
 
 This command might take several minutes to run.
 
 ### Delete the app registration
 
 From the portal menu, select **Azure Active Directory** > **App registrations**. Then select the application you created.
-:::image type="content" alt-text="Screenshot that shows selecting app registration." source="./media/scenario-secure-app-clean-up-resources/select-app-registration.png":::
+:::image type="content" alt-text="Screenshot that shows selecting app registration." source="../media/scenario-secure-app-clean-up-resources/select-app-registration.png":::
 
 In the app registration overview, select **Delete**.
-:::image type="content" alt-text="Screenshot that shows deleting the app registration." source="./media/scenario-secure-app-clean-up-resources/delete-app-registration.png":::
+:::image type="content" alt-text="Screenshot that shows deleting the app registration." source="../media/scenario-secure-app-clean-up-resources/delete-app-registration.png":::
 

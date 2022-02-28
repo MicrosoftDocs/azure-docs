@@ -66,10 +66,10 @@ Once the app service has the authenticated identity, you as the system architect
 
 For this tutorial, you need a web app deployed to App Service. You can use an existing web app, or you can follow one of the quickstarts to create and publish a new web app to App Service:
 
-    * [ASP.NET Core](quickstart-dotnetcore.md)
-    * [Node.js](quickstart-nodejs.md) 
-    * [Python](quickstart-python.md)
-    * [Java](quickstart-java.md)
+* [ASP.NET Core](quickstart-dotnetcore.md)
+* [Node.js](quickstart-nodejs.md) 
+* [Python](quickstart-python.md)
+* [Java](quickstart-java.md)
 
 Whether you use an existing web app or create a new one, take note of the following: 
 * **Web app name**.

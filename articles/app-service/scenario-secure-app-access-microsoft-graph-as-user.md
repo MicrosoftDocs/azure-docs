@@ -173,4 +173,4 @@ public class IndexModel : PageModel
 ```
 
 
-[!INCLUDE [second-part](./includes/end.md)]
+[!INCLUDE [second-part](./includes/tutorial-connect-app-access-microsoft-graph-as-user/end.md)]
