@@ -46,7 +46,7 @@ landingContent:
             url: quickstart-host-portal.md
       - linkListType: how-to-guide
         links:
-          - text: Create a Bastion host
+          - text: Deploy Bastion using manual settings
             url: ./tutorial-create-host-portal.md
           - text: Connect to a virtual machine (Linux)
             url: bastion-connect-vm-ssh-linux.md
