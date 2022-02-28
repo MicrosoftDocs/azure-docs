@@ -3,7 +3,7 @@ title:  "Expose applications to the internet using Application Gateway with TLS 
 titleSuffix: Azure Spring Cloud
 description: How to expose applications to internet using Application Gateway with TLS termination
 author: karlerickson
-ms.author: karler
+ms.author: vaangadi
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
@@ -14,12 +14,12 @@ ms.custom: devx-track-java
 
 This article explains how to expose applications to the internet using Application Gateway.
 
-When an Azure Spring Cloud service instance is deployed in your virtual network, applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway. The incoming encrypted traffic can be decrypted at the Application Gateway or it can be passed to Azure Spring Cloud encrypted to achieve end to end TLS/SSL. For dev and test purposes, users can start with SSL termination at Application Gateway. This guide covers this scenario. For production we recommend end to end TLS/SSL with private certificate mentioned in [Exposing applications with end-to-end TLS in a virtual network](./expose-apps-gateway-end-to-end-tls.md) guide.
+When an Azure Spring Cloud service instance is deployed in your virtual network (VNET), applications on the service instance are only accessible in the private network. To make the applications accessible on the Internet, you need to integrate with Azure Application Gateway. The incoming encrypted traffic can be decrypted at the Application Gateway or it can be passed to Azure Spring Cloud encrypted to achieve end-to-end TLS/SSL. For dev and test purposes, you can start with SSL termination at Application Gateway, which is covered in this guide. For production, we recommend end-to-end TLS/SSL with private certificate, as described in [Expose applications with end-to-end TLS in a virtual network](expose-apps-gateway-end-to-end-tls.md).
 
 ## Prerequisites
 
 - [Azure CLI version 2.0.4 or later](/cli/azure/install-azure-cli).
-- An Azure Spring Cloud service instance deployed in a virtual network with an application accessible over the private network using the default `.private.azuremicroservices.io` domain suffix. For more information, see [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md)
+- An Azure Spring Cloud service instance deployed in a virtual network with an application accessible over the private network using the default `.private.azuremicroservices.io` domain suffix. For more information, see [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md)
 - A custom domain to be used to access the application.
 - A certificate, stored in Key Vault, which matches the custom domain to be used to establish the HTTPS listener. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
 
@@ -27,12 +27,12 @@ When an Azure Spring Cloud service instance is deployed in your virtual network,
 
 We recommend that the domain name, as seen by the browser, is the same as the host name which Application Gateway uses to direct traffic to the Azure Spring Cloud back end. This recommendation provides the best experience when using Application Gateway to expose applications hosted in Azure Spring Cloud and residing in a virtual network. If the domain exposed by Application Gateway is different from the domain accepted by Azure Spring Cloud, cookies and generated redirect URLs (for example) can be broken.
 
-To configure Application Gateway in front of Azure Spring Cloud in private VNET, use the following steps.
+To configure Application Gateway in front of Azure Spring Cloud in a private VNET, use the following steps.
 
-1. Follow the instructions in [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md).
-1. Follow the instructions in [Access your application in a private network](./access-app-virtual-network.md).
+1. Follow the instructions in [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md).
+1. Follow the instructions in [Access your application in a private network](access-app-virtual-network.md).
 1. Acquire a certificate for your domain of choice and store that in Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).
-1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Cloud. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Cloud](./tutorial-custom-domain.md).
+1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Cloud. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Cloud](tutorial-custom-domain.md).
 1. Deploy Application Gateway in a virtual network configured according to the following list:
    - Use Azure Spring Cloud in the backend pool, referenced by the domain suffixed with `private.azuremicroservices.io`.
    - Include an HTTPS listener using the same certificate from Key Vault.
@@ -41,14 +41,14 @@ To configure Application Gateway in front of Azure Spring Cloud in private VNET,
 
 ## Define variables
 
-Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in a virtual network](./how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
+Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
 
 ```bash
-SUBSCRIPTION='subscription-id'
-RESOURCE_GROUP='my-resource-group'
+SUBSCRIPTION='<subscription-id>'
+RESOURCE_GROUP='<resource-group-name>'
 LOCATION='eastus'
-SPRING_CLOUD_NAME='name-of-spring-cloud-instance'
-APPNAME='name-of-app-in-azure-spring-cloud'
+SPRING_CLOUD_NAME='<name-of-azure-spring-cloud-instance>'
+APPNAME='<name-of-app-in-azure-spring-cloud>'
 SPRING_APP_PRIVATE_FQDN='$APPNAME.private.azuremicroservices.io'
 VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
 APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
@@ -64,16 +64,14 @@ az login
 az account set --subscription $SUBSCRIPTION
 ```
 
----
-
 ## Configure the public domain name on Azure Spring Cloud
 
 Traffic will enter the application deployed on Azure Spring Cloud using the public domain name. To configure your application to listen to this host name over HTTP, use the following commands to add a custom domain to your app:
 
 ```azurecli
-KV_NAME='name-of-key-vault'
-KV_RG='resource-group-name-of-key-vault'
-CERT_NAME_IN_KV='name-of-certificate-with-intermediaries-in-key-vault'
+KV_NAME='<name-of-key-vault>'
+KV_RG='<resource-group-name-of-key-vault>'
+CERT_NAME_IN_KV='<name-of-certificate-with-intermediaries-in-key-vault>'
 DOMAIN_NAME=myapp.mydomain.com
 
 az spring-cloud app custom-domain bind \
@@ -104,7 +102,7 @@ az network public-ip create \
 
 #### Create a Managed Identity for Application Gateway
 
-Application Gateway will need to be able to access Key Vault to read the certificate. To do so, it will use a User-assigned [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md). Create the Managed Identity by using the following command:
+Application Gateway will need to be able to access Key Vault to read the certificate. To do so, it will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). Create the managed identity by using the following command:
 
 ```azurecli
 APPGW_IDENTITY_NAME='name-for-appgw-managed-identity'
@@ -113,7 +111,7 @@ az identity create \
     --name $APPGW_IDENTITY_NAME
 ```
 
-Then fetch the objectId for the Managed Identity as it will be used later on to give rights to access the certificate in Key Vault:
+Then, use the following command to fetch the `objectId` for the managed identity. This value will be used later on to give rights to access the certificate in Key Vault.
 
 ```azurecli
 APPGW_IDENTITY_CLIENTID=$(az identity show --resource-group $RESOURCE_GROUP --name $APPGW_IDENTITY_NAME --query clientId --output tsv)
@@ -126,8 +124,8 @@ Configure Key Vault using the following command so that the Managed Identity for
 
 ```azurecli
 az keyvault set-policy \
-    --name $KV_NAME \
     --resource-group $KV_RG \
+    --name $KV_NAME \
     --object-id $APPGW_IDENTITY_OID \
     --secret-permissions get list \
     --certificate-permissions get list
