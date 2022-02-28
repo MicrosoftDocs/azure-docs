@@ -14,6 +14,8 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-connect-msi-key-vault/introduction.md)]
 
+## Configure .NET app
+
 1. Clone the sample repository locally and deploy the sample application to App Service. Replace *\<app-name>* with a unique name.
 
     ```azurecli-interactive
@@ -27,5 +29,6 @@ ms.custom: devx-track-azurecli
     az webapp up --sku F1 --resource-group $groupName --name $appName --plan $appName --location $region
     ```
 
+## Configure secrets as app settings
 
 [!INCLUDE [tutorial-content-below-code](./includes/tutorial-connect-msi-key-vault/cleanup.md)]

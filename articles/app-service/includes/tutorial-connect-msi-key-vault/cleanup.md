@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.date: 10/26/2021
+
+ms.reviewer: madsd 
+ms.custom: devx-track-azurecli
+---
+
 1. Configure the Cognitive Services secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY`.
 
     ```azurecli-interactive

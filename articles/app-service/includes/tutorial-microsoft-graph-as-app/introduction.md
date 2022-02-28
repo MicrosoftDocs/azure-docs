@@ -101,7 +101,7 @@ When accessing the Microsoft Graph, the managed identity needs to have proper pe
     az rest --method post --uri $uri --body $body --headers "Content-Type=application/json"
     ```
 
----
+    ---
 
 1. After executing the script, you can verify in the [Azure portal](https://portal.azure.com) that the requested API permissions are assigned to the managed identity.
 
