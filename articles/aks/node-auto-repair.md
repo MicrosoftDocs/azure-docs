@@ -41,6 +41,23 @@ Alternative remediations are investigated by AKS engineers if auto-repair is uns
 If AKS finds multiple unhealthy nodes during a health check, each node is repaired individually before another repair begins.
 
 
+## Node Autodrain
+There may be times where [Scheduled Events](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/scheduled-events) may take place on the underlying infrastructure of AKS nodes, and in the case of Spot instances, the underlying VM can be preempted and taken away.
+
+In these cases Node Autodrain will cordon and drain the node, providing a graceful reschedule of your workloads.
+
+Along with Scheduled Maintenance events, and Preempt, other VM events are now surfaced into the node events:
+
+| Event | Description |   Action   |
+| --- | --- | --- |
+| Freeze | The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files  | No action |
+| Reboot | The Virtual Machine is scheduled for reboot (non-persistent memory is lost). | Cordon & Drain | 
+| Redeploy | The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). | Cordon & Drain |
+| Preempt | The Spot Virtual Machine is being deleted (ephemeral disks are lost). | Cordon & Drain |
+| Terminate | The virtual machine is scheduled to be deleted.| Cordon & Drain |
+
+
+
 ## Limitations
 
 In many cases, AKS can determine if a node is unhealthy and attempt to repair the issue, but there are cases where AKS either can't repair the issue or can't detect that there is an issue. For example, AKS can't detect issues if a node status is not being reported due to error in network configuration, or has failed to initially register as a healthy node.
