@@ -132,7 +132,7 @@ Other options available to you:
 - **Search**: Select this option to search for a specific role/policy.
 - **Columns**: Select one or more of the following to view more information about the request:
     - **Submitted By**
-    - **On Behalf Bf**
+    - **On Behalf Of**
     - **Authorization System**
     - **Tasks/Scope/Policies**
     - **Request Date**
