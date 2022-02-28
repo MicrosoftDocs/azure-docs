@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 10/21/2021
+ms.date: 02/28/2022
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
 ---
@@ -101,6 +101,29 @@ You can show your current defaults using `--list-defaults/-l`:
 
 > [!TIP]
 > Combining with `--output/-o` allows for more readable output formats.
+
+## Security
+
+The `ml` CLI extension for Azure Machine Learning sends data for _all operations_ over the _public internet_. This includes operations that may potentially contain sensitive data, such as job submissions or deploying models. For example, when using the [az ml job](/cli/azure/ml/job?view=azure-cli-latest) commands, the YAML parameter file is sent over the public internet.
+
+If you don't want your data sent over the public internet, you can use the following steps:
+
+1. [Secure your Azure Machine Learning workspace inside a virtual network using a private endpoint](how-to-configure-private-link.md).
+2. [Create a private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
+
+    > [!IMPORTANT]
+    > When configuring the private link, you must create a private endpoint for the Azure Resource Manager in the Azure Virtual Network that contains your Azure Machine Learning workspace.
+    >
+    > To configure the private link for Azure Resource Manager, you must be the _subscription owner_ for the Azure subscription, and an _owner_ or _contributor_ of the root management group. For more information, see [Create a private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
+
+3. Perform CLI operations from a client that is connected to the virtual network. For example, using an Azure VPN gateway, ExpressRoute, or from a virtual machine (jumpbox) inside the virtual network. For more information, see [How to connect to a secure workspace](how-to-secure-workspace-vnet.md#Securely-connect-to-your-workspace).
+
+
+> [!NOTE]
+> In the previous extension (`azure-cli-ml`), if your workspace was [secured with a private endpoint](how-to-configure-private-link.md) operations such as job submission used the private endpoint and virtual network to securely pass data to the workspace. These operations directly connected to the Azure Machine Learning service. Create, update, delete, list, and show operations for the workspace and compute resources were sent over the public internet and connected to the Azure Resource Manager.
+>
+> In the `ml` extension, _all_ operations communicate with the Azure Resource Manager.
+
 
 ## Next steps
 
