@@ -3,14 +3,14 @@ title: Prevent sign-in auto-acceleration using Home Realm Discovery policy
 titleSuffix: Azure AD
 description: Learn how to prevent domain_hint auto-acceleration to federated IDPs.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/09/2022
-ms.author: hirsin
+ms.author: ludwignick
 zone_pivot_groups: home-realm-discovery
 
 #customer intent: As an admin, I want to disable auto-acceleration to federated IDP during sign in using Home Realm Discovery policy

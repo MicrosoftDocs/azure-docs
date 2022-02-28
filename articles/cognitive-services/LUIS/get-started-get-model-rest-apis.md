@@ -9,7 +9,7 @@ ms.devlang: csharp, golang, java, javascript, python
 ms.custom: "seodec18, devx-track-python, devx-track-js, devx-track-csharp"
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/30/2020
 
 zone_pivot_groups: programming-languages-set-one
