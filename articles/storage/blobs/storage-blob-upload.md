@@ -168,8 +168,6 @@ public static async Task UploadToStream
 
 ## Upload by staging blocks and then committing them
 
-You can stage blocks of data in an It's really for avoiding network level failure you fail only one block and retry only one block. There's also performance advantages to uploading in parallel. It's not commonly used.
-
 You can have greater control over how to divide our uploads into blocks by manually staging individual blocks of data. When all of the blocks that make up a blob are staged, you can commit them to Blob Storage. You can use this approach if you want to enhance performance by uploading blocks in parallel. 
 
 ```csharp
