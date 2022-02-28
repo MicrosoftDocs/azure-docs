@@ -177,7 +177,7 @@ Microsoft Defender for Containers brings threat detection, and advanced defences
 - **Kubernetes audit logs to Defender for Cloud** - Enabled by default. This configuration is available at a GCP Project level only. This provides agentless collection of the audit log data through [GCP Cloud Logging](https://cloud.google.com/logging/) to the Microsoft Defender for Cloud backend for further analysis.
 - **Azure Arc-enabled Kubernetes, the Defender extension, and the Azure Policy extension** - Enabled by default. You can install Azure Arc-enabled Kubernetes and its extensions on your GKE clusters in 3 different ways:
     - **(Recommended)** Enable the Defender for Container auto-provisioning at the project level as explained in the instructions below. 
-    - Defender for Cloud recommendations, for per cluster installation, which will appear on the Microsoft Defender for Cloud's Recommendations page. Learn how to [deploy the solution to specific clusters](includes/defender-for-containers-enable-plan-gke.md#deploy-the-solution-to-specific-clusters).
+    - Defender for Cloud recommendations, for per cluster installation, which will appear on the Microsoft Defender for Cloud's Recommendations page. Learn how to [deploy the solution to specific clusters](defender-for-containers-enable.md?tabs=defender-for-container-gke#deploy-the-solution-to-specific-clusters).
     - Manual installation for [Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md), and [extensions](../azure-arc/kubernetes/extensions.md).
 
 **To configure the Containers plan**:
