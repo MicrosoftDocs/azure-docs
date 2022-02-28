@@ -6,8 +6,7 @@ services: azure-spatial-anchors
 ms.date: 01/01/2022
 ms.topic: include
 ms.author: pamistel
-ms.service: spatial-anchors
-
+ms.service: azure-spatial-anchors
 ---
 
 ```csharp

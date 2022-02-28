@@ -2,8 +2,7 @@
 author: pamistel
 ms.author: pamistel
 ms.date: 11/20/2020
-ms.service: spatial-anchors
-
+ms.service: azure-spatial-anchors
 ms.topic: include
 ---
 
