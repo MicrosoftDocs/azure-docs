@@ -104,7 +104,7 @@ The following table captures the Backup management actions and corresponding Azu
 | | Contributor | Subscription |
 
 >[!Note]
->If you've contributor access at the resource group level and want to configure backup from file-share blade, ensure to get *microsoft.recoveryservices/Locations/backupStatus/action* permission at the subscription level. To do so, create a [*custom role*](../role-based-access-control/custom-roles-portal.md#start-from-scratch) and assign this permission.
+>If you've contributor access at the resource group level and want to configure backup from file share blade, ensure to get *microsoft.recoveryservices/Locations/backupStatus/action* permission at the subscription level. To do so, create a [*custom role*](../role-based-access-control/custom-roles-portal.md#start-from-scratch) and assign this permission.
 
 ## Next steps
 
