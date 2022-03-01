@@ -3,7 +3,6 @@ title: Create custom dashboards in Azure Application Insights | Microsoft Docs
 description: Tutorial to create custom KPI dashboards using Azure Application Insights.
 ms.topic: tutorial
 ms.date: 09/30/2020
-
 ms.custom: mvc, contperf-fy21q1
 ---
 

@@ -122,7 +122,7 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fEnab
 
 ### Disable Storage Sense
 
-For Azure Virtual Desktop session host that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
+For Azure Virtual Desktop session hosts that use Windows 10 Enterprise or Windows 10 Enterprise multi-session, we recommend disabling Storage Sense. Disks where the operating system is installed are typically small in size and user data is stored remotely through profile roaming. This scenario results in Storage Sense believing that the disk is critically low on free space. You can disable Storage Sense in the Settings menu under **Storage**, as shown in the following screenshot:
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot of the Storage menu under Settings. The "Storage sense" option is turned off.](media/storagesense.png)

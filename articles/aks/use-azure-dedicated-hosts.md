@@ -62,6 +62,7 @@ The following limitations apply when you integrate Azure Dedicated Host with Azu
 
 * An existing agent pool can't be converted from non-ADH to ADH or ADH to non-ADH.
 * It is not supported to update agent pool from host group A to host group B.
+* Fault domain count can only be 1.
 
 ## Add a Dedicated Host Group to an AKS cluster
 
@@ -80,7 +81,7 @@ Not all host SKUs are available in all regions, and availability zones. You can 
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 ```
 
-## Add Dedicated Hosts to the Host Group
+## Create a Host Group
 
 Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
 
@@ -95,7 +96,40 @@ az vm host group create \
 --name myHostGroup \
 -g myDHResourceGroup \
 -z 1\
---platform-fault-domain-count 2
+--platform-fault-domain-count 1
+```
+
+## Create a Dedicated Host
+
+Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
+
+If you set a fault domain count for your host group, you will need to specify the fault domain for your host.
+
+```azurecli-interactive
+az vm host create \
+--host-group myHostGroup \
+--name myHost \
+--sku DSv3-Type1 \
+--platform-fault-domain 1 \
+-g myDHResourceGroup
+```
+
+## Use a user-assigned Identity
+
+> [!IMPORTANT]
+> A user-assigned Identity with "contributor" role on the Resource Group of the Host Group is required.
+>
+
+First, create a Managed Identity
+
+```azurecli-interactive
+az identity create -g <Resource Group> -n <Managed Identity name>
+```
+
+Assign Managed Identity
+
+```azurecli-interactive
+az role assignment create --assignee <id> --role "Contributor" --scope <Resource id>
 ```
 
 ## Create an AKS cluster using the Host Group

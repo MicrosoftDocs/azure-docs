@@ -4,7 +4,6 @@ description: This article lists Azure Application Insights metrics with supporte
 services: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
-
 ---
 
 # Application Insights standard metrics

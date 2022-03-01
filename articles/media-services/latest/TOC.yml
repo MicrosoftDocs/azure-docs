@@ -196,9 +196,6 @@
     - name: Customer managed keys
       href: concept-use-customer-managed-keys-byok.md
       displayName: customer managed keys, byok, customer keys, keys, management
-    - name: Reset account credentials
-      href: account-reset-account-credentials.md   
-      displayName: reset, account credentials, remove credentials, security, restore, remove, credentials 
   - name: Assets
     items: 
     - name: Assets
@@ -209,7 +206,7 @@
     - name: Overview
       href: encode-concept.md   
       displayName: encode, transcode, encoding, presets, jobs, adaptive, bitrate, billing, h264, h265, aac, audio, video, MP4, HLS, DASH, Smooth
-    - name: Setting up transforms and jobs
+    - name: Transforms and jobs
       href: transform-jobs-concept.md 
       displayName: preset, schema, transform, job, template, encode, encoding, analyze, speech to text, captions, subtitles, transcode         
     - name: Supported file formats  
@@ -291,10 +288,7 @@
     items:
     - name: Dynamic encryption and key delivery
       displayName: content protection, access control, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, AES, AES-128,custom, DRM, CENC, CBCS, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000
-      href: drm-content-protection-concept.md  
-    - name: Design of multi-DRM system 
-      displayName: drm, access control, content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, AES, AES-128,custom, DRM, CENC, CBCS, secure, encrypt, protect, authorization, keys, content keys, key delivery, license, license template, Playready license, SL3000
-      href: architecture-design-multi-drm-system.md  
+      href: drm-content-protection-concept.md
     - name: DRM licenses
       items:
       - name: PlayReady license template
@@ -457,6 +451,9 @@
     - name: Find your subscription ID
       href: setup-azure-subscription-how-to.md
       displayName: how to, how-to, tutorial, find subscription, subscription, subscription id
+    - name: Reset account credentials
+      href: account-reset-account-credentials.md   
+      displayName: reset, account credentials, remove credentials, security, restore, remove, credentials 
   - name: Create assets and upload media
     items:
     - name: Create an asset
@@ -531,10 +528,7 @@
       displayName: jobs, CLI, transform, multiple outputs, multi output
     - name: HTTPS as job input
       href: job-input-from-http-how-to.md
-      displayName: ingest, URL, remote URL, remote ingest, SAS, SAS URL, S3, S3 token, ingest from HTTP, JobInputHttp, blob, storage, storage account, blob file, ingest blob file, upload blob, copy blob, http, https
-  - name: Scale media reserved units CLI
-    href: media-reserved-units-cli-how-to.md   
-    displayName: CLI, MRU, media reserved units, scaling    
+      displayName: ingest, URL, remote URL, remote ingest, SAS, SAS URL, S3, S3 token, ingest from HTTP, JobInputHttp, blob, storage, storage account, blob file, ingest blob file, upload blob, copy blob, http, https    
   - name: Stream live
     items:
     - name: Live event with portal and Wirecast
@@ -545,7 +539,10 @@
       displayName: streaming, stream live, RTMP, RTMPS, ingest, live event, live streaming, live, partner, partners, on-premises, on premises, partner encoder, hardware encoder, hardware, verify, certification, certification, testing, partner testing, partner program 
     - name: Live event error codes
       href: live-event-error-codes-reference.md  
-      displayName: live event, error codes, error, codes, live streaming, debugging, troubleshooting live  
+      displayName: live event, error codes, error, codes, live streaming, debugging, troubleshooting live
+    - name: Scale media reserved units CLI
+      href: media-reserved-units-cli-how-to.md   
+      displayName: CLI, MRU, media reserved units, scaling
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal

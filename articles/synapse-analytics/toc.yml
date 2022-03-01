@@ -1115,6 +1115,8 @@ items:
         href: ../data-factory/connector-square.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Sybase
         href: ../data-factory/connector-sybase.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: TeamDesk
+        href: ../data-factory/connector-teamdesk.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      
       - name: Teradata
         href: ../data-factory/connector-teradata.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Vertica
@@ -1198,6 +1200,8 @@ items:
         href: ../data-factory/update-machine-learning-models.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Stored procedure activity
         href: ../data-factory/transform-data-using-stored-procedure.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Script activity
+        href: ../data-factory/transform-data-using-script.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Compute linked services
         href: ../data-factory/compute-linked-services.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
     - name: Control flow
