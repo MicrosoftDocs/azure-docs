@@ -50,7 +50,7 @@ spname=<sp-name>
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
 
-az ad sp create-for-rbac –name $spname --role Contributor
+az ad sp create-for-rbac –name $spname --role Contributor --scopes /subscriptions/<subscription_id>
 
 SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
 
