@@ -7,7 +7,7 @@ author: sipastak
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/23/2022
+ms.date: 03/1/2022
 ms.author: sipastak
 ---
 
@@ -116,9 +116,9 @@ The following table lists the dimensions of the shipping package in millimeters 
 | 6      | Model 642GT install handling, 2-post (without bezel and with inner rails attached) | 20.4       |
 | 7      | 2-post in box                                                                      | 3.08       |
 |        |                                                                                    |            |
-| 7      | Shipping weight with wall mount                                                    | 31.1       |
-| 8      | Model 642GT install handling without bezel                                         | 19.8       |
-| 9      | Wallmount as packaged                                                              | 2.16       |
+| 8     | Shipping weight with wall mount                                                    | 31.1       |
+| 9      | Model 642GT install handling without bezel                                         | 19.8       |
+| 10      | Wallmount as packaged                                                              | 2.16       |
 
 
 
