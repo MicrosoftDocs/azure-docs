@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/22/2022
+ms.date: 02/28/2022
 ms.author: lajanuar
 ms.custom: ignite-fall-2021
 ---
@@ -22,7 +22,23 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ### Form Recognizer v3.0 preview SDK release update (beta.3/beta.4)
 
- The beta.3/beta.4 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates bug fixes and minor feature updates.
+The beta.3/beta.4 version of the Azure Form Recognizer SDKs has been released. The new beta release incorporates new features, minor feature updates and bug fixes.
+
+>[!NOTE]
+> The beta.3 (C#, JavaScript, Python) and beta.4 (Java) previews contain the same updates and fixes but the versioning is no longer in sync across all programming languages.
+
+This new release includes the following:
+
+* 🆕 [Custom Document models and modes](concept-custom.md):
+  * [Custom template](concept-custom-template.md) (formerly custom form)
+  * [Custom neural](concept-custom-neural.md).
+  * [Custom model—build mode](concept-custom.md#build-mode).
+
+* 🆕 [W-2 prebuilt model](concept-w2.md) (prebuilt-tax.us.w2).
+
+* 🆕 [Read prebuilt model](concept-read.md) (prebuilt-read).
+
+* 🆕 [Invoice prebuilt model (Spanish)](concept-invoice.md#supported-languages-and-locales) (prebuilt-invoice).
 
 ### [**C#**](#tab/csharp)
 
@@ -44,7 +60,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ##### [**SDK reference documentation**](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)
 
-### [**JavaScript](#tab/javascript)
+### [**JavaScript**](#tab/javascript)
 
 **Version 4.0.0-beta.3 (2022-02-10)**
 
