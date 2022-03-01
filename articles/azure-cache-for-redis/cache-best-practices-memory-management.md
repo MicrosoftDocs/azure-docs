@@ -12,7 +12,7 @@ ms.author: franlanglois
 
 ## Eviction policy
 
-Choose an [eviction policy](https://redis.io/topics/lru-cache) that works for your application. The default policy for Azure Cache for Redis is `volatile-lru`, which means that only keys that have a TTL value set are eligible for eviction.  If no keys have a TTL value, then the system won't evict any keys.  If you want the system to allow any key to be evicted if under memory pressure, then you may want to consider the `allkeys-lru` policy.
+Choose an [eviction policy](https://redis.io/topics/lru-cache) that works for your application. The default policy for Azure Cache for Redis is `volatile-lru`, which means that only keys that have a TTL value set with a command like [EXPIRE](https://redis.io/commands/expire) are eligible for eviction.  If no keys have a TTL value, then the system won't evict any keys.  If you want the system to allow any key to be evicted if under memory pressure, then you may want to consider the `allkeys-lru` policy.
 
 ## Keys expiration
 

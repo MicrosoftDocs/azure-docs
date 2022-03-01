@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/23/2022
+ms.date: 03/01/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -103,7 +103,7 @@ The following versions of the Windows and Linux operating system are officially 
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
 
 > [!NOTE]
-> While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distribution:
+> While Azure Arc-enabled servers supports Amazon Linux, the following features are not support by this distribution:
 >
 > * The Dependency agent used by Azure Monitor VM insights
 > * Azure Automation Update Management
@@ -116,8 +116,6 @@ The following versions of the Windows and Linux operating system are officially 
 ### Required permissions
 
 * To onboard machines, you are a member of the **Azure Connected Machine Onboarding** or [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
-
-* To create a service principal in support of onboarding machines at scale using that identity, your account must be a member of the Azure Active Directory [Cloud Application Administrator](../../active-directory/roles/permissions-reference.md#cloud-application-administrator) or [Application Administrator](../../active-directory/roles/permissions-reference.md#application-administrator) role.
 
 * To read, modify, and delete a machine, you are a member of the **Azure Connected Machine Resource Administrator** role in the resource group.
 
@@ -190,18 +188,21 @@ Service Tags:
 
 URLs:
 
-| Agent resource | Description |
-|---------|---------|
-|`azgn*.servicebus.windows.net`|Notification service for extensions|
-|`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Azure Active Directory|
-|`login.microsoftonline.com`|Azure Active Directory|
-|`pas.windows.net`|Azure Active Directory|
-|`*.guestconfiguration.azure.com` |Extension and guest configuration services|
-|`*.his.arc.azure.com`|Metadata and hybrid identity services|
-|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
-|`dc.services.visualstudio.com`|Agent telemetry|
-|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service|
+| Agent resource | Description | When required| Endpoint used with private link |
+|---------|---------|--------|---------|
+|`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
+|`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
+|`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
+|`login.windows.net`|Azure Active Directory|Always| Public |
+|`login.microsoftonline.com`|Azure Active Directory|Always| Public |
+|`pas.windows.net`|Azure Active Directory|Always| Public |
+|`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
+|`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
+|`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
+|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service for extension and connectivity scenarios|Always| Private |
+|`azgn*.servicebus.windows.net`|Notification service for extension and connectivity scenarios|Always| Public |
+|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
+|`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
 For a list of IP addresses for each service tag/region, see the JSON file [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
@@ -237,6 +238,8 @@ The Connected Machine agent for Windows can be installed by using one of the fol
 * Running the file `AzureConnectedMachineAgent.msi`.
 * Manually by running the Windows Installer package `AzureConnectedMachineAgent.msi` from the Command shell.
 * From a PowerShell session using a scripted method.
+
+Installing, updating, and removing the Connected Machine agent will not require you to restart your server.
 
 After installing the Connected Machine agent for Windows, the following system-wide configuration changes are applied.
 
@@ -286,6 +289,8 @@ After installing the Connected Machine agent for Windows, the following system-w
 ### Linux agent installation details
 
 The Connected Machine agent for Linux is provided in the preferred package format for the distribution (.RPM or .DEB) that's hosted in the Microsoft [package repository](https://packages.microsoft.com/). The agent is installed and configured with the shell script bundle [Install_linux_azcmagent.sh](https://aka.ms/azcmagent).
+
+Installing, updating, and removing the Connected Machine agent will not require you to restart your server.
 
 After installing the Connected Machine agent for Linux, the following system-wide configuration changes are applied.
 

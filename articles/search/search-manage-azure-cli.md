@@ -357,7 +357,7 @@ Private endpoints of secured resources that are created through Azure Cognitive 
 
 If you're using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
 
-A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#shared-private-link-resources-management-apis) along with the related **Group ID** values.
+A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#group-ids) along with the related **Group ID** values.
 
 To create the shared private link resource, use [**az search shared-private-link-resource create**](/cli/azure/search/shared-private-link-resource#az_search_shared_private_link_resource_list). Keep in mind that some configuration may be required for the data source before running this command.
 
