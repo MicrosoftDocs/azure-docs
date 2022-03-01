@@ -109,7 +109,7 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Learning paths
+          - text: Azure Virtual Desktop learning paths
             url: /learn/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
           - text: User experience estimator
             url: https://azure.microsoft.com/services/virtual-desktop/assessment/
