@@ -166,7 +166,7 @@ An ISE provides access to resources that are protected by an Azure virtual netwo
 1. Create a .zip file that includes these assembly files at the root folder. Upload the package to your blob container in Azure Storage.
 
    > [!TIP]
-   > Do not use subfolder inside the .zip file. Only assemblies at the root folder of the archive will be deployed to with the SAP connector in your ISE.
+   > Don't use a subfolder inside the .zip file. Only assemblies in the archive's root folder are deployed with the SAP connector in your ISE.
    > 
    > If you use SNC, also include the SNC assemblies and binaries in the same .zip file at the root. 
    > For more information, review the [SNC prerequisites (ISE)](#snc-prerequisites-ise).
