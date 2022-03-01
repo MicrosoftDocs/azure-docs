@@ -12,13 +12,13 @@ This article will help you troubleshoot problems with auto-instrumentation in Az
 > [!NOTE]
 >  Auto-instrumentation used to be known as "codeless attach" before October 2021.
 
-## Telemetry data is not reported after enabling auto-instrumentation
+## Telemetry data isn't reported after enabling auto-instrumentation
 
-Review these common scenarios if you've enabled Azure Application Insights auto-instrumentation for your app service but do not see telemetry data reported.
+Review these common scenarios if you've enabled Azure Application Insights auto-instrumentation for your app service but don't see telemetry data reported.
 
 ### The Application Insights SDK was previously installed
 
-Auto-instrumentation will fail for .NET and .NET Core apps if they were already instrumented with the SDK.
+Auto-instrumentation will fail when .NET and .NET Core apps were already instrumented with the SDK.
 
 Remove the Application Insights SDK if you would like to auto-instrument your app.
 
@@ -39,8 +39,8 @@ Auto-instrumentation will fail if it detects the following libraries.
 - Microsoft.AspNet.TelemetryCorrelation
 - Microsoft.ApplicationInsights
 
-These will need to be removed for auto-instrumentation to succeed.
+These libraries will need to be removed for auto-instrumentation to succeed.
 
-## Additional help
+## More help
 
 If you have questions about Azure Application Insights auto-instrumentation, you can post a question in our [Microsoft Q&A question page](/answers/topics/azure-monitor.html).
