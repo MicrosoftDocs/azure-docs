@@ -22,7 +22,7 @@ This lack of persistence also applies to the resize operation, thus, resizing AK
 
 Suppose you want to resize an existing node pool, called `nodepool1`, from SKU size Standard_DS2_v2 to Standard_DS3_v2. To accomplish this task, you'll need to create a new node pool using Standard_DS3_v2, move workloads from `nodepool1` to the new node pool, and remove `nodepool1`. In this example, we'll call this new node pool `mynodepool`.
 
-:::image type="content" source="./media/resize-node-pool/node-pool-ds2.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named nodepool1 is shown.":::
+:::image type="content" source="./media/resize-node-pool/node-pool-ds2.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named node pool 1, is shown.":::
 
 ```bash
 kubectl get nodes
@@ -81,7 +81,7 @@ When resizing, be sure to consider other requirements and configure your node po
 
 After a few minutes, the new node pool has been created:
 
-:::image type="content" source="./media/resize-node-pool/node-pool-both.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. Two node pools, named nodepool1 and mynodepool, respectively, are shown.":::
+:::image type="content" source="./media/resize-node-pool/node-pool-both.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. Two node pools, named node pool 1 and my node pool, respectively, are shown.":::
 
 ```bash
 kubectl get nodes
@@ -185,7 +185,7 @@ By default, your cluster has AKS_managed pod disruption budgets (such as `coredn
 
 > [!TIP]
 > Consider draining nodes one-by-one for a smoother eviction experience and to avoid throttling. For more information, see:
-> * [Plan for availability using a pod disruption budget][pod-disruption-budget].
+> * [Plan for availability using a pod disruption budget][pod-disruption-budget]
 > * [Specifying a Disruption Budget for your Application][specify-disruption-budget]
 > * [Disruptions][disruptions]
 
@@ -202,7 +202,7 @@ kubectl delete nodepool /
 
 After completion, the final result is the AKS cluster having a single, new node pool with the new, desired SKU size and all the applications and pods properly running:
 
-:::image type="content" source="./media/resize-node-pool/node-pool-ds3.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named mynodepool is shown.":::
+:::image type="content" source="./media/resize-node-pool/node-pool-ds3.png" alt-text="The Azure portal page for the cluster, navigated to Settings > Node pools. One node pool, named my node pool, is shown.":::
 
 ```bash
 kubectl get nodes
@@ -213,7 +213,7 @@ aks-mynodepool-20823458-vmss000001   Ready    agent   63m   v1.21.9
 aks-mynodepool-20823458-vmss000002   Ready    agent   63m   v1.21.9
 ```
 
-## Next Steps
+## Next steps
 
 After resizing a node pool by cordoning and draining, learn more about [using multiple node pools][use-multiple-node-pools].
 
