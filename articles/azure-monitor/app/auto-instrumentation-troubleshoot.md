@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 02/28/2022
 ---
 
-# Troubleshooting
+# Troubleshooting Azure Application Insights auto-instrumentation
 
 This article will help you troubleshoot problems with auto-instrumentation in Azure Application Insights.
 
