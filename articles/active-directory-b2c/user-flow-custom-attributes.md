@@ -89,7 +89,7 @@ Extension attributes can only be registered on an application object, even thoug
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **All applications**.
-1. Select the `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` application.
+1. Select the **b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.** application.
 1. Copy the following identifiers to your clipboard and save them:
     * **Application ID**. Example: `11111111-1111-1111-1111-111111111111`.
     * **Object ID**. Example: `22222222-2222-2222-2222-222222222222`.
