@@ -632,7 +632,7 @@ Normally, the SDK sends data at fixed intervals (typically 30 secs) or whenever 
 
 *.NET*
 
-```.net
+```csharp
 telemetry.Flush();
 // Allow some time for flushing before shutdown.
 System.Threading.Thread.Sleep(5000);
