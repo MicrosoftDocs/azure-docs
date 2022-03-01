@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 ms.author: alkohli
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
@@ -93,7 +93,7 @@ Follow these steps to configure the network for your device.
 
     As you configure the network settings, keep in mind:
 
-    * <!--ENGG TO VERIFY --> Make sure that Port 3 and Port 4 are connected for Network Function Manager deployments. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge](../network-function-manager/deploy-functions.md).
+    * Port 3 and Port 4 are reserved for Network Function Manager workload deployments. For more information, see [Tutorial: Deploy network functions on Azure Stack Edge](../network-function-manager/deploy-functions.md).
     * If DHCP is enabled in your environment, network interfaces are automatically configured. An IP address, subnet, gateway, and DNS are automatically assigned.
     * If DHCP isn't enabled, you can assign static IPs if needed.
     * You can configure your network interface as IPv4.
@@ -202,7 +202,9 @@ Follow these steps to configure the network for your device.
     
     ![Screenshot of the Get started page in the local web UI of an Azure Stack Edge device. The Needs setup is highlighted on the Network tile.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/select-network-1.png)
 
-    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces. Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports. For a new device, the **Network** page is as shown below.
+    On your physical device, there are four network interfaces. Port 1 and Port 2 are 1-Gbps network interfaces that can also serve as 10-Gbps network interfaces. Port 3 and Port 4 are 100-Gbps network interfaces. Port 1 is automatically configured as a management-only port, and Port 2 to Port 4 are all data ports.  Though Port 6 shows up in the local UI as the Wi-Fi port, the Wi-Fi functionality is not available in this release.
+
+    For a new device, the **Network** page is as shown below.
     
     ![Screenshot of the Network page in the local web UI of an Azure Stack Edge device whose network isn't configured.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/network-2.png)
 
@@ -225,6 +227,7 @@ Follow these steps to configure the network for your device.
     * <!--ENGG TO VERIFY --> Network Interface Card (NIC) Teaming or link aggregation isn’t supported with Azure Stack Edge. 
     * <!--ENGG TO VERIFY --> In this release, the 100-GbE interfaces aren't configured for RDMA mode.
     * Serial number for any port corresponds to the node serial number.
+    * Though Port 6 shows up in the local UI as the Wi-Fi port, the Wi-Fi functionality is not available in this release.
 
     Once the device network is configured, the page updates as shown below.
 
@@ -233,6 +236,8 @@ Follow these steps to configure the network for your device.
 
      > [!NOTE]
      > We recommend that you do not switch the local IP address of the network interface from static to DCHP, unless you have another IP address to connect to the device. If using one network interface and you switch to DHCP, there would be no way to determine the DHCP address. If you want to change to a DHCP address, wait until after the device has activated with the service, and then change. You can then view the IPs of all the adapters in the **Device properties** in the Azure portal for your service.
+    
+
 
 ### Reconfigure Port 1 on first node
 
@@ -305,7 +310,7 @@ You'll now prepare the second node for clustering. You'll first need to configur
 Follow the steps to reconfigure Port 1 on second node as you did on the first node:
 
 1. Disconnect the cable on Port 1. Sign in to the local web UI using Port 2 IP address. 
-1. Connect Port 1 via an appropriate cable based on the cabling scheme you chose for first node. 
+1. Connect Port 1 via an appropriate cable and a switch on the second node. 
 1. Assign IPs to the Port 1 on the second node in the same way as that you did on the first node.
 1. After Port 1 on the second node is configured, select **Next: Advanced networking >**.
 
@@ -384,7 +389,6 @@ Follow these steps to configure the cluster witness.
     ![Local web UI "Cluster" page with local witness type selected in "Modify cluster witness" blade on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-cluster-witness-local-1.png)
 
 
-
 ### Add prepared node to cluster
 
 You'll now add the prepared node to the first node and form the cluster. Before you add the prepared node, make sure the networking on the incoming node is configured in the same way as that of this node where you initiated cluster creation.
@@ -401,11 +405,15 @@ You'll now add the prepared node to the first node and form the cluster. Before 
 
 1. Select **Validate & add**. This step takes a few minutes. 
 
-    ![Local web UI "Add node" page with "Add node" option selected for "Existing" on first node](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-node-2.png)
+    ![Local web UI "Add node" page with "Add node" option selected for "Existing" on first node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-node-2.png)
 
     You see a notification when the node is successfully validated.
 
-1. The node is now ready to join the cluster. Select **Apply**. The cluster creation takes several minutes. Once the cluster is created, the page updates to show both the nodes are added.
+1. The node is now ready to join the cluster. Select **Apply**. 
+
+    ![Local web UI "Add node" page with "Apply" option selected for second node.](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/add-node-3.png)
+
+1. A dialog pops us indicating that the cluster creation could take several minutes. Press **OK** to continue. Once the cluster is created, the page updates to show both the nodes are added.
 
 
 ## Configure virtual IPs
