@@ -1,86 +1,75 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+title: Self-service hybrid data access workflows
+description: This article describes how to create and manage hybrid self-service data access workflows in Azure Purview.
+author: nayenama
+ms.author: nayenama
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 03/01/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+# Self-service data access workflows for hybrid data estates
 
-<!--
-This template provides the basic structure of a how-to article.
-See the [how-to guidance](contribute-how-to-write-howto.md) in the contributor guide.
+This guide will take you through the creation and management of Self-Service data access workflow for hybrid data estate. 
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
+## Create and enable self-service data access workflow
 
-<!-- 1. H1
-Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task the 
-user will complete.
--->
+1. Log on to Azure Purview studio and select the Management center. You will see two new icons in the table of contents. 
 
-# [H1 heading here]
+1. To create new workflows, select Workflows. This will take you to the workflow authoring experiences.  
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
+1. To create a new self-service workflow, select ‘+New’ button and you will be presented with different categories of workflows in Purview. To create ‘Approval workflows for business terms’ Select ‘Governance’ and select ‘Continue’.
 
-[Add your introductory paragraph]
+1. In the next screen you will see all the templates provided by Azure Purview to create a self-service data access workflow. Select the template ‘Data access request’ and select ‘Continue’. 
 
-<!-- 3. Prerequisites 
-Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
-Use clear and unambiguous language and use a list format.
--->
+1. You will now be presented with a blade where you need to enter workflow name and optionally add a description. Once you have populated the same, select ‘Continue’. 
 
-## Prerequisites
+1. You will now be presented with a canvas where the selected template is loaded by default.  
 
-- <!-- prerequisite 1 -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-<!-- remove this section if prerequisites are not needed -->
+1. The template has the following steps: 
+    1. Trigger when a data access request is made. 
+    1. Approval connector 
+    1. Condition to check approval status 
+        - If approved:
+            1. Condition to check if data source is registered for use governance (policy) 
+                1. If a data source is registered with policy:
+                    1. Create self-service policy 
+                    1. Send email to requestor that access is provided 
+                1. If data source is not registered with policy:
+                    1. Task connector to assign a task to a user or AAD group to manually provide access to requestor. 
+                    1. Send an email to requestor that access is provided once the task is complete. 
+        - If rejected:
+            1. Send an email to requestor that data access request is denied.
+1. The default template can be used as it is by just populating two fields  
+    1. The approver’s email address or AAD group in ‘Start and Wait for approval’ Connector 
+    1. User email address or AAD group in ‘Create task’ connector who are responsible for manually providing access if the source is not registered with policy. 
+1. You can also modify the template by adding more connectors to suit your organizational needs by adding available connectors. 
+1. Once you are done with defining a workflow, you need to bind the workflow to collection hierarchy path. The binding implies that this workflow is triggered only for data access requests in that collection. To bind a workflow or to apply a scope to a workflow, you need to click on ‘Apply workflow’. Select the scopes you want this workflow to be associated with and click ‘OK’. 
+    >[!NOTE]
+    > Purview workflow engine will always resolve to the closest workflow to which the collection hierarchy path is associated with. In case a direct binding is not found, it will traverse up in the tree to find the workflow associated with the closest parent in the collection tree.
+1. By default, the workflow will be enabled. Finally click on ‘Save and close’ to create and enable the workflow. 
 
-<!-- 4. H2s 
-Required. A how-to article explains how to do a task. The bulk of each H2 should be 
-a procedure.
--->
+## Edit an existing workflow
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+To modify an existing workflow by select the workflow and then click on ‘Edit’ button. You will now be presented with the canvas containing workflow definition. Modify the workflow and click on ‘Save’ to commit changes.
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+## Disable a workflow
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+To disable a workflow, you can select the workflow and click ‘Disable’. You can also disable the workflow by clicking on ‘Edit’ and saving the workflow by change the enable toggle in workflow canvas. 
 
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+## Disable a workflow
+
+To delete a workflow, select the workflow and click on ‘Delete’.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
+
+For more information about workflows, see these articles:
+
+- [What are Azure Purview workflows](concept-workflow.md)
+- [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
+- [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
