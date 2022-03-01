@@ -12,7 +12,7 @@
 
    When the Bastion **Basic SKU**  is configured, you connect to a Windows computer using RDP and port 3389, and to a Linux computer using SSH and port 22. You don't have options to change the port number or the protocol.
 
-   :::image type="content" source="./media/bastion-connect-vm/basic-sku.png" alt-text="Screenshot connection settings expanded." lightbox="./media/bastion-connect-vm/windows-rdp.png":::
+   :::image type="content" source="./media/bastion-connect-vm/basic-sku.png" alt-text="Screenshot of Bastion page." lightbox="./media/bastion-connect-vm/windows-rdp.png":::
 
    When the **Standard SKU** is configured, you have more connection options available. Expand **Connection Settings** to see the options. The following example shows a Windows computer with SSH selected.
 
