@@ -19,7 +19,7 @@ As of May 2022, Azure Cache for Redis rolls over to TLS certificates issued by D
 
 We expect that most Azure Cache for Redis customers won't be affected. However, your application might be affected if you explicitly specify a list of acceptable certificate authorities (CAs), which is known as *certificate pinning*.
 
-For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global/ba-p/3171086). We recommend taking actions recommended in the blog to avoid cache connectivity loss.
+For more information, read this blog that contains instructions on [how to check whether your client application is affected](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-cache-for-redis-tls-upcoming-migration-to-digicert-global/ba-p/3171086). We recommend taking the actions recommended in the blog to avoid cache connectivity loss.
 
 ### Active geo-replication for Azure Cache For Redis Enterprise GA
 
