@@ -179,13 +179,11 @@ items:
               href: conversation-transcription.md
             - name: Real-time Conversation Transcription quickstart
               href: how-to-use-conversation-transcription.md
-            - name: How-to guides
-              items:
-                - name: Handle call center scenarios
-                  displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
-                  href: call-center-transcription.md
-                - name: Asynchronous Conversation transcription
-                  href: how-to-async-conversation-transcription.md
+            - name: Handle call center scenarios
+              displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
+              href: call-center-transcription.md
+            - name: Asynchronous Conversation transcription
+              href: how-to-async-conversation-transcription.md
         - name: Multi-device conversation
           items:
             - name: Multi-device conversation overview
