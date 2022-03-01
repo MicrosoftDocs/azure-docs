@@ -73,7 +73,7 @@ In this section, you use the Azure CLI to create a resource group and an IoT Hub
 
 1. Run the [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create) command to create an IoT hub. It might take a few minutes to create an IoT hub. 
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your IoT hub name.
+    *{YourIotHubName}*. Replace this placeholder below with the name you chose for your IoT hub. An IoT hub name must be globally unique in Azure. This placeholder is used in the rest of this quickstart to represent your IoT hub name.
 
     ```azurecli
     az iot hub create --resource-group MyResourceGroup --name {YourIoTHubName}
@@ -85,7 +85,7 @@ In this section, you create a simulated device in the first CLI session. The sim
 To create and start a simulated device:
 1. Run the [az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) command in the first CLI session. This creates the simulated device identity. 
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
+    *{YourIotHubName}*. Replace this placeholder below with the name you chose for your IoT hub. 
 
     *simDevice*. You can use this name directly for the simulated device in the rest of this quickstart. Optionally, use a different name. 
 
@@ -95,7 +95,7 @@ To create and start a simulated device:
 
 1. Run the [az iot device simulate](/cli/azure/iot/device#az_iot_device_simulate) command in the first CLI session.  This starts the simulated device. The device sends telemetry to your IoT hub and receives messages from it.  
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
+    *{YourIotHubName}*. Replace this placeholder below with the name you chose for your IoT hub. 
 
     ```azurecli
     az iot device simulate -d simDevice -n {YourIoTHubName}
@@ -104,7 +104,7 @@ To create and start a simulated device:
 To monitor a device:
 1. In the second CLI session, run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command. This starts monitoring the simulated device. The output shows telemetry that the simulated device sends to the IoT hub.
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
+    *{YourIotHubName}*. Replace this placeholder below with the name you chose for your IoT hub. 
 
     ```azurecli
     az iot hub monitor-events --output table --hub-name {YourIoTHubName}
@@ -119,7 +119,7 @@ In this section, you use the second CLI session to send a message to the simulat
 
 1. In the first CLI session, confirm that the simulated device is running. If the device has stopped, run the following command to start it:
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
+    *{YourIotHubName}*. Replace this placeholder below with the name you chose for your IoT hub. 
 
     ```azurecli
     az iot device simulate -d simDevice -n {YourIoTHubName}
@@ -127,7 +127,7 @@ In this section, you use the second CLI session to send a message to the simulat
 
 1. In the second CLI session, run the [az iot device c2d-message send](/cli/azure/iot/device/c2d-message#az_iot_device_c2d-message-send) command. This sends a cloud-to-device message from your IoT hub to the simulated device. The message includes a string and two key-value pairs.  
 
-    *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub. 
+    *{YourIotHubName}*. Replace this placeholder below with the name you chose for your IoT hub. 
 
     ```azurecli
     az iot device c2d-message send -d simDevice --data "Hello World" --props "key0=value0;key1=value1" -n {YourIoTHubName}
