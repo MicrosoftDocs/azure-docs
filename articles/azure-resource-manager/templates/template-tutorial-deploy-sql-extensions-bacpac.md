@@ -87,7 +87,12 @@ The BACPAC file must be stored in an Azure Storage account before it can be impo
                              -Blob $bacpacFileName `
                              -Context $storageAccount.Context
 
-    Write-Host "The project name:        $projectName`r`nThe location:            $location`r`nThe storage account key: $storageAccountKey`r`nThe BACPAC file URL:     https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName`r`n`r`nPress [ENTER] to continue ..."
+    Write-Host "The project name:        $projectName`
+    	The location:            $location`
+    	The storage account key: $storageAccountKey`
+    	The BACPAC file URL:     https://$storageAccountName.blob.core.windows.net/$containerName/$bacpacFileName`
+    	"
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
 1. Save the storage account key, BACPAC file URL, project name, and location. You'll use those values when you deploy the template later in this tutorial.
