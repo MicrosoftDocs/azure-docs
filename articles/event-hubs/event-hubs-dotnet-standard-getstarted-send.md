@@ -269,9 +269,9 @@ In this quickstart, you use Azure Storage as the checkpoint store. Follow these 
     Received event: Event 3    
     ```
     These events are the three events you sent to the event hub earlier by running the sender program. 
-1. In the Azure portal, you can verify that there are 3 outgoing messages. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
+1. In the Azure portal, you can verify that there are 3 outgoing messages. These are the messages Event Hubs sent to the receiving application. Refresh the page to update the chart. It may take a few seconds for it to show that the messages have been received. 
 
-    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png" alt-text="Image of the Azure portal page to verify that the event hub received the events" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png":::
+    :::image type="content" source="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png" alt-text="Image of the Azure portal page to verify that the event hub sent events to the receiving app" lightbox="./media/getstarted-dotnet-standard-send-v2/verify-messages-portal-2.png":::
 
 
 ## Next steps
