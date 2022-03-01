@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 02/28/2022
 
 ms.author: justinha
 author: mjsantani
@@ -253,8 +253,11 @@ The nudge will not appear on mobile devices that run Android or iOS.
 
 ## Frequently asked questions
 
-**Will this feature be available for MFA Server?** 
-No. This feature will be available only for users using Azure MFA. 
+**Is registration campaign available for MFA Server?** 
+No. This feature is available only for users using Azure MFA. 
+
+**Can users be nudged within an application?** 
+Nudge is available only on browsers and not on applications.
 
 **How long will the campaign run for?** 
 You can use the APIs to enable the campaign for as long as you like. Whenever you want to be done running the campaign, simply use the APIs to disable the campaign.  
