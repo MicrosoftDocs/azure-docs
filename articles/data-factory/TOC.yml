@@ -524,6 +524,8 @@ items:
       displayName: timeout 
     - name: Shopify
       href: connector-shopify.md
+    - name: Smartsheet
+      href: connector-smartsheet.md
     - name: Snowflake
       href: connector-snowflake.md
     - name: Spark
@@ -545,6 +547,8 @@ items:
       href: connector-web-table.md
     - name: Xero
       href: connector-xero.md
+    - name: Zendesk
+      href: connector-zendesk.md
     - name: XML format
       href: format-xml.md
     - name: Zoho
