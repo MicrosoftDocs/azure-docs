@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/7/2021
+ms.date: 02/28/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
@@ -18,7 +18,7 @@ ms.custom: contperf-fy22q1
 
 # Troubleshooting Azure Digital Twins: Resource health
 
-[Azure Service Health](../service-health/index.yml) is a suite of experiences that can help you diagnose and get support for service problems that affect your Azure resources. It contains **resource health**, **service health**, and **status** information, and reports on both current and past health information.
+[Azure Service Health](../service-health/index.yml) is a suite of experiences that can help you diagnose and get support for service problems that affect your Azure resources. It contains resource health, service health, and status information, and reports on both current and past health information.
 
 ## Use Azure Resource Health
 
