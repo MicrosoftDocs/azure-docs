@@ -58,7 +58,7 @@ In Log Analytics, data collection rules (DCRs) determine the data flow for diffe
 
 Support for DCRs in Microsoft Sentinel includes:
 
-- *Standard DCRs*, currently supported only for AMA-based connectors and the custom logs workflow. 
+- *Standard DCRs*, currently supported only for AMA-based connectors and the [custom logs workflow](../azure-monitor/logs/custom-logs-overview.md). 
 
     Each connector or log source workflow gets its own standard DCR.
 
@@ -69,8 +69,9 @@ Support for DCRs in Microsoft Sentinel includes:
 Microsoft Sentinel's support for ingestion-time transformation depends on the type of data connector you're using. For more in-depth information on ingestion-time transformation and data collection rules, see the following articles in the Azure Monitor documentation:
 
 - [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
-- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
 - [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
+- [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
+- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
 - [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
 - [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
 
