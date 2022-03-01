@@ -50,7 +50,7 @@ The **Alerts** subtab in the **Activity**, **Rule-Based Anomaly**, **Statistical
 - **Create Activity Trigger**: Select this option to [create a new alert trigger](cloudknox-howto-create-alert-trigger.md). 
 - The **Alerts** table displays a list of alerts with the following information:
     - **Alerts**: The name of the alert.
-    - **# of Users Subscribed**: The number of users who have subscribed to the alert.
+    - **# of users subscribed**: The number of users who have subscribed to the alert.
     - **Created By**: The name of the user who created the alert.
     - **Modified By**: The name of the user who modified the alert.
 
