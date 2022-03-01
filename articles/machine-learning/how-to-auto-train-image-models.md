@@ -154,6 +154,8 @@ The following is a sample JSONL file for image classification:
 Once your data is in JSONL format, you can create a TabularDataset with the following code:
 
 ```python
+ws = Workspace.from_config()
+ds = ws.get_default_datastore()
 from azureml.core import Dataset
 
 training_dataset = Dataset.Tabular.from_json_lines_files(
