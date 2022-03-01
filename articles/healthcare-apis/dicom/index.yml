@@ -1,11 +1,10 @@
 ### YamlMime:Landing
 
 title: DICOM service documentation
-summary: DICOM service documentation for Azure Health Data Services. DICOM service is an open source DICOMweb server that is easily deployed on Azure. It allows standards-based communication with any DICOMweb enabled systems for data exchange and introduces integration between DICOM and FHIR. The server identifies and extracts DICOM metadata and injects it into a FHIR endpoint (such as the Azure API for FHIR or FHIR Server for Azure) to create a holistic view of patient data.
-
+summary: DICOM service documentation for Azure Health Data Services. DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It is backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete PHI compliance that you can upload PHI data to the DICOM service and exchange it through secure networks.
 metadata:
   title: Azure Health Data Services DICOM service 
-  description: DICOM service is a managed service within Azure Healthcare APIs that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It is backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete PHI compliance that you can upload PHI data to the DICOM service and exchange it through secure networks.
+  description: DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It is backed by a managed Platform-as-a Service (PaaS) offering in the cloud with complete PHI compliance that you can upload PHI data to the DICOM service and exchange it through secure networks.
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.subservice: fhir

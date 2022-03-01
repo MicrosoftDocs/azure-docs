@@ -11,11 +11,8 @@ items:
   items:
     - name: Get started with the DICOM service
       href: get-started-with-dicom.md
-    - name: Deploy DICOM service
-      expanded: true
-      items:
-        - name: Using Portal
-          href: deploy-dicom-services-in-azure.md
+    - name: Deploy DICOM service using Portal
+      href: deploy-dicom-services-in-azure.md
 - name: How-to guides
   expanded: true
   items:
