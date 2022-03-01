@@ -1,7 +1,7 @@
 ---
 title: Data virtualization
 titleSuffix: Azure SQL Managed Instance 
-description: Learn about different ways for monitoring of Azure SQL Managed Instance management operations.
+description: Learn about data virtualization capabilities of Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: service-overview
@@ -50,7 +50,7 @@ reconfigure;
 go
 ```
 
-If you're new to the data virtualization and want to quickly test functionality, start from querying publicly available data sets available in [Azure Open Datasets](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-catalog), like the [Bing COVID-19 dataset](https://docs.microsoft.com/en-us/azure/open-datasets/dataset-bing-covid-19?tabs=azure-storage) allowing anonymous access:
+If you're new to the data virtualization and want to quickly test functionality, start from querying publicly available data sets available in [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/dataset-catalog), like the [Bing COVID-19 dataset](https://docs.microsoft.com/azure/open-datasets/dataset-bing-covid-19?tabs=azure-storage) allowing anonymous access:
 
 - Bing COVID-19 dataset - parquet: abs://public@pandemicdatalake.blob.core.windows.net/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.parquet
 - Bing COVID-19 dataset - CSV: abs://public@pandemicdatalake.blob.core.windows.net/curated/covid-19/bing_covid-19_data/latest/bing_covid-19_data.csv
