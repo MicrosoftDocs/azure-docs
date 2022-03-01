@@ -1,11 +1,12 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+title: How to request access to a data source in Azure Purview.
+description: This article describes how a user can request access to a data source from within Azure Purview.
+author: nayenama
+ms.author: nayenama
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 03/01/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -78,11 +79,7 @@ context so the customer can determine why they would click the link.
 -->
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+- [What are Azure Purview workflows](concept-workflow.md)
+- [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
+- [Self-service data access workflow for hybrid data estates](how-to-workflow-self-service-data-access-hybrid.md)
