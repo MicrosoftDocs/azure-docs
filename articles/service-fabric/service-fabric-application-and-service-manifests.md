@@ -157,8 +157,8 @@ Within the ServiceManifestImport, you override configuration values in Settings.
 
 **Policies** (not set in the preceding example) describes the log collection, [default run-as](service-fabric-application-runas-security.md), [health](service-fabric-health-introduction.md#health-policies), and [security access](service-fabric-application-runas-security.md) policies to set at the application level, including whether the service(s) have access to the Service Fabric runtime.
 
-> [!NOTE] 
-> By default, Service Fabric applications have access to the Service Fabric runtime, in the form of an endpoint accepting application-specific requests, and environment variables pointing to file paths on the host containing Fabric and application-specific files. Consider disabling this access when the application hosts untrusted code (i.e. code whose provenance is unknown, or which the application owner knows not to be safe to execute). For more information, please see [security best practices in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). 
+> [!NOTE]
+> A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. If you are considering hosting **untrusted applications**, please see [Hosting untrusted applications in a Service Fabric cluster](service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
 >
 
 **Principals** (not set in the preceding example) describe the security principals (users or groups) required to [run services and secure service resources](service-fabric-application-runas-security.md).  Principals are referenced in the **Policies** sections.
