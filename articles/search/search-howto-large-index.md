@@ -25,10 +25,7 @@ For a C# tutorial and code sample, see [Tutorial: Optimize indexing speeds](tuto
 
 ## Indexing large datasets with the "push" API
 
-When pushing large data volumes into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (.NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), batching documents and managing threads are two techniques that improve indexing speed.
-
-+ [Batch multiple documents per request](#batch-multiple-documents-per-request)
-+ [Manage threads](#add-threads-and-a-retry-strategy)
+When pushing large data volumes into an index using the [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) or the [IndexDocuments method (Azure SDK for .NET)](/dotnet/api/azure.search.documents.searchclient.indexdocuments), batching documents and managing threads are two techniques that improve indexing speed.
 
 ### Batch multiple documents per request
 
@@ -39,11 +36,11 @@ Using batches to index documents will significantly improve indexing performance
 + The schema of your index
 + The size of your data
 
-Because the optimal batch size depends on your index and your data, the best approach is to test different batch sizes to determine what results in the fastest indexing speeds for your scenario. [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md) provides sample code for testing batch sizes using the .NET SDK.
+Because the optimal batch size depends on your index and your data, the best approach is to test different batch sizes to determine which one results in the fastest indexing speeds for your scenario. [Tutorial: Optimize indexing with the push API](tutorial-optimize-indexing-push-api.md) provides sample code for testing batch sizes using the .NET SDK.
 
 ### Add threads and a retry strategy
 
-In contrast with indexer APIs, when you're using the push APIs to index documents, your application code should ensure there are sufficient threads to make full use of the available capacity. 
+Indexers have built-in thread management, but when you're using the push APIs, your application code will have to manage threads. Make sure there are sufficient threads to make full use of the available capacity. 
 
 1. [Increase the number of threads](tutorial-optimize-indexing-push-api.md#use-multiple-threadsworkers) in your client code. As you increase the tier of your search service or increase the partitions, you should also increase the number of concurrent threads so that you can take full advantage of the new capacity.
 
@@ -55,11 +52,11 @@ In contrast with indexer APIs, when you're using the push APIs to index document
 
 1. To handle failures, requests should be retried using an [exponential backoff retry strategy](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
-The Azure .NET SDK automatically retries 503s and other failed requests but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy.
+The Azure .NET SDK automatically retries 503s and other failed requests, but you'll need to implement your own logic to retry 207s. Open-source tools such as [Polly](https://github.com/App-vNext/Polly) can also be used to implement a retry strategy.
 
 ## Indexing large datasets with indexers and the "pull" APIs
 
-[Indexers](search-indexer-overview.md) connect to [supported data sources](search-indexer-overview.md#supported-data-sources) for indexing searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
+[Indexers](search-indexer-overview.md) have built-in capabilities that are particularly useful for accommodating larger data sets:
 
 + Indexer schedules allow you to parcel out indexing at regular intervals so that you can spread it out over time.
 
@@ -85,25 +82,29 @@ In practical terms, for index loads spanning several days, you can put the index
 
 ### Run indexers in parallel
 
-If you have partitioned data, you can create indexer-data-source combinations that pull from each data source and write to the same search index. Because each indexer is distinct, you can run them at the same time, populating a search index more quickly than if you ran them sequentially.
+If you partition your data, you can create multiple indexer-data-source combinations that pull from each data source and write to the same search index. Because each indexer is distinct, you can run them at the same time, populating a search index more quickly than if you ran them sequentially. 
 
-There are some risks associated with parallel indexing. First, recall that indexing does not run in the background, increasing the likelihood that queries will be throttled or dropped. Second, Azure Cognitive Search does not lock the index for updates. Concurrent writes are managed, invoking a retry if a particular write does not succeed on first attempt, but you might notice an increase in indexing failures.
+Make sure you have sufficient capacity. One search unit in your service can run one indexer at any given time. Creating multiple indexers is only useful if they can run in parallel.
 
 The number of indexing jobs that can run simultaneously varies for text-based and skills-based indexing. For more information, see [Indexer execution](search-howto-run-reset-indexers.md#indexer-execution).
 
-1. For text-based indexing, [sign in to Azure portal](https://portal.azure.com) and check the number of search units used by your search service. Select **Settings** > **Scale** to view the number at the top of the page. The number of indexers that will run in parallel is approximately equal to the number of search units. 
+1. [Sign in to Azure portal](https://portal.azure.com) and check the number of search units used by your search service. Select **Settings** > **Scale** to view the number at the top of the page. The number of indexers that will run in parallel is approximately equal to the number of search units. 
 
 1. Partition source data among multiple containers or multiple virtual folders inside the same container.
 
-1. Map each partition to its own [data source](/rest/api/searchservice/create-data-source), paired to its own [indexer](/rest/api/searchservice/create-indexer).
+1. Create multiple [data sources](/rest/api/searchservice/create-data-source), one for each partition, paired to its own [indexer](/rest/api/searchservice/create-indexer).
 
 1. Specify the same target search index in each indexer.
 
-1. Schedule the indexers. Review indexer status and execution history for confirmation.
+1. Schedule the indexers. 
+
+1. Review indexer status and execution history for confirmation.
+
+There are some risks associated with parallel indexing. First, recall that indexing does not run in the background, increasing the likelihood that queries will be throttled or dropped. 
+
+Second, Azure Cognitive Search does not lock the index for updates. Concurrent writes are managed, invoking a retry if a particular write does not succeed on first attempt, but you might notice an increase in indexing failures.
 
 Although multiple indexer-data-source sets can target the same index, be careful of indexer runs that can overwrite existing values in the index. If a second indexer-data-source targets the same documents and fields, any values from the first run will be overwritten. Field values are replaced in full; an indexer can't merge values from multiple runs into the same field.
-
-If you're pulling from different data source types, a challenge for this scenario lies in designing an index schema that works for all incoming data, and a document key structure that is uniform in the search index. Natively, the values that uniquely identify a document are metadata_storage_path in a blob container and a primary key in a SQL table. You can imagine that one or both sources must be amended to provide key values in a common format, regardless of content origin. For this scenario, you should expect to perform some level of pre-processing to homogenize the data so that it can be pulled into a single index.  
 
 ## See also
 
