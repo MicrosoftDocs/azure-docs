@@ -16,7 +16,7 @@ Microsoft Defender for Cloud has two main goals:
 - to help you understand your current security situation
 - to help you efficiently and effectively improve your security
 
-The central feature in Defender for Cloud that enables you to achieve those goals is **secure score**.
+The central feature in Defender for Cloud that enables you to achieve those goals is the **secure score**.
 
 Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
@@ -30,17 +30,31 @@ Recommendations are grouped into **security controls**. Each control is a logica
 
 For more information, see [How your secure score is calculated](secure-score-security-controls.md#how-your-secure-score-is-calculated) below. 
 
-## View/manage/navigate your security posture
+## Manage your security posture
 
-Describe the Security posture page here:
+On the Security posture page, you are able to see the secure score for your entire subscription, as well as each environment in your subscription. By default all environments are shown.
 
-in the circle top left - hovering over each section will show a tooltip providing more details on. 
+:::image type="content" source="media/secure-score-security-controls/security-posture-page.png" alt-text="Screenshot of the security posture page.":::
 
-Default environments shows all, select each one to limit the view
+To see the details of a specific environment, you can select an environment by toggling the environment of your choice on or off.
 
-Environment tab
+:::image type="content" source="media/secure-score-security-controls/select-environment.png" alt-text="Screenshot showing the different environment options.":::
 
-Owner tab lists all the owners of each recommendation - who has the most overdue recommendations
+The Environment section shows the total number of subscriptions, accounts and projects that affect your overall score. It also shows how many unhealthy resources and how many recommendations exist in your environments.
+
+:::image type="content" source="media/secure-score-security-controls/environment.png" alt-text="Screenshot of the environment section of the security posture page.":::
+
+The Governance section shows you how many overdue and unassigned recommendations exist in your environment. 
+
+:::image type="content" source="media/secure-score-security-controls/governance.png" alt-text="Screenshot of the governance section of your environment.":::
+
+On the bottom half of the page you can view each manage all of your individual subscriptions, accounts, and projects, by viewing their individual secure scores, number of unhealthy resources and even view their recommendations.
+
+:::image type="content" source="media/secure-score-security-controls/bottom-half.png" alt-text="Screenshot of the bottom half of the security posture page.":::
+
+You can view the owners, and their overdue recommendations by selecting the owners tab.
+
+:::image type="content" source="media/secure-score-security-controls/owner-security.png" alt-text="Screenshot of the security posture page by owner.":::
 
 ## How your secure score is calculated 
 
