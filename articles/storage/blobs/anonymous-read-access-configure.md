@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 03/01/2022
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
@@ -33,10 +33,12 @@ Public access to your data is always prohibited by default. There are two separa
 
 The following table summarizes how both settings together affect public access for a container.
 
-|   | Public access level for the container is set to Private (default setting) | Public access level for the container is set to Container | Public access level for the container is set to Blob |
+|  | Public access level for the container is set to Private (default setting) | Public access level for the container is set to Container | Public access level for the container is set to Blob |
 |--|--|--|--|
 | **Public access is disallowed for the storage account** | No public access to any container in the storage account. | No public access to any container in the storage account. The storage account setting overrides the container setting. | No public access to any container in the storage account. The storage account setting overrides the container setting. |
 | **Public access is allowed for the storage account (default setting)** | No public access to this container (default configuration). | Public access is permitted to this container and its blobs. | Public access is permitted to blobs in this container, but not to the container itself. |
+
+When anonymous public access is permitted for a storage account and configured for a specific container, then a request to read a blob in that container that is passed without an *Authorization* header is accepted by the service, and the blob's data is returned in the response.
 
 ## Allow or disallow public read access for a storage account
 
@@ -171,6 +173,8 @@ To allow or disallow public access for a storage account with a template, create
 > Disallowing public access for a storage account does not affect any static websites hosted in that storage account. The **$web** container is always publicly accessible.
 >
 > After you update the public access setting for the storage account, it may take up to 30 seconds before the change is fully propagated.
+
+When a container is configured for anonymous public access, requests to read data in that container are not authorized. However, any firewall rules that are configured for the storage account remain in effect and will block anonymous traffic.
 
 Allowing or disallowing blob public access requires version 2019-04-01 or later of the Azure Storage resource provider. For more information, see [Azure Storage Resource Provider REST API](/rest/api/storagerp/).
 
