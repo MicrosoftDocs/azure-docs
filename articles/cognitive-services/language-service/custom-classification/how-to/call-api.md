@@ -29,6 +29,8 @@ See the [application development lifecycle](../overview.md#project-development-l
 
 ## Deploy your model
 
+After your model is [trained](train-model.md), you can deploy it. Deploying your model lets you start using it to classify text. You can deploy your model using the [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/language-authoring-apis-2021-11-01-preview/operations/Deployments_TriggerDeploymentJob) or Language Studio. To use Language Studio, see the steps below:
+
 [!INCLUDE [Deploy a model using Language Studio](../includes/deploy-model-language-studio.md)]
 
 If you deploy your model through the Language Studio, your `deployment-name` is `prod`.
