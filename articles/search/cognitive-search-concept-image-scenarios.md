@@ -99,7 +99,7 @@ You cannot turn off image normalization. Skills that iterate over images, such a
 
 ### About normalized images
 
-When "imageAction" is set to a value other then "none", the new *normalized_images* field will contain an array of images. Each  image is a complex type that has the following members:
+When "imageAction" is set to a value other than "none", the new *normalized_images* field will contain an array of images. Each  image is a complex type that has the following members:
 
 | Image member       | Description                             |
 |--------------------|-----------------------------------------|
@@ -583,7 +583,7 @@ The following skillset takes the normalized image (obtained during document crac
 
 ### Custom skill example
 
-The custom skill itself is external to the skillset. In this case, it is Python code that first loops thorough the batch of request records in the custom skill format, then converts the base64-encoded string to an image.
+The custom skill itself is external to the skillset. In this case, it is Python code that first loops through the batch of request records in the custom skill format, then converts the base64-encoded string to an image.
 
 ```python
 # deserialize the request, for each item in the batch

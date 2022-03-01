@@ -184,7 +184,7 @@ This error occurs when the indexer is unable to finish processing a single docum
 
 ## Error: Could not project document
 
-This error occurs when the indexer is attempting to [project data into a knowledge store](knowledge-store-projection-overview.md) and there was an failure in our attempt to do so.  This failure could be consistent and fixable or it could be a transient failure with the projection output sink that you may need to wait and retry in order to resolve.  Here are a set of known failure states and possible resolutions.
+This error occurs when the indexer is attempting to [project data into a knowledge store](knowledge-store-projection-overview.md) and there was a failure on the attempt. This failure could be consistent and fixable, or it could be a transient failure with the projection output sink that you may need to wait and retry in order to resolve. Here is a set of known failure states and possible resolutions.
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
@@ -205,7 +205,7 @@ If any required inputs are missing or if any input is not the right type, the sk
 
 If an optional input is missing, the skill will still run but may produce unexpected output due to the missing input.
 
-In both cases, this warning may be expected due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you may have some documents which do not have an entry for `middleName`. If you to pass `middleName` as an input to a skill in the pipeline, then it is expected that this skill input may be missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
+In both cases, this warning may be expected due to the shape of your data. For example, if you have a document containing information about people with the fields `firstName`, `middleName`, and `lastName`, you may have some documents which do not have an entry for `middleName`. If you pass `middleName` as an input to a skill in the pipeline, then it is expected that this skill input may be missing some of the time. You will need to evaluate your data and scenario to determine whether or not any action is required as a result of this warning.
 
 If you want to provide a default value in case of missing input, you can use the [Conditional skill](cognitive-search-skill-conditional.md) to generate a default value and then use the output of the [Conditional skill](cognitive-search-skill-conditional.md) as the skill input.
 
@@ -267,7 +267,7 @@ Here are some references for the currently supported languages for each of the s
 <a name="skill-input-was-truncated"></a>
 
 ## Warning: Skill input was truncated
-Cognitive skills have limits to the length of text that can be analyzed at once. If the text input of these skills are over that limit, we will truncate the text to meet the limit, and then perform the enrichment on that truncated text. This means that the skill is executed, but not over all of your data.
+Cognitive skills have limits to the length of text that can be analyzed at once. If the text input of these skills is over that limit, we will truncate the text to meet the limit, and then perform the enrichment on that truncated text. This means that the skill is executed, but not over all of your data.
 
 In the example LanguageDetectionSkill below, the `'text'` input field may trigger this warning if it is over the character limit. You can find the skill input limits in the [skills documentation](cognitive-search-predefined-skills.md).
 
@@ -321,7 +321,7 @@ For more information, see [Indexer limits](search-limits-quotas-capacity.md#inde
 <a name="could-not-map-output-field-x-to-search-index"></a>
 
 ## Warning: Could not map output field 'X' to search index
-Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To workaround this issue, double-check your output field-mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
+Output field mappings that reference non-existent/null data will produce warnings for each document and result in an empty index field. To work around this issue, double-check your output field-mapping source paths for possible typos, or set a default value using the [Conditional skill](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). See [Output field mapping](cognitive-search-output-field-mapping.md) for details.
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
