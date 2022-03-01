@@ -15,13 +15,24 @@ ms.author: aahi
 # Service limits for Azure Cognitive Service for Language
 
 > [!NOTE]
-> This article only describes the limits for non-customizable features in Azure Cognitive Service for Language. To see the service limits for customizable features, see the following articles: 
+> This article only describes the limits for pre-configured features in Azure Cognitive Service for Language:
+> To see the service limits for customizable features, see the following articles: 
 > * [Custom classification](../custom-classification/service-limits.md)
 > * [Custom NER](../custom-named-entity-recognition/service-limits.md)
 > * [Conversational language understanding](../conversational-language-understanding/service-limits.md)
 > * [Question answering](../question-answering/concepts/limits.md)
 
-Use this article to find the limits for the size, and rates that you can send data to features of the language service. When using the Language service, keep the following in mind:
+Use this article to find the limits for the size, and rates that you can send data to the following features of the language service. 
+* [Named Entity Recognition (NER)](named-entity-recognition/overview.md) 
+* [Personally Identifiable Information (PII) detection](personally-identifiable-information/overview.md)
+* [Key phrase extraction](key-phrase-extraction/overview.md) 
+* [Entity linking](entity-linking/overview.md)  
+* [Text Analytics for health](text-analytics-for-health/overview.md)
+* [Custom NER](custom-named-entity-recognition/overview.md)
+* [Sentiment analysis and opinion mining](sentiment-opinion-mining/overview.md)
+* [Language detection](language-detection/overview.md)
+
+When using features of the Language service, keep the following in mind:
 
 * Pricing is not affected by data or rate limits. Pricing is based on the number of text records you send to the API, and is subject to your Language resource's [pricing details](https://aka.ms/unifiedLanguagePricing).
     * A text record is measured as 1000 characters. 

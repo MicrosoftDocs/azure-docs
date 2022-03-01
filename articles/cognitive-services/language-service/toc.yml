@@ -246,6 +246,8 @@ items:
         href: entity-linking/how-to/call-api.md
   - name: Reference
     items:
+    - name: Service limits
+      href: concepts/data-limits.md
     - name: REST API
       items:
         - name: v3.2-preview.2
