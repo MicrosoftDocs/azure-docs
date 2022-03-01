@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 02/23/2022
 ms.custom: contperf-fy22q3
 #Customer intent: As a developer new to IoT Hub, learn the basic concepts.

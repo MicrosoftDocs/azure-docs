@@ -7,11 +7,11 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Configure Bastion from VM settings
+  - name: Deploy Bastion with default settings
     href: quickstart-host-portal.md
 - name: Tutorials
   items:
-  - name: Configure Bastion & connect
+  - name: Deploy Bastion - Portal
     href: tutorial-create-host-portal.md
 - name: Concepts
   items:
@@ -33,7 +33,7 @@
       href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
 - name: How-to guides
   items:
-  - name: Configure a bastion host
+  - name: Deploy Bastion
     items:
     - name: Azure portal
       href: tutorial-create-host-portal.md
@@ -41,7 +41,7 @@
       href: bastion-create-host-powershell.md
     - name: Azure CLI
       href: create-host-cli.md
-  - name: Configure and manage bastion settings
+  - name: Configure Bastion settings
     items:
     - name: Upgrade a SKU
       href: upgrade-sku.md
