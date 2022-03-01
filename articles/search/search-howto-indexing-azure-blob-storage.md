@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Blob Storage
@@ -127,11 +127,11 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 1. Add fields for standard metadata properties. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
-## Configure the blob indexer
+## Configure and run the blob indexer
 
-Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. The "configuration" section determines what content gets indexed.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -140,17 +140,17 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
       "dataSourceName" : "my-blob-datasource",
       "targetIndexName" : "my-search-index",
       "parameters": {
-        "batchSize": null,
-        "maxFailedItems": null,
-        "maxFailedItemsPerBatch": null,
-        "base64EncodeKeys": null,
-        "configuration:" {
-            "indexedFileNameExtensions" : ".pdf,.docx",
-            "excludedFileNameExtensions" : ".png,.jpeg",
-            "dataToExtract": "contentAndMetadata",
-            "parsingMode": "default",
-            "imageAction": "none"
-        }
+          "batchSize": null,
+          "maxFailedItems": null,
+          "maxFailedItemsPerBatch": null,
+          "base64EncodeKeys": null,
+          "configuration:" {
+              "indexedFileNameExtensions" : ".pdf,.docx",
+              "excludedFileNameExtensions" : ".png,.jpeg",
+              "dataToExtract": "contentAndMetadata",
+              "parsingMode": "default",
+              "imageAction": "none"
+          }
       },
       "schedule" : { },
       "fieldMappings" : [ ]
@@ -175,9 +175,55 @@ Indexer configuration specifies the inputs, parameters, and properties controlli
 
    In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" and metadata properties to similarly named and typed fields in an index. For metadata properties, the indexer will automatically replace hyphens `-` with underscores in the search index.
 
-1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties. For the full list of parameter descriptions, see [Blob configuration parameters](/rest/api/searchservice/create-indexer#blob-configuration-parameters) in the REST API.
 
-For the full list of parameter descriptions, see [Blob configuration parameters](/rest/api/searchservice/create-indexer#blob-configuration-parameters) in the REST API.
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
+
+## Check indexer status
+
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+
+```http
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+  Content-Type: application/json  
+  api-key: [admin key]
+```
+
+The response includes status and the number of items processed. It should look similar to the following example:
+
+```json
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2022-02-21T00:23:24.957Z",
+            "endTime":"2022-02-21T00:36:47.752Z",
+            "errors":[],
+            "itemsProcessed":1599501,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        },
+        "executionHistory":
+        [
+            {
+                "status":"success",
+                "errorMessage":null,
+                "startTime":"2022-02-21T00:23:24.957Z",
+                "endTime":"2022-02-21T00:36:47.752Z",
+                "errors":[],
+                "itemsProcessed":1599501,
+                "itemsFailed":0,
+                "initialTrackingState":null,
+                "finalTrackingState":null
+            },
+            ... earlier history items
+        ]
+    }
+```
+
+Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
 
 ## How blobs are indexed
 
@@ -254,18 +300,6 @@ Add the following metadata properties and values to blobs in Blob Storage. When 
 | "AzureSearch_Skip" |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
 | "AzureSearch_SkipContent" |`"true"` |This is equivalent to the `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
-## How to index large datasets
-
-Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to [process the data in parallel](search-howto-large-index.md#parallel-indexing). 
-
-1. Partition your data into multiple blob containers or virtual folders.
-
-1. Set up several data sources, one per container or folder. Use the "query" parameter to specify the partition: `"container" : { "name" : "my-container", "query" : "my-folder" }`.
-
-1. Create one indexer for each data source. Point them to the same target index.  
-
-Make sure you have sufficient capacity. One search unit in your service can run one indexer at any given time. Creating multiple indexers is only useful if they can run in parallel.
-
 <a name="DealingWithErrors"></a>
 
 ## Handle errors
@@ -304,3 +338,4 @@ You can now control how you [run the indexer](search-howto-run-reset-indexers.md
 
 + [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
 + [Index large data sets](search-howto-large-index.md)
++ [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)
