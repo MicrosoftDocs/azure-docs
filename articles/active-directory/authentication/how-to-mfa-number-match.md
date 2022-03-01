@@ -82,7 +82,10 @@ To create the registry key that overrides push notifications:
    Value = TRUE
 1. Restart the NPS Service. 
 
-### Policy schema changes 
+### Policy schema changes
+
+>[!NOTE]
+>In Graph Explorer ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
 Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property to **enabled**:
 
@@ -146,7 +149,7 @@ You might need to patch the entire includeTarget to prevent overwriting any prev
             "targetType": "group",
             "id": "all_users",
             "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
+            "displayAppInformationRequiredState": "default",
             "numberMatchingRequiredState": "enabled"
         }
     ]
@@ -162,6 +165,9 @@ GET - https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticatio
  
 We will need to change the **numberMatchingRequiredState** value from **default** to **enabled.** 
 You will need to change the **id** from **all_users** to the ObjectID of the group from the Azure AD portal.
+
+>[!NOTE]
+>If your organization is currently targeting **All users** for enablement of passwordless, and you enable number matching for a single group, the targeting will now be scoped only to that group for passwordless. You will want to ensure you have another group or groups appropriately scoped to passwordless enablement.
 
 You need to PATCH the entire includeTarget to prevent overwriting any previous configuration. We recommend that you do a GET first, and then update only the relevant fields and then PATCH. The example below only shows the update to the **numberMatchingRequiredState**. 
 
@@ -180,7 +186,7 @@ You need to PATCH the entire includeTarget to prevent overwriting any previous c
             "targetType": "group",
             "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a",
             "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
+            "displayAppInformationRequiredState": "default",
             "numberMatchingRequiredState": "enabled"
         }
     ]
@@ -219,7 +225,7 @@ To turn number matching off, you will need to PATCH remove **numberMatchingRequi
             "targetType": "group",
             "id": "all_users",
             "authenticationMode": "any",
-            "displayAppInformationRequiredState": "enabled",
+            "displayAppInformationRequiredState": "default",
             "numberMatchingRequiredState": "default"
         }
     ]
