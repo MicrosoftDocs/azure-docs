@@ -18,10 +18,10 @@ ms.author: inhenkel
 When your Media Services account is created a **default** [Streaming Endpoint](stream-streaming-endpoint-concept.md) is added to your account in the **Stopped** state. To start streaming your content and take advantage of [dynamic packaging](encode-dynamic-packaging-concept.md) and [dynamic encryption](drm-content-protection-concept.md), the streaming endpoint from which you want to stream content has to be in the **Running** state.
 
 This article shows you how to execute the [start](/rest/api/media/streamingendpoints/start) command on your streaming endpoint using different technologies. 
- 
+
 > [!NOTE]
 > You are only billed when your Streaming Endpoint is in running state.
-    
+
 ## Prerequisites
 
 Review:
@@ -54,7 +54,6 @@ az ams streaming-endpoint start [--account-name]
 
 For more information, see [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint#az_ams_streaming_endpointstart).
 
-
 ## [REST](#tab/rest/)
 
 ## Use REST
@@ -66,12 +65,12 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 For more information, see:
 
 * The [start a StreamingEndpoint](/rest/api/media/streamingendpoints/start) reference documentation.
-* Starting a streaming endpoint is an asynchronous operation. 
+* Starting a streaming endpoint is an asynchronous operation.
 
     For information about how to monitor long-running operations, see [Long-running operations](media-services-apis-overview.md).
 * This [Postman collection](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contains examples of multiple REST operations, including on how to start a streaming endpoint.
 
-## [.NET](#tab/.net/)
+## [.NET](#tab/.NET/)
 
 ## Use .NET
 
