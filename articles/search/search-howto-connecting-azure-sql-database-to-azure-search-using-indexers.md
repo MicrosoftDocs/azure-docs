@@ -358,10 +358,6 @@ Yes. However, you need to allow your search service to connect to your database.
 
 Not directly. We do not recommend or support a direct connection, as doing so would require you to open your databases to Internet traffic. Customers have succeeded with this scenario using bridge technologies like Azure Data Factory. For more information, see [Push data to an Azure Cognitive Search index using Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
 
-**Q: Does running an indexer affect my query workload?**
-
-Yes. Indexer runs on one of the nodes in your search service, and that node’s resources are shared between indexing and serving query traffic and other API requests. If you run intensive indexing and query workloads and encounter a high rate of 503 errors or increasing response times, consider [scaling up your search service](search-capacity-planning.md).
-
 **Q: Can I use a secondary replica in a [failover cluster](../azure-sql/database/auto-failover-group-overview.md) as a data source?**
 
 It depends. For full indexing of a table or view, you can use a secondary replica. 
