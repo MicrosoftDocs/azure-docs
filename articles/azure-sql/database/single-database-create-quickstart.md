@@ -9,7 +9,7 @@ ms.topic: quickstart
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 12/09/2021
+ms.date: 01/26/2022 
 ---
 # Quickstart: Create an Azure SQL Database single database
 
@@ -71,27 +71,13 @@ To create a single database in the Azure portal, this quickstart starts at the A
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
+The Azure CLI code blocks in this section create a resource group, server, single database, and server-level IP firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
 
-### Launch Azure Cloud Shell
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com).
-
-When Cloud Shell opens, verify that **Bash** is selected for your environment. Subsequent sessions will use Azure CLI in a Bash environment, Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
-
-### Sign in to Azure
-
-Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription, replacing `<Subscription ID>` with your Azure Subscription ID.  [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-```azurecli-interactive
-subscription="<subscriptionId>" # add subscription here
-
-az account set -s $subscription # ...or use 'az login'
-```
-
-For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Set parameter values
 
@@ -137,29 +123,13 @@ az sql db create \
 
 # [Azure CLI (sql up)](#tab/azure-cli-sql-up)
 
-You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
+The Azure CLI code blocks in this section use the [az sql up](/cli/azure/sql#az_sql_up) command to simplify the database creation process.  With it, you can create a database and all of its associated resources with a single command. This includes the resource group, server name, server location, database name, and login information. The database is created with a default pricing tier of General Purpose, Provisioned, Gen5, 2 vCores.
 
-The following Azure CLI code blocks create a resource group, server, single database, and server-level IP firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-### Launch Azure Cloud Shell
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
-
-To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com).
-
-When Cloud Shell opens, verify that **Bash** is selected for your environment. Subsequent sessions will use Azure CLI in a Bash environment, Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
-
-### Sign in to Azure
-
-Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription, replacing `<Subscription ID>` with your Azure Subscription ID.  [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-```azurecli-interactive
-subscription="<subscriptionId>" # add subscription here
-
-az account set -s $subscription # ...or use 'az login'
-```
-
-For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Set parameter values
 
@@ -174,9 +144,7 @@ Change the location as appropriate for your environment. Replace `0.0.0.0` with 
 
 ### Create a database and resources
 
-The [az sql up](/cli/azure/sql#az_sql_up) command simplifies the database creation process. With it, you can create a database and all of its associated resources with a single command. This includes the resource group, server name, server location, database name, and login information. The database is created with a default pricing tier of General Purpose, Provisioned, Gen5, 2 vCores.
-
-This command creates and configures a [logical server](logical-servers.md) for Azure SQL Database for immediate use. For more granular resource control during database creation, use the standard Azure CLI commands in this article.
+Use the [az sql up](/cli/azure/sql#az_sql_up) command to create and configure a [logical server](logical-servers.md) for Azure SQL Database for immediate use. Make sure to record the generated resource group and server names, so you can manage these resources later.
 
 > [!NOTE]
 > When running the `az sql up` command for the first time, Azure CLI prompts you to install the `db-up` extension. This extension is currently in preview. Accept the installation to continue. For more information about extensions, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
@@ -242,6 +210,8 @@ The following values are used in subsequent commands to create the database and 
    # Show randomized variables
    Write-host "Resource group name is" $resourceGroupName
    Write-host "Server name is" $serverName
+
+
 ```
 
 ### Create resource group
@@ -341,7 +311,7 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command- unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command - unless you have an ongoing need for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup
@@ -349,7 +319,7 @@ az group delete --name $resourceGroup
 
 # [Azure CLI (sql up)](#tab/azure-cli-sql-up)
 
-Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command- unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

@@ -175,5 +175,5 @@ This table shows how this feature is supported in your account and the impact on
 - [Data protection overview](data-protection-overview.md)
 - [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
 - [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
-- [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md)
+- [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md)
 - [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)

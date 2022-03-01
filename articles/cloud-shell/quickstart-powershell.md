@@ -222,7 +222,7 @@ Next time when you use PowerShell in Cloud Shell, the `helloworld.ps1` file will
 ## Use custom profile
 
 You can customize your PowerShell environment, by creating PowerShell profile(s) - `profile.ps1` (or `Microsoft.PowerShell_profile.ps1`).
-Save it under `$profile.CurrentUserAllHosts` (or `$profile.CurrentUserAllHosts`), so that it can be loaded in every PowerShell in Cloud Shell session.
+Save it under `$profile.CurrentUserAllHosts` (or `$profile.CurrentUserCurrentHost`), so that it can be loaded in every PowerShell in Cloud Shell session.
 
 For how to create a profile, refer to [About Profiles][profile].
 

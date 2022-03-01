@@ -50,6 +50,8 @@
     href: concepts-private-clouds-clusters.md
   - name: Run command
     href: concepts-run-command.md
+  - name: Security recommendations
+    href: concepts-security-recommendations.md
   - name: Storage 
     href: concepts-storage.md
 - name: How-to guides

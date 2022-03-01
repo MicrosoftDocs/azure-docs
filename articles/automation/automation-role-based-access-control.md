@@ -34,7 +34,7 @@ In Azure Automation, access is granted by assigning the appropriate Azure role t
 
 ## Role permissions
 
-The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and NotActions, which restrict them.
+The following tables describe the specific permissions given to each role. This can include Actions, which give permissions, and Not Actions, which restrict them.
 
 ### Owner
 
@@ -42,7 +42,7 @@ An Owner can manage everything, including access. The following table shows the 
 
 |Actions|Description|
 |---|---|
-|Microsoft.Automation/automationAccounts/|Create and manage resources of all types.|
+|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types.|
 
 ### Contributor
 
@@ -50,7 +50,7 @@ A Contributor can manage everything except access. The following table shows the
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/|Create and manage resources of all types|
+|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types|
 |**Not Actions**||
 |Microsoft.Authorization/*/Delete| Delete roles and role assignments.       |
 |Microsoft.Authorization/*/Write     |  Create roles and role assignments.       |
@@ -58,11 +58,15 @@ A Contributor can manage everything except access. The following table shows the
 
 ### Reader
 
+>[!Note]
+> We have recently made a change in the built-in Reader role permission for the Automation account. [Learn more](#reader-role-access-permissions)
+
 A Reader can view all the resources in an Automation account but can't make any changes.
 
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|View all resources in an Automation account. |
+
 
 ### Automation Contributor
 
@@ -70,7 +74,7 @@ An Automation Contributor can manage all resources in the Automation account exc
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/*|Create and manage resources of all types under Automation account.|
+|[Microsoft.Automation](/azure/role-based-access-control/resource-provider-operations#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
 |Microsoft.Authorization/*/read|Read roles and role assignments.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
@@ -118,6 +122,7 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
+|[Microsoft.ResourceHealth](/azure/role-based-access-control/resource-provider-operations#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
 
 ### Automation Job Operator
 
@@ -138,6 +143,8 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Reads a Hybrid Runbook Worker Group.|
+|Microsoft.Automation/automationAccounts/jobs/output/read | Gets the output of a job.|
 
 ### Automation Runbook Operator
 
@@ -159,7 +166,6 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |**Actions**  |**Description**  |
 |---------|---------|
 |*/read|Read resources of all types, except secrets.|
-|Microsoft.Automation/automationAccounts/*|Manage Automation accounts.|
 |Microsoft.ClassicCompute/virtualMachines/extensions/*|Create and manage virtual machine extensions.|
 |Microsoft.ClassicStorage/storageAccounts/listKeys/action|List classic storage account keys.|
 |Microsoft.Compute/virtualMachines/extensions/*|Create and manage classic virtual machine extensions.|
@@ -171,6 +177,7 @@ A Log Analytics Contributor can read all monitoring data and edit monitoring set
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Storage/storageAccounts/listKeys/action|List storage account keys.|
 |Microsoft.Support/*|Create and manage support tickets.|
+|Microsoft.HybridCompute/machines/extensions/write| Installs or Updates an Azure Arc extensions.|
 
 ### Log Analytics Reader
 
@@ -231,6 +238,18 @@ A User Access Administrator can manage user access to Azure resources. The follo
 |Microsoft.Authorization/*|Manage authorization|
 |Microsoft.Support/*|Create and manage support tickets|
 
+
+## Reader role access permissions
+
+>[!Important]
+> To strengthen the overall Azure Automation security posture, the built-in RBAC Reader would not have access to Automation account keys through the API call - `GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`. 
+
+The Built-in Reader role for the Automation Account can't use the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION` to fetch the Automation Account keys. This is a high privilege operation providing sensitive information that could pose a security risk of an unwanted malicious actor with low privileges who can get access to automation account keys and can perform actions with elevated privilege level. 
+
+To access the `API – GET /AUTOMATIONACCOUNTS/AGENTREGISTRATIONINFORMATION`, we recommend that you switch to the built-in roles like Owner, Contributor or Automation Contributor to access the Automation account keys. These roles, by default, will have the *listKeys* permission. As a best practice, we recommend that you create a custom role with limited permissions to access the Automation account keys. For a custom role, you need to add 
+`Microsoft.Automation/automationAccounts/listKeys/action` permission to the role definition.
+[Learn more](/azure/role-based-access-control/custom-roles) about how to create custom role from the Azure portal.
+ 
 ## Feature setup permissions
 
 The following sections describe the minimum required permissions needed for enabling the Update Management and Change Tracking and Inventory features.
@@ -306,7 +325,6 @@ Perform the following steps to create the Azure Automation custom role in the Az
                     "Microsoft.Insights/diagnosticSettings/*",
                     "Microsoft.Resources/deployments/*",
                     "Microsoft.Resources/subscriptions/resourceGroups/read",
-                    "Microsoft.Automation/automationAccounts/*",
                     "Microsoft.Support/*"
                 ],
                 "notActions": [],
@@ -344,7 +362,6 @@ Perform the following steps to create the Azure Automation custom role with Powe
            "Microsoft.Insights/diagnosticSettings/*",
            "Microsoft.Resources/deployments/*",
            "Microsoft.Resources/subscriptions/resourceGroups/read",
-           "Microsoft.Automation/automationAccounts/*",
            "Microsoft.Support/*"
        ],
        "NotActions": [],
@@ -355,6 +372,15 @@ Perform the following steps to create the Azure Automation custom role with Powe
    ```
 
 1. Complete the remaining steps as outlined in [Create or update Azure custom roles using Azure PowerShell](./../role-based-access-control/custom-roles-powershell.md#create-a-custom-role-with-json-template). It can take a few minutes for your custom role to appear everywhere.
+
+## Manage Role permissions for Hybrid Worker Groups and Hybrid Workers
+
+You can create [Azure custom roles](/azure/role-based-access-control/custom-roles) in Automation and grant the following permissions to Hybrid Worker Groups and Hybrid Workers:
+
+- [Extension-based Hybrid Runbook Worker](/azure/automation/extension-based-hybrid-runbook-worker-install?tabs=windows#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
+- [Agent-based Windows Hybrid Runbook Worker](/azure/automation/automation-windows-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers)
+ - [Agent-based Linux Hybrid Runbook Worker](/azure/automation/automation-linux-hrw-install#manage-role-permissions-for-hybrid-worker-groups-and-hybrid-workers) 
+
 
 ## Update Management permissions
 

@@ -6,7 +6,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/22/2020
+ms.date: 01/26/2022
 ms.author: mbullwin
 ---
 
@@ -18,19 +18,17 @@ Use the Anomaly Detector client library for C# to:
 * Detect the anomaly status of the latest data point in your time series
 * Detect trend change points in your data set.
 
-[Library reference documentation](https://aka.ms/anomaly-detector-dotnet-ref) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.2) | [Find the code on GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
+[Library reference documentation](https://aka.ms/anomaly-detector-dotnet-ref) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.5) | [Find the code on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/samples)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector"  title="Create an Anomaly Detector resource"  target="_blank">create an Anomaly Detector resource </a> in the Azure portal to get your key and endpoint. Wait for it to deploy and click the **Go to resource** button.
     * You will need the key and endpoint from the resource you create to connect your application to the Anomaly Detector API. You'll paste your key and endpoint into the code below later in the quickstart.
     You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
-
-[!INCLUDE [anomaly-detector-environment-variables](../environment-variables.md)]
 
 ### Create a new .NET Core application
 
@@ -61,80 +59,169 @@ Build succeeded.
 Within the application directory, install the Anomaly Detector client library for .NET with the following command:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector
+dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.5
 ```
 
-From the project directory, open the *program.cs* file and add the following using `directives`:
+## Detect an anomaly from an entire time series
 
-[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
 
-In the application's `main()` method, create variables for your resource's Azure location, and your key as an environment variable. If you created the environment variable after application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable.
+You will need to update the code below and provide your own values for the following variables.
 
-[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
+|Variable name | Value |
+|--------------------------|-------------|
+| `your-endpoint`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal.An example endpoint is: `https://contoso-new-001.cognitiveservices.azure.com/`|
+| `your-apikey` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys allows for secure key rotation with zero downtime.|
+| `request-data.csv` | You need to provide a path to your own sample data stored in csv format to detect an anomaly from. If you would like to use our sample data you can [download sample data here](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/data/request-data.csv) |
 
-## Object model
+From the project directory, open the *program.cs* file and replace with the following code:
 
-The Anomaly Detector client is a [AnomalyDetectorClient](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) object that authenticates to Azure using [ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), which contains your key. The client can do anomaly detection on an entire dataset using [EntireDetectAsync()](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync), or on the latest data point using [LastDetectAsync()](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync). The [ChangePointDetectAsync](https://aka.ms/anomaly-detector-dotnet-ref) method detects points that mark changes in a trend.
+```csharp
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
 
-Time series data is sent as a series of [Points](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.series#Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_Series) in a [Request](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) object. The `Request` object contains properties to describe the data ([Granularity](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.granularity) for example), and parameters for the anomaly detection.
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+using Azure.AI.AnomalyDetector;
+using Azure.AI.AnomalyDetector.Models;
+using Azure.Core.TestFramework;
+using NUnit.Framework;
 
-The Anomaly Detector response is either an [EntireDetectResponse](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse), [LastDetectResponse](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse), or [changePointDetectResponse](https://aka.ms/anomaly-detector-dotnet-ref) object, depending on the method used.
+namespace Azure.AI.AnomalyDetector.Tests.Samples
+{
+    public partial class AnomalyDetectorSamples : SamplesBase<AnomalyDetectorTestEnvironment>
+    {
+        [Test]
+        public async Task DetectEntireSeriesAnomaly()
+        {
+            //read endpoint and apiKey
+            string endpoint = "your-endpoint";
+            string apiKey = "your-apikey";
 
-## Code examples
+            var endpointUri = new Uri(endpoint);
+            var credential = new AzureKeyCredential(apiKey);
 
-These code snippets show you how to do the following with the Anomaly Detector client library for .NET:
+            //create client
+            AnomalyDetectorClient client = new AnomalyDetectorClient(endpointUri, credential);
 
-* [Authenticate the client](#authenticate-the-client)
-* [Load a time series data set from a file](#load-time-series-data-from-a-file)
-* [Detect anomalies in the entire data set](#detect-anomalies-in-the-entire-data-set)
-* [Detect the anomaly status of the latest data point](#detect-the-anomaly-status-of-the-latest-data-point)
-* [Detect the change points in the data set](#detect-change-points-in-the-data-set)
+            //read data
+            string datapath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "samples", "data", "request-data.csv");
 
-## Authenticate the client
+            List<TimeSeriesPoint> list = File.ReadAllLines(datapath, Encoding.UTF8)
+                .Where(e => e.Trim().Length != 0)
+                .Select(e => e.Split(','))
+                .Where(e => e.Length == 2)
+                .Select(e => new TimeSeriesPoint(float.Parse(e[1])){ Timestamp = DateTime.Parse(e[0])}).ToList();
 
-In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials) object with your key, and use it with your endpoint to create an [AnomalyDetectorClient](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) object.
+            //create request
+            DetectRequest request = new DetectRequest(list)
+            {
+                Granularity = TimeGranularity.Daily
+            };
 
-[!code-csharp[Client authentication function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=createClient)]
+            //detect
+            Console.WriteLine("Detecting anomalies in the entire time series.");
 
-## Load time series data from a file
+            try
+            {
+                EntireDetectResponse result = await client.DetectEntireSeriesAsync(request).ConfigureAwait(false);
 
-Download the example data for this quickstart from [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/example-data/request-data.csv):
-1. In your browser, right-click **Raw**.
-2. Click **Save link as**.
-3. Save the file to your application directory, as a .csv file.
+                bool hasAnomaly = false;
+                for (int i = 0; i < request.Series.Count; ++i)
+                {
+                    if (result.IsAnomaly[i])
+                    {
+                        Console.WriteLine("An anomaly was detected at index: {0}.", i);
+                        hasAnomaly = true;
+                    }
+                }
+                if (!hasAnomaly)
+                {
+                    Console.WriteLine("No anomalies detected in the series.");
+                }
+            }
+            catch (RequestFailedException ex)
+            {
+                Console.WriteLine(String.Format("Entire detection failed: {0}", ex.Message));
+                throw;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(String.Format("Detection error. {0}", ex.Message));
+                throw;
+            }
+        }
+    }
+}
+```
 
-This time series data is formatted as a .csv file, and will be sent to the Anomaly Detector API.
+## Code details
 
-Create a new method to read in the time series data and add it to a [Request](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) object. Call `File.ReadAllLines()` with the file path and create a list of [Point](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.point) objects, and strip any new line characters. Extract the values and separate the datestamp from its numerical value, and add them to a new `Point` object.
+### Load time series and create DetectRequest
 
-Make a `Request` object with the series of points, and `Granularity.Daily` for the [Granularity](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity) (or periodicity) of the data points.
+You could download our [sample data](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/tests/samples/data/request-data.csv), read in the time series data and add it to a `DetectRequest` object.
 
-[!code-csharp[load the time series data file](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=GetSeriesFromFile)]
+Call `File.ReadAllLines` with the file path and create a list of `TimeSeriesPoint` objects, and strip any new line characters. Extract the values and separate the timestamp from its numerical value, and add them to a new `TimeSeriesPoint` object.
 
-## Detect anomalies in the entire data set
+Make a `DetectRequest` object with the series of points, and `TimeGranularity.Daily` for the granularity (or periodicity) of the data points.
 
-Create a method to call the client's [EntireDetectAsync()](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_EntireDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) method with the `Request` object and await the response as an [EntireDetectResponse](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse) object. If the time series contains any anomalies, iterate through the response's [IsAnomaly](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse.isanomaly) values and print any that are `true`. These values correspond to the index of anomalous data points, if any were found.
+```c#
+//read data
+string datapath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "samples", "data", "request-data.csv");
 
-[!code-csharp[EntireDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=entireDatasetExample)]
+List<TimeSeriesPoint> list = File.ReadAllLines(datapath, Encoding.UTF8)
+    .Where(e => e.Trim().Length != 0)
+    .Select(e => e.Split(','))
+    .Where(e => e.Length == 2)
+    .Select(e => new TimeSeriesPoint(float.Parse(e[1])){ Timestamp = DateTime.Parse(e[0])}).ToList();
 
-## Detect the anomaly status of the latest data point
+//create request
+DetectRequest request = new DetectRequest(list)
+{
+    Granularity = TimeGranularity.Daily
+};
+```
 
-Create a method to call the client's [LastDetectAsync()](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) method with the `Request` object and await the response as a [LastDetectResponse](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse) object. Check the response's [IsAnomaly](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly) attribute to determine if the latest data point sent was an anomaly or not.
+### Detect anomalies of the entire series
 
-[!code-csharp[LastDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=latestPointExample)]
+Call the client's `DetectEntireSeriesAsync` method with the `DetectRequest` object and await the response as an `EntireDetectResponse` object. Iterate through the response's `IsAnomaly` values and print any that are true. These values correspond to the index of anomalous data points, if any were found.
 
-## Detect change points in the data set
+```C# Snippet:DetectEntireSeriesAnomaly
+//detect
+Console.WriteLine("Detecting anomalies in the entire time series.");
 
-Create a method to call the client's [DetectChangePointAsync](https://aka.ms/anomaly-detector-dotnet-ref) method with the `Request` object and await the response as a [ChangePointDetectResponse](https://aka.ms/anomaly-detector-dotnet-ref) object. Check the response's IsChangePoint values and print any that are `true`. These values correspond to trend change points, if any were found.
+try
+{
+    EntireDetectResponse result = await client.DetectEntireSeriesAsync(request).ConfigureAwait(false);
 
-[!code-csharp[DetectChangePoint() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=changePointExample)]
-
-## Run the application
-
-Run the application with the `dotnet run` command from your application directory.
-
-```dotnetcli
-dotnet run
+    bool hasAnomaly = false;
+    for (int i = 0; i < request.Series.Count; ++i)
+    {
+        if (result.IsAnomaly[i])
+        {
+            Console.WriteLine("An anomaly was detected at index: {0}.", i);
+            hasAnomaly = true;
+        }
+    }
+    if (!hasAnomaly)
+    {
+        Console.WriteLine("No anomalies detected in the series.");
+    }
+}
+catch (RequestFailedException ex)
+{
+    Console.WriteLine(String.Format("Entire detection failed: {0}", ex.Message));
+    throw;
+}
+catch (Exception ex)
+{
+    Console.WriteLine(String.Format("Detection error. {0}", ex.Message));
+    throw;
+}
 ```
 
 [!INCLUDE [anomaly-detector-next-steps](../quickstart-cleanup-next-steps.md)]

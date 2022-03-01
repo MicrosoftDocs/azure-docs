@@ -14,4 +14,4 @@ ZRS for managed disks have the following restrictions:
 
 - Only supported with premium solid-state drives (SSD) and standard SSDs.
 - Currently available only in the West US 2, West Europe, North Europe, and France Central regions.
-- Can't currently be used with Azure Backup or Azure Site Recovery.
+

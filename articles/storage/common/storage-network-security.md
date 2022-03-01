@@ -5,11 +5,11 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/08/2021
+ms.date: 02/16/2022
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Configure Azure Storage firewalls and virtual networks
@@ -18,7 +18,7 @@ Azure Storage provides a layered security model. This model enables you to secur
 
 Storage accounts have a public endpoint that is accessible through the internet. You can also create [Private Endpoints for your storage account](storage-private-endpoints.md), which assigns a private IP address from your VNet to the storage account, and secures all traffic between your VNet and the storage account over a private link. The Azure storage firewall provides access control for the public endpoint of your storage account. You can also use the firewall to block all access through the public endpoint when using private endpoints. Your storage firewall configuration also enables select trusted Azure platform services to access the storage account securely.
 
-An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token.
+An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token. When a blob container is configured for anonymous public access, requests to read data in that container are not authorized, but the firewall rules remain in effect and will block anonymous traffic.
 
 > [!IMPORTANT]
 > Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
@@ -132,7 +132,7 @@ To apply a virtual network rule to a storage account, the user must have the app
 Storage account and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
 > [!NOTE]
-> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through Powershell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
+> Configuration of rules that grant access to subnets in virtual networks that are a part of a different Azure Active Directory tenant are currently only supported through PowerShell, CLI and REST APIs. Such rules cannot be configured through the Azure portal, though they may be viewed in the portal.
 
 ### Available virtual network regions
 
@@ -238,7 +238,7 @@ You can manage virtual network rules for storage accounts through the Azure port
     > [!NOTE]
     > If a service endpoint for Azure Storage wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
     >
-    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , Powershell, CLI or REST APIs.
+    > Presently, only virtual networks belonging to the same Azure Active Directory tenant are shown for selection during rule creation. To grant access to a subnet in a virtual network belonging to another tenant, please use , PowerShell, CLI or REST APIs.
     > 
     > Even if you registered the `AllowGlobalTagsForStorageOnly` feature, subnets in regions other than the region of the storage account or its paired region aren't shown for selection. If you want to enable access to your storage account from a virtual network/subnet in a different region, use the instructions in the PowerShell or Azure CLI tabs.
 
@@ -471,11 +471,13 @@ You can add or remove resource network rules in the Azure portal.
 
 3. Select **Networking** to display the configuration page for networking.
 
-4. In the **Resource type** drop-down list, choose the resource type of your resource instance.
+4. Under **Firewalls and virtual networks**, for **Selected networks**, select to allow access.
 
-5. In the **Instance name** drop-down list, choose the resource instance. You can also choose to include all resource instances in the active tenant, subscription, or resource group.
+5. Scroll down to find **Resource instances**, and in the **Resource type** dropdown list, choose the resource type of your resource instance.
 
-6. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page.
+6. In the **Instance name** dropdown list, choose the resource instance. You can also choose to include all resource instances in the active tenant, subscription, or resource group.
+
+7. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page.
 
 To remove the resource instance, select the delete icon (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) next to the resource instance.
 
@@ -670,7 +672,7 @@ You can use the same technique for an account that has the hierarchical namespac
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
-| Azure Cache for Redis | Microsoft.Cache/Redis | Allows access to storage accounts through Azure Cache for Redis. | 
+| Azure Cache for Redis | Microsoft.Cache/Redis | Allows access to storage accounts through Azure Cache for Redis. [Learn more](../../azure-cache-for-redis/cache-managed-identity.md)| 
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Enables Cognitive Services to access storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
@@ -685,7 +687,7 @@ You can use the same technique for an account that has the hierarchical namespac
 | Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
 | Azure Media Services           | Microsoft.Media/mediaservices          | Allows access to storage accounts through Media Services. |
 | Azure Migrate                  | Microsoft.Migrate/migrateprojects      | Allows access to storage accounts through Azure Migrate. |
-| Azure Purview                  | Microsoft.Purview/accounts             | Allows Purview to access storage accounts. |
+| Azure Purview                  | Microsoft.Purview/accounts             | Allows Azure Purview to access storage accounts. |
 | Azure Remote Rendering         | Microsoft.MixedReality/remoteRenderingAccounts | Allows access to storage accounts through Remote Rendering. |
 | Azure Site Recovery            | Microsoft.RecoveryServices/vaults      | Allows access to storage accounts through Site Recovery. |
 | Azure SQL Database             | Microsoft.Sql                          | Allows [writing](../../azure-sql/database/audit-write-storage-account-behind-vnet-firewall.md) audit data to storage accounts behind firewall. |

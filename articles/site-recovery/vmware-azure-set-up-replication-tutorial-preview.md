@@ -126,15 +126,15 @@ Follow these steps to enable replication:
 
 10. Create a new replication policy if needed.
 
-     A default replication policy gets created under the vault with 72 hour recovery point retention and 4 hour app consistency frequency.  You can create a new replication policy as per your RPO requirements.
+     A default replication policy gets created under the vault with 3 days recovery point retention and app-consistent recovery points disabled by default. You can create a new replication policy or modify the existing one as per your RPO requirements.
 
      - Select **Create new**.
 
-     - Enter the Name.
+     - Enter the **Name**.
 
-     - Enter **Recovery point retention** in hours
+     - Enter a value for **Retention period (in days)**. You can enter any value ranging from 0 to 15.
 
-     - Select **App-consistent snapshot frequency in hours** as per business requirements
+     - **Enable app consistency frequency** if you wish and enter a value for **App-consistent snapshot frequency (in hours)** as per business requirements.
 
      - Select **OK** to save the policy.
 

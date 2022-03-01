@@ -44,7 +44,7 @@ Additionally, you can choose from several variations of the Custom Vision algori
 
 The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision website](https://customvision.ai/). You can create, test, and train a model through either interface or use both together.
 
-### Supported browsers for Custom Vision website
+### Supported browsers for Custom Vision web portal
 
 The Custom Vision web interface can be used by the following web browsers:
 -	Microsoft Edge (latest version)

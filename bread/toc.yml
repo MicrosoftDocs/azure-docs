@@ -617,7 +617,7 @@
     - name: Data Transformation
       tocHref: /azure/healthcare-apis/data-transformation/
       topicHref: /azure/healthcare-apis/fhir/convert-data
-    - name: IoT Connector
+    - name: IoT connector
       tocHref: /azure/healthcare-apis/iot/
       topicHref: /azure/healthcare-apis/iot/index
   - name: Azure API for FHIR
@@ -846,6 +846,9 @@
   - name: Private Link
     tocHref: /azure/private-link/
     topicHref: /azure/private-link/
+  - name: Private 5G Core
+    tocHref: /azure/private-5g-core/
+    topicHref: /azure/private-5g-core/
   - name: Azure Cache for Redis
     tocHref: /azure/azure-cache-for-redis/
     topicHref: /azure/azure-cache-for-redis/
@@ -1051,7 +1054,7 @@
     - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
-  - name: Purview
+  - name: Azure Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
   - name: Applied AI Services 
@@ -1073,3 +1076,13 @@
   - name: Azure Orbital
     tocHref: /azure/orbital/
     topicHref: /azure/orbital/
+  - name: Load Testing
+    tocHref: /azure/load-testing/
+    topicHref: /azure/load-testing/overview-what-is-azure-load-testing
+  - name: Azure Spring Cloud
+    tocHref: /azure/spring-cloud/
+    topicHref: /azure/spring-cloud/index
+    items:
+    - name: Enterprise tier
+      tocHref: /azure/spring-cloud/enterprise
+      topicHref: /azure/spring-cloud/overview#enterprise-tier-overview

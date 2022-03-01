@@ -8,17 +8,16 @@ metadata:
   ms.service: active-directory
   ms.subservice: app-proxy
   ms.workload: identity
-  ms.topic: reference
-  ms.date: 12/17/2021
+  ms.topic: faq
+  ms.date: 01/10/2022
   ms.author: kenwith
   ms.reviewer: ashishj
-    
 title: Active Directory (Azure AD) Application Proxy frequently asked questions
 summary: This page answers frequently asked questions about Azure Active Directory (Azure AD) Application Proxy.
 
 
 sections:
-  - name: Ignored
+  - name: General
     questions:
       - question: |
          Can I delete an App Proxy app from the App registrations page in the Azure portal? 
@@ -62,8 +61,8 @@ sections:
         answer: |
           No, this scenario isn't supported. The default settings are:
           
-          - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
-          - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
+          - Microsoft Azure Active Directory Application Proxy Connector - WAPCSvc - Network Service
+          - Microsoft Azure Active Directory Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
           
       - question: |
          Can a guest user with the Global Administrator or the Application Administrator role register the connector for the (guest) tenant?
@@ -102,7 +101,7 @@ sections:
           
           1. Select **Start**, type "Perfmon", and press ENTER.
           2. Select **Performance Monitor** and click the green **+** icon.
-          3. Add the **Microsoft AAD Application Proxy Connector** counters you want to monitor.
+          3. Add the **Microsoft Azure Active Directory Application Proxy Connector** counters you want to monitor.
           
       - question: |
          Does the Azure AD Application Proxy connector have to be on the same subnet as the resource?
@@ -117,6 +116,12 @@ sections:
           ```
           HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
           ```
+          
+      - question: |
+         Why is the connector still showing in Azure AD portal after I uninstalled the connector from the Server?
+        answer: |
+           When a connector is running, it remains active as it connects to the service. Uninstalled /Unused connectors are tagged as inactive and are removed after 10 days of inactivity from the portal.
+           There is no way to remove the Inactive connector manually from the Azure portal.
           
   - name: Application configuration
     questions:

@@ -7,7 +7,7 @@ manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/20/2021
+ms.date: 01/05/2022
 ms.subservice: hybrid
 ms.author: billmath
 

@@ -111,7 +111,7 @@ To add an adaptive network hardening rule:
 
 1. From the top toolbar, select **Add rule**.
 
-   ![add rule.](./media/adaptive-network-hardening/add-hard-rule.png)
+   ![add rule.](./media/adaptive-network-hardening/add-new-hard-rule.png)
 
 1. In the **New rule** window, enter the details and select **Add**.
 

@@ -135,7 +135,7 @@ $ kubectl describe volumesnapshot azuredisk-volume-snapshot
 Name:         azuredisk-volume-snapshot
 Namespace:    default
 Labels:       <none>
-Annotations:  API Version:  snapshot.storage.k8s.io/v1beta1
+Annotations:  API Version:  snapshot.storage.k8s.io/v1
 Kind:         VolumeSnapshot
 Metadata:
   Creation Timestamp:  2020-08-27T05:27:58Z
@@ -144,7 +144,7 @@ Metadata:
     snapshot.storage.kubernetes.io/volumesnapshot-bound-protection
   Generation:        1
   Resource Version:  714582
-  Self Link:         /apis/snapshot.storage.k8s.io/v1beta1/namespaces/default/volumesnapshots/azuredisk-volume-snapshot
+  Self Link:         /apis/snapshot.storage.k8s.io/v1/namespaces/default/volumesnapshots/azuredisk-volume-snapshot
   UID:               dd953ab5-6c24-42d4-ad4a-f33180e0ef87
 Spec:
   Source:
@@ -292,7 +292,7 @@ metadata:
   name: managed-csi-shared
 provisioner: disk.csi.azure.com
 parameters:
-  skuname: Premium_LRS  # Currently shared disk is only available with premium SSD
+  skuname: Premium_LRS
   maxShares: "2"
   cachingMode: None  # ReadOnly cache is not available for premium SSD with maxShares>1
 reclaimPolicy: Delete
@@ -393,6 +393,10 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 (...)
 ```
 
+## Using Azure tags
+
+For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Service (AKS)][use-tags].
+
 ## Next steps
 
 - To learn how to use CSI drivers for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
@@ -425,3 +429,4 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[use-tags]: use-tags.md

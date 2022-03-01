@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: batamig
 ms.topic: reference
-ms.date: 12/23/2021
+ms.date: 01/04/2022
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -348,7 +348,7 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 | **Supported by** | Microsoft |
 | | |
 
-## Azure Information Protection
+## Azure Information Protection (Preview)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -376,6 +376,16 @@ For more information, see the [Azure Information Protection documentation](/azur
 | **Log Analytics table(s)** | kube-apiserver<br>kube-audit<br>kube-audit-admin<br>kube-controller-manager<br>kube-scheduler<br>cluster-autoscaler<br>guard |
 | **Supported by** | Microsoft |
 | | |
+
+## Azure Purview
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md). |
+| **Log Analytics table(s)** | PurviewDataSensitivityLogs |
+| **Supported by** | Microsoft |
+| | |
+
 
 ## Azure SQL Databases
 
@@ -1049,10 +1059,11 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)**<br><br>Also available in the [Microsoft 365 Insider Risk Management solution](sentinel-solutions-catalog.md#domain-solutions) |
 | **License and other prerequisites** | <ul><li>Valid subscription for Microsoft 365 E5/A5/G5, or their accompanying Compliance or IRM add-ons.<li>[Microsoft 365 Insider risk management](/microsoft-365/compliance/insider-risk-management) fully onboarded, and [IRM policies](/microsoft-365/compliance/insider-risk-management-policies) defined and producing alerts.<li>[Microsoft 365 IRM configured](/microsoft-365/compliance/insider-risk-management-settings#export-alerts-preview) to enable the export of IRM alerts to the Office 365 Management Activity API in order to receive the alerts through the Microsoft Sentinel connector.)
 | **Log Analytics table(s)** | SecurityAlert |
-| **Data query filter** | `SecurityAlert`<br>`\| where ProductName == "Microsoft 365 Insider Risk Management"` |
+| **Data query filter** | `SecurityAlert`<br>`| where ProductName == "Microsoft 365 Insider Risk Management"` |
 | **Supported by** | Microsoft |
 | | |
 
+            
 ## Microsoft Defender for Cloud
 
 | Connector attribute | Description |
@@ -1118,11 +1129,37 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
 | **Log Analytics table(s)** | OfficeActivity |
 | **Supported by** | Microsoft |
 | | |
+     
+## Microsoft Power BI (Preview)
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
+| **Log Analytics table(s)** | PowerBIActivity |
+| **Supported by** | Microsoft |
+| | |
+        
+## Microsoft Project (Preview)
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **License prerequisites/<br>Cost information** | Your Office 365 deployment must be on the same tenant as your Microsoft Sentinel workspace.<br>Other charges may apply. |
+| **Log Analytics table(s)** | ProjectActivity |
+| **Supported by** | Microsoft |
+| | |      
 
+## Microsoft Sysmon for Linux (Preview)
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functons |
+| **Log Analytics table(s)** | Syslog |
+| **Supported by** | Microsoft |
+| | |
 
 
 ## Morphisec UTPP (Preview)
@@ -1433,17 +1470,17 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
 
+For more information, see:
 
-For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
-
-See also: [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
-
-[Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
+- [Windows security event sets that can be sent to Microsoft Sentinel](windows-security-event-id-reference.md)
+- [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks)
+- [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
+- [Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
 
 ## SentinelOne (Preview)
 
@@ -1675,10 +1712,21 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | DnsEvents<br>DnsInventory |
 | **Supported by** | Microsoft |
 | | |
+
+### Troubleshooting your Windows DNS Server data connector
+
+If your DNS events don't show up in Microsoft Sentinel:
+
+1. Make sure that DNS analytics logs on your servers are [enabled](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn800669(v=ws.11)#to-enable-dns-diagnostic-logging).
+1. Go to Azure DNS Analytics.
+1. In the **Configuration** area, change any of the settings and save your changes. Change your settings back if you need to, and then save your changes again.
+1. Check your Azure DNS Analytics to make sure that your events and queries display properly.
+
+For more information, see [Gather insights about your DNS infrastructure with the DNS Analytics Preview solution](../azure-monitor/insights/dns-analytics.md).
 
 ## Windows Forwarded Events (Preview)
 
@@ -1693,13 +1741,13 @@ Follow the instructions to obtain the credentials.
 
 ### Additional instructions for deploying the Windows Forwarded Events connector
 
-We recommend installing the [Advanced SIEM Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
+We recommend installing the [Advanced Security Information Model (ASIM)](normalization.md) parsers to ensure full support for data normalization. You can deploy these parsers from the [`Azure-Sentinel` GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers/ASim%20WindowsEvent) using the **Deploy to Azure** button there.
 
 ## Windows Firewall
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Log Analytics agent-based connections](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections) (Legacy)** |
 | **Log Analytics table(s)** | WindowsFirewall |
 | **Supported by** | Microsoft |
 | | |

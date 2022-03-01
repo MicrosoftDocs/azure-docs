@@ -26,6 +26,7 @@ At this time, IPv6 is not supported. Azure Bastion supports IPv4 only. This mean
 Azure Bastion needs to be able to communicate with certain internal endpoints to successfully connect to target resources. Therefore, you *can* use Azure Bastion with Azure Private DNS Zones as long as the zone name you select does not overlap with the naming of these internal endpoints. Before you deploy your Azure Bastion resource, please make sure that the host virtual network is not linked to a private DNS zone with the following in the name:
 * core.windows.net
 * azure.com
+* vault.azure.net 
 
 Note that if you are using a Private endpoint integrated Azure Private DNS Zone, the [recommended DNS zone name](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration) for several Azure services overlap with the names listed above. The use of Azure Bastion is *not* supported with these setups.
 
@@ -41,7 +42,10 @@ No. You don't need to install an agent or any software on your browser or your A
 
 ### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
 
-At this time, only text copy/paste is supported. Features, such as file copy, are not supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
+At this time, only text copy/paste is supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
+
+### Does Azure Bastion support file transfer?
+Azure Bastion offers support for file transfer between your target VM and local computer using Bastion and a native RDP or SSH client. Note that file transfer is supported using the native client only. At this time, you cannot upload or download files using PowerShell or via the Azure portal. To learn more, see [Upload and download files using the native client](vm-upload-download-native.md).
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 

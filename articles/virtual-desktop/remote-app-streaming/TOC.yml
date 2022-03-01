@@ -126,8 +126,6 @@
             href: ../app-attach-msixmgr.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Configure automatic updates
       href: ../configure-automatic-updates.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
-    - name: Use Azure Advisor
-      href: ../azure-advisor.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Resolve recommendations
       href: ../azure-advisor-recommendations.md?toc=/azure/virtual-desktop/remote-app-streaming/toc.json&bc=/azure/virtual-desktop/breadcrumb/toc.json
     - name: Use Azure Monitor for Azure Virtual Desktop

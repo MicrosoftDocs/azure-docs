@@ -26,9 +26,7 @@ items:
       href: device-data-through-iot-hub.md 
 - name: How-to guides
   expanded: true
-  items:
-    - name: Receive device data through Azure IoT Hub
-      href: device-data-through-iot-hub.md 
+  items: 
     - name: Use Device mappings
       expanded: false
       items:
@@ -48,8 +46,10 @@ items:
       href: how-to-use-custom-functions.md  
     - name: Use FHIR destination mappings
       href: how-to-use-fhir-mappings.md
-    - name: Display Metrics
+    - name: Display metrics
       href: how-to-display-metrics.md
+    - name: Enable metrics export
+      href: iot-metrics-diagnostics-export.md
     - name: Create copies of mappings
       href: how-to-create-mappings-copies.md
 - name: Concepts
@@ -66,7 +66,7 @@ items:
 - name: Resources
   expanded: true
   items:
-    - name: FAQs
+    - name: FAQs - IoT connector
       href: iot-connector-faqs.md
     - name: Open-source projects
       href: iot-git-projects.md

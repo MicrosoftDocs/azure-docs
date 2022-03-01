@@ -55,8 +55,6 @@ items:
     displayName: get, started
 - name: Workspace
   items:
-  # - name: Overview
-  #   items:
   - name: Quickstarts
     items:
     - name: Create a workspace
@@ -238,10 +236,6 @@ items:
       href: database-designer/create-lake-database-from-lake-database-templates.md
     - name: Modify a lake database
       href: database-designer/modify-lake-database.md
-- name: Migration guides
-  items:
-  - name: Migrate to a dedicated SQL pool
-    href: migration-guides/migrate-to-synapse-analytics-guide.md
 - name: Synapse SQL
   items:
   - name: Overview
@@ -435,6 +429,8 @@ items:
       items:
       - name: Database access control
         href: ../azure-sql/database/logins-create-manage.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
+      - name: Shared database access control
+        href: sql/shared-databases-access-control.md
       - name: Data security
         items:
         - name: Column-level security
@@ -448,20 +444,6 @@ items:
         - name: TDE with bring your own key
           href: ../azure-sql/database/transparent-data-encryption-byok-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
           displayName: transparent, data, encryption
-      # - name: Advanced Data Security
-      #   items:
-      #   - name: SQL pool
-      #     items:
-      #     - name: Overview
-      #       href: ../sql-database/sql-database-advanced-data-security.md?context=/azure/synapse-analytics/context/context
-      #     - name: Data discovery & classification
-      #       href: ../sql-database/sql-database-data-discovery-and-classification.md?context=/azure/synapse-analytics/context/context
-      #     - name: Vulnerability assessment
-      #       href: ../sql-database/sql-vulnerability-assessment.md?context=/azure/synapse-analytics/context/context
-      #     - name: Advanced Threat Protection
-      #       href: ../sql-database/sql-database-threat-detection-overview.md?context=/azure/synapse-analytics/context/context
-      #     - name: Auditing
-      #       href: ../sql-database/sql-database-auditing.md?context=/azure/synapse-analytics/context/context
     - name: Workload management
       items:
       - name: Overview
@@ -1216,6 +1198,8 @@ items:
         href: ../data-factory/update-machine-learning-models.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Stored procedure activity
         href: ../data-factory/transform-data-using-stored-procedure.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Script activity
+        href: ../data-factory/transform-data-using-script.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Compute linked services
         href: ../data-factory/compute-linked-services.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
     - name: Control flow
@@ -1472,6 +1456,26 @@ items:
     href: plan-manage-costs.md
   - name: Browse an ADLS Gen2 folder with ACLs
     href: how-to-access-container-with-access-control-lists.md
+- name: Guidance
+  items:
+  - name: Migration guides
+    items:
+    - name: Migrate to a dedicated SQL pool
+      href: migration-guides/migrate-to-synapse-analytics-guide.md
+  - name: Security white paper
+    items:
+    - name: Introduction
+      href: ./guidance/security-white-paper-introduction.md
+    - name: Data protection
+      href: ./guidance/security-white-paper-data-protection.md
+    - name: Access control
+      href: ./guidance/security-white-paper-access-control.md
+    - name: Authentication
+      href: ./guidance/security-white-paper-authentication.md
+    - name: Network security
+      href: ./guidance/security-white-paper-network-security.md
+    - name: Threat protection
+      href: ./guidance/security-white-paper-threat-protection.md
 - name: Reference
   items:
   - name: Azure CLI

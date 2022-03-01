@@ -198,6 +198,7 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 * Microsoft AAD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of the **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * Support HTTPS on your SCIM endpoint.
 * Custom complex and multivalued attributes are supported but AAD does not have many complex data structures to pull data from in these cases. Simple paired name/value type complex attributes can be mapped to easily, but flowing data to complex attributes with three or more subattributes are not well supported at this time.
+* The "type" sub-attribute values of multivalued complex attributes must be unique. For example, there can not be two different email addresses with the "work" sub-type. 
 
 ##### Retrieving Resources:
 * Response to a query/filter request should always be a `ListResponse`.
@@ -1325,7 +1326,7 @@ Once the initial cycle has started, you can select **Provisioning logs** in the 
 
 ## Publish your application to the AAD application gallery
 
-If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../develop/v2-howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use.
+If you're building an application that will be used by more than one tenant, you can make it available in the Azure AD application gallery. This will make it easy for organizations to discover the application and configure provisioning. Publishing your app in the Azure AD gallery and making provisioning available to others is easy. Check out the steps [here](../manage-apps/v2-howto-app-gallery-listing.md). Microsoft will work with you to integrate your application into our gallery, test your endpoint, and release onboarding [documentation](../saas-apps/tutorial-list.md) for customers to use.
 
 ### Gallery onboarding checklist
 Use the checklist to onboard your application quickly and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 

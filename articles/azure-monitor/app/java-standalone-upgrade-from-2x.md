@@ -5,8 +5,6 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.devlang: java
 ms.custom: devx-track-java
-author: mattmccleary
-ms.author: mmcc
 ---
 
 # Upgrading from Application Insights Java 2.x SDK
@@ -31,10 +29,7 @@ or configuring [telemetry processors](./java-standalone-telemetry-processors.md)
 
 ## Multiple applications in a single JVM
 
-Currently, Application Insights Java 3.x only supports a single
-[connection string and role name](./java-standalone-config.md#connection-string-and-role-name)
-per running process. In particular, you can't have multiple tomcat web apps in the same tomcat deployment
-using different connection strings or different role names yet.
+This use case is supported in Application Insights Java 3.x using [Instrumentation keys overrides (preview)](./java-standalone-config.md#instrumentation-keys-overrides-preview).
 
 ## Operation names
 

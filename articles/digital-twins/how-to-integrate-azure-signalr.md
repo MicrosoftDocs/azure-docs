@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Integrate with Azure SignalR Service
 titleSuffix: Azure Digital Twins
-description: See how to stream Azure Digital Twins telemetry to clients using Azure SignalR
+description: Learn how to stream Azure Digital Twins telemetry to clients using Azure SignalR
 author: dejimarquis
 ms.author: aymarqui # Microsoft employees only
-ms.date: 02/12/2021
+ms.date: 1/3/2022
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -28,7 +28,7 @@ Here are the prerequisites you should complete before proceeding:
 * Before integrating your solution with Azure SignalR Service in this article, you should complete the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md), because this how-to article builds on top of it. The tutorial walks you through setting up an Azure Digital Twins instance that works with a virtual IoT device to trigger digital twin updates. This how-to article will connect those updates to a sample web app using Azure SignalR Service.
 
 * You'll need the following values from the tutorial:
-  - Event grid topic
+  - Event Grid topic
   - Resource group
   - App service/function app name
     
@@ -40,7 +40,7 @@ Be sure to sign in to the [Azure portal](https://portal.azure.com/) with your Az
 
 You'll be attaching Azure SignalR Service to Azure Digital Twins through the path below. Sections A, B, and C in the diagram are taken from the architecture diagram of the [end-to-end tutorial prerequisite](tutorial-end-to-end.md). In this how-to article, you'll build section D on the existing architecture, which includes two new Azure functions that communicate with SignalR and client apps.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Diagram of Azure services in an end-to-end scenario, which depicts data flowing in and out of Azure Digital Twins." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Diagram of Azure services in an end-to-end scenario, which shows data flowing in and out of Azure Digital Twins." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
 ## Download the sample applications
 
@@ -103,11 +103,11 @@ Next, configure the function to communicate with your Azure SignalR instance. Yo
 
 ## Connect the function to Event Grid
 
-Next, subscribe the *broadcast* Azure function to the **event grid topic** you created during the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites). This action will allow telemetry data to flow from the thermostat67 twin through the event grid topic and to the function. From here, the function can broadcast the data to all the clients.
+Next, subscribe the *broadcast* Azure function to the **Event Grid topic** you created during the [tutorial prerequisite](how-to-integrate-azure-signalr.md#prerequisites). This action will allow telemetry data to flow from the thermostat67 twin through the Event Grid topic and to the function. From here, the function can broadcast the data to all the clients.
 
-To broadcast the data, you'll create an **Event subscription** from your event grid topic to your *broadcast* Azure function as an endpoint.
+To broadcast the data, you'll create an **Event subscription** from your Event Grid topic to your *broadcast* Azure function as an endpoint.
 
-In the [Azure portal](https://portal.azure.com/), navigate to your event grid topic by searching for its name in the top search bar. Select *+ Event Subscription*.
+In the [Azure portal](https://portal.azure.com/), navigate to your Event Grid topic by searching for its name in the top search bar. Select *+ Event Subscription*.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Screenshot of how to create an event subscription in the Azure portal.":::
 
@@ -115,7 +115,7 @@ On the *Create Event Subscription* page, fill in the fields as follows (fields f
 * *EVENT SUBSCRIPTION DETAILS* > **Name**: Give a name to your event subscription.
 * *ENDPOINT DETAILS* > **Endpoint Type**: Select *Azure Function* from the menu options.
 * *ENDPOINT DETAILS* > **Endpoint**: Select the *Select an endpoint* link, which will open a *Select Azure Function* window:
-    - Fill in your **Subscription**, **Resource group**, **Function app**, and **Function** (*broadcast*). Some of these fields may auto-populate after selecting the subscription.
+    - Fill in your **Subscription**, **Resource group**, **Function app**, and **Function** (*broadcast*). Some of these fields may autopopulate after selecting the subscription.
     - Select **Confirm Selection**.
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Screenshot of the form for creating an event subscription in the Azure portal.":::
@@ -124,7 +124,7 @@ Back on the *Create Event Subscription* page, select **Create**.
 
 At this point, you should see two event subscriptions in the *Event Grid Topic* page.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/view-event-subscriptions.png" alt-text="Screenshot of the Azure portal showing two event subscriptions in the Event grid topic page." lightbox="media/how-to-integrate-azure-signalr/view-event-subscriptions.png":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/view-event-subscriptions.png" alt-text="Screenshot of the Azure portal showing two event subscriptions in the Event Grid topic page." lightbox="media/how-to-integrate-azure-signalr/view-event-subscriptions.png":::
 
 ## Configure and run the web app
 
@@ -192,12 +192,12 @@ Running this command will open a browser window running the sample app, which di
 
 If you no longer need the resources created in this article, follow these steps to delete them. 
 
-Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group#az_group_delete) command. Removing the resource group will also remove...
-* the Azure Digital Twins instance (from the end-to-end tutorial)
-* the IoT hub and the hub device registration  (from the end-to-end tutorial)
-* the event grid topic and associated subscriptions
-* the Azure Functions app, including all three functions and associated resources like storage
-* the Azure SignalR instance
+Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group#az_group_delete) command. Removing the resource group will also remove:
+* The Azure Digital Twins instance (from the end-to-end tutorial)
+* The IoT hub and the hub device registration  (from the end-to-end tutorial)
+* The Event Grid topic and associated subscriptions
+* The Azure Functions app, including all three functions and associated resources like storage
+* The Azure SignalR instance
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 

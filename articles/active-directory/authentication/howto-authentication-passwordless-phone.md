@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 01/07/2022
 
 ms.author: justinha
 author: justinha
@@ -130,7 +130,7 @@ If the user attempts to upgrade multiple installations (5+) of the Microsoft Aut
 
 Before you can create this new strong credential, there are prerequisites. One prerequisite is that the device on which the Microsoft Authenticator app is installed must be registered within the Azure AD tenant to an individual user.
 
-Currently, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
+Currently, a device can only be enabled for passwordless sign-in in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
 
 > [!NOTE]
 > Device registration is not the same as device management or mobile device management (MDM). Device registration only associates a device ID and a user ID together, in the Azure AD directory.

@@ -78,5 +78,5 @@ This process is different than [using secure configurations without the extensio
 
 - Get an [introduction to Azure DSC extension handler](dsc-overview.md).
 - Examine the [Azure Resource Manager template for the DSC extension](dsc-template.md).
-- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview/overview).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview/).
 - For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).

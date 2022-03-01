@@ -91,7 +91,7 @@ The LINQ provider included with the SQL .NET SDK supports the following operator
 - **Array functions**: Supports translation from .NET `Concat`, `Contains`, and `Count` to the equivalent [built-in array functions](sql-query-array-functions.md).
 - **Geospatial Extension functions**: Supports translation from stub methods `Distance`, `IsValid`, `IsValidDetailed`, and `Within` to the equivalent [built-in geospatial functions](sql-query-geospatial-query.md).
 - **User-Defined Function Extension function**: Supports translation from the stub method [CosmosLinq.InvokeUserDefinedFunction](/dotnet/api/microsoft.azure.cosmos.linq.cosmoslinq.invokeuserdefinedfunction?view=azure-dotnet&preserve-view=true) to the corresponding [user-defined function](sql-query-udfs.md).
-- **Miscellaneous**: Supports translation of `Coalesce` and conditional [operators](sql-query-operators.md). Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or IN, depending on context.
+- **Miscellaneous**: Supports translation of `Coalesce` and [conditional operators](sql-query-logical-operators.md). Can translate `Contains` to String CONTAINS, ARRAY_CONTAINS, or IN, depending on context.
 
 ## Examples
 
