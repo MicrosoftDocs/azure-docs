@@ -31,11 +31,7 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 - **SBoM collector**: The SBoM collector now collects the packages installed on the device periodically. For more information, see [Micro agent event collection (Preview)](concept-event-aggregation.md).
 
-- **CIS benchmarks**:
-
-    - CIS Linux distribution independent benchmarks now supports recommendations based on CIS Distribution Independent Linux Benchmarks, version 2.0.0.
-
-    - CIS benchmark recommendations now support the ability to disable specific CIS Benchmarks checks or groups through twin configurations. For more information, see [Micro agent configurations (Preview)](concept-micro-agent-configuration.md).
+- **CIS benchmarks**: The micro agent now supports recommendations based on CIS Distribution Independent Linux Benchmarks, version 2.0.0, and the ability to disable specific CIS Benchmark checks or groups using twin configurations. For more information, see [Micro agent configurations (Preview)](concept-micro-agent-configuration.md).
 
 - **Micro agent supported devices list expands**: The micro agent now supports Debian 11 AMD64 and ARM32v7 devices, as well as Ubuntu Server 18.04 ARM32 Linux devices & Ubuntu Server 20.04 ARM32 & ARM64 Linux devices.
 
