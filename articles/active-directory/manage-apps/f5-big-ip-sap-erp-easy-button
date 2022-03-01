@@ -1,0 +1,85 @@
+---
+title: Configure F5 BIG-IP Easy Button for SSO to SAP ERP
+description: Learn to secure SAP ERP using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+services: active-directory
+author: NishthaBabith-V
+manager: martinco
+ms.service: active-directory
+ms.subservice: app-mgmt
+ms.topic: how-to
+ms.workload: identity
+ms.date: 03/01/2022
+ms.author: v-nisba
+ms.collection: M365-identity-device-management
+---
+
+# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP
+
+In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
+
+Integrating a BIG-IP with Azure Active Directory (Azure AD) provides many benefits, including:
+
+* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication   and [Conditional Access](/azure/active-directory/conditional-access/overview)
+
+* Full SSO between Azure AD and BIG-IP published services
+
+* Manage identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
+
+To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+
+## Scenario description
+
+This scenario looks at the classic **SAP ERP application using Kerberos authentication** to manage access to protected content.
+
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning. 
+
+Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and headers-based SSO, significantly improving the overall security posture of the application.
+
+## Scenario architecture
+
+The SHA solution for this scenario is made up of the following:
+
+**SAP ERP application:** BIG-IP published service to be protected by and Azure AD SHA.
+
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP.
+
+**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the SAP service.
+
+SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
+
+![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-sap-erp/sp-initiated-flow.png)
+
+| Steps| Description|
+| -------- |-------|
+| 1| User connects to application endpoint (BIG-IP) |
+| 2| BIG-IP APM access policy redirects user to Azure AD (SAML IdP) |
+| 3| Azure AD pre-authenticates user and applies any enforced Conditional Access policies |
+| 4| User is redirected to BIG-IP (SAML SP) and SSO is performed using issued SAML token |
+| 5| BIG-IP requests Kerberos ticket from KDC |
+| 6| BIG-IP sends request to backend application, along with Kerberos ticket for SSO |
+| 7| Application authorizes request and returns payload |
+
+## Prerequisites
+Prior BIG-IP experience isn’t necessary, but you will need:
+
+* An Azure AD free subscription or above
+
+* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](./f5-bigip-deployment-guide.md)
+
+* Any of the following F5 BIG-IP license offers
+
+    * F5 BIG-IP® Best bundle
+
+    * F5 BIG-IP APM standalone license
+
+    * F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+
+    * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
+
+* User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created directly within Azure AD and flowed back to your on-premises directory
+
+* An account with Azure AD Application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+
+* An [SSL Web certificate](./f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use default BIG-IP certs while testing
+
+* •	An existing SAP ERP environment configured for Kerberos authentication
