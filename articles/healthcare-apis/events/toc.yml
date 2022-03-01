@@ -20,7 +20,9 @@ items:
   expanded: true
   items:
   - name: Configure Diagnostic settings for Events diagnostic logs
-    href: events-export-logs-and-metrics.md 
+    href: events-export-logs-and-metrics.md
+  - name: Disable Events and delete Workspaces in Azure Health Data Services
+    href: events-disable-and-delete-workspace.md   
 - name: Concepts
   expanded: true
   items:
