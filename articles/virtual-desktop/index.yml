@@ -38,6 +38,8 @@ landingContent:
         links:
           - text: Deploy Azure Virtual Desktop with the getting started feature
             url: getting-started-feature.md
+      - linkListType: tutorial
+        links:
           - text: Create a host pool with Azure Marketplace
             url: create-host-pools-azure-marketplace.md
           - text: Manage app groups for Azure Virtual Desktop
