@@ -6,7 +6,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 ms.author: ranku
 ---
 
@@ -14,8 +14,8 @@ ms.author: ranku
 
 The `$convert-data` custom endpoint in the FHIR service is meant for data conversion from different data types to FHIR. It uses the Liquid template engine and the templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project as the default templates. You can customize these conversion templates as needed. Currently it supports three types of data conversion: **C-CDA to FHIR**, **HL7v2 to FHIR**, **JSON to FHIR**.
 
-> [!WARNING]
-> `$convert-data` endpoint is **not** an ETL pipeline. It can be used as a component for an ETL pipeline for the conversion of raw healthcare data from legacy formats into FHIR, but it is **not** an ETL pipeline that extracts or loads your data. You may also need to appropriately post-process your converted FHIR data before persisting into the FHIR server.
+> [!NOTE]
+> `$convert-data` endpoint can be used as a component within an ETL pipeline for the conversion of raw healthcare data from legacy formats into FHIR format. However, it is not an ETL pipeline in itself. We recommend you to use an ETL engine such as Logic Apps or Azure Data Factory for a complete workflow in preparing your FHIR data to be persisted into the FHIR server. The workflow might include: data reading and ingestion, data validation, making $convert-data API calls, data pre/post-processing, data enrichment, and data de-duplication.
 
 ## Use the $convert-data endpoint
 
