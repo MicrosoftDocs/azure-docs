@@ -68,7 +68,7 @@ You can allow connections to `*.msappproxy.net`, `*.servicebus.windows.net`, and
 
 ### DNS name resolution for Azure AD Application Proxy endpoints
 
-Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records, pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy Connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`.
+Public DNS records for Azure AD Application Proxy endpoints are chained CNAME records, pointing to an A record. This ensures fault tolerance and flexibility. It’s guaranteed that the Azure AD Application Proxy connector always accesses host names with the domain suffixes `*.msappproxy.net` or `*.servicebus.windows.net`.
 
 However, during the name resolution, the CNAME records might contain DNS records with different host names and suffixes. Due to this, you must ensure that the device can resolve all the records in the chain, and allows connection to the resolved IP addresses. Because the DNS records in the chain might be changed from time to time, we can't provide you with any list DNS records.
 
@@ -154,7 +154,7 @@ Provisioning logs provide a wealth of information on the state of the objects be
 
 ![Screenshot that shows information about provisioning logs.](media/how-to-troubleshoot/log-2.png)
 
-You can filter the view to zero in on specific problems, such as dates. Double-click an individual event to see additional information.
+You can filter the view to focus on specific problems, such as dates. Double-click an individual event to see additional information.
 
 ![Screenshot that shows the provisioning logs dropdown list information.](media/how-to-troubleshoot/log-3.png)
 
@@ -210,7 +210,7 @@ Use the following request:
  
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
-## Repair the Cloud Sync service account
+## Repair the cloud sync service account
 
 If you need to repair the cloud sync service account, you can use the `Repair-AADCloudSyncToolsAccount` command.
 
@@ -240,7 +240,7 @@ To enable and use password writeback with cloud sync, keep the following in mind
 - If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-premises Active Directory Domain Services (AD DS) environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
 - Password policies in the on-premises AD DS environment might prevent password resets from being correctly processed. If you're testing this feature and want to reset passwords for users more than once per day, the group policy for the minimum password age must be set to 0. You can find this setting in the following location: **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies**, within **gpmc.msc**. 
      - If you update the group policy, wait for the updated policy to replicate, or use the `gpupdate /force` command. 
-     - For passwords to be changed immediately, the minimum password age must be set to 0. However, if users adhere to the on-premises policies, and the minimum password age is set to a value greater than zero, password writeback doesn't work after the on-premises policies are evaluated. 
+     - For passwords to be changed immediately, the minimum password age must be set to 0. However, if users adhere to the on-premises policies, and the minimum password age is set to a value greater than 0, password writeback doesn't work after the on-premises policies are evaluated. 
 
 ## Next steps 
 
