@@ -46,9 +46,11 @@ By default, the Azure Cosmos DB client SDKs and data import tools suc
 :::image type="content" source="media/troubleshoot-request-rate-too-large/insights-429-requests.png" alt-text="Total Requests by Status Code chart that shows number of 429 and 2xx requests.":::
 
 #### Recommended solution
-In general, for a production workload, if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized. No action is required. Otherwise, move to the next troubleshooting steps.
+In general, for a production workload, **if you see between 1-5% of requests with 429s, and your end to end latency is acceptable, this is a healthy sign that the RU/s are being fully utilized**. No action is required. Otherwise, move to the next troubleshooting steps.
 
-If you are using autoscale, it is possible to see 429s on your database or container, even if the RU/s was not scaled to the maximum RU/s. 
+If you are using autoscale, it is possible to see 429s on your database or container, even if the RU/s was not scaled to the maximum RU/s. See the section [Request rate is large with autoscale](#request-rate-is-large-with-autoscale) for an explanation.
+
+One common question that arises is, **"Why am I seeing 429s in the Azure Monitor metrics, but none in my own application monitoring?"** If Azure Monitor Metrics show you have 429s, but you have not seen any in your own application, this is because by default, the Cosmos client SDKs [automatically retried internally on the 429s](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.maxretryattemptsonratelimitedrequests?view=azure-dotnet#microsoft-azure-cosmos-cosmosclientoptions-maxretryattemptsonratelimitedrequests) and the request succeeded in subsequent retries. As a result, the 429 status code is not returned to the application. In these cases, the overall rate of 429s is typically very low and can be safely ignored, assuming the overall rate is between 1-5% and end to end latency is acceptable to your application.
 
 ### Step 2: Determine if there is a hot partition
 A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests. It results in many requests being directed to a small subset of logical (which implies physical) partitions that become "hot." Because all data for a logical partition resides on one physical partition and total RU/s is evenly distributed among the physical partitions, a hot partition can lead to 429s and inefficient use of throughput.
@@ -176,7 +178,7 @@ Yes. There are two main scenarios where this can occur.
 
 For example, if you select the 20,000 RU/s max throughput option and have 200 GB of storage, with four physical partitions, each physical partition can be autoscaled up to 5000 RU/s. If there was a hot partition on a particular logical partition key, you will see 429s when the underlying physical partition it resides in exceeds 5000 RU/s, i.e. exceeds 100% normalized utilization.
 
-Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determine-if-there-is-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429s) to debug these scenarios.
+Follow the guidance in [Step 1](#step-1-check-the-metrics-to-determine-the-percentage-of-requests-with-429-error), [Step 2](#step-2-determineif-there-is-a-hot-partition), and [Step 3](#step-3-determine-what-requests-are-returning-429s) to debug these scenarios.
 
 Another common question that arises is, **Why is normalized RU consumption 100%, but autoscale did not scale to the max RU/s?**
 
