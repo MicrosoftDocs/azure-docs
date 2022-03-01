@@ -78,14 +78,12 @@ For example:
 {
   "responseOverrides": {
     "401": {
-      "redirect": "/.auth/login/<PROVIDER>?post_login_redirect_uri=.referrer",
+      "redirect": "/.auth/login/github?post_login_redirect_uri=.referrer",
       "statusCode": 302
     }
   }
 }
 ```
-
-As you use this code example, make sure to replace `<PROVIDER>` with the appropriate provider identifier.
 
 ## Logout
 
