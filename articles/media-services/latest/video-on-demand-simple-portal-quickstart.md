@@ -26,33 +26,11 @@ This article shows you how to do the basic steps for delivering a basic video on
 > [!NOTE]
 > You will be switching between several browser tabs or windows during this process. The below steps assume that you have your browser set to open tabs.  Keep them all open.
 
-## Upload videos
-
-You should have a media services account, a storage account, and a default streaming endpoint.  
-
-1. In the portal, navigate to the Media Services account that you just created.
-1. Select **Assets**. Assets are the containers that are used to house your media content.
-1. Select **Upload**. The Upload new assets screen will appear.
-1. Select the storage account you created for the Media Services account from the **Storage account** dropdown menu. It should be selected by default.
-1. Select the **file folder icon** next to the Upload files field.
-1. Select the media files you want to use. An asset will be created for every video you upload. The name of the asset will start with the name of the video and will be appended with a unique identifier. You *could* upload the same video twice and it will be located in two different assets.
-1. You must agree to the statement "I have all the rights to use the content/file, and agree that it will be handled per the Online Services Terms and the Microsoft Privacy Statement." Select **I agree and upload.**
-1. Select **Continue upload and close**, or **Close** if you want to watch the video upload progress.
-1. Repeat this process for each of the files you want to stream.
+[!INCLUDE [task-create-asset-portal](includes/task-create-asset-portal.md)]
 
 ## Create a transform
 
-> [!IMPORTANT] 
-> You must encode your files with a transform in order to stream them, even if they have been encoded locally.  The Media Services encoding process creates the manifest files needed for streaming.
-
-You'll now create a transform that uses a Built-in preset, which is like a recipe for encoding.
-
-1. Select **Transforms + jobs**.
-1. Select **Add transform**. The Add transform screen will appear.
-1. Enter a transform name in the **Transform name** field.
-1. Select the **Encoding** radio button.
-1. Select ContentAwareEncoding from the **Built-in preset name** dropdown list.
-1. Select **Add**.
+[!INCLUDE [task-create-asset-portal](includes/task-create-transform-portal.md)]
 
 Stay on this screen for the next steps.
 
@@ -60,26 +38,9 @@ Stay on this screen for the next steps.
 
 Next, you'll create a job which is for telling Media Services which transform to run on files within an asset.  The asset you choose will be the input asset.  The job will create an output asset to contain the encoded files as well as the manifest.
 
-1. Select **Add job**. The Create a job screen will appear.
-1. For the **Input source**, the **Asset** radio button should be selected by default.  If not, select it now.
-1. Select **Select an existing asset** and choose one of the assets that was just created when you uploaded your videos. The Select an asset screen will appear.
-1. Select one of the assets in the list. You can only select one at a time for the job.
-1. Select the **Use existing** radio button.
-1. Select the transform that you created earlier from the **Transform** dropdown list.
-1. Under Configure output, default settings will be autopopulated, for this exercise leave them as they are.
-1. Select **Create**.
-1. Select **Transforms + Jobs**.
-1. You'll see the name of the transform you chose for the job. Select the transform to see the status of the job.
-1. Select the job listed under **Name** in the table of jobs. The job detail screen will open.
-1. Select the output asset from the **Outputs** list. The asset screen will open.
-1. Select the link for the asset next to Storage container.  A new browser tab will open and You'll see the results of the job that used the transform.  There should be several files in the output asset including:
-    1. Encoded video files with.mpi and .mp4 extensions.
-    1. A *XXXX_metadata.json* file.
-    1. A *XXXX_manifest.json* file.
-    1. A *XXXX_.ism* file.
-    1. A *XXXX.isc* file.
-    1. A *ThumbnailXXXX.jpg* file.
-1. Once you've viewed what is in the output asset, close the tab. Go back to the asset browser tab.
+[!INCLUDE [task-create-asset-portal](includes/task-create-job-portal.md)]
+
+Once you've viewed what is in the output asset, close the tab. Go back to the asset browser tab.
 
 ## Create a streaming locator
 

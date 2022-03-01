@@ -29,6 +29,12 @@ Follow the steps in [Create a Media Services account](./account-create-how-to.md
 
 ## Methods
 
+## [Portal](#tab/cli/)
+
+Creating assets in the portal is as simple as uploading a file.
+
+[!INCLUDE [task-create-asset-portal](includes/task-create-asset-portal.md)]
+
 ## [CLI](#tab/cli/)
 
 [!INCLUDE [Create an asset with CLI](./includes/task-create-asset-cli.md)]
