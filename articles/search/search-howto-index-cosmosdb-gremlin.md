@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Cosmos DB using the Gremlin API
@@ -240,9 +240,13 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 <a name="DataChangeDetectionPolicy"></a>
 
-## Indexing changed documents
+## Indexing new and changed documents
 
-The purpose of a data change detection policy is to efficiently identify changed data items. Currently, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB, which is specified in the data source definition as follows:
+Once an indexer has fully populated a search index, you might want subsequent indexer runs to incrementally index just the new and changed documents in your database.
+
+To enable incremental indexing, set the "dataChangeDetectionPolicy" property in your data source definition. For Cosmos DB, the only supported policy is the [`HighWaterMarkChangeDetectionPolicy`](/dotnet/api/azure.search.documents.indexes.models.highwatermarkchangedetectionpolicy) using the `_ts` (timestamp) property provided by Azure Cosmos DB. 
+
+The following example shows a [data source definition](#define-the-data-source) with a change detection policy:
 
 ```http
 "dataChangeDetectionPolicy": {
@@ -250,8 +254,6 @@ The purpose of a data change detection policy is to efficiently identify changed
 "  highWaterMarkColumnName": "_ts"
 },
 ```
-
-Using this policy is highly recommended to ensure good indexer performance. 
 
 <a name="DataDeletionDetectionPolicy"></a>
 
@@ -369,3 +371,5 @@ Notice how the Output Field Mapping starts with `/document` and does not include
 + To learn more about Azure Cosmos DB Gremlin API, see the [Introduction to Azure Cosmos DB: Gremlin API](../cosmos-db/graph-introduction.md).
 
 + For more information about Azure Cognitive Search scenarios and pricing, see the [Search service page on azure.microsoft.com](https://azure.microsoft.com/services/search/).
+
++ To learn about network configuration for indexers, see the [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md).
