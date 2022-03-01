@@ -12,7 +12,7 @@ ms.date: 02/02/2022
 
 This article provides a comprehensive list of language support by service features in Azure Video Analyzer for Media (formerly Video Indexer). For the list and definions of all the features, see [Overview](video-indexer-overview.md).
 
-## General
+## General language support
 
 This section describes language support in Video Analyzer for Media.
 
@@ -118,60 +118,60 @@ The following table describres language support in the Video Analyzer for Media 
 | **Language**                      | **Code**       | **Web experience** | **Widgests experience**   | 
 |:------------:|:------------:|:--------------------:|:-------:|
 | Afrikaans                        | `af-ZA`      |           |  |  
-| Arabic (Iraq)                    | `ar-IQ`      | ✔               |  |
-| Arabic (Israel)                  | `ar-IL`      | ✔               |  | 
-| Arabic (Jordan)                  | `ar-JO`      | ✔               |  | 
-| Arabic (Kuwait)                  | `ar-KW`      | ✔               |  |  
-| Arabic (Lebanon)                 | `ar-LB`      | ✔               |  |
-| Arabic (Oman)                    | `ar-OM`      | ✔               |  | 
-| Arabic (Palestinian Authority)   | `ar-PS`      | ✔               |  | 
-| Arabic (Qatar)                   | `ar-QA`      | ✔               |  |
-| Arabic (Saudi Arabia)            | `ar-SA`      | ✔               |  | 
-| Arabic (United Arab Emirates)    | `ar-AE`      | ✔               |  | 
-| Arabic Egypt                     | `ar-EG`      | ✔               |  |
-| Arabic Modern Standard (Bahrain) | `ar-BH`      | ✔               |  | 
-| Arabic Syrian Arab Republic      | `ar-SY`      | ✔               |  | 
+| Arabic (Iraq)                    | `ar-IQ`      |                |  |
+| Arabic (Israel)                  | `ar-IL`      |               |  | 
+| Arabic (Jordan)                  | `ar-JO`      |              |  | 
+| Arabic (Kuwait)                  | `ar-KW`      |               |  |  
+| Arabic (Lebanon)                 | `ar-LB`      |                |  |
+| Arabic (Oman)                    | `ar-OM`      |                |  | 
+| Arabic (Palestinian Authority)   | `ar-PS`      |                |  | 
+| Arabic (Qatar)                   | `ar-QA`      |                |  |
+| Arabic (Saudi Arabia)            | `ar-SA`      |                |  | 
+| Arabic (United Arab Emirates)    | `ar-AE`      |                |  | 
+| Arabic Egypt                     | `ar-EG`      |                |  |
+| Arabic Modern Standard (Bahrain) | `ar-BH`      |                |  | 
+| Arabic Syrian Arab Republic      | `ar-SY`      |                |  | 
 | Bangla                           | `bn-BD`      |                 |  |
 | Bosnian                          | `bs-Latn`    |               |  |  
 | Bulgarian                        | `bg-BG`      |               |  |  
 | Catalan                          | `ca-ES`      |               |  | 
-| Chinese (Cantonese Traditional)  | `zh-HK`      | ✔               |  | 
-| Chinese (Simplified)             | `zh-Hans`    | ✔               |  |
+| Chinese (Cantonese Traditional)  | `zh-HK`      |               |  | 
+| Chinese (Simplified)             | `zh-Hans`    |              |  |
 | Chinese (Traditional)            | `zh-Hant`    |               |  |  
 | Croatian                         | `hr-HR`      |               |  |
-| Czech                            | `cs-CZ`      | ✔               |  | 
-| Danish                           | `da-DK`      | ✔               |  | 
-| Dutch                            | `nl-NL`      | ✔               |  | 
-| English Australia                | `en-AU`      | ✔               |  |  
-| English United Kingdom           | `en-GB`      | ✔               |  | 
-| English United States            | `en-US`      | ✔               | ✔  | 
+| Czech                            | `cs-CZ`      |    ✔           |  | 
+| Danish                           | `da-DK`      |                |  | 
+| Dutch                            | `nl-NL`      |   ✔             |  | 
+| English Australia                | `en-AU`      |                |  |  
+| English United Kingdom           | `en-GB`      |                |  | 
+| English United States            | `en-US`      |                | ✔  | 
 | Estonian                         | `et-EE`      |               |  |  
 | Fijian                           | `en-FJ`      |               |  | 
 | Filipino                         | `fil-PH`     |               |  | 
-| Finnish                          | `fi-FI`      | ✔               |  | 
-| French                           | `fr-FR`      | ✔               | ✔  | 
+| Finnish                          | `fi-FI`      |                |  | 
+| French                           | `fr-FR`      |                | ✔  | 
 | French (Canada)                  | `fr-CA`      | ✔               |  | 
-| German                           | `de-DE`      | ✔               | ✔  |
+| German                           | `de-DE`      | ✔              | ✔  |
 | Greek                            | `el-GR`      |               |  | 
 | Haitian                          | `fr-HT`      |               |  |
-| Hebrew                           | `he-IL`      | ✔               |  |
+| Hebrew                           | `he-IL`      |                |  |
 | Hindi                            | `hi-IN`      | ✔               |  | 
-| Hungarian                        | `hu-HU`      |               |  | 
+| Hungarian                        | `hu-HU`      |  ✔             |  | 
 | Indonesian                       | `id-ID`      |               |  | 
-| Italian                          | `it-IT`      | ✔               | ✔  | 
+| Italian                          | `it-IT`      |               | ✔  | 
 | Japanese                         | `ja-JP`      | ✔               | ✔  | 
-| Kiswahili                        | `sw-KE`      |               |  | 
-| Korean                           | `ko-KR`      | ✔               |  |  
+| Kiswahili                        | `sw-KE`      | ✔              |  | 
+| Korean                           | `ko-KR`      |✔                |  |  
 | Latvian                          | `lv-LV`      |               |  |  
 | Lithuanian                       | `lt-LT`      |               |  |
 | Malagasy                         | `mg-MG`      |               |  | 
 | Malay                            | `ms-MY`      |               |  | 
 | Maltese                          | `mt-MT`      |               |  |
-| Norwegian                        | `nb-NO`      | ✔               |  |
-| Persian                          | `fa-IR`      | ✔               |  |
-| Polish                           | `pl-PL`      | ✔               |  | 
+| Norwegian                        | `nb-NO`      |               |  |
+| Persian                          | `fa-IR`      |                |  |
+| Polish                           | `pl-PL`      |  ✔              |  | 
 | Portuguese                       | `pt-BR`      | ✔               | ✔  | 
-| Portuguese (Portugal)            | `pt-PT`      | ✔               |  |  
+| Portuguese (Portugal)            | `pt-PT`      |                |  |  
 | Romanian                         | `ro-RO`      |               |  | 
 | Russian                          | `ru-RU`      | ✔               | ✔  |
 | Samoan                           | `en-WS`      |               |  | 
@@ -180,10 +180,10 @@ The following table describres language support in the Video Analyzer for Media 
 | Slovak                           | `sk-SK`      |               |  |
 | Slovenian                        | `sl-SI`      |               |  | 
 | Spanish                          | `es-ES`      | ✔               | ✔  |
-| Spanish (Mexico)                 | `es-MX`      | ✔               |  | 
-| Swedish                          | `sv-SE`      | ✔               |  | 
+| Spanish (Mexico)                 | `es-MX`      |               |  | 
+| Swedish                          | `sv-SE`      |  ✔             |  | 
 | Tamil                            | `ta-IN`      |               |  | 
-| Thai                             | `th-TH`      | ✔               |  | 
+| Thai                             | `th-TH`      |                |  | 
 | Tongan                           | `to-TO`      |               |  |
 | Turkish                          | `tr-TR`      | ✔               |  | 
 | Ukrainian                        | `uk-UA`      |               |  |  
