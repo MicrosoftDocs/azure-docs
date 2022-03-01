@@ -25,6 +25,19 @@ Here are a few examples:
 
 BYOS can be easily integrated into any application regardless of the programming language. When creating a call recording resource in Azure Portal, enable the BYOS option and provide the sas-url to the storage. This simple experience allows developers to meet their needs, scale, and avoid investing time and resources into designing and maintaining a custom solution.
 
+![Bring your own storage concept diagram](../media/byos-diagramm.png)
+
+1.	Contoso enables MI (managed identities) on an Azure Storage account.
+2.	Contoso creates ACS (azure communication services) resource.
+![Bring your own storage resource page](../media/byos-link-storage.png)
+3.	Contoso enables BYOS on the ACS resource and specifies the URL to link with the storage. 
+4.	After the resource has been created Contoso will see a linked storage and will be able to change settings later in time.
+![Bring your own storage resource page](../media/byos-add-storage.png)
+5.	If Contoso have built application with Call Recording, they can record a meeting. Once the recording file is available, Contoso will receive an event from ACS that a file is copied over to their storage.
+6.	After the notification has been received Contoso will see the file located in the storage they have specified.
+7.	Contoso has successfully linked their storage with ACS!
+![Bring your own storage resource page](../media/byos-storage-created.png)
+
 ## Feature highlights
 
 - HIPAA complaint
