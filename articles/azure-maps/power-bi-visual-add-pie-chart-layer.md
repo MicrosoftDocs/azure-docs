@@ -27,7 +27,8 @@ The **Pie Chart layer** renders location data as scaled circles which divided in
 
 1. In Power BI Desktop, select the Azure map that you created.
 2. In the **Format** pane, switch the **Bubble Layer** toggle to **On**.
-3. Pass a condition into the **Legend** bucket from the **Fields** pane, the **Pie Charts** will be populated
+3. Pass a condition into the **Legend** bucket from the **Fields** pane, the **Pie Charts** will be populated.
+4. Pass a condition into the **Size** bucket from the **Fields** pane, each slices in the **Pie Charts** will be populated into corresponding proportion. 
 
 Now you can adjust all the Pie chart layer settings to suit your report.
 
