@@ -60,8 +60,8 @@ This article provides the steps for deploying self-hosted gateway component of A
 
    ```console
    helm install azure-api-management-gateway \
-                --set gateway.configuration.uri='<your token>' \
-                --set gateway.auth.key='<your configuration url>' \
+                --set gateway.configuration.uri='<your configuration url>' \
+                --set gateway.auth.key='<your token>' \
                 azure-apim-gateway/azure-api-management-gateway
    ```
    
