@@ -33,7 +33,7 @@ For basic specs, storage capacities, and disk details, see [GPU Windows VM sizes
 | -------- |------------- |
 | Windows 10 - Build 2009, 2004, 1909 <br/><br/>Windows 10 Enterprise multi-session - Build 2009, 2004, 1909 <br/><br/>Windows Server 2016 (version 1607)<br/><br/>Windows Server 2019 (version 1909) | [21.Q2-1](https://download.microsoft.com/download/4/e/a/4ea28d3f-28e2-4eaa-8ef2-4f7d32882a0b/AMD-Azure-NVv4-Driver-21Q2-1.exe) (.exe) |
 
-Previous supported driver version for Windows builds up to 1909 is [20.Q4](https://download.microsoft.com/download/f/1/6/f16e6275-a718-40cd-a366-9382739ebd39/AMD-Azure-NVv4-Driver-20Q4.exe) (.exe)
+Previous supported driver version for Windows builds up to 1909 is [20.Q4-1](https://download.microsoft.com/download/0/e/6/0e611412-093f-40b8-8bf9-794a1623b2be/AMD-Azure-NVv4-Driver-20Q4-1.exe) (.exe)
 
  > [!NOTE]
    >  If you use build 1903/1909 then you may need to update the following group policy for optimal performance. These changes are not needed for any other Windows builds.
