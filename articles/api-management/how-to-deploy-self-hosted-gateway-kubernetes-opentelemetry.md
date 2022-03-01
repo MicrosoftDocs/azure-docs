@@ -160,7 +160,6 @@ In this section, we will deploy the self-hosted gateway to our cluster with Helm
 
    ```console
    helm install azure-api-management-gateway \
-                --version 1.0.0-rc.3
                 --set gateway.configuration.uri='<your configuration url>' \
                 --set gateway.auth.key='<your auth token>' \
                 --set observability.opentelemetry.enabled=true \
