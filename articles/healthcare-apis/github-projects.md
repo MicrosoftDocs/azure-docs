@@ -14,7 +14,7 @@ We have many open-source projects on GitHub that provide you the source code and
 
 ## Azure Health Data Services samples
 
-* This repo contains [samples for Azure Health Data Services](https://github.com/microsoft/healthcare-apis-samples), including Fast Healthcare Interoperability Resources (FHIR&#174;), DICOM, IoT connector, and data-related services.
+* This repo contains [samples for Azure Health Data Services](https://github.com/microsoft/healthcare-apis-samples), including Fast Healthcare Interoperability Resources (FHIR&#174;), DICOM, MedTech service, and data-related services.
 
 ## FHIR Server
 
@@ -26,20 +26,21 @@ We have many open-source projects on GitHub that provide you the source code and
 
 #### FHIR Converter
 
-* [microsoft/FHIR-Converter](https://github.com/microsoft/FHIR-Converter): a conversion utility to translate legacy data formats into FHIR
+* [microsoft/FHIR-Converter](https://github.com/microsoft/FHIR-Converter): a data conversion project that uses CLI tool and $convert-data FHIR endpoint to translate healthcare legacy data formats into FHIR
 * Integrated with the FHIR service and FHIR server for Azure in the form of $convert-data operation
 * Ongoing improvements in OSS, and continual integration to the FHIR servers
  
 #### FHIR Converter - VS Code Extension
 
-* [microsoft/FHIR-Tools-for-Anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization): a set of tools for helping with data (in FHIR format) anonymization
-* Integrated with the FHIR service and FHIR server for Azure in the form of ‘de-identified export’
+* [microsoft/vscode-azurehealthcareapis-tools](https://github.com/microsoft/vscode-azurehealthcareapis-tools): a VS Code extension that contains a collection of tools to work with FHIR Converter
+* Released to Visual Studio Marketplace, you can install it here: [FHIR Converter VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-health-fhir-converter)
+* Used for authoring Liquid conversion templates and managing templates on Azure Container Registry
 
 #### FHIR Tools for Anonymization
 
-* [microsoft/vscode-azurehealthcareapis-tools](https://github.com/microsoft/vscode-azurehealthcareapis-tools): a VS Code extension that contains a collection of tools to work with Azure Health Data Services
-* Released to Visual Studio Marketplace
-* Used for authoring Liquid templates to be used in the FHIR Converter
+* [microsoft/Tools-for-Health-Data-Anonymization](https://github.com/microsoft/Tools-for-Health-Data-Anonymization): a data anonymization project that provides tools for de-identifying FHIR data as well as DICOM data
+* Integrated with the FHIR service and FHIR server for Azure in the form of `de-identified $export` operation
+* For FHIR data, it can also be used with Azure Data Factory (ADF) pipeline by reading FHIR data from Azure blob storage and writing back the anonymized data
 
 ## Analytic Pipelines
 
