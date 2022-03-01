@@ -2385,8 +2385,13 @@
     },
     {
       "source_path_from_root": "/articles/aks/aks-ssh.md",
-      "redirect_url": "/azure/aks/ssh",
+      "redirect_url": "/azure/aks/node-access",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/aks/ssh.md",
+      "redirect_url": "/azure/aks/node-access",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/aks/windows-node-limitations.md",
@@ -5938,6 +5943,11 @@
       "redirect_url": "/azure/azure-app-configuration/policy-reference",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-functions/functions-test-a-function.md",
+      "redirect_url": "/azure/azure-functions/supported-languages",
+      "redirect_document_id": false
+    },    
     {
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
