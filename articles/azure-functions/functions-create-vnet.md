@@ -329,7 +329,7 @@ To use your function app with virtual networks, you need to join it to a subnet.
 ## Deploy a Service Bus trigger and HTTP trigger
 
 > [!NOTE]
-> Enabling Private Endpoints on a Function App also makes the Source Control Manager (SCM) site publicly inaccessible. The following instructions give deployment directions using the Deployment Center within the Function App. Alternatively, use [zip deploy](functions-deployment-technologies.md#zip-deploy) or [self-hosted](https://docs.microsoft.com/azure/devops/pipelines/agents/docker) agents that are deployed into a subnet on the virtual network.
+> Enabling Private Endpoints on a Function App also makes the Source Control Manager (SCM) site publicly inaccessible. The following instructions give deployment directions using the Deployment Center within the Function App. Alternatively, use [zip deploy](functions-deployment-technologies.md#zip-deploy) or [self-hosted](/azure/devops/pipelines/agents/docker) agents that are deployed into a subnet on the virtual network.
 
 1. In GitHub, go to the following sample repository. It contains a function app and two functions, an HTTP trigger, and a Service Bus queue trigger.
 
