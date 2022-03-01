@@ -33,8 +33,8 @@ Applications must be represented by an app object in Azure Active Directory so t
 
 ### Step 1: Configure your application in the Azure portal
 For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
-> [!div id="makechanges" class="nextstepaction" class="configure-app-button"]
-> <button>Make this change for me</button>
+
+<button id="makechanges" class="nextstepaction" class="configure-app-button"> Make this change for me </button>
 
 > [!div id="appconfigured" class="alert alert-info"]
 > ![Already configured](media/quickstart-v2-android/green-check.png) Your application is configured with these attributes
@@ -42,8 +42,7 @@ For the code sample in this quickstart to work, add a **Redirect URI** compatibl
 ### Step 2: Download the project
 
 Run the project using Android Studio.
-> [!div class="nextstepaction"]
-> [Download the code sample](https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip)
+<a href='https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip'><button id="downloadsample" class="download-sample-button"> Download the code sample</button>
 
 
 ### Step 3: Your app is configured and ready to run

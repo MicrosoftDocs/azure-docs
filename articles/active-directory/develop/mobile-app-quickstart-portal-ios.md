@@ -36,18 +36,17 @@ The quickstart applies to both iOS and macOS apps. Some steps are needed only fo
 
 #### Step 1: Configure your application
 For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
-> [!div id="makechanges" class="nextstepaction" class="configure-app-button"]
-> <button>Make this change for me</button>
+
+<button id="makechanges" class="nextstepaction" class="configure-app-button"> Make this change for me </button>
 
 > [!div id="appconfigured" class="alert alert-info"]
 > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with these attributes
 
 #### Step 2: Download the sample project
-> [!div class="nextstepaction"]
-> [Download the code sample for iOS]()
 
-> [!div class="nextstepaction"]
-> [Download the code sample for macOS]()
+<a href='https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip'><button id="downloadsample" class="downloadsample_ios"> Download the code sample for iOS</button>
+
+<a href='https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip'><button id="downloadsample" class="downloadsample_ios"> Download the code sample for macOS</button>
 
 #### Step 3: Install dependencies
 
