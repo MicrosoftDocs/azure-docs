@@ -126,7 +126,7 @@ Consider the following limitations:
 
 ### Create a zone redundant Hyperscale database
 
-Use [Azure PowerShell](/powershell/azure/install-az-ps) or the [Azure CLI](cli/azure/update-azure-cli) to create a zone redundant Hyperscale database. Confirm you have the latest version of the API to ensure support for any recent changes. 
+Use [Azure PowerShell](/powershell/azure/install-az-ps) or the [Azure CLI](/cli/azure/update-azure-cli) to create a zone redundant Hyperscale database. Confirm you have the latest version of the API to ensure support for any recent changes. 
 
 # [Azure PowerShell](#tab/azure-powershell)
 
