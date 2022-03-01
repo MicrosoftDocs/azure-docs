@@ -16,7 +16,7 @@ ms.author: christoc
 
 Application gateway allows you to have an App Service app or other multi-tenant service as a back-end pool member. In this article, you learn to configure an App Service app with Application Gateway.  The configuration for Application Gateway will differ depending on how App Service will be accessed:
 - The first option makes use of a **custom domain** on both Application Gateway and the App Service in the backend.  
-- The second option is to have Application Gateway access App Service using it's **default domain**, suffixed as ".azurewebsites.net".
+- The second option is to have Application Gateway access App Service using its **default domain**, suffixed as ".azurewebsites.net".
 
 ## [Custom Domain (recommended)](#tab/customdomain)
 
@@ -440,9 +440,3 @@ The web apps deployed in these examples use public IP addresses that can be  acc
 
 1. Configure [Access restriction rules based on service endpoints](../app-service/networking-features.md#access-restriction-rules-based-on-service-endpoints).  This allows you to lock down inbound access to the app making sure the source address is from Application Gateway.
 2. Use [Azure App Service static IP restrictions](../app-service/app-service-ip-restrictions.md). For example, you can restrict the web app so that it only receives traffic from the application gateway. Use the app service IP restriction feature to list the application gateway VIP as the only address with access.
-
-## Next steps
-
-To learn more about the App service and other multi-tenant support with application gateway, see [multi-tenant service support with application gateway](./application-gateway-web-app-overview.md).
-
-TODO: DO WE STILL NEED THE ABOVE ARTICLE??

@@ -108,8 +108,6 @@
       href: application-gateway-diagnostics.md
     - name: Metrics
       href: application-gateway-metrics.md
-  - name: App service webapp and multi-tenant support
-    href: application-gateway-web-app-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
   - name: Understanding pricing
