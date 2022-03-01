@@ -25,7 +25,7 @@ This article applies to the **Azure Stack Edge 2202** release, which maps to sof
 
 The 2202 release has the following features and enhancements:
 
-- **Introduction of Azure Stack Edge Pro 2** - This release introduces Azure Stack Edge Pro 2, a new generation of a AI-enabled edge computing device offered as a service from Microsoft. For more information, see [What is Azure Stack Edge Pro 2?](azure-stack-edge-pro-2-overview.md)
+- **Introduction of Azure Stack Edge Pro 2** - This release introduces Azure Stack Edge Pro 2, a new generation of an AI-enabled edge computing device offered as a service from Microsoft. For more information, see [What is Azure Stack Edge Pro 2?](azure-stack-edge-pro-2-overview.md)
 
 - **Clustering support** - This release introduces clustering support for Azure Stack Edge. You can now deploy a two-node device cluster in addition to a single node device. The clustering feature is in preview and is available only for the Azure Stack Edge Pro GPU devices.
 
