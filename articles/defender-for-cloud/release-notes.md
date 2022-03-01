@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -60,7 +60,7 @@ Learn more at [Introduction to Microsoft Defender for Azure Cosmos DB](concept-d
 
 We're also introducing a new enablement experience for database security. You can now enable Microsoft Defender for Cloud protection on your subscription to protect all database types, such as, Azure Cosmos DB, Azure SQL Database, Azure SQL servers on machines, and Microsoft Defender for open-source relational databases through one enablement process. Specific resource types can be included, or excluded by configuring your plan.  
 
-Learn how to [enable your database security at the subscrition level](quickstart-enable-defender-for-cosmos.md#enable-database-protection-at-the-subscription-level).
+Learn how to [enable your database security at the subscription level](quickstart-enable-defender-for-cosmos.md#enable-database-protection-at-the-subscription-level).
 
 ### Threat protection for Google Kubernetes Engine (GKE) clusters
 

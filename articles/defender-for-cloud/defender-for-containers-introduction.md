@@ -107,7 +107,7 @@ Workload configuration information is collected by an Azure Policy add-on. As ex
 
 ### Architecture diagram of Defender for Cloud and EKS clusters
 
-The following describes the components neccessary in order to receive the full protection offered by Microsoft Defender for Cloud for Containers.
+The following describes the components necessary in order to receive the full protection offered by Microsoft Defender for Cloud for Containers.
 
 - **[Kubernetes audit logs](https://kubernetes.io/docs/tasks/debug-application-cluster/audit/)** – [AWS account’s CloudWatch](https://aws.amazon.com/cloudwatch/) enables, and collects audit log data through an agentless collector, and sends the collected information to the Microsoft Defender for Cloud backend for further analysis.
 

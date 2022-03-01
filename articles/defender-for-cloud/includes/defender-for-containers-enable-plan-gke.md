@@ -2,6 +2,8 @@
 ms.service: defender-for-cloud
 ms.topic: include
 ms.date: 02/27/2022
+author: elazark
+ms.author: elazarK
 ---
 
 ## Protect Google Kubernetes Engine (GKE) clusters
@@ -19,7 +21,7 @@ To protect your GKE clusters, you will need to enable the Containers plan on the
 
 1. Select the relevant GCP connector
 
-    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/relevant-connector.png" alt-text="Screenshot showing an example GCP connector.":::
+    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/relevant-connector.png" alt-text="Screenshot showing an example GCP connector." lightbox="../media/defender-for-containers-enable-plan-gke/relevant-connector-expanded.png":::
 
 1. Select the **Next: Select plans >** button.
 
@@ -55,8 +57,6 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
 1. From Defender for Cloud's **Recommendations** page, search for one of the recommendations by name.
 
-    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/recommmendation-search.png" alt-text="Screenshot showing the results of searching for either recommendation.":::
-
 1. Select an unhealthy GKE cluster.
 
     > [!IMPORTANT]
@@ -72,8 +72,6 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
     - For Windows, select **PowerShell**.
 
 1. Select **Download remediation logic**.
-
-    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/fix-recommendation.png" alt-text="Screenshot that shows how to fix, and download the remediation logic." lightbox="../media/defender-for-containers-enable-plan-gke/fix-recommendation-expanded.png":::
 
 1. Run the generated script on your cluster.
 
