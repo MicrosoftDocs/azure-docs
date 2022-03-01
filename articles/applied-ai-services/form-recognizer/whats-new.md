@@ -49,7 +49,7 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
 
 #### Form Recognizer SDK beta preview release
 
-The beta.3/beta.4 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates new features, minor feature updates and bug fixes.
+The beta.3/beta.4 version of the Azure Form Recognizer SDKs incorporates new features, minor feature updates and bug fixes.
 
 >[!NOTE]
 > The beta.3 (C#, JavaScript, Python) and beta.4 (Java) previews contain the same updates and fixes but the versioning is no longer in sync across all programming languages.
