@@ -64,6 +64,8 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ##### [**SDK reference documentation**](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true)
 
+---
+
 ### Form Recognizer v3.0 preview release
 
  Form Recognizer v3.0 preview release introduces several new features and capabilities and enhances existing one:
@@ -196,11 +198,11 @@ Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/d
 
 ### Monitoring menu
 
-    :::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
+:::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
 
 ### Charts
 
-    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metric chart in the Azure portal.":::
+:::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metric chart in the Azure portal.":::
 
 * **ID document** model update: given names including a suffix, with or without a period (full stop), process successfully:
 
