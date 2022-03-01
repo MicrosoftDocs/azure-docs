@@ -254,10 +254,10 @@ By default, Windows Defender antivirus is installed on Windows Server 2016. For 
 > Refer to your Antimalware documentation for configuration rules if you are not using Windows Defender. 
 > Windows Defender isn't supported on Linux.
 
-## Isolate the cluster and its trusted applications from untrusted applications
-By design, the applications hosted in a Service Fabric cluster are considered **trusted** and are granted access to the Service Fabric runtime, which manifests in different forms, some of which are: [environment variables](service-fabric-environment-variables-reference.md) pointing to file paths on the host corresponding to application and Fabric files, host paths mounted with write access onto container workloads, an inter-process communication endpoint which accepts application-specific requests, and the client certificate which Fabric expects the application to use to authenticate itself.
+## Hosting untrusted applications in a Service Fabric cluster
+A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. Applications are, therefore, granted access to the Service Fabric runtime, which manifests in different forms, some of which are: [environment variables](service-fabric-environment-variables-reference.md) pointing to file paths on the host corresponding to application and Fabric files, host paths mounted with write access onto container workloads, an inter-process communication endpoint which accepts application-specific requests, and the client certificate which Fabric expects the application to use to authenticate itself.
 
-If you are considering hosting **untrusted applications**, additional steps must be taken to isolate the cluster and its trusted applications from untrusted applications. These include, but are not limited to:
+If you are considering hosting **untrusted applications**, you must take additional steps to define and own the hostile multi-tenant experience for your Service Fabric cluster. This will require you to consider multiple aspects, in the context of your scenario, including, but not limited to, the following:
 * A thorough security review of the untrusted applications' interactions with other applications, the cluster itself, and the underlying compute infrastructure.
 * Use of the strongest sandboxing technology applicable (e.g., appropriate [isolation modes](/virtualization/windowscontainers/manage-containers/hyperv-container.md) for container workloads).
 * Risk assessment of the untrusted applications escaping the sandboxing technology, as the next trust and security boundary is the cluster itself.

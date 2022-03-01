@@ -32,7 +32,7 @@ We recommend the following Azure Service Fabric security best practices:
 -	Use network isolation and security with Azure Service Fabric.
 -	Configure Azure Key Vault for security.
 -	Assign users to roles.
--	Isolate the cluster and its trusted applications from untrusted applications.
+-	Things to consider if hosting untrusted applications in a Service Fabric cluster.
 
 
 ## Best practices for securing your clusters
@@ -175,8 +175,8 @@ After you've created the applications to represent your cluster, assign your use
 
 Azure Service Fabric supports two access control types for clients that are connected to a [Service Fabric cluster](../../service-fabric/service-fabric-cluster-creation-via-arm.md): administrator and user. The cluster administrator can use access control to limit access to certain cluster operations for different groups of users. Access control makes the cluster more secure.
 
-## Isolate the cluster and its trusted applications from untrusted applications
-By design, the applications hosted in a Service Fabric cluster are considered **trusted** and are granted access to the Service Fabric runtime. If you are considering hosting **untrusted applications**, additional steps must taken to [isolate the cluster and its trusted applications from untrusted applications](../../service-fabric/service-fabric-best-practices-security.md#isolate-the-cluster-and-its-trusted-applications-from-untrusted-applications).
+## Things to consider if hosting untrusted applications in a Service Fabric cluster
+Please see [Hosting untrusted applications in a Service Fabric cluster](../../service-fabric/service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
 
 ## Next steps
 

@@ -11,7 +11,7 @@ You can run any type of code, such as Node.js, Java, or C++ in Azure Service Fab
 Guest executables are treated by Service Fabric like stateless services. As a result, they are placed on nodes in a cluster, based on availability and other metrics. This article describes how to package and deploy a guest executable to a Service Fabric cluster, by using Visual Studio or a command-line utility.
 
 > [!NOTE]
-> By design, the applications hosted in a Service Fabric cluster are considered **trusted** and are granted access to the Service Fabric runtime. If you are considering hosting **untrusted applications**, such applications' [access to Service Fabric runtime](service-fabric-service-model-schema-complex-types.md#servicefabricruntimeaccesspolicytype-complextype) must be disabled by specifying [**RemoveServiceFabricRuntimeAccess** as **true**](service-fabric-best-practices-security.md#removeservicefabricruntimeaccess) in the Policies section of the ApplicationManifest.xml. Additional steps must also be taken to [isolate the cluster and its trusted applications from untrusted applications](service-fabric-best-practices-security.md#isolate-the-cluster-and-its-trusted-applications-from-untrusted-applications).
+> A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. If you are considering hosting **untrusted applications**, please see [Hosting untrusted applications in a Service Fabric cluster](service-fabric-best-practices-security.md#hosting-untrusted-applications-in-a-service-fabric-cluster).
 
 ## Benefits of running a guest executable in Service Fabric
 There are several advantages to running a guest executable in a Service Fabric cluster:
