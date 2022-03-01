@@ -315,7 +315,7 @@ Because a system-assigned managed identity can only be retrieved after the creat
         --default-identity "UserAssignedIdentity=<identity-resource-id>"  
     ```
     
-### To use Continuous backup with user-assigned managed identity
+## Use CMK with continuous backup
 Only User-assigned managed identity is supported for creating continuous backup accounts at present. 
 
 - with the Azure CLI:
