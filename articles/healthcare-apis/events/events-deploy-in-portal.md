@@ -49,7 +49,7 @@ It's important that you have the following prerequisites completed before you be
 
 4. After the form is completed, select **Create** to begin the subscription creation. 
 
-5. After provisioning a new Events subscription, event messages will not be sent until the System Topic deployment has successfully completed and the status of the Workspace has changed from "Updating" to "Succeeded".
+5. After provisioning a new Events subscription, event messages won't be sent until the System Topic deployment has successfully completed and the status of the Workspace has changed from "Updating" to "Succeeded".
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-creating.png" alt-text="Screenshot of an Events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-creating.png":::
 
@@ -66,10 +66,10 @@ It's important that you have the following prerequisites completed before you be
    > - [Event delivery with a managed identity](../../event-grid/managed-service-identity.md) 
    >
    >For more information about managed identities, see 
-   > - [What are managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
+   > - [What are managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview)
    >
    >For more information about Azure role-based access control (Azure RBAC), see 
-   > - [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). 
+   > - [What is Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) 
 
 ## Next steps
 

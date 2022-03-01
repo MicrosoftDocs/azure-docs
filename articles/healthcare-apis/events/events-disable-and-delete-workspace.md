@@ -20,15 +20,15 @@ To disable Events from sending event messages for a single Event Subscription, t
 
 1. Select the Event Subscription to be deleted. In this example, we'll be selecting an Event Subscription named **fhir-events**.
 
-   :::image type="content" source="media/disable-delete-workspaces/events-select-subscription.png" alt-text="Screenshot of Events Subscriptions. Select Event Subscription to be deleted" lightbox="media/events-select-subscription.png":::
+   :::image type="content" source="media/disable-delete-workspaces/events-select-subscription.png" alt-text="Screenshot of Events Subscriptions. Select Event Subscription to be deleted" lightbox="media/disable-delete-workspaces/events-select-subscription.png":::
 
 2. Select **Delete** and confirm the Event Subscription deletion.
 
-   :::image type="content" source="media/disable-delete-workspaces/events-select-subscription-delete.png" alt-text="Screenshot of Events Subscriptions. Select delete and confirm the Event Subscription to be deleted" lightbox="media/events-select-subscription-delete.png":::
+   :::image type="content" source="media/disable-delete-workspaces/events-select-subscription-delete.png" alt-text="Screenshot of Events Subscriptions. Select delete and confirm the Event Subscription to be deleted" lightbox="media/disable-delete-workspaces/events-select-subscription-delete.png":::
 
 3. To completely disable Events, delete all Event Subscriptions so that no Event Subscriptions remain.
 
-   :::image type="content" source="media/disable-delete-workspaces/events-disable-no-subscriptions.png" alt-text="Screenshot of Events Subscriptions. Delete all Event Subscriptions to disable the Events feature" lightbox="media/events-disable-no-subscriptions.png":::
+   :::image type="content" source="media/disable-delete-workspaces/events-disable-no-subscriptions.png" alt-text="Screenshot of Events Subscriptions. Delete all Event Subscriptions to disable the Events feature" lightbox="media/disable-delete-workspaces/events-disable-no-subscriptions.png":::
 
 > [!NOTE]
 >
