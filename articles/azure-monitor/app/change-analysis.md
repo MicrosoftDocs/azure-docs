@@ -42,7 +42,7 @@ Application Change Analysis service supports resource property level changes in 
 - Virtual Machine
 - Virtual machine scale set
 - App Service
-- Azure Kubernetes service
+- Azure Kubernetes Service (AKS)
 - Azure Function
 - Networking resources: 
     - Network Security Group
@@ -76,13 +76,15 @@ Unlike Azure Resource Graph, Change Analysis securely queries and computes IP Co
 
 ### Changes in web app deployment and configuration (in-guest changes)
 
-Every 4 hours, Change Analysis captures the deployment and configuration state of an application. For example, it can detect changes in the application environment variables. The tool computes the differences and presents the changes. 
+Every 30 minutes, Change Analysis captures the deployment and configuration state of an application. For example, it can detect changes in the application environment variables. The tool computes the differences and presents the changes. 
 
 Unlike Azure Resource Manager changes, code deployment change information might not be available immediately in the Change Analysis tool. To view the latest changes in Change Analysis, select **Refresh**.
 
 :::image type="content" source="./media/change-analysis/scan-changes.png" alt-text="Screenshot of the Scan changes now button":::   
 
-Currently all text-based files under site root **wwwroot** with the following extensions are supported:
+If you don't see changes within 30 minutes, refer to [our troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app). 
+
+Currently, all text-based files under site root **wwwroot** with the following extensions are supported:
 - *.json
 - *.xml
 - *.ini
@@ -139,6 +141,9 @@ You'll need to register the `Microsoft.ChangeAnalysis` resource provider with an
 - Bring up the Change Analysis standalone tab.
 
 For web app in-guest changes, separate enablement is required for scanning code files within a web app. For more information, see [Change Analysis in the Diagnose and solve problems tool](change-analysis-visualizations.md#application-change-analysis-in-the-diagnose-and-solve-problems-tool) section.
+
+If you don't see changes within 30 minutes, refer to [the troubleshooting guide](./change-analysis-troubleshoot.md#cannot-see-in-guest-changes-for-newly-enabled-web-app). 
+
 
 ## Cost
 Application Change Analysis is a free service. Once enabled, the Change Analysis **Diagnose and solve problems** tool does not:
