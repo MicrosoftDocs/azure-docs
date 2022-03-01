@@ -31,22 +31,22 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Unity - HoloLens
+          - text: HoloLens - Unity
             url: ./quickstarts/get-started-unity-hololens.md
-          - text: Unity - Android
-            url: ./quickstarts/get-started-unity-android.md
-          - text: Unity - iOS
-            url: ./quickstarts/get-started-unity-ios.md
-          - text: Xamarin - Android
-            url: ./quickstarts/get-started-xamarin-android.md
-          - text: Xamarin - iOS
-            url: ./quickstarts/get-started-xamarin-ios.md
-          - text: Visual Studio - HoloLens (Native)
+          - text: HoloLens - Visual Studio (Native)
             url: ./quickstarts/get-started-hololens.md
-          - text: Android Studio - Android
+          - text: Android - Unity
+            url: ./quickstarts/get-started-unity-android.md
+          - text: Android - Android Studio
             url: ./quickstarts/get-started-android.md
-          - text: Xcode - iOS
+          - text: Android - Xamarin 
+            url: ./quickstarts/get-started-xamarin-android.md
+          - text: iOS - Unity
+            url: ./quickstarts/get-started-unity-ios.md
+          - text: iOS - Xcode
             url: ./quickstarts/get-started-ios.md
+          - text: iOS - Xamarin
+            url: ./quickstarts/get-started-xamarin-ios.md
 
   # Card
   - title: Create your own app
