@@ -364,7 +364,7 @@
       - name: .NET
         href: /dotnet/api/overview/azure/apimanagement
       - name: Node.js
-        href: javascript/api/overview/azure/apimanagement
+        href: /javascript/api/overview/azure/apimanagement
       - name: Resource Manager template
         href: /azure/templates/microsoft.apimanagement/allversions
       - name: Azure Policy built-ins
