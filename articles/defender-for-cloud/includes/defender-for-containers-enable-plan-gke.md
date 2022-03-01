@@ -57,7 +57,7 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
 1. From Defender for Cloud's **Recommendations** page, search for one of the recommendations by name.
 
-    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/recommendation-search.png" alt-text="Screenshot showing hw to search for the recommendation." lightbox="../media/defender-for-containers-enable-plan-gke/recommendation-search-expanded.png":::
+    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/recommendation-search.png" alt-text="Screenshot showing how to search for the recommendation." lightbox="../media/defender-for-containers-enable-plan-gke/recommendation-search-expanded.png":::
 
 1. Select an unhealthy GKE cluster.
 
