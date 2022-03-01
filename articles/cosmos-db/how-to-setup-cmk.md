@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 02/25/2022
-ms.author: thweiss, kanshiG
+ms.author: thweiss
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -316,51 +316,56 @@ Because a system-assigned managed identity can only be retrieved after the creat
     ```
     
 ## Use CMK with continuous backup
-Only User-assigned managed identity is supported for creating continuous backup accounts at present. 
 
-- with the Azure CLI:
+You can create a continuous backup account by using the Azure CLI or an Azure Resource Manager template.
 
-    ```azurecli
-    resourceGroupName='myResourceGroup'
-    accountName='mycosmosaccount'
-    keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+Currently, only user-assigned managed identity is supported for creating continuous backup accounts. 
 
-    az cosmosdb create \
-        -n $accountName \
-        -g $resourceGroupName \
-        --key-uri $keyVaultKeyUri \
-        --locations regionName=<Location> \
-        --assign-identity <identity-resource-id> \
-        --default-identity "UserAssignedIdentity=<identity-resource-id>" \
-        --backup-policy-type Continuous 
-     ```
+### To create a continuous backup account by using the Azure CLI
+
+```azurecli
+resourceGroupName='myResourceGroup'
+accountName='mycosmosaccount'
+keyVaultKeyUri = 'https://<my-vault>.vault.azure.net/keys/<my-key>'
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --key-uri $keyVaultKeyUri \
+    --locations regionName=<Location> \
+    --assign-identity <identity-resource-id> \
+    --default-identity "UserAssignedIdentity=<identity-resource-id>" \
+    --backup-policy-type Continuous 
+```
+
+### To create a continuous backup account by using an Azure Resource Manager template
 
 When you create a new Azure Cosmos account through an Azure Resource Manager template:
+
 - Pass the URI of the Azure Key Vault key that you copied earlier under the **keyVaultKeyUri** property in the **properties** object.
 - Use **2021-11-15** or later as the API version.
+
 > [!IMPORTANT]
-> You must set the `locations` property explicitly for the account to be successfully created with customer-managed keys as shared in the example above.
+> You must set the `locations` property explicitly for the account to be successfully created with customer-managed keys as shown in the preceding example.
 
-     - in an Azure Resource Manager template:
-
-    ```json
-     {
-        "type": "Microsoft.DocumentDB/databaseAccounts",
-        "identity": {
-            "type": "UserAssigned",
-            "backupPolicy": {"type": "Continuous"},
-            "userAssignedIdentities": {
-                "<identity-resource-id>": {}
-            }
-        },
-        // ...
-        "properties": {
-            "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
-            "keyVaultKeyUri": "<key-vault-key-uri>"
-            // ...
+```json
+ {
+    "type": "Microsoft.DocumentDB/databaseAccounts",
+    "identity": {
+        "type": "UserAssigned",
+        "backupPolicy": {"type": "Continuous"},
+        "userAssignedIdentities": {
+            "<identity-resource-id>": {}
         }
+    },
+    // ...
+    "properties": {
+        "defaultIdentity": "UserAssignedIdentity=<identity-resource-id>"
+        "keyVaultKeyUri": "<key-vault-key-uri>"
+        // ...
     }
-    ```
+}
+```
     
 ## Key rotation
 
