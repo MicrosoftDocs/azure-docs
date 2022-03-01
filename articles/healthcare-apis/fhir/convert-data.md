@@ -125,9 +125,9 @@ Change the status to **On** to enable managed identity in FHIR service.
 
 1. Assign the [AcrPull](../../role-based-access-control/built-in-roles.md#acrpull) role. 
 
-   [ ![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png) ](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
+   [ ![Add role assignment page](../../../includes/role-based-access-control/media/add-role-assignment-page.png) ](../../../includes/role-based-access-control/media/add-role-assignment-page.png#lightbox) 
 
-For more information about assigning roles in the Azure portal, see [Screen image of Azure built-in roles.](../../role-based-access-control/role-assignments-portal.md#lightbox).
+For more information about assigning roles in the Azure portal, see [Screen image of Azure built-in roles.](../../role-based-access-control/role-assignments-portal.md).
 
 ### Register the ACR servers in FHIR service
 
