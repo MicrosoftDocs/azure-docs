@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual

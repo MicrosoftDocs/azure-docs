@@ -94,6 +94,16 @@ az storage blob upload-batch \
     --auth-mode login
 ```
 
+### [AzCopy](#tab/azcopy)
+
+To archive a single blob on upload with AzCopy, call the [azcopy copy](../common/storage-ref-azcopy-copy.md) command. Provide a local file as the source and the target blob URI as the destination, and specify the Archive tier as the target tier, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+
+```azcopy
+azcopy copy "C:\temp\myTextFile.txt" "https://<storage-account>.blob.core.windows.net/<container>/myTextFile-archived.txt" --blob-type BlockBlob --block-blob-tier Archive
+```
+
+For additional examples, see [Upload files to Azure Blob storage by using AzCopy](../common/storage-use-azcopy-blobs-upload.md).
+
 ---
 
 ## Archive an existing blob
@@ -158,6 +168,10 @@ az storage blob set-tier \
     --auth-mode login
 ```
 
+### [AzCopy](#tab/azcopy)
+
+N/A
+
 ---
 
 ### Archive an existing blob with a copy operation
@@ -172,7 +186,7 @@ N/A
 
 #### [PowerShell](#tab/azure-powershell)
 
-To copy an blob from an online tier to the Archive tier with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the Archive tier. Remember to replace placeholders in angle brackets with your own values:
+To copy a blob from an online tier to the Archive tier with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the Archive tier. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurepowershell
 # Initialize these variables with your values.
@@ -188,7 +202,7 @@ $ctx = (Get-AzStorageAccount `
         -ResourceGroupName $rgName `
         -Name $accountName).Context
 
-# Copy the source blob to a new destination blob in Hot tier with Standard priority.
+# Copy the source blob to a new destination blob in Archive tier.
 Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
     -SrcBlob $srcBlobName `
     -DestContainer $destContainerName `
@@ -199,7 +213,7 @@ Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
 
 #### [Azure CLI](#tab/azure-cli)
 
-To copy an blob from an online tier to the Archive tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the Archive tier. Remember to replace placeholders in angle brackets with your own values:
+To copy a blob from an online tier to the Archive tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the Archive tier. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage blob copy start \
@@ -210,6 +224,18 @@ az storage blob copy start \
     --account-name <storage-account> \
     --tier Archive \
     --auth-mode login
+```
+
+#### [AzCopy](#tab/azcopy)
+
+To copy a blob from an online tier to the Archive tier with AzCopy, specify the URI for the source blob and the URI for the destination blob. The destination blob should have a different name from the source blob, and should not already exist.
+
+When the copy source is a blob, you must provide an account SAS token on the source blob. If you are using Azure Active Directory (Azure AD) to authorize the copy operation, then the SAS is required only on the source blob, as shown in the following example. If you are using the account access key to authorize the copy operation, then you must provide a SAS token on both the source and destination blobs. For more information, see [Copy blobs between Azure storage accounts by using AzCopy](../common/storage-use-azcopy-blobs-copy.md).
+
+Remember to replace placeholders in angle brackets with your own values:
+
+```azcopy
+azcopy copy "https://<source-account>.blob.core.windows.net/sample-container/blob1.txt?sv=2020-08-04&ss=b&srt=sco&sp=r&se=2022-03-02T05:21:32Z&st=2022-03-01T21:21:32Z&spr=https&sig=<signature>" "https://<dest-account>.blob.core.windows.net/sample-container/blob1-archived.txt" --blob-type BlockBlob --block-blob-tier Archive
 ```
 
 ---
