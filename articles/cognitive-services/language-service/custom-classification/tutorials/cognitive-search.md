@@ -33,7 +33,7 @@ In this tutorial, you will learn how to:
 
 * An [Azure function app](../../../../azure-functions/functions-create-function-app-portal.md)
 
-* Download this [sample data](). <!-- TODO: add link to sample data here (Movies)-->
+* Download this [sample data](https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/language-service/Custom%20text%20classification/Custom%20multi%20classification%20-%20movies%20summary.zip).
 
 ## Create a custom classification project through Language studio
 
