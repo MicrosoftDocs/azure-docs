@@ -36,9 +36,9 @@ To activate the on-premises management console:
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/take-action.png" alt-text="Screenshot that shows the Take Action link in the alert at the top of the screen.":::
 
-1. In the **Activation** popup screen, select **Azure portal**.
+1. In the **Activation** pop-up screen, select **Azure portal**.
 
-   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/azure-portal.png" alt-text="Screenshot that shows the Azure portal link in the popup message.":::
+   :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/azure-portal.png" alt-text="Screenshot that shows the Azure portal link in the pop-up message.":::
  
 1. Select a subscription to associate the on-premises management console to. Then select **Download on-premises management console activation file**. The activation file downloads.
 
@@ -51,7 +51,7 @@ To activate the on-premises management console:
    > [!Note]
    > If you delete a subscription, you must upload a new activation file to the on-premises management console that was affiliated with the deleted subscription.
 
-1. Go back to the **Activation** popup screen and select **CHOOSE FILE**.
+1. Go back to the **Activation** pop-up screen and select **CHOOSE FILE**.
 
 1. Select the downloaded file.
 
@@ -165,7 +165,7 @@ To set up tunneling at the on-premises management console:
       
       ```
 
-1. Allow a few minutes for the connection to initiate.
+1. Allow a few minutes for the connection to start.
 
 You can also customize the port range to a number other than 9000. An example is 10000.
 
