@@ -43,7 +43,7 @@ requestType=split(split(PIICommandText,'"')[3], ' ')[0]
 | summarize max(RequestCharge) by bin(TimeGenerated, 10m), tostring(requestType);
 ```
 
-- Using the right partition key strategy based on RU Charge and operation.
+- Monitoring RU Consumption per operation on logical partition keys.
 ```kusto
 CDBPartitionKeyRUConsumption
 | where DatabaseName startswith "azure"
@@ -74,21 +74,17 @@ CDBCassandraRequests
 | order by RequestCharge desc
 | take 10;
 ```
-- Payload sizes impact on RU consumption based on the read and write operations.
+- RU Consumption based on variations in payload sizes for read and write operations.
 ```kusto
 // This query is looking at read operations
 CDBDataPlaneRequests
 | where OperationName in ("Read", "Query")
-| summarize maxResponseLength=max(ResponseLength) by bin(TimeGenerated, 10m), OperationName, ActivityId
-| join CDBCassandraRequests on ActivityId
-| project AccountName, DatabaseName, CollectionName, ErrorCode,OperationName,maxResponseLength
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), OperationName
 
 // This query is looking at write operations
 CDBDataPlaneRequests
 | where OperationName in ("Create", "Upsert", "Delete", "Execute")
-| summarize maxResponseLength=max(ResponseLength) by bin(TimeGenerated, 10m), OperationName, ActivityId
-| join CDBCassandraRequests on ActivityId
-| project AccountName, DatabaseName, CollectionName, ErrorCode,OperationName,maxResponseLength;
+| summarize maxResponseLength=max(ResponseLength), maxRU=max(RequestCharge) by bin(TimeGenerated, 10m), OperationName
 
 // Write operations over a time period.
 CDBDataPlaneRequests
@@ -137,7 +133,7 @@ CDBDataPlaneRequests
 | render timechart 
 ```
 
-- Are there spikes as a result of server-side latencies?
+- Do we observe spikes in server-side latencies in the specified time window?
 ```kusto
 CDBDataPlaneRequests
 | where TimeGenerated > now(-6h)
@@ -146,7 +142,7 @@ CDBDataPlaneRequests
 | render timechart
 ```
 
-- We highlight that payload sizes can have latency based application query.
+- Query operations that are getting throttled.
 ```kusto
 CDBCassandraRequests
 | project RequestLength, ResponseLength,
@@ -175,5 +171,5 @@ CDBCassandraRequests
 ```
 
 ## Next steps
-- Start [log analytics](../../azure-monitor/logs/log-analytics-overview.md) on your Cassandra API account.
+- Enable [log analytics](../../azure-monitor/logs/log-analytics-overview.md) on your Cassandra API account.
 - Overview [error code definition](error-codes-solution.md).
