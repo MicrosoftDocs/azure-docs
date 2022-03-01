@@ -36,7 +36,7 @@ Coming soon.
 
 ## [.NET](#tab/.net/)
 
-## .NET
+## Using .NET
 
 ```csharp
 /// <summary>
