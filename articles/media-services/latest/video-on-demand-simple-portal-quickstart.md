@@ -4,11 +4,10 @@ description: This article shows you how to do the basic steps for delivering vid
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.topic: quickstart
 ms.workload: media
-ms.date: 02/16/2022
+ms.date: 03/01/2022
 ms.author: inhenkel
 ---
 
@@ -46,7 +45,7 @@ In order to stream your videos you need a streaming locator.
 
 <!-- ## Create a streaming locator -->
 
-[!INCLUDE [task-create-asset-portal](includes/task-streaming-locator-portal.md)]
+[!INCLUDE [task-create-asset-portal](includes/task-create-streaming-locator-portal.md)]
 
 On this screen, you'll see that the streaming endpoint that was created when you created your account is in the Streaming endpoint dropdown list along with other data about the streaming locator.
 
