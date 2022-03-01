@@ -798,6 +798,8 @@ items:
               href: app/status-monitor-v2-api-reference.md
         - name: Java
           href: app/java-on-premises.md
+      - name: Troubleshooting
+      href: auto-instrumentation-troubleshoot.md
     - name: Application Insights SDKs
       items:
       - name: .NET
