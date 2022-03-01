@@ -70,7 +70,7 @@ There are 2 dedicated Defender for Cloud recommendations you can use to install 
 
 1. Select **Fix**.
 
-    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/fix-button.png" alt-text="Screenshot showing the location of the fix button." lightbox="../media/defender-for-containers-enable-plan-gke/recommendation-search-expanded.png":::
+    :::image type="content" source="../media/defender-for-containers-enable-plan-gke/fix-button.png" alt-text="Screenshot showing the location of the fix button.":::
 
 1. Defender for Cloud will generate a script in the language of your choice: 
     - For Linux, select **Bash**.
