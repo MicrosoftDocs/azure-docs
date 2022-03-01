@@ -64,7 +64,7 @@ There are [common search parameters](https://www.hl7.org/fhir/search.html#all) t
 
 ### Resource-specific parameters
 
-With the FHIR service in the Azure Health Data Services, we support almost all [resource-specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined by the FHIR specification. The only search parameters we don’t support are available in the links below:
+With FHIR service in Azure Health Data Services, we support almost all [resource-specific search parameters](https://www.hl7.org/fhir/searchparameter-registry.html) defined by the FHIR specification. The only search parameters we don’t support are available in the links below:
 
 * [STU3 Unsupported Search Parameters](https://github.com/microsoft/fhir-server/blob/main/src/Microsoft.Health.Fhir.Core/Data/Stu3/unsupported-search-parameters.json)
 
@@ -79,7 +79,7 @@ GET {{FHIR_URL}}/metadata
 To see the search parameters in the capability statement, navigate to `CapabilityStatement.rest.resource.searchParam` to see the search parameters for each resource and `CapabilityStatement.rest.searchParam` to find the search parameters for all resources.
 
 > [!NOTE]
-> The FHIR service in the Azure Health Data Services does not automatically create or index any search parameters that are not defined by the FHIR specification. However, we do provide support for you to to define your own [search parameters](how-to-do-custom-search.md).
+> FHIR service in Azure Health Data Services does not automatically create or index any search parameters that are not defined by the FHIR specification. However, we do provide support for you to to define your own [search parameters](how-to-do-custom-search.md).
 
 ### Composite search parameters
 Composite search allows you to search against value pairs. For example, if you were searching for a height observation where the person was 60 inches, you would want to make sure that a single component of the observation contained the code of height **and** the value of 60. You wouldn't want to get an observation where a weight of 60 and height of 48 was stored, even though the observation would have entries that qualified for value of 60 and code of height, just in different component sections. 
@@ -148,12 +148,11 @@ A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to 
 
 Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
 
-
 ## Pagination
 
 As mentioned above, the results from a search will be a paged bundle. By default, the search will return 10 results per page, but this can be increased (or decreased) by specifying `_count`. Within the bundle, there will be a self link that contains the current result of the search. If there are more matches, the bundle will contain a next link. You can continue to use the next link to get the subsequent pages of results. `_count` is limited to 1000 items or less. 
 
-Currently, the FHIR service in the Azure Health Data Services only supports the next link in bundles, and it doesn’t support first, last, or previous links.
+Currently, FHIR service in Azure Health Data Services only supports the next link in bundles, and it doesn’t support first, last, or previous links.
 
 ## Next steps
 
