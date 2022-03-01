@@ -31,10 +31,10 @@
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
       - name: STMicroelectronics L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l4s5i.md
-    - name: Azure FreeRTOS — Embedded device development
+    - name: FreeRTOS — Embedded device development
       items:
       - name: ESPRESSIF ESP32
-        href: quickstart-devkit-espressif-esp32.md
+        href: quickstart-devkit-espressif-esp32-freertos.md
       - name: STMicroelectronics L475E
         href: quickstart-devkit-stm-b-l475e-freertos.md
 - name: Tutorials

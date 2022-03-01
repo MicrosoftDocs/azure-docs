@@ -9,7 +9,8 @@ ms.workload:
 ms.topic: quickstart
 ms.date: 5/21/2021
 ms.author: inhenkel
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Event-based Face Redaction

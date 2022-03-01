@@ -41,7 +41,8 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 Before you create your first scaling plan, make sure you follow these guidelines:
 
 - You can currently only configure autoscale with pooled existing host pools.
-- All host pools you autoscale must have a configured MaxSessionLimit parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AZWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool?view=azps-5.7.0&preserve-view=true) or [Update-AZWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool?view=azps-5.7.0&preserve-view=true) cmdlets in PowerShell.
+- You must create the scaling plan in the same region as the host pool you assign it to. You cannot assign a scaling plan in one region to a host pool in another region.
+- All host pools you use the autoscale feature for must have a configured MaxSessionLimit parameter. Don't use the default value. You can configure this value in the host pool settings in the Azure portal or run the [New-AZWvdHostPool](/powershell/module/az.desktopvirtualization/new-azwvdhostpool?view=azps-5.7.0&preserve-view=true) or [Update-AZWvdHostPool](/powershell/module/az.desktopvirtualization/update-azwvdhostpool?view=azps-5.7.0&preserve-view=true) cmdlets in PowerShell.
 - You must grant Azure Virtual Desktop access to manage power on your VM Compute resources.
 
 ## Create a custom RBAC role in your subscription
@@ -262,3 +263,5 @@ Now that you've created your scaling plan, here are some things you can do:
 
 - [Assign your scaling plan to new and existing host pools](autoscale-new-existing-host-pool.md)
 - [Enable diagnostics for your scaling plan](autoscale-diagnostics.md)
+
+If you'd like to learn more about terms used in this article, check out our [autoscale glossary](autoscale-glossary.md). You can also look at our [autoscale FAQ](autoscale-faq.yml) if you have additional questions.

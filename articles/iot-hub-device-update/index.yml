@@ -7,7 +7,7 @@ metadata:
   title: Device Update for IoT Hub documentation
   description: Device Update for IoT Hub is a service that enables you to deploy over-the-air updates (OTA) to your IoT devices.
   services: iot-hub
-  ms.service: iot-hub
+  ms.service: iot-hub-device-update
   ms.topic: landing-page
   author: vimeht
   ms.author: vimeht
@@ -69,6 +69,10 @@ landingContent:
             url: device-update-raspberry-pi.md
           - text: Device update on Ubuntu Server 18.04 x64 Package agent
             url: device-update-ubuntu-agent.md
+          - text: Device update for Azure Real-time-operating-system
+            url: device-update-azure-real-time-operating-system.md
+          - text: Proxy update using device update binary agent
+            url: device-update-howto-proxy-updates.md
 
   - title: API and SDK reference
     linkLists:

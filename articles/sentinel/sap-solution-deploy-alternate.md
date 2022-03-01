@@ -1,11 +1,11 @@
 ---
 title: Microsoft Sentinel SAP data connector expert configuration options, on-premises deployment, and SAPControl log sources  | Microsoft Docs
 description: Learn how to deploy the Microsoft Sentinel data connector for SAP environments using expert configuration options and an on-premises machine. Also learn more about SAPControl log sources.
-author: batamig
-ms.author: bagol
+author: MSFTandrelom
+ms.author: andrelom
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 02/22/2022
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources

@@ -1,11 +1,11 @@
 ---
 title: Microsoft Sentinel SAP solution - data reference | Microsoft Docs
 description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel SAP solution.
-author: batamig
-ms.author: bagol
+author: MSFTandrelom
+ms.author: andrelom
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 02/22/2022
 ---
 
 # Microsoft Sentinel SAP solution data reference (public preview)
@@ -560,7 +560,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### HANA DB Audit Trail
 
-To have this log sent to Microsoft Sentinel, you must [add it manually to the **systemconfig.ini** file](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
+To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](connect-syslog.md) to gather Syslog data from the machine running HANA DB.
 
 
 - **Name in Microsoft Sentinel**: `Syslog`
@@ -635,7 +635,7 @@ This section lists the data tables that are retrieved directly from the SAP syst
 
 To have the data from these tables ingested into Microsoft Sentinel, configure the relevant settings in the **systemconfig.ini** file. For more information, see [Configuring User Master data collection](sap-solution-deploy-alternate.md#configuring-user-master-data-collection).
 
-The data retrieved from these tables provides a clear view of the authorization structure, group membership, and user profiles. It also allows you to track the process of authorization grants and revokes, and identify and govern the risks associated with those processes.
+The data retrieved from these tables provides a clear view of the authorization structure, group membership, and user profiles. It also allows you to track the process of authorization grants and revokes, and identiy and govern the risks associated with those processes.
 
 The tables listed below are required to enable functions that identify privileged users, map users to roles, groups, and authorizations.
 
@@ -712,7 +712,7 @@ The **SAPUsersGetPrivileged** Microsoft Sentinel Function returns the following 
 
 ### SAPUsersAuthorizations
 
-The **SAPUsersAuthorizations** function lists user assignments to authorizations, including the following data:
+lists user assignments to authorizations, including the following data:
 The **SAPUsersAuthorizations** Microsoft Sentinel Function brings together data from several tables to produce a user-centric view of the current roles and authorizations assigned.  Only users with active role and authorization assignments are returned.
 
 **Parameters:**
