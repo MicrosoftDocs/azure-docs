@@ -71,7 +71,8 @@ To activate an application through the Azure CLI, use the following steps.
         --env APPDYNAMICS_AGENT_APPLICATION_NAME=<your-app-name> \
               APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY=<your-agent-access-key> \
               APPDYNAMICS_AGENT_ACCOUNT_NAME=<your-agent-account-name> \
-              APPDYNAMICS_AGENT_NODE_NAME=<your-agent-node-name> \
+              APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME=true \
+              APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME_PREFIX=<your-agent-node-name> \
               APPDYNAMICS_AGENT_TIER_NAME=<your-agent-tier-name> \
               APPDYNAMICS_CONTROLLER_HOST_NAME=<your-AppDynamics-controller-host-name> \
               APPDYNAMICS_CONTROLLER_SSL_ENABLED=true \
@@ -96,7 +97,7 @@ To activate an application through the Azure portal, use the following steps.
 
 1. Select **Configuration** in the left navigation pane to add, update, or delete the environment variables of the application.
 
-   :::image type="content" source="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png" alt-text="Azure portal screenshot showing the 'Environment variables' section of the app's Configuration page " lightbox="media/how-to-appdynamics-java-agent-monitor/azure-spring-cloud-app-configuration-env.png":::
+   :::image type="content" source="https://user-images.githubusercontent.com/86866/156226614-93603786-7055-42bf-9da6-30c4ade8632c.png" alt-text="Azure portal screenshot showing the 'Environment variables' section of the app's Configuration page " lightbox="https://user-images.githubusercontent.com/86866/156226614-93603786-7055-42bf-9da6-30c4ade8632c.png":::
 
 1. Select **General settings** to add, update, or delete the JVM options of the application.
 
@@ -119,7 +120,8 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
       "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<your-app-name>",
       "APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY" : "<your-agent-access-key>",
       "APPDYNAMICS_AGENT_ACCOUNT_NAME" : "<your-agent-account-name>",
-      "APPDYNAMICS_AGENT_NODE_NAME" : "<your-agent-node-name>",
+      "APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME" : "true",
+      "APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME_PREFIX" : "<your-agent-node-name>",
       "APPDYNAMICS_AGENT_TIER_NAME" : "<your-agent-tier-name>",
       "APPDYNAMICS_CONTROLLER_HOST_NAME" : "<your-AppDynamics-controller-host-name>",
       "APPDYNAMICS_CONTROLLER_SSL_ENABLED" : "true",
@@ -138,7 +140,8 @@ To configure the environment variables in an ARM template, add the following cod
     "APPDYNAMICS_AGENT_APPLICATION_NAME" : "<your-app-name>",
     "APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY" : "<your-agent-access-key>",
     "APPDYNAMICS_AGENT_ACCOUNT_NAME" : "<your-agent-account-name>",
-    "APPDYNAMICS_AGENT_NODE_NAME" : "<your-agent-node-name>",
+    "APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME" : "true",
+    "APPDYNAMICS_JAVA_AGENT_REUSE_NODE_NAME_PREFIX" : "<your-agent-node-name>",
     "APPDYNAMICS_AGENT_TIER_NAME" : "<your-agent-tier-name>",
     "APPDYNAMICS_CONTROLLER_HOST_NAME" : "<your-AppDynamics-controller-host-name>",
     "APPDYNAMICS_CONTROLLER_SSL_ENABLED" : "true",
