@@ -81,7 +81,7 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 :::image type="content" source="../media/quickstart/manage-workspace-settings-1.png" alt-text="Screenshot illustrating how to share a workspace.":::
 
-:::image type="content" source="../media/quickstart/manage-workspace-settings-2.png" alt-text="Screenshot illustrating share workspace settings.":::
+:::image type="content" source="../media/how-to/manage-workspace-settings-2.png" alt-text="Screenshot illustrating share workspace settings.":::
 
 ### Remove somebody from a workspace
 
@@ -89,7 +89,7 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 2. Select the **X** icon next to the **Role** and email address that you want to remove.
 
-:::image type="content" source="../media/quickstart/manage-workspace-settings-3.png" alt-text="Screenshot illustrating how to unshare a workspace.":::
+:::image type="content" source="../media/how-to/manage-workspace-settings-3.png" alt-text="Screenshot illustrating how to unshare a workspace.":::
 
 ## Next steps
 
