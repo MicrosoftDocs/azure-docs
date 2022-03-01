@@ -1,0 +1,47 @@
+---
+title: Migrate from VM guest health to Azure Monitor Log alerts
+description: Describes how to migrate from VM insights guest health to Azure Monitor Log alerts.
+ms.topic: conceptual
+ms.date: 03/01/2022
+
+---
+
+# Migrate from VM guest health to Azure Monitor Log alerts
+This article walks through migrating from the VM guest health (preview) to Azure Monitor Log alerts to configure alerts on key VM metrics and offboard VMs from VM guest health (preview). [VM guest health (preview)](vminsights-health-overview.md) will retire on 30 September 2023. If you are using this feature to configure alerts on key VM metrics, make sure to transition to Azure Monitor Log alerts before that date. 
+
+## Configure Azure Monitor Log alerts
+See [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machine-alerts#log-alerts) for instructions on creating Azure Monitor log alerts.
+
+Alert rules for the key metrics used by VM health include the following:
+
+- [CPU utilization](monitor-virtual-machine-alerts.md#log-alert-rules)
+- [Available Memory](monitor-virtual-machine-alerts.md#log-alert-rules-1)
+- [Disk free space](monitor-virtual-machine-alerts.md#log-query-alert-rules-1)
+
+
+### Offboard VMs from VM guest health (preview)
+Use the following steps to offboard the VMs from the VM guest health (preview) feature:
+
+### 1. Uninstall the VM extension for VM guest health
+The VM Extension is called *GuestHealthWindowsAgent* for Windows VMs and *GuestHealthLinuxAgent* for Linux VMs. You can remove the extension using Azure portal, [Azure PowerShell](/powershell/module/az.compute/remove-azvmextension?view=azps-7.1.0), or [Azure CLI](/cli/azure/vm/extension?view=azure-cli-latest#az-vm-extension-delete).
+
+
+### 2. Delete the Data Collection Rule Association created for VM guest health
+Before you can remove the data collection rule for VM guest health, you need to remove its association with any VMs. If the VM was onboarded to VM guest health using the Azure portal, a default DCR with a name similar to *Microsoft-VMInsights-Health-xxxxx* will have been created. If you onboarded with another method, you have given the DCR a different name.
+
+From the **Monitor** menu in the Azure portal, select **Data Collection Rules**. Click on the DCR for VM guest health and **Resources**. Select the VMs to remove and click **Delete**.
+
+You can also remove the Data Collection Rule Association using [Azure PowerShell](../agents/data-collection-rule-azure-monitor-agent.md#manage-rules-and-association-using-powershell) or [Azure CLI](/cli/azure/monitor/data-collection/rule/association?view=azure-cli-latest#az-monitor-data-collection-rule-association-delete). 
+
+
+### 3. Delete Data Collection Rule created for VM guest health
+To remove the data collection rule, click **Delete** from the DCR page in the Azure portal.
+
+You can also delete the Data Collection Rule using [Azure PowerShell](../agents/data-collection-rule-azure-monitor-agent.md#manage-rules-and-association-using-powershell) or [Azure CLI](/cli/azure/monitor/data-collection/rule?view=azure-cli-latest#az-monitor-data-collection-rule-delete).
+
+
+The ‘Health’ tab and the ‘Guest VM Health’ status under Monitor -> Virtual Machines will not be available after retirement.
+
+## Next steps
+
+- [Read more about log query alerts for virtual machine](monitor-virtual-machine-alerts.md)

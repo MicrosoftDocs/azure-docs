@@ -4,7 +4,7 @@ description: Describes the alerts created by VM insights guest health including 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/10/2020
+ms.date: 03/01/2022
 
 ---
 

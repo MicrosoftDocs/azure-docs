@@ -4,7 +4,7 @@ description: Describes how to modify default monitoring in VM insights guest hea
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2020
+ms.date: 03/01/2022
 
 ---
 

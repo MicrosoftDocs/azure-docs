@@ -4,7 +4,7 @@ description: Describes how to enable VM insights guest health in your subscripti
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/05/2021
+ms.date: 03/01/2022
 ms.custom: references_regions, devx-track-azurepowershell
 
 ---
