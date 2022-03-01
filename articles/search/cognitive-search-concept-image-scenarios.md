@@ -46,7 +46,7 @@ Azure Blob Storage is the most frequently used storage for image processing in C
 
 - [Create a data source](/rest/api/searchservice/create-data-source) of type "azureblob" that connects to the blob container storing your files.
 
-- Optionally, [set file type criteria](search-howto-indexing-azure-blob-storage.md#how-to-control-which-blobs-are-indexed) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings so that you can filter out files you don't want.
+- Optionally, [set file type criteria](search-blob-storage-integration.md#PartsOfBlobToIndex) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings so that you can filter out files you don't want.
 
 <a name="get-normalized-images"></a>
 
