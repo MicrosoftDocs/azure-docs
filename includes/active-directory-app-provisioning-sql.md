@@ -1,6 +1,6 @@
 This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into a SQL database.  
  
-For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](on-premises-application-provisioning-architecture.md).
+For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md) and [on-premises application provisioning architecture](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md).
 
 >[!IMPORTANT]
 >The default verbosity of the logs is set to `Verbose`. If you are using the SQL connector without Windows Integrated Auth, please set the verbosity to `Error` as described [here](../articles/active-directory/app-provisioning/on-premises-ecma-troubleshoot.md#turn-on-verbose-logging).
@@ -34,7 +34,7 @@ Note: The table-based strategy of the generic SQL connector requires that column
 
 ## Prepare the sample database
 
-In this article, you will configure the Azure AD SQL connector to interact with your application's relational database. Typically, applications manage access with a table in the a SQL database, with one row per user. For demonstration purposes, if you do not already have a database with a suitable table, then you should create one which Azure AD can be permitted to use.  If you're using  SQL Server, then run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name CONTOSO, containing a single table `Employees`. This is the database table that you'll be provisioning users into.
+In this article, you will configure the Azure AD SQL connector to interact with your application's relational database. Typically, applications manage access with a table in their SQL database, with one row in the table per user. For demonstration purposes, if you do not already have a database with a suitable table, then you should create one which Azure AD can be permitted to use.  If you're using SQL Server, then run the SQL script found in [Appendix A](#appendix-a). This script creates a sample database with the name CONTOSO, containing a single table `Employees`. This is the database table that you'll be provisioning users into.
 
  |Table Column|Source|
  |-----|-----|
@@ -48,9 +48,9 @@ In this article, you will configure the Azure AD SQL connector to interact with 
 
 ## Determine how the Azure AD SQL Connector will interact with your database
 
-In addition to a table of users, a more complex application database could have additional auxiliary tables, or could require Azure AD to call a stored procedure to interact with the database.
+If you have an already existing database for your application, then you will need to determine how Azure AD should interact with that database: through SQL statements that query and update rows in a table directly, or via stored procedures.  This is because a more complex application might have in its database additional auxiliary tables, require paging for tables with thousands of users, or could require Azure AD to call a stored procedure that performs additional data processing, such as encryption, hashing or validity checks.
 
-When you create the configuration for an application's database, you will configure either or two or three run profiles. Each run profile specifies how the connector should generate SQL statements.  The choice of run profiles, and the strategy within a run profile, depends on what your database supports.
+When you create the configuration for the connector to interact with an application's database, you will configure this approach via a run profile. Each run profile specifies how the connector should generate SQL statements.  The choice of run profiles, and the strategy within a run profile, depends on what your database engine supports and the application requires.
 
 - After configuration, when the provisioning service starts, it will automatically perform the interactions configured in the **Full Import** run profile.  In this run profile, the connector will read in all the records for users from the application's database, typically using a **SELECT** statement.  This run profile is necessary so that later, if Azure AD needs to make a change for a user, Azure AD will know to update an existing record for that user in the database, rather than create a new record for that user.
 
@@ -60,7 +60,7 @@ When you create the configuration for an application's database, you will config
 
 In the configuration of each run profile of the connector, you will specify whether the Azure AD connector should generate its own SQL statements for a table or view, call your stored procedures, or use custom SQL queries you provide.  Typically you will use the same strategy for all run profiles in a connector.
 
-- If you select the Table or View method for a run profile, then the Azure AD connector will generate the necessary SQL statements, *SELECT*, *INSERT*, *UPDATE* and *DELETE*, to interact with the table or view in the database.  This is the simplest approach, if your database has a simple and small users table.
+- If you select the Table or View method for a run profile, then the Azure AD connector will generate the necessary SQL statements, *SELECT*, *INSERT*, *UPDATE* and *DELETE*, to interact with the table or view in the database.  This is the simplest approach, if your database has a single  table with few existing rows.
 - If you select the Stored Procedure method, then your database will need to have four stored procedures: read a page of users, add a user, update a user and delete a user, you will configure the Azure AD connector with the names and parameters of those stored procedures to call.  This approach requires more configuration in your SQL database and would typically only be needed if your application requires additional processing for each change to a user.
 - If you select the SQL Query method, then you will type in the specific SQL statements you want the connector to issue during a run profile.
 
