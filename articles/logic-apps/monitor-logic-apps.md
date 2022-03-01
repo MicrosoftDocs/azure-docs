@@ -1,10 +1,10 @@
 ---
 title: Monitor status, view history, and set up alerts
-description: Troubleshoot logic apps by checking run status, reviewing trigger history, and enabling alerts in Azure Logic Apps
+description: Troubleshoot logic apps by checking run status, reviewing trigger history, and enabling alerts in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: divswa, logicappspm
-ms.topic: article
+ms.reviewer: divswa, azla
+ms.topic: how-to
 ms.date: 05/04/2020
 ---
 
