@@ -128,16 +128,16 @@ The following table describres language support in the Video Analyzer for Media 
 | Arabic (Qatar)                   | `ar-QA`      |                |  |
 | Arabic (Saudi Arabia)            | `ar-SA`      |                |  | 
 | Arabic (United Arab Emirates)    | `ar-AE`      |                |  | 
-| Arabic Egypt                     | `ar-EG`      |                |  |
+| Arabic Egypt                     | `ar-EG`      |                | ✔ |
 | Arabic Modern Standard (Bahrain) | `ar-BH`      |                |  | 
 | Arabic Syrian Arab Republic      | `ar-SY`      |                |  | 
 | Bangla                           | `bn-BD`      |                 |✔  |
 | Bosnian                          | `bs-Latn`    |               | ✔ |  
 | Bulgarian                        | `bg-BG`      |               |  ✔|  
 | Catalan                          | `ca-ES`      |               | ✔ | 
-| Chinese (Cantonese Traditional)  | `zh-HK`      |               |  | 
+| Chinese (Cantonese Traditional)  | `zh-HK`      |               | ✔ | 
 | Chinese (Simplified)             | `zh-Hans`    |      ✔        |✔  |
-| Chinese (Traditional)            | `zh-Hant`    |               |  |  
+| Chinese (Traditional)            | `zh-Hant`    |               |✔  |  
 | Croatian                         | `hr-HR`      |               |  |
 | Czech                            | `cs-CZ`      |    ✔           | ✔ | 
 | Danish                           | `da-DK`      |                | ✔ | 
@@ -169,26 +169,26 @@ The following table describres language support in the Video Analyzer for Media 
 | Maltese                          | `mt-MT`      |               |  |
 | Norwegian                        | `nb-NO`      |               | ✔ |
 | Persian                          | `fa-IR`      |                |  |
-| Polish                           | `pl-PL`      |  ✔              |  | 
+| Polish                           | `pl-PL`      |  ✔              | ✔ | 
 | Portuguese                       | `pt-BR`      | ✔               | ✔  | 
 | Portuguese (Portugal)            | `pt-PT`      |                |✔  |  
-| Romanian                         | `ro-RO`      |               |  | 
+| Romanian                         | `ro-RO`      |               |  ✔| 
 | Russian                          | `ru-RU`      | ✔               | ✔  |
 | Samoan                           | `en-WS`      |               |  | 
 | Serbian (Cyrillic)               | `sr-Cyrl-RS` |               | ✔ | 
 | Serbian (Latin)                  | `sr-Latn-RS` |               |  | 
-| Slovak                           | `sk-SK`      |               |  |
-| Slovenian                        | `sl-SI`      |               |  | 
+| Slovak                           | `sk-SK`      |               | ✔ |
+| Slovenian                        | `sl-SI`      |               | ✔ | 
 | Spanish                          | `es-ES`      | ✔               |  ✔ |
 | Spanish (Mexico)                 | `es-MX`      |               |  ✔| 
-| Swedish                          | `sv-SE`      |  ✔             |  | 
-| Tamil                            | `ta-IN`      |               |  | 
-| Thai                             | `th-TH`      |                |  | 
-| Tongan                           | `to-TO`      |               |  |
-| Turkish                          | `tr-TR`      | ✔               |  | 
-| Ukrainian                        | `uk-UA`      |               |  |  
-| Urdu                             | `ur-PK`      |               |  |  
-| Vietnamese                       | `vi-VN`      |               |  |
+| Swedish                          | `sv-SE`      |  ✔             | ✔ | 
+| Tamil                            | `ta-IN`      |               | ✔ | 
+| Thai                             | `th-TH`      |                |✔  | 
+| Tongan                           | `to-TO`      |               | ✔ |
+| Turkish                          | `tr-TR`      | ✔               | ✔ | 
+| Ukrainian                        | `uk-UA`      |               |✔  |  
+| Urdu                             | `ur-PK`      |               | ✔ |  
+| Vietnamese                       | `vi-VN`      |               | ✔ |
 
 
 ## Next steps
