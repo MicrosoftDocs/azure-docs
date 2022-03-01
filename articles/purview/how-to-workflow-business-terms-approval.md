@@ -1,88 +1,70 @@
 ---
-title: #Required; page title is displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results. 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. slug assigned by ACOM.
+title: Business terms approval workflow
+description: This article describes how to create and manage workflows to approve business terms in Azure Purview.
+author: nayenama
+ms.author: nayenama
+ms.service: purview
+ms.subservice: purview-data-catalog
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: #Required; mm/dd/yyyy format.
+ms.date: 03/01/2022
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
 
-<!--
-This template provides the basic structure of a how-to article.
-See the [how-to guidance](contribute-how-to-write-howto.md) in the contributor guide.
+# Approval workflow for business terms
 
-To provide feedback on this template contact 
-[the templates workgroup](mailto:templateswg@microsoft.com).
--->
+This guide will take you through the creation and management of approval workflows for business terms. 
 
-<!-- 1. H1
-Required. Start your H1 with a verb. Pick an H1 that clearly conveys the task the 
-user will complete.
--->
 
-# [H1 heading here]
+## Create and enable a new approval workflow for business terms
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
+1. Log on to Azure Purview studio and click on Management center. You will see two new icons in the table of contents. 
+1. To create new workflows, click on Workflows. This will take you to the workflow authoring experiences.  
+1. To create a new workflow, click on ‘+New’ button and you will be presented with different categories of workflows in Purview. To create ‘Approval workflows for business terms’ Select ‘Data Catalog’ and click ‘Continue’
+1. In the next screen you will see all the templates provided by Azure Purview to create a workflow. Select the template using which you want to start your authoring experiences and click on ‘Continue’. In the screen shot below we have selected ‘Create glossary term’.  The four different templates available for business glossary are:
+    1. Create glossary term 
+    1. Update glossary term 
+    1. Delete glossary term 
+    1. Import terms
+1. You will be now presented with a blade where you need to enter workflow name and optionally add a description. Once you have populated the same, click ‘Continue’. 
+1. You will now be presented with a canvas where the selected template is loaded by default.  
+1. The default template can be used as it is by just populating the approver’s email address in ‘Start and Wait for approval’ Connector. The default template has the following steps: 
+    1. Trigger when a glossary term is created/updated/deleted/Import depending on the template selected.
+    1. Approval connector
+    1. Condition to check approval status 
+        - If approved:
+            1. CUD glossary term
+            1. Send an email to requestor that their request is approved, and term CUD operation is successful.
+        - If rejected:
+            1. Send email to requestor that their request is denied. 
+1. You can also modify the template by adding more connectors to suit your organizational needs by adding available connectors.
+1. Once you are done with defining a workflow, you need to bind the workflow to a glossary hierarchy path. The binding implies that this workflow is triggered only for CUD operations within the glossary hierarchy path to which it is associated. A workflow can be bound to only one hierarchy path. To bind a workflow or to apply a scope to a workflow, you need to click on ‘Apply workflow’. Select the scopes you want this workflow to be associated with and click ‘OK’. 
+    >[!NOTE]
+    > - Purview workflow engine will always resolve to the closest workflow to which the term hierarchy path is associated with. In case a direct binding is not found, it will traverse up in the tree to find the workflow associated with the closest parent in the glossary tree. 
+    > - Import terms can only be bound to root glossary path as the .CSV can contain terms from different hierarchy paths.
+1. By default, the workflow will be enabled. Finally click on ‘Save and close’ to create and enable the workflow. 
 
-[Add your introductory paragraph]
+## Edit an existing workflow 
 
-<!-- 3. Prerequisites 
-Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
-Use clear and unambiguous language and use a list format.
--->
+To modify an existing workflow by select the workflow and then click on ‘Edit’ button. You will be now presented with the canvas containing workflow definition. Modify the workflow and click on ‘Save’ to commit changes. 
 
-## Prerequisites
+## Disable a workflow
 
-- <!-- prerequisite 1 -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-<!-- remove this section if prerequisites are not needed -->
+To disable a workflow, you can select the workflow and click ‘Disable’. You can also disable the workflow by clicking on ‘Edit’ and saving the workflow by change the enable toggle in workflow canvas. 
 
-<!-- 4. H2s 
-Required. A how-to article explains how to do a task. The bulk of each H2 should be 
-a procedure.
--->
+## Delete a workflow
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+To delete a workflow, select the workflow and click on ‘Delete’ 
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+## Limitations for business terms with approval workflow enabled  
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
-
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+1. Non- Approved glossary terms are not saved in Purview catalog. 
+1. The behavior of tagging terms to assets/schemas is same as of today i.e., previously created draft terms can be tagged to assets/schemas. 
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+For more information about workflows, see these articles:
+
+- [What are Azure Purview workflows](concept-workflow.md)
+- [Self-service data access workflow for hybrid data estates](how-to-workflow-self-service-data-access-hybrid.md)
+- [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)

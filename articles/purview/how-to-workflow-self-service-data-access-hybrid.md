@@ -70,8 +70,3 @@ For more information about workflows, see these articles:
 - [What are Azure Purview workflows](concept-workflow.md)
 - [Approval workflow for business terms](how-to-workflow-business-terms-approval.md)
 - [Manage workflow requests and approvals](how-to-workflow-manage-requests-approvals.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
