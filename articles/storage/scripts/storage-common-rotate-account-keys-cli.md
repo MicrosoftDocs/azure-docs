@@ -26,7 +26,7 @@ This script creates an Azure Storage account, displays the new storage account's
 
 ### Run the script
 
-<:::code language="azurecli" source="~/azure_cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh" range="4-37":::
+:::code language="azurecli" source="~/azure_cli_scripts/storage/rotate-storage-account-keys/rotate-storage-account-keys.sh" range="4-37":::
 
 ## Clean up resources
 

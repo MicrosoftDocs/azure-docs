@@ -26,7 +26,7 @@ This script first creates a few sample containers in Azure Blob storage, then de
 
 ### Run the script
 
-<:::code language="azurecli" source="~/azure_cli_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.sh" range="4-44":::
+:::code language="azurecli" source="~/azure_cli_scripts/storage/delete-containers-by-prefix/delete-containers-by-prefix.sh" range="4-44":::
 
 ## Clean up resources
 

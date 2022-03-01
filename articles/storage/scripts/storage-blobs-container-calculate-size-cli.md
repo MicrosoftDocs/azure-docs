@@ -31,7 +31,7 @@ This script calculates the size of a container in Azure Blob storage by totaling
 
 ### Run the script
 
-<:::code language="azurecli" source="~/azure_cli_scripts/storage/calculate-container-size/calculate-container-size.sh" range="4-58":::
+:::code language="azurecli" source="~/azure_cli_scripts/storage/calculate-container-size/calculate-container-size.sh" range="4-58":::
 
 ## Clean up resources
 
