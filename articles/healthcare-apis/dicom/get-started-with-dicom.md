@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/24/2022
+ms.date: 02/28/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
@@ -53,15 +53,15 @@ You can perform create, read (search), update and delete (CRUD) transactions aga
 
 #### Get an access token
 
-You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, or .NET SDK.  For more information, see [Get access token](../get-access-token.md).
+You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, or .NET SDK. For more information, see [Get access token](../get-access-token.md).
 
 #### Access using existing tools
 
 - [.NET C#](dicomweb-standard-apis-c-sharp.md)
 - [cURL](dicomweb-standard-apis-curl.md)
 - [Python](dicomweb-standard-apis-python.md)
-- [Postman](../fhir/use-postman.md)
-- [REST Client](../fhir/using-rest-client.md)
+- Postman
+- REST Client
 
 ### DICOMweb standard APIs and change feed
 
@@ -69,7 +69,7 @@ You can find more details on DICOMweb standard APIs and change feed in the [DICO
 
 #### DICOM cast
 
-DICOM cast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project, and it's under private preview as a managed service. To enable DICOM cast as a managed service for your Azure subscription, please request access to the DICOM cast managed service by creating an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
+DICOM cast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project, and it's under private preview as a managed service. To enable DICOM cast as a managed service for your Azure subscription, request access by creating an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/following) by following the guidance in the article [DICOM cast access request](dicom-cast-access-request.md).
 
 ## Next steps
 

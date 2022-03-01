@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 02/28/2022
 ms.author: aersoy
 ms.custom: mode-api
 ---
@@ -61,5 +61,12 @@ To deploy the DICOM service, you must have a workspace created in the Azure port
 
 ## Next steps
 
+In this quickstart, you learned how to deploy the DICOM service using the Azure portal. For more information about the DICOM service, see
+
 >[!div class="nextstepaction"]
 >[Overview of the DICOM service](dicom-services-overview.md)
+
+For more information about how to assign roles for the DICOM service, see
+
+>[!div class="nextstepaction"]
+>[Assign roles for the DICOM service](https://docs.microsoft.com/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)
