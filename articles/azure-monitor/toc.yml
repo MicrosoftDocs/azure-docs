@@ -799,7 +799,7 @@ items:
         - name: Java
           href: app/java-on-premises.md
       - name: Troubleshooting
-      href: auto-instrumentation-troubleshoot.md
+      href: app/auto-instrumentation-troubleshoot.md
     - name: Application Insights SDKs
       items:
       - name: .NET
