@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 02/23/2022
+ms.date: 02/28/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -103,7 +103,7 @@ The following versions of the Windows and Linux operating system are officially 
 > The Linux hostname or Windows computer name cannot use one of the reserved words or trademarks in the name, otherwise attempting to register the connected machine with Azure will fail. For a list of reserved words, see [Resolve reserved resource name errors](../../azure-resource-manager/templates/error-reserved-resource-name.md).
 
 > [!NOTE]
-> While Azure Arc-enabled servers supports Amazon Linux, the following do not support this distribution:
+> While Azure Arc-enabled servers supports Amazon Linux, the following features are not support by this distribution:
 >
 > * The Dependency agent used by Azure Monitor VM insights
 > * Azure Automation Update Management
@@ -188,18 +188,21 @@ Service Tags:
 
 URLs:
 
-| Agent resource | Description |
-|---------|---------|
-|`azgn*.servicebus.windows.net`|Notification service for extensions|
-|`management.azure.com`|Azure Resource Manager|
-|`login.windows.net`|Azure Active Directory|
-|`login.microsoftonline.com`|Azure Active Directory|
-|`pas.windows.net`|Azure Active Directory|
-|`*.guestconfiguration.azure.com` |Extension and guest configuration services|
-|`*.his.arc.azure.com`|Metadata and hybrid identity services|
-|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
-|`dc.services.visualstudio.com`|Agent telemetry|
-|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service|
+| Agent resource | Description | When required| Endpoint used with private link |
+|---------|---------|--------|---------|
+|`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
+|`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
+|`packages.microsoft.com`|Used to download the Linux installation package|At installation time, only| Public |
+|`login.windows.net`|Azure Active Directory|Always| Public |
+|`login.microsoftonline.com`|Azure Active Directory|Always| Public |
+|`pas.windows.net`|Azure Active Directory|Always| Public |
+|`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
+|`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
+|`*.guestconfiguration.azure.com`| Extension management and guest configuration services |Always| Private |
+|`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`|Notification service for extension and connectivity scenarios|Always| Private |
+|`azgn*.servicebus.windows.net`|Notification service for extension and connectivity scenarios|Always| Public |
+|`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|Always, except when using private endpoints| Not used when private link is configured |
+|`dc.services.visualstudio.com`|Agent telemetry|Optional| Public |
 
 For a list of IP addresses for each service tag/region, see the JSON file [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 
