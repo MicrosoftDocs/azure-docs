@@ -68,6 +68,9 @@ The person who created the workspace is the owner. Within **Workspace settings**
 
 * **Reader**. A reader can view (and download if available) all information in the workspace.
 
+> [!NOTE]
+> The Custom Translator workspace sharing policy has changed. For additional security measures, you can share a workspace only with people who have recently signed in to the Custom Translator portal.
+
 1. Select **Share**.
 
 1. Complete the **email address** field for collaborators.
