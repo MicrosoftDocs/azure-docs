@@ -71,3 +71,13 @@ landingContent:
             url: ./concepts/anchor-relationships-way-finding.md
           - text: Coarse relocalization
             url: ./concepts/coarse-reloc.md
+            
+  # Card
+  - title: Additional Samples & Tutorials
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: ASA + MRTK Learning Module
+            url: https://docs.microsoft.com/learn/modules/azure-spatial-anchors-tutorials/
+          - text: OpenXR Sample
+            url: https://github.com/microsoft/OpenXR-Unity-MixedReality-Samples
