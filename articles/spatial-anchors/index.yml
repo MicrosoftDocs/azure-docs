@@ -41,11 +41,11 @@ landingContent:
             url: ./quickstarts/get-started-xamarin-android.md
           - text: Xamarin - iOS
             url: ./quickstarts/get-started-xamarin-ios.md
-          - text: HoloLens (Native)
+          - text: Visual Studio - HoloLens (Native)
             url: ./quickstarts/get-started-hololens.md
-          - text: Android (Android Studio)
+          - text: Android Studio - Android
             url: ./quickstarts/get-started-android.md
-          - text: iOS (Xcode)
+          - text: Xcode - iOS
             url: ./quickstarts/get-started-ios.md
 
   # Card
@@ -53,9 +53,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Starting a new Unity HoloLens app
+          - text: Unity - HoloLens
             url: ./tutorials/tutorial-new-unity-hololens-app.md
-          - text: Starting a new Android app
+          - text: Android Studio - Android
             url: ./tutorials/tutorial-new-android-app.md
 
   # Card
