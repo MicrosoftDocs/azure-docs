@@ -49,7 +49,7 @@ Azure AD recommendations:
 - Is the Azure AD specific implementation of Azure Advisor. 
 - Supports you with the roll-out and management of Microsoft's best practices for Azure AD tenants to keep your tenant in a secure and healthy state. 
  
-## What is a recommendation object?
+## Recommendation object
 
 Azure AD tracks the status of a recommendation in a related object. This object includes attributes that are used to characterize the recommendation and a body to store the actionable guidance. 
 
