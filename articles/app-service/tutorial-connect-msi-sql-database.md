@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Access data with managed identity'
-description: Learn how to make database connectivity more secure by using a managed identity, and also how to apply it to other Azure services.
+description: Secure database connectivity with managed identity from .NET web app, and also how to apply it to other Azure services.
 
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 01/27/2022
+ms.date: 02/16/2022
 ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
 ---
-# Tutorial: Connect to SQL Database from App Service without secrets using a managed identity
+# Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity
 
 [App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you'll add managed identity to the sample web app you built in one of the following tutorials: 
 
