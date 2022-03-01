@@ -26,10 +26,6 @@ landingContent:
             url: overview.md
           - text: What's new in Azure Virtual Desktop?
             url: whats-new.md
-      - linkListType: learn
-        links:
-          - text: Introduction to Azure Virtual Desktop
-            url: /learn/modules/m365-wvd-intro/
 
   # Card
   - title: Get started with Azure Virtual Desktop
@@ -110,7 +106,9 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Azure Virtual Desktop learning paths
+          - text: Introduction to Azure Virtual Desktop
+            url: /learn/modules/m365-wvd-intro/
+          - text: More Azure Virtual Desktop learning paths
             url: /learn/browse/?expanded=azure&products=azure-virtual-desktop&resource_type=learning%20path
       - linkListType: reference
         links:
