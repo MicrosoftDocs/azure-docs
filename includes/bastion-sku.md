@@ -9,7 +9,7 @@ ms.topic: include
 
 | Feature | Basic SKU | Standard SKU |
 |---|---|---|
-| Connect to target VMs in peered virtual networks | [Available](vnet-peering.md) |  [Available](vnet-peering.md)|
+| Connect to target VMs in peered virtual networks | [Available](../articles/bastion/vnet-peering.md) |  [Available](../articles/bastion/vnet-peering.md)|
 | Access Linux VM Private Keys in Azure Key Vault (AKV) | Available | Available |
 | Connect to Linux VM using SSH | [Available](../articles/bastion/bastion-connect-vm-ssh-linux.md) | [Available](../articles/bastion/bastion-connect-vm-ssh-linux.md)|
 | Connect to Windows VM using RDP | [Available](../articles/bastion/bastion-connect-vm-rdp-windows.md) | [Available](../articles/bastion/bastion-connect-vm-rdp-windows.md)|
