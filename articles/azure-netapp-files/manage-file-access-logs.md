@@ -56,7 +56,6 @@ File access logs captures different file and directory events depending on the p
 * Hard link
 * Open object
 * Open object with the intent to delete
-* Proposed central access policy does not grant the same access permissions as the current central access policy
 * Read
 * Rename
 * Set attribute 
