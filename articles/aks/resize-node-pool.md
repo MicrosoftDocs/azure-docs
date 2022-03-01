@@ -218,8 +218,8 @@ aks-mynodepool-20823458-vmss000002   Ready    agent   63m   v1.21.9
 After resizing a node pool by cordoning and draining, learn more about [using multiple node pools][use-multiple-node-pools].
 
 <!-- LINKS -->
-[az-aks-nodepool-add]: /cli/azure/nodepool#az_aks_nodepool_add
-[az-aks-delete]: /cli/azure/nodepool#az_aks_delete
+[az-aks-nodepool-add]: /cli/azure/aks#az_aks_nodepool_add
+[az-aks-delete]: /cli/azure/aks#az_aks_delete
 [aks-support-policies]: support-policies.md#user-customization-of-agent-nodes
 [update-node-pool-mode]: use-system-pools.md#update-existing-cluster-system-and-user-node-pools
 [pod-disruption-budget]: operator-best-practices-scheduler.md#plan-for-availability-using-pod-disruption-budgets
