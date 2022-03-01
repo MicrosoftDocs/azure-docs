@@ -385,7 +385,7 @@ To use a proxy that performs traffic inspection, you must use either shared acce
 
 ## Fully qualified domain names (FQDNs) of destinations that IoT Edge communicates with
 
-If your proxy has a firewall that requires you to allow-list all FQDNs for internet connectivity, review the list from [Allow connections from IoT Edge devices](production-checklist.md##allow-connections-from-iot-edge-devices) to determine which FQDNs to add.
+If your proxy has a firewall that requires you to allow-list all FQDNs for internet connectivity, review the list from [Allow connections from IoT Edge devices](production-checklist.md#allow-connections-from-iot-edge-devices) to determine which FQDNs to add.
 
 ## Next steps
 

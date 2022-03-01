@@ -160,13 +160,6 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
 1. *If this device is a child device*, find the **Parent hostname** section. Uncomment and update the `parent_hostname` parameter to be the FQDN or IP address of the parent device, matching whatever was provided as the hostname in the parent device's config file.
 
    ```toml
-  # ==============================================================================
-  # Parent hostname
-  # ==============================================================================
-  #
-  # If this is a Nested Edge device, uncomment the next line to set the
-  # parent hostname of this device.
-  #
   parent_hostname = "my-parent-device"
    ```
 
