@@ -23,14 +23,13 @@ ms.author: aahi
 > * [Question answering](../question-answering/concepts/limits.md)
 
 Use this article to find the limits for the size, and rates that you can send data to the following features of the language service. 
-* [Named Entity Recognition (NER)](named-entity-recognition/overview.md) 
-* [Personally Identifiable Information (PII) detection](personally-identifiable-information/overview.md)
-* [Key phrase extraction](key-phrase-extraction/overview.md) 
-* [Entity linking](entity-linking/overview.md)  
-* [Text Analytics for health](text-analytics-for-health/overview.md)
-* [Custom NER](custom-named-entity-recognition/overview.md)
-* [Sentiment analysis and opinion mining](sentiment-opinion-mining/overview.md)
-* [Language detection](language-detection/overview.md)
+* [Named Entity Recognition (NER)](../named-entity-recognition/overview.md) 
+* [Personally Identifiable Information (PII) detection](../personally-identifiable-information/overview.md)
+* [Key phrase extraction](../key-phrase-extraction/overview.md) 
+* [Entity linking](../entity-linking/overview.md)  
+* [Text Analytics for health](../text-analytics-for-health/overview.md)
+* [Sentiment analysis and opinion mining](../sentiment-opinion-mining/overview.md)
+* [Language detection](../language-detection/overview.md)
 
 When using features of the Language service, keep the following in mind:
 
@@ -46,8 +45,8 @@ The following limit specifies the maximum number of characters that can be in a 
 | Feature | Value |
 |------------------------|---------------|
 | Text Analytics for health | 30,720 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements).  | 
-| All other features (synchronous) | 5,120 as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| All other features ([asynchronous](use-asynchronously.md))  | 125,000 characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). |
+| All other pre-configured features (synchronous) | 5,120 as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| All other pre-configured features ([asynchronous](use-asynchronously.md))  | 125,000 characters across all submitted documents, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements) (maximum of 25 documents). |
 
 If a document exceeds the character limit, the API will behave differently depending on how you're sending requests.
 
@@ -63,7 +62,7 @@ The following limit specifies the maximum size of documents contained in the ent
 
 | Feature | Value |
 |------------------------|---------------|
-| All features  | 1MB |
+| All pre-configured features  | 1MB |
 
 ## Maximum documents per request
 

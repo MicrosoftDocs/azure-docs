@@ -47,7 +47,7 @@ Analysis is performed upon receipt of the request. Using entity linking synchron
 
 You can stream the results to an application, or save the output to a file on the local system.
 
-## Service limits
+## Service and data limits
 
 [!INCLUDE [service limits article](../../includes/service-limits-link.md)]
 
