@@ -41,7 +41,7 @@ To configure Application Gateway in front of Azure Spring Cloud in a private VNE
 
 ## Define variables
 
-Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md). Customize the values based on your real environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
+Next, use the following commands to define variables for the resource group and virtual network you created as directed in [Deploy Azure Spring Cloud in a virtual network](how-to-deploy-in-azure-virtual-network.md). Replace the *\<...>* placeholders with real values based on your actual environment. When you define `SPRING_APP_PRIVATE_FQDN`, remove `https://` from the URI.
 
 ```bash
 SUBSCRIPTION='<subscription-id>'
@@ -66,7 +66,7 @@ az account set --subscription $SUBSCRIPTION
 
 ## Configure the public domain name on Azure Spring Cloud
 
-Traffic will enter the application deployed on Azure Spring Cloud using the public domain name. To configure your application to listen to this host name over HTTP, use the following commands to add a custom domain to your app:
+Traffic will enter the application deployed on Azure Spring Cloud using the public domain name. To configure your application to listen to this host name over HTTP, use the following commands to add a custom domain to your app, replacing the *\<...>* placeholders with real values:
 
 ```azurecli
 KV_NAME='<name-of-key-vault>'
@@ -102,10 +102,10 @@ az network public-ip create \
 
 #### Create a managed identity for the application gateway
 
-Your application gateway will need to be able to access Key Vault to read the certificate. To do so, it will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). Create the managed identity by using the following command:
+Your application gateway will need to be able to access Key Vault to read the certificate. To do so, it will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). Create the managed identity by using the following command, replacing the *\<...>* placeholder:
 
 ```azurecli
-APPGW_IDENTITY_NAME='name-for-appgw-managed-identity'
+APPGW_IDENTITY_NAME='<name-for-appgw-managed-identity>'
 az identity create \
     --resource-group $RESOURCE_GROUP \
     --name $APPGW_IDENTITY_NAME
@@ -138,8 +138,8 @@ az keyvault set-policy \
 Create an application gateway using `az network application-gateway create` and specify your application's private fully qualified domain name (FQDN) as servers in the backend pool. Be sure to use the user-assigned managed identity and point to the certificate in Key Vault using the certificate's secret ID. Then, update the HTTP setting using `az network application-gateway http-settings update` to use the public host name.
 
 ```azurecli
-APPGW_NAME='name-for-application-gateway'
-CERT_NAME_IN_KV='Name of the Certificate in Key Vault'
+APPGW_NAME='<name-for-application-gateway>'
+CERT_NAME_IN_KV='<name-of-certificate-in-key-vault>'
 KEYVAULT_SECRET_ID_FOR_CERT=$(az keyvault certificate show --name $CERT_NAME_IN_KV --vault-name $KV_NAME --query sid --output tsv)
 
 az network application-gateway create \
@@ -166,13 +166,13 @@ It can take up to 30 minutes for Azure to create the application gateway.
 
 Create an application gateway using the following steps to enable SSL termination at the application gateway.
 
-1. Sign in to Azure and create a new resource.
-1. Fill in the necessary parameters for creating the application gateway. Leave the default values as they are.
-1. Create a separate subnet for the application gateway in the VNET, as shown in the following screenshot.
+1. Sign in to the Azure portal and create a new Application Gateway resource.
+1. Fill in the required fields for creating the application gateway. Leave the default values as they are.
+1. After you provide a value for the **Virtual network** field, the **Subnet** field appears. Create a separate subnet for the application gateway in the VNET, as shown in the following screenshot.
 
-   :::image type="content" source="media/expose-apps-gateway-tls-termination/create-application-gateway-basics.png" alt-text="Azure portal screenshot of 'Create application gateway' page." lightbox="media/expose-apps-gateway-tls-termination/create-application-gateway-basics.png":::
+   :::image type="content" source="media/expose-apps-gateway-tls-termination/create-application-gateway-basics.png" alt-text="Azure portal screenshot of 'Create application gateway' page.":::
 
-1. Create a public IP and assign it to Frontend of the application gateway, as shown in the following screenshot.
+1. Create a public IP address and assign it to the frontend of the application gateway, as shown in the following screenshot.
 
    :::image type="content" source="media/expose-apps-gateway-tls-termination/create-frontend-ip.png" alt-text="Azure portal screenshot showing Frontends tab of 'Create application gateway' page.":::
 
@@ -187,17 +187,17 @@ Create an application gateway using the following steps to enable SSL terminatio
       1. Select the managed identity you created earlier.
       1. Select the right key vault and certificate, which were added to the key vault earlier.
 
-         :::image type="content" source="media/expose-apps-gateway-tls-termination/create-routingrule-with-http-listener.png" alt-text="Azure portal screenshot of 'Add a routing rule' page." lightbox="media/expose-apps-gateway-tls-termination/create-routingrule-with-http-listener.png":::
+         :::image type="content" source="media/expose-apps-gateway-tls-termination/create-routingrule-with-http-listener.png" alt-text="Azure portal screenshot of 'Add a routing rule' page.":::
 
    1. Select the **Backend targets** tab.
 
-      :::image type="content" source="media/expose-apps-gateway-tls-termination/create-backend-http-settings.png" alt-text="Azure portal screenshot of 'Add a HTTP setting' page." lightbox="media/expose-apps-gateway-tls-termination/create-backend-http-settings.png":::
+      :::image type="content" source="media/expose-apps-gateway-tls-termination/create-backend-http-settings.png" alt-text="Azure portal screenshot of 'Add a HTTP setting' page.":::
 
 1. Select **Review and Create** to create the application gateway.
 
 It can take up to 30 minutes for Azure to create the application gateway.
 
-#### Update HTTP Settings to use the domain name towards the backend
+#### Update HTTP settings to use the domain name towards the backend
 
 Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with `.private.azuremicroservices.io` to send traffic to Azure Spring Cloud with.
 
@@ -214,7 +214,7 @@ az network application-gateway http-settings update \
 
 ### Check the deployment of the application gateway
 
-After it's created, check the backend health by using the following command. The output of this command enables you to determine whether the application gateway reaches your application through its private FQDN.
+After it's created, check the backend health by using the following command. The output of this command enables you to determine whether the application gateway reaches your application through its private fully qualified domain name (FQDN).
 
 ```azurecli
 az network application-gateway show-backend-health \
