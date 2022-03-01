@@ -70,13 +70,22 @@ For example:
 <a href="/.auth/login/github?post_login_redirect_uri=https://zealous-water.azurestaticapps.net/success">Login</a>
 ```
 
-Alternatively, if you want to redirect back to the referring page, you can use the `.referrer` token.
+Additionally, you can redirect unauthenticated users back to the referring page after they log in. To configure this behavior, create a [response override](configuration.md#response-overrides) rule that sets `post_login_redirect_uri` to `.referrer`.
 
 For example:
 
-```html
-<a href="/.auth/login/github?post_login_redirect_uri=.referrer">Login</a>
+```json
+{
+  "responseOverrides": {
+    "401": {
+      "redirect": "/.auth/login/<PROVIDER>?post_login_redirect_uri=.referrer",
+      "statusCode": 302
+    }
+  }
+}
 ```
+
+As you use this code example, make sure to replace `<PROVIDER>` with the appropriate provider identifier.
 
 ## Logout
 
