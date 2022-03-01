@@ -113,11 +113,11 @@ Zone redundancy for the Azure SQL Database Hyperscale service tier is [now in pu
 Consider the following limitations: 
 
 - Currently, only the following Azure regions are supported: UK South, Brazil South, West US 2, Japan East, North Europe, and Southeast Asia.
-- Zone redundant configuration can only be specified during database creation. This setting cannot be modified once the resource is provisioned. Use [Database copy](database-copy.md), [point-in-time restore](recovery-using-backups.md#point-in-time-restore), or create a [geo-replica](active-geo-replication-overview.md) to update the zone redundant configuration for an existing Hyperscale database.
+- Zone redundant configuration can only be specified during database creation. This setting cannot be modified once the resource is provisioned. Use [Database copy](database-copy.md), [point-in-time restore](recovery-using-backups.md#point-in-time-restore), or create a [geo-replica](active-geo-replication-overview.md) to update the zone redundant configuration for an existing Hyperscale database. When using one of these update options, if the target database is in a different region than the source or if the database backup storage redundancy from the target differs from the source database, the [copy operation](database-copy.md#database-copy-for-azure-sql-hyperscale) will be a size of data operation.
 - Named replicas are not supported.
 - Only [zone-redundant backup](automated-backups-overview.md) is supported.
 - Only Gen5 hardware is supported.
-- [Geo-Restore](recovery-using-backups.md#geo-restore) is not supported.
+- [Geo-Restore](recovery-using-backups.md#geo-restore) is not currently supported.
 - Zone redundancy cannot currently be specified when migrating an existing database from another Azure SQL Database service tier to Hyperscale.
 
 > [!IMPORTANT]
