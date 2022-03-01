@@ -89,7 +89,7 @@ The zone-redundant version of the high availability architecture is illustrated 
 ![high availability architecture zone redundant](./media/high-availability-sla/zone-redundant-business-critical-service-tier.png)
 
 
-## Hyperscale service tier availability
+## Hyperscale service tier locally redundant availability
 
 The Hyperscale service tier architecture is described in [Distributed functions architecture](./service-tier-hyperscale.md#distributed-functions-architecture) and is only currently available for SQL Database, not SQL Managed Instance.
 
@@ -106,6 +106,69 @@ Compute nodes in all Hyperscale layers run on Azure Service Fabric, which contro
 
 For more information on high availability in Hyperscale, see [Database High Availability in Hyperscale](./service-tier-hyperscale.md#database-high-availability-in-hyperscale).
 
+## Hyperscale service tier zone redundant availability (Preview)
+
+Zone redundancy for Azure SQL Database Hyperscale service tier is [now in public preview](https://aka.ms/zrhyperscale). Enabling this configuration will ensure zone-level resiliency through replication across Availability Zones for all Hyperscale layers. By selecting zone-redundancy, you can make your Hyperscale databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes to the application logic.
+
+[!IMPORTANT]
+At least 1 high availability compute replica and the use of zone-redundant backup storage is required for enabling the zone redundant configuration for Hyperscale.
+
+[!NOTE]
+Current limitations include:
+- Only the following Azure regions are supported: UK South, Brazil South, West US 2, Japan East, North Europe, and Southeast Asia.
+- Zone redundant configuration can only be specified during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md), [point-in-time restore](recovery-using-backups.md#point-in-time-restore), or creating a [geo-replica](active-geo-replication-overview.md) can be used to update the zone redundant configuration for an existing Hyperscale database.
+- Named replicas are not supported.
+- Only [zone-redundant backup](automated-backups-overview.md) is supported.
+- Only Gen5 compute is supported.
+- [Geo-Restore](recovery-using-backups.md#geo-restore) is not supported.
+- Zone redundancy cannot currently be specified when migrating an existing database from another Azure SQL Database service tier to Hyperscale.
+
+### Create a zone redundant Hyperscale database
+
+To create a zone redundant Hyperscale database, use the following examples.
+
+# [PowerShell](#tab/azure-powershell)
+
+Specify the -ZoneRedundant parameter to enable zone redundancy for your Hyperscale database by using the following example. The database must have at least 1 high availability replica and zone-redundant backup storage must be specified.
+
+```powershell
+New-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database01" `
+    -Edition "Hyperscale" -HighAvailabilityReplicaCount 1 -ZoneRedundant -BackupStorageRedundancy Zone
+```
+
+
+# [Azure CLI](#tab/azure-cli)
+
+Specify the -zone-redundant parameter to enable zone redundancy for your Hyperscale database by using the following example. The database copy must have at least 1 high availability replica and zone-redundant backup storage.
+
+```azurecli
+az sql db create -g mygroup -s myserver -n mydb -e Hyperscale -f Gen5 –ha-replicas 1 –-zone-redundant -–backup-storage-redundancy Zone
+```
+
+* * *
+
+### Create a zone redundant Hyperscale database by creating a geo-replica
+
+To create a zone redundant Hyperscale using active geo-replication, use the following examples.
+
+# [PowerShell](#tab/azure-powershell)
+
+Specify the -ZoneRedundant parameter to enable zone redundancy for your Hyperscale database secondary by using the following example. The secondary database must have at least 1 high availability replica and zone-redundant backup storage must be specified. 
+
+```powershell
+New-AzSqlDatabaseSecondary -ResourceGroupName "myResourceGroup" -ServerName $sourceserver -DatabaseName "databaseName" -PartnerResourceGroupName "myPartnerResourceGroup" -PartnerServerName $targetserver -PartnerDatabaseName "zoneRedundantCopyOfMySampleDatabase” -ZoneRedundant -BackupStorageRedundancy Zone -HighAvailabilityReplicaCount 1
+```
+
+
+# [Azure CLI](#tab/azure-cli)
+
+Specify the -zone-redundant parameter to enable zone redundancy for your Hyperscale database secondary by using the following example. The secondary database must have at least 1 high availability replica and zone-redundant backup storage. 
+
+```azurecli
+az sql db replica create -g mygroup -s myserver -n originalDb --partner-server newDb –ha-replicas 1 –zone-redundant –backup-storage-redundancy Zone
+```
+
+* * *
 
 ## Accelerated Database Recovery (ADR)
 

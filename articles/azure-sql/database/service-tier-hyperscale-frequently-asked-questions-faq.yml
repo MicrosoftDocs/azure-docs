@@ -283,6 +283,11 @@ sections:
           Yes.
 
       - question: |
+          Does Hyperscale support Availability Zones?
+        answer: |
+          Yes, Hyperscale supports [zone redundant configuration](high-availability-sla.md#hyperscale-service-tier-zone-redundant-availability-preview) in public preview. At least 1 HA compute replica and the use of zone-redundant backup storage is required for enabling the zone redundant configuration for Hyperscale. 
+
+      - question: |
           How often are the database backups taken?
         answer: |
           There are no traditional full, differential, and transaction log backups for Hyperscale databases. Instead, there are regular storage snapshots of data files. Generated transaction log is retained as-is for the configured retention period. At restore time, relevant transaction log records are applied to the restored storage snapshot, resulting in a transactionally consistent database without any data loss as of the specified point in time within the retention period.
