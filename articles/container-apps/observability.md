@@ -80,7 +80,7 @@ To access the metrics page:
 1. Navigate to your container app in the Azure portal.
 1. Select **Metrics** in the left side menu.
  
-![Container Apps metrics main page.](/media/observability/metric-main-page.png)
+![Container Apps metrics main page.](./media/observability/metric-main-page.png)
 
 <!--
 :::image type="content" source="/media/observability/metric-main-page.png" alt-text="Container Apps metrics main page.":::
