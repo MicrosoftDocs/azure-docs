@@ -53,9 +53,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Unity - HoloLens
+          - text: HoloLens - Unity
             url: ./tutorials/tutorial-new-unity-hololens-app.md
-          - text: Android Studio - Android
+          - text: Android - Android Studio
             url: ./tutorials/tutorial-new-android-app.md
 
   # Card
