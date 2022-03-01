@@ -44,6 +44,8 @@ landingContent:
             url: quick-create-net.md
           - text: Python
             url: quick-create-python.md
+          - text: Go
+            url: quick-create-go.md
           - text: Node.js
             url: quick-create-node.md
           - text: Java
