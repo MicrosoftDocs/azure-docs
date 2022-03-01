@@ -254,7 +254,12 @@ For an in-depth sample application that shows how to change tiers with a batch o
 
 You can optimize costs for blob data that is rarely accessed by creating lifecycle management policies that automatically move blobs to the Archive tier when they have not been accessed or modified for a specified period of time. After you configure a lifecycle management policy, Azure Storage runs it once per day. For more information about lifecycle management policies, see [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md).
 
-You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template to create a lifecycle management policy. For simplicity, this section shows how to create a lifecycle management policy in the Azure portal. For additional examples showing how to create lifecycle management policies, see [Configure a lifecycle management policy](lifecycle-management-policy-configure.md).
+You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template to create a lifecycle management policy. For simplicity, this section shows how to create a lifecycle management policy in the Azure portal only. For additional examples showing how to create lifecycle management policies, see [Configure a lifecycle management policy](lifecycle-management-policy-configure.md).
+
+> [!CAUTION]
+> Before you use a lifecycle management policy to move data to the Archive tier, verify that that data does not need to be deleted or moved to another tier for at least 180 days. Data that is deleted or move to a different tier before the 180 day period has elapsed is subject to an early deletion fee.
+>
+> Also keep in mind that data in the Archive tier must be rehydrated before it can be read or modified. Rehydrating a blob from the Archive tier can take several hours and has associated costs.
 
 To create a lifecycle management policy to archive blobs in the Azure portal, follow these steps:
 
@@ -265,19 +270,19 @@ To create a lifecycle management policy to archive blobs in the Azure portal, fo
 1. Specify the rule scope: either **Apply rule to all blobs in your storage account**, or **Limit blobs with filters**.
 1. Select the types of blobs for which the rule is to be applied, and specify whether to include blob snapshots or versions.
 
-    :::image type="content" source="media/archive-blob/lifecycle-policy-details-tab-portal.png" alt-text="Screenshot showing how to configure a lifecycle management policy - Details tab ":::
+    :::image type="content" source="media/archive-blob/lifecycle-policy-details-tab-portal.png" alt-text="Screenshot showing how to configure a lifecycle management policy - Details tab.":::
 
 1. Depending on your selections, you can configure rules for base blobs (current versions), previous versions, or blob snapshots. Specify one of two conditions to check for:
 
-    1. Objects were last modified some number of days ago.
-    1. Objects were last accessed some number of days ago.
+    - Objects were last modified some number of days ago.
+    - Objects were last accessed some number of days ago.
 
     Only one of these conditions can be applied to move a particular type of object to the Archive tier per rule. For example, if you define an action that archives base blobs if they have not been modified for 90 days, then you cannot also define an action that archives base blobs if they have not been accessed for 90 days. Similarly, you can define one action per rule with either of these conditions to archive previous versions, and one to archive snapshots.
 
 1. Next, specify the number of days to elapse after the object is modified or accessed.
 1. Specify that the object is to be moved to the Archive tier after the interval has elapsed.
 
-    :::image type="content" source="media/archive-blob/lifecycle-policy-base-blobs-tab-portal.png" alt-text="Screenshot showing how to configure a lifecycle management policy - Base blob tab":::
+    :::image type="content" source="media/archive-blob/lifecycle-policy-base-blobs-tab-portal.png" alt-text="Screenshot showing how to configure a lifecycle management policy - Base blob tab.":::
 
 1. If you chose to limit the blobs affected by the rule with filters, you can specify a filter, either with a blob prefix or blob index match.
 1. Select the **Add** button to add the rule to the policy.
