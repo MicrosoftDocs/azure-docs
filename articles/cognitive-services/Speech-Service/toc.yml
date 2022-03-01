@@ -56,9 +56,8 @@ items:
         - name: Custom Speech overview
           href: custom-speech-overview.md
         - name: Prepare data for Custom Speech
-          href: how-to-custom-speech-test-and-train.md
           items:
-            - name: Prepare data for Custom Speech
+            - name: Choose data types
               href: how-to-custom-speech-test-and-train.md
             - name: Create human-labeled transcriptions
               href: how-to-custom-speech-human-labeled-transcriptions.md

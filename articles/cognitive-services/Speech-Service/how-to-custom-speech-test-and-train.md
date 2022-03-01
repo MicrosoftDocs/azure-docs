@@ -1,5 +1,5 @@
 ---
-title: "Prepare data for Custom Speech - Speech service"
+title: "Choose data types for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn about types of data for a Custom Speech model, along with how to use and manage that data.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-# Prepare data for Custom Speech
+# Choose data types for Custom Speech
 
 When you're testing the accuracy of Microsoft speech recognition or training your custom models, you need audio and text data. This article covers the types of data that a Custom Speech model needs.
 
