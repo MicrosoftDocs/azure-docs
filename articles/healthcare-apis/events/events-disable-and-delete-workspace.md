@@ -40,7 +40,7 @@ To successfully delete a Workspace, delete all associated child resources first 
 
 As an example:
 
- 1. Delete all Workspace associated child resources - FHIR service(s), DICOM service(s), and MedTech service(s).
+ 1. Delete all Workspace associated child resources - for example: DICOM service(s), FHIR service(s), and MedTech service(s).
  2. Delete all Workspace associated Event Subscriptions.
  3. Delete Workspace.
 
