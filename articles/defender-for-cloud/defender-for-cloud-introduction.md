@@ -3,7 +3,7 @@ title: Microsoft Defender for Cloud - an introduction
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multi-cloud resources and workloads.
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/28/2022
+ms.date: 03/01/2022
 ---
 # What is Microsoft Defender for Cloud?
 
