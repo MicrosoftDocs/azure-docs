@@ -1,25 +1,25 @@
 ---
-title: Ingestion-time data transformation in Microsoft Sentinel
-description: Learn about how Azure Monitor's ingestion-time data transformation features can help you stream custom data into Microsoft Sentinel.
+title: Custom data ingestion and transformation in Microsoft Sentinel (preview)
+description: Learn about how Azure Monitor's custom log ingestion and data transformation features can help you get any data into Microsoft Sentinel and shape it the way you want.
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 02/27/2022
 ---
 
-# Data transformation in Microsoft Sentinel
+# Custom data ingestion and transformation in Microsoft Sentinel (preview)
 
 Azure Monitor's Log Analytics serves as the platform behind the Microsoft Sentinel workspace. All logs ingested into Microsoft Sentinel are stored in Log Analytics by default. From Microsoft Sentinel, you can access the stored logs and run Kusto Query Language (KQL) queries to detect threats and monitor your network activity.
 
-Log Analytics supports ingestion-time data processing, which gives you more control over the data that gets ingested. Ingestion-time processing uses **data collection rules (DCRs)** to act on your data even before it's stored in your workspace, allowing you to filter and enrich standard tables and to create highly customizable tables for storing data from sources that produce unique log formats.
+Log Analytics' custom data ingestion process gives you a high level of control over the data that gets ingested. It uses [**data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to collect your data and manipulate it even before it's stored in your workspace. This allows you to filter and enrich standard tables and to create highly customizable tables for storing data from sources that produce unique log formats.
 
-Microsoft Sentinel supports two types of ingestion-time data processing:
+Microsoft Sentinel gives you two tools to control this process:
 
-- **Ingestion-time transformation** uses DCRs to apply basic KQL queries to transform your data, either by filtering out irrelevant data, enriching existing data with analytics or external data, or masking sensitive or personal information.
+- The [**custom logs API**](../azure-monitor/logs/custom-logs-overview.md) allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You have full control over the creation of these custom tables, down to specifying the column names and types. You create [**Data collection rules (DCRs)**](../azure-monitor/essentials/data-collection-rule-overview.md) to define and configure these workflows.
 
-- The **custom logs API** uses DCRs to normalize custom log formats so they can be ingested into standard tables. Alternatively, the API lets you create fully customizable output tables, specifying column names and types, to accept custom logs.
+- [**Ingestion-time data transformation**](../azure-monitor/logs/ingestion-time-transformations.md) for both standard and custom logs uses DCRs to apply basic KQL queries. These transformations can filter out irrelevant data, enrich existing data with analytics or external data, or mask sensitive or personal information.
 
-These two types will be explained in more detail below.
+These two tools will be explained in more detail below.
 
 ## Use cases and sample scenarios
 
@@ -44,11 +44,15 @@ For example, you could add extra information such as external HR data, an expand
 
 Ingestion-time transformations can also be used to mask or remove personal information. For example, you might use data transformation to mask all but the last digits of a social security number or credit card number, or you could replace other types of personal data with nonsense, standard text, or dummy data. Mask your personal information at ingestion time to increase security across your network.
 
+
+### USE CASE FOR CUSTOM LOGS API?
+
+
 ## Data ingestion flow in Microsoft Sentinel
 
-The following image shows where ingestion-time data processing enters the data ingestion flow into Microsoft Sentinel.
+The following image shows where ingestion-time data transformation enters the data ingestion flow into Microsoft Sentinel.
 
-Microsoft Sentinel data connectors collect data into the Log Analytics workspace, where it's processed using some combination of hardcoded workflows, ingestion-time transformations, and DCR-based custom logs, and then stored in either standard or custom tables.
+Microsoft Sentinel data connectors collect data into the Log Analytics workspace, where it's processed using some combination of hardcoded workflows, ingestion-time transformations, and the custom logs API, and then stored in either standard or custom tables.
 
 :::image type="content" source="media/data-transformation/data-transformation-architecture.png" alt-text="Diagram of the Microsoft Sentinel data transformation architecture.":::
 
@@ -64,9 +68,9 @@ Support for DCRs in Microsoft Sentinel includes:
 
 - *Workspace transformation DCRs*, for workflows that don't currently support standard DCRs.
 
-    A single *workspace transformation DCR* serves all the workflows in a workspace that aren't served by standard DCRs. A workspace can have only one *workspace transformation DCR*, but that DCR contains separate transformations for each input stream. Also, workspace transformation DCRs are supported only for a specific set of tables.
+    A single *workspace transformation DCR* serves all the supported workflows in a workspace that aren't served by standard DCRs. A workspace can have only one *workspace transformation DCR*, but that DCR contains separate transformations for each input stream. Also, workspace transformation DCRs are supported only for a [specific set of tables](../azure-monitor/logs/tables-feature-support.md).
 
-Microsoft Sentinel's support for ingestion-time transformation depends on the type of data connector you're using. For more in-depth information on ingestion-time transformation and data collection rules, see the following articles in the Azure Monitor documentation:
+Microsoft Sentinel's support for ingestion-time transformation depends on the type of data connector you're using. For more in-depth information on custom logs, ingestion-time transformation, and data collection rules, see the following articles in the Azure Monitor documentation:
 
 - [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
 - [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
@@ -84,7 +88,7 @@ The following table describes DCR support for Microsoft Sentinel data connector 
 | [**AMA standard logs**](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections), such as: <li>[Windows Security Events via AMA](data-connectors-reference.md#windows-security-events-via-ama)<li>[Windows Forwarded Events](data-connectors-reference.md#windows-forwarded-events-preview)<li>[CEF data](connect-common-event-format.md)<li>[Syslog data](connect-syslog.md)   | Standard DCRs |
 | [**MMA standard logs**](connect-azure-windows-microsoft-services.md?tabs=LAA#windows-agent-based-connections), such as <li>[Syslog data](connect-syslog.md)<li>[CommonSecurityLog](connect-azure-windows-microsoft-services.md) | Workspace transformation DCRs |
 | [**Diagnostic settings-based connections**](connect-azure-windows-microsoft-services.md#diagnostic-settings-based-connections)               | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors   |
-| **Built-in, service-to-service data connectors**, <li>such as [Amazon S3](connect-aws.md)                                                  | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors   |
+| **Built-in, service-to-service data connectors**, such as:<li>[Microsoft Office 365](connect-azure-windows-microsoft-services.md#api-based-connections)<li>[Azure Active Directory](connect-azure-active-directory.md)<li>[Amazon S3](connect-aws.md)                                    | Workspace transformation DCRs, based on the [supported output tables](../azure-monitor/logs/tables-feature-support.md) for specific data connectors   |
 | **Custom or [direct API](connect-rest-api-template.md)-based data connectors**                              | Standard DCRs                                         |
 | **Built-in, API-based data connectors**, such as: <li>[Codeless data connectors](create-codeless-connector.md)<li>[Azure Functions-based data connectors](connect-azure-functions-template.md) | Not currently supported        |
 | **[Logstash](connect-logstash.md)-based data connectors** | Not currently supported |

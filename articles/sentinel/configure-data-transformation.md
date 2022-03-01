@@ -1,5 +1,5 @@
 ---
-title: Transform or customize data at ingestion time in Microsoft Sentinel
+title: Transform or customize data at ingestion time in Microsoft Sentinel (preview)
 description: Learn about how to configure Azure Monitor's ingestion-time data transformation for use with Microsoft Sentinel.
 author: yelevin
 ms.author: yelevin
@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/27/2022
 ---
 
-# Transform or customize data at ingestion time in Microsoft Sentinel
+# Transform or customize data at ingestion time in Microsoft Sentinel (preview)
 
 This article describes how to configure [ingestion-time data transformation and custom log ingestion](data-transformation.md) for use in Microsoft Sentinel.
 
@@ -21,9 +21,10 @@ Before you start configuring DCRs for data transformation:
 
 - **Learn more about data transformation and DCRs in Azure Monitor and Microsoft Sentinel**. For more information, see:
 
-    - [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
+    - [Data collection rules in Azure Monitor](../azure-monitor/essentials/data-collection-rule-overview.md)
+    - [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
     - [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
-    - [Data transformation in Microsoft Sentinel](data-transformation.md)
+    - [Data transformation in Microsoft Sentinel (preview)](data-transformation.md)
 
 - **Verify data connector support**. Make sure that your data connectors are supported for data transformation.
 
@@ -33,7 +34,9 @@ Before you start configuring DCRs for data transformation:
 
 Use the following procedures from the Log Analytics and Azure Monitor documentation to configure your data transformation DCRs:
 
-TBD list of links
+- [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
+- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
+
 
 When you're done, come back to Microsoft Sentinel to verify that your data is being ingested based on your newly-configured transformation. It make take up to 60 minutes for the data transformation configurations to apply.
 
@@ -44,15 +47,19 @@ If you currently have custom Microsoft Sentinel data connectors, or built-in, AP
 
 Use one of the following methods:
 
-- Configure a DCR to define the custom ingestion from your data source from scratch, to a new table. You might use this option if you want to use a new schema, that doesn't have the current column suffixes, and doesn't require query-time KQL functions to standardize your data.
+- Configure a DCR to define, from scratch, the custom ingestion from your data source to a new table. You might use this option if you want to use a new schema that doesn't have the current column suffixes, and doesn't require query-time KQL functions to standardize your data.
 
     After you've verified that your data is properly ingested to the new table, you can delete the legacy table, as well as your legacy, custom data connector.
 
-- Continue using the custom table created by your custom data connector. You might use this option if you have a lot of custom security content created for your existing table. In such cases, TBD link to LA MIGRATION GUIDE.
+- Continue using the custom table created by your custom data connector. You might use this option if you have a lot of custom security content created for your existing table. In such cases, consult [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 ## Next steps
 
 For more information about data transformation and DCRs, see:
 
-TBD list
-
+- [Custom data ingestion and transformation in Microsoft Sentinel (preview)](data-transformation.md)
+- [Ingestion-time transformations in Azure Monitor Logs (preview)](../azure-monitor/logs/ingestion-time-transformations.md)
+- [Data collection rule transformations in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-transformations.md)
+- [Custom logs API in Azure Monitor Logs (Preview)](../azure-monitor/logs/custom-logs-overview.md)
+- [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
+- [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
