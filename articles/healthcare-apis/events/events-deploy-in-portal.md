@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/24/2022
+ms.date: 02/28/2022
 ms.author: jasteppe
 ---
 
@@ -49,9 +49,12 @@ It's important that you have the following prerequisites completed before you be
 
 4. After the form is completed, select **Create** to begin the subscription creation. 
 
-5. While the system topic is being created, it's unavailable for use until the deployment has successfully completed.
+5. After provisioning a new Events subscription, event messages will not be sent until the System Topic deployment has successfully completed and the status of the Workspace has changed from "Updating" to "Succeeded".
 
    :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-creating.png" alt-text="Screenshot of an Events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-creating.png":::
+
+   :::image type="content" source="media/events-deploy-in-portal/events-workspace-updating.png" alt-text="Screenshot of an Events subscription successfully deployed"  lightbox="media/events-deploy-in-portal/events-workspace-updating.png":::
+
 
 6. After the subscription is deployed, it will require access to your message delivery endpoint. 
 
