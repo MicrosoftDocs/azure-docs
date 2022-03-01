@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: minxia
 author: mx-iao
-ms.date: 01/14/2020
+ms.date: 02/28/2022
 ms.topic: how-to
 
 #Customer intent: As a Python PyTorch developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
