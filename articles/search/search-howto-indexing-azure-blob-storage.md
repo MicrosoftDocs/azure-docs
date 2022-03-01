@@ -40,9 +40,6 @@ The blob indexer can extract text from the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-> [!TIP]
-> Be sure to set the "parsingMode" if your blob content is [plain text](search-howto-index-plaintext-blobs.md) or [JSON documents](search-howto-index-json-blobs.md).
-
 ## Determine which blobs to index
 
 Before you set up indexing, review your source data to determine whether any changes should be made up front. An indexer can index content from one container at a time. By default, all blobs in the container are processed. You have several options for more selective processing:
@@ -179,9 +176,11 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
 1. Add fields for standard metadata properties. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
+<a name="PartsOfBlobToIndex"></a> 
+
 ## Configure and run the blob indexer
 
-Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors. You can also specify which parts of a blob to index.
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
@@ -277,54 +276,6 @@ The response includes status and the number of items processed. It should look s
 ```
 
 Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
-
-<!-- ## How blobs are indexed
-
-By default, most blobs are indexed as a single search document in the index, including blobs with structured content, such as JSON or CSV, which are indexed as a single chunk of text. However, for JSON or CSV documents that have an internal structure (delimiters), you can assign parsing modes to generate individual search documents for each line or element:
-
-+ [Indexing JSON blobs](search-howto-index-json-blobs.md)
-+ [Indexing CSV blobs](search-howto-index-csv-blobs.md)
-
-A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or an .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field. If you have images, consider adding [AI enrichment](cognitive-search-concept-intro.md) to get more search utility from that content.
-
-Textual content of a document is extracted into a string field named "content".
-
-  > [!NOTE]
-  > Azure Cognitive Search imposes [indexer limits](search-limits-quotas-capacity.md#indexer-limits) on how much text it extracts depending on the pricing tier. A warning will appear in the indexer status response if documents are truncated.  
- -->
-
-
-
-<!-- <a name="PartsOfBlobToIndex"></a> 
-
-## How to control which blobs are indexed
-
-You can control which blobs are indexed, and which are skipped, by the blob's file type or by setting properties on the blob themselves, causing the indexer to skip over them.
-
-Include specific file extensions by setting `"indexedFileNameExtensions"` to a comma-separated list of file extensions (with a leading dot). Exclude specific file extensions by setting `"excludedFileNameExtensions"` to the extensions that should be skipped. If the same extension is in both lists, it will be excluded from indexing.
-
-```http
-PUT /indexers/[indexer name]?api-version=2020-06-30
-{
-    "parameters" : { 
-        "configuration" : { 
-            "indexedFileNameExtensions" : ".pdf, .docx",
-            "excludedFileNameExtensions" : ".png, .jpeg" 
-        } 
-    }
-}
-```
-
-### Add "skip" metadata the blob
-
-The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed.
-
-Add the following metadata properties and values to blobs in Blob Storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
-
-| Property name | Property value | Explanation |
-| ------------- | -------------- | ----------- |
-| "AzureSearch_Skip" |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
-| "AzureSearch_SkipContent" |`"true"` |This is equivalent to the `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. | -->
 
 <a name="DealingWithErrors"></a>
 
