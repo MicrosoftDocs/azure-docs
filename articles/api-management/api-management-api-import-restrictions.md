@@ -181,14 +181,16 @@ For each operation, its:
 
 ## <a name="wsdl"> </a>WSDL
 
-You can create SOAP pass-through and SOAP-to-REST APIs with WSDL files.
+You can create [SOAP pass-through](import-soap-api.md) and [SOAP-to-REST](restify-soap-api.md) APIs with WSDL files.
 
 ### SOAP bindings 
 - Only SOAP bindings of "document" and “literal” encoding style are supported.
 - No support for “rpc” style or SOAP-Encoding.
 
-### WSDL:Import
-Not supported. Instead, merge the imports into one document.
+### wsdl:import
+Not supported. Instead, merge the imports into one document. 
+
+For an open-source tool to resolve and merge `wsdl:import`, `xsd:import`, and `xsd:include` dependencies in a WSDL file, see this [GitHub repo](https://github.com/Azure-Samples/api-management-schema-import).
 
 ### Messages with multiple parts 
 This message type is not supported.
