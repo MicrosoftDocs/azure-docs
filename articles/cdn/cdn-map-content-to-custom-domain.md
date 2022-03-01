@@ -154,10 +154,10 @@ To create a CNAME record for your custom domain:
 
 4. If you're previously created a temporary cdnverify subdomain CNAME record, delete it. 
 
-5. If you're using this custom domain in production for the first time, follow the steps for [Add the custom domain with your CDN endpoint](#associate-the-custom-domain-with-your-cdn-endpoint) and [Verify the custom domain](#verify-the-custom-domain).
+5. If you're using this custom domain in production for the first time, follow the steps for [Add the custom domain with your CDN endpoint](#add-a-custom-domain-to-your-cdn-endpoint) and [Verify the custom domain](#verify-the-custom-domain).
 
 ---
-## Add a custom domain tp your CDN endpoint
+## Add a custom domain to your CDN endpoint
 
 After you've registered your custom domain, you can then add it to your CDN endpoint. 
 
