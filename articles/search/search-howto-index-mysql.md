@@ -18,9 +18,9 @@ ms.date: 01/27/2022
 > [!IMPORTANT] 
 > MySQL support is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API](search-api-preview.md) (2020-06-30-preview or later) to index your content. There is currently no portal support.
 
-Configure a [search indexer](search-indexer-overview.md) to extract content from Azure Database for MySQL and make it searchable in Azure Cognitive Search. The indexer will crawl your MySQL database on Azure, extract searchable data, and index it in Azure Cognitive Search. When configured to include a high water mark and soft deletion, the indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index.
+In this article, learn how to configure an [**indexer**](search-indexer-overview.md) that imports content from Azure Database for MySQL and makes it searchable in Azure Cognitive Search.
 
-This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information specific to indexing files in Azure DB for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. Data extraction occurs when you submit the Create Indexer request.
+This article supplements [**Create an indexer**](search-howto-create-indexers.md) with information that's specific to indexing files in Azure DB for MySQL. It uses the REST APIs to demonstrate a three-part workflow common to all indexers: create a data source, create an index, create an indexer. When configured to include a high water mark and soft deletion, the indexer will take all changes, uploads, and deletes for your MySQL database and reflect these changes in your search index. Data extraction occurs when you submit the Create Indexer request.
 
 ## Prerequisites
 
@@ -103,53 +103,82 @@ In a [search index](search-what-is-an-index.md), add search index fields that co
 
 If the primary key in the source table matches the document key (in this case, "ID"), the indexer will import the primary key as the document key.
 
-## Configure the MySQL indexer
+## Configure and run the MySQL indexer
 
-Once the index and data source have been created, you're ready to create the indexer.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
 
-[Create or Update Indexer](/rest/api/searchservice/create-indexer) specifies the predefined data source and search index.
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
-```http
-POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30
-
-{
-    "name" : "hotels-mysql-idxr",
-    "dataSourceName" : "hotels-mysql-ds",
-    "targetIndexName" : "hotels-mysql-ix",
-    "disabled": null,
-    "schedule": null,
-    "parameters": {
-    "batchSize": null,
-    "maxFailedItems": null,
-    "maxFailedItemsPerBatch": null,
-    "base64EncodeKeys": null,
-    "configuration": { }
-    },
-    "fieldMappings" : [ ],
-    "encryptionKey": null
-}
-```
-
-By default, the indexer runs when it's created on the search service. You can set "disabled" to true if you want to run the indexer manually.
-
-You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). 
-
-To put the indexer on a schedule, set the "schedule" property when creating or updating the indexer. Here is an example of a schedule that runs every 15 minutes.
-
-```http
-PUT https://[search service name].search.windows.net/indexers/hotels-mysql-idxr?api-version=2020-06-30
-Content-Type: application/json
-api-key: [admin-key]
-
-{
-    "dataSourceName" : "hotels-mysql-ds",
-    "targetIndexName" : "hotels-mysql-ix",
-    "schedule" : { 
-        "interval" : "PT15M", 
-        "startTime" : "2022-01-01T00:00:00Z"
+    ```http
+    POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30
+    
+    {
+        "name" : "hotels-mysql-idxr",
+        "dataSourceName" : "hotels-mysql-ds",
+        "targetIndexName" : "hotels-mysql-ix",
+        "disabled": null,
+        "schedule": null,
+        "parameters": {
+            "batchSize": null,
+            "maxFailedItems": null,
+            "maxFailedItemsPerBatch": null,
+            "base64EncodeKeys": null,
+            "configuration": { }
+            },
+        "fieldMappings" : [ ],
+        "encryptionKey": null
     }
-}
+    ```
+
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
+
+## Check indexer status
+
+To monitor the indexer status and execution history, send a [Get Indexer Status](/rest/api/searchservice/get-indexer-status) request:
+
+```http
+GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2020-06-30
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
+
+The response includes status and the number of items processed. It should look similar to the following example:
+
+```json
+    {
+        "status":"running",
+        "lastResult": {
+            "status":"success",
+            "errorMessage":null,
+            "startTime":"2022-02-21T00:23:24.957Z",
+            "endTime":"2022-02-21T00:36:47.752Z",
+            "errors":[],
+            "itemsProcessed":1599501,
+            "itemsFailed":0,
+            "initialTrackingState":null,
+            "finalTrackingState":null
+        },
+        "executionHistory":
+        [
+            {
+                "status":"success",
+                "errorMessage":null,
+                "startTime":"2022-02-21T00:23:24.957Z",
+                "endTime":"2022-02-21T00:36:47.752Z",
+                "errors":[],
+                "itemsProcessed":1599501,
+                "itemsFailed":0,
+                "initialTrackingState":null,
+                "finalTrackingState":null
+            },
+            ... earlier history items
+        ]
+    }
+```
+
+Execution history contains up to 50 of the most recently completed executions, which are sorted in the reverse chronological order so that the latest execution comes first.
 
 ## Capture new, changed, and deleted rows
 

@@ -42,7 +42,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 ### How to validate connectivity
 
-[Virtual Network NAT gateway](./nat-overview.md#vnet-nat-basics) supports IPv4 UDP and TCP protocols. ICMP is not supported and is expected to fail. 
+[Virtual Network NAT gateway](./nat-overview.md#virtual-network-nat-basics) supports IPv4 UDP and TCP protocols. ICMP is not supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
 1. Validate that your [NAT gateway public IP address is being used](./tutorial-create-nat-gateway-portal.md#test-nat-gateway).
@@ -86,8 +86,6 @@ Common SNAT exhaustion issues with NAT gateway typically have to do with the con
 ### Idle timeout timers have been changed to higher value than their default values
 
 NAT gateway resources have a default TCP idle timeout of 4 minutes.  If this setting is changed to a higher value, NAT gateway will hold on to flows longer and can cause [unnecessary pressure on SNAT port inventory](nat-gateway-resource.md#timers).
-
-UDP flows (for example DNS lookups) allocate SNAT ports for the duration of the idle timeout. The longer the idle timeout, the higher the pressure on SNAT ports. 
 
 Check the following [NAT gateway metrics](nat-metrics.md) in Azure Monitor to determine if SNAT port exhaustion is happening: 
 
