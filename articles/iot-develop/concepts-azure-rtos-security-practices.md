@@ -14,7 +14,7 @@ ms.date: 11/11/2021
 
 This article offers guidance on implementing security for IoT devices that run Azure RTOS, and connect to Azure IoT services. Azure RTOS is a real-time operating system for embedded devices. It includes a networking stack and middleware, and helps you securely connect your application to the cloud.
 
-The security of an IoT application depends on your choice of hardware, and how your application implements and uses security features. We recommend that you use this article as an starting point to understand the main issues for further investigation.
+The security of an IoT application depends on your choice of hardware, and how your application implements and uses security features. We recommend that you use this article as a starting point to understand the main issues for further investigation.
 
 ## Microsoft security principles
 
