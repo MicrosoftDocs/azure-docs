@@ -2384,12 +2384,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/aks/aks-ssh.md",
-      "redirect_url": "/azure/aks/node-access",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/aks/node-access.md",
+      "source_path_from_root": "/articles/aks/ssh.md",
       "redirect_url": "/azure/aks/node-access",
       "redirect_document_id": true
     },
