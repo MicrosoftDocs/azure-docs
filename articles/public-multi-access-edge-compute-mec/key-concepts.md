@@ -1,7 +1,7 @@
 ---
 title: Key concepts for Azure public MEC Preview
 description: Learn about important concepts for Azure public multi-access edge compute (MEC). 
-author: moushumig
+author: adhgupta
 ms.author: adhipgupta
 ms.service: public-multi-access-edge-compute-mec
 ms.topic: conceptual
@@ -56,7 +56,7 @@ Every Azure public MEC site is associated with a parent Azure region. This regio
 
 ## Azure services
 
-### Azure VMs
+### Azure Virtual Machines
 
 Azure public MEC supports specific compute and GPU VM SKUs. The following table lists the supported VM sizes:
 
