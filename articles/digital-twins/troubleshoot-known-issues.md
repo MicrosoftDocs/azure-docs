@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.date: 10/6/2021
+ms.date: 02/28/2022
 ms.custom: contperf-fy21q2
 ---
 
@@ -16,7 +16,7 @@ This article provides information about known issues associated with Azure Digit
 
 ## "400 Client Error: Bad Request" in Cloud Shell
 
-**Issue description:** Commands in Cloud Shell running at *https://shell.azure.com* may intermittently fail with the error "400 Client Error: Bad Request for url: http://localhost:50342/oauth2/token", followed by full stack trace.
+**Issue description:** Commands in Cloud Shell running at *https://shell.azure.com* may intermittently fail with the error "400 Client Error: Bad Request for url: `http://localhost:50342/oauth2/token`", followed by full stack trace.
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
@@ -24,15 +24,15 @@ This article provides information about known issues associated with Azure Digit
 
 ## Issue with interactive browser authentication on Azure.Identity 1.2.0
 
-**Issue description:** When writing authentication code in your Azure Digital Twins applications using version **1.2.0** of the [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library, you may experience issues with the [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method. This issue presents as an error response of "Azure.Identity.AuthenticationFailedException" when trying to authenticate in a browser window. The browser window may fail to start up completely, or appear to authenticate the user successfully, while the client application still fails with the error.
+**Issue description:** When writing authentication code in your Azure Digital Twins applications using version 1.2.0 of the [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library, you may experience issues with the [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true) method. This issue presents as an error response of "Azure.Identity.AuthenticationFailedException" when trying to authenticate in a browser window. The browser window may fail to start up completely, or appear to authenticate the user successfully, while the client application still fails with the error.
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |
-| The&nbsp;affected&nbsp;method&nbsp;is&nbsp;used&nbsp;in&nbsp;the&nbsp;following articles:<br><br>[Code a client app](tutorial-code.md)<br><br>[Write app authentication code](how-to-authenticate-client.md)<br><br>[Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md) | Some users have had this issue with version **1.2.0** of the `Azure.Identity` library. | To resolve, update your applications to use a [later version](https://www.nuget.org/packages/Azure.Identity) of `Azure.Identity`. After updating the library version, the browser should load and authenticate as expected. |
+| The&nbsp;affected&nbsp;method&nbsp;is&nbsp;used&nbsp;in&nbsp;the&nbsp;following articles:<br><br>[Code a client app](tutorial-code.md)<br><br>[Write app authentication code](how-to-authenticate-client.md)<br><br>[Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md) | Some users have had this issue with version 1.2.0 of the `Azure.Identity` library. | To resolve, update your applications to use a [later version](https://www.nuget.org/packages/Azure.Identity) of `Azure.Identity`. After updating the library version, the browser should load and authenticate as expected. |
 
 ## Issue with default Azure credential authentication on Azure.Identity 1.3.0
 
-**Issue description:** When writing authentication code using version **1.3.0** of the [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library, some users have experienced issues with the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) method used in many samples throughout these Azure Digital Twins docs. This issue presents as an error response of "Azure.Identity.AuthenticationFailedException: SharedTokenCacheCredential authentication failed" when the code tries to authenticate.
+**Issue description:** When writing authentication code using version 1.3.0 of the [Azure.Identity](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) library, some users have experienced issues with the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet&preserve-view=true) method used in many samples throughout these Azure Digital Twins docs. This issue presents as an error response of "Azure.Identity.AuthenticationFailedException: SharedTokenCacheCredential authentication failed" when the code tries to authenticate.
 
 | Does this affect me? | Cause | Resolution |
 | --- | --- | --- |

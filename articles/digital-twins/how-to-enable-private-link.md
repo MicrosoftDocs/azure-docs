@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to enable private access for Azure Digital Twins solutions with Private Link.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/3/2022
+ms.date: 02/22/2022
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1 
@@ -165,7 +165,7 @@ Select the endpoint to view its information in detail, make changes to its confi
 
 # [CLI](#tab/cli)
 
-Once a private endpoint has been created for your Azure Digital Twins instance, you can use the [az dt network private-endpoint connection](/cli/azure/dt/network/private-endpoint/connection) commands to continue managing private endpoint **connections** with respect to the instance. Operations include:
+Once a private endpoint has been created for your Azure Digital Twins instance, you can use the [az dt network private-endpoint connection](/cli/azure/dt/network/private-endpoint/connection) commands to continue managing private endpoint connections with respect to the instance. Operations include:
 * Show a private endpoint connection
 * Set the state of the private endpoint connection
 * Delete the private endpoint connection
@@ -185,9 +185,9 @@ For more information and examples, see the [az dt network private-link reference
 
 ## Disable / enable public network access flags
 
-You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private endpoints to enhance the network security. This action is done with a **public network access flag**. 
+You can configure your Azure Digital Twins instance to deny all public connections and allow only connections through private endpoints to enhance the network security. This action is done with a *public network access flag*. 
 
-This policy allows you to restrict API access to Private Link connections only. When the public network access flag is set to *disabled*, all REST API calls to the Azure Digital Twins instance data plane from the public cloud will return `403, Unauthorized`. Otherwise, when the policy is set to *disabled* and a request is made through a private endpoint, the API call will succeed.
+This policy allows you to restrict API access to Private Link connections only. When the public network access flag is set to `disabled`, all REST API calls to the Azure Digital Twins instance data plane from the public cloud will return `403, Unauthorized`. Otherwise, when the policy is set to `disabled` and a request is made through a private endpoint, the API call will succeed.
 
 You can update the value of the network flag using the [Azure portal](https://portal.azure.com), [Azure CLI](/cli/azure/), or [ARMClient command tool](https://github.com/projectkudu/ARMClient).
 
@@ -213,13 +213,13 @@ To disable or enable public network access in the [Azure portal](https://portal.
 
 In the Azure CLI, you can disable or enable public network access by adding a `--public-network-access` parameter to the `az dt create` command. While this command can also be used to create a new instance, you can use it to edit the properties of an existing instance by providing it the name of an instance that already exists. (For more information about this command, see its [reference documentation](/cli/azure/dt#az_dt_create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
-To **disable** public network access for an Azure Digital Twins instance, use the `--public-network-access` parameter like this:
+To disable public network access for an Azure Digital Twins instance, use the `--public-network-access` parameter like this:
 
 ```azurecli-interactive
 az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --public-network-access Disabled
 ```
 
-To **enable** public network access on an instance where it's currently disabled, use the following similar command:
+To enable public network access on an instance where it's currently disabled, use the following similar command:
 
 ```azurecli-interactive
 az dt create --dt-name <name-of-existing-instance> --resource-group <resource-group> --public-network-access Enabled
@@ -229,7 +229,7 @@ az dt create --dt-name <name-of-existing-instance> --resource-group <resource-gr
 
 With the [ARMClient command tool](https://github.com/projectkudu/ARMClient), public network access is enabled or disabled using the commands below. 
 
-To **disable** public network access:
+To disable public network access:
   
 ```cmd/sh
 armclient login 
@@ -237,7 +237,7 @@ armclient login
 armclient PATCH /subscriptions/<your-Azure-subscription-ID>/resourceGroups/<your-resource-group>/providers/Microsoft.DigitalTwins/digitalTwinsInstances/<your-Azure-Digital-Twins-instance>?api-version=2020-12-01 "{ 'properties': { 'publicNetworkAccess': 'disabled' } }"  
 ```
 
-To **enable** public network access:  
+To enable public network access:  
   
 ```cmd/sh
 armclient login 
