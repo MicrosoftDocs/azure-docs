@@ -57,24 +57,29 @@ items:
           href: custom-speech-overview.md
         - name: Prepare data for Custom Speech
           href: how-to-custom-speech-test-and-train.md
+          items:
+            - name: Prepare data for Custom Speech
+              href: how-to-custom-speech-test-and-train.md
+            - name: Create human-labeled transcriptions
+              href: how-to-custom-speech-human-labeled-transcriptions.md
+            - name: Create structured text data
+              href: customize-pronunciation.md
+        - name: Upload data for Custom Speech
+          href: how-to-custom-speech-upload-data.md
         - name: Inspect Custom Speech data
           href: how-to-custom-speech-inspect-data.md
         - name: Evaluate and improve Custom Speech accuracy
           href: how-to-custom-speech-evaluate-data.md
         - name: Train and deploy a Custom Speech model
           href: how-to-custom-speech-train-model.md
+        - name: Model and Endpoint Lifecycle
+          href: how-to-custom-speech-model-and-endpoint-lifecycle.md
         - name: CI/CD for Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Customize pronunciation
-          href: customize-pronunciation.md
         - name: Improve recognition with tenant models
           href: tutorial-tenant-model.md
     - name: Improve recognition with phrase list
       href: improve-accuracy-phrase-list.md
-    - name: Create human-labeled transcriptions
-      href: how-to-custom-speech-human-labeled-transcriptions.md
-    - name: Model and Endpoint Lifecycle
-      href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Ingestion Client
       href: ingestion-client.md
     - name: Speech-to-text FAQ
@@ -96,7 +101,7 @@ items:
     - name: SSML phonetic sets
       href: speech-ssml-phonetic-sets.md
       displayName: ipa, phoneme, phonetic, prosody
-    - name: Lower speech synthesis latency using Speech SDK
+    - name: Lower speech synthesis latency
       href: how-to-lower-speech-synthesis-latency.md
     - name: Get facial pose events for lip-sync
       href: how-to-speech-synthesis-viseme.md
@@ -204,30 +209,28 @@ items:
               href: custom-commands.md
             - name: Custom commands quickstart
               href: quickstart-custom-commands-application.md
-            - name: How-to guides
+            - name: Develop and customize Custom Commands apps
+              href: how-to-develop-custom-commands-application.md
+            - name: Integrate with client applications
               items:
-                - name: Develop and customize Custom Commands apps
-                  href: how-to-develop-custom-commands-application.md
-                - name: Integrate with client applications
-                  items:
-                    - name: Integrate with a client app using Speech SDK
-                      href: how-to-custom-commands-setup-speech-sdk.md
-                    - name: Send activity to client application
-                      href: how-to-custom-commands-send-activity-to-client.md
-                    - name: Set up web endpoints
-                      href: how-to-custom-commands-setup-web-endpoints.md
-                    - name: Update a command from the client app
-                      href: how-to-custom-commands-update-command-from-client.md
-                    - name: Update a command from a web endpoint
-                      href: how-to-custom-commands-update-command-from-web-endpoint.md
-                - name: Continuous Deployment with Azure DevOps
-                  href: how-to-custom-commands-deploy-cicd.md
-                - name: Test Custom Commands applications
-                  href: how-to-custom-commands-developer-flow-test.md
-                - name: Debug app build-time errors
-                  href: how-to-custom-commands-debug-build-time.md
-                - name: Debug app run-time errors
-                  href: how-to-custom-commands-debug-runtime.md
+                - name: Integrate with a client app using Speech SDK
+                  href: how-to-custom-commands-setup-speech-sdk.md
+                - name: Send activity to client application
+                  href: how-to-custom-commands-send-activity-to-client.md
+                - name: Set up web endpoints
+                  href: how-to-custom-commands-setup-web-endpoints.md
+                - name: Update a command from the client app
+                  href: how-to-custom-commands-update-command-from-client.md
+                - name: Update a command from a web endpoint
+                  href: how-to-custom-commands-update-command-from-web-endpoint.md
+            - name: Continuous Deployment with Azure DevOps
+              href: how-to-custom-commands-deploy-cicd.md
+            - name: Test Custom Commands applications
+              href: how-to-custom-commands-developer-flow-test.md
+            - name: Debug app build-time errors
+              href: how-to-custom-commands-debug-build-time.md
+            - name: Debug app run-time errors
+              href: how-to-custom-commands-debug-runtime.md
             - name: Custom Commands concepts
               href: custom-commands-references.md
             - name: Custom Commands Samples (GitHub)
@@ -246,12 +249,10 @@ items:
           items:
             - name: Voice assistants on Windows overview
               href: windows-voice-assistants-overview.md
-            - name: How-to guides
-              items:
-                - name: 'Start developing your assistant with Windows'
-                  href: how-to-windows-voice-assistants-get-started.md
-                - name: 'Enable voice activation'
-                  href: windows-voice-assistants-implementation-guide.md
+            - name: 'Start developing your assistant with Windows'
+              href: how-to-windows-voice-assistants-get-started.md
+            - name: 'Enable voice activation'
+              href: windows-voice-assistants-implementation-guide.md
             - name: 'Privacy requirements and guidelines'
               href: windows-voice-assistants-automatic-enablement-guidelines.md
             - name: 'Best practices for assistant experiences'
