@@ -43,7 +43,7 @@ When you get results from NER, you can stream the results to an application or s
 
 ## Service and data limits
 
-[!INCLUDE [service limits article](../../includes/service-limits-link.md)]
+[!INCLUDE [service limits article](../includes/service-limits-link.md)]
 
 ## Next steps
 
