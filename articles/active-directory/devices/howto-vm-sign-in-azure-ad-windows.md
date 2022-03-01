@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 02/28/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -256,9 +256,9 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
    | Command to run | Expected output |
    | --- | --- |
-   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
-   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid Tenant ID associated with the Azure Subscription |
-   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
+   | `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Correct information about the Azure VM |
+   | `curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | Valid Tenant ID associated with the Azure Subscription |
+   | `curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
    > The access token can be decoded using a tool like [calebb.net](http://calebb.net/). Verify the `oid` in the access token matches the managed identity assigned to the VM.
@@ -289,7 +289,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
    - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated PowerShell window on the VM:
       
-      - `curl -H @{"Metadata"="true"} http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
+      - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
 1. The VM admin attempts to install the AADLoginForWindows extension, but a system assigned managed identity has not enabled the VM first. Navigate to the Identity blade of the VM. From the System assigned tab, verify Status is toggled to On.
 
