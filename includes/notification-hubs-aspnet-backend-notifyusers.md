@@ -34,24 +34,24 @@ Create the new ASP.NET Core 6.0 web API backend by doing the following actions:
 
 2. Select **Server Explorer**, and sign in to your Azure account. To create the web site resources on your account, you must be signed in.
 
-3. In Visual Studio,from the File menu, select New > Project.
+3. In Visual Studio,from the File menu, select **New > Project**.
 
-4. Enter Web API in the search box.
+4. Enter **Web API** in the search box.
 
-5. Select the ASP.NET Core Web API template and select Next.
+5. Select the **ASP.NET Core Web API** template and select **Next**.
 
-6. In the Configure your new project dialog, name the project **AppBackend** and select **Next**.
+6. In the **Configure your new project** dialog, name the project **AppBackend** and select **Next**.
 
 7. In the **Additional information** dialog:
    * Confirm the **Framework** is **.NET 6.0 (Long-term support)**.
-   * Confirm the checkbox for Use controllers(uncheck to use minimal APIs) is checked.
+   * Confirm the checkbox for **Use controllers(uncheck to use minimal APIs)** is checked.
    * Uncheck **Enable OpenAPI support**.
    * Select **Create**.
 
 ## Remove the WeatherForecast template files
 1. Remove the WeatherForecast.cs and Controllers/WeatherForecastController.cs example files from the new AppBackend project.
 2. Open Properties\launchSettings.json.
-3. Change launchUrl properties from weatherforcast to appbackend.
+3. Change **launchUrl** properties from **weatherforcast** to **appbackend**.
 
 In the **Configure Microsoft Azure Web App** window, select a subscription and then, in the **App Service plan** list, do either of the following actions:
 
