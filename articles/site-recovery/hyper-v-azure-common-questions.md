@@ -106,7 +106,7 @@ No, VMs must be located on a Hyper-V host server that's running on a supported W
 Yes. Site Recovery converts from generation 2 to generation 1 during failover. At failback the machine is converted back to generation 2.
 
 ### Can I automate Site Recovery scenarios with an SDK?
-Yes. You can automate Site Recovery workflows using the Rest API, PowerShell, or the Azure SDK. Currently supported scenarios for replicating Hyper-V to Azure using PowerShell:
+Yes. You can automate Site Recovery workflows using the REST API, PowerShell, or the Azure SDK. Currently supported scenarios for replicating Hyper-V to Azure using PowerShell:
 
 - [Replicate Hyper-V without VMM using PowerShell](hyper-v-azure-powershell-resource-manager.md)
 - [Replicating Hyper-V with VMM using PowerShell](hyper-v-vmm-powershell-resource-manager.md)
