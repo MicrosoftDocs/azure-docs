@@ -70,14 +70,6 @@ For more information, see [What is virtual network NAT gateway?](../../virtual-n
 ### <a name="azurepeeringservice"></a> Azure Peering Service
 Azure Peering service enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet. For more information, see [What is Azure Peering Service?](../../peering-service/about.md).
 
-### <a name="edge-zones"></a>Azure Edge Zones
-
-Azure Edge Zone is a family of offerings from Microsoft Azure that enables data processing close to the user. You can deploy VMs, containers, and other selected Azure services into Edge Zones to address the low latency and high throughput requirements of applications.
-
-### <a name="orbital"></a>Azure Orbital
-
-Azure Orbital is a fully managed cloud-based ground station as a service that lets you communicate with your spacecraft or satellite constellations, downlink and uplink data, process your data in the cloud, chain services with Azure services in unique scenarios, and generate products for your customers. This system is built on top of the Azure global infrastructure and low-latency global fiber network.
-
 ## <a name="protect"></a>Application protection services
 
 This section describes networking services in Azure that help protect your network resources - Protect your applications  using any or a combination of these networking services in Azure - DDoS protection, Private Link, Firewall, Web Application Firewall, Network Security Groups, and Virtual Network Service Endpoints.
@@ -141,6 +133,8 @@ For more information about Traffic Manager, see [What is Azure Traffic Manager?]
 
 ### <a name="loadbalancer"></a>Load Balancer
 The Azure Load Balancer provides high-performance, low-latency Layer 4 load-balancing for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints. You can define rules to map inbound connections to back-end pool destinations by using TCP and HTTP health-probing options to manage service availability. To learn more about Load Balancer, read the [Load Balancer overview](../../load-balancer/load-balancer-overview.md) article.
+
+Azure Load Balancer is available in Standard, Regional, and Gateway SKUs.
 
 The following picture shows an Internet-facing multi-tier application that utilizes both external and internal load balancers:
 

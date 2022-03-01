@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix request rate too large exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 08/25/2021
+ms.date: 02/28/2022
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -58,9 +58,9 @@ Here are some examples of partitioning strategies that lead to hot partitions:
     
 #### How to identify the hot partition
 
-To verify if there is a hot partition, navigate to **Insights** > **Throughput** > **Normalized RU Consumption (%) By PartitionKeyRangeID**. Filter to a specific database and container. 
+To verify if there's a hot partition, navigate to **Insights** > **Throughput** > **Normalized RU Consumption (%) By PartitionKeyRangeID**. Filter to a specific database and container. 
 
-Each PartitionKeyRangeId maps to one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](../monitor-normalized-request-units.md).
+Each PartitionKeyRangeId maps to one physical partition. If there's one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](../monitor-normalized-request-units.md).
 
 :::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
 
@@ -90,12 +90,12 @@ This sample output shows that in a particular minute, the logical partition key 
 #### Recommended solution
 Review the guidance on [how to chose a good partition key](../partitioning-overview.md#choose-partitionkey).
 
-If there is high percent of rate limited requests and no hot partition:
+If there's high percent of rate limited requests and no hot partition:
 - You can [increase the RU/s](../set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template. Follow [best practices for scaling provisioned throughput (RU/s)](../scaling-provisioned-throughput-best-practices.md) to determine the right RU/s to set.
 
-If there is high percent of rate limited requests and there is an underlying hot partition:
--  Long-term, for best cost and performance, consider **changing the partition key**. The partition key cannot be updated in place, so this requires migrating the data to a new container with a different partition key. Azure Cosmos DB supports a [live data migration tool](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/) for this purpose.
-- Short-term, you can temporarily increase the RU/s to allow more throughput to the hot partition. This is not recommended as a long-term strategy, as it leads to overprovisioning RU/s and higher cost. 
+If there's high percent of rate limited requests and there's an underlying hot partition:
+-  Long-term, for best cost and performance, consider **changing the partition key**. The partition key can't be updated in place, so this requires migrating the data to a new container with a different partition key. Azure Cosmos DB supports a [live data migration tool](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/) for this purpose.
+- Short-term, you can temporarily increase the RU/s to allow more throughput to the hot partition. This isn't recommended as a long-term strategy, as it leads to overprovisioning RU/s and higher cost. 
 
 > [!TIP]
 >  When you increase the throughput, the scale-up operation will either complete instantaneously or require up to 5-6 hours to complete, depending on the number of RU/s you want to scale up to. If you want to know the highest number of RU/s you can set without triggering the asynchronous scale-up operation (which requires Azure Cosmos DB to provision more physical partitions), multiply the number of distinct PartitionKeyRangeIds by 10,0000 RU/s. For example, if you have 30,000 RU/s provisioned and 5 physical partitions (6000 RU/s allocated per physical partition), you can increase to 50,000 RU/s (10,000 RU/s per physical partition) in an instantaneous scale-up operation. Increasing to >50,000 RU/s would require an asynchronous scale-up operation.
@@ -121,6 +121,9 @@ For example, this sample output shows that each minute, 30% of Create Document r
 :::image type="content" source="media/troubleshoot-request-rate-too-large/throttled-requests-diagnostic-logs-results.png" alt-text="Requests with 429 in Diagnostic Logs.":::
 
 #### Recommended solution
+##### Use the Azure Cosmos DB capacity planner
+You can leverage the [Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md) to understand what is the best provisioned throughput based on your workload (volume and type of operations and size of documents). You can customize further the calculations by providing sample data to get a more accurate estimation.
+
 ##### 429s on create, replace, or upsert document requests
 - By default, in the SQL API, all properties are indexed by default. Tune the [indexing policy](../index-policy.md) to only index the properties needed.
 This will lower the Request Units required per create document operation, which will reduce the likelihood of seeing 429s or allow you to achieve higher operations per second for the same amount of provisioned RU/s. 
@@ -129,7 +132,7 @@ This will lower the Request Units required per create document operation, which 
 - Follow the guidance to [troubleshoot queries with high RU charge](troubleshoot-query-performance.md#querys-ru-charge-is-too-high)
 
 ##### 429s on execute stored procedures
-- [Stored procedures](stored-procedures-triggers-udfs.md) are intended for operations that require write transactions across a partition key value. It is not recommended to use stored procedures for a large number of read or query operations. For best performance, these read or query operations should be done on the client-side, using the Cosmos SDKs. 
+- [Stored procedures](stored-procedures-triggers-udfs.md) are intended for operations that require write transactions across a partition key value. It isn't recommended to use stored procedures for a large number of read or query operations. For best performance, these read or query operations should be done on the client-side, using the Cosmos SDKs. 
 
 ## Rate limiting on metadata requests
 
@@ -138,7 +141,7 @@ Metadata rate limiting can occur when you are performing a high volume of metada
 - List databases or containers in a Cosmos account
 - Query for offers to see the current provisioned throughput 
 
-There is a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and is not recommended. See [limits on metadata operations](../concepts-limits.md#metadata-request-limits).
+There's a system-reserved RU limit for these operations, so increasing the provisioned RU/s of the database or container will have no impact and isn't recommended. See [limits on metadata operations](../concepts-limits.md#metadata-request-limits).
 
 #### How to investigate
 Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Filter to a specific database and container if desired. 
@@ -154,7 +157,7 @@ Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Fi
 
 ## Rate limiting due to transient service error
 
-This 429 error is returned when the request encounters a transient service error. Increasing the RU/s on the database or container will have no impact and is not recommended.
+This 429 error is returned when the request encounters a transient service error. Increasing the RU/s on the database or container will have no impact and isn't recommended.
 
 #### Recommended solution
 Retry the request. If the error persists for several minutes, file a support ticket from the [Azure portal](https://portal.azure.com/).

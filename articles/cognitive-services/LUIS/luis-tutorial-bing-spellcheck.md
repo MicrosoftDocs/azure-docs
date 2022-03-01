@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 01/05/2022
 
 ---
 
@@ -100,6 +100,5 @@ Two solutions are:
 * Label example utterances that have the all the different spellings so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
 * Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances.
 
-
-> [!div class="nextstepaction"]
-> [Learn more about example utterances](./luis-how-to-add-entities.md)
+## Next steps
+[Learn more about example utterances](./how-to/entities.md)

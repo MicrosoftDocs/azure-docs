@@ -204,7 +204,7 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 ## Enroll in ExpressRoute FastPath features (preview)
 
-FastPath support for virtual network peering is now in Public preview.
+FastPath support for virtual network peering is now in Public preview, both IPv4 and IPv6 scenarios are supported. IPv4 FastPath and Vnet peering can be enabled on connections associated to both ExpressRoute Direct and ExpressRoute Partner circuits. IPv6 FastPath and Vnet peering support is limited to connections associated to ExpressRoute Direct.
 
 ### FastPath and virtual network peering
 
@@ -227,7 +227,7 @@ Register-AzProviderFeature -FeatureName ExpressRoutePrivateEndpointGatewayBypass
 ```
 
 > [!NOTE]
-> Any connections configured for FastPath in the target subscription will be enrolled in the selected preview. We do not advise enabling these previews in production subscriptions. Additionally, the VNet peering and Private Link previews are mutually exclusive. Enabling FastPath connectivity to a Private Link over VNet peering is not supported.
+> Any connections configured for FastPath in the target subscription will be enrolled in the selected preview. We do not advise enabling these previews in production subscriptions.
 > If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
 >   1. Enroll in one of the FastPath preview features with the Azure PowerShell commands above.
 >   1. Disable and then re-enable FastPath on the target connection.

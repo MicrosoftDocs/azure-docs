@@ -2,7 +2,7 @@
 title: What's new with Azure Arc-enabled servers agent
 description: This article has release notes for Azure Arc-enabled servers agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 09/01/2021
+ms.date: 02/28/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,22 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. To 
 - Bug fixes
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [archive for What's new with Azure Arc-enabled servers agent](agent-release-notes-archive.md).
+
+## Version 1.15 - February 2022
+
+### New features
+
+- Network check improvements during onboarding:
+  - Added TLS 1.2 check
+  - Azure Arc network endpoints are now required, onboarding will abort if they are not accessible
+  - New `--skip-network-check` flag to override the new network check behavior
+- [Proxy bypass](manage-agent.md#proxy-bypass-for-private-endpoints) is now available for customers using private endpoints. This allows you to send Azure Active Directory and Azure Resource Manager traffic through a proxy server, but skip the proxy server for traffic that should stay on the local network to reach private endpoints.
+
+### Fixed
+
+- Improved reliability when disconnecting the agent from Azure
+- Extended the device login timeout to 5 minutes
+- Removed resource constraints for Azure Monitor Agent to support high throughput scenarios
 
 ## Version 1.14 - January 2022
 
@@ -54,13 +70,6 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 - The agent can now be installed on Windows systems with the [System objects: Require case insensitivity for non-Windows subsystems](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) policy set to Disabled.
 - The guest configuration policy agent will now automatically retry if an error is encountered during service start or restart events.
 - Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines.
-
-## Version 1.10 - August 2021
-
-### Fixed
-
-- The guest configuration policy agent can now configure and remediate system settings. Existing policy assignments continue to be audit-only. Learn more about the Azure Policy [guest configuration remediation options](../../governance/policy/concepts/guest-configuration-policy-effects.md).
-- The guest configuration policy agent now restarts every 48 hours instead of every 6 hours.
 
 ## Next steps
 

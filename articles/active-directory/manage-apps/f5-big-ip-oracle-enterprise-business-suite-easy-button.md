@@ -15,23 +15,23 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5’s BIG-IP Easy Button for SSO to Oracle EBS
 
-In this article, you'll learn to implement Secure Hybrid Access (SHA) with header-based single sign-on (SSO) to Oracle Enterprise Business Suite (EBS) using F5’s BIG-IP Easy Button guided configuration.
+In this article, learn to secure Oracle Enterprise Business Suite (EBS) using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
-Enabling BIG-IP published services for Azure Active Directory (Azure AD) SSO provides many benefits, including:
+Integrating a BIG-IP with Azure AD provides many benefits, including:
 
-* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/conditional-access/overview)
+* [Improved Zero Trust governance](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/) through Azure AD pre-authentication and [Conditional Access](/azure/active-directory/conditional-access/overview)
 
 * Full SSO between Azure AD and BIG-IP published services
 
 * Manage Identities and access from a single control plane, the [Azure portal](https://portal.azure.com/)
 
-To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](http://f5-aad-integration.md/) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all the benefits, see the article on [F5 BIG-IP and Azure AD integration](/azure/active-directory/manage-apps/f5-aad-integration) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
-For this scenario, use an **Oracle EBS application using HTTP authorization headers** to manage access to protected content.
+This scenario looks at the classic **Oracle EBS application** that uses **HTTP authorization headers** to manage access to protected content.
 
-Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
+Being legacy, the application lacks modern protocols to support a direct integration with Azure AD. The application can be modernized, but it is costly, requires careful planning, and introduces risk of potential downtime. Instead, an F5 BIG-IP Application Delivery Controller (ADC) is used to bridge the gap between the legacy application and the modern ID control plane, through protocol transitioning.
 
 Having a BIG-IP in front of the app enables us to overlay the service with Azure AD pre-authentication and header-based SSO, significantly improving the overall security posture of the application.
 
@@ -41,13 +41,13 @@ The secure hybrid access solution for this scenario is made up of several compon
 
 **Oracle EBS Application:** BIG-IP published service to be protected by Azure AD SHA.
 
-**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP.
+**Azure AD:** Security Assertion Markup Language (SAML) Identity Provider (IdP) responsible for verification of user credentials, Conditional Access (CA), and SAML based SSO to the BIG-IP. Through SSO, Azure AD provides the BIG-IP with any required session attributes.
 
 **Oracle Internet Directory (OID):** Hosts the user database. BIG-IP checks via LDAP for authorization attributes. 
 
 **Oracle AccessGate:** Validates authorization attributes through back channel with OID service, before issuing EBS access cookies 
 
-**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the Oracle service.
+**BIG-IP:** Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP before performing header-based SSO to the Oracle application.
 
 SHA for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
@@ -58,8 +58,8 @@ SHA for this scenario supports both SP and IdP initiated flows. The following im
 | 1| User connects to application endpoint (BIG-IP) |
 | 2| BIG-IP APM access policy redirects user to Azure AD (SAML IdP) |
 | 3| Azure AD pre-authenticates user and applies any enforced Conditional Access policies |
-| 4| User is redirected back to BIG-IP with issued token and claims |
-| 5| BIG-IP authenticates user and performs LDAP query for user Unique ID (UID) attribute |
+| 4| User is redirected back to BIG-IP (SAML SP) and SSO is performed using issued SAML token |
+| 5| BIG-IP performs LDAP query for users Unique ID (UID) attribute |
 | 6| BIG-IP injects returned UID attribute as user_orclguid header in EBS session cookie request to Oracle AccessGate |
 | 7| Oracle AccessGate validates UID against Oracle Internet Directory (OID) service and issues EBS access cookie
 | 8| EBS user headers and cookie sent to application and returns the payload to the user |
@@ -86,7 +86,7 @@ Prior BIG-IP experience isn’t necessary, but you need:
 
 * An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-* [SSL certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS
+* An [SSL Web certificate](./f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS, or use default BIG-IP certs while testing
 
 * An existing Oracle EBS suite including Oracle AccessGate and an LDAP enabled OID (Oracle Internet Database)
 
@@ -160,9 +160,9 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted down from your registered application
+3. Enter the **Tenant Id, Client ID**, and **Client Secret** you noted when registering the Easy Button client in your tenant.
 
-4. Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
+4. Before you select **Next**, confirm the BIG-IP can successfully connect to your tenant.
 
    ![ Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-oracle/configuration-general-and-service-account-properties.png)
 
@@ -170,7 +170,7 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 The **Service Provider** settings define the SAML SP properties for the APM instance representing the application protected through SHA.
 
-1. Enter **Host**. This is the public FQDN of the application being secured. You need a corresponding DNS record for clients to resolve this address, but using a localhost record is fine during testing
+1. Enter **Host**. This is usually the FQDN that will be used for the applications external URL
 
 2. Enter **Entity ID**. This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
@@ -226,7 +226,7 @@ This section defines all properties that you would normally use to manually conf
 
 When a user successfully authenticates, Azure AD issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims** tab shows the default claims to issue for the new application. It also lets you configure more claims.
 
-![Screenshot for Azure configuration – User attributes & claims](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
+   ![Screenshot for user attributes and claims](./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
 
 You can include additional Azure AD attributes if necessary, but the Oracle EBS scenario only requires the default attributes.
 
@@ -285,7 +285,7 @@ To select a policy to be applied to the application being published:
 
 A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
 
-1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP.
+1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing.
 
 2. Enter **Service Port** as *443* for HTTPS
 
@@ -303,7 +303,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 2. Choose the **Load Balancing Method** as *Round Robin*
 
-3. Update the **Pool Servers**. Select an existing node or specify an IP and port for the servers hosting the Oracle EBS application.
+3. For **Pool Servers** select an existing node or specify an IP and port for the servers hosting the Oracle EBS application.
 
    ![Screenshot for Application pool](./media/f5-big-ip-oracle/application-pool.png)
 
@@ -319,12 +319,11 @@ The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorizati
 * **Header Name:** USER_NAME
 * **Header Value:** %{session.sso.token.last.username}
 
- 
 * **Header Operation:** replace
 * **Header Name:** USER_ORCLGUID
 * **Header Value:** %{session.ldap.last.attr.orclguid}
 
- ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle/sso-and-http-headers.png)
+   ![ Screenshot for SSO and HTTP headers](./media/f5-big-ip-oracle/sso-and-http-headers.png)
 
 >[!NOTE] 
 >APM session variables defined within curly brackets are CASE sensitive. If you enter OrclGUID when the Azure AD attribute name is being defined as orclguid, it will cause an attribute mapping failure.
@@ -339,7 +338,7 @@ During deployment, the SAML federation metadata for the published application is
 
 ## Summary
 
-Select **Deploy** to commit all settings and verify that the application has appeared in your tenant. This last step provides breakdown of all applied settings before they’re committed. Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals.
+This last step provides a breakdown of your configurations. Select **Deploy** to commit all settings and verify that the application now exists in your tenants list of ‘Enterprise applications.
 
 ## Next steps
 
@@ -349,7 +348,7 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Advanced deployment
 
-There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see ![Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
+There may be cases where the Guided Configuration templates lack the flexibility to achieve more specific requirements. For those scenarios, see [Advanced Configuration for headers-based SSO](./f5-big-ip-header-advanced.md). Alternatively, the BIG-IP gives the option to disable **Guided Configuration’s strict management mode**. This allows you to manually tweak your configurations, even though bulk of your configurations are automated through the wizard-based templates.
 
 You can navigate to **Access > Guided Configuration** and select the **small padlock icon** on the far right of the row for your applications’ configs. 
 
@@ -362,9 +361,7 @@ At that point, changes via the wizard UI are no longer possible, but all BIG-IP 
 
 ## Troubleshooting
 
-There can be many factors leading to failure to access a published application. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, policy violations, or misconfigured variable mappings. 
-
-Start troubleshooting by increasing the log verbosity level.
+Failure to access a SHA protected application can be due to any number of factors. BIG-IP logging can help quickly isolate all sorts of issues with connectivity, SSO, policy violations, or misconfigured variable mappings. Start troubleshooting by increasing the log verbosity level.
 
 1. Navigate to **Access Policy > Overview > Event Logs > Settings**
 
@@ -372,17 +369,19 @@ Start troubleshooting by increasing the log verbosity level.
 
 3. Select **Debug** from the SSO list then **OK**
 
-Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
+
+If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
 
 1. Navigate to **Access > Overview > Access reports**
 
-2. Run the report for the last hour to see logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
+2. Run the report for the last hour to see if the logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
 
 If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
 
-1. In which case you should head to **Access Policy > Overview > Active Sessions** and select the link for your active session
+1. In which case head to **Access Policy > Overview > Active Sessions** and select the link for your active session
 
-2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes
+2. The **View Variables** link in this location may also help root cause SSO issues, particularly if the BIG-IP APM fails to obtain the right attributes from Azure AD or another source
 
 See [BIG-IP APM variable assign examples](https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference](https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
 

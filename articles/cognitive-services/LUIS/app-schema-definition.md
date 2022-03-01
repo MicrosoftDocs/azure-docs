@@ -62,8 +62,8 @@ When you import and export the app, choose either `.json` or `.lu`.
 
 | element                  | Comment                              |
 |--------------------------|--------------------------------------|
-| "hierarchicals": [],     | Deprecated, use [machine-learning entities](luis-concept-entity-types.md).   |
-| "composites": [],        | Deprecated, use [machine-learning entities](luis-concept-entity-types.md). [Composite entity](./reference-entity-machine-learned-entity.md) reference. |
+| "hierarchicals": [],     | Deprecated, use [machine-learning entities](concepts/entities.md).   |
+| "composites": [],        | Deprecated, use [machine-learning entities](concepts/entities.md). [Composite entity](./reference-entity-machine-learned-entity.md) reference. |
 | "closedLists": [],       | [List entities](reference-entity-list.md) reference, primarily used as features to entities.    |
 | "versionId": "0.1",      | Version of a LUIS app.|
 | "name": "example-app",   | Name of the LUIS app. |
@@ -72,8 +72,8 @@ When you import and export the app, choose either `.json` or `.lu`.
 | "tokenizerVersion": "1.0.0", | [Tokenizer](luis-language-support.md#tokenization)  |
 | "patternAnyEntities": [],   | [Pattern.any entity](reference-entity-pattern-any.md)    |
 | "regex_entities": [],    |  [Regular expression entity](reference-entity-regular-expression.md)   |
-| "phraselists": [],       |  [Phrase lists (feature)](luis-concept-feature.md#create-a-phrase-list-for-a-concept)   |
-| "regex_features": [],    |  Deprecated, use [machine-learning entities](luis-concept-entity-types.md). |
+| "phraselists": [],       |  [Phrase lists (feature)](concepts/patterns-features.md#create-a-phrase-list-for-a-concept)   |
+| "regex_features": [],    |  Deprecated, use [machine-learning entities](concepts/entities.md). |
 | "patterns": [],          |  [Patterns improve prediction accuracy](luis-concept-patterns.md) with [pattern syntax](reference-pattern-syntax.md)   |
 | "settings": []           | [App settings](luis-reference-application-settings.md)|
 
