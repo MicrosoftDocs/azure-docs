@@ -469,7 +469,7 @@ After the cluster is formed and configured, you'll now create new virtual switch
 1. In the  local UI, go to **Advanced networking** page. 
 1. In the **Virtual switch** section, you'll assign compute intent to a virtual switch. You can select an existing virtual switch or select **Add virtual switch** to create a new switch. 
 
-    ![Configure compute page in Advanced networking in local UI 1](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-1.png)
+    ![Configure compute page in Advanced networking in local UI 1](./media/azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy/configure-compute-network-1.png)
 
 1. In the **Network settings** blade, if using a new switch, provide the following: 
 

@@ -7,13 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/09/2022
+ms.date: 03/01/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to set up device name, update server and time server via the local web UI of Azure Stack Edge Pro 2 so I can use the device to transfer data to Azure. 
 ---
 # Tutorial: Configure the device settings for Azure Stack Edge Pro 2
 
 This tutorial describes how you configure device-related settings for your Azure Stack Edge Pro 2 device. You can set up your device name, update server, and time server via the local web UI.
+
 
 The device settings can take around 5-7 minutes to complete.
 
@@ -27,6 +28,7 @@ In this tutorial, you learn about:
 > * Configure time
 
 ## Prerequisites
+
 
 Before you configure device-related settings on your Azure Stack Edge Pro 2, make sure that:
 
