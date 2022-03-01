@@ -1714,7 +1714,7 @@ decimal('<value>')
 This example creates a decimal that's used as a number:
 
 ```
-decimal('1.2345678912312131') // Returns 1.23456789123121.
+decimal('1.2345678912312131') // Returns 1.234567891231213.
 ```
 
 *Example 2*
