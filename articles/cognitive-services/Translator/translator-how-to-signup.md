@@ -56,8 +56,8 @@ The Translator service can be accessed through two different resource types:
 
 1. **Name**. Enter the name you have chosen for your resource. The name you choose must be unique within Azure.
 
-> [!NOTE]
-> If you are using a Translator feature that requires a custom domain endpoint, such as Document Translation, the value that you enter in the Name field will be the custom domain name parameter for the endpoint.
+   > [!NOTE]
+   > If you are using a Translator feature that requires a custom domain endpoint, such as Document Translation, the value that you enter in the Name field will be the custom domain name parameter for the endpoint.
 
 1. **Pricing tier**. Select a [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/translator) that meets your needs:
 
