@@ -191,8 +191,15 @@ To manage your recommendations, you need to be:
 
 - On the recommendations page, you might not see all supported recommendations. This is because Azure AD only displays the recommendations that apply to your tenant.
 
-
 - Some recommendations have a list of impacted resources associated. This list of resources gives you more context on how the recommendation applies to you and/or which resources you need to address.
+
+**Right now:** 
+
+- You can update the status of a recommendation with a read only roles (global reader, security reader, reports reader). This is a known issue that will be fixed.
+
+- The only action recorded in the audit log is completing recommendations.
+
+- Audit logs do not capture actions taken by reader roles. 
 
 
 
