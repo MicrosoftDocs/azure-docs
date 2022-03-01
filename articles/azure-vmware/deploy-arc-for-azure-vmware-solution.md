@@ -149,8 +149,8 @@ When Arc appliance is successfully deployed on your private cloud, you can do th
 After you've enabled VMs to be managed from Azure, you can install guest management and do the following actions.
 
 - Enable customers to install and use extensions.
-    - To enable guest management, customers will be required to use admin credentials. 
-    - VMtools should already be running on the VM.
+    - To enable guest management, customers will be required to use admin credentials
+    - VMtools should already be running on the VM
   > [!NOTE] 
   > Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for ARc for VMware.
 
@@ -162,7 +162,19 @@ After you've enabled VMs to be managed from Azure, you can install guest managem
 
  **Azure VMware Solution private cloud with Azure Arc**
 
-When the script has run successfully, you can check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc-enabled, navigate to **Operations > Azure Arc**. Azure Arc state should show as **Configured**.
+When the script has run successfully, you can check the status to see if Azure Arc has been configured. To verify if your private cloud is Arc-enabled, do the following:
+- In the left navigation, locate **Operations**.
+- Choose **Azure Arc (preview)**. Azure Arc state will show as **Configured**.
+
+    :::image type="content" source="media/deploy-arc-for-avs/arc-avs-private-cloud-configured.png" alt-text="Image showing navigation to Azure Arc state to verify it is configured."lightbox="media/deploy-arc-for-avs/arc-avs-private-cloud-configured.png":::
+
+**Arc enabled VMware resources**
+
+After the private cloud is Arc-enabled, vCenter resources should appear under **Virtual machines**.
+- From the left navigation, under **Azure Arc VMware resources (preview)**, locate **Virtual machines**.
+- Choose **Virtual machines** to view the vCenter resources.
+
+    :::image type="content" source="media/deploy-arc-for-avs/arc-avs-vmware-resources.png" alt-text="Image showing navigation to Azure Arc VMware virtual machines to view the vCenter resources."lightbox="media/deploy-arc-for-avs/arc-avs-vmware-resources.png"::: 
 
 ### Manage access to VMware resources through Azure Role-Based Access Control
 
