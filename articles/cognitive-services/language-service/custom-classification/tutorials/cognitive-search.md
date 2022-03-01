@@ -37,7 +37,7 @@ In this tutorial, you will learn how to:
 
 ## Create a custom classification project through Language studio
 
-[!INCLUDE [Create a project using Language Studio](../create-project.md)]
+[!INCLUDE [Create a project using Language Studio](../includes/create-project.md)]
 
 ## Train your model
 
