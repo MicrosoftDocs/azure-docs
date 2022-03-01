@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: ginle
 ---
 
@@ -25,7 +25,7 @@ The client applications are registered in the Azure AD and can be used to access
 
 Authenticated users and client applications of the Healthcare APIs must be granted with proper application roles.
 
-The FHIR service of the Azure Health Data Services provides the following roles:
+FHIR service of Azure Health Data Services provides the following roles:
 
 * **FHIR Data Reader**: Can read (and search) FHIR data.
 * **FHIR Data Writer**: Can read, write, and soft delete FHIR data.
@@ -33,7 +33,7 @@ The FHIR service of the Azure Health Data Services provides the following roles:
 * **FHIR Data Contributor**: Can perform all data plane operations.
 * **FHIR Data Converter**: Can use the converter to perform data conversion.
 
-The DICOM service of the Azure Health Data Services provides the following roles:
+DICOM service of Azure Health Data Services provides the following roles:
 
 * **DICOM Data Owner**: Can read, write, and delete DICOM data.
 * **DICOM Data Read**: Can read DICOM data.
@@ -42,11 +42,11 @@ The MedTech service doesn't require application roles, but it does rely on the "
 
 ## Authorization
 
-After being granted with proper application roles, the authenticated users and client applications can access the Azure Health Data Services by obtaining a **valid access token** issued by Azure AD, and perform specific operations defined by the application roles.
+After being granted with proper application roles, the authenticated users and client applications can access Azure Health Data Services by obtaining a **valid access token** issued by Azure AD, and perform specific operations defined by the application roles.
  
-* For the FHIR service, the access token is specific to the service or resource.
-* For the DICOM service, the access token is granted to the `dicom.healthcareapis.azure.com` resource, not a specific service.
-* For the IoT Connector, the access token isn’t required because it isn’t exposed to the users or client applications.
+* For FHIR service, the access token is specific to the service or resource.
+* For DICOM service, the access token is granted to the `dicom.healthcareapis.azure.com` resource, not a specific service.
+* For MedTech service, the access token isn’t required because it isn’t exposed to the users or client applications.
 
 ### Steps for authorization
 
@@ -113,7 +113,7 @@ When you create a new service of Azure Health Data Services, your data is encryp
 
 ## Next steps
 
-In this document, you learned the authentication and authorization of the Azure Health Data Services. To learn how to deploy an instance of the Azure Health Data Services, see
+In this document, you learned the authentication and authorization of Azure Health Data Services. To learn how to deploy an instance of Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[Deploy Azure Health Data Services workspace using the Azure portal](healthcare-apis-quickstart.md)

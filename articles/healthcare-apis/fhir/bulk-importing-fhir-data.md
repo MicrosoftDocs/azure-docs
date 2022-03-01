@@ -5,7 +5,7 @@ services: healthcare-apis
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: zxue
 ---
 
@@ -58,7 +58,7 @@ There are other similar tools that can be used to bulk load FHIR data.
 
 ## Next steps
 
-In this article, you've learned about the tools and the steps for bulk-importing data into the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
+In this article, you've learned about the tools and the steps for bulk-importing data into FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
 
 >[!div class="nextstepaction"]
 >[Converting your data to FHIR](convert-data.md)

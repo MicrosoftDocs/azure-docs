@@ -5,14 +5,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/16/2022
+ms.date: 03/01/2022
 ms.author: jasteppe
 ms.custom: mode-api
 ---
 
 # Deploy MedTech service in the Azure portal
 
-In this quickstart, you'll learn how to deploy the MedTech service in the Azure portal. Configuring the MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service using an Azure Event Hub for device messages.
+In this quickstart, you'll learn how to deploy MedTech service in the Azure portal. Configuring the MedTech service will enable you to ingest data from Internet of Things (IoT) into your Fast Healthcare Interoperability Resources (FHIR&#174;) service using an Azure Event Hub for device messages.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ It's important that you have the following prerequisites completed before you be
 
 ## Deploy MedTech service 
 
-1. Sign in the [Azure portal](https://portal.azure.com), and then enter your Healthcare APIs workspace resource name in the **Search** bar field.
+1. Sign in the [Azure portal](https://portal.azure.com), and then enter your Health Data Services workspace resource name in the **Search** bar field.
  
    ![Screenshot of entering the workspace resource name in the search bar field.](media/select-workspace-resource-group.png#lightbox)
 
@@ -46,7 +46,7 @@ Under the **Basics** tab, complete the required fields under **Instance details*
 
 1. Enter the **MedTech service name**.
 
-   The **MedTech service name** is a friendly name for the MedTech service. Enter a unique name for your IoT Connector. As an example, you can name it `healthdemo-iot`.
+   The **MedTech service name** is a friendly name for MedTech service. Enter a unique name for your IoT connector. As an example, you can name it `healthdemo-iot`.
 
 2. Enter the **Event Hub name**.
 
@@ -143,7 +143,7 @@ Under the **Tags** tab, enter the tag properties associated with the MedTech ser
    ![Screenshot of Validation success message.](media/iot-connector-validation-success.png#lightbox) 
 
    > [!NOTE]
-   > If your MedTech service didn’t validate, review the validation failure message, and troubleshoot the issue. It’s recommended that you review the properties under each MedTech service tab that you've configured.
+   > If your MedTech service didn't validate, review the validation failure message, and troubleshoot the issue. It's recommended that you review the properties under each MedTech service tab that you've configured.
 
 4. Next, select **Create**.
 
@@ -151,7 +151,7 @@ Under the **Tags** tab, enter the tag properties associated with the MedTech ser
 
    ![Screenshot of Deployed MedTech service listed in the Azure Recent resources list.](media/azure-resources-iot-connector-deployed.png#lightbox)  
 
-    Now that your MedTech service has been deployed, we're going to walk through the steps of assigning permissions to access the Event Hub and the FHIR service. 
+    Now that your MedTech service has been deployed, we're going to walk through the steps of assigning permissions to access the Event Hub and FHIR service. 
 
 ## Granting MedTech service access
 
@@ -195,7 +195,7 @@ For more information about authoring access to Event Hubs resources, see [Author
 
 ### Accessing the MedTech service from the FHIR service
 
-1. In the **Azure Resource group list**, select the name of your  **FHIR service**.
+1. In the **Azure Resource group list**, select the name of your **FHIR service**.
  
 2. Select the **Access control (IAM)** blade, and then select **+ Add**. 
 

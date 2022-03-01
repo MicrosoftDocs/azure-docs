@@ -5,13 +5,13 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: cavoeg
 ---
 
 # FHIR Rest API capabilities for Azure Health Data Services FHIR service
 
-In this article, we'll cover some of the nuances of the RESTful interactions of Azure Health Data Services FHIR service (hereby called the FHIR service).
+In this article, we'll cover some of the nuances of the RESTful interactions of Azure Health Data Services FHIR service (hereby called FHIR service).
 
 ## Conditional create/update
 
@@ -19,14 +19,14 @@ The FHIR service supports create, conditional create, update, and conditional up
 
 ## Delete and Conditional Delete
 
-The FHIR service offers two delete types. There's [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
+FHIR service offers two delete types. There's [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
 
 ### Delete (Hard + Soft Delete)
 
 Delete defined by the FHIR specification requires that after deleting a resource, subsequent non-version specific reads of a resource returns a 410 HTTP status code. Therefore, the resource is no longer found through searching. Additionally, the FHIR service enables you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true `(DELETE {{FHIR_URL}}/{resource}/{id}?hardDelete=true)`. If you don't pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
 
 > [!NOTE]
-> If you only want to delete the history, the FHIR service supports a custom operation called `$purge-history`. This operation allows you to delete the history off of a resource.
+> If you only want to delete the history, FHIR service supports a custom operation called `$purge-history`. This operation allows you to delete the history off of a resource.
 
 ### Conditional Delete
 
@@ -46,7 +46,7 @@ To delete multiple resources, include `_count=100` parameter. This parameter wil
  
 ### Recovery of deleted files
 
-If you don't use the hard delete parameter, then the record(s) in the FHIR service should still exist. The record(s) can be found by doing a history search on the resource and looking for the last version with data.
+If you don't use the hard delete parameter, then the record(s) in FHIR service should still exist. The record(s) can be found by doing a history search on the resource and looking for the last version with data.
  
 If the ID of the resource that was deleted is known, use the following URL pattern:
 

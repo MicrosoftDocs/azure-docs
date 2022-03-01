@@ -1,12 +1,12 @@
 ---
 title: FAQs about Azure Health Data Services
-description: This document provides answers to the frequently asked questions about the Azure Health Data Services.
+description: This document provides answers to the frequently asked questions about Azure Health Data Services.
 services: healthcare-apis
 author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: ginle
 ---
 
@@ -17,7 +17,7 @@ These are some of the frequently asked questions for the Azure Health Data Servi
 ## Azure Health Data Services: The basics
 
 ### What is Azure Health Data Services?
-The Azure Health Data Services is a fully managed health data platform that enables the rapid exchange and persistence of Protected Health Information (PHI) and health data through interoperable open industry standards like Fast Healthcare Interoperability Resources (FHIR®) and Digital Imaging and Communications in Medicine (DICOM®).
+Azure Health Data Services is a fully managed health data platform that enables the rapid exchange and persistence of Protected Health Information (PHI) and health data through interoperable open industry standards like Fast Healthcare Interoperability Resources (FHIR®) and Digital Imaging and Communications in Medicine (DICOM®).
 
 ### What does Azure Health Data Services enable you to do?
 Azure Health Data Services enables you to: 

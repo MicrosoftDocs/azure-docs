@@ -1,20 +1,20 @@
 ---
-title: Store profiles in the FHIR service in Azure Health Data Services
+title: Store profiles in FHIR service in Azure Health Data Services
 description: This article describes how to store profiles in the FHIR service
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: cavoeg
 ---
 
-# Store profiles in the FHIR service
+# Store profiles in FHIR service
 
 HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
 [FHIR profile](https://www.hl7.org/fhir/profiling.html) allows you to narrow down and customize resource definitions using constraints and extensions.
 
-The FHIR service in the Azure Health Data Services (hereby called the FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
+The FHIR service in Azure Health Data Services (hereby called FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
 
 ## FHIR profile: the basics
 
@@ -157,7 +157,7 @@ This will return the `StructureDefinition` resource for US Core Goal profile, th
 > You'll only see the profiles that you've loaded into the FHIR service.
 
 
-The FHIR service doesn't return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
+FHIR service doesn't return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
 
 - `http://hl7.org/fhir/Observation.profile.json.html`
 - `http://hl7.org/fhir/Patient.profile.json.html`

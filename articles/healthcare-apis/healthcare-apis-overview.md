@@ -5,19 +5,19 @@ services: healthcare-apis
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: ginle
 ---
 
 # What is Azure Health Data Services?
 
-Azure Health Data Services is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. Using a set of managed API services and frameworks that’s dedicated to the healthcare industry is important and beneficial because health data collected from patients and healthcare consumers can be fragmented from across multiple systems, device types, and data formats. Gaining insights from health data is one of the biggest barriers to sustaining population and personal health and overall wellness understanding. Bringing disparate systems, workflows, and health data together is more important today. A unified and aligned approach to health data access, standardization, and trend capturing would enable the discovery of operational and clinical insights. We can streamline the process of connecting new device applications and enable new research projects. Using Azure Health Data Services as a scalable and secure healthcare solution can enable workflows to improve healthcare through insights discovered by bringing protected health information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
+Azure Health Data Services is a set of managed API services based on open standards and frameworks that enable workflows to improve healthcare and offer scalable and secure healthcare solutions. Using a set of managed API services and frameworks that’s dedicated to the healthcare industry is important and beneficial because health data collected from patients and healthcare consumers can be fragmented from across multiple systems, device types, and data formats. Gaining insights from health data is one of the biggest barriers to sustaining population and personal health and overall wellness understanding. Bringing disparate systems, workflows, and health data together is more important today. A unified and aligned approach to health data access, standardization, and trend capturing would enable the discovery of operational and clinical insights. We can streamline the process of connecting new device applications and enable new research projects. Using Azure Health Data Services as a scalable and secure healthcare solution can enable workflows to improve healthcare through insights discovered by bringing Protected Health Information (PHI) datasets together and connecting them end-to-end with tools for machine learning, analytics, and AI. 
 
 Azure Health Data Services provides the following benefits:
 * Empower new workloads to leverage PHI by enabling the data to be collected and accessed in one place, in a consistent way.
 * Discover new insight by bringing disparate PHI together and connecting it end-to-end with tools for machine learning, analytics, and AI.
 * Build on a trusted cloud with confidence in how Protected Health Information is managed, stored, and made available.
-The new Microsoft Azure Health Data Services will, in addition to FHIR, supports other healthcare industry data standards, like DICOM, extending healthcare data interoperability. The business model, and infrastructure platform has been redesigned to accommodate the expansion and introduction of different and future Healthcare data standards. Customers can use health data of different types across healthcare standards under the same compliance umbrella. Tools have been built into the managed service that allow customers to transform data from legacy or device proprietary formats, to FHIR. Some of these tools have been previously developed and open-sourced; Others will be net new.
+The new Microsoft Azure Health Data Services will, in addition to FHIR, support other healthcare industry data standards, like DICOM, extending healthcare data interoperability. The business model and infrastructure platform have been redesigned to accommodate the expansion and introduction of different and future Healthcare data standards. Customers can use health data of different types across healthcare standards under the same compliance umbrella. Tools have been built into the managed service that allow customers to transform data from legacy or device proprietary formats, to FHIR. Some of these tools have been previously developed and open-sourced; others will be net new.
 
 Azure Health Data Services enables you to: 
 * Quickly connect disparate health data sources and formats such as structured, imaging, and device data and normalize it to be persisted in the cloud.
@@ -34,7 +34,7 @@ Azure Health Data Services now supports multiple health data standards for the e
 
 **Introducing DICOM service**
 
-Azure Health Data Services now includes support for DICOM services. DICOM enables the secure exchange of image data and its associated metadata. DICOM is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare. For more information about the DICOM Service, see [Overview of DICOM](./dicom/dicom-services-overview.md).
+Azure Health Data Services now includes support for DICOM services. DICOM enables the secure exchange of image data and its associated metadata. DICOM is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare. For more information about the DICOM service, see [Overview of DICOM](./dicom/dicom-services-overview.md).
 
 **Incremental changes to the FHIR Service**
 

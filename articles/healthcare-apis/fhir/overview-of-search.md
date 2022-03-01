@@ -5,7 +5,7 @@ author: CaitlinV39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: cavoeg
 ---
 # Overview of FHIR search
@@ -157,7 +157,7 @@ Currently, the FHIR service in the Azure Health Data Services only supports the 
 
 ## Next steps
 
-Now that you've learned about the basics of search, see the search samples page for details about how to search using different search parameters, modifiers, and other FHIR search scenarios.
+Now that you've learned about the basics of search, see the search samples page for details about how to search using different search parameters, modifiers, and other FHIR search scenarios. To read about FHIR search examples, see 
 
 >[!div class="nextstepaction"]
 >[FHIR search examples](search-samples.md)

@@ -1,21 +1,21 @@
 ---
 title: Tutorial - Da Vinci PDex - Azure Health Data Services
-description: This tutorial walks through setting up the FHIR service to pass tests for the Da Vinci Payer Data Exchange Implementation Guide.
+description: This tutorial walks through setting up FHIR service to pass tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ---
 
 # Da Vinci PDex
 
-In this tutorial, we'll walk through setting up the FHIR service in the Azure Health Data Services (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
+In this tutorial, we'll walk through setting up the FHIR service in Azure Health Data Services (hereby called FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
 
 > [!NOTE]
-> The FHIR service only supports JSON. The Microsoft open-source FHIR service supports both JSON and XML, and in open-source you can use the _format parameter to view the XML capability statement: `GET {fhirurl}/metadata?_format=xml`
+> FHIR service only supports JSON. The Microsoft open-source FHIR service supports both JSON and XML, and in open-source you can use the _format parameter to view the XML capability statement: `GET {fhirurl}/metadata?_format=xml`
 
 ## Touchstone capability statement
 

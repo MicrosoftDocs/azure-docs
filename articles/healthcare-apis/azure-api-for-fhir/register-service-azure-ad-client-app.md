@@ -5,7 +5,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: cavoeg
 ---
 
@@ -49,7 +49,7 @@ The service client needs a secret (password) to obtain a token.
 
 3. Provide a description and duration of the secret (either one year, two years or never).
 
-4. Once the secret has been generated, it will only be displayed once in the portal. Make a note of it and store in a securely.
+4. Once the secret has been generated, it will only be displayed once in the portal. Make a note of it and store in a secure location.
 
 ## Next steps
 

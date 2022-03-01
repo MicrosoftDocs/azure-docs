@@ -5,11 +5,11 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: ginle
 ---
 
-# Accessing the Healthcare APIs using the REST Client Extension in Visual Studio Code
+# Accessing Azure Health Data Services using the REST Client Extension in Visual Studio Code
 
 In this article, you'll learn how to access Azure Health Data Services using [REST Client extension in Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).
 
@@ -97,3 +97,12 @@ If you're unable to get the metadata, which doesn't require access token based o
 If you're unable to get an access token, make sure that the client application is registered properly and you're using the correct values from the application registration step.
 
 If you're unable to get data from the FHIR server, make sure that the client application (or the service principal) has been granted access permissions such as "FHIR Data Contributor" to the FHIR server.
+
+## Next steps
+
+In this article, you learned how to access Azure Health Data Services data using the using the REST Client extension in Visual Studio Code.
+
+To learn about how to validate FHIR resources against profiles in Azure Health Data Services, see 
+
+>[!div class="nextstepaction"]
+>[Validate FHIR resources against profiles in Azure Health Data Services](validation-against-profiles.md)

@@ -1,16 +1,16 @@
 ---
-title: Get started with the FHIR service - Azure Health Data Services
-description: This document describes how to get started with the FHIR service in Azure Health Data Services.
+title: Get started with FHIR service - Azure Health Data Services
+description: This document describes how to get started with FHIR service in Azure Health Data Services.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: zxue
 ms.custom: mode-api
 ---
 
-# Get started with the FHIR service
+# Get started with FHIR service
 
 This article outlines the basic steps to get started with the FHIR service in [Azure Health Data Services](../healthcare-apis-overview.md).
 
@@ -92,7 +92,7 @@ Optionally, you can create Power BI dashboard reports with FHIR data.
 
 ## Next steps
 
-This article described the basic steps to get started using the FHIR service. For information about deploying the FHIR service in the workspace, see
+This article described the basic steps to get started using the FHIR service. For information about deploying FHIR service in the Azure Health Data Services workspace, see
 
 >[!div class="nextstepaction"]
 >[Deploy a FHIR service within Azure Health Data Services](fhir-portal-quickstart.md)

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 02/16/2022
+ms.date: 03/01/2022
 ms.author: jasteppe
 ---
 
@@ -14,7 +14,7 @@ ms.author: jasteppe
  
 MedTech service may be used with devices created and managed through Azure IoT Hub for enhanced workflows and ease of use. 
 
-This tutorial provides the steps to connect and route device data from IoT Hub to the MedTech service.
+This tutorial provides the steps to connect and route device data from IoT Hub to MedTech service.
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This tutorial provides the steps to connect and route device data from IoT Hub t
 > [!TIP]
 > If you are using an Azure IoT Hub simulated device application, feel free to pick the application of your choice amongst different supported languages and systems.
 
-Below is a diagram of the IoT device message flow from IoT Hub into the MedTech service:
+Below is a diagram of the IoT device message flow from IoT Hub into MedTech service:
 
 :::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" alt-text="Diagram of IoT message data flow through IoT Hub into the MedTech service." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png"::: 
 
@@ -47,7 +47,7 @@ Follow these directions to grant access to the IoT Hub user-assigned managed ide
 
 Use your device (real or simulated) to send the sample heart rate message shown below to the IoT Hub. 
 
-This message will get routed to the MedTech service, where the message will be transformed into a FHIR Observation resource and stored into the FHIR service.
+This message will get routed to MedTech service, where the message will be transformed into a FHIR Observation resource and stored into FHIR service.
 
 ```json
 {
@@ -74,9 +74,9 @@ You can view the FHIR Observation resource(s) created by the MedTech service on 
 
 ## Next steps
 
-In this tutorial, you set up an Azure IoT Hub to route device data to the MedTech service. 
+In this tutorial, you set up an Azure IoT Hub to route device data to MedTech service. 
 
-To learn about the different stages of data flow within the MedTech service, see:
+To learn about the different stages of data flow within MedTech service, see
 
 >[!div class="nextstepaction"]
 >[MedTech service data flow](iot-data-flow.md)

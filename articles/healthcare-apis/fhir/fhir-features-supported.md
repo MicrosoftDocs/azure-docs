@@ -1,18 +1,18 @@
 ---
-title: Supported FHIR features in the FHIR service 
+title: Supported FHIR features in FHIR service 
 description: This article explains which features of the FHIR specification that are implemented in Azure Health Data Services
 services: healthcare-apis
 author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: cavoeg
 ---
 
 # Supported FHIR Features
 
-The FHIR&reg; service in Azure Health Data Services (hereby called the FHIR service) provides a fully managed deployment of the [open-source FHIR Server](https://github.com/microsoft/fhir-server) and is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR service.
+FHIR&reg; service in Azure Health Data Services (hereby called FHIR service) provides a fully managed deployment of the [open-source FHIR Server](https://github.com/microsoft/fhir-server) and is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR service.
 
 ## FHIR version
 
@@ -24,7 +24,7 @@ Previous versions also currently supported include: `3.0.2`
 
 Below is a summary of the supported RESTful capabilities. For more information on the implementation of these capabilities, see [FHIR REST API capabilities](fhir-rest-api-capabilities.md). 
 
-| API    | Azure API for FHIR | FHIR service in Healthcare APIs | Comment |
+| API    | Azure API for FHIR | FHIR service in Azure Health Data Services | Comment |
 |--------|--------------------|---------------------------------|---------|
 | read   | Yes                | Yes                             |         |
 | vread  | Yes                | Yes                             |         |
@@ -48,7 +48,7 @@ Below is a summary of the supported RESTful capabilities. For more information o
 
 All the operations that are supported that extend the REST API.
 
-| Search parameter type | Azure API for FHIR | FHIR service in Healthcare APIs| Comment |
+| Search parameter type | Azure API for FHIR | FHIR service in Azure Health Data Services| Comment |
 |------------------------|-----------|-----------|---------|
 | [$export](../../healthcare-apis/data-transformation/export-data.md) (whole system) | Yes       | Yes       | Supports system, group, and patient. |
 | [$convert-data](../../healthcare-apis/data-transformation/convert-data.md)          | Yes       | Yes       |         |
@@ -59,7 +59,7 @@ All the operations that are supported that extend the REST API.
 
 ## Role-based access control
 
-The FHIR service uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. 
+FHIR service uses [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) for access control. 
 
 ## Service limits
 
@@ -69,7 +69,7 @@ The FHIR service uses [Azure Active Directory](https://azure.microsoft.com/servi
 
 ## Next steps
 
-In this article, you've read about the supported FHIR features in the FHIR service. For information about deploying the FHIR service, see
+In this article, you've read about the supported FHIR features in the FHIR service. For information about deploying FHIR service, see
  
 >[!div class="nextstepaction"]
 >[Deploy FHIR service](fhir-portal-quickstart.md)

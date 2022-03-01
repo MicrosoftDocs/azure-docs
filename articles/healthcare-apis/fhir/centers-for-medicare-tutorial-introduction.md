@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 02/02/2022
+ms.date: 03/01/2022
 ---
 
 # Introduction: Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule
 
-In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the FHIR service in Azure Health Data Services (hereby called the FHIR service) to support these implementation guides.
+In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure FHIR service in Azure Health Data Services (hereby called FHIR service) to support these implementation guides.
 
 
 ## Rule overview
@@ -63,7 +63,7 @@ To test adherence to the various implementation guides, [Touchstone](https://tou
 
 ## Next steps
 
-Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the FHIR service for the CARIN IG for Blue Button. 
+Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we'll walk through setting up FHIR service for the CARIN IG for Blue Button. 
 
 >[!div class="nextstepaction"]
 >[CARIN Implementation Guide for Blue Button](carin-implementation-guide-blue-button-tutorial.md)  

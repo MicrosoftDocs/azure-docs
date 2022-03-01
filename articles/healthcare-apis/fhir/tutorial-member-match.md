@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ---
 
 # $member-match operation in FHIR service
@@ -23,7 +23,7 @@ The $member-match operation was created to help with the payer-to-payer data exc
 * The old coverage information
 * The new coverage information (not required based on our implementation)
 
-After the data is passed in, the FHIR service in Azure Health Data Services (hereby called the FHIR service) validates that it can find a patient that exactly matches the demographics passed in with the old coverage information passed in. If a result is found, the response will be a bundle with the original patient data plus a new identifier added in from the old payer, and the old coverage information.
+After the data is passed in, the FHIR service in Azure Health Data Services (hereby called FHIR service) validates that it can find a patient that exactly matches the demographics passed in with the old coverage information passed in. If a result is found, the response will be a bundle with the original patient data plus a new identifier added in from the old payer, and the old coverage information.
 
 > [!NOTE]
 > The specification describes passing in and back the new coverage information. We've decided to omit that data to keep the results smaller.

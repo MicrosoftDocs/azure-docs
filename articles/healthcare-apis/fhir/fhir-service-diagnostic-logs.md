@@ -1,11 +1,11 @@
 ---
-title: View and enable diagnostic settings in the FHIR service - Azure Health Data Services
-description: This article describes how to enable diagnostic settings in the FHIR service and review some sample queries for audit logs.
+title: View and enable diagnostic settings in FHIR service - Azure Health Data Services
+description: This article describes how to enable diagnostic settings in FHIR service and review some sample queries for audit logs.
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: zxue
 ---
 
@@ -73,23 +73,23 @@ At this time, the FHIR service returns the following fields in a diagnostic log:
 		
 ## Sample queries
 
-You can use these basic Application Insights queries to explore your log data:
+You can use these basic Log Analytics queries to explore your log data:
 
 - Run the following query to view the *100 most recent* logs:
 
-  `Insights
+  `
   MicrosoftHealthcareApisAuditLogs
   | limit 100`
 
 - Run the following query to group operations by *FHIR resource type*:
 
-  `Insights
+  `
   MicrosoftHealthcareApisAuditLogs 
   | summarize count() by FhirResourceType`
 
 - Run the following query to get all the *failed results*:
 
-  `Insights
+  `
   MicrosoftHealthcareApisAuditLogs 
   | where ResultType == "Failed"`	
 
@@ -102,9 +102,9 @@ Having access to diagnostic logs is essential for monitoring a service and provi
 
 ## Next steps
 
-For an overview of the FHIR service, see
+For an overview of FHIR service, see
 
 >[!div class="nextstepaction"]
->[What is the FHIR service?](overview.md)	
+>[What is FHIR service?](overview.md)	
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

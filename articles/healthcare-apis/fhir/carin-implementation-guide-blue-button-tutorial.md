@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ---
 
 # CARIN Implementation Guide for Blue Button&#174;
@@ -17,7 +17,7 @@ In this tutorial, we'll walk through setting up the FHIR service in Azure Health
 
 ## Touchstone capability statement
 
-The first test that we'll focus on is testing the FHIR service against the [C4BB IG capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test against the FHIR service without any updates, the test will fail due to missing search parameters and missing profiles. 
+The first test that we'll focus on is testing FHIR service against the [C4BB IG capability statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test against the FHIR service without any updates, the test will fail due to missing search parameters and missing profiles. 
 
 ### Define search parameters
 

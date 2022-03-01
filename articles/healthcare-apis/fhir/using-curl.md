@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: ginle
 ---
 
@@ -37,7 +37,7 @@ Before accessing the Healthcare APIs, you must grant the user or client app with
 There are several different ways to obtain an Azure access token for the Healthcare APIs. 
 
 > [!NOTE]
-> Make sure that you have logged into Azure and that you are in the Azure subscription and tenant where you have deployed the Healthcare APIs instance.
+> Make sure that you have logged into Azure and that you are in the Azure subscription and tenant where you have deployed the Azure Health Data Services instance.
 
 # [PowerShell](#tab/PowerShell)
 

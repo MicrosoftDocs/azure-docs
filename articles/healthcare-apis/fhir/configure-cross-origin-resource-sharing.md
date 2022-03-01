@@ -3,14 +3,14 @@ title: Configure cross-origin resource sharing in FHIR service
 description: This article describes how to configure cross-origin resource sharing in FHIR service
 author: matjazl
 ms.author: zxue
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.topic: reference
 ms.service: healthcare-apis
 ms.subservice: fhir
 ---
 # Configure cross-origin resource sharing in FHIR service
 
-The FHIR service in Azure Health Data Services (hereby called the FHIR service) supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
+FHIR service in Azure Health Data Services (hereby called FHIR service) supports [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing). CORS allows you to configure settings so that applications from one domain (origin) can access resources from a different domain, known as a cross-domain request.
 
 CORS is often used in a single-page app that must call a RESTful API to a different domain.
 
@@ -29,4 +29,11 @@ To configure a CORS setting in the FHIR service, specify the following settings:
 ![Cross-origin resource sharing (CORS) settings](media/cors/cors.png)
 
 >[!NOTE]
->You can't specify different settings for different domain origins. All settings (**Headers**, **Methods**, **Max age**, and **Allow credentials**) apply to all origins specified in the Origins setting.
+> You can't specify different settings for different domain origins. All settings (**Headers**, **Methods**, **Max age**, and **Allow credentials**) apply to all origins specified in the Origins setting.
+
+## Next steps
+
+In this tutorial, we walked through how to configure a CORS setting in the FHIR service. Next, you can review how to pass the CARIN IG for Blue Button tests in Touchstone.
+
+>[!div class="nextstepaction"]
+>[CARIN Implementation Guide for Blue Button&#174;](carin-implementation-guide-blue-button-tutorial.md)

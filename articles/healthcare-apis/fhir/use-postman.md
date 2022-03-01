@@ -5,17 +5,17 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ms.author: zxue
 ---
 
 # Access using Postman
 
-In this article, we'll walk through the steps of accessing the Azure Health Data Services (hear by called the FHIR service) with [Postman](https://www.getpostman.com/).
+In this article, we'll walk through the steps of accessing the Azure Health Data Services (hear by called FHIR service) with [Postman](https://www.getpostman.com/).
 
 ## Prerequisites
 
-* The FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir-portal-quickstart.md).
+* FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir-portal-quickstart.md).
 * A registered client application to access the FHIR service. For information about how to register a client application, see [Register a service client application in Azure Active Directory](./../register-application.md). 
 * Permissions granted to the client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. 
 * Postman installed locally. For more information about Postman, see [Get Started with Postman](https://www.getpostman.com/).
@@ -157,7 +157,7 @@ Select **Send**. You should notice a `202 Accepted` response. Select the **Heade
 
 ## Next steps
 
-In this article, you learned how to access the FHIR service in Azure Health Data Services with Postman. For information about the FHIR service in Azure Health Data Services, see
+In this article, you learned how to access the FHIR service in Azure Health Data Services with Postman. For information about FHIR service in Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[What is FHIR service?](overview.md)

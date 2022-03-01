@@ -1,6 +1,6 @@
 ---
 title: Da Vinci Drug Formulary Tutorial
-description: This tutorial walks through setting up the FHIR service to pass the Touchstone tests against the DaVinci Drug Formulary implementation guide.
+description: This tutorial walks through setting up FHIR service to pass the Touchstone tests against the DaVinci Drug Formulary implementation guide.
 services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 02/15/2022
+ms.date: 03/01/2022
 ---
 
 # Tutorial for Da Vinci Drug Formulary
 
-In this tutorial, we'll walk through setting up the FHIR service in Azure Health Data Services (hereby called the FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange US Drug Formulary Implementation Guide](http://hl7.org/fhir/us/Davinci-drug-formulary/).
+In this tutorial, we'll walk through setting up the FHIR service in Azure Health Data Services (hereby called FHIR service) to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange US Drug Formulary Implementation Guide](http://hl7.org/fhir/us/Davinci-drug-formulary/).
 
 ## Touchstone capability statement
 
-The first test that we'll focus on is testing the FHIR service against the [Da Vinci Drug Formulary capability
+The first test that we'll focus on is testing FHIR service against the [Da Vinci Drug Formulary capability
 statement](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/Formulary/00-Capability&activeOnly=false&contentEntry=TEST_SCRIPTS). If you run this test without any updates, the test will fail due to
 missing search parameters and missing profiles.
 
@@ -30,7 +30,7 @@ capability statement.
 * [DrugPlan](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugPlan.json.html)
 * [DrugName](http://hl7.org/fhir/us/davinci-drug-formulary/STU1.0.1/SearchParameter-DrugName.json.html)
 
-The rest of the search parameters needed for the Da Vinci Drug Formulary IG are defined by the base specification and are already available in the FHIR service without any more updates.
+The rest of the search parameters needed for the Da Vinci Drug Formulary IG are defined by the base specification and are already available in FHIR service without any more updates.
 
 ### Store profiles
 
