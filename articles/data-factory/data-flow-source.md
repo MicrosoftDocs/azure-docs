@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/10/2022
+ms.date: 02/25/2022
 ---
 
 # Source transformation in mapping data flow
@@ -65,6 +65,7 @@ Mapping data flow follows an extract, load, and transform (ELT) approach and wor
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 | [SQL Server](connector-sql-server.md) | | ✓/✓ |
 | [REST](connector-rest.md#mapping-data-flow-properties) | | ✓/✓ |
+| [TeamDesk (Preview)](connector-teamdesk.md#mapping-data-flow-properties) | | -/✓ |
 
 Settings specific to these connectors are located on the **Source options** tab. Information and data flow script examples on these settings are located in the connector documentation.
 
