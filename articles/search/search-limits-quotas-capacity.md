@@ -121,6 +121,14 @@ Maximum number of synonym maps varies by tier. Each rule can have up to 20 expan
 | Maximum synonym maps |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Maximum number of rules per map |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
 
+## Alias limits
+
+Maximum number of aliases varies by tier. In all tiers, the maximum number of aliases is the same as the maximum number of indexes.
+
+| Resource | Free | Basic | S1 | S2 | S3 | S3-HD |L1 | L2 |
+| -------- | -----|------ |----|----|----|-------|---|----|
+| Maximum aliases |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
+
 ## Data limits (AI enrichment)
 
 An [AI enrichment pipeline](cognitive-search-concept-intro.md) that makes calls to Azure Cognitive Services for Language resource for [entity recognition](cognitive-search-skill-entity-recognition-v3.md), [entity linking](cognitive-search-skill-entity-linking-v3.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment-v3.md), [language detection](cognitive-search-skill-language-detection.md), and [personal-information detection](cognitive-search-skill-pii-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
