@@ -10,7 +10,7 @@ ms.date: 02/28/2022
 ms.author: ranku
 ---
 
-# Converting your data to FHIR
+# Converting your data to FHIR for Azure API for FHIR
 
 The `$convert-data` custom endpoint in the FHIR service is meant for data conversion from different data types to FHIR. It uses the Liquid template engine and the templates from the [FHIR Converter](https://github.com/microsoft/FHIR-Converter) project as the default templates. You can customize these conversion templates as needed. Currently it supports three types of data conversion: **C-CDA to FHIR**, **HL7v2 to FHIR**, **JSON to FHIR**.
 
