@@ -14,9 +14,9 @@ recommendations: false
 
 # Form Recognizer W-2 model | Preview
 
-The Form W-2, Wage and Tax Statement, is a [US Internal Revenue Service (IRS) tax form](https://www.irs.gov/forms-pubs/about-form-w-2) completed by employers to report employees' salary, wages, compensation, and taxes withheld. Employers send a W-2 form to each employee on or before January 31 each year and employees use the form to prepare their tax returns. W-2 is a key document used in employee’s federal and state taxes filing, as well as other processes like mortgage loan and Social Security Administration (SSA).
+The Form W-2, Wage and Tax Statement, is a [US Internal Revenue Service (IRS) tax form](https://www.irs.gov/forms-pubs/about-form-w-2) completed by employers to report employees' salary, wages, compensation, and taxes withheld. Employers send a W-2 form to each employee on or before January 31 each year and employees use the form to prepare their tax returns. W-2 is a key document used in employee's federal and state taxes filing, as well as other processes like mortgage loan and Social Security Administration (SSA).
 
-The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported in each box (e.g. employee, employer, wage information, etc.) on a W-2 form. The model supports standard and customized forms from 2018 to the present, including both single form and multiple forms ([copy A, B, C, D, 1, 2](https://en.wikipedia.org/wiki/Form_W-2#Filing_requirements)) on one page.
+A W-2 is a multipart form divided into state and federal sections and consists of more than 14 boxes, both numbered and lettered, that detail the employee's income from the previous year. The Form Recognizer W-2 model, combines Optical Character Recognition (OCR) with deep learning models to analyze and extract information reported in each box on a W-2 form. The model supports standard and customized forms from 2018 to the present, including both single form and multiple forms ([copy A, B, C, D, 1, 2](https://en.wikipedia.org/wiki/Form_W-2#Filing_requirements) on one page.
 
 ***Sample W-2 form processed using Form Recognizer Studio***
 

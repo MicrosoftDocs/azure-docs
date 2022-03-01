@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/08/2022
+ms.date: 02/22/2022
 ms.author: eur
 ---
 
@@ -64,7 +64,7 @@ ms.author: eur
 
 - **iOS/Mac**: Support for Mac catalyst related to [GitHub issue 1171](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171). 
 
-- **Linux**: New tar package added for CentOS7 [About the Speech SDK](../../speech-sdk.md).
+- **Linux**: New tar package added for CentOS7 [About the Speech SDK](../../speech-sdk.md). The Linux .tar package now contains specific libraries for RHEL/CentOS 7 in `lib/centos7-x64`. Speech SDK libraries in lib/x64 are still applicable for all the other supported Linux x64 distributions (including RHEL/CentOS 8) and won't work on RHEL/CentOS 7.
 
 - **JavaScript**: VoiceProfile & SpeakerRecognizer APIs made async/awaitable. 
 

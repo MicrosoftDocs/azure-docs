@@ -62,11 +62,8 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 
 To operate properly, each self-hosted gateway needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
 
-* The public IP address of the API Management instance in its primary location
-* The hostname of the instance's management endpoint: `<apim-service-name>.management.azure-api.net`
-* The hostname of the instance's associated blob storage account: `<blob-storage-account-name>.blob.core.windows.net`
-* The hostname of the instance's associated table storage account: `<table-storage-account-name>.table.core.windows.net`
-* Public IP addresses from the Storage [service tag](../virtual-network/service-tags-overview.md) corresponding to the primary location of the API Management instance
+- [Gateway v2 requirements](#gateway-v2-requirements)
+- [Gateway v1 requirements](#gateway-v1-requirements)
 
 > [!IMPORTANT]
 > * DNS hostnames must be resolvable to IP addresses and the corresponding IP addresses must be reachable.
@@ -78,6 +75,29 @@ If integrated with your API Management instance, also enable outbound connectivi
 * [Event Hubs](api-management-howto-log-event-hubs.md) 
 * [Application Insights](api-management-howto-app-insights.md)  
 * [External cache](api-management-howto-cache-external.md) 
+
+#### Gateway v2 requirements
+
+The self-hosted gateway v2 requires the following:
+
+* The public IP address of the API Management instance in its primary location
+* The hostname of the instance's configuration endpoint: `<apim-service-name>.configuration.azure-api.net`
+
+Additionally,customers that use API inspector or quotas in their policies have to ensure that the following additional dependencies are accessible: 
+
+* The hostname of the instance's associated blob storage account: `<blob-storage-account-name>.blob.core.windows.net`
+* The hostname of the instance's associated table storage account: `<table-storage-account-name>.table.core.windows.net`
+* Public IP addresses from the Storage [service tag](../virtual-network/service-tags-overview.md) corresponding to the primary location of the API Management instance
+
+#### Gateway v1 requirements
+
+The self-hosted gateway v1 requires the following:
+
+* The public IP address of the API Management instance in its primary location
+* The hostname of the instance's management endpoint: `<apim-service-name>.management.azure-api.net`
+* The hostname of the instance's associated blob storage account: `<blob-storage-account-name>.blob.core.windows.net`
+* The hostname of the instance's associated table storage account: `<table-storage-account-name>.table.core.windows.net`
+* Public IP addresses from the Storage [service tag](../virtual-network/service-tags-overview.md) corresponding to the primary location of the API Management instance
 
 ### Connectivity failures
 
@@ -99,7 +119,8 @@ When connectivity is restored, each self-hosted gateway affected by the outage w
 
 ## Next steps
 
--   Learn more about [API Management in a Hybrid and MultiCloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
+-   Learn more about [API Management in a Hybrid and Multi-Cloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
+-   Learn more about guidance for [running the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md)
 -   [Deploy self-hosted gateway to Docker](how-to-deploy-self-hosted-gateway-docker.md)
 -   [Deploy self-hosted gateway to Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md)
 -   [Deploy self-hosted gateway to Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md)

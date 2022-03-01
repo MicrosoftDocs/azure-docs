@@ -26,8 +26,8 @@ To learn more about Form Recognizer features and development options, visit our 
 
  The REST API supports the following models and capabilities:
 
-* 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.|
-* 🆕 W-2 Tax Forms—Analyze and extract fields from W-2 tax documents, using a pre-trained W-2 model.
+* 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* 🆕 W-2—Analyze and extract fields from W-2 tax documents, using a pre-trained W-2 model.
 * Layout—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 * Custom—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
 * Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
