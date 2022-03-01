@@ -48,7 +48,7 @@ To run a trace with extended events against a managed instance using Windows Aut
     
 1. Select **Connect**.
 
-Now that Object Explorer is connected, you can create and run an extended events trace. Follow the steps in [Quick Start: Extended events in SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server) to learn how to create, test, and display the results of an extended events session.
+Now that **Object Explorer** is connected, you can create and run an extended events trace. Follow the steps in [Quick Start: Extended events in SQL Server](/sql/relational-databases/extended-events/quick-start-extended-events-in-sql-server) to learn how to create, test, and display the results of an extended events session.
 
 ## Run a trace with Profiler 
 

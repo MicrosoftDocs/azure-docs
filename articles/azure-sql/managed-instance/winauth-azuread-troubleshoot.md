@@ -22,19 +22,20 @@ This article contains troubleshooting steps for use when implementing [Windows A
 
 Use the [klist](/windows-server/administration/windows-commands/klist) command to display a list of currently cached Kerberos tickets.
 
+The `klist get krbtgt` command should return a ticket from the on-premises Active Directory realm. 
+
 ```dos
 klist get krbtgt/kerberos.microsoftonline.com
 ```
 
-This command should return a ticket from the on-prem Active Directory realm.
+The `klist get MSSQLSvc` command should return a ticket from the `kerberos.microsoftonline.com` realm with a Service Principal Name (SPN) to `MSSQLSvc/<miname>.<dnszone>.database.windows.net:1433`.
 
 ```dos
 klist get MSSQLSvc/<miname>.<dnszone>.database.windows.net:1433
 ```
 
-This command should return a ticket from the `kerberos.microsoftonline.com` realm with a Service Principal Name (SPN) to `MSSQLSvc/<miname>.<dnszone>.database.windows.net:1433`.
 
-Here are some well known error codes:
+The following are some well-known error codes:
 
 - **0x6fb: SQL SPN not found** - Check that you’ve entered a valid SPN. If you've implemented the incoming trust-based authentication flow, revisit steps to [create and configure the Azure AD Kerberos Trusted Domain Object](winauth-azuread-setup-incoming-trust-based-flow.md#create-and-configure-the-azure-ad-kerberos-trusted-domain-object) to validate that you’ve performed all the configuration steps.
 - **0x51f** - This error is likely related to a conflict with the Fiddler tool. Turn on Fiddler to mitigate the issue.

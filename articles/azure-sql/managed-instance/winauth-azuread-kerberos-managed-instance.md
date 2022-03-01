@@ -48,7 +48,7 @@ To enable a system assigned service principal for a managed instance:
 1. Select **App registrations**.
 1. Select **All applications**.
     :::image type="content" source="media/winauth-azuread/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Azure Active Directory is open. App registrations is selected in the left pane. App applications is highlighted in the right pane."  lightbox="media/winauth-azuread/azure-portal-azuread-app-registrations.png":::
-1. Select the application with the display name matching your Managed Instance. The name will be in the format: `<managedinstancename> principal`.
+1. Select the application with the display name matching your managed instance. The name will be in the format: `<managedinstancename> principal`.
 1. Select **API permissions**.
 1. Select **Grant admin consent**.
 
@@ -57,7 +57,7 @@ To enable a system assigned service principal for a managed instance:
 
 ## Connect to the managed instance with Windows Authentication
 
-If you have already implemented either the incoming trust-based authentication flow](winauth-azuread-setup-incoming-trust-based-flow.md) or the [modern interactive authentication flow](winauth-azuread-setup-modern-interactive-flow.md), depending on the version of your client, you can now test connecting to your managed instance with Windows Authentication.
+If you have already implemented either the incoming [trust-based authentication flow](winauth-azuread-setup-incoming-trust-based-flow.md) or the [modern interactive authentication flow](winauth-azuread-setup-modern-interactive-flow.md), depending on the version of your client, you can now test connecting to your managed instance with Windows Authentication.
 
 To test the connection with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS), follow the steps in [Quickstart: Use SSMS to connect to and query Azure SQL Database or Azure SQL Managed Instance](../database/connect-query-ssms.md). Select **Windows Authentication** as your authentication type.
 
