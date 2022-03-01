@@ -85,7 +85,7 @@ For the full list of available voices, see [Language support](../../language-sup
 #### Pronunciation accuracy
 
 - Improved English word pronunciation for all `he-IL` voices. 
-- Improved word-level pronunciation accuracy in `cs-CZ` with pronunciation errors reduced by 30% and `da-DK` with pronunciation errors reduced by 50%.
+- Improved word-level pronunciation accuracy for `cs-CZ` and `da-DK`.
 - Improved Arabic diacritics and Hebrew Nikud handling.
 - Improved entity reading for `ja-JP` 
 
