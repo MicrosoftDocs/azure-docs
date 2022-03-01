@@ -61,7 +61,7 @@ What events are available.  Is there a list?  Does the user have to enable them?
 This document details gathering Azure Monitor metrics for container instances using both the Azure portal and Azure CLI.
 
 > [!IMPORTANT]
-> Azure Monitor metrics in Azure Container Apps are currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
+> Azure Monitor metrics in Azure Container Apps are currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 #### Available metrics
 
@@ -88,9 +88,10 @@ To access the metrics page:
 
 The Metric page allows you to select the metric, filter and split the information by revision and replica.  You can view metrics across multiple container apps to get a holistic view of the resource utilization over your entire application.  Visit [Getting started with Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
->[!NOTE] will need a new screenshot when container apps page is finalized.
+> [!NOTE] 
+> will need a new screenshot when container apps page is finalized.
 
->[!NOTE] 
+> [!NOTE] 
 > I think that we should link to a separate article,  
 > because there is a lot to our implementation in the metrics 
 > blade.  
