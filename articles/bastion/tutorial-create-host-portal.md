@@ -152,7 +152,7 @@ This is the public IP address of the Bastion host resource on which RDP/SSH will
 
 ## Connect to a VM
 
-[!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
+[!INCLUDE [Connect to a VM](../../includes/bastion-vm-connect.md)]
 
 ## Remove VM public IP address
 
