@@ -87,7 +87,7 @@ To start using the benefit for SUSE:
 
 1. Wait for 5 minutes for the extension to read the license type value and install the repositories. 
 
-1. You should now be connected to Azure SLES Update Infrastructure and the relevant repositories will be installed in your machine.  
+1. You should now be connected to the SUSE Public Cloud Update Infrastructure on Azure and the relevant repositories will be installed in your machine.
 
 1. In case the extension is not running by itself, you can run it on demand as well.
 
@@ -162,7 +162,7 @@ you can use the `az vm update` command to update existing license type on runnin
     ```
 1. Wait for 5 minutes for the extension to read the license type value and install the repositories. 
 
-1. You should now be connected to SUSE Public Cloud Update Infrastructure on Azure and the relevant repositories will be installed in your machine. You can verify this by performing the command below on your VM which list SUSE repositories on your VM:
+1. You should now be connected to the SUSE Public Cloud Update Infrastructure on Azure and the relevant repositories will be installed in your machine. You can verify this by performing the command below on your VM which list SUSE repositories on your VM:
     ```bash
     zypper repos
     ```
