@@ -358,9 +358,9 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 | | |
 
 > [!NOTE]
-> The Azure Information Protection (AIP) data connector uses AIP audit logs, which has announced deprecation as of **March 18, 2022**. Full retirement for AIP analytics and audit logs is scheduled for **September 30, 2022**. 
+> The Azure Information Protection (AIP) data connector uses AIP audit logs. We are sunsetting AIP analytics and audit logs as of **March 18, 2022**, with full retirement scheduled for **September 30, 2022**. 
 >
-> For more information, see [Removed and deprecated services](/azure/information-protection/removed-deprecated-services.md#azure-information-protection-analytics).
+> For more information, see [Removed and retired services](/azure/information-protection/removed-sunset-services.md#azure-information-protection-analytics).
 >
 
 ## Azure Key Vault
