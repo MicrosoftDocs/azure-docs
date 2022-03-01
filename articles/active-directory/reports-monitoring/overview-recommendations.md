@@ -154,10 +154,19 @@ To manage your Azure AD recommendations:
 
 
 
-
 ### Update the status of a resource 
 
 To update the status of a resource, you have to right click a resource to bring up the edit menu. 
+
+
+## What you should know
+
+- The Azure AD recommendations feature supports all editions of Azure AD. In other words, there is no specific subscription or license required to use this feature. 
+
+- On the recommendations page, you might not see all supported recommendations. This is because Azure AD only displays the recommendations that apply to your tenant.
+
+
+- Some recommendations have a list of impacted resources associated. This list of resources gives you more context on how the recommendation applies to you and/or which resources you need to address.
 
 
 
