@@ -83,7 +83,7 @@ az spring-cloud app custom-domain bind \
 
 ## Create network resources
 
-The application gateway to be created will join the same virtual network as--or peered virtual network to--the Azure Spring Cloud service instance. First create a new subnet for the application gateway in the virtual network using `az network vnet subnet create`, and also create a Public IP address as the Frontend of the application gateway using `az network public-ip create`.
+The application gateway to be created will join the same virtual network as the Azure Spring Cloud service instance. First, create a new subnet for the application gateway in the virtual network, then create a public IP address as the frontend of the application gateway, as shown in the following example.
 
 ```azurecli
 APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
@@ -102,7 +102,7 @@ az network public-ip create \
 
 #### Create a managed identity for the application gateway
 
-Your application gateway will need to be able to access Key Vault to read the certificate. To do so, it will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). Create the managed identity by using the following command, replacing the *\<...>* placeholder:
+Your application gateway will need to be able to access Key Vault to read the certificate. To do this, the application gateway will use a user-assigned managed identity. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md). Create the managed identity by using the following command, replacing the *\<...>* placeholder:
 
 ```azurecli
 APPGW_IDENTITY_NAME='<name-for-appgw-managed-identity>'
