@@ -44,9 +44,9 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > 
 > #### Step 2: Download the sample project
 > 
-> <a href='https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip'><button id="downloadsample" class="downloadsample_ios"> Download the code sample for iOS</button>
+> <a href='https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip'><button id="downloadsample" class="downloadsample_ios">Download the code sample for iOS</button></a>
 > 
-> <a href='https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip'><button id="downloadsample" class="downloadsample_ios"> Download the code sample for macOS</button>
+> <a href='https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip'><button id="downloadsample" class="downloadsample_ios">Download the code sample for macOS</button></a>
 > 
 > #### Step 3: Install dependencies
 > 

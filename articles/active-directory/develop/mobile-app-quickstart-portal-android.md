@@ -41,7 +41,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > ### Step 2: Download the project
 > 
 > Run the project using Android Studio.
-> <a href='https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip'><button id="downloadsample" class="download-sample-button"> Download the code sample</button>
+> <a href='https://github.com/Azure-Samples/ms-identity-android-java/archive/master.zip'><button id="downloadsample" class="download-sample-button">Download the code sample</button></a>
 > 
 > 
 > ### Step 3: Your app is configured and ready to run
