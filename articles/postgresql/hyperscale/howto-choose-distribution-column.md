@@ -60,9 +60,9 @@ distributed tables.
    FROM events WHERE device_id=1`.
 
    For an analytical workload (where most queries take 1-2 seconds), pick a
-   column that enables queries to be parallelized across worker nodes. Typically,
-   these columns are in `GROUP BY` clauses, or in `WHERE` clauses that don't
-   filter by strict equality.
+   column that enables queries to be parallelized across worker nodes. For
+   instance, a column frequently occurring in GROUP BY clauses, or queried over
+   multiple values at once.
 
 4. **Pick a column that is present in the majority of large tables.**
 
