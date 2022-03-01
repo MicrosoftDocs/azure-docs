@@ -27,23 +27,21 @@ From the Azure portal, follow these steps:
 
 1. Browse to your App Configuration store, and select **Import/export** from the **Operations** menu.
 
-2. On the **Import** tab, select **Configuration file** under **Source service**. Other options are **App Configuration** and **File services**.
+1. On the **Import** tab, select **Configuration file** under **Source service**. Other options are **App Configuration** and **File services**.
 
-3. Select **For language** : .NET or Java (Spring) or other, and select your desired input type—JSON, YAML or .properties.
+1. Select **For language** : .NET or Java (Spring) or other, and select your desired input type—JSON, YAML or .properties.
 
-4. Select the **Folder** icon, and browse to the file to import.
+1. Select the **Folder** icon, and browse to the file to import.
 
     :::image type="content" source="./media/import-file.png" alt-text="Screenshot of the Azure portal, importing a file.":::
 
-5. Select a **Separator**, and optionally enter a **Prefix** to use for imported key names.
+1. Select a **Separator**, and optionally enter a **Prefix** to use for imported key names.
 
    * A separator is a character used to separate values in a file to distribute them in a table. Select a period (.), a comma (,), a colon (:), a semicolon (;), a forward slash (/) or a dash (-).
    * A key prefix is the beginning part of a key.
 
-6. Optionally, select a **Label**. Labels can be assigned to keys to define different values for the same key. Leave blank to import all keys without a label, or enter a label. [Learn more about labels](howto-labels-aspnet-core.md).
-    > [!IMPORTANT]
-    > If the keys you want to import have labels, do select the corresponding labels. If you don't select a label, only keys without labels will be imported. You may need create several imports to get all the desired data, according to the labels you need.
-7. Select **Apply** to finish the import.
+1. Optionally, select a **Label** to assign to your imported key-value pairs.
+1. Select **Apply** to proceed with the import.
 
     :::image type="content" source="./media/import-file-complete.png" alt-text="Screenshot of the Azure portal, file import completed":::
 
@@ -104,7 +102,7 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
 Use the Azure CLI as explained below to export configurations from App Configuration to another place. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](/azure/cloud-shell/overview). Specify the destination of the data: `appconfig`, `appservice` or `file`. Specify a label for the data you want to export with `--label` or export data with no label by not entering a label.
 
 > [!IMPORTANT]
-> Always specify the labels of the data you want to export. If you don't select one or more labels, only keys without labels will be exported.
+> If the keys you want to export have labels, do select the corresponding labels. If you don't select a label, only keys without labels will be exported.
 
 Export all keys and feature flags with label test to a json file.
 
