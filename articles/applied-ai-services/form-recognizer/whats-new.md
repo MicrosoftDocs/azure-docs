@@ -54,7 +54,7 @@ The beta.3/beta.4 version of the Azure Form Recognizer SDKs has been released. T
 >[!NOTE]
 > The beta.3 (C#, JavaScript, Python) and beta.4 (Java) previews contain the same updates and fixes but the versioning is no longer in sync across all programming languages.
 
-This new release includes the following:
+This new release includes the following updates:
 
 * 🆕 [Custom Document models and modes](concept-custom.md):
   * [Custom template](concept-custom-template.md) (formerly custom form)
@@ -247,7 +247,7 @@ Form Recognizer features are now supported by six feature containers—**Layout*
 
 ### Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python
 
-The patch addresses invoices that do not have subline item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
+The patch addresses invoices that don't have subline item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
 
 ### [**C#**](#tab/csharp)
 
@@ -289,7 +289,7 @@ Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and
 
 ### Layout adds table headers
 
-The updated Layout API table feature adds header recognition with column headers that can span multiple rows. Each table cell has an attribute that indicates whether it's part of a header or not. This can be used to identify which rows make up the table header.
+The updated Layout API table feature adds header recognition with column headers that can span multiple rows. Each table cell has an attribute that indicates whether it's part of a header or not. This update can be used to identify which rows make up the table header.
 
 #### SDK updates
 
@@ -502,7 +502,7 @@ npm package version 3.1.0-beta.3
 
 * Added support for a **[ReadingOrder](/javascript/api/@azure/ai-form-recognizer/formreadingorder?view=azure-node-latest&preserve-view=true to the URL)** type to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered. You can specify which reading order algorithm—`basic` or `natural`—should be applied to order the extraction of text elements. If not specified, the default value is `basic`.
 
-* Split **[FormField](/javascript/api/@azure/ai-form-recognizer/formfield?view=azure-node-preview&preserve-view=true)** type into several different interfaces. This update should not cause any API compatibility issues except in certain edge cases (undefined valueType).
+* Split **[FormField](/javascript/api/@azure/ai-form-recognizer/formfield?view=azure-node-preview&preserve-view=true)** type into several different interfaces. This update shouldn't cause any API compatibility issues except in certain edge cases (undefined valueType).
 
 * Migrated to the **2.1-preview.3** Form Recognizer service endpoint for all REST API calls.
 
@@ -576,7 +576,7 @@ pip package version 3.1.0b4
 
     :::image type="content" source="./media/table-labeling.png" alt-text="Table labeling" lightbox="./media/table-labeling.png":::
 
-    In addition to labeling tables, you can now label empty values and regions; if some documents in your training set do not have values for certain fields, you can label them so that your model will know to extract values properly  from analyzed documents.
+    In addition to labeling tables, you can now label empty values and regions; if some documents in your training set don't have values for certain fields, you can label them so that your model will know to extract values properly  from analyzed documents.
 
 * **Support for 66 new languages** - The Layout API and Custom Models for Form Recognizer now support 73 languages.
 
@@ -626,7 +626,7 @@ pip package version 3.1.0b4
 * **REST API reference is available** - View the [v2.1-preview.1 reference](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 * **New languages supported In addition to English**, the following [languages](language-support.md) are now supported: for `Layout` and `Train Custom Model`: English (`en`), Chinese (Simplified) (`zh-Hans`), Dutch (`nl`), French (`fr`), German (`de`), Italian (`it`), Portuguese (`pt`) and Spanish (`es`).
 * **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key-value pairs for selection marks.
-* **Model Compose** - allows multiple models to be composed and called with a single model ID. When a you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.
+* **Model Compose** - allows multiple models to be composed and called with a single model ID. When you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.
 * **Model name** - add a friendly name to your custom models for easier management and tracking.
 * **[New pre-built model for Business Cards](./concept-business-card.md)** for extracting common fields in English, language business cards.
 * **[New locales for pre-built Receipts](./concept-receipt.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
