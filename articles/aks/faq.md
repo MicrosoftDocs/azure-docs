@@ -289,6 +289,10 @@ FIPS-enabled nodes are currently are now Generally Available on Linux-based node
 
 AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. AKS will only modify the NSGs at the NIC level. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more details, see [Network security groups](concepts-network.md#network-security-groups).
 
+## How are AKS addons updated?
+
+Any patch, including security patches are automatically applied to the AKS cluster. For anything bigger than a patch, like major or minor version changes (which can have breaking changes to your deployed objects) are updated when you update your cluster if a new release is available. You can find when a new release is available by visiting the [AKS release notes](https://github.com/Azure/AKS/releases). 
+
 <!-- LINKS - internal -->
 
 [aks-upgrade]: ./upgrade-cluster.md
