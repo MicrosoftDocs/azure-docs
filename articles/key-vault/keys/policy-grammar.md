@@ -1,7 +1,6 @@
 ---
-title: Secure key release policy grammar - Keys
-description: Secure key release policy grammar - Keys
-keywords: 
+title: Azure Key Vault secure key release policy grammar
+description: Azure Key Vault secure key release policy grammar
 services: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
@@ -12,6 +11,6 @@ ms.topic: reference
 ms.date: 02/15/2022
 ---
  
-# Secure key release policy grammar
+# Azure Key Vault secure key release policy grammar
 
 [!INCLUDE [Policy grammar](../../../includes/key-management-policy-grammar.md)]

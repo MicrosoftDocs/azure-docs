@@ -1,6 +1,6 @@
 ---
-title: Secure key release policy grammar - Managed HSM
-description: Secure key release policy grammar - Managed HSM
+title: Managed HSM Secure key release policy grammar
+description: Managed HSM Secure key release policy grammar
 keywords: 
 services: key-vault
 author: msmbaldwin
@@ -12,6 +12,6 @@ ms.topic: reference
 ms.date: 02/15/2022
 ---
  
-# Secure key release policy grammar
+# Managed HSM secure key release policy grammar
 
 [!INCLUDE [Policy grammar](../../../includes/key-management-policy-grammar.md)]
