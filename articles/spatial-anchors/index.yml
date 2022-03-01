@@ -79,5 +79,5 @@ landingContent:
         links:
           - text: ASA + MRTK Learning Module
             url: https://docs.microsoft.com/learn/modules/azure-spatial-anchors-tutorials/
-          - text: OpenXR Sample
+          - text: ASA OpenXR Sample
             url: https://github.com/microsoft/OpenXR-Unity-MixedReality-Samples
