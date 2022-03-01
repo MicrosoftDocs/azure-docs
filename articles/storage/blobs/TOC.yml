@@ -565,8 +565,6 @@ items:
             href: storage-blob-containers-list.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata.md
-          - name: Create and manage leases
-            href: storage-blob-container-lease.md
           - name: Upload blobs
             href: storage-blob-upload.md
           - name: Append to blobs
@@ -583,6 +581,8 @@ items:
             href: storage-blob-tags.md
           - name: Manage blob properties and metadata
             href: storage-blob-properties-metadata.md
+          - name: Create and manage leases
+            href: storage-blob-container-lease.md
         - name: iOS
           href: storage-ios-how-to-use-blob-storage.md
       - name: Test with a storage emulator
