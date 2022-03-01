@@ -204,7 +204,7 @@ You may want to share your invoice every month with your accounting team or send
 
 Azure Government users use the same agreement types as other Azure users.
 
-Azure Government billing owners can opt in to receive invoices by email. However, they can't allow others to get invoices by email.
+Azure Government customers can’t request their invoice by email. They can only download it.
 
 To download your invoice, follow the steps above at [Download your MOSP Azure subscription invoice](#download-your-mosp-azure-subscription-invoice).
 

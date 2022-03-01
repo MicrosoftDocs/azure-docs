@@ -66,7 +66,7 @@ To view a video on how to enable CloudKnox in your Azure AD tenant, select
 
         1. Copy the script on the **Welcome** screen:
 
-            `az ad ap create --id b46c3ac5-9da6-418f-a849-0a7a10b3c6c`
+            `az ad sp create --id b46c3ac5-9da6-418f-a849-0a07a10b3c6c`
 
         1. If you have an Azure subscription, return to the Azure AD portal and select **Cloud Shell** on the navigation bar.
             If you don't have an Azure subscription, open a command prompt on a Windows Server.

@@ -9,7 +9,7 @@ ms.author: magottei
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Table Storage
@@ -129,9 +129,11 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
 
    Using the same names and compatible [data types](/rest/api/searchservice/supported-data-types) minimizes the need for [field mappings](search-indexer-field-mappings.md).
 
-## Configure the table indexer
+## Configure and run the table indexer
 
-1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to use the predefined data source and search index.
+Once the index and data source have been created, you're ready to create the indexer. Indexer configuration specifies the inputs, parameters, and properties controlling run time behaviors.
+
+1. [Create or update an indexer](/rest/api/searchservice/create-indexer) by giving it a name and referencing the data source and target index:
 
     ```http
     POST https://[service name].search.windows.net/indexers?api-version=2020-06-30
@@ -145,13 +147,17 @@ In a [search index](search-what-is-an-index.md), add fields to accept the conten
             "maxFailedItemsPerBatch": null,
             "base64EncodeKeys": null,
             "configuration:" { }
-          },
+        },
         "schedule" : { },
         "fieldMappings" : [ ]
     }
     ```
 
+1. [Specify field mappings](search-indexer-field-mappings.md) if there are differences in field name or type, or if you need multiple versions of a source field in the search index.
+
 1. See [Create an indexer](search-howto-create-indexers.md) for more information about other properties.
+
+An indexer runs automatically when it's created. You can prevent this by setting "disabled" to true. To control indexer execution, [run an indexer on demand](search-howto-run-reset-indexers.md) or [put it on a schedule](search-howto-schedule-indexers.md).
 
 ## Check indexer status
 
@@ -203,5 +209,5 @@ Execution history contains up to 50 of the most recently completed executions, w
 
 You can now [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure Storage:
 
-+ [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
 + [Index large data sets](search-howto-large-index.md)
++ [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)
