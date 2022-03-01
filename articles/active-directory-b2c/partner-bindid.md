@@ -1,7 +1,7 @@
 ---
-title: Configure Azure Active Directory B2C with BindID
+title: Configure Azure Active Directory B2C with Transmit Security
 titleSuffix: Azure AD B2C
-description: Configure Azure Active Directory B2C with BindID for passwordless strong customer authentication
+description: Configure Azure Active Directory B2C with Transmit Security for passwordless strong customer authentication
 services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
@@ -14,12 +14,12 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Configure BindID with Azure Active Directory B2C for passwordless authentication
+# Configure Transmit Security with Azure Active Directory B2C for passwordless authentication
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 
-In this sample tutorial, learn how to integrate Azure AD B2C authentication with [BindID](https://www.transmitsecurity.com/bindid). BindID is a passwordless authentication service that uses strong FIDO2 biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth login experience for all customers across every device and channel eliminating fraud, phishing, and credential reuse.
+In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C authentication with with [Transmit Security](https://www.transmitsecurity.com/bindid) passwordless authentication solution **BindID**. BindID is a passwordless authentication service that uses strong Fast Identity Online (FIDO2) biometric authentication for a reliable omni-channel authentication experience. The solution ensures a smooth login experience for all customers across every device and channel eliminating fraud, phishing, and credential reuse.
 
 ## Scenario description
 
@@ -30,17 +30,16 @@ The following architecture diagram shows the implementation.
 |Step | Description |
 |:-----| :-----------|
 | 1. | User arrives at a login page. Users select sign-in/sign-up and enter username into the page.
-| 2. | The application sends the user attributes to Azure AD B2C for identify verification.
-| 3. | Azure AD B2C collects the user attributes and sends the attributes to BindID to authenticate the user through OpenID Connect (OIDC) request.
-| 4. | BindID sends a push notification to the registered user mobile device for a Fast Identity Online (FIDO2) certified authentication. It can be a user finger print, biometric or decentralized pin.  
-| 5. | After user acknowledges the push notification through a decentralized authentication response, the OIDC response is passed on to Azure AD B2C.
+| 2. | Azure AD B2C redirects the user to BindID using an OpenID Connect (OIDC) request.
+| 3. | BindID authenticates the user using appless FIDO2 biometrics, such as fingerprint.
+| 4. | A decentralized authentication response is returned to BindID.  
+| 5. | The OIDC response is passed on to Azure AD B2C.
 | 6.| User is either granted or denied access to the customer application based on the verification results.
 
 ## Onboard with BindID
 
 To integrate BindID with your Azure AD B2C instance, you'll need to configure an application in the [BindID Admin
-Portal](https://admin.bindid-sandbox.io/console/). For more information, see [Getting started guide](https://developer.bindid.io/docs/guides/admin_portal/topics/getStarted/get_started_admin_portal). You can either create a new application or use one that you already created.
-
+Portal](https://admin.bindid-sandbox.io/console/). For more information, see [getting started guide](https://developer.bindid.io/docs/guides/admin_portal/topics/getStarted/get_started_admin_portal). You can either create a new application or use one that you already created.
 
 ## Prerequisites
 
@@ -56,7 +55,7 @@ To get started, you'll need:
 
 ::: zone pivot="b2c-custom-policy"
 
-- Complete the steps in the [**Get started with custom policies in Azure Active Directory B2C**](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+- Complete the steps in the article [Get started with custom policies in Azure Active Directory B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 
@@ -72,19 +71,25 @@ From [Applications](https://admin.bindid-sandbox.io/console/#/applications) to c
 | Redirect URLs |Specify the page to which users are redirected after BindID authentication: https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp<br>For Example: `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`<br>If you use a custom domain, enter https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp.<br>Replace your-domain-name with your custom domain, and your-tenant-name with the name of your tenant.|
 
 >[!NOTE]
->You'll need Client ID and Client secret later to configure the Identity provider in Azure AD B2C.
+>BindID will provide you Client ID and Client Secret, which you'll need later to configure the Identity provider in Azure AD B2C.
 
 ::: zone pivot="b2c-user-flow"
 
 ### Part 2 - Add a new Identity provider in Azure AD B2C
 
 1. Sign-in to the [Azure portal](https://portal.azure.com/#home) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. Choose **All services** in the top-left corner of the Azure portal, then search for and select **Azure AD B2C**.
-1. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
-1. Select **New OpenID Connect Provider**.
-1. Select **Add**.
+
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+
+3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+
+4. Choose **All services** in the top-left corner of the Azure portal, then search for and select **Azure AD B2C**.
+
+5. Navigate to **Dashboard** > **Azure Active Directory B2C** > **Identity providers**.
+
+6. Select **New OpenID Connect Provider**.
+
+7. Select **Add**.
 
 ### Part 3 - Configure an Identity provider
 
@@ -92,18 +97,18 @@ From [Applications](https://admin.bindid-sandbox.io/console/#/applications) to c
 
 2. Fill out the form to set up the Identity provider:
 
-|Property  |Value  |
-|:---------|:---------|
-|Name     |Enter BindID – Passwordless or a name of your choice|
-|Metadata URL| `https://signin.bindid-sandbox.io/.well-known/openid-configuration` |
-|Client ID|The application ID from the BindID admin UI captured in **Part 1**|
-|Client Secret|The application Secret from the BindID admin UI captured in **Part 1**|
-|Scope|OpenID email|
-|Response type|Code|
-|Response mode|form_post|
-|**Identity provider claims mapping**|
-|User ID|sub|
-|Email|email|
+  |Property  |Value  |
+  |:---------|:---------|
+  |Name     |Enter BindID – Passwordless or a name of your choice|
+  |Metadata URL| `https://signin.bindid-sandbox.io/.well-known/openid-configuration` |
+  |Client ID|The application ID from the BindID admin UI captured in **Part 1**|
+  |Client Secret|The application Secret from the BindID admin UI captured in **Part 1**|
+  |Scope|OpenID email|
+  |Response type|Code|
+  |Response mode|form_post|
+  |**Identity provider claims mapping**|
+  |User ID|sub|
+  |Email|email|
 
 3. Select **Save** to complete the setup for your new OIDC Identity provider.  
 
@@ -113,28 +118,29 @@ You should now see BindID as a new OIDC Identity provider listed within your B2C
 
 1. In your Azure AD B2C tenant, under **Policies**, select **User flows**.  
 
-1. Select **New user flow**
+2. Select **New user flow**
 
-1. Select **Sign up and sign in** > **Version** **Reccomended** > **Create**.
+3. Select **Sign up and sign in** > **Version** **Reccomended** > **Create**.
 
-1. Enter a **Name** for your policy.
+4. Enter a **Name** for your policy.
 
-1. In the Identity providers section, select your newly created BindID Identity provider.  
+5. In the Identity providers section, select your newly created BindID Identity provider.  
 
-1. Select **None** for Local Accounts to disable email and password-based authentication.
+6. Select **None** for Local Accounts to disable email and password-based authentication.
 
-1. Select **Create**
+7. Select **Create**
 
-1. Select the newly created User Flow
+8. Select the newly created User Flow
 
-1. Select **Run user flow**
+9. Select **Run user flow**
 
-1. In the form, select the JWT Application and enter the Replying URL, such as `https://jwt.ms`.
+10. In the form, select the JWT Application and enter the Replying URL, such as `https://jwt.ms`.
 
-1. Select **Run user flow**
-1. The browser will be redirected to the BindID login page. Enter the account name registered during User registration. The user will receive a push notification to the registered user mobile device for a Fast Identity Online (FIDO2) certified authentication. It can be a user finger print, biometric or decentralized pin.
+11. Select **Run user flow**. 
 
-1. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.
+12. The browser will be redirected to the BindID login page. Enter the account name registered during User registration. The user will receive a push notification to the registered user mobile device for a Fast Identity Online (FIDO2) certified authentication. It can be a user finger print, biometric or decentralized pin.
+
+13. Once the authentication challenge is accepted, the browser will redirect the user to the replying URL.
 
 ::: zone-end
 
@@ -295,11 +301,16 @@ The relying party policy, for example [SignUpSignIn.xml](https://github.com/Azur
 ### Part 7 - Upload the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com/#home).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
-1. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
-1. Under Policies, select **Identity Experience Framework**.
-Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
+
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+
+3. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+
+4. In the [Azure portal](https://portal.azure.com/#home), search for and select **Azure AD B2C**.
+
+5. Under Policies, select **Identity Experience Framework**.
+
+6. Select **Upload Custom Policy**, and then upload the two policy files that you changed, in the following order: the extension policy, for example `TrustFrameworkExtensions.xml`, then the relying party policy, such as `SignUpSignIn.xml`.
 
 
 ### Part 8 - Test your custom policy
