@@ -59,7 +59,7 @@ The following table provides a summary of known issues in this release.
 |**1.**|Preview features |For this release, the following features are available in preview: <ul><li>Clustering and Multi-Access Edge Computing (MEC) for Azure Stack Edge Pro GPU devices only. </li><li>VPN for Azure Stack Edge Pro R and Azure Stack Edge Mini R only.</li><li>Local Azure Resource Manager, VMs, Cloud management of VMs, Kubernetes cloud management, and Multi-process service (MPS) for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R.</li></ul>  |These features will be generally available in later releases. |
 |**2.**|Update |For a two-node cluster, in rare instances the update may fail. | If the update fails and you see a message indicating that updates are available, retry updating your device. If the update fails and no updates are available, and your device continues to be in maintenance mode, contact Microsoft Support to determine next steps.  |
 |**3.**|Wi-Fi |Wi-Fi does not work on Azure Stack Edge Pro 2 in this release. | This functionality will be available in a future release.   |
-|**4.**|VPN |VPN feature shows up in the local web UI but this feature is not supported for this device. |  |
+|**4.**|VPN |VPN feature shows up in the local web UI but this feature is not supported for this device. | This issue will be addressed in a future release. |
 
 ## Known issues from previous releases
 
