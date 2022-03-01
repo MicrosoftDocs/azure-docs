@@ -485,6 +485,8 @@ items:
       href: connector-postgresql.md
     - name: Presto
       href: connector-presto.md
+    - name: Quickbase
+      href: connector-quickbase.md
     - name: QuickBooks Online
       href: connector-quickbooks.md
     - name: REST
