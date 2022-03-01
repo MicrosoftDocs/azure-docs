@@ -29,7 +29,7 @@ Follow the steps in [Create a Media Services account](./account-create-how-to.md
 
 ## Methods
 
-## [Portal](#tab/cli/)
+## [Portal](#tab/portal/)
 
 Creating assets in the portal is as simple as uploading a file.
 

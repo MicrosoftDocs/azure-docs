@@ -28,13 +28,13 @@ This article shows you how to do the basic steps for delivering a basic video on
 
 [!INCLUDE [task-create-asset-portal](includes/task-create-asset-portal.md)]
 
-## Create a transform
+<!-- ## Create a transform -->
 
 [!INCLUDE [task-create-asset-portal](includes/task-create-transform-portal.md)]
 
 Stay on this screen for the next steps.
 
-## Create a job
+<!-- ## Create a job -->
 
 Next, you'll create a job which is for telling Media Services which transform to run on files within an asset.  The asset you choose will be the input asset.  The job will create an output asset to contain the encoded files as well as the manifest.
 
@@ -42,15 +42,11 @@ Next, you'll create a job which is for telling Media Services which transform to
 
 Once you've viewed what is in the output asset, close the tab. Go back to the asset browser tab.
 
-## Create a streaming locator
-
 In order to stream your videos you need a streaming locator.
 
-1. Select **New streaming locator**. The Add streaming locator screen will appear and a default name for the locator will appear. You can change it or leave it as is.
-1. Select *Predefined_ClearStreamingOnly* from the Streaming policy dropdown list. This is a streaming policy that says that the video will be streamed using DASH, HLS and Smooth with no content protection restrictions except that the video can’t be downloaded by the viewer. No content key policy is required.
-1. Leave the rest of the settings as they are.
-1. Select **Add**. The video will start playing in the player on the screen, and the **Streaming URL** field will be populated.
-1. Select **Show URLs** in the Streaming locator list. The Streaming URLs screen will appear.
+<!-- ## Create a streaming locator -->
+
+[!INCLUDE [task-create-asset-portal](includes/task-streaming-locator-portal.md)]
 
 On this screen, you'll see that the streaming endpoint that was created when you created your account is in the Streaming endpoint dropdown list along with other data about the streaming locator.
 
