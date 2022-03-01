@@ -198,7 +198,7 @@ For Azure Application Managed Apps plans, the `resourceUri` is the Managed App `
 {
   "request": [ // list of usage events for the same or different resources of the publisher
     { // first event
-      "resourceUri": "<guid1>", // Unique identifier of the resource against which usage is emitted. 
+      "resourceUri": "<fullyqualifiedname>", // Unique identifier of the resource against which usage is emitted. 
       "quantity": 5.0, // how many units were consumed for the date and hour specified in effectiveStartTime, must be greater than 0 or a double integer
       "dimension": "dim1", //Custom dimension identifier
       "effectiveStartTime": "2018-12-01T08:30:14",//Time in UTC when the usage event occurred, from now and until 24 hours back
