@@ -4,7 +4,7 @@ description: Observability in Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 02/11/2022
 ms.author: v-bcatherine
 ---
@@ -34,10 +34,10 @@ There are many methods to observe your application. Some features automatically 
 
 The details for each container app and individual container are available via the Azure portal and the Azure CLI.  
 
->[!NOTE] Add screen shot for portal
-> Add cli command and output
+> [!NOTE] 
+> Add screen shot for portal. Add cli command and output
 
-## Streaming Logs
+## Streaming Log
 
 <!-- Screen shot of azure cli -->
 <!-- Question:  can we get the same information from the CLI?  Are there APIs that could be used to programmatically gather this information? -->
@@ -46,7 +46,8 @@ The details for each container app and individual container are available via th
 
 You can access your container apps console via bash or sh providing you have them installed in your image.  Console access allows you to work in your container app environment to test and debug your application.  You can connect to the console of each running container revision and replica via the Azure portal.
 
-> [!NOTE] insert image of the port page here
+> [!NOTE]
+> insert image of the port page here
 > Add instructions for connecting to and logging into the console.
 
 ### Events
@@ -78,14 +79,21 @@ To access the metrics page:
 
 1. Navigate to your container app in the Azure portal.
 1. Select **Metrics** in the left side menu.
+ 
+![Container Apps metrics main page.](/media/observability/metric-main-page.png)
 
-:::image type="content" source="/media/observability/metrics-main-page.png" alt-text="Container Apps metrics main page.":::
+<!--
+:::image type="content" source="/media/observability/metric-main-page.png" alt-text="Container Apps metrics main page.":::
+-->
 
 The Metric page allows you to select the metric, filter and split the information by revision and replica.  You can view metrics across multiple container apps to get a holistic view of the resource utilization over your entire application.  Visit [Getting started with Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) to learn more.
 
 >[!NOTE] will need a new screenshot when container apps page is finalized.
 
->[!NOTE] I think that we should link to a separate article,  because there is a lot to our implementation in the metrics blade.  
+>[!NOTE] 
+> I think that we should link to a separate article,  
+> because there is a lot to our implementation in the metrics 
+> blade.  
 
 ### Alerts
 
