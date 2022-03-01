@@ -9,7 +9,7 @@ manager: nitinme
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/11/2022
+ms.date: 02/28/2022
 ---
 
 # Index data from Azure Blob Storage
@@ -300,18 +300,6 @@ Add the following metadata properties and values to blobs in Blob Storage. When 
 | "AzureSearch_Skip" |`"true"` |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
 | "AzureSearch_SkipContent" |`"true"` |This is equivalent to the `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
-## How to index large datasets
-
-Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to [process the data in parallel](search-howto-large-index.md#parallel-indexing). 
-
-1. Partition your data into multiple blob containers or virtual folders.
-
-1. Set up several data sources, one per container or folder. Use the "query" parameter to specify the partition: `"container" : { "name" : "my-container", "query" : "my-folder" }`.
-
-1. Create one indexer for each data source. Point them to the same target index.  
-
-Make sure you have sufficient capacity. One search unit in your service can run one indexer at any given time. Creating multiple indexers is only useful if they can run in parallel.
-
 <a name="DealingWithErrors"></a>
 
 ## Handle errors
@@ -350,3 +338,4 @@ You can now control how you [run the indexer](search-howto-run-reset-indexers.md
 
 + [Change detection and deletion detection](search-howto-index-changed-deleted-blobs.md)
 + [Index large data sets](search-howto-large-index.md)
++ [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md)
