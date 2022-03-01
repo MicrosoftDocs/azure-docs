@@ -113,7 +113,9 @@ You can use many different SFTP clients to securely connect and then transfer fi
 | ecdsa-sha2-nistp384| diffie-hellman-group16-sha512 | aes256-cbc |  | 
 ||| aes192-cbc ||
 
-SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize Microsoft Security Development Lifecycle (SDL) approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations)
+SFTP support for Azure Blob Storage currently limits its cryptographic algorithm support based on security considerations. We strongly recommend that customers utilize Microsoft Security Development Lifecycle (SDL) approved algorithms to securely access their data. More details can be found [here](/security/sdl/cryptographic-recommendations).
+
+SFTP clients commonly found to not support algorithms listed above include Apache SFTP server, Axway, Moveit, Five9, Workday, Mule, Kemp, Salesforce, XFB. 
 
 ## Known issues and limitations
 
