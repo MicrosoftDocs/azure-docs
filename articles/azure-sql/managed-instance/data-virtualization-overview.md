@@ -97,7 +97,7 @@ WITH (
 ```
 
 ## Query data sources using OPENROWSET
-[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql) syntax enables instant and ad-hoc querying with minimal required database objects created. DATA_SOURCE parameter value is automatically prepended to the BULK parameter to form full path to the file. Format of the file also needs ot be provided:
+[OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql) syntax enables instant and ad-hoc querying with minimal required database objects created. DATA_SOURCE parameter value is automatically prepended to the BULK parameter to form full path to the file. Format of the file also needs to be provided:
 
 ```sql
 SELECT TOP 10 *
