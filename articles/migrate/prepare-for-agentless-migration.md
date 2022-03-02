@@ -23,8 +23,8 @@ Azure Migrate automatically handles these configuration changes for the operatin
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Ubuntu 18.04LTS, 16.04LTS
-- Debian 9, 8, 7
-- Oracle Linux 6, 7.7, 7.7-CI
+- Debian 10, 9, 8, 7
+- Oracle Linux 6, 7.7, 7.7-CI, 8
 
 You can also use this article to manually prepare the VMs for migration to Azure for operating systems versions not listed above. At a high level, these changes include:
 
