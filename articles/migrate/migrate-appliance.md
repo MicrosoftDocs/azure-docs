@@ -61,7 +61,7 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 **Project limits** |  An appliance can only be registered with a single project.<br/> A single project can have multiple registered appliances.
 **Discovery limits** | An appliance can discover up to 5000 servers running in Hyper-V environment.<br/> An appliance can connect to up to 300 Hyper-V hosts.
 **Supported deployment** | Deploy as server running on a Hyper-V host using a VHD template.<br/><br/> Deploy on an existing server running Windows Server 2016 using PowerShell installer script.
-**VHD template** | Zip file that includes a VHD. Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Download size is 8.91 GB.<br/><br/> The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days.<br/> If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance server.
+**VHD template** | Zip file that includes a VHD. Download from project or from [here](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Download size is 8.91 GB.<br/><br/> The downloaded appliance template comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance server.
 **VHD verification** | [Verify](tutorial-discover-hyper-v.md#verify-security) the VHD template downloaded from project by checking the hash values.
 **PowerShell script** | Refer to this [article](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v) on how to deploy an appliance using the PowerShell installer script.<br/>
 **Hardware and network requirements**  |  The appliance should run on server with Windows Server 2016, 16-GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/> The appliance needs a static or dynamic IP address, and requires internet access, either directly or through a proxy.<br/><br/> If you run the appliance as a server running on a Hyper-V host, you need enough resources on the host to create a server that meets the hardware requirements.<br/><br/> If you run the appliance on an existing server, make sure that it is running Windows Server 2016, and meets hardware requirements.<br/>_(Currently the deployment of appliance is only supported on Windows Server 2016.)_
@@ -139,7 +139,7 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.hypervrecoverymanager.windowsazure.com | **Used for VMware agentless migration**<br/><br/> Connect to Azure Migrate service URLs.
 *.blob.core.windows.net |  **Used for VMware agentless migration**<br/><br/>Upload data to storage for migration. <br/>This is optional and is not required if the storage accounts (both cache storage account and gateway storage account) have a private endpoint attached.
 
-### Azure China URLs
+### Azure China 21Vianet (Azure China) URLs
 
 **URL** | **Details**  
 --- | --- |
@@ -152,8 +152,8 @@ management.chinacloudapi.cn |  Used for resource deployments and management oper
 aka.ms/* | Allow access to these links; used to download and install the latest updates for appliance services.
 download.microsoft.com/download | Allow downloads from Microsoft download center.
 *.servicebus.chinacloudapi.cn  | Communication between the appliance and the Azure Migrate service.
-*.discoverysrv.cn2.windowsazure.cn <br/> *.cn2.prod.migration.windowsazure.cn | Connect to Azure Migrate service URLs.
-*.cn2.hypervrecoverymanager.windowsazure.cn | **Used for VMware agentless migration.**<br/><br/> Connect to Azure Migrate service URLs.
+*.discoverysrv.cn2.windowsazure.cn  *.cn2.prod.migration.windowsazure.cn | Connect to Azure Migrate service URLs.
+*.cn2.hypervrecoverymanager.windowsazure.cn | **Used for VMware agentless migration.**  Connect to Azure Migrate service URLs.
 *.blob.core.chinacloudapi.cn  |  **Used for VMware agentless migration.**<br/><br/>Upload data to storage for migration.
 *.applicationinsights.azure.cn | Upload appliance logs used for internal monitoring.
 
