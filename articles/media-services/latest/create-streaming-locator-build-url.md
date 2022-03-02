@@ -26,15 +26,7 @@ Preview [Dynamic packaging](encode-dynamic-packaging-concept.md)
 
 [!INCLUDE [task-create-asset-portal](includes/task-create-streaming-locator-portal.md)]
 
-## [CLI](#tab/cli/)
-
-Coming soon.
-
-## [REST](#tab/rest/)
-
-Coming soon.
-
-## [.NET](#tab/.NET/)
+## [.NET](#tab/net/)
 
 ## Using .NET
 

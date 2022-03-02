@@ -70,7 +70,7 @@ For more information, see:
     For information about how to monitor long-running operations, see [Long-running operations](media-services-apis-overview.md).
 * This [Postman collection](https://github.com/Azure-Samples/media-services-v3-rest-postman/blob/master/Postman/Media%20Services%20v3.postman_collection.json) contains examples of multiple REST operations, including on how to start a streaming endpoint.
 
-## [.NET](#tab/.NET/)
+## [.NET](#tab/net/)
 
 ## Use .NET
 
