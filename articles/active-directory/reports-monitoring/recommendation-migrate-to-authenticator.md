@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory recommendation - Migrate to Microsoft authenticator | Microsoft Docs
-description: Learn why you should integrate third party apps with Azure AD
+description: Learn why you should migrate your users to the Microsoft authenticator app in Azure AD.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
