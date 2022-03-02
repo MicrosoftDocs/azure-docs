@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/28/2022
+ms.date: 03/02/2022
 ms.author: jasteppe
 ---
 
@@ -32,7 +32,7 @@ For more information about the FHIR service delete types, see [FHIR Rest API cap
 
 ### What is the payload of an Events message? 
 
-For a detailed description of the Events message structure and both required and non-required elements, see  [Events troubleshooting guide](events-troubleshooting-guide.md). 
+For a detailed description of the Events message structure and both required and non-required elements, see [Events troubleshooting guide](events-troubleshooting-guide.md). 
 
 ### What is the throughput for the Events messages?
 

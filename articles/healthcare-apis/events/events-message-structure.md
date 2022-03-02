@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 03/02/2022
 ms.author: jasteppe
 ---
 
@@ -176,6 +176,6 @@ In this article, you'll learn about the Events message structure, required and n
 For more information about deploying Events, see:
 
 >[!div class="nextstepaction"]
->[Deploying Events in the Azure portal](./events-deploy-in-portal.md)
+>[Deploying Events in the Azure portal](./events-deploy-portal.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

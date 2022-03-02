@@ -40,7 +40,7 @@ Use this resource to learn about the Events message structure, required and non-
 ### How to
 
 Use this resource to learn how to deploy Events in the Azure portal: 
-* [How to deploy Event in the Azure portal](./events-deploy-in-portal.md)
+* [How to deploy Event in the Azure portal](./events-deploy-portal.md)
 
 >[!Important]
 >The Event Subscription requires access to whichever endpoint you chose to send Events messages to. For more information, see [Enable managed identity for a system topic](../../event-grid/enable-identity-system-topics.md).
@@ -49,7 +49,7 @@ Use this resource to learn how to display Events metrics:
 * [How to display metrics](./events-display-metrics.md)
 
 Use this resource to learn how to export Event Grid system topics diagnostic logs and metrics: 
-* [How to export Event Grid system topics diagnostic and metrics logs](./events-export-logs-and-metrics.md)
+* [How to export Event Grid system topics diagnostic and metrics logs](./events-export-logs-metrics.md)
 
 ## Contacting support
 

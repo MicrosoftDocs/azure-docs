@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/18/2022
+ms.date: 03/02/2022
 ms.author: jasteppe
 ---
 
@@ -62,12 +62,12 @@ Use [Azure Managed identities](../../active-directory/managed-identities-azure-r
 For more information about deploying Events, see
 
 >[!div class="nextstepaction"]
->[Deploying Events in the Azure portal](./events-deploy-in-portal.md)
+>[Deploying Events in the Azure portal](./events-deploy-portal.md)
 
 For frequently asks questions (FAQs) about Events, see
 
 >[!div class="nextstepaction"]
->[Events FAQs](./events-deploy-in-portal.md)
+>[Frequently asked questions about Events](./events-faqs.md)
 
 For Events troubleshooting resources, see
 

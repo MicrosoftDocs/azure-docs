@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/16/2022
+ms.date: 03/02/2022
 ms.author: jasteppe
 ---
 
@@ -40,6 +40,6 @@ In this article, you'll learn how to display Events metrics in the Azure portal.
 To learn how to export Events Azure Event Grid system diagnostic logs and metrics, see
 
 >[!div class="nextstepaction"]
->[Configure Events diagnostic logs and metrics exporting](./events-export-logs-and-metrics.md)
+>[Configure Events diagnostic logs and metrics exporting](./events-export-logs-metrics.md)
 
 (FHIR&#174;) is a registered trademark of HL7 and is used with the permission of HL7.
