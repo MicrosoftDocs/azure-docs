@@ -297,6 +297,8 @@ items:
       href: author-management-hub.md
     - name: Source control
       href: source-control.md
+    - name: Connect to Azure DevOps in another tenant
+      href: cross-tenant-connections-to-azure-devops.md
     - name: Continuous integration and delivery
       items:
       - name: Overview
@@ -483,6 +485,8 @@ items:
       href: connector-postgresql.md
     - name: Presto
       href: connector-presto.md
+    - name: Quickbase
+      href: connector-quickbase.md
     - name: QuickBooks Online
       href: connector-quickbooks.md
     - name: REST
@@ -520,6 +524,8 @@ items:
       displayName: timeout 
     - name: Shopify
       href: connector-shopify.md
+    - name: Smartsheet
+      href: connector-smartsheet.md
     - name: Snowflake
       href: connector-snowflake.md
     - name: Spark
@@ -541,6 +547,8 @@ items:
       href: connector-web-table.md
     - name: Xero
       href: connector-xero.md
+    - name: Zendesk
+      href: connector-zendesk.md
     - name: XML format
       href: format-xml.md
     - name: Zoho
@@ -629,6 +637,8 @@ items:
       href: tutorial-data-flow.md      
     - name: Stored Procedure activity
       href: transform-data-using-stored-procedure.md
+    - name: Script activity
+      href: transform-data-using-script.md
     - name: Compute linked services
       href: compute-linked-services.md
   - name: Control flow
@@ -833,6 +843,10 @@ items:
         - name: Diagnostic tool for self-hosted integration runtime
           href: self-hosted-integration-runtime-diagnostic-tool.md
           displayName: self hosted
+        - name: Monitoring self-hosted integration runtime in Azure
+          href: monitor-shir-in-azure.md
+        - name: Configuring self-hosted integration runtime for log analytics collection
+          href: how-to-configure-shir-for-log-analytics-collection.md
       displayName: self hosted, runtime
     - name: Azure-SSIS integration runtime
       items:
@@ -1045,6 +1059,8 @@ items:
         href: connector-troubleshoot-dynamics-dataverse.md
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
+      - name: Google AdWords
+        href: connector-troubleshoot-google-adwords.md          
       - name: Hive
         href: connector-troubleshoot-hive.md  
       - name: Oracle
@@ -1081,7 +1097,7 @@ items:
       href: ssis-integration-runtime-management-troubleshoot.md
       displayName: timeout
     - name: Package Execution in Azure-SSIS IR
-      href: ssis-integration-runtime-ssis-activity-faq.yml
+      href: ssis-integration-runtime-ssis-activity-faq.md
       displayName: retry, timeout
     - name: Diagnose connectivity in Azure-SSIS IR
       href: ssis-integration-runtime-diagnose-connectivity-faq.md

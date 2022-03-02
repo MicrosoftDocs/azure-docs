@@ -27,7 +27,7 @@ To get started, you'll need:
 
 - A HYPR cloud tenant, get a free [trial account](https://get.hypr.com/free-trial).
 
-- A user's mobile device registered using the HYPR Rest APIs or the HYPR Device Manager in your HYPR tenant. For example, you can use the [HYPR Java SDK](https://docs.hypr.com/integratinghypr/docs/hypr-java-web-sdk) to accomplish this task.
+- A user's mobile device registered using the HYPR REST APIs or the HYPR Device Manager in your HYPR tenant. For example, you can use the [HYPR Java SDK](https://docs.hypr.com/integratinghypr/docs/hypr-java-web-sdk) to accomplish this task.
 
 ## Scenario description
 
@@ -39,7 +39,7 @@ The HYRP integration includes the following components:
 
 - The HYPR mobile app - The HYPR mobile app can be used to execute this sample if prefer not to use the mobile SDKs in your own mobile applications.
 
-- HYPR Rest APIs - You can use the HYPR APIs to do both user device registration and authentication. These APIs can be found [here](https://apidocs.hypr.com).
+- HYPR REST APIs - You can use the HYPR APIs to do both user device registration and authentication. These APIs can be found [here](https://apidocs.hypr.com).
 
 The following architecture diagram shows the implementation.
 

@@ -5,11 +5,10 @@ metadata:
   services: application-gateway
   author: vhorne
   ms.service: application-gateway
-  ms.topic: article
+  ms.topic: faq
   ms.date: 02/07/2022
   ms.author: victorh
   ms.custom: references_regions
-    
 title: Frequently asked questions about Application Gateway
 summary: |
   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
