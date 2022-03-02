@@ -83,6 +83,7 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
       _redisConnection = await RedisConnection.InitializeAsync(connectionString: configuration["CacheConnection"].ToString());
 
 ```
+
 The value of the *CacheConnection* secret is accessed using the Secret Manager configuration provider and is used as the password parameter
 
 You must have this statement in your code to use the `RedisConnection` class. .
@@ -91,15 +92,15 @@ You must have this statement in your code to use the `RedisConnection` class. .
 using StackExchange.Redis;
 
 ```
+
 The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
-:::code language="csharp" source="~/samples-cache/quickstart/dotnet-core/RedisConnection.cs":::
-
+:::code language="csharp" source="samples-cache/quickstart/dotnet-core/RedisConnection.cs":::
 
 ## Executing cache commands
 
-In `Program.cs`, observe the following code for the `Main` procedure of the `Program` class for your console application:
-<!-- Replace this code with lines 57-81 from dotnet-core/Program.cs -->
+In `Program.cs`, see the following code for the `Main` procedure of the `Program` class for your console application:
+<!-- Replaced this code with lines 57-81 from dotnet-core/Program.cs -->
 ```csharp
       // Simple PING command
       Console.WriteLine($"{Environment.NewLine}{prefix}: Cache command: PING");
@@ -159,7 +160,7 @@ Azure Cache for Redis can cache both .NET objects and primitive data types, but 
 One simple way to serialize objects is to use the `JsonConvert` serialization methods in [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) and serialize to and from JSON. In this section, you'll add a .NET object to the cache.
 
 Add the following `Employee` class definition to *Program.cs*:
-<!-- Replace with lines 9-21 in Program.cs  -->
+<!-- Replaced with lines 9-21 in Program.cs  -->
 ```csharp
 class Employee
     {
@@ -229,7 +230,7 @@ After a few moments, the resource group and all of its contained resources are d
 ## Next steps
 
 In this quickstart, you learned how to use Azure Cache for Redis from a .NET Core application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
-s
+
 - [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
 
 Want to optimize and save on your cloud spending?

@@ -7,7 +7,7 @@ ms.service: cache
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc, mode-other
-ms.date: 02/24/2022
+ms.date: 02/28/2022
 
 ---
 # Quickstart: Use Azure Cache for Redis in .NET Framework
@@ -44,7 +44,6 @@ Replace `<host-name>` with your cache host name.
 
 Replace `<access-key>` with the primary key for your cache.
 
-
 ## Configure the cache client
 
 <!-- this section was removed from the core sample -->
@@ -75,7 +74,6 @@ In Visual Studio, open your *App.config* file and update it to include an `appSe
 
 Never store credentials in source code. To keep this sample simple, we use an external secrets config file. A better approach would be to use [Azure Key Vault with certificates](/rest/api/keyvault/certificate-scenarios).
 
-
 ## Connnect to the cache with RedisConnection
 
 The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `Program.cs`:
@@ -85,6 +83,7 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 
 ```
+
 The value of the *CacheConnection* appSetting is used to reference the cache connection string from the Azure portal as the password parameter.
 
 You must have this statement in your code to use the `ConnectionMultiplexer` as seen in `RedisConnection.cs` to use the `RedisConnection` class.  
@@ -95,7 +94,7 @@ using StackExchange.Redis;
 
 The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
-:::code language="csharp" source="~/samples-cache/quickstart/dotnet/Redistest/quickstart/RedisConnection.cs":::
+:::code language="csharp" source="samples-cache/quickstart/dotnet/Redistest/quickstart/RedisConnection.cs":::
 
 ## Executing cache commands
 
