@@ -78,23 +78,27 @@ Create a directory on your Linux system, and then mount the container in the sto
    mkdir -p /nfsdata
    ```
 
-2. Mount the container by one of the following methods:
-    - In both methods replace the `<storage-account-name>` placeholder with the name of your storage account and `<container-name>` with the name of your container.
+2. Mount the container by using one of the following methods. In both methods, replace the `<storage-account-name>` placeholder with the name of your storage account, and replace `<container-name>` with the name of your container.
 
-    - To have the share mounted automatically on reboot
-        - create an entry in the /etc/fstab file by adding the following line
+   - To have the share mounted automatically on reboot:
+
+     1. Create an entry in the /etc/fstab file by adding the following line:
+  
         ```
         <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata    nfs defaults,sec=sys,vers=3,nolock,proto=tcp,nofail    0 0
         ```
-        - Run the following command to immediately process the /etc/fstab entries and attempt mount the above path
+
+     1. Run the following command to immediately process the /etc/fstab entries and attempt to mount the preceding path:
+ 
         ```
         mount /nfsdata
         ```
         
-    - For a temporary mount which will not persist across reboots
-        ```
-        mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
-        ```
+   - For a temporary mount that doesn't persist across reboots, run the following command: 
+    
+     ```
+     mount -o sec=sys,vers=3,nolock,proto=tcp <storage-account-name>.blob.core.windows.net:/<storage-account-name>/<container-name>  /nfsdata
+     ```
 
 ## Resolve common errors
 
