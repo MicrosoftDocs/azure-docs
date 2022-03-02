@@ -25,7 +25,7 @@ A typical workflow for using index aliases would be to:
 
 1. Create your search index
 1. Create an alias that maps to your search index
-1. Have your application issue querying/indexing requests to the alias rather than the index name
+1. Have your application send querying/indexing requests to the alias rather than the index name
 1. When you need to make a change to your index that requires a rebuild, create a new search index 
 1. When your new index is ready to go, update the alias to map to the new index and requests will automatically be routed to the new index
 
@@ -58,7 +58,7 @@ To create an alias in Visual Studio Code:
 ---
 
 
-## Issue requests
+## Send requests
 
 Once you've created your alias, you're ready to start using it. Aliases can be used for all [document operations](rest/api/searchservice/document-operations) including querying, indexing, suggestions, and autocomplete. 
 
