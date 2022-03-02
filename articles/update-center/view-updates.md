@@ -1,26 +1,27 @@
 ---
-title: View update compliance in Azure Update management center (private preview)
-description: The article details how to use Azure Update management center (private preview) in the Azure portal to assess update compliance for supported machines.
+title: View update compliance in Update management center (preview)
+description: The article details how to use Azure Update management center (preview) in the Azure portal to assess update compliance for supported machines.
 ms.service: update-management-center
 ms.date: 09/02/2021
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
+ms.custom: references_regions
 ---
 
-# How to view update compliance with update management center (private preview)
+# How to view update compliance with update management center (preview)
 
-In update management center (private preview), you can view information about your machines, any missing updates, status of update deployments, and schedule update deployments. You can view the assessment information scoped to the selected Azure virtual machine, from the selected Arc-enabled server, or across [multiple machines](manage-multiple-machines.md). 
+In update management center (preview), you can view information about your machines, any missing updates, status of update deployments, and schedule update deployments. You can view the assessment information scoped to the selected Azure virtual machine, from the selected Arc-enabled server, or across [multiple machines](manage-multiple-machines.md). 
 
 This article reviews how to view compliance from a selected Azure VM or Arc-enabled server.
 
 ## Prerequisites
 
-Before using update management center (private preview) in Azure with your Azure virtual machine (VM) or Azure Arc-enabled servers, verify you've enabled the preview in your Azure subscription. You can find instructions to enable machines from both environments in the [Enable](enable-machines.md) article.
+Before using update management center (preview) in Azure with your Azure virtual machine (VM) or Azure Arc-enabled servers, verify you've enabled the preview in your Azure subscription. You can find instructions to enable machines from both environments in the [Enable](enable-machines.md) article.
 
-## Supported Regions
+## Supported regions
 
-In private preview, update management center (private preview) is available for use in limited regions. But will scale to all regions later in public preview stages. Listed below are the Azure public cloud where you can use update management center (private preview).
+In preview, update management center (preview) is available for use in limited regions. But will scale to all regions later in public preview stages. Listed below are the Azure public cloud where you can use update management center (preview).
 
 **On demand assessment** on **Azure Compute virtual machines** is available in all Azure public regions where Compute virtual machines are available.
 
@@ -42,15 +43,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View update compliance
 
-The option to use update management center (private preview) is available from the left-hand option list of your Azure virtual machine or Arc-enabled server. 
+The option to use update management center (preview) is available from the left-hand option list of your Azure virtual machine or Arc-enabled server. 
 
-To view update compliance from an Azure VM, navigate to **Virtual Machines** and select your virtual machine from the list. You can get to update management center (private preview) from an Arc-enabled server by navigating to **Servers - Azure Arc** and select your Arc-enabled server from the list.
+To view update compliance from an Azure VM, navigate to **Virtual Machines** and select your virtual machine from the list. You can get to update management center (preview) from an Arc-enabled server by navigating to **Servers - Azure Arc** and select your Arc-enabled server from the list.
 
 From the left menu, select **Guest + host updates**, and then select **Go to Update Center** on the **Guest + host updates** page. 
 
 ![Example showing selection of Guest + host updates option from an Azure VM](./media/view-updates/guest-host-updates-option-from-vm.png)
 
-In update management center (private preview), you can view information about your machine, missing updates, and update deployments. At the top of the page it shows you the current OS update compliance based on the last assessment. An assessment if not performed recently, is reported based on the last time it was performed, which could be up to seven days ago. If any updates are identified as missing, the tiles at the top summarize:
+In update management center (preview), you can view information about your machine, missing updates, and update deployments. At the top of the page it shows you the current OS update compliance based on the last assessment. An assessment if not performed recently, is reported based on the last time it was performed, which could be up to seven days ago. If any updates are identified as missing, the tiles at the top summarize:
 
 * The total number of updates missing
 * How many are **Critical security updates**
@@ -67,7 +68,7 @@ A list is shown in the update compliance grid and includes relevant information 
 
 ### Update assessment scan
 
-In update management center (private preview), you can initiate a software updates compliance scan on the machine to get a current list of operating system updates available. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
+In update management center (preview), you can initiate a software updates compliance scan on the machine to get a current list of operating system updates available. On Windows, the software update scan is performed by the Windows Update Agent. On Linux, the software update scan is performed using OVAL-compatible tools to test for the presence of vulnerabilities based on the OVAL Definitions for that platform, which is retrieved from a local or remote repository. 
 
 
 Select the **Assess updates** option from the top menu bar to start the process and get the latest assessment data from the machine. You're prompted to confirm.
@@ -84,5 +85,5 @@ The status of the operation can be viewed at any time from the [Azure Activity l
 ## Next steps
 
 * Learn about deploying updates to your machines to maintain security compliance by reading [deploy updates](deploy-updates.md).
-* To view update assessment and deployment logs generated by update management center (private preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Azure Update management center (private preview).
+* To view update assessment and deployment logs generated by update management center (preview), see [query logs](query-logs.md).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) Azure Update management center (preview).

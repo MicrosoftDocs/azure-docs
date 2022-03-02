@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot known issues with update management center (private preview)
-description: This article provides details on the known issues and troubleshooting any problems with update management center (private preview) in Azure.
+title: Troubleshoot known issues with Update management center (preview)
+description: The article provides details on the known issues and troubleshooting any problems with update management center (preview) in Azure.
 ms.service: update-management-center
 ms.date: 08/17/2021
 ms.topic: conceptual
@@ -8,9 +8,9 @@ ms.author: magoedte
 author: mgoedtel
 ---
 
-# Troubleshoot issues with update management center (private preview)
+# Troubleshoot issues with update management center (preview)
 
-You might receive error messages when you deploy or use update management center (private preview) in Azure. This article describes the errors that might occur and how to resolve them.
+You might receive error messages when you deploy or use update management center (preview) in Azure. This article describes the errors that might occur and how to resolve them.
 
 ## General troubleshooting
 
@@ -64,8 +64,8 @@ During an update deployment, it checks for maintenance window utilization at mul
 
 More details can be found by reviewing the logs in the file path provided in the error message of the deployment run.
 
-> **NOTE**
->> For [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), it can take up to five minutes to trigger a deployment job on the machine. If you have configured 30 minutes as the maximum duration, there is a high chance that the scan for missing updates will not occur. At least 25 minutes is required in the maintenance window to start the operation. 
+>[!NOTE]
+> For [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), it can take up to five minutes to trigger a deployment job on the machine. If you have configured 30 minutes as the maximum duration, there is a high chance that the scan for missing updates will not occur. At least 25 minutes is required in the maintenance window to start the operation. 
 
 #### Resolution
 
@@ -73,5 +73,5 @@ Setting a longer time range for maximum duration when triggering an [on-demand u
 
 ## Next steps
 
-* To learn more about Azure Update management center (private preview), see the [Overview](overview.md).
-* To view logged results from all your machines, see [Querying logs and results from update management center (private preview)](query-logs.md).
+* To learn more about Azure Update management center (preview), see the [Overview](overview.md).
+* To view logged results from all your machines, see [Querying logs and results from update management center (preview)](query-logs.md).

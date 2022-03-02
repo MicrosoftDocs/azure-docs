@@ -1,21 +1,22 @@
 ---
-title: Scheduling recurring updates in update management center (private preview)
-description: The article details how to use update management center (private preview) in Azure to set update schedules that install recurring updates on your machines.
+title: Scheduling recurring updates in Update management center (preview)
+description: The article details how to use update management center (preview) in Azure to set update schedules that install recurring updates on your machines.
 ms.service: update-management-center
 ms.date: 10/28/2021
 ms.topic: conceptual
 author: riva-yadav
 ms.author: riyadav
+ms.custom: references_regions
 ---
 
-# How to schedule recurring updates for machines (private preview)
+# How to schedule recurring updates for machines (preview)
 
-You can use update management center (private preview) in Azure to save recurring deployment schedules to install operating system updates for your Windows Server and Linux machines in Azure in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. You can create a schedule on a daily, weekly or hourly cadence (as per your requirement), specify the machines that will be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per what is specified in the schedule that you created.
-Update management center (private preview) uses Maintenance control schedule instead of using creating its own schedules. Maintenance control enables customers to manage platform updates. For more info, refer to [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
+You can use Update management center (preview) in Azure to save recurring deployment schedules to install operating system updates for your Windows Server and Linux machines in Azure in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. You can create a schedule on a daily, weekly or hourly cadence (as per your requirement), specify the machines that will be updated as part of the schedule, and the updates to be installed. This schedule will then automatically install the updates as per what is specified in the schedule that you created.
+Update management center (preview) uses Maintenance control schedule instead of using creating its own schedules. Maintenance control enables customers to manage platform updates. For more info, refer to [Maintenance control documentation](/azure/virtual-machines/maintenance-control).
 
 ## Regions supported for scheduled patching
 
-Update management center (private preview) **scheduled patching** feature is currently supported in the below regions and it implies that your VM must be in one of the following regions:
+Update management center (preview) **scheduled patching** feature is currently supported in the below regions and it implies that your VM must be in one of the following regions:
 * South Central US
 * West Central US
 * North Europe
@@ -26,13 +27,13 @@ Update management center (private preview) **scheduled patching** feature is cur
 ## Prerequisites for scheduled patching
 
 In addition to the [Prerequisites for Update management center (Private Preview)](./overview.md#prerequisites), scheduled patching as a feature has the below extra prerequisites:
-1. Patch orchestration of the Azure machines should be set to **Azure Orchestrated (Automatic By Platform)**. For Arc machines, it isn't a requirement.
+- Patch orchestration of the Azure machines should be set to **Azure Orchestrated (Automatic By Platform)**. For Arc machines, it isn't a requirement.
 
 > [!Note]
 > If you set the Patch Orchestration mode to Azure Orchestrated (Automatic By Platform) but don't attach a maintenance configuration to an Azure machine, it will be treated as [Automatic Guest patching](/azure/virtual-machines/automatic-vm-guest-patching) enabled machine and Azure platform will automatically install updates as per its own schedule.
 
-2. The maintenance configuration's subscription and the subscriptions of all VMs assigned to the maintenance configuration must be allowlisted with feature flag **Microsoft.Compute/InGuestScheduledPatchVMPreview**
-3. For Azure machine, customer must keep it **running for at least 40 minutes** after enabling **Azure Orchestrated (Automatic By Platform)** patch orchestration mode. For Arc-enabled servers, machine must have been in running state at least for last 40 minutes.
+- The maintenance configuration's subscription and the subscriptions of all VMs assigned to the maintenance configuration must be allowlisted with feature flag **Microsoft.Compute/InGuestScheduledPatchVMPreview**
+- For Azure machine, customer must keep it **running for at least 40 minutes** after enabling **Azure Orchestrated (Automatic By Platform)** patch orchestration mode. For Arc-enabled servers, machine must have been in running state at least for last 40 minutes.
 
 ## Schedule recurring updates from single VM
 
@@ -43,9 +44,9 @@ In addition to the [Prerequisites for Update management center (Private Preview)
  
 To create a schedule from a single VM, use the following steps:
 
-The option to use update management center (private preview) is available from the left-hand option list of your Azure virtual machine or Arc-enabled server. 
+The option to use update management center (preview) is available from the left-hand option list of your Azure virtual machine or Arc-enabled server. 
 
-1. Navigate to **Virtual Machines** and select your virtual machine from the list. You can get to update management center (private preview) from an Arc-enabled server by navigating to **Servers - Azure Arc** and select your Arc-enabled server from the list.
+1. Navigate to **Virtual Machines** and select your virtual machine from the list. You can get to update management center (preview) from an Arc-enabled server by navigating to **Servers - Azure Arc** and select your Arc-enabled server from the list.
 
 1. From the left menu, select **Guest + host updates**, and then select **Go to Updates using Update Center** on the **Guest + host updates** page.
 
@@ -53,7 +54,7 @@ The option to use update management center (private preview) is available from t
 
 You can create a flow for creating a recurring schedule. 
 
-![Create maintenance configuration](./media/scheduled-updates/scheduling-tab.png)
+  ![Create maintenance configuration](./media/scheduled-updates/scheduling-tab.png)
 
 1. On the **Basics** page, select **Subscription**, **Resource Group**. Provide name, region and scope. 
 
@@ -66,7 +67,7 @@ You can create a flow for creating a recurring schedule.
 	2. Repeat on nth (first, second, etc.) x day (for example, Monday, Tuesday)  of the month. I can also specify an offset from the day set. It could be +6/-6. For example, for customers who want to patch on the first Saturday after a patch on Tuesday, they would set the recurrence as the second Tuesday of the month with a +4 day offset.
 Optionally you can also specify an end date when you want the schedule to expire.
 
-![Scheduled patching basics page](./media/scheduled-updates/scheduled-patching-basics-page.png)
+     ![Scheduled patching basics page](./media/scheduled-updates/scheduled-patching-basics-page.png)
 
 1. On the **Machines** page, verify the machines selected are listed. You can add or remove machines from the list. Select **Next** to continue.
 
@@ -76,7 +77,7 @@ Optionally you can also specify an end date when you want the schedule to expire
    * Include updates by specific KB IDs or package names. For Windows, you can refer to [MSRC link](https://msrc.microsoft.com/update-guide/deployments) to get the details of latest KBs released.
    * Exclude updates by specific KB IDs or package names you don’t want to get installed as part of this process. Updates not shown in the list could be installed based on the time between last assessment and release of newer updates since than that are available for the selected machines. You can chose to exclude Windows updates that require a reboot by selecting the option **Exclude KBs requiring reboot for Windows server**.
    
-![Scheduled patching updates page](./media/scheduled-updates/scheduled-patching-updates-page.png)
+  ![Scheduled patching updates page](./media/scheduled-updates/scheduled-patching-updates-page.png)
 
 1. On the **Tags** page, you can assign tags to maintenance configurations.
 
@@ -143,5 +144,5 @@ These are some of the known issues and limitations of scheduled patching which w
 
 ## Next steps
 
-* To view update assessment and deployment logs generated by update management center (private preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (private preview).
+* To view update assessment and deployment logs generated by update management center (preview), see [query logs](query-logs.md).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (preview).

@@ -1,6 +1,6 @@
 ---
-title: Manage multiple machines in update management center (private preview)
-description: The article details how to use update management center (private preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
+title: Manage multiple machines in Update management center (preview)
+description: The article details how to use Update management center (preview) in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
 ms.service: update-management-center
 ms.date: 08/25/2021
 ms.topic: conceptual
@@ -8,9 +8,9 @@ author: mgoedtel
 ms.author: magoedte
 ---
 
-# How to manage multiple machines in update management center (private preview)
+# How to manage multiple machines in Update management center (preview)
 
-You can use update management center (private preview) in Azure to manage operating system updates for your Windows Server and Linux machines in Azure. You can also use in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. You can quickly assess the status of available operating system updates, deploy updates, set up recurring update deployment schedule, insight on number of machines managed and how they are managed, and other relevant details.
+You can use update management center (preview) in Azure to manage operating system updates for your Windows Server and Linux machines in Azure. You can also use in on-premises environments, and in other cloud environments connected using Azure Arc-enabled servers. You can quickly assess the status of available operating system updates, deploy updates, set up recurring update deployment schedule, insight on number of machines managed and how they are managed, and other relevant details.
 
 Instead of performing these actions from a selected Azure VM or Arc-enabled server, you can manage all of your machines in a subscription.
 
@@ -20,7 +20,7 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
 ## Summarized Update management center status 
 
-To view update assessment across all machines, including Azure Arc-enabled servers from update management center (private preview), navigate to **Update management center**. In **Update management center**, select **Overview** from the left menu.
+To view update assessment across all machines, including Azure Arc-enabled servers from update management center (preview), navigate to **Update management center**. In **Update management center**, select **Overview** from the left menu.
 
 ![Update management center Overview page in the Azure portal](./media/manage-multiple-machines/update-center-overview-page.png)
 
@@ -28,7 +28,7 @@ On the **Overview** page, the summary tiles help answer the following questions:
 
 * **OS updates status of machines** tile informs you what the update status information for machines that were assessed and have applicable or needed updates. You can filter results based on classification types, and by default all classifications are selected. 
 
-   The graph provides a snapshot for all your machines that you have rights to in your subscription, regardless of whether or not you have used update management center (private preview) for that machine or not. This assessment data is coming from Azure Resource Graph, which is stored for seven days. 
+   The graph provides a snapshot for all your machines that you have rights to in your subscription, regardless of whether or not you have used update management center (preview) for that machine or not. This assessment data is coming from Azure Resource Graph, which is stored for seven days. 
 
    From assessment data available, machines are classified into the following categories:
 
@@ -55,7 +55,7 @@ Narrow the results in the tiles by using filters to focus on a subset of your re
 
 ## Summarized machine status
 
-Update management center (private preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (private preview). The section shows you how to filter information to better understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. In Update Center, select **Machines** from the left menu.
+Update management center (preview) in Azure enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to update management center (preview). The section shows you how to filter information to better understand the update status of your machine resources, and for multiple machines, initiate an update assessment, update deployment, and manage their update settings. In Update Center, select **Machines** from the left menu.
 
 ![Update management center Machines page in the Azure portal](./media/manage-multiple-machines/update-center-machines-page.png)
 
@@ -89,7 +89,7 @@ If it's an initial compliance assessment, the Update management center virtual m
 
 ![Assessment banner on Manage Machines page example](./media/manage-multiple-machines/update-center-assess-now-complete-banner.png)
 
-Select a machine from the list to open update management center (private preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
+Select a machine from the list to open update management center (preview) scoped to that machine. Here, you can view its detailed assessment status, update history, configure its patch orchestration options, and initiate an update deployment. 
 
 ### Deploy updates now
 
@@ -124,7 +124,7 @@ You can create a recurring update deployment by selecting some machines and sele
 
 ## Update deployment history
 
-Update management center (private preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update management center (private preview). You can filter information to better understand the update assessment and deployment history for multiple machines. In Update management center (private preview), select **History** from the left menu.
+Update management center (preview) enables you to browse information about your Azure VMs and Arc-enabled servers across your Azure subscriptions relevant to Update management center (preview). You can filter information to better understand the update assessment and deployment history for multiple machines. In Update management center (preview), select **History** from the left menu.
 
 
 ## Update deployment history by machines
@@ -148,10 +148,10 @@ When you select on any one maintenance run ID records, you can view an expanded 
 
 The update assessment and deployment data are available for query in Azure Resource Graph. You can apply this data to scenarios that include security compliance, security operations, and troubleshooting. Selecting the option **Go to resource graph** takes you to Resource Graph Explorer, which enables running Resource Graph queries directly in the Azure portal. Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. For more information, see [First query with Azure Resource Graph Explorer](/azure/governance/resource-graph/first-query-portal).
 
-When Resource Graph Explorer opens, it's automatically populated with the same query used to generate the results presented in the table on the **History** page in update management center (private preview). Before going any further, you should review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
+When Resource Graph Explorer opens, it's automatically populated with the same query used to generate the results presented in the table on the **History** page in update management center (preview). Before going any further, you should review the [query Update logs](query-logs.md) article to learn about the log records and their properties, and the sample queries included. 
 
 ## Next steps
 
 * To set up and manage recurring deployment schedules, see [Schedule recurring updates](scheduled-patching.md)
-* To view update assessment and deployment logs generated by update management center (private preview), see [query logs](query-logs.md).
-* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (private preview).
+* To view update assessment and deployment logs generated by update management center (preview), see [query logs](query-logs.md).
+* To troubleshoot issues, see the [Troubleshoot](troubleshoot.md) update management center (preview).

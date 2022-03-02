@@ -1,4 +1,4 @@
-- name: Azure Update management center Documentation
+- name: Azure Update management center documentation
   href: index.yml
 - name: Overview
   items:
@@ -24,6 +24,10 @@
       href: manage-vms-programmatically.md
     - name: Manage updates for Arc-enabled servers using REST API
       href: manage-arc-enabled-servers-programmatically.md
+    - name: Manage the update settings for your Windows and Linux machines
+      href: manage-update-settings.md
+    - name: Set update schedules
+      href: scheduled-patching.md
     - name: Query update logs
       href: query-logs.md 
   - name: Troubleshoot

@@ -1,6 +1,6 @@
 ---
-title: Enable update management center (private preview)
-description: The article describes how to enable update management center (private preview) for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers.
+title: Enable update management center (preview)
+description: The article describes how to enable update management center (preview) for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers.
 ms.service: update-management-center
 author: mgoedtel
 ms.author: magoedte
@@ -8,16 +8,16 @@ ms.date: 08/25/2021
 ms.topic: conceptual
 ---
 
-# How to enable update management center (private preview)
+# How to enable update management center (preview)
 
-The article describes how to enable update management center (private preview) in Azure for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers using one of the following methods:
+The article describes how to enable update management center (preview) in Azure for Windows and Linux machines running on Azure or outside of Azure connected to Azure Arc-enabled servers using one of the following methods:
 
 * From the Azure portal
 * Using Azure PowerShell
 * Using the Azure CLI
 * Using the Azure REST API
 
-To enable update management center (private preview) functionality, you must register the various feature resource providers in your Azure subscription, as detailed below. After registering for Private Preview features, you need to access Private Preview link: **https://aka.ms/umc-preview**
+To enable update management center (preview) functionality, you must register the various feature resource providers in your Azure subscription, as detailed below. After registering for Private Preview features, you need to access Private Preview link: **https://aka.ms/umc-preview**
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ To enable update management center (private preview) functionality, you must reg
 
 ## From the Azure portal
 
-The following examples describe how to enable update management center (private preview) features for your subscription using the Azure portal.
+The following examples describe how to enable update management center (preview) features for your subscription using the Azure portal.
 
 ### [Azure VM on-demand assessment and on-demand patching](#tab/portal-azure-vm)  
 
@@ -86,7 +86,7 @@ After registering for the above mentioned features, go to Update management cent
 
 ## Using Azure PowerShell
 
-The following examples describe how to enable the update management center (private preview) features for your subscription using Azure PowerShell.
+The following examples describe how to enable the update management center (preview) features for your subscription using Azure PowerShell.
 
 ### [Azure VM on-demand assessment and on-demand patching](#tab/powershell-azurevm)
 1. Sign in to the Update management center Private Preview portal link: **https://aka.ms/umc-preview**. No onboarding is required for Azure VM On-demand assessment and on-demand patching. 
@@ -140,7 +140,7 @@ Register-AzResourceProvider -FeatureName InGuestAutoAssessmentVMPreview -Provide
 
 ## Using the Azure CLI
 
-The following examples describe how to enable the update management center (private preview) features in Azure for your subscription using the Azure CLI [az feature register](/cli/azure/feature#az_feature_register) command.
+The following examples describe how to enable the update management center (preview) features in Azure for your subscription using the Azure CLI [az feature register](/cli/azure/feature#az_feature_register) command.
 
 ### [Azure VM on-demand assessment and on-demand patching](#tab/cli-azurevm)
 
@@ -194,7 +194,7 @@ For detailed steps to start using scheduled patching, refer to [Prerequisites fo
 ## Using the Azure REST API
 
 
-The following examples describe how to enable the update management center (private preview) features in Azure for your subscription using the [Azure REST API](/rest/api/azure).
+The following examples describe how to enable the update management center (preview) features in Azure for your subscription using the [Azure REST API](/rest/api/azure).
 
 > [!Note]
 > Using REST APIs is only applicable for Azure VMs
@@ -234,10 +234,11 @@ POST on `/subscriptions/subscriptionId/providers/Microsoft.Features/providers/Mi
 
 Replace the value `subscriptionId` with the ID of the target subscription.
 
-**Please note**: This Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
+>[!Note]
+> The Preview feature is currently not auto-approved. It will be approved within 1-2 business day(s).
 
 ## Next steps
 
-* [View updates for single machine](view-updates.md) 
-* [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
-* [Schedule recurring updates](scheduled-patching.md)
+- [View updates for single machine](view-updates.md) 
+- [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
+- [Schedule recurring updates](scheduled-patching.md)
