@@ -84,26 +84,28 @@ Go to the Azure portal. If the Computer Vision resource you created in the **Pre
 
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Replace the contents of *Program.cs* with the following code.
 
-  [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart-single.cs?name=snippet_single)]
+   [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart-single.cs?name=snippet_single)]
 
 1. Paste your subscription key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
-  > [!IMPORTANT]
-  > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
+   > [!IMPORTANT]
+   > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
-#### [Visual Studio IDE](#tab/visual-studio)
+1. Run the application.
 
-1. Run the application by clicking the **Debug** button at the top of the IDE window.
+   #### [Visual Studio IDE](#tab/visual-studio)
 
-#### [CLI](#tab/cli)
+   Click the **Debug** button at the top of the IDE window.
 
-1. Run the application from your application directory with the `dotnet run` command.
+   #### [CLI](#tab/cli)
 
-  ```dotnet
-  dotnet run
-  ```
+   Use the `dotnet run` command in your project directory.
 
----
+   ```dotnet
+   dotnet run
+   ```
+
+   ---
 
 ## Clean up resources
 
