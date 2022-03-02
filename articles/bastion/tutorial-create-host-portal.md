@@ -152,7 +152,7 @@ This is the public IP address of the Bastion host resource on which RDP/SSH will
 
 ## Connect to a VM
 
-[!INCLUDE [Connect to a Windows VM](../../includes/bastion-vm-rdp.md)]
+[!INCLUDE [Connect to a VM](../../includes/bastion-vm-connect.md)]
 
 ## Remove VM public IP address
 
@@ -169,7 +169,7 @@ your resources using the following steps:
 
 ## Next steps
 
-In this tutorial, you deployed Bastion to a virtual network and connected to a VM. You then removed the public IP address from the VM. Next, configure additional Bastion features.
+In this tutorial, you deployed Bastion to a virtual network and connected to a VM. You then removed the public IP address from the VM. Next, learn about and configure additional Bastion features.
 
 > [!div class="nextstepaction"]
 > [Bastion features and configuration settings](configuration-settings.md)

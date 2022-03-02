@@ -1072,6 +1072,8 @@ items:
         href: ../data-factory/connector-postgresql.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Presto
         href: ../data-factory/connector-presto.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Quickbase
+        href: ../data-factory/connector-quickbase.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: QuickBooks Online
         href: ../data-factory/connector-quickbooks.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: REST
@@ -1105,6 +1107,8 @@ items:
         href: ../data-factory/connector-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Shopify
         href: ../data-factory/connector-shopify.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Smartsheet
+        href: ../data-factory/connector-smartsheet.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Snowflake
         href: ../data-factory/connector-snowflake.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Spark
@@ -1115,6 +1119,8 @@ items:
         href: ../data-factory/connector-square.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Sybase
         href: ../data-factory/connector-sybase.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: TeamDesk
+        href: ../data-factory/connector-teamdesk.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      
       - name: Teradata
         href: ../data-factory/connector-teradata.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Vertica
@@ -1125,6 +1131,8 @@ items:
         href: ../data-factory/connector-xero.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: XML format
         href: ../data-factory/format-xml.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Zendesk
+        href: ../data-factory/connector-zendesk.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Zoho
         href: ../data-factory/connector-zoho.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
     - name: Move data
