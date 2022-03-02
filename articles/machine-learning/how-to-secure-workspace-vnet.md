@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 01/11/2022
+ms.date: 03/01/2022
 ms.topic: how-to
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, security
 
@@ -86,7 +86,7 @@ When ACR is behind a virtual network, Azure Machine Learning can’t use it to d
 ### Azure Monitor
 
 > [!WARNING]
-> Azure Monitor supports using Azure Private Link to connect to a VNet. However, Azure Machine Learning does not support using a private link-enabled Azure Monitor (including Azure Application Insights). Do __not_ configure private link for the Azure Monitor or Azure Application Insights you plan to use with Azure Machine Learning.
+> Azure Monitor supports using Azure Private Link to connect to a VNet. However, you must use the open Private Link mode in Azure Monitor. For more information, see [Private Link access modes: Private only vs. Open](/azure/azure-monitor/logs/private-link-security#private-link-access-modes-private-only-vs-open).
 
 ## Required public internet access
 
@@ -205,6 +205,8 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 
     # [Azure CLI](#tab/cli)
 
+    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
     If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace show` command to show the workspace information.
 
     ```azurecli-interactive
@@ -246,9 +248,13 @@ Azure Container Registry can be configured to use a private endpoint. Use the fo
 1. Use one of the following methods to configure the workspace to build Docker images using the compute cluster.
 
     > [!IMPORTANT]
-    > When using a compute cluster for image builds, only a CPU SKU is supported.
+    > The following limitations apply When using a compute cluster for image builds:
+    > * Only a CPU SKU is supported.
+    > * You can't use a compute cluster configured for no public IP address.
 
     # [Azure CLI](#tab/cli)
+
+    [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
     If you've [installed the Machine Learning extension v2 for Azure CLI](how-to-configure-cli.md), you can use the `az ml workspace update` command to set a build compute. In the following command, replace `myworkspace` with your workspace name, `myresourcegroup` with the resource group that contains the workspace, and `mycomputecluster` with the compute cluster name:
 

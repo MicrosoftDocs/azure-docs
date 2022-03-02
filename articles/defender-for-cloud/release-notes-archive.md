@@ -2,7 +2,7 @@
 title: Archive of what's new in Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
 ms.topic: reference
-ms.date: 02/13/2022
+ms.date: 02/27/2022
 ---
 # Archive for what's new in Defender for Cloud?
 
@@ -523,7 +523,7 @@ A new filter offers the option to refine the list according to the cloud account
 Learn more about the multi-cloud capabilities:
 
 - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
-- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
+- [Connect your GCP projects to Azure Security Center](quickstart-onboard-gcp.md)
 
 
 ## April 2021
@@ -900,7 +900,7 @@ When the Azure Policy add-on for Kubernetes is installed on your Azure Kubernete
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control).
+Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#environment-hardening).
 
 > [!NOTE]
 > While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
@@ -1066,7 +1066,7 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Azure Security Center protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Connecting your AWS or GCP accounts integrates their native security tools like AWS Security Hub and GCP Security Command Center into Azure Security Center.
+Connecting your AWS or GCP projects integrates their native security tools like AWS Security Hub and GCP Security Command Center into Azure Security Center.
 
 This capability means that Security Center provides visibility and protection across all major cloud environments. Some of the benefits of this integration:
 
@@ -1085,7 +1085,7 @@ From Defender for Cloud's menu, select **Multi-cloud connectors** and you'll see
 
 Learn more in:
 - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
-- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
+- [Connect your GCP projects to Azure Security Center](quickstart-onboard-gcp.md)
 
 
 ### Exempt entire recommendations from your secure score for subscriptions and management groups
@@ -1730,9 +1730,9 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Azure Security Center now protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Onboarding your AWS and GCP accounts into Security Center, integrates AWS Security Hub, GCP Security Command and Azure Security Center. 
+Onboarding your AWS and GCP projects into Security Center, integrates AWS Security Hub, GCP Security Command and Azure Security Center. 
 
-Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md) and [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md).
+Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md) and [Connect your GCP projects to Azure Security Center](quickstart-onboard-gcp.md).
 
 
 ### Kubernetes workload protection recommendation bundle
@@ -1743,7 +1743,7 @@ When you've installed the Azure Policy add-on for Kubernetes on your AKS cluster
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control).
+Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#environment-hardening).
 
 
 ### Vulnerability assessment findings are now available in continuous export

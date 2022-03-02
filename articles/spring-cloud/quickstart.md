@@ -12,11 +12,13 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Quickstart: Deploy your first application to Azure Spring Cloud
 
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
 ::: zone pivot="programming-language-csharp"
 This quickstart explains how to deploy a small application to run on Azure Spring Cloud.
 
 >[!NOTE]
-> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services aren't meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 By following this quickstart, you'll learn how to:
 > [!div class="checklist"]
@@ -526,10 +528,13 @@ For advanced logs analytics features, visit the **Logs** tab in the menu on the 
 
 ## Clean up resources
 
-In the above steps, you created Azure resources that will continue to accrue charges while they remain in your subscription. If you don't expect to need these resources in the future, delete the resource group from the portal or by running the following command in the Azure CLI:
+If you plan to continue working with subsequent quickstarts and tutorials, you might want to leave these resources in place. When no longer needed, delete the resource group, which deletes the resources in the resource group. To delete the resource group by using Azure CLI, use the following commands:
 
 ```azurecli
-az group delete --name <your resource group name> --yes
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName &&
+echo "Press [ENTER] to continue ..."
 ```
 
 ## Next steps
@@ -545,6 +550,6 @@ In this quickstart, you learned how to:
 To learn how to use more Azure Spring capabilities, advance to the quickstart series that deploys a sample application to Azure Spring Cloud:
 
 > [!div class="nextstepaction"]
-> [Build and Run Apps](./quickstart-sample-app-introduction.md)
+> [Introduction to the sample app](./quickstart-sample-app-introduction.md)
 
 More samples are available on GitHub: [Azure Spring Cloud Samples](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).
