@@ -30,7 +30,7 @@ Datacenter locations are selected by using rigorous vulnerability risk assessmen
 
 With availability zones, you can design and operate applications and databases that automatically transition between zones without interruption. Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple datacenter infrastructures.
 
-Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM API called: [checkZonePeers](https://docs.microsoft.com/rest/api/resources/subscriptions/check-zone-peers) to compare zone mapping for resilient solutions that span across multiple subscriptions. 
+Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. You can use the dedicated ARM API called: [checkZonePeers](/rest/api/resources/subscriptions/check-zone-peers) to compare zone mapping for resilient solutions that span across multiple subscriptions. 
 
 You can design resilient solutions by using Azure services that use availability zones. Co-locate your compute, storage, networking, and data resources across an availability zone, and replicate this arrangement in other availability zones.
 
@@ -51,8 +51,8 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
-| South Central US | West Europe |  | East Asia |
-| US Gov Virginia | Sweden Central| | |
+| South Central US | West Europe | | East Asia |
+| US Gov Virginia | Sweden Central| | China North 3 |
 | West US 2 | | | |
 | West US 3 | | | |
 
@@ -61,4 +61,3 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 - [Microsoft commitment to expand Azure availability zones to more regions](https://azure.microsoft.com/blog/our-commitment-to-expand-azure-availability-zones-to-more-regions/)
 - [Azure services that support availability zones](az-region.md)
 - [Azure services](region-types-service-categories-azure.md)
-

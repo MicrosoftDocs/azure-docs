@@ -45,7 +45,7 @@ This tutorial has been updated to use the Azure.Search.Documents (version 11) pa
 + [Azure Storage](../storage/common/storage-account-create.md)
 + [Visual Studio](https://visualstudio.microsoft.com/)
 + [Azure Cognitive Search (version 11.x) NuGet package](https://www.nuget.org/packages/Azure.Search.Documents/)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
++ [Create](search-create-service-portal.md) or [find an existing search service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
 
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.

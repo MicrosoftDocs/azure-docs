@@ -47,8 +47,8 @@ landingContent:
         links:
           - text: Set scaling rules
             url: scale-app.md
-          - text: Secure an app
-            url: secure-app.md
+          - text: Manage secrets
+            url: manage-secrets.md
           - text: Monitor an app
             url: monitor.md
           - text: Manage revisions

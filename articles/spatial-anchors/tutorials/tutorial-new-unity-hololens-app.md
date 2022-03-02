@@ -1,24 +1,15 @@
 ---
 title: 'Tutorial: Create a new HoloLens Unity app'
 description: In this tutorial, you learn how to create a new HoloLens Unity app using Azure Spatial Anchors.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
 
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 2/3/2021
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
-<!-- 
-   
-[X] Make sure you have internet on your Hl2
-[X] User Debug - ARM64 - Device, Debug -> Start Debugging to see logs 
-[X] "After closing session you could have a different device on a different day (depending on your anchor expiration), as long as you still have the IDs"
-[X] Tapping will be middle of the hand, not your fingers
-[X] Using Legacy shader since it's included in a default Unity build. Default shaders are only included if part of the scene.
--->
-
 # Tutorial: Step-by-step instructions to create a new HoloLens Unity app using Azure Spatial Anchors
 
 This tutorial will show you how to create a new HoloLens Unity app with Azure Spatial Anchors.

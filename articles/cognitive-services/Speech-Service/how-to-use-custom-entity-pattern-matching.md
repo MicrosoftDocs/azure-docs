@@ -7,7 +7,7 @@ author: chschrae
 manager: travisw
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: chschrae
 ms.devlang: cpp, csharp
@@ -43,7 +43,7 @@ If you do not have access to a [LUIS](../LUIS/index.yml) app, but still want int
 
 Be sure you have the following items before you begin this guide:
 
-- A [Cognitive Services Azure resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
+- A [Cognitive Services Azure resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
 
 ## Pattern Matching Model overview
