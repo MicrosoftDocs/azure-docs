@@ -18,7 +18,7 @@ It is important to consider any impact on your Application Gateway resource when
 
 A disabled listener doesn’t affect the traffic for other operational listeners on your Application Gateway. For example, the HTTP listeners or HTTPS listeners for which PFX certificate file is directly uploaded on Application Gateway resource will never go in a disabled state.
 
-![An illustration showing affected listeners.](../application-gateway/media/disabled-listeners/affected-listener.png)
+[![An illustration showing affected listeners.](../application-gateway/media/disabled-listeners/affected-listener.png)](../application-gateway/media/disabled-listeners/affected-listener.png#lightbox)
 
 ## Periodic check and its impact on listeners
 
