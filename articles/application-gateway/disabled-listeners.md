@@ -50,3 +50,5 @@ You can narrow down to the exact cause and find steps to resolve the problem by 
 > [!NOTE]
 > The disabled listener(s) are automatically enabled if Application Gateway resource detects the underlying problem is resolved. This check occurs every four-hour interval. You can expedite it by performing any minor change to Application Gateway (for HTTP Setting, Resource Tags, etc.) that will force a check against the Key Vault.
 
+## Next steps
+[Troubleshooting key vault errors in Azure Application Gateway](../application-gateway/application-gateway-key-vault-common-errors.md)
