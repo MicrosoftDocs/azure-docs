@@ -17,7 +17,7 @@ ms.date: 03/01/2022
 
 In Azure Cognitive Search, an alias is a secondary name that can be used to refer to an index for querying, indexing, and other operations. You can create an alias that maps to a search index and substitute the alias name in places where you would otherwise reference an index name. This gives you added flexibility if you ever need to change which index your application is pointing to. Instead of updating the references to the index name in your application, you can just update the mapping for your alias.
 
-The main goal of index aliases is to make it easier to manage your production indexes. For example, if you need to make a change to your index definition, such as editing a field or adding a new analyzer, you'll have to create a new search index because all search indexes are immutable. This means you either need to [drop and rebuild your index](search-howto-reindex) or create a new index and then migrate your application over to that index.
+The main goal of index aliases is to make it easier to manage your production indexes. For example, if you need to make a change to your index definition, such as editing a field or adding a new analyzer, you'll have to create a new search index because all search indexes are immutable. This means you either need to [drop and rebuild your index](search-howto-reindex.md) or create a new index and then migrate your application over to that index.
 
 Index aliases make this easier because you can create a new index alongside your current index and then whenever you're ready to migrate over to the new index, all you need to is update the mapping in your alias and requests will automatically start going to the new index.
 
@@ -31,7 +31,7 @@ A typical workflow for using index aliases would be to:
 
 ## Create an alias
 
-You can create an alias using the preview REST API, the preview SDKs, or through [Visual Studio Code](search-get-started-vs-code). An alias consists of the `name` of the alias and the name of the search index that the alias is mapped to. Only one index name can be specified in the `indexes` array.
+You can create an alias using the preview REST API, the preview SDKs, or through [Visual Studio Code](search-get-started-vs-code.md). An alias consists of the `name` of the alias and the name of the search index that the alias is mapped to. Only one index name can be specified in the `indexes` array.
 
 ### [**REST API**](#tab/rest)
 
@@ -48,7 +48,7 @@ POST /aliases?api-version=2021-04-30-preview
 ### [**Visual Studio Code**](#tab/vscode)
 
 To create an alias in Visual Studio Code:
-1. Follow the steps in the [Visual Studio Code Quickstart]((search-get-started-vs-code)) to install the [Azure Cognitive Search extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) and connect to your Azure Subscription.
+1. Follow the steps in the [Visual Studio Code Quickstart](search-get-started-vs-code.md) to install the [Azure Cognitive Search extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurecognitivesearch) and connect to your Azure Subscription.
 1. Navigate to your search service.
 1. Under your search service, right-click on **Aliases** and select **Create new alias**.
 1. Provide the name of your alias and the name of the search index you'd like to map it to and then save the file to create the alias.
@@ -98,4 +98,4 @@ After you make the update to the alias, requests will automatically start to be 
 
 ## See also
 
-+ [Drop and rebuild an index in Azure Cognitive Search](search-howto-reindex)
++ [Drop and rebuild an index in Azure Cognitive Search](search-howto-reindex.md)
