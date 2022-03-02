@@ -13,7 +13,7 @@ ms.reviewer: kendralittle, mathoma, wiassaf, urosmil
 ms.date: 03/07/2022
 ---
 # Advance notifications for planned maintenance events (Preview)
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Advance notifications (Preview) are available for databases configured to use a non-default [maintenance window](maintenance-window.md). Advance notifications enable customers to configure notifications to be sent up to 24 hours in advance of any planned event. 
 

@@ -20,6 +20,8 @@ The maintenance window feature allows you to configure maintenance schedule for 
 > [!Note]
 > The maintenance window feature only protects from planned impact from upgrades or scheduled maintenance. It does not protect from all failover causes; exceptions that may cause short connection interruptions outside of a maintenance window include hardware failures, cluster load balancing, and database reconfigurations due to events like a change in database Service Level Objective. 
 
+[Advance notifications (Preview)](advance-notifications.md) are available for databases configured to use a non-default maintenance window. Advance notifications enable customers to configure notifications to be sent up to 24 hours in advance of any planned event. 
+
 ## Overview
 
 Azure periodically performs [planned maintenance](planned-maintenance.md) of SQL Database and SQL managed instance resources. During Azure SQL maintenance event, databases are fully available but can be subject to short reconfigurations within respective availability SLAs for [SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database) and [SQL managed instance](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance).
