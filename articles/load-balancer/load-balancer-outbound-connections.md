@@ -7,7 +7,7 @@ author: asudbring
 ms.service: load-balancer
 ms.topic: conceptual
 ms.custom: contperf-fy21q1
-ms.date: 11/11/2021
+ms.date: 03/01/2022
 ms.author: allensu
 ---
 
@@ -27,6 +27,8 @@ Outbound connectivity to the internet can be enabled in the following ways in Az
 | 4 | Using [default outbound access](../virtual-network/ip-services/default-outbound-access.md) | Implicit | No | Worst |
 
 ## <a name="outboundrules"></a>1. Using the frontend IP address of a load balancer for outbound via outbound rules
+
+:::image type="content" source="./media/load-balancer-outbound-connections/public-load-balancer-outbound.png" alt-text="Diagram public load balancer with outbound rules.":::
 
 Outbound rules enable you to explicitly define SNAT (source network address translation) for a Standard Public Load Balancer. This configuration allows you to use the public IP or IPs of your load balancer for outbound connectivity of the backend instances.
 
@@ -50,6 +52,8 @@ For more information about outbound rules, see [Outbound rules](outbound-rules.m
 
 ## 2. Associating a NAT gateway to the subnet
 
+:::image type="content" source="./media/load-balancer-outbound-connections/nat-gateway.png" alt-text="Diagram of a NAT gateway and public load balancer.":::
+
 Virtual Network NAT simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
 Using a NAT gateway is the best method for outbound connectivity. A NAT gateway is highly extensible, reliable, and doesn't have the same concerns of SNAT port exhaustion.
@@ -57,6 +61,8 @@ Using a NAT gateway is the best method for outbound connectivity. A NAT gateway 
 For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT](../virtual-network/nat-gateway/nat-overview.md).
 
 ##  3. Assigning a public IP to the virtual machine
+
+:::image type="content" source="./media/load-balancer-outbound-connections/instance-level-public-ip.png" alt-text="Diagram of virtual machines with instance level public IP addresses.":::
 
  | Associations | Method | IP protocols |
  | ---------- | ------ | ------------ |
@@ -70,6 +76,8 @@ A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and imp
 
 
 ## 4. Default Outbound Access
+
+:::image type="content" source="./media/load-balancer-outbound-connections/default-outbound-access.png" alt-text="Diagram of default outbound access.":::
 
 >[!NOTE]
 > This method is **NOT recommended** for production workloads as it adds risk of exhausting ports. Please refrain from using this method for production workloads to avoid potential connection failures. 
