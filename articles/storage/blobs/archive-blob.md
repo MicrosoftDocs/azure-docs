@@ -257,7 +257,7 @@ You can optimize costs for blob data that is rarely accessed by creating lifecyc
 You can use the Azure portal, PowerShell, Azure CLI, or an Azure Resource Manager template to create a lifecycle management policy. For simplicity, this section shows how to create a lifecycle management policy in the Azure portal only. For additional examples showing how to create lifecycle management policies, see [Configure a lifecycle management policy](lifecycle-management-policy-configure.md).
 
 > [!CAUTION]
-> Before you use a lifecycle management policy to move data to the Archive tier, verify that that data does not need to be deleted or moved to another tier for at least 180 days. Data that is deleted or move to a different tier before the 180 day period has elapsed is subject to an early deletion fee.
+> Before you use a lifecycle management policy to move data to the Archive tier, verify that that data does not need to be deleted or moved to another tier for at least 180 days. Data that is deleted or moved to a different tier before the 180 day period has elapsed is subject to an early deletion fee.
 >
 > Also keep in mind that data in the Archive tier must be rehydrated before it can be read or modified. Rehydrating a blob from the Archive tier can take several hours and has associated costs.
 
