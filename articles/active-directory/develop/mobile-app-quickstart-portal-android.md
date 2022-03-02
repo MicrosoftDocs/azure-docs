@@ -15,7 +15,7 @@ ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:Android", has-adal-ref, mode-api
 #Customer intent: As an application developer, I want to learn how Android native apps can call protected APIs that require login and access tokens using the Microsoft identity platform.
 ---
-> [!div class = "display-on-portal"]
+> [!div class="display-on-portal"]
 > # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
 > 
 > In this quickstart, you download and run a code sample that demonstrates how an Android application can sign in users and get an access token to call the Microsoft Graph API. 
