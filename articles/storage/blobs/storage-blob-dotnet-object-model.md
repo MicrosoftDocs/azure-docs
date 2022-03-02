@@ -43,8 +43,6 @@ Use the following .NET classes to interact with these resources:
 
 Put something here.
 
-## Another subhead
-
 ## See also
 
 [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md)

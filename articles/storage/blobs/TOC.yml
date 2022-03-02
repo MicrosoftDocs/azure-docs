@@ -562,6 +562,7 @@ items:
             - name: Tour of the object model
               href: storage-blob-dotnet-object-model.md
           - name: Work with containers
+            items:
             - name: Create a container
               href: storage-blob-container-create.md
             - name: Delete and restore containers
