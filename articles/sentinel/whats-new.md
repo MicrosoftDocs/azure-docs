@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
-ms.date: 02/27/2022
+ms.date: 03/01/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -26,6 +26,19 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > Our threat hunting teams across Microsoft contribute queries, playbooks, workbooks, and notebooks to the [Microsoft Sentinel Community](https://github.com/Azure/Azure-Sentinel), including specific [hunting queries](https://github.com/Azure/Azure-Sentinel) that your teams can adapt and use.
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
+
+## March 2022
+
+- [Create a large watchlist from file in Azure Storage (public preview)](#create-a-large-watchlist-from-file-in-azure-storage-public-preview)
+
+### Create a large watchlist from file in Azure Storage (public preview)
+
+Create a watchlist from a large file that's up to 500 MB in size by uploading the file to your Azure Storage account. When you add the watchlist to your workspace, you provide a shared access signature URL. Microsoft Sentinel uses the shared access signature URL to retrieve the watchlist data from Azure Storage.
+
+For more information, see:
+
+- [Use watchlists in Microsoft Sentinel](watchlists.md)
+- [Create watchlists in Microsoft Sentinel](watchlists-create.md)
 
 ## February 2022
 
@@ -639,7 +652,7 @@ Watchlist templates currently include:
 - **High Value Assets**. A list of devices, resources, or other assets that have critical value in the organization.
 - **Network Mapping**. A list of IP subnets and their respective organizational contexts.
 
-For more information, see [Create a new watchlist using a template](watchlists-create.md#create-a-watchlist-by-using-a-template-public-preview) and [Built-in watchlist schemas](watchlist-schemas.md).
+For more information, see [Create watchlists in Microsoft Sentinel](watchlists-create.md) and [Built-in watchlist schemas](watchlist-schemas.md).
 
 
 

@@ -547,10 +547,10 @@ items:
       href: connector-web-table.md
     - name: Xero
       href: connector-xero.md
-    - name: Zendesk
-      href: connector-zendesk.md
     - name: XML format
       href: format-xml.md
+    - name: Zendesk
+      href: connector-zendesk.md
     - name: Zoho
       href: connector-zoho.md
   - name: Move data
