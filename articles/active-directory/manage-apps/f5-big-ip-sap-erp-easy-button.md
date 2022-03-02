@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
-ms.date: 03/01/2022
+ms.date: 3/1/2022
 ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP
+#Tutorial: Configure F5’s BIG-IP Easy Button for SSO to SAP ERP
 
 In this article, learn to secure SAP ERP using Azure Active Directory (Azure AD), through F5’s BIG-IP Easy Button guided configuration.
 
