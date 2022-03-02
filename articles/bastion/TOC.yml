@@ -11,7 +11,7 @@
     href: quickstart-host-portal.md
 - name: Tutorials
   items:
-  - name: Deploy Bastion - Portal
+  - name: Deploy Bastion with manual settings
     href: tutorial-create-host-portal.md
 - name: Concepts
   items:
