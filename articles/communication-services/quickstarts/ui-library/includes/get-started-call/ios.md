@@ -48,7 +48,7 @@ end
 
 3. Run `pod install --repo-update`.
 4. Open the generated `.xcworkspace` with Xcode.
-5. (Optional) For Mackbook Pro M1, please install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode
+5. (Optional) For Mackbook Pro M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
 
 ### Request access to the microphone, camera, etc.
 
