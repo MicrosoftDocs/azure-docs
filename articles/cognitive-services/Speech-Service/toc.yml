@@ -105,8 +105,6 @@ items:
     - name: Get facial pose events for lip-sync
       href: how-to-speech-synthesis-viseme.md
       displayName: viseme, phoneme, phonetic
-    - name: Audio Content Creation
-      href: how-to-audio-content-creation.md 
     - name: Custom Neural Voice
       items:
         - name: What is custom neural voice?
@@ -122,6 +120,8 @@ items:
           href: how-to-deploy-and-use-endpoint.md
         - name: How to record voice samples
           href: record-custom-voice-samples.md
+    - name: Audio Content Creation
+      href: how-to-audio-content-creation.md 
 - name: Speech translation
   items:
     - name: Speech translation documentation
