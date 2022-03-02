@@ -67,7 +67,7 @@ In your command window, execute the following command to store a new secret name
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<primary-access-key>"
 ```
 
-This following code initializes a configuration to access the user secret for the Azure Cache for Redis connection string.
+The following code initializes a configuration to access the user secret for the Azure Cache for Redis connection string.
 
 ```csharp
 var builder = new ConfigurationBuilder()
@@ -91,10 +91,10 @@ You must have this statement in your code to use the `RedisConnection` class. .
 using StackExchange.Redis;
 
 ```
+The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
 :::code language="csharp" source="~/samples-cache/quickstart/dotnet-core/RedisConnection.cs":::
 
-The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
 ## Executing cache commands
 
