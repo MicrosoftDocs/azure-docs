@@ -100,27 +100,27 @@ For a *non-directional* relationship, use the following syntax. This will not sp
 
 ### Examples
 
-The first example shows a left-to-right directional traversal. This query finds twins room and factory where...
-* room targets factory (with any name of relationship)
-* room has a temperature value that's greater than 50
-* factory has a `$dtId` of 'ABC'
+The first example shows a left-to-right directional traversal. This query finds twins Room and Factory where...
+* Room targets Factory (with any name of relationship)
+* Room has a temperature value that's greater than 50
+* Factory has a `$dtId` of 'ABC'
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionLRExample":::
 
 >[!NOTE]
 > MATCH queries that contain `$dtId` filters on any twin other than the starting twin for the MATCH traversal may show empty results. This applies to `factory.$dtId` in the above example. For more information, see [Limitations](#limitations).
 
-The following example shows a right-to-left directional traversal. This query looks similar to the one above, but the direction of the relationship between room and factory is reversed. This query finds twins room and factory where...
-* factory targets room (with any name of relationship)
-* factory has a `$dtId` of 'ABC'
-* room has a temperature value that's greater than 50
+The following example shows a right-to-left directional traversal. This query looks similar to the one above, but the direction of the relationship between Room and Factory is reversed. This query finds twins Room and Factory where...
+* Factory targets Room (with any name of relationship)
+* Factory has a `$dtId` of 'ABC'
+* Room has a temperature value that's greater than 50
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionRLExample":::
 
-The following example shows a non-directional traversal. This query finds twins room and factory where...
-* room and factory share any name of relationship, going in either direction
-* factory has a `$dtId` of 'ABC'
-* room has a humidity value that's greater than 70
+The following example shows a non-directional traversal. This query finds twins Room and Factory where...
+* Room and Factory share any name of relationship, going in either direction
+* Factory has a `$dtId` of 'ABC'
+* Room has a humidity value that's greater than 70
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionNDExample":::
 
@@ -148,27 +148,27 @@ For multiple possible names use the following syntax. The placeholder values tha
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameMultiSyntax":::
 
-(Default) To leave name unspecified leave the brackets empty of name information, like this:
+(Default) To leave name unspecified, leave the brackets empty of name information, like this:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameAllSyntax":::
 
 ### Examples
 
-The following example shows a single relationship name This query finds twins building and sensor where...
-* building has a 'contains' relationship to sensor (going in either direction)
-* building has a `$dtId` of 'Seattle21'
+The following example shows a single relationship name. This query finds twins Building and Sensor where...
+* Building has a 'contains' relationship to Sensor (going in either direction)
+* Building has a `$dtId` of 'Seattle21'
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameSingleExample":::
 
-The following example shows multiple possible relationship names This query looks similar to the one above, but there are multiple possible relationship names that are included in the result. This query finds twins building and sensor where...
-* building has either a 'contains' or 'isAssociatedWith' relationship to *sensor* (going in either direction)
-* building has a `$dtId` of 'Seattle21'
+The following example shows multiple possible relationship names. This query looks similar to the one above, but there are multiple possible relationship names that are included in the result. This query finds twins Building and Sensor where...
+* Building has either a 'contains' or 'isAssociatedWith' relationship to Sensor (going in either direction)
+* Building has a `$dtId` of 'Seattle21'
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameMultiExample":::
 
-The following example has no specified relationship name As a result, relationships with any name will be included in the query result. This query finds twins building and sensor where...
-* building has a relationship to sensor with any name (and going in either direction)
-* building has a `$dtId` of 'Seattle21'
+The following example has no specified relationship name. As a result, relationships with any name will be included in the query result. This query finds twins Building and Sensor where...
+* Building has a relationship to Sensor with any name (and going in either direction)
+* Building has a `$dtId` of 'Seattle21'
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchNameAllExample":::
 
@@ -188,7 +188,7 @@ If you don't provide a number of hops, the query will default to one hop.
 
 Specify the number of hops to traverse in the `MATCH` clause within the square brackets (`[]`).
 
-To specify an exact number of hops use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `number_of_hops`, and `twin_2`.
+To specify an exact number of hops, use the following syntax. The placeholder values that should be replaced with your values are `twin_1`, `number_of_hops`, and `twin_2`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsExactSyntax":::
 
@@ -206,19 +206,19 @@ You can also leave out the starting limit to indicate "anything up to" (and incl
 
 ### Examples
 
-The following example specifies an exact number of hops The query will only return relationships between twins floor and room that are exactly 3 hops.
+The following example specifies an exact number of hops. The query will only return relationships between twins Floor and Room that are exactly 3 hops.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsExactExample":::
 
-The following example specifies a range of hops The query will return relationships between twins floor and room that are between 1 and 3 hops (meaning the number of hops is either 2 or 3).
+The following example specifies a range of hops. The query will return relationships between twins Floor and Room that are between 1 and 3 hops (meaning the number of hops is either 2 or 3).
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsRangeExample1":::
 
-You can also show a range by providing only one boundary. In the following example, the query will return relationships between twins floor and room that are at most 2 hops (meaning the number of hops is either 1 or 2).
+You can also show a range by providing only one boundary. In the following example, the query will return relationships between twins Floor and Room that are at most 2 hops (meaning the number of hops is either 1 or 2).
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsRangeEndingExample":::
 
-The following example has no specified number of hops, so will default to one hop between twins floor and room.
+The following example has no specified number of hops, so will default to one hop between twins Floor and Room.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchHopsOneExample":::
 
@@ -242,7 +242,7 @@ To assign a query variable to the relationship, put the variable name in the squ
 
 ### Examples
 
-The following example assigns a query variable 'r' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship rel should have a name property with a value of 'child'.
+The following example assigns a query variable 'r' to the relationship. Later, in the `WHERE` clause, it uses the variable to specify that the relationship Rel should have a name property with a value of 'child'.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchVariableExample":::
 
@@ -273,49 +273,49 @@ You can chain multiple relationship conditions together, like this. The placehol
 
 ### Examples
 
-Here's an example that combines relationship direction, relationship name, and number of hops The following query finds twins floor and room where the relationship between floor and room meets these conditions:
-* the relationship is left-to-right, with floor as the source and room as the target
+Here's an example that combines relationship direction, relationship name, and number of hops The following query finds twins Floor and Room where the relationship between Floor and Room meets these conditions:
+* the relationship is left-to-right, with Floor as the source and Room as the target
 * the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship has either 4 or 5 hops
 
-The query also specifies that twin floor has a `$dtId` of 'thermostat-15'.
+The query also specifies that twin Floor has a `$dtId` of 'thermostat-15'.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedHopsExample":::
 
-Here is an example that combines relationship direction, relationship name, and a named query variable for the relationship. The following query finds twins floor and room where the relationship between floor and room is assigned to a query variable `r` and meets these conditions:
-* the relationship is left-to-right, with floor as the source and room as the target
+Here's an example that combines relationship direction, relationship name, and a named query variable for the relationship. The following query finds twins Floor and Room where the relationship between Floor and Room is assigned to a query variable `r` and meets these conditions:
+* the relationship is left-to-right, with Floor as the source and Room as the target
 * the relationship has a name of either 'contains' or 'isAssociatedWith'
 * the relationship, which is given a query variable `r`, has a length property equal to 10
 
-The query also specifies that twin floor has a `$dtId` of 'thermostat-15'.
+The query also specifies that twin Floor has a `$dtId` of 'thermostat-15'.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedVariableExample":::
 
-The following example illustrates *chained* relationship conditions. The query finds twins floor cafe and room where...
-* the relationship between floor and room meets these conditions:
-    - the relationship is left-to-right, with floor as the source and cafe as the target
+The following example illustrates *chained* relationship conditions. The query finds twins Floor, Cafe, and Room, where...
+* the relationship between Floor and Room meets these conditions:
+    - the relationship is left-to-right, with Floor as the source and Cafe as the target
     - the relationship has a name of either 'contains' or 'isAssociatedWith'
     - the relationship, which is given query variable `r`, has a length property equal to 10
-* the relationship between cafe and room meets these conditions:
-    - the relationship is right-to-left, with room as the source and cafe as the target
+* the relationship between Cafe and Room meets these conditions:
+    - the relationship is right-to-left, with Room as the source and Cafe as the target
     - the relationship has a name of either 'has' or 'includes'
     - the relationship has up to 3 (so 1, 2, or 3) hops
 
-The query also specifies that twin floor has a `$dtId` of 'thermostat-15' and twin cafe has a temperature of 55.
+The query also specifies that twin Floor has a `$dtId` of 'thermostat-15' and twin Cafe has a temperature of 55.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedChainExample":::
 
-You can also use chained relationship conditions to express bi-directional relationships. The following query finds twins floor, room, and building, where...
-* the relationship between building and floor meets these conditions:
-    - the relationship is left-to-right, with building as the source and floor as the target
+You can also use chained relationship conditions to express bi-directional relationships. The following query finds twins Floor, Room, and Building, where...
+* the relationship between Building and Floor meets these conditions:
+    - the relationship is left-to-right, with Building as the source and Floor as the target
     - the relationship has a name of 'isAssociatedWith'
     - the relationship is given a query variable `r1`
-* the relationship between floor and room meets these conditions:
-    - the relationship is right-to-left, with room as the source and floor as the target
+* the relationship between Floor and Room meets these conditions:
+    - the relationship is right-to-left, with Room as the source and Floor as the target
     - the relationship has a name of 'isAssociatedWith'
     - the relationship is given a query variable `r2`
 
-The query also specifies that twin building has a `$dtId` of 'building-3' and room has a temperature greater than 50.
+The query also specifies that twin Building has a `$dtId` of 'building-3' and Room has a temperature greater than 50.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchCombinedChainBDExample":::
 

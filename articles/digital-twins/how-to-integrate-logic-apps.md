@@ -83,7 +83,7 @@ Navigate to the downloaded folder and unzip it.
 The custom Swagger for this tutorial is located in the *digital-twins-custom-swaggers-main\LogicApps* folder. This folder contains subfolders called *stable* and *preview*, both of which hold different versions of the Swagger organized by date. The folder with the most recent date will contain the latest copy of the Swagger definition file. Whichever version you select, the Swagger file is named *digitaltwins.json*.
 
 > [!NOTE]
-> Unless you're working with a preview feature, it's generally recommended to use the most recent "stable" version of the Swagger file. However, earlier versions and preview versions of the Swagger file are also still supported. 
+> Unless you're working with a preview feature, it's generally recommended to use the most recent stable version of the Swagger file. However, earlier versions and preview versions of the Swagger file are also still supported. 
 
 Next, go to your connector's Overview page in the [Azure portal](https://portal.azure.com) and select **Edit**.
 
@@ -100,21 +100,21 @@ In the **Edit Logic Apps Custom Connector** page that follows, configure this in
     - **Description**: Fill whatever values you want.
     - **Connect via on-premises data gateway**: **Toggled off** (leave default)
     - **Scheme**: **HTTPS** (leave default)
-    - **Host**: The *host name* of your Azure Digital Twins instance.
-    - **Base URL**: **/** (leave default)
+    - **Host**: The host name of your Azure Digital Twins instance.
+    - **Base URL**: */* (leave default)
 
 Then, select the **Security** button at the bottom of the window to continue to the next configuration step.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Screenshot of the bottom of the 'Edit Logic Apps Custom Connector' page. Highlight around button to continue to Security.":::
 
 In the Security step, select **Edit** and configure this information:
-* **Authentication type**: *OAuth 2.0*
+* **Authentication type**: **OAuth 2.0**
 * **OAuth 2.0**:
-    - **Identity provider**: *Azure Active Directory*
-    - **Client ID**: The *Application (client) ID* for the Azure AD app registration you created in [Prerequisites](#prerequisites)
+    - **Identity provider**: **Azure Active Directory**
+    - **Client ID**: The Application (client) ID for the Azure AD app registration you created in [Prerequisites](#prerequisites)
     - **Client secret**: The Client secret from the app registration 
     - **Login URL**: `https://login.windows.net` (leave default)
-    - **Tenant ID**: The *Directory (tenant) ID* for your Azure AD app registration
+    - **Tenant ID**: The Directory (tenant) ID for your Azure AD app registration
     - **Resource URL**: *0b07f429-9f4b-4714-9392-cc5e8e80c8b0*
     - **Scope**: *Directory.AccessAsUser.All*
     - **Redirect URL**: (leave default for now)
@@ -142,7 +142,7 @@ Under **Authentication** from the registration's menu, add a URI.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Screenshot of the Authentication page for the app registration in the Azure portal, highlighting the 'Add a URI' button and the 'Authentication' menu."::: 
 
-Enter the custom connector's Redirect URL into the new field, and select the **Save** icon.
+Enter the custom connector's redirect URL into the new field, and select the **Save** icon.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Screenshot of the Authentication page for the app registration in the Azure portal, highlighting the new redirect URL and the 'Save' button.":::
 

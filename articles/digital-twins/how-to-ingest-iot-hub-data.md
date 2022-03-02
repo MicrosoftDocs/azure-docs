@@ -42,7 +42,7 @@ This how-to outlines how to send messages from IoT Hub to Azure Digital Twins, u
 > [!NOTE]
 > This example uses a straightforward ID match between the device ID and a corresponding digital twin's ID, but it is possible to provide more sophisticated mappings from the device to its twin (such as with a mapping table).
 
-Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the `temperature` property of the digital twin should update. This scenario is outlined in a diagram below:
+Whenever a temperature telemetry event is sent by the thermostat device, a function processes the telemetry and the `Temperature` property of the digital twin should update. This scenario is outlined in a diagram below:
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagram of IoT Hub device sending Temperature telemetry to a function in Azure, which updates a temperature property on a twin in Azure Digital Twins." border="false":::
 

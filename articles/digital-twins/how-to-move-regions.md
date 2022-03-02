@@ -103,7 +103,7 @@ If you have endpoints or routes in your original instance, you'll need to recrea
 
 Otherwise, follow the steps in [Manage endpoints and routes](how-to-manage-routes.md) using the new instance. Keep these pointers in mind:
 
-* You don't need to recreate the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the "Prerequisites" section in the endpoint instructions. You just need to recreate the endpoint on the Azure Digital Twins instance.
+* You don't need to recreate the Event Grid, Event Hubs, or Service Bus resource that you're using for the endpoint. For more information, see the [Prerequisites section](how-to-manage-routes.md#prerequisite-create-endpoint-resources) in the endpoint instructions. You just need to recreate the endpoint on the Azure Digital Twins instance.
 * You can reuse endpoint and route names because they're scoped to a different instance.
 * Remember to add any required filters to the routes you create.
 

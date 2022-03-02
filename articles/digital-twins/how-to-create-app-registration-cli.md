@@ -63,7 +63,7 @@ To upload the file, go to the Cloud Shell window in your browser. Select the "Up
 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Azure Cloud Shell. The Upload icon is highlighted.":::
 
-Navigate to the *manifest.json* file on your machine and select "Open." Doing so will upload the file to the root of your Cloud Shell storage.
+Navigate to the *manifest.json* file on your machine and select **Open**. Doing so will upload the file to the root of your Cloud Shell storage.
 
 ## Create the registration
 

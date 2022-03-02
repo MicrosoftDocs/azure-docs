@@ -42,7 +42,7 @@ Not all services that use DTDL implement the exact same features of DTDL. There 
 
 For a DTDL model to be compatible with Azure Digital Twins, it must also meet these requirements:
 
-* All top-level DTDL elements in a model must be of type interface. The reason for this requirement is that Azure Digital Twins model APIs can receive JSON objects that represent either an interface or an array of interfaces. As a result, no other DTDL element types are allowed at the top level.
+* All top-level DTDL elements in a model must be of type `Interface`. The reason for this requirement is that Azure Digital Twins model APIs can receive JSON objects that represent either an interface or an array of interfaces. As a result, no other DTDL element types are allowed at the top level.
 * DTDL for Azure Digital Twins must not define any commands.
 * Azure Digital Twins only allows a single level of component nesting, meaning that an interface that's being used as a component can't have any components itself. 
 * Interfaces can't be defined inline within other DTDL interfaces; they must be defined as separate top-level entities with their own IDs. Then, when another interface wants to include that interface as a component or through inheritance, it can reference its ID.
@@ -82,7 +82,7 @@ The fields of the model are:
 | `@type` | Identifies the kind of information being described. For an interface, the type is `Interface`. |
 | `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
 | `displayName` | [optional] Gives you the option to define a friendly name for the model. |
-| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (`property`, `telemetry`, `command`, `relationship`, or `component`) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a `property`). |
+| `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (`Property`, `Telemetry`, `Command`, `Relationship`, or `Component`) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a `Property`). |
 
 #### Example model
 
@@ -103,7 +103,7 @@ For a comprehensive list of the fields that may appear as part of a property, se
 
 ### Difference between properties and telemetry
 
-Here's some guidance on conceptually distinguishing between DTDL property and telemetry in Azure Digital Twins.
+Here's some guidance on conceptually distinguishing between DTDL properties and telemetry in Azure Digital Twins.
 * *Properties* are expected to have backing storage, which means that you can read a property at any time and retrieve its value. If the property is writable, you can also store a value in the property.  
 * *Telemetry* is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there's no trace of the event at a later time. You can't come back to it and read it later. 
   - In C# terms, telemetry is like a C# event. 

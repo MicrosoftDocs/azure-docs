@@ -61,8 +61,8 @@ Leave the browser window open to the Azure portal, as you'll use it again in the
 ## Publish and configure the Azure Functions app
 
 In this section, you'll set up two Azure functions:
-* "negotiate" - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
-* "broadcast" - An [Event Grid](../event-grid/overview.md) trigger function. It receives Azure Digital Twins telemetry data through the event grid, and uses the output binding of the SignalR instance you created in the previous step to broadcast the message to all connected client applications.
+* negotiate - A HTTP trigger function. It uses the *SignalRConnectionInfo* input binding to generate and return valid connection information.
+* broadcast - An [Event Grid](../event-grid/overview.md) trigger function. It receives Azure Digital Twins telemetry data through the event grid, and uses the output binding of the SignalR instance you created in the previous step to broadcast the message to all connected client applications.
 
 Start Visual Studio (or another code editor of your choice), and open the code solution in the *digital-twins-samples-master > ADTSampleApp* folder. Then do the following steps to create the functions:
 

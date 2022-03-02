@@ -94,7 +94,7 @@ To set up a client secret for your app registration, start on your app registrat
 
 ## Provide Azure Digital Twins permissions
 
-Next, configure the app registration you've created with permissions to access Azure Digital Twins. First, [create a role assignment](#create-role-assignment) for the app registration within the Azure Digital Twins instance. Then, [provide API permissions](#provide-api-permissions) for the app to read and write to the Azure Digital Twins APIs.
+Next, configure the app registration you've created with permissions to access Azure Digital Twins. First, you'll create a role assignment for the app registration within the Azure Digital Twins instance. Then, you'll provide API permissions for the app to read and write to the Azure Digital Twins APIs.
 
 ### Create role assignment
 
@@ -148,7 +148,7 @@ Select **Add permissions** when finished.
 
 #### Verify API permissions
 
-On the **API permissions** page, verify that there's now an entry for Azure Digital Twins reflecting Read/Write permissions:
+On the **API permissions** page, verify that there's now an entry for Azure Digital Twins reflecting **Read.Write** permissions:
 
 :::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Screenshot of the API permissions for the Azure AD app registration in the Azure portal, showing 'Read/Write Access' for Azure Digital Twins.":::
 

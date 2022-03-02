@@ -8,8 +8,6 @@ ms.author: baanders
 ---
 
 >    [!NOTE]
->    There's currently a known issue with the `DefaultAzureCredential` wrapper class. This wrapper contains several methods of authentication that are tried in order. Once the wrapper reaches the `SharedTokenCacheCredential` method, it may throw an error. For more information about this issue, see [troubleshooting known issues](../articles/digital-twins/troubleshoot-known-issues.md#issue-with-default-azure-credential-authentication-on-azureidentity-130).
+>    There's currently a known issue affecting the `DefaultAzureCredential` wrapper class that may result in an error while authenticating. If you encounter this issue, you can try instantiating `DefaultAzureCredential` with the following optional parameter to resolve it: `new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeSharedTokenCacheCredential = true });`
 >
->    A possible workaround is to exclude the `SharedTokenCacheCredential` method from getting triggered when using the `DefaultAzureCredential` wrapper class by instantiating it with the following optional parameter:
->
->    `new DefaultAzureCredential(new DefaultAzureCredentialOptions { ExcludeSharedTokenCacheCredential = true });`
+>    For more information about this issue, see [troubleshooting known issues](../articles/digital-twins/troubleshoot-known-issues.md#issue-with-default-azure-credential-authentication-on-azureidentity-130).

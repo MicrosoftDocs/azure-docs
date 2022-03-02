@@ -67,7 +67,7 @@ The `IS_OF_MODEL` operator can be used to filter based on the twin's [model](con
 It considers [inheritance](concepts-models.md#model-inheritance) and model [versioning](how-to-manage-model.md#update-models), and evaluates to `true` for a given twin if the twin meets either of these conditions:
 
 * The twin directly implements the model provided to `IS_OF_MODEL()`, and the version number of the model on the twin is greater than or equal to the version number of the provided model
-* The twin implements a model that `extends` the model provided to `IS_OF_MODEL()`, and the twin's extended model version number is greater than or equal to the version number of the provided model
+* The twin implements a model that extends the model provided to `IS_OF_MODEL()`, and the twin's extended model version number is greater than or equal to the version number of the provided model
 
 So for example, if you query for twins of the model `dtmi:example:widget;4`, the query will return all twins based on version 4 or greater of the widget model, and also twins based on version 4 or greater of any models that inherit from widget.
 

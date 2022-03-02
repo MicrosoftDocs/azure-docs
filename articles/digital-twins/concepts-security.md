@@ -36,7 +36,7 @@ With Azure AD, access is a two-step process. When a security principal (a user, 
 1. First, the security principal's identity is authenticated, and an OAuth 2.0 token is returned.
 2. Next, the token is passed as part of a request to the Azure Digital Twins service, to authorize access to the specified resource.
 
-The authentication step requires any application request to contain an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an [Azure Functions](../azure-functions/functions-overview.md) app, it can use a managed identity to access the resources. Read more about managed identities in the next section.
+The authentication step requires any application request to contain an OAuth 2.0 access token at runtime. If an application is running within an Azure entity such as an [Azure Functions](../azure-functions/functions-overview.md) app, it can use a *managed identity* to access the resources. Read more about managed identities in the next section.
 
 The authorization step requires that an Azure role be assigned to the security principal. The roles that are assigned to a security principal determine the permissions that the principal will have. Azure Digital Twins provides Azure roles that encompass sets of permissions for Azure Digital Twins resources. These roles are described later in this article.
 
