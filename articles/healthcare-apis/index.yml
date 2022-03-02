@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 02/08/2022
+  ms.date: 03/02/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -100,7 +100,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Deploy Events in the Azure Portal
-            url: ./events/events-deploy-in-portal.md
+            url: ./events/events-deploy-portal.md
       - linkListType: tutorial
         links:
           - text: Deploy Events metrics
