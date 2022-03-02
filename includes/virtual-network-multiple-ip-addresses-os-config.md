@@ -52,7 +52,64 @@ ping -S 10.0.0.7 outlook.com
 
 </details>
 
-### Linux (Ubuntu 14/16)
+### SUSE Linux Enterprise and openSUSE
+
+<details> 
+  <summary>Expand</summary>
+ 
+ ##### YaST Method
+ 
+ 1. For a graphical (GTK) interface, open YaST in a VNC or RDP session and go to the "System" > "Network Settings" module. For command-line (ncurses) interface, run <code>yast2 lan</code> from a terminal window or Azure Serial Console.
+ 
+> [!TIP]
+> The ncurses YaST interface highlights a letter of each selectable YaST option which can be selected with Alt + letter.  
+> The GTK interface provides a similar feature but uses an underline for this letter instead.
+ 
+ 2. In the "Overview" tab, highlight the interface and select the "Edit" option to open a NIC-specific dialog.
+ 
+ 3. In the "Address" tab, select "Add" on the "Additional IPs" box.
+ 
+ 4. Add a Label for the IP alias, IP Address and Subnet Mask. Select "OK" then "Next" and finally "OK".
+ 
+ ##### Manual Method
+ 
+ Add the IPADDR_0 and LABEL_0 entries to the respective `/etc/sysconfig/network/ifcfg-*` interface file.  
+ 
+ For example, to add "10.0.0.128" as an IP alias with the label "eth0a" to an existing `eth0` interface on a "/24" network.
+ 
+ [A]. Use VIM to edit the file in place
+ 
+ ```bash
+ vim /etc/sysconfig/network/ifcfg-eth0
+ ```
+ 
+ Insert <code>i</code> the following lines at the end of the ifcfg file.
+ 
+ ```vim
+ IPADDR_0='10.0.0.128/24'
+ LABEL_0='eth0a'
+ ```
+ Use the "Esc" key to exit insert mode and run the write and quit vim commands:
+
+ ```vim
+ :wq
+ ```
+
+ [B].  Use bash to append these values in a single command
+ 
+ ```bash
+ echo -e "IPADDR_0='10.0.0.128/24'\nLABEL_0='eth0a'" >> /etc/sysconfig/network/ifcfg-eth0
+ ```
+ 
+ Instruct wicked network service to reload the interface:
+
+ ```bash
+ sudo wicked ifreload eth0
+ ```
+ 
+</details>
+
+### Ubuntu 14/16
 
 <details>
   <summary>Expand</summary>
@@ -143,7 +200,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 
 </details>
 
-### Linux (Ubuntu 18.04+)
+### Ubuntu 18.04+
 
 <details>
   <summary>Expand</summary>
@@ -247,7 +304,7 @@ ip route add default via 10.0.0.1 dev eth2 table custom
 
 </details>
 
-### Linux (Red Hat, CentOS, and others)
+### Red Hat Enterprise Linux, CentOS, and others
 
 <details>
   <summary>Expand</summary>
