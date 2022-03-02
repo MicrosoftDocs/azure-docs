@@ -1,6 +1,6 @@
 ---
-title: Integrate Event Hubs with Service Connector
-description: Integrate Event Hubs into your application with Service Connector
+title: Integrate Azure Event Hubs with Service Connector
+description: Integrate Azure Event Hubs into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 02/21/2022
 ---
 
-# Integrate Event Hubs with Service Connector
+# Integrate Azure Event Hubs with Service Connector
 
 This page shows the supported authentication types and client types of Azure Event Hubs using Service Connector. You might still be able to connect to Event Hubs in other programming languages without using Service Connector. This page also shows default environment variable names and values or Spring Boot configuration you get when you create service connections. You can learn more about the [Service Connector environment variable naming convention](concept-service-connector-internals.md).
 
@@ -92,7 +92,7 @@ This page shows the supported authentication types and client types of Azure Eve
 | spring.cloud.azure.tenant-id          | Your client secret   | `******`                                     |
 | spring.cloud.azure.client-secret      | Your tenant ID       | `{yourTenantID}`                             |
 
-## Next step
+## Next steps
 
 Follow the tutorial listed below to learn more about Service Connector.
 
