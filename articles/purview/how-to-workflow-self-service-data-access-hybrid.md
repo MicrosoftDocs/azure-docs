@@ -43,8 +43,8 @@ This guide will take you through the creation and management of Self-Service dat
         - If rejected:
             1. Send an email to requestor that data access request is denied.
 1. The default template can be used as it is by just populating two fields  
-    1. The approver’s email address or Microsoft Azure Active Directory group in ‘Start and Wait for approval’ Connector 
-    1. User email address or Microsoft Azure Active Directory group in ‘Create task’ connector who is responsible for manually providing access if the source isn't registered with policy. 
+    * The approver’s email address or Microsoft Azure Active Directory group in ‘Start and Wait for approval’ Connector 
+    * User email address or Microsoft Azure Active Directory group in ‘Create task’ connector who is responsible for manually providing access if the source isn't registered with policy. 
 1. You can also modify the template by adding more connectors to suit your organizational needs by adding available connectors. 
 1. Once you're done with defining a workflow, you need to bind the workflow to collection hierarchy path. The binding implies that this workflow is triggered only for data access requests in that collection. To bind a workflow or to apply a scope to a workflow, you need to select on ‘Apply workflow’. Select the scopes you want this workflow to be associated with and select ‘OK’. 
     >[!NOTE]
