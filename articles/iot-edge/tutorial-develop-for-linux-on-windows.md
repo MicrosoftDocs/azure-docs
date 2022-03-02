@@ -89,28 +89,28 @@ The second step is to configure the EFLOW virutal machine Docker engine to accep
 >[!WARNING]
 >Exposing Docker engine to external connections may increase security risks. This configuration should only be used for development purposes. Make sure to revert the configuration to default settings after development is finished.
 
-1. Open an elevated PowerShell session
-2. Add the appropiate firewall to open Docker 2375 port inside the EFLOW VM
+1. Open an elevated PowerShell session.
+2. Add the appropiate firewall to open Docker 2375 port inside the EFLOW VM.
    ```powershell
    Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 2375 -j ACCEPT"
    ```
-3. Create copy of the EFLOW VM _docker.service_ to the system folder
+3. Create copy of the EFLOW VM _docker.service_ to the system folder.
    ```powershell
    Invoke-EflowVmCommand "sudo cp /lib/systemd/system/docker.service /etc/systemd/system/docker.service"
    ```
-4. Replace service execution line to listen external connections
+4. Replace service execution line to listen external connections.
    ```powershell
    Invoke-EflowVmCommand "sudo sed -i 's/-H fd:\/\// -H fd:\/\/ -H tcp:\/\/0.0.0.0:2375/g'  /etc/systemd/system/docker.service"
    ```
-5. Reload the EFLOW VM services configurations
+5. Reload the EFLOW VM services configurations.
    ```powershell
    Invoke-EflowVmCommand "sudo systemctl daemon-reload"
    ```
-6. Reload the Docker engine service
+6. Reload the Docker engine service.
     ```powershell
    Invoke-EflowVmCommand "sudo systemctl restart docker.service"
    ```
-7. Check Docker engine is listening to external connections
+7. Check Docker engine is listening to external connections.
    ```powershell
    Invoke-EflowVmCommand "sudo netstat -lntp | grep dockerd"
    ```
@@ -119,8 +119,8 @@ If everything was sucessfully configurated, the previous command should output t
 
 The final step is to test the Docker connection to the EFLOW VM Docker engine. 
 
-1. Open an elevated PowerShell session
-2. Get the EFLOW VM IP address
+1. Open an elevated PowerShell session.
+2. Get the EFLOW VM IP address.
   ```powershell
    Get-EflowVmAddr
    ```
@@ -130,3 +130,49 @@ The final step is to test the Docker connection to the EFLOW VM Docker engine.
    ```
 You should see that the continer is being downloaded, and after will run and output: _"Hello from Docker!"_.
 
+
+## Set up VS Code and tools
+
+Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio Code and the IoT extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio Code.
+
+1. Install [Visual Studio Code](https://code.visualstudio.com/) on your development machine.
+
+2. Once the installation is finished, select **View** > **Extensions**.
+
+3. Search for **Azure IoT Tools**, which is actually a collection of extensions that help you interact with IoT Hub and IoT devices, as well as developing IoT Edge modules.
+
+4. Select **Install**. Each included extension installs individually.
+
+5. When the extensions are done installing, open the command palette by selecting **View** > **Command Palette**.
+
+6. In the command palette, search for and select **Azure: Sign in**. Follow the prompts to sign in to your Azure account.
+
+7. In the command palette again, search for and select **Azure IoT Hub: Select IoT Hub**. Follow the prompts to select your Azure subscription and IoT hub.
+
+8. Open the explorer section of Visual Studio Code by either selecting the icon in the activity bar on the left, or by selecting **View** > **Explorer**.
+
+9. At the bottom of the explorer section, expand the collapsed **Azure IoT Hub / Devices** menu. You should see the devices and IoT Edge devices associated with the IoT hub that you selected through the command palette.
+
+   ![View devices in your IoT hub](./media/tutorial-develop-for-linux/view-iot-hub-devices.png)
+
+10. Select **View** > **Extensions**.
+
+11. Search for **Docker**, which is actually a tool that help you create, manage and debug containerized applications.
+
+12. Select **Install**.
+
+13. Search and select the **Docker** icon on the left bar to open the **Docker** panel.
+
+14. In the first **CONTAINERS** tile, select the (?) button and then select **Edit settings...**
+
+15. Search for **Docker: Host** section and add (_tcp://<eflow-vm-ip>:2375_) the EFLOW VM IP address for the remote Docker engine connection.
+
+   ![Remote Docker engine settings](./media/tutorial-develop-for-linux-on-windows/docker-engine-tcp-configuration.png)
+
+16. Go back to the **Docker** panel and in the first **CONTAINERS** tile, select the &#8634; refresh button
+
+If everything is correctly configurated, you should be able to see the contianers running inside the EFLOW VM, if any, and the recent downloaded _hello-world_ image. 
+
+   ![Remote Docker engine status](./media/tutorial-develop-for-linux-on-windows/docker-remote-engine.png)
+
+[!INCLUDE [iot-edge-create-container-registry](../../includes/iot-edge-create-container-registry.md)]
