@@ -6,7 +6,7 @@ author: StevenMatthew
 ms.author: shaas
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/05/2022
+ms.date: 03/02/2022
 ---
 
 # Manage block blobs with Azure CLI
@@ -61,7 +61,7 @@ Azure CLI offers commands that perform operations on one resource or on multiple
 
 To upload a file to a block blob, pass the required parameter values to the `az storage blob upload` command. Supply the source path and file name with the `--file` parameter, and the name of the destination container with the `--container-name` parameter. You'll also need to supply the `--account-name` parameter. This command creates a new blob or overwrites the original blob if it already exists.
 
-You can use the `az storage blob upload-batch` command to recursively upload multiple blobs to a storage container. By omitting values for the `--source` and `--destination` parameter values, you can upload all files from the specified directory. You can also use Unix filename pattern matching specify a range of files to upload by  with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
+You can use the `az storage blob upload-batch` command to recursively upload multiple blobs to a storage container. You can use Unix filename pattern matching specify a range of files to upload with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
 In the following example, the first operation uses the `az storage blob upload` command to upload a single, named file. The source file and destination storage container are specified with the `--file` and `--container-name` parameters.  
 
