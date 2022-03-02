@@ -26,6 +26,72 @@ Using the [Azure portal](https://portal.azure.com):
    4. Select extensions you wish to allow-list.
      :::image type="content" source="./media/concepts-extensions/allow-list.png" alt-text=" Screenshot showing Azure Database for PostgreSQL - allow-listing extensions for installation ":::
   
+Using [Azure CLI](https://docs.microsoft.com/cli/azure/):
+
+   You can white-list extensions via CLI parameter set [command]( https://docs.microsoft.com/cli/azure/postgres/flexible-server/parameter?view=azure-cli-latest). 
+
+   ```bash
+az postgres flexible-server parameter set --resource-group <your resource group>  --server-name <your server name> --subscription <your subscription id> --name azure.extensions --value <extension name>,<extension name>
+   ```
+
+   Using [ARM Template](https://docs.microsoft.com/azure/azure-resource-manager/templates/):
+   Example below allow-lists extensions dblink, dict_xsyn, pg_buffercache on server mypostgreserver 
+```json
+{
+
+    "$schema": https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#,
+
+    "contentVersion": "1.0.0.0",
+
+    "parameters": {
+
+        "flexibleServers_name": {
+
+            "defaultValue": "mypostgreserver",
+
+            "type": "String"
+
+        },
+
+        "azure_extensions_set_value": {
+
+            "defaultValue": " dblink,dict_xsyn,pg_buffercache",
+
+            "type": "String"
+
+        }
+
+    },
+
+    "variables": {},
+
+    "resources": [
+
+        {
+
+            "type": "Microsoft.DBforPostgreSQL/flexibleServers/configurations",
+
+            "apiVersion": "2021-06-01",
+
+            "name": "[concat(parameters('flexibleServers_name'), '/azure.extensions')]",
+
+            "properties": {
+
+                "value": "[parameters('azure_extensions_set_value')]",
+
+                "source": "user-override"
+
+            }
+
+        }
+
+    ]
+
+}
+
+
+  ```
+
 After extensions are allow-listed, these must be installed in your database before you can use them. To install a particular extension, you should run the [CREATE EXTENSION](https://www.postgresql.org/docs/current/sql-createextension.html) command. This command loads the packaged objects into your database.
 
 
