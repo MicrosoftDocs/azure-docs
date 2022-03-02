@@ -1,14 +1,18 @@
 ---
-title: Monitor logic apps by using Azure Monitor logs
-description: Troubleshoot logic apps by setting up Azure Monitor logs and collecting diagnostics data for Azure Logic Apps
+title: Monitor logic apps with Azure Monitor logs
+description: Troubleshoot logic apps using Azure Monitor logs and collecting diagnostics data for Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: divswa, logicappspm
-ms.topic: article
+ms.reviewer: divswa, azla
+ms.topic: how-to
 ms.date: 09/24/2020
 ---
 
 # Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps
+
+> [!NOTE]
+> This article applies only to Consumption logic apps. For information about monitoring Standard logic apps, review 
+> [Enable or open Application Insights after deployment for Standard logic apps](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
 
 To get richer debugging information about your logic apps during runtime, you can set up and use [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md) to record and store information about runtime data and events, such as trigger events, run events, and action events in a [Log Analytics workspace](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). [Azure Monitor](../azure-monitor/overview.md) helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. By using Azure Monitor logs, you can create [log queries](../azure-monitor/logs/log-query-overview.md) that help you collect and review this information. You can also [use this diagnostics data with other Azure services](#extend-data), such as Azure Storage and Azure Event Hubs.
 
@@ -219,7 +223,7 @@ Each diagnostic event has details about your logic app and that event, for examp
   }
   ```
 
-  This example show multiple tracked properties:
+  This example shows multiple tracked properties:
 
   ``` json
   "HTTP": {
