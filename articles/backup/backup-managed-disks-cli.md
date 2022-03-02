@@ -32,7 +32,9 @@ Before you create a Backup vault, choose the storage redundancy of the data with
 
 ```azurecli-interactive
 az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
+```
 
+```output
 {
   "eTag": null,
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault",
@@ -67,7 +69,9 @@ To understand the inner components of a Backup policy for Azure Disk Backup, ret
 
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureDisk
+```
 
+```output
 {
   "datasourceTypes": [
     "Microsoft.Compute/disks"
@@ -124,7 +128,6 @@ az dataprotection backup-policy get-default-policy-template --datasource-type Az
     }
   ]
 }
-
 ```
 
 The policy template consists of a trigger (which decides what triggers the backup) and a lifecycle (which decides when to delete/copy/move the backup). In Azure Disk Backup, the default values for trigger are a scheduled trigger for every 4 hours (PT4H) and to retain each backup for seven days.
@@ -139,7 +142,6 @@ The policy template consists of a trigger (which decides what triggers the backu
             "R/2020-04-05T13:00:00+00:00/PT4H"
           ]
         }
-
 ```
 
 **Default retention lifecycle:**
@@ -178,7 +180,9 @@ Once the template is downloaded as a JSON file, you can edit it for scheduling a
 ```azurecli-interactive
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureDisk > policy.json
 az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy policy.json
+```
 
+```output
 {
 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/mypolicy",
 "name": "mypolicy",
@@ -328,8 +332,9 @@ Use the edited JSON file to create a backup instance of the Azure Managed Disk.
 
 ```azurecli-interactive
 az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpVault --backup-instance backup_instance.json
+```
 
-
+```output
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault/backupInstances/diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166",
   "name": "diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166",
@@ -381,8 +386,9 @@ List all backup instances within a vault using [az dataprotection backup-instanc
 
 ```azurecli-interactive
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDisk --datasource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk
+```
 
-
+```output
 [
   {
     "datasourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk",
@@ -442,13 +448,11 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
     "zones": null
   }
 ]
-
-
 ```
 
 You can specify a retention rule while triggering backup. To view the retention rules in policy, look through the policy JSON for retention rules. In the below example, the rule with the name _default_ is displayed and we'll use that rule for the on-demand backup.
 
-```JSON
+```json
 {
       "isDefault": true,
       "lifecycles": [
