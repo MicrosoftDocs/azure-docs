@@ -30,6 +30,9 @@ Take advantage of your domain expertise on top of Azure Digital Twins to build c
 * Use a robust event system to build dynamic business logic and data processing
 * Integrate with Azure data, analytics, and AI services to help you track the past and then predict the future
 
+## Demo
+This text is added to demo in-browser editing.
+
 ## Azure Digital Twins capabilities
 
 Here's a summary of the features provided by Azure Digital Twins.
