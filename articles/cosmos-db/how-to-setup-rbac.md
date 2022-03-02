@@ -435,7 +435,7 @@ When creating or updating your Azure Cosmos DB account using Azure Resource Mana
     {
         "type": " Microsoft.DocumentDB/databaseAccounts",
         "properties": {
-            "locations": [],
+            "locations": [...],
             "disableLocalAuth": true,
             // ...
         },
