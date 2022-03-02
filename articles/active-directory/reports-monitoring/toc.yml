@@ -132,7 +132,7 @@
       href: workbook-cross-tenant-access-activity.md
     - name: Sensitive Operations Report 
       href: workbook-sensitive-operations-report.md
-  - name: Recommendations
-    items:
+- name: Recommendations
+  items:
     - name: Integrate your third party apps
       href: recommendation-integrate-third-party-apps.md
