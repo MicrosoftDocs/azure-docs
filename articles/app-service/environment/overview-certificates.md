@@ -3,7 +3,7 @@ title: Certificates in App Service Environment
 description: Explain topics related to certificates in an App Service Environment. Learn how certificate bindings work on the single-tenanted apps in an ASE.
 author: madsd
 ms.topic: overview
-ms.date: 11/15/2021
+ms.date: 3/1/2022
 ms.author: madsd
 ---
 
@@ -16,7 +16,7 @@ The App Service Environment (ASE) is a deployment of the Azure App Service that 
 
 ## Application certificates
 
-Apps that are hosted in an ASE can use the app-centric certificate features that are available in the multi-tenant App Service. Those features include:
+Apps that are hosted in an App Service Environment can  can use the app-centric certificate features that are available in the multi-tenant App Service. Those features include:
 
 - SNI certificates
 - KeyVault hosted certificates
