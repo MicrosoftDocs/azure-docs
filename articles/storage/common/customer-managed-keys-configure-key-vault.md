@@ -24,10 +24,8 @@ This article shows how to configure encryption with customer-managed keys stored
 > Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration.
 
 ## Configure a key vault
-> [!NOTE]
-> There's no longer a restriction for the storage account and key vault to be in the same region or subscription.
 
-You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
+You can use a new or existing key vault to store customer-managed keys. The Storage Account and Key Vault can be in different regions. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
 
 Using customer-managed keys with Azure Storage encryption requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
 
