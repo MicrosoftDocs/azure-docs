@@ -35,7 +35,9 @@ Outbound rules enable you to explicitly define SNAT (source network address tran
 This configuration enables:
 
 - IP masquerading
+
 - Simplifying your allowlists
+
 - Reduces the number of public IP resources for deployment
 
 With outbound rules, you have full declarative control over outbound internet connectivity. Outbound rules allow you to scale and tune this ability to your specific needs via manual port allocation. Manually allocating SNAT port based on the backend pool size and number of **frontendIPConfigurations** can help avoid SNAT exhaustion. 
@@ -73,7 +75,6 @@ Traffic will return to the requesting client from the virtual machine's public I
 Azure uses the public IP assigned to the IP configuration of the instance's NIC for all outbound flows. The instance has all ephemeral ports available. It doesn't matter whether the VM is load balanced or not. This scenario takes precedence over the others. 
 
 A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
-
 
 ## 4. Default outbound access
 
@@ -126,7 +127,9 @@ Every connection to the same destination IP and destination port will use a SNAT
 Imagine having multiple browsers going to https://www.microsoft.com, which is:
 
 * Destination IP = 23.53.254.142
+
 * Destination Port = 443
+
 * Protocol = TCP
 
 Without different destination ports for the return traffic (the SNAT port used to establish the connection), the client will have no way to separate one query result from another.
@@ -143,17 +146,24 @@ For UDP connections, the load balancer uses a **port-restricted cone NAT** algor
 
 A port is reused for an unlimited number of connections. The port is only reused if the destination IP or port is different.
 
-
-## Constraints
+## Limitations
 
 *	When a connection is idle with no new packets being sent, the ports will be released after 4 – 120 minutes.
+
   *	This threshold can be configured via outbound rules.
+
 *	Each IP address provides 64,000 ports that can be used for SNAT.
+
 *	Each port can be used for both TCP and UDP connections to a destination IP address
+
   *	A UDP SNAT port is needed whether the destination port is unique or not. For every UDP connection to a destination IP, one UDP SNAT port is used.
+
   *	A TCP SNAT port can be used for multiple connections to the same destination IP provided the destination ports are different.
+
 *	SNAT exhaustion occurs when a backend instance runs out of given SNAT Ports. A load balancer can still have unused SNAT ports. If a backend instance’s used SNAT ports exceed its given SNAT ports, it will be unable to establish new outbound connections.
+
 *	Fragmented packets will be dropped unless outbound is through an instance level public IP on the VM's NIC.
+
 *	Secondary IP configurations of a network interface don't provide outbound communication (unless a public IP is associated to it) via a load balancer.
 
 ## Next steps
