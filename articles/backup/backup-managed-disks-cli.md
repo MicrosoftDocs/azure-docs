@@ -34,7 +34,7 @@ Before you create a Backup vault, choose the storage redundancy of the data with
 az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVault -l westus --type SystemAssigned --storage-settings datastore-type="VaultStore" type="LocallyRedundant"
 ```
 
-```output
+```json
 {
   "eTag": null,
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault",
@@ -71,7 +71,7 @@ To understand the inner components of a Backup policy for Azure Disk Backup, ret
 az dataprotection backup-policy get-default-policy-template --datasource-type AzureDisk
 ```
 
-```output
+```json
 {
   "datasourceTypes": [
     "Microsoft.Compute/disks"
@@ -182,7 +182,7 @@ az dataprotection backup-policy get-default-policy-template --datasource-type Az
 az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy policy.json
 ```
 
-```output
+```json
 {
 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/mypolicy",
 "name": "mypolicy",
@@ -334,7 +334,7 @@ Use the edited JSON file to create a backup instance of the Azure Managed Disk.
 az dataprotection backup-instance create -g testBkpVaultRG --vault-name TestBkpVault --backup-instance backup_instance.json
 ```
 
-```output
+```json
 {
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault/backupInstances/diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166",
   "name": "diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166",
@@ -388,7 +388,7 @@ List all backup instances within a vault using [az dataprotection backup-instanc
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDisk --datasource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk
 ```
 
-```output
+```json
 [
   {
     "datasourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk",
