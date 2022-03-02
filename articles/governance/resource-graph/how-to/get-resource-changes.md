@@ -134,7 +134,10 @@ or `-Subscription` parameters.
   1. Select **All services** in the left pane. Search for and select **Resource Graph Explorer**.
 
   1. In the **Query 1** portion of the window, enter the query
-     `resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5` and select **Run query**.
+     ```kusto
+     resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5
+     ``` 
+     and select **Run query**.
 
   1. Review the query response in the **Results** tab. Select the **Messages** tab to see details
    about the query, including the count of results and duration of the query. Errors, if any, are
@@ -162,7 +165,9 @@ or `-Subscription` parameters.
    ```
    
 # [Portal](#tab/azure-portal)
-   `resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5`. 
+   ```kusto
+   resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5
+   ``` 
    Then, select **Run query**.
 
 ---
@@ -183,7 +188,9 @@ or `-Subscription` parameters.
    ```
 
 # [Portal](#tab/azure-portal)
-   `resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5`.  
+   ```kusto
+   resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5
+   ``` 
    Then, select **Run query**.
    
 ---
