@@ -35,7 +35,7 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 ### ACR support for Windows images (Public preview)
 
-Image scan for ACR now supports Windows images in public preview. This feature is being offered for free while in public preview, and will incur a cost when it is released in GA.
+Image scan for ACR now supports Windows images in public preview. This feature is being offered for free while in public preview, and will incur a cost when it's's released in GA.
 
 
 ## February 2022
