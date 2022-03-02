@@ -57,8 +57,7 @@ it will again say **Rebalancing is not recommended at this time**.
 
 ## Next steps
 
-- Learn more about server group [performance
-  options](concepts-configuration-options.md).
+- Learn more about server group [performance options](resources-compute.md).
 - [Scale a server group](howto-scale-grow.md) up or out
 - See the
   [rebalance_table_shards](reference-functions.md#rebalance_table_shards)

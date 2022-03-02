@@ -4,7 +4,7 @@ description: Learn how to deploy the Microsoft Sentinel solution for SAP environ
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc, ignite-fall-2021, devx-track-azurecli
 ms.date: 11/09/2021
 ---
 
@@ -47,7 +47,7 @@ To deploy the Microsoft Sentinel SAP data connector and security content as desc
 | Area | Description |
 | --- | --- |
 |**Azure prerequisites** | **Access to Microsoft Sentinel**. Make a note of your Microsoft Sentinel workspace ID and key to use in this tutorial when you [deploy your SAP data connector](#deploy-your-sap-data-connector). <br><br>To view these details from Microsoft Sentinel, go to **Settings** > **Workspace settings** > **Agents management**. <br><br>**Ability to create Azure resources**. For more information, see the [Azure Resource Manager documentation](../azure-resource-manager/management/manage-resources-portal.md). <br><br>**Access to your Azure key vault**. This tutorial describes the recommended steps for using your Azure key vault to store your credentials. For more information, see the [Azure Key Vault documentation](../key-vault/index.yml). |
-|**System prerequisites** | **Software**. The SAP data connector deployment script automatically installs software prerequisites. For more information, see [Automatically installed software](#automatically-installed-software). <br><br> **System connectivity**. Ensure that the VM serving as your SAP data connector host has access to: <br>- Microsoft Sentinel <br>- Your Azure key vault <br>- The SAP environment host, via the following TCP ports: *32xx*, *5xx13*, and *33xx*, where *xx* is the SAP instance number. <br><br>Make sure that you also have an SAP user account in order to access the SAP software download page.<br><br>**System architecture**. The SAP solution is deployed on a VM as a Docker container, and each SAP client requires its own container instance. For sizing recommendations, see [Recommended virtual machine sizing](sap-solution-detailed-requirements.md#recommended-virtual-machine-sizing). <br>Your VM and the Microsoft Sentinel workspace can be in different Azure subscriptions, and even different Azure AD tenants.|
+|**System prerequisites** | **Software**. The SAP data connector deployment script automatically installs software prerequisites. For more information, see [Automatically installed software](#automatically-installed-software). <br><br> **System connectivity**. Ensure that the VM serving as your SAP data connector host has access to: <br>- Microsoft Sentinel <br>- Your Azure key vault <br>- The SAP environment host, via the following TCP ports: *32xx*, *5xx13*, and *33xx*, *48xx* (in case SNC is used) where *xx* is the SAP instance number. <br><br>Make sure that you also have an SAP user account in order to access the SAP software download page.<br><br>**System architecture**. The SAP solution is deployed on a VM as a Docker container, and each SAP client requires its own container instance. For sizing recommendations, see [Recommended virtual machine sizing](sap-solution-detailed-requirements.md#recommended-virtual-machine-sizing). <br>Your VM and the Microsoft Sentinel workspace can be in different Azure subscriptions, and even different Azure AD tenants.|
 |**SAP prerequisites** | **Supported SAP versions**. We recommend using [SAP_BASIS versions 750 SP13](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows) or later. <br><br>Certain steps in this tutorial provide alternative instructions if you're working on older SAP version [SAP_BASIS 740](https://support.sap.com/en/my-support/software-downloads/support-package-stacks/product-versions.html#:~:text=SAP%20NetWeaver%20%20%20%20SAP%20Product%20Version,%20%20SAPKB710%3Cxx%3E%20%207%20more%20rows).<br><br> **SAP system details**. Make a note of the following SAP system details for use in this tutorial:<br>- SAP system IP address<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as`001`<br><br>**SAP NetWeaver instance access**. Access to your SAP instances must use one of the following options: <br>- [SAP ABAP user/password](#configure-your-sap-system). <br>- A user with an X509 certificate, using SAP CRYPTOLIB PSE. This option might require expert manual steps.<br><br>**Support from your SAP team**.  You'll need the support of your SAP team to help ensure that your SAP system is [configured correctly](#configure-your-sap-system) for the solution deployment. |
 | | |
 
@@ -84,8 +84,8 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
 1. Download and install one of the following SAP change requests from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR):
 
-    - **SAP version 750 or later**: Install the SAP change request *NPLK900198*
-    - **SAP version 740**: Install the SAP change request *NPLK900200*
+    - **SAP version 750 or later**: Install the SAP change request *NPLK900202*
+    - **SAP version 740**: Install the SAP change request *NPLK900201*
 
     When you're performing this step, be sure to use binary mode to transfer the files to the SAP system, and use the **STMS_IMPORT** SAP transaction code.
 
