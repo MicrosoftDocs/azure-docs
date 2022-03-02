@@ -8,7 +8,7 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/02/2022
 
-ms.author: v-nisba
+ms.author: justinha
 author: NishthaBabith-V
 manager: martinco
 ms.reviewer: tilarso
