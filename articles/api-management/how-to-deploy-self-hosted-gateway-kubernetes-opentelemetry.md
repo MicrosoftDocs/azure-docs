@@ -39,8 +39,6 @@ You learn how to:
 
 The self-hosted gateway can be configured to automatically collect and send metrics to an [OpenTelemetry Collector](https://opentelemetry.io/docs/concepts/components/#collector). This allows you to bring your own metrics collection and reporting solution for the self-hosted gateway.
 
-![API traffic flow without self-hosted gateways](media/self-hosted-gateway-observability/opentelemetry-collector.png)
-
 > [!NOTE]
 > OpenTelemetry is an incubating project of the [Cloud Native Computing Foundation (CNCF) ecosystem](https://www.cncf.io/).
 
