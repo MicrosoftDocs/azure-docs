@@ -24,6 +24,9 @@ Download the [migrator tool from GitHub](https://github.com/Azure/iotc-migrator)
 
 To minimize disruption, you can migrate your devices in phases. The migrator tool uses device groups to move devices from IoT Central to your IoT hub. Divide your device fleet into device groups such as devices in Texas, devices in New York, and devices in the rest of the US. Then migrate each device group independently.
 
+> [!WARNING]
+> You can't add unassigned devices to a device group. Therefore you can't currently use the migrator tool to migrate unassigned devices.
+
 Minimize business impact by following these steps:
 
 - Create the PaaS solution and run it in parallel with the IoT Central application.

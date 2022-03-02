@@ -7,8 +7,8 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
-ms.author: vikurpad
+ms.date: 02/23/2022
+ms.author: lajanuar
 recommendations: false
 ---
 # Form Recognizer custom models
@@ -19,11 +19,11 @@ To create a custom model, you label a dataset of documents with the values you w
 
 ## Custom model types
 
-Custom models can be one of two types, [**custom template**](concept-custom-template.md ) or [**custom neural**](concept-custom-neural.md) models. The labeling and training process for both models is identical, but the models differ as follows:
+Custom models can be one of two types, [**custom template**](concept-custom-template.md ) or custom form and [**custom neural**](concept-custom-neural.md)  or custom document models. The labeling and training process for both models is identical, but the models differ as follows:
 
 ### Custom template model
 
- The custom template model relies on a consistent visual template to extract the labeled data. The accuracy of your model is affected by variances in the visual structure of your documents. Questionnaires or application forms are examples of consistent visual templates.Your training set will consist of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template  models support key-value pairs, selection marks, tables, signature fields and regions and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md ).
+ The custom template or custom form model relies on a consistent visual template to extract the labeled data. The accuracy of your model is affected by variances in the visual structure of your documents. Structured  forms such as questionnaires or applications are examples of consistent visual templates. Your training set will consist of structured documents where the formatting and layout are static and constant from one document instance to the next. Custom template  models support key-value pairs, selection marks, tables, signature fields and regions and can be trained on documents in any of the [supported languages](language-support.md). For more information, *see* [custom template models](concept-custom-template.md ).
 
 > [!TIP]
 >
@@ -33,7 +33,24 @@ Custom models can be one of two types, [**custom template**](concept-custom-temp
 
 ### Custom neural model
 
-The custom neural model is a deep learning model type relies on a base model trained on a large collection of labeled documents using key-value pairs. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When choosing between the two model types, start with a neural model if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
+The custom neural (custom document) model is a deep learning model type that relies on a base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
+
+### Build mode
+
+The build custom model operation has added support for the *template* and *neural* custom models. Previous versions of the REST API and SDKs only supported a single build mode that is now known as the *template* mode.
+
+* Template models only accept documents that have the same basic page structure—a uniform visual appearance—or the same relative positioning of elements within the document.
+
+* Neural models support documents that have the same information, but different page structures. Examples of these documents include United States W2 forms, which share the same information, but may vary in appearance by the company that created the document. Neural models currently only support English text.
+
+This table provides links to the build mode programming language SDK references and code samples on GitHub:
+
+|Programming language | SDK reference | Code sample |
+|---|---|---|
+| C#/.NET | [DocumentBuildMode Struct](/dotnet/api/azure.ai.formrecognizer.documentanalysis.documentbuildmode?view=azure-dotnet-preview&preserve-view=true#properties) | [Sample_BuildCustomModelAsync.cs](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/tests/samples/Sample_BuildCustomModelAsync.cs)
+|Java| [DocumentBuildMode Class](/java/api/com.azure.ai.formrecognizer.administration.models.documentbuildmode?view=azure-java-preview&preserve-view=true#fields) | [BuildModel.java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/administration/BuildModel.java)|
+|JavaScript | [DocumentBuildMode type](/javascript/api/@azure/ai-form-recognizer/documentbuildmode?view=azure-node-preview&preserve-view=true)| [buildModel.js](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/samples/v4-beta/javascript/buildModel.js)|
+|Python | [DocumentBuildMode Enum](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.documentbuildmode?view=azure-python-preview&preserve-view=true#fields)| [sample_build_model.py](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.2.0b3/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_build_model.py)|
 
 ## Model features
 
@@ -51,7 +68,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 | Feature | Resources |
 |----------|-------------|
-|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/try-v3-csharp-sdk.md)</li><li>[Python SDK](quickstarts/try-v3-python-sdk.md)</li></ul>|
+|Custom model| <ul><li>[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)</li><li>[REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)</li><li>[C# SDK](quickstarts/try-v3-csharp-sdk.md)</li><li>[Python SDK](quickstarts/try-v3-python-sdk.md)</li></ul>|
 
 ### Try Form Recognizer
 
@@ -102,7 +119,7 @@ This table compares the supported data extraction areas:
 |Custom template| ✔ | ✔ | ✔ |&#10033; | ✔ |
 |Custom neural| ✔| ✔ |**n/a**| **n/a** | **n/a** |
 
-**Table symbols**: ✔ — supported; &#10033; — preview; **n/a** — currently unavailable
+**Table symbols**: ✔—supported; ✱—preview; **n/a—currently unavailable
 
 > [!TIP]
 > When choosing between the two model types, start with a custom neural model if it meets your functional needs. See [custom neural](concept-custom-neural.md ) to learn more about custom neural models.

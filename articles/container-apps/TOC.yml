@@ -42,8 +42,8 @@
   items:
     - name: Scale an app
       href: scale-app.md
-    - name: Secure an app
-      href: secure-app.md
+    - name: Manage secrets
+      href: manage-secrets.md
     - name: Monitor an app
       href: monitor.md
     - name: Manage revisions

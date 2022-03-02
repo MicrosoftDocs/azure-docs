@@ -8,7 +8,7 @@ ms.author: jgao
 ms.custom: devx-track-azurecli
 ---
 
-# Manage Azure Resource Manager resource groups by using Azure CLI
+# Manage Azure Resource Groups by using Azure CLI
 
 Learn how to use Azure CLI with [Azure Resource Manager](overview.md) to manage your Azure resource groups. For managing Azure resources, see [Manage Azure resources by using Azure CLI](manage-resources-cli.md).
 

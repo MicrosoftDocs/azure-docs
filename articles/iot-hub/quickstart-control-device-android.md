@@ -4,7 +4,7 @@ description: In this quickstart, you run two sample Java applications. One appli
 author: wesmc7777
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: java, azurecli
+ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, mqtt, devx-track-java, devx-track-azurecli, mode-other
 ms.date: 06/21/2019

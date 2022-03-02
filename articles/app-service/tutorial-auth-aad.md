@@ -2,7 +2,7 @@
 title: 'Tutorial: Authenticate users E2E' 
 description: Learn how to use App Service authentication and authorization to secure your App Service apps end-to-end, including access to remote APIs.
 keywords: app service, azure app service, authN, authZ, secure, security, multi-tiered, azure active directory, azure ad
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 09/23/2021
 ms.custom: "devx-track-csharp, seodec18, devx-track-azurecli"
@@ -155,7 +155,7 @@ http://<back-end-app-name>.azurewebsites.net
 http://<front-end-app-name>.azurewebsites.net
 ```
 
-:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Screenshot of an Azure App Service Rest API Sample in a browser window, which shows a To do list app.":::
+:::image type="content" source="./media/tutorial-auth-aad/azure-run.png" alt-text="Screenshot of an Azure App Service REST API Sample in a browser window, which shows a To do list app.":::
 
 > [!NOTE]
 > If your app restarts, you may have noticed that new data has been erased. This behavior by design because the sample ASP.NET Core app uses an in-memory database.
@@ -235,7 +235,7 @@ In this step, you point the front-end app's server code to access the back-end A
 
 1. Navigate to `http://<back-end-app-name>.azurewebsites.net` to see the items added from the front-end app. Also, add a few items, such as `from back end 1` and `from back end 2`, then refresh the front-end app to see if it reflects the changes.
 
-    :::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Screenshot of an Azure App Service Rest API Sample in a browser window, which shows a To do list app with items added from the front-end app.":::
+    :::image type="content" source="./media/tutorial-auth-aad/remote-api-call-run.png" alt-text="Screenshot of an Azure App Service REST API Sample in a browser window, which shows a To do list app with items added from the front-end app.":::
 
 ## Configure auth
 

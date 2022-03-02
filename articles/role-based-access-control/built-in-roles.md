@@ -31,6 +31,10 @@ The following table provides a brief description of each built-in role. Click th
 > | [User Access Administrator](#user-access-administrator) | Lets you manage user access to Azure resources. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 > | **Compute** |  |  |
 > | [Classic Virtual Machine Contributor](#classic-virtual-machine-contributor) | Lets you manage classic virtual machines, but not access to them, and not the virtual network or storage account they're connected to. | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+> | [Disk Backup Reader](#disk-backup-reader) | Provides permission to backup vault to perform disk backup. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
+> | [Disk Pool Operator](#disk-pool-operator) | Provide permission to StoragePool Resource Provider to manage disks added to a disk pool. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
+> | [Disk Restore Operator](#disk-restore-operator) | Provides permission to backup vault to perform disk restore. | b50d9833-a0cb-478e-945f-707fcc997c13 |
+> | [Disk Snapshot Contributor](#disk-snapshot-contributor) | Provides permission to backup vault to manage disk snapshots. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
 > | [Virtual Machine Administrator Login](#virtual-machine-administrator-login) | View Virtual Machines in the portal and login as administrator | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
 > | [Virtual Machine Contributor](#virtual-machine-contributor) | Create and manage virtual machines, manage disks, install and run software, reset password of the root user of the virtual machine using VM extensions, and manage local user accounts using VM extensions. This role does not grant you management access to the virtual network or storage account the virtual machines are connected to. This role does not allow you to assign roles in Azure RBAC. | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | [Virtual Machine User Login](#virtual-machine-user-login) | View Virtual Machines in the portal and login as a regular user. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
@@ -225,7 +229,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Monitoring Reader](#monitoring-reader) | Can read all monitoring data (metrics, logs, etc.). See also [Get started with roles, permissions, and security with Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Workbook Contributor](#workbook-contributor) | Can save shared workbooks. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Workbook Reader](#workbook-reader) | Can read workbooks. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
-> | **Management + governance** |  |  |
+> | **Management and governance** |  |  |
 > | [Automation Contributor](#automation-contributor) | Manage azure automation resources and other resources using azure automation. | f353d9bd-d4a6-484e-a77a-8050b599b867 |
 > | [Automation Job Operator](#automation-job-operator) | Create and Manage Jobs using Automation Runbooks. | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | [Automation Operator](#automation-operator) | Automation Operators are able to start, stop, suspend, and resume jobs | d3881f73-407a-4167-8283-e981cbba0404 |
@@ -261,10 +265,7 @@ The following table provides a brief description of each built-in role. Click th
 > | [Site Recovery Reader](#site-recovery-reader) | Lets you view Site Recovery status but not perform other management operations | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
 > | [Support Request Contributor](#support-request-contributor) | Lets you create and manage Support requests | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
 > | [Tag Contributor](#tag-contributor) | Lets you manage tags on entities, without providing access to the entities themselves. | 4a9ae827-6dc8-4573-8ac7-8239d42aa03f |
-> | **Other** |  |  |
-> | [Azure Digital Twins Data Owner](#azure-digital-twins-data-owner) | Full access role for Digital Twins data-plane | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
-> | [Azure Digital Twins Data Reader](#azure-digital-twins-data-reader) | Read-only role for Digital Twins data-plane properties | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
-> | [BizTalk Contributor](#biztalk-contributor) | Lets you manage BizTalk services, but not access to them. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
+> | **Virtual desktop infrastructure** |  |  |
 > | [Desktop Virtualization Application Group Contributor](#desktop-virtualization-application-group-contributor) | Contributor of the Desktop Virtualization Application Group. | 86240b0e-9422-4c43-887b-b61143f32ba8 |
 > | [Desktop Virtualization Application Group Reader](#desktop-virtualization-application-group-reader) | Reader of the Desktop Virtualization Application Group. | aebf23d0-b568-4e86-b8f9-fe83a2c6ab55 |
 > | [Desktop Virtualization Contributor](#desktop-virtualization-contributor) | Contributor of Desktop Virtualization. | 082f0a83-3be5-4ba1-904c-961cca79b387 |
@@ -276,10 +277,10 @@ The following table provides a brief description of each built-in role. Click th
 > | [Desktop Virtualization User Session Operator](#desktop-virtualization-user-session-operator) | Operator of the Desktop Virtualization User Session. | ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6 |
 > | [Desktop Virtualization Workspace Contributor](#desktop-virtualization-workspace-contributor) | Contributor of the Desktop Virtualization Workspace. | 21efdde3-836f-432b-bf3d-3e8e734d4b2b |
 > | [Desktop Virtualization Workspace Reader](#desktop-virtualization-workspace-reader) | Reader of the Desktop Virtualization Workspace. | 0fa44ee9-7a7d-466b-9bb2-2bf446b1204d |
-> | [Disk Backup Reader](#disk-backup-reader) | Provides permission to backup vault to perform disk backup. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
-> | [Disk Pool Operator](#disk-pool-operator) | Provide permission to StoragePool Resource Provider to manage disks added to a disk pool. | 60fc6e62-5479-42d4-8bf4-67625fcc2840 |
-> | [Disk Restore Operator](#disk-restore-operator) | Provides permission to backup vault to perform disk restore. | b50d9833-a0cb-478e-945f-707fcc997c13 |
-> | [Disk Snapshot Contributor](#disk-snapshot-contributor) | Provides permission to backup vault to manage disk snapshots. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
+> | **Other** |  |  |
+> | [Azure Digital Twins Data Owner](#azure-digital-twins-data-owner) | Full access role for Digital Twins data-plane | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+> | [Azure Digital Twins Data Reader](#azure-digital-twins-data-reader) | Read-only role for Digital Twins data-plane properties | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
+> | [BizTalk Contributor](#biztalk-contributor) | Lets you manage BizTalk services, but not access to them. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
 > | [Scheduler Job Collections Contributor](#scheduler-job-collections-contributor) | Lets you manage Scheduler job collections, but not access to them. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Services Hub Operator](#services-hub-operator) | Services Hub Operator allows you to perform all read, write, and deletion operations related to Services Hub Connectors. | 82200a5b-e217-47a5-b665-6d8765ee745b |
 
@@ -528,6 +529,204 @@ Lets you manage classic virtual machines, but not access to them, and not the vi
     }
   ],
   "roleName": "Classic Virtual Machine Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Disk Backup Reader
+
+Provides permission to backup vault to perform disk backup. [Learn more](../backup/disk-backup-faq.yml)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permission to backup vault to perform disk backup.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3e5e47e6-65f7-47ef-90b5-e5dd4d455f24",
+  "name": "3e5e47e6-65f7-47ef-90b5-e5dd4d455f24",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Compute/disks/beginGetAccess/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Disk Backup Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Disk Pool Operator
+
+Provide permission to StoragePool Resource Provider to manage disks added to a disk pool.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Used by the StoragePool Resource Provider to manage Disks added to a Disk Pool.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/60fc6e62-5479-42d4-8bf4-67625fcc2840",
+  "name": "60fc6e62-5479-42d4-8bf4-67625fcc2840",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Compute/disks/write",
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Disk Pool Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Disk Restore Operator
+
+Provides permission to backup vault to perform disk restore. [Learn more](../backup/restore-managed-disks.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permission to backup vault to perform disk restore.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b50d9833-a0cb-478e-945f-707fcc997c13",
+  "name": "b50d9833-a0cb-478e-945f-707fcc997c13",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Compute/disks/write",
+        "Microsoft.Compute/disks/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Disk Restore Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### Disk Snapshot Contributor
+
+Provides permission to backup vault to manage disk snapshots. [Learn more](../backup/backup-managed-disks.md)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/delete | Delete a Snapshot |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/write | Create a new Snapshot or update an existing one |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/read | Get the properties of a Snapshot |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/beginGetAccess/action | Get the SAS URI of the Snapshot for blob access |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/endGetAccess/action | Revoke the SAS URI of the Snapshot |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/delete | Deletes an existing storage account. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permission to backup vault to manage disk snapshots.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/7efff54f-a5b4-42b5-a1c5-5411624893ce",
+  "name": "7efff54f-a5b4-42b5-a1c5-5411624893ce",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Compute/snapshots/delete",
+        "Microsoft.Compute/snapshots/write",
+        "Microsoft.Compute/snapshots/read",
+        "Microsoft.Compute/snapshots/beginGetAccess/action",
+        "Microsoft.Compute/snapshots/endGetAccess/action",
+        "Microsoft.Compute/disks/beginGetAccess/action",
+        "Microsoft.Storage/storageAccounts/listkeys/action",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Disk Snapshot Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -10633,7 +10832,7 @@ Can read workbooks. [Learn more](../sentinel/tutorial-monitor-your-data.md)
 }
 ```
 
-## Management + governance
+## Management and governance
 
 
 ### Automation Contributor
@@ -12817,155 +13016,8 @@ Lets you manage tags on entities, without providing access to the entities thems
 }
 ```
 
-## Other
+## Virtual desktop infrastructure
 
-
-### Azure Digital Twins Data Owner
-
-Full access role for Digital Twins data-plane [Learn more](../digital-twins/concepts-security.md)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | *none* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Read, delete, create, or update any Event Route |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | Read, create, update, or delete any Digital Twin |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* | Invoke any Command on a Digital Twin |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* | Read, create, update, or delete any Digital Twin Relationship |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* | Read, create, update, or delete any Model |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* | Query any Digital Twins Graph |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Full access role for Digital Twins data-plane",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/bcd981a7-7f74-457b-83e1-cceb9e632ffe",
-  "name": "bcd981a7-7f74-457b-83e1-cceb9e632ffe",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.DigitalTwins/eventroutes/*",
-        "Microsoft.DigitalTwins/digitaltwins/*",
-        "Microsoft.DigitalTwins/digitaltwins/commands/*",
-        "Microsoft.DigitalTwins/digitaltwins/relationships/*",
-        "Microsoft.DigitalTwins/models/*",
-        "Microsoft.DigitalTwins/query/*"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Azure Digital Twins Data Owner",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Azure Digital Twins Data Reader
-
-Read-only role for Digital Twins data-plane properties [Learn more](../digital-twins/concepts-security.md)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | *none* |  |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Read any Digital Twin |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Read any Digital Twin Relationship |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | Read any Event Route |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | Read any Model |
-> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | Query any Digital Twins Graph |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Read-only role for Digital Twins data-plane properties",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d57506d4-4c8d-48b1-8587-93c323f6a5a3",
-  "name": "d57506d4-4c8d-48b1-8587-93c323f6a5a3",
-  "permissions": [
-    {
-      "actions": [],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.DigitalTwins/digitaltwins/read",
-        "Microsoft.DigitalTwins/digitaltwins/relationships/read",
-        "Microsoft.DigitalTwins/eventroutes/read",
-        "Microsoft.DigitalTwins/models/read",
-        "Microsoft.DigitalTwins/query/action"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Azure Digital Twins Data Reader",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### BizTalk Contributor
-
-Lets you manage BizTalk services, but not access to them.
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | Microsoft.BizTalkServices/BizTalk/* | Create and manage BizTalk services |
-> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Lets you manage BizTalk services, but not access to them.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5e3c6656-6cfa-4708-81fe-0de47ac73342",
-  "name": "5e3c6656-6cfa-4708-81fe-0de47ac73342",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Authorization/*/read",
-        "Microsoft.BizTalkServices/BizTalk/*",
-        "Microsoft.Insights/alertRules/*",
-        "Microsoft.ResourceHealth/availabilityStatuses/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Support/*"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "BizTalk Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
 
 ### Desktop Virtualization Application Group Contributor
 
@@ -13518,20 +13570,26 @@ Reader of the Desktop Virtualization Workspace. [Learn more](../virtual-desktop/
 }
 ```
 
-### Disk Backup Reader
+## Other
 
-Provides permission to backup vault to perform disk backup. [Learn more](../backup/disk-backup-faq.yml)
+
+### Azure Digital Twins Data Owner
+
+Full access role for Digital Twins data-plane [Learn more](../digital-twins/concepts-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Get the properties of a Disk |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
+> | *none* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/* | Read, delete, create, or update any Event Route |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/* | Read, create, update, or delete any Digital Twin |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/commands/* | Invoke any Command on a Digital Twin |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/* | Read, create, update, or delete any Digital Twin Relationship |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/* | Read, create, update, or delete any Model |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/* | Query any Digital Twins Graph |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -13540,40 +13598,91 @@ Provides permission to backup vault to perform disk backup. [Learn more](../back
   "assignableScopes": [
     "/"
   ],
-  "description": "Provides permission to backup vault to perform disk backup.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3e5e47e6-65f7-47ef-90b5-e5dd4d455f24",
-  "name": "3e5e47e6-65f7-47ef-90b5-e5dd4d455f24",
+  "description": "Full access role for Digital Twins data-plane",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/bcd981a7-7f74-457b-83e1-cceb9e632ffe",
+  "name": "bcd981a7-7f74-457b-83e1-cceb9e632ffe",
   "permissions": [
     {
-      "actions": [
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Compute/disks/read",
-        "Microsoft.Compute/disks/beginGetAccess/action"
-      ],
+      "actions": [],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.DigitalTwins/eventroutes/*",
+        "Microsoft.DigitalTwins/digitaltwins/*",
+        "Microsoft.DigitalTwins/digitaltwins/commands/*",
+        "Microsoft.DigitalTwins/digitaltwins/relationships/*",
+        "Microsoft.DigitalTwins/models/*",
+        "Microsoft.DigitalTwins/query/*"
+      ],
       "notDataActions": []
     }
   ],
-  "roleName": "Disk Backup Reader",
+  "roleName": "Azure Digital Twins Data Owner",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
-### Disk Pool Operator
+### Azure Digital Twins Data Reader
 
-Provide permission to StoragePool Resource Provider to manage disks added to a disk pool.
+Read-only role for Digital Twins data-plane properties [Learn more](../digital-twins/concepts-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Get the properties of a Disk |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/read | Read any Digital Twin |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/digitaltwins/relationships/read | Read any Digital Twin Relationship |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/eventroutes/read | Read any Event Route |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/models/read | Read any Model |
+> | [Microsoft.DigitalTwins](resource-provider-operations.md#microsoftdigitaltwins)/query/action | Query any Digital Twins Graph |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only role for Digital Twins data-plane properties",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/d57506d4-4c8d-48b1-8587-93c323f6a5a3",
+  "name": "d57506d4-4c8d-48b1-8587-93c323f6a5a3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DigitalTwins/digitaltwins/read",
+        "Microsoft.DigitalTwins/digitaltwins/relationships/read",
+        "Microsoft.DigitalTwins/eventroutes/read",
+        "Microsoft.DigitalTwins/models/read",
+        "Microsoft.DigitalTwins/query/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Digital Twins Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### BizTalk Contributor
+
+Lets you manage BizTalk services, but not access to them.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
 > | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | Microsoft.BizTalkServices/BizTalk/* | Create and manage BizTalk services |
 > | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -13586,131 +13695,26 @@ Provide permission to StoragePool Resource Provider to manage disks added to a d
   "assignableScopes": [
     "/"
   ],
-  "description": "Used by the StoragePool Resource Provider to manage Disks added to a Disk Pool.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/60fc6e62-5479-42d4-8bf4-67625fcc2840",
-  "name": "60fc6e62-5479-42d4-8bf4-67625fcc2840",
+  "description": "Lets you manage BizTalk services, but not access to them.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5e3c6656-6cfa-4708-81fe-0de47ac73342",
+  "name": "5e3c6656-6cfa-4708-81fe-0de47ac73342",
   "permissions": [
     {
       "actions": [
-        "Microsoft.Compute/disks/write",
-        "Microsoft.Compute/disks/read",
         "Microsoft.Authorization/*/read",
+        "Microsoft.BizTalkServices/BizTalk/*",
         "Microsoft.Insights/alertRules/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Disk Pool Operator",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Disk Restore Operator
-
-Provides permission to backup vault to perform disk restore. [Learn more](../backup/restore-managed-disks.md)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/read | Get the properties of a Disk |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Provides permission to backup vault to perform disk restore.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b50d9833-a0cb-478e-945f-707fcc997c13",
-  "name": "b50d9833-a0cb-478e-945f-707fcc997c13",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Authorization/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Compute/disks/write",
-        "Microsoft.Compute/disks/read"
+        "Microsoft.Support/*"
       ],
       "notActions": [],
       "dataActions": [],
       "notDataActions": []
     }
   ],
-  "roleName": "Disk Restore Operator",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
-```
-
-### Disk Snapshot Contributor
-
-Provides permission to backup vault to manage disk snapshots. [Learn more](../backup/backup-managed-disks.md)
-
-> [!div class="mx-tableFixed"]
-> | Actions | Description |
-> | --- | --- |
-> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/delete | Delete a Snapshot |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/write | Create a new Snapshot or update an existing one |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/read | Get the properties of a Snapshot |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/beginGetAccess/action | Get the SAS URI of the Snapshot for blob access |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/endGetAccess/action | Revoke the SAS URI of the Snapshot |
-> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
-> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAccounts/delete | Deletes an existing storage account. |
-> | **NotActions** |  |
-> | *none* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Provides permission to backup vault to manage disk snapshots.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/7efff54f-a5b4-42b5-a1c5-5411624893ce",
-  "name": "7efff54f-a5b4-42b5-a1c5-5411624893ce",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Compute/snapshots/delete",
-        "Microsoft.Compute/snapshots/write",
-        "Microsoft.Compute/snapshots/read",
-        "Microsoft.Compute/snapshots/beginGetAccess/action",
-        "Microsoft.Compute/snapshots/endGetAccess/action",
-        "Microsoft.Compute/disks/beginGetAccess/action",
-        "Microsoft.Storage/storageAccounts/listkeys/action",
-        "Microsoft.Storage/storageAccounts/write",
-        "Microsoft.Storage/storageAccounts/read",
-        "Microsoft.Storage/storageAccounts/delete"
-      ],
-      "notActions": [],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Disk Snapshot Contributor",
+  "roleName": "BizTalk Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
