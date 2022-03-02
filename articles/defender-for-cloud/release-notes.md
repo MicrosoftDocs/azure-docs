@@ -36,14 +36,14 @@ Changes in our roadmap and priorities have removed the need for the network traf
 
 Updates in February include:
 
-- [Kubernetes workload protection for Arc enabled K8s clusters](#kubernetes-workload-protection-for-arc-enabled-k8s-clusters)
+- [Kubernetes workload protection for Arc-enabled Kubernetes clusters](#kubernetes-workload-protection-for-arc-enabled-kubernetes-clusters)
 - [Native CSPM for GCP and threat protection for GCP compute instances](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances)
 - [Microsoft Defender for Azure Cosmos DB plan released for preview](#microsoft-defender-for-azure-cosmos-db-plan-released-for-preview)
 - [Threat protection for Google Kubernetes Engine (GKE) clusters](#threat-protection-for-google-kubernetes-engine-gke-clusters)
 
-### Kubernetes workload protection for Arc enabled K8s clusters 
+### Kubernetes workload protection for Arc-enabled Kubernetes clusters 
 
-Defender for Containers for Kubernetes workloads previously only protected AKS. We've now extended the protective coverage to include Azure Arc enabled Kubernetes clusters.
+Defender for Containers previously only protected Kubernetes workloads running in Azure Kubernetes Service. We've now extended the protective coverage to include Azure Arc-enabled Kubernetes clusters.
 
 Learn how to [set up your Kubernetes workload protection](kubernetes-workload-protections.md#set-up-your-workload-protection) for AKS and Azure Arc enabled Kubernetes clusters.
 
