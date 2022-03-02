@@ -59,7 +59,7 @@ In this example, you'll create a TCP health probe to monitor port 80.
 | Name | Enter **myHealthProbe**. |
 | Protocol | Select **TCP**. |
 | Port | Enter the **TCP** port you wish to monitor. For this example, it's **port 80**. |
-| Interval | Enter a interval between probe checks. For this example, it's the default of **5**. |
+| Interval | Enter an interval between probe checks. For this example, it's the default of **5**. |
 | Unhealthy threshold | Enter the threshold number for consecutive failures. For this example, it's the default of **2**. |
 
 7. Select **Add**.
@@ -68,7 +68,7 @@ In this example, you'll create a TCP health probe to monitor port 80.
 
 ### Remove a TCP health probe
 
-In this example you'll remove a TCP health probe.
+In this example, you'll remove a TCP health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -86,11 +86,11 @@ In this example you'll remove a TCP health probe.
 
 ## HTTP health probe
 
-In this section, you'll learn how to add and remove a HTTP health probe. A public load balancer is used in the examples.
+In this section, you'll learn how to add and remove an HTTP health probe. A public load balancer is used in the examples.
 
-### Add a HTTP health probe
+### Add an HTTP health probe
 
-In this example, you'll create a HTTP health probe.
+In this example, you'll create an HTTP health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -112,16 +112,16 @@ In this example, you'll create a HTTP health probe.
 | Protocol | Select **HTTP**. |
 | Port | Enter the **TCP** port you wish to monitor. For this example, it's **port 80**. |
 | Path | Enter a URI used for requesting health status. For this example, it's **/**. |
-| Interval | Enter a interval between probe checks. For this example, it's the default of **5**. |
+| Interval | Enter an interval between probe checks. For this example, it's the default of **5**. |
 | Unhealthy threshold | Enter the threshold number for consecutive failures. For this example, it's the default of **2**. |
 
 7. Select **Add**.
 
     :::image type="content" source="./media/manage-probes-how-to/add-http-probe.png" alt-text="Screenshot of TCP probe addition.":::
 
-### Remove a HTTP health probe
+### Remove an HTTP health probe
 
-In this example you'll remove a HTTP health probe.
+In this example, you'll remove an HTTP health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -139,11 +139,11 @@ In this example you'll remove a HTTP health probe.
 
 ## HTTPS health probe
 
-In this section, you'll learn how to add and remove a HTTPS health probe. A public load balancer is used in the examples.
+In this section, you'll learn how to add and remove an HTTPS health probe. A public load balancer is used in the examples.
 
-### Add a HTTPS health probe
+### Add an HTTPS health probe
 
-In this example, you'll create a HTTPS health probe.
+In this example, you'll create an HTTPS health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -165,16 +165,16 @@ In this example, you'll create a HTTPS health probe.
 | Protocol | Select **HTTPS**. |
 | Port | Enter the **TCP** port you wish to monitor. For this example, it's **port 443**. |
 | Path | Enter a URI used for requesting health status. For this example, it's **/**. |
-| Interval | Enter a interval between probe checks. For this example, it's the default of **5**. |
+| Interval | Enter an interval between probe checks. For this example, it's the default of **5**. |
 | Unhealthy threshold | Enter the threshold number for consecutive failures. For this example, it's the default of **2**. |
 
 7. Select **Add**.
 
     :::image type="content" source="./media/manage-probes-how-to/add-https-probe.png" alt-text="Screenshot of TCP probe addition.":::
 
-### Remove a HTTPS health probe
+### Remove an HTTPS health probe
 
-In this example you'll remove a HTTPS health probe.
+In this example, you'll remove an HTTPS health probe.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
