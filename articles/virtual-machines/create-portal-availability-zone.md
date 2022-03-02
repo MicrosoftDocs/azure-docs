@@ -14,9 +14,9 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article steps through using the Azure portal to create virtual machines in Azure availability zones. An [availability zone](../../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
+This article steps through using the Azure portal to create virtual machines in Azure availability zones. An [availability zone](../availability-zones/az-overview.md) is a physically separate zone in an Azure region. Use availability zones to protect your apps and data from an unlikely failure or loss of an entire datacenter.
 
-To use availability zones, create your virtual machines in a [supported Azure region](../../availability-zones/az-region.md).
+To use availability zones, create your virtual machines in a [supported Azure region](../availability-zones/az-region.md).
 ## Create VMs
 
 1. Sign in to the Azure portal at https://portal.azure.com.
@@ -57,4 +57,4 @@ You can confirm the zone settings for these resources in the portal.
     
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [availability](../availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.
