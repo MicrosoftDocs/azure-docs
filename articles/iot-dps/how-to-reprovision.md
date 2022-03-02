@@ -80,7 +80,15 @@ How often a device submits a provisioning request depends on the scenario.  When
 
 >[!TIP]
 > We recommend not provisioning on every reboot of the device, as this could cause some issues when reprovisioning several thousands or millions of devices at once. Instead you should attempt to [get the device registration state](/rest/api/iot-dps/service/device-registration-state/get) and try to connect with that information to IoT Hub. If that fails, then try to reprovision as the IoT Hub information might have changed.  Keep in mind that querying for the registration state will count as a new device registration, so you should consider the [Device registration limit]( about-iot-dps.md#quotas-and-limits). Also consider implementing an appropriate retry logic, such as exponential back-off with randomization, as described on the [Retry general guidance](/architecture/best-practices/transient-faults).
->In some cases, depending on the device capabilities, it’s possible to save the IoT Hub information directly on the device to connect directly to IoT Hub after the first-time provisioning using DPS occurred.  If you choose to do this, make sure you implement a fallback mechanism in case you get specific [errors from Hub occur](../iot-hub/troubleshoot-message-routing.md#common-error-codes), such as 400xxx error. Also, ideally you should support a [method](../iot-hub/iot-hub-devguide-direct-methods.md) to manually trigger provisioning on demand.
+>In some cases, depending on the device capabilities, it’s possible to save the IoT Hub information directly on the device to connect directly to IoT Hub after the first-time provisioning using DPS occurred.  If you choose to do this, make sure you implement a fallback mechanism in case you get specific [errors from Hub occur](../iot-hub/troubleshoot-message-routing.md#common-error-codes), for example, consider the following scenarios:
+> * Retry the Hub operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors. 
+> * For 429 errors, only retry after the time indicated in the Retry-After header. 
+> * For 5xx errors, use exponential back-off, with the first retry at least 5 seconds after the response. 
+> * On errors other than 429 and 5xx, re-register through DPS 
+> * Ideally you should also support a [method](../iot-hub/iot-hub-devguide-direct-methods.md) to manually trigger provisioning on demand.
+
+>[!Note]
+> The get the device registration state API does not currently work for TPM devices (the API surface does not include enough information to authenticate the request).
 
 ## Next steps
 
