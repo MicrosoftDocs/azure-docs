@@ -4,7 +4,7 @@ description: Learn how to run DBA commands
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 03/02/2022
 ms.author: thvankra
 ---
 
@@ -27,18 +27,18 @@ Azure Managed Instance for Apache Cassandra provides the following Azure CLI com
     az managed-cassandra cluster invoke-command  --resource-group  <rg>   --cluster-name <cluster> --host <ip of data node> --command-name nodetool --arguments "<nodetool-subcommand>"="" "paramerter1"="" 
 ```
 
-The particular subcommand needs to be in the `--arguments` section with an empty value. `Nodetool` commands without a value are in the form: `"<command>"=""`. If the command has a value, it is in the form: `"<command>"="value"`.
+The particular subcommand needs to be in the `--arguments` section with an empty value. `Nodetool` flags without a value are in the form: `"<flag>"=""`. If the flag has a value, it is in the form: `"<flag>"="value"`.
 
-Here's an example of how to run a `nodetool` command with no value, in this case the `nodetool status` command:
+Here's an example of how to run a `nodetool` command without flags, in this case the `nodetool status` command:
 
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command  --resource-group  <rg>   --cluster-name <cluster> --host <ip of data node> --command-name nodetool --arguments "status"="" 
 ```
 
-Here's an example of how to run a `nodetool` command with a value, in this case the `nodetool describecluster` command:
+Here's an example of how to run a `nodetool` command with a flag, in this case the `nodetool compact` command:
 
 ```azurecli-interactive
-    az managed-cassandra cluster invoke-command  --resource-group  <rg>   --cluster-name <cluster> --host <ip of data node> --command-name nodetool --arguments "describecluster"="<cluster>" 
+    az managed-cassandra cluster invoke-command  --resource-group  <rg>   --cluster-name <cluster> --host <ip of data node> --command-name nodetool --arguments "compact"="" "-st"="65678794" 
 ```
 
 Both will return a json of the following form:
@@ -56,7 +56,7 @@ Both will return a json of the following form:
 The `sstable` commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accomodate this, two additional parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
 
 ```azurecli-interactive
-    az managed-cassandra cluster invoke-command  --resource-group  <test-rg>   --cluster-name <test-cluster> --host 10.1.0.6 --cassandra-stop-start true --readwrite true  --command-name sstableutil --arguments "system"="peers"
+    az managed-cassandra cluster invoke-command  --resource-group  <test-rg>   --cluster-name <test-cluster> --host <ip> --cassandra-stop-start true --readwrite true  --command-name sstableutil --arguments "system"="peers"
 ```
 
 ```json  
