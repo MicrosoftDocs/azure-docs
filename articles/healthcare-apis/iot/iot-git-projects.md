@@ -1,26 +1,26 @@
 ---
-title: Related GitHub projects for IoT connector - Azure Healthcare APIs
-description: IoT connector has a robust open-source (GitHub) library for ingesting device messages from popular wearable devices.
+title: Related GitHub projects for the MedTech service - Azure Health Data Services
+description: MedTech service has a robust open-source (GitHub) library for ingesting device messages from popular wearable devices.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 11/23/2021
+ms.date: 02/16/2022
 ms.author: jasteppe
 ---
 # Open-source projects
 
-Check out our open-source projects on GitHub that provide source code and instructions to deploy services for various uses with IoT connector. 
+Check out our open-source projects on GitHub that provide source code and instructions to deploy services for various uses with the MedTech service. 
 
-## IoT connector GitHub projects
+## MedTech service GitHub projects
 
 ### FHIR integration
 
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Healthcare APIs IoT connector managed service. Can be used with any Fast Healthcare Interoperability Resources (FHIR&#174;) service that supports [FHIR R4&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
+* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Health Data Services MedTech service managed service. Can be used with any Fast Healthcare Interoperability Resources (FHIR&#174;) service that supports [FHIR R4&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
 
 ### Device and FHIR destination mappings
 
-* [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): Tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the open-source version.
+* [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): Tool for editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings. Export mappings for uploading to the MedTech service in the Azure portal or use with the open-source version.
 
 ### Wearables integration
 
@@ -43,9 +43,9 @@ Health Data Sync
 * [microsoft/health-data-sync](https://github.com/microsoft/health-data-sync): A Swift&#174; library that simplifies and automates the export of HealthKit data to an external store.
 
 ## Next steps
-Learn how to deploy IoT connector in the Azure portal
+Learn how to deploy the MedTech service in the Azure portal
 
 >[!div class="nextstepaction"]
->[Deploy IoT connector managed service](deploy-iot-connector-in-azure.md)
+>[Deploy the MedTech service managed service](deploy-iot-connector-in-azure.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

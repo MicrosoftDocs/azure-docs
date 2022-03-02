@@ -1,13 +1,13 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQs about the DICOM service - Azure Healthcare APIs
+  title: FAQs about the DICOM service - Azure Health Data Services
   description: Get answers to frequently asked questions about the DICOM service, such as what are the key requirements to use DICOM service.
   services: healthcare-apis
   author: stevewohl
   ms.service: healthcare-apis
   ms.subservice: fhir
-  ms.topic: faq
-  ms.date: 08/04/2021
+  ms.topic: reference
+  ms.date: 12/15/2021
   ms.author: aersoy
 title: Frequently asked questions about the DICOM service
 summary: |
