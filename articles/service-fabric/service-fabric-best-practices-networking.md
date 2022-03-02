@@ -36,7 +36,7 @@ Service Fabric cluster can be provisioned on [Linux with Accelerated Networking]
 
 Accelerated Networking is supported for Azure Virtual Machine Series SKUs: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2, and Ms/Mms. Accelerated Networking was tested successfully using the Standard_DS8_v3 SKU on 01/23/2019 for a Service Fabric Windows Cluster, and using Standard_DS12_v2 on 01/29/2019 for a Service Fabric Linux Cluster. Please note that Accelerated Networking requires at least 4 vCPUs. 
 
-To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](../virtual-machine-scale-set-scale-node-type-scale-out.md), to perform the following:
+To enable Accelerated Networking on an existing Service Fabric cluster, you need to first [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](virtual-machine-scale-set-scale-node-type-scale-out.md), to perform the following:
 1. Provision a NodeType with Accelerated Networking enabled
 2. Migrate your services and their state to the provisioned NodeType with Accelerated Networking enabled
 
@@ -119,7 +119,7 @@ Use Azure Firewall with [NSG flow log](../network-watcher/network-watcher-nsg-fl
 
 * Use a reverse proxy such as [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) or the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) to expose common application ports such as 80 or 443.
 
-* For Windows Containers hosted on air-gapped machines that can't pull base layers from Azure cloud storage, override the foreign layer behavior, by using the [--allow-nondistributable-artifacts](../virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flag in the Docker daemon.
+* For Windows Containers hosted on air-gapped machines that can't pull base layers from Azure cloud storage, override the foreign layer behavior, by using the [--allow-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flag in the Docker daemon.
 
 ## Next steps
 
