@@ -24,7 +24,7 @@ Data virtualization is currently in preview for Azure SQL Managed Instance.
 
 ## Overview
 
-Data virtualization provides two ways of querying external files stored in Azure Data Lake Storage or Azure Blob Storage, intended for different scenarios: There are two ways of querying external files, intended for different scenarios:
+Data virtualization provides two ways of querying external files stored in Azure Data Lake Storage or Azure Blob Storage, intended for different scenarios: 
 
 - OPENROWSET syntax – optimized for ad-hoc querying of files. Typically used to quickly explore the content and the structure of a new set of files.
 - External tables – optimized for repetitive querying of files using identical syntax as if data were stored locally in the database. External tables require several preparation steps compared to the OPENROWSET syntax, but allow for more control over data access. External tables are typically used for analytical workloads and reporting.
