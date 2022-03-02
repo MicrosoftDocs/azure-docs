@@ -200,9 +200,6 @@ When called without a parameter, filepath function returns the file path that th
 When called with a parameter, it returns part of the path that matches the wildcard on the position specified in the parameter. For example, parameter value 1 would return part of the path that matches the first wildcard.
 
 Filepath function can also be used for filtering and aggregating rows:
-
-### File metadata functions
-When querying multiple files or folders, you can use Filepath and Filename functions to read file metadata and get part of the path or full path and name of the file that the row in the result set originates from:
 ```sql
 SELECT
  r.filepath() AS filepath
