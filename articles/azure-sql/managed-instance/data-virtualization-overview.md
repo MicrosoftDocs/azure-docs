@@ -294,7 +294,7 @@ Just like OPENROWSET, external tables allow querying multiple files and folders 
 ## Performance considerations
 There's no hard limit in terms of number of files or amount of data that can be queried, but query performance will depend on the amount of data, data format, and complexity of queries and joins.
 
-Collecting statistics on your external data is one of the most important things you can do for query optimization. The more instance knows about your data, the faster it can execute queries. Automatic creation of statistics isn't supported, but you can and should create statistics manually.
+Collecting statistics on your external data is one of the most important things you can do for query optimization. The more instance knows about your data, the faster it can execute queries.
 
 ### OPENROWSET statistics
 Single-column statistics for OPENROWSET path can be created using sp_create_openrowset_statistics 
