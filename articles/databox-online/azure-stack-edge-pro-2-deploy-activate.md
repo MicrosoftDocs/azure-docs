@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/11/2022
+ms.date: 03/03/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to activate Azure Stack Edge Pro 2 so I can use it to transfer data to Azure. 
 ---
@@ -29,7 +29,7 @@ Before you configure and set up your Azure Stack Edge Pro 2, make sure that:
 
 * For your physical device: 
     
-    - You've installed the physical device as detailed in [Install Azure Stack Edge Pro](azure-stack-edge-pro-2-deploy-install.md).
+    - You've installed the physical device as detailed in [Install Azure Stack Edge Pro 2](azure-stack-edge-pro-2-deploy-install.md).
     - You've configured the network and compute network settings as detailed in [Configure network, compute network, web proxy](azure-stack-edge-pro-2-deploy-configure-network-compute-web-proxy.md)
     - You have uploaded your own or generated the device certificates on your device if you changed the device name or the DNS domain via the **Device** page. If you haven't done this step, you will see an error during the device activation and the activation will be blocked. For more information, go to [Configure certificates](azure-stack-edge-pro-2-deploy-configure-certificates.md).
     
@@ -41,24 +41,23 @@ Before you configure and set up your Azure Stack Edge Pro 2, make sure that:
 1. In the local web UI of the device, go to **Get started** page.
 2. On the **Activation** tile, select **Activate**. 
 
-    ![Local web UI "Cloud details" page](./media/azure-stack-edge-pro-2-deploy-activate/activate-1.png)
+    ![Screenshot of local web UI with "Activate" highlighted in the Activation tile.](./media/azure-stack-edge-pro-2-deploy-activate/activate-1.png)
     
 3. In the **Activate** pane, enter the **Activation key** that you got in [Get the activation key for Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-prep.md#get-the-activation-key).
 
-4. Select **Apply**.
+4. Select **Activate**.
 
-    ![Local web UI "Cloud details" page 2](./media/azure-stack-edge-pro-2-deploy-activate/activate-2.png)
+    ![Screenshot of local web UI with "Activate" highlighted in the Activate blade.](./media/azure-stack-edge-pro-2-deploy-activate/activate-2.png)
 
 
 5. First the device is activated. You are then prompted to download the key file.
     
-    ![Local web UI "Cloud details" page 3](./media/azure-stack-edge-gpu-deploy-activate/activate-3.png)
+    ![Screenshot of local web UI with Download and continue highlighted on the Device activated dialog.](./media/azure-stack-edge-pro-2-deploy-activate/activate-3.png)
     
     Select **Download and continue** and save the *device-serial-no.json* file in a safe location outside of the device. **This key file contains the recovery keys for the OS disk and data disks on your device**. These keys may be needed to facilitate a future system recovery.
 
     Here are the contents of the *json* file:
 
-        
     ```json
     {
       "Id": "<Device ID>",
@@ -67,23 +66,24 @@ Before you configure and set up your Azure Stack Edge Pro 2, make sure that:
         "hcsdata": "<BitLocker key for data disk>"
       },
       "SystemVolumeBitLockerRecoveryKey": "<BitLocker key for system volume>",
+      "SEDEncryptionExternalKey": "<Encryption-at-rest key for encrypted disks>",
       "ServiceEncryptionKey": "<Azure service encryption key>"
     }
-    ```
-        
+    ```        
  
     The following table explains the various keys:
     
     |Field  |Description  |
     |---------|---------|
     |`Id`    | This is the ID for the device.        |
-    |`DataVolumeBitLockerExternalKeys`|These are the BitLockers keys for the data disks and are used to recover the local data on your device.|
+    |`DataVolumeBitLockerExternalKeys`| These are the BitLocker keys for the data disks and are used to recover the local data on your device.|
     |`SystemVolumeBitLockerRecoveryKey`| This is the BitLocker key for the system volume. This key helps with the recovery of the system configuration and system data for your device. |
+    |`SEDEncryptionExternalKey`| This user provided or system generated key is used to protect the self-encrypting data drives that have a built in encryption. |
     |`ServiceEncryptionKey`| This key protects the data flowing through the Azure service. This key ensures that a compromise of the Azure service will not result in a compromise of stored information. |
 
 6. Go to the **Overview** page. The device state should show as **Activated**.
 
-   <!--![Local web UI "Cloud details" page 4](./media/azure-stack-edge-gpu-deploy-activate/activate-4.png)-->
+   ![Screenshot of local web UI "Overview" page with State highlighted.](./media/azure-stack-edge-pro-2-deploy-activate/activate-4.png)
  
 The device activation is complete. You can now add shares on your device.
 
