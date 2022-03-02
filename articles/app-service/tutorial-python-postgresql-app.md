@@ -169,7 +169,14 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location centralus 
 ```
 
 - **Replace** *\<postgres-server-name>* with a name that's **unique across all Azure** (the server endpoint becomes `https://<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
-- For *\<admin-username>* and *\<admin-password>*, specify credentials to create an admin user for this Postgres server. The admin username can't be *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest*, or *public*. It can't start with *pg_*. The password must contain **8 to 128 characters** from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (for example, !, #, %). The password can't contain username.
+- For *\<admin-username>* and *\<admin-password>*, specify credentials to create an admin user for this Postgres server. 
+- The admin username can't be *azure_superuser*, *azure_pg_admin*, *admin*, *administrator*, *root*, *guest*, or *public*. It can't start with *pg_*. 
+- The password must contain 8 to 128 characters from either:
+  - English uppercase letters.
+  - English lowercase letters.
+  - Numbers (0 through 9)
+  - Non-alphanumeric characters (for example, !, #, %). 
+- The password can't contain username.
 - Don't use the `$` character in the username or password. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 - The B_Gen5_1 (Basic, Gen5, 1 core) [pricing tier](../postgresql/concepts-pricing-tiers.md) used here is the least expensive. For production databases, omit the `--sku-name` argument to use the GP_Gen5_2 (General Purpose, Gen 5, 2 cores) tier instead.
 
@@ -261,7 +268,7 @@ This command does the following actions, which may take a few minutes:
 - Create the App Service app if it doesn't exist.
 - Allow default logging for the app, if not already enabled.
 - Upload the repository using ZIP deployment with build automation enabled.
-- Cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify again all the same parameters with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters. Commands that come from CLI extensions, such as `az postgres up` don't at present use the cache, which is why you must specify the resource group and location here with the initial use of `az webapp up`.
+- Cache common parameters, such as the name of the resource group and App Service plan, into the file *.azure/config*. As a result, you don't need to specify again all the same parameters with later commands. For example, to redeploy the app after making changes, you can just run `az webapp up` again without any parameters. Commands that come from CLI extensions, such as `az postgres up` don't use the cache now, which is why you must specify the resource group and location here with the initial use of `az webapp up`.
 
 ::: zone-end
 
@@ -345,7 +352,7 @@ Django database migrations ensure that the schema in the PostgreSQL on Azure dat
     az webapp ssh
     ```
 
-    If you can't connect to the SSH session, then the app itself has failed to start. [Check the diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you haven't created the necessary app settings in the previous section, the logs will indicate `KeyError: 'DBNAME'`.
+    If you can't connect to the SSH session, then the app itself has failed to start. [Check the diagnostic logs](#6-stream-diagnostic-logs) for details. For example, if you haven't created the necessary app settings in the previous section, the logs indicate `KeyError: 'DBNAME'`.
 
 1. In the SSH session, run the following commands (you can paste commands using **Ctrl**+**Shift**+**V**):
 
@@ -373,7 +380,7 @@ Having issues? Refer first to the [Troubleshooting guide](configure-language-pyt
     az webapp browse
     ```
 
-    If you see "Application Error", then it's likely that you either didn't create the required settings in the previous step, [Configure environment variables to connect the database](#42-configure-environment-variables-to-connect-the-database), or that those value contain errors. Run the command `az webapp config appsettings list` to check the settings. You can also [check the diagnostic logs](#6-stream-diagnostic-logs) to see specific errors during app startup. For example, if you didn't create the settings, the logs will show the error, `KeyError: 'DBNAME'`.
+    If you see "Application Error", then it's likely that you either didn't create the required settings in the previous step, [Configure environment variables to connect the database](#42-configure-environment-variables-to-connect-the-database), or that those value contain errors. Run the command `az webapp config appsettings list` to check the settings. You can also [check the diagnostic logs](#6-stream-diagnostic-logs) to see specific errors during app startup. For example, if you didn't create the settings, the logs show the error, `KeyError: 'DBNAME'`.
 
     After updating the settings to correct any errors, give the app a minute to restart, then refresh the browser.
 
