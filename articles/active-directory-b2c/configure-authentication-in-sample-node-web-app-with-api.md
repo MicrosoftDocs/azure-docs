@@ -151,10 +151,10 @@ Open your web app in a code editor such as Visual Studio Code. Under the `call-p
 |---------|---------|
 |`APP_CLIENT_ID`|The **Application (client) ID** for the web app you registered in [step 2.3](#step-23-register-the-web-app). |
 |`APP_CLIENT_SECRET`|The client secret for the web app you created in [step 2.4](#step-24-create-a-client-secret) |
-|`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority for the user flow you created in [step 1](#step-1-configure-your-user-flow) such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). |
+|`SIGN_UP_SIGN_IN_POLICY_AUTHORITY`|The **Sign in and sign up** user flow authority for the user flow you created in [step 1](#step-1-configure-your-user-flow) such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi`. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). |
 |`AUTHORITY_DOMAIN`| The Azure AD B2C authority domain such as `https://<your-tenant-name>.b2clogin.com`. Replace `<your-tenant-name>` with the name of your tenant.|
 |`APP_REDIRECT_URI`| The application redirect URI where Azure AD B2C will return authentication responses (tokens). It matches the **Redirect URI** you set while registering your app in Azure portal. This URL need to be publicly accessible. Leave the value as is.|
-|`LOGOUT_ENDPOINT`| The Azure AD B2C sign out endpoint such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi_node_app`.|
+|`LOGOUT_ENDPOINT`| The Azure AD B2C sign out endpoint such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<sign-in-sign-up-user-flow-name>/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:3000`. Replace `<your-tenant-name>` with the name of your tenant and `<sign-in-sign-up-user-flow-name>` with the name of your Sign in and Sign up user flow such as `B2C_1_susi`.|
 
 After the update, your final configuration file should look similar to the following sample:
 
@@ -186,7 +186,7 @@ To get the web API sample code, do one of the following:
     
     - For `clientID`, use the **Application (Client) ID** for the web API you created in [step 2.1](#step-21-register-the-web-api-application).
     
-    - For `policyName`, use the name of the **Sing in and sign up** user flow you created in [step 1](#step-1-configure-your-user-flow) such as `B2C_1_susi_node_app`.
+    - For `policyName`, use the name of the **Sing in and sign up** user flow you created in [step 1](#step-1-configure-your-user-flow) such as `B2C_1_susi`.
    
    After the update, your code should look similar to the following sample: 
     
