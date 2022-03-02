@@ -32,8 +32,8 @@ Azure App Service is a supported compute service.
 #### Secret / connection string
 
 > [!div class="mx-tdBreakAll"]
-> |Default environment variable name        | Description                              | Sample value |
-> | --------------------------------------- | ----------- -----------------------------| ------------ |
+> | Default environment variable name | Description | Sample value |
+> | --------------------------------- | ------------| ------------ |
 > | AZURE_APPCONFIGURATION_CONNECTIONSTRING | Your App Configuration Connection String | `Endpoint=https://{AppConfigurationName}.azconfig.io;Id={ID};Secret={secret}` |
 
 #### System-assigned managed identity
