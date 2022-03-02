@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory recommendation: Integrate third party apps with Azure AD | Microsoft Docs
+title: Azure Active Directory recommendation - Integrate third party apps with Azure AD | Microsoft Docs
 description: Learn why you should integrate third party apps with Azure AD
 services: active-directory
 documentationcenter: ''
