@@ -20,9 +20,8 @@ Azure Migrate automatically handles these configuration changes for the operatin
 - Windows Server 2008 or later
 - Red Hat Enterprise Linux 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
 - CentOS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
+- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
-- Ubuntu 18.04LTS, 16.04LTS
 - Debian 10, 9, 8, 7
 - Oracle Linux 6, 7.7, 7.7-CI, 8
 
