@@ -226,7 +226,7 @@ Easy Button provides a set of pre-defined application templates for Oracle Peopl
 
 When a user successfully authenticates to Azure AD, it issues a SAML token with a default set of claims and attributes uniquely identifying the user. The **User Attributes & Claims tab** shows the default claims to issue for the new application. It also lets you configure more claims.
 
-As our example AD infrastructure is based on a .com domain suffix used both, internally and externally, we don’t require any additional attributes to achieve a functional KCD SSO implementation. See the [advanced tutorial](./f5-big-kerberos-advanced.md) for cases where you have multiple domains or user’s login using an alternate suffix. 
+As our example AD infrastructure is based on a .com domain suffix used both, internally and externally, we don’t require any additional attributes to achieve a functional KCD SSO implementation. See the [advanced tutorial](./f5-big-ip-kerberos-advanced.md) for cases where you have multiple domains or user’s login using an alternate suffix. 
 
    ![Screenshot for user attributes and claims](./media/f5-big-ip-easy-button-sap-erp/user-attributes-claims.png)
    
