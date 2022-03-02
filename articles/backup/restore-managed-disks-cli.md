@@ -38,8 +38,9 @@ List all backup instances within a vault using [az dataprotection backup-instanc
 
 ```azurecli-interactive
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDisk --datasource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk
+```
 
-
+```output
 [
   {
     "datasourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk",
@@ -99,15 +100,15 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
     "zones": null
   }
 ]
-
-
 ```
 
 Once the instance is identified, fetch the relevant recovery point using the [az dataprotection recovery-point list](/cli/azure/dataprotection/recovery-point#az_dataprotection_recovery_point_list) command.
 
 ```azurecli-interactive
 az dataprotection recovery-point list --backup-instance-name diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166 -g testBkpVaultRG --vault-name TestBkpVault
+```
 
+```output
 {
 "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/testBkpVaultRG/providers/Microsoft.DataProtection/BackupVaults/TestBkpVault/backupInstances/diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166/recoveryPoints/5081ad8f1e6c4548ae89536d0d45c493",
 "name": "5081ad8f1e6c4548ae89536d0d45c493",
@@ -238,7 +239,7 @@ Track all jobs using the [az dataprotection job list](/cli/azure/dataprotection/
 
 You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job that can be across any Backup vault.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --operation Restore
 ```
 

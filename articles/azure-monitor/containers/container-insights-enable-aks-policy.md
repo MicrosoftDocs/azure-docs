@@ -55,7 +55,7 @@ Monitoring Addon require following roles on the managed identity used by Azure P
 
 2. Create the policy definition with the following command:
 
-    ``` sh
+    ```azurecli
     az cloud set -n <AzureCloud | AzureChinaCloud | AzureUSGovernment> # set the Azure cloud
     az login # login to cloud environment 
     az account set -s <subscriptionId>
@@ -66,7 +66,7 @@ Monitoring Addon require following roles on the managed identity used by Azure P
 
 - Create  the policy assignment with the following command:
 
-    ``` sh
+    ```azurecli
     az policy assignment create --name aks-monitoring-addon --policy "(Preview)AKS-Monitoring-Addon" --assign-identity --identity-scope /subscriptions/<subscriptionId> --role Contributor --scope /subscriptions/<subscriptionId> --location <locatio> --role Contributor --scope /subscriptions/<subscriptionId> -p "{ \"workspaceResourceId\": { \"value\":  \"/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>\" } }"
     ```
 

@@ -115,7 +115,7 @@ az extension add --name vmware
 
 Create and attach an iSCSI datastore in the Azure VMware Solution private cloud cluster using `Microsoft.StoragePool` provided iSCSI target. The disk pool attaches to a virtual network through a delegated subnet, which is done with the Microsoft.StoragePool/diskPools resource provider.  If the subnet isn't delegated, the deployment fails.
 
-```bash
+```azurecli
 #Initialize input parameters
 resourceGroupName='<yourRGName>'
 name='<desiredDataStoreName>'

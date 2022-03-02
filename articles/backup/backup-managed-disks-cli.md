@@ -480,7 +480,7 @@ Track all the jobs using the [az dataprotection job list](/cli/azure/dataprotect
 
 You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job that can be across any Backup vault.
 
-```azurepowershell-interactive
+```azurecli
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --status Completed
 ```
 
