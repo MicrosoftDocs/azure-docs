@@ -31,7 +31,7 @@ To use availability zones, create your virtual machines in a [supported Azure re
 1. For **Availability options**, select **Availability zone**.
 1. For **Availability zone**, the drop-down defaults to *Zone 1*. If you choose multiple zones, a new VM will be created in each zone. For example, if you select all three zones, then three VMs will be created. The VM names are the original name you entered, with **-1**, **-2**, and **-3** appended to the name, depending on the zones you choose.
 
-   :::image type="content" source="media/tutorial-zones/3-vm-names.png" alt-text="Screenshot showing that there are now 3 virtual machines that will be created.":::
+   :::image type="content" source="media/zones/3-vm-names.png" alt-text="Screenshot showing that there are now 3 virtual machines that will be created.":::
 
 1. Complete the rest of the page as usual. If you want to create a load balancer, go to the Networking tab > Load Balancing > Load balancing options.
 
