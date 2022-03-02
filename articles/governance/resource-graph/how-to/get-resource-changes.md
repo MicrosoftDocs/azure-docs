@@ -135,7 +135,9 @@ or `-Subscription` parameters.
 
   1. In the **Query 1** portion of the window, enter the query
      ```kusto
-     resourcechanges | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5
+     resourcechanges 
+     | project properties.changeAttributes.timestamp, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+     | limit 5
      ``` 
      and select **Run query**.
 
@@ -166,7 +168,10 @@ or `-Subscription` parameters.
    
 # [Portal](#tab/azure-portal)
    ```kusto
-   resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | limit 5
+   resourcechanges 
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp) 
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+   | limit 5
    ``` 
    Then, select **Run query**.
 
@@ -189,7 +194,11 @@ or `-Subscription` parameters.
 
 # [Portal](#tab/azure-portal)
    ```kusto
-   resourcechanges | extend changeTime=todatetime(properties.changeAttributes.timestamp) | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes | order by changeTime desc | limit 5
+   resourcechanges 
+   | extend changeTime=todatetime(properties.changeAttributes.timestamp) 
+   | project changeTime, properties.changeType, properties.targetResourceId, properties.targetResourceType, properties.changes 
+   | order by changeTime desc 
+   | limit 5
    ``` 
    Then, select **Run query**.
    
