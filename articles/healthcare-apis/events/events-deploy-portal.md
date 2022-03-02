@@ -30,11 +30,11 @@ It's important that you have the following prerequisites completed before you be
 
 1. Browse to the Workspace that contains the FHIR service you want to send event messages from and select the **Events** blade.
  
-   :::image type="content" source="media/events-deploy-in-portal/events-workspace-select.png" alt-text="Screenshot of Workspace. Select Events button" lightbox="media/events-deploy-in-portal/events-workspace-select.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-workspace-select.png" alt-text="Screenshot of Workspace and select Events button." lightbox="media/events-deploy-in-portal/events-workspace-select.png":::
 
 2. Select **+ Event Subscription** to begin the creation of an event subscription.
 
-   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-select.png" alt-text="Screenshot of Workspace. Select + Events Subscription button" lightbox="media/events-deploy-in-portal/events-new-subscription-select.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-select.png" alt-text="Screenshot of Workspace and select events subscription button." lightbox="media/events-deploy-in-portal/events-new-subscription-select.png":::
 
 3. In the **Create Event Subscription** box, enter the following subscription information.
 
@@ -45,20 +45,20 @@ It's important that you have the following prerequisites completed before you be
    >[!NOTE]
    > For the purposes of this quickstart, we'll use the **Event Schema** and the **Managed Identity Type** settings as their defaults.
 
-   :::image type="content" source="media/events-deploy-in-portal/events-create-new-subscription.png" alt-text="Screenshot of the Create Event Subscription box"  lightbox="media/events-deploy-in-portal/events-create-new-subscription.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-create-new-subscription.png" alt-text="Screenshot of the create event subscription box."  lightbox="media/events-deploy-in-portal/events-create-new-subscription.png":::
 
 4. After the form is completed, select **Create** to begin the subscription creation. 
 
 5. After provisioning a new Events subscription, event messages won't be sent until the System Topic deployment has successfully completed and the status of the Workspace has changed from "Updating" to "Succeeded".
 
-   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-creating.png" alt-text="Screenshot of an Events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-creating.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-creating.png" alt-text="Screenshot of an events subscription being deployed"  lightbox="media/events-deploy-in-portal/events-new-subscription-creating.png":::
 
-   :::image type="content" source="media/events-deploy-in-portal/events-workspace-updating.png" alt-text="Screenshot of an Events subscription successfully deployed"  lightbox="media/events-deploy-in-portal/events-workspace-updating.png":::
+   :::image type="content" source="media/events-deploy-in-portal/events-workspace-updating.png" alt-text="Screenshot of an events subscription successfully deployed."  lightbox="media/events-deploy-in-portal/events-workspace-updating.png":::
 
 
 6. After the subscription is deployed, it will require access to your message delivery endpoint. 
 
-   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-created.png" alt-text="Screenshot of a successfully deployed Events subscription"  lightbox="media/events-deploy-in-portal/events-new-subscription-created.png":::    
+   :::image type="content" source="media/events-deploy-in-portal/events-new-subscription-created.png" alt-text="Screenshot of a successfully deployed events subscription."  lightbox="media/events-deploy-in-portal/events-new-subscription-created.png":::    
 
    >[!TIP]
    >For more information about providing access using an Azure Managed identity, see

@@ -14,6 +14,8 @@ ms.author: jasteppe
 
 The following are some of the frequently asked questions about Events.
 
+## Events: The basics
+
 ### Can I use Events with a different FHIR service other than the Azure Health Data Services FHIR service?
 
 No. The Azure Health Data Services Events feature only currently supports the Azure Health Data Services FHIR service.

@@ -30,7 +30,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy Events in the Azure Portal
+          - text: Deploy Events in the Azure portal
             url: events-deploy-portal.md
                    
   - title: Events message structure

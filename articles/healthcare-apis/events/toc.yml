@@ -9,7 +9,7 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Deploy Events in the Azure Portal
+  - name: Deploy Events in the Azure portal
     href: events-deploy-portal.md
 - name: Tutorials
   expanded: true
