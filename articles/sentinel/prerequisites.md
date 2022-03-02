@@ -68,7 +68,12 @@ Before deploying Microsoft Sentinel, make sure that your Azure tenant has the fo
 > A dedicated resource group allows for permissions to be assigned once, at the resource group level, with permissions automatically applied to any relevant resources. Managing access via a resource group helps to ensure that you're using Microsoft Sentinel efficiently without potentially issuing improper permissions. Without a resource group for Microsoft Sentinel, where resources are scattered among multiple resource groups, a user or service principal may find themselves unable to perform a required action or view data due to insufficient permissions.
 >
 > To implement more access control to resources by tiers, use extra resource groups to house the resources that should be accessed only by those groups. Using multiple tiers of resource groups enables you to separate access between those tiers.
+> 
+>[!IMPORTANT]
+   >
+   > - Microsoft Sentinel is not designed to work with a resource lock applied. 
 >
+
 
 ## Next steps
 
