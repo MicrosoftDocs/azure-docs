@@ -154,6 +154,8 @@
               href: how-to-deploy-self-hosted-gateway-kubernetes.md
             - name: Deploy a self-hosted gateway to Kubernetes (Helm)
               href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
+            - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
+              href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
             - name: Deploy a self-hosted gateway to Docker
               href: how-to-deploy-self-hosted-gateway-docker.md
             - name: Configure custom domain for self-hosted gateway
