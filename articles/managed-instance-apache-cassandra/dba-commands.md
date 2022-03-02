@@ -6,7 +6,6 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: thvankra
-ms.custom: ignite-fall-2021
 ---
 
 # DBA commands for Azure Managed Instance for Apache Cassandra
@@ -135,7 +134,7 @@ For more information on each command, see https://cassandra.apache.org/doc/lates
 * `resumehandoff`
 * `ring`
 * `scrub`
-* `setcachecapacity` - for argumemts use `"key-cache-capacity" = "<row-cache-capacity> <counter-cache-capacity>"`
+* `setcachecapacity` - for arguments use `"key-cache-capacity" = "<row-cache-capacity> <counter-cache-capacity>"`
 * `setcachekeystosave` - for arguments use `"key-cache-keys-to-save":"<row-cache-keys-to-save> <counter-cache-keys-to-save>"`
 * `setcompactionthreshold` - for arguments use `"<keyspace>"="<table> <minthreshold> <maxthreshold>`
 * `setcompactionthroughput`
