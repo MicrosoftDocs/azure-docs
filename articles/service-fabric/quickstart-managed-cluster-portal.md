@@ -1,7 +1,7 @@
 ---
 title: Deploy a Service Fabric managed cluster using the Azure portal
 description: Learn how to create a Service Fabric managed cluster using the Azure portal
-author: tomcassidy
+author: tomvcassidy
 ms.topic: quickstart
 ms.service: service-fabric
 services: service-fabric
@@ -71,7 +71,7 @@ To generate and retrieve your client certificate:
 
 1. Your certificate will appear under **In progress, failed or cancelled**. You may need to refresh the list for it to appear under **Completed**. Once it is completed, select it and then choose the version under **CURRENT VERSION**.
 
-1. Select **Download in PFX/PEM format** and select **Download**. The certificate's name will be formatted as `<yourkeyvaultname>-<yourcertificatename>-<yyyymmdd>.pfx`.
+1. Select **Download in PFX/PEM format** and select **Download**. The certificate's name will be formatted as `yourkeyvaultname-yourcertificatename-yyyymmdd.pfx`.
 
    ![Select Download in PFX/PEM format to retrieve your certificate so you can import it into your computer's certificate store.](./media/quickstart-managed-cluster-portal/download-pfx.png)
 
@@ -114,7 +114,7 @@ In this quickstart, we use a Service Fabric managed cluster named **quickstartsf
 
    ![Select your Azure Key Vault and certificate from the dropdown menus.](./media/quickstart-managed-cluster-portal/select-a-certificate-from-azure-key-vault.png)
 
-   If you did not already change your Azure Key Vault's access policies, you may get text prompting you to do so after you select your key vault and certificate. If this is the case, choose **Edit access policies for <yourkeyvaultname>**, select **Click to show advanced access policies**, toggle **Azure Virtual Machines for deployment**, and save your changes.
+   If you did not already change your Azure Key Vault's access policies, you may get text prompting you to do so after you select your key vault and certificate. If this is the case, choose **Edit access policies for yourkeyvaultname**, select **Click to show advanced access policies**, toggle **Azure Virtual Machines for deployment**, and save your changes.
 
 1. Select **Review + create** and, once the validation passes, choose **Create**.
 
@@ -131,7 +131,7 @@ Once the deployment completes, you are ready to view your new Service Fabric man
    ![Select the SF Explorer link on your managed cluster's Overview page.](./media/quickstart-managed-cluster-portal/service-fabric-explorer-address.png)
 
 >[!NOTE]
->You may get a warning that your connection to your cluster isn't private. Select **Advanced** and choose **continue to <yourmanagedclusterfqdn> (unsafe)**.
+>You may get a warning that your connection to your cluster isn't private. Select **Advanced** and choose **continue to yourmanagedclusterfqdn (unsafe)**.
 
 1. When prompted for a certificate, choose the certificate you created, downloaded, and stored for this quickstart and select **OK**. If you completed those steps successfully, the certificate should be in the list of certificates.
 
