@@ -188,7 +188,7 @@ For more information on creating and using environments, see [Create and use sof
 
 ### Create a ScriptRunConfig
 
-Create a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter.
+Create a [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) object to specify the configuration details of your training job, including your training script, environment to use, and the compute target to run on. Any arguments to your training script will be passed via command line if specified in the `arguments` parameter. The following code will configure a single-node PyTorch job.
 
 ```python
 from azureml.core import ScriptRunConfig
