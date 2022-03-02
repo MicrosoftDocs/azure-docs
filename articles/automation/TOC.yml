@@ -46,16 +46,16 @@
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
         href: ./security-controls-policy.md
-      - name: Security baseline
+      - name: Azure security baseline for Automation
         href: /security/benchmark/azure/baselines/automation-security-baseline?toc=/azure/automation/TOC.json
+      - name: Best practices for security in Azure Automation
+        href: automation-security-guidelines.md  
     - name: Data security
       items:
         - name: Encryption of secure assets
           href: automation-secure-asset-encryption.md
         - name: Management of Azure Automation data
           href: automation-managing-data.md
-        - name: Best practices for security in Azure Automation
-          href: automation-security-guidelines.md
 - name: How-to guides
   items:
     - name: Automation Account
