@@ -55,7 +55,7 @@ To create a new App Configuration store in the  Azure portal, follow these steps
 
 ## What are soft-delete and purge protection
 
-[Soft delete](soft-delete-overview.md) and Purge protection are two recovery features in Azure App Configuration service.
+[Soft delete](./concept-soft-delete.md) and Purge protection are two recovery features in Azure App Configuration service.
 
 **Soft delete** is designed to prevent accidental deletion of your App Configuration store and its contents. Soft delete is similar to a recycle bin. When you delete an App Configuration store, it will remain recoverable for a user configurable retention period between 1-7 days. Stores in the soft deleted state can also be **purged** that is, permanently deleted. This allows you to recreate App Configuration store with the same name. **Soft deleted is automatically enabled on the App Configuration store created in standard tier, one can select the value for days to retain. For free tier stores, soft delete cannot be enabled and the only way to get soft delete protection is to upgrade to standard tier**
 
