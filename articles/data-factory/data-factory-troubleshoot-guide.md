@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: troubleshooting
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 01/28/2022
+ms.date: 03/02/2022
 ms.author: abnarain
 ---
 
@@ -965,6 +965,12 @@ The following table applies to Azure Batch.
 - **Resolution**: You can navigate to the path **Microsoft Integration Runtime\4.0\Shared\ODBC Drivers\Microsoft Hive ODBC Driver\lib** and open DriverConfiguration64.exe to change the setting.
 
     :::image type="content" source="./media/connector-troubleshoot-guide/system-trust-store-setting.png" alt-text="Uncheck Use System Trust Store":::
+
+### HDI activity stuck in preparing for cluster
+
+If the HDI activity is stuck in preparing for cluster, make sure that the timeout is greater than what is described below, and wait for the execution to complete or until it is timed out.  
+
+*The max default time that it takes to spin up a cluster is 2 hours, and if you have any init script, it will increase, up to another 2 hours.*
 
 ## Web Activity
 
