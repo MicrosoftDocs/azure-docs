@@ -82,7 +82,7 @@ Prior BIG-IP experience isn’t necessary, but you will need:
 
 * An [SSL Web certificate](./f5-bigip-deployment-guide.md) for publishing services over HTTPS, or use default BIG-IP certs while testing
 
-* •	An existing SAP ERP environment configured for Kerberos authentication
+* An existing SAP ERP environment configured for Kerberos authentication
 
 ## BIG-IP configuration methods
 
@@ -158,11 +158,11 @@ Some of these are global settings so can be re-used for publishing more applicat
 
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3. Enter the **Tenant Id, Client ID,** and **Client Secret** you noted when registering the Easy Button client in your tenant.
+3. Enter the **Tenant Id, Client ID,** and **Client Secret** you noted when registering the Easy Button client in your tenant
 
 4. Confirm the BIG-IP can successfully connect to your tenant and select **Next**
 
-   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-sap-erp/azure-configuration-properties.png)
+   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-sap-erp/configuration-general-and-service-account-properties.png)
    
 ### Service Provider
 
@@ -172,43 +172,43 @@ The Service Provider settings define the properties for the SAML SP instance of 
 
 2. Enter **Entity ID.** This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
-   ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-oraclejde/service-provider-settings.png)
+    ![Screenshot for Service Provider settings](./media/f5-big-ip-easy-button-sap-erp/service-provider-settings.png)
 
-The optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
+   The optional **Security Settings** specify whether Azure AD should encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides      additional assurance that the content tokens can’t be intercepted, and personal or corporate data be compromised.
 
 3.	From the **Assertion Decryption Private Key** list, select **Create New**
  
-   ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-oracle/configure-security-create-new.png)
+    ![Screenshot for Configure Easy Button- Create New import](./media/f5-big-ip-oracle/configure-security-create-new.png)
 
 4.	Select **OK**. This opens the **Import SSL Certificate and Keys** dialog in a new tab  
 
-5.	Select **PKCS 12 (IIS) ** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab.
+5.	Select **PKCS 12 (IIS)** to import your certificate and private key. Once provisioned close the browser tab to return to the main tab
 
-   ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-easy-button-oracle/import-ssl-certificates-and-keys.png)
+    ![Screenshot for Configure Easy Button- Import new cert](./media/f5-big-ip-easy-button-sap-erp/import-ssl-certificates-and-keys.png)
 
 6.	Check **Enable Encrypted Assertion**
 
 7.	If you have enabled encryption, select your certificate from the **Assertion Decryption Private Key** list. This is the private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions
 
-8.	If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions.
+8.	If you have enabled encryption, select your certificate from the **Assertion Decryption Certificate** list. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions
 
-   ![Screenshot for Service Provider security settings](./media f5-big-ip-easy-button-ldap/ service-provider-security-settings.png)
+    ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
 ### Azure Active Directory
 
 This section defines all properties that you would normally use to manually configure a new BIG-IP SAML application within your Azure AD tenant. 
 
-Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario, select ** **SAP ERP Central Component > Add** to start the Azure configurations.
+Easy Button provides a set of pre-defined application templates for Oracle PeopleSoft, Oracle E-business Suite, Oracle JD Edwards, SAP ERP as well as generic SHA template for any other apps. For this scenario, select **SAP ERP Central Component > Add** to start the Azure configurations.
 
    ![Screenshot for Azure configuration add BIG-IP application](./media/f5-big-ip-easy-button-sap-erp/azure-config-add-app.png)
 
 #### Azure Configuration
 
-1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users will see in [MyApps portal](https://myapplications.microsoft.com/).
+1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users will see in [MyApps portal](https://myapplications.microsoft.com/)
 
-2. Leave the **Sign On URL (optional)** blank to enable IdP initiated sign-on.
+2. Leave the **Sign On URL (optional)** blank to enable IdP initiated sign-on
 
-   ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-sap-erp/azure-config-display-name.png)
+   ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-sap-erp/azure-configuration-add-display-info.png)
 
 3. Select the refresh icon next to the **Signing Key** and **Signing Certificate** to locate the certificate you imported earlier
  
@@ -220,7 +220,7 @@ Easy Button provides a set of pre-defined application templates for Oracle Peopl
 
 7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. Add a user or group that you can use later for testing, otherwise all access will be denied
 
-   ![Screenshot for Azure configuration - Add users and groups](./media f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
+   ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
 
 #### User Attributes & Claims
 
@@ -256,7 +256,7 @@ To select a policy to be applied to the application being published:
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced.
 
-![ Screenshot for CA policies](./media f5-big-ip-easy-button-ldap/conditional-access-policy.png)
+![ Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
 
 >[!NOTE]
 >The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
@@ -265,7 +265,7 @@ Selected policies should either have an **Include** or **Exclude** option checke
 
 A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
 
-1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing.
+1. Enter **Destination Address**. This is any available IPv4/IPv6 address that the BIG-IP can use to receive client traffic. A corresponding record should also exist in DNS, enabling clients to resolve the external URL of your BIG-IP published application to this IP, instead of the appllication itself. Using a test PC's localhost DNS is fine for testing
 
 2. Enter **Service Port** as *443* for HTTPS
 
@@ -273,7 +273,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 4. The Client SSL Profile enables the virtual server for HTTPS, so that client connections are encrypted over TLS. Select the **Client SSL Profile** you created as part of the prerequisites or leave the default whilst testing
 
-  ![ Screenshot for Virtual server](./media f5-big-ip-easy-button-ldap/virtual-server.png)
+  ![ Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
 ### Pool Properties
 
@@ -285,9 +285,7 @@ The **Application Pool tab** details the services behind a BIG-IP, represented a
 
 3. For **Pool Servers** select an existing server node or specify an IP and port for the backend node hosting the header-based application
 
-   ![ Screenshot for Application pool](./media f5-big-ip-easy-button-ldap/application-pool.png)
-
-Our backend application runs on HTTP port 80. You can switch this to 443 if your application runs on HTTPS.
+   ![ Screenshot for Application pool](./media/f5-big-ip-easy-button-ldap/application-pool.png)
 
 #### Single Sign-On & HTTP Headers
 
@@ -365,7 +363,7 @@ BIG-IP logging can help quickly isolate all sorts of issues with connectivity, S
 
 2. Select the row for your published application, then **Edit > Access System Logs**
 
-3. Select **Debug** from the SSO list, and then select **OK**. 
+3. Select **Debug** from the SSO list, and then select **OK**
 
 Reproduce your issue, then inspect the logs, but remember to switch this back when finished as verbose mode generates lots of data. 
 
@@ -379,6 +377,6 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 
 1. Navigate to **Access Policy > Overview > Active Sessions**
 
-2. Select the link for your active session. The **View Variables** link in this location may also help determine root cause KCD issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers from session variables.
+2. Select the link for your active session. The **View Variables** link in this location may also help determine root cause KCD issues, particularly if the BIG-IP APM fails to obtain the right user and domain identifiers from session variables
 
 See [BIG-IP APM variable assign examples]( https://devcentral.f5.com/s/articles/apm-variable-assign-examples-1107) and [F5 BIG-IP session variables reference]( https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-visual-policy-editor/session-variables.html) for more info.
