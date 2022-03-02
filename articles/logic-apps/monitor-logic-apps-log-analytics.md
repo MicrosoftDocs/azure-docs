@@ -223,7 +223,7 @@ Each diagnostic event has details about your logic app and that event, for examp
   }
   ```
 
-  This example show multiple tracked properties:
+  This example shows multiple tracked properties:
 
   ``` json
   "HTTP": {

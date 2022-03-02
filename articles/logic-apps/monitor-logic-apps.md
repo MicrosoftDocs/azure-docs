@@ -111,7 +111,7 @@ Each logic app run starts with a trigger. The trigger history lists all the trig
 
 1. In the [Azure portal](https://portal.azure.com), find and open your logic app workflow in the designer.
 
-   To find your logic app , in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
+   To find your logic app, in the main Azure search box, enter `logic apps`, and then select **Logic Apps**.
 
    ![Find and select "Logic Apps" service](./media/monitor-logic-apps/find-your-logic-app.png)
 
