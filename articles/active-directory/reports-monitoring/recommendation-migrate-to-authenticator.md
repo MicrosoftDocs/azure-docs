@@ -34,7 +34,6 @@ Multi-factor authentication (MFA) is a key component to improve the security pos
 One possibility to accomplish this goal is to migrate users using SMS or voice call for MFA to use the Microsoft authenticator app.
 
 
-
 ## Logic 
 
 If Azure AD detects that your tenant has users authenticating using SMS or voice in the past week instead of the authenticator app, this recommendation shows up.
