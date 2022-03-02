@@ -428,13 +428,14 @@ In situations where you want to force clients to connect to Azure Cosmos DB thro
 
 ### Use Azure Resource Manager templates
 
-When creating or updating your Azure Cosmos DB account using Azure Resource Manager templates, set the `disableLocalAuth` property to `true`:
+When creating or updating your Azure Cosmos DB account using Azure Resource Manager templates, set the `disableLocalAuth` property to `true`(To set this proerty correctly, you should have `locations` property in the ARM template as well):
 
 ```json
 "resources": [
     {
         "type": " Microsoft.DocumentDB/databaseAccounts",
         "properties": {
+            "locations": [],
             "disableLocalAuth": true,
             // ...
         },
