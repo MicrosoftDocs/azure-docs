@@ -80,15 +80,24 @@ The following statements in *Controllers\HomeController.cs* get and set values o
         }
 ```
 
-## Connnect to the cache with ConnectionMultiplexer
+## Connnect to the cache with RedisConnection
 
-The connection to the Azure Cache for Redis is managed by the `ConnectionMultiplexer` class. This class should be shared and reused throughout your client application. Don't create a new connection for each operation.
+The connection to your cache is managed by the `RedisConnection` class. The connection is made in the statement in HomeController.cs:
 
-In order to use the ConnectionMultiplexer, you must add have this statement in your code as seen in `RedisConnection.cs`
+```csharp
+_redisConnection = await _redisConnectionFactory;
+```
+
+You must have this statement in your code as seen in `RedisConnection.cs` to use the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 ```
+
+The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at this code to see one implementation. 
+
+For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
+
 
 :::code language="csharp" source="~/samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs":::
 
