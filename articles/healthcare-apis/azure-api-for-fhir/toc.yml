@@ -195,7 +195,7 @@ items:
   expanded: true
   items:
   - name: Azure CLI
-    href: /cli/azure/healthcareapis.md
+    href: /cli/azure/healthcareapis
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
