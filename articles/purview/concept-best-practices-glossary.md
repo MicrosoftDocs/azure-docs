@@ -1,7 +1,7 @@
 ---
 title: Azure Purview glossary best practices
 description: This article provides examples of Azure Purview glossary best practices.
-author: zeinam
+author: zeinab-mk
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
