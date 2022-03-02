@@ -13,7 +13,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/02/2019
+ms.date: 03/02/2022
 ms.author: markvi
 ms.reviewer: hafowler
 
@@ -29,7 +29,7 @@ This article covers the recommendation to integrate third party apps.
 
 ## Description
 
-As an Azure AD admin responsible for managing applications, you want the to leverage Azure AD security features. 
+As an Azure AD admin responsible for managing applications, you want to use the Azure AD security features. 
 
 No users are currently authenticating to any pre-integrated, custom app (BYOA) or SaaS app. 
 
