@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 02/22/2022
+  ms.date: 03/02/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -137,6 +137,9 @@ sections:
         answer: |
           Restoring files and folders from encrypted VM backup is currently not supported, you must recover the entire VM to restore files and folders. See, [steps to restore an encrypted Azure Virtual machine](restore-azure-encrypted-virtual-machines.md).
 
+      - question: Can I stop a VM and scale it up during the Transfer data to vault phase?
+        answer: |
+          Yes, you can do this when *Transfer data to vault* phase is in progress.
 
   - name: Restore
     questions:
