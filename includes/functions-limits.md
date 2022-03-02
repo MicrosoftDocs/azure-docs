@@ -18,7 +18,7 @@ ms.author: glenga
 | Max instance count | 200 | 100<sup>9</sup> | varies by SKU<sup>10</sup> | 100<sup>10</sup> | Depends on cluster |   
 | Function apps per plan |100 |100 |unbounded<sup>4</sup> | unbounded | unbounded |
 | [App Service plans](../articles/app-service/overview-hosting-plans.md) | 100 per [region](https://azure.microsoft.com/global-infrastructure/regions/) |100 per resource group |100 per resource group | - | - |
-| [Staging slots](../articles/azure-functions/functions-deployment-slots.md) per app | 1 | 2 | 0-20<sup>10</sup> | 5-20<sup>10</sup> | n/a |
+| [Slots](../articles/azure-functions/functions-deployment-slots.md) per app | 1 | 2 | 0-20<sup>10</sup> | 20 | n/a |
 | Storage<sup>5</sup> |5 TB |250 GB |50-1000 GB | 1 TB | n/a |
 | Custom domains per app</a> |500<sup>6</sup> |500 |500 | 500 | n/a |
 | Custom domain [SSL support](../articles/app-service/configure-ssl-bindings.md) |unbounded SNI SSL connection included | unbounded SNI SSL and 1 IP SSL connections included |unbounded SNI SSL and 1 IP SSL connections included | unbounded SNI SSL and 1 IP SSL connections included | n/a |
