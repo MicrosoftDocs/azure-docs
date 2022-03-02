@@ -639,12 +639,7 @@
             "source_path_from_root": "/articles/media-services/latest/job-create-cli-how-to.md",
             "redirect_url": "/azure/media-services/latest/job-create-how-to",
             "redirect_document_id": false
-          },
-          {
-            "source_path_from_root": "/articles/media-services/latest/job-create-cli-how-to.md",
-            "redirect_url": "/azure/media-services/latest/job-create-how-to",
-            "redirect_document_id": false
-          },     
+          },   
         {
             "source_path_from_root": "/articles/media-services/latest/latest/asset-publish-cli-how-to.md",
             "redirect_url": "/articles/media-services/latest/video-on-demand-simple-portal-quickstart",
