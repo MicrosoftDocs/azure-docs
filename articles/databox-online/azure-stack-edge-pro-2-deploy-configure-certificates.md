@@ -191,13 +191,13 @@ Follow these steps to upload your own certificates including the signing chain.
 
     You can also enter your own Base-64 encoded ASE-256 bit encryption key.
 
-    ![Screenshot of the local web UI "Encryption at rest" pane wit bring your own key.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-key-2.png)
+    ![Screenshot of the local web UI "Encryption at rest" pane with bring your own key.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-key-2.png)
 
     The key is saved in a key file on the **Cloud details** page after the device is activated.
 
 1. Select **Apply**. This operation takes several minutes and the status of operation is displayed.
 
-    ![Local web UI "Encryption at rest" page](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-at-rest-status-1.png)
+    ![Screenshot of the "Double encryption at rest" notification. ](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-at-rest-status-1.png)
 
 1. After the status shows as **Completed**, your device is now ready to be activated. Select **< Back to Get started**.
 
