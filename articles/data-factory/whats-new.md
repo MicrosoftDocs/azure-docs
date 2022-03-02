@@ -37,9 +37,9 @@ This page is updated monthly, so revisit it regularly.
 <tr><td><b>Region Expansion</b></td><td>Azure Data Factory is now available in West US3 and Jio India West</td><td>Azure Data Factory is now available in two new regions: West US3 and Jio India West. You can co-locate your ETL workflow in these new regions if you are utilizing these regions for storing and managing your modern data warehouse. You can also use these regions for BCDR purposes in case you need to failover from another region within the geo.</td></tr>
  
 <tr><td><b>Security</b></td><td>Connect to an Azure DevOps account in another Azure Active Directory tenant</td><td>You can connect your Azure Data Factory to an Azure DevOps Account in a different Azure Active Directory tenant for source control purposes.<br><a href="cross-tenant-connections-to-azure-devops.md">Learn more</a></td></tr> 
-
 </table>
- 
+
+
 ## January 2022
 <br>
 <table>
