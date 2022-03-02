@@ -131,7 +131,7 @@ In your **Program** class, save a reference to the URL of the image you want to 
 
 Define the new method for reading text. Add the code below, which calls the **ReadAsync** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image. 
 
-As an optional step, to specify a model version, see [How to specify the model version](../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). The most recent model includes any enhancements to the previous GA and preview models.
+As an optional step, to specify a model version, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). The most recent model includes any enhancements to the previous GA and preview models.
 
 For example, to use the model-version=`2022-01-30-preview` parameter, edit the ReadAsync call as shown:
 ```csharp
