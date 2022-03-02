@@ -11,7 +11,7 @@ ms.date: 02/02/2022
 ms.author: v-nisba
 author: NishthaBabith-V
 manager: martinco
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
 ---
