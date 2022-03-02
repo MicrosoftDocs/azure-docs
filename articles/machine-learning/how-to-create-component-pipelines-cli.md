@@ -85,7 +85,7 @@ You should receive a JSON dictionary with information about the pipeline job, in
 
 Open `ComponentA.yaml` to see how the first component is defined: 
 
-:::code language="yaml" source="~/azureml-examples-march-preview-refresh/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
+:::code language="yaml" source="~/azureml-examples-march-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
 
 In the current preview, only components of type `command` are supported. The `name` is the unique identifier and used in Studio to describe the component, and `display_name` is used for a display-friendly name. The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
 
