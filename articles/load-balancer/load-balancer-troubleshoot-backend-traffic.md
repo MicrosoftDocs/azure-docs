@@ -18,7 +18,7 @@ ms.author: allensu
 
 This page provides troubleshooting information for Azure Load Balancer questions.
 
-## VMs behind Load Balancer are receiving uneven distribution of traffic
+## VMs behind a load balancer are receiving uneven distribution of traffic
 If you suspect backend pool members are receiving traffic, it could be due to the following causes. Azure Load Balancer distributes traffic based on connections. Be sure to check traffic distribution per connection and not per packet. Verify using the **Flow Distribution** tab in your pre-configured [Load Balancer Insights dashboard](load-balancer-insights.md#flow-distribution).
 
 Note that Azure Load Balancer doesn't support true round robin load balancing but supports a hash based [distribution mode](distribution-mode-concepts.md). 
