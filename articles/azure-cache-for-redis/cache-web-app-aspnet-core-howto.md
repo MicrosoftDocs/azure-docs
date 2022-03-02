@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 03/31/2021
 #Customer intent: As an ASP.NET Core developer, new to Azure Cache for Redis, I want to create a new ASP.NET Core web app that uses Azure Cache for Redis.
 ---
-# Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app 
+# Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app
 
 In this quickstart, you incorporate Azure Cache for Redis into an ASP.NET Core web application that connects to Azure Cache for Redis to store and retrieve data from the cache.
 
@@ -94,12 +94,11 @@ You must have this statement in your code as seen in `RedisConnection.cs` to use
 using StackExchange.Redis;
 ```
 
-The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at this code to see one implementation. 
+The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at this code to see one implementation.
 
 For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
-
-:::code language="csharp" source="~/samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs":::
+:::code language="csharp" source="samples-cache/quickstart/aspnet-core/ContosoTeamStats/RedisConnection.cs":::
 
 ## Views in the sample
 

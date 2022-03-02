@@ -109,7 +109,7 @@ The connection to your cache is managed by the `RedisConnection` class. The conn
 
 The value of the *CacheConnection* secret is accessed using the Secret Manager configuration provider and is used as the password parameter.
 
-You must have this following statement in your code to use the `RedisConnection` class. This references the StackExchange.Redis package that you previously installed.
+You must have the following statement in your code to use the `RedisConnection` class. This references the StackExchange.Redis package that you previously installed.
 
 ```csharp
 using StackExchange.Redis;
@@ -117,25 +117,23 @@ using StackExchange.Redis;
 
 The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
-:::code language="csharp" source="~/quickstart/aspnet/ContosoTeamStats/RedisConnection.cs ":::
+:::code language="csharp" source="samples-cache/quickstart/aspnet/ContosoTeamStats/RedisConnection.cs ":::
 
 ### Layout
 
 1. In **Solution Explorer**, expand the **Views** > **Shared** folder. Then open the *_Layout.cshtml* file.
 
-    You should see:
-   
+1. You see the following line in `<div class="navbar-header">`.
+
     ```csharp
     @Html.ActionLink("Azure Cache for Redis Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
     ```
 
 ## To add a new RedisCache view
 
-1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. Choose **Add** > **View...**.
+1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder.
 
-2. In the **Add View** dialog box, enter **RedisCache** for the View Name. Then select **Add**.
-
-3. Replace the code in the *RedisCache.cshtml* file with the following code:
+1. You should this code in the *RedisCache.cshtml* file.
 
     ```csharp
     @{
@@ -181,11 +179,11 @@ By default, the project is configured to host the app locally in [IIS Express](/
 
 1. In Visual Studio, select **Debug** > **Start Debugging** to build and start the app locally for testing and debugging.
 
-2. In the browser, select **Azure Cache for Redis Test** on the navigation bar.
+1. In the browser, select **Azure Cache for Redis Test** on the navigation bar.
 
-3. In the following example, the `Message` key previously had a cached value, which was set by using the Azure Cache for Redis console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
+1. In the following example, the `Message` key previously had a cached value, which was set by using the Azure Cache for Redis console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-      :::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-local.png" alt-text="Simple test completed local":::
+   :::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-local.png" alt-text="Simple test completed local":::
 
 ## Publish and run in Azure
 
@@ -195,14 +193,11 @@ After you successfully test the app locally, you can deploy the app to Azure and
 
 1. In Visual Studio, right-click the project node in Solution Explorer. Then select **Publish**.
 
-    <!-- ![Publish](./media/cache-web-app-howto/cache-publish-app.png) -->
-
-:::image type="content" source="media/cache-web-app-howto/cache-publish-app.png" alt-text="Publish":::
+   :::image type="content" source="media/cache-web-app-howto/cache-publish-app.png" alt-text="Publish":::
 
 1. Select **Microsoft Azure App Service**, select **Create New**, and then select **Publish**.
 
-    <!-- ![Publish to App Service](./media/cache-web-app-howto/cache-publish-to-app-service.png) -->
-    :::image type="content" source="media/cache-web-app-howto/cache-publish-to-app-service.png" alt-text="Publish to App Service":::
+   :::image type="content" source="media/cache-web-app-howto/cache-publish-to-app-service.png" alt-text="Publish to App Service":::
 
 1. In the **Create App Service** dialog box, make the following changes:
 
@@ -242,7 +237,6 @@ In your browser, go to the URL for the app. The URL appears in the results of th
 
 Select **Azure Cache for Redis Test** on the navigation bar to test cache access.
 
-<!-- ![Simple test completed Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png) -->
 :::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-azure.png" alt-text="Simple test completed Azure":::
 
 ## Clean up resources
