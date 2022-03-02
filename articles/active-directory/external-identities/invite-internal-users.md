@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/25/2022
+ms.date: 03/02/2022
 
 ms.author: mimart
 author: msmimart
@@ -43,7 +43,7 @@ You can use the Azure portal, PowerShell, or the invitation API to send a B2B in
 
 - When you invite the user, an invitation is sent to the user via email. If you're using PowerShell or the invitation API, you can suppress this email by setting `SendInvitationMessage` to `False`. Then you can notify the user in another way. [Learn more about the invitation API](customize-invitation-api.md).
 
-- When the user signs in, the account they're using must match the domain in the `User.Mail` property. Otherwise, some services, such as Teams, won't be able to authenticate the user.
+- When the user redeems the invitation, the account they're using must match the domain in the `User.Mail` property. Otherwise, some services, such as Teams, won't be able to authenticate the user.
 
 ## Use the Azure portal to send a B2B invitation
 
