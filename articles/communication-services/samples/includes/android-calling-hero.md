@@ -16,7 +16,7 @@ The Azure Communication Services **Group Calling Hero Sample for Android** demon
 
 ## Download code
 
-Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-android-calling-hero/tree/feature/teams_interop).
+Find the project for this sample on [GitHub](https://github.com/Azure-Samples/communication-services-android-calling-hero). A version of the sample with [Teams Interop](../../concepts/teams-interop.md) can be found on a separate [Branch](https://github.com/Azure-Samples/communication-services-android-calling-hero/).
 
 ## Overview
 
