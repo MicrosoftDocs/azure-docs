@@ -23,6 +23,7 @@ In this tutorial, you learn about:
 >
 > * Prerequisites
 > * Configure certificates for the physical device
+> * Configure encryption-at-rest
 
 ## Prerequisites
 
@@ -41,13 +42,15 @@ Before you configure and set up your Azure Stack Edge Pro 2 device, make sure th
 
 1. Open the **Certificates** page in the local web UI of your device. This page will display the certificates available on your device. The device is shipped with self-signed certificates, also referred to as the device certificates. You can also bring your own certificates.
 
-1. If you didn't change the device name or DNS domain when you [configured device settings earlier](azure-stack-edge-gpu-deploy-set-up-device-update-time.md#configure-device-settings), and you don't want to use your own certificates, you don't need any configuration on this page. You just need to verify that the status of all the certificates shows as valid on this page. 
+1. *Follow this step only if you didn't change the device name or DNS domain when you [configured device settings earlier](azure-stack-edge-gpu-deploy-set-up-device-update-time.md#configure-device-settings), and you don't want to use your own certificates.*
+
+    You don't need to perform any configuration on this page. You just need to verify that the status of all the certificates shows as valid on this page. 
 
      ![Screenshot of the Certificates page in the local web UI of Azure Stack Edge. The Certificates menu item is highlighted.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/verify-certificate-status-1.png)
 
-    You're ready to [Activate your device](azure-stack-edge-gpu-deploy-activate.md) with the existing device certificates.
+    You're ready to configure [Encryption-at-rest](#configure-encryption-at-rest) with the existing device certificates.
 
-1. Follow these steps only if you've changed the device name or the DNS domain for your device. In these instances, the status of your device certificates will be **Not valid**. That's because the device name and DNS domain in the certificates' `subject name` and `subject alternative` settings are out of date. 
+1. *Follow the remaining steps only if you've changed the device name or the DNS domain for your device.* In these instances, the status of your device certificates will be **Not valid**. That's because the device name and DNS domain in the certificates' `subject name` and `subject alternative` settings are out of date. 
 
     You can select a certificate to view status details.   
 
@@ -62,13 +65,12 @@ Before you configure and set up your Azure Stack Edge Pro 2 device, make sure th
      - You can choose to bring some of your own certificates and generate some device certificates. The **Generate all the device certificates** option only regenerates the device certificates.
     
 
-
-3. When you have a full set of valid certificates for your device, the device is ready for activation. Select **< Back to Get started** to proceed to the next deployment step, [Activate your device](azure-stack-edge-gpu-deploy-activate.md).
+1. When you have a full set of valid certificates for your device, select **< Back to Get started**. You can now proceed to configure [Encryption-at-rest](#configure-encryption-at-rest).
 
     <!--![Screenshot of the Certificates page on an Azure Stack Edge device with a full set of valid certificates. The certificate states and the Back To Get Started button are highlighted.](./media/azure-stack-edge-gpu-deploy-configure-certificates/proceed-to-activate-1.png)-->
 
 
-## Generate device certificates
+### Generate device certificates
 
 Follow these steps to generate device certificates.
 
@@ -129,7 +131,7 @@ If using Azure Storage Explorer, you'll need to install certificates on your cli
 > - You can decide to have a mix of device generated certificates and bring your own certificates as long as other certificate requirements are met. For more information, go to [Certificate requirements](azure-stack-edge-gpu-certificate-requirements.md).
     
 
-## Bring your own certificates
+### Bring your own certificates
 
 You can bring your own certificates. 
 
@@ -174,7 +176,30 @@ Follow these steps to upload your own certificates including the signing chain.
     > Except for Azure public cloud, signing chain certificates are needed to be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
 
 
-Your device is now ready to be activated. Select **< Back to Get started**.
+## Configure encryption-at-rest
+
+1. On the **Security** tile, select **Configure** for encryption-at-rest. 
+
+    > [!NOTE]
+    > This is a required setting and until this is successfully configured, you can't activate the device. 
+
+    At the factory, once the devices are imaged, the volume level BitLocker encryption is enabled. After you receive the device, you need to configure the encryption-at-rest. The storage pool and volumes are recreated and you can provide BitLocker keys to enable encryption-at-rest and thus create a second layer of encryption for your data-at-rest.
+
+1. In the **Encryption-at-rest** pane, provide a 32 character long Base-64 encoded key. This is a one-time configuration and this key is used to protect the actual encryption key. You can choose to automatically generate this key. 
+
+    ![Screenshot of the local web UI "Encryption at rest" pane wit system generated key.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-key-1.png)
+
+    You can also enter your own Base-64 encoded ASE-256 bit encryption key.
+
+    ![Screenshot of the local web UI "Encryption at rest" pane wit bring your own key.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-key-2.png)
+
+    The key is saved in a key file on the **Cloud details** page after the device is activated.
+
+1. Select **Apply**. This operation takes several minutes and the status of operation is displayed.
+
+    ![Local web UI "Encryption at rest" page](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-at-rest-status-1.png)
+
+1. After the status shows as **Completed**, your device is now ready to be activated. Select **< Back to Get started**.
 
 
 ## Next steps
@@ -185,6 +210,7 @@ In this tutorial, you learn about:
 >
 > * Prerequisites
 > * Configure certificates for the physical device
+> * Configure encryption-at-rest
 
 To learn how to activate your Azure Stack Edge Pro GPU device, see:
 
