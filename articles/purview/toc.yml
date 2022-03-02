@@ -291,7 +291,9 @@ items:
     items:
     - name: Authoring and publishing data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md
-  - name: Manage sources
+    - name: Data use governance
+      href: how-to-enable-data-use-governance.md
+  - name: Workflows
     items:
     - name: Self-service hybrid data access
       href: how-to-workflow-self-service-data-access-hybrid.md
