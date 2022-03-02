@@ -15,7 +15,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a .NET Core app t
 
 ## Skip to the code on GitHub
 
-Skip straight to the code bye downloading the sample from [.NET Core quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core) on GitHub.
+Download the sample from [.NET Core quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core) on GitHub.
 
 ## Prerequisites
 
@@ -74,18 +74,18 @@ var builder = new ConfigurationBuilder()
   .AddUserSecrets<Program>();
 var configuration = builder.Build();
 ```
-<!-- This doesn't look right. -->
-The value of the *CacheConnection* secret is accessed using the Secret Manager configuration provider and used as the password parameter.
 
 ## Connnect to the cache with RedisConnection
 
 The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `Program.cs`:
 
 ```csharp
- RedisResult pingResult = await _redisConnection.BasicRetryAsync(async (db) => await db.ExecuteAsync("PING"));
-```
+      _redisConnection = await RedisConnection.InitializeAsync(connectionString: configuration["CacheConnection"].ToString());
 
-You must have this statement in your code as seen in `RedisConnection.cs` to use the `RedisConnection` class.
+```
+The value of the *CacheConnection* secret is accessed using the Secret Manager configuration provider and is used as the password parameter
+
+You must have this statement in your code to use the `RedisConnection` class. .
 
 ```csharp
 using StackExchange.Redis;
@@ -94,9 +94,7 @@ using StackExchange.Redis;
 
 :::code language="csharp" source="~/samples-cache/quickstart/dotnet-core/RedisConnection.cs":::
 
-The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at this code to see one implementation.
-
-For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
+The `RedisConnection` code uses the `ConnectionMultiplexer` pattern, but abstracts it. Using `ConnectionMultiplexer` is common across Redis applications. Look at `RedisConnection` code to see one implementation. For more information, see [StackExchange's `ConnectionMultiplexer`](https://stackexchange.github.io/StackExchange.Redis/Basics.html).
 
 ## Executing cache commands
 
@@ -178,7 +176,7 @@ class Employee
     }
 ```
 
-At the bottom of `Main()` procedure in *Program.cs*, and before the call to `CloseConnection()`, add the following lines of code to cache and retrieve a serialized .NET object:
+At the bottom of `Main()` procedure in *Program.cs*, and before the call to `CloseConnection()`, see the following lines of code that cache and retrieve a serialized .NET object:
 <!-- Replace with lines 78-89 of Program.cs -->
 ```csharp
   Employee e007 = new Employee("007", "Davide Columbo", 100);
@@ -228,16 +226,12 @@ You'll be asked to confirm the deletion of the resource group. Type the name of 
 
 After a few moments, the resource group and all of its contained resources are deleted.
 
-<a name="next-steps"></a>
-
 ## Next steps
 
 In this quickstart, you learned how to use Azure Cache for Redis from a .NET Core application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
-
-> [!div class="nextstepaction"]
-> [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+s
+- [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
 
 Want to optimize and save on your cloud spending?
 
-> [!div class="nextstepaction"]
-> [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
