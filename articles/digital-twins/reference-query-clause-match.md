@@ -60,10 +60,10 @@ For more detail about each type of relationship condition and how to combine the
 
 Here is an example query using `MATCH`.
 
-The query specifies a [relationship direction](#specify-relationship-direction), and searches for building and sensor twins where...
-* the sensor is targeted by any relationship from a building with a `$dtId` of Building21, and 
-* the sensor has a temperature above 50.
-The building and sensor are both included in the query result.
+The query specifies a [relationship direction](#specify-relationship-direction), and searches for Building and Sensor Twins where...
+* the Sensor is targeted by any relationship from a Building twin with a `$dtId` of Building21, and 
+* the Sensor has a temperature above 50.
+The Building and Sensor are both included in the query result.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchExample":::
 
