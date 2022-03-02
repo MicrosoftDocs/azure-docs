@@ -50,7 +50,7 @@ Cloud resources:
 
 This tutorial walks through the development of an IoT Edge module. An *IoT Edge module*, or sometimes just *module* for short, is a container with executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
 
-When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*. For the purpose of this tutorial, you will be using your Windows host for development and the EFLOW VM for building and deploying the modules. 
+When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*. For this tutorial, you'll be using your Windows host for development and the EFLOW VM for building and deploying the modules. 
 
 This tutorial targets devices running IoT Edge with Linux containers. You can use your preferred operating system as long as your development machine runs Linux containers. We recommend using Visual Studio Code to develop with Linux containers, so that's what this tutorial will use. You can use Visual Studio as well, although there are differences in support between the two tools.
 
@@ -78,19 +78,19 @@ The first step is to configure docker-cli on the Windows development machine to 
 4. Select **Advanced** -> **Environment variables** -> **Path**
 5. Edit the **Path** variable and add the location of the **docker.exe**
 6. Open an elevated PowerShell session
-7. Check that Docker cli is accessible using the command
+7. Check that Docker CLI is accessible using the command
    ```powerhsell
    docker --version
    ```
 If everything was successfully configurated, the previous command should output the docker version, something like _Docker version 20.10.9, build c2ea9bc90_. 
 
-The second step is to configure the EFLOW virutal machine Docker engine to accept external connections, and add the appropiate firewall rules. 
+The second step is to configure the EFLOW virtual machine Docker engine to accept external connections, and add the appropriate firewall rules. 
 
 >[!WARNING]
 >Exposing Docker engine to external connections may increase security risks. This configuration should only be used for development purposes. Make sure to revert the configuration to default settings after development is finished.
 
 1. Open an elevated PowerShell session.
-2. Add the appropiate firewall to open Docker 2375 port inside the EFLOW VM.
+2. Add the appropriate firewall to open Docker 2375 port inside the EFLOW VM.
    ```powershell
    Invoke-EflowVmCommand "sudo iptables -A INPUT -p tcp --dport 2375 -j ACCEPT"
    ```
@@ -115,7 +115,7 @@ The second step is to configure the EFLOW virutal machine Docker engine to accep
    Invoke-EflowVmCommand "sudo netstat -lntp | grep dockerd"
    ```
 
-If everything was sucessfully configurated, the previous command should output the dockerd service network status. Should be something like:  `tcp6       0      0 :::2375                 :::*                    LISTEN      3752/dockerd`.
+If everything was successfully configurated, the previous command should output the dockerd service network status. Should be something like:  `tcp6       0      0 :::2375                 :::*                    LISTEN      3752/dockerd`.
 
 The final step is to test the Docker connection to the EFLOW VM Docker engine. 
 
@@ -132,7 +132,7 @@ The final step is to test the Docker connection to the EFLOW VM Docker engine.
    ```powershell
    docker -H tcp://eflow-vm-ip:2375 run --rm hello-world
    ```
-You should see that the continer is being downloaded, and after will run and output: _"Hello from Docker!"_.
+You should see that the container is being downloaded, and after will run and output: _"Hello from Docker!"_.
 
 
 ## Set up VS Code and tools
@@ -143,7 +143,7 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 2. Once the installation is finished, select **View** > **Extensions**.
 
-3. Search for **Azure IoT Tools**, which is actually a collection of extensions that help you interact with IoT Hub and IoT devices, as well as developing IoT Edge modules.
+3. Search for **Azure IoT Tools**, which is actually a collection of extensions that help you interact with IoT Hub and IoT devices, and developing IoT Edge modules.
 
 4. Select **Install**. Each included extension installs individually.
 
@@ -161,7 +161,7 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 10. Select **View** > **Extensions**.
 
-11. Search for **Docker**, which is actually a tool that help you create, manage and debug containerized applications.
+11. Search for **Docker**, which is actually a tool that helps you create, manage and debug containerized applications.
 
 12. Select **Install**.
 
@@ -175,7 +175,7 @@ Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These
 
 16. Go back to the **Docker** panel and in the first **CONTAINERS** tile, select the &#8634; refresh button
 
-If everything is correctly configurated, you should be able to see the contianers running inside the EFLOW VM, if any, and the recent downloaded _hello-world_ image. 
+If everything is correctly configurated, you should be able to see the containers running inside the EFLOW VM, if any, and the recent downloaded _hello-world_ image. 
 
    ![Remote Docker engine status](./media/tutorial-develop-for-linux-on-windows/docker-remote-engine.png)
 
@@ -185,7 +185,7 @@ If everything is correctly configurated, you should be able to see the contianer
 
 The Azure IoT Tools extension provides project templates for all supported IoT Edge module languages in Visual Studio Code. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic.
 
-For this tutorial, we use the C# module template because it is the most commonly used template.
+For this tutorial, we use the C# module template because it's the most commonly used template.
 
 ### Create a project template
 
