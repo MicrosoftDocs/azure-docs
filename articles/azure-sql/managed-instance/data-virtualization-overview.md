@@ -24,10 +24,10 @@ Data virtualization is currently in preview for Azure SQL Managed Instance.
 
 ## Overview
 
-Query data from external sources, such as Azure Data Lake Storage Gen2 or Azure Blob Storage. There are two ways of querying external files, intended for different scenarios:
+Data virtualization provides two ways of querying external files stored in Azure Data Lake Storage or Azure Blob Storage, intended for different scenarios: There are two ways of querying external files, intended for different scenarios:
 
 - OPENROWSET syntax – optimized for ad-hoc querying of files. Typically used to quickly explore the content and the structure of a new set of files.
-- External tables – optimized for repetitive querying of files using identical syntax as if data were stored locally in the database. External tables require several preparation steps compared to the OPENROWSET syntax, but allows for more control over data access. External tables are typically used for analytical workloads and reporting.
+- External tables – optimized for repetitive querying of files using identical syntax as if data were stored locally in the database. External tables require several preparation steps compared to the OPENROWSET syntax, but allow for more control over data access. External tables are typically used for analytical workloads and reporting.
 
 Parquet and delimited text (CSV) file formats are directly supported. The JSON file format is indirectly supported by specifying the CSV file format where queries return every document as a separate row. It's possible to parse rows further using `JSON_VALUE` and `OPENJSON`. 
 
@@ -113,7 +113,10 @@ WITH (
 
 ## Query data sources using OPENROWSET
 
-The [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) syntax enables instant ad-hoc querying while creating minimal database objects. The `DATA_SOURCE` parameter value is automatically prepended to the BULK parameter to form the full path to the file. 
+The [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) syntax enables instant ad-hoc querying while only creating the minimal number of database objects necessary.
+`OPENROWSET` only requires creating the external data source (and possibly the credential) as opposed to the external table approach which requires an external file format and the external table itself. 
+
+The `DATA_SOURCE` parameter value is automatically prepended to the BULK parameter to form the full path to the file. 
 
 When using `OPENROWSET` provide the format of the file, such as the following example, which queries a single file: 
 
